@@ -1,0 +1,2 @@
+# Diagnostic outputs only; these are not validated machine-ready print files.
+*.gcode

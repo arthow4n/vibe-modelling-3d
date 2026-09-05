@@ -1,0 +1,1897 @@
+{
+  "without_supports": {
+    "filament used [g]": "263.71",
+    "estimated printing time (normal mode)": "22h 27m 20s",
+    "features": {
+      "Skirt/Brim": {
+        "length_mm": 7596.474780822462,
+        "filament_mm": 225.5492800000002,
+        "longest_segment_mm": 188.70500051932913
+      },
+      "Perimeter": {
+        "length_mm": 1493533.1471916707,
+        "filament_mm": 52972.01825998466,
+        "longest_segment_mm": 92.28900078015799
+      },
+      "External perimeter": {
+        "length_mm": 592674.4125464017,
+        "filament_mm": 20059.598940001048,
+        "longest_segment_mm": 92.62600077731955
+      },
+      "Solid infill": {
+        "length_mm": 280058.5194037466,
+        "filament_mm": 9447.898330001193,
+        "longest_segment_mm": 83.419
+      },
+      "Overhang perimeter": {
+        "length_mm": 1661.3805528277014,
+        "filament_mm": 86.79865000000002,
+        "longest_segment_mm": 80.06900000000002
+      },
+      "Internal infill": {
+        "length_mm": 20174.996318322068,
+        "filament_mm": 682.9168499998831,
+        "longest_segment_mm": 2.9320000000000164
+      },
+      "Bridge infill": {
+        "length_mm": 36718.13460117349,
+        "filament_mm": 1944.9579499999857,
+        "longest_segment_mm": 87.186
+      },
+      "Top solid infill": {
+        "length_mm": 30592.6953511101,
+        "filament_mm": 910.699329999985,
+        "longest_segment_mm": 46.29074543577799
+      }
+    },
+    "longest_upper_bridge_segments": [
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          118.682,
+          138.456
+        ],
+        "b": [
+          118.682,
+          225.642
+        ],
+        "length": 87.186,
+        "e": 4.63015,
+        "line": 475359
+      },
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          151.318,
+          138.658
+        ],
+        "b": [
+          151.318,
+          225.844
+        ],
+        "length": 87.186,
+        "e": 4.63015,
+        "line": 475503
+      },
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          118.682,
+          30.456
+        ],
+        "b": [
+          118.682,
+          117.642
+        ],
+        "length": 87.18599999999999,
+        "e": 4.63015,
+        "line": 475643
+      },
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          151.318,
+          30.658
+        ],
+        "b": [
+          151.318,
+          117.844
+        ],
+        "length": 87.18599999999999,
+        "e": 4.63015,
+        "line": 475787
+      },
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          119.135,
+          225.642
+        ],
+        "b": [
+          119.135,
+          138.658
+        ],
+        "length": 86.98400000000001,
+        "e": 4.61942,
+        "line": 475361
+      },
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          119.588,
+          138.658
+        ],
+        "b": [
+          119.588,
+          225.642
+        ],
+        "length": 86.98400000000001,
+        "e": 4.61942,
+        "line": 475363
+      }
+    ],
+    "upper_layers": [
+      {
+        "z": 166.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.5967318853823,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 112
+          },
+          "External perimeter": {
+            "length_mm": 654.008801803626,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 166.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.60215034812,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 112
+          },
+          "External perimeter": {
+            "length_mm": 654.0096300358693,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 166.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.6039714828,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 112
+          },
+          "External perimeter": {
+            "length_mm": 654.0090450089517,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 166.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.6064548916718,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 110
+          },
+          "External perimeter": {
+            "length_mm": 654.0104583237874,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 166.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.611549492005,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 110
+          },
+          "External perimeter": {
+            "length_mm": 654.0112866673846,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 167.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.615633866499,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 110
+          },
+          "External perimeter": {
+            "length_mm": 654.012115066666,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 167.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.5570402684148,
+            "longest_segment_mm": 92.272,
+            "count": 112
+          },
+          "External perimeter": {
+            "length_mm": 653.9937776266846,
+            "longest_segment_mm": 92.608,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 167.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.4565496232165,
+            "longest_segment_mm": 92.262,
+            "count": 116
+          },
+          "External perimeter": {
+            "length_mm": 653.9527285126447,
+            "longest_segment_mm": 92.59800000000001,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 167.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.187901492139,
+            "longest_segment_mm": 92.23400000000001,
+            "count": 114
+          },
+          "External perimeter": {
+            "length_mm": 653.8517036497368,
+            "longest_segment_mm": 92.572,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 167.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1614.8421906425394,
+            "longest_segment_mm": 92.2,
+            "count": 114
+          },
+          "External perimeter": {
+            "length_mm": 653.718276731314,
+            "longest_segment_mm": 92.534,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 168.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1614.3155557970101,
+            "longest_segment_mm": 92.15,
+            "count": 116
+          },
+          "External perimeter": {
+            "length_mm": 653.5167515344706,
+            "longest_segment_mm": 92.486,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 168.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1613.691824516578,
+            "longest_segment_mm": 92.088,
+            "count": 120
+          },
+          "External perimeter": {
+            "length_mm": 653.2780160515517,
+            "longest_segment_mm": 92.422,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 168.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1613.6764615481345,
+            "longest_segment_mm": 92.01400000000001,
+            "count": 140
+          },
+          "External perimeter": {
+            "length_mm": 652.9923360132511,
+            "longest_segment_mm": 92.34800000000001,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 168.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1744.6730211900115,
+            "longest_segment_mm": 91.926,
+            "count": 134
+          },
+          "External perimeter": {
+            "length_mm": 652.6423241543293,
+            "longest_segment_mm": 92.25800000000001,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 168.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1744.7363274963914,
+            "longest_segment_mm": 91.82600000000001,
+            "count": 142
+          },
+          "External perimeter": {
+            "length_mm": 652.2623873503914,
+            "longest_segment_mm": 92.154,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 169.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1743.733795895551,
+            "longest_segment_mm": 91.712,
+            "count": 134
+          },
+          "External perimeter": {
+            "length_mm": 651.8071944204888,
+            "longest_segment_mm": 92.04,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 169.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1742.6554352139065,
+            "longest_segment_mm": 91.584,
+            "count": 136
+          },
+          "External perimeter": {
+            "length_mm": 651.3079168791636,
+            "longest_segment_mm": 91.91,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 169.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1741.562826295708,
+            "longest_segment_mm": 91.44,
+            "count": 146
+          },
+          "External perimeter": {
+            "length_mm": 650.7564079918759,
+            "longest_segment_mm": 91.762,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 169.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1740.222339335823,
+            "longest_segment_mm": 91.284,
+            "count": 158
+          },
+          "External perimeter": {
+            "length_mm": 650.1439402687635,
+            "longest_segment_mm": 91.604,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 169.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1738.8748313748783,
+            "longest_segment_mm": 91.112,
+            "count": 166
+          },
+          "External perimeter": {
+            "length_mm": 649.4808326048699,
+            "longest_segment_mm": 91.428,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 170.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1869.8695233547553,
+            "longest_segment_mm": 90.92000000000002,
+            "count": 154
+          },
+          "External perimeter": {
+            "length_mm": 648.7439532645863,
+            "longest_segment_mm": 91.23400000000001,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 170.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1875.3334961903145,
+            "longest_segment_mm": 90.714,
+            "count": 160
+          },
+          "External perimeter": {
+            "length_mm": 647.9402638230548,
+            "longest_segment_mm": 91.024,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 170.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1874.6888992501854,
+            "longest_segment_mm": 90.494,
+            "count": 194
+          },
+          "External perimeter": {
+            "length_mm": 647.0580238192459,
+            "longest_segment_mm": 90.798,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 170.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 2003.279156772218,
+            "longest_segment_mm": 90.248,
+            "count": 164
+          },
+          "External perimeter": {
+            "length_mm": 646.0879070844575,
+            "longest_segment_mm": 90.548,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 170.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 2001.6293688031362,
+            "longest_segment_mm": 89.982,
+            "count": 174
+          },
+          "External perimeter": {
+            "length_mm": 645.0409467212122,
+            "longest_segment_mm": 90.27600000000001,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 171.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 2008.3801392269118,
+            "longest_segment_mm": 89.696,
+            "count": 164
+          },
+          "External perimeter": {
+            "length_mm": 509.6579349205868,
+            "longest_segment_mm": 89.98599999999999,
+            "count": 38
+          },
+          "Overhang perimeter": {
+            "length_mm": 134.21799012061615,
+            "longest_segment_mm": 33.33600000000001,
+            "count": 8
+          },
+          "Solid infill": {
+            "length_mm": 264.4868907963786,
+            "longest_segment_mm": 31.819000000000003,
+            "count": 28
+          }
+        }
+      },
+      {
+        "z": 171.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1321.891475329337,
+            "longest_segment_mm": 89.386,
+            "count": 75
+          },
+          "Overhang perimeter": {
+            "length_mm": 813.7010094669671,
+            "longest_segment_mm": 80.06900000000002,
+            "count": 30
+          },
+          "External perimeter": {
+            "length_mm": 345.24865669291734,
+            "longest_segment_mm": 89.67000000000002,
+            "count": 23
+          },
+          "Bridge infill": {
+            "length_mm": 12765.744000000022,
+            "longest_segment_mm": 87.186,
+            "count": 290
+          }
+        }
+      },
+      {
+        "z": 171.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1967.7112868193453,
+            "longest_segment_mm": 89.76700000000001,
+            "count": 47
+          },
+          "External perimeter": {
+            "length_mm": 506.6798392454824,
+            "longest_segment_mm": 90.118,
+            "count": 16
+          },
+          "Solid infill": {
+            "length_mm": 14164.714267737021,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 862
+          }
+        }
+      },
+      {
+        "z": 171.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1962.4942209500828,
+            "longest_segment_mm": 89.449,
+            "count": 47
+          },
+          "External perimeter": {
+            "length_mm": 505.35527438809584,
+            "longest_segment_mm": 89.77600000000001,
+            "count": 16
+          },
+          "Solid infill": {
+            "length_mm": 14112.922503780175,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 871
+          }
+        }
+      },
+      {
+        "z": 171.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1956.9007592964902,
+            "longest_segment_mm": 89.106,
+            "count": 49
+          },
+          "External perimeter": {
+            "length_mm": 503.92514487918174,
+            "longest_segment_mm": 89.4,
+            "count": 16
+          },
+          "Solid infill": {
+            "length_mm": 14055.113169256852,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 858
+          }
+        }
+      },
+      {
+        "z": 172.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1950.746247860537,
+            "longest_segment_mm": 88.726,
+            "count": 49
+          },
+          "External perimeter": {
+            "length_mm": 502.3615463995808,
+            "longest_segment_mm": 88.992,
+            "count": 17
+          },
+          "Solid infill": {
+            "length_mm": 13995.35912748431,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 856
+          }
+        }
+      },
+      {
+        "z": 172.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1944.0959852132637,
+            "longest_segment_mm": 88.32000000000001,
+            "count": 48
+          },
+          "External perimeter": {
+            "length_mm": 500.67005422154347,
+            "longest_segment_mm": 88.548,
+            "count": 17
+          },
+          "Solid infill": {
+            "length_mm": 13477.958645111972,
+            "longest_segment_mm": 44.89208822275925,
+            "count": 866
+          },
+          "Internal infill": {
+            "length_mm": 189.41717193061498,
+            "longest_segment_mm": 2.384999999999991,
+            "count": 245
+          }
+        }
+      },
+      {
+        "z": 172.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1936.8191153941432,
+            "longest_segment_mm": 87.84899999999999,
+            "count": 50
+          },
+          "External perimeter": {
+            "length_mm": 498.8325324535557,
+            "longest_segment_mm": 88.06,
+            "count": 17
+          },
+          "Internal infill": {
+            "length_mm": 3595.09936463829,
+            "longest_segment_mm": 2.443000000000012,
+            "count": 6188
+          },
+          "Solid infill": {
+            "length_mm": 529.3404215567497,
+            "longest_segment_mm": 32.682,
+            "count": 35
+          }
+        }
+      },
+      {
+        "z": 172.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1928.8868942797312,
+            "longest_segment_mm": 87.281,
+            "count": 51
+          },
+          "External perimeter": {
+            "length_mm": 496.7982287451661,
+            "longest_segment_mm": 87.522,
+            "count": 19
+          },
+          "Solid infill": {
+            "length_mm": 531.6536356732443,
+            "longest_segment_mm": 32.682,
+            "count": 36
+          },
+          "Internal infill": {
+            "length_mm": 3307.1061096579574,
+            "longest_segment_mm": 2.544000000000011,
+            "count": 6106
+          }
+        }
+      },
+      {
+        "z": 172.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1920.1601318935186,
+            "longest_segment_mm": 86.685,
+            "count": 53
+          },
+          "External perimeter": {
+            "length_mm": 494.6103171672328,
+            "longest_segment_mm": 86.92000000000002,
+            "count": 17
+          },
+          "Internal infill": {
+            "length_mm": 3001.5338441418216,
+            "longest_segment_mm": 2.9320000000000164,
+            "count": 4733
+          },
+          "Solid infill": {
+            "length_mm": 985.0287002761796,
+            "longest_segment_mm": 81.809,
+            "count": 64
+          }
+        }
+      },
+      {
+        "z": 173.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1910.2802979738387,
+            "longest_segment_mm": 86.00999999999999,
+            "count": 56
+          },
+          "External perimeter": {
+            "length_mm": 492.14007159470805,
+            "longest_segment_mm": 86.24000000000001,
+            "count": 21
+          },
+          "Solid infill": {
+            "length_mm": 395.7792058250719,
+            "longest_segment_mm": 32.68200001529895,
+            "count": 32
+          },
+          "Bridge infill": {
+            "length_mm": 11923.651886915613,
+            "longest_segment_mm": 56.211327114737294,
+            "count": 664
+          }
+        }
+      },
+      {
+        "z": 173.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1899.117162785886,
+            "longest_segment_mm": 85.21600000000001,
+            "count": 60
+          },
+          "External perimeter": {
+            "length_mm": 489.3439035006494,
+            "longest_segment_mm": 85.437,
+            "count": 21
+          },
+          "Solid infill": {
+            "length_mm": 13483.425333230469,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 832
+          }
+        }
+      },
+      {
+        "z": 173.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1886.047511763868,
+            "longest_segment_mm": 84.261,
+            "count": 72
+          },
+          "External perimeter": {
+            "length_mm": 486.1366013995432,
+            "longest_segment_mm": 84.474,
+            "count": 21
+          },
+          "Solid infill": {
+            "length_mm": 13362.171819149993,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 836
+          }
+        }
+      },
+      {
+        "z": 173.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1870.1478977995835,
+            "longest_segment_mm": 82.994,
+            "count": 84
+          },
+          "External perimeter": {
+            "length_mm": 482.27557760581004,
+            "longest_segment_mm": 83.186,
+            "count": 29
+          },
+          "Solid infill": {
+            "length_mm": 13170.817410561913,
+            "longest_segment_mm": 46.0786134014469,
+            "count": 821
+          }
+        }
+      },
+      {
+        "z": 173.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1849.6822319872888,
+            "longest_segment_mm": 80.11800000000002,
+            "count": 83
+          },
+          "External perimeter": {
+            "length_mm": 477.452494950085,
+            "longest_segment_mm": 79.99699999999999,
+            "count": 28
+          },
+          "Solid infill": {
+            "length_mm": 12909.832642482323,
+            "longest_segment_mm": 45.79435647544357,
+            "count": 801
+          }
+        }
+      },
+      {
+        "z": 174.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1817.8494170640136,
+            "longest_segment_mm": 80.099,
+            "count": 50
+          },
+          "External perimeter": {
+            "length_mm": 470.2520694398527,
+            "longest_segment_mm": 79.994,
+            "count": 19
+          },
+          "Top solid infill": {
+            "length_mm": 14197.476470838343,
+            "longest_segment_mm": 45.30079594223485,
+            "count": 870
+          }
+        }
+      }
+    ]
+  },
+  "with_supports": {
+    "filament used [g]": "470.70",
+    "estimated printing time (normal mode)": "1d 8h 54m 30s",
+    "features": {
+      "Skirt/Brim": {
+        "length_mm": 7621.29122697037,
+        "filament_mm": 226.28605000000022,
+        "longest_segment_mm": 188.062
+      },
+      "Support material": {
+        "length_mm": 1825712.5522068576,
+        "filament_mm": 64222.455330001736,
+        "longest_segment_mm": 85.452
+      },
+      "Perimeter": {
+        "length_mm": 1493533.1471916707,
+        "filament_mm": 52972.01825998466,
+        "longest_segment_mm": 92.28900078015799
+      },
+      "External perimeter": {
+        "length_mm": 592674.4125464017,
+        "filament_mm": 20059.598940001048,
+        "longest_segment_mm": 92.62600077731955
+      },
+      "Solid infill": {
+        "length_mm": 280058.5194037466,
+        "filament_mm": 9447.898330001193,
+        "longest_segment_mm": 83.419
+      },
+      "Support material interface": {
+        "length_mm": 105204.60747751647,
+        "filament_mm": 3537.781019999569,
+        "longest_segment_mm": 47.318171583441384
+      },
+      "Overhang perimeter": {
+        "length_mm": 1661.3805528277014,
+        "filament_mm": 86.79865000000002,
+        "longest_segment_mm": 80.06900000000002
+      },
+      "Internal infill": {
+        "length_mm": 20174.996318322068,
+        "filament_mm": 682.9168499998831,
+        "longest_segment_mm": 2.9320000000000164
+      },
+      "Bridge infill": {
+        "length_mm": 36718.13460117349,
+        "filament_mm": 1944.9579499999857,
+        "longest_segment_mm": 87.186
+      },
+      "Top solid infill": {
+        "length_mm": 30592.6953511101,
+        "filament_mm": 910.699329999985,
+        "longest_segment_mm": 46.29074543577799
+      }
+    },
+    "longest_upper_bridge_segments": [
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          118.682,
+          138.456
+        ],
+        "b": [
+          118.682,
+          225.642
+        ],
+        "length": 87.186,
+        "e": 4.63015,
+        "line": 652466
+      },
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          151.318,
+          138.658
+        ],
+        "b": [
+          151.318,
+          225.844
+        ],
+        "length": 87.186,
+        "e": 4.63015,
+        "line": 652610
+      },
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          118.682,
+          30.456
+        ],
+        "b": [
+          118.682,
+          117.642
+        ],
+        "length": 87.18599999999999,
+        "e": 4.63015,
+        "line": 652750
+      },
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          151.318,
+          30.658
+        ],
+        "b": [
+          151.318,
+          117.844
+        ],
+        "length": 87.18599999999999,
+        "e": 4.63015,
+        "line": 652894
+      },
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          119.135,
+          225.642
+        ],
+        "b": [
+          119.135,
+          138.658
+        ],
+        "length": 86.98400000000001,
+        "e": 4.61942,
+        "line": 652468
+      },
+      {
+        "z": 171.2,
+        "role": "Bridge infill",
+        "a": [
+          119.588,
+          138.658
+        ],
+        "b": [
+          119.588,
+          225.642
+        ],
+        "length": 86.98400000000001,
+        "e": 4.61942,
+        "line": 652470
+      }
+    ],
+    "upper_layers": [
+      {
+        "z": 166.0,
+        "roles": {
+          "Support material": {
+            "length_mm": 2594.7665842123715,
+            "longest_segment_mm": 85.451,
+            "count": 131
+          },
+          "Perimeter": {
+            "length_mm": 1615.5967318853823,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 112
+          },
+          "External perimeter": {
+            "length_mm": 654.008801803626,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 166.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.60215034812,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 112
+          },
+          "External perimeter": {
+            "length_mm": 654.0096300358693,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 166.3,
+        "roles": {
+          "Support material": {
+            "length_mm": 2594.7665842123715,
+            "longest_segment_mm": 85.451,
+            "count": 131
+          }
+        }
+      },
+      {
+        "z": 166.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.6039714828,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 112
+          },
+          "External perimeter": {
+            "length_mm": 654.0090450089517,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 166.6,
+        "roles": {
+          "Support material": {
+            "length_mm": 2594.7665842123715,
+            "longest_segment_mm": 85.451,
+            "count": 131
+          },
+          "Perimeter": {
+            "length_mm": 1615.6064548916718,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 110
+          },
+          "External perimeter": {
+            "length_mm": 654.0104583237874,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 166.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.611549492005,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 110
+          },
+          "External perimeter": {
+            "length_mm": 654.0112866673846,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 166.9,
+        "roles": {
+          "Support material": {
+            "length_mm": 2594.7665842123715,
+            "longest_segment_mm": 85.451,
+            "count": 131
+          }
+        }
+      },
+      {
+        "z": 167.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.615633866499,
+            "longest_segment_mm": 92.27600000000001,
+            "count": 110
+          },
+          "External perimeter": {
+            "length_mm": 654.012115066666,
+            "longest_segment_mm": 92.614,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 167.2,
+        "roles": {
+          "Support material": {
+            "length_mm": 2594.7665842123715,
+            "longest_segment_mm": 85.451,
+            "count": 131
+          },
+          "Perimeter": {
+            "length_mm": 1615.5570402684148,
+            "longest_segment_mm": 92.272,
+            "count": 112
+          },
+          "External perimeter": {
+            "length_mm": 653.9937776266846,
+            "longest_segment_mm": 92.608,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 167.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.4565496232165,
+            "longest_segment_mm": 92.262,
+            "count": 116
+          },
+          "External perimeter": {
+            "length_mm": 653.9527285126447,
+            "longest_segment_mm": 92.59800000000001,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 167.5,
+        "roles": {
+          "Support material": {
+            "length_mm": 2594.7665842123715,
+            "longest_segment_mm": 85.451,
+            "count": 131
+          }
+        }
+      },
+      {
+        "z": 167.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1615.187901492139,
+            "longest_segment_mm": 92.23400000000001,
+            "count": 114
+          },
+          "External perimeter": {
+            "length_mm": 653.8517036497368,
+            "longest_segment_mm": 92.572,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 167.8,
+        "roles": {
+          "Support material": {
+            "length_mm": 2594.7665842123715,
+            "longest_segment_mm": 85.451,
+            "count": 131
+          },
+          "Perimeter": {
+            "length_mm": 1614.8421906425394,
+            "longest_segment_mm": 92.2,
+            "count": 114
+          },
+          "External perimeter": {
+            "length_mm": 653.718276731314,
+            "longest_segment_mm": 92.534,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 168.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1614.3155557970101,
+            "longest_segment_mm": 92.15,
+            "count": 116
+          },
+          "External perimeter": {
+            "length_mm": 653.5167515344706,
+            "longest_segment_mm": 92.486,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 168.1,
+        "roles": {
+          "Support material": {
+            "length_mm": 2594.7665842123715,
+            "longest_segment_mm": 85.451,
+            "count": 131
+          }
+        }
+      },
+      {
+        "z": 168.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1613.691824516578,
+            "longest_segment_mm": 92.088,
+            "count": 120
+          },
+          "External perimeter": {
+            "length_mm": 653.2780160515517,
+            "longest_segment_mm": 92.422,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 168.4,
+        "roles": {
+          "Support material": {
+            "length_mm": 2594.7665842123715,
+            "longest_segment_mm": 85.451,
+            "count": 131
+          },
+          "Perimeter": {
+            "length_mm": 1613.6764615481345,
+            "longest_segment_mm": 92.01400000000001,
+            "count": 140
+          },
+          "External perimeter": {
+            "length_mm": 652.9923360132511,
+            "longest_segment_mm": 92.34800000000001,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 168.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1744.6730211900115,
+            "longest_segment_mm": 91.926,
+            "count": 134
+          },
+          "External perimeter": {
+            "length_mm": 652.6423241543293,
+            "longest_segment_mm": 92.25800000000001,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 168.7,
+        "roles": {
+          "Support material": {
+            "length_mm": 2594.7665842123715,
+            "longest_segment_mm": 85.451,
+            "count": 131
+          }
+        }
+      },
+      {
+        "z": 168.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1744.7363274963914,
+            "longest_segment_mm": 91.82600000000001,
+            "count": 142
+          },
+          "External perimeter": {
+            "length_mm": 652.2623873503914,
+            "longest_segment_mm": 92.154,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 169.0,
+        "roles": {
+          "Support material interface": {
+            "length_mm": 206.54024284107172,
+            "longest_segment_mm": 0.5062884553295738,
+            "count": 524
+          },
+          "Support material": {
+            "length_mm": 2555.1598310403197,
+            "longest_segment_mm": 84.34200000000001,
+            "count": 129
+          },
+          "Perimeter": {
+            "length_mm": 1743.733795895551,
+            "longest_segment_mm": 91.712,
+            "count": 134
+          },
+          "External perimeter": {
+            "length_mm": 651.8071944204888,
+            "longest_segment_mm": 92.04,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 169.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1742.6554352139065,
+            "longest_segment_mm": 91.584,
+            "count": 136
+          },
+          "External perimeter": {
+            "length_mm": 651.3079168791636,
+            "longest_segment_mm": 91.91,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 169.3,
+        "roles": {
+          "Support material interface": {
+            "length_mm": 205.69816499153114,
+            "longest_segment_mm": 0.5720498230049504,
+            "count": 524
+          },
+          "Support material": {
+            "length_mm": 2553.166532709136,
+            "longest_segment_mm": 83.88999999999999,
+            "count": 131
+          }
+        }
+      },
+      {
+        "z": 169.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1741.562826295708,
+            "longest_segment_mm": 91.44,
+            "count": 146
+          },
+          "External perimeter": {
+            "length_mm": 650.7564079918759,
+            "longest_segment_mm": 91.762,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 169.6,
+        "roles": {
+          "Support material interface": {
+            "length_mm": 242.08584092257988,
+            "longest_segment_mm": 0.639932027640437,
+            "count": 526
+          },
+          "Support material": {
+            "length_mm": 2515.888653847115,
+            "longest_segment_mm": 83.35400000000001,
+            "count": 127
+          },
+          "Perimeter": {
+            "length_mm": 1740.222339335823,
+            "longest_segment_mm": 91.284,
+            "count": 158
+          },
+          "External perimeter": {
+            "length_mm": 650.1439402687635,
+            "longest_segment_mm": 91.604,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 169.8,
+        "roles": {
+          "Support material interface": {
+            "length_mm": 288.9206416484712,
+            "longest_segment_mm": 0.8195370644455362,
+            "count": 525
+          },
+          "Support material": {
+            "length_mm": 2477.0212087177188,
+            "longest_segment_mm": 82.701,
+            "count": 124
+          },
+          "Perimeter": {
+            "length_mm": 1738.8748313748783,
+            "longest_segment_mm": 91.112,
+            "count": 166
+          },
+          "External perimeter": {
+            "length_mm": 649.4808326048699,
+            "longest_segment_mm": 91.428,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 170.0,
+        "roles": {
+          "Support material interface": {
+            "length_mm": 361.129844481835,
+            "longest_segment_mm": 0.860549243216224,
+            "count": 533
+          },
+          "Support material": {
+            "length_mm": 2438.392000140571,
+            "longest_segment_mm": 81.92400005492897,
+            "count": 118
+          },
+          "Perimeter": {
+            "length_mm": 1869.8695233547553,
+            "longest_segment_mm": 90.92000000000002,
+            "count": 154
+          },
+          "External perimeter": {
+            "length_mm": 648.7439532645863,
+            "longest_segment_mm": 91.23400000000001,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 170.2,
+        "roles": {
+          "Support material interface": {
+            "length_mm": 15753.329913176083,
+            "longest_segment_mm": 47.01340856606761,
+            "count": 922
+          },
+          "Perimeter": {
+            "length_mm": 1875.3334961903145,
+            "longest_segment_mm": 90.714,
+            "count": 160
+          },
+          "External perimeter": {
+            "length_mm": 647.9402638230548,
+            "longest_segment_mm": 91.024,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 170.4,
+        "roles": {
+          "Support material interface": {
+            "length_mm": 15631.862555575817,
+            "longest_segment_mm": 47.01340856606762,
+            "count": 919
+          },
+          "Perimeter": {
+            "length_mm": 1874.6888992501854,
+            "longest_segment_mm": 90.494,
+            "count": 194
+          },
+          "External perimeter": {
+            "length_mm": 647.0580238192459,
+            "longest_segment_mm": 90.798,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 170.6,
+        "roles": {
+          "Support material interface": {
+            "length_mm": 15476.095875045065,
+            "longest_segment_mm": 47.01340856606761,
+            "count": 912
+          },
+          "Perimeter": {
+            "length_mm": 2003.279156772218,
+            "longest_segment_mm": 90.248,
+            "count": 164
+          },
+          "External perimeter": {
+            "length_mm": 646.0879070844575,
+            "longest_segment_mm": 90.548,
+            "count": 36
+          }
+        }
+      },
+      {
+        "z": 170.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 2001.6293688031362,
+            "longest_segment_mm": 89.982,
+            "count": 174
+          },
+          "External perimeter": {
+            "length_mm": 645.0409467212122,
+            "longest_segment_mm": 90.27600000000001,
+            "count": 38
+          }
+        }
+      },
+      {
+        "z": 171.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 2008.3801392269118,
+            "longest_segment_mm": 89.696,
+            "count": 164
+          },
+          "External perimeter": {
+            "length_mm": 509.6579349205868,
+            "longest_segment_mm": 89.98599999999999,
+            "count": 38
+          },
+          "Overhang perimeter": {
+            "length_mm": 134.21799012061615,
+            "longest_segment_mm": 33.33600000000001,
+            "count": 8
+          },
+          "Solid infill": {
+            "length_mm": 264.4868907963786,
+            "longest_segment_mm": 31.819000000000003,
+            "count": 28
+          }
+        }
+      },
+      {
+        "z": 171.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1321.891475329337,
+            "longest_segment_mm": 89.386,
+            "count": 75
+          },
+          "Overhang perimeter": {
+            "length_mm": 813.7010094669671,
+            "longest_segment_mm": 80.06900000000002,
+            "count": 30
+          },
+          "External perimeter": {
+            "length_mm": 345.24865669291734,
+            "longest_segment_mm": 89.67000000000002,
+            "count": 23
+          },
+          "Bridge infill": {
+            "length_mm": 12765.744000000022,
+            "longest_segment_mm": 87.186,
+            "count": 290
+          }
+        }
+      },
+      {
+        "z": 171.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1967.7112868193453,
+            "longest_segment_mm": 89.76700000000001,
+            "count": 47
+          },
+          "External perimeter": {
+            "length_mm": 506.6798392454824,
+            "longest_segment_mm": 90.118,
+            "count": 16
+          },
+          "Solid infill": {
+            "length_mm": 14164.714267737021,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 862
+          }
+        }
+      },
+      {
+        "z": 171.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1962.4942209500828,
+            "longest_segment_mm": 89.449,
+            "count": 47
+          },
+          "External perimeter": {
+            "length_mm": 505.35527438809584,
+            "longest_segment_mm": 89.77600000000001,
+            "count": 16
+          },
+          "Solid infill": {
+            "length_mm": 14112.922503780175,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 871
+          }
+        }
+      },
+      {
+        "z": 171.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1956.9007592964902,
+            "longest_segment_mm": 89.106,
+            "count": 49
+          },
+          "External perimeter": {
+            "length_mm": 503.92514487918174,
+            "longest_segment_mm": 89.4,
+            "count": 16
+          },
+          "Solid infill": {
+            "length_mm": 14055.113169256852,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 858
+          }
+        }
+      },
+      {
+        "z": 172.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1950.746247860537,
+            "longest_segment_mm": 88.726,
+            "count": 49
+          },
+          "External perimeter": {
+            "length_mm": 502.3615463995808,
+            "longest_segment_mm": 88.992,
+            "count": 17
+          },
+          "Solid infill": {
+            "length_mm": 13995.35912748431,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 856
+          }
+        }
+      },
+      {
+        "z": 172.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1944.0959852132637,
+            "longest_segment_mm": 88.32000000000001,
+            "count": 48
+          },
+          "External perimeter": {
+            "length_mm": 500.67005422154347,
+            "longest_segment_mm": 88.548,
+            "count": 17
+          },
+          "Solid infill": {
+            "length_mm": 13477.958645111972,
+            "longest_segment_mm": 44.89208822275925,
+            "count": 866
+          },
+          "Internal infill": {
+            "length_mm": 189.41717193061498,
+            "longest_segment_mm": 2.384999999999991,
+            "count": 245
+          }
+        }
+      },
+      {
+        "z": 172.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1936.8191153941432,
+            "longest_segment_mm": 87.84899999999999,
+            "count": 50
+          },
+          "External perimeter": {
+            "length_mm": 498.8325324535557,
+            "longest_segment_mm": 88.06,
+            "count": 17
+          },
+          "Internal infill": {
+            "length_mm": 3595.09936463829,
+            "longest_segment_mm": 2.443000000000012,
+            "count": 6188
+          },
+          "Solid infill": {
+            "length_mm": 529.3404215567497,
+            "longest_segment_mm": 32.682,
+            "count": 35
+          }
+        }
+      },
+      {
+        "z": 172.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1928.8868942797312,
+            "longest_segment_mm": 87.281,
+            "count": 51
+          },
+          "External perimeter": {
+            "length_mm": 496.7982287451661,
+            "longest_segment_mm": 87.522,
+            "count": 19
+          },
+          "Solid infill": {
+            "length_mm": 531.6536356732443,
+            "longest_segment_mm": 32.682,
+            "count": 36
+          },
+          "Internal infill": {
+            "length_mm": 3307.1061096579574,
+            "longest_segment_mm": 2.544000000000011,
+            "count": 6106
+          }
+        }
+      },
+      {
+        "z": 172.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1920.1601318935186,
+            "longest_segment_mm": 86.685,
+            "count": 53
+          },
+          "External perimeter": {
+            "length_mm": 494.6103171672328,
+            "longest_segment_mm": 86.92000000000002,
+            "count": 17
+          },
+          "Internal infill": {
+            "length_mm": 3001.5338441418216,
+            "longest_segment_mm": 2.9320000000000164,
+            "count": 4733
+          },
+          "Solid infill": {
+            "length_mm": 985.0287002761796,
+            "longest_segment_mm": 81.809,
+            "count": 64
+          }
+        }
+      },
+      {
+        "z": 173.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1910.2802979738387,
+            "longest_segment_mm": 86.00999999999999,
+            "count": 56
+          },
+          "External perimeter": {
+            "length_mm": 492.14007159470805,
+            "longest_segment_mm": 86.24000000000001,
+            "count": 21
+          },
+          "Solid infill": {
+            "length_mm": 395.7792058250719,
+            "longest_segment_mm": 32.68200001529895,
+            "count": 32
+          },
+          "Bridge infill": {
+            "length_mm": 11923.651886915613,
+            "longest_segment_mm": 56.211327114737294,
+            "count": 664
+          }
+        }
+      },
+      {
+        "z": 173.2,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1899.117162785886,
+            "longest_segment_mm": 85.21600000000001,
+            "count": 60
+          },
+          "External perimeter": {
+            "length_mm": 489.3439035006494,
+            "longest_segment_mm": 85.437,
+            "count": 21
+          },
+          "Solid infill": {
+            "length_mm": 13483.425333230469,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 832
+          }
+        }
+      },
+      {
+        "z": 173.4,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1886.047511763868,
+            "longest_segment_mm": 84.261,
+            "count": 72
+          },
+          "External perimeter": {
+            "length_mm": 486.1366013995432,
+            "longest_segment_mm": 84.474,
+            "count": 21
+          },
+          "Solid infill": {
+            "length_mm": 13362.171819149993,
+            "longest_segment_mm": 46.220034757667605,
+            "count": 836
+          }
+        }
+      },
+      {
+        "z": 173.6,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1870.1478977995835,
+            "longest_segment_mm": 82.994,
+            "count": 84
+          },
+          "External perimeter": {
+            "length_mm": 482.27557760581004,
+            "longest_segment_mm": 83.186,
+            "count": 29
+          },
+          "Solid infill": {
+            "length_mm": 13170.817410561913,
+            "longest_segment_mm": 46.0786134014469,
+            "count": 821
+          }
+        }
+      },
+      {
+        "z": 173.8,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1849.6822319872888,
+            "longest_segment_mm": 80.11800000000002,
+            "count": 83
+          },
+          "External perimeter": {
+            "length_mm": 477.452494950085,
+            "longest_segment_mm": 79.99699999999999,
+            "count": 28
+          },
+          "Solid infill": {
+            "length_mm": 12909.832642482323,
+            "longest_segment_mm": 45.79435647544357,
+            "count": 801
+          }
+        }
+      },
+      {
+        "z": 174.0,
+        "roles": {
+          "Perimeter": {
+            "length_mm": 1817.8494170640136,
+            "longest_segment_mm": 80.099,
+            "count": 50
+          },
+          "External perimeter": {
+            "length_mm": 470.2520694398527,
+            "longest_segment_mm": 79.994,
+            "count": 19
+          },
+          "Top solid infill": {
+            "length_mm": 14197.476470838343,
+            "longest_segment_mm": 45.30079594223485,
+            "count": 870
+          }
+        }
+      }
+    ]
+  }
+}
