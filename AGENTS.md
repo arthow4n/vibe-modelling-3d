@@ -227,6 +227,8 @@ A useful order is:
 7. fillets, chamfers, transitions, and details
 8. cosmetic refinements
 
+After function, critical interfaces, and major geometry are established, explicitly review the object for edge treatment before considering it visually finished. Inspect rendered views for raw CAD edges that make an everyday object look unfinished or ergonomically poor.
+
 Do not endlessly tune insignificant details.
 
 If the request is ambiguous, make reasonable engineering or visual assumptions and continue rather than blocking progress unnecessarily.
@@ -254,6 +256,12 @@ Prefer standard CadQuery operations when they express the geometry cleanly:
 * fillet
 * chamfer
 
+For everyday objects, do not treat sharp CAD edges as finished by default. Actively decide whether exposed edges should be filleted, chamfered, or intentionally left sharp. Consider this for edges touched by fingers or hands, insertion openings, cable slots, clips and retaining features, handles and grips, corners likely to catch on clothing or nearby objects, sliding parts, mating and alignment features, exposed corners that may chip or feel unpleasant, and 3D-printed transitions that would create unnecessary stress concentrations. Visible and touchable exterior corners should usually receive intentional edge treatment unless a sharp edge is functionally required.
+
+Prefer a fillet when the part is touched frequently, a softer ergonomic transition or molded/product-like appearance is desirable, reducing stress concentration is useful, or a curved transition improves handling or insertion. Prefer a chamfer when helping one part enter another, guiding insertion or alignment, breaking a sharp edge with minimal geometry, creating a lead-in around holes, slots, pegs, sockets, or mating interfaces, or when a flat bevel better matches the intended mechanical form. Do not mechanically fillet every edge; choose treatment based on function and visual intent.
+
+Keep edge treatment proportional to the feature. Avoid huge radii that change intended dimensions, tiny cosmetic fillets that add complexity without value, fillets that interfere with mating surfaces or reduce retention lips, clip engagement, or required clearances, and chamfers that unintentionally enlarge openings or weaken thin walls. Preserve fit, retention, and mating geometry first, then apply edge treatment around it.
+
 Use lower-level CadQuery/OCP operations when they materially improve the result, but do not introduce complexity without a reason.
 
 Keep the model readable enough that another agent or human can modify it later.
@@ -273,6 +281,7 @@ Before declaring a modelling task complete, verify the result against the [Desig
 * insertion and removal have been considered where applicable
 * the user can access and operate the relevant object where applicable
 * retention and likely everyday failure modes have been considered
+* exposed and interactive edges have been intentionally reviewed for fillet/chamfer treatment, including whether any should remain sharp
 * proportions and dimensions are reasonable relative to the prompt/references
 * obvious geometry defects have been corrected
 * the final source file is saved
@@ -419,6 +428,8 @@ If CadQuery code fails:
 Do not replace a promising model wholesale after a minor failure.
 
 If an approach repeatedly fails, simplify the construction or choose a different CAD operation.
+
+If a fillet or chamfer fails because of topology or an excessive radius, do not repeatedly retry arbitrary radii. Identify the problematic edge or radius, reduce the radius or apply the treatment selectively, and preserve the successful main geometry. Do not redesign a sound model solely because a cosmetic fillet fails.
 
 If a requested detail cannot be modelled reliably, preserve the successful parts of the model and clearly identify the remaining limitation.
 
