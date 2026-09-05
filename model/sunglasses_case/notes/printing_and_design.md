@@ -1,73 +1,110 @@
-# Sunglasses case
+# Sunglasses case — print-in-place revision
 
-Fits the confirmed folded glasses envelope of 160 × 80 × 60 mm. Units are mm.
-Interior nominal envelope: 168 × 88 × 68; internal corner radius 4.
-Shell: 174 × 94 × 74; including latch and hinge: approximately 174 × 109 × 74.
-Walls, floor and roof are 3 mm thick. Rounded plan corners, 0.6 mm exterior
-edge chamfers and 0.3 mm rim chamfers soften handling edges. The meeting
-wall rims carry closing/compression loads, rather than loading the latch.
-This is a protective case design, without a verified compression load rating.
+The user chose a print-in-place hinge, with no bought rods, nuts or hinge
+assembly. Confirmed printer volume: 260 × 260 × 260 mm. Material: PETG.
+The design skill was updated and committed separately before this revision.
 
-## Files and printing
+## Fit and mechanism
 
-- `sunglasses_case.py`: authoritative parametric source; evaluate with CadQuery MCP.
-- `sunglasses_case.step`: both halves in closed assembly coordinates, no hardware.
-- `body.stl` and `lid.stl`: individual parts, already oriented exterior flat face down.
-- `sunglasses_case.stl`: both parts separated in print orientation; spans 360 mm,
-  so split/rearrange in the slicer or use the individual files on a smaller bed.
-- `renders/`: closed views; `open/` shows 110-degree opening; `print/` shows both parts.
+- Confirmed folded glasses: 160 × 80 × 60 mm.
+- Nominal interior: 168 × 88 × 68 mm, with 4 mm inside corner radii.
+- Shell: 174 × 94 × 74 mm; with hinge and latch: about 174 × 113 × 74 mm.
+- Walls, floor and roof: 3 mm. Existing thumb latch and glasses clearance retained.
+- Two enlarged sections of an integral printed spindle turn inside matching
+  sockets on the lid. Narrow socket ends capture the enlarged sections, so
+  there is no loose pin to insert and no hardware or adhesive needed to operate
+  the case. Two connected-by-capture but unfused solids are intentional.
+- Shaft diameter 4.8 mm; enlarged diameter 8.8 mm; socket radial allowance
+  0.5 mm per side, plus 0.3 mm axial allowance on each conical transition.
+  Minimum socket wall is 1.3 mm. Conical transitions are 45 degrees in print
+  orientation. Angled ear undersides grow from their shell wall toward the
+  spindle. Exposed upper ear edges have 0.3 mm chamfers.
+- The meeting shell rims carry closing loads. The latch catches beneath its
+  keeper; pull the lower tab outward about 1.5–2 mm, then lift the lid.
+  The hinge opens to 180 degrees; do not force it beyond the evaluated range.
 
-Assumed process: PETG, single material, 0.4 mm nozzle, approximately 0.2 mm layers.
-Start with 5 perimeters, 6 top/bottom layers and 25% infill; confirm the 3 mm
-panels and walls in the slicer. Each part fits a 180 × 120 mm usable bed area,
-excluding brim. A 200 × 150 mm or larger bed leaves more room for adhesion aids.
-Body height is about 41.5 mm; lid print height is 47 mm including the latch.
-Use accessible supports under the exterior hinge barrels/webs and the latch
-root overhang. Inspect the latch gap and remove all support without prying hard
-on the leaf. Avoid supports in the small hinge bores; clean/ream them to 3.6 mm
-if needed. Roof and floor print on the bed, so neither needs a large bridge.
-Do not substitute brittle PLA for the flexible PETG latch without redesign/testing.
+## Which files to print
 
-## Assembly and use
+1. **Start with `hinge_test.stl`.** This uses the same spindle/socket profile,
+   clearances, mounting-ear construction and vertical print axis as the case.
+   It occupies about 17 × 27 × 63 mm and contains about 7.5 cm³ of material.
+   It is designed without supports; add a brim around its two feet. Print both
+   captive parts together, then gently work the joint through its motion.
+   Check that it rotates and stays captured when gently pulled in either axial
+   direction. This tests hinge clearance, not case strength or latch force.
+2. **Print `sunglasses_case.stl` as supplied.** The lid is already open 180
+   degrees and the whole assembly is standing on the short ends, with the hinge
+   axis vertical. Its envelope is about 47 × 210 × 174 mm, leaving room on the
+   confirmed bed for brim and accessible supports. Center the complete object
+   and place it on the bed; do not auto-orient or separately arrange its solids.
+   Splitting into separately positioned objects defeats print-in-place capture.
 
-1. Remove supports and smooth the rims, latch and bore mouths.
-2. Interleave the hinge knuckles and insert an M3 × 150 mm threaded rod.
-   Fit an M3 washer and locknut at each end. File any cut rod ends smooth.
-   Leave slight axial play: the nuts retain the rod, not clamp the hinge tight.
-   Hardware is not included in the STL/STEP files.
-3. Glue approximately 1 mm soft felt or foam lining inside both halves; keep
-   glue, seams and lining clear of the hinge, latch and meeting rims. The 4 mm
-   allowance on every side includes lining; nominal free envelope with 1 mm
-   lining is 166 × 86 × 66 mm. Check actual glasses gently before closing.
-4. Press the lid closed until the hook engages. To open, pull the lower front
-   tab outward by about 1.5–2 mm, then lift the lid. Do not force the latch.
-   The lid is shown at 110 degrees; no mechanical opening stop is provided.
+The former `body.stl` and `lid.stl` are removed because they were for the
+hardware hinge and could lead to printing incompatible parts. The single case
+STL now preserves all moving-part relationships. `sunglasses_case.step` shows
+both halves closed for CAD inspection; it is not the intended print pose.
+`sunglasses_case.py` is the authoritative source. `LAYOUT` selects closed,
+open (110 degrees), print (180 degrees, standing), coupon, or hinge_section.
+Changing the view does not change the poses used for exports.
 
-The long leaf, recessed hook and cammed keeper provide intentional release:
-pushing the tab inward does not unlock it. Retention overlap is 1.4 mm in Y,
-with 0.6 mm vertical clearance under the keeper. The latch and mating hinge
-have explicit clearance but require a trial print to establish force and life.
-Start opening/closing tests without the glasses; check the latch does not take
-a permanent set. Then check lined fit and gently test normal backpack loading.
+## PETG slicing and cleanup
 
-## Verification and adjustments
+Use a 0.4 mm nozzle and start with 0.2 mm layers, 5 perimeters, 6 top/bottom
+layers and 25% infill. Inspect the actual paths in the thin socket walls; the
+1.3 mm minimum hoop wall should contain multiple extrusion paths. Use the
+printer's calibrated PETG profile, moderate speed around the slender spindle,
+and a brim around both case feet for the tall print.
 
-CadQuery evaluation confirms two valid solids, no closed-state volume overlap,
-and no contact with the full rectangular glasses envelope. Opening clearance
-is checked at 5-degree intervals from 20 to 110 degrees; the initial motion
-requires manually flexing the latch, which rigid-body CAD does not simulate.
-Closed, open and print views were inspected. Exported STL edges are paired
-twice, with correct millimetre dimensions and both parts on Z=0 within numeric
-precision. Nominal material volume is 208.95 cm³; sliced mass depends on settings.
+The hinge axis is vertical to avoid a supported pin trapped inside a horizontal
+bore. **Do not put supports inside the bearing clearances or fuse the two parts
+with a mesh-repair/union operation.** The inclined hinge-ear undersides and
+socket cones are intended to print without internal supports.
 
-A 170 × 84 × 64 mm glasses configuration also evaluated successfully, then the
-confirmed dimensions were restored and evaluated again. Edit the glasses
-dimensions and CLEARANCE near the source top; hinge positions follow width.
-If width changes, choose rod length to suit (hinge span + about 14 mm).
-The supplied 150 mm rod applies to the original size. The parameters are not
-validated across arbitrary dimensions. EXPORT writes adjacent artifacts when
-run as a file; its fallback path supports this repository's MCP execution,
-which does not supply __file__. Update that fallback if moving the repository.
+The standing shell still has accessible overhangs: the upper short-end cavity
+walls, lower rounded corners, and the external latch/keeper. Add removable
+supports there as needed, particularly under the upper inside end walls;
+do not assume that those walls will bridge unsupported. Both cavities remain
+open for support removal. Inspect the full layer preview before printing.
+This is an assembly-free design, not a claim that the whole print is support-free.
 
-No slicer or physical print was used. Latch fatigue, lens abrasion, support
-removal, hardware fit and compression resistance remain physically unverified.
+After cooling, remove the brim and accessible supports, clean any strings at
+the hinge openings, and gently work the lid to free the joint. If the coupon
+fuses, adjust the print profile or the clearance parameter and repeat the coupon
+before the full case. Do not force a fused spindle. Test latch action without
+sunglasses first. Small print adjustments may be needed for comfortable latch
+force and reliable retention.
+
+Lining is optional and separate from the mechanism. The allowance permits
+roughly 1 mm soft lining on each surface, leaving a nominal 166 × 86 × 66 mm
+space; keep any lining clear of the meeting rims, latch and hinge. An existing
+soft glasses pouch can also protect lenses if its folded size fits. Check the
+actual glasses gently before closing.
+
+## Verification and limits
+
+CadQuery MCP evaluations validate two connected solids, no closed-state
+intersection, and clearance around the complete rectangular glasses envelope.
+Lid/body intersection is checked every 5 degrees from 20 to 180 degrees; the
+initial opening requires manually flexing the latch, which rigid CAD does not
+simulate. The coupon is checked every 15 degrees through 180 degrees, and
+attempted 1.5 mm axial movement of the socket interferes with each enlarged
+shoulder as expected for captive retention.
+
+Closed, open, connected print, coupon and cutaway hinge views were inspected.
+The cutaway illustrates the captured enlarged spindle and its clearance; do
+not print that visualization. An alternate 168 × 84 × 64 mm glasses envelope
+with 0.55 mm radial hinge clearance also passed evaluation. The confirmed
+160 × 80 × 60 mm dimensions and 0.5 mm gap were then restored and evaluated.
+STL scale, two connected mesh components, watertight edges and Z=0 placement
+are verified separately from the CAD solid checks.
+
+No slicer is installed in this workspace and no physical print has been made.
+Support strategy and printability have been reviewed geometrically. Actual
+joint freedom, latch force/fatigue, support removal and backpack compression
+resistance remain unverified; the case has no tested load rating.
+
+Edit the named dimensions and clearances near the source top. The bearing
+positions follow case width; arbitrary parameter combinations are not proven.
+The fallback export path is for this repository's MCP, which omits __file__;
+update that fallback if moving the repository. Normal file execution exports
+beside the Python source.
