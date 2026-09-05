@@ -127,7 +127,7 @@ For example:
 model/camera_bracket/camera_bracket.py
 ```
 
-Keep important dimensions as clearly named parameters near the top of the model where practical.
+Strongly prefer parameterized design: keep the main dimensions and likely user adjustments as clearly named parameters near the top of the model, with dependent geometry derived from them. Follow the skill's [maintainable parametric design guidance](.codex/skills/cadquery-3d-design/SKILL.md#maintainable-parametric-design) so changes in requirements are easy to accommodate without rebuilding the model. Use judgment; do not force unnecessary abstraction for incidental details.
 
 Prefer parametric and understandable construction over hard-coded point clouds or unnecessarily complicated geometry.
 

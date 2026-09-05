@@ -15,7 +15,7 @@ Use this checklist as the task plan when creating or substantially revising a mo
 * [ ] **Define the job.** Identify intended use, physical interactions, critical interfaces, user access, insertion, retention, removal, loads, and likely everyday failure modes. Follow the requirements clarification guidance below, ask useful questions early, and establish what would count as a satisfactory result.
 * [ ] **Set dimensions and assumptions.** Separate critical dimensions from vibe dimensions; record units, nominal sizes, fit allowances, and uncertain measurements. Expose important dimensions as named parameters and resolve uncertainty conservatively or ask when it materially changes the object.
 * [ ] **Choose a print plan.** Establish material assumptions, nozzle, orientation, bed contact, build-volume constraints when known, layer direction, wall sizes, and support/removal strategy. Default to single-colour, single-material FDM with a 0.4 mm nozzle.
-* [ ] **Build the main geometry.** Create or update the parametric CadQuery source inside the object's directory. Establish proportions, intended solids, and critical functional features before cosmetic details.
+* [ ] **Build the main geometry.** Create or update the parametric CadQuery source inside the object's directory. Establish proportions, intended solids, and critical functional features before cosmetic details. Make the main dimensions and likely user adjustments easy to change, following the maintainable parametric design guidance below.
 * [ ] **Evaluate and inspect.** Run `evaluate_file` on the source. Inspect errors, rendered views, bounding dimensions, volume/surface information, topology, and parameters. Compare with the request and references; a successful build alone does not complete this check.
 * [ ] **Review function and printability.** Walk through installation, use, and removal; inspect fit, clearance, retention, access, strength, printable details, overhangs, and support access in the intended print orientation. Use the detailed guidance below and correct the largest discrepancies, then evaluate again.
 * [ ] **Refine edges and details.** Deliberately choose fillets, chamfers, or sharp edges for exposed and interactive features. Preserve functional dimensions and bed contact. Re-evaluate after refinements and repeat affected function and printability checks.
@@ -75,6 +75,18 @@ Separate dimensions that control function from dimensions chosen mainly by visua
 * **Vibe dimensions** do not materially affect function or printability, such as decorative curvature, non-critical taper, visual balance, and cosmetic transitions. External proportions and corner radii belong here only when they do not affect fit, strength, bed contact, or support requirements. Choose and refine these visually as needed.
 
 Critical functional geometry takes priority over cosmetic refinement.
+
+## Maintainable parametric design
+
+Strongly prefer parameterized construction so the model is easy to maintain and revise when the user changes dimensions or requirements. Aim to make most major geometry respond to a small, understandable set of inputs rather than requiring edits throughout the construction code.
+
+* Group clearly named, user-editable parameters near the top of the source, with units and brief comments where useful. Cover main dimensions, interfaces, thicknesses, clearances, repeated-feature counts and spacing, and meaningful edge treatments when likely to change.
+* Define each independent dimension once. Derive dependent dimensions, feature positions, patterns, and symmetry from those inputs so a size change propagates consistently. Keep deliberate fixed dimensions, such as hardware interfaces or printability limits, independent where appropriate; do not blindly scale everything.
+* Keep nominal dimensions and fit allowances distinct. Explain non-obvious relationships, and add simple checks for invalid combinations such as a wall thicker than the available space or a retaining opening larger than the item it must retain.
+* Choose readable construction and feature selection that can tolerate expected dimension changes. Avoid scattered magic numbers, duplicated dimensions, and brittle assumptions about edge ordering where practical. When modifying an existing model, update its parameters and relationships before adding one-off geometry overrides.
+* During review, check that a likely user request—such as changing width, device thickness, or hole spacing—can be handled through a small number of parameter edits. For nontrivial dependencies, evaluate a representative alternate configuration with `evaluate_file`, then restore and re-evaluate the requested configuration before final exports. State any known range restrictions; one alternate build does not prove every combination works.
+
+Do not parameterize every incidental coordinate or introduce a general-purpose configuration framework without a benefit. Fixed local details are acceptable when they improve readability and are unlikely to need independent adjustment. Prioritize useful editability of the main design over parameter count.
 
 ## Edge treatment
 
