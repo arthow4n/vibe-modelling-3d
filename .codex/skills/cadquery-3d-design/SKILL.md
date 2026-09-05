@@ -5,11 +5,19 @@ description: Design practical CadQuery objects for single-colour 3D printing wit
 
 # CadQuery 3D design
 
-Use this skill for every CadQuery modelling task in this repository. The repository's `AGENTS.md` remains the source for tool, artifact, dependency, and Git workflow; this skill contains the design decisions that make the resulting object practical.
+Use this skill for every CadQuery modelling task in this repository. The intended deliverable is a functional, manufacturable 3D-printable object. The repository's `AGENTS.md` remains the source for tool, artifact, dependency, and Git workflow; this skill contains the design decisions that make the resulting object practical.
 
 ## Printability
 
-Unless the request specifies otherwise, design for single-colour printing with a typical 0.4 mm nozzle and a single material. Prefer practical wall and feature sizes, avoid details too fine to resolve reliably, provide sensible clearances, and consider overhangs, bridging, supports, orientation, and bed adhesion. Do not rely on multi-material features or colour changes unless explicitly requested.
+Unless the request specifies otherwise, design for FDM/FFF printing in a single colour and material with a typical 0.4 mm nozzle. Do not rely on multi-material features or colour changes unless explicitly requested.
+
+Choose a plausible print orientation before committing to major geometry, and revisit it as the design evolves:
+
+* Provide a stable bed-contact surface and check the oriented dimensions against the build volume when known. Avoid unnecessary tall, slender geometry or footprints prone to lifting. Record the intended orientation and any assumed build-volume limits.
+* Review downward-facing surfaces, unsupported islands, overhangs, bridges, and horizontal holes. Prefer self-supporting geometry where practical; do not assume a universal printable angle or bridge length. If supports are needed, ensure they can be accessed and removed without damaging retention features or critical surfaces. Avoid trapped support in enclosed cavities; split into separately printable parts when that materially improves manufacture and assembly.
+* Size walls, ribs, pins, text, and gaps for the intended extrusion width and layer height. A 0.4 mm nozzle is not a universal minimum wall thickness or guaranteed feature resolution. Prefer multiple extrusion paths for structural walls and avoid fragile single-line features unless intentional. Expose important thicknesses as parameters; do not assume infill will rescue a weak clip or thin connection.
+* Consider layer direction relative to loads, bending, and clip flexure. Avoid placing critical connections where normal use tends to separate layers. Do not assume a rigid material can flex safely: record material assumptions for clips, springs, heat exposure, or sustained loads, and adjust geometry or orientation accordingly.
+* Give mating and moving parts deliberate clearance rather than nominally identical dimensions. Account for orientation, hole accuracy, surface finish, and first-layer spread at bed-facing fits. Keep nominal dimensions separate from fit allowances; state whether an allowance is radial, diametral, or per side. For uncertain tight fits, provide a small test coupon or identify the fit as needing a trial print.
 
 Use these assumptions when interpreting ambiguous requirements and judging whether a model is satisfactory. If the request calls for a different printer, nozzle, material, or manufacturing process, follow that request instead and record important assumptions where useful.
 
@@ -36,7 +44,7 @@ A visible slot, opening, hook, or retaining feature is not enough if the held ob
 Separate dimensions that control function from dimensions chosen mainly by visual judgment:
 
 * **Critical dimensions** materially affect fit or function, such as cable diameter, device thickness, shaft diameter, mounting spacing, shelf or desk thickness, insertion clearance, retaining throat/opening, and mating diameter. Ask for these explicitly, infer them conservatively when reasonable, or expose them as named model parameters.
-* **Vibe dimensions** do not materially affect function, such as external proportions, decorative curvature, non-critical taper, corner radii, visual balance, and cosmetic transitions. Choose and refine these visually as needed.
+* **Vibe dimensions** do not materially affect function or printability, such as decorative curvature, non-critical taper, visual balance, and cosmetic transitions. External proportions and corner radii belong here only when they do not affect fit, strength, bed contact, or support requirements. Choose and refine these visually as needed.
 
 Critical functional geometry takes priority over cosmetic refinement.
 
@@ -48,12 +56,14 @@ Prefer a **fillet** when the part is touched frequently, a softer ergonomic tran
 
 Keep edge treatment proportional to the feature. Avoid huge radii that change intended dimensions, tiny cosmetic fillets that add complexity without value, fillets that interfere with mating surfaces or reduce retention lips, clip engagement, or required clearances, and chamfers that unintentionally enlarge openings or weaken thin walls. Preserve fit, retention, and mating geometry first, then apply edge treatment around it.
 
+Review edge treatment in the chosen print orientation. A fillet on a bottom edge can reduce bed contact and introduce a difficult overhang; use a suitable chamfer or retain the bed-contact edge when appropriate. Recheck thin walls and lead-ins after edge treatment so smoothing does not make them unprintable.
+
 ## Design review
 
 Prioritize corrections in this order:
 
 1. intended function and physical interaction
-2. critical interfaces and dimensions
+2. feasible print orientation, material assumptions, and critical interfaces and dimensions
 3. overall proportions and bounding dimensions
 4. major topology and missing geometry
 5. placement and size of major features
@@ -63,9 +73,13 @@ Prioritize corrections in this order:
 
 After function, critical interfaces, and major geometry are established, explicitly review edge treatment before considering the object visually finished. Inspect rendered views for raw CAD edges that make an everyday object look unfinished or ergonomically poor.
 
-When inspecting `evaluate_file` results, infer functional and ergonomic behavior from geometry, dimensions, and rendered views; the tool does not physically simulate use. Look for insufficient access or clearance, weak or ineffective retention, insertion or removal problems, held objects slipping, falling through, detaching, or moving unintentionally, and features that visually exist but are ineffective for their intended purpose.
+When inspecting `evaluate_file` results, infer functional and ergonomic behavior from geometry, dimensions, and rendered views; the tool does not physically simulate use or establish slicer feasibility. Look for insufficient access or clearance, weak or ineffective retention, insertion or removal problems, held objects slipping, falling through, detaching, or moving unintentionally, and features that visually exist but are ineffective for their intended purpose.
+
+Review printability throughout iteration, especially after changing orientation, wall thickness, interfaces, or edge treatment. Before completion, confirm each intended part is a valid solid, connected where intended, with no accidental zero-thickness contacts or internal geometry that obstructs printing or assembly. Check export units and scale, and ensure mesh resolution preserves useful curves and small functional features. If a slicer is available, inspect the intended orientation and profile for missing thin features, unsupported regions, support access, and bed contact. Otherwise state that printability was reviewed geometrically and slicing or trial printing remains unverified.
 
 Before declaring the object complete, consider its intended function, critical interfaces, insertion and removal, user access, retention, likely everyday failure modes, and whether exposed and interactive edges have been deliberately reviewed for fillet/chamfer treatment, including whether any should remain sharp. Do not declare it complete while an obvious functional, ergonomic, or edge-treatment problem remains, even if the CAD model builds successfully.
+
+Also require a plausible print plan: orientation, printable walls and details, layer-aware strength, fit allowances, and removable supports where needed. Save important printing and assembly assumptions in the object's source comments or notes. Correct obvious printability problems before completion, and distinguish design review from an actual successful print.
 
 ## Fillet and chamfer failure handling
 
