@@ -14,7 +14,7 @@ For modelling tasks, work autonomously toward the requested result, applying the
 
 Use this loop:
 
-1. Read and apply the [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md), then understand the requested object and constraints before creating geometry.
+1. Read and apply the [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md), track its [modelling TODO checklist](.codex/skills/cadquery-3d-design/SKILL.md#modelling-todo-checklist), and understand the requested object and constraints before creating geometry.
 2. Create or edit the CadQuery `.py` model.
 3. Use the CadQuery MCP `evaluate_file` tool.
 4. Inspect the returned:

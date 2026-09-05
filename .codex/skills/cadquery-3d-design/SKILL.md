@@ -7,6 +7,22 @@ description: Design practical CadQuery objects for single-colour 3D printing wit
 
 Use this skill for every CadQuery modelling task in this repository. The intended deliverable is a functional, manufacturable 3D-printable object. The repository's `AGENTS.md` remains the source for tool, artifact, dependency, and Git workflow; this skill contains the design decisions that make the resulting object practical.
 
+## Modelling TODO checklist
+
+Use this checklist as the task plan when creating or substantially revising a model. Track it in the available planning tool or in `model/<object_name>/notes/checklist.md`. Mark items complete only after doing and reviewing the work; record why an item is not applicable or remains unverified. Reopen affected checks after geometry changes. For small edits, revisit the affected checks and final review without repeating unchanged work.
+
+* [ ] **Confirm tools and scope.** Read the request and references, inspect existing object files and user edits, and confirm the customized CadQuery MCP `evaluate_file` tool is available. If it is missing, follow the stop-and-install instruction in `AGENTS.md` before modelling.
+* [ ] **Define the job.** Identify intended use, physical interactions, critical interfaces, user access, insertion, retention, removal, loads, and likely everyday failure modes. Establish what would count as a satisfactory result.
+* [ ] **Set dimensions and assumptions.** Separate critical dimensions from vibe dimensions; record units, nominal sizes, fit allowances, and uncertain measurements. Expose important dimensions as named parameters and resolve uncertainty conservatively or ask when it materially changes the object.
+* [ ] **Choose a print plan.** Establish material assumptions, nozzle, orientation, bed contact, build-volume constraints when known, layer direction, wall sizes, and support/removal strategy. Default to single-colour, single-material FDM with a 0.4 mm nozzle.
+* [ ] **Build the main geometry.** Create or update the parametric CadQuery source inside the object's directory. Establish proportions, intended solids, and critical functional features before cosmetic details.
+* [ ] **Evaluate and inspect.** Run `evaluate_file` on the source. Inspect errors, rendered views, bounding dimensions, volume/surface information, topology, and parameters. Compare with the request and references; a successful build alone does not complete this check.
+* [ ] **Review function and printability.** Walk through installation, use, and removal; inspect fit, clearance, retention, access, strength, printable details, overhangs, and support access in the intended print orientation. Use the detailed guidance below and correct the largest discrepancies, then evaluate again.
+* [ ] **Refine edges and details.** Deliberately choose fillets, chamfers, or sharp edges for exposed and interactive features. Preserve functional dimensions and bed contact. Re-evaluate after refinements and repeat affected function and printability checks.
+* [ ] **Perform final review.** Inspect the latest views and geometry against the acceptance criteria. Confirm valid intended solids and no obvious functional, ergonomic, or printability defects. Repeat the build/evaluate/review loop while material improvements remain.
+* [ ] **Export and verify deliverables.** Generate the required STEP/STL exports from the final source, check scale and mesh detail, and save useful isometric/front/top/right views. Inspect a slicer preview if available; record whether slicing and trial printing are verified or still outstanding.
+* [ ] **Record and hand off.** Save print orientation, assembly instructions where needed, assumptions, and limitations inside the object's directory. Review the diff and artifacts, commit and push according to `AGENTS.md`, and summarize the final files and verification status.
+
 ## Printability
 
 Unless the request specifies otherwise, design for FDM/FFF printing in a single colour and material with a typical 0.4 mm nozzle. Do not rely on multi-material features or colour changes unless explicitly requested.
