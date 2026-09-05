@@ -119,7 +119,7 @@ Do not place object-specific files outside `model/<object_name>/`.
 
 ## Source of truth
 
-The CadQuery Python model inside the object's directory is the authoritative source of the geometry.
+The CadQuery Python source inside the object's directory is authoritative for the geometry. This may be one model file or a main entry point with component modules and shared parameters.
 
 For example:
 
@@ -130,6 +130,8 @@ model/camera_bracket/camera_bracket.py
 Strongly prefer parameterized design: keep the main dimensions and likely user adjustments as clearly named parameters near the top of the model, with dependent geometry derived from them. Follow the skill's [maintainable parametric design guidance](.codex/skills/cadquery-3d-design/SKILL.md#maintainable-parametric-design) so changes in requirements are easy to accommodate without rebuilding the model. Use judgment; do not force unnecessary abstraction for incidental details.
 
 Prefer parametric and understandable construction over hard-coded point clouds or unnecessarily complicated geometry.
+
+For models with multiple source files, keep a clear main entry point such as `<object_name>.py` and document which files to evaluate for individual components and the assembled object. Shared parameters may live in a clearly named module such as `parameters.py` instead of at the top of the main file. Keep every module inside the object's directory and verify imports through `evaluate_file`.
 
 Generated STEP, STL, 3MF, renders, and other artifacts are derived from the `.py` source unless the task explicitly requires otherwise.
 
@@ -299,6 +301,8 @@ If several files are genuinely components of one logical object or assembly, the
 ```text
 model/
   gearbox/
+    gearbox.py
+    parameters.py
     housing.py
     cover.py
     shaft.py
@@ -308,6 +312,8 @@ model/
 ```
 
 Use judgment based on whether the files belong to one coherent deliverable.
+
+Multiple Python files are encouraged when they simplify component construction, independent evaluation, shared dimensions, or assembly. They are optional: keep simple models in one file. Follow the skill's [components and shared parameters guidance](.codex/skills/cadquery-3d-design/SKILL.md#components-and-shared-parameters), and evaluate both useful individual components and the final combined geometry.
 
 ## Git workflow
 

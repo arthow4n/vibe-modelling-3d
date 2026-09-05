@@ -88,6 +88,16 @@ Strongly prefer parameterized construction so the model is easy to maintain and 
 
 Do not parameterize every incidental coordinate or introduce a general-purpose configuration framework without a benefit. Fixed local details are acceptable when they improve readability and are unlikely to need independent adjustment. Prioritize useful editability of the main design over parameter count.
 
+## Components and shared parameters
+
+Use multiple Python files when separating components or shared dimensions makes a model easier to construct, inspect, change, or debug. A single file with small builder functions is also appropriate; do not split files merely because an object contains several features.
+
+* Keep one clear main entry point, such as `<object_name>.py`, that builds the final object from its components. Component modules may provide builder functions returning geometry; avoid triggering exports or unrelated work on import. Keep modules, parameters, evaluation entry points, and derived artifacts inside `model/<object_name>/`.
+* A shared `parameters.py` or similarly named configuration module can hold the editable dimension table, units, and fit allowances. Give shared interfaces one source of truth and derive component dimensions from it; avoid copied parameter tables, circular imports, and mutable global state. Document the file the user should edit to change dimensions.
+* Define component coordinate origins and assembly placements clearly. Build and evaluate a component independently with `evaluate_file` when that makes a difficult feature easier to inspect. Ensure evaluation entry points expose geometry in the form the tool expects, and verify local imports work through the tool without relying on an interactive session. A parameter-only module is not a geometry evaluation target.
+* Bring components together early enough to check alignment, clearances, retention, interference, and the installation/removal sequence. Independently valid parts do not prove the assembled object works. Re-evaluate affected components and the final main entry point after changing shared parameters.
+* Distinguish code organization from physical part separation. Separately built features intended as one printed part must form the intended connected solid. Parts intended to remain separate need individual printable exports and documented assembly placement; review each part's print orientation as well as the assembled fit. Splitting source files alone is not a reason to add physical joints.
+
 ## Edge treatment
 
 For everyday objects, sharp CAD edges are not finished geometry by default. Actively decide whether exposed edges should be filleted, chamfered, or intentionally left sharp. Consider edges touched by fingers or hands, insertion openings, cable slots, clips and retaining features, handles and grips, corners likely to catch on clothing or nearby objects, parts that slide against another object, mating and alignment features, exposed corners that may chip or feel unpleasant, and 3D-printed transitions that create unnecessary stress concentrations. Visible and touchable exterior corners should usually receive intentional edge treatment unless a sharp edge is functionally required.
