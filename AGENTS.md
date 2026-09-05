@@ -4,13 +4,51 @@ This repository is for autonomous / vibe-driven 3D modelling with CadQuery.
 
 The goal is to take a modelling request and work toward a satisfactory parametric 3D model with minimal user intervention.
 
+## Design for 3D printing
+
+This repository is mainly for creating 3D-printable objects. Unless the request specifies otherwise, design for single-colour printing with a typical 0.4 mm nozzle.
+
+Prefer geometry that is practical to print: use printable wall and feature sizes, avoid details that are too fine to resolve reliably, provide sensible clearances for moving or mating parts, and consider overhangs, bridging, support requirements, orientation, and bed adhesion. Keep designs suitable for a single material and colour; do not rely on multi-material features or colour changes unless explicitly requested.
+
+Use these assumptions when interpreting ambiguous requirements and when judging whether a model is satisfactory. If a request calls for a different printer, nozzle, material, or manufacturing process, follow that request instead and record important assumptions where useful.
+
+## Functional design
+
+Design functional objects around their behavior and interaction, not only their shape. Before creating geometry, reason about what must be held, supported, guided, blocked, connected, protected, or constrained; how an item enters or is installed; what retains it after insertion; what prevents accidental movement or release; how it is intentionally removed or adjusted; and what normal forces or disturbances the object should tolerate.
+
+Consider whether the user can still grab, access, operate, plug in, unplug, or otherwise manipulate the relevant object. Account for required clearance, friction or retention, and flexibility where relevant. Identify obvious ways the design could fail during normal use.
+
+For holders, docks, clips, mounts, adapters, organizers, and similar objects, reason through the interaction sequence:
+
+```text
+How does the item enter?
+How is it retained?
+What prevents accidental release?
+How is it intentionally removed?
+Can the user still access or operate it?
+```
+
+A visible slot, opening, hook, or retaining feature is not enough if the held object can fall through, the opening blocks installation, retention is ineffective, or the user cannot reach the object. Avoid designs that require threading a long or attached item through a closed hole when the item should be installable in place.
+
+Distinguish between critical dimensions and vibe dimensions:
+
+* **Critical dimensions** materially affect fit or function, such as cable diameter, device thickness, shaft diameter, mounting spacing, shelf or desk thickness, insertion clearance, retaining throat/opening, and mating diameter. Ask for these explicitly, infer them conservatively when reasonable, or expose them as named model parameters.
+* **Vibe dimensions** do not materially affect function, such as external proportions, decorative curvature, non-critical taper, corner radii, visual balance, and cosmetic transitions. Choose and refine these visually as needed.
+
+Critical functional geometry takes priority over cosmetic refinement.
+
 ## Core workflow
 
-For modelling tasks, work autonomously toward the requested result.
+For modelling tasks, work autonomously toward the requested result, applying the [Design for 3D printing](#design-for-3d-printing) and [Functional design](#functional-design) guidance unless the request specifies different manufacturing constraints.
 
 Use this loop:
 
-1. Understand the requested object and constraints.
+1. Before creating geometry, understand the requested object and constraints, and identify:
+   * the object's intended job
+   * important physical interactions
+   * critical interfaces
+   * how a person or another object interacts with it
+   * likely everyday failure modes
 2. Create or edit the CadQuery `.py` model.
 3. Use the CadQuery MCP `evaluate_file` tool.
 4. Inspect the returned:
@@ -21,7 +59,7 @@ Use this loop:
    * topology
    * model parameters
    * build errors, if any
-5. Compare the result with the user's request and any reference images or drawings.
+5. Compare the result with the user's request and any reference images or drawings, including its intended function, physical interactions, and ergonomics—not only its visual appearance and dimensions.
 6. Modify the model to address the largest discrepancies.
 7. Evaluate again.
 8. Repeat until further iteration is unlikely to materially improve the result.
@@ -30,7 +68,7 @@ Use this loop:
 11. Commit the completed work.
 12. Push the commit to the current remote branch.
 
-Do not stop after producing the first valid model if visible or structural improvements are still obvious.
+Do not stop after producing the first valid model if visible, structural, functional, or ergonomic improvements are still obvious. A model is not finished merely because it builds successfully or visually resembles the requested object.
 
 ## Object directory convention
 
@@ -145,7 +183,9 @@ Do not recreate `evaluate_file` functionality with ad-hoc scripts unless it is u
 
 Treat evaluation as part of the modelling process, not merely as a final check.
 
-A successful build alone does not mean the model is finished.
+When inspecting the evaluation results, apply the [Design for 3D printing](#design-for-3d-printing) and [Functional design](#functional-design) guidance in addition to checking the requested geometry.
+
+A successful build alone does not mean the model is finished. Infer functional and ergonomic behavior from the geometry, dimensions, and rendered views; `evaluate_file` does not physically simulate use.
 
 Use rendered views and geometry information to look for:
 
@@ -158,21 +198,28 @@ Use rendered views and geometry information to look for:
 * excessive or missing material
 * incorrect symmetry
 * obviously wrong fillets, chamfers, holes, pockets, lofts, sweeps, or other features
+* insufficient access or clearance
+* weak or ineffective retaining geometry
+* insertion or removal problems
+* geometry that allows a held object to slip, fall through, detach, or move unintentionally
+* features that visually exist but are ineffective for their intended purpose
 
 When reference images are available, compare the generated views against them carefully.
 
 ## Iteration strategy
 
-Prioritize corrections by impact.
+Prioritize corrections by impact, including printability according to the [Design for 3D printing](#design-for-3d-printing) guidance and function according to [Functional design](#functional-design).
 
 A useful order is:
 
-1. overall proportions and bounding dimensions
-2. major topology and missing geometry
-3. placement and size of major features
-4. secondary features
-5. fillets, chamfers, transitions, and details
-6. cosmetic refinements
+1. intended function and physical interaction
+2. critical interfaces and dimensions
+3. overall proportions and bounding dimensions
+4. major topology and missing geometry
+5. placement and size of major features
+6. secondary features
+7. fillets, chamfers, transitions, and details
+8. cosmetic refinements
 
 Do not endlessly tune insignificant details.
 
@@ -185,6 +232,8 @@ model/<object_name>/notes/
 ```
 
 ## Modelling preferences
+
+Apply the [Design for 3D printing](#design-for-3d-printing) and [Functional design](#functional-design) guidance when choosing dimensions, feature details, orientations, and construction methods.
 
 Prefer standard CadQuery operations when they express the geometry cleanly:
 
@@ -207,18 +256,25 @@ Avoid destructive conversion to meshes as the primary modelling representation.
 
 ## Completion criteria
 
-Before declaring a modelling task complete:
+Before declaring a modelling task complete, verify the result against the [Design for 3D printing](#design-for-3d-printing) and [Functional design](#functional-design) guidance as well as the requested geometry:
 
 * the CadQuery source builds successfully
 * the intended result is a valid solid or valid set of solids
 * the latest rendered views have been inspected
 * major requested features are present
+* the intended function and physical interactions have been considered
+* critical interfaces and dimensions have been checked
+* insertion and removal have been considered where applicable
+* the user can access and operate the relevant object where applicable
+* retention and likely everyday failure modes have been considered
 * proportions and dimensions are reasonable relative to the prompt/references
 * obvious geometry defects have been corrected
 * the final source file is saved
 * appropriate final exports are generated
 * the latest useful rendered views are saved
 * all files belonging to the object are contained within `model/<object_name>/`
+
+Do not declare the object complete while an obvious functional or ergonomic problem remains, even if the CAD model builds successfully.
 
 For normal mechanical / printable models, produce at least:
 
@@ -338,7 +394,7 @@ Continue iterating while:
 * the model is clearly incomplete
 * evaluation reveals substantial discrepancies
 * a failed construction can reasonably be repaired
-* obvious improvements remain
+* obvious visual, structural, functional, or ergonomic improvements remain
 
 Ask the user only when a genuinely important design decision cannot be inferred and different choices would produce materially different objects.
 
@@ -357,6 +413,8 @@ Do not replace a promising model wholesale after a minor failure.
 If an approach repeatedly fails, simplify the construction or choose a different CAD operation.
 
 If a requested detail cannot be modelled reliably, preserve the successful parts of the model and clearly identify the remaining limitation.
+
+Geometry that builds successfully but is clearly functionally ineffective should be treated as a modelling failure.
 
 ## Final response
 
