@@ -96,12 +96,63 @@ For a simple linear-move parser:
 - Supported first layers may still be tagged `Bridge infill`. That role alone
   does not prove there is air underneath; compare preceding model/support layers.
 
-The initial working parser is object-specific, not a general skill CLI:
+The initial working parser was object-specific:
 [case analysis script](../../../../model/sunglasses_case/notes/slicer_review/analyze.py).
-It expects the two named diagnostic files and uses only the Python standard
-library. Inspect its actual coverage before reuse. It does not generate plots
-or calculate true unsupported spans. Generalize it into a tested helper only
-when that is useful to a subsequent investigation.
+It expects two named diagnostic files. The reusable helper below now accepts
+one file and can render selected layer windows. Neither calculates true
+unsupported spans.
+
+## Inspect one G-code file and render layer windows
+
+Verified on 2026-09-05 with PrusaSlicer 2.9.6 and the revised flat-print case:
+[inspect_gcode.py](../scripts/inspect_gcode.py) uses the Python standard library
+to produce feature counts, layer counts, longest bridge segments and optional
+SVG close-ups. It rejects absolute E, relative XYZ, inch units, arcs and
+nonplanar deposition. It ignores stationary retractions/unretractions and travel.
+Its expected input is commented, linear, ASCII PrusaSlicer G-code in millimetres.
+
+```sh
+python3 .codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py \
+  "$run_dir/case.gcode" --json "$review_dir/case_paths.json" \
+  --svg "$review_dir/hinge_layers.svg" --layers 33.6 37.0 40.6 \
+  --window 82 117 108 140
+```
+
+The example window is Xmin, Ymin, Xmax, Ymax in **sliced bed coordinates** for
+the revised sunglasses case, centered at 130,130. Choose heights and coordinates
+from the actual current paths, not raw CAD coordinates. Requested layers must
+exist; the script refuses to substitute a materially different layer silently.
+
+Gray lines show the preceding deposited layer at its reported extrusion width;
+thin colored/black lines show current centerlines. This helps inspect where
+material grows, whether gaps persist and what lies beneath a bridge-labeled
+path. It is not a continuous material-coverage calculation or sag simulation.
+Numerical line clipping is used: the local ImageMagick renderer produced
+incorrect results with SVG clip paths during development. The corrected SVG
+and PNG were visually inspected. Where ImageMagick is available, conversion is:
+
+```sh
+convert -background white "$review_dir/hinge_layers.svg" "$review_dir/hinge_layers.png"
+```
+
+The helper was exercised on both full-case and hinge-coupon output, with
+additional checks for deposition versus travel/retraction, rejected coordinate
+modes, arcs, nonplanar extrusion and numerical window clipping. Continue to
+extend its format coverage only with tests; it is not a general G-code interpreter.
+
+## Long bridge-role paths can lie over internal infill
+
+In the revised flat case, a diagnostic profile with 6 top and 6 bottom layers
+at 0.2 mm left a sparse infill band inside the 3 mm floor. At Z=2.0 mm,
+PrusaSlicer emitted bridge-role paths up to about 184 mm long over that infill,
+without the earlier long-bridge warning. Their full length was not an empty
+span. Inspect preceding material before classifying such paths as failures.
+
+Using 8 top and 8 bottom layers made those 3 mm panels solid throughout; the
+final case and coupon had no Bridge infill or support roles and no stability
+warnings. That setting is specific to these panel thicknesses and layer height,
+not a general instruction to eliminate all infill or bridge roles. Evidence:
+[flat-print review](../../../../model/sunglasses_case/notes/support_free_review/report.md).
 
 ## Recorded case: standing sunglasses case
 
@@ -127,9 +178,8 @@ context. It was a diagnostic comparison, not an approved support-based solution.
 
 ## What has not been established yet
 
-No general headless layer-image generator, automatic free-air span measurement,
-support-removal accessibility checker or reliable pass/fail printability score
-has been implemented or verified in this notebook. A future investigation may
-add them after testing. No universal safe bridge length or overhang-angle limit
+Selected layer-window SVGs are now supported by the helper above. Automatic
+free-air span measurement, support-removal accessibility checking and a reliable
+pass/fail printability score remain unimplemented here. No universal safe bridge length or overhang-angle limit
 has been established; behavior depends on geometry, anchors, process and material.
 Slicer evidence does not physically measure sag, surface finish or hinge freedom.

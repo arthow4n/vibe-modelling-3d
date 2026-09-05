@@ -1,9 +1,9 @@
 """Sunglasses case, mm. Evaluate this file with the CadQuery MCP.
 
 PETG, 0.4 mm nozzle; 260 mm build volume confirmed.
-Captive bulbed spindle: no separate pin, nuts or assembly.
-Print the connected assembly open 180 degrees, hinge axis vertical.
-Accessible shell supports may be needed; exclude bearing gaps from supports.
+Opposing conical pivots: no separate pin, nuts or assembly.
+Print open 180 degrees with both broad exterior faces on the bed.
+No supports; short pivots and socket roofs grow on 45-degree surfaces.
 """
 from pathlib import Path
 import cadquery as cq
@@ -15,11 +15,12 @@ CLEARANCE = 4.0  # each side, includes allowance for 1 mm soft lining
 WALL = 3.0
 FLOOR = 3.0
 CORNER = 7.0
-HINGE_RADIUS = 6.2
-AXLE_RADIUS = 2.4
-BULB_RADIUS = 4.4
-RADIAL_GAP = 0.5  # per side, not diametral
-AXIAL_GAP = 0.3  # additional allowance on the conical bearing ends
+HINGE_RADIUS = 7.5  # diamond exterior, gives 45-degree lower faces
+PIVOT_RADIUS = 3.5
+PIVOT_TIP_OFFSET = 1.0  # tips stop either side of bearing centre
+CONE_CLEARANCE = 0.7  # radial at fixed X; normal cone gap = value / sqrt(2)
+END_CLEARANCE = 0.6  # axial gap between fixed and moving ears
+EAR_OUTER_OFFSET = 10.0
 LATCH_THICKNESS = 1.6
 LAYOUT = "closed"  # closed / open / print / coupon / hinge_section
 EXPORT = True
@@ -32,7 +33,8 @@ HEIGHT = IH + 2 * FLOOR
 SEAM = HEIGHT / 2
 HY = OD / 2 + HINGE_RADIUS + 0.8
 BEARING_CENTERS = (-OW/2 + 52, OW/2 - 52)
-ANCHOR_END = OW/2 - 10
+PIVOT_ROOT = PIVOT_TIP_OFFSET + PIVOT_RADIUS
+RECEIVER_HALF = PIVOT_ROOT - END_CLEARANCE
 assert CLEARANCE >= 3 and WALL >= 2.4 and IH >= 40
 assert OW > 140 and ID > 60
 
@@ -53,93 +55,82 @@ def half():
     return outer.cut(cavity).edges(">Z").chamfer(0.3)
 
 
-def turned(profile):
-    """Solid of revolution about X, shifted to the hinge axis."""
-    return (cq.Workplane("XY").polyline(profile).close()
-            .revolve(360, (0, 0), (1, 0)).translate((0, HY, SEAM)))
-
-
-def ear(start, end, lid_side=False):
-    """Bearing exterior with two 45-degree underside cuts in print direction X.
-
-    The ear grows from its shell wall before surrounding the vertical axle.
-    This avoids starting a complete annulus in mid-air. Bore is cut afterward.
-    """
+def hinge_ear(x0, x1, lid_side=False):
+    """Diamond barrel and 45-degree web, built in flat/open print coordinates."""
     side = 1 if lid_side else -1
-    wall_y = HY + side * (HINGE_RADIUS + 0.8)
-    barrel = cq.Workplane("YZ", origin=(start, HY, SEAM)).circle(HINGE_RADIUS).extrude(end-start)
-    web = block((start+end)/2, (HY+wall_y)/2, SEAM-2.5,
-                end-start, abs(wall_y-HY)+2, 5)
-    part = barrel.union(web)
-    m = 500
-    slope = -side
-    # Remove X < start + slope * (Y - wall_y).
-    under_y = (cq.Workplane("XY", origin=(0, 0, -m))
-               .polyline([(start+slope*(-m-wall_y), -m),
-                          (start+slope*(m-wall_y), m), (-m, m), (-m, -m)])
-               .close().extrude(2*m))
-    # Also grow the upper half of the circle upward from the web at 45 degrees.
-    under_z = (cq.Workplane("XZ", origin=(0, m, 0))
-               .polyline([(start-m-(SEAM-5), -m),
-                          (start+m-(SEAM-5), m), (-m, m), (-m, -m)])
-               .close().extrude(2*m))
-    return part.cut(under_y).cut(under_z).edges(">X").chamfer(0.3)
+    wall_y = HY + side * (HINGE_RADIUS + 1.8)  # overlaps wall by 1 mm
+    r = HINGE_RADIUS
+    diamond = (cq.Workplane("YZ", origin=(x0, HY, SEAM))
+               .polyline([(0, -r), (r, 0), (0, r), (-r, 0)]).close()
+               .extrude(x1-x0).edges("|X").chamfer(0.35))
+    web_low = SEAM-r-abs(wall_y-HY)
+    web = (cq.Workplane("YZ", origin=(x0, 0, 0))
+           .polyline([(wall_y, web_low), (HY, SEAM-r),
+                      (HY, SEAM), (wall_y, SEAM)]).close().extrude(x1-x0))
+    return diamond.union(web)
 
 
-def spindle(start, end, centers):
-    profile = [(start, 0), (start, AXLE_RADIUS)]
-    for c in centers:
-        run = BULB_RADIUS - AXLE_RADIUS  # 45-degree cones in print orientation
-        profile += [(c-1-run, AXLE_RADIUS), (c-1, BULB_RADIUS),
-                    (c+1, BULB_RADIUS), (c+1+run, AXLE_RADIUS)]
-    profile += [(end, AXLE_RADIUS), (end, 0)]
-    return turned(profile)
+def cone(x, radius, direction):
+    return cq.Workplane(obj=cq.Solid.makeCone(radius, 0, radius,
+        cq.Vector(x, HY, SEAM), cq.Vector(direction, 0, 0)))
 
 
-def bearing(c):
-    start, end = c-21, c+7
-    run = BULB_RADIUS - AXLE_RADIUS
-    neck, wide = AXLE_RADIUS+RADIAL_GAP, BULB_RADIUS+RADIAL_GAP
-    # Widened internal cavity captures the bulb behind two narrower necks.
-    # Both transitions are 45 degrees, with explicit radial and axial gaps.
-    bore = turned([(start-0.1, 0), (start-0.1, neck),
-                   (c-1-run-AXIAL_GAP, neck), (c-1-AXIAL_GAP, wide),
-                   (c+1+AXIAL_GAP, wide), (c+1+run+AXIAL_GAP, neck),
-                   (end+0.1, neck), (end+0.1, 0)])
-    return ear(start, end, lid_side=True).cut(bore)
+def hinge(c):
+    """Two fixed cones enter opposite ends of a captive rotating socket.
+
+    Each cone extends from an attached ear at 45 degrees instead of beginning
+    as a floating horizontal rod. The conical socket roofs are also 45 degrees.
+    """
+    left = hinge_ear(c-EAR_OUTER_OFFSET, c-PIVOT_ROOT)
+    right = hinge_ear(c+PIVOT_ROOT, c+EAR_OUTER_OFFSET)
+    left = left.union(cone(c-PIVOT_ROOT, PIVOT_RADIUS, 1))
+    right = right.union(cone(c+PIVOT_ROOT, PIVOT_RADIUS, -1))
+    receiver = hinge_ear(c-RECEIVER_HALF, c+RECEIVER_HALF, lid_side=True)
+    receiver = receiver.cut(cone(c-PIVOT_ROOT, PIVOT_RADIUS+CONE_CLEARANCE, 1))
+    receiver = receiver.cut(cone(c+PIVOT_ROOT, PIVOT_RADIUS+CONE_CLEARANCE, -1))
+    return left, right, receiver
+
+
+def front_latch():
+    """Ramp-rooted PETG spring on the lid, built in the OPEN print pose.
+
+    Two-sided 45-degree detents replace the unprintable square undercut.
+    Pull the tab outward before lifting. Retention is elastic, not a deadbolt.
+    """
+    front = 2*HY + OD/2
+    inner, outer = front+2.4, front+2.4+LATCH_THICKNESS
+    base, top = SEAM-15, SEAM+10
+    leaf_start = base + (outer-front) + 0.4
+    root = (cq.Workplane("YZ", origin=(-10, 0, 0))
+            .polyline([(front-0.5, base), (outer, leaf_start),
+                       (outer, leaf_start+2.6), (front-0.5, leaf_start+2.6)])
+            .close().extrude(20))
+    leaf = block(0, (inner+outer)/2, (leaf_start+top)/2,
+                 20, LATCH_THICKNESS, top-leaf_start).edges("|Z").fillet(0.4).edges(">Z").chamfer(0.3)
+    tooth = (cq.Workplane("YZ", origin=(-7, 0, 0))
+             .polyline([(inner+0.2, SEAM+3.0), (front+0.4, SEAM+5.2),
+                        (inner+0.2, SEAM+7.4)]).close().extrude(14))
+    grip = (cq.Workplane("YZ", origin=(-9, 0, 0))
+            .polyline([(outer-0.2, top-3), (outer+1.2, top-1.6),
+                       (outer+1.2, top-0.4), (outer-0.2, top-0.4)])
+            .close().extrude(18).edges("|X").fillet(0.3))
+    return root.union(leaf).union(tooth).union(grip)
 
 
 body = half()
-# Build both halves open, sharing the same floor level, then close the lid.
 open_lid = half().translate((0, 2*HY, 0))
-body = body.union(ear(-ANCHOR_END, -ANCHOR_END+16))
-body = body.union(ear(ANCHOR_END-16, ANCHOR_END))
-body = body.union(spindle(-ANCHOR_END+14, ANCHOR_END-2, BEARING_CENTERS))
-for center in BEARING_CENTERS:
-    open_lid = open_lid.union(bearing(center))
-lid = open_lid.rotate((0, HY, SEAM), (1, HY, SEAM), 180)
-
-# Front keeper: horizontal underside carries opening load; sloped top cams
-# the latch outward during closing. Y is negative on the front of the case.
+for c in BEARING_CENTERS:
+    left, right, receiver = hinge(c)
+    body = body.union(left).union(right)
+    open_lid = open_lid.union(receiver)
 front = -OD/2
 keeper = (cq.Workplane("YZ", origin=(-8, 0, 0))
-          .polyline([(front+0.3, SEAM-5), (front-1.8, SEAM-5),
-                     (front-1.8, SEAM-3.5), (front, SEAM-1)])
-          .close().extrude(16))
+          .polyline([(front+0.2, SEAM-5.6), (front-1.4, SEAM-4),
+                     (front+0.2, SEAM-2.4)]).close().extrude(16))
 body = body.union(keeper)
+open_lid = open_lid.union(front_latch())
+lid = open_lid.rotate((0, HY, SEAM), (1, HY, SEAM), 180)
 
-# Long PETG leaf: lift the bottom tab outward, then lift the lid.
-inner = front - 2.4
-leaf_bottom, leaf_top = SEAM-10, SEAM+15
-leaf = block(0, inner-LATCH_THICKNESS/2, (leaf_bottom+leaf_top)/2,
-             20, LATCH_THICKNESS, leaf_top-leaf_bottom).edges("|Y").fillet(0.7)
-root = block(0, front-1.2, leaf_top-1.6, 20, 5.6, 3.2).edges("|Z").fillet(0.6)
-hook = (cq.Workplane("YZ", origin=(-7, 0, 0))
-        .polyline([(inner-0.2, SEAM-8.8), (front-0.4, SEAM-5.6),
-                   (inner-0.2, SEAM-5.6)]).close().extrude(14))
-grip = block(0, inner-LATCH_THICKNESS-0.6, leaf_bottom+1.4,
-             18, 1.8, 2.8).edges("|X").fillet(0.6)
-lid = lid.union(leaf).union(root).union(hook).union(grip)
 
 def compound(*parts):
     return cq.Compound.makeCompound([p.val() for p in parts])
@@ -149,43 +140,32 @@ def opening(angle):
     return lid.rotate((0, HY, SEAM), (1, HY, SEAM), -angle)
 
 
-def standing(part):
-    # X becomes print Z; short end X=-OW/2 is on the bed.
-    return part.rotate((0, 0, 0), (0, 1, 0), -90).translate((SEAM, OD/2, OW/2))
+def hinge_coupon():
+    # Exact production hinge on short wall sections, same bed and axis heights.
+    fixed = block(0, OD/2-1.5, SEAM/2, 32, 3, SEAM)
+    moving = block(0, 2*HY-OD/2+1.5, SEAM/2, 32, 3, SEAM)
+    fixed = fixed.union(block(0, OD/2-6, FLOOR/2, 32, 12, FLOOR))
+    moving = moving.union(block(0, 2*HY-OD/2+6, FLOOR/2, 32, 12, FLOOR))
+    left, right, receiver = hinge(0)
+    fixed = fixed.union(left).union(right)
+    moving = moving.union(receiver)
+    assert len(fixed.solids().vals()) == len(moving.solids().vals()) == 1
+    assert fixed.val().isValid() and moving.val().isValid()
+    for angle in range(0, 181, 15):
+        rotated = moving.rotate((0, HY, SEAM), (1, HY, SEAM), angle)
+        assert fixed.intersect(rotated).val().Volume() < 0.001, f"Coupon interference {angle}"
+    # Translation meets opposing ears/cones before either tip can disengage.
+    for shift in (-1.0, 1.0):
+        assert fixed.intersect(moving.translate((shift, 0, 0))).val().Volume() > 0.001
+    return compound(fixed, moving)
 
 
 closed = compound(body, lid)
 opened = compound(body, opening(110))
-print_body, print_lid = standing(body), standing(opening(180))
-print_layout = compound(print_body, print_lid)
-# Small print-in-place clearance coupon using the exact same bearing profile.
-# Separate feet provide bed contact; neither foot bridges the moving clearance.
-def hinge_coupon():
-    low, high = -37.0, 26.0
-    fixed_wall_y, moving_wall_y = OD/2-1.5, 2*HY-OD/2+1.5
-    fixed = block((low+high)/2, fixed_wall_y, SEAM-3, high-low, 3, 6)
-    moving = block((low+high)/2, moving_wall_y, SEAM-3, high-low, 3, 6)
-    fixed = fixed.union(block(low+1.5, fixed_wall_y-1, SEAM-5.5, 3, 8, 9))
-    moving = moving.union(block(low+1.5, moving_wall_y+1, SEAM-5.5, 3, 8, 9))
-    pin = spindle(low+14, high-2, (0,))
-    fixed = fixed.union(ear(low, low+16)).union(ear(high-16, high)).union(pin)
-    moving = moving.union(bearing(0))
-    assert len(fixed.solids().vals()) == len(moving.solids().vals()) == 1, "Coupon disconnected"
-    assert fixed.val().isValid() and moving.val().isValid(), "Coupon invalid"
-    assert fixed.intersect(moving).val().Volume() < 0.001, "Coupon initial interference"
-    for angle in range(0, 181, 15):
-        rotated = moving.rotate((0, HY, SEAM), (1, HY, SEAM), angle)
-        assert fixed.intersect(rotated).val().Volume() < 0.001, f"Coupon sweep interference {angle}"
-    # Verify both cone shoulders prevent the bearing sliding along the spindle.
-    for shift in (-1.5, 1.5):
-        assert pin.intersect(bearing(0).translate((shift, 0, 0))).val().Volume() > 0.01, "Coupon not captive"
-    parts = [part.rotate((0, 0, 0), (0, 1, 0), -90)
-             .translate((SEAM, -HY, -low)) for part in (fixed, moving)]
-    return compound(*parts)
-
-
+print_body, print_lid = body, open_lid
+print_layout = compound(body, open_lid)
 coupon = hinge_coupon()
-hinge_section = cq.Workplane(obj=coupon).intersect(block(10, 0, 31.5, 20, 60, 80))
+hinge_section = cq.Workplane(obj=coupon).intersect(block(0, HY, SEAM-15, 40, 70, 30))
 result = {"closed": closed, "open": opened, "print": print_layout,
           "coupon": coupon, "hinge_section": hinge_section}[LAYOUT]
 
@@ -197,9 +177,8 @@ assert body.intersect(fit_envelope).val().Volume() < 0.001
 assert lid.intersect(fit_envelope).val().Volume() < 0.001
 for angle in range(20, 181, 5):
     assert body.intersect(opening(angle)).val().Volume() < 0.001, "Hinge sweep interferes"
-# Enlarged bulbs cannot pass through either end of the bearing bores.
-assert BULB_RADIUS > AXLE_RADIUS + RADIAL_GAP + 1.0
-assert HINGE_RADIUS - (BULB_RADIUS+RADIAL_GAP) >= 1.2
+assert PIVOT_RADIUS-END_CLEARANCE > END_CLEARANCE
+assert HINGE_RADIUS/2**0.5 - (PIVOT_RADIUS+CONE_CLEARANCE-END_CLEARANCE) >= 1.5
 assert abs(print_body.val().BoundingBox().zmin) < 0.02
 assert abs(print_lid.val().BoundingBox().zmin) < 0.02
 assert max(print_layout.BoundingBox().xlen, print_layout.BoundingBox().ylen,
