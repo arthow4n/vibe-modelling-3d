@@ -39,6 +39,8 @@ Treat the user's description as a starting point; they may not know which dimens
 
 Consider printability at both planning and review: first choose a feasible printing approach before building geometry, then inspect the actual evaluated geometry against that plan. Revisit the plan after changes and perform a final printability review; an early intention to make the object printable is not evidence that the finished geometry is printable.
 
+For investigations using PrusaSlicer, apply the [PrusaSlicer printability notebook](../prusa-slicer-printability/SKILL.md). It records verified CLI techniques and requires agents to maintain new investigation knowledge automatically. Slicer checks supplement the CAD review; successful slicing alone does not establish printability.
+
 Unless the request specifies otherwise, design for FDM/FFF printing in a single colour and material with a typical 0.4 mm nozzle. Do not rely on multi-material features or colour changes unless explicitly requested.
 
 Choose a plausible print orientation before committing to major geometry, and revisit it as the design evolves:
