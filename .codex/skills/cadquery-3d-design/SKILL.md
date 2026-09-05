@@ -12,7 +12,7 @@ Use this skill for every CadQuery modelling task in this repository. The intende
 Use this checklist as the task plan when creating or substantially revising a model. Track it in the available planning tool or in `model/<object_name>/notes/checklist.md`. Mark items complete only after doing and reviewing the work; record why an item is not applicable or remains unverified. Reopen affected checks after geometry changes. For small edits, revisit the affected checks and final review without repeating unchanged work.
 
 * [ ] **Confirm tools and scope.** Read the request and references, inspect existing object files and user edits, and confirm the customized CadQuery MCP `evaluate_file` tool is available. If it is missing, follow the stop-and-install instruction in `AGENTS.md` before modelling.
-* [ ] **Define the job.** Identify intended use, physical interactions, critical interfaces, user access, insertion, retention, removal, loads, and likely everyday failure modes. Establish what would count as a satisfactory result.
+* [ ] **Define the job.** Identify intended use, physical interactions, critical interfaces, user access, insertion, retention, removal, loads, and likely everyday failure modes. Follow the requirements clarification guidance below, ask useful questions early, and establish what would count as a satisfactory result.
 * [ ] **Set dimensions and assumptions.** Separate critical dimensions from vibe dimensions; record units, nominal sizes, fit allowances, and uncertain measurements. Expose important dimensions as named parameters and resolve uncertainty conservatively or ask when it materially changes the object.
 * [ ] **Choose a print plan.** Establish material assumptions, nozzle, orientation, bed contact, build-volume constraints when known, layer direction, wall sizes, and support/removal strategy. Default to single-colour, single-material FDM with a 0.4 mm nozzle.
 * [ ] **Build the main geometry.** Create or update the parametric CadQuery source inside the object's directory. Establish proportions, intended solids, and critical functional features before cosmetic details.
@@ -23,7 +23,19 @@ Use this checklist as the task plan when creating or substantially revising a mo
 * [ ] **Export and verify deliverables.** Generate the required STEP/STL exports from the final source, check scale and mesh detail, and save useful isometric/front/top/right views. Inspect a slicer preview if available; record whether slicing and trial printing are verified or still outstanding.
 * [ ] **Record and hand off.** Save print orientation, assembly instructions where needed, assumptions, and limitations inside the object's directory. Review the diff and artifacts, commit and push according to `AGENTS.md`, and summarize the final files and verification status.
 
+## Requirements clarification
+
+Treat the user's description as a starting point; they may not know which dimensions, interactions, or printing constraints matter. During interpretation and planning, actively look for ambiguity and invite clarification when the answer would improve fit, function, usability, or the printing approach. Do not wait for the user to volunteer technical requirements or silently choose between materially different uses.
+
+* Ask a small set of focused questions in plain language, prioritizing the intended job, what the object must fit, how it is installed and used, and any important loads or environment. For example: “Should this clip onto the desk edge or be screwed underneath?” Explain why the distinction matters and offer a recommended option with its tradeoff when helpful.
+* Help the user supply critical measurements: identify exactly what to measure and in which units, or request an available reference or product dimension. A named parameter makes an uncertain dimension editable; it does not establish that the fit is correct.
+* Ask about printer, material, build size, or willingness to remove supports only when those answers affect the design. If the user does not know, explain a reasonable default and its implications rather than requiring them to choose CAD operations, tolerances, or slicer settings.
+* Briefly state the interpreted use, proposed print approach, and important assumptions before committing to geometry. Separate confirmed requirements from assumptions. Proceed on low-impact visual choices and reversible defaults; wait for clarification before committing to an unresolved interface or use that would produce a materially different object. Continue independent planning while awaiting answers.
+* Revisit questions if evaluation reveals an unforeseen conflict between function and printability. Avoid repeated approval requests for routine modelling decisions, and respect a user's request to proceed with reasonable assumptions while clearly identifying unverified fit or performance.
+
 ## Printability
+
+Consider printability at both planning and review: first choose a feasible printing approach before building geometry, then inspect the actual evaluated geometry against that plan. Revisit the plan after changes and perform a final printability review; an early intention to make the object printable is not evidence that the finished geometry is printable.
 
 Unless the request specifies otherwise, design for FDM/FFF printing in a single colour and material with a typical 0.4 mm nozzle. Do not rely on multi-material features or colour changes unless explicitly requested.
 

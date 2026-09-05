@@ -179,7 +179,7 @@ Prioritize corrections by impact, following the function-first order and printab
 
 Do not endlessly tune insignificant details.
 
-If the request is ambiguous, make reasonable engineering or visual assumptions and continue rather than blocking progress unnecessarily.
+If the request is ambiguous, follow the skill's [requirements clarification guidance](.codex/skills/cadquery-3d-design/SKILL.md#requirements-clarification). Ask useful questions during interpretation and planning when answers affect fit, function, usability, or printability; explain the choices in plain language. Use documented assumptions for low-impact details and reasonable defaults.
 
 Record important assumptions in comments in the model or, when useful, in:
 
@@ -347,9 +347,9 @@ Continue iterating while:
 * a failed construction can reasonably be repaired
 * obvious visual, structural, functional, or ergonomic improvements remain
 
-Ask the user only when a genuinely important design decision cannot be inferred and different choices would produce materially different objects.
+Encourage early clarification of unclear requirements rather than expecting the user to understand 3D printing or specify every constraint. Ask focused questions that help establish the intended use and critical interfaces, and offer understandable recommendations. Resolve ambiguity that would produce materially different objects before committing to the affected geometry.
 
-Otherwise choose a reasonable interpretation, document the assumption if useful, and continue.
+For routine design decisions, choose a reasonable interpretation, document important assumptions, and continue without repeated approval requests. Consider printability during planning and review the resulting geometry again during iteration and before completion.
 
 ## Failure handling
 
