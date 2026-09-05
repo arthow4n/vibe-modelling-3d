@@ -167,11 +167,17 @@ Prefer parametric and understandable construction over hard-coded point clouds o
 
 Generated STEP, STL, 3MF, renders, and other artifacts are derived from the `.py` source unless the task explicitly requires otherwise.
 
+## Python dependencies
+
+If a Python-specific dependency is genuinely needed, use `uv` to set it up. Do not use `virtualenv`, ad-hoc virtual environments, or another Python environment manager. Prefer reproducible project setup files such as `pyproject.toml` and `uv.lock`, and commit the related setup files; do not commit environment directories or caches.
+
 ## CadQuery evaluation
 
 The CadQuery MCP is intentionally exposed with a small tool surface.
 
-Use `evaluate_file` as the normal feedback mechanism.
+Prefer and use the customized CadQuery MCP `evaluate_file` tool whenever possible; it is the required way to evaluate and iterate on CadQuery models.
+
+If `evaluate_file` is not available for a CadQuery task, do not proceed with the modelling work or recreate the tool with ad-hoc scripts. Refuse the task for now and ask the user to install the customized CadQuery MCP from [cadquery-contrib](https://github.com/arthow4n/cadquery-contrib/tree/feature/loop-customisations), then retry. Use the tool to do CadQuery work whenever possible.
 
 Evaluate the object's source file directly, for example:
 
@@ -361,6 +367,8 @@ model/
 Use judgment based on whether the files belong to one coherent deliverable.
 
 ## Git workflow
+
+Automatic commit and push are preferred for all repository tasks, not only modelling tasks. When a requested change is complete, inspect the status and diff, stage only the relevant files, create a concise commit, and push it to the current upstream branch. Preserve unrelated user changes and do not modify unrelated files merely to make the working tree clean.
 
 When the modelling task is satisfactorily complete:
 
