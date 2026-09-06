@@ -11,7 +11,7 @@ below 250 mm. `summary.json` records file/profile hashes, bounds and estimates.
 
 | Plate | Estimated PETG | Diagnostic time | Actual deposition XY bounds, mm |
 | --- | ---: | --- | --- |
-| Main case | 352.86 g | 29 h 49 min | X 3.122–256.876; Y 11.202–248.220 |
+| Main case | 352.47 g | 29 h 46 min | X 3.122–256.876; Y 11.202–248.220 |
 | Accessories | 15.45 g | 1 h 37 min | X 50.372–209.628; Y 96.422–163.578 |
 | All test pieces | 38.07 g | 3 h 46 min | X 28.622–231.378; Y 99.162–157.960 |
 
@@ -73,3 +73,11 @@ The path bounds are a conservative bound on reported straight extrusion paths,
 not predicted plastic spread, ooze, sag or a complete printer-motion envelope.
 Slicer success does not establish actual brush fit, surface finish, latch force,
 clip retention, PETG fatigue, crush resistance or hygiene performance.
+
+## Middle separator revision
+
+Re-sliced the case after adding 14 mm upper profile corners and 0.8 mm edge
+rounds. No stability warnings; same deposited-path bounds and maximum Z.
+Clip, hinge and socket geometry and their retained layer close-ups are unchanged.
+Accessory and test STL hashes match the previous review; those slices remain
+applicable. The current main-case hash and estimates are in `summary.json`.

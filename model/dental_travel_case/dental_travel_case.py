@@ -31,7 +31,9 @@ def build():
     # Continuous partition reaches near the closed roof, protecting the head
     # even when the case is inverted. Rounded top for handling and cleaning.
     partition=block(0,PARTITION_Y,(FLOOR+HEIGHT-FLOOR-0.6)/2,
-                    IW-1.2,WALL,IH-0.6).edges('|X').fillet(0.5)
+                    IW-1.2,WALL,IH-0.6)
+    partition=partition.edges('|Y and >Z').fillet(PARTITION_CORNER_RADIUS)
+    partition=partition.edges('|X').fillet(PARTITION_EDGE_RADIUS)
     body=body.union(partition)
     body=body.union(shoulder_stop().translate((SHOULDER_X,BRUSH_Y,FLOOR)))
     for x in CLIP_POSITIONS:

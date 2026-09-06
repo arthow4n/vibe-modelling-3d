@@ -162,3 +162,11 @@ one useful variation builds, not every combination or physical fit.
 See `slicer_review/report.md` for final slicer evidence. **No physical prints have
 been tested yet.** Preserve the source revision and PETG/profile settings when
 reporting test results so the next adjustment can be small and traceable.
+
+## Rounded middle separator revision
+
+The long fixed separator now has 14 mm upper profile corners and a 0.8 mm
+edge radius, controlled by `PARTITION_CORNER_RADIUS` and `PARTITION_EDGE_RADIUS`.
+The broad corner curves start above the nominal brush/head envelope; the lower
+protective barrier and storage interfaces remain intact. Updated CAD fit/lid
+checks and the no-support diagnostic slice passed. Physical testing is pending.

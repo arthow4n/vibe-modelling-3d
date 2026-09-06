@@ -19,3 +19,10 @@ Final CAD and slicer review completed. Nominal envelopes and loaded lid sweep pa
 All three final diagnostic plates slice without stability warnings. Paired exports
 agree and fit the safe bed including generated brim paths. One alternate parameter
 configuration built; defaults restored. Physical tests are deliberately pending.
+
+## Middle separator rounding revision
+- [x] Interpret request as long fixed middle separator; preserve item interfaces.
+- [x] Add named 14 mm top-corner and 0.8 mm edge radii.
+- [x] Re-evaluate geometry, closed/loaded lid clearance and exports.
+- [x] Inspect updated views and refresh relevant printability evidence.
+- [x] Commit and push revision with the completed object.

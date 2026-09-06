@@ -12,8 +12,8 @@
         181.9392,
         61.8
       ],
-      "solid_volume_cm3": 285.56,
-      "triangles": 64196,
+      "solid_volume_cm3": 285.248,
+      "triangles": 72676,
       "STEP_STL_bounds_agree_within_mm": 0.03,
       "degenerate_triangles": 0,
       "unpaired_mesh_edges": 0
@@ -200,6 +200,8 @@
     "CORNER": 10.0,
     "EXTERIOR_BEVEL": 1.0,
     "RIM_ROUND": 0.5,
+    "PARTITION_CORNER_RADIUS": 14.0,
+    "PARTITION_EDGE_RADIUS": 0.8,
     "HINGE_RADIUS": 5.6,
     "PIVOT_RADIUS": 3.5,
     "PIVOT_TIP_OFFSET": 1.0,

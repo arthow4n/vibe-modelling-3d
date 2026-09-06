@@ -3,9 +3,9 @@
   "profile_sha256": "f8c6d39fb6b5c1f41c2c5f263dbf23c59fb6ac51f7c698a4ef5a43876a4a6804",
   "slices": {
     "dental_travel_case": {
-      "STL_sha256": "ebdd6588f23c956b4b47b2616c07b6c9296871e6d52dd6a2c174bca5e1a36c71",
-      "Gcode_sha256": "234854e38746915039adb1092710cb68173577459abe04dd2aa27d48cbef6239",
-      "nonempty_gcode_bytes": 14455251,
+      "STL_sha256": "17d4e20426a9d3d6ed2dd81c99143e2607dc4f6205c6e41acf47246f6ce8a89f",
+      "Gcode_sha256": "a1e3db515eb117b2a648b4339d69bf17098e302be0c4b1fe5444acdbac692957",
+      "nonempty_gcode_bytes": 14766967,
       "warnings": [],
       "xy_deposition_bounds_including_half_width_mm": [
         3.122,
@@ -15,8 +15,8 @@
       ],
       "max_layer_z_mm": 61.8,
       "metadata": {
-        "filament used [g]": "352.86",
-        "estimated printing time (normal mode)": "1d 5h 48m 48s"
+        "filament used [g]": "352.47",
+        "estimated printing time (normal mode)": "1d 5h 45m 59s"
       }
     },
     "test_pieces": {
