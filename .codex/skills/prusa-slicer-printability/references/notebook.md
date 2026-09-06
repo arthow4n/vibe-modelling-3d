@@ -176,6 +176,15 @@ The support comparison added support/interface paths below the wall. It still
 used bridge-role paths at Z=171.2 mm, illustrating why role labels need spatial
 context. It was a diagnostic comparison, not an approved support-based solution.
 
+## Clean slicing does not prove clean mesh topology
+
+The rounded sunglasses hinge exported a few degenerate triangles at exact cone
+apices even though its CAD solids were valid and PrusaSlicer emitted no warning.
+Small flat tips eliminated the degenerate facets; final exported meshes were
+checked independently for paired triangle edges, component count and bed contact.
+When moving-part reliability matters, retain these mesh checks alongside slicer
+warnings and path inspection. A clean slice alone did not reveal this defect.
+
 ## What has not been established yet
 
 Selected layer-window SVGs are now supported by the helper above. Automatic

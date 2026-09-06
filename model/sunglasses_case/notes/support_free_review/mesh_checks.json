@@ -1,0 +1,24 @@
+{
+  "sunglasses_case.stl": {
+    "triangles": 51912,
+    "dimensions_mm": [
+      174.0,
+      212.0392,
+      47.0
+    ],
+    "watertight_components": 2,
+    "both_components_on_bed": true,
+    "sha256": "62cf8351ed88d9428b05913cdc7fcb1b1b985f870e6b6d59ea3a18b6cbed991c"
+  },
+  "hinge_test.stl": {
+    "triangles": 6280,
+    "dimensions_mm": [
+      32.0,
+      41.4392,
+      42.5989
+    ],
+    "watertight_components": 2,
+    "both_components_on_bed": true,
+    "sha256": "8ea9c28e0ae3455d4cfdfc3dee8885f0801cee380942cf3ed9e0098a717e0938"
+  }
+}

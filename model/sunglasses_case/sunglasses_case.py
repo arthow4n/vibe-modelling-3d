@@ -14,12 +14,14 @@ GLASSES_HEIGHT = 60.0
 CLEARANCE = 4.0  # each side, includes allowance for 1 mm soft lining
 WALL = 3.0
 FLOOR = 3.0
-CORNER = 7.0
-HINGE_RADIUS = 7.5  # diamond exterior, gives 45-degree lower faces
+CORNER = 10.0
+EXTERIOR_BEVEL = 2.0
+RIM_ROUND = 0.6
+HINGE_RADIUS = 5.6  # round crown with tangent 45-degree printable underside
 PIVOT_RADIUS = 3.5
 PIVOT_TIP_OFFSET = 1.0  # tips stop either side of bearing centre
-CONE_CLEARANCE = 0.7  # radial at fixed X; normal cone gap = value / sqrt(2)
-END_CLEARANCE = 0.6  # axial gap between fixed and moving ears
+CONE_CLEARANCE = 0.6  # radial at fixed X; normal cone gap = value / sqrt(2)
+END_CLEARANCE = 0.5  # axial gap between fixed and moving ears
 EAR_OUTER_OFFSET = 10.0
 LATCH_THICKNESS = 1.6
 LAYOUT = "closed"  # closed / open / print / coupon / hinge_section
@@ -31,7 +33,7 @@ IH = GLASSES_HEIGHT + 2 * CLEARANCE
 OW, OD = IW + 2 * WALL, ID + 2 * WALL
 HEIGHT = IH + 2 * FLOOR
 SEAM = HEIGHT / 2
-HY = OD / 2 + HINGE_RADIUS + 0.8
+HY = OD / 2 + HINGE_RADIUS * 2**0.5 + 0.8
 BEARING_CENTERS = (-OW/2 + 52, OW/2 - 52)
 PIVOT_ROOT = PIVOT_TIP_OFFSET + PIVOT_RADIUS
 RECEIVER_HALF = PIVOT_ROOT - END_CLEARANCE
@@ -50,28 +52,34 @@ def rounded(w, d, h, z, radius):
 
 def half():
     outer = rounded(OW, OD, SEAM, 0, CORNER)
-    outer = outer.edges("<Z").chamfer(0.6)
+    outer = outer.edges("<Z").chamfer(EXTERIOR_BEVEL)
     cavity = rounded(IW, ID, SEAM, FLOOR, CORNER - WALL)
-    return outer.cut(cavity).edges(">Z").chamfer(0.3)
+    return outer.cut(cavity).edges(">Z").fillet(RIM_ROUND)
 
 
 def hinge_ear(x0, x1, lid_side=False):
-    """Diamond barrel and 45-degree web, built in flat/open print coordinates."""
+    """Round crown, tangent 45-degree underside and web in flat print pose."""
     side = 1 if lid_side else -1
-    wall_y = HY + side * (HINGE_RADIUS + 1.8)  # overlaps wall by 1 mm
+    wall_y = HY + side * (HINGE_RADIUS*2**0.5 + 1.8)
     r = HINGE_RADIUS
-    diamond = (cq.Workplane("YZ", origin=(x0, HY, SEAM))
-               .polyline([(0, -r), (r, 0), (0, r), (-r, 0)]).close()
-               .extrude(x1-x0).edges("|X").chamfer(0.35))
-    web_low = SEAM-r-abs(wall_y-HY)
+    t = r/2**0.5
+    barrel = (cq.Workplane("YZ", origin=(x0, HY, SEAM))
+              .moveTo(0, -r*2**0.5).lineTo(t, -t)
+              .threePointArc((r, 0), (0, r))
+              .threePointArc((-r, 0), (-t, -t)).close().extrude(x1-x0))
+    barrel = barrel.edges(cq.selectors.NearestToPointSelector(
+        ((x0+x1)/2, HY, SEAM-r*2**0.5))).fillet(0.8)
+    web_low = SEAM-r*2**0.5-abs(wall_y-HY)
     web = (cq.Workplane("YZ", origin=(x0, 0, 0))
-           .polyline([(wall_y, web_low), (HY, SEAM-r),
+           .polyline([(wall_y, web_low), (HY, SEAM-r*2**0.5),
                       (HY, SEAM), (wall_y, SEAM)]).close().extrude(x1-x0))
-    return diamond.union(web)
+    return barrel.union(web)
 
 
 def cone(x, radius, direction):
-    return cq.Workplane(obj=cq.Solid.makeCone(radius, 0, radius,
+    # Blunt the mathematical apex by 0.12 mm to avoid degenerate STL facets.
+    # Male and socket cones retain the same 45-degree mating surfaces.
+    return cq.Workplane(obj=cq.Solid.makeCone(radius, 0.12, radius-0.12,
         cq.Vector(x, HY, SEAM), cq.Vector(direction, 0, 0)))
 
 
@@ -178,7 +186,7 @@ assert lid.intersect(fit_envelope).val().Volume() < 0.001
 for angle in range(20, 181, 5):
     assert body.intersect(opening(angle)).val().Volume() < 0.001, "Hinge sweep interferes"
 assert PIVOT_RADIUS-END_CLEARANCE > END_CLEARANCE
-assert HINGE_RADIUS/2**0.5 - (PIVOT_RADIUS+CONE_CLEARANCE-END_CLEARANCE) >= 1.5
+assert HINGE_RADIUS - (PIVOT_RADIUS+CONE_CLEARANCE-END_CLEARANCE) >= 1.5
 assert abs(print_body.val().BoundingBox().zmin) < 0.02
 assert abs(print_lid.val().BoundingBox().zmin) < 0.02
 assert max(print_layout.BoundingBox().xlen, print_layout.BoundingBox().ylen,
