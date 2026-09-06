@@ -1,6 +1,6 @@
 # Support-free flat-print revision
 
-- [x] Scope: retain confirmed 160 × 80 × 60 mm glasses fit, PETG, 260 mm cube, no supports, no hardware, print-in-place hinge.
+- [x] Scope: retain confirmed 160 × 80 × 60 mm glasses fit, PETG, 260 × 260 × 250 mm safe build volume, 0.4 mm nozzle, no supports, no hardware, print-in-place hinge.
 - [x] Tools: CadQuery evaluate_file and PrusaSlicer CLI available; skills read.
 - [x] Print plan: open 180 degrees with both exterior panels on bed. Short opposing cone pivots, conical sockets and sloped mounting webs; ramped printable latch.
 - [x] Build and evaluate hinge and latch geometry.

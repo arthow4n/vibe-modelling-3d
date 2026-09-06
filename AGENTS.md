@@ -8,6 +8,14 @@ The goal is to take a modelling request and work toward a satisfactory parametri
 
 For every CadQuery modelling task, read and apply the repository's [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md). It contains the printability, functional and ergonomic reasoning, critical-versus-vibe dimensions, edge-treatment, iteration, and design-review guidance. Keep this file focused on repository workflow, tools, artifacts, dependencies, and collaboration.
 
+## Confirmed printer setup
+
+Use the user's confirmed safe build volume of **260 × 260 × 250 mm (X × Y × Z)**
+and **0.4 mm nozzle** for this repository unless the user specifies another
+machine or setup. These are usable printing limits, not nominal machine dimensions.
+Allow space inside the XY limits for brims, supports or other generated paths.
+Check each oriented axis independently; the safe Z height is 250 mm, not 260 mm.
+
 ## Core workflow
 
 For modelling tasks, work autonomously toward the requested result, applying the [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md) unless the request specifies different manufacturing constraints.

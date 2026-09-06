@@ -1,6 +1,6 @@
 """Sunglasses case, mm. Evaluate this file with the CadQuery MCP.
 
-PETG, 0.4 mm nozzle; 260 mm build volume confirmed.
+PETG, 0.4 mm nozzle; safe build volume 260 x 260 x 250 mm (XYZ) confirmed.
 Opposing conical pivots: no separate pin, nuts or assembly.
 Print open 180 degrees with both broad exterior faces on the bed.
 No supports; short pivots and socket roofs grow on 45-degree surfaces.
@@ -189,8 +189,9 @@ assert PIVOT_RADIUS-END_CLEARANCE > END_CLEARANCE
 assert HINGE_RADIUS - (PIVOT_RADIUS+CONE_CLEARANCE-END_CLEARANCE) >= 1.5
 assert abs(print_body.val().BoundingBox().zmin) < 0.02
 assert abs(print_lid.val().BoundingBox().zmin) < 0.02
-assert max(print_layout.BoundingBox().xlen, print_layout.BoundingBox().ylen,
-           print_layout.BoundingBox().zlen) < 260
+assert print_layout.BoundingBox().xlen < 260
+assert print_layout.BoundingBox().ylen < 260
+assert print_layout.BoundingBox().zlen < 250
 
 if EXPORT:
     dest = Path(globals().get("__file__", "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case/sunglasses_case.py")).resolve().parent

@@ -1,7 +1,7 @@
 # Sunglasses case — support-free flat print
 
 Confirmed requirements: folded glasses 160 × 80 × 60 mm, PETG, 260 × 260 ×
-260 mm build volume, no supports, no purchased hardware and no hinge assembly.
+250 mm safe build volume (X × Y × Z), 0.4 mm nozzle, no supports, no purchased hardware and no hinge assembly.
 
 ## Final design
 

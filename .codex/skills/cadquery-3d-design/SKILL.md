@@ -44,6 +44,8 @@ For investigations using PrusaSlicer, apply the [PrusaSlicer printability notebo
 
 Unless the request specifies otherwise, design for FDM/FFF printing in a single colour and material with a typical 0.4 mm nozzle. Do not rely on multi-material features or colour changes unless explicitly requested.
 
+Use the confirmed printer setup in the repository's `AGENTS.md` when present; it takes precedence over generic printer assumptions.
+
 Choose a plausible print orientation before committing to major geometry, and revisit it as the design evolves:
 
 * Provide a stable bed-contact surface and check the oriented dimensions against the build volume when known. Avoid unnecessary tall, slender geometry or footprints prone to lifting. Record the intended orientation and any assumed build-volume limits.
