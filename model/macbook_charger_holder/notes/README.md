@@ -94,8 +94,8 @@ The user supplied the original STL and STEP archive and subsequently confirmed
 the listing's licence as **CC BY-NC-SA 4.0**, correcting the earlier “CC BY”
 description. This object is not MIT-licensed. See [LICENSE](../LICENSE) and
 [ATTRIBUTION.md](../ATTRIBUTION.md) for scope, licence links and credits.
-The creator's display name remains pending because the archive contains no
-author metadata and the listing was blocked by HTTP 403 during this work.
+Original creator: **seanbeaton** (`@seanbeaton_354300`), confirmed from the
+original-page screenshot supplied by the user on 2026-09-06.
 Changes: standalone analytic reconstruction, integrated MagSafe parking rails,
 cable-exit shoulders, finger scallop, softened rails, and optional fit coupon.
 Preserve this attribution with redistributed derivatives; this object's original

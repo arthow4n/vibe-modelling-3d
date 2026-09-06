@@ -2,10 +2,8 @@
 
 - Original title: **96W MacBook Charger Cable Management**.
 - Original work: https://www.printables.com/model/765229-96w-macbook-charger-cable-management
-- Original creator: the creator credited on that page. Display name is pending
-  transcription: the page returns HTTP 403 here, and the supplied archive has
-  no author metadata. This is an outstanding attribution detail, not a claim
-  that a link replaces any creator credit supplied by the original page.
+- Original creator: **seanbeaton** (`@seanbeaton_354300`), confirmed from the
+  original-page screenshot supplied by the user on 2026-09-06.
 - Original licence: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/),
   as transcribed from the model page by the user on 2026-09-06.
 - Remix by: Sheng-Han (Aysh) Su, in the vibe-modelling-3d repository.
