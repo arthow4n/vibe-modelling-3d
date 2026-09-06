@@ -4,6 +4,38 @@ This repository is for autonomous / vibe-driven 3D modelling with CadQuery.
 
 The goal is to take a modelling request and work toward a satisfactory parametric 3D model with minimal user intervention.
 
+## Model provenance and attribution
+
+Model provenance is recorded **per model directory**, not as a default for the
+repository. Each model's attribution describes the language model that was
+primarily used to create or substantially revise that model.
+
+For every new or substantially revised model, record the following metadata in
+the model's documentation or other clearly associated project notes:
+
+* primary language model
+* reasoning effort, when exposed by the runtime
+* harness or agent environment
+* provider, when known
+
+Use the actual values for the run that produced the model. If the agent cannot
+clearly identify its own model, reasoning effort, harness, or provider, it must
+ask the user or provider for that information before finalizing the model's
+attribution. Do not guess or silently apply a repository-wide default. If
+multiple models contribute materially, list the primary model first and note
+the other contributors when they are known.
+
+The current historical attribution for the existing models is:
+
+| Model directory | Primary model | Reasoning effort | Harness | Provider |
+| --- | --- | --- | --- | --- |
+| `model/dental_travel_case/` | GPT-6 Astra | low | Codex | user-provided / not separately recorded |
+| `model/macbook_charger_holder/` | GPT-6 Astra | low | Codex | user-provided / not separately recorded |
+| `model/sunglasses_case/` | GPT-6 Astra | low | Codex | user-provided / not separately recorded |
+
+These entries are per-model historical records, not a claim that all future
+models in this repository use GPT-6 Astra, low reasoning effort, or Codex.
+
 ## 3D design guidance
 
 For every CadQuery modelling task, read and apply the repository's [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md). It contains the printability, functional and ergonomic reasoning, critical-versus-vibe dimensions, edge-treatment, iteration, and design-review guidance. Keep this file focused on repository workflow, tools, artifacts, dependencies, and collaboration.
