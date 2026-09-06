@@ -24,7 +24,7 @@ CONE_CLEARANCE = 0.6  # radial at fixed X; normal cone gap = value / sqrt(2)
 END_CLEARANCE = 0.5  # axial gap between fixed and moving ears
 EAR_OUTER_OFFSET = 10.0
 LATCH_THICKNESS = 1.6
-LAYOUT = "closed"  # closed / open / print / coupon / mechanism_tests / hinge_section
+LAYOUT = "closed"  # closed / open / print / coupon / hinge_section
 EXPORT = globals().get("EXPORT", True)
 
 IW = GLASSES_WIDTH + 2 * CLEARANCE
@@ -214,14 +214,12 @@ MECHANISM_VARIANTS = {
     "current": (0.60, 0.50, 0.00, 1.40),
     "tight_hinge": (0.35, 0.30, 0.00, 1.40),
     "tight_latch": (0.35, 0.30, 0.80, 2.20),
+    "very_tight_hinge": (0.20, 0.20, 0.00, 1.40),
+    "very_tight_latch": (0.20, 0.20, 0.80, 2.20),
 }
 mechanism_tests = [
     mechanism_coupon(*values) for values in MECHANISM_VARIANTS.values()
 ]
-mechanism_tests_layout = compound(*[
-    cq.Workplane(obj=test).translate((index*40.0 - 40.0, 0, 0))
-    for index, test in enumerate(mechanism_tests)
-])
 
 
 closed = compound(body, lid)
@@ -231,8 +229,7 @@ print_layout = compound(body, open_lid)
 coupon = hinge_coupon()
 hinge_section = cq.Workplane(obj=coupon).intersect(block(0, HY, SEAM-15, 40, 70, 30))
 result = {"closed": closed, "open": opened, "print": print_layout,
-          "coupon": coupon, "mechanism_tests": mechanism_tests_layout,
-          "hinge_section": hinge_section}[LAYOUT]
+          "coupon": coupon, "hinge_section": hinge_section}[LAYOUT]
 
 assert len(body.solids().vals()) == 1 and body.val().isValid()
 assert len(lid.solids().vals()) == 1 and lid.val().isValid()
@@ -258,6 +255,3 @@ if EXPORT:
     for name, test in zip(MECHANISM_VARIANTS, mechanism_tests):
         cq.exporters.export(test, str(dest / f"mechanism_test_{name}.stl"),
                             tolerance=0.035, angularTolerance=0.1)
-    cq.exporters.export(mechanism_tests_layout,
-                        str(dest / "mechanism_test_plate.stl"),
-                        tolerance=0.035, angularTolerance=0.1)
