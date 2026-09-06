@@ -195,6 +195,6 @@ assert print_layout.BoundingBox().zlen < 250
 
 if EXPORT:
     dest = Path(globals().get("__file__", "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case/sunglasses_case.py")).resolve().parent
-    cq.exporters.export(closed, str(dest / "sunglasses_case.step"))
+    cq.exporters.export(print_layout, str(dest / "sunglasses_case.step"))
     cq.exporters.export(print_layout, str(dest / "sunglasses_case.stl"), tolerance=0.035, angularTolerance=0.1)
     cq.exporters.export(coupon, str(dest / "hinge_test.stl"), tolerance=0.035, angularTolerance=0.1)

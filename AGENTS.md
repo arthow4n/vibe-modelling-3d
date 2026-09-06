@@ -143,6 +143,8 @@ For models with multiple source files, keep a clear main entry point such as `<o
 
 Generated STEP, STL, 3MF, renders, and other artifacts are derived from the `.py` source unless the task explicitly requires otherwise.
 
+For printable models, export the final STEP and STL from the same print-ready geometry and placement: matching units, orientation, bed position and relative component positions. Do not use an assembled or closed pose for the primary STEP while the primary STL uses the print pose. Verify the exported files agree. If an assembled inspection export is useful, save it separately with an explicit suffix such as `_assembled.step` and document its purpose. Follow an explicit user request for a different export arrangement when provided.
+
 ## Python dependencies
 
 If a Python-specific dependency is genuinely needed, use `uv` to set it up. Do not use `virtualenv`, ad-hoc virtual environments, or another Python environment manager. Prefer reproducible project setup files such as `pyproject.toml` and `uv.lock`, and commit the related setup files; do not commit environment directories or caches.

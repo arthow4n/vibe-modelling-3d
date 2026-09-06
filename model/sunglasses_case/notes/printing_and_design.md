@@ -34,7 +34,7 @@ loads. The hinge is checked through 180 degrees; do not force it beyond that.
 - `sunglasses_case.stl`: complete print-in-place case, already flat and open.
 - `hinge_test.stl`: updated production joint on short wall sections and feet,
   approximately 32 × 41.44 × 42.60 mm. Useful for checking the tighter fit.
-- `sunglasses_case.step`: closed case for CAD inspection.
+- `sunglasses_case.step`: complete case in the same flat, open print pose as the STL.
 - `sunglasses_case.py`: authoritative parametric source. `LAYOUT` selects
   closed, open, print, coupon or hinge_section; exports retain their intended poses.
 - `renders/`: closed, open, print, coupon and hinge cutaway views.
@@ -61,6 +61,8 @@ and evaluated again. Checks cover valid solids, closed-state clearance, glasses
 fit, lid motion every 5 degrees from 20 to 180 degrees, coupon motion every
 15 degrees, and captive retention under attempted axial displacement. Initial
 opening requires latch flex, which rigid CAD checks do not simulate.
+
+The final STEP was reimported through CadQuery MCP: it contains two valid solids, both touching the bed, and its bounds match the STL within 0.05 mm. Its open print pose was visually inspected.
 
 The final STL files each have two watertight components with paired triangle
 edges, no degenerate faces, and both components touching the bed. Final rendered
