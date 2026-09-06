@@ -54,9 +54,10 @@ convert -background white "$review_dir/hinge_layers.svg" "$review_dir/hinge_laye
 The individual mechanism samples used the same profile and orientation:
 
 ```sh
-for name in mechanism_test_current mechanism_test_tight_hinge \
-  mechanism_test_tight_latch mechanism_test_very_tight_hinge \
-  mechanism_test_very_tight_latch; do
+for name in mechanism_test_baseline mechanism_test_tight_hinge_current_latch \
+  mechanism_test_tight_hinge_deep_latch \
+  mechanism_test_very_tight_hinge_current_latch \
+  mechanism_test_very_tight_hinge_deep_latch; do
   prusa-slicer --load "$review_dir/review.ini" --export-gcode \
     --output "$review_dir/run05/$name.gcode" \
     "model/sunglasses_case/$name.stl"

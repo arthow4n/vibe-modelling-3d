@@ -34,12 +34,14 @@ loads. The hinge is checked through 180 degrees; do not force it beyond that.
 - `sunglasses_case.stl`: complete print-in-place case, already flat and open.
 - `hinge_test.stl`: updated production joint on short wall sections and feet,
   approximately 32 × 41.44 × 42.60 mm. Useful for checking the tighter fit.
-- `mechanism_test_current.stl`: present hinge and latch settings.
-- `mechanism_test_tight_hinge.stl` and `mechanism_test_tight_latch.stl`:
-  previous tighter comparison samples.
-- `mechanism_test_very_tight_hinge.stl` and
-  `mechanism_test_very_tight_latch.stl`: new 0.20/0.20 mm hinge-clearance
-  comparison samples.
+- `mechanism_test_baseline.stl`: present hinge and latch settings.
+- `mechanism_test_tight_hinge_current_latch.stl`: tighter hinge with the
+  current latch.
+- `mechanism_test_tight_hinge_deep_latch.stl`: tighter hinge with deeper latch.
+- `mechanism_test_very_tight_hinge_current_latch.stl`: 0.20/0.20 mm hinge
+  clearance with the current latch.
+- `mechanism_test_very_tight_hinge_deep_latch.stl`: 0.20/0.20 mm hinge
+  clearance with deeper latch.
 - `sunglasses_case.step`: complete case in the same flat, open print pose as the STL.
 - `sunglasses_case.py`: authoritative parametric source. `LAYOUT` selects
   closed, open, print, coupon or hinge_section; exports retain their intended
@@ -53,18 +55,18 @@ uncertain physical interfaces before another large print:
 
 | Sample | Cone radial clearance | Ear gap | Latch tooth shift | Keeper depth |
 | --- | ---: | ---: | ---: | ---: |
-| current | 0.60 mm | 0.50 mm | 0.00 mm | 1.40 mm |
-| tight hinge | 0.35 mm | 0.30 mm | 0.00 mm | 1.40 mm |
-| tight latch | 0.35 mm | 0.30 mm | 0.80 mm | 2.20 mm |
-| very tight hinge | 0.20 mm | 0.20 mm | 0.00 mm | 1.40 mm |
-| very tight latch | 0.20 mm | 0.20 mm | 0.80 mm | 2.20 mm |
+| baseline | 0.60 mm | 0.50 mm | 0.00 mm | 1.40 mm |
+| tight hinge, current latch | 0.35 mm | 0.30 mm | 0.00 mm | 1.40 mm |
+| tight hinge, deep latch | 0.35 mm | 0.30 mm | 0.80 mm | 2.20 mm |
+| very tight hinge, current latch | 0.20 mm | 0.20 mm | 0.00 mm | 1.40 mm |
+| very tight hinge, deep latch | 0.20 mm | 0.20 mm | 0.80 mm | 2.20 mm |
 
 The first value is measured at fixed axial position; the normal gap on the
 45-degree conical surface is smaller. The tooth shift moves the cantilever's
 detent farther outward in the open print pose, and keeper depth extends the
 fixed triangular catch. These are test variants, not yet selected production
-settings. The `current` sample reproduces the present case interface, the
-hinge samples isolate hinge play, and the latch samples test deeper catch
+settings. The `baseline` sample reproduces the present case interface, the
+current-latch samples isolate hinge play, and the deep-latch samples test deeper catch
 engagement together with their corresponding hinge clearance.
 
 The very-tight 0.20 mm radial value corresponds to approximately 0.14 mm on

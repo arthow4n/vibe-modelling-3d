@@ -211,11 +211,11 @@ def mechanism_coupon(cone_clearance, end_clearance, tooth_shift=0.0,
 
 MECHANISM_VARIANTS = {
     # radial cone gap, axial ear gap, open-pose tooth shift, keeper depth
-    "current": (0.60, 0.50, 0.00, 1.40),
-    "tight_hinge": (0.35, 0.30, 0.00, 1.40),
-    "tight_latch": (0.35, 0.30, 0.80, 2.20),
-    "very_tight_hinge": (0.20, 0.20, 0.00, 1.40),
-    "very_tight_latch": (0.20, 0.20, 0.80, 2.20),
+    "baseline": (0.60, 0.50, 0.00, 1.40),
+    "tight_hinge_current_latch": (0.35, 0.30, 0.00, 1.40),
+    "tight_hinge_deep_latch": (0.35, 0.30, 0.80, 2.20),
+    "very_tight_hinge_current_latch": (0.20, 0.20, 0.00, 1.40),
+    "very_tight_hinge_deep_latch": (0.20, 0.20, 0.80, 2.20),
 }
 mechanism_tests = [
     mechanism_coupon(*values) for values in MECHANISM_VARIANTS.values()
