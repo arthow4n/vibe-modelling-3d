@@ -3,7 +3,7 @@
 One-piece PETG replacement with a slide-in MagSafe 3 cradle beside the band.
 The primary Python file is standalone and does not import downloaded geometry.
 STEP and STL use the same print orientation: ring flat on XY at Z=0.
-Envelope: 85 × 42.84 × 24.98 mm. One valid solid, about 6.43 cm³.
+Envelope: 85 × 42.84 × 24.98 mm. One valid solid, about 6.14 cm³.
 
 ## Files and use
 
@@ -19,8 +19,8 @@ toward the plug end. With both ends disconnected, slide the MagSafe housing
 cable-first down the rails until its shoulders meet the stop. Its contact face
 points toward the open, raised rail ends; nothing enters or grips the contacts.
 Route the cable through the central open slot into the first groove (X=12).
-Skip the covered neighbouring groove at X=17.4 and continue across the exposed
-grooves starting at X=22.8. Tuck the disconnected USB-C housing beneath the final
+The neighbouring groove at X=17.4 is now open at the band: guide the next turn
+through the right-side opening, then continue across the row. Tuck the disconnected USB-C housing beneath the final
 wraps within the charger's outline. Do not force the cable over a sharp bend.
 Unwind before sliding the MagSafe head back out; grip its housing at the scallop.
 
@@ -35,7 +35,12 @@ with the user's cable. No physical fit or winding test has occurred.
 Recovered from the supplied original STEP: opening 79.6 × 28 mm, corner R6,
 wall 2.7 mm, axial band width 6 mm, repeated groove pitch 5.4 mm. The analytic
 reference reconstruction differs by 0.001864 mm³ in symmetric difference.
-The integrated cradle locally fills part of the tooth row; the original opening
+The right cradle root and shoulder have been relieved to restore the neighbouring
+groove. The upper right lip remains, with a 45-degree underside supported by the
+backplate; `passage_root_height` controls where that slope starts (6.5 mm).
+The left shoulder still stops the head. The right rail has less lower support
+than the original version, so its strength and resistance to head twisting need
+a physical check. The original opening
 is unchanged, but added stiffness means original physical grip does not prove
 the replacement has exactly the same installation force.
 
@@ -63,23 +68,27 @@ pulling on the cable. It does not test whole-band flexibility or winding.
 
 Use PETG, 0.4 mm nozzle, ring face down. Diagnostic slice used 0.2 mm layers,
 4 perimeters, 5 top/bottom layers and 20% infill, supports disabled. Retaining
-lips grow from the bed, and the open cable slot requires no roof bridge.
+left lip grows from the bed; the shortened right lip grows out from the
+backplate along its sloping underside. The opening requires no roof bridge.
 Use the user's normal PETG temperatures and printer profile for an actual job.
 The 260 × 260 × 250 mm safe volume leaves ample room for a brim if needed;
 the small coupon has less adhesion area than the full ring.
 
 PrusaSlicer 2.9.6 produced 125 layers without stability warnings. Parsed paths
 contained no bridge, overhang-perimeter or support roles. Layer close-ups at
-Z=6.2, 10.2 and 24.8 mm were inspected: rail/lip paths sit over prior material,
-and the pocket opens above the housing stops. See `slicing/paths.json` and
+Z=6.2, 10.2 and 12.8 mm were inspected: the right rail grows progressively over
+prior material. A CAD envelope covering X=15.5 through the right edge,
+Y=-8.5 to -2.5 and Z=0 to 6.5 contains zero added cradle material. This checks
+local clearance, not a simulation of the entire wound cable or head interaction.
+See `slicing/paths.json` and
 `slicing/cradle_layers.png`. This is geometric/slicer validation, not a test print.
 The diagnostic G-code is ignored and is not a validated machine job.
 
 Reproduction from repository root:
 
 ```sh
-prusa-slicer --load model/macbook_charger_holder/notes/slicing/diagnostic.ini --center 130,130 --export-gcode --output model/macbook_charger_holder/notes/slicing/holder.gcode model/macbook_charger_holder/macbook_charger_holder.stl
-python3 .codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py model/macbook_charger_holder/notes/slicing/holder.gcode --json model/macbook_charger_holder/notes/slicing/paths.json --svg model/macbook_charger_holder/notes/slicing/cradle_layers.svg --layers 6.2 10.2 24.8 --window 88 107 114 118
+prusa-slicer --load model/macbook_charger_holder/notes/slicing/diagnostic.ini --center 130,130 --export-gcode --output model/macbook_charger_holder/notes/slicing/revised.gcode model/macbook_charger_holder/macbook_charger_holder.stl
+python3 .codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py model/macbook_charger_holder/notes/slicing/revised.gcode --json model/macbook_charger_holder/notes/slicing/paths.json --svg model/macbook_charger_holder/notes/slicing/cradle_layers.svg --layers 6.2 10.2 12.8 --window 88 107 114 118
 ```
 
 STEP reimport checks confirmed valid single solids. STEP/STL bounds agree within

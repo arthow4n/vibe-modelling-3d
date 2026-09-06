@@ -19,13 +19,14 @@ head_length = 13.18
 head_thickness = 4.48
 side_clearance = 0.35  # per side, not measured on user's black cable
 depth_clearance = 0.45  # total
-cradle_center = 12.0  # first groove; skip covered 17.4 groove when winding
+cradle_center = 12.0  # first groove; neighbouring groove remains accessible
 cradle_floor = 1.4
 rail_wall = 1.6
 lip_overlap = 1.2
 cable_exit_width = 5.0
 head_stop_z = 10.0
 guard_extension = 1.8
+passage_root_height = 6.5  # above band; roof rises outward at 45 degrees
 
 def band():
     """Reconstruct the reference's analytic arcs and repeated scallops.
@@ -92,8 +93,17 @@ def cradle():
     # meet the back scallop and cannot take a blanket edge fillet.
     floor=floor.edges('|Z').filter(lambda e: e.Length()>top-0.01).fillet(0.35)
     floor=floor.faces('>Z').edges().chamfer(0.2)
+    # Open the right root and shoulder without cutting the original band.
+    # A sloping underside supports the shortened upper rail from the backplate.
+    # The opening continues to the right edge: no closed hole to thread through.
+    outside=front-rail_wall-2
+    passage=(cq.Workplane('YZ',origin=(cradle_center+cable_exit_width/2,0,0))
+             .polyline([(outside,-1),(back,-1),(back,passage_root_height),
+                        (outside,passage_root_height+back-outside)])
+             .close().extrude(half+rail_wall).edges('|X').fillet(0.35))
+    floor=floor.cut(passage)
     return floor
 
 result=band().union(cradle())
-assert result.val().isValid()
-assert len(result.solids().vals()) == 1
+assert result.val().isValid(), 'invalid final shape'
+assert len(result.solids().vals()) == 1, f'{len(result.solids().vals())} solids'

@@ -9,7 +9,8 @@
 - Remix by: Sheng-Han (Aysh) Su, in the vibe-modelling-3d repository.
 - Changes: analytic reconstruction of the original band in CadQuery; integrated
   MagSafe parking rails, cable-exit shoulders, finger scallop, rounded rail
-  edges and insertion chamfers; optional connector-fit coupon; new exports
+  edges and insertion chamfers; right-side cable passage with a shortened,
+  sloping retaining rail; optional connector-fit coupon; new exports
   and evaluation artifacts. No endorsement by the original creator is implied.
 
 The remix is distributed under CC BY-NC-SA 4.0; see [LICENSE](LICENSE).

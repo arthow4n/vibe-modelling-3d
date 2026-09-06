@@ -13,6 +13,14 @@ def bounds(s):
     b=s.val().BoundingBox()
     return [round(v,6) for v in (b.xmin,b.ymin,b.zmin,b.xmax,b.ymax,b.zmax)]
 report = {'units':'mm','placement':'XY ring face at Z=0','artifacts':{}}
+# A generous local cable envelope from the next groove through the right side.
+# This checks added cradle material, not the reference's deliberate cable grip.
+path=ns['box'](ns['cradle_center']+ns['groove_pitch']-1.9,
+               ns['cradle_center']+ns['head_width']/2+ns['side_clearance']+ns['rail_wall']+1,
+               -8.5,-2.5,0,ns['band_width']+0.5)
+obstruction=ns['cradle']().intersect(path).val().Volume()
+assert obstruction<1e-6, ('right cable passage obstruction',obstruction)
+report['right_passage_added_material_mm3']=obstruction
 for name in ['macbook_charger_holder','cradle_test']:
     shape=runpy.run_path(str(directory/(name+'.py')))['result']
     cq.exporters.export(shape,str(directory/(name+'.step')))

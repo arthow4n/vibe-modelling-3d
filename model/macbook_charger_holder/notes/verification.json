@@ -11,8 +11,8 @@
         34.908821,
         24.982965
       ],
-      "volume_mm3": 6425.282958116999,
-      "triangles": 17828,
+      "volume_mm3": 6138.471765712903,
+      "triangles": 18718,
       "STEP_STL_bounds_agree_within_mm": 0.03
     },
     "cradle_test": {
@@ -24,11 +24,12 @@
         0.002965,
         24.982965
       ],
-      "volume_mm3": 2183.607676560593,
-      "triangles": 3452,
+      "volume_mm3": 1896.7964944975658,
+      "triangles": 4342,
       "STEP_STL_bounds_agree_within_mm": 0.03
     }
   },
+  "right_passage_added_material_mm3": 0.0,
   "reference_band_symmetric_difference_mm3": 0.0018638113963942438,
   "alternate_side_clearance_0_55_valid": true
 }
