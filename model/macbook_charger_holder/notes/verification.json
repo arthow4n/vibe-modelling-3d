@@ -1,0 +1,34 @@
+{
+  "units": "mm",
+  "placement": "XY ring face at Z=0",
+  "artifacts": {
+    "macbook_charger_holder": {
+      "bounds": [
+        -2.70262,
+        -7.932965,
+        -0.00262,
+        82.30262,
+        34.908821,
+        24.982965
+      ],
+      "volume_mm3": 6425.282958116999,
+      "triangles": 17828,
+      "STEP_STL_bounds_agree_within_mm": 0.03
+    },
+    "cradle_test": {
+      "bounds": [
+        -0.302602,
+        -7.932965,
+        -0.002602,
+        25.000366,
+        0.002965,
+        24.982965
+      ],
+      "volume_mm3": 2183.607676560593,
+      "triangles": 3452,
+      "STEP_STL_bounds_agree_within_mm": 0.03
+    }
+  },
+  "reference_band_symmetric_difference_mm3": 0.0018638113963942438,
+  "alternate_side_clearance_0_55_valid": true
+}
