@@ -1,4 +1,20 @@
-MIT License
+Repository licensing scope
+==========================
+
+This repository contains material under different licences. The MIT License
+below applies to repository-owned material unless a file-level notice or an
+object directory's LICENSE specifies otherwise. It does not relicense third-party
+material or override the licence of a remixed model.
+
+Exceptions:
+- model/macbook_charger_holder/: CC BY-NC-SA 4.0; see that directory's LICENSE
+  and ATTRIBUTION.md. This includes its model sources and derived exports.
+
+For other remixes, retain the upstream licence and attribution and document
+their scope in the object's directory. Keeping original downloads out of Git
+does not remove licence obligations for derivatives committed here.
+
+MIT License (for material within the scope above)
 
 Copyright (c) 2026 Sheng-Han (Aysh) Su
 

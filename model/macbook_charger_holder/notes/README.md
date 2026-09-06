@@ -90,10 +90,12 @@ microns; source placement is Z=0. Reports are in `verification.json`.
 
 Based on **96W MacBook Charger Cable Management**, original model and creator
 page: https://www.printables.com/model/765229-96w-macbook-charger-cable-management .
-The user supplied the original STL and STEP archive and identified its licence
-as CC BY. The archive contains no creator name or licence text, and the listing
-was blocked by HTTP 403 during this work; creator display name and exact licence
-version remain unverified. This link identifies the original author/model page.
+The user supplied the original STL and STEP archive and subsequently confirmed
+the listing's licence as **CC BY-NC-SA 4.0**, correcting the earlier “CC BY”
+description. This object is not MIT-licensed. See [LICENSE](../LICENSE) and
+[ATTRIBUTION.md](../ATTRIBUTION.md) for scope, licence links and credits.
+The creator's display name remains pending because the archive contains no
+author metadata and the listing was blocked by HTTP 403 during this work.
 Changes: standalone analytic reconstruction, integrated MagSafe parking rails,
 cable-exit shoulders, finger scallop, softened rails, and optional fit coupon.
 Preserve this attribution with redistributed derivatives; this object's original
