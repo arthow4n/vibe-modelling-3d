@@ -51,6 +51,31 @@ python3 .codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py \
 convert -background white "$review_dir/hinge_layers.svg" "$review_dir/hinge_layers.png"
 ```
 
+The mechanism plate slice used the same profile and orientation:
+
+```sh
+prusa-slicer --load "$review_dir/review.ini" --export-gcode \
+  --output "$review_dir/run04/mechanism_plate.gcode" \
+  model/sunglasses_case/mechanism_test_plate.stl
+python3 .codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py \
+  "$review_dir/run04/mechanism_plate.gcode" \
+  --json "$review_dir/mechanism_plate_paths.json"
+```
+
 The user successfully printed the previous, looser hinge. The final 0.6 mm
 radial cone clearance and 0.5 mm ear gap are slightly tighter; print success
 for these revised tolerances and the complete case is not yet established.
+
+## Mechanism test plate
+
+The optional `mechanism_test_plate.stl` contains three narrow, 40 mm-deep case
+slices in the same open print orientation. PrusaSlicer 2.9.6 sliced it with
+supports disabled and no stability warning, bridge infill, overhang perimeter
+or support roles. The shortened revision is 112 × 104.84 × 47 mm; each sample
+is 32 × 104.04 × 47 mm for the current and tight-hinge variants, and 32 ×
+104.84 × 47 mm for the tight-latch variant. The diagnostic estimate was 97.43 g
+and 9 h 53 min using the generic profile.
+
+This is printability evidence only. The user should compare physical hinge play,
+latch engagement, release force and light-shake retention before choosing a
+production clearance. The samples do not test full-case stiffness or fatigue.

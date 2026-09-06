@@ -11,5 +11,7 @@
 - [x] Export and inspect final STEP/STL and useful rendered views.
 - [x] Update print instructions and slicer notebook with verified discoveries.
 - [x] Review, commit and push completed work.
+- [x] Add optional mechanism test pieces for hinge play and latch engagement;
+  physical trial remains outstanding.
 
 User feedback incorporated: previously printed hinge worked; reduced cone/ear gaps to 0.6/0.5 mm, rounded hinge crown, enlarged exterior corner radii and panel chamfers, and rounded rims. Final revised fit and full-case physical performance remain untested; documented in print instructions.

@@ -24,8 +24,8 @@ CONE_CLEARANCE = 0.6  # radial at fixed X; normal cone gap = value / sqrt(2)
 END_CLEARANCE = 0.5  # axial gap between fixed and moving ears
 EAR_OUTER_OFFSET = 10.0
 LATCH_THICKNESS = 1.6
-LAYOUT = "closed"  # closed / open / print / coupon / hinge_section
-EXPORT = True
+LAYOUT = "closed"  # closed / open / print / coupon / mechanism_tests / hinge_section
+EXPORT = globals().get("EXPORT", True)
 
 IW = GLASSES_WIDTH + 2 * CLEARANCE
 ID = GLASSES_DEPTH + 2 * CLEARANCE
@@ -57,55 +57,56 @@ def half():
     return outer.cut(cavity).edges(">Z").fillet(RIM_ROUND)
 
 
-def hinge_ear(x0, x1, lid_side=False):
+def hinge_ear(x0, x1, lid_side=False, hy=HY):
     """Round crown, tangent 45-degree underside and web in flat print pose."""
     side = 1 if lid_side else -1
-    wall_y = HY + side * (HINGE_RADIUS*2**0.5 + 1.8)
+    wall_y = hy + side * (HINGE_RADIUS*2**0.5 + 1.8)
     r = HINGE_RADIUS
     t = r/2**0.5
-    barrel = (cq.Workplane("YZ", origin=(x0, HY, SEAM))
+    barrel = (cq.Workplane("YZ", origin=(x0, hy, SEAM))
               .moveTo(0, -r*2**0.5).lineTo(t, -t)
               .threePointArc((r, 0), (0, r))
               .threePointArc((-r, 0), (-t, -t)).close().extrude(x1-x0))
     barrel = barrel.edges(cq.selectors.NearestToPointSelector(
-        ((x0+x1)/2, HY, SEAM-r*2**0.5))).fillet(0.8)
-    web_low = SEAM-r*2**0.5-abs(wall_y-HY)
+        ((x0+x1)/2, hy, SEAM-r*2**0.5))).fillet(0.8)
+    web_low = SEAM-r*2**0.5-abs(wall_y-hy)
     web = (cq.Workplane("YZ", origin=(x0, 0, 0))
-           .polyline([(wall_y, web_low), (HY, SEAM-r*2**0.5),
-                      (HY, SEAM), (wall_y, SEAM)]).close().extrude(x1-x0))
+           .polyline([(wall_y, web_low), (hy, SEAM-r*2**0.5),
+                      (hy, SEAM), (wall_y, SEAM)]).close().extrude(x1-x0))
     return barrel.union(web)
 
 
-def cone(x, radius, direction):
+def cone(x, radius, direction, hy=HY):
     # Blunt the mathematical apex by 0.12 mm to avoid degenerate STL facets.
     # Male and socket cones retain the same 45-degree mating surfaces.
     return cq.Workplane(obj=cq.Solid.makeCone(radius, 0.12, radius-0.12,
-        cq.Vector(x, HY, SEAM), cq.Vector(direction, 0, 0)))
+        cq.Vector(x, hy, SEAM), cq.Vector(direction, 0, 0)))
 
 
-def hinge(c):
+def hinge(c, cone_clearance=CONE_CLEARANCE, end_clearance=END_CLEARANCE, hy=HY):
     """Two fixed cones enter opposite ends of a captive rotating socket.
 
     Each cone extends from an attached ear at 45 degrees instead of beginning
     as a floating horizontal rod. The conical socket roofs are also 45 degrees.
     """
-    left = hinge_ear(c-EAR_OUTER_OFFSET, c-PIVOT_ROOT)
-    right = hinge_ear(c+PIVOT_ROOT, c+EAR_OUTER_OFFSET)
-    left = left.union(cone(c-PIVOT_ROOT, PIVOT_RADIUS, 1))
-    right = right.union(cone(c+PIVOT_ROOT, PIVOT_RADIUS, -1))
-    receiver = hinge_ear(c-RECEIVER_HALF, c+RECEIVER_HALF, lid_side=True)
-    receiver = receiver.cut(cone(c-PIVOT_ROOT, PIVOT_RADIUS+CONE_CLEARANCE, 1))
-    receiver = receiver.cut(cone(c+PIVOT_ROOT, PIVOT_RADIUS+CONE_CLEARANCE, -1))
+    left = hinge_ear(c-EAR_OUTER_OFFSET, c-PIVOT_ROOT, hy=hy)
+    right = hinge_ear(c+PIVOT_ROOT, c+EAR_OUTER_OFFSET, hy=hy)
+    left = left.union(cone(c-PIVOT_ROOT, PIVOT_RADIUS, 1, hy))
+    right = right.union(cone(c+PIVOT_ROOT, PIVOT_RADIUS, -1, hy))
+    receiver_half = PIVOT_ROOT - end_clearance
+    receiver = hinge_ear(c-receiver_half, c+receiver_half, lid_side=True, hy=hy)
+    receiver = receiver.cut(cone(c-PIVOT_ROOT, PIVOT_RADIUS+cone_clearance, 1, hy))
+    receiver = receiver.cut(cone(c+PIVOT_ROOT, PIVOT_RADIUS+cone_clearance, -1, hy))
     return left, right, receiver
 
 
-def front_latch():
+def front_latch(tooth_shift=0.0, hy=HY, od=OD):
     """Ramp-rooted PETG spring on the lid, built in the OPEN print pose.
 
     Two-sided 45-degree detents replace the unprintable square undercut.
     Pull the tab outward before lifting. Retention is elastic, not a deadbolt.
     """
-    front = 2*HY + OD/2
+    front = 2*hy + od/2
     inner, outer = front+2.4, front+2.4+LATCH_THICKNESS
     base, top = SEAM-15, SEAM+10
     leaf_start = base + (outer-front) + 0.4
@@ -116,13 +117,23 @@ def front_latch():
     leaf = block(0, (inner+outer)/2, (leaf_start+top)/2,
                  20, LATCH_THICKNESS, top-leaf_start).edges("|Z").fillet(0.4).edges(">Z").chamfer(0.3)
     tooth = (cq.Workplane("YZ", origin=(-7, 0, 0))
-             .polyline([(inner+0.2, SEAM+3.0), (front+0.4, SEAM+5.2),
-                        (inner+0.2, SEAM+7.4)]).close().extrude(14))
+             .polyline([(inner+0.2+tooth_shift, SEAM+3.0),
+                        (front+0.4+tooth_shift, SEAM+5.2),
+                        (inner+0.2+tooth_shift, SEAM+7.4)]).close().extrude(14))
     grip = (cq.Workplane("YZ", origin=(-9, 0, 0))
             .polyline([(outer-0.2, top-3), (outer+1.2, top-1.6),
                        (outer+1.2, top-0.4), (outer-0.2, top-0.4)])
             .close().extrude(18).edges("|X").fillet(0.3))
     return root.union(leaf).union(tooth).union(grip)
+
+
+def front_keeper(depth=1.4, front=None):
+    """Fixed triangular keeper; depth is the outward engagement reach."""
+    if front is None:
+        front = -OD/2
+    return (cq.Workplane("YZ", origin=(-8, 0, 0))
+            .polyline([(front+0.2, SEAM-5.6), (front-depth, SEAM-4),
+                       (front+0.2, SEAM-2.4)]).close().extrude(16))
 
 
 body = half()
@@ -131,11 +142,7 @@ for c in BEARING_CENTERS:
     left, right, receiver = hinge(c)
     body = body.union(left).union(right)
     open_lid = open_lid.union(receiver)
-front = -OD/2
-keeper = (cq.Workplane("YZ", origin=(-8, 0, 0))
-          .polyline([(front+0.2, SEAM-5.6), (front-1.4, SEAM-4),
-                     (front+0.2, SEAM-2.4)]).close().extrude(16))
-body = body.union(keeper)
+body = body.union(front_keeper())
 open_lid = open_lid.union(front_latch())
 lid = open_lid.rotate((0, HY, SEAM), (1, HY, SEAM), 180)
 
@@ -148,13 +155,13 @@ def opening(angle):
     return lid.rotate((0, HY, SEAM), (1, HY, SEAM), -angle)
 
 
-def hinge_coupon():
+def hinge_coupon(cone_clearance=CONE_CLEARANCE, end_clearance=END_CLEARANCE):
     # Exact production hinge on short wall sections, same bed and axis heights.
     fixed = block(0, OD/2-1.5, SEAM/2, 32, 3, SEAM)
     moving = block(0, 2*HY-OD/2+1.5, SEAM/2, 32, 3, SEAM)
     fixed = fixed.union(block(0, OD/2-6, FLOOR/2, 32, 12, FLOOR))
     moving = moving.union(block(0, 2*HY-OD/2+6, FLOOR/2, 32, 12, FLOOR))
-    left, right, receiver = hinge(0)
+    left, right, receiver = hinge(0, cone_clearance, end_clearance)
     fixed = fixed.union(left).union(right)
     moving = moving.union(receiver)
     assert len(fixed.solids().vals()) == len(moving.solids().vals()) == 1
@@ -168,6 +175,55 @@ def hinge_coupon():
     return compound(fixed, moving)
 
 
+def mechanism_coupon(cone_clearance, end_clearance, tooth_shift=0.0,
+                     keeper_depth=1.4):
+    """Narrow full-depth box slice with one production hinge and latch.
+
+    The 32 mm width keeps the production hinge and latch geometry in a short
+    40 mm-deep box slice. It tests local engagement and movement, but does not
+    represent the full case's bending stiffness. It prints open and flat, so
+    both halves remain captive and support-free.
+    """
+    width = 32.0
+    test_od = 40.0
+    test_hy = test_od/2 + HINGE_RADIUS*2**0.5 + 0.8
+    body_floor = block(0, 0, FLOOR/2, width, test_od, FLOOR)
+    lid_floor = block(0, 2*test_hy, FLOOR/2, width, test_od, FLOOR)
+    body_front = block(0, -test_od/2+1.5, SEAM/2, width, 3, SEAM)
+    body_rear = block(0, test_od/2-1.5, SEAM/2, width, 3, SEAM)
+    lid_front = block(0, 2*test_hy-test_od/2+1.5, SEAM/2, width, 3, SEAM)
+    lid_rear = block(0, 2*test_hy+test_od/2-1.5, SEAM/2, width, 3, SEAM)
+    fixed = body_floor.union(body_front).union(body_rear)
+    moving = lid_floor.union(lid_front).union(lid_rear)
+    left, right, receiver = hinge(0, cone_clearance, end_clearance, test_hy)
+    fixed = fixed.union(left).union(right).union(
+        front_keeper(keeper_depth, front=-test_od/2))
+    moving = moving.union(receiver).union(
+        front_latch(tooth_shift, test_hy, test_od))
+    assert len(fixed.solids().vals()) == 1 and len(moving.solids().vals()) == 1
+    assert fixed.val().isValid() and moving.val().isValid()
+    for angle in range(0, 181, 15):
+        rotated = moving.rotate((0, test_hy, SEAM), (1, test_hy, SEAM), angle)
+        assert fixed.intersect(rotated).val().Volume() < 0.001, \
+            f"Mechanism coupon interference {angle}"
+    return compound(fixed, moving)
+
+
+MECHANISM_VARIANTS = {
+    # radial cone gap, axial ear gap, open-pose tooth shift, keeper depth
+    "current": (0.60, 0.50, 0.00, 1.40),
+    "tight_hinge": (0.35, 0.30, 0.00, 1.40),
+    "tight_latch": (0.35, 0.30, 0.80, 2.20),
+}
+mechanism_tests = [
+    mechanism_coupon(*values) for values in MECHANISM_VARIANTS.values()
+]
+mechanism_tests_layout = compound(*[
+    cq.Workplane(obj=test).translate((index*40.0 - 40.0, 0, 0))
+    for index, test in enumerate(mechanism_tests)
+])
+
+
 closed = compound(body, lid)
 opened = compound(body, opening(110))
 print_body, print_lid = body, open_lid
@@ -175,7 +231,8 @@ print_layout = compound(body, open_lid)
 coupon = hinge_coupon()
 hinge_section = cq.Workplane(obj=coupon).intersect(block(0, HY, SEAM-15, 40, 70, 30))
 result = {"closed": closed, "open": opened, "print": print_layout,
-          "coupon": coupon, "hinge_section": hinge_section}[LAYOUT]
+          "coupon": coupon, "mechanism_tests": mechanism_tests_layout,
+          "hinge_section": hinge_section}[LAYOUT]
 
 assert len(body.solids().vals()) == 1 and body.val().isValid()
 assert len(lid.solids().vals()) == 1 and lid.val().isValid()
@@ -198,3 +255,9 @@ if EXPORT:
     cq.exporters.export(print_layout, str(dest / "sunglasses_case.step"))
     cq.exporters.export(print_layout, str(dest / "sunglasses_case.stl"), tolerance=0.035, angularTolerance=0.1)
     cq.exporters.export(coupon, str(dest / "hinge_test.stl"), tolerance=0.035, angularTolerance=0.1)
+    for name, test in zip(MECHANISM_VARIANTS, mechanism_tests):
+        cq.exporters.export(test, str(dest / f"mechanism_test_{name}.stl"),
+                            tolerance=0.035, angularTolerance=0.1)
+    cq.exporters.export(mechanism_tests_layout,
+                        str(dest / "mechanism_test_plate.stl"),
+                        tolerance=0.035, angularTolerance=0.1)

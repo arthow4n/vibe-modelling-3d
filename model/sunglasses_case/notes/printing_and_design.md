@@ -34,10 +34,44 @@ loads. The hinge is checked through 180 degrees; do not force it beyond that.
 - `sunglasses_case.stl`: complete print-in-place case, already flat and open.
 - `hinge_test.stl`: updated production joint on short wall sections and feet,
   approximately 32 × 41.44 × 42.60 mm. Useful for checking the tighter fit.
+- `mechanism_test_plate.stl`: three 32 mm-wide, 40 mm-deep short box slices
+  on one plate. Each has one production hinge and the production cantilever latch.
+- `mechanism_test_current.stl`, `mechanism_test_tight_hinge.stl` and
+  `mechanism_test_tight_latch.stl`: the same three samples as separate files.
 - `sunglasses_case.step`: complete case in the same flat, open print pose as the STL.
 - `sunglasses_case.py`: authoritative parametric source. `LAYOUT` selects
-  closed, open, print, coupon or hinge_section; exports retain their intended poses.
+  closed, open, print, coupon, mechanism_tests or hinge_section; exports retain
+  their intended poses.
 - `renders/`: closed, open, print, coupon and hinge cutaway views.
+
+### Mechanism test pieces
+
+The full case is unchanged by this test revision. The samples isolate the
+uncertain physical interfaces before another large print:
+
+| Sample | Cone radial clearance | Ear gap | Latch tooth shift | Keeper depth |
+| --- | ---: | ---: | ---: | ---: |
+| current | 0.60 mm | 0.50 mm | 0.00 mm | 1.40 mm |
+| tight hinge | 0.35 mm | 0.30 mm | 0.00 mm | 1.40 mm |
+| tight latch | 0.35 mm | 0.30 mm | 0.80 mm | 2.20 mm |
+
+The first value is measured at fixed axial position; the normal gap on the
+45-degree conical surface is smaller. The tooth shift moves the cantilever's
+detent farther outward in the open print pose, and keeper depth extends the
+fixed triangular catch. These are test variants, not yet selected production
+settings. The `current` sample reproduces the present case interface, the
+`tight hinge` sample isolates hinge play, and the `tight latch` sample tests a
+deeper catch together with the tighter hinge.
+
+Print the plate as supplied with supports disabled, or print one individual
+STL. The three columns on the plate are ordered current, tight hinge, tight
+latch from left to right. Each sample is a shortened cross-section, so it tests
+local hinge and latch behavior without reproducing the full case's bending
+stiffness. After cooling, flex each latch by hand and cycle its hinge gently.
+Check whether the lid stays closed under a light shake and whether
+the latch releases without excessive force. A sample tests fit, engagement and
+local freeing; it does not establish full-case stiffness, backpack impact
+resistance, latch fatigue or lens protection.
 
 Print the STL as supplied. Center the complete object and place it on the bed;
 keep its solids together in their original positions. Use **supports disabled**.
@@ -64,10 +98,13 @@ opening requires latch flex, which rigid CAD checks do not simulate.
 
 The final STEP was reimported through CadQuery MCP: it contains two valid solids, both touching the bed, and its bounds match the STL within 0.05 mm. Its open print pose was visually inspected.
 
-The final STL files each have two watertight components with paired triangle
-edges, no degenerate faces, and both components touching the bed. Final rendered
-views were inspected. PrusaSlicer 2.9.6 sliced both models with supports disabled,
-without stability warnings, bridge infill, overhang perimeter or support roles.
+The case, hinge coupon and mechanism samples have watertight components with
+paired triangle edges, no degenerate faces, and bed contact. Final rendered
+views were inspected. The mechanism plate was evaluated as six solids and its
+three paired samples remain separated. PrusaSlicer 2.9.6 slicing of the case,
+hinge coupon and mechanism plate passed with supports disabled, without
+stability warnings, bridge infill, overhang perimeter or support roles. The
+mechanism plate still needs physical trial printing.
 Selected hinge layers were inspected against preceding toolpaths. See
 [slicer evidence](support_free_review/report.md) for settings and measurements.
 
