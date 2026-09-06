@@ -192,3 +192,26 @@ free-air span measurement, support-removal accessibility checking and a reliable
 pass/fail printability score remain unimplemented here. No universal safe bridge length or overhang-angle limit
 has been established; behavior depends on geometry, anchors, process and material.
 Slicer evidence does not physically measure sag, surface finish or hinge freedom.
+
+## Check the actual brim and deposited-path footprint
+
+Verified 2026-09-06 with PrusaSlicer 2.9.6 on the dental travel case, using the
+existing `read_paths` helper and a centered 260 × 260 mm bed with 3 mm brim:
+[object summary script](../../../../model/dental_travel_case/notes/slicer_review/summarize.py).
+For each deposited straight segment, extend both endpoints in X/Y by half its
+reported extrusion width, then take global min/max. Include `Skirt/Brim` paths.
+Check maximum layer Z independently against the **250 mm** safe height.
+
+The final case had X 3.122–256.876 and Y 11.202–248.220 mm, with Z up to 61.8 mm.
+This checks generated paths rather than relying only on model bounds plus nominal
+brim width. It is conservative for straight segments of the reported width, but
+not a prediction of ooze/flow spread or a check of travel/start/end machine moves.
+The parser's existing limits (absolute XYZ, relative E, linear ASCII moves) apply.
+
+In the same investigation, a circular-bottom clip produced a `Loose extrusions`
+warning on the accessories plate but not on a mixed coupon plate. Inspecting the
+lower-arc layers identified abrupt lateral growth; adding a supporting pedestal
+removed the accessory warning. Replacing small grip bumps alone did not. Do not
+assume a clean mixed-plate warning result validates the same part in every layout;
+inspect the production plate's paths. See the object's review report and layer
+images for geometry and profile scope, rather than treating the fix as universal.

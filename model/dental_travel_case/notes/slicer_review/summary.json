@@ -1,0 +1,57 @@
+{
+  "slicer": "PrusaSlicer 2.9.6+flathub.org",
+  "profile_sha256": "f8c6d39fb6b5c1f41c2c5f263dbf23c59fb6ac51f7c698a4ef5a43876a4a6804",
+  "slices": {
+    "dental_travel_case": {
+      "STL_sha256": "ebdd6588f23c956b4b47b2616c07b6c9296871e6d52dd6a2c174bca5e1a36c71",
+      "Gcode_sha256": "234854e38746915039adb1092710cb68173577459abe04dd2aa27d48cbef6239",
+      "nonempty_gcode_bytes": 14455251,
+      "warnings": [],
+      "xy_deposition_bounds_including_half_width_mm": [
+        3.122,
+        11.202,
+        256.876,
+        248.22
+      ],
+      "max_layer_z_mm": 61.8,
+      "metadata": {
+        "filament used [g]": "352.86",
+        "estimated printing time (normal mode)": "1d 5h 48m 48s"
+      }
+    },
+    "test_pieces": {
+      "STL_sha256": "1a8ab264baafd9a5a4ab6d16bef01d86ceb1e6d7caad05850318db4cf97b7cbb",
+      "Gcode_sha256": "369ac611e861ec7237666701f30aed02ae47d16cc359db738e8a32a369c0324c",
+      "nonempty_gcode_bytes": 4261515,
+      "warnings": [],
+      "xy_deposition_bounds_including_half_width_mm": [
+        28.622,
+        99.162,
+        231.378,
+        157.96
+      ],
+      "max_layer_z_mm": 42.4,
+      "metadata": {
+        "filament used [g]": "38.07",
+        "estimated printing time (normal mode)": "3h 46m 5s"
+      }
+    },
+    "accessories": {
+      "STL_sha256": "432eb100018781bfb351344e7c4b3ffc59e7ff59c37a9d22300b8453af5e9dee",
+      "Gcode_sha256": "b31e30c917a3f8799347b2a07fdd9aeb86aee4be87d49cd120206c317520a8fc",
+      "nonempty_gcode_bytes": 1195263,
+      "warnings": [],
+      "xy_deposition_bounds_including_half_width_mm": [
+        50.372,
+        96.422,
+        209.628,
+        163.578
+      ],
+      "max_layer_z_mm": 22.6,
+      "metadata": {
+        "filament used [g]": "15.45",
+        "estimated printing time (normal mode)": "1h 36m 48s"
+      }
+    }
+  }
+}

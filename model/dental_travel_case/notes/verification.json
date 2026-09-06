@@ -1,0 +1,252 @@
+{
+  "units": "mm",
+  "physical_testing": "Not yet printed; nominal reference items only",
+  "parts": {
+    "dental_travel_case": {
+      "solids": 2,
+      "bounds_mm": [
+        -124.9,
+        -54.5,
+        -0.0,
+        124.9,
+        181.9392,
+        61.8
+      ],
+      "solid_volume_cm3": 285.56,
+      "triangles": 64196,
+      "STEP_STL_bounds_agree_within_mm": 0.03,
+      "degenerate_triangles": 0,
+      "unpaired_mesh_edges": 0
+    },
+    "accessories": {
+      "solids": 3,
+      "bounds_mm": [
+        -9.0,
+        -30.7,
+        -0.0,
+        144.5,
+        30.7,
+        22.6991
+      ],
+      "solid_volume_cm3": 12.037,
+      "triangles": 2956,
+      "STEP_STL_bounds_agree_within_mm": 0.03,
+      "degenerate_triangles": 0,
+      "unpaired_mesh_edges": 0
+    },
+    "handle_clip": {
+      "solids": 1,
+      "bounds_mm": [
+        -9.0,
+        -16.5,
+        -0.0,
+        9.0,
+        16.5,
+        22.6991
+      ],
+      "solid_volume_cm3": 2.521,
+      "triangles": 1108,
+      "STEP_STL_bounds_agree_within_mm": 0.03,
+      "degenerate_triangles": 0,
+      "unpaired_mesh_edges": 0
+    },
+    "storage_divider": {
+      "solids": 1,
+      "bounds_mm": [
+        -0.0,
+        -30.7,
+        0.0,
+        59.5,
+        30.7,
+        2.0
+      ],
+      "solid_volume_cm3": 6.996,
+      "triangles": 740,
+      "STEP_STL_bounds_agree_within_mm": 0.03,
+      "degenerate_triangles": 0,
+      "unpaired_mesh_edges": 0
+    },
+    "hinge_test": {
+      "solids": 2,
+      "bounds_mm": [
+        -16.0,
+        -20.7196,
+        0.0,
+        16.0,
+        20.7196,
+        38.0
+      ],
+      "solid_volume_cm3": 9.944,
+      "triangles": 6280,
+      "STEP_STL_bounds_agree_within_mm": 0.03,
+      "degenerate_triangles": 0,
+      "unpaired_mesh_edges": 0
+    },
+    "latch_test": {
+      "solids": 2,
+      "bounds_mm": [
+        -16.0,
+        -1.4,
+        -0.0,
+        16.0,
+        35.2,
+        42.4
+      ],
+      "solid_volume_cm3": 7.551,
+      "triangles": 2320,
+      "STEP_STL_bounds_agree_within_mm": 0.03,
+      "degenerate_triangles": 0,
+      "unpaired_mesh_edges": 0
+    },
+    "handle_test": {
+      "solids": 3,
+      "bounds_mm": [
+        -14.0,
+        -18.5,
+        -0.0,
+        81.0,
+        18.5,
+        29.6
+      ],
+      "solid_volume_cm3": 15.448,
+      "triangles": 3836,
+      "STEP_STL_bounds_agree_within_mm": 0.03,
+      "degenerate_triangles": 0,
+      "unpaired_mesh_edges": 0
+    },
+    "test_pieces": {
+      "solids": 7,
+      "bounds_mm": [
+        -16.0,
+        -20.7196,
+        -0.0,
+        181.0,
+        35.2,
+        42.4
+      ],
+      "solid_volume_cm3": 32.942,
+      "triangles": 12436,
+      "STEP_STL_bounds_agree_within_mm": 0.03,
+      "degenerate_triangles": 0,
+      "unpaired_mesh_edges": 0
+    }
+  },
+  "nominal_envelope_intersections_mm3": {
+    "handle/body": 0.0,
+    "handle/lid": 0.0,
+    "handle/divider": 0.0,
+    "neck/body": 0.0,
+    "neck/lid": 0.0,
+    "neck/divider": 0.0,
+    "head/body": 0.0,
+    "head/lid": 0.0,
+    "head/divider": 0.0,
+    "paste/body": 0.0,
+    "paste/lid": 0.0,
+    "paste/divider": 0.0,
+    "floss/body": 0.0,
+    "floss/lid": 0.0,
+    "floss/divider": 0.0
+  },
+  "loaded_lid_sweep_degrees": [
+    0,
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100,
+    110,
+    120,
+    130,
+    140,
+    150,
+    160,
+    170,
+    180
+  ],
+  "shoulder_stop_blocks_1mm_backward_travel": true,
+  "clip_socket_interference_mm3_0": 1.157143,
+  "clip_socket_interference_mm3_1": 1.157143,
+  "closed_bounds_mm": [
+    -124.9,
+    -58.3,
+    -0.0,
+    124.9,
+    67.4196,
+    64.8
+  ],
+  "parameters": {
+    "BRUSH_LENGTH": 238.0,
+    "HANDLE_LENGTH": 169.0,
+    "HANDLE_DIAMETER": 26.0,
+    "BRUSH_END_CLEARANCE": 3.5,
+    "BRUSH_LANE": 37.0,
+    "PASTE_LENGTH": 200.0,
+    "PASTE_WIDTH": 55.0,
+    "PASTE_THICKNESS": 40.0,
+    "FLOSS_THICKNESS": 30.0,
+    "FLOSS_WIDTH": 60.0,
+    "FLOSS_HEIGHT": 55.0,
+    "WALL": 2.4,
+    "FLOOR": 2.4,
+    "DIVIDER_THICKNESS": 2.0,
+    "SLOT_CLEARANCE": 0.3,
+    "CONTENT_CLEARANCE": 2.0,
+    "CORNER": 10.0,
+    "EXTERIOR_BEVEL": 1.0,
+    "RIM_ROUND": 0.5,
+    "HINGE_RADIUS": 5.6,
+    "PIVOT_RADIUS": 3.5,
+    "PIVOT_TIP_OFFSET": 1.0,
+    "CONE_CLEARANCE": 0.6,
+    "END_CLEARANCE": 0.5,
+    "EAR_OUTER_OFFSET": 10.0,
+    "LATCH_THICKNESS": 1.6,
+    "CRADLE_LIFT": 8.0,
+    "CLIP_WALL": 1.5,
+    "CLIP_CLEARANCE": 0.2,
+    "CLIP_THROAT": 24.0,
+    "CLIP_WIDTH": 8.0,
+    "FOOT_LENGTH": 18.0,
+    "FOOT_WIDTH": 33.0,
+    "FOOT_HEIGHT": 3.0,
+    "SOCKET_CLEARANCE": 0.2,
+    "GRIP_BUMP": 0.35,
+    "IW": 245.0,
+    "STORAGE_LANE": 62.0,
+    "ID": 101.4,
+    "IH": 60.0,
+    "OW": 249.8,
+    "OD": 106.2,
+    "HEIGHT": 64.8,
+    "SEAM": 32.4,
+    "HY": 61.81959594928933,
+    "BEARING_CENTERS": [
+      -72.9,
+      72.9
+    ],
+    "PIVOT_ROOT": 4.5,
+    "RECEIVER_HALF": 4.0,
+    "BRUSH_Y": -32.2,
+    "PARTITION_Y": -12.500000000000004,
+    "STORAGE_Y": 19.700000000000003,
+    "DIVIDER_X": -83.5,
+    "DIVIDER_POSITIONS": [
+      -83.5,
+      -76.5,
+      -69.5
+    ],
+    "SHOULDER_X": -51.7,
+    "CLIP_POSITIONS": [
+      34.5,
+      94.5
+    ],
+    "CLIP_RADIUS": 13.2,
+    "CLIP_Z": 17.2
+  }
+}
