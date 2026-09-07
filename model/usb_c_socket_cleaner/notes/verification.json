@@ -1,0 +1,18 @@
+{
+  "units": "mm",
+  "source": "usb_c_socket_cleaner.py",
+  "solids": 1,
+  "bounds_mm": [
+    -7.5,
+    0.0,
+    0.0,
+    7.5,
+    68.0,
+    5.5
+  ],
+  "volume_cm3": 4.6438,
+  "stl_triangles": 3618,
+  "step_bounds_agree_within_mm": 0.01,
+  "stl_bounds_agree_within_mm": 0.03,
+  "physical_testing": "not yet printed or tested in a physical receptacle"
+}

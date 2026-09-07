@@ -1,0 +1,8 @@
+[project]
+name = "usb-c-socket-cleaner"
+version = "0.1.0"
+description = "Parametric USB-C socket cleaner model"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "cadquery==2.5.2",
+]
