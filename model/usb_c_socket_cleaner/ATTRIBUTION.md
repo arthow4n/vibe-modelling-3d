@@ -2,8 +2,8 @@
 
 This is an original parametric model created for the
 `vibe-modelling-3d` repository. No third-party geometry was used. The current
-revision substantially replaces the earlier passive side-gutter fork with a
-centered flat scraper blade.
+revision replaces the earlier passive side-gutter fork and broad paddle with a
+narrow side pick and rear-facing lint hook.
 
 - Primary language model: GPT-5
 - Reasoning effort: not exposed by the runtime

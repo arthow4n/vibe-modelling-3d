@@ -4,14 +4,14 @@
   "solids": 1,
   "bounds_mm": [
     -7.5,
-    -0.0,
+    0.0,
     0.0,
     7.5,
     68.0,
     5.5
   ],
-  "volume_cm3": 4.6534,
-  "stl_triangles": 3110,
+  "volume_cm3": 4.6403,
+  "stl_triangles": 3122,
   "step_bounds_agree_within_mm": 0.01,
   "stl_bounds_agree_within_mm": 0.03,
   "physical_testing": "not yet printed or tested in a physical receptacle"
