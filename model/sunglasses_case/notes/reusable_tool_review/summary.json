@@ -1,0 +1,70 @@
+{
+  "model": "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case/sunglasses_case.stl",
+  "profile": "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case/notes/closure_review/review.ini",
+  "input_sha256": {
+    "model": "e4a50be7515bacf406a94f48d40622f2f1543750fb655f10b5adc68608dd8e75",
+    "profile": "92dfd6bb5d412a13a83cb525d3640089207816ceffac87346c6fbd89453879a0"
+  },
+  "slicer_help_header": [
+    "PrusaSlicer-2.9.6+flathub.org based on Slic3r (with GUI support)",
+    "https://github.com/prusa3d/PrusaSlicer",
+    "",
+    "Usage: prusa-slicer [ INPUT ] [ OPTIONS ] [ ACTIONS ] [ TRANSFORM ] [ file.stl ... ]",
+    "",
+    "Input:",
+    " --load ABCD         Load configuration from the specified file. It can be used more than once to",
+    "                     load options from multiple files."
+  ],
+  "gcode_sha256": "c8d5432b02854ec9d0293d1fef1063784e78ac1d60778474ed78a36217646147",
+  "safe_build_volume_mm": [
+    260.0,
+    260.0,
+    250.0
+  ],
+  "metadata": {
+    "filament used [g]": "225.90",
+    "estimated printing time (normal mode)": "18h 23m 57s"
+  },
+  "xy_bounds_including_half_width_mm": [
+    28.381,
+    25.804000000000002,
+    233.47099999999998,
+    230.196
+  ],
+  "max_layer_z_mm": 43.4,
+  "inside_safe_volume": true,
+  "support_segments": 0,
+  "log_notices": [],
+  "windows": [
+    {
+      "name": "loop",
+      "layers": [
+        40.4,
+        40.6,
+        40.8
+      ],
+      "window": [
+        109,
+        222,
+        131,
+        231
+      ]
+    },
+    {
+      "name": "keeper",
+      "layers": [
+        0.2,
+        0.4,
+        5.0
+      ],
+      "window": [
+        214,
+        71,
+        224,
+        81
+      ]
+    }
+  ],
+  "review_required": false,
+  "limits": "Generic diagnostic job, not sent to a printer. Linear ASCII paths; width fallback is 0.45 mm if no WIDTH comment. Bounds exclude travel/start/end motion and flow spread. Role labels do not establish anchors or free-air spans. Profile includes are not resolved or independently hashed."
+}

@@ -19,42 +19,43 @@ def read_paths(path):
     position = {"X": 0.0, "Y": 0.0, "Z": 0.0}
     role, z, width, relative_e = "Unknown", None, 0.45, False
     metadata = {}
-    for line_number, raw in enumerate(path.open(), 1):
-        line = raw.strip()
-        if line.startswith(";TYPE:"):
-            role = line[6:]
-        elif line.startswith(";Z:"):
-            z = round(float(line[3:]), 5)
-        elif line.startswith(";WIDTH:"):
-            width = float(line[7:])
-        elif line.startswith(("; filament used [g]", "; estimated printing time (normal mode)")):
-            key, value = line[2:].split(" = ", 1)
-            metadata[key] = value
-        code = line.split(";", 1)[0].strip()
-        if not code:
-            continue
-        command = code.split()[0]
-        if command in ("G20", "G91", "M82", "G2", "G3"):
-            raise ValueError(f"Unsupported {command} at line {line_number}")
-        if command == "M83":
-            relative_e = True
-        values = {key: float(value) for key, value in TOKEN.findall(code)}
-        if command == "G92":
-            position.update({key: value for key, value in values.items() if key in position})
-        if command not in ("G0", "G1"):
-            continue
-        end = {key: values.get(key, position[key]) for key in position}
-        length = math.hypot(end["X"]-position["X"], end["Y"]-position["Y"])
-        if values.get("E", 0) > 0 and length > 1e-6:
-            if not relative_e or z is None:
-                raise ValueError(f"Missing M83 or layer marker at line {line_number}")
-            if abs(end["Z"]-position["Z"]) > 1e-5:
-                raise ValueError(f"Nonplanar extrusion at line {line_number}")
-            layers[z].append({"role": role, "a": [position["X"], position["Y"]],
-                              "b": [end["X"], end["Y"]], "length_mm": length,
-                              "filament_mm": values["E"], "width_mm": width,
-                              "line": line_number})
-        position = end
+    with path.open() as source:
+        for line_number, raw in enumerate(source, 1):
+            line = raw.strip()
+            if line.startswith(";TYPE:"):
+                role = line[6:]
+            elif line.startswith(";Z:"):
+                z = round(float(line[3:]), 5)
+            elif line.startswith(";WIDTH:"):
+                width = float(line[7:])
+            elif line.startswith(("; filament used [g]", "; estimated printing time (normal mode)")):
+                key, value = line[2:].split(" = ", 1)
+                metadata[key] = value
+            code = line.split(";", 1)[0].strip()
+            if not code:
+                continue
+            command = code.split()[0]
+            if command in ("G20", "G91", "M82", "G2", "G3"):
+                raise ValueError(f"Unsupported {command} at line {line_number}")
+            if command == "M83":
+                relative_e = True
+            values = {key: float(value) for key, value in TOKEN.findall(code)}
+            if command == "G92":
+                position.update({key: value for key, value in values.items() if key in position})
+            if command not in ("G0", "G1"):
+                continue
+            end = {key: values.get(key, position[key]) for key in position}
+            length = math.hypot(end["X"]-position["X"], end["Y"]-position["Y"])
+            if values.get("E", 0) > 0 and length > 1e-6:
+                if not relative_e or z is None:
+                    raise ValueError(f"Missing M83 or layer marker at line {line_number}")
+                if abs(end["Z"]-position["Z"]) > 1e-5:
+                    raise ValueError(f"Nonplanar extrusion at line {line_number}")
+                layers[z].append({"role": role, "a": [position["X"], position["Y"]],
+                                  "b": [end["X"], end["Y"]], "length_mm": length,
+                                  "filament_mm": values["E"], "width_mm": width,
+                                  "line": line_number})
+            position = end
     if not layers:
         raise ValueError("No deposited layers found")
     return layers, metadata

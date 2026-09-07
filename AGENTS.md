@@ -167,7 +167,7 @@ For example:
 model/camera_bracket/camera_bracket.py
 ```
 
-Strongly prefer parameterized design: keep the main dimensions and likely user adjustments as clearly named parameters near the top of the model, with dependent geometry derived from them. Follow the skill's [maintainable parametric design guidance](.codex/skills/cadquery-3d-design/SKILL.md#maintainable-parametric-design) so changes in requirements are easy to accommodate without rebuilding the model. Use judgment; do not force unnecessary abstraction for incidental details.
+Strongly prefer parameterized design: keep the main dimensions and likely user adjustments as clearly named parameters near the top of the model, with dependent geometry derived from them. Follow the skill's [maintainable parametric design guidance](.codex/skills/cadquery-3d-design/references/parametric-and-edges.md#maintainable-parametric-design) so changes in requirements are easy to accommodate without rebuilding the model. Use judgment; do not force unnecessary abstraction for incidental details.
 
 Prefer parametric and understandable construction over hard-coded point clouds or unnecessarily complicated geometry.
 
@@ -223,7 +223,7 @@ Prioritize corrections by impact, following the function-first order and printab
 
 Do not endlessly tune insignificant details.
 
-If the request is ambiguous, follow the skill's [requirements clarification guidance](.codex/skills/cadquery-3d-design/SKILL.md#requirements-clarification). Ask useful questions during interpretation and planning when answers affect fit, function, usability, or printability; explain the choices in plain language. Use documented assumptions for low-impact details and reasonable defaults.
+If the request is ambiguous, follow the skill's [requirements clarification guidance](.codex/skills/cadquery-3d-design/references/design-decisions.md#requirements-clarification). Ask useful questions during interpretation and planning when answers affect fit, function, usability, or printability; explain the choices in plain language. Use documented assumptions for low-impact details and reasonable defaults.
 
 Record important assumptions in comments in the model or, when useful, in:
 
@@ -355,7 +355,7 @@ model/
 
 Use judgment based on whether the files belong to one coherent deliverable.
 
-Multiple Python files are encouraged when they simplify component construction, independent evaluation, shared dimensions, or assembly. They are optional: keep simple models in one file. Follow the skill's [components and shared parameters guidance](.codex/skills/cadquery-3d-design/SKILL.md#components-and-shared-parameters), and evaluate both useful individual components and the final combined geometry.
+Multiple Python files are encouraged when they simplify component construction, independent evaluation, shared dimensions, or assembly. They are optional: keep simple models in one file. Follow the skill's [components and shared parameters guidance](.codex/skills/cadquery-3d-design/references/parametric-and-edges.md#components-and-shared-parameters), and evaluate both useful individual components and the final combined geometry.
 
 ## Git workflow
 

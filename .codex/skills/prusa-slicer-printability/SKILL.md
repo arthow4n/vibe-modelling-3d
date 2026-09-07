@@ -1,84 +1,61 @@
 ---
 name: prusa-slicer-printability
-description: Investigate FDM printability with the PrusaSlicer CLI, using slicer warnings, layer toolpaths and controlled comparisons to assess overhangs, bridges, supports and moving-part clearances. Use when inspecting a model's intended print orientation or diagnosing slicing concerns. Maintained automatically as a living notebook of verified investigation techniques; does not authorize redesign or printing.
+description: Investigate FDM printability with PrusaSlicer CLI, layer paths and controlled comparisons. Use for orientation, overhang, bridge, support or moving-part slicing concerns. Automatically maintained notebook; inspection does not authorize redesign or printing.
 ---
 
-# PrusaSlicer printability notebook
+# PrusaSlicer printability inspection
 
-This skill is a **living investigation notebook**, not a finished manual or a
-printability certification tool. Use it to connect slicer evidence to a specific
-geometric concern. A valid CAD solid, successful slice, or absence of warnings
-does not prove that a physical print will succeed.
+Connect evidence to a specific geometric question. A valid solid, successful
+slice or absence of warnings does not prove that a physical print will succeed.
 
-Read [the investigation notebook](references/notebook.md) for tested commands,
-observed CLI behavior, toolpath interpretation and known limitations. Consult
-the installed CLI's help for version-specific options instead of assuming that
-every historical command or profile still applies.
+## Investigation workflow
 
-## Automatically maintain this skill
+1. Establish the question and reuse confirmed printer, material, orientation,
+   assembly and support preferences. Label diagnostic defaults.
+2. Choose a supplied or documented profile. Preserve print-in-place positions;
+   do not silently split, arrange, rotate, scale, repair or union the input.
+3. Use the [review helper](references/review-tool.md) for a reproducible slice,
+   or the [CLI notebook](references/cli-and-paths.md) for an investigation it
+   does not cover. Confirm fresh nonempty output, not only a zero exit code.
+4. Inspect warnings and relevant current/preceding layers. Check bridge anchors,
+   fit-critical surfaces, moving gaps and actual deposited footprint including
+   brims. Roles and segment lengths alone do not establish unsupported spans.
+5. Report facts, geometric interpretation and remaining physical uncertainty
+   separately. Stop when the question is answered. Inspection-only requests do
+   not authorize redesign, deployment, print tuning outside scope, or printing.
 
-The agent is expected to maintain this skill **without waiting for a separate
-user request**. Whenever an investigation reveals a useful way of using
-PrusaSlicer to inspect printability that is missing here, update this skill or
-its notebook during the same task, before handoff. Also correct existing advice
-when new evidence disproves it. This maintenance is part of applying the skill,
-not merely a suggestion to offer the user later.
+A known defect on a critical mating surface should inform an authorized redesign,
+not merely recur in another trial with a disclaimer. For CAD decisions or
+physical experiments, use [CAD design](../cadquery-3d-design/SKILL.md), including
+the required CadQuery MCP workflow.
 
-- Add reusable, verified findings: commands, settings, warning behavior,
-  extraction methods, useful comparisons, and failures that affect interpretation.
-- For a new technique, record its purpose, minimal reproduction, tested version
-  and relevant profile/orientation assumptions, observed result, and limitations.
-  Link to supporting object artifacts when useful; keep raw object data there.
-- Label untested ideas as hypotheses. Do not present a proposed parser, metric,
-  visualization or CLI capability as implemented or verified until exercised.
-- Edit or consolidate the relevant entry instead of appending repeated session
-  transcripts. Keep this entry point short; extend the linked notebook or add
-  a focused reference when a technique needs substantial detail.
-- Do not generalize one printer, material, bridge length or user's preference
-  into a universal rule. Preserve explicit scope limits and existing preferences.
-- Validate changed instructions and run any new or modified helper scripts.
-  Follow repository commit/push rules for relevant skill changes and briefly
-  identify the learned technique in the handoff. If maintenance is explicitly
-  prohibited or the skill is unavailable for writing, report that limitation
-  instead of claiming it was updated.
+## Read selectively
 
-## Investigate within the requested scope
+- [Review helper](references/review-tool.md): standard slice reports and windows.
+- [CLI and path interpretation](references/cli-and-paths.md): configuration,
+  parser limits, manual commands and interpreting layer-window SVGs.
+- [Case lessons](references/case-lessons.md): warnings, internal infill, anchors,
+  droop despite clean slices, mesh defects, brim bounds and layer registration.
+- [Notebook index](references/notebook.md): entry point for maintained findings.
 
-1. Establish the question: for example, whether an overhead wall requires
-   bridging, whether supports invade a captive joint, or whether a thin wall
-   produces useful extrusion paths. Use the user's existing printer, material,
-   orientation, assembly and support requirements. Ask only for missing inputs
-   that materially affect the conclusion; label diagnostic defaults.
-2. Locate PrusaSlicer and check its version/help. Use the supplied printable
-   model as the baseline. Record the exact input, orientation and profile;
-   preserve relative positions of print-in-place components. Do not silently
-   split, arrange, rotate, scale, repair or union the model.
-3. Slice with settings appropriate to that question. Capture stdout and stderr
-   and confirm that a fresh, nonempty output was actually generated. Match the
-   baseline to the user's support requirement. A supported comparison is only
-   an investigation aid when useful within scope, never a substitute for meeting
-   a no-support requirement.
-4. Read warnings and inspect the relevant layer features, not just the process
-   return code or final time estimate. Locate problematic paths by print height
-   and relate them back to the model. Distinguish reported slicer facts, measured
-   toolpath quantities, inferred printing risks and unverified physical behavior.
-5. Stop once the requested question is answered with sufficient evidence.
-   Inspection-only requests do not authorize geometry changes, print tuning
-   beyond the investigation, deployment to a printer or physical printing.
+## Automatically maintain this notebook
 
-Slicing supplements CAD evaluation. In this repository, actual CadQuery changes
-still follow AGENTS.md and the CadQuery design skill, including evaluate_file.
+Update missing useful techniques during the investigation without waiting for
+another request. Correct disproven advice; consolidate rather than append session
+transcripts. Record the purpose, minimal reproduction, tested version,
+profile/orientation assumptions, observation and limits. Keep raw evidence with
+the object and link it here. Label untested ideas; do not generalize one printer's
+clearance or bridge result into a universal rule.
 
-## Evidence and handoff
+Run new/changed helpers and validate changed skills before handoff. Mention
+material additions. If maintenance is prohibited or unavailable, report that
+limitation rather than claiming an update. This requirement does not expand
+authorization to redesign or print.
 
-Keep an object's diagnostic profile, commands, concise findings and useful
-measurements or images inside `model/<object_name>/`, normally in a notes
-subdirectory. Preserve reproducibility without committing huge G-code dumps,
-redundant intermediate renders or raw logs that add no evidence. Account for
-ignore rules when retaining a warning log; alternatively quote it in the report.
+## Evidence
 
-Report what was tested, the specific warning or geometric finding, its effect
-on the user's requirement, and remaining uncertainty. Diagnostic G-code made
-with generic motion/temperature settings is not a validated printer job. Include
-physical testing only when it has actually happened. Before finishing, check
-whether the investigation taught a missing technique and maintain this notebook.
+Save the profile or exact profile reference, input hashes, command/version,
+warnings, estimates and useful layer views inside the object's directory.
+Keep raw G-code/logs out of commits unless they add necessary evidence. A generic
+diagnostic G-code file is not a validated printer job. No automated free-air span,
+anchor, sag, stress or pass/fail printability classifier is supplied.
