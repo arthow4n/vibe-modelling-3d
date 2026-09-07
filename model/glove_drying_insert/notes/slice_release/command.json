@@ -1,0 +1,11 @@
+[
+  "prusa-slicer",
+  "--load",
+  "/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/notes/review.ini",
+  "--center",
+  "130,130",
+  "--export-gcode",
+  "--output",
+  "/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/notes/slice_release/slice.gcode",
+  "/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/glove_drying_insert.stl"
+]
