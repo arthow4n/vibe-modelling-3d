@@ -200,6 +200,13 @@ roles, and distinguish one-sided overhangs from bridges. See the
 [closure review and layer windows](../../../../model/sunglasses_case/notes/closure_review/report.md).
 No automatic anchor classifier was implemented; these were visual inspections.
 
+Subsequent physical A/B/C tests confirmed keeper droop despite the clean slices.
+The D/E revision uses a separate side-printed keeper; checking its local paths
+and first layers showed the full tooth profile on the bed and only perimeter
+roles thereafter. Record both the removal of that local overhang and the added
+assembly/fit tradeoff, rather than labeling the whole model bridge-free. See
+[D/E evidence](../../../../model/sunglasses_case/notes/keeper_review/report.md).
+
 
 Selected layer-window SVGs are now supported by the helper above. Automatic
 free-air span measurement, support-removal accessibility checking and a reliable

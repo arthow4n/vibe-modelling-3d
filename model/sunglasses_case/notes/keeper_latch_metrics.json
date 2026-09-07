@@ -1,0 +1,30 @@
+{
+  "D_firm_side_printed_keeper": {
+    "loop_thickness_mm": 2.2,
+    "keeper_print_orientation": "side, tooth profile parallel to bed",
+    "loop_bridge_span_mm": 12.0,
+    "release_travel_mm": 3.2,
+    "seated_gap_mm": 0.2,
+    "retaining_angle_deg": 0.0,
+    "volume_mm3": 25136.505636608068,
+    "bounds_mm": [
+      80.24000010000002,
+      107.83919189857866,
+      39.000000099999994
+    ]
+  },
+  "E_extra_firm_side_printed_keeper": {
+    "loop_thickness_mm": 2.8,
+    "keeper_print_orientation": "side, tooth profile parallel to bed",
+    "loop_bridge_span_mm": 12.0,
+    "release_travel_mm": 3.2,
+    "seated_gap_mm": 0.2,
+    "retaining_angle_deg": 0.0,
+    "volume_mm3": 25267.2343423481,
+    "bounds_mm": [
+      80.24000010000002,
+      108.43919189857866,
+      39.000000099999994
+    ]
+  }
+}

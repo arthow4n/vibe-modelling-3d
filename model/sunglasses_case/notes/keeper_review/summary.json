@@ -1,0 +1,44 @@
+{
+  "profile": "../closure_review/review.ini",
+  "profile_sha256": "92dfd6bb5d412a13a83cb525d3640089207816ceffac87346c6fbd89453879a0",
+  "slices": {
+    "D_firm_side_printed_keeper": {
+      "deposited_xy_bounds_mm": [
+        78.463,
+        68.202,
+        181.45399999999998,
+        188.396
+      ],
+      "max_z_mm": 39.0,
+      "metadata": {
+        "filament used [g]": "32.62",
+        "estimated printing time (normal mode)": "3h 46m 44s"
+      },
+      "insert_roles": [
+        "External perimeter",
+        "Perimeter"
+      ],
+      "stl_sha256": "60888ee6bd836dd3906ca15d38fd7754085771f5c600cde130bcd9bc562b1275",
+      "gcode_sha256": "1c2fa9b862a72e2c77fb2b5f16af998d57e93331f3b6616d5b8e70ff2df40be9"
+    },
+    "E_extra_firm_side_printed_keeper": {
+      "deposited_xy_bounds_mm": [
+        78.463,
+        67.902,
+        181.45399999999998,
+        188.09599999999998
+      ],
+      "max_z_mm": 39.0,
+      "metadata": {
+        "filament used [g]": "32.80",
+        "estimated printing time (normal mode)": "3h 48m 43s"
+      },
+      "insert_roles": [
+        "External perimeter",
+        "Perimeter"
+      ],
+      "stl_sha256": "e9062bcc54901fe00ca580ce24eed744d63309ab8796496524affcfe0961c00c",
+      "gcode_sha256": "b582616e1fe93dbe103f9eeceb08295c719445560f43886b98f036c361d5aca2"
+    }
+  }
+}

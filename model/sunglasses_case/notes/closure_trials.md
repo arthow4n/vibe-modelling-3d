@@ -1,5 +1,9 @@
 # Closure experiments after the very-tight sample failed to retain
 
+**Historical A/B/C trials.** The user subsequently printed them and observed
+similar feel and keeper droop. Use the newer [D/E trials](keeper_latch_trials.md)
+for the next comparison; A/B/C are retained as the physically tested baseline.
+
 Print one complete sample per file. Every sample includes both hinges and the
 latch; there is no combined plate. STEP and STL share the open print orientation.
 The original full case's geometry and exports have not been redesigned.

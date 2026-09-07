@@ -14,3 +14,8 @@ spaced-bearing comparison and locating-tab sample) additionally use GPT-6
 (runtime family identifier; variant and reasoning effort not exposed), Codex
 harness, OpenAI provider. This attribution applies to these experiments; it
 does not replace the existing primary or GPT-5.6 Luna historical attribution.
+
+The subsequent D/E revision (`keeper_latch_trials.py`, lighter frame, side-printed
+keeper and loop-stiffness comparison) also uses GPT-6 (runtime family identifier;
+variant and reasoning effort not exposed), Codex harness, OpenAI provider.
+The primary and previous contributors above remain unchanged.

@@ -1,0 +1,74 @@
+{
+  "D_firm_side_printed_keeper": {
+    "triangles": 16820,
+    "valid_step_solids": 3,
+    "watertight_mesh_components": 3,
+    "nondegenerate_triangles": true,
+    "each_component_on_bed": true,
+    "individual_step_stl_bounds_agree_mm": 0.035,
+    "step_component_bounds": [
+      [
+        -30.0,
+        -23.5,
+        0.0,
+        30.0,
+        34.319595949289,
+        35.6
+      ],
+      [
+        -30.000000000000004,
+        23.119595949289,
+        0.0,
+        30.0,
+        84.339191898579,
+        39.0
+      ],
+      [
+        44.0,
+        -5.0,
+        -9.999999753974578e-08,
+        50.2400001000002,
+        1.5400001,
+        11.0000001
+      ]
+    ],
+    "stl_sha256": "60888ee6bd836dd3906ca15d38fd7754085771f5c600cde130bcd9bc562b1275",
+    "step_sha256": "5a3ae8dcb51f98b9e28557b1f99d5533c9be5c4b607f581a43b6b0c70dfa286b"
+  },
+  "E_extra_firm_side_printed_keeper": {
+    "triangles": 16184,
+    "valid_step_solids": 3,
+    "watertight_mesh_components": 3,
+    "nondegenerate_triangles": true,
+    "each_component_on_bed": true,
+    "individual_step_stl_bounds_agree_mm": 0.035,
+    "step_component_bounds": [
+      [
+        -30.0,
+        -23.5,
+        0.0,
+        30.0,
+        34.319595949289,
+        35.6
+      ],
+      [
+        -30.000000000000004,
+        23.119595949289,
+        0.0,
+        30.0,
+        84.939191898579,
+        39.0
+      ],
+      [
+        44.0,
+        -5.0,
+        -9.999999753974578e-08,
+        50.2400001000002,
+        1.5400001,
+        11.0000001
+      ]
+    ],
+    "stl_sha256": "e9062bcc54901fe00ca580ce24eed744d63309ab8796496524affcfe0961c00c",
+    "step_sha256": "e4483153e4e0369d4c51ebbb498859417d108b3f95ae9d92c8b21f22ee6a7fe8"
+  }
+}

@@ -1,8 +1,9 @@
 # Sunglasses case — support-free flat print
 
-**Current work:** the printed case's shape and hinge operation were acceptable,
-but hinge play and latch retention failed the user's expectations. For the
-replacement small experiments, use [closure_trials.md](closure_trials.md).
+**Current work:** the user accepts the A/B/C hinge behavior, but reported keeper
+droop and insufficient differences in latch feel. For the next lighter samples,
+use [D/E side-printed keeper trials](keeper_latch_trials.md). Each needs one
+printed keeper inserted into its frame; the hinge still prints in place.
 The full-size geometry below remains the historical production version.
 
 Confirmed requirements: folded glasses 160 × 80 × 60 mm, PETG, 260 × 260 ×
