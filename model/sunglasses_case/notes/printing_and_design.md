@@ -1,5 +1,10 @@
 # Sunglasses case — support-free flat print
 
+**Current work:** the printed case's shape and hinge operation were acceptable,
+but hinge play and latch retention failed the user's expectations. For the
+replacement small experiments, use [closure_trials.md](closure_trials.md).
+The full-size geometry below remains the historical production version.
+
 Confirmed requirements: folded glasses 160 × 80 × 60 mm, PETG, 260 × 260 ×
 250 mm safe build volume (X × Y × Z), 0.4 mm nozzle, no supports, no purchased hardware and no hinge assembly.
 
@@ -23,7 +28,7 @@ The user successfully printed the earlier hinge coupon and requested less
 play. Cone clearance is reduced from 0.7 to 0.6 mm measured radially at fixed
 axial position (normal surface gap approximately 0.424 mm). The gap between
 adjacent ears is reduced from 0.6 to 0.5 mm. The new round, tighter version
-has been evaluated and sliced but has not yet been physically retested.
+was subsequently printed; the user reported excessive play and weak retention.
 
 The ramp-rooted PETG latch has sloped detents and an accessible thumb tab.
 Pull the tab outward before lifting the lid. Shell rims meet to carry closing
@@ -32,16 +37,10 @@ loads. The hinge is checked through 180 degrees; do not force it beyond that.
 ## Files and printing
 
 - `sunglasses_case.stl`: complete print-in-place case, already flat and open.
-- `hinge_test.stl`: updated production joint on short wall sections and feet,
-  approximately 32 × 41.44 × 42.60 mm. Useful for checking the tighter fit.
-- `mechanism_test_baseline.stl`: present hinge and latch settings.
-- `mechanism_test_tight_hinge_current_latch.stl`: tighter hinge with the
-  current latch.
-- `mechanism_test_tight_hinge_deep_latch.stl`: tighter hinge with deeper latch.
-- `mechanism_test_very_tight_hinge_current_latch.stl`: 0.20/0.20 mm hinge
-  clearance with the current latch.
-- `mechanism_test_very_tight_hinge_deep_latch.stl`: 0.20/0.20 mm hinge
-  clearance with deeper latch.
+- `A_twin_hinge_loop_1p8.stl`: twin bearings and positive loop latch.
+- `B_twin_hinge_loop_2p6.stl`: twin bearings and more latch engagement travel.
+- `C_located_loop_2p6.stl`: B plus locating tabs to limit closed sideways play.
+- Each A/B/C sample also has a matching print-ready STEP file.
 - `sunglasses_case.step`: complete case in the same flat, open print pose as the STL.
 - `sunglasses_case.py`: authoritative parametric source. `LAYOUT` selects
   closed, open, print, coupon or hinge_section; exports retain their intended
@@ -50,36 +49,12 @@ loads. The hinge is checked through 180 degrees; do not force it beyond that.
 
 ### Mechanism test pieces
 
-The full case is unchanged by this test revision. The samples isolate the
-uncertain physical interfaces before another large print:
-
-| Sample | Cone radial clearance | Ear gap | Latch tooth shift | Keeper depth |
-| --- | ---: | ---: | ---: | ---: |
-| baseline | 0.60 mm | 0.50 mm | 0.00 mm | 1.40 mm |
-| tight hinge, current latch | 0.35 mm | 0.30 mm | 0.00 mm | 1.40 mm |
-| tight hinge, deep latch | 0.35 mm | 0.30 mm | 0.80 mm | 2.20 mm |
-| very tight hinge, current latch | 0.20 mm | 0.20 mm | 0.00 mm | 1.40 mm |
-| very tight hinge, deep latch | 0.20 mm | 0.20 mm | 0.80 mm | 2.20 mm |
-
-The first value is measured at fixed axial position; the normal gap on the
-45-degree conical surface is smaller. The tooth shift moves the cantilever's
-detent farther outward in the open print pose, and keeper depth extends the
-fixed triangular catch. These are test variants, not yet selected production
-settings. The `baseline` sample reproduces the present case interface, the
-current-latch samples isolate hinge play, and the deep-latch samples test deeper catch
-engagement together with their corresponding hinge clearance.
-
-The very-tight 0.20 mm radial value corresponds to approximately 0.14 mm on
-the angled mating surface. It may fuse in PETG even on a precise printer; free
-it gently if possible and do not force the captive cones.
-
-Print the individual STLs with supports disabled. Each is a shortened
-cross-section, so it tests local hinge and latch behavior without reproducing
-the full case's bending stiffness. After cooling, flex each latch by hand and cycle its hinge gently.
-Check whether the lid stays closed under a light shake and whether
-the latch releases without excessive force. A sample tests fit, engagement and
-local freeing; it does not establish full-case stiffness, backpack impact
-resistance, latch fatigue or lens protection.
+The obsolete five tolerance samples and standalone hinge STL were removed;
+recover them from Git at `1c6b8c3` if needed. Their claims of deeper engagement
+were not borne out: extending the keeper and shifting the tooth by equal amounts
+left the same nominal peak overlap. The new experiments use a loop beneath a
+flat retaining shoulder. See [the current comparison and test instructions](closure_trials.md),
+including the short loop bridge and the catch's one-sided overhang risk.
 
 Print the STL as supplied. Center the complete object and place it on the bed;
 keep its solids together in their original positions. Use **supports disabled**.
@@ -106,20 +81,14 @@ opening requires latch flex, which rigid CAD checks do not simulate.
 
 The final STEP was reimported through CadQuery MCP: it contains two valid solids, both touching the bed, and its bounds match the STL within 0.05 mm. Its open print pose was visually inspected.
 
-The case, hinge coupon and mechanism samples have watertight components with
-paired triangle edges, no degenerate faces, and bed contact. Final rendered
-views were inspected. The mechanism plate was evaluated as six solids and its
-three paired samples remain separated. PrusaSlicer 2.9.6 slicing of the case,
-hinge coupon and mechanism plate passed with supports disabled, without
-stability warnings, bridge infill, overhang perimeter or support roles. The
-mechanism plate still needs physical trial printing.
-Selected hinge layers were inspected against preceding toolpaths. See
+The historical case and hinge coupon had watertight meshes and passed slicing
+without supports or warnings. That did not establish satisfactory physical
+retention, as the user's later prints demonstrated. See the historical
 [slicer evidence](support_free_review/report.md) for settings and measurements.
 
-The earlier hinge has a successful user print; the revised hinge fit, full case,
-latch force/fatigue and backpack compression resistance still need physical
-validation. There is no tested load rating. Slicer success does not measure
-surface finish, PETG stringing or joint freedom.
+New A/B/C trial verification is documented separately in `closure_trials.md`.
+There is no tested load rating. Slicer success does not measure surface finish,
+PETG stringing, joint freedom, latch fatigue or backpack compression resistance.
 
 Edit named dimensions near the source top; arbitrary combinations are not
 proven. The export fallback path accommodates the local MCP omitting `__file__`;

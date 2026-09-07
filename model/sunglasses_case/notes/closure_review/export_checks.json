@@ -1,0 +1,44 @@
+{
+  "A_twin_hinge_loop_1p8": {
+    "triangles": 18534,
+    "components": 2,
+    "valid_step_solids": 2,
+    "paired_mesh_edges": true,
+    "both_step_solids_on_bed": true,
+    "step_stl_bounds_agree_mm": 0.03,
+    "stl_sha256": "5005d2304e7ccf142b893c744579f6865bfe53281b1b53908b8450aac8e26e68",
+    "bounds_mm": [
+      60.0,
+      103.43919563293457,
+      39.0
+    ]
+  },
+  "B_twin_hinge_loop_2p6": {
+    "triangles": 20328,
+    "components": 2,
+    "valid_step_solids": 2,
+    "paired_mesh_edges": true,
+    "both_step_solids_on_bed": true,
+    "step_stl_bounds_agree_mm": 0.03,
+    "stl_sha256": "aebef07094692b3eafccf1e93248a254b6d731aecbf202234ce624f021f636e2",
+    "bounds_mm": [
+      60.0,
+      104.23919486999512,
+      39.0
+    ]
+  },
+  "C_located_loop_2p6": {
+    "triangles": 19486,
+    "components": 2,
+    "valid_step_solids": 2,
+    "paired_mesh_edges": true,
+    "both_step_solids_on_bed": true,
+    "step_stl_bounds_agree_mm": 0.03,
+    "stl_sha256": "e55d54ef68705bf962727f93ed7d5ea4daf201f51c89cf0aa18c778add71e94e",
+    "bounds_mm": [
+      60.0,
+      104.23919486999512,
+      39.0
+    ]
+  }
+}

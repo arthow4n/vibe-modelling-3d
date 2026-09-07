@@ -187,6 +187,20 @@ warnings and path inspection. A clean slice alone did not reveal this defect.
 
 ## What has not been established yet
 
+### Role labels can hide a bridge or suggest unsupported anchors
+
+Verified 2026-09-07 with PrusaSlicer 2.9.6, 0.2 mm layers and supports off:
+the sunglasses closure trial's 12 mm loop bridge was represented by
+`Overhang perimeter` paths (about 11.6 mm centerline segments). Meanwhile,
+roughly 6.2 mm `Bridge infill` paths appeared on a keeper lip whose outer
+edges were themselves unsupported. Neither the longest Bridge infill segment
+nor its presence established the actual free-air span or two sound anchors.
+Compare the previous layer with the first spanning layer, including perimeter
+roles, and distinguish one-sided overhangs from bridges. See the
+[closure review and layer windows](../../../../model/sunglasses_case/notes/closure_review/report.md).
+No automatic anchor classifier was implemented; these were visual inspections.
+
+
 Selected layer-window SVGs are now supported by the helper above. Automatic
 free-air span measurement, support-removal accessibility checking and a reliable
 pass/fail printability score remain unimplemented here. No universal safe bridge length or overhang-angle limit

@@ -1,0 +1,47 @@
+{
+  "A_twin_hinge_loop_1p8": {
+    "deposition_xy_bounds_mm": [
+      89.323,
+      70.202,
+      170.679,
+      188.998
+    ],
+    "max_z_mm": 39.0,
+    "metadata": {
+      "filament used [g]": "63.22",
+      "estimated printing time (normal mode)": "5h 37m 20s"
+    },
+    "stl_sha256": "5005d2304e7ccf142b893c744579f6865bfe53281b1b53908b8450aac8e26e68",
+    "gcode_sha256": "407827addd8ab3ff8e9f88e7f94ead4a0083e8c2dc0c988a9cfbe6457d4041aa"
+  },
+  "B_twin_hinge_loop_2p6": {
+    "deposition_xy_bounds_mm": [
+      89.323,
+      70.602,
+      170.679,
+      189.398
+    ],
+    "max_z_mm": 39.0,
+    "metadata": {
+      "filament used [g]": "63.28",
+      "estimated printing time (normal mode)": "5h 37m 6s"
+    },
+    "stl_sha256": "aebef07094692b3eafccf1e93248a254b6d731aecbf202234ce624f021f636e2",
+    "gcode_sha256": "d8f771ee55d43c4fc44207bfb32bbac09794fe81863685eb8e382c6ca250a54d"
+  },
+  "C_located_loop_2p6": {
+    "deposition_xy_bounds_mm": [
+      89.323,
+      70.602,
+      170.679,
+      189.398
+    ],
+    "max_z_mm": 39.0,
+    "metadata": {
+      "filament used [g]": "63.63",
+      "estimated printing time (normal mode)": "5h 43m 45s"
+    },
+    "stl_sha256": "e55d54ef68705bf962727f93ed7d5ea4daf201f51c89cf0aa18c778add71e94e",
+    "gcode_sha256": "ab683eb27e80339e98ab6886bd619ce6c79e3f6c5e45d3b986f95d33259e9bd3"
+  }
+}

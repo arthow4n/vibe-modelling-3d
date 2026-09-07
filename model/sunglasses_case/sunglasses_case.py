@@ -209,17 +209,8 @@ def mechanism_coupon(cone_clearance, end_clearance, tooth_shift=0.0,
     return compound(fixed, moving)
 
 
-MECHANISM_VARIANTS = {
-    # radial cone gap, axial ear gap, open-pose tooth shift, keeper depth
-    "baseline": (0.60, 0.50, 0.00, 1.40),
-    "tight_hinge_current_latch": (0.35, 0.30, 0.00, 1.40),
-    "tight_hinge_deep_latch": (0.35, 0.30, 0.80, 2.20),
-    "very_tight_hinge_current_latch": (0.20, 0.20, 0.00, 1.40),
-    "very_tight_hinge_deep_latch": (0.20, 0.20, 0.80, 2.20),
-}
-mechanism_tests = [
-    mechanism_coupon(*values) for values in MECHANISM_VARIANTS.values()
-]
+# Superseded tolerance samples are preserved at commit 1c6b8c3.
+# Evaluate closure_trials.py for the current small closure experiments.
 
 
 closed = compound(body, lid)
@@ -251,7 +242,3 @@ if EXPORT:
     dest = Path(globals().get("__file__", "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case/sunglasses_case.py")).resolve().parent
     cq.exporters.export(print_layout, str(dest / "sunglasses_case.step"))
     cq.exporters.export(print_layout, str(dest / "sunglasses_case.stl"), tolerance=0.035, angularTolerance=0.1)
-    cq.exporters.export(coupon, str(dest / "hinge_test.stl"), tolerance=0.035, angularTolerance=0.1)
-    for name, test in zip(MECHANISM_VARIANTS, mechanism_tests):
-        cq.exporters.export(test, str(dest / f"mechanism_test_{name}.stl"),
-                            tolerance=0.035, angularTolerance=0.1)

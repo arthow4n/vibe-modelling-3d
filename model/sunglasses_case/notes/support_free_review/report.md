@@ -1,5 +1,9 @@
 # Flat-print case inspection — 2026-09-06
 
+Historical evidence: the tolerance-sample exports referenced below were
+superseded after physical feedback and are recoverable at Git `1c6b8c3`.
+See [current closure experiments](../closure_trials.md) for the A/B/C files.
+
 PrusaSlicer 2.9.6 was used on the final rounded, tightened hinge revision.
 Both broad case panels lie on the bed. All slicing used supports disabled.
 The earlier standing-case investigation in `../slicer_review/` is historical;

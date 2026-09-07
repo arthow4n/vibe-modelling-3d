@@ -1,0 +1,56 @@
+{
+  "A_twin_hinge_loop_1p8": {
+    "overlap_mm": 1.8,
+    "hinge_spacing_mm": 36.0,
+    "radial_cone_gap_mm": 0.2,
+    "axial_ear_gap_mm": 0.2,
+    "locating_tabs": false,
+    "volume_mm3": 49468.23304429728,
+    "bounds_mm": [
+      60.0,
+      103.43919189857866,
+      39.0
+    ],
+    "tilt_comparison": {
+      "single_joint_first_contact_deg": 1.6,
+      "twin_joint_first_contact_deg": 0.5,
+      "scope": "Rigid CAD tilt about Y through hinge midpoint; 0.1 degree steps, not print measurement."
+    }
+  },
+  "B_twin_hinge_loop_2p6": {
+    "overlap_mm": 2.6,
+    "hinge_spacing_mm": 36.0,
+    "radial_cone_gap_mm": 0.2,
+    "axial_ear_gap_mm": 0.2,
+    "locating_tabs": false,
+    "volume_mm3": 49506.26388264243,
+    "bounds_mm": [
+      60.0,
+      104.23919189857864,
+      39.0
+    ],
+    "tilt_comparison": {
+      "single_joint_first_contact_deg": 1.6,
+      "twin_joint_first_contact_deg": 0.5,
+      "scope": "Rigid CAD tilt about Y through hinge midpoint; 0.1 degree steps, not print measurement."
+    }
+  },
+  "C_located_loop_2p6": {
+    "overlap_mm": 2.6,
+    "hinge_spacing_mm": 36.0,
+    "radial_cone_gap_mm": 0.2,
+    "axial_ear_gap_mm": 0.2,
+    "locating_tabs": true,
+    "volume_mm3": 49782.79907142219,
+    "bounds_mm": [
+      60.0,
+      104.23919189857864,
+      39.0
+    ],
+    "tilt_comparison": {
+      "single_joint_first_contact_deg": 1.6,
+      "twin_joint_first_contact_deg": 0.5,
+      "scope": "Rigid CAD tilt about Y through hinge midpoint; 0.1 degree steps, not print measurement."
+    }
+  }
+}
