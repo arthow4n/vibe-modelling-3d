@@ -1,0 +1,48 @@
+{
+  "E_interface_symmetric_difference_mm3": {
+    "receiver": 0.0,
+    "keeper": 0.0,
+    "loop": 0.0,
+    "hinge_0": 0.0,
+    "hinge_1": 0.0
+  },
+  "alternate_interior_checked_mm": [
+    168,
+    88,
+    68
+  ],
+  "valid_step_solids": 3,
+  "watertight_mesh_components": 3,
+  "triangles": 50656,
+  "nondegenerate_triangles": true,
+  "all_components_on_bed": true,
+  "step_stl_individual_bounds_agree_mm": 0.035,
+  "step_component_bounds_mm": [
+    [
+      -82.0000001,
+      -45.5,
+      -4.440892098500626e-16,
+      82.0,
+      56.319595949289,
+      40.1
+    ],
+    [
+      -82.0,
+      45.119595949289,
+      -4.440892098500626e-16,
+      82.0000001,
+      150.93919189857,
+      43.5
+    ],
+    [
+      96.0,
+      -5.0,
+      -9.999999753974578e-08,
+      102.24000010000019,
+      1.5400001,
+      11.0000001
+    ]
+  ],
+  "STL_sha256": "e4a50be7515bacf406a94f48d40622f2f1543750fb655f10b5adc68608dd8e75",
+  "STEP_sha256": "ad8735eea085d30f7a9811971395cf2a27e84bf0736790be731288aed5083beb"
+}

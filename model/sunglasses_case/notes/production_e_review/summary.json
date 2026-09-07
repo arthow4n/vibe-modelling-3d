@@ -1,0 +1,23 @@
+{
+  "slicer": "PrusaSlicer 2.9.6",
+  "profile": "../closure_review/review.ini",
+  "profile_sha256": "92dfd6bb5d412a13a83cb525d3640089207816ceffac87346c6fbd89453879a0",
+  "STL_sha256": "e4a50be7515bacf406a94f48d40622f2f1543750fb655f10b5adc68608dd8e75",
+  "gcode_sha256": "6ee17cfc28d06fa0b4921d55a591c4f0fbe2f1ad17b9ec7bebba43722a4001ed",
+  "deposited_xy_bounds_including_half_width_mm": [
+    28.381,
+    25.804000000000002,
+    233.47099999999998,
+    230.196
+  ],
+  "max_z_mm": 43.4,
+  "metadata": {
+    "filament used [g]": "225.90",
+    "estimated printing time (normal mode)": "18h 23m 57s"
+  },
+  "separate_keeper_roles": [
+    "External perimeter",
+    "Perimeter"
+  ],
+  "warnings": []
+}

@@ -1,0 +1,28 @@
+{
+  "interior_mm": [
+    158.0,
+    78.0,
+    63.0
+  ],
+  "shell_exterior_mm": [
+    164.0,
+    84.0,
+    69.0
+  ],
+  "print_bounds_mm": [
+    184.2400002,
+    196.43919189857866,
+    43.500000099999994
+  ],
+  "volume_mm3": 177358.8131337666,
+  "bearing_centers_mm": [
+    -30.0,
+    30.0
+  ],
+  "cone_radial_clearance_mm": 0.2,
+  "ear_axial_clearance_mm": 0.2,
+  "loop_thickness_mm": 2.8,
+  "seated_latch_gap_mm": 0.2,
+  "release_travel_mm": 3.2,
+  "intentional_key_interference_mm3": 0.2343361399862025
+}

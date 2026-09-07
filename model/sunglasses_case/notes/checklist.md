@@ -1,7 +1,8 @@
 # Support-free flat-print revision
 
 Historical checklist. Physical feedback subsequently identified play and
-retention problems; see `closure_trials_checklist.md` for the current work.
+retention problems. The current full-case integration is tracked in
+`production_e_checklist.md`; E was subsequently accepted by physical testing.
 
 - [x] Scope: retain confirmed 160 × 80 × 60 mm glasses fit, PETG, 260 × 260 × 250 mm safe build volume, 0.4 mm nozzle, no supports, no hardware, print-in-place hinge.
 - [x] Tools: CadQuery evaluate_file and PrusaSlicer CLI available; skills read.

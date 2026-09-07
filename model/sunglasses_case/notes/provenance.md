@@ -19,3 +19,8 @@ The subsequent D/E revision (`keeper_latch_trials.py`, lighter frame, side-print
 keeper and loop-stiffness comparison) also uses GPT-6 (runtime family identifier;
 variant and reasoning effort not exposed), Codex harness, OpenAI provider.
 The primary and previous contributors above remain unchanged.
+
+The reduced 158 × 78 × 63 mm interior and production integration of accepted E
+(`sunglasses_case.py` and `e_closure.py`) also use GPT-6 (runtime family identifier;
+variant and reasoning effort not exposed), Codex harness, OpenAI provider.
+Historical primary attribution remains GPT-6 Astra, low, as recorded above.

@@ -1,5 +1,10 @@
 # D/E: lighter fixtures with side-printed keeper teeth
 
+**Physical result:** the user subsequently printed D and E, found both okay,
+and preferred E slightly. E is now integrated into the reduced full case; see
+[current production instructions](printing_and_design.md). The notes below
+preserve the original trial design and its pre-test assumptions.
+
 These are the next two samples to print. Each STL includes a complete captive
 hinge/loop fixture and its separate small keeper insert. Matching STEP files
 have exactly the same print placement. The large sunglasses case is unchanged.
