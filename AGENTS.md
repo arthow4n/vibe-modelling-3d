@@ -76,6 +76,32 @@ Use this loop:
 
 Do not stop after producing the first valid model if visible, structural, functional, or ergonomic improvements are still obvious. A model is not finished merely because it builds successfully or visually resembles the requested object.
 
+## Avoid repeated work
+
+Batch deterministic work where the tools permit: build geometry once, export
+STEP and STL together, and collect required measurements and views in the same
+evaluation. Keep using CadQuery MCP; batching does not authorize replacing it.
+Return compact summaries and inspect detailed output for failures or a specific
+unresolved question instead of repeatedly loading full logs or helper sources.
+
+Reuse successful evidence when its relevant inputs are unchanged and recorded.
+For CAD checks, account for source modules, parameters, placement and tool versions;
+for export checks, the actual exported file hashes and checker settings/version;
+for slicing, the mesh, effective profile, command options and slicer version.
+Changed inputs invalidate affected checks. If dependencies are unclear, rerun.
+Final verification may reuse applicable evidence; it must cover the final files.
+
+Separate cheap build assertions from expensive mechanism sweeps where useful.
+Run affected sweeps after geometry/interface changes and before delivery, not
+merely to obtain another view. Do not introduce a caching framework for a one-off
+task. Use existing helpers; their regression and negative tests belong to helper
+development and need not be rerun for each ordinary model using unchanged tools.
+
+Keep one concise record of decisions and evidence. Stop review when the concrete
+questions and required checks are resolved; another general critique or duplicate
+report is not a completion requirement. Documentation-only changes need document
+validation, not new CAD evaluations or slices.
+
 ## Object directory convention
 
 Every object must have its own directory under:

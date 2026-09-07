@@ -45,6 +45,20 @@ do not mistake a parameter value for a verified measurement or physical result.
 Read the relevant references during planning, not only after a failed print.
 Do not load every reference for every task.
 
+## Proportionate review
+
+Follow AGENTS.md's reuse and batching rules. Give each additional review a
+concrete question (collision, engagement, fit, manufacturability or ergonomics)
+and stop when the evidence answers it. Reopen affected questions after changes,
+not the entire review by default. Extra renders cannot establish holding force,
+droop or feel; use a physical experiment when that is the remaining uncertainty.
+
+Export STEP/STL together from the same geometry. Check the final pair once per
+changed export set, rather than after every intermediate adjustment. This guards
+against stale files and placement/export defects; it is not a second design
+review or proof of shape identity. Batch meaningful sample variants and their
+checks when useful, keeping each variant tied to a distinct hypothesis.
+
 ## Essential working rules
 
 Use preferences already supplied. Ask targeted questions when missing information

@@ -17,7 +17,8 @@ slice or absence of warnings does not prove that a physical print will succeed.
 3. Use the [review helper](references/review-tool.md) for a reproducible slice,
    or the [CLI notebook](references/cli-and-paths.md) for an investigation it
    does not cover. Confirm fresh nonempty output, not only a zero exit code.
-4. Inspect warnings and relevant current/preceding layers. Check bridge anchors,
+4. Inspect the summary first; inspect relevant current/preceding layers when a
+   specific uncertainty, warning or fit-critical feature requires it. Check bridge anchors,
    fit-critical surfaces, moving gaps and actual deposited footprint including
    brims. Roles and segment lengths alone do not establish unsupported spans.
 5. Report facts, geometric interpretation and remaining physical uncertainty
@@ -30,6 +31,14 @@ physical experiments, use [CAD design](../cadquery-3d-design/SKILL.md), includin
 the required CadQuery MCP workflow.
 
 ## Read selectively
+
+Use one slice for each changed set of relevant inputs, following AGENTS.md's
+evidence reuse rules. Detailed layer diagrams are conditional, not routine
+deliverables. For another window on the same slice, use `inspect_gcode.py` on
+saved G-code rather than rerunning PrusaSlicer. The review wrapper orchestrates
+the slicer; the parser inspects its output. Neither is another slicer or physical
+simulation. The wrapper has no automatic cache: compare recorded inputs before
+reusing evidence, and use a fresh output directory when a new slice is needed.
 
 - [Review helper](references/review-tool.md): standard slice reports and windows.
 - [CLI and path interpretation](references/cli-and-paths.md): configuration,
