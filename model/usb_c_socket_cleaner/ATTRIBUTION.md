@@ -1,7 +1,9 @@
 # Attribution
 
 This is an original parametric model created for the
-`vibe-modelling-3d` repository. No third-party geometry was used.
+`vibe-modelling-3d` repository. No third-party geometry was used. The current
+revision substantially replaces the earlier passive side-gutter fork with a
+centered flat scraper blade.
 
 - Primary language model: GPT-5
 - Reasoning effort: not exposed by the runtime

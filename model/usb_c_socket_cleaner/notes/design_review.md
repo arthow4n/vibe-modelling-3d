@@ -1,44 +1,57 @@
-# Design assumptions and use notes
+# Revised design assumptions and use notes
+
+## What changed
+
+The first revision used two narrow side-gutter rails. That was not a useful
+scraper: it could guide along the port but did not present a broad edge to the
+lint pocket. This revision replaces it with one centered flat paddle with an
+intentional chisel edge. The blade is the functional cleaning surface.
 
 ## Interface assumptions
 
 The USB-IF Type-C Cable and Connector Specification Release 2.0, Figure 3-1,
 gives a nominal receptacle opening of 8.34 mm wide, a nominal receptacle
 inside thickness of 2.56 mm, a 6.69 mm tongue width, a 0.70 mm tongue
-thickness, and a 6.20 mm reference shell length. The source keeps these values
-near the top so the cleaner can be adjusted if a particular receptacle is
-unusually tight or has a damaged/misaligned shell.
+thickness, and a 6.20 mm reference shell length.
 
-The cleaner intentionally does not model a USB-C plug. It uses two 0.45 mm
-wide tines, each offset into a nominal side gutter, leaving 0.15 mm from the
-tine's inner edge to the nominal tongue edge and about 0.225 mm to the nominal
-outer shell edge. The 0.55 mm tine thickness is below the nominal vertical
-clearance on either face of the tongue. These are conservative nominal
-clearances, not a guarantee for every connector or print profile.
+The blade is 5.90 mm wide at the root and 5.55 mm wide at its chisel end, so
+it can sit under the nominal 6.69 mm center tongue with 0.395 mm per-side
+width margin at the root. It is 0.45 mm thick versus the nominal 0.93 mm
+vertical gap on either face of the tongue, leaving about 0.48 mm nominal
+height clearance. The blade reaches 5.85 mm before the 10.5 mm-wide stop
+collar meets the receptacle mouth.
 
-## Printing and operation
+These are nominal connector-envelope assumptions, not a guarantee for every
+socket. A port with a bent tongue, unusually shallow shell, obstructing EMC
+feature, or heavy first-layer bulge may not accept the blade.
 
-- Print the complete one-piece tool flat on its broad Z=0 face.
-- Use PLA or PETG with a 0.4 mm nozzle; a 0.16-0.20 mm layer height and at
-  least three perimeters are reasonable starting settings.
-- No supports are intended. The tines are deliberately narrow and may be a
-  single extrusion line; inspect the first layer and discard a tine with voids
-  or a rough oversized edge.
-- Power the device down and disconnect it before cleaning. Insert the rounded
-  tine noses gently until the stop collar meets the receptacle, sweep in and
-  out a few times, and withdraw straight. Turn the tool over for the opposite
-  face of the tongue. Do not twist, pry against the center tongue, or use a
-  metal tool.
-- The stop is set for about 5.75 mm tine insertion against the 6.20 mm reference
-  shell depth. Actual port recesses and internal EMC features vary; do not
-  force the tool if the stop meets an enclosure before the connector shell.
+## Actual use
 
-## Limitations
+1. Power the device down and disconnect all cables. Hold the rounded handle.
+2. Look into the port and place the broad blade flat on the lower cavity floor,
+   under the center tongue. The 0.18 mm nose and sloped top lead-in go first.
+3. Slide it straight in gently until the stop collar meets the port mouth.
+   Keep light downward pressure so the blade stays against the floor.
+4. Pull the blade back out slowly. The crisp front edge is the scraper: it
+   drags compacted lint toward the opening. Repeat short in/out strokes rather
+   than prying or levering.
+5. Turn the whole tool over and repeat against the opposite cavity face if
+   needed, then use a blower to remove loosened debris.
 
-The model has not been physically trial-printed or tested in a specific port.
-The CAD review can check nominal envelope clearance but cannot establish
-contact spring deflection, debris removal effectiveness, or the strength of a
-single-line FDM tine. Compressed air and a professional non-metallic cleaning
-tool remain safer choices for valuable or energized equipment.
+The edge is intentionally crisp for scraping; the handle, stop, and exposed
+grip edges are rounded or chamfered. Do not twist the blade, pry against the
+center tongue, scrape the visible contact springs, or use a metal tool.
+
+## Printing and limitations
+
+- Print the complete tool flat on its broad Z=0 face.
+- PLA or PETG with a 0.4 mm nozzle is assumed; 0.16–0.20 mm layer height and
+  at least three perimeters are reasonable starting settings.
+- No supports are intended. The 0.45 mm blade thickness is three 0.2 mm
+  layers only approximately; inspect the edge and discard a rough,
+  oversized, or delaminated print.
+- CAD and slicing checks cannot establish a particular port's actual fit,
+  cleaning effectiveness, or safe force limit. Physical testing remains
+  outstanding.
 
 Reference: https://www.usb.org/sites/default/files/USB%20Type-C%20Spec%20R2.0%20-%20August%202019.pdf

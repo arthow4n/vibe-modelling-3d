@@ -1,12 +1,12 @@
-# USB-C socket cleaner
+# USB-C socket scraper — revised design
 
-- [x] Confirm scope and customized CadQuery evaluator.
-- [x] Define use: hand-held, plastic-only debris scraper for a powered-off USB-C receptacle.
-- [x] Recover nominal receptacle opening, tongue, and shell-depth references from the USB-IF Type-C specification; treat connector variation as unverified.
+- [x] Re-read scope and acknowledge the prior fork was functionally wrong.
+- [x] Confirm customized CadQuery evaluator is available.
+- [x] Define use: hand-held plastic chisel scraper for compacted lint on the cavity floor, flipped for the opposite face.
+- [x] Use nominal USB-C receptacle dimensions and expose blade thickness, width, lead-in, and insertion depth as parameters.
 - [x] Choose a flat, support-free FDM print plan for the confirmed 260 x 260 x 250 mm printer volume and 0.4 mm nozzle.
-- [x] Build a parametric one-piece fork with two side-gutter tines, insertion stop, rounded grip, and lanyard hole.
-- [x] Re-evaluate geometry and inspect all useful views.
-- [x] Review fit, contact avoidance, edge treatment, and printability after evaluation.
-- [ ] Physically test a printed part; this remains unverified until the user tries it.
-- [x] Export matching STEP/STL and save final isometric/front/top/right views.
-- [x] Review artifacts, commit, and push.
+- [x] Replace the passive side-gutter fork with a real broad under-tongue scraper blade and positive insertion stop.
+- [x] Re-evaluate geometry and inspect isometric, front, top, and right views.
+- [x] Re-run exported STEP/STL and inspect a fresh slicer preview for the revised blade.
+- [ ] Physically test a printed blade; this remains unverified until the user tries it.
+- [x] Review revised artifacts, commit, and push.
