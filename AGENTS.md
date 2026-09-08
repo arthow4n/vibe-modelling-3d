@@ -215,6 +215,11 @@ Prefer and use the customized CadQuery MCP `evaluate_file` tool whenever possibl
 
 If `evaluate_file` is not available for a CadQuery task, do not proceed with the modelling work or recreate the tool with ad-hoc scripts. Refuse the task for now and ask the user to install the customized CadQuery MCP from [cadquery-contrib](https://github.com/arthow4n/cadquery-contrib/tree/feature/loop-customisations), then retry. Use the tool to do CadQuery work whenever possible.
 
+The MCP evaluation entry point may not define `__file__`; do not assume its
+working directory is the source directory. Use the explicit object-directory
+pattern in the [export wrapper guidance](.codex/skills/cadquery-3d-design/references/export-verification.md)
+when loading or writing sibling files.
+
 Evaluate the object's source file directly, for example:
 
 ```text
@@ -315,6 +320,13 @@ model/<object_name>/renders/
 
 Keep only useful final or intentionally retained render artifacts.
 
+When saving intermediate views, use an object-owned scratch destination such as
+`renders/scratch/`; save the selected final view set to `renders/print/` or
+`renders/assembled/`. Reuse already inspected final views when geometry and
+placement are unchanged. Remove disposable scratch output before staging.
+For exterior/ergonomic inspection, prefer `show_hidden=false`; enable hidden
+lines or use a section only when it answers a specific internal-geometry question.
+
 The final model should normally have at least:
 
 * isometric
@@ -386,6 +398,17 @@ Multiple Python files are encouraged when they simplify component construction, 
 ## Git workflow
 
 Automatic commit and push are preferred for all repository tasks, not only modelling tasks. When a requested change is complete, inspect the status and diff, stage only the relevant files, create a concise commit, and push it to the current upstream branch. Preserve unrelated user changes and do not modify unrelated files merely to make the working tree clean.
+
+Run `git diff --cached --check` during review. The repository's `.gitattributes`
+disables whitespace diagnostics for model STEP exports, whose exporter emits
+trailing spaces; source and documentation retain normal checks. Do not rewrite
+exports merely to remove whitespace, or disable their textual diffs. Validate
+geometry using the export checker.
+
+Track commit/push completion in the active task checklist and report the actual
+commit and push result in the final response. Persist design and validation
+checks in model notes, but do not pre-mark commit/push as complete or substitute
+“staged” for “pushed.” A second commit solely to tick that box is unnecessary.
 
 When the modelling task is satisfactorily complete:
 

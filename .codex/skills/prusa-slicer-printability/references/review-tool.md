@@ -36,7 +36,12 @@ Select heights and bounds from current geometry/toolpaths; example values belong
 to the sunglasses case. Missing requested layers fail rather than silently using
 a different height. Omit `--windows` for the initial diagnostic slice. For an
 adaptive follow-up, use `inspect_gcode.py` on the saved `slice.gcode` to draw a
-new window without reslicing. See [CLI and paths](cli-and-paths.md).
+new window without reslicing. Its required `--json` argument can target this
+run's existing `paths.json`: with the same G-code and unchanged parser, this
+rewrites the same summary instead of creating a duplicate. Do not target
+`summary.json`, which contains the wrapper's hashes and review results. Preserve
+separate evidence when the input or parser changes. See the command in
+[CLI and paths](cli-and-paths.md).
 
 Outputs: `command.json`, `summary.json`, `paths.json`, requested SVGs, and ignored
 `slice.gcode`/`slice.log`. The summary records input/G-code hashes, CLI help header

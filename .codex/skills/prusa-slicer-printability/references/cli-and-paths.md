@@ -113,10 +113,17 @@ Its expected input is commented, linear, ASCII PrusaSlicer G-code in millimetres
 
 ```sh
 python3 .codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py \
-  "$run_dir/case.gcode" --json "$review_dir/case_paths.json" \
+  "$run_dir/slice.gcode" --json "$run_dir/paths.json" \
   --svg "$review_dir/hinge_layers.svg" --layers 33.6 37.0 40.6 \
   --window 82 117 108 140
 ```
+
+This command assumes an existing `review_print.py` run. Reuse its `paths.json`
+only for the same G-code and unchanged parser; the required JSON output then
+replaces an equivalent summary. For a standalone G-code inspection, choose one
+summary path and reuse it for subsequent windows. Keep the useful SVG or PNG
+views and record their interpretation with the run; another copy of the path
+summary is unnecessary.
 
 The example window is Xmin, Ymin, Xmax, Ymax in **sliced bed coordinates** for
 the revised sunglasses case, centered at 130,130. Choose heights and coordinates

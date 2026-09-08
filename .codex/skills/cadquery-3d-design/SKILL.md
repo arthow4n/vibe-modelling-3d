@@ -11,8 +11,9 @@ and Git rules. A valid solid or clean slice alone does not establish function.
 
 ## Modelling TODO checklist
 
-Track this checklist in the object's notes or planning tool. Reopen affected
-checks after changes; do not repeat unrelated checks for a small revision.
+Track design and validation checks in the object's notes or planning tool; track
+commit/push completion in the active task checklist, as described in AGENTS.md.
+Reopen affected checks after changes; do not repeat unrelated checks for a small revision.
 
 - [ ] Confirm scope, references, user edits and required CAD tool availability.
 - [ ] Establish use, critical dimensions, assembly/material preferences and failure modes.

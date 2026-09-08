@@ -1,0 +1,3 @@
+# STEP exporters emit harmless trailing spaces. Preserve text diffs.
+model/**/*.step -whitespace
+model/**/*.stp -whitespace

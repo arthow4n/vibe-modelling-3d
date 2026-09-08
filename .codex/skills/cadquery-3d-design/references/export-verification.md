@@ -6,6 +6,12 @@ object-owned Python entry point evaluated with CadQuery MCP. It loads files and
 checks them; it does not build, repair or replace the model. See the exercised
 [case entry point](../../../../model/sunglasses_case/notes/workflow_tools_check.py).
 
+The customized MCP entry point may not define `__file__`; do not use
+`Path(__file__)` there or assume the tool's working directory. Set the single
+absolute `object_dir` below from the actual workspace path and derive sibling
+paths from it. This explicit location must be updated if the checkout moves.
+Normal imported modules can still use their own `__file__` when supplied by Python.
+
 Typical entry point (adapt paths to the actual object):
 
 ```python
