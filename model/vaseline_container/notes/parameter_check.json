@@ -1,0 +1,6 @@
+{
+  "diameter_mm": 52,
+  "closed_height_mm": 27,
+  "valid_solids": 2,
+  "scope": "Build check only; does not validate arbitrary parameter combinations."
+}

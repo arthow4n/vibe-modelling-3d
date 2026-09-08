@@ -1,0 +1,11 @@
+[
+  "prusa-slicer",
+  "--load",
+  "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/notes/review.ini",
+  "--center",
+  "130,130",
+  "--export-gcode",
+  "--output",
+  "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/notes/slice_review/slice.gcode",
+  "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/vaseline_container.stl"
+]

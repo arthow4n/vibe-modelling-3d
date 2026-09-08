@@ -1,0 +1,222 @@
+{
+  "checks_passed": true,
+  "expected_solids": 2,
+  "bounds_tolerance_mm": 0.035,
+  "volume_relative_tolerance": 0.01,
+  "bed_contact_required": true,
+  "step_components": [
+    {
+      "bounds_mm": [
+        -24.64344858809743,
+        -24.64344858809743,
+        -1.000019028112419e-07,
+        24.643448588100153,
+        24.643448588100153,
+        22.75
+      ],
+      "volume_mm3": 15462.265837501267
+    },
+    {
+      "bounds_mm": [
+        33.35655144410741,
+        -24.643448555890206,
+        -1.0000000358046926e-07,
+        82.64344855589258,
+        24.643448555892583,
+        10.000000100001902
+      ],
+      "volume_mm3": 6950.427323120733
+    }
+  ],
+  "stl_components": [
+    {
+      "bounds_mm": [
+        -24.6434268951416,
+        -24.6434268951416,
+        -1.6653345369377348e-16,
+        24.6434268951416,
+        24.6434268951416,
+        22.75
+      ],
+      "volume_mm3": 15465.340560995617,
+      "triangles": 79544
+    },
+    {
+      "bounds_mm": [
+        33.356571197509766,
+        -24.6434268951416,
+        -3.552713678800501e-15,
+        82.64342498779297,
+        24.6434268951416,
+        10.0
+      ],
+      "volume_mm3": 6952.107868566447,
+      "triangles": 53836
+    }
+  ],
+  "component_assignment": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "STEP_sha256": "e60955937d983378154ad7302364b92c3d928a921492f162458efe3ad8919d8e",
+  "STL_sha256": "acecc0a21187109a6fe0f2d4fb7d596fd2af0ebbed00f667d76a05a9e8ebfdd7",
+  "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation.",
+  "motion_samples": [
+    {
+      "opening_degrees": 0,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 30,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 60,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 90,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 120,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 150,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 180,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 210,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 240,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 270,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 300,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 330,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 360,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 390,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 420,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 450,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 480,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 510,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 540,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 570,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 600,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 630,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 660,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 690,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 720,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 750,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 780,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 810,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 840,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 870,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 900,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 930,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 960,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 990,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 1020,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 1050,
+      "intersection_mm3": 0.0
+    },
+    {
+      "opening_degrees": 1080,
+      "intersection_mm3": 0.0
+    }
+  ],
+  "axial_pull_collision_mm3": 45.98663763210044,
+  "closed_height_mm": 25
+}
