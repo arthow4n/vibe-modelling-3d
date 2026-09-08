@@ -1,80 +1,148 @@
 {
+  "design": "five-digit folding hand skeleton",
   "parts": [
     {
       "solids": 1,
       "valid": true,
-      "volume": 7885.334400781524
+      "volume": 18081.628104433767
     },
     {
       "solids": 1,
       "valid": true,
-      "volume": 8121.325749296898
+      "volume": 18358.45945663734
     },
     {
       "solids": 1,
       "valid": true,
-      "volume": 626.5764388299863
+      "volume": 626.5764388299859
     },
     {
       "solids": 1,
       "valid": true,
-      "volume": 6150.847745710735
+      "volume": 711.4235763780861
     }
   ],
   "motion": [
     {
-      "angle": 0,
+      "half_angle": 0,
       "frame_collision": 0.0,
       "axle_collision": 0.0
     },
     {
-      "angle": 3,
+      "half_angle": 0.5,
       "frame_collision": 0.0,
       "axle_collision": 0.0
     },
     {
-      "angle": 6,
+      "half_angle": 1,
       "frame_collision": 0.0,
       "axle_collision": 0.0
     },
     {
-      "angle": 11,
+      "half_angle": 1.7,
       "frame_collision": 0.0,
       "axle_collision": 0.0
     },
     {
-      "angle": 15,
+      "half_angle": 3,
       "frame_collision": 0.0,
       "axle_collision": 0.0
     },
     {
-      "angle": 25,
-      "frame_collision": 0.0,
-      "axle_collision": 0.0
-    },
-    {
-      "angle": 45,
+      "half_angle": 5,
       "frame_collision": 0.0,
       "axle_collision": 0.0
     }
   ],
-  "spreader_collision": [
+  "brace_seated_collision": [
     0.0,
     0.0
   ],
-  "spreader_pullout_collision": [
-    5.460672515476672,
-    5.4606725154766895
+  "brace_pullout_contact": [
+    0.9177077039174536,
+    0.9177077039174857
   ],
+  "brace_closing_contact": 21.668453540759916,
+  "pin_pullout_contact": 1.8839653024123497,
   "compressed_barb_outside_bore": 0.0,
-  "pin_pullout_collision": 1.8830054581442437,
-  "brace_compression_collision": 159.46993732067062,
-  "larger_variant": {
-    "length": 135,
-    "width": 68,
-    "valid": true,
-    "frame_collision": 0.0,
-    "spreader_collision": 0.0
+  "digits": {
+    "index": {
+      "root_mm": [
+        -27.0,
+        101.0
+      ],
+      "tip_center_mm": [
+        -28.0,
+        192.0
+      ],
+      "width_mm": 12.0,
+      "slot_width_mm": 6.8,
+      "tip_clear_air_gap_mm": 10.301175774479876,
+      "slot_probe_collision": 0.0
+    },
+    "middle": {
+      "root_mm": [
+        -9.0,
+        112.0
+      ],
+      "tip_center_mm": [
+        -9.0,
+        204.0
+      ],
+      "width_mm": 13.0,
+      "slot_width_mm": 7.8,
+      "tip_clear_air_gap_mm": 10.720033528974682,
+      "slot_probe_collision": 0.0
+    },
+    "ring": {
+      "root_mm": [
+        9.0,
+        110.0
+      ],
+      "tip_center_mm": [
+        11.0,
+        193.0
+      ],
+      "width_mm": 12.0,
+      "slot_width_mm": 6.8,
+      "tip_clear_air_gap_mm": 10.336080587354443,
+      "slot_probe_collision": 0.0
+    },
+    "little": {
+      "root_mm": [
+        27.0,
+        94.0
+      ],
+      "tip_center_mm": [
+        32.0,
+        166.0
+      ],
+      "width_mm": 10.5,
+      "slot_width_mm": 5.3,
+      "tip_clear_air_gap_mm": 9.393650639741134,
+      "slot_probe_collision": 0.0
+    },
+    "thumb": {
+      "root_mm": [
+        -29.0,
+        60.0
+      ],
+      "tip_center_mm": [
+        -65.0,
+        121.0
+      ],
+      "width_mm": 12.0,
+      "slot_width_mm": 6.8,
+      "tip_clear_air_gap_mm": 7.822934060385618,
+      "slot_probe_collision": 0.0
+    }
   },
-  "source_sha256": "3d740fa4f5d760788e4f4441f20ed02185f0e2ec7a7b74134a228a8a98a88f4c"
+  "variant": {
+    "hand_scale": 1.04,
+    "finger_length_scale": 1.05,
+    "half_angle": 0.7,
+    "valid": true,
+    "brace_collision": 0.0
+  },
+  "source_sha256": "81cc58bb11075e91edd02770de9dd0505126607faf8846ad4906c6116019a5fa"
 }

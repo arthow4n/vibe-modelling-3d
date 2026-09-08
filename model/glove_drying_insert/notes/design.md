@@ -1,17 +1,17 @@
-# Completion checklist
+# Five-finger redesign checklist
 
-Design decisions, attribution, assembly instructions and physical limitations are
-recorded in ../README.md. Geometry and export reports identify the final source
-and files by SHA-256. slice_release and sample_release are the final slice runs.
+Decisions, attribution, print/use instructions and physical limitations are in
+../README.md. The five_digit_slice and five_digit_sample runs cover the current
+exports; geometry/export reports include source and file hashes.
 
-- [x] Scope, user preferences, repository state and required CAD tool availability.
-- [x] Use, fit assumptions, all-printed PETG assembly and failure modes established.
-- [x] Optional production-interface hinge sample provided; physical tests remain unperformed.
-- [x] Bed orientation, wall sizes, layer direction and support strategy reviewed.
-- [x] Parametric source built; larger configuration checked, default restored and evaluated.
-- [x] Final views, topology, sampled motion, compression and retention contacts checked.
-- [x] Insertion room, assembly/release access and edge treatments reviewed.
-- [x] Final slices and relevant layer windows inspected; build footprint checked.
-- [x] STEP/STL pairs exported from identical print geometry and verified.
-- [x] Useful final views, assumptions, print/use instructions and limitations saved.
-- [x] Diff reviewed; commit and push performed as the delivery step (see Git history).
+- [x] Corrected scope: all four fingers plus thumb, general adult fit, all-printed PETG.
+- [x] Replaced the palm-only frames with paired slotted hand skeletons and wrist hinge.
+- [x] Chosen narrow rounded branches, named finger endpoints and independent length adjustment.
+- [x] Reviewed assembly, insertion, release, optional hanging and lining contact.
+- [x] Checked all five distal slots, air-gap dimensions, sampled motion and brace/axle retention.
+- [x] Evaluated a larger/longer hand with a different opening; restored/evaluated the default.
+- [x] Inspected final print/open/folded renders and topology.
+- [x] Inspected final slicer layers and safe footprint including brims/skirt.
+- [x] Exported matching STEP/STL pairs and verified final file hashes.
+- [x] Included optional hinge sample; physical glove fit and force tests remain unperformed.
+- [x] Final diff reviewed; redesign delivered through repository commit/push (see Git history).

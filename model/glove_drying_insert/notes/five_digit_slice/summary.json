@@ -1,8 +1,8 @@
 {
-  "model": "/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/hinge_fit_sample.stl",
+  "model": "/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/glove_drying_insert.stl",
   "profile": "/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/notes/review.ini",
   "input_sha256": {
-    "model": "d1da3cb1cc04d01f737eaa5dca52d45e5db1f8dae5c067b6e5df5f183e850121",
+    "model": "ea218b353dd75c968a785e022d639d93fe7c0ae894c75b791a8c92bb314b5f1e",
     "profile": "0be18e2cba1ee8b851d61f50f4e4fe7458cfcd7375ebfad829da806f3845ee77"
   },
   "slicer_help_header": [
@@ -15,21 +15,21 @@
     " --load ABCD         Load configuration from the specified file. It can be used more than once to",
     "                     load options from multiple files."
   ],
-  "gcode_sha256": "2c13190efc0a882fe8891ad2730c856df88cdd62e84b53f1a7a4bdedc884f841",
+  "gcode_sha256": "3363dfdba8ea2781ccca96c05e1798e3003bfc4503222dbd92853465f3b0040a",
   "safe_build_volume_mm": [
     260.0,
     260.0,
     250.0
   ],
   "metadata": {
-    "filament used [g]": "6.72",
-    "estimated printing time (normal mode)": "45m 2s"
+    "filament used [g]": "45.34",
+    "estimated printing time (normal mode)": "3h 59m 29s"
   },
   "xy_bounds_including_half_width_mm": [
-    70.684,
-    102.822,
-    189.27599999999998,
-    155.618
+    6.6259999999999994,
+    2.9739999999999998,
+    253.368,
+    256.878
   ],
   "max_layer_z_mm": 10.0,
   "inside_safe_volume": true,

@@ -1,122 +1,156 @@
-# Fold-flat glove drying insert
+# Five-finger folding glove drying insert
 
-One insert per glove. Four entirely printed PETG parts: two open frames, one
-snap-retained hinge axle, and one removable cuff spreader. Intended as a first
-fit for size-8 skiing gloves; the same palm/cuff design can also fit mittens.
-There are no finger branches. Actual glove fit and drying performance are untested.
+One insert per glove: **two skeletal hand panels, five paired slotted branches,
+a wrist hinge and a removable opening brace**. The branches enter the index,
+middle, ring, little-finger and thumb compartments. Separating the panels holds
+an air space along each digit, connected to the open palm and cuff.
 
-![Expanded insert](renders/open/inspect_isometric.png)
+![Five-finger insert, expanded](renders/open/inspect_isometric.png)
 
-## Files
+This replaces the earlier cuff/palm-only design. All current source, exports,
+renders and evidence describe the five-finger version. The old design is in Git
+history only. General adult/size-8 dimensions are assumptions, as requested by
+the user; actual glove measurements were deliberately not required.
 
-- `glove_drying_insert.py`: authoritative, parameterized source; evaluate for print layout.
-- `glove_drying_insert.stl` and `.step`: matching four-part print layout, millimetres, all parts on bed.
-- `glove_drying_insert_assembled.step`: expanded inspection pose, **not** a print layout.
-- `hinge_fit_sample.stl` and `.step`: optional three-part hinge-fit sample.
-- `inspect.py` / `inspect_folded.py`: expanded and folded inspection entry points.
-- `verify.py`: validity, sampled mechanism checks and larger size configuration.
-- `export.py`: batch exports and repository STEP/STL consistency checks.
-- `renders/`: print, expanded and folded views. `notes/`: recorded evidence and diagnostic profile.
+## Fit and folding
 
-Evaluate entry points with the repository's CadQuery MCP `evaluate_file` tool.
-The inspection/export entry points explicitly reload the source module so edits
-are picked up in the MCP process. Re-run verify and export after geometry changes.
+The two hand panels are mirrored in the print layout. Turn one over to align all
+five branches during assembly. The completed insert can be turned over to suit
+left or right gloves. The thumb is a fixed angled branch; finger positions are
+not individually articulated. It can also go into a mitten's shared finger
+pocket, provided that its width and thumb position fit.
 
-## Size and packing
-
-| Item | Approximate dimensions |
+| Dimension | Default |
 | --- | --- |
-| Folded mechanism, without spreader | 125 × 61.5 × 10 mm |
-| Separate spreader | 67.5 × 25.4 × 4 mm |
-| Expanded overall envelope | 131 × 61.5 × 67.5 mm |
-| Frames | 3.2 mm thick, 6 mm nominal side rails |
-| Print layout | 139 × 161 × 10 mm before brim/skirt |
+| Folded hand mechanism | 215.5 × 108.3 × 10 mm |
+| Expanded assembly | 215.4 × 108.3 × 17.4 mm |
+| Middle fingertip reach from cuff-bar far edge | approximately 186.5 mm |
+| Separate removable brace | approximately 16.5 × 17.4 × 4 mm |
+| Panel thickness | 3.2 mm |
+| Angle between panels | 2 degrees |
+| Four-part print layout before brim/skirt | 228.5 × 235.5 × 10 mm |
 
-The larger expanded envelope includes the spreader's outer fingers. The actual
-cuff separation is approximately 49–52 mm, depending on where it is measured.
-The removable spreader packs alongside the folded frames; there is no integrated
-storage latch. The two frames stay joined by the axle during normal packing.
+It folds through its **thickness**, not into a shorter hand. Pack the small brace
+alongside the joined hand panels; there is no integrated storage latch. The
+narrow rounded branches leave room around their sides and through their slots.
+They should reach well into adult glove fingers without needing an exact cast
+of the hand. They are not guaranteed to fit every glove labelled size 8.
 
-Edit `FRAME_LENGTH`, `CUFF_WIDTH`, `PALM_WIDTH`, and `OPEN_HALF_ANGLE` to change fit.
-Length is cuff edge to hinge axis, not glove finger length. A 135 mm length / 68 mm
-cuff / 48 mm palm configuration was also evaluated successfully. That is one checked
-alternative, not a guaranteed continuous size range. Do not scale the whole STL:
-that changes hinge clearance and snap geometry too. Small hinge dimensions are
-an engineered interface; changing them needs a new mechanical review.
+| Branch | Width | Long slot width | Clear gap between panels near tip |
+| --- | --- | --- | --- |
+| Index | 12 mm | 6.8 mm | 10.3 mm |
+| Middle | 13 mm | 7.8 mm | 10.7 mm |
+| Ring | 12 mm | 6.8 mm | 10.3 mm |
+| Little | 10.5 mm | 5.3 mm | 9.4 mm |
+| Thumb | 12 mm | 6.8 mm | 7.8 mm |
 
-## Print and assemble
+These are empty-geometry gaps; a soft or loose glove liner can intrude. Neither
+CAD nor slicing verifies real drying rate, fit or the position of wet lining.
 
-Use your PETG profile with a 0.4 mm nozzle. Starting settings: 0.2 mm layers,
-4 perimeters, 5 top/bottom layers, 25% gyroid infill, 3 mm outer brim, no supports.
-Keep the supplied orientations: the axle lies horizontally so its split arms
-bend in the print plane. Remove all brim remnants from the axle slit and spreader
-slots. Smooth any rough edges that could catch glove lining.
+## Files and adjustments
 
-1. Optionally print `hinge_fit_sample.stl` first (about **6.7 g / 45 min** in the
-   diagnostic slice). It preserves the production knuckles, hole, axle, and
-   orientations, with only the frame length cropped.
-2. Turn one frame over and interleave its center knuckle with the other frame's
-   two outer knuckles. The broad flat faces oppose each other in the folded pose.
-3. Align the bores and push in the axle, gently pinching the split tip as needed.
-   Its head stops one end; the two shoulders should emerge beyond the other
-   outer knuckle. Confirm that the frames rotate and the axle cannot slide out.
-   Do not hammer it through a tight bore.
-4. Insert the folded nose into the glove's palm, keeping the broad cuff bars
-   accessible. Open the frames and push the spreader's two slots over the cuff
-   bars, with its open slot mouths pointing toward the palm/hinge. The little
-   retaining lips pass the far edges of the cuff bars. Confirm both are seated.
-5. To pack, pull the spreader back out toward the cuff, easing its outer fingers
-   outward if needed; fold the frames together. Leave the axle installed.
+- `glove_drying_insert.py`: authoritative parametric source; evaluates to the print layout.
+- `glove_drying_insert.stl` / `.step`: matching four-part print-ready geometry in millimetres.
+- `glove_drying_insert_assembled.step`: expanded inspection pose, not for printing.
+- `hinge_fit_sample.stl` / `.step`: optional three-part sample of the current wrist hinge.
+- `inspect.py` / `inspect_folded.py`: assembled inspection entry points.
+- `verify.py`: validity, sampled motion, retention, five digit slots and alternate sizing.
+- `export.py`: batch export and repository STEP/STL consistency checks.
+- `renders/`: final print/open/folded views; `notes/`: hashes, checks and slice evidence.
 
-The hinge sample tests pin insertion, retention and movement, **not** spreader
-force, full-frame stiffness, glove fit or fatigue. If the axle binds, first check
-brim/first-layer flare; then adjust `BORE_RADIUS` (radial clearance is currently
-0.4 mm). `PIN_SPLIT` and barb geometry control flex and need a new check if edited.
-Spreader face clearance is `SLOT_CLEARANCE`; `SNAP_OVERLAP` sets entry restriction.
-Do not force stiff snaps: actual PETG, extrusion and surface finish determine feel.
+Edit `HAND_SCALE` for overall hand proportions, `FINGER_LENGTH_SCALE` to lengthen
+or shorten just the digit centerlines, and `FINGER_WIDTH_SCALE` for branch widths.
+`DIGITS` supplies individual roots and tips if only one finger or thumb needs
+adjustment. `OPEN_HALF_ANGLE` changes finger depth; a new brace must be exported
+with it. Start with a smaller angle if the glove is narrow through its thickness.
+Keep hinge fit dimensions unchanged when changing hand size. Do not scale the STL.
 
-## Drying and hanging
+A 1.04 hand scale / 1.05 finger-length scale / 0.7-degree half-angle configuration
+was also built and checked. This is one verified variant, not validation of every
+parameter combination or its print layout. Larger versions may need the panels
+printed separately to stay inside the bed limits.
 
-The insert holds the cuff and palm open without suspension. Rest/support the glove
-with its cuff facing the dehumidifier's outgoing airflow. This is an insert, not a
-freestanding drying stand: its narrow spreader edge is not a stable pedestal.
-Keep the appliance's required air path clear. No duct seal or appliance coupling
-is intended.
+Use CadQuery MCP `evaluate_file` on the source and the relevant entry points.
+Wrappers reload the source module to avoid stale imports in the MCP process.
+Re-run the affected geometry/export/slicer checks after changing dimensions.
 
-The 5 mm holes in the cuff bars accept an optional cord loop, removable accessory,
-or an existing hanger. Route a hanging loop through **both frames** to carry their
-load. Check that the glove cannot slip off; secure its own cuff strap if necessary.
-A 4 mm hole in the spreader permits an optional tether to a frame. No bought part
-is needed for the folding/drying mechanism; cord is optional and not supplied.
-There is deliberately no radiator-specific hook. Do not assume PETG or the glove
-is suitable for direct contact with an unknown hot radiator: use nearby airflow
-and follow the filament/glove/appliance temperature instructions.
+## Printing and assembly
 
-## Evidence and limits
+Use PETG and your printer's actual profile. Diagnostic starting settings were a
+0.4 mm nozzle, 0.2 mm layers, 4 perimeters, 5 top/bottom layers, 25% gyroid infill,
+3 mm outer brim and no supports. Preserve the supplied orientation: both panels
+and brace lie flat; the axle lies horizontally with its split arms in the print
+plane. Remove brim from all slots and the axle slit. Smooth rough glove-contact
+edges before insertion.
 
-CadQuery MCP built four valid, separate production solids. Rigid intersections
-were checked at frame half-angles 0, 3, 6, 11, 15, 25 and 45 degrees: no frame/frame
-or axle/bearing collisions. At the working angle, the spreader clears both frames;
-closing by one degree meets its slot walls. Pulling the spreader out 2 mm meets
-its retaining lips, and withdrawing the axle 2 mm meets its shoulder. The compressed
-barb cross-section fits a conservative circular bore with 0.5 mm inward displacement
-per arm and a remaining 0.1 mm slit gap. These checks establish geometric room and
-retention contacts, **not** elastic stress, insertion force, fatigue or creep life.
+1. Optionally print the **hinge-fit sample first**, about **6.3 g / 42 minutes**.
+   It preserves the current hinge, axle and orientation, with the hand cropped
+   away. Check insertion, rotation, snap retention and release. It does not test
+   finger fit, full-hand stiffness, brace force or drying performance.
+2. Turn one panel over, align all five branches, and interleave the wrist
+   knuckles. Push the axle through the aligned holes, gently squeezing its split
+   tip. Its shoulders must emerge beyond the last knuckle. Confirm free movement
+   and retention; leave the axle installed during normal packing.
+3. Keep the panels folded and guide **each paired branch into its corresponding
+   glove finger**, including the thumb. Seat them gradually; do not force long
+   branches against the ends of a glove or pull a loose lining out of position.
+4. Separate the panels slightly. Push the brace from the cuff toward the palm
+   over the dedicated wrist crossbars (the second bars above the hinge, not the
+   bars with hanging holes). Both slots must seat; their small lips catch the
+   far edges. The brace then resists closing. It can be fitted before insertion
+   if the glove cuff makes it difficult to reach.
+5. To remove, pull the brace back toward the cuff, easing its outer fingers if
+   necessary, fold the hand panels together, and withdraw them gently.
 
-Final STEP/STL pairs passed valid-solid, closed/wound mesh, per-component bounds,
-volume and bed-contact checks. Reports include file/source hashes.
+If the axle is tight, first remove brim/first-layer flare; `BORE_RADIUS` controls
+radial clearance (0.4 mm nominal). The split tip needs about 0.5 mm inward motion
+per arm to pass the bore. `SLOT_CLEARANCE` and `SNAP_OVERLAP` control the brace fit.
+Actual force, flexibility and wear require a PETG print. Do not hammer or force
+stiff snaps. The long narrow finger rails are intended for light glove pressure,
+not prying, clamping or hanging heavy loads.
 
-PrusaSlicer 2.9.6 diagnostic results: **about 26 g / 2 h 28 min** for the complete
-insert. Both layouts fit 260 × 260 × 250 mm including generated brim/skirt paths,
-with no supports or reported slicer notices. Reviewed layer windows show bed-supported
-knuckle feet, a narrow bridge closure above the 45-degree bore roof, a preserved
-axle slit and printable spreader fingers. Remove the brim carefully from snap gaps.
-The saved generic profile and ignored G-code are diagnostic evidence, not a tuned
-machine job. Slice the STL with your printer's actual profile before printing.
+## Airflow and optional hanging
 
-Unverified: fit in the user's glove, drying rate inside finger tips, wet-liner
-behavior, hanging security, standing stability, snap forces, wear and heat exposure.
-First try one insert at room temperature and assess fit without stretching the cuff.
+The insert keeps all five digit corridors open without suspension. Rest/support
+the glove cuff-down over a dehumidifier's outgoing airflow while keeping the
+appliance's required ventilation clear. It is not a freestanding pedestal or a
+sealed air adapter. Air may bypass the fingers, so drying performance needs a
+real wet-glove trial.
 
-Attribution: **GPT-6 Astra, low reasoning effort**, confirmed by the user; harness
-**Codex**; provider **user-provided / not separately recorded**.
+The 5 mm cuff holes accept an optional hanging loop or existing accessory; pass
+a loop through both panels and check that the glove cannot slide off. Use the
+glove's own cuff strap if needed. The brace also has a small tether eye. No cord,
+hook, screws or other purchased hardware is required for the folding mechanism.
+There is no radiator-specific hook. Use nearby airflow rather than assuming the
+PETG or glove can tolerate direct contact with an unknown hot radiator; follow
+the glove, filament and appliance temperature guidance.
+
+## Verification
+
+CadQuery MCP built four valid production solids and the three-part hinge sample.
+Checks at half-angles 0, 0.5, 1, 1.7, 3 and 5 degrees found no frame/frame or
+axle/bearing collisions. At the default opening, both brace slots clear their
+crossbars. Closing the mechanism meets the brace; withdrawing the brace or axle
+2 mm meets the retaining lips/shoulder. A compressed barb cross-section clears
+a conservative circular bore with 0.1 mm remaining slit space. An empty-space
+probe passed through the long slot near the tip of **each of the five branches**.
+These checks establish geometric room and contacts, not elastic stress or force.
+
+Final STEP/STL pairs passed validity, closed/wound mesh, per-component bounds,
+volume and bed-contact checks. Reports record the source and exported hashes.
+The assembled STEP is explicitly separate from the primary print-ready pair.
+
+PrusaSlicer 2.9.6: approximately **45.3 g / 4 hours** per complete insert. No
+support paths or slicer notices; deposited paths including brim/skirt fit the
+confirmed **260 × 260 × 250 mm** usable limits. Inspected layers show the five
+finger slots remain open, the rails start on the bed, the axle slit and brace
+lips are retained, and the bore roof closes over a narrow bridge. The diagnostic
+profile/G-code is not a tuned machine job; slice the STL with your own profile.
+
+Still untested physically: general glove fit, fingertip reach, liner behavior,
+brace/pin forces, fatigue, heat exposure, hanging security and drying rate. Try
+one complete insert before printing a collection.
+
+Attribution: **GPT-6 Astra, low reasoning effort**, confirmed by the user;
+harness **Codex**; provider **user-provided / not separately recorded**. This
+attribution covers the five-finger redesign as well as the previous iteration.

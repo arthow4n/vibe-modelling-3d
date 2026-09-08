@@ -6,6 +6,6 @@
   "130,130",
   "--export-gcode",
   "--output",
-  "/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/notes/sample_release/slice.gcode",
+  "/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/notes/five_digit_sample/slice.gcode",
   "/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/hinge_fit_sample.stl"
 ]

@@ -18,10 +18,10 @@ def export_pair(shape,name,count):
 result=m.compound(m.print_parts())
 report={'production':export_pair(result,'glove_drying_insert',4)}
 # Optional reduced hinge-fit print reuses the full production hinge and axle.
-clip=m.box(150,22,15,(0,m.FRAME_LENGTH-5,0))
+clip=m.box(150,22,15,(0,5,0))
 a=m.frame(True).intersect(clip)
 b=m.frame(False).intersect(clip).translate((55,0,0))
-pin=m.axle().translate((20,m.FRAME_LENGTH-28,0))
+pin=m.axle().translate((20,-17,0))
 coupon=m.compound([a,b,pin])
 report['hinge_sample']=export_pair(coupon,'hinge_fit_sample',3)
 cq.exporters.export(m.compound(m.assembled()),str(HERE/'glove_drying_insert_assembled.step'))

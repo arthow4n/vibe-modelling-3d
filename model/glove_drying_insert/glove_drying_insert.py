@@ -1,58 +1,103 @@
-"""One glove: two folding frames, a snap-retained axle, and a cuff spreader.
-Millimetres. Evaluate this file for the print layout; inspect.py for working pose.
+"""Five-finger folding glove insert. Millimetres; one four-part kit per glove.
+Two slotted hand skeletons separate through the thickness of every digit.
+Evaluate this source with CadQuery MCP for the print layout.
 """
 import math
 from pathlib import Path
 import cadquery as cq
 
-# Fit starting points, NOT measured size-8 glove dimensions.
-FRAME_LENGTH = 120.0                 # cuff edge to hinge axis
-CUFF_WIDTH = 62.0
-PALM_WIDTH = 44.0
-RAIL = 6.0
-CUFF_BAR = 12.0
+# General adult/size-8 starting fit; deliberately narrow fingers, not an anatomical cast.
+HAND_SCALE = 1.0                    # scales only the hand outline, not hinge/clearance
+FINGER_LENGTH_SCALE = 1.0          # independently lengthen all finger branches
+FINGER_WIDTH_SCALE = 1.0
+OPEN_HALF_ANGLE = 1.0               # 2 degrees between the panels
 THICKNESS = 3.2
-OPEN_HALF_ANGLE = 11.0               # each frame; 22 degrees total
+RAIL = 5.0
+FINGER_RAIL = 2.6
+CUFF_START = 12.0
+CUFF_END = 24.0
+BRACE_START = 34.0
+BRACE_END = 42.0
 HINGE_RADIUS = 5.0
 HINGE_HALF_WIDTH = 18.0
 HINGE_INNER = 10.0
-AXIAL_GAP = 0.4                     # each knuckle interface
+AXIAL_GAP = 0.4
 BORE_RADIUS = 2.5
 PIN_RADIUS = 2.1
 PIN_SPLIT = 1.1
-EDGE_BREAK = 0.4
+EDGE_BREAK = .35
 SPREADER_THICKNESS = 4.0
-SLOT_CLEARANCE = 0.3                # each face of frame
-SNAP_OVERLAP = 0.10                 # per slot face at entry lips
-HERE = Path(globals().get('__file__', '/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/glove_drying_insert.py')).resolve().parent
+SLOT_CLEARANCE = .3
+SNAP_OVERLAP = .1
+# Start/end centerlines and widths. Thumb is a separate angled branch.
+DIGITS = {
+    'index': ((-27.,101.),(-28.,192.),12.),
+    'middle': ((-9.,112.),(-9.,204.),13.),
+    'ring': ((9.,110.),(11.,193.),12.),
+    'little': ((27.,94.),(32.,166.),10.5),
+    'thumb': ((-29.,60.),(-65.,121.),12.),
+}
+HERE=Path(globals().get('__file__','/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/glove_drying_insert.py')).resolve().parent
 
 
-def box(x, y, z, at):
-    return cq.Workplane('XY').box(x, y, z, centered=(True, True, False)).translate(at)
+def box(x,y,z,at):
+    return cq.Workplane('XY').box(x,y,z,centered=(True,True,False)).translate(at)
+
+
+def capsule(start,end,width):
+    dx,dy=end[0]-start[0],end[1]-start[1]
+    length=math.hypot(dx,dy)
+    return cq.Workplane('XY').center((start[0]+end[0])/2,(start[1]+end[1])/2).slot2D(length+width,width,math.degrees(math.atan2(dy,dx))).extrude(THICKNESS)
+
+
+def digit_dimensions():
+    result={}
+    for name,(root,tip,w) in DIGITS.items():
+        start=tuple(v*HAND_SCALE for v in root)
+        end=tuple((root[i]+(tip[i]-root[i])*FINGER_LENGTH_SCALE)*HAND_SCALE for i in (0,1))
+        result[name]=(start,end,w*FINGER_WIDTH_SCALE)
+    return result
+
+
+def hand_outline():
+    assert .85 <= HAND_SCALE <= 1.1
+    assert .85 <= FINGER_LENGTH_SCALE <= 1.15
+    assert .85 <= FINGER_WIDTH_SCALE <= 1.15
+    assert .5 <= OPEN_HALF_ANGLE <= 1.7
+    outline=[(-25,12),(25,12),(36,92),(30,104),(11,118),(-10,121),(-32,111),(-36,88)]
+    outline=[(x*HAND_SCALE,max(CUFF_START,y*HAND_SCALE)) for x,y in outline]
+    p=cq.Workplane('XY').polyline(outline).close().extrude(THICKNESS).edges('|Z').fillet(4)
+    # A continuous open palm; two struts at its sides carry the five branches.
+    inner=[(-19,CUFF_END),(19,CUFF_END),(29,86),(22,95),(-22,99),(-29,82)]
+    inner=[(x*HAND_SCALE,y if y==CUFF_END else y*HAND_SCALE) for x,y in inner]
+    window=cq.Workplane('XY').polyline(inner).close().extrude(THICKNESS).edges('|Z').fillet(4)
+    p=p.cut(window).edges('#Z').chamfer(EDGE_BREAK)
+    crossbar=box(52*HAND_SCALE,BRACE_END-BRACE_START,THICKNESS,(0,(BRACE_START+BRACE_END)/2,0)).edges('|Z').fillet(1).edges('#Z').chamfer(EDGE_BREAK)
+    p=p.union(crossbar)
+    for start,end,width in digit_dimensions().values():
+        assert width > 2*FINGER_RAIL+2
+        finger=capsule(start,end,width).cut(capsule(start,end,width-2*FINGER_RAIL))
+        finger=finger.edges('#Z').chamfer(EDGE_BREAK)
+        p=p.union(finger)
+    for x in (-15,15):
+        p=p.cut(cq.Workplane('XY').center(x,18).circle(2.5).extrude(THICKNESS))
+    return p
 
 
 def frame(outer_knuckles=True):
-    assert CUFF_WIDTH > 2*RAIL+20 and PALM_WIDTH >= 2*HINGE_HALF_WIDTH+6
-    assert FRAME_LENGTH > 80 and THICKNESS > 2*EDGE_BREAK
-    outline = [(-CUFF_WIDTH/2,0),(CUFF_WIDTH/2,0),(PALM_WIDTH/2,FRAME_LENGTH-8),(-PALM_WIDTH/2,FRAME_LENGTH-8)]
-    p = cq.Workplane('XY').polyline(outline).close().extrude(THICKNESS).edges('|Z').fillet(3)
-    inner = [(-CUFF_WIDTH/2+RAIL,CUFF_BAR),(CUFF_WIDTH/2-RAIL,CUFF_BAR),
-             (PALM_WIDTH/2-RAIL,FRAME_LENGTH-16),(-PALM_WIDTH/2+RAIL,FRAME_LENGTH-16)]
-    cut = cq.Workplane('XY').polyline(inner).close().extrude(THICKNESS).edges('|Z').fillet(3)
-    p = p.cut(cut).edges('#Z').chamfer(EDGE_BREAK)
-    for x in (-CUFF_WIDTH/2+12, CUFF_WIDTH/2-12):
-        p = p.cut(cq.Workplane('XY').center(x,6).circle(2.5).extrude(THICKNESS))
-    spans = [(-HINGE_HALF_WIDTH,-HINGE_INNER),(HINGE_INNER,HINGE_HALF_WIDTH)] if outer_knuckles else [(-HINGE_INNER+AXIAL_GAP,HINGE_INNER-AXIAL_GAP)]
+    p=hand_outline()
+    # The second print is mirrored so flipping it produces aligned thumb/fingers.
+    if not outer_knuckles:
+        p=p.mirror('YZ',union=False)
+    spans=[(-18,-10),(10,18)] if outer_knuckles else [(-HINGE_INNER+AXIAL_GAP,HINGE_INNER-AXIAL_GAP)]
     for lo,hi in spans:
-        barrel = cq.Workplane('YZ',origin=(lo,FRAME_LENGTH,HINGE_RADIUS)).circle(HINGE_RADIUS).extrude(hi-lo)
-        foot=cq.Workplane('YZ',origin=(lo,FRAME_LENGTH,0)).polyline([(-3,0),(3,0),(5,5),(-5,5)]).close().extrude(hi-lo)
-        barrel=barrel.union(foot)
-        web = box(hi-lo,12,THICKNESS,((lo+hi)/2,FRAME_LENGTH-6,0))
-        p = p.union(barrel).union(web)
-    # Circular bearing with a 45-degree roof: no horizontal bore ceiling.
-    bore = cq.Workplane('YZ',origin=(-HINGE_HALF_WIDTH-1,FRAME_LENGTH,HINGE_RADIUS)).circle(BORE_RADIUS).extrude(2*HINGE_HALF_WIDTH+2)
+        barrel=cq.Workplane('YZ',origin=(lo,0,HINGE_RADIUS)).circle(HINGE_RADIUS).extrude(hi-lo)
+        foot=cq.Workplane('YZ',origin=(lo,0,0)).polyline([(-3,0),(3,0),(5,5),(-5,5)]).close().extrude(hi-lo)
+        web=box(hi-lo,15,THICKNESS,((lo+hi)/2,7.5,0))
+        p=p.union(barrel).union(foot).union(web)
+    bore=cq.Workplane('YZ',origin=(-19,0,HINGE_RADIUS)).circle(BORE_RADIUS).extrude(38)
     r=BORE_RADIUS
-    roof = cq.Workplane('YZ',origin=(-HINGE_HALF_WIDTH-1,FRAME_LENGTH,HINGE_RADIUS)).polyline([(-r/2**.5,r/2**.5),(0,r*2**.5),(r/2**.5,r/2**.5)]).close().extrude(2*HINGE_HALF_WIDTH+2)
+    roof=cq.Workplane('YZ',origin=(-19,0,HINGE_RADIUS)).polyline([(-r/2**.5,r/2**.5),(0,r*2**.5),(r/2**.5,r/2**.5)]).close().extrude(38)
     return p.cut(bore.union(roof))
 
 
@@ -76,49 +121,44 @@ def axle():
     return p.cut(split).intersect(envelope)
 
 
-def placed_frames(angle=OPEN_HALF_ANGLE):
-    a=frame(True).translate((0,0,-HINGE_RADIUS)).rotate((0,FRAME_LENGTH,0),(1,FRAME_LENGTH,0),angle)
-    b=frame(False).rotate((0,0,HINGE_RADIUS),(0,1,HINGE_RADIUS),180).translate((0,0,-HINGE_RADIUS)).rotate((0,FRAME_LENGTH,0),(1,FRAME_LENGTH,0),-angle)
+def placed_frames(angle=None):
+    if angle is None: angle=OPEN_HALF_ANGLE
+    a=frame(True).translate((0,0,-HINGE_RADIUS)).rotate((0,0,0),(1,0,0),-angle)
+    b=frame(False).rotate((0,0,HINGE_RADIUS),(0,1,HINGE_RADIUS),180).translate((0,0,-HINGE_RADIUS)).rotate((0,0,0),(1,0,0),angle)
     return a,b
 
 
 def spreader():
-    """Built in working YZ pose. Twin slots snap over the cuff crossbars.
-    Pull toward negative Y to remove; lips flex during installation/removal.
-    """
+    """Cuff-accessible slotted brace; its lips catch the far edge of both cuff bars."""
     t=math.radians(OPEN_HALF_ANGLE)
-    # Mid-plane of the lower frame as a function of working Y.
-    def lower(y):
-        return (y-FRAME_LENGTH)*math.tan(t)+(THICKNESS/2-HINGE_RADIUS)/math.cos(t)
-    reach=abs(lower(-5))+6
-    pocket_end=FRAME_LENGTH+(CUFF_BAR-FRAME_LENGTH)*math.cos(t)+HINGE_RADIUS*math.sin(t)+.45
+    lower=lambda y: -y*math.tan(t)+(THICKNESS/2-HINGE_RADIUS)/math.cos(t)
+    pocket_end=BRACE_END*math.cos(t)-(HINGE_RADIUS-THICKNESS)*math.sin(t)+.45
     mouth_end=pocket_end+4
-    p=cq.Workplane('YZ',origin=(-SPREADER_THICKNESS/2,(mouth_end-6)/2,0)).rect(mouth_end+6,2*reach).extrude(SPREADER_THICKNESS).edges('|X').fillet(2)
+    start=BRACE_START-4
+    reach=abs(lower(mouth_end))+4.5
+    p=cq.Workplane('YZ',origin=(-SPREADER_THICKNESS/2,(start+mouth_end)/2,0)).rect(mouth_end-start,2*reach).extrude(SPREADER_THICKNESS).edges('|X').fillet(1.5)
     for sign in (-1,1):
-        # Wider pocket behind narrow flexible lips; flared entry guides the bar.
-        ys=[-1,pocket_end,pocket_end,pocket_end+1.4,mouth_end+.5]
-        widths=[THICKNESS/2+SLOT_CLEARANCE,THICKNESS/2+SLOT_CLEARANCE,
-                THICKNESS/2-SNAP_OVERLAP,THICKNESS/2-SNAP_OVERLAP,THICKNESS/2+1.0]
-        center=lambda y: sign*lower(y)
-        top=[(y,center(y)+w/math.cos(t)) for y,w in zip(ys,widths)]
-        bottom=[(y,center(y)-w/math.cos(t)) for y,w in reversed(list(zip(ys,widths)))]
-        tool=cq.Workplane('YZ',origin=(-4,0,0)).polyline(top+bottom).close().extrude(8)
-        p=p.cut(tool)
-    # Tether hole: optional cord can keep the removable part with a frame.
-    p=p.cut(cq.Workplane('YZ',origin=(-4,-2,0)).circle(2).extrude(8))
-    return p.faces('>X or <X').edges().chamfer(.25)
+        ys=[BRACE_START-1,pocket_end,pocket_end,pocket_end+1.4,mouth_end+.5]
+        widths=[THICKNESS/2+SLOT_CLEARANCE,THICKNESS/2+SLOT_CLEARANCE,THICKNESS/2-SNAP_OVERLAP,THICKNESS/2-SNAP_OVERLAP,THICKNESS/2+1]
+        top=[(y,sign*lower(y)+w/math.cos(t)) for y,w in zip(ys,widths)]
+        bottom=[(y,sign*lower(y)-w/math.cos(t)) for y,w in reversed(list(zip(ys,widths)))]
+        p=p.cut(cq.Workplane('YZ',origin=(-4,0,0)).polyline(top+bottom).close().extrude(8))
+    # Small tether eye through the central web between the two slots.
+    p=p.cut(cq.Workplane('YZ',origin=(-4,BRACE_START-2,0)).circle(1.2).extrude(8))
+    return p.faces('>X or <X').edges().chamfer(.2)
 
 
 def bed(shape):
-    b=shape.val().BoundingBox()
-    return shape.translate((0,0,-b.zmin))
+    return shape.translate((0,0,-shape.val().BoundingBox().zmin))
 
 
 def print_parts():
     a=frame(True)
-    b=frame(False).translate((CUFF_WIDTH+12,0,0))
-    pin=axle().translate((10,-14,0))
-    s=bed(spreader().rotate((0,0,0),(0,1,0),90)).translate((CUFF_WIDTH+12,-30,0))
+    b=frame(False)
+    ab=a.val().BoundingBox();bb=b.val().BoundingBox()
+    b=b.translate((ab.xmax-bb.xmin+12,0,0))
+    pin=axle().translate((0,-17,0))
+    s=bed(spreader().rotate((0,0,0),(0,1,0),90)).translate((55,-55,0))
     return [a,b,pin,s]
 
 
@@ -126,12 +166,10 @@ def compound(parts):
     return cq.Compound.makeCompound([p.val() for p in parts])
 
 
-def assembled(angle=OPEN_HALF_ANGLE, with_spreader=True):
+def assembled(angle=None,with_spreader=True):
     a,b=placed_frames(angle)
-    pin=axle().translate((0,FRAME_LENGTH,-1.7))
-    parts=[a,b,pin]
-    if with_spreader:
-        parts.append(spreader())
+    parts=[a,b,axle().translate((0,0,-1.7))]
+    if with_spreader: parts.append(spreader())
     return parts
 
 
