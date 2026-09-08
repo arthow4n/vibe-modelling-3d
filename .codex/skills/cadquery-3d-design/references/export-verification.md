@@ -6,11 +6,26 @@ object-owned Python entry point evaluated with CadQuery MCP. It loads files and
 checks them; it does not build, repair or replace the model. See the exercised
 [case entry point](../../../../model/sunglasses_case/notes/workflow_tools_check.py).
 
-The customized MCP entry point may not define `__file__`; do not use
-`Path(__file__)` there or assume the tool's working directory. Set the single
-absolute `object_dir` below from the actual workspace path and derive sibling
-paths from it. This explicit location must be updated if the checkout moves.
-Normal imported modules can still use their own `__file__` when supplied by Python.
+The updated customized evaluator defines `__file__` and resolves relative output
+paths against the model directory. A root-level object wrapper can therefore use
+`Path(__file__).resolve().parent`; a wrapper inside `notes/` uses `.parent.parent`.
+For ordinary exports, pass an `exports` list to `evaluate_file` so one build writes
+both files, then run the independent checker on that pair:
+
+```json
+{"file_path": "/absolute/repository/model/object_name/object_name.py",
+ "exports": [{"path": "object_name.step", "format": "STEP"},
+             {"path": "object_name.stl", "format": "STL"}]}
+```
+
+Check each export's status and hash; a successful export is not mesh verification.
+The server preserves geometry and successful exports if a requested view fails.
+
+Compatibility: older running servers may lack `exports` and `__file__`. Inspect
+the advertised schema and restart the updated server when available. Until then,
+use the existing object-owned export wrapper with one explicit absolute object
+path derived from the checkout. Do not repeat failing `__file__` attempts or
+replace the required MCP evaluator with a shell script.
 
 Typical entry point (adapt paths to the actual object):
 
@@ -20,7 +35,7 @@ import importlib.util
 import json
 import cadquery as cq
 
-object_dir = Path('/absolute/repository/model/object_name')
+object_dir = Path(__file__).resolve().parent  # wrapper in the object's root
 helper_path = object_dir.parents[1] / '.codex/skills/cadquery-3d-design/scripts/check_exports.py'
 spec = importlib.util.spec_from_file_location('export_checks', helper_path)
 helper = importlib.util.module_from_spec(spec)

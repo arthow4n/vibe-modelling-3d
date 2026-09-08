@@ -41,7 +41,6 @@ Physical fit, oily-hand grip, wear and resistance to loosening have not been tes
 - [x] Exposed edges treated.
 - [x] Matching final STEP/STL verified; useful views saved.
 - [x] Assumptions, evidence and print instructions recorded.
-- [x] Work reviewed and staged for the repository commit/push workflow.
 
 ## Attribution
 

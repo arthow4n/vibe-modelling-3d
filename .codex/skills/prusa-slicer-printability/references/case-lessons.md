@@ -47,9 +47,7 @@ checked independently for paired triangle edges, component count and bed contact
 When moving-part reliability matters, retain these mesh checks alongside slicer
 warnings and path inspection. A clean slice alone did not reveal this defect.
 
-## What has not been established yet
-
-### Role labels can hide a bridge or suggest unsupported anchors
+## Role labels can hide a bridge or suggest unsupported anchors
 
 Verified 2026-09-07 with PrusaSlicer 2.9.6, 0.2 mm layers and supports off:
 the sunglasses closure trial's 12 mm loop bridge was represented by
@@ -77,7 +75,9 @@ on a 0.2 mm layer grid. Preserve dimensions, but do not assume layer registratio
 or printed clearance stays identical. This was observed with PrusaSlicer 2.9.6.
 
 
-Selected layer-window SVGs are now supported by the helper above. Automatic
+## Remaining limitations
+
+Selected layer-window SVGs are supported by the review helper. Automatic
 free-air span measurement, support-removal accessibility checking and a reliable
 pass/fail printability score remain unimplemented here. No universal safe bridge length or overhang-angle limit
 has been established; behavior depends on geometry, anchors, process and material.

@@ -1,478 +1,166 @@
 # AGENTS.md
 
-This repository is for autonomous / vibe-driven 3D modelling with CadQuery.
+This repository contains autonomous, parametric CadQuery modelling projects,
+primarily for single-material FDM printing. Work toward a functional result with
+minimal user intervention; the source and deliverables are the primary output.
 
-The goal is to take a modelling request and work toward a satisfactory parametric 3D model with minimal user intervention.
+## Design guidance and printer
 
-## Model provenance and attribution
+For every modelling task, read and apply the repository's
+[CadQuery design skill](.codex/skills/cadquery-3d-design/SKILL.md), including its
+[modelling checklist](.codex/skills/cadquery-3d-design/SKILL.md#modelling-todo-checklist).
+The skill owns functional design, ergonomics, critical dimensions, mechanisms,
+edge treatment, print planning and physical experiments. This file owns
+repository workflow, tools, ownership, attribution and delivery.
 
-Model provenance is recorded **per model directory**, not as a default for the
-repository. Each model's attribution describes the language model that was
-primarily used to create or substantially revise that model.
-
-For every new or substantially revised model, record the following metadata in
-the model's documentation or other clearly associated project notes:
-
-* primary language model
-* reasoning effort, when exposed by the runtime
-* harness or agent environment
-* provider, when known
-
-Use the actual values for the run that produced the model. If the agent cannot
-clearly identify its own model, reasoning effort, harness, or provider, it must
-ask the user or provider for that information before finalizing the model's
-attribution. Do not guess or silently apply a repository-wide default. If
-multiple models contribute materially, list the primary model first and note
-the other contributors when they are known.
-
-The current historical attribution for the existing models is:
-
-| Model directory | Primary model | Reasoning effort | Harness | Provider |
-| --- | --- | --- | --- | --- |
-| `model/dental_travel_case/` | GPT-6 Astra | low | Codex | user-provided / not separately recorded |
-| `model/macbook_charger_holder/` | GPT-6 Astra | low | Codex | user-provided / not separately recorded |
-| `model/sunglasses_case/` | GPT-6 Astra | low | Codex | user-provided / not separately recorded |
-
-These entries are per-model historical records, not a claim that all future
-models in this repository use GPT-6 Astra, low reasoning effort, or Codex.
-
-## 3D design guidance
-
-For every CadQuery modelling task, read and apply the repository's [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md). It contains the printability, functional and ergonomic reasoning, critical-versus-vibe dimensions, edge-treatment, iteration, and design-review guidance. Keep this file focused on repository workflow, tools, artifacts, dependencies, and collaboration.
-
-## Confirmed printer setup
-
-Use the user's confirmed safe build volume of **260 × 260 × 250 mm (X × Y × Z)**
-and **0.4 mm nozzle** for this repository unless the user specifies another
-machine or setup. These are usable printing limits, not nominal machine dimensions.
-Allow space inside the XY limits for brims, supports or other generated paths.
-Check each oriented axis independently; the safe Z height is 250 mm, not 260 mm.
+Confirmed usable printer limits are **260 × 260 × 250 mm (X × Y × Z)** and a
+**0.4 mm nozzle**, unless the user specifies another setup. Include generated
+brims/supports when checking XY; check each oriented axis independently.
 
 ## Core workflow
 
-For modelling tasks, work autonomously toward the requested result, applying the [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md) unless the request specifies different manufacturing constraints.
+1. Inspect the request, references, existing files and user changes. Reuse known
+   preferences. Honor requests to choose reasonable defaults autonomously;
+   otherwise ask focused questions only for unresolved requirements that
+   materially affect fit, function or manufacturing. Document important assumptions.
+2. Confirm the required CadQuery MCP `evaluate_file` tool is available. If absent,
+   stop modelling and ask the user to install the customized
+   [cadquery-contrib server](https://github.com/arthow4n/cadquery-contrib/tree/feature/loop-customisations).
+   Do not recreate the evaluator with ad-hoc scripts.
+3. Create or revise the object's parametric Python source. Evaluate the file
+   through MCP and inspect views, validity, topology, bounds, parameters and errors.
+4. Compare the geometry against the intended use and references. Check access,
+   insertion, retention and release as relevant. Correct the largest functional,
+   structural, ergonomic or printability discrepancies and evaluate again.
+   Repair the smallest underlying cause of a build failure; simplify the approach
+   if it repeatedly fails. A valid build alone does not establish function.
+5. Apply the skill's relevant CAD, export and slicer checks. Continue until the
+   concrete review questions are resolved and further iteration is unlikely to
+   materially improve the result. Distinguish CAD/slicer evidence from physical
+   testing; document any remaining limitation.
+6. Save matching print-ready exports, useful final views and one concise record
+   of assumptions, print/use instructions and verification evidence.
+7. Review, commit and push the completed work using the Git workflow below.
 
-Use this loop:
+## Object ownership and source of truth
 
-1. Read and apply the [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md), track its [modelling TODO checklist](.codex/skills/cadquery-3d-design/SKILL.md#modelling-todo-checklist), and understand the requested object and constraints before creating geometry.
-2. Create or edit the CadQuery `.py` model.
-3. Use the CadQuery MCP `evaluate_file` tool.
-4. Inspect the returned:
+Each logical object or assembly owns one directory. Keep **all** its source
+modules, exports, references, renders, notes and experiments inside it:
 
-   * rendered views
-   * bounding box
-   * volume / surface information
-   * topology
-   * model parameters
-   * build errors, if any
-5. Compare the result with the user's request and any reference images or drawings, including its intended function, physical interactions, and ergonomics—not only its visual appearance and dimensions.
-6. Modify the model to address the largest discrepancies.
-7. Evaluate again.
-8. Repeat until further iteration is unlikely to materially improve the result.
-9. Export the final model.
-10. Save the latest useful rendered views.
-11. Commit the completed work.
-12. Push the commit to the current remote branch.
+```text
+model/object_name/
+  object_name.py
+  object_name.step
+  object_name.stl
+  README.md                 # or clearly linked existing project notes
+  references/               # supplied images, drawings and other references
+  renders/                  # useful print/assembled views
+  notes/                    # checks, profiles and experiments when useful
+```
 
-Do not stop after producing the first valid model if visible, structural, functional, or ergonomic improvements are still obvious. A model is not finished merely because it builds successfully or visually resembles the requested object.
+Create only useful files. Independent objects need separate directories;
+components of one assembly may share a directory. Do not organize object files
+in global format-based directories such as `exports/` or `references/`.
+
+The object's CadQuery Python source is authoritative. Keep likely adjustments
+as named parameters with dependent geometry derived from them. Use a clear main
+entry point and component modules when that improves readability; document useful
+component/assembled entry points and verify imports through MCP. Follow the
+[construction guidance](.codex/skills/cadquery-3d-design/references/parametric-and-edges.md)
+for parameters, components and edges. Prefer understandable CadQuery operations;
+use lower-level OCP only when it materially helps. Do not make a mesh the primary
+modelling representation.
+
+## CadQuery evaluation and exports
+
+Evaluate the object's source directly. The updated customized server supplies
+`__file__`, the model directory as the worker's working/import directory, and a
+fresh process per evaluation. Ordinary sibling imports therefore see current
+source. `result` explicitly selects the output; otherwise all `show_object()`
+outputs are combined. Do not mix display-only reference geometry into the
+selected printable result.
+
+Use `views: []` for checks that need no images. Inspect structured error status:
+a failed view can coexist with successful geometry or exports. Saved paths are
+successful outputs only when their corresponding status says so. Build and
+render timings are separate. Older running servers may need a restart to expose
+these capabilities; see the compatibility note in the
+[export guidance](.codex/skills/cadquery-3d-design/references/export-verification.md).
+
+For normal printable models, deliver at least `.py`, `.step` and `.stl`.
+Export STEP and STL from the **same geometry and print placement**, with matching
+units, orientation, bed position and relative component positions. The evaluator's
+optional `exports` list can write both from one build; use an object-owned wrapper
+when custom checks or component exports require it. Verify the actual final pair
+using the [export checker](.codex/skills/cadquery-3d-design/references/export-verification.md).
+Use an explicit `_assembled.step` suffix for an additional inspection pose.
+Respect an explicit user request for a different export arrangement. Add 3MF or
+other formats only when useful.
+
+Normally retain isometric, front, top and right views under `renders/`, plus any
+view needed to explain important geometry. For saved intermediate views, use
+`renders/scratch/`; retain selected final views in `renders/print/` or
+`renders/assembled/`. Exterior inspection normally uses `show_hidden=false`.
+Use hidden lines or sections for a specific internal-geometry question. Remove
+disposable scratch output before staging; retain historical evidence deliberately.
 
 ## Avoid repeated work
 
-Batch deterministic work where the tools permit: build geometry once, export
-STEP and STL together, and collect required measurements and views in the same
-evaluation. Keep using CadQuery MCP; batching does not authorize replacing it.
-Return compact summaries and inspect detailed output for failures or a specific
-unresolved question instead of repeatedly loading full logs or helper sources.
+Build once where possible and batch exports, measurements and needed views.
+Separate cheap build assertions from expensive mechanism sweeps; rerun affected
+sweeps after interface changes, not merely to obtain another view.
 
-Reuse successful evidence when its relevant inputs are unchanged and recorded.
-For CAD checks, account for source modules, parameters, placement and tool versions;
-for export checks, the actual exported file hashes and checker settings/version;
-for slicing, the mesh, effective profile, command options and slicer version.
-Changed inputs invalidate affected checks. If dependencies are unclear, rerun.
-Final verification may reuse applicable evidence; it must cover the final files.
+Reuse evidence only when its relevant inputs are unchanged and recorded:
 
-Separate cheap build assertions from expensive mechanism sweeps where useful.
-Run affected sweeps after geometry/interface changes and before delivery, not
-merely to obtain another view. Do not introduce a caching framework for a one-off
-task. Use existing helpers; their regression and negative tests belong to helper
-development and need not be rerun for each ordinary model using unchanged tools.
+- CAD: source modules, parameters, placement and tool versions.
+- Exports: actual file hashes and checker settings/version.
+- Slicing: mesh, effective profile, command options and slicer version.
 
-Keep one concise record of decisions and evidence. Stop review when the concrete
-questions and required checks are resolved; another general critique or duplicate
-report is not a completion requirement. Documentation-only changes need document
-validation, not new CAD evaluations or slices.
+Changed inputs invalidate affected checks; rerun if dependencies are unclear.
+The server's imported-module hashes are useful evidence, not a complete record
+of arbitrary files a script reads. Final verification must cover the final files.
+Do not introduce a caching framework for a one-off task. Unchanged helpers do not
+need their own regression suites rerun for every model.
 
-## Object directory convention
+Keep one concise decision/evidence record. Return compact summaries and inspect
+full logs only for a failure or unresolved question. Documentation-only changes
+need document validation, not new CAD evaluations or slices.
 
-Every object must have its own directory under:
+## Model provenance and attribution
 
-```text
-model/<object_name>/
-```
+Record attribution **per model**, in its documentation or clearly linked notes:
+primary language model, reasoning effort, harness/agent environment and provider.
+Use actual runtime information or explicitly attributed user-provided information.
+Record unavailable fields as `unknown` or `not exposed`; do not guess or block
+otherwise completed work solely to obtain unavailable metadata. List material
+contributors after the primary model when known.
 
-All files associated with that object must live somewhere inside that directory, regardless of file type.
-
-Do not organize object files globally by format such as `models/`, `exports/`, `renders/`, or `references/`.
-
-Instead, organize by object first.
-
-Preferred structure:
-
-```text
-model/
-  object_name/
-    object_name.py
-    object_name.step
-    object_name.stl
-    object_name.3mf
-
-    references/
-      front.jpg
-      side.jpg
-      top.jpg
-      drawing.pdf
-
-    renders/
-      isometric.svg
-      front.svg
-      top.svg
-      right.svg
-
-    notes/
-      assumptions.md
-```
-
-Not every directory or file above is required.
-
-Create only what is useful for the object.
-
-For example:
-
-```text
-model/
-  camera_bracket/
-    camera_bracket.py
-    camera_bracket.step
-    camera_bracket.stl
-    references/
-      reference_01.jpg
-      reference_02.jpg
-    renders/
-      isometric.svg
-      front.svg
-      top.svg
-      right.svg
-```
-
-Another object should be completely separate:
-
-```text
-model/
-  impeller/
-    impeller.py
-    impeller.step
-    references/
-      front.png
-      side.png
-    renders/
-      isometric.svg
-      front.svg
-```
-
-This object directory is the unit of ownership for modelling work, generated artifacts, references, and final deliverables.
-
-Do not place object-specific files outside `model/<object_name>/`.
-
-## Source of truth
-
-The CadQuery Python source inside the object's directory is authoritative for the geometry. This may be one model file or a main entry point with component modules and shared parameters.
-
-For example:
-
-```text
-model/camera_bracket/camera_bracket.py
-```
-
-Strongly prefer parameterized design: keep the main dimensions and likely user adjustments as clearly named parameters near the top of the model, with dependent geometry derived from them. Follow the skill's [maintainable parametric design guidance](.codex/skills/cadquery-3d-design/references/parametric-and-edges.md#maintainable-parametric-design) so changes in requirements are easy to accommodate without rebuilding the model. Use judgment; do not force unnecessary abstraction for incidental details.
-
-Prefer parametric and understandable construction over hard-coded point clouds or unnecessarily complicated geometry.
-
-For models with multiple source files, keep a clear main entry point such as `<object_name>.py` and document which files to evaluate for individual components and the assembled object. Shared parameters may live in a clearly named module such as `parameters.py` instead of at the top of the main file. Keep every module inside the object's directory and verify imports through `evaluate_file`.
-
-Generated STEP, STL, 3MF, renders, and other artifacts are derived from the `.py` source unless the task explicitly requires otherwise.
-
-For printable models, export the final STEP and STL from the same print-ready geometry and placement: matching units, orientation, bed position and relative component positions. Do not use an assembled or closed pose for the primary STEP while the primary STL uses the print pose. Verify the exported files agree. If an assembled inspection export is useful, save it separately with an explicit suffix such as `_assembled.step` and document its purpose. Follow an explicit user request for a different export arrangement when provided.
+Preserve historical attribution when doing documentation-only maintenance.
+Existing records are linked from the [model index](README.md#models); they are
+historical evidence, not defaults for future models. Keep third-party licence
+and creator attribution intact; consult the root README's licensing section.
 
 ## Python dependencies
 
-If a Python-specific dependency is genuinely needed, use `uv` to set it up. Do not use `virtualenv`, ad-hoc virtual environments, or another Python environment manager. Prefer reproducible project setup files such as `pyproject.toml` and `uv.lock`, and commit the related setup files; do not commit environment directories or caches.
+Use `uv` for genuinely needed Python dependencies and reproducible project files
+such as `pyproject.toml` and `uv.lock`. Commit those files, not environments or
+caches. Do not use ad-hoc virtual environments or another environment manager.
 
-## CadQuery evaluation
+## Git workflow and handoff
 
-The CadQuery MCP is intentionally exposed with a small tool surface.
-
-Prefer and use the customized CadQuery MCP `evaluate_file` tool whenever possible; it is the required way to evaluate and iterate on CadQuery models.
-
-If `evaluate_file` is not available for a CadQuery task, do not proceed with the modelling work or recreate the tool with ad-hoc scripts. Refuse the task for now and ask the user to install the customized CadQuery MCP from [cadquery-contrib](https://github.com/arthow4n/cadquery-contrib/tree/feature/loop-customisations), then retry. Use the tool to do CadQuery work whenever possible.
-
-The MCP evaluation entry point may not define `__file__`; do not assume its
-working directory is the source directory. Use the explicit object-directory
-pattern in the [export wrapper guidance](.codex/skills/cadquery-3d-design/references/export-verification.md)
-when loading or writing sibling files.
-
-Evaluate the object's source file directly, for example:
-
-```text
-model/camera_bracket/camera_bracket.py
-```
-
-Do not recreate `evaluate_file` functionality with ad-hoc scripts unless it is unable to perform the required evaluation.
-
-Treat evaluation as part of the modelling process, not merely as a final check.
-
-When inspecting the evaluation results, apply the [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md) in addition to checking the requested geometry.
-
-A successful build alone does not mean the model is finished. Infer functional and ergonomic behavior from the geometry, dimensions, and rendered views; `evaluate_file` does not physically simulate use.
-
-Use rendered views and geometry information to look for:
-
-* incorrect proportions
-* missing features
-* wrong feature placement
-* incorrect orientation
-* unintended intersections
-* disconnected solids
-* excessive or missing material
-* incorrect symmetry
-* obviously wrong fillets, chamfers, holes, pockets, lofts, sweeps, or other features
-
-When reference images are available, compare the generated views against them carefully.
-
-## Iteration strategy
-
-Prioritize corrections by impact, following the function-first order and printability guidance in the [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md).
-
-Do not endlessly tune insignificant details.
-
-If the request is ambiguous, follow the skill's [requirements clarification guidance](.codex/skills/cadquery-3d-design/references/design-decisions.md#requirements-clarification). Ask useful questions during interpretation and planning when answers affect fit, function, usability, or printability; explain the choices in plain language. Use documented assumptions for low-impact details and reasonable defaults.
-
-Record important assumptions in comments in the model or, when useful, in:
-
-```text
-model/<object_name>/notes/
-```
-
-## Modelling preferences
-
-Apply the [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md) when choosing dimensions, feature details, orientations, construction methods, and edge treatments.
-
-Prefer standard CadQuery operations when they express the geometry cleanly:
-
-* sketches / profiles
-* extrude
-* revolve
-* sweep
-* loft
-* union / cut / intersect
-* mirror
-* linear and polar patterns
-* fillet
-* chamfer
-
-Use lower-level CadQuery/OCP operations when they materially improve the result, but do not introduce complexity without a reason.
-
-Keep the model readable enough that another agent or human can modify it later.
-
-Avoid destructive conversion to meshes as the primary modelling representation.
-
-## Completion criteria
-
-Before declaring a modelling task complete, verify the result against the [CadQuery 3D design skill](.codex/skills/cadquery-3d-design/SKILL.md) as well as the requested geometry:
-
-* the CadQuery source builds successfully
-* the intended result is a valid solid or valid set of solids
-* the latest rendered views have been inspected
-* major requested features are present
-* proportions and dimensions are reasonable relative to the prompt/references
-* obvious geometry defects have been corrected
-* the final source file is saved
-* appropriate final exports are generated
-* the latest useful rendered views are saved
-* all files belonging to the object are contained within `model/<object_name>/`
-
-For normal mechanical / printable models, produce at least:
-
-```text
-model/<object_name>/<object_name>.py
-model/<object_name>/<object_name>.step
-model/<object_name>/<object_name>.stl
-```
-
-Use `.3mf` or other formats when useful for the task.
-
-## Render artifacts
-
-Store renders under:
-
-```text
-model/<object_name>/renders/
-```
-
-Keep only useful final or intentionally retained render artifacts.
-
-When saving intermediate views, use an object-owned scratch destination such as
-`renders/scratch/`; save the selected final view set to `renders/print/` or
-`renders/assembled/`. Reuse already inspected final views when geometry and
-placement are unchanged. Remove disposable scratch output before staging.
-For exterior/ergonomic inspection, prefer `show_hidden=false`; enable hidden
-lines or use a section only when it answers a specific internal-geometry question.
-
-The final model should normally have at least:
-
-* isometric
-* front
-* top
-* right
-
-views.
-
-Additional views are encouraged when they reveal important geometry.
-
-Do not commit large numbers of redundant intermediate renders unless they are useful for documenting the design process.
-
-Intermediate or experimental renders should remain inside the same object's directory if retained.
-
-## Reference artifacts
-
-Store all supplied or generated reference material for an object under:
-
-```text
-model/<object_name>/references/
-```
-
-This includes, where applicable:
-
-* photographs
-* screenshots
-* drawings
-* diagrams
-* PDFs
-* dimension references
-* comparison images
-
-Do not place references for multiple objects together in a global references directory.
-
-## Multiple objects
-
-When a task creates multiple independent objects, create one directory per object:
-
-```text
-model/
-  object_a/
-    ...
-  object_b/
-    ...
-  object_c/
-    ...
-```
-
-If several files are genuinely components of one logical object or assembly, they may share one object directory:
-
-```text
-model/
-  gearbox/
-    gearbox.py
-    parameters.py
-    housing.py
-    cover.py
-    shaft.py
-    gearbox.step
-    references/
-    renders/
-```
-
-Use judgment based on whether the files belong to one coherent deliverable.
-
-Multiple Python files are encouraged when they simplify component construction, independent evaluation, shared dimensions, or assembly. They are optional: keep simple models in one file. Follow the skill's [components and shared parameters guidance](.codex/skills/cadquery-3d-design/references/parametric-and-edges.md#components-and-shared-parameters), and evaluate both useful individual components and the final combined geometry.
-
-## Git workflow
-
-Automatic commit and push are preferred for all repository tasks, not only modelling tasks. When a requested change is complete, inspect the status and diff, stage only the relevant files, create a concise commit, and push it to the current upstream branch. Preserve unrelated user changes and do not modify unrelated files merely to make the working tree clean.
-
-Run `git diff --cached --check` during review. The repository's `.gitattributes`
-disables whitespace diagnostics for model STEP exports, whose exporter emits
-trailing spaces; source and documentation retain normal checks. Do not rewrite
-exports merely to remove whitespace, or disable their textual diffs. Validate
-geometry using the export checker.
+Automatic commit and push are preferred for all completed repository tasks.
+Inspect status and the relevant diff, stage only requested work, and run
+`git diff --cached --check`. `.gitattributes` suppresses exporter-generated STEP
+whitespace noise while preserving text diffs; do not rewrite CAD exports merely
+to remove spaces. Preserve unrelated user changes and omit temporary/generated
+junk. Commit with a concise descriptive message and push the current upstream
+branch; do not change branches merely to complete the task.
 
 Track commit/push completion in the active task checklist and report the actual
-commit and push result in the final response. Persist design and validation
-checks in model notes, but do not pre-mark commit/push as complete or substitute
-“staged” for “pushed.” A second commit solely to tick that box is unnecessary.
+result at handoff. Do not pre-mark it complete in committed notes, substitute
+“staged” for “pushed,” or make another commit solely to tick that box.
 
-When the modelling task is satisfactorily complete:
-
-1. inspect `git status`
-2. review the relevant diff
-3. ensure generated junk or temporary files are not being committed
-4. verify that object-specific files are contained in the correct `model/<object_name>/` directory
-5. stage the object's source, final exports, references when appropriate, and latest useful rendered views
-6. create a concise descriptive commit
-7. push to the current upstream branch
-
-Example commit messages:
-
-```text
-model adjustable camera bracket
-refine enclosure vent geometry
-reconstruct impeller from references
-add printable cable guide
-```
-
-Do not modify unrelated files merely to make the working tree clean.
-
-If unrelated user changes already exist, leave them intact and commit only files belonging to the modelling task when practical.
-
-## Autonomy
-
-You are expected to make progress without asking for approval after every modelling decision.
-
-Continue iterating while:
-
-* the model is clearly incomplete
-* evaluation reveals substantial discrepancies
-* a failed construction can reasonably be repaired
-* obvious visual, structural, functional, or ergonomic improvements remain
-
-Encourage early clarification of unclear requirements rather than expecting the user to understand 3D printing or specify every constraint. Ask focused questions that help establish the intended use and critical interfaces, and offer understandable recommendations. Resolve ambiguity that would produce materially different objects before committing to the affected geometry.
-
-For routine design decisions, choose a reasonable interpretation, document important assumptions, and continue without repeated approval requests. Consider printability during planning and review the resulting geometry again during iteration and before completion.
-
-## Failure handling
-
-If CadQuery code fails:
-
-1. inspect the actual error
-2. fix the smallest underlying issue
-3. evaluate again
-
-Do not replace a promising model wholesale after a minor failure.
-
-If an approach repeatedly fails, simplify the construction or choose a different CAD operation.
-
-If a requested detail cannot be modelled reliably, preserve the successful parts of the model and clearly identify the remaining limitation.
-
-Geometry that builds successfully but is clearly functionally ineffective should be treated as a modelling failure.
-
-## Final response
-
-When finished, summarize:
-
-* what was modelled
-* important assumptions
-* the object directory, for example `model/camera_bracket/`
-* final files created
-* any material limitations
-* the commit that was created and pushed
-
-Keep the final response concise. The repository artifacts are the primary deliverable.
+The final response should concisely state what changed, important assumptions,
+object directory and deliverables, verification and material limitations, and
+the commit/push result. Report a failed push as incomplete delivery rather than
+claiming success.

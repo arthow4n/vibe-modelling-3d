@@ -67,7 +67,8 @@ changes fit, function or manufacturing; choose routine details autonomously.
 Explain physical choices in plain language. Distinguish play, holding force,
 movement friction and deliberate release effort when interpreting “tight.”
 
-Continue the authorized full design while offering economical first-print samples.
+Continue the authorized full design; offer a first-print sample when it saves
+meaningful material or time without losing the behavior under test.
 A coupon is not a default stopping gate. Minimize material while preserving the
 behavior under test, and make every variant answer an observable question.
 

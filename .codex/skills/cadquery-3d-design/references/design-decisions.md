@@ -4,15 +4,24 @@ Read when interpreting a new object, mechanism or ambiguous physical feedback.
 
 ## Requirements clarification
 
-Treat the user's description as a starting point; they may not know which dimensions, interactions, or printing constraints matter. During interpretation and planning, actively look for ambiguity and invite clarification when the answer would improve fit, function, usability, or the printing approach. Do not wait for the user to volunteer technical requirements or silently choose between materially different uses.
+Reuse the user's known dimensions, printer, material and assembly preferences.
+Honor an explicit request to proceed autonomously: choose a reasonable mechanism
+and document assumptions instead of asking for routine preference decisions.
+Otherwise ask only when an unresolved requirement would materially change fit,
+function, usability or manufacturing. Continue independent work while awaiting
+an essential answer; do not mistake elapsed time for an answer.
 
-* Ask a small set of focused questions in plain language, prioritizing the intended job, what the object must fit, how it is installed and used, and any important loads or environment. For example: “Should this clip onto the desk edge or be screwed underneath?” Explain why the distinction matters and offer a recommended option with its tradeoff when helpful.
-* Help the user supply critical measurements: identify exactly what to measure and in which units, or request an available reference or product dimension. A named parameter makes an uncertain dimension editable; it does not establish that the fit is correct.
-* Ask about printer, material, build size, or willingness to remove supports only when those answers affect the design. If the user does not know, explain a reasonable default and its implications rather than requiring them to choose CAD operations, tolerances, or slicer settings.
-* Before choosing joints, hinges, closures, or other mechanisms, check whether the user accepts assembly and whether all working parts must be printed or purchased items such as rods, screws, nuts, magnets, or adhesives are acceptable. Use preferences already stated in the conversation; otherwise ask before committing to geometry that depends on them. Do not infer that access to a printer means access to hardware or assembly tools.
-* When several mechanism approaches are feasible, briefly explain the relevant choices and establish the user's preference. For hinges, these may include print-in-place captive joints, separately printed snap-together joints or pins, flexible hinges, and hardware-based hinges. Discuss only useful alternatives, with their actual tradeoffs: printer clearance accuracy and freeing moving joints, assembly effort, bed footprint, material and fatigue limits, and durability. Recommend an approach suited to the task; do not assume print-in-place or any other mechanism is always best. Once the preference is clear, continue without asking again unless a new constraint requires changing it.
-* Briefly state the interpreted use, proposed print approach, and important assumptions before committing to geometry. Separate confirmed requirements from assumptions. Proceed on low-impact visual choices and reversible defaults; wait for clarification before committing to an unresolved interface or use that would produce a materially different object. Continue independent planning while awaiting answers.
-* Revisit questions if evaluation reveals an unforeseen conflict between function and printability. Avoid repeated approval requests for routine modelling decisions, and respect a user's request to proceed with reasonable assumptions while clearly identifying unverified fit or performance.
+Useful questions establish the intended use, critical interfaces, loads and
+whether required hardware or assembly is acceptable. Explain what to measure
+and why; do not expect the user to specify every printing detail. Do not assume
+access to purchased parts merely because the user has a printer.
+
+When a mechanism choice needs user input, recommend one feasible approach and
+briefly explain the meaningful tradeoff. When the user has delegated the choice,
+select it directly within known constraints. State the interpreted use, print
+approach and consequential assumptions before building. Revisit clarification
+only if new evidence reveals a material conflict; a named fit parameter is not
+proof that the assumed dimension is correct.
 
 ## Functional design
 

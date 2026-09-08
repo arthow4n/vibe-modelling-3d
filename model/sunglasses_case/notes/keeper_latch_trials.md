@@ -5,9 +5,10 @@ and preferred E slightly. E is now integrated into the reduced full case; see
 [current production instructions](printing_and_design.md). The notes below
 preserve the original trial design and its pre-test assumptions.
 
-These are the next two samples to print. Each STL includes a complete captive
-hinge/loop fixture and its separate small keeper insert. Matching STEP files
-have exactly the same print placement. The large sunglasses case is unchanged.
+At this trial stage, D and E were the next two samples proposed for printing.
+Each STL includes a complete captive hinge/loop fixture and its separate small
+keeper insert. Matching STEP files have exactly the same print placement. The
+large sunglasses case was unchanged at that stage.
 
 ## What changed after A/B/C were printed
 

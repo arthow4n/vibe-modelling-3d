@@ -151,6 +151,8 @@ Still untested physically: general glove fit, fingertip reach, liner behavior,
 brace/pin forces, fatigue, heat exposure, hanging security and drying rate. Try
 one complete insert before printing a collection.
 
+## Attribution
+
 Attribution: **GPT-6 Astra, low reasoning effort**, confirmed by the user;
 harness **Codex**; provider **user-provided / not separately recorded**. This
 attribution covers the five-finger redesign as well as the previous iteration.
