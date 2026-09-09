@@ -5,15 +5,14 @@ PrusaSlicer invocation, fresh-output checks, hashes, notices, estimates, actual
 deposited footprint and optional SVG layer windows. It never sends a printer job
 and does not rotate, split or arrange components. It centers the supplied layout.
 
-From the repository root, with actual object/profile paths:
+For a final reference smoke slice, from the repository root with actual paths:
 
 ```sh
 python3 .codex/skills/prusa-slicer-printability/scripts/review_print.py \
   --model model/object_name/object_name.stl \
   --profile model/object_name/notes/review.ini \
   --out model/object_name/notes/review_run_01 \
-  --bed 260 260 250 --expect-no-supports \
-  --windows model/object_name/notes/windows.json
+  --bed 260 260 250
 ```
 
 Use the user's safe limits; values above are this repository's confirmed setup,
@@ -24,7 +23,13 @@ investigation and bed. `--expect-no-supports` flags generated supports, rather
 than silently changing the profile. Use a self-contained INI; included/external
 profile dependencies are not resolved or independently hashed.
 
-Optional window file (bed coordinates, after centering):
+Add `--expect-no-supports` when that is the intended strategy. Add `--windows`
+only for a named path question that structured output cannot answer.
+The no-window run performs one slice and one linear path parse with no rendering;
+it is the standard smoke check, not a parameter/profile comparison campaign.
+Reuse a matching final-artifact investigation slice instead of adding a smoke run.
+
+Optional `--windows` file (bed coordinates, after centering):
 
 ```json
 [
@@ -46,7 +51,9 @@ separate evidence when the input or parser changes. See the command in
 Outputs: `command.json`, `summary.json`, `paths.json`, requested SVGs, and ignored
 `slice.gcode`/`slice.log`. The summary records input/G-code hashes, CLI help header
 with installed version, log notices, filament/time metadata, support count,
-and deposition bounds including half path width and brims. Inspect every chosen
+and deposition bounds including half path width, brims and supports. `paths.json`
+adds layer count, role totals and per-layer roles. Use only the relevant fields
+first; no new parser is needed for those facts. Inspect every chosen
 SVG (or convert it to PNG); writing an image is not inspection.
 
 Exit 0 means the requested automated checks found no listed review conditions.
@@ -56,6 +63,22 @@ exit nonzero; inspect the log and do not claim a completed review. A zero exit
 does not certify print quality. Notice extraction is a convenience, not an
 exhaustive understanding of slicer diagnostics; retain/read the raw log when
 results are uncertain.
+
+In the object's concise evidence record, link these existing outputs and report:
+profile scope/purpose, slicer/version, profile and input hash, smoke acceptance
+(fresh nonempty deposited output / failed / unavailable), notices, reference
+footprint/height and support presence. A completed helper report establishes
+fresh parsed deposition, but `review_required` is not a universal printability
+verdict. Report any unresolved notice separately from smoke acceptance.
+
+Automatic repair is not classified by this helper; notice extraction is not an
+exhaustive repair detector. If relevant, inspect the saved log for reported repair
+or other automatic treatment. Say “not assessed” or “none reported in inspected
+log,” not “no repair occurred.” Do not claim smoke coverage for every malformed
+mesh or lost component; retain the independent export checks. The helper centers
+the layout, so its footprint does not verify the export's original absolute XY
+placement. Parser incompatibility is a reporting limitation, not proof that the
+slicer failed; use suitable CLI evidence without silently altering actual settings.
 
 The parser requires millimetres, absolute XYZ, relative E, layer comments and
 linear planar moves. WIDTH comments are preferred; absent comments retain the

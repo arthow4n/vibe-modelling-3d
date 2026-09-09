@@ -1,29 +1,54 @@
 ---
 name: prusa-slicer-printability
-description: Investigate FDM printability with PrusaSlicer CLI, layer paths and controlled comparisons. Use for orientation, overhang, bridge, support or moving-part slicing concerns. Automatically maintained notebook; inspection does not authorize redesign or printing.
+description: Run a final exported-mesh smoke slice or investigate slicer-sensitive FDM toolpaths with PrusaSlicer CLI and targeted layer paths. Results are reference-profile evidence unless actual user settings are supplied. Inspection does not authorize redesign or printing.
 ---
 
 # PrusaSlicer printability inspection
 
-Connect evidence to a specific manufacturing/toolpath question. A valid solid, successful
-slice or absence of warnings does not prove that a physical print will succeed.
+## Scope and when to use
 
-## Investigation workflow
+Generic FDM review starts with [CAD/print planning](../cadquery-3d-design/references/print-planning.md).
+Use geometry for support at bridge ends, projections, walls, gaps and orientation.
+Use a slicer for its generated manufacturing paths; do not recreate its planning
+algorithms. These are evidence choices, not software modes:
 
-1. Establish the question and reuse confirmed printer, material, orientation,
-   assembly and support preferences. Label diagnostic defaults.
-2. Choose a supplied or documented profile. Preserve print-in-place positions;
-   do not silently split, arrange, rotate, scale, repair or union the input.
-3. Use the [review helper](references/review-tool.md) for a reproducible slice,
-   or the [CLI notebook](references/cli-and-paths.md) for an investigation it
-   does not cover. Confirm fresh nonempty output, not only a zero exit code.
-4. Inspect the summary first; inspect relevant current/preceding layers when a
-   specific uncertainty, warning or fit-critical feature requires it. Target bridge anchors,
-   fit-critical surfaces, moving gaps and actual deposited footprint including
-   brims. Roles and segment lengths alone do not establish unsupported spans.
-5. Report facts, geometric interpretation and remaining physical uncertainty
-   separately. Stop when the question is answered. Inspection-only requests do
-   not authorize redesign, deployment, print tuning outside scope, or printing.
+- **Generic FDM:** user's final profile unknown; CAD/math and manufacturing
+  assumptions provide the primary design review.
+- **Reference slicer:** repository PrusaSlicer plus a documented diagnostic profile
+  provides a final exported-artifact smoke check or answers a specific path question.
+- **Actual profile:** use the supplied actual slicer/settings when available for
+  toolpath claims; these supersede generic reference settings. Do not silently
+  translate another slicer's profile into PrusaSlicer or add more reference slicers.
+
+A reference result means this slicer produced these paths under this profile.
+It does not establish the user's supports/extrusions, dimensional accuracy,
+bridge quality, physical clearance, strength or tactile behavior. Actual-profile
+paths are still intentions, not physical measurements.
+
+## Smoke check and conditional investigation
+
+1. Establish purpose: final mesh smoke check, or a named unresolved path question.
+   Reuse confirmed printer, material, orientation, assembly and support preferences;
+   label unknown settings as diagnostic assumptions.
+2. Choose a supplied or documented profile. Preserve relative component positions
+   and intended orientation; do not silently split, arrange, rotate, scale, repair
+   or union the input. Record the helper's whole-layout bed centering.
+3. Use the [review helper](references/review-tool.md) without `--windows` for the
+   final smoke slice, or the [CLI notebook](references/cli-and-paths.md) where the
+   helper is unsuitable. Check successful slicing and fresh nonempty deposited
+   toolpaths. Read the compact summary for notices, footprint/height, supports and
+   surprising treatment; resolve relevant notices without automatically escalating
+   to images. This establishes export-to-toolpath acceptance only.
+4. Go beyond smoke only when a material uncertainty depends on generated paths:
+   near-width-limit features, disappearing walls, variable-width perimeters,
+   bridge classification, support contact, close moving gaps, layer discretization
+   or first-layer/brim interactions. Inspect structured facts first. Request a
+   targeted current/preceding-layer window only if those facts cannot answer the
+   question and spatial path topology is easier to understand visually. Roles and
+   segment lengths alone do not establish anchors or unsupported spans.
+5. Report the scoped result and remaining physical uncertainty; stop when answered.
+   Inspection-only requests do not authorize redesign, deployment, print tuning
+   outside scope, or printing.
 
 A known defect on a critical mating surface should inform an authorized redesign,
 not merely recur in another trial with a disclaimer. For CAD decisions or
@@ -56,7 +81,9 @@ another request. Correct disproven advice; consolidate rather than append sessio
 transcripts. Record the purpose, minimal reproduction, tested version,
 profile/orientation assumptions, observation and limits. Keep raw evidence with
 the object and link it here. Label untested ideas; do not generalize one printer's
-clearance or bridge result into a universal rule.
+clearance or bridge result into a universal rule. Ask whether a recurring failure
+can be recognized earlier from CAD geometry, and capture that geometric lesson
+in print planning or the relevant case lesson instead of repeating screenshots.
 
 Run new/changed helpers and validate changed skills before handoff. Mention
 material additions. If maintenance is prohibited or unavailable, report that
@@ -66,7 +93,10 @@ authorization to redesign or print.
 ## Evidence
 
 Save the profile or exact profile reference, input hashes, command/version,
-warnings, estimates and useful layer views inside the object's directory.
+warnings, estimates and any necessary layer views inside the object's directory.
+Label the purpose (smoke/investigation) and profile scope (reference/actual) in
+the concise evidence record; report smoke acceptance separately from notices or
+unresolved manufacturing questions. See the helper reference for available fields.
 Keep raw G-code/logs out of commits unless they add necessary evidence. A generic
 diagnostic G-code file is not a validated printer job. No automated free-air span,
 anchor, sag, stress or pass/fail printability classifier is supplied.

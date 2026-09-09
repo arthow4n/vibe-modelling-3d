@@ -19,7 +19,8 @@ connect the ears to the shells. In the chosen print pose, the cone undersides
 and socket roofs grow along 45-degree surfaces instead of introducing a floating
 horizontal rod and a broad flat ceiling.
 
-For each feature, inspect its first deposited layer and the preceding material.
+First establish each feature's start and supporting geometry from CAD. Inspect
+generated layers only when discretization or path generation remains uncertain.
 A short pin can still start in air; shortening a rod alone does not fix that.
 Check moving-part bed contact, persistent gaps, socket wall thickness, swept
 motion and axial capture separately. A rounded crown can soften the hinge's

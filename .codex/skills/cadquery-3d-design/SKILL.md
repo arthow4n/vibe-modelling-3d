@@ -23,9 +23,10 @@ Reopen affected checks after changes; do not repeat unrelated checks for a small
 - [ ] Build understandable parametric geometry; preserve critical interfaces.
 - [ ] Evaluate source through CadQuery MCP; check bounds and topology; select useful views.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
-- [ ] Resolve significant print defects, especially on fit-critical surfaces; inspect targeted toolpaths when needed.
+- [ ] Review final generic FDM geometry and resolve significant defects, especially on fit-critical surfaces.
 - [ ] Review exposed edges, corners and grip areas without weakening interfaces.
 - [ ] Export STEP/STL from the same print-ready geometry and placement; verify artifacts.
+- [ ] Run/reuse the final reference smoke slice when available; investigate detailed paths only for unresolved slicer-sensitive questions.
 - [ ] Save useful final views, assumptions, physical evidence and print instructions.
 - [ ] Review and commit/push according to AGENTS.md.
 
@@ -38,7 +39,7 @@ do not mistake a parameter value for a verified measurement or physical result.
 | Trigger | Reference |
 | --- | --- |
 | New requirements, assembly choices, mechanisms, motion checks, force estimates, “tight/loose” feedback | [Design decisions](references/design-decisions.md) |
-| Orientation, moving parts, walls, roofs or support constraints | [Print planning](references/print-planning.md) |
+| Generic FDM review, final smoke slice, orientation, moving parts or support constraints | [Print planning](references/print-planning.md) |
 | Fit, force, friction or durability needs physical validation | [Physical experiments](references/physical-experiments.md) |
 | Dimensions, shared builders, modular source or edge treatment | [Parametric construction and edges](references/parametric-and-edges.md) |
 | Captive hinge construction | [Opposing conical pivot example](references/print-in-place-hinges.md) |
@@ -59,7 +60,7 @@ Choose evidence by question, not as a mandatory sequence or universal ranking:
 | Evidence | What it establishes within its assumptions |
 | --- | --- |
 | Deterministic CAD/geometric checks | Intersections, mating dimensions, wall/gap thickness, bounds, bed placement, engagement and motion/clearance within the checked scope |
-| Slicer/toolpaths | Intended deposition for the selected profile: anchors, perimeters, surviving thin features, moving gaps, overhang formation, layer registration and footprint |
+| Slicer/toolpaths | Export-to-toolpath smoke check; generated paths, feature survival, supports, layer registration and footprint for the documented profile only |
 | CAD renders | Proportions, recognition, appearance, finger access, control comprehension, assembly layout and visual diagnosis |
 | Analytical mechanics; selective simulation | Predicted stiffness, force, torque, strain or structural behavior under stated assumptions |
 | Physical prints/tests | Actual fit, friction, effort, spring return, sag, material response, wear and subjective feel under tested conditions |
@@ -92,10 +93,15 @@ meaningful material or time without losing the behavior under test.
 A coupon is not a default stopping gate. Minimize material while preserving the
 behavior under test, and make every variant answer an observable question.
 
-Preserve successful interfaces during integration and reslice the full layout.
+Preserve successful interfaces during integration; the final smoke slice covers
+the full printable layout. Revisit detailed paths only where changes invalidate
+relevant evidence.
 A change in surrounding stiffness or print height can matter without changing
 nominal fit. Do not claim physical validation beyond actual user feedback.
 
-For slicing, use [PrusaSlicer inspection](../prusa-slicer-printability/SKILL.md).
+Use [print planning](references/print-planning.md) for CAD-first FDM review and
+[PrusaSlicer inspection](../prusa-slicer-printability/SKILL.md) for the final smoke
+slice or a slicer-sensitive question. An unknown user profile makes repository
+slices reference evidence, not predictions of the user's toolpaths.
 For export consistency, use the verification helper through a CadQuery MCP
 evaluation entry point. Neither replaces function review or physical testing.

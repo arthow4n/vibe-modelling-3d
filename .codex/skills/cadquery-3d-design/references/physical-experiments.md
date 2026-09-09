@@ -30,8 +30,9 @@ attachment stiffness, movement constraints and print orientation. Do not
 shorten spring arms or scale a mechanism to reduce material.
 
 A skeletal fixture may test seating but underrepresent enclosure stiffness;
-say so. Use the slicer to estimate filament and time before recommending a
-sample, and compare with a less simplified fixture when the savings/validity
+say so. Reuse smoke-slice filament/time estimates, scoped to that profile, when
+available; otherwise label a rough cost estimate. Compare with a less simplified
+fixture when the savings/validity
 tradeoff is uncertain. A full box is justified only if its structure is needed
 for the intended observation. Do not impose a universal bridge length or
 coupon mass.

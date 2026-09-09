@@ -67,8 +67,15 @@ roles thereafter. Record both the removal of that local overhang and the added
 assembly/fit tradeoff, rather than labeling the whole model bridge-free. See
 [D/E evidence](../../../../model/sunglasses_case/notes/keeper_review/report.md).
 
-When transferring a tested mechanism to a different height, inspect its new
-layers even if CAD comparison shows identical translated geometry. In the
+For future keepers, detect a one-sided downward-facing retaining projection
+from CAD and assess/reorient that critical surface before slicing. The historical
+images establish this profile's paths, not a need to rediscover the geometry or
+a universal sag threshold.
+
+When transferring a tested mechanism to a different height, revisit generated
+paths if layer registration can materially affect its function, even if CAD
+comparison shows identical translated geometry. Start with structured layer facts;
+request images only if the relevant topology remains unclear. In the
 [reduced full case](../../../../model/sunglasses_case/notes/production_e_review/report.md),
 the first loop bridge moved from Z=36.2 to 40.8 mm after a 4.5 mm CAD translation
 on a 0.2 mm layer grid. Preserve dimensions, but do not assume layer registration

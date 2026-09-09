@@ -35,7 +35,8 @@ brims/supports when checking XY; check each oriented axis independently.
    structural, ergonomic or printability discrepancies and evaluate again.
    Repair the smallest underlying cause of a build failure; simplify the approach
    if it repeatedly fails. A valid build alone does not establish function.
-5. Apply the skill's relevant CAD, export and slicer checks. Continue until the
+5. Apply the skill's CAD/export checks and final generic FDM review, including
+   its final reference-slice smoke check when available. Continue until the
    concrete review questions are resolved and further iteration is unlikely to
    materially improve the result. Distinguish CAD/slicer evidence from physical
    testing; document any remaining limitation.
