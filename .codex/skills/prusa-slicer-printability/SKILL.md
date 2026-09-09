@@ -5,7 +5,7 @@ description: Investigate FDM printability with PrusaSlicer CLI, layer paths and 
 
 # PrusaSlicer printability inspection
 
-Connect evidence to a specific geometric question. A valid solid, successful
+Connect evidence to a specific manufacturing/toolpath question. A valid solid, successful
 slice or absence of warnings does not prove that a physical print will succeed.
 
 ## Investigation workflow
@@ -18,7 +18,7 @@ slice or absence of warnings does not prove that a physical print will succeed.
    or the [CLI notebook](references/cli-and-paths.md) for an investigation it
    does not cover. Confirm fresh nonempty output, not only a zero exit code.
 4. Inspect the summary first; inspect relevant current/preceding layers when a
-   specific uncertainty, warning or fit-critical feature requires it. Check bridge anchors,
+   specific uncertainty, warning or fit-critical feature requires it. Target bridge anchors,
    fit-critical surfaces, moving gaps and actual deposited footprint including
    brims. Roles and segment lengths alone do not establish unsupported spans.
 5. Report facts, geometric interpretation and remaining physical uncertainty
@@ -34,7 +34,9 @@ the required CadQuery MCP workflow.
 
 Use one slice for each changed set of relevant inputs, following AGENTS.md's
 evidence reuse rules. Detailed layer diagrams are conditional, not routine
-deliverables. For another window on the same slice, use `inspect_gcode.py` on
+deliverables. Select the layer window from the unresolved feature/question; do
+not inspect arbitrary layers for reassurance after that question is answered.
+For another window on the same slice, use `inspect_gcode.py` on
 saved G-code rather than rerunning PrusaSlicer. The review wrapper orchestrates
 the slicer; the parser inspects its output. Neither is another slicer or physical
 simulation. The wrapper has no automatic cache: compare recorded inputs before

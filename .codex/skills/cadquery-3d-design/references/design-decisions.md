@@ -69,3 +69,76 @@ Resolve a known manufacturing defect on a fit-critical surface before offering
 another trial that depends on that surface. Disclosing a likely defect does not
 make it an informative experiment. Consider orientation, geometry or part
 separation within the user's assembly constraints; explain any new tradeoff.
+
+## Deterministic motion and interface checks
+
+Measure actual geometry in a common coordinate frame where feasible: mating
+sizes, local wall/gap thickness, undercut, interference and clearance. A bounding
+box or nominal parameter alone cannot establish a local gap or retaining contact.
+For motion, include the relevant geometry pairs, axis/path, endpoints and intended
+contact or exclusions. A shell-only sweep does not check the removed latch;
+rigidly translating a latch clear does not establish its elastic release behavior.
+
+Keep a simple model-specific sweep when it is reliable. Extract a reusable helper
+only when repeated calculations justify it; do not force unlike mechanisms into
+one abstraction. Report range, sample step or method, intersection tolerance,
+geometry pair, and any detected collision or sampled minimum clearance/pose.
+Use “none detected at sampled poses,” not continuous-motion proof, for a plain
+coarse sweep. Zero intersection volume alone does not establish positive clearance.
+
+If a clear/colliding pair brackets contact, refine numerically to useful precision
+(e.g. 75–80° to approximately 77.4°), then render a diagnostic pose only if needed.
+Bisection locates that transition; it does not exclude earlier narrow collision
+intervals. When between-sample contact could change the decision, use adaptive
+sampling with a justified clearance/motion bound or a swept-volume/continuous
+check. Do not claim a global minimum from sampled distances. Improve coverage
+only as far as the required clearance and decision warrant, not arbitrary precision.
+
+## Actuation effort and cheap mechanics
+
+For latches, clips, detents, cams, flexures and over-center mechanisms, geometric
+engagement and release are necessary but do not establish intended effort.
+Distinguish closed play, retention force, movement friction, insertion effort and
+deliberate release effort. Treat “firm enough for a bag, comfortable with one
+thumb” as a functional requirement. Where useful, choose and record a provisional
+force or torque range at the actual finger contact, based on use and delegated
+preferences. Words such as light, firm or near-locking have no universal numeric
+scale. Record the target as an assumption, not an achieved measurement.
+
+Trace the load path and user leverage: torque = force × perpendicular moment arm.
+For tangential finger force, F = torque / finger radius. A strong internal detent
+can feel light through a long lever. Inspect retaining contact, required release
+displacement, preload, contact angle and friction before enlarging a tooth.
+
+For a roughly rectangular, slender cantilever under a transverse end load, a
+cheap small-deflection estimate can reject obviously weak, stiff or high-strain
+concepts before slicing/printing. Use effective flexible length L, width b,
+bending thickness t, end displacement δ and assumed modulus E:
+
+```text
+I = b*t^3/12
+k ≈ 3*E*I/L^3
+F_spring ≈ k*δ
+peak root strain ≈ 3*t*δ/(2*L^2)
+```
+
+With lengths in mm and E in N/mm², k is N/mm and force is N; strain is dimensionless.
+Record the material/modulus source or explicit assumption, boundary conditions
+and useful uncertainty range. These are simplified predictions: printed
+anisotropy, root stress concentrations, attachment compliance and large deflection
+limit applicability. Compare strain with a defensible material/process allowance;
+do not silently assume bulk properties or keep thickening an overstressed arm.
+
+Stiffness scales with b, t³ and 1/L³. All else equal, changing 2.2 mm leaves to
+2.8 mm predicts about 2.06 times the stiffness, but also increases strain at the
+same displacement. This motivates a physical stiffness comparison, not a claim
+of doubled release force. Contact, undercut, preload, friction and finger leverage
+can dominate release; beam spring force is not complete latch actuation force.
+
+Use simulation only when a consequential question exceeds simple mechanics,
+for example interacting or curved/tapered flexures, large deformation or
+contact-dominated release. Full nonlinear FEA is not a routine stage. If future
+reusable tooling is justified, prefer a small question-oriented interface such
+as `evaluate_flexure` or `check_motion` returning assumptions, scope, estimates
+and limitations over a collection of raw solver APIs. No new solver is required
+by this guidance. Physical calibration remains necessary for actual feel and wear.

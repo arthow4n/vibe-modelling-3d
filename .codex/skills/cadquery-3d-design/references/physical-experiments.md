@@ -2,8 +2,8 @@
 
 Read during planning whenever fit, friction, flexibility, surface finish or
 mechanism feel is uncertain. Identify what CAD can establish (dimensions,
-topology, rigid motion) separately from what needs a print (force, wear,
-spring return, bonding or actual clearance). Prioritize uncertainty by its
+topology, rigid motion) and mechanics predictions separately from what needs a
+print (actual force, wear, spring return, bonding or actual clearance). Prioritize uncertainty by its
 effect on function and the cost of discovering a failure late.
 
 ## Optional test prints for physical validation
@@ -15,7 +15,11 @@ Finish the complete model. Include a small test piece only when it meaningfully 
 * Evaluate test pieces through the same applicable CAD and printability workflow as the model, including practical bed contact and intended component positions. Export them with clear names inside the object's directory. Make their purpose and the full-model print file easy to distinguish.
 * Provide brief instructions for what to try and observe, such as whether a latch engages securely and releases comfortably, and identify the parameter to adjust if it binds or feels loose. State what the sample does not test, such as full-object stiffness, compression resistance or fatigue life. Offer a small labeled set of clearance variants only when comparison would help; avoid unnecessary samples.
 
-At handoff, deliver the full design plus any useful test pieces and explain that the user may print the samples first. Do not present the mechanism as physically validated until the relevant print has actually been tested.
+Before printing, coupon checks establish only preserved geometry/constraints,
+experiment scope, bed fit, plausible toolpaths and estimated cost savings. They
+do not measure release force, friction, spring return, hinge wobble or fatigue.
+Once virtual checks have narrowed the uncertainty to physical behavior, stop
+generating virtual variants and recommend the informative print comparison.
 
 ## Minimize cost while preserving the experiment
 
@@ -41,10 +45,12 @@ factor when isolating a cause; use clearly labeled different concepts when
 the mechanism itself is uncertain. Do not multiply nearly identical variants
 without explaining why the difference should be detectable.
 
-More engagement travel need not mean more spring force. Separate closed play,
-holding force and release effort. Label predictions as hypotheses, not measured
-results. Provide one or two informative comparisons when sufficient, rather than
-a default clearance matrix.
+Use the [mechanics guidance](design-decisions.md#actuation-effort-and-cheap-mechanics)
+to screen force/strain where applicable before choosing physical variants. For
+example, 2.2 versus 2.8 mm latch leaves can test whether insufficient stiffness
+causes light release, with geometry and leverage otherwise preserved. Label
+predictions as hypotheses; prefer one or two informative comparisons over a
+default clearance matrix.
 
 ## Recommend a first print without blocking modelling
 
@@ -61,7 +67,7 @@ slicer reports, distinguishing predictions, observed feedback and decisions.
 
 ## Learning from trial prints
 
-Record physical feedback against the tested source revision or artifact hash, interface parameters, and known material/profile settings in the object's notes. Preserve a successful baseline before changing fit; adjust clearances incrementally using the observed play or binding. A changed clearance, orientation or surrounding geometry is a new configuration: distinguish the user's successful earlier print from CAD/slicer checks of the revision. Do not generalize one successful coupon's tolerances to other printers or materials, or treat it as evidence for untested latch force or full-object strength.
+Record physical feedback against the tested source revision or artifact hash, interface parameters, material, print orientation, and printer/profile where known in the object's notes. Preserve a successful baseline before changing fit; adjust clearances incrementally using the observed play or binding. A changed clearance, orientation or surrounding geometry is a new configuration: distinguish the user's successful earlier print from CAD/slicer checks of the revision. Record the user's subjective result (too light / good / too stiff) and observed failure mode separately from interpretation; mark unknown settings as unknown. Do not generalize one successful coupon's tolerances to other printers or materials, or treat it as evidence for untested latch force or full-object strength.
 
 ## Transfer a successful mechanism deliberately
 

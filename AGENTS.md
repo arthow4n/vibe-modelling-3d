@@ -28,7 +28,8 @@ brims/supports when checking XY; check each oriented axis independently.
    [cadquery-contrib server](https://github.com/arthow4n/cadquery-contrib/tree/feature/loop-customisations).
    Do not recreate the evaluator with ad-hoc scripts.
 3. Create or revise the object's parametric Python source. Evaluate the file
-   through MCP and inspect views, validity, topology, bounds, parameters and errors.
+   through MCP and inspect validity, topology, bounds, parameters and errors;
+   choose views using the skill's evidence guidance.
 4. Compare the geometry against the intended use and references. Check access,
    insertion, retention and release as relevant. Correct the largest functional,
    structural, ergonomic or printability discrepancies and evaluate again.
@@ -97,8 +98,10 @@ Use an explicit `_assembled.step` suffix for an additional inspection pose.
 Respect an explicit user request for a different export arrangement. Add 3MF or
 other formats only when useful.
 
-Normally retain isometric, front, top and right views under `renders/`, plus any
-view needed to explain important geometry. For saved intermediate views, use
+Retain useful final views under `renders/`; isometric, front, top and right are
+available choices, not a required set. Each additional view should answer a
+distinct visual question or explain the delivered object. For saved intermediate
+views, use
 `renders/scratch/`; retain selected final views in `renders/print/` or
 `renders/assembled/`. Exterior inspection normally uses `show_hidden=false`.
 Use hidden lines or sections for a specific internal-geometry question. Remove
@@ -106,6 +109,8 @@ disposable scratch output before staging; retain historical evidence deliberatel
 
 ## Avoid repeated work
 
+Choose the cheapest reliable evidence for the remaining question, following the
+[skill's evidence selection](.codex/skills/cadquery-3d-design/SKILL.md#proportionate-review).
 Build once where possible and batch exports, measurements and needed views.
 Separate cheap build assertions from expensive mechanism sweeps; rerun affected
 sweeps after interface changes, not merely to obtain another view.
