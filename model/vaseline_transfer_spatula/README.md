@@ -61,5 +61,5 @@ reference-profile evidence, not a prediction of the user's actual print.
 
 ## Attribution
 
-Primary language model: **GPT-5**. Reasoning effort: **unknown/not exposed**.
+Primary language model: **GPT-5.6 Luna**. Reasoning effort: **Extra High**.
 Harness: **Codex**. Provider: **OpenAI**. Material contributors: none known.
