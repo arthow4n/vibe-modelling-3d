@@ -11,6 +11,7 @@ Experiment field for random vibe-modelled 3D objects. Mainly for 3D printing.
 | Sunglasses case | [Accepted E production design](model/sunglasses_case/notes/printing_and_design.md) | [Record](model/sunglasses_case/notes/provenance.md) | Yes — D/E accepted | No — current reduced case |
 | Glove drying insert | [Five-finger design](model/glove_drying_insert/README.md) | [Record](model/glove_drying_insert/README.md#attribution) | Unknown — no user report | Unknown — no user report |
 | Vaseline container | [Screw-top jar](model/vaseline_container/README.md) | [Record](model/vaseline_container/README.md#attribution) | N/A — full pair is the trial | Yes — user reports good print |
+| Vaseline transfer spatula | [Flat scrape-and-fill tool](model/vaseline_transfer_spatula/README.md) | [Record](model/vaseline_transfer_spatula/README.md#attribution) | N/A — complete tool is the first proposed trial | Unknown — no user report |
 | Filament archive swatch | [SCAD instructions](model/filament_archive_swatch/README.md) | [Record](model/filament_archive_swatch/README.md#attribution) | N/A — full swatch is the trial | Yes — user reports previous print works as intended |
 
 These links identify current instructions; retained experiments are historical
