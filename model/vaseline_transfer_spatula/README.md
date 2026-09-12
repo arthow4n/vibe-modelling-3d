@@ -12,11 +12,11 @@ than spoon-shaped: the broad face carries a shallow portion, while the rounded
 front edge scrapes and the blade side wipes material against the receiving
 jar's inner wall.
 
-The 44 mm crosswise stop rests on the jar's outer neck and prevents the tool
-from dropping into the opening. To use it, scrape a portion from the large
-container with the rounded nose, place the blade through the small jar mouth,
-and press/draw the blade against the inner wall to release the material. Repeat
-as needed and leave headspace below the thread.
+There is no crosswise stop or collar: the handle remains narrow so the blade
+can be poked freely into a larger source container. To use it, scrape a portion
+from the large container with the rounded nose, place the blade through the
+small jar mouth, and press/draw the blade against the inner wall to release the
+material. Repeat as needed and leave headspace below the thread.
 
 The source of truth is `vaseline_transfer_spatula.py`. It produces one solid in
 print orientation. `verify_and_export.py` independently checks the delivered
@@ -26,8 +26,9 @@ STEP/STL pair.
 
 Print flat with the blade underside and handle underside on the bed. The blade
 is 2.4 mm thick and tapers to a 1.2 mm rounded scraping nose over its final
-8 mm; the handle is 7 mm thick. No supports or assembly are intended. The
-overall footprint is approximately 44 × 143 mm and the height is 7 mm, within
+8 mm; the handle is 7 mm thick and overlaps the blade by 2 mm. No supports or
+assembly are intended. The overall footprint is approximately 30 × 141 mm and
+the height is 7 mm, within
 the confirmed 260 × 260 × 250 mm printer envelope.
 
 PETG is the assumed material with a 0.4 mm nozzle. Use several perimeters and
@@ -44,13 +45,15 @@ large source container. The first physical use should check that the nose does
 not scratch the source container and that the flat blade releases cleanly into
 the small jar.
 
-CadQuery 2.8.0 evaluation found one valid solid with a 44 × 143 × 7 mm
+CadQuery 2.8.0 evaluation found one valid solid with a 30 × 141 × 7 mm
 bounding box. The exported pair passed the independent STEP/STL checker;
-details and hashes are in `notes/export_checks.json`. A PrusaSlicer 2.9.6
-reference smoke slice using `notes/review.ini` produced fresh nonempty paths,
+details and hashes are in `notes/export_checks.json`. The current final
+PrusaSlicer 2.9.6 reference smoke slice is recorded in
+`notes/reference_smoke_run_02/summary.json`; it produced fresh nonempty paths,
 no notices, no support segments, and an in-bed deposited footprint of about
-56.75 × 155.75 mm. The diagnostic estimate was 11.32 g and 56m 27s; this is
-reference-profile evidence, not a prediction of the user's actual print.
+42.74 × 153.75 mm including the diagnostic skirt. The diagnostic estimate was
+10.70 g and 53m 9s; this is reference-profile evidence, not a prediction of
+the user's actual print.
 
 ## Physical print status
 

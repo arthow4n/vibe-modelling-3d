@@ -1,0 +1,532 @@
+{
+  "metadata": {
+    "filament used [g]": "10.70",
+    "estimated printing time (normal mode)": "53m 9s"
+  },
+  "layer_count": 35,
+  "roles": {
+    "Skirt/Brim": {
+      "segments": 59,
+      "length_mm": 349.9238918799706,
+      "max_segment_mm": 96.14849303551252
+    },
+    "Perimeter": {
+      "segments": 4984,
+      "length_mm": 26374.062629345357,
+      "max_segment_mm": 94.161
+    },
+    "External perimeter": {
+      "segments": 1752,
+      "length_mm": 8979.393658280356,
+      "max_segment_mm": 94.12600008499246
+    },
+    "Solid infill": {
+      "segments": 5176,
+      "length_mm": 41738.15149917461,
+      "max_segment_mm": 93.88500004793097
+    },
+    "Internal infill": {
+      "segments": 18445,
+      "length_mm": 15231.91706942503,
+      "max_segment_mm": 4.046111219430338
+    },
+    "Bridge infill": {
+      "segments": 559,
+      "length_mm": 4499.693813297589,
+      "max_segment_mm": 38.7709104484277
+    },
+    "Top solid infill": {
+      "segments": 653,
+      "length_mm": 5408.761751998566,
+      "max_segment_mm": 37.521914236882964
+    }
+  },
+  "longest_bridge_segments": [
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        143.227,
+        159.655
+      ],
+      "b": [
+        117.071,
+        188.274
+      ],
+      "length_mm": 38.7709104484277,
+      "filament_mm": 2.04339,
+      "width_mm": 0.401754,
+      "line": 9451
+    },
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        117.196,
+        188.808
+      ],
+      "b": [
+        143.227,
+        160.325
+      ],
+      "length_mm": 38.586192478657445,
+      "filament_mm": 2.03365,
+      "width_mm": 0.401754,
+      "line": 9449
+    },
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        116.965,
+        187.721
+      ],
+      "b": [
+        142.964,
+        159.273
+      ],
+      "length_mm": 38.5387688568278,
+      "filament_mm": 2.03115,
+      "width_mm": 0.401754,
+      "line": 9453
+    },
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        143.227,
+        160.994
+      ],
+      "b": [
+        117.338,
+        189.322
+      ],
+      "length_mm": 38.37598083437087,
+      "filament_mm": 2.02257,
+      "width_mm": 0.401754,
+      "line": 9447
+    },
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        117.5,
+        189.814
+      ],
+      "b": [
+        143.227,
+        161.664
+      ],
+      "length_mm": 38.13529898925667,
+      "filament_mm": 2.00989,
+      "width_mm": 0.401754,
+      "line": 9445
+    },
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        143.227,
+        162.334
+      ],
+      "b": [
+        117.676,
+        190.291
+      ],
+      "length_mm": 37.87409998930667,
+      "filament_mm": 1.99612,
+      "width_mm": 0.401754,
+      "line": 9443
+    },
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        142.352,
+        159.273
+      ],
+      "b": [
+        116.88,
+        187.144
+      ],
+      "length_mm": 37.757322799690144,
+      "filament_mm": 1.98997,
+      "width_mm": 0.401754,
+      "line": 9455
+    },
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        117.866,
+        190.753
+      ],
+      "b": [
+        143.227,
+        163.003
+      ],
+      "length_mm": 37.59312199059823,
+      "filament_mm": 1.98131,
+      "width_mm": 0.401754,
+      "line": 9441
+    },
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        143.227,
+        163.673
+      ],
+      "b": [
+        118.068,
+        191.202
+      ],
+      "length_mm": 37.293714242483276,
+      "filament_mm": 1.96553,
+      "width_mm": 0.401754,
+      "line": 9439
+    },
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        118.285,
+        191.634
+      ],
+      "b": [
+        143.227,
+        164.342
+      ],
+      "length_mm": 36.9723765533134,
+      "filament_mm": 1.9486,
+      "width_mm": 0.401754,
+      "line": 9437
+    },
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        116.818,
+        186.542
+      ],
+      "b": [
+        141.74,
+        159.273
+      ],
+      "length_mm": 36.94190635308363,
+      "filament_mm": 1.94699,
+      "width_mm": 0.401754,
+      "line": 9457
+    },
+    {
+      "z": 1.6,
+      "role": "Bridge infill",
+      "a": [
+        143.227,
+        165.012
+      ],
+      "b": [
+        118.515,
+        192.052
+      ],
+      "length_mm": 36.631196322260614,
+      "filament_mm": 1.93061,
+      "width_mm": 0.401754,
+      "line": 9435
+    }
+  ],
+  "layers": [
+    {
+      "z": 0.2,
+      "roles": {
+        "Skirt/Brim": 59,
+        "Perimeter": 287,
+        "External perimeter": 95,
+        "Solid infill": 627
+      }
+    },
+    {
+      "z": 0.4,
+      "roles": {
+        "Perimeter": 288,
+        "External perimeter": 95,
+        "Solid infill": 593
+      }
+    },
+    {
+      "z": 0.6,
+      "roles": {
+        "Perimeter": 280,
+        "External perimeter": 93,
+        "Solid infill": 596
+      }
+    },
+    {
+      "z": 0.8,
+      "roles": {
+        "Perimeter": 273,
+        "External perimeter": 91,
+        "Solid infill": 593
+      }
+    },
+    {
+      "z": 1.0,
+      "roles": {
+        "Perimeter": 272,
+        "External perimeter": 90,
+        "Solid infill": 588
+      }
+    },
+    {
+      "z": 1.2,
+      "roles": {
+        "Perimeter": 278,
+        "External perimeter": 93,
+        "Internal infill": 943,
+        "Solid infill": 93
+      }
+    },
+    {
+      "z": 1.4,
+      "roles": {
+        "Perimeter": 243,
+        "External perimeter": 80,
+        "Internal infill": 887,
+        "Solid infill": 122,
+        "Bridge infill": 60
+      }
+    },
+    {
+      "z": 1.6,
+      "roles": {
+        "Perimeter": 220,
+        "External perimeter": 73,
+        "Internal infill": 617,
+        "Solid infill": 112,
+        "Bridge infill": 198
+      }
+    },
+    {
+      "z": 1.8,
+      "roles": {
+        "Perimeter": 203,
+        "External perimeter": 68,
+        "Internal infill": 797,
+        "Solid infill": 239
+      }
+    },
+    {
+      "z": 2.0,
+      "roles": {
+        "Perimeter": 193,
+        "External perimeter": 64,
+        "Internal infill": 826,
+        "Solid infill": 249
+      }
+    },
+    {
+      "z": 2.2,
+      "roles": {
+        "Perimeter": 182,
+        "External perimeter": 58,
+        "Internal infill": 792,
+        "Solid infill": 221
+      }
+    },
+    {
+      "z": 2.4,
+      "roles": {
+        "Perimeter": 166,
+        "External perimeter": 54,
+        "Internal infill": 699,
+        "Top solid infill": 231
+      }
+    },
+    {
+      "z": 2.6,
+      "roles": {
+        "Perimeter": 91,
+        "External perimeter": 34,
+        "Internal infill": 550
+      }
+    },
+    {
+      "z": 2.8,
+      "roles": {
+        "Perimeter": 91,
+        "External perimeter": 34,
+        "Internal infill": 692
+      }
+    },
+    {
+      "z": 3.0,
+      "roles": {
+        "Perimeter": 92,
+        "External perimeter": 34,
+        "Internal infill": 788
+      }
+    },
+    {
+      "z": 3.2,
+      "roles": {
+        "Perimeter": 93,
+        "External perimeter": 34,
+        "Internal infill": 824
+      }
+    },
+    {
+      "z": 3.4,
+      "roles": {
+        "Perimeter": 92,
+        "External perimeter": 34,
+        "Internal infill": 793
+      }
+    },
+    {
+      "z": 3.6,
+      "roles": {
+        "Perimeter": 93,
+        "External perimeter": 34,
+        "Internal infill": 785
+      }
+    },
+    {
+      "z": 3.8,
+      "roles": {
+        "Perimeter": 92,
+        "External perimeter": 34,
+        "Internal infill": 630
+      }
+    },
+    {
+      "z": 4.0,
+      "roles": {
+        "Perimeter": 93,
+        "External perimeter": 34,
+        "Internal infill": 486
+      }
+    },
+    {
+      "z": 4.2,
+      "roles": {
+        "Perimeter": 90,
+        "External perimeter": 35,
+        "Internal infill": 632
+      }
+    },
+    {
+      "z": 4.4,
+      "roles": {
+        "Perimeter": 90,
+        "External perimeter": 34,
+        "Internal infill": 792
+      }
+    },
+    {
+      "z": 4.6,
+      "roles": {
+        "Perimeter": 91,
+        "External perimeter": 35,
+        "Internal infill": 790
+      }
+    },
+    {
+      "z": 4.8,
+      "roles": {
+        "Perimeter": 90,
+        "External perimeter": 36,
+        "Internal infill": 790
+      }
+    },
+    {
+      "z": 5.0,
+      "roles": {
+        "Perimeter": 91,
+        "External perimeter": 35,
+        "Internal infill": 699
+      }
+    },
+    {
+      "z": 5.2,
+      "roles": {
+        "Perimeter": 90,
+        "External perimeter": 34,
+        "Internal infill": 555
+      }
+    },
+    {
+      "z": 5.4,
+      "roles": {
+        "Perimeter": 90,
+        "External perimeter": 35,
+        "Internal infill": 697
+      }
+    },
+    {
+      "z": 5.6,
+      "roles": {
+        "Perimeter": 91,
+        "External perimeter": 35,
+        "Internal infill": 773
+      }
+    },
+    {
+      "z": 5.8,
+      "roles": {
+        "Perimeter": 92,
+        "External perimeter": 35,
+        "Internal infill": 827
+      }
+    },
+    {
+      "z": 6.0,
+      "roles": {
+        "Perimeter": 92,
+        "External perimeter": 35,
+        "Internal infill": 781,
+        "Solid infill": 25
+      }
+    },
+    {
+      "z": 6.2,
+      "roles": {
+        "Perimeter": 89,
+        "External perimeter": 35,
+        "Bridge infill": 301
+      }
+    },
+    {
+      "z": 6.4,
+      "roles": {
+        "Perimeter": 91,
+        "External perimeter": 36,
+        "Solid infill": 372
+      }
+    },
+    {
+      "z": 6.6,
+      "roles": {
+        "Perimeter": 92,
+        "External perimeter": 35,
+        "Solid infill": 374
+      }
+    },
+    {
+      "z": 6.8,
+      "roles": {
+        "Perimeter": 91,
+        "External perimeter": 36,
+        "Solid infill": 372
+      }
+    },
+    {
+      "z": 7.0,
+      "roles": {
+        "Perimeter": 92,
+        "External perimeter": 35,
+        "Top solid infill": 422
+      }
+    }
+  ],
+  "limits": "Centerline lengths include anchors; no free-air span or physical simulation."
+}

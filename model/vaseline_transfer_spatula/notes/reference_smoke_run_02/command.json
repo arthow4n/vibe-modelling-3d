@@ -1,0 +1,11 @@
+[
+  "prusa-slicer",
+  "--load",
+  "/home/hevar/git/vibe-modelling-3d/model/vaseline_transfer_spatula/notes/review.ini",
+  "--center",
+  "130,130",
+  "--export-gcode",
+  "--output",
+  "/home/hevar/git/vibe-modelling-3d/model/vaseline_transfer_spatula/notes/reference_smoke_run_02/slice.gcode",
+  "/home/hevar/git/vibe-modelling-3d/model/vaseline_transfer_spatula/vaseline_transfer_spatula.stl"
+]

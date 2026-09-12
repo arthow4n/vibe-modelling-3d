@@ -19,15 +19,13 @@ BLADE_THICKNESS = 2.4
 TIP_TAPER_LENGTH = 8.0
 TIP_THICKNESS = 1.2
 
-# Comfortable handle and a crosswise stop that rests on the jar's outer neck.
+# Comfortable handle.  A small overlap with the blade makes the union robust
+# without adding a lateral feature that could catch on the source container.
 HANDLE_WIDTH = 14.0
 HANDLE_LENGTH = 100.0
 HANDLE_HEIGHT = 7.0
 HANDLE_CORNER_RADIUS = 3.0
-STOP_WIDTH = 44.0
-STOP_LENGTH = 5.0
-STOP_HEIGHT = 3.2
-STOP_CORNER_RADIUS = 1.5
+HANDLE_BLADE_OVERLAP = 2.0
 
 
 def blade_planform():
@@ -70,21 +68,11 @@ def blade():
 def rounded_handle():
     handle = (
         cq.Workplane("XY")
-        .center(0, -HANDLE_LENGTH / 2.0)
+        .center(0, HANDLE_BLADE_OVERLAP - HANDLE_LENGTH / 2.0)
         .rect(HANDLE_WIDTH, HANDLE_LENGTH)
         .extrude(HANDLE_HEIGHT)
     )
     return handle.edges("|Z").fillet(HANDLE_CORNER_RADIUS)
-
-
-def rim_stop():
-    stop = (
-        cq.Workplane("XY")
-        .center(0, -STOP_LENGTH / 2.0 + 0.5)
-        .rect(STOP_WIDTH, STOP_LENGTH)
-        .extrude(STOP_HEIGHT)
-    )
-    return stop.edges("|Z").fillet(STOP_CORNER_RADIUS)
 
 
 def build():
@@ -92,7 +80,7 @@ def build():
     assert BLADE_WIDTH + 2.0 * MOUTH_SIDE_CLEARANCE <= TARGET_MOUTH_DIAMETER
     assert BLADE_LENGTH > TARGET_MOUTH_DEPTH
     assert TIP_THICKNESS > 0 and TIP_THICKNESS < BLADE_THICKNESS
-    tool = blade().union(rounded_handle()).union(rim_stop())
+    tool = blade().union(rounded_handle())
     assert len(tool.solids().vals()) == 1
     assert tool.val().isValid()
     return tool
