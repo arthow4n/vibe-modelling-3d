@@ -1,0 +1,41 @@
+{
+  "model": "/home/hevar/git/vibe-modelling-3d/model/corner_flow_test/CornerFlowTest.stl",
+  "profile": "/home/hevar/git/vibe-modelling-3d/model/corner_flow_test/notes/reference_smoke.ini",
+  "input_sha256": {
+    "model": "8e8df9ab537f24c863ff00220438cedef1b5005dda444dd66a21e17c2bde7326",
+    "profile": "e23b1878d4d6fb254925168d5cf7938d13f51c93b106a10ad7d2a6f7af1abf62"
+  },
+  "slicer_help_header": [
+    "PrusaSlicer-2.9.6+flathub.org based on Slic3r (with GUI support)",
+    "https://github.com/prusa3d/PrusaSlicer",
+    "",
+    "Usage: prusa-slicer [ INPUT ] [ OPTIONS ] [ ACTIONS ] [ TRANSFORM ] [ file.stl ... ]",
+    "",
+    "Input:",
+    " --load ABCD         Load configuration from the specified file. It can be used more than once to",
+    "                     load options from multiple files."
+  ],
+  "gcode_sha256": "2f62b5938286977145c0566aa79e229073a2bc1bd1fefc1efff2eb334a8b2cb9",
+  "safe_build_volume_mm": [
+    260.0,
+    260.0,
+    250.0
+  ],
+  "metadata": {
+    "filament used [g]": "17.10",
+    "estimated printing time (normal mode)": "1h 22m 14s"
+  },
+  "xy_bounds_including_half_width_mm": [
+    73.621,
+    88.621,
+    186.379,
+    171.379
+  ],
+  "max_layer_z_mm": 50.0,
+  "inside_safe_volume": true,
+  "support_segments": 0,
+  "log_notices": [],
+  "windows": [],
+  "review_required": false,
+  "limits": "Generic diagnostic job, not sent to a printer. Linear ASCII paths; width fallback is 0.45 mm if no WIDTH comment. Bounds exclude travel/start/end motion and flow spread. Role labels do not establish anchors or free-air spans. Profile includes are not resolved or independently hashed."
+}

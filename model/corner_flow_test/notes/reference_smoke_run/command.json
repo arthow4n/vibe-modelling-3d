@@ -1,0 +1,11 @@
+[
+  "prusa-slicer",
+  "--load",
+  "/home/hevar/git/vibe-modelling-3d/model/corner_flow_test/notes/reference_smoke.ini",
+  "--center",
+  "130,130",
+  "--export-gcode",
+  "--output",
+  "/home/hevar/git/vibe-modelling-3d/model/corner_flow_test/notes/reference_smoke_run/slice.gcode",
+  "/home/hevar/git/vibe-modelling-3d/model/corner_flow_test/CornerFlowTest.stl"
+]
