@@ -74,6 +74,16 @@ Use CadQuery MCP `evaluate_file` on the source and the relevant entry points.
 Wrappers reload the source module to avoid stale imports in the MCP process.
 Re-run the affected geometry/export/slicer checks after changing dimensions.
 
+## Physical print status
+
+Status reviewed 2026-09-12. `Unknown` means that no user print report is recorded
+for this revision; it is not a claim that the part was not printed.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | Unknown | `hinge_fit_sample.stl` | No user print report is recorded; hinge insertion, rotation, snap retention and release remain to be checked physically. |
+| Final printable object(s) | Unknown | `glove_drying_insert.stl` | No user print report is recorded; glove fit, brace/pin forces, fatigue, hanging security and drying rate remain untested. |
+
 ## Printing and assembly
 
 Use PETG and your printer's actual profile. Diagnostic starting settings were a

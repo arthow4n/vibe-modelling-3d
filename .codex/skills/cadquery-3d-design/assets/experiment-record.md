@@ -1,5 +1,12 @@
 # Physical experiment: <name>
 
+Status last updated:
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | Yes / No / Partial / N/A / Unknown | Exact exported file names |  |
+| Final printable object(s) | Yes / No / Partial / Unknown | Exact exported file names |  |
+
 Question and suspected cause:
 Effort target at user contact and analytical prediction/assumptions (if relevant):
 What CAD/slicing establishes:

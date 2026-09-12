@@ -66,6 +66,24 @@ notes when there are multiple trials or iterations; omit irrelevant fields for
 a simple one-off fit check. Link the record to artifact hashes/revisions and
 slicer reports, distinguishing predictions, observed feedback and decisions.
 
+## Standard per-object print-status record
+
+Keep the same small status block in each object's primary notes, even when no
+coupon is proposed:
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | Yes / No / Partial / N/A / Unknown | Exact exported file names | What was observed, or what remains to test |
+| Final printable object(s) | Yes / No / Partial / Unknown | Exact exported file names | What was observed, or what remains to test |
+
+Use **N/A** when the full object is intentionally the physical trial and there
+is no separate test piece. Use **Unknown** when the repository has no user print
+report; do not turn an absent note into a claim that a part was not printed.
+Keep “printed” separate from “functionally tested”: a print can exist without a
+fit, force, durability or use result. Add the report date, source revision or
+artifact hash, material, orientation and printer/profile when known; record
+unknown fields as unknown.
+
 ## Learning from trial prints
 
 Record physical feedback against the tested source revision or artifact hash, interface parameters, material, print orientation, and printer/profile where known in the object's notes. Preserve a successful baseline before changing fit; adjust clearances incrementally using the observed play or binding. A changed clearance, orientation or surrounding geometry is a new configuration: distinguish the user's successful earlier print from CAD/slicer checks of the revision. Record the user's subjective result (too light / good / too stiff) and observed failure mode separately from interpretation; mark unknown settings as unknown. Do not generalize one successful coupon's tolerances to other printers or materials, or treat it as evidence for untested latch force or full-object strength.

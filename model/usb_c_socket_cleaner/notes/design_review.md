@@ -58,6 +58,16 @@ port.
   cleaning effectiveness, or safe force limit. Physical testing remains
   outstanding.
 
+## Physical print status
+
+Status reviewed 2026-09-12. This design has no separate coupon: the complete
+pick is the physical trial.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | N/A | None; `usb_c_socket_cleaner.stl` is the trial artifact | No separate test piece is defined. |
+| Final printable object(s) | No | `usb_c_socket_cleaner.stl` | Verification records say it has not yet been printed or tested in a physical receptacle. |
+
 References:
 
 - https://www.usb.org/sites/default/files/USB%20Type-C%20Spec%20R2.0%20-%20August%202019.pdf

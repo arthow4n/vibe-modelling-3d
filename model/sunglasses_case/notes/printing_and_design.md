@@ -38,6 +38,15 @@ The full shell is stiffer and the hinge/latch distance is greater than on the
 coupon. E's physical success supports this choice but does not physically
 validate the resized full case's closure force, fatigue or backpack durability.
 
+## Physical print status
+
+Status reviewed 2026-09-12.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | Yes | `D_firm_side_printed_keeper.stl`; `E_extra_firm_side_printed_keeper.stl` | User printed D and E and found both satisfactory; E is the accepted mechanism baseline. |
+| Final printable object(s) | No | `sunglasses_case.stl` | The current reduced full case remains unprinted; its closure force, fatigue and backpack durability still need a full-case trial. |
+
 ## Printing and assembly
 
 - PETG, 0.4 mm nozzle, 260 × 260 × 250 mm safe printer volume.

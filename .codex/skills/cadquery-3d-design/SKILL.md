@@ -28,6 +28,7 @@ Reopen affected checks after changes; do not repeat unrelated checks for a small
 - [ ] Export STEP/STL from the same print-ready geometry and placement; verify artifacts.
 - [ ] Run/reuse the final reference smoke slice when available; investigate detailed paths only for unresolved slicer-sensitive questions.
 - [ ] Save useful final views, assumptions, physical evidence and print instructions.
+- [ ] Record separate print status for test piece(s) and the final printable object in the object's notes; do not infer a physical print from CAD or slicer output.
 - [ ] Review and commit/push according to AGENTS.md.
 
 Prioritize function, manufacturability, proportions and topology before cosmetic

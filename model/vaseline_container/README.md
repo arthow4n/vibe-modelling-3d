@@ -36,6 +36,15 @@ successfully as the delivered pair. The print date, material, printer and
 profile were not recorded. If a future print binds, remove stray extrusion
 first, then increase `RADIAL_CLEARANCE` by 0.1 mm and regenerate. Tighten gently.
 
+## Physical print status
+
+Status reviewed 2026-09-12.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | N/A | None; `vaseline_container.stl` is the full-pair trial | No separate thread coupon was used or needed. |
+| Final printable object(s) | Yes | `vaseline_container.stl` (base and lid) | User report recorded 2026-09-12: the full pair was printed and was good. Print date, material, printer and profile are unknown. |
+
 ## Checklist
 
 - [x] Scope, existing edits and required MCP tool checked.

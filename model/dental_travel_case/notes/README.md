@@ -24,6 +24,16 @@ it is not the primary print export. Inspection Python files are not print layout
 Print either the combined accessories plate or two individual clips and one divider,
 not both. Likewise, the combined test plate contains the individual tests.
 
+## Physical print status
+
+Status reviewed 2026-09-12. The verification record reports that this revision
+has not yet been printed.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | No | `test_pieces.stl`; `handle_test.stl`; `hinge_test.stl`; `latch_test.stl`; `handle_clip.stl` | Verification record reports no print; handle, hinge and latch checks remain pending. |
+| Final printable object(s) | No | `dental_travel_case.stl`; `accessories.stl` | Verification record reports no print; physical fit, spring force, hinge freedom and crush resistance remain pending. |
+
 ## Size and provisional fit
 
 - Main shell: **249.8 × 106.2 × 64.8 mm closed**.

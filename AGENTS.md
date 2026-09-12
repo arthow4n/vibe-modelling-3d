@@ -41,7 +41,11 @@ brims/supports when checking XY; check each oriented axis independently.
    materially improve the result. Distinguish CAD/slicer evidence from physical
    testing; document any remaining limitation.
 6. Save matching print-ready exports, useful final views and one concise record
-   of assumptions, print/use instructions and verification evidence.
+   of assumptions, print/use instructions and verification evidence. Include
+   the [standard per-object print-status block](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record)
+   for test piece(s) and the final printable object(s), even when one category
+   is not applicable. When a user reports a print, update the object block and
+   the root model-index summary together.
 7. Review, commit and push the completed work using the Git workflow below.
 
 ## Object ownership and source of truth

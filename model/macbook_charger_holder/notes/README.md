@@ -34,6 +34,15 @@ Physical result (user report recorded 2026-09-12): the full holder was printed
 successfully without the `cradle_test` piece. The print date, material, printer
 and profile were not recorded.
 
+## Physical print status
+
+Status reviewed 2026-09-12.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | No | `cradle_test.stl` | The optional connector coupon was not printed; the direct full-holder print was good. |
+| Final printable object(s) | Yes | `macbook_charger_holder.stl` | User report recorded 2026-09-12: the full-holder print was good. Print date, material, printer and profile are unknown. |
+
 ## Dimensions and adjustments
 
 Recovered from the supplied original STEP: opening 79.6 × 28 mm, corner R6,

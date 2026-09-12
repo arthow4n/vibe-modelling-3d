@@ -3,18 +3,21 @@ Experiment field for random vibe-modelled 3D objects. Mainly for 3D printing.
 
 ## Models
 
-| Object | Current use and print instructions | Model provenance |
-| --- | --- | --- |
-| Dental travel case | [Instructions](model/dental_travel_case/notes/README.md) | [Record](model/dental_travel_case/notes/provenance.md) |
-| MacBook charger holder | [Instructions](model/macbook_charger_holder/notes/README.md) | [Record](model/macbook_charger_holder/notes/provenance.md) |
-| Sunglasses case | [Accepted E production design](model/sunglasses_case/notes/printing_and_design.md) | [Record](model/sunglasses_case/notes/provenance.md) |
-| Glove drying insert | [Five-finger design](model/glove_drying_insert/README.md) | [Record](model/glove_drying_insert/README.md#attribution) |
-| USB-C socket cleaner | [Narrow pick design](model/usb_c_socket_cleaner/notes/design_review.md) | [Record](model/usb_c_socket_cleaner/ATTRIBUTION.md) |
-| Vaseline container | [Screw-top jar](model/vaseline_container/README.md) | [Record](model/vaseline_container/README.md#attribution) |
+| Object | Current use and print instructions | Model provenance | Test piece(s) printed | Final object printed |
+| --- | --- | --- | --- | --- |
+| Dental travel case | [Instructions](model/dental_travel_case/notes/README.md) | [Record](model/dental_travel_case/notes/provenance.md) | No — verification record | No — verification record |
+| MacBook charger holder | [Instructions](model/macbook_charger_holder/notes/README.md) | [Record](model/macbook_charger_holder/notes/provenance.md) | No — optional coupon not used | Yes — user reports good print |
+| Sunglasses case | [Accepted E production design](model/sunglasses_case/notes/printing_and_design.md) | [Record](model/sunglasses_case/notes/provenance.md) | Yes — D/E accepted | No — current reduced case |
+| Glove drying insert | [Five-finger design](model/glove_drying_insert/README.md) | [Record](model/glove_drying_insert/README.md#attribution) | Unknown — no user report | Unknown — no user report |
+| USB-C socket cleaner | [Narrow pick design](model/usb_c_socket_cleaner/notes/design_review.md) | [Record](model/usb_c_socket_cleaner/ATTRIBUTION.md) | N/A — full pick is the trial | No |
+| Vaseline container | [Screw-top jar](model/vaseline_container/README.md) | [Record](model/vaseline_container/README.md#attribution) | N/A — full pair is the trial | Yes — user reports good print |
 
 These links identify current instructions; retained experiments are historical
-unless the current instructions recommend them. Model-specific limitations and
-physical-test status are documented with each object.
+unless the current instructions recommend them. The two print-status columns use
+the [standard per-object status block](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record):
+**Unknown** means no user print report is recorded, while **N/A** means no
+separate test piece exists. Detailed results and remaining physical checks are
+documented with each object.
 
 ## Licensing
 
