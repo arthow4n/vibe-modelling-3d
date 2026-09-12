@@ -26,9 +26,13 @@ Unwind before sliding the MagSafe head back out; grip its housing at the scallop
 
 The cradle's rails retain the head laterally and outward. The wound cable holds
 it toward the stop; this is not a snap-lock and can slide out before winding.
-USB-C retention uses the wraps, not a precisely positioned USB-C socket. Its
-finishing position and whether the full cable tucks comfortably must be tested
-with the user's cable. No physical fit or winding test has occurred.
+USB-C retention uses the wraps, not a precisely positioned USB-C socket. The
+user has now printed the full holder directly, without printing the optional
+connector coupon, and reports that the actual print was good.
+
+Physical result (user report recorded 2026-09-12): the full holder was printed
+successfully without the `cradle_test` piece. The print date, material, printer
+and profile were not recorded.
 
 ## Dimensions and adjustments
 
@@ -59,10 +63,12 @@ successfully. The reference scallop termination is fixed: changing tooth count
 or pitch also requires updating the termination construction. Do not interpret
 those reference constants as independently supported customization options.
 
-Print the coupon in the exported orientation, using the same PETG/profile as
-the full object. It reproduces the complete cradle and local band root. Check
+The optional coupon remains available for an isolated connector check: print it
+in the exported orientation, using the same PETG/profile as the full object. It
+reproduces the complete cradle and local band root. The user did not need this
+coupon because the direct full-holder print was good. If used later, check
 insertion, housing shoulder support, cable exit, and housing removal without
-pulling on the cable. It does not test whole-band flexibility or winding.
+pulling on the cable; it does not test whole-band flexibility or winding.
 
 ## Printing and checks
 

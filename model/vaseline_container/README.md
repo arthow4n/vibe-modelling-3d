@@ -27,13 +27,20 @@ Print the base floor down and the lid outside-top down, as exported. Assumed PET
 - `notes/thread_layers.png`: inspected current/preceding paths at lid groove and base thread heights. Thread contours grow from adjoining walls; no isolated starts or unsupported cavity roof. Internal solid-fill bridges are over infill, not across the open jar.
 - A 52 × 27 mm alternate parameter configuration was checked for a valid two-solid build. Fit and print checks apply to the delivered 50 × 25 mm configuration.
 
-Physical fit, oily-hand grip, wear and resistance to loosening have not been tested. This is a screw closure without a gasket; no leak-tight seal is claimed. First print the full pair: at this size a separate thread coupon saves little while omitting the actual grip and seating behavior. If it binds, remove stray extrusion first, then increase `RADIAL_CLEARANCE` by 0.1 mm and regenerate. Tighten gently.
+This is a screw closure without a gasket; no leak-tight seal is claimed. The
+user has now printed the full pair directly, without a separate thread coupon,
+and reports that the actual print was good.
+
+Physical result (user report recorded 2026-09-12): the base and lid were printed
+successfully as the delivered pair. The print date, material, printer and
+profile were not recorded. If a future print binds, remove stray extrusion
+first, then increase `RADIAL_CLEARANCE` by 0.1 mm and regenerate. Tighten gently.
 
 ## Checklist
 
 - [x] Scope, existing edits and required MCP tool checked.
 - [x] Use, critical dimensions, material assumption and failure modes established.
-- [x] Physical uncertainty identified; full pair selected as first practical trial.
+- [x] Record the successful user print of the full pair; no separate thread coupon was used.
 - [x] Orientation, walls and support strategy chosen.
 - [x] Parametric geometry built, evaluated and rendered through CadQuery MCP.
 - [x] Screw motion, retention, release, grip and scoop access reviewed.
