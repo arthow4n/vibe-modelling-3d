@@ -9,7 +9,6 @@ Experiment field for random vibe-modelled 3D objects. Mainly for 3D printing.
 | MacBook charger holder | [Instructions](model/macbook_charger_holder/notes/README.md) | [Record](model/macbook_charger_holder/notes/provenance.md) | No — optional coupon not used | Yes — user reports good print |
 | Sunglasses case | [Accepted E production design](model/sunglasses_case/notes/printing_and_design.md) | [Record](model/sunglasses_case/notes/provenance.md) | Yes — D/E accepted | No — current reduced case |
 | Glove drying insert | [Five-finger design](model/glove_drying_insert/README.md) | [Record](model/glove_drying_insert/README.md#attribution) | Unknown — no user report | Unknown — no user report |
-| USB-C socket cleaner | [Narrow pick design](model/usb_c_socket_cleaner/notes/design_review.md) | [Record](model/usb_c_socket_cleaner/ATTRIBUTION.md) | N/A — full pick is the trial | No |
 | Vaseline container | [Screw-top jar](model/vaseline_container/README.md) | [Record](model/vaseline_container/README.md#attribution) | N/A — full pair is the trial | Yes — user reports good print |
 
 These links identify current instructions; retained experiments are historical
