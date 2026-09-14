@@ -57,4 +57,6 @@ role statistics. Generic diagnostic G-code is not a validated printer job.
 
 These checks support printing without added supports; they do not simulate sag,
 friction, flexure, creep or impact resistance. D/E were physically successful by
-user report. This smaller full-size case has not yet been physically printed.
+user report. The user subsequently printed this smaller full-size case and
+reports that it works really well; long-term fatigue and impact resistance are
+not established by that report.

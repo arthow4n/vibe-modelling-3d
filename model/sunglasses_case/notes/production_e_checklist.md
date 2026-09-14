@@ -10,4 +10,5 @@
 - [x] Update documentation/provenance. Commit/push status is in Git and handoff.
 
 No new coupon is needed: E is the accepted physical mechanism baseline.
-The reduced full case remains unprinted until the user tests this revision.
+The reduced full case was subsequently printed; the user reports that it works
+really well.

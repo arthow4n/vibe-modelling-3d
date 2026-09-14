@@ -40,12 +40,12 @@ validate the resized full case's closure force, fatigue or backpack durability.
 
 ## Physical print status
 
-Status reviewed 2026-09-12.
+Status reviewed 2026-09-14.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | Yes | `D_firm_side_printed_keeper.stl`; `E_extra_firm_side_printed_keeper.stl` | User printed D and E and found both satisfactory; E is the accepted mechanism baseline. |
-| Final printable object(s) | No | `sunglasses_case.stl` | The current reduced full case remains unprinted; its closure force, fatigue and backpack durability still need a full-case trial. |
+| Final printable object(s) | Yes | `sunglasses_case.stl` | User printed the current reduced full case and reports that it works really well. Long-term fatigue and backpack durability remain untested. |
 
 ## Printing and assembly
 
