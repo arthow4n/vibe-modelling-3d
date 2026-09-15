@@ -23,6 +23,18 @@ approach and consequential assumptions before building. Revisit clarification
 only if new evidence reveals a material conflict; a named fit parameter is not
 proof that the assumed dimension is correct.
 
+An assembled object may exceed the repository's practical printable envelope;
+do not reject the request for size alone. If it must be divided into printable
+parts, discuss and agree on the joint requirements before finalizing the split.
+Establish the loads and directions the joints must withstand, whether separation
+is acceptable, permanent versus demountable assembly, permitted fasteners or
+adhesives, assembly access, and the consequence of failure. Recommend a concrete
+joint approach with its strength, printing and assembly tradeoffs. A locating
+feature, friction fit, dovetail or simple connector is not automatically a
+structural joint. If the user explicitly delegates these decisions, choose and
+document conservative load assumptions and flag safety-critical uncertainty
+rather than treating joint strength as a routine default.
+
 ## Functional design
 
 Design functional objects around behavior and interaction, not only shape. Before creating geometry, reason about what must be held, supported, guided, blocked, connected, protected, or constrained; how an item enters or is installed; what retains it after insertion; what prevents accidental movement or release; how it is intentionally removed or adjusted; and what normal forces or disturbances it should tolerate.

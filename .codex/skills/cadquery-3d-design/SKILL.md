@@ -18,6 +18,7 @@ Reopen affected checks after changes; do not repeat unrelated checks for a small
 
 - [ ] Confirm scope, references, user edits and required CAD tool availability.
 - [ ] Establish use, critical dimensions, assembly/material preferences, mechanism effort and failure modes.
+- [ ] Check the full print layout against the practical printer envelope; for an oversized assembly, resolve segmentation and joint/load requirements with the user before finalizing it.
 - [ ] Identify physical uncertainties early; plan worthwhile small experiments.
 - [ ] Choose orientation, wall sizes, layer direction and support strategy.
 - [ ] Build understandable parametric geometry; preserve critical interfaces.
@@ -88,6 +89,12 @@ Use preferences already supplied. Ask targeted questions when missing informatio
 changes fit, function or manufacturing; choose routine details autonomously.
 Explain physical choices in plain language; use the design-decisions reference
 to distinguish mechanism requirements and translate qualitative effort.
+
+Treat AGENTS.md's practical printer envelope as the default per-part limit, not
+as a maximum allowed assembled-object size. An oversized request is a prompt to
+design and validate a segmented assembly. Joint strength and assembly method are
+functional requirements, not routine implementation details to guess silently;
+use the design-decisions reference to resolve them.
 
 Continue the authorized full design; offer a first-print sample when it saves
 meaningful material or time without losing the behavior under test.

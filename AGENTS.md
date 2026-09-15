@@ -13,16 +13,30 @@ The skill owns functional design, ergonomics, critical dimensions, mechanisms,
 edge treatment, print planning and physical experiments. This file owns
 repository workflow, tools, ownership, attribution and delivery.
 
-Confirmed usable printer limits are **260 × 260 × 250 mm (X × Y × Z)** and a
-**0.4 mm nozzle**, unless the user specifies another setup. Include generated
-brims/supports when checking XY; check each oriented axis independently.
+Use **250 × 250 × 250 mm (X × Y × Z)** as the default practical printable
+envelope and a **0.4 mm nozzle**, unless the user specifies another setup. This
+is the usable design limit, not the printer's physical plate dimensions. Include
+generated brims/supports when checking XY, and check each oriented axis
+independently.
+
+Do not reject an object merely because its assembled size exceeds that envelope.
+Plan it as multiple printable parts when no acceptable orientation fits. Before
+committing to the split and joint geometry, establish with the user the required
+joint strength, relevant loads and directions, acceptable hardware/adhesive,
+permanent versus demountable assembly, and any safety consequences. Recommend a
+feasible joint strategy and explain its tradeoffs; do not silently assume that a
+simple alignment or friction joint is structurally adequate. Check every part,
+including its print aids, against the practical envelope and verify the assembled
+interfaces and load path.
 
 ## Core workflow
 
 1. Inspect the request, references, existing files and user changes. Reuse known
    preferences. Honor requests to choose reasonable defaults autonomously;
    otherwise ask focused questions only for unresolved requirements that
-   materially affect fit, function or manufacturing. Document important assumptions.
+   materially affect fit, function or manufacturing. Oversized objects still
+   require the joint/load agreement described above unless the user already
+   supplied it. Document important assumptions.
 2. Confirm the required CadQuery MCP `evaluate_file` tool is available. If absent,
    stop modelling and ask the user to install the customized
    [cadquery-contrib server](https://github.com/arthow4n/cadquery-contrib/tree/feature/loop-customisations).
