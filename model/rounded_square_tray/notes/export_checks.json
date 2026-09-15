@@ -1,0 +1,43 @@
+{
+  "checks_passed": true,
+  "expected_solids": 1,
+  "bounds_tolerance_mm": 0.035,
+  "volume_relative_tolerance": 0.01,
+  "bed_contact_required": true,
+  "step_components": [
+    {
+      "bounds_mm": [
+        -118.4826796778,
+        -118.4826796778,
+        0.0,
+        118.48267967787,
+        118.48267967787,
+        37.0
+      ],
+      "volume_mm3": 465622.3401385151
+    }
+  ],
+  "stl_components": [
+    {
+      "bounds_mm": [
+        -118.48258972167969,
+        -118.48258972167969,
+        0.0,
+        118.48258972167969,
+        118.48258972167969,
+        37.0
+      ],
+      "volume_mm3": 465512.8782097552,
+      "triangles": 35204
+    }
+  ],
+  "component_assignment": [
+    [
+      0,
+      0
+    ]
+  ],
+  "STEP_sha256": "196d3e076b71323936668d204c1cfdda183dc4ab02b7eeda14fe09de9b09e8d2",
+  "STL_sha256": "f81bad91460fddf1818dd6f21e03ae3d43462d9dae93388cf4f3c2b2f08cd450",
+  "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation."
+}
