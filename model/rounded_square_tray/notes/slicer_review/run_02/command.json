@@ -1,0 +1,11 @@
+[
+  "prusa-slicer",
+  "--load",
+  "/home/hevar/git/vibe-modelling-3d/model/rounded_square_tray/notes/slicer_review/review.ini",
+  "--center",
+  "125,125",
+  "--export-gcode",
+  "--output",
+  "/home/hevar/git/vibe-modelling-3d/model/rounded_square_tray/notes/slicer_review/run_02/slice.gcode",
+  "/home/hevar/git/vibe-modelling-3d/model/rounded_square_tray/rounded_square_tray.stl"
+]
