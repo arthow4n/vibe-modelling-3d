@@ -1,0 +1,1816 @@
+{
+  "metadata": {
+    "filament used [g]": "317.25",
+    "estimated printing time (normal mode)": "1d 1h 55m 47s"
+  },
+  "layer_count": 190,
+  "roles": {
+    "Perimeter": {
+      "segments": 158992,
+      "length_mm": 924380.3790254057,
+      "max_segment_mm": 164.23400007611093
+    },
+    "External perimeter": {
+      "segments": 46757,
+      "length_mm": 308508.65676217235,
+      "max_segment_mm": 164.2040000761248
+    },
+    "Solid infill": {
+      "segments": 19844,
+      "length_mm": 1042963.9747562725,
+      "max_segment_mm": 292.23309052877636
+    },
+    "Internal infill": {
+      "segments": 730160,
+      "length_mm": 602356.9457032584,
+      "max_segment_mm": 14.568000034321813
+    },
+    "Bridge infill": {
+      "segments": 3090,
+      "length_mm": 106261.7900164046,
+      "max_segment_mm": 289.6400798957216
+    },
+    "Top solid infill": {
+      "segments": 1616,
+      "length_mm": 132412.5483203636,
+      "max_segment_mm": 286.58189313353347
+    }
+  },
+  "longest_bridge_segments": [
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        233.112,
+        221.046
+      ],
+      "b": [
+        21.961,
+        22.787
+      ],
+      "length_mm": 289.6400798957216,
+      "filament_mm": 15.15931,
+      "width_mm": 0.400358,
+      "line": 325310
+    },
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        19.561,
+        23.622
+      ],
+      "b": [
+        230.6,
+        221.777
+      ],
+      "length_mm": 289.487242458109,
+      "filament_mm": 15.15131,
+      "width_mm": 0.400358,
+      "line": 325297
+    },
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        230.318,
+        222.13
+      ],
+      "b": [
+        19.39,
+        24.08
+      ],
+      "length_mm": 289.33444952856894,
+      "filament_mm": 15.14332,
+      "width_mm": 0.400358,
+      "line": 325294
+    },
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        21.997,
+        23.439
+      ],
+      "b": [
+        232.865,
+        221.432
+      ],
+      "length_mm": 289.2516922560696,
+      "filament_mm": 15.13899,
+      "width_mm": 0.400358,
+      "line": 325307
+    },
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        16.981,
+        28.613
+      ],
+      "b": [
+        227.738,
+        226.503
+      ],
+      "length_mm": 289.1002683309028,
+      "filament_mm": 15.13106,
+      "width_mm": 0.400358,
+      "line": 325268
+    },
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        227.451,
+        226.851
+      ],
+      "b": [
+        16.948,
+        29.2
+      ],
+      "length_mm": 288.75150356318494,
+      "filament_mm": 15.11281,
+      "width_mm": 0.400358,
+      "line": 325265
+    },
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        229.977,
+        225.516
+      ],
+      "b": [
+        19.984,
+        28.343
+      ],
+      "length_mm": 288.05251600706424,
+      "filament_mm": 15.07622,
+      "width_mm": 0.400358,
+      "line": 325281
+    },
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        232.538,
+        221.743
+      ],
+      "b": [
+        23.057,
+        25.051
+      ],
+      "length_mm": 287.3500169218718,
+      "filament_mm": 15.03946,
+      "width_mm": 0.400358,
+      "line": 325304
+    },
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        227.971,
+        226.104
+      ],
+      "b": [
+        19.115,
+        29.999
+      ],
+      "length_mm": 286.49258238390746,
+      "filament_mm": 14.99458,
+      "width_mm": 0.400358,
+      "line": 325270
+    },
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        20.325,
+        28.046
+      ],
+      "b": [
+        229.12,
+        224.093
+      ],
+      "length_mm": 286.40841159784395,
+      "filament_mm": 14.99017,
+      "width_mm": 0.400358,
+      "line": 325283
+    },
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        19.29,
+        29.545
+      ],
+      "b": [
+        228.05,
+        225.56
+      ],
+      "length_mm": 286.3609921497689,
+      "filament_mm": 14.98769,
+      "width_mm": 0.400358,
+      "line": 325272
+    },
+    {
+      "z": 3.2,
+      "role": "Bridge infill",
+      "a": [
+        24.534,
+        24.585
+      ],
+      "b": [
+        233.249,
+        220.557
+      ],
+      "length_mm": 286.2987530692371,
+      "filament_mm": 14.98443,
+      "width_mm": 0.400358,
+      "line": 325314
+    }
+  ],
+  "layers": [
+    {
+      "z": 0.2,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Solid infill": 1635
+      }
+    },
+    {
+      "z": 0.4,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Solid infill": 1437
+      }
+    },
+    {
+      "z": 0.6,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Solid infill": 1437
+      }
+    },
+    {
+      "z": 0.8,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Solid infill": 1451
+      }
+    },
+    {
+      "z": 1.0,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Solid infill": 1439
+      }
+    },
+    {
+      "z": 1.2,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 22783,
+        "Solid infill": 24
+      }
+    },
+    {
+      "z": 1.4,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 22957
+      }
+    },
+    {
+      "z": 1.6,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 30522
+      }
+    },
+    {
+      "z": 1.8,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 38115
+      }
+    },
+    {
+      "z": 2.0,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 38314
+      }
+    },
+    {
+      "z": 2.2,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 38298
+      }
+    },
+    {
+      "z": 2.4,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 30738
+      }
+    },
+    {
+      "z": 2.6,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 23051
+      }
+    },
+    {
+      "z": 2.8,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 30811
+      }
+    },
+    {
+      "z": 3.0,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 38373
+      }
+    },
+    {
+      "z": 3.2,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 4682,
+        "Bridge infill": 1724
+      }
+    },
+    {
+      "z": 3.4,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 4303,
+        "Bridge infill": 1366,
+        "Solid infill": 2431
+      }
+    },
+    {
+      "z": 3.6,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 4186,
+        "Solid infill": 1518
+      }
+    },
+    {
+      "z": 3.8,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 3328,
+        "Solid infill": 1529
+      }
+    },
+    {
+      "z": 4.0,
+      "roles": {
+        "Perimeter": 48,
+        "External perimeter": 16,
+        "Internal infill": 2561,
+        "Solid infill": 133,
+        "Top solid infill": 1616
+      }
+    },
+    {
+      "z": 4.2,
+      "roles": {
+        "Perimeter": 444,
+        "External perimeter": 148,
+        "Internal infill": 3235,
+        "Solid infill": 588
+      }
+    },
+    {
+      "z": 4.4,
+      "roles": {
+        "Perimeter": 447,
+        "External perimeter": 149,
+        "Internal infill": 3875,
+        "Solid infill": 398
+      }
+    },
+    {
+      "z": 4.6,
+      "roles": {
+        "Perimeter": 447,
+        "External perimeter": 149,
+        "Internal infill": 3759,
+        "Solid infill": 265
+      }
+    },
+    {
+      "z": 4.8,
+      "roles": {
+        "Perimeter": 447,
+        "External perimeter": 149,
+        "Internal infill": 3427,
+        "Solid infill": 265
+      }
+    },
+    {
+      "z": 5.0,
+      "roles": {
+        "Perimeter": 447,
+        "External perimeter": 149,
+        "Internal infill": 2797,
+        "Solid infill": 265
+      }
+    },
+    {
+      "z": 5.2,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 2195,
+        "Solid infill": 265
+      }
+    },
+    {
+      "z": 5.4,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 2662,
+        "Solid infill": 265
+      }
+    },
+    {
+      "z": 5.6,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3244,
+        "Solid infill": 132
+      }
+    },
+    {
+      "z": 5.8,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3252,
+        "Solid infill": 132
+      }
+    },
+    {
+      "z": 6.0,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3437,
+        "Solid infill": 132
+      }
+    },
+    {
+      "z": 6.2,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3234,
+        "Solid infill": 132
+      }
+    },
+    {
+      "z": 6.4,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 2789
+      }
+    },
+    {
+      "z": 6.6,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 2436
+      }
+    },
+    {
+      "z": 6.8,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3051
+      }
+    },
+    {
+      "z": 7.0,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3594
+      }
+    },
+    {
+      "z": 7.2,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 4169
+      }
+    },
+    {
+      "z": 7.4,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3404
+      }
+    },
+    {
+      "z": 7.6,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 2807
+      }
+    },
+    {
+      "z": 7.8,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 2198
+      }
+    },
+    {
+      "z": 8.0,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 2798
+      }
+    },
+    {
+      "z": 8.2,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3400
+      }
+    },
+    {
+      "z": 8.4,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3670
+      }
+    },
+    {
+      "z": 8.6,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3682
+      }
+    },
+    {
+      "z": 8.8,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3650
+      }
+    },
+    {
+      "z": 9.0,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 3081
+      }
+    },
+    {
+      "z": 9.2,
+      "roles": {
+        "Perimeter": 448,
+        "External perimeter": 149,
+        "Internal infill": 2603
+      }
+    },
+    {
+      "z": 9.4,
+      "roles": {
+        "Perimeter": 783,
+        "External perimeter": 262,
+        "Internal infill": 3165
+      }
+    },
+    {
+      "z": 9.6,
+      "roles": {
+        "Perimeter": 787,
+        "External perimeter": 269,
+        "Internal infill": 3657
+      }
+    },
+    {
+      "z": 9.8,
+      "roles": {
+        "Perimeter": 875,
+        "External perimeter": 273,
+        "Internal infill": 3716
+      }
+    },
+    {
+      "z": 10.0,
+      "roles": {
+        "Perimeter": 924,
+        "External perimeter": 309,
+        "Internal infill": 3727
+      }
+    },
+    {
+      "z": 10.2,
+      "roles": {
+        "Perimeter": 927,
+        "External perimeter": 309,
+        "Internal infill": 2895
+      }
+    },
+    {
+      "z": 10.4,
+      "roles": {
+        "Perimeter": 967,
+        "External perimeter": 309,
+        "Internal infill": 2248
+      }
+    },
+    {
+      "z": 10.6,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2837
+      }
+    },
+    {
+      "z": 10.8,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3001
+      }
+    },
+    {
+      "z": 11.0,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3748
+      }
+    },
+    {
+      "z": 11.2,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3740
+      }
+    },
+    {
+      "z": 11.4,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3697
+      }
+    },
+    {
+      "z": 11.6,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3102
+      }
+    },
+    {
+      "z": 11.8,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2618
+      }
+    },
+    {
+      "z": 12.0,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3087
+      }
+    },
+    {
+      "z": 12.2,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3614
+      }
+    },
+    {
+      "z": 12.4,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3708
+      }
+    },
+    {
+      "z": 12.6,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3711
+      }
+    },
+    {
+      "z": 12.8,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2835
+      }
+    },
+    {
+      "z": 13.0,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2255
+      }
+    },
+    {
+      "z": 13.2,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2254
+      }
+    },
+    {
+      "z": 13.4,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2834
+      }
+    },
+    {
+      "z": 13.6,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3671
+      }
+    },
+    {
+      "z": 13.8,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3652
+      }
+    },
+    {
+      "z": 14.0,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3558
+      }
+    },
+    {
+      "z": 14.2,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3033
+      }
+    },
+    {
+      "z": 14.4,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2548
+      }
+    },
+    {
+      "z": 14.6,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3020
+      }
+    },
+    {
+      "z": 14.8,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3504
+      }
+    },
+    {
+      "z": 15.0,
+      "roles": {
+        "Perimeter": 966,
+        "External perimeter": 310,
+        "Internal infill": 3593
+      }
+    },
+    {
+      "z": 15.2,
+      "roles": {
+        "Perimeter": 966,
+        "External perimeter": 310,
+        "Internal infill": 3577
+      }
+    },
+    {
+      "z": 15.4,
+      "roles": {
+        "Perimeter": 966,
+        "External perimeter": 310,
+        "Internal infill": 2803
+      }
+    },
+    {
+      "z": 15.6,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2744
+      }
+    },
+    {
+      "z": 15.8,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2173
+      }
+    },
+    {
+      "z": 16.0,
+      "roles": {
+        "Perimeter": 966,
+        "External perimeter": 310,
+        "Internal infill": 2756
+      }
+    },
+    {
+      "z": 16.2,
+      "roles": {
+        "Perimeter": 966,
+        "External perimeter": 310,
+        "Internal infill": 3490
+      }
+    },
+    {
+      "z": 16.4,
+      "roles": {
+        "Perimeter": 966,
+        "External perimeter": 310,
+        "Internal infill": 3027
+      }
+    },
+    {
+      "z": 16.6,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3414
+      }
+    },
+    {
+      "z": 16.8,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2964
+      }
+    },
+    {
+      "z": 17.0,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2464
+      }
+    },
+    {
+      "z": 17.2,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2871
+      }
+    },
+    {
+      "z": 17.4,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3349
+      }
+    },
+    {
+      "z": 17.6,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3443
+      }
+    },
+    {
+      "z": 17.8,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3361
+      }
+    },
+    {
+      "z": 18.0,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3209
+      }
+    },
+    {
+      "z": 18.2,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2623
+      }
+    },
+    {
+      "z": 18.4,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2083
+      }
+    },
+    {
+      "z": 18.6,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2618
+      }
+    },
+    {
+      "z": 18.8,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3247
+      }
+    },
+    {
+      "z": 19.0,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3622
+      }
+    },
+    {
+      "z": 19.2,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 3220
+      }
+    },
+    {
+      "z": 19.4,
+      "roles": {
+        "Perimeter": 963,
+        "External perimeter": 309,
+        "Internal infill": 2784
+      }
+    },
+    {
+      "z": 19.6,
+      "roles": {
+        "Perimeter": 969,
+        "External perimeter": 311,
+        "Internal infill": 2355
+      }
+    },
+    {
+      "z": 19.8,
+      "roles": {
+        "Perimeter": 1004,
+        "External perimeter": 311,
+        "Internal infill": 2640
+      }
+    },
+    {
+      "z": 20.0,
+      "roles": {
+        "Perimeter": 1004,
+        "External perimeter": 311,
+        "Internal infill": 3089
+      }
+    },
+    {
+      "z": 20.2,
+      "roles": {
+        "Perimeter": 1004,
+        "External perimeter": 311,
+        "Internal infill": 3165
+      }
+    },
+    {
+      "z": 20.4,
+      "roles": {
+        "Perimeter": 1004,
+        "External perimeter": 311,
+        "Internal infill": 3112
+      }
+    },
+    {
+      "z": 20.6,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 3004
+      }
+    },
+    {
+      "z": 20.8,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2501
+      }
+    },
+    {
+      "z": 21.0,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 1979
+      }
+    },
+    {
+      "z": 21.2,
+      "roles": {
+        "Perimeter": 1007,
+        "External perimeter": 309,
+        "Internal infill": 2468
+      }
+    },
+    {
+      "z": 21.4,
+      "roles": {
+        "Perimeter": 1004,
+        "External perimeter": 311,
+        "Internal infill": 2956
+      }
+    },
+    {
+      "z": 21.6,
+      "roles": {
+        "Perimeter": 1005,
+        "External perimeter": 311,
+        "Internal infill": 2577
+      }
+    },
+    {
+      "z": 21.8,
+      "roles": {
+        "Perimeter": 1005,
+        "External perimeter": 311,
+        "Internal infill": 2981
+      }
+    },
+    {
+      "z": 22.0,
+      "roles": {
+        "Perimeter": 1005,
+        "External perimeter": 311,
+        "Internal infill": 2537
+      }
+    },
+    {
+      "z": 22.2,
+      "roles": {
+        "Perimeter": 1005,
+        "External perimeter": 311,
+        "Internal infill": 2152
+      }
+    },
+    {
+      "z": 22.4,
+      "roles": {
+        "Perimeter": 885,
+        "External perimeter": 311,
+        "Internal infill": 2373
+      }
+    },
+    {
+      "z": 22.6,
+      "roles": {
+        "Perimeter": 887,
+        "External perimeter": 272,
+        "Internal infill": 2494
+      }
+    },
+    {
+      "z": 22.8,
+      "roles": {
+        "Perimeter": 885,
+        "External perimeter": 311,
+        "Internal infill": 2872
+      }
+    },
+    {
+      "z": 23.0,
+      "roles": {
+        "Perimeter": 1005,
+        "External perimeter": 311,
+        "Internal infill": 2819
+      }
+    },
+    {
+      "z": 23.2,
+      "roles": {
+        "Perimeter": 1003,
+        "External perimeter": 309,
+        "Internal infill": 2759
+      }
+    },
+    {
+      "z": 23.4,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2291
+      }
+    },
+    {
+      "z": 23.6,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 1840
+      }
+    },
+    {
+      "z": 23.8,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2267
+      }
+    },
+    {
+      "z": 24.0,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2685
+      }
+    },
+    {
+      "z": 24.2,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2571
+      }
+    },
+    {
+      "z": 24.4,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2691
+      }
+    },
+    {
+      "z": 24.6,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2308
+      }
+    },
+    {
+      "z": 24.8,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 1973
+      }
+    },
+    {
+      "z": 25.0,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 1957
+      }
+    },
+    {
+      "z": 25.2,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2215
+      }
+    },
+    {
+      "z": 25.4,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2564
+      }
+    },
+    {
+      "z": 25.6,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2431
+      }
+    },
+    {
+      "z": 25.8,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2485
+      }
+    },
+    {
+      "z": 26.0,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 2060
+      }
+    },
+    {
+      "z": 26.2,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 1673
+      }
+    },
+    {
+      "z": 26.4,
+      "roles": {
+        "Perimeter": 1007,
+        "External perimeter": 309,
+        "Internal infill": 2025
+      }
+    },
+    {
+      "z": 26.6,
+      "roles": {
+        "Perimeter": 1014,
+        "External perimeter": 314,
+        "Internal infill": 2358
+      }
+    },
+    {
+      "z": 26.8,
+      "roles": {
+        "Perimeter": 1014,
+        "External perimeter": 314,
+        "Internal infill": 2354
+      }
+    },
+    {
+      "z": 27.0,
+      "roles": {
+        "Perimeter": 1012,
+        "External perimeter": 314,
+        "Internal infill": 2265
+      }
+    },
+    {
+      "z": 27.2,
+      "roles": {
+        "Perimeter": 1012,
+        "External perimeter": 314,
+        "Internal infill": 1953
+      }
+    },
+    {
+      "z": 27.4,
+      "roles": {
+        "Perimeter": 1009,
+        "External perimeter": 309,
+        "Internal infill": 1848
+      }
+    },
+    {
+      "z": 27.6,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 1663
+      }
+    },
+    {
+      "z": 27.8,
+      "roles": {
+        "Perimeter": 1000,
+        "External perimeter": 309,
+        "Internal infill": 1884
+      }
+    },
+    {
+      "z": 28.0,
+      "roles": {
+        "Perimeter": 1000,
+        "External perimeter": 309,
+        "Internal infill": 2154
+      }
+    },
+    {
+      "z": 28.2,
+      "roles": {
+        "Perimeter": 1000,
+        "External perimeter": 310,
+        "Internal infill": 2065
+      }
+    },
+    {
+      "z": 28.4,
+      "roles": {
+        "Perimeter": 1000,
+        "External perimeter": 309,
+        "Internal infill": 2090,
+        "Solid infill": 41
+      }
+    },
+    {
+      "z": 28.6,
+      "roles": {
+        "Perimeter": 999,
+        "External perimeter": 309,
+        "Internal infill": 1778,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 28.8,
+      "roles": {
+        "Perimeter": 1000,
+        "External perimeter": 310,
+        "Internal infill": 1242,
+        "Solid infill": 82
+      }
+    },
+    {
+      "z": 29.0,
+      "roles": {
+        "Perimeter": 1002,
+        "External perimeter": 310,
+        "Internal infill": 1490,
+        "Solid infill": 93
+      }
+    },
+    {
+      "z": 29.2,
+      "roles": {
+        "Perimeter": 1081,
+        "External perimeter": 310,
+        "Internal infill": 1742,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 29.4,
+      "roles": {
+        "Perimeter": 1085,
+        "External perimeter": 310,
+        "Internal infill": 1782,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 29.6,
+      "roles": {
+        "Perimeter": 1102,
+        "External perimeter": 310,
+        "Internal infill": 1891,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 29.8,
+      "roles": {
+        "Perimeter": 1109,
+        "External perimeter": 310,
+        "Internal infill": 1654,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 30.0,
+      "roles": {
+        "Perimeter": 1109,
+        "External perimeter": 310,
+        "Internal infill": 1470,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 30.2,
+      "roles": {
+        "Perimeter": 1117,
+        "External perimeter": 310,
+        "Internal infill": 1534,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 30.4,
+      "roles": {
+        "Perimeter": 1117,
+        "External perimeter": 310,
+        "Internal infill": 1629,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 30.6,
+      "roles": {
+        "Perimeter": 1125,
+        "External perimeter": 310,
+        "Internal infill": 1739,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 30.8,
+      "roles": {
+        "Perimeter": 1124,
+        "External perimeter": 309,
+        "Internal infill": 1714,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 31.0,
+      "roles": {
+        "Perimeter": 1123,
+        "External perimeter": 309,
+        "Internal infill": 1604,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 31.2,
+      "roles": {
+        "Perimeter": 1123,
+        "External perimeter": 309,
+        "Internal infill": 1350,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 31.4,
+      "roles": {
+        "Perimeter": 1123,
+        "External perimeter": 309,
+        "Internal infill": 1106,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 31.6,
+      "roles": {
+        "Perimeter": 1123,
+        "External perimeter": 309,
+        "Internal infill": 1333,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 31.8,
+      "roles": {
+        "Perimeter": 1131,
+        "External perimeter": 309,
+        "Internal infill": 1423,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 32.0,
+      "roles": {
+        "Perimeter": 1131,
+        "External perimeter": 309,
+        "Internal infill": 1390,
+        "Solid infill": 40
+      }
+    },
+    {
+      "z": 32.2,
+      "roles": {
+        "Perimeter": 1131,
+        "External perimeter": 309,
+        "Internal infill": 1408,
+        "Solid infill": 131
+      }
+    },
+    {
+      "z": 32.4,
+      "roles": {
+        "Perimeter": 1146,
+        "External perimeter": 309,
+        "Internal infill": 1086,
+        "Solid infill": 156
+      }
+    },
+    {
+      "z": 32.6,
+      "roles": {
+        "Perimeter": 1162,
+        "External perimeter": 314,
+        "Internal infill": 929,
+        "Solid infill": 160
+      }
+    },
+    {
+      "z": 32.8,
+      "roles": {
+        "Perimeter": 1154,
+        "External perimeter": 314,
+        "Internal infill": 978,
+        "Solid infill": 178
+      }
+    },
+    {
+      "z": 33.0,
+      "roles": {
+        "Perimeter": 1321,
+        "External perimeter": 313,
+        "Solid infill": 252,
+        "Internal infill": 929
+      }
+    },
+    {
+      "z": 33.2,
+      "roles": {
+        "Perimeter": 1329,
+        "External perimeter": 313,
+        "Solid infill": 237,
+        "Internal infill": 917
+      }
+    },
+    {
+      "z": 33.4,
+      "roles": {
+        "Perimeter": 1347,
+        "External perimeter": 314,
+        "Solid infill": 208,
+        "Internal infill": 889
+      }
+    },
+    {
+      "z": 33.6,
+      "roles": {
+        "Perimeter": 1388,
+        "External perimeter": 319,
+        "Solid infill": 198,
+        "Internal infill": 1019
+      }
+    },
+    {
+      "z": 33.8,
+      "roles": {
+        "Perimeter": 1401,
+        "External perimeter": 317,
+        "Solid infill": 169,
+        "Internal infill": 946
+      }
+    },
+    {
+      "z": 34.0,
+      "roles": {
+        "Perimeter": 1410,
+        "External perimeter": 318,
+        "Solid infill": 141,
+        "Internal infill": 875
+      }
+    },
+    {
+      "z": 34.2,
+      "roles": {
+        "Perimeter": 1428,
+        "External perimeter": 314,
+        "Solid infill": 122,
+        "Internal infill": 849
+      }
+    },
+    {
+      "z": 34.4,
+      "roles": {
+        "Perimeter": 1424,
+        "External perimeter": 311,
+        "Solid infill": 112,
+        "Internal infill": 920
+      }
+    },
+    {
+      "z": 34.6,
+      "roles": {
+        "Perimeter": 1419,
+        "External perimeter": 309,
+        "Solid infill": 102,
+        "Internal infill": 864
+      }
+    },
+    {
+      "z": 34.8,
+      "roles": {
+        "Perimeter": 1411,
+        "External perimeter": 310,
+        "Solid infill": 97,
+        "Internal infill": 836
+      }
+    },
+    {
+      "z": 35.0,
+      "roles": {
+        "Perimeter": 1391,
+        "External perimeter": 310,
+        "Solid infill": 96,
+        "Internal infill": 764
+      }
+    },
+    {
+      "z": 35.2,
+      "roles": {
+        "Perimeter": 1315,
+        "External perimeter": 311,
+        "Solid infill": 93,
+        "Internal infill": 699
+      }
+    },
+    {
+      "z": 35.4,
+      "roles": {
+        "Perimeter": 1177,
+        "External perimeter": 267,
+        "Solid infill": 49,
+        "Internal infill": 740
+      }
+    },
+    {
+      "z": 35.6,
+      "roles": {
+        "Perimeter": 1103,
+        "External perimeter": 259,
+        "Solid infill": 43,
+        "Internal infill": 733
+      }
+    },
+    {
+      "z": 35.8,
+      "roles": {
+        "Perimeter": 1069,
+        "External perimeter": 257,
+        "Solid infill": 41,
+        "Internal infill": 727
+      }
+    },
+    {
+      "z": 36.0,
+      "roles": {
+        "Perimeter": 743,
+        "External perimeter": 149,
+        "Solid infill": 48,
+        "Internal infill": 645
+      }
+    },
+    {
+      "z": 36.2,
+      "roles": {
+        "Perimeter": 738,
+        "External perimeter": 149,
+        "Solid infill": 47,
+        "Internal infill": 708
+      }
+    },
+    {
+      "z": 36.4,
+      "roles": {
+        "Perimeter": 737,
+        "External perimeter": 149,
+        "Solid infill": 47,
+        "Internal infill": 702
+      }
+    },
+    {
+      "z": 36.6,
+      "roles": {
+        "Perimeter": 737,
+        "External perimeter": 149,
+        "Solid infill": 47,
+        "Internal infill": 642
+      }
+    },
+    {
+      "z": 36.8,
+      "roles": {
+        "Perimeter": 737,
+        "External perimeter": 149,
+        "Solid infill": 46,
+        "Internal infill": 640
+      }
+    },
+    {
+      "z": 37.0,
+      "roles": {
+        "Perimeter": 737,
+        "External perimeter": 149,
+        "Solid infill": 72
+      }
+    },
+    {
+      "z": 37.2,
+      "roles": {
+        "Perimeter": 737,
+        "External perimeter": 149,
+        "Solid infill": 72
+      }
+    },
+    {
+      "z": 37.4,
+      "roles": {
+        "Perimeter": 965,
+        "External perimeter": 151,
+        "Solid infill": 73
+      }
+    },
+    {
+      "z": 37.6,
+      "roles": {
+        "Perimeter": 955,
+        "External perimeter": 153,
+        "Solid infill": 78
+      }
+    },
+    {
+      "z": 37.8,
+      "roles": {
+        "Perimeter": 986,
+        "External perimeter": 150
+      }
+    },
+    {
+      "z": 38.0,
+      "roles": {
+        "Perimeter": 724,
+        "External perimeter": 150
+      }
+    }
+  ],
+  "limits": "Centerline lengths include anchors; no free-air span or physical simulation."
+}

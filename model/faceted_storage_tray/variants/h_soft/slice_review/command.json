@@ -1,0 +1,11 @@
+[
+  "prusa-slicer",
+  "--load",
+  "/home/hevar/git/vibe-modelling-3d/model/faceted_storage_tray/notes/review.ini",
+  "--center",
+  "125,125",
+  "--export-gcode",
+  "--output",
+  "/home/hevar/git/vibe-modelling-3d/model/faceted_storage_tray/variants/h_soft/slice_review/slice.gcode",
+  "/home/hevar/git/vibe-modelling-3d/model/faceted_storage_tray/variants/h_soft/h_soft.stl"
+]

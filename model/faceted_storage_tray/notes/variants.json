@@ -1,0 +1,50 @@
+[
+  {
+    "name": "a_airy",
+    "panels": 8,
+    "relief": 2.4,
+    "ridge": 0
+  },
+  {
+    "name": "b_narrow",
+    "panels": 10,
+    "relief": 2.4,
+    "ridge": 0
+  },
+  {
+    "name": "c_slender",
+    "panels": 12,
+    "relief": 2.4,
+    "ridge": 0
+  },
+  {
+    "name": "d_fine",
+    "panels": 16,
+    "relief": 2.4,
+    "ridge": 0
+  },
+  {
+    "name": "e_dense",
+    "panels": 20,
+    "relief": 2.4,
+    "ridge": 0
+  },
+  {
+    "name": "f_long_ridge",
+    "panels": 12,
+    "relief": 2.4,
+    "ridge": 0.45
+  },
+  {
+    "name": "g_fine_ridge",
+    "panels": 16,
+    "relief": 2.4,
+    "ridge": 0.45
+  },
+  {
+    "name": "h_soft",
+    "panels": 12,
+    "relief": 1.2,
+    "ridge": 0
+  }
+]

@@ -1,8 +1,8 @@
 {
-  "model": "/home/hevar/git/vibe-modelling-3d/model/faceted_storage_tray/faceted_storage_tray.stl",
+  "model": "/home/hevar/git/vibe-modelling-3d/model/faceted_storage_tray/variants/c_slender/c_slender.stl",
   "profile": "/home/hevar/git/vibe-modelling-3d/model/faceted_storage_tray/notes/review.ini",
   "input_sha256": {
-    "model": "dcad3c8bf82f04f2c777b5d43d7243b13c3a4eddef3aebb4e9e9a106c3130db8",
+    "model": "3bfdc0c189f6e53bd783ff943e79ecfc08fcd7fe63144ef7e35561cc9ffec756",
     "profile": "5bd554da54eef675d7b955fba660970cae8d33c231e10eb2b5b2867198100c0e"
   },
   "slicer_help_header": [
@@ -15,15 +15,15 @@
     " --load ABCD         Load configuration from the specified file. It can be used more than once to",
     "                     load options from multiple files."
   ],
-  "gcode_sha256": "36a027a4648b369bcb80edbf7b860fb686c57081d93eaa092e64995b660f975f",
+  "gcode_sha256": "710491d72677891cd3a3544fbdd0fe5d6c80951bab45e0019f03651907f049b7",
   "safe_build_volume_mm": [
     250.0,
     250.0,
     250.0
   ],
   "metadata": {
-    "filament used [g]": "316.95",
-    "estimated printing time (normal mode)": "1d 1h 55m 29s"
+    "filament used [g]": "317.47",
+    "estimated printing time (normal mode)": "1d 2h 2m 22s"
   },
   "xy_bounds_including_half_width_mm": [
     6.0010005,

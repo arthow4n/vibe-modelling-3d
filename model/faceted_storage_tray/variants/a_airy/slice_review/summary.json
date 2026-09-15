@@ -1,0 +1,41 @@
+{
+  "model": "/home/hevar/git/vibe-modelling-3d/model/faceted_storage_tray/variants/a_airy/a_airy.stl",
+  "profile": "/home/hevar/git/vibe-modelling-3d/model/faceted_storage_tray/notes/review.ini",
+  "input_sha256": {
+    "model": "2b1dc0910dd56df8a889fe694fe319cfa7e4e67331cb29bf9cf905f437bfe3b6",
+    "profile": "5bd554da54eef675d7b955fba660970cae8d33c231e10eb2b5b2867198100c0e"
+  },
+  "slicer_help_header": [
+    "PrusaSlicer-2.9.6+flathub.org based on Slic3r (with GUI support)",
+    "https://github.com/prusa3d/PrusaSlicer",
+    "",
+    "Usage: prusa-slicer [ INPUT ] [ OPTIONS ] [ ACTIONS ] [ TRANSFORM ] [ file.stl ... ]",
+    "",
+    "Input:",
+    " --load ABCD         Load configuration from the specified file. It can be used more than once to",
+    "                     load options from multiple files."
+  ],
+  "gcode_sha256": "1c6e94b1a0cb419741df0ccd939dc17b3da8a970c92e674394aaae60203a4935",
+  "safe_build_volume_mm": [
+    250.0,
+    250.0,
+    250.0
+  ],
+  "metadata": {
+    "filament used [g]": "317.08",
+    "estimated printing time (normal mode)": "1d 1h 53m 55s"
+  },
+  "xy_bounds_including_half_width_mm": [
+    6.0010005,
+    6.0010005,
+    243.9989995,
+    243.9989995
+  ],
+  "max_layer_z_mm": 38.0,
+  "inside_safe_volume": true,
+  "support_segments": 0,
+  "log_notices": [],
+  "windows": [],
+  "review_required": false,
+  "limits": "Generic diagnostic job, not sent to a printer. Linear ASCII paths; width fallback is 0.45 mm if no WIDTH comment. Bounds exclude travel/start/end motion and flow spread. Role labels do not establish anchors or free-air spans. Profile includes are not resolved or independently hashed."
+}

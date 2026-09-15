@@ -14,8 +14,9 @@ FLOOR_FILLET = 4.0
 RIM_FILLET = 0.8
 BED_CHAMFER = 0.6
 RIM_BAND_HEIGHT = 2.0  # quiet rounded border above the facet pattern
-WALL_PANELS = 6  # equal diamond-like raised panels per straight side
+WALL_PANELS = 12  # equal diamond-like raised panels per straight side
 FACET_RELIEF = 2.4  # outward distance from the tapered wall plane, mm
+RIDGE_FRACTION = 0.0  # 0: point peak; >0: vertical ridge as a fraction of panel height
 CORNER_FACET_SHIFT = 10.0  # degrees: stagger shoulder vertices for triangular facets
 
 
@@ -29,9 +30,10 @@ def rounded_wire(width, radius, z):
             .radiusArc((-h + radius, -h), -radius).close().val())
 
 
-def build_tray():
-    assert WALL_PANELS >= 2 and WALL_PANELS % 2 == 0
-    assert 0 < FACET_RELIEF <= 3.0
+def build_tray(wall_panels=WALL_PANELS, facet_relief=FACET_RELIEF, ridge_fraction=RIDGE_FRACTION):
+    assert 0 <= ridge_fraction <= 0.5
+    assert wall_panels >= 2 and wall_panels % 2 == 0
+    assert 0 < facet_relief <= 3.0
     assert INTERIOR_WIDTH > 2 * INNER_RADIUS
     assert HEIGHT > BASE_THICKNESS + FLOOR_FILLET + RIM_FILLET
     assert 0 <= CORNER_FACET_SHIFT <= 12
@@ -72,17 +74,28 @@ def build_tray():
             # Each shallow pyramid splits a panel into four real planar facets.
             # Shared boundary vertices make a closed CAD shell, not a mesh model.
             normal = cq.Vector(-(top[j]-top[i]).y, (top[j]-top[i]).x, 0).normalized()*-1
-            for panel in range(WALL_PANELS):
-                u, v = panel/WALL_PANELS, (panel+1)/WALL_PANELS
+            for panel in range(wall_panels):
+                u, v = panel/wall_panels, (panel+1)/wall_panels
                 a = middle[i] + (middle[j]-middle[i])*u
                 b = middle[i] + (middle[j]-middle[i])*v
                 c = top[i] + (top[j]-top[i])*v
                 d = top[i] + (top[j]-top[i])*u
-                peak = (a+b+c+d)*0.25 + normal*FACET_RELIEF
-                face([a, b, peak])
-                face([b, c, peak])
-                face([c, d, peak])
-                face([d, a, peak])
+                peak = (a+b+c+d)*0.25 + normal*facet_relief
+                if ridge_fraction == 0:
+                    face([a, b, peak])
+                    face([b, c, peak])
+                    face([c, d, peak])
+                    face([d, a, peak])
+                else:
+                    # Follow the wall taper so both ridge ends have equal relief.
+                    half_ridge = ((c+d)-(a+b))*0.25*ridge_fraction
+                    low, high = peak-half_ridge, peak+half_ridge
+                    face([a, b, low])
+                    face([b, c, high])
+                    face([b, high, low])
+                    face([c, d, high])
+                    face([d, a, low])
+                    face([d, low, high])
         elif i % 4 == 1:  # symmetric centre corner facet
             face([middle[i], middle[j], top[j], top[i]])
         elif i % 4 == 2:  # mirror the first corner panel

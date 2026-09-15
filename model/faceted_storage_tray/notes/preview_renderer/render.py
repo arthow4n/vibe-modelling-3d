@@ -2,10 +2,16 @@
 from pathlib import Path
 import numpy as np
 from PIL import Image
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("--input",type=Path)
+parser.add_argument("--output",type=Path)
+parser.add_argument("--view",choices=["iso","front"],default="iso")
+args = parser.parse_args()
 
 root = Path(__file__).resolve().parents[2]
 dtype = np.dtype([('normal','<f4',(3,)), ('vertices','<f4',(3,3)), ('attribute','<u2')])
-data = np.fromfile(root/'faceted_storage_tray.stl', dtype=dtype, offset=84)
+data = np.fromfile(args.input or root/'faceted_storage_tray.stl', dtype=dtype, offset=84)
 triangles = data['vertices'].astype(float)
 normals = np.cross(triangles[:,1]-triangles[:,0],triangles[:,2]-triangles[:,0])
 normals /= np.linalg.norm(normals,axis=1)[:,None]
@@ -13,7 +19,7 @@ light = np.array([-0.6,-0.7,1.0]); light /= np.linalg.norm(light)
 fill = np.array([1.0,0.2,0.7]); fill /= np.linalg.norm(fill)
 brightness = 0.30+0.42*np.maximum(0,normals@light)+0.30*np.maximum(0,normals@fill)
 colors = (255*brightness[:,None]*np.array([0.83,0.87,0.91])).astype(np.uint8)
-view = np.array([1.,-1.4,1.2]); view /= np.linalg.norm(view)
+view = np.array([1.,-1.4,0.8] if args.view=="iso" else [0.,-1.,0.]); view /= np.linalg.norm(view)
 right = np.cross([0,0,1],view); right /= np.linalg.norm(right)
 up = np.cross(view,right)
 projected = triangles @ np.array([right,-up,view]).T
@@ -39,4 +45,4 @@ for triangle,color in zip(projected,colors):
     mask = (u>=-1e-8)&(v>=-1e-8)&(w>=-1e-8)&(z>region)
     region[mask] = z[mask]
     pixels[y0:y1+1,x0:x1+1][mask] = color
-Image.fromarray(pixels).save(root/'renders/print/shaded_preview.png')
+Image.fromarray(pixels).save(args.output or root/'renders/print/shaded_preview.png')

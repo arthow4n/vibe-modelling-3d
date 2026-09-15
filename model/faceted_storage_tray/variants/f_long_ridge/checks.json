@@ -7,28 +7,28 @@
   "step_components": [
     {
       "bounds_mm": [
-        -119.00000000000293,
-        -119.00000000000293,
+        -120.025,
+        -120.025,
         -1.0531575611594235e-11,
-        119.00000000000293,
-        119.00000000000293,
+        120.025,
+        120.025,
         38.0
       ],
-      "volume_mm3": 416888.7284315468
+      "volume_mm3": 420078.1200905575
     }
   ],
   "stl_components": [
     {
       "bounds_mm": [
-        -119.0,
-        -119.0,
+        -120.0250015258789,
+        -120.0250015258789,
         -1.7041923427996153e-14,
-        119.0,
-        119.0,
+        120.0250015258789,
+        120.0250015258789,
         38.0
       ],
-      "volume_mm3": 416920.43878689065,
-      "triangles": 18988
+      "volume_mm3": 420108.6130476618,
+      "triangles": 19090
     }
   ],
   "component_assignment": [
@@ -37,14 +37,14 @@
       0
     ]
   ],
-  "STEP_sha256": "b3dc9e58fc18e877b8c41d5a11283fbdcd38263f106a028ae979b1884cbcd665",
-  "STL_sha256": "3bfdc0c189f6e53bd783ff943e79ecfc08fcd7fe63144ef7e35561cc9ffec756",
+  "STEP_sha256": "9ad86ab5dfe4d081c313e5d676ce31f55c1e1341fa498b888bceccc2618c91d9",
+  "STL_sha256": "6dd483891c13edf96581b0a421f409cae425039396469eb020ead41a1681b3a3",
   "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation.",
   "config": {
-    "name": "c_slender",
+    "name": "f_long_ridge",
     "panels": 12,
     "relief": 2.4,
-    "ridge": 0
+    "ridge": 0.45
   },
   "symmetry_difference_mm3": {
     "rotate_90": 0.0,
@@ -56,6 +56,6 @@
     "30.0": 3.4926845921008622,
     "37.0": 2.9096264411780552
   },
-  "source_sha256": "7af193723a25fad595e6a6623cade62e43d578872e8a78a0bf32ad9d1264c8e6",
+  "source_sha256": "6606f068706b909f5b7c91a67590e42d0d98f471a6d08dd66fbaf2144081c597",
   "builder_sha256": "8cc21150c166bac2e27c1d6411b87a1fc969f07b16dcbb63489268fd6c8fb002"
 }
