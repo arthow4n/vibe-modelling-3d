@@ -1,15 +1,15 @@
 # Rounded storage tray
 
-A one-piece storage tray based on the [supplied photo](references/photo.jpg), with a rounded square cavity, broad tapered exterior, lower shoulder and softened rim. The exterior corners are smooth rather than reproducing the photo's irregular facets. Dimensions and proportions beyond the requested approximately 22 cm interior were chosen autonomously.
+A one-piece storage tray based on the [supplied photo](references/photo.jpg), with a rounded square cavity, broad tapered exterior, lower shoulder and softened rim. The exterior corners use staggered vertices and planar triangular faces between the rim and lower shoulder, matching the reference's faceted character. Each corner has mirrored triangular side panels around a central planar face; all four corners repeat by 90° rotation. Dimensions and proportions beyond the requested approximately 22 cm interior were chosen autonomously.
 
 ## Files and dimensions
 
 - [Printable STL](storage_tray.stl), [STEP](storage_tray.step), and [parametric source](storage_tray.py).
-- [Isometric view](renders/print/storage_tray_isometric.png) and [side profile](renders/print/storage_tray_front.png).
+- [Corner-detail preview](renders/print/view_tray_isometric.png). The display-only wrapper `notes/view_tray.py` rotates the tray for the viewer; exports remain flat on Z=0.
 - Interior: **220 × 220 mm between opposing straight walls**, 28 mm corner radius; rounded corners reduce corner clearance.
 - Overall: **238 × 238 × 38 mm**; interior depth 34 mm, base 4 mm.
 - Floor blend radius 4 mm: the flat floor spans 212 mm between blend tangencies at the middle of each side. The rim's 0.8 mm edge rounding slightly widens the very top opening.
-- Rim wall 4 mm before edge rounding; exterior grows to a 9 mm horizontal wall section at the lower shoulder. A 0.6 mm underside chamfer breaks the bed edge.
+- Rim wall 4 mm along straight sides before edge rounding, approximately 2.91 mm at the middle of the polygonal corner chords; exterior grows to a 9 mm horizontal wall section at the lower shoulder. A 0.6 mm underside chamfer breaks the bed edge.
 
 Edit the named parameters at the top of `storage_tray.py`; `build_tray()` is the main builder. STEP and STL share millimetre units, XY centre at the origin and flat underside at Z=0. No assembly is required.
 
@@ -17,18 +17,19 @@ Edit the named parameters at the top of `storage_tray.py`; `build_tray()` is the
 
 Print flat underside down, open side up. Assumed indoor general storage in PLA, 0.4 mm nozzle, 0.2 mm layers, four perimeters, five top/bottom layers and 20% gyroid infill. No supports are intended. Use your printer's own material and machine profile; the retained reference profile is for inspection only.
 
-The broad flat base provides stable contact. The lower exterior grows just 2 mm per side over 9 mm of height; the upper wall slopes inward and the cavity remains open, with no roof or trapped supports. Wall thickness accommodates multiple extrusion paths. The floor blend makes small items easier to retrieve and avoids a sharp internal dirt trap. Retention is by the open tray walls, with unrestricted top access; it is not a closed transport container.
+The broad flat base provides stable contact. The lower exterior grows just 2 mm per side over 9 mm of height. Corner facets are deliberately left crisp to preserve their broad triangular faces, while the rim stays rounded. The upper wall slopes inward and the cavity remains open, with no roof or trapped supports. Wall thickness accommodates multiple extrusion paths. The floor blend makes small items easier to retrieve and avoids a sharp internal dirt trap. Retention is by the open tray walls, with unrestricted top access; it is not a closed transport container.
 
 The 238 mm footprint fits the 250 × 250 × 250 mm practical envelope. The reference slice uses no skirt or brim. If adhesion needs a brim, allow at most 5 mm per side and recheck the complete slicer footprint. Large flat prints can warp; actual flatness, surface feel and load capacity remain untested. No separate coupon is useful for this simple tray because full-footprint warping is the main physical uncertainty.
 
 ## Verification
 
-- CadQuery MCP evaluation: valid single solid, 238 × 238 × 38 mm, volume 415,974.73 mm³. Versions: CadQuery 2.8.0, OCP 7.9.3.1.1, Python 3.12.14, server 0.2.0.
-- Source SHA256: `131fd28f3b1c9ddf8a46875b3dc979350516ea57a730854f30201c9c4e8d17d1`.
-- Viewed the isometric outline for cavity/rim and side profile for taper and shoulder. Smooth corners approximate the reference; a single photograph does not establish exact original geometry.
-- [Export checks](notes/export_checks.json): valid STEP, closed consistently wound STL, one matching component, bounds/volume agreement and bed contact passed. [MCP check entry point](notes/check_exports.py) also verifies four interior wall planes at X/Y = ±110 mm in the actual STEP.
-- [Reference smoke slice](notes/slice_review/summary.json), [command](notes/slice_review/command.json), [profile](notes/review.ini): PrusaSlicer 2.9.6 produced fresh nonempty deposition, no supports, no notices; no repair reported in the inspected log. Deposited XY bounds after centering: 6.017–243.983 mm on each axis; height 38 mm.
-- Reference estimate: 315.51 g PLA, 25 h 27 min. These are profile-specific estimates, not predictions for the user's printer. CAD/export and slice checks do not establish physical strength or print quality.
+- CadQuery MCP evaluation: valid single solid, 238 × 238 × 38 mm, volume 406,928.46 mm³. Versions: CadQuery 2.8.0, OCP 7.9.3.1.1, Python 3.12.14, server 0.2.0.
+- Source SHA256: `3f657965938c29a4bde6afae6df1a9de52b35ab9c506a67186e9bd51252336cc`.
+- Viewed the revised preview for triangular corner faces, polygonal lower band, smooth cavity and softened rim. Facet positions are inferred from the photo; a single photograph does not establish exact original geometry.
+- [Export checks](notes/export_checks.json): valid STEP, closed consistently wound STL, one matching component, bounds/volume agreement and bed contact passed. [MCP check entry point](notes/check_exports.py) also verifies four interior wall planes at X/Y = ±110 mm in the actual STEP. Section wire distances at Z=8.1, 9, 20, 30 and 37 mm are 5.35, 5.53, 4.54, 3.63 and 3.00 mm respectively; these are sampled horizontal thicknesses. A representative 200 mm interior variant also builds as a valid 218 mm-wide solid via `notes/check_parameters.py`; the final 220 mm source was then re-evaluated.
+- Final STEP symmetry: symmetric-difference volume was 0.0 mm³ for 90° rotation, reflection across X=0, and reflection across X=Y (acceptance tolerance 0.01 mm³). This checks the completed solid including rim fillets and proves matching corners within CAD tolerance.
+- [Reference smoke slice](notes/symmetric_slice_review/summary.json), [command](notes/symmetric_slice_review/command.json), [profile](notes/review.ini): PrusaSlicer 2.9.6 produced fresh nonempty deposition, no supports, no notices; no repair reported in the inspected log. Deposited XY bounds after centering: 6.017–243.983 mm on each axis; height 38 mm.
+- Reference estimate: 312.58 g PLA, 25 h 16 min. These are profile-specific estimates, not predictions for the user's printer. CAD/export and slice checks do not establish physical strength or print quality.
 
 ### Design checklist
 
@@ -49,4 +50,4 @@ The 238 mm footprint fits the 250 × 250 × 250 mm practical envelope. The refer
 
 ## Attribution
 
-Primary language model: GPT-6 Astra; reasoning effort: low (both explicitly supplied by the user). Harness: Codex coding agent/API environment. Provider: OpenAI. No additional model contributors. User supplied the reference photograph; original photograph creator and licence are unknown. The photograph is retained as design reference, with no claim of authorship or relicensing.
+Primary language model: GPT-6 Astra; reasoning effort: low (both explicitly supplied by the user). Harness: Codex coding agent/API environment. Provider: OpenAI. Corner-facet revision: GPT-6-based Codex agent, provider OpenAI; exact runtime model variant and reasoning effort not exposed. No subagents used. User supplied the reference photograph; original photograph creator and licence are unknown. The photograph is retained as design reference, with no claim of authorship or relicensing.

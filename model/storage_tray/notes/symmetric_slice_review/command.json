@@ -6,6 +6,6 @@
   "125,125",
   "--export-gcode",
   "--output",
-  "/home/hevar/git/vibe-modelling-3d/model/storage_tray/notes/slice_review/slice.gcode",
+  "/home/hevar/git/vibe-modelling-3d/model/storage_tray/notes/symmetric_slice_review/slice.gcode",
   "/home/hevar/git/vibe-modelling-3d/model/storage_tray/storage_tray.stl"
 ]

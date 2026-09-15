@@ -1,5 +1,6 @@
 """Rounded storage tray, millimetres; underside on Z=0."""
 import cadquery as cq
+from math import cos, sin, radians
 
 INTERIOR_WIDTH = 220.0
 HEIGHT = 38.0
@@ -12,6 +13,7 @@ SHOULDER_HEIGHT = 9.0
 FLOOR_FILLET = 4.0
 RIM_FILLET = 0.8
 BED_CHAMFER = 0.6
+CORNER_FACET_SHIFT = 10.0  # degrees: stagger shoulder vertices for triangular facets
 
 
 def rounded_wire(width, radius, z):
@@ -27,15 +29,47 @@ def rounded_wire(width, radius, z):
 def build_tray():
     assert INTERIOR_WIDTH > 2 * INNER_RADIUS
     assert HEIGHT > BASE_THICKNESS + FLOOR_FILLET + RIM_FILLET
+    assert 0 <= CORNER_FACET_SHIFT <= 12
+    assert (INNER_RADIUS + RIM_WALL)*cos(radians(15)) - INNER_RADIUS > 2*RIM_FILLET
     assert RIM_WALL > 2 * RIM_FILLET
-    rim_width = INTERIOR_WIDTH + 2 * RIM_WALL
     rim_radius = INNER_RADIUS + RIM_WALL
-    sections = [rounded_wire(rim_width + 2*(OUTER_BULGE-LOWER_INSET),
-                             rim_radius + OUTER_BULGE-LOWER_INSET, 0),
-                rounded_wire(rim_width + 2*OUTER_BULGE,
-                             rim_radius + OUTER_BULGE, SHOULDER_HEIGHT),
-                rounded_wire(rim_width, rim_radius, HEIGHT)]
-    outer = cq.Workplane('XY').add(cq.Solid.makeLoft(sections, ruled=True))
+    # Explicit planar faces preserve the triangular corner detail (a smooth
+    # loft would erase it). Straight sides remain single broad planes.
+    def ring(radius, z, angles):
+        points = []
+        centre = INTERIOR_WIDTH / 2 - INNER_RADIUS
+        for quadrant in range(4):
+            rotation = radians(90 * quadrant)
+            for angle in angles:
+                x = centre + radius*cos(radians(angle))
+                y = centre + radius*sin(radians(angle))
+                points.append(cq.Vector(x*cos(rotation)-y*sin(rotation),
+                                        x*sin(rotation)+y*cos(rotation), z))
+        return points
+
+    top = ring(rim_radius, HEIGHT, [0, 30, 60, 90])
+    shoulder_angles = [0, 30-CORNER_FACET_SHIFT, 60+CORNER_FACET_SHIFT, 90]
+    middle = ring(rim_radius+OUTER_BULGE, SHOULDER_HEIGHT, shoulder_angles)
+    bottom = ring(rim_radius+OUTER_BULGE-LOWER_INSET, 0, shoulder_angles)
+    faces = []
+
+    def face(points):
+        faces.append(cq.Face.makeFromWires(cq.Wire.makePolygon(points, close=True)))
+
+    face(list(reversed(bottom)))
+    face(top)
+    for i in range(len(top)):
+        j = (i+1) % len(top)
+        face([bottom[i], bottom[j], middle[j], middle[i]])
+        if i % 4 in (1, 3):  # symmetric centre facet or straight side
+            face([middle[i], middle[j], top[j], top[i]])
+        elif i % 4 == 2:  # mirror the first corner panel
+            face([middle[i], middle[j], top[j]])
+            face([middle[i], top[j], top[i]])
+        else:
+            face([middle[i], middle[j], top[i]])
+            face([middle[j], top[j], top[i]])
+    outer = cq.Workplane('XY').add(cq.Solid.makeSolid(cq.Shell.makeShell(faces)))
     cavity = (cq.Workplane('XY').add(rounded_wire(INTERIOR_WIDTH, INNER_RADIUS,
                                                BASE_THICKNESS)).toPending()
               .extrude(HEIGHT))

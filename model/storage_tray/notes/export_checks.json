@@ -9,12 +9,12 @@
       "bounds_mm": [
         -119.0000001,
         -119.0000001,
-        -8.881784197001e-16,
+        -1.0528466987125285e-11,
+        119.00000010001182,
         119.0000001,
-        119.0000001,
-        38.0
+        38.00000010000248
       ],
-      "volume_mm3": 415974.7295223095
+      "volume_mm3": 406891.32931026747
     }
   ],
   "stl_components": [
@@ -22,13 +22,13 @@
       "bounds_mm": [
         -119.0,
         -119.0,
-        -1.0547118733938987e-14,
+        -1.7041923427996153e-14,
         119.0,
         119.0,
         38.0
       ],
-      "volume_mm3": 415833.40055680875,
-      "triangles": 26852
+      "volume_mm3": 406989.5026476543,
+      "triangles": 26924
     }
   ],
   "component_assignment": [
@@ -37,7 +37,19 @@
       0
     ]
   ],
-  "STEP_sha256": "cd93c8f1a7af8c15b6854d62cc3fb9c53b0276a1f9c775c33e6bfed6a1aaa13b",
-  "STL_sha256": "0e937c922725f5aa13763002297d64205fdb6e0b7eabff4b8b86672dc43e98d9",
-  "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation."
+  "STEP_sha256": "b111b40d9e9a1b1976d6a8b66f7319d257201b3abcd591fb8351515a56477ad5",
+  "STL_sha256": "8d19819f3dac6270f91a5920264014802fd814b338f5abf7d539c39f80e5ad0e",
+  "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation.",
+  "sampled_horizontal_wall_minimum_mm": {
+    "8.1": 5.352126562910322,
+    "9.0": 5.533388120300652,
+    "20.0": 4.538168173050175,
+    "30.0": 3.6334227664621674,
+    "37.0": 3.0001009818505824
+  },
+  "symmetry_difference_mm3": {
+    "rotate_90": 0.0,
+    "mirror_x": 0.0,
+    "mirror_diagonal": 0.0
+  }
 }
