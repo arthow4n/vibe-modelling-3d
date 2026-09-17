@@ -1,0 +1,56 @@
+{
+  "checks_passed": true,
+  "expected_solids": 1,
+  "bounds_tolerance_mm": 0.035,
+  "volume_relative_tolerance": 0.01,
+  "bed_contact_required": true,
+  "step_components": [
+    {
+      "bounds_mm": [
+        -25.00000000000184,
+        -119.0,
+        -4.440892098501e-16,
+        25.0,
+        -83.0,
+        38.0
+      ],
+      "volume_mm3": 19459.208501934292
+    }
+  ],
+  "stl_components": [
+    {
+      "bounds_mm": [
+        -25.0,
+        -119.0,
+        -2.220446049250313e-16,
+        25.0,
+        -83.0,
+        38.0
+      ],
+      "volume_mm3": 19459.440955705788,
+      "triangles": 444
+    }
+  ],
+  "component_assignment": [
+    [
+      0,
+      0
+    ]
+  ],
+  "STEP_sha256": "ddffe6c7c2dcb6cd7f98fb628b125f97eaac54faa88b0d2dd74696a1661b40f4",
+  "STL_sha256": "3323034146c882937c952e51f52d3a68376af166a7e2af4f800ad63c1583d487",
+  "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation.",
+  "config": {
+    "name": "c_slender",
+    "panels": 12,
+    "relief": 2.4,
+    "ridge": 0
+  },
+  "size_mm": [
+    50.00000000000184,
+    36.0,
+    38.0
+  ],
+  "source_sha256": "ddb5e64898eeccae16417f9f5c7da701a5a40663f3a4ae94e7c5a23be3de213e",
+  "builder_sha256": "d806432e46a9bcf8abe6a89f2193e3b386d28bf120f5cdc8d95f97d1dd50987e"
+}

@@ -1,0 +1,56 @@
+{
+  "checks_passed": true,
+  "expected_solids": 1,
+  "bounds_tolerance_mm": 0.035,
+  "volume_relative_tolerance": 0.01,
+  "bed_contact_required": true,
+  "step_components": [
+    {
+      "bounds_mm": [
+        -25.000000000002345,
+        -119.0,
+        -4.440892098501e-16,
+        25.0,
+        -83.0,
+        38.0
+      ],
+      "volume_mm3": 19319.046217570423
+    }
+  ],
+  "stl_components": [
+    {
+      "bounds_mm": [
+        -25.0,
+        -119.0,
+        -2.220446049250313e-16,
+        25.0,
+        -83.0,
+        38.0
+      ],
+      "volume_mm3": 19319.279041945374,
+      "triangles": 440
+    }
+  ],
+  "component_assignment": [
+    [
+      0,
+      0
+    ]
+  ],
+  "STEP_sha256": "a7d29713c957d29dcd0675fd0a12aff02312306d12b52f5e334afdeb997fae8e",
+  "STL_sha256": "30f374126e8c31b16b03562233c9b6a1656959df4d4360e383ef35054e2f9a5d",
+  "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation.",
+  "config": {
+    "name": "a_airy",
+    "panels": 8,
+    "relief": 2.4,
+    "ridge": 0
+  },
+  "size_mm": [
+    50.000000000002345,
+    36.0,
+    38.0
+  ],
+  "source_sha256": "d2bdb719c648aca3a9b83a4ecf5ba1c297d8753ea1ac24e3398b7391c155b22c",
+  "builder_sha256": "d806432e46a9bcf8abe6a89f2193e3b386d28bf120f5cdc8d95f97d1dd50987e"
+}

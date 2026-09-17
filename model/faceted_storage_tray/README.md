@@ -36,7 +36,22 @@ Print open side up, flat underside down. Reference assumptions: PLA, 0.4 mm nozz
 
 Broad bed contact supports ordinary tabletop storage. Smooth interior walls and floor blends preserve insertion, retrieval and cleaning. Exterior facet edges are deliberately crisp; the rim remains rounded. Point-peak relief develops over 13.5 mm of height; ridge relief develops over 7.425 mm at each end. These have supporting material beneath them, with no floating ornaments, roofs or trapped supports. Walls accommodate multiple extrusion paths. The narrowest panel is 8.2 mm wide, comfortably above nozzle scale. Layer direction, large-floor warping, texture feel and strength with real contents remain physical uncertainties.
 
-No coupon is provided: the purpose is a visual comparison of full trays, and a small sample would not establish full-footprint flatness. All eight complete models are available; there is no need to print them all to compare the rendered proportions.
+## Full-scale exterior test pieces
+
+Each option now has a small coupon cut from the centre of a straight side. Every coupon uses the same **50 mm-wide × 40 mm-deep × 38 mm-high crop window** and retains the production wall, relief, lower shoulder, rim, floor thickness and print direction at 1:1 scale. The printable solid is 50 × 38 mm across the comparison face. A–E/H occupy 36 mm front-to-back; F/G occupy 37.025 mm because their ridges intentionally project 1.025 mm farther. This is the surface difference being tested, not a change in sampling scale.
+
+Print flat underside down, exactly as supplied, with the same material, layer height and perimeter settings for all eight. No supports are required. Compare facet scale, ridge shape, reflected light, layer texture and hand feel. These pieces do not test the complete tray's large-floor warping, overall stiffness, capacity or corner appearance.
+
+| Version | Print files | Views | Reference PLA / time |
+| --- | --- | --- | --- |
+| A Airy | [STL](test_pieces/a_airy/a_airy_coupon.stl) · [STEP](test_pieces/a_airy/a_airy_coupon.step) · [source](test_pieces/a_airy/a_airy_coupon.py) | [exterior](test_pieces/a_airy/renders/a_airy_coupon_isometric_back.png) · [interior](test_pieces/a_airy/renders/a_airy_coupon_isometric.png) | 15.26 g / 1h 14m |
+| B Narrow | [STL](test_pieces/b_narrow/b_narrow_coupon.stl) · [STEP](test_pieces/b_narrow/b_narrow_coupon.step) · [source](test_pieces/b_narrow/b_narrow_coupon.py) | [exterior](test_pieces/b_narrow/renders/b_narrow_coupon_isometric_back.png) · [interior](test_pieces/b_narrow/renders/b_narrow_coupon_isometric.png) | 15.32 g / 1h 15m |
+| C Slender / root default | [STL](test_pieces/c_slender/c_slender_coupon.stl) · [STEP](test_pieces/c_slender/c_slender_coupon.step) · [source](test_pieces/c_slender/c_slender_coupon.py) | [exterior](test_pieces/c_slender/renders/c_slender_coupon_isometric_back.png) · [interior](test_pieces/c_slender/renders/c_slender_coupon_isometric.png) | 15.31 g / 1h 15m |
+| D Fine | [STL](test_pieces/d_fine/d_fine_coupon.stl) · [STEP](test_pieces/d_fine/d_fine_coupon.step) · [source](test_pieces/d_fine/d_fine_coupon.py) | [exterior](test_pieces/d_fine/renders/d_fine_coupon_isometric_back.png) · [interior](test_pieces/d_fine/renders/d_fine_coupon_isometric.png) | 15.37 g / 1h 15m |
+| E Dense | [STL](test_pieces/e_dense/e_dense_coupon.stl) · [STEP](test_pieces/e_dense/e_dense_coupon.step) · [source](test_pieces/e_dense/e_dense_coupon.py) | [exterior](test_pieces/e_dense/renders/e_dense_coupon_isometric_back.png) · [interior](test_pieces/e_dense/renders/e_dense_coupon_isometric.png) | 15.31 g / 1h 15m |
+| F Long Ridge | [STL](test_pieces/f_long_ridge/f_long_ridge_coupon.stl) · [STEP](test_pieces/f_long_ridge/f_long_ridge_coupon.step) · [source](test_pieces/f_long_ridge/f_long_ridge_coupon.py) | [exterior](test_pieces/f_long_ridge/renders/f_long_ridge_coupon_isometric_back.png) · [interior](test_pieces/f_long_ridge/renders/f_long_ridge_coupon_isometric.png) | 15.38 g / 1h 15m |
+| G Fine Ridge | [STL](test_pieces/g_fine_ridge/g_fine_ridge_coupon.stl) · [STEP](test_pieces/g_fine_ridge/g_fine_ridge_coupon.step) · [source](test_pieces/g_fine_ridge/g_fine_ridge_coupon.py) | [exterior](test_pieces/g_fine_ridge/renders/g_fine_ridge_coupon_isometric_back.png) · [interior](test_pieces/g_fine_ridge/renders/g_fine_ridge_coupon_isometric.png) | 15.45 g / 1h 16m |
+| H Soft | [STL](test_pieces/h_soft/h_soft_coupon.stl) · [STEP](test_pieces/h_soft/h_soft_coupon.step) · [source](test_pieces/h_soft/h_soft_coupon.py) | [exterior](test_pieces/h_soft/renders/h_soft_coupon_isometric_back.png) · [interior](test_pieces/h_soft/renders/h_soft_coupon_isometric.png) | 15.05 g / 1h 13m |
 
 ## Verification and reproducibility
 
@@ -65,6 +80,8 @@ One [reference profile](notes/review.ini) was used throughout. [Slice runner](no
 
 The [comparison renderer](notes/preview_renderer/compare.py) uses the actual STL files with a depth buffer, identical lighting and camera settings. Reproduce with `uv run --directory model/faceted_storage_tray/notes/preview_renderer python compare.py`; dependency lock is retained. Inspected the complete sheet and C's CAD edge view for proportion, continuity, smooth cavity and rim. No physical result is inferred from these images or slice checks.
 
+The coupons were built and exported together through CadQuery MCP using [build_coupons.py](notes/build_coupons.py); [coupon_build.json](notes/coupon_build.json) and each coupon's `checks.json` record the final dimensions, source/export hashes, valid single-solid STEP, closed consistently wound STL, volume agreement and bed contact. Matching final views were generated from each source. [slice_coupons.py](notes/slice_coupons.py) then produced fresh PrusaSlicer 2.9.6 toolpaths for all eight with the same reference profile: zero supports, no notices or repairs, and approximately 15.05–15.45 g PLA. These are reference-profile results, not predictions for the user's printer.
+
 ### Design checklist
 
 - [x] User intent, prior reference, approved original preservation and MCP availability checked.
@@ -73,12 +90,13 @@ The [comparison renderer](notes/preview_renderer/compare.py) uses the actual STL
 - [x] Actual exports, interior planes, sampled walls, symmetry and oriented bounds checked.
 - [x] Final generic FDM review and eight reference smoke slices passed.
 - [x] Individual exports, comparison views, print instructions, evidence and physical status saved.
+- [x] Eight equal-window, full-scale exterior coupons built, exported, inspected and smoke sliced.
 
 ## Physical print status
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A | None | Complete alternatives are the visual exploration and potential physical trials. |
+| Exterior test pieces (A–H) | Unknown | `test_pieces/*/*_coupon.stl`, matching STEP/source files | No user print report; compare 1:1 facet appearance and feel. Coupons do not establish full-tray flatness or stiffness. |
 | Default final printable object (C copy) | Unknown | `faceted_storage_tray.stl`, `faceted_storage_tray.step` | No user print report; same geometry as C below. |
 | A Airy — final printable object | Unknown | `a_airy.stl`, `a_airy.step` | No user print report; check appearance, feel, flatness and stiffness. |
 | B Narrow — final printable object | Unknown | `b_narrow.stl`, `b_narrow.step` | No user print report; check appearance, feel, flatness and stiffness. |
@@ -91,4 +109,4 @@ The [comparison renderer](notes/preview_renderer/compare.py) uses the actual STL
 
 ## Attribution
 
-Primary model: GPT-6-based Codex agent; exact runtime variant and reasoning effort not exposed. Harness: Codex/API coding environment. Provider: OpenAI. No subagents. Derived from the approved tray whose primary model was GPT-6 Astra, low reasoning effort (user-supplied attribution), and the subsequent decorative variant. The user supplied the original reference photograph; its creator/licence are unknown and no photograph authorship or relicensing is claimed.
+Primary model: GPT-6-based Codex agent; exact runtime variant and reasoning effort not exposed. Harness: Codex/API coding environment. Provider: OpenAI. No subagents. Exterior coupon addition: Codex based on GPT-5; exact runtime variant and reasoning effort not exposed; provider OpenAI; no subagents. Derived from the approved tray whose primary model was GPT-6 Astra, low reasoning effort (user-supplied attribution), and the subsequent decorative variant. The user supplied the original reference photograph; its creator/licence are unknown and no photograph authorship or relicensing is claimed.

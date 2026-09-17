@@ -18,6 +18,9 @@ WALL_PANELS = 12  # equal diamond-like raised panels per straight side
 FACET_RELIEF = 2.4  # outward distance from the tapered wall plane, mm
 RIDGE_FRACTION = 0.0  # 0: point peak; >0: vertical ridge as a fraction of panel height
 CORNER_FACET_SHIFT = 10.0  # degrees: stagger shoulder vertices for triangular facets
+COUPON_WIDTH = 50.0  # full-scale centre section along one straight side
+COUPON_DEPTH = 40.0  # common crop depth, including a stabilising floor strip
+COUPON_RELIEF_ALLOWANCE = 3.0  # fixed crop origin across every supported variant
 
 
 def rounded_wire(width, radius, z):
@@ -117,6 +120,31 @@ def build_tray(wall_panels=WALL_PANELS, facet_relief=FACET_RELIEF, ridge_fractio
     box = solid.BoundingBox()
     assert box.xlen <= 250 and box.ylen <= 250 and box.zlen <= 250
     return tray
+
+
+def build_exterior_coupon(wall_panels=WALL_PANELS, facet_relief=FACET_RELIEF,
+                          ridge_fraction=RIDGE_FRACTION):
+    """Return a full-scale centre-side slice for comparing exterior finishes.
+
+    The crop is identical for every variant and retains the tray's real wall,
+    rim, relief, lower shoulder, floor thickness, and intended print direction.
+    """
+    tray = build_tray(wall_panels, facet_relief, ridge_fraction)
+    outer_limit = -(INTERIOR_WIDTH / 2 + RIM_WALL + OUTER_BULGE
+                    + COUPON_RELIEF_ALLOWANCE + 1)
+    inner_limit = outer_limit + COUPON_DEPTH
+    cutter = (cq.Workplane('XY')
+              .box(COUPON_WIDTH, COUPON_DEPTH, HEIGHT,
+                   centered=(True, False, False))
+              .translate((0, outer_limit, 0)))
+    coupon = tray.intersect(cutter).clean()
+    solid = coupon.val()
+    assert solid.isValid() and len(coupon.solids().vals()) == 1
+    box = solid.BoundingBox()
+    assert abs(box.xlen - COUPON_WIDTH) < 1e-5
+    assert abs(box.zlen - HEIGHT) < 1e-5
+    assert box.ylen <= COUPON_DEPTH and box.xlen <= 250 and box.zlen <= 250
+    return coupon
 
 
 result = build_tray()
