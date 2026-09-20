@@ -105,7 +105,7 @@ The coupons were built and exported together through CadQuery MCP using [build_c
 | E Dense — final printable object | Unknown | `e_dense.stl`, `e_dense.step` | No user print report; check appearance, feel, flatness and stiffness. |
 | F Long Ridge — final printable object | Unknown | `f_long_ridge.stl`, `f_long_ridge.step` | No user print report; check appearance, feel, flatness and stiffness. |
 | G Fine Ridge — final printable object | Unknown | `g_fine_ridge.stl`, `g_fine_ridge.step` | No user print report; check appearance, feel, flatness and stiffness. |
-| H Soft — final printable object | Unknown | `h_soft.stl`, `h_soft.step` | No user print report; check appearance, feel, flatness and stiffness. |
+| H Soft — final printable object | Yes | `h_soft.stl`, `h_soft.step` | User printed the faceted square tray and reports that it works well. No further physical checks reported. |
 
 ## Attribution
 
