@@ -1,5 +1,9 @@
 # Book reading plate — two-piece sliding joint
 
+**Current work: [captured-joint trials](lock_trials/README.md).** The user has paused
+plate development until a joint is selected. The production files below are the
+previous revision; use the new trial files for the next comparison.
+
 **Two printed halves, no separate connectors.** One half has a continuous shaped
 tongue; the other has a matching channel with a closed lower end. The tongue
 slides down into the channel, and one catch built into the tongue clicks into a
@@ -159,17 +163,23 @@ record actual mesh/profile hashes, commands, versions and deposition bounds.
 
 ## Print status and prior feedback
 
-The user said they had “tried this” and rejected the previous recessed-key joint
+The user initially said they had “tried this” and rejected the previous recessed-key joint
 as complicated and ineffective at preventing sliding. Whether that involved a
 physical print has not been clarified, so no print or failure mode is invented.
 That feedback concerns the superseded `f5f16bf` design, not this two-part revision.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | Unknown | `joint_test.stl`, `joint_test.step` | New two-piece trial; check sliding fit, snap retention, release, rocking and repeatability |
+| Test piece(s) | Partial | Prior sliding-joint design at 50% scale; exact printed file unknown | User reported thin/unstable socket. Full-scale prior test unconfirmed; new captured trials have no print report |
 | Final printable object(s) | Unknown | `plate_left.stl/.step`, `plate_right.stl/.step` | Check full-length fit, joint stiffness, book load and durability; no report for this revision |
 
-Material is PETG. Exact printer, actual profile and print date remain unknown.
+Later feedback confirms a physical print of the sliding-joint design at 50% scale.
+The user found the outer socket thin and unstable; no fracture was explicitly
+reported. Exact file and settings are unknown. The proposed open-overlap samples
+were then rejected from pictures for bending concerns. See the
+[new trial record](lock_trials/README.md#print-status).
+
+PETG is the intended material. Exact printer, actual profile and print date remain unknown.
 Update this block and the root index together when physical feedback is reported.
 
 ## Attribution

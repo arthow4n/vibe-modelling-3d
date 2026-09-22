@@ -1,0 +1,21 @@
+{
+  "versions": {
+    "cadquery": "2.8.0",
+    "OCP": "7.9.3.1.1",
+    "python": "3.12.14",
+    "MCP": "0.2.0",
+    "PrusaSlicer": "2.9.6"
+  },
+  "sources": {
+    "section_trials.py": "85548901cf7b33d7f85635bd1ac7944adaf43fca57df6a3894a0588f391e79e4",
+    "lock_trials.py": "50d4cc50c9ed6d305c972e95c39def1f74134f1b18ef0905069076f191f6d01f",
+    "preview_trials.py": "8014b48c07a8c165460c8d70168d1420051831ce9128af8d6033e3dfbff2e8e1",
+    "verify_trials.py": "e47c6595cf86d46ddce5e487179eb622b3736645cebea3b5371b404fd813b5ba",
+    "export_trials.py": "2e27622068ac48096a8942753ea27d1e0c31a1f686e827da54b3b0bea0c2d0d3"
+  },
+  "profile_sha256": "5f3e0dd472d7e65efc35f99665008beffc6490395325402348fdbf173e960bc0",
+  "slice_reports": [
+    "notes/slice_A/summary.json",
+    "notes/slice_B/summary.json"
+  ]
+}
