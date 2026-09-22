@@ -1,9 +1,5 @@
-"""Exploded joint illustration; not a printable layout. Same coupon builders."""
+"""Actual insertion alignment: slide the raised male sample downward in Y."""
 import cadquery as cq
 from components import coupon
-left, right, locking_key = coupon()
-result = cq.Compound.makeCompound([
-    left.translate((-22,0,0)).val(),
-    right.translate((22,0,0)).val(),
-    locking_key.translate((22,-46,-8)).val(),
-]).rotate((0,0,0),(1,0,0),180)
+left,right=coupon()
+result=cq.Compound.makeCompound([left.translate((0,80,0)).val(),right.val()])

@@ -6,6 +6,6 @@
   "130,130",
   "--export-gcode",
   "--output",
-  "/home/hevar/git/vibe-modelling-3d/model/book_reading_plate/notes/flush_final_plate_left/slice.gcode",
+  "/home/hevar/git/vibe-modelling-3d/model/book_reading_plate/notes/dovetail_final_plate_left/slice.gcode",
   "/home/hevar/git/vibe-modelling-3d/model/book_reading_plate/plate_left.stl"
 ]

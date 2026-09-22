@@ -7,33 +7,21 @@
     "corner_radius": 4.0,
     "outer_bend_radius": 9.0,
     "bed_edge_chamfer": 2.0,
-    "tenon_length": 36.0,
-    "tenon_width": 46.0,
-    "tenon_thickness": 6.0,
-    "tenon_radius": 1.5,
-    "socket_clearance": 0.2,
-    "tip_clearance": 0.6,
-    "joint_count": 4,
-    "joint_end_margin": 35.0,
-    "slot_width": 8.0,
-    "slot_length": 8.0,
-    "draw_offset": 0.8,
-    "key_side_clearance": 0.15,
-    "key_taper": 0.1,
-    "key_seat_clearance": 0.04,
-    "key_head_half_width": 8.0,
-    "key_lock_advance": 0.8,
-    "latch_axial_clearance": 0.15,
-    "latch_side_gap": 0.5,
-    "latch_overlap": 1.4,
-    "latch_thickness": 1.8,
-    "latch_depth": 6.0,
-    "latch_length": 32.0,
-    "latch_root_fillet": 0.7,
-    "latch_recess_shift": 8.0,
-    "key_head_thickness": 1.4,
-    "head_pocket_depth": 5.4,
-    "latch_pocket_depth": 6.4,
+    "rail_depth": 16.0,
+    "rail_neck": 5.0,
+    "rail_head": 7.0,
+    "shoulder_x": 6.0,
+    "rail_end_margin": 6.0,
+    "rail_clearance": 0.12,
+    "latch_root_x": -18.0,
+    "latch_width": 14.0,
+    "latch_thickness": 2.0,
+    "latch_y": 40.0,
+    "latch_nose_y": 36.0,
+    "latch_shoulder_y": 43.0,
+    "latch_tip_z": 0.6,
+    "catch_clearance": 0.15,
+    "latch_release": 1.0,
     "print_rotation": 30.0,
     "design_book_kg": 3.0
   },
@@ -42,592 +30,170 @@
       "size_mm": [
         133.90192378864668,
         247.23840175367857,
-        236.0
+        216.0
       ],
       "solids": 1,
-      "volume_mm3": 622803.1911011136
+      "volume_mm3": 614008.4165486183
     },
     "plate_right": {
       "size_mm": [
-        170.37306695894642,
-        225.40827473475636,
-        200.0
+        170.37306705894645,
+        225.40827483475636,
+        200.0000001
       ],
       "solids": 1,
-      "volume_mm3": 544183.621964129
-    },
-    "locking_keys": {
-      "size_mm": [
-        100.0,
-        16.0,
-        6.000000100000005
-      ],
-      "solids": 4,
-      "volume_mm3": 3220.131067282308
+      "volume_mm3": 567866.089138245
     },
     "joint_test": {
       "size_mm": [
-        89.3205080756888,
-        84.96152422706632,
-        82.0
+        107.78460969082653,
+        72.81793068761733,
+        45.0
       ],
-      "solids": 3,
-      "volume_mm3": 60723.46391206709
+      "solids": 2,
+      "volume_mm3": 51386.73660423653
     }
   },
-  "interfaces": {
-    "panel_insertion_overlap_mm3": {
-      "-36.0": 0.0,
-      "-18.0": 0.0,
-      "-2": 0.0,
-      "0": 0.0
-    },
-    "keys": [
+  "motion": {
+    "retracted_slide": [
       {
-        "station_y_mm": 45.0,
-        "locked_key_advance_mm": 0.8,
-        "taper_preload_interference_mm3": 0.061599998925673916,
-        "first_reverse_contact_mm": 0.15000152587890625,
-        "withdrawal_tests": [
-          {
-            "offset_xy_mm": [
-              0,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.9782153568885779,
-              1.9782153568885867
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0.3,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.9782153568885734,
-              1.978215356888584
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              -0.3,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.97821535688858,
-              1.9782153568885836
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0,
-              0.3
-            ],
-            "catch_contact_mm3": [
-              1.25109035688858,
-              2.736840356888571
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0,
-              -0.3
-            ],
-            "catch_contact_mm3": [
-              2.736840356888571,
-              1.2510903568885865
-            ]
-          }
-        ],
-        "spread_catches_release_sweep": [
-          {
-            "key_advance_mm": 0.8,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": 0.3,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": 0,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -1,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -3,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -6,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -10,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -14,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          }
-        ],
-        "insertion_ramp_contact_mm3": 2.59531444042645
+        "Y_offset_mm": 0,
+        "interference_mm3": 0.0
       },
       {
-        "station_y_mm": 105.0,
-        "locked_key_advance_mm": 0.8,
-        "taper_preload_interference_mm3": 0.06159999892599477,
-        "first_reverse_contact_mm": 0.15000152587890625,
-        "withdrawal_tests": [
-          {
-            "offset_xy_mm": [
-              0,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.9782153568885987,
-              1.9782153568886243
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0.3,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.9782153568886054,
-              1.9782153568886183
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              -0.3,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.9782153568886094,
-              1.9782153568886147
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0,
-              0.3
-            ],
-            "catch_contact_mm3": [
-              1.2510903568886216,
-              2.7368403568886346
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0,
-              -0.3
-            ],
-            "catch_contact_mm3": [
-              2.7368403568886084,
-              1.2510903568886245
-            ]
-          }
-        ],
-        "spread_catches_release_sweep": [
-          {
-            "key_advance_mm": 0.8,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": 0.3,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": 0,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -1,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -3,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -6,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -10,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -14,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          }
-        ],
-        "insertion_ramp_contact_mm3": 2.595314440426473
+        "Y_offset_mm": 0.2,
+        "interference_mm3": 0.0
       },
       {
-        "station_y_mm": 165.0,
-        "locked_key_advance_mm": 0.8,
-        "taper_preload_interference_mm3": 0.06159999892598478,
-        "first_reverse_contact_mm": 0.15000152587890625,
-        "withdrawal_tests": [
-          {
-            "offset_xy_mm": [
-              0,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.978215356888589,
-              1.9782153568885708
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0.3,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.9782153568885987,
-              1.9782153568885517
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              -0.3,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.978215356888585,
-              1.9782153568885639
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0,
-              0.3
-            ],
-            "catch_contact_mm3": [
-              1.251090356888573,
-              2.736840356888595
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0,
-              -0.3
-            ],
-            "catch_contact_mm3": [
-              2.736840356888608,
-              1.251090356888555
-            ]
-          }
-        ],
-        "spread_catches_release_sweep": [
-          {
-            "key_advance_mm": 0.8,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": 0.3,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": 0,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -1,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -3,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -6,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -10,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -14,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          }
-        ],
-        "insertion_ramp_contact_mm3": 2.5953144404264523
+        "Y_offset_mm": 0.5,
+        "interference_mm3": 0.0
       },
       {
-        "station_y_mm": 225.0,
-        "locked_key_advance_mm": 0.8,
-        "taper_preload_interference_mm3": 0.06159999892463963,
-        "first_reverse_contact_mm": 0.15000152587890625,
-        "withdrawal_tests": [
-          {
-            "offset_xy_mm": [
-              0,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.978215356888568,
-              1.978215356888548
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0.3,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.9782153568885734,
-              1.9782153568885619
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              -0.3,
-              0
-            ],
-            "catch_contact_mm3": [
-              1.9782153568885676,
-              1.9782153568885341
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0,
-              0.3
-            ],
-            "catch_contact_mm3": [
-              1.2510903568885408,
-              2.7368403568886315
-            ]
-          },
-          {
-            "offset_xy_mm": [
-              0,
-              -0.3
-            ],
-            "catch_contact_mm3": [
-              2.736840356888619,
-              1.2510903568885472
-            ]
-          }
-        ],
-        "spread_catches_release_sweep": [
-          {
-            "key_advance_mm": 0.8,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": 0.3,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": 0,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -1,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -3,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -6,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -10,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          },
-          {
-            "key_advance_mm": -14,
-            "released_catch_contact_mm3": [
-              0.0,
-              0.0
-            ]
-          }
-        ],
-        "insertion_ramp_contact_mm3": 2.5953144404264945
+        "Y_offset_mm": 1,
+        "interference_mm3": 0.0
+      },
+      {
+        "Y_offset_mm": 2,
+        "interference_mm3": 0.0
+      },
+      {
+        "Y_offset_mm": 5,
+        "interference_mm3": 0.0
+      },
+      {
+        "Y_offset_mm": 10,
+        "interference_mm3": 0.0
+      },
+      {
+        "Y_offset_mm": 20,
+        "interference_mm3": 0.0
+      },
+      {
+        "Y_offset_mm": 40,
+        "interference_mm3": 0.0
+      },
+      {
+        "Y_offset_mm": 80,
+        "interference_mm3": 0.0
+      },
+      {
+        "Y_offset_mm": 120,
+        "interference_mm3": 0.0
+      },
+      {
+        "Y_offset_mm": 180,
+        "interference_mm3": 0.0
+      },
+      {
+        "Y_offset_mm": 244.0,
+        "interference_mm3": 0.0
+      },
+      {
+        "Y_offset_mm": 246.0,
+        "interference_mm3": 0.0
       }
     ],
-    "socket_clearance_per_side_mm": 0.2,
-    "receiver_skin_mm": 1.8,
-    "nominal_taper_contact_advance_mm": 0.39999999999999997,
-    "catch_nominal_overlap_y_mm": 1.4,
-    "catch_flat_overlap_after_head_chamfer_mm": 0.7999999999999999,
-    "release_spread_each_side_mm": 1.65
+    "unretracted_insertion_contact_mm3": 18.598839999999438,
+    "blocked_locked_motions": {
+      "reverse_slide": {
+        "offset_mm": [
+          0,
+          0.5,
+          0
+        ],
+        "interference_mm3": 1.3622699999999772
+      },
+      "past_end_stop": {
+        "offset_mm": [
+          0,
+          -0.2,
+          0
+        ],
+        "interference_mm3": 19.78948451000905
+      },
+      "pull_apart": {
+        "offset_mm": [
+          -0.5,
+          0,
+          0
+        ],
+        "interference_mm3": 127.93546055119762
+      },
+      "lift_front": {
+        "offset_mm": [
+          0,
+          0,
+          0.5
+        ],
+        "interference_mm3": 1332.958031243794
+      },
+      "lift_rear": {
+        "offset_mm": [
+          0,
+          0,
+          -0.5
+        ],
+        "interference_mm3": 1333.0171812437936
+      }
+    },
+    "first_reverse_contact_mm": 0.15000152587890625,
+    "release_travel_Z_mm": 1.0,
+    "limits": "Sampled rigid clearances; retracted leaf is displaced, not elastically simulated."
   },
-  "latch_screen": {
-    "effective_length_mm": 26.0,
-    "deflection_mm": 1.65,
-    "root_strain_estimate": 0.006590236686390532,
-    "provisional_strain_screen": 0.01,
+  "flat_faces": {
+    "connector_Z_limit_mm": [
+      0,
+      10.0
+    ],
+    "release_button_recess_mm": 0.6,
+    "loose_connector_count": 0
+  },
+  "flexure_screen": {
+    "effective_length_mm": 28.0,
+    "root_strain": 0.003826530612244898,
     "assumed_effective_modulus_MPa": [
       800,
       1800
     ],
-    "predicted_lateral_force_per_arm_N": [
-      0.6569959035047793,
-      1.4782407828857533
+    "lateral_force_N": [
+      1.0204081632653061,
+      2.295918367346939
     ],
-    "limits": "Ideal cantilevers; ignores local contact, fillets, layer defects, wear and creep."
+    "limits": "Assumed modulus and 1% screening ceiling; actual PETG snap action, wear and strength untested.",
+    "retention_load_assumption_N": 20,
+    "retention_modulus_assumption_MPa": 1200,
+    "retention_effective_length_mm": 34.0,
+    "retention_deflection_mm": 0.47745383867832847,
+    "retention_root_strain": 0.008673469387755102
   },
-  "flat_surfaces": {
-    "catch_and_key_z_range_limit_mm": [
-      0,
-      10.0
-    ],
-    "head_depth_below_rear_at_lock_mm": 3.8,
-    "key_tip_below_front_at_lock_mm": 0.19999999999999996,
-    "mechanical_stop_advance_mm": 1.0,
-    "catch_release_side_clearance_mm": 0.35,
-    "catch_floor_gap_mm": 0.40000000000000036
+  "load_screen": {
+    "provisional_book_kg": 3.0,
+    "total_central_load_assumption_N": 40.5,
+    "root_section_modulus_mm3": 925.0,
+    "nominal_root_stress_MPa": 4.378378378378378,
+    "limits": "Solid-section bending estimate only; no print strength rating or safety factor."
   },
-  "tenon_section_screen": [
-    {
-      "x_mm": 0.5,
-      "section_modulus_approx_mm3": 1085.5071880146631,
-      "nominal_stress_at_40_5_N_MPa": 3.7216473963555448
-    },
-    {
-      "x_mm": 10,
-      "section_modulus_approx_mm3": 1064.0958825412135,
-      "nominal_stress_at_40_5_N_MPa": 3.615745595041321
-    },
-    {
-      "x_mm": 17,
-      "section_modulus_approx_mm3": 573.2527073615133,
-      "nominal_stress_at_40_5_N_MPa": 6.464426512796256
-    },
-    {
-      "x_mm": 20,
-      "section_modulus_approx_mm3": 571.0264257805759,
-      "nominal_stress_at_40_5_N_MPa": 6.383242237900628
-    },
-    {
-      "x_mm": 24,
-      "section_modulus_approx_mm3": 575.1823225809437,
-      "nominal_stress_at_40_5_N_MPa": 6.1962961309515014
-    },
-    {
-      "x_mm": 28,
-      "section_modulus_approx_mm3": 594.9201513448062,
-      "nominal_stress_at_40_5_N_MPa": 5.854567192129468
-    },
-    {
-      "x_mm": 31,
-      "section_modulus_approx_mm3": 594.9201513448389,
-      "nominal_stress_at_40_5_N_MPa": 5.752452648080381
-    },
-    {
-      "x_mm": 34,
-      "section_modulus_approx_mm3": 594.9201513444451,
-      "nominal_stress_at_40_5_N_MPa": 5.650338104035358
-    }
-  ],
-  "alternate_parameter_build": {
+  "alternate_build": {
     "parameters": {
       "width": 380,
       "inner_height": 240,
@@ -636,42 +202,29 @@
       "corner_radius": 4.0,
       "outer_bend_radius": 9.0,
       "bed_edge_chamfer": 2.0,
-      "tenon_length": 36.0,
-      "tenon_width": 44,
-      "tenon_thickness": 6.0,
-      "tenon_radius": 1.5,
-      "socket_clearance": 0.2,
-      "tip_clearance": 0.6,
-      "joint_count": 4,
-      "joint_end_margin": 35.0,
-      "slot_width": 8.0,
-      "slot_length": 8.0,
-      "draw_offset": 0.8,
-      "key_side_clearance": 0.15,
-      "key_taper": 0.1,
-      "key_seat_clearance": 0.04,
-      "key_head_half_width": 8.0,
-      "key_lock_advance": 0.8,
-      "latch_axial_clearance": 0.15,
-      "latch_side_gap": 0.5,
-      "latch_overlap": 1.4,
-      "latch_thickness": 1.8,
-      "latch_depth": 6.0,
-      "latch_length": 32.0,
-      "latch_root_fillet": 0.7,
-      "latch_recess_shift": 8.0,
-      "key_head_thickness": 1.4,
-      "head_pocket_depth": 5.4,
-      "latch_pocket_depth": 6.4,
+      "rail_depth": 16.0,
+      "rail_neck": 5.0,
+      "rail_head": 7.0,
+      "shoulder_x": 6.0,
+      "rail_end_margin": 6.0,
+      "rail_clearance": 0.12,
+      "latch_root_x": -18.0,
+      "latch_width": 14.0,
+      "latch_thickness": 2.0,
+      "latch_y": 40.0,
+      "latch_nose_y": 36.0,
+      "latch_shoulder_y": 43.0,
+      "latch_tip_z": 0.6,
+      "catch_clearance": 0.15,
+      "latch_release": 1.0,
       "print_rotation": 30.0,
       "design_book_kg": 3.0
     },
-    "valid": true,
-    "panel_overlap_mm3": 0.0
+    "valid": true
   },
   "source_sha256": {
-    "components.py": "acc32d1493b761641536a99200d8dd215948e88b3eb46cbe8a0b3c113e9739b6",
+    "components.py": "b08991a74618a257e5bdb0af46be140a24c5475e08baabc54b62937a2d25da61",
     "book_reading_plate.py": "ff122dd312b8137faaafb16aacc4fb582bd3e9d9e32d3718ed6a0cfe513aae27",
-    "export_plate.py": "d3d92c451ba35f43e5ff3cd336ac1404128dc09a6ebc11b0394e3cba997c4774"
+    "export_plate.py": "7ec30a215e5fa398acb94ffdc1bea4f5020027d082128a3bf2caf822e338a2aa"
   }
 }
