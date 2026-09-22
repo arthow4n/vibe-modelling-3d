@@ -1,0 +1,20 @@
+{
+  "recorded_date": "2026-09-22",
+  "observed_versions": {
+    "cadquery": "2.8.0",
+    "OCP": "7.9.3.1.1",
+    "python": "3.12.14",
+    "cadquery_mcp_server": "0.2.0",
+    "PrusaSlicer": "2.9.6+flathub.org"
+  },
+  "code_sha256": {
+    "model/book_reading_plate/components.py": "e3b7d72bb4b1a4e9b91e6566df6dc578156a2e51a0abf333d713b2df2f1676ea",
+    "model/book_reading_plate/export_plate.py": "3747335d7c850e94d86c2e00739e4610cbefaa2c2907b8ea0d5511efa89ef232",
+    "model/book_reading_plate/book_reading_plate.py": "ff122dd312b8137faaafb16aacc4fb582bd3e9d9e32d3718ed6a0cfe513aae27",
+    "model/book_reading_plate/verify_exports.py": "2cabe1cb61735ad1502a865f6ee5c0837476a25db091bbcdb61487e765edaab6",
+    "model/book_reading_plate/joint_detail.py": "152226d357db2c59b7de3ae8183475eb1bf2ef5e715c56728fbd71e4f085b081",
+    ".codex/skills/cadquery-3d-design/scripts/check_exports.py": "a0ef34ad37a3ff206fda5972200251d15a3d41b392a3306b678acef8c40bf2f0",
+    ".codex/skills/prusa-slicer-printability/scripts/review_print.py": "4243cbfee94600d5b9f1a325c12243a4f58f717d794dc57209c181bc646618f7",
+    ".codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py": "3c2e2e93aa7e9585895d9f6f9cb19b00c7cf3fc30370ddccac07a76a1d869853"
+  }
+}

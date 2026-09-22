@@ -1,0 +1,240 @@
+{
+  "parameters": {
+    "width": 400.0,
+    "inner_height": 250.0,
+    "inner_lip": 40.0,
+    "wall": 10.0,
+    "corner_radius": 4.0,
+    "outer_bend_radius": 9.0,
+    "bed_edge_chamfer": 2.0,
+    "tenon_length": 36.0,
+    "tenon_width": 46.0,
+    "tenon_thickness": 6.0,
+    "tenon_radius": 1.5,
+    "socket_clearance": 0.2,
+    "tip_clearance": 0.6,
+    "joint_count": 4,
+    "joint_end_margin": 35.0,
+    "slot_width": 8.0,
+    "slot_length": 8.0,
+    "draw_offset": 0.8,
+    "key_side_clearance": 0.15,
+    "key_taper": 0.1,
+    "key_seat_clearance": 0.04,
+    "print_rotation": 30.0,
+    "design_book_kg": 3.0
+  },
+  "print_layouts": {
+    "plate_left": {
+      "size_mm": [
+        133.90192378864668,
+        247.23840175367857,
+        236.0
+      ],
+      "solids": 1,
+      "volume_mm3": 630418.4200288724
+    },
+    "plate_right": {
+      "size_mm": [
+        170.37306695894642,
+        225.40827473475636,
+        200.0
+      ],
+      "solids": 1,
+      "volume_mm3": 548762.3887237465
+    },
+    "locking_keys": {
+      "size_mm": [
+        100.0,
+        13.000000100000001,
+        7.7000002000000025
+      ],
+      "solids": 4,
+      "volume_mm3": 5125.3896899852425
+    },
+    "joint_test": {
+      "size_mm": [
+        89.3205080756888,
+        81.96152432706631,
+        82.0
+      ],
+      "solids": 3,
+      "volume_mm3": 64248.277606096315
+    }
+  },
+  "interfaces": {
+    "panel_insertion_overlap_mm3": {
+      "-36.0": 0.0,
+      "-18.0": 0.0,
+      "-2": 0.0,
+      "0": 0.0
+    },
+    "keys": [
+      {
+        "station_y_mm": 45.0,
+        "free_approach": [
+          {
+            "advance_mm": -12,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": -6,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": -2,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": 0,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": 0.3,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          }
+        ],
+        "overdrive_0_8_mm_contact_volume_mm3": 0.061599999999988636,
+        "male_pullout_0_5_mm_contact_volume_mm3": 8.146599999999589
+      },
+      {
+        "station_y_mm": 105.0,
+        "free_approach": [
+          {
+            "advance_mm": -12,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": -6,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": -2,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": 0,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": 0.3,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          }
+        ],
+        "overdrive_0_8_mm_contact_volume_mm3": 0.0615999999999794,
+        "male_pullout_0_5_mm_contact_volume_mm3": 8.146599999999482
+      },
+      {
+        "station_y_mm": 165.0,
+        "free_approach": [
+          {
+            "advance_mm": -12,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": -6,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": -2,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": 0,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": 0.3,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          }
+        ],
+        "overdrive_0_8_mm_contact_volume_mm3": 0.061599999999985396,
+        "male_pullout_0_5_mm_contact_volume_mm3": 8.146599999999522
+      },
+      {
+        "station_y_mm": 225.0,
+        "free_approach": [
+          {
+            "advance_mm": -12,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": -6,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": -2,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": 0,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          },
+          {
+            "advance_mm": 0.3,
+            "male_overlap_mm3": 0.0,
+            "receiver_overlap_mm3": 0.0
+          }
+        ],
+        "overdrive_0_8_mm_contact_volume_mm3": 0.06159999999996117,
+        "male_pullout_0_5_mm_contact_volume_mm3": 8.146599999999367
+      }
+    ],
+    "socket_clearance_per_side_mm": 0.2,
+    "receiver_skin_mm": 1.8,
+    "nominal_key_contact_advance_mm": 0.39999999999999997
+  },
+  "alternate_parameter_build": {
+    "parameters": {
+      "width": 380,
+      "inner_height": 240,
+      "inner_lip": 35,
+      "wall": 10.0,
+      "corner_radius": 4.0,
+      "outer_bend_radius": 9.0,
+      "bed_edge_chamfer": 2.0,
+      "tenon_length": 36.0,
+      "tenon_width": 44,
+      "tenon_thickness": 6.0,
+      "tenon_radius": 1.5,
+      "socket_clearance": 0.2,
+      "tip_clearance": 0.6,
+      "joint_count": 4,
+      "joint_end_margin": 35.0,
+      "slot_width": 8.0,
+      "slot_length": 8.0,
+      "draw_offset": 0.8,
+      "key_side_clearance": 0.15,
+      "key_taper": 0.1,
+      "key_seat_clearance": 0.04,
+      "print_rotation": 30.0,
+      "design_book_kg": 3.0
+    },
+    "valid": true,
+    "panel_overlap_mm3": 0.0
+  },
+  "source_sha256": {
+    "components.py": "e3b7d72bb4b1a4e9b91e6566df6dc578156a2e51a0abf333d713b2df2f1676ea",
+    "book_reading_plate.py": "ff122dd312b8137faaafb16aacc4fb582bd3e9d9e32d3718ed6a0cfe513aae27",
+    "export_plate.py": "3747335d7c850e94d86c2e00739e4610cbefaa2c2907b8ea0d5511efa89ef232"
+  }
+}

@@ -13,7 +13,7 @@ The skill owns functional design, ergonomics, critical dimensions, mechanisms,
 edge treatment, print planning and physical experiments. This file owns
 repository workflow, tools, ownership, attribution and delivery.
 
-Use **250 × 250 × 250 mm (X × Y × Z)** as the default practical printable
+Use **260 × 260 × 250 mm (X × Y × Z)** as the default practical printable
 envelope and a **0.4 mm nozzle**, unless the user specifies another setup. This
 is the usable design limit, not the printer's physical plate dimensions. Include
 generated brims/supports when checking XY, and check each oriented axis
