@@ -1,8 +1,9 @@
 # Book reading plate — two-piece sliding joint
 
-**Current work: [captured-joint trials](lock_trials/README.md).** The user has paused
-plate development until a joint is selected. The production files below are the
-previous revision; use the new trial files for the next comparison.
+**Current status: [joint structural review failed](lock_trials/STRUCTURAL_REVIEW.md).**
+Plate development remains paused. Neither the legacy plate nor the A/B samples
+have an approved structural joint for the edge-held load case. The files below
+are historical; the recommendation to print the A/B trials is withdrawn.
 
 **Two printed halves, no separate connectors.** One half has a continuous shaped
 tongue; the other has a matching channel with a closed lower end. The tongue

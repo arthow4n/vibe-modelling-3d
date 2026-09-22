@@ -1,13 +1,19 @@
-# Captured joint samples — plate work paused
+# Captured joint samples — structurally rejected
+
+**Do not print these as load-bearing plate trials.** The
+[full-load CAD and structural review](STRUCTURAL_REVIEW.md) rejects both A and B,
+even with solid material assumed. The files below are retained as historical
+evidence, not current print recommendations. A replacement has not been approved.
+
 
 Two **full-scale local joint experiments**, each with two printed parts and no loose
 connector. These replace the uncommitted open-finger A/B/C trials shown earlier.
-They are not yet integrated into the reading plate. **Print at 100% scale.**
+They are not yet integrated into the reading plate. The historical samples use full-scale geometry.
 
 The purpose is to test **bending resistance and positive retention together**.
 Both use the same stopped, captured dovetail and recessed integral catch; they
 compare structural engagement depth, rather than comparing an unretained detent
-with a lock. A is the recommended first print.
+with a lock. The previous recommendation to print A first is withdrawn.
 
 | Sample | Print-ready STL / STEP | Comparison | Reference PETG / time |
 | --- | --- | --- | --- |
@@ -63,7 +69,7 @@ All mechanism parts remain within the 10 mm thickness, including the release
 position. There are no exposed knobs, separate pins or keys. The release pad is
 2.1 mm recessed; its access opening is not a projecting lap-contact feature.
 
-## Printing and comparison
+## Historical printing and comparison instructions — superseded
 
 PETG, 0.4 mm nozzle, supplied standing orientations, 0.20 mm layers, six perimeters,
 six top/bottom layers, 40% gyroid, 4 mm brim. **Enable removable supports everywhere**
@@ -128,7 +134,7 @@ job was sent. [Manifest](notes/evidence_manifest.json) records source/tool hashe
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | Unknown | `A_compact_6mm.stl/.step`, `B_deep_9mm.stl/.step` | New trials; retention, support cleanup, play, bending stiffness and durability untested |
+| Test piece(s) | Unknown | `A_compact_6mm.stl/.step`, `B_deep_9mm.stl/.step` | No print report; rejected by full-load structural screen; do not use for loaded plate |
 | Final printable object(s) | N/A | No revised plate in this experiment | User explicitly paused plate work until choosing the joint |
 
 The user reported printing the preceding sliding-joint design at **50% scale** and
