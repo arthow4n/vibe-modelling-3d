@@ -2,7 +2,7 @@
   "model": "/home/hevar/git/vibe-modelling-3d/model/book_reading_plate/plate_right.stl",
   "profile": "/home/hevar/git/vibe-modelling-3d/model/book_reading_plate/notes/reference_petg.ini",
   "input_sha256": {
-    "model": "d33784b677ffe24696291c60e8e78314ceb49f844e965734641d3deeab823270",
+    "model": "c0c2f291d7079af4e87b4b03ad844a43c1e5119be91f2c0866a86b808911a15a",
     "profile": "1d8c27a4ea1ee3888fda08195d19fd292dea1c63b6d5476e27b2a5f480c2eea0"
   },
   "slicer_help_header": [
@@ -15,15 +15,15 @@
     " --load ABCD         Load configuration from the specified file. It can be used more than once to",
     "                     load options from multiple files."
   ],
-  "gcode_sha256": "f9e9ea8ed263db931d27d7eb04922f7f3944c30bbbd9696a5075534e6bd04d7b",
+  "gcode_sha256": "05f1a1a0009b0b394bd10d8deaace5ba700d9b561e421b1817d133d361bc106c",
   "safe_build_volume_mm": [
     260.0,
     260.0,
     250.0
   ],
   "metadata": {
-    "filament used [g]": "519.92",
-    "estimated printing time (normal mode)": "1d 18h 10m 19s"
+    "filament used [g]": "519.78",
+    "estimated printing time (normal mode)": "1d 19h 0m 56s"
   },
   "xy_bounds_including_half_width_mm": [
     42.681999999999995,

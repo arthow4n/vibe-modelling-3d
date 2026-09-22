@@ -6,4 +6,4 @@ result = cq.Compound.makeCompound([
     left.translate((-22,0,0)).val(),
     right.translate((22,0,0)).val(),
     locking_key.translate((22,-46,-8)).val(),
-])
+]).rotate((0,0,0),(1,0,0),180)

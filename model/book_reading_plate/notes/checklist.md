@@ -1,11 +1,10 @@
-# Reading plate work checklist
+# Recessed captive-key revision checklist
 
-- [x] Confirm requirements, PETG, fully printed assembly, 260 × 260 × 250 mm envelope, and MCP tool.
-- [x] Establish lap use and occasional support at outer sides; provisional 3 kg design load, not a tested rating.
-- [x] Plan full-size single-joint coupon, identical interface and print axes.
-- [x] Build and inspect geometry, insertion, key engagement and force path.
-- [x] Verify component bounds, manufacturing details, useful alternate parameters and assembled interfaces.
-- [x] Export and independently verify matching STEP/STL pairs.
-- [x] Smoke slice final layouts and resolve manufacturing concerns.
-- [x] Save final views, instructions, assumptions, print status and provenance; update index.
-- [ ] Review, commit and push (completion reported at handoff, not pre-recorded here).
+- [x] Confirm user requirements: inserts stay attached during carrying/inversion; no connectors project from either broad face; PETG and fully printed assembly.
+- [x] Replace friction-only retention with two integral recessed catches; preserve full mechanism in coupon.
+- [x] Check insertion, mechanical retention, deliberate release, head depth stop and flat surface envelope.
+- [x] Screen flexure strain/effort and actual relieved tenon sections; record physical uncertainty.
+- [x] Evaluate CAD and independently verify final STEP/STL pairs.
+- [x] Resolve final slice notices and retain matching reports.
+- [x] Finalize views, instructions, evidence and print-status index.
+- [ ] Review, commit and push (completion reported at handoff).

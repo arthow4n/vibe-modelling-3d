@@ -2,7 +2,6 @@
 Print/export entry point: export_plate.py. X=book width, Y=height, Z=front.
 """
 from dataclasses import dataclass
-import math
 import cadquery as cq
 
 
@@ -29,6 +28,19 @@ class Parameters:
     key_side_clearance: float = 0.15
     key_taper: float = 0.10         # X width gain per mm of insertion (5.71 degrees)
     key_seat_clearance: float = 0.04
+    key_head_half_width: float = 8.0
+    key_lock_advance: float = 0.8
+    latch_axial_clearance: float = 0.15
+    latch_side_gap: float = 0.5
+    latch_overlap: float = 1.4
+    latch_thickness: float = 1.8
+    latch_depth: float = 6.0
+    latch_length: float = 32.0
+    latch_root_fillet: float = 0.7
+    latch_recess_shift: float = 8.0
+    key_head_thickness: float = 1.4
+    head_pocket_depth: float = 5.4
+    latch_pocket_depth: float = 6.4
     print_rotation: float = 30.0
     design_book_kg: float = 3.0
 
@@ -96,12 +108,96 @@ def slot(station, p=P, male=False):
             .extrude(p.wall+2))
 
 
+def retaining_clip(station, side, p=P, released=False):
+    """Rear catch, integral with receiver. Deflection/release is outward in Y.
+    Printing rises toward decreasing X; root and hook have 45-degree growth ramps.
+    released=True rigidly shifts the free clip outward for clearance checks only;
+    it is not a deformation simulation and is never part of an exported panel.
+    """
+    tip = p.slot_x-2.0
+    root = tip+p.latch_length
+    inner = p.key_head_half_width+p.latch_side_gap
+    outer = inner+p.latch_thickness
+    rear, front = -8.0, -8.0+p.latch_depth
+    catch_z = -5.0+p.key_lock_advance-p.latch_axial_clearance
+    hook_y = p.key_head_half_width-p.latch_overlap
+    beam = (cq.Workplane('XY').box(p.latch_length,p.latch_thickness,p.latch_depth)
+            .translate(((tip+root)/2,(inner+outer)/2,(rear+front)/2)).edges('|X').fillet(0.4))
+    # Anchor starts at the back face and grows out by one mm per printed mm.
+    anchor_profile = [(root,-8),(root+8,0),(root+8,2),(root-1,2),(root-1,-8)]
+    anchor = (cq.Workplane('XZ',origin=(0,outer+2,0)).polyline(anchor_profile).close()
+              .extrude(p.latch_thickness+4))
+    triangle = [(inner,-7.0),(hook_y,catch_z),(inner,catch_z)]
+    hook = cq.Workplane('YZ',origin=(tip,0,0)).polyline(triangle).close().extrude(8)
+    roof = [(tip,hook_y),(tip+8-(inner-hook_y),hook_y),
+            (tip+8,inner),(tip+8,outer),(tip,outer)]
+    ramp = cq.Workplane('XY',origin=(0,0,-9)).polyline(roof).close().extrude(9)
+    free = beam.union(hook.intersect(ramp))
+    clip = free.union(anchor)
+    # Round the two vertical, concave beam-root edges; preserve the square catch face.
+    roots = [e for e in clip.edges('|Z').vals()
+             if abs(e.Center().x-(root-1))<1e-5
+             and (abs(e.Center().y-inner)<1e-5 or abs(e.Center().y-outer)<1e-5)]
+    if roots:
+        clip = clip.newObject(roots).fillet(p.latch_root_fillet)
+    if released:
+        clip = clip.translate((0,p.latch_overlap+0.25,0))
+    if side < 0:
+        clip = clip.mirror('XZ')
+    return clip.translate((0,station,p.latch_recess_shift))
+
+
+def receiver_clips(station, p=P, released=False):
+    return [retaining_clip(station,sign,p,released) for sign in (-1,1)]
+
+
+def latch_pockets(station, p=P):
+    """Recesses keep all catches/head below the flat rear face, Z=0.
+    The head recess is also the insertion-depth stop. Two wider side channels
+    provide room to spread the catch tips without protruding from the plate.
+    """
+    head_x=p.slot_length+p.slot_width+3+0.5
+    head_y=2*p.key_head_half_width+0.5
+    pocket=(cq.Workplane('XY').box(head_x,head_y,p.head_pocket_depth+1)
+            .translate((p.slot_x,station,(p.head_pocket_depth-1)/2))
+            .edges('|Z').fillet(2.25))
+    # Rounded, 0.6 mm bevel at the accessible pocket rim.
+    lead=(cq.Workplane('XY').box(head_x+1.2,head_y+1.2,1.6)
+          .translate((p.slot_x,station,-0.2)).edges('|Z').fillet(2.85)
+          .faces('>Z').edges().chamfer(0.6))
+    pocket=pocket.union(lead)
+    for sign in (-1,1):
+        x0=p.slot_x-4.0
+        x1=p.slot_x-2.0+p.latch_length+0.5
+        y0=p.key_head_half_width-p.latch_overlap-0.8
+        y1=p.key_head_half_width+p.latch_side_gap+p.latch_thickness+p.latch_overlap+0.6
+        channel=(cq.Workplane('XY').box(x1-x0,y1-y0,p.latch_pocket_depth+1)
+                 .translate(((x0+x1)/2,station+sign*(y0+y1)/2,(p.latch_pocket_depth-1)/2))
+                 .edges('|Z').fillet(1.0))
+        mouth=(cq.Workplane('XY').box(x1-x0+1.2,y1-y0+1.2,1.6)
+               .translate(((x0+x1)/2,station+sign*(y0+y1)/2,-0.2))
+               .edges('|Z').fillet(1.6).faces('>Z').edges().chamfer(0.6))
+        pocket=pocket.union(channel).union(mouth)
+    return pocket
+
+
 def halves(p=P):
     validate(p)
     left, right = base_half(-1,p), base_half(1,p)
     for y in p.stations:
         left = left.union(tenon(y,p)).cut(slot(y,p,male=True))
         right = right.cut(tenon(y,p,p.socket_clearance)).cut(slot(y,p))
+        recess=latch_pockets(y,p)
+        left=left.cut(recess)
+        # Keep the rear relief open through the tenon tip: closing it again at
+        # the pocket end would grow a 3.4 mm unsupported ledge in the standing print.
+        entry=(cq.Workplane('XY').box(p.tenon_length+1-p.slot_x,
+                                     2*p.key_head_half_width+0.5,p.head_pocket_depth+1)
+               .translate(((p.tenon_length+1+p.slot_x)/2,y,(p.head_pocket_depth-1)/2)))
+        left=left.cut(entry)
+        right=right.cut(recess)
+        for clip in receiver_clips(y,p):
+            right = right.union(clip)
     return left, right
 
 
@@ -112,18 +208,19 @@ def key(station=0.0, p=P):
     """
     hy = p.slot_width/2-p.key_side_clearance
     left = p.slot_x-p.slot_length/2 - p.key_side_clearance
-    contact_z = (p.wall-p.tenon_thickness)/2
+    contact_z = p.head_pocket_depth
     right_at_contact = (p.slot_x-p.draw_offset+p.slot_length/2
                         +p.key_side_clearance-p.key_seat_clearance)
     def section(z):
         right = right_at_contact - p.key_taper*(z-contact_z)
         return hex_outline(left,right,hy)
-    z0, z1 = -2.0, p.wall-2.0
+    head_rear = -5.0+p.latch_recess_shift
+    z0, z1 = head_rear+p.key_head_thickness, p.wall-1.0
     shaft = (cq.Workplane('XY',origin=(0,station,z0)).polyline(section(z0)).close()
              .workplane(offset=z1-z0).polyline(section(z1)).close().loft(ruled=True))
-    head = (cq.Workplane('XY').box(p.slot_length+p.slot_width+3,2*hy,3)
-            .translate((p.slot_x,station,z0-1.5)).edges('|Z').fillet(2)
-            .faces('<Z').edges().fillet(1))
+    head = (cq.Workplane('XY').box(p.slot_length+p.slot_width+3,2*p.key_head_half_width,p.key_head_thickness)
+            .translate((p.slot_x,station,head_rear+p.key_head_thickness/2)).edges('|Z').fillet(2)
+            .faces('<Z').edges().chamfer(0.6))
     return shaft.union(head)
 
 
@@ -140,8 +237,8 @@ def print_half(shape, side, p=P):
 
 
 def print_key(shape):
-    # Broad flat Y side down, taper/force axis in the layer plane.
-    return on_bed(shape.rotate((0,0,0),(1,0,0),90))
+    # Enlarged head on bed; shaft narrows upward, with no floating starts.
+    return on_bed(shape)
 
 
 def coupon(p=P):
@@ -149,11 +246,11 @@ def coupon(p=P):
     l,r = halves(p)
     y = p.stations[1]
     width = p.tenon_width+14
-    crop = cq.Workplane('XY').box(108,width,p.wall+2).translate((8,y,p.wall/2))
+    crop = cq.Workplane('XY').box(108,width,p.wall+12).translate((8,y,(p.wall-8)/2))
     l, r = l.intersect(crop), r.intersect(crop)
     return l,r,key(y,p)
 
 
 def assembled(p=P):
     l,r = halves(p)
-    return cq.Compound.makeCompound([l.val(),r.val()]+[key(y,p).val() for y in p.stations])
+    return cq.Compound.makeCompound([l.val(),r.val()]+[key(y,p).translate((0,0,p.key_lock_advance)).val() for y in p.stations])

@@ -8,13 +8,22 @@
     "PrusaSlicer": "2.9.6+flathub.org"
   },
   "code_sha256": {
-    "model/book_reading_plate/components.py": "e3b7d72bb4b1a4e9b91e6566df6dc578156a2e51a0abf333d713b2df2f1676ea",
-    "model/book_reading_plate/export_plate.py": "3747335d7c850e94d86c2e00739e4610cbefaa2c2907b8ea0d5511efa89ef232",
+    "model/book_reading_plate/print_preview.py": "9c7d92ccb4f99ab9ff317226ff011f696d8f378f1f476c13dfde073725148405",
+    "model/book_reading_plate/components.py": "acc32d1493b761641536a99200d8dd215948e88b3eb46cbe8a0b3c113e9739b6",
+    "model/book_reading_plate/joint_locked.py": "4b3c2a7e86cd495a7e2c74745fb89888664140d99b7b9e44ce0c86413873affb",
+    "model/book_reading_plate/export_plate.py": "d3d92c451ba35f43e5ff3cd336ac1404128dc09a6ebc11b0394e3cba997c4774",
     "model/book_reading_plate/book_reading_plate.py": "ff122dd312b8137faaafb16aacc4fb582bd3e9d9e32d3718ed6a0cfe513aae27",
-    "model/book_reading_plate/verify_exports.py": "2cabe1cb61735ad1502a865f6ee5c0837476a25db091bbcdb61487e765edaab6",
-    "model/book_reading_plate/joint_detail.py": "152226d357db2c59b7de3ae8183475eb1bf2ef5e715c56728fbd71e4f085b081",
+    "model/book_reading_plate/verify_exports.py": "9ab1974817d4c3afc591d870b579ab722ded891ee32d6bf7d200319cbf3b5145",
+    "model/book_reading_plate/joint_detail.py": "ded2ca8f36728be92040d48ce8fa1aedb824ab64aca99297459b40c337c1d4ea",
     ".codex/skills/cadquery-3d-design/scripts/check_exports.py": "a0ef34ad37a3ff206fda5972200251d15a3d41b392a3306b678acef8c40bf2f0",
     ".codex/skills/prusa-slicer-printability/scripts/review_print.py": "4243cbfee94600d5b9f1a325c12243a4f58f717d794dc57209c181bc646618f7",
     ".codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py": "3c2e2e93aa7e9585895d9f6f9cb19b00c7cf3fc30370ddccac07a76a1d869853"
+  },
+  "revision": "Recessed captive keys; no connector projections from either broad face",
+  "slice_reports": {
+    "plate_left": "notes/flush_final_plate_left/summary.json",
+    "plate_right": "notes/flush_plate_right/summary.json",
+    "locking_keys": "notes/flush_locking_keys/summary.json",
+    "joint_test": "notes/flush_final_joint_test/summary.json"
   }
 }

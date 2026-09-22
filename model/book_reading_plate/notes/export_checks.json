@@ -15,7 +15,7 @@
           247.23840175367,
           236.0
         ],
-        "volume_mm3": 630418.4200269985
+        "volume_mm3": 622803.1910992515
       }
     ],
     "stl_components": [
@@ -28,8 +28,8 @@
           247.23805236816406,
           236.0
         ],
-        "volume_mm3": 630412.9386661384,
-        "triangles": 5158
+        "volume_mm3": 622797.7491470098,
+        "triangles": 9190
       }
     ],
     "component_assignment": [
@@ -38,8 +38,8 @@
         0
       ]
     ],
-    "STEP_sha256": "6b84adb4e016f370bfda6c975f6f207d1668e8462ef0da5b7bdbf4c0ecc0544a",
-    "STL_sha256": "4bfcb09fc8ce238bb4f5cb4c7e13e30f5759995688d74b87782fa066c7c681e7",
+    "STEP_sha256": "58235c13a2cd8cad8ca60a6406a4419fa77162fb725dbea93fcd67acb7884968",
+    "STL_sha256": "f06c9fc9566441ce634bcee9f2c23b9f0518935c22922d38dcff39b4320c8e1a",
     "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation."
   },
   "plate_right": {
@@ -58,7 +58,7 @@
           225.40827473475,
           200.0
         ],
-        "volume_mm3": 548762.3887255021
+        "volume_mm3": 544183.6220194648
       }
     ],
     "stl_components": [
@@ -71,8 +71,8 @@
           225.40792846679688,
           200.0
         ],
-        "volume_mm3": 548757.5038591168,
-        "triangles": 5270
+        "volume_mm3": 544178.7381065177,
+        "triangles": 88670
       }
     ],
     "component_assignment": [
@@ -81,8 +81,8 @@
         0
       ]
     ],
-    "STEP_sha256": "dc9b8e0359078f1ab5f0b25376a979c027e87824ed02830fc530e0e70f2990f8",
-    "STL_sha256": "d33784b677ffe24696291c60e8e78314ceb49f844e965734641d3deeab823270",
+    "STEP_sha256": "b83f8302d847cb85a271039218aae95d38bfb541dd28e5e694be0285f9a8b2fc",
+    "STL_sha256": "c0c2f291d7079af4e87b4b03ad844a43c1e5119be91f2c0866a86b808911a15a",
     "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation."
   },
   "locking_keys": {
@@ -94,97 +94,97 @@
     "step_components": [
       {
         "bounds_mm": [
-          0.0,
-          -1.0351858581355558e-15,
-          -1.6366000029933167e-16,
+          -5.551115123125783e-17,
+          -5.551115123125783e-17,
+          -3.885780586188048e-16,
           19.0,
-          13.0000001,
-          7.7000002
+          16.0,
+          6.0000001
         ],
-        "volume_mm3": 1281.347422496319
+        "volume_mm3": 805.032766820592
       },
       {
         "bounds_mm": [
           27.0,
-          -1.0351858581355558e-15,
-          -1.4959255122671514e-15,
+          -5.551115123125783e-17,
+          -2.1649348980190553e-15,
           46.0,
-          13.0000001,
-          7.700000200000002
+          16.0,
+          6.0000001
         ],
-        "volume_mm3": 1281.3474224963193
+        "volume_mm3": 805.0327668205917
       },
       {
         "bounds_mm": [
           54.0,
-          -1.0351858581355558e-15,
-          -1.4959255122671514e-15,
+          -5.551115123125783e-17,
+          2.220446049250313e-16,
           73.0,
-          13.0000001,
-          7.700000200000004
+          16.0,
+          6.0000001
         ],
-        "volume_mm3": 1281.3474224963188
+        "volume_mm3": 805.0327668205919
       },
       {
         "bounds_mm": [
           81.0,
-          -1.0351858581355558e-15,
-          -1.6366000029933167e-16,
+          -5.551115123125783e-17,
+          1.3877787807814457e-15,
           100.0,
-          13.0000001,
-          7.700000200000004
+          16.0,
+          6.0000001
         ],
-        "volume_mm3": 1281.3474224963197
+        "volume_mm3": 805.0327668205919
       }
     ],
     "stl_components": [
       {
         "bounds_mm": [
           0.0,
-          1.0000000116860974e-07,
-          1.0000000116860974e-07,
+          0.0,
+          0.0,
           19.0,
-          13.0,
-          7.700000286102295
+          16.0,
+          6.0
         ],
-        "volume_mm3": 1281.3287358992102,
-        "triangles": 13796
+        "volume_mm3": 805.0258874169751,
+        "triangles": 1460
       },
       {
         "bounds_mm": [
           27.0,
-          1.0000000116860974e-07,
-          1.0000000116860974e-07,
+          0.0,
+          0.0,
           46.0,
-          13.0,
-          7.700000286102295
+          16.0,
+          6.0
         ],
-        "volume_mm3": 1281.3288307775686,
-        "triangles": 13796
+        "volume_mm3": 805.0259108839529,
+        "triangles": 1460
       },
       {
         "bounds_mm": [
           54.0,
-          1.0000000116860974e-07,
-          1.0000000116860974e-07,
+          0.0,
+          0.0,
           73.0,
-          13.0,
-          7.700000286102295
+          16.0,
+          6.0
         ],
-        "volume_mm3": 1281.328684016528,
-        "triangles": 13796
+        "volume_mm3": 805.0259860797687,
+        "triangles": 1460
       },
       {
         "bounds_mm": [
           81.0,
-          1.0000000116860974e-07,
-          1.0000000116860974e-07,
+          0.0,
+          0.0,
           100.0,
-          13.0,
-          7.700000286102295
+          16.0,
+          6.0
         ],
-        "volume_mm3": 1281.32868202895,
-        "triangles": 13796
+        "volume_mm3": 805.025985902249,
+        "triangles": 1460
       }
     ],
     "component_assignment": [
@@ -205,8 +205,8 @@
         3
       ]
     ],
-    "STEP_sha256": "b6c8a121cd7e5c6a942fdef2925b85f44d7f3af66db768522059ee4829870a6a",
-    "STL_sha256": "19e481787b597cddd361135561fc63cdd668d3f3ba14e4c9b51acff78c0ab026",
+    "STEP_sha256": "c81f991391768f445100bc67d5e9fd7c0729cec3f5e9cc119b3cb4f56938b464",
+    "STL_sha256": "8b3bc27b000d619234defaf4100086c02994b9e278572e88908f262f50ac9c8d",
     "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation."
   },
   "joint_test": {
@@ -219,13 +219,13 @@
       {
         "bounds_mm": [
           7.40340634257686e-15,
-          -2.1662671656486054e-12,
+          -3.8973269056441495e-12,
           0.0,
-          38.66025403784425,
-          56.96152422706666,
+          38.66025403784525,
+          56.96152422706601,
           82.0
         ],
-        "volume_mm3": 36890.46900487133
+        "volume_mm3": 34986.66177293551
       },
       {
         "bounds_mm": [
@@ -236,18 +236,18 @@
           56.961524227079494,
           62.0
         ],
-        "volume_mm3": 26076.461178777037
+        "volume_mm3": 24931.769501580704
       },
       {
         "bounds_mm": [
-          0.0,
-          68.96152422706601,
-          -5.936819993047942e-15,
+          -5.551115123125783e-17,
+          68.961524227066,
+          -7.771561172376096e-16,
           19.0,
-          81.961524327066,
-          7.7000002
+          84.961524227066,
+          6.0000001
         ],
-        "volume_mm3": 1281.34742249632
+        "volume_mm3": 805.032766820592
       }
     ],
     "stl_components": [
@@ -260,8 +260,8 @@
           56.961524963378906,
           82.0
         ],
-        "volume_mm3": 36890.40708514182,
-        "triangles": 696
+        "volume_mm3": 34986.608662595085,
+        "triangles": 1704
       },
       {
         "bounds_mm": [
@@ -272,20 +272,20 @@
           56.961524963378906,
           62.0
         ],
-        "volume_mm3": 26076.54640425387,
-        "triangles": 724
+        "volume_mm3": 24931.86605939894,
+        "triangles": 21574
       },
       {
         "bounds_mm": [
           0.0,
           68.9615249633789,
-          9.999999406318238e-08,
+          0.0,
           19.0,
-          81.9615249633789,
-          7.700000286102295
+          84.9615249633789,
+          6.0
         ],
-        "volume_mm3": 1281.328699659255,
-        "triangles": 13796
+        "volume_mm3": 805.025729684394,
+        "triangles": 1460
       }
     ],
     "component_assignment": [
@@ -302,8 +302,26 @@
         2
       ]
     ],
-    "STEP_sha256": "3a1e5bba8bd57b63e56e4a59825c0181d87b8c1de4dca5c7c52ccb1826ca56da",
-    "STL_sha256": "445b2757710dbedb37b54dff9c65cad23a60285b77d91956876f8573464c9177",
+    "STEP_sha256": "ce3d9baa260ad8ff5feea9de2e27999228315255d49103da94e9c136c920ad12",
+    "STL_sha256": "f357b316fd2f1ee9f5853b25f25a70e878a4b22fc026bcb39cadb86708e2aa39",
     "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation."
-  }
+  },
+  "assembled_depth_stop": [
+    {
+      "tip_z_at_stop_mm": 10.0000001,
+      "overtravel_0_05_mm_contact_volume_mm3": 7.504219449019375
+    },
+    {
+      "tip_z_at_stop_mm": 10.0000001,
+      "overtravel_0_05_mm_contact_volume_mm3": 7.504219449019882
+    },
+    {
+      "tip_z_at_stop_mm": 10.0000001,
+      "overtravel_0_05_mm_contact_volume_mm3": 7.504219449019267
+    },
+    {
+      "tip_z_at_stop_mm": 10.0000001,
+      "overtravel_0_05_mm_contact_volume_mm3": 7.504219449018645
+    }
+  ]
 }

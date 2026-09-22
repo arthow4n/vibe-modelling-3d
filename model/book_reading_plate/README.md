@@ -1,187 +1,191 @@
-# Book reading plate
+# Book reading plate — recessed, captive keys
 
-A 400 mm wide L-shaped platform for an open book, mostly supported on a lap.
-The inside dimensions are 250 mm along the back and 40 mm along the lip, with
-10 mm walls extending outward. Two PETG halves connect with four internal tenons
-and four tapered, entirely printed draw keys. No glue, metal hardware or book
-catch is required. The original retaining lip remains part of the L.
+A 400 mm wide PETG L-shaped platform for an open book. Inside dimensions are
+250 mm along the back and 40 mm along the lip, with 10 mm walls extending outward.
+Two halves join through four internal tenons and four printed tightening keys.
 
-![Assembled reading surface](renders/assembled/book_reading_plate_isometric.png)
+**No connector projects from either broad face.** The rear contains rounded
+assembly/release recesses; it is not an uninterrupted sheet, but has no raised
+key heads, catches or hardware against your lap. All connectors stay inside the
+10 mm wall. The L itself measures 400 × 260 × 50 mm overall.
 
-## Files and first print
+## How the keys stay in
 
-**Print `joint_test.stl` first.** It contains two test blocks and one full-size
-locking key. The complete plate is also supplied; the sample is an economical
-fit test, not a substitute for the finished design.
+![Rear view of a locked, recessed joint](renders/assembled/joint_locked_isometric.png)
+
+Two flexible catches are printed **as part of the right half** at each joint.
+Push the key into its rear recess until both catches snap behind its enlarged
+head. Their flat shoulders block backward travel. The key's shaft and the
+surrounding socket constrain sideways movement; its head stops forward travel.
+Tilting or inverting the plate does not provide an unlocked escape direction.
+The taper tightens the seam; **retention does not depend on taper friction**.
+
+The key head sits 3.8 mm below the rear face. At the nominal locked position its
+tip is 0.2 mm below the front face. A head-to-pocket depth stop limits further
+insertion so the tip cannot project beyond the front plane. Catch surfaces are
+at or below the rear plane. The pocket rims have 0.6 mm bevels and rounded corners.
+The main exposed plate edges retain 4 mm radii and the outside L elbow a 9 mm
+radius. Bed-contact end edges use a printable 2 mm chamfer.
+
+To remove a key deliberately, unload the plate, spread **both** recessed catch
+tips outward, and push the key backward using its front access hole. Fingernails
+or blunt tools may be needed for the recessed release access. Do not pry the
+head out against engaged catches. The key is loose only after intentional release.
+
+This revision replaces the friction-only keys in commit `e7fd4d2`. Both plate
+halves, keys and test piece have changed: use the current matching set. No print
+or functional-test result has been reported for either revision.
+
+## Files and recommended first print
+
+**Print [joint_test.stl](joint_test.stl) first.** It contains two cropped blocks
+and one full-size key. The complete plate is supplied alongside it.
 
 | File | Purpose / quantity | Print orientation bounds, mm |
 | --- | --- | --- |
-| [joint_test.stl](joint_test.stl) / [STEP](joint_test.step) | One test assembly; three pieces | 89.32 × 81.96 × 82 |
-| [plate_left.stl](plate_left.stl) / [STEP](plate_left.step) | One male half with four tenons | 133.90 × 247.24 × 236 |
-| [plate_right.stl](plate_right.stl) / [STEP](plate_right.step) | One female half with sockets | 170.37 × 225.41 × 200 |
-| [locking_keys.stl](locking_keys.stl) / [STEP](locking_keys.step) | Four identical keys, already laid out | 100 × 13 × 7.70 |
-| [book_reading_plate_assembled.step](book_reading_plate_assembled.step) | Assembly inspection only; do not slice | 400 × 260 × 55, including rear keys |
+| [joint_test.stl](joint_test.stl) / [STEP](joint_test.step) | One complete test joint; three pieces | 89.32 × 84.96 × 82 |
+| [plate_left.stl](plate_left.stl) / [STEP](plate_left.step) | One male half | 133.90 × 247.24 × 236 |
+| [plate_right.stl](plate_right.stl) / [STEP](plate_right.step) | One receiving half with integral catches | 170.37 × 225.41 × 200 |
+| [locking_keys.stl](locking_keys.stl) / [STEP](locking_keys.step) | Four recessed keys, already laid out | 100 × 16 × 6 |
+| [book_reading_plate_assembled.step](book_reading_plate_assembled.step) | Assembly inspection only; do not slice | 400 × 260 × 50 |
 
-Matching STEP/STL pairs have identical millimetre placement. Keep the supplied
-orientations and relative part positions; center each layout on the bed.
-The left and right halves are separate print jobs. Main source parameters and
-builders are in [components.py](components.py).
-[book_reading_plate.py](book_reading_plate.py) evaluates the assembled pose;
-[export_plate.py](export_plate.py) creates all production/test exports and runs
-interface checks; [verify_exports.py](verify_exports.py) independently checks
-the exported pairs. Evaluate these entry points with the CadQuery MCP tool.
-[joint_detail.py](joint_detail.py) is an exploded illustration only.
+Matching STEP/STL pairs use millimetres and identical placement. Keep the supplied
+orientations and relative positions, and center each layout on the bed. Each
+plate half is its own print job. The print-layout files do not contain assembled
+or display-only geometry.
 
-## Print settings
+The authoritative parameters/builders are in [components.py](components.py).
+[book_reading_plate.py](book_reading_plate.py) shows the assembly;
+[export_plate.py](export_plate.py) builds exports and interface checks;
+[verify_exports.py](verify_exports.py) independently checks the saved files.
+Use the CadQuery MCP evaluator for these entry points.
+[joint_locked.py](joint_locked.py) and [joint_detail.py](joint_detail.py) provide
+rear inspection views. [print_preview.py](print_preview.py) reads the exported
+coupon STEP for its print-layout illustration.
+
+## Printing and the physical trial
 
 Confirmed material: **PETG**, 0.4 mm nozzle, **260 × 260 × 250 mm** usable envelope.
-Starting settings: 0.20 mm layers, six perimeters, six top/bottom layers,
-40% gyroid infill, 4 mm outer brim, and supports off. Use the same settings and
-filament for the test and full joint. Use your calibrated PETG temperatures;
-the saved reference profile uses 240 °C nozzle / 80 °C bed as diagnostic values.
-Use the printer's own machine profile, start code and end code.
+Reference settings: 0.20 mm layers, six perimeters, six top/bottom layers,
+40% gyroid infill, 4 mm outer brim, supports off. Use the same material and
+settings for the sample and the production joints. Use your calibrated PETG
+and machine settings; the saved profile's 240 °C nozzle / 80 °C bed and timing
+are diagnostic assumptions, not an identified printer's validated job.
 
-Both halves stand on their outside edges, with the joints upward. Their L-shaped
-feet are rotated 30° on the bed. The 2 mm chamfer on each bed-contact perimeter
-replaces a lower fillet to avoid a steep first-layer overhang. The main curved
-edges use 4 mm radii and the outside L elbow uses a 9 mm radius. Contact dimensions
-refer to the theoretical inner corner and extremities; rounded transitions
-shorten the perfectly flat portions. Joint corners use 1.5 mm radii, and key
-heads use 2 mm corners and a 1 mm exposed-edge fillet. Mating seam faces remain
-flat so they can clamp together.
+Both halves stand on their outside ends with the joints upward, rotated 30°
+on the bed. The L-shaped feet and brim support the tall prints. Keys print with
+the broad head down. Socket openings face upward, key holes have 45° roofs,
+and catch roots/hooks grow through sloped transitions. The male rear relief
+opens through the tenon tip, avoiding an unsupported closing ledge. The 1.8 mm
+catch arms have rounded roots/edges and clearance for outward release movement.
+Do not change orientation without reassessing fit surfaces and overhangs.
 
-The standing orientation leaves every socket open upward. The key holes have
-45° roofs in the panel print orientation. Each loose key lies on its broad flat
-side; its force path runs mainly within layers. The panels bend across layers
-when supported only at the outer sides, so good layer bonding matters. These
-are tall prints: keep the brim and use sensible acceleration for your printer.
-Do not rotate a panel flat without reassessing supports and fit surfaces.
+The arms bend across printed layers in this panel orientation. The coupon is
+therefore important for layer bonding, actual flexure and release effort. The
+smallest designed catch floor gap is 0.4 mm; check it is clear after printing.
+The production catches' full lengths, recesses, keys, clearances and print axes are
+reproduced in the full-size single-joint coupon (one pair of catches).
 
-| Reference estimate | PETG including brim | Print time |
+1. Remove brim/strings and check the sockets and catch recesses for debris.
+   Slide the test blocks together until the seam closes. Tenon fit clearance
+   is 0.20 mm per side, with 0.60 mm tip clearance.
+2. Insert the key from the rear, narrow tip first. Its tapered flank faces away
+   from the seam. Press until **both hooks visibly return over the head**; this
+   is the locked state. Do not leave the key merely friction-seated partway.
+3. Invert, shake gently over a tray, pull at the key with a fingernail, and twist
+   the blocks. The key should stay captured and the seam should have no noticeable
+   rocking. Check for whitening, cracks, incomplete hook return or a fused arm.
+4. Release deliberately, repeat several times, and recheck after an overnight
+   assembled hold. Confirm the catches remain engaged without continued bending
+   and that the rear/front feel flush. If the taper is too tight to reach the
+   locked position, adjust `key_seat_clearance` in small 0.02 mm steps and retest;
+   increasing it reduces taper interference. If loose, decrease it. This parameter
+   changes tightening fit without changing the catch/head engagement dimensions.
+   For a binding tenon, inspect debris first, then adjust `socket_clearance`.
+5. Assemble the full plate with all four keys fully locked. Gradually test the
+   intended book on your lap or a low padded surface, then with both outer sides
+   supported. Do not infer full-plate strength from a successful snap test.
+
+The coupon tests local fit, snap engagement, key retention, release and repeatability.
+It does not establish full-plate sag, tall-print accuracy, four-joint alignment,
+long-term creep, fatigue or strength. Physical retention depends on the catches
+printing intact and springing back; no physical result is claimed from CAD alone.
+
+## Verification and remaining limits
+
+The user specified lap use and occasional support at both outer sides, not use
+above the face. Book weight was unspecified: **3 kg remains a provisional design
+scenario, not a tested load rating**. The approximately 1.1 kg printed plate adds
+to that load. No cantilever, impact or person-support load is qualified.
+
+Final CAD checks use CadQuery 2.8.0, OCP 7.9.3.1.1, Python 3.12.14, MCP server 0.2.0:
+
+- Two valid panel solids plus four keys; three separate solids in the coupon.
+- Printable layouts fit the envelope and meet the bed; every assembled catch/key
+  stays within Z=0–10 mm. The head's depth stop also keeps the tip within that range.
+- Panel insertion has no interference at the recorded 36, 18, 2 and 0 mm offsets.
+- Seated keys clear the catches. Actual shape intersection places first reverse
+  contact at about **0.150 mm**. A 0.5 mm withdrawal intersects both catches, including
+  tests shifted ±0.3 mm along either lateral axis.
+- Spreading each catch outward 1.65 mm clears the sampled removal path. This is a
+  rigid clearance check, not a deformation simulation. The pocket provides at least
+  0.35 mm nominal lateral margin at that release displacement.
+- The nominal locked taper has 0.062 mm³ interference with its tenon, deliberately
+  representing a small physical preload. CAD does not establish seating force.
+- Conservative cantilever screening uses 26 mm effective length, 1.8 mm thickness,
+  6 mm depth and 1.65 mm lateral displacement: approximately **0.66% root strain**
+  and 0.66–1.48 N lateral force per arm for an assumed effective modulus of
+  800–1800 MPa. The 1% strain screen is a provisional design choice, not a measured
+  PETG limit. Local stress, anisotropy, wear and creep still require the sample.
+- The recesses reduce the tenon section. Actual 1 mm CAD slabs at eight positions
+  give about **6.5 MPa maximum sampled nominal bending stress** for a 40.5 N central
+  load over the 400 mm plate. This excludes stress concentrations, sparse infill,
+  receiver deformation and unequal load sharing; it is not a certified safety factor.
+- A 380 mm width / 240 mm inner back / 35 mm lip alternate configuration also built
+  successfully. All final STEP/STL pairs passed component count, closed-mesh edge,
+  winding, bounds, volume and bed-contact checks.
+
+[Geometry checks](notes/geometry_checks.json), [export checks](notes/export_checks.json)
+and the [tool/code manifest](notes/evidence_manifest.json) identify parameters,
+versions and exact hashes. Reference slicer evidence and estimates are below.
+No diagnostic G-code is supplied as a printer-ready job.
+
+## Reference slices and estimates
+
+PrusaSlicer 2.9.6 accepted all four final meshes using the saved
+[PETG profile](notes/reference_petg.ini), with fresh nonempty paths, no support
+segments, no extracted warnings and deposited footprints inside the corrected
+printer envelope, including the 4 mm brim. No repair was reported in the inspected
+logs. No printer job was sent. The initial recessed male pocket produced a
+collapsing-overhang warning; opening its rear relief through the tenon tip removed
+that unsupported ledge and the final left/coupon slices have no such notice.
+
+| Final layout / evidence | PETG including brim | Reference time |
 | --- | --- | --- |
-| Joint test | 68.97 g | 6 h 9 min |
-| Left half | 593.72 g | 47 h 19 min |
-| Right half | 519.92 g | 42 h 10 min |
-| Four keys | 6.58 g | 45 min |
-| Complete plate and keys | **1,120.22 g** | **about 90 h 14 min**, sequentially |
+| [Joint test](notes/flush_final_joint_test/summary.json) | 66.88 g | 6 h 27 min |
+| [Left half](notes/flush_final_plate_left/summary.json) | 583.47 g | 47 h 11 min |
+| [Right half](notes/flush_plate_right/summary.json) | 519.78 g | 43 h 1 min |
+| [Four keys](notes/flush_locking_keys/summary.json) | 4.44 g | 34 min |
+| Complete plate and keys | **1,107.69 g** | **about 90 h 47 min**, sequentially |
 
-These are estimates from a deliberately conservative reference profile, not
-predictions for an identified printer. The requested 10 mm walls make this a
-substantial plate; it has not been silently thinned to save material.
-
-## Assembly and joint test
-
-![Exploded joint](renders/assembled/joint_detail_isometric.png)
-
-The illustration separates the blocks and moves the key below them for visibility;
-the key actually enters the aligned hole from the **rear** of the assembled plate.
-
-1. Remove the brim and any strings. Check the tenons and sockets for debris.
-   Slide the test tenon fully into the socket. The block faces should meet
-   without forcing. There is 0.20 mm nominal clearance per side in Y and Z,
-   and 0.60 mm clearance at the tenon tip.
-2. Insert the key's narrow tip from the rear (the broad flat outside of the L).
-   The head stays at the rear. Its tapered flank faces away from the centre seam;
-   its straight flank faces toward the seam. Push gently until the seam is tight.
-   Do not drive the head flat against the plate: its remaining gap provides
-   tightening travel. The nominal CAD pose has about 0.4 mm travel to first contact.
-3. Try pulling the sample apart, twisting it, and bending it both ways by hand.
-   Look for visible seam opening, rocking, key back-out, cracking or whitening.
-   A useful result is a hand-seated key that stays put and removes perceptible play.
-   Recheck after several insertions and after leaving it assembled overnight.
-4. If it binds before the seam closes, inspect first-layer spread/debris and
-   compare the two socket directions before changing `socket_clearance` in
-   0.05 mm increments. If the seam closes but the key bottoms out while loose,
-   reduce `key_seat_clearance` to make the key wider. If the key binds too early,
-   increase that parameter. Reprint the test after a change; do not scale parts.
-5. For the full plate, align all four tenons, slide both halves together, then
-   insert all four keys. Tighten them progressively, alternating positions.
-   Book-supporting surfaces should be coplanar. The recessed tips leave the
-   reading surface clear; the rounded heads remain about 3–5 mm proud at the rear.
-   To dismantle, unload the plate and push each tip backward through its front
-   access hole using a blunt tool, then pull the keys and separate the halves.
-
-The keys create a lateral clamping force across the seam. The broad tenons and
-socket skins transfer bending/shear; contact between the seam faces and the
-key preload limit rocking. The tapered keys rely on **friction to stay inserted**;
-there is no untested snap latch presented as positive retention. PETG fit,
-friction, creep and repeated-use wear must be checked on the sample. If a key
-backs out or the seam still rocks after moderate hand seating, do not rely on
-that fit for an edge-supported book: revise/test the interface first.
-
-The sample preserves a complete production tenon, socket, wall/skin thickness,
-key hole, key, clearance and print-axis direction. It is cropped to 108 × 60 mm
-in its assembled plane to retain material behind the socket and tenon root.
-It tests local fit and feel, **not** full-plate sag, four-joint alignment, tall-print
-warping, long-term strength or fatigue. After a successful sample, check the full
-plate first on your lap or a low padded surface, then gradually try the intended
-book with both outer sides supported.
-
-## Design assumptions and verification
-
-Use: lap-supported reading, occasionally held at both outer sides, never above
-the face. The user did not specify book mass; **3 kg is a provisional design
-scenario, not a tested load rating**. The plate adds roughly 1.1 kg under the
-reference settings. No cantilever, standing/person load, impact or long-term
-unsupported load was qualified.
-
-A simple screening calculation places the entire approximately 40.4 N load
-(3 kg book plus estimated plate mass) at midspan over 400 mm: bending moment is
-about 4.04 N·m. A solid 250 × 10 mm back has section modulus about 4,167 mm³,
-giving roughly 0.97 MPa nominal stress. Across the four 6 mm thick tenons,
-subtracting the 8 mm key-hole width gives approximately 912 mm³ and 4.4 MPa;
-a notional factor of two for local effects makes about 8.9 MPa. Rounded sections,
-receiver-skin bending, load sharing, sparse infill and layer strength prevent
-this from being a strength certification. A trial effective modulus of 800 MPa
-would predict about 3.2 mm midspan deflection for an ideal continuous plate;
-the real joint and print may deflect more. These are explicit screening
-assumptions, not measured PETG properties or evidence of an achieved safety factor.
-
-CAD checks passed through the required MCP evaluator (CadQuery 2.8.0,
-OCP 7.9.3.1.1, Python 3.12.14, server 0.2.0):
-
-- Valid solids: two panels and four keys; three separate pieces in the sample.
-- All final printable layouts fit the envelope and contact the bed.
-- No panel interference at the sampled 36, 18, 2 and 0 mm insertion offsets.
-  The straight socket sections also establish an unobstructed lateral approach.
-- No key/panel interference at the recorded approach poses. A small virtual
-  key overdrive creates the intended contact; a 0.5 mm panel withdrawal also
-  creates contact with an inserted key. These are rigid geometry checks, not
-  simulations of force, elastic preload or retention friction.
-- Receiver skins are 1.8 mm after clearance. A 380 mm width / 240 mm inner back /
-  35 mm lip alternate build also passed validity and panel-intersection checks.
-- Every final STEP/STL pair passed the repository checker's solid/component,
-  closed-mesh edge, winding, bounds, volume and bed-contact checks.
-
-[Geometry evidence](notes/geometry_checks.json) records source hashes and
-parameters; [tool/code manifest](notes/evidence_manifest.json) records versions and helper hashes;
-[export evidence](notes/export_checks.json) records actual file hashes.
-PrusaSlicer 2.9.6 accepted all four final meshes using the
-[reference PETG profile](notes/reference_petg.ini). The saved
-[left](notes/slice_plate_left/summary.json),
-[right](notes/slice_plate_right/summary.json),
-[key](notes/slice_locking_keys/summary.json) and
-[test](notes/slice_joint_test/summary.json) summaries contain input/profile hashes,
-commands, estimates and deposition bounds. All had fresh nonempty paths, zero
-support segments, no extracted log notices and footprints within the envelope,
-including the brim. The closest footprint is the left half at Y 4.24–255.77 mm.
-No repair was reported in the inspected logs. No printer job was sent.
-Slicing establishes toolpath acceptance; physical fit and strength remain untested.
+These are reference-profile estimates, not predictions for the user's unknown
+machine profile. The requested 10 mm walls account for the substantial material
+use. Slice reports identify mesh/profile hashes, tool version, command and bounds;
+the mesh/export checks independently establish topology and bed contact.
 
 ## Print status
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | Unknown | `joint_test.stl`, `joint_test.step` | No user print report; check fit, seating effort, wobble, key retention and overnight relaxation in PETG |
-| Final printable object(s) | Unknown | `plate_left.stl/.step`, `plate_right.stl/.step`, `locking_keys.stl/.step` | No user print report; check tall-print accuracy, full assembly alignment, sag, book support and durability |
+| Test piece(s) | Unknown | `joint_test.stl`, `joint_test.step` | Recessed captive-key revision; no user print report. Check both hooks, inversion/shaking, fit, release, layer bonding and overnight relaxation |
+| Final printable object(s) | Unknown | `plate_left.stl/.step`, `plate_right.stl/.step`, `locking_keys.stl/.step` | No user print report. Check flushness, full alignment, sag, book support, retention and durability |
 
-The specified material is PETG; the exact printer, actual print profile and print
-date are unknown. Update this block and the root model index together when a
-physical result is reported.
+Exact printer, actual profile and print date are unknown. Update this record and
+the root index together when physical feedback is reported.
 
 ## Attribution
 
-Primary language model: GPT-6, as identified by the session runtime instructions.
-Reasoning effort: not exposed. Harness/agent environment: Codex in the repository
-workspace. Provider: OpenAI. No sub-agents or third-party model geometry used.
-Repository MIT licence applies. Design and evidence recorded 2026-09-22.
+Primary language model: GPT-6, identified by session runtime instructions.
+Reasoning effort: not exposed. Harness: Codex in the repository workspace.
+Provider: OpenAI. No sub-agents or third-party model geometry used. Repository
+MIT licence applies. Design/revision evidence recorded 2026-09-22.
