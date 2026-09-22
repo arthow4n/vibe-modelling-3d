@@ -1,0 +1,41 @@
+{
+  "model": "/home/hevar/git/vibe-modelling-3d/model/book_reading_plate/structural_joint/thread_fit.stl",
+  "profile": "/home/hevar/git/vibe-modelling-3d/model/book_reading_plate/structural_joint/notes/reference_petg.ini",
+  "input_sha256": {
+    "model": "77658ebddb673e5c86ee4848edfc00161849fb1d5d5596ced001789ca9294d60",
+    "profile": "f281dcf654a0bf137c66b1e11fb21702fce40fe9f54083b035245e5791b2f9cb"
+  },
+  "slicer_help_header": [
+    "PrusaSlicer-2.9.6+flathub.org based on Slic3r (with GUI support)",
+    "https://github.com/prusa3d/PrusaSlicer",
+    "",
+    "Usage: prusa-slicer [ INPUT ] [ OPTIONS ] [ ACTIONS ] [ TRANSFORM ] [ file.stl ... ]",
+    "",
+    "Input:",
+    " --load ABCD         Load configuration from the specified file. It can be used more than once to",
+    "                     load options from multiple files."
+  ],
+  "gcode_sha256": "a3df5d09a80b50805951efb59f8a0177fdf1e43115cf75bac54642a376e30af4",
+  "safe_build_volume_mm": [
+    260.0,
+    260.0,
+    250.0
+  ],
+  "metadata": {
+    "filament used [g]": "21.37",
+    "estimated printing time (normal mode)": "2h 34m 26s"
+  },
+  "xy_bounds_including_half_width_mm": [
+    94.95,
+    95.993,
+    164.935,
+    163.944
+  ],
+  "max_layer_z_mm": 28.0,
+  "inside_safe_volume": true,
+  "support_segments": 13399,
+  "log_notices": [],
+  "windows": [],
+  "review_required": false,
+  "limits": "Generic diagnostic job, not sent to a printer. Linear ASCII paths; width fallback is 0.45 mm if no WIDTH comment. Bounds exclude travel/start/end motion and flow spread. Role labels do not establish anchors or free-air spans. Profile includes are not resolved or independently hashed."
+}

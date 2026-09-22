@@ -1,0 +1,116 @@
+{
+  "parameters": {
+    "thickness": 10,
+    "lip_height": 50,
+    "sample_height": 55,
+    "half_width": 40,
+    "overlap_half": 35,
+    "layer_split": 5,
+    "face_gap": 0.1,
+    "hole_x": 20,
+    "hole_z": [
+      30
+    ],
+    "back_hole_y": 40,
+    "shoulder_diameter": 16,
+    "shoulder_clearance": 0.1,
+    "head_diameter": 20,
+    "head_thickness": 2.4,
+    "head_recess": 0.4,
+    "thread_pitch": 2.4,
+    "thread_root": 14.4,
+    "thread_major": 16,
+    "thread_clearance": 0.24,
+    "thread_start": 5.1,
+    "screw_tip": 9.7
+  },
+  "helical_removal": [
+    {
+      "withdrawal_mm": 0,
+      "interference_mm3": 0.0
+    },
+    {
+      "withdrawal_mm": 0.1,
+      "interference_mm3": 0.0
+    },
+    {
+      "withdrawal_mm": 0.3,
+      "interference_mm3": 0.0
+    },
+    {
+      "withdrawal_mm": 0.6,
+      "interference_mm3": 0.0
+    },
+    {
+      "withdrawal_mm": 1.2,
+      "interference_mm3": 0.0
+    },
+    {
+      "withdrawal_mm": 2.4,
+      "interference_mm3": 0.0
+    },
+    {
+      "withdrawal_mm": 3.6,
+      "interference_mm3": 0.0
+    },
+    {
+      "withdrawal_mm": 4.8,
+      "interference_mm3": 0.0
+    },
+    {
+      "withdrawal_mm": 6,
+      "interference_mm3": 0.0
+    }
+  ],
+  "rotation_bearing_contacts_mm3": {
+    "(0, 1, 0):-1": 89.4633438536234,
+    "(0, 1, 0):1": 89.48218194533499,
+    "(1, 0, 0):-1": 104.63929333459717,
+    "(1, 0, 0):1": 2.622696358179352,
+    "(0, 0, 1):-1": 108.45393545370115,
+    "(0, 0, 1):1": 108.06988881681687
+  },
+  "fit_coupons": {
+    "12": {
+      "clearance_radial_mm": 0.12,
+      "seated_overlap_mm3": 0.0
+    },
+    "24": {
+      "clearance_radial_mm": 0.24,
+      "seated_overlap_mm3": 0.0
+    }
+  },
+  "layouts": {
+    "joint_test": {
+      "size_mm": [
+        115.00000010000001,
+        90.0,
+        75.0000002
+      ],
+      "solids": 6,
+      "volume_mm3": 73389.47688294384
+    },
+    "hex_driver": {
+      "size_mm": [
+        40.0,
+        12.0,
+        22.0
+      ],
+      "solids": 1,
+      "volume_mm3": 3688.7973733608073
+    },
+    "thread_fit": {
+      "size_mm": [
+        62.0,
+        60.0,
+        28.000000200000002
+      ],
+      "solids": 6,
+      "volume_mm3": 14967.823563246207
+    }
+  },
+  "source_sha256": {
+    "joint.py": "c1edd3f6bfa97ad1efaa79024f47e68acb5a8df4efacdbdcbb75935fa18f121a",
+    "export_joint.py": "cd5143d9cdea09dde5103381b9945b660e7255d8f96fee1f19c24ca681b8f79f"
+  }
+}

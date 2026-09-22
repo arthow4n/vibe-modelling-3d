@@ -1,0 +1,128 @@
+{
+  "scope": "Conditional conservative analytical screen of full-height joint section; not full-plate FEA or physical validation",
+  "assumptions": {
+    "book_kg": 3,
+    "plate_kg": 1.6,
+    "span_mm": 400,
+    "handling_factor": 2,
+    "geometry_multiplier": 1.5,
+    "normal_allowance_MPa": 7,
+    "shear_allowance_MPa": 4.041451884327381,
+    "effective_E_MPa": 800,
+    "row_load_share_envelope": 0.6,
+    "torsion_offset_mm": 125,
+    "prying_factor": 1.25,
+    "preload_upper_assumption_N": 40,
+    "direct_pull_N": 50
+  },
+  "loads": {
+    "service_moment_Nmm": 3727.8,
+    "design_moment_Nmm": 7455.6,
+    "design_shear_N": 45.126,
+    "design_torsion_Nmm": 5640.75,
+    "bolt_transverse_envelope_N": 141.90841953759306,
+    "bolt_axial_envelope_N": 216.39178488372093
+  },
+  "checks": {
+    "rear_net_section_bending": {
+      "stress_MPa": 5.085121773645494,
+      "allowable_MPa": 7,
+      "margin": 1.3765648713229812,
+      "passes": true
+    },
+    "front_net_section_bending": {
+      "stress_MPa": 5.66651873293096,
+      "allowable_MPa": 7,
+      "margin": 1.2353263670195807,
+      "passes": true
+    },
+    "rear_lap_root_notch_screen": {
+      "stress_MPa": 5.143928676673287,
+      "allowable_MPa": 7,
+      "margin": 1.360827577517479,
+      "passes": true
+    },
+    "front_lap_root_notch_screen": {
+      "stress_MPa": 6.381504818909758,
+      "allowable_MPa": 7,
+      "margin": 1.096919958323546,
+      "passes": true
+    },
+    "rear_shoulder_bearing": {
+      "stress_MPa": 6.047233787113341,
+      "allowable_MPa": 7,
+      "margin": 1.1575540563549906,
+      "passes": true
+    },
+    "front_shoulder_bearing": {
+      "stress_MPa": 3.9951694689637685,
+      "allowable_MPa": 7,
+      "margin": 1.7521159125736905,
+      "passes": true
+    },
+    "screw_combined_von_mises": {
+      "stress_MPa": 4.122503294358222,
+      "allowable_MPa": 7,
+      "margin": 1.6979974302457743,
+      "passes": true
+    },
+    "screw_shear": {
+      "stress_MPa": 1.3070269928105573,
+      "allowable_MPa": 4.041451884327381,
+      "margin": 3.0920951950937674,
+      "passes": true
+    },
+    "head_annulus_bending": {
+      "stress_MPa": 5.979135800125393,
+      "allowable_MPa": 7,
+      "margin": 1.1707377510731898,
+      "passes": true
+    },
+    "head_annulus_bearing": {
+      "stress_MPa": 2.8699851840601887,
+      "allowable_MPa": 7,
+      "margin": 2.4390369814024786,
+      "passes": true
+    },
+    "male_thread_strip": {
+      "stress_MPa": 3.305771174409987,
+      "allowable_MPa": 4.041451884327381,
+      "margin": 1.222544353829541,
+      "passes": true
+    },
+    "female_thread_strip": {
+      "stress_MPa": 3.187287527242973,
+      "allowable_MPa": 4.041451884327381,
+      "margin": 1.2679909954102153,
+      "passes": true
+    },
+    "rear_edge_tearout": {
+      "stress_MPa": 3.7045358389556142,
+      "allowable_MPa": 4.041451884327381,
+      "margin": 1.0909468986178712,
+      "passes": true
+    },
+    "front_edge_tearout": {
+      "stress_MPa": 3.1488554631122723,
+      "allowable_MPa": 4.041451884327381,
+      "margin": 1.2834669395504366,
+      "passes": true
+    }
+  },
+  "minimum_margin": 1.0909468986178712,
+  "stiffness": {
+    "section_elastic_rotation_degree": 0.23401615043763094,
+    "fastener_bearing_rotation_estimate_degree": 0.2016392263729813,
+    "joint_rotation_including_clearance_estimate_degree": 0.5788948255933181,
+    "joint_sag_contribution_including_clearance_mm": 1.0103620729361737,
+    "section_rotation_midspan_sag_mm": 0.4084352327979029,
+    "unclamped_shoulder_play_bound_degree": 0.1432394487827058,
+    "scope": "Conservative individual lap section only. Includes simplified fastener/bearing spring estimate and free clearance separately. Excludes full-plate warping, contact nonlinearity and PETG creep; not a certified deflection bound."
+  },
+  "source_sha256": {
+    "joint.py": "c1edd3f6bfa97ad1efaa79024f47e68acb5a8df4efacdbdcbb75935fa18f121a",
+    "measure.py": "8f84bcb75c794527a24c4c53c332c39d5c6f7e3bb4993f213124d91dbdc1d439",
+    "sections.json": "5caeafaf347959364646e12d9b5d1c4ff87986ab2f7fc3232566ded65ec0b537",
+    "load_checks.py": "ca535c8924b46b80febec82961402ba95d02f07f8c3690133905be8760dbd5dc"
+  }
+}

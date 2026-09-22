@@ -1,9 +1,16 @@
-# Book reading plate — two-piece sliding joint
+# Book reading plate — joint experiments
 
-**Current status: [joint structural review failed](lock_trials/STRUCTURAL_REVIEW.md).**
-Plate development remains paused. Neither the legacy plate nor the A/B samples
-have an approved structural joint for the edge-held load case. The files below
-are historical; the recommendation to print the A/B trials is withdrawn.
+**Current: [recessed printed-screw L-joint prototype](structural_joint/README.md).**
+New full-scale fit and structural samples have calculated load screens, checked
+STEP/STL exports and reference slices. They remain physically unvalidated.
+Production plate development stays paused while the joint is tested, as requested.
+
+The [previous A/B structural rejection](lock_trials/STRUCTURAL_REVIEW.md) remains
+valid. **All plate and sliding-joint instructions below are historical; do not
+print them as the current recommendation.** Current sample files and instructions
+are entirely inside `structural_joint/`.
+
+## Historical sliding plate (withdrawn)
 
 **Two printed halves, no separate connectors.** One half has a continuous shaped
 tongue; the other has a matching channel with a closed lower end. The tongue
@@ -171,8 +178,8 @@ That feedback concerns the superseded `f5f16bf` design, not this two-part revisi
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | Partial | Prior sliding-joint design at 50% scale; exact printed file unknown | User reported thin/unstable socket. Full-scale prior test unconfirmed; new captured trials have no print report |
-| Final printable object(s) | Unknown | `plate_left.stl/.step`, `plate_right.stl/.step` | Check full-length fit, joint stiffness, book load and durability; no report for this revision |
+| Test piece(s) | Partial | Prior sliding-joint design at 50% scale; exact printed file unknown | User reported thin/unstable socket. Full-scale prior test unconfirmed; current recessed-screw samples have no print report; A/B trials withdrawn |
+| Final printable object(s) | Unknown | `plate_left.stl/.step`, `plate_right.stl/.step` | Legacy joint withdrawn; no user full-plate report; replacement production integration paused |
 
 Later feedback confirms a physical print of the sliding-joint design at 50% scale.
 The user found the outer socket thin and unstable; no fracture was explicitly
