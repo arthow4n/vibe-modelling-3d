@@ -90,6 +90,14 @@ changes fit, function or manufacturing; choose routine details autonomously.
 Explain physical choices in plain language; use the design-decisions reference
 to distinguish mechanism requirements and translate qualitative effort.
 
+Prefer standard tool interfaces and common sizes for assembly and adjustment
+(for example, hex sockets for standard Allen keys). The user already owns a
+tool set and prefers those tools: do not model or export printable substitutes,
+including optional drivers or wrenches, unless explicitly requested. Specify the
+required standard tool and nominal size in the instructions, allow appropriate
+printing clearance, and check access and engagement for the existing tool.
+An all-printed object does not imply that its assembly tools must be printed.
+
 Treat AGENTS.md's practical printer envelope as the default per-part limit, not
 as a maximum allowed assembled-object size. An oversized request is a prompt to
 design and validate a segmented assembly. Joint strength and assembly method are
