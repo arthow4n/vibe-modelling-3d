@@ -45,7 +45,7 @@ Both lap interfaces now have 0.12 mm background clearance. Four 24 mm-diameter s
 4. Check both exterior faces with a straightedge, confirm every head and tip remains below its surrounding surface, and check for rocking, whitening or cracks. Resistance before the head reaches its seat indicates binding or debris, not successful tightening.
 5. Begin use supported on your lap or a table. Increase book load gradually, check edge-held carrying briefly over a table, and recheck screw tightness after the first session and overnight. Ordinary threaded screws resist straight withdrawal but can loosen by turning; no vibration-proof lock is claimed.
 
-The plate is intended for lap/table use and occasional carrying at both sides. Avoid treating one unsupported corner as a handle. Printed PETG flexes and creeps; this is not an overhead support or a certified load-rated platform. The prior sample's successful fit is useful physical evidence, but the revised screws and complete plate have not yet been reported printed.
+The plate is intended for lap/table use and occasional carrying at both sides. Avoid treating one unsupported corner as a handle. Printed PETG flexes and creeps; this is not an overhead support or a certified load-rated platform. The prior sample's successful fit is useful physical evidence, and the user has since reported that the complete revised plate printed with a really nice result. Specific load and long-term creep observations were not supplied.
 
 ## Mechanical review
 
@@ -84,11 +84,13 @@ Full-span L-beam integration predicts about **1.11 mm service sag**, including e
 
 On 2026-09-23 the user identified the **L sample** from the previous recessed-screw trial and reported usable threads and a joint that appeared to work. The head/socket printed poorly and was difficult to drive. The apparent exterior mismatch was clarified as screw-end recess depth, not a confirmed step between plate halves. The successful thread clearance is retained; head/seat, socket depth, orientation and seating pads are revised. Exact printer, slicer profile and printed artifact hash were not supplied; intended filament is PETG. The corresponding source/export set was committed at `9850b82` (no CAD changes in `e4e9e68`). Prior failed trials and obsolete tools/exports have been removed from the current tree; Git retains their history.
 
+Also on 2026-09-23, the user reported that the **complete revised plate** was printed and that the result was really nice. The exact printed file revision/hash, printer, material, orientation and slicer profile were not supplied; no specific load or long-term creep observations were reported.
+
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s), prior | Yes | Former structural_joint/joint_test.stl at 9850b82; removed as obsolete | User reports usable threads/joint; poor head/socket printing; no quantified load or creep result |
 | Test piece(s), current | N/A | None | User requested full pieces, without another L sample |
-| Final printable object(s) | Unknown | plate_left.stl, plate_right.stl, screws.stl | No report yet; revised screw finish, flush seating, full-plate fit, stiffness, load and creep remain to observe |
+| Final printable object(s) | Yes | plate_left.stl, plate_right.stl, screws.stl | User reports the complete plate print result was really nice (2026-09-23); exact printed file revision and print settings unknown; no specific load or long-term creep observations supplied |
 
 ## Source and reproduction
 
@@ -98,4 +100,4 @@ The saved profiles are [plate halves](notes/reference_petg.ini) and [screws](not
 
 ## Attribution
 
-Primary language model: GPT-6 (runtime family identification); exact variant and reasoning effort not exposed. Harness: Codex API agent; provider: OpenAI. No other agents contributed. This final plate builds on the repository's earlier joint work; historical provenance remains in Git. User print feedback drove the head-up screw and recess revisions.
+Primary language model: GPT-6 Astra (user-reported); reasoning effort: low (user-reported). Harness: Codex API agent; provider: OpenAI. No other agents contributed. This final plate builds on the repository's earlier joint work; historical provenance remains in Git. User print feedback drove the head-up screw and recess revisions.
