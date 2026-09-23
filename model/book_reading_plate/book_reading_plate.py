@@ -1,3 +1,3 @@
-"""Assembled inspection pose. Print the separate exports; see README.md."""
-from components import assembled
-result = assembled()
+"""Assembly inspection entry point. Use export_plate.py for print layouts."""
+from components import assembly
+result=assembly()

@@ -1,198 +1,101 @@
-# Book reading plate — joint experiments
+# Book reading plate — final printable set
 
-**Current: [recessed printed-screw L-joint prototype](structural_joint/README.md).**
-New full-scale fit and structural samples have calculated load screens, checked
-STEP/STL exports and reference slices. They remain physically unvalidated.
-Production plate development stays paused while the joint is tested, as requested.
+Two PETG plate halves, joined by four printed screws. **Print one left half, one right half and the four-screw layout, all at 100% scale.** Use your existing **8 mm Allen key**; no printed tool is supplied. This set replaces all previous plate and joint-test files.
 
-The [previous A/B structural rejection](lock_trials/STRUCTURAL_REVIEW.md) remains
-valid. **All plate and sliding-joint instructions below are historical; do not
-print them as the current recommendation.** Current sample files and instructions
-are entirely inside `structural_joint/`.
+The usable dimensions remain **400 mm wide × 250 mm inner back height × 40 mm inner lip**, with **10 mm walls extending outward**. Overall assembled envelope: 400 × 260 × 50 mm. The 70 mm-wide overlap continues through the back and around the lip. Two screws fasten the lip; two fasten the back near its upper end. Exterior faces align, and both ends of every seated screw are nominally **0.2 mm recessed**.
 
-## Historical sliding plate (withdrawn)
+![Book-facing side](renders/final/book_reading_plate_isometric.png)
 
-**Two printed halves, no separate connectors.** One half has a continuous shaped
-tongue; the other has a matching channel with a closed lower end. The tongue
-slides down into the channel, and one catch built into the tongue clicks into a
-small internal shoulder to stop it sliding back out.
+![Outside faces and recessed screw heads](renders/final/rear_view_isometric.png)
 
-The dovetail shoulders hold the halves together across the seam and through the
-plate thickness. The closed end and catch restrain the two directions along the
-channel. Tongue depth alone would not prevent reverse sliding; that is the
-specific job of the integral catch.
+## Download and print
 
-The plate remains **400 mm wide**, with **250 mm inner back height**, **40 mm inner
-lip**, and **10 mm outward walls**. Both broad faces have no projecting connectors.
-There is one small, beveled release opening on the rear; the release pad is
-recessed 0.6 mm. Overall assembled size is 400 × 260 × 50 mm.
+| File | Print quantity | Oriented CAD bounds, mm | Reference material / time |
+| --- | --- | --- | --- |
+| [plate_left.stl](plate_left.stl) · [STEP](plate_left.step) | 1 | 134.27 × 247.24 × 235 | 759.27 g / 48 h 14 min |
+| [plate_right.stl](plate_right.stl) · [STEP](plate_right.step) | 1 | 134.27 × 247.24 × 235 | 757.25 g / 47 h 53 min |
+| [screws.stl](screws.stl) · [STEP](screws.step) | 1 layout containing **4 screws** | 98 × 20 × 9.60 | 9.71 g / 1 h 3 min |
+| [book_reading_plate_assembled.step](book_reading_plate_assembled.step) | Inspection only; do not slice | 400 × 260 × 50 | — |
 
-## Assembly
+Print the halves as **separate jobs**. Keep the supplied orientations and centre each layout on the bed; do not lay the plate halves flat. The outside end of each half rests on the bed, and the diagonal footprint leaves room for brim/support within **260 × 260 × 250 mm**. The screws stand **thread-tip down, head and hex socket up**.
 
-![Actual sliding alignment of the two test parts](renders/assembled/joint_detail_isometric.png)
+![Actual left-half print placement](renders/final/print_preview_isometric.png)
 
-1. Hold the right half with its channel open at the top. Position the left half
-   above it, with its tongue aligned with that opening and both book faces facing
-   the same way. The picture shows the actual insertion alignment of the sample.
-2. **Slide the left half downward along the channel.** Do not push the tongue
-   sideways through the narrow channel mouth. At full depth, the bottom edges
-   and lips line up and the built-in catch should click into place.
-3. Try sliding it back upward without pressing the release. The catch should
-   stop it. There are no keys, caps or additional assembly steps.
+Use PETG, 0.4 mm nozzle, 0.20 mm layers, six perimeters, six top/bottom layers, **100% rectilinear infill**, and a 4 mm brim. Use supports for the plate halves' horizontal holes and local overhangs; **supports off for the screws**. The plate bores open on both sides and are accessible for cleaning. Carefully remove support from the seating cones, threads and small internal seating rings; residue there can prevent flush seating. Avoid enlarging the smooth shoulder bores or cutting thread flanks.
 
-For the full plate, the initial height offset is approximately 244 mm; the sample
-needs only about 74 mm. Keep the faces aligned throughout the slide. To take it
-apart, unload the plate, press the recessed rear pad inward by about 1 mm using
-a fingernail or blunt tool, and slide the left half upward. The pad stays attached.
+These solid-print settings are part of the structural assumptions. The finished geometry is approximately **1.50 kg** at 1.27 g/cm³; reference extrusion including print aids is about **1.53 kg total**. The long print estimates above are from a deliberately modest reference profile, not predictions for your printer. Lower infill is not covered by the calculations. Calibrate PETG temperature, flow and cooling for your filament; the saved 240 °C / 80 °C profiles are diagnostic examples, not machine-ready G-code.
 
-![Seated sample; single rear release opening](renders/assembled/joint_locked_isometric.png)
+## What changed after the successful L sample
 
-## Files and first print
+The successful L sample's custom 16 × 2.4 mm thread, 0.24 mm radial thread clearance and 0.10 mm diametral shoulder clearance are retained. These are not ISO M16 threads. The thread lead is now 0.8 mm long for a 45° tip transition in its new print orientation.
 
-**Print [joint_test.stl](joint_test.stl) first.** It contains exactly two parts.
-It reproduces the mating cross-section, closed end, full catch/flexure, release
-opening and print-axis directions. Its rail is shortened to save material.
+The revised screw has a **45° underside cone and matching plate seat**, rather than a flat overhanging shoulder. Its **8.2 mm across-flats socket is 2.6 mm deep**, open upwards during printing; the former 1.2 mm-deep downward-facing pocket is gone. Head and tip recesses are both 0.2 mm rather than 0.4/0.3 mm. Nominal recesses are not guaranteed as-printed tolerances: never force a protruding screw below the surface by over-tightening.
 
-| File | Purpose | Print orientation bounds, mm |
-| --- | --- | --- |
-| [joint_test.stl](joint_test.stl) / [STEP](joint_test.step) | Two-piece joint test | 107.78 × 72.82 × 45 |
-| [plate_left.stl](plate_left.stl) / [STEP](plate_left.step) | One half with integral tongue and catch | 133.90 × 247.24 × 216 |
-| [plate_right.stl](plate_right.stl) / [STEP](plate_right.step) | One half with stopped channel | 170.37 × 225.41 × 200 |
-| [book_reading_plate_assembled.step](book_reading_plate_assembled.step) | Two-part inspection assembly; do not slice | 400 × 260 × 50 |
+![Revised screw, socket facing upwards in the print layout](renders/final/screw_view_isometric.png)
 
-Use this complete matching set. It replaces the earlier separate-key designs
-at `e7fd4d2` and `f5f16bf`; their keys are no longer needed or supplied. Both halves
-have changed. STEP and STL use matching millimetre placement and orientation.
+![Screw side profile showing the conical head; this drawing is a side view, not a placement instruction](renders/final/screw_view_front.png)
 
-[components.py](components.py) contains the parameters and builders;
-[book_reading_plate.py](book_reading_plate.py) shows the assembly;
-[export_plate.py](export_plate.py) exports the three print layouts and checks the
-mechanism; [verify_exports.py](verify_exports.py) independently checks the files.
-Evaluate these entry points through the CadQuery MCP tool. The `joint_detail.py`,
-`joint_locked.py` and `print_preview.py` entry points supply inspection views.
+Both lap interfaces now have 0.12 mm background clearance. Four 24 mm-diameter seating areas around the screw axes bridge that clearance and contact the other half. Tightening therefore seats against defined surfaces while allowing room for small irregularities elsewhere. The smooth shoulders and conical seats locate the fasteners; the threads clamp and resist withdrawal. There are no exterior bosses. The outside L bend is R8, the other extruded profile corners R4, and the end edges use printable 2 mm chamfers.
 
-## PETG printing and fit test
+## Assembly and use
 
-Confirmed envelope: **260 × 260 × 250 mm**, 0.4 mm nozzle, PETG. Keep the supplied
-orientations: both halves stand on their outside ends, rotated 30° on the bed;
-the joint features face upward. Center each layout. Each full half is a separate
-print job. Starting settings are 0.20 mm layers, six perimeters, six top/bottom
-layers, 40% gyroid infill, a 4 mm outer brim and supports off. Use your calibrated
-PETG and actual printer profile. The saved reference profile assumes 240 °C / 80 °C
-and is not a validated machine job.
+1. Clean the print aids and test that the new screws turn smoothly in the new female half. Use this matching set; old flat-head screws do not have the new seating geometry.
+2. Bring the two L halves into their overlapping position with the book faces aligned. Keep the mating surfaces slightly apart while aligning, then settle them onto the seating areas. The pads need about 0.12 mm clearance during alignment; do not force the halves along each other while pressed together.
+3. Start all four screws loosely from the outside faces. Seat them alternately with an 8 mm Allen key, using gentle fingertip torque. Stop when the heads seat and the joint is firm. Do not use a power driver or the long arm for leverage. The calculation assumes screw preload no greater than 40 N; actual torque/preload is uncalibrated. Around 0.04 N·m is only a rough starting ceiling based on assumed dry friction, not a measured installation specification.
+4. Check both exterior faces with a straightedge, confirm every head and tip remains below its surrounding surface, and check for rocking, whitening or cracks. Resistance before the head reaches its seat indicates binding or debris, not successful tightening.
+5. Begin use supported on your lap or a table. Increase book load gradually, check edge-held carrying briefly over a table, and recheck screw tightness after the first session and overnight. Ordinary threaded screws resist straight withdrawal but can loosen by turning; no vibration-proof lock is claimed.
 
-The dovetail is 238 mm long and 16 mm deep, with a 5 mm neck and 7 mm head.
-Its retaining shoulders slope at 45° in both standing print orientations.
-The single leaf grows from its root in the print direction, and the hook has
-a gradual growth ramp; it is not a floating bridge over a slot. The left panel's
-internal relief retains front/rear skins. Exterior edges use 4 mm radii, the
-outside L elbow uses 9 mm, and bed-contact end edges use a printable 2 mm chamfer.
-Internal rail edges use smaller functional radii and the release mouth is beveled.
+The plate is intended for lap/table use and occasional carrying at both sides. Avoid treating one unsupported corner as a handle. Printed PETG flexes and creeps; this is not an overhead support or a certified load-rated platform. The prior sample's successful fit is useful physical evidence, but the revised screws and complete plate have not yet been reported printed.
 
-Remove brim and strings, then slide the two test pieces together by hand. Check
-that the catch engages, upward withdrawal is blocked, both faces stay aligned,
-and the joint does not rock noticeably. Invert and gently shake the sample over
-a tray. Check deliberate release, several repeated assemblies, and an overnight
-assembled hold for binding, whitening, cracks or loss of retention.
+## Mechanical review
 
-`rail_clearance` is a **0.12 mm normal gap** at straight mating faces, not a claimed
-printed fit. If loose, reduce it in approximately 0.03 mm increments; if binding,
-check debris and print dimensions first, then increase it. Rebuild/reprint the
-sample after changing fit. Do not scale the parts. The catch's square shoulder
-provides positive retention even if the fit is loose, but tightness and lack of
-rocking still need a physical trial.
+The [reproducible calculations](load_checks.py) use [measured final CAD sections](notes/sections.json) from [measure_structure.py](measure_structure.py), including holes and lap reductions. [Calculation results](notes/load_checks.json) record all assumptions and source hashes. No FEA or destructive physical test was performed.
 
-The short sample does **not** prove full-length sliding friction, rail straightness,
-tall-print warping, full-plate stiffness or load capacity. A successful short fit
-must be followed by a full assembly check. Gradually try the actual book over a
-low padded surface before holding the loaded plate at its outer sides.
+Assumptions: **3 kg central book load**, **1.6 kg distributed plate allowance**, 400 mm simply supported span, and **2× handling load**. This gives 3.728 N·m service and 7.456 N·m peak design bending moment. Design transverse shear is 45.13 N. A 125 mm grip eccentricity gives 5.641 N·m design torsion, and a separate 50 N widthwise pull is included. These cases model load shared into the L-section while holding both sides; local one-corner gripping and arbitrary impact are not covered.
 
-## Verification and limits
+The material reference is the [Prusament PETG datasheet v1.1](https://storage.googleapis.com/prusa3d-content-prod-14e8-wordpress-prusament-prod/2023/10/9f8d2165-tds_prusament-petg_n_en.pdf): interlayer adhesion 18 ± 4 MPa and printed tensile modulus 1.5–1.6 GPa. Choosing 14 MPa and dividing by two gives a **7 MPa normal allowance**; 14 MPa is not a guaranteed statistical lower bound. A 4.04 MPa shear allowance assumes an isotropic relationship. Effective modulus is reduced to 800 MPa. These are screening assumptions for sound, solid PETG, not measured properties of your filament.
 
-The intended use remains lap-supported reading, sometimes held at both outer
-sides, never above the face. Book mass was unspecified: **3 kg is a provisional
-design scenario, not a tested load rating**. The plate adds roughly 1.1 kg under
-the reference settings. Impact, person-support and cantilever loads are not rated.
+Bending transfers through the 40 mm widthwise screw spacing; torsion transfers between the lip and upper-back rows, 215 mm apart. The fastener envelope allows 60/40 row sharing, 1.25 prying and 40 N preload. Per-screw envelopes are 141.91 N transverse and 216.39 N axial. No friction strength between lap faces is credited. Local stress factor is 1.5, with 2.5 at lap roots. The conical-head strip screen also includes a 1.25 radial width factor. Actual bending moment at each measured section is used; root moment is lower than the centre-span maximum.
 
-Final CadQuery MCP checks (CadQuery 2.8.0, OCP 7.9.3.1.1, Python 3.12.14,
-server 0.2.0) establish:
+| Final strength screen | Stress, MPa | Chosen allowance, MPa |
+| --- | ---: | ---: |
+| Whole L-section bending | 1.67 | 7.00 |
+| Rear / front lap bending | 4.78 / 5.57 | 7.00 |
+| Most demanding combined lap bending + torsion | 6.53 | 7.00 |
+| Rear shoulder bearing | 6.22 | 7.00 |
+| Screw combined axial, bending and shear | 4.12 | 7.00 |
+| Conical head bending / seat splitting | 6.51 / 5.52 | 7.00 |
+| Male / female thread stripping | 3.30 / 3.15 | 4.04 |
+| Rear edge tear-out | 3.76 | 4.04 |
 
-- Exactly two valid solids in the assembly and two in the sample; no loose hardware.
-- Print-layout fit and bed contact; the catch stays inside the 10 mm wall both
-  normally and in the modeled release pose.
-- No overlap in the seated assembly. With the catch retracted, no interference
-  at the recorded sliding offsets from 0 to 246 mm. This is a sampled rigid
-  clearance check, not a simulation of elastic insertion or full-path proof.
-- The normal catch contacts the channel during insertion. In the locked state,
-  reverse sliding first meets the actual shoulder at about **0.15 mm**. Tested
-  widthwise pull-apart, front/rear lifting and travel beyond the end stop also
-  produce contact. The released catch clears the sampled removal path.
-- A 380 mm width / 240 mm inner back / 35 mm lip alternate build also passed.
-- All three final STEP/STL pairs passed component count, closed-mesh edge,
-  winding, bounds, volume and bed-contact checks. Optimal CAD bounds determine
-  bed placement rather than loose bounds derived from triangulation.
+The minimum remaining margin is **1.073**, after the stated factors. It is modest and conditional, not proof of safety for every print. Cone-seat splitting, local hole stresses, load sharing and lap-root stress concentration are simplified analytical screens; actual contact and printed anisotropy remain uncertainties.
 
-The leaf is 2 mm thick and 14 mm wide. Ideal-cantilever screening with a 28 mm
-release length and 1 mm displacement gives about **0.38% root strain** and
-**1.02–2.30 N** force for an assumed effective modulus of 800–1800 MPa. Separately,
-a provisional 20 N reverse-slide load, 34 mm lever and 1200 MPa modulus give
-about **0.87% strain** across the leaf's wider dimension. A provisional 1% strain
-screen is a design assumption, not a measured PETG limit. Local contact, printed
-layer bonding, wear and creep still need testing.
+Full-span L-beam integration predicts about **1.11 mm service sag**, including estimated fastener/bearing compliance and free shoulder clearance. A separate plain-back beam estimate, giving no credit to the lip or joint, is **3.14 mm**; this illustrates sensitivity to how load spreads into the lip rather than being an additional sag term or an upper bound. The eccentric-grip torsion estimate is **1.81°**, excluding restrained warping and fastener torsional compliance. These models do not establish zero movement, a universal deflection limit or long-term creep performance. Lap support is the normal use case.
 
-A solid-section screen of the rail neck, excluding the catch opening, gives
-approximately **4.4 MPa nominal bending stress** under a 40.5 N central load across
-the 400 mm span. It omits stress concentration, sparse infill, receiver-lip
-flexibility and unequal load sharing; it is not an achieved safety factor.
+## Verification evidence
 
-See [geometry evidence](notes/geometry_checks.json),
-[export evidence](notes/export_checks.json) and the
-[tool/code manifest](notes/evidence_manifest.json) for parameters, tests and hashes.
-Slicer results below establish mesh-to-toolpath acceptance, not physical function.
+- CadQuery MCP: valid full assembly of six solids; sampled screw insertion/removal and joint assembly paths clear; direct screw withdrawal obstructed; all four seating rings contact; ±1° rotations about each axis encounter fastener bearing; standard 8 mm key access clear. [Geometry report](notes/geometry_checks.json). These are geometric checks, not force validation.
+- Final STEP/STL pairs: expected solid counts **1 / 1 / 4**, closed manifold meshes, matching bounds/volumes and bed contact. [Export report](notes/export_checks.json). Both formats come from the same build and print placements.
+- PrusaSlicer 2.9.6 reference slices: fresh nonempty output for all three jobs, no reported warnings/repairs in inspected logs. Deposited footprints including brim/support: left **140.03 × 253.24 × 235 mm**, right **140.19 × 253.14 × 235 mm**, screws **100.60 × 22.70 × 9.60 mm**. All fit the 260 × 260 × 250 mm practical envelope. Supports are generated for the halves; none for screws. Reports: [left](notes/final_plate_left/summary.json), [right](notes/final_plate_right/summary.json), [screws](notes/final_screws/summary.json).
+- Targeted [screw toolpath inspection](notes/final_screws/head_socket.png): the solid socket floor precedes upward-growing hex walls; the 45° head expands gradually. No roof is printed over the hex opening. No support or bridge-role paths occur in the screw job; short overhang-role paths remain on the threads. This resolves the orientation defect geometrically and in this reference profile, not by claiming measured print quality.
+- Final book-face, outside-face, screw and print-placement views were inspected. Source/export/profile hashes and tool versions are recorded in [manifest](notes/evidence_manifest.json).
 
-## Reference slices and estimates
+## Physical status
 
-PrusaSlicer 2.9.6 accepted all three final meshes with the
-[saved PETG reference profile](notes/reference_petg.ini). Each produced fresh
-nonempty toolpaths, no support segments, no extracted warnings, and a footprint
-within 260 × 260 × 250 mm including the brim. No repair was reported in the
-inspected logs. No printer job was sent.
-
-| Final layout / report | PETG including brim | Reference time |
-| --- | --- | --- |
-| [Two-piece test](notes/dovetail_final_joint_test/summary.json) | 53.75 g | 4 h 45 min |
-| [Left half](notes/dovetail_final_plate_left/summary.json) | 571.53 g | 45 h 12 min |
-| [Right half](notes/dovetail_plate_right/summary.json) | 527.10 g | 41 h 26 min |
-| Complete plate | **1,098.63 g** | **about 86 h 38 min**, sequentially |
-
-These are reference estimates; the user's actual machine profile is unknown.
-The requested 10 mm walls account for the substantial material use. Reports
-record actual mesh/profile hashes, commands, versions and deposition bounds.
-
-## Print status and prior feedback
-
-The user initially said they had “tried this” and rejected the previous recessed-key joint
-as complicated and ineffective at preventing sliding. Whether that involved a
-physical print has not been clarified, so no print or failure mode is invented.
-That feedback concerns the superseded `f5f16bf` design, not this two-part revision.
+On 2026-09-23 the user identified the **L sample** from the previous recessed-screw trial and reported usable threads and a joint that appeared to work. The head/socket printed poorly and was difficult to drive. The apparent exterior mismatch was clarified as screw-end recess depth, not a confirmed step between plate halves. The successful thread clearance is retained; head/seat, socket depth, orientation and seating pads are revised. Exact printer, slicer profile and printed artifact hash were not supplied; intended filament is PETG. The corresponding source/export set was committed at `9850b82` (no CAD changes in `e4e9e68`). Prior failed trials and obsolete tools/exports have been removed from the current tree; Git retains their history.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | Partial | Prior sliding-joint design at 50% scale; exact printed file unknown | User reported thin/unstable socket. Full-scale prior test unconfirmed; current recessed-screw samples have no print report; A/B trials withdrawn |
-| Final printable object(s) | Unknown | `plate_left.stl/.step`, `plate_right.stl/.step` | Legacy joint withdrawn; no user full-plate report; replacement production integration paused |
+| Test piece(s), prior | Yes | Former structural_joint/joint_test.stl at 9850b82; removed as obsolete | User reports usable threads/joint; poor head/socket printing; no quantified load or creep result |
+| Test piece(s), current | N/A | None | User requested full pieces, without another L sample |
+| Final printable object(s) | Unknown | plate_left.stl, plate_right.stl, screws.stl | No report yet; revised screw finish, flush seating, full-plate fit, stiffness, load and creep remain to observe |
 
-Later feedback confirms a physical print of the sliding-joint design at 50% scale.
-The user found the outer socket thin and unstable; no fracture was explicitly
-reported. Exact file and settings are unknown. The proposed open-overlap samples
-were then rejected from pictures for bending concerns. See the
-[new trial record](lock_trials/README.md#print-status).
+## Source and reproduction
 
-PETG is the intended material. Exact printer, actual profile and print date remain unknown.
-Update this block and the root index together when physical feedback is reported.
+[components.py](components.py) owns parameters and shared geometry; [book_reading_plate.py](book_reading_plate.py) displays the assembly. Evaluate [export_plate.py](export_plate.py), [measure_structure.py](measure_structure.py) and [verify_exports.py](verify_exports.py) through the CadQuery MCP evaluator. Then run `python3 model/book_reading_plate/load_checks.py` for arithmetic. The width and inner height are adjustable; a 360 × 230 mm alternate was built to check those dependencies. Thickness, screw proportions and clearances form a coupled mechanism and must be rechecked if changed.
+
+The saved profiles are [plate halves](notes/reference_petg.ini) and [screws](notes/reference_screws.ini). The screw profile differs only by disabling supports. Inspection-only entries are [rear_view.py](rear_view.py), [screw_view.py](screw_view.py) and [print_preview.py](print_preview.py). Do not print their inspection poses in place of the supplied STLs.
 
 ## Attribution
 
-Primary language model: GPT-6, identified by session runtime instructions.
-Reasoning effort: not exposed. Harness: Codex in the repository workspace.
-Provider: OpenAI. No sub-agents or third-party model geometry used. Repository
-MIT licence applies. Design/revision evidence recorded 2026-09-22.
+Primary language model: GPT-6 (runtime family identification); exact variant and reasoning effort not exposed. Harness: Codex API agent; provider: OpenAI. No other agents contributed. This final plate builds on the repository's earlier joint work; historical provenance remains in Git. User print feedback drove the head-up screw and recess revisions.

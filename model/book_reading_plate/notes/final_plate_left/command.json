@@ -1,0 +1,11 @@
+[
+  "prusa-slicer",
+  "--load",
+  "/home/hevar/git/vibe-modelling-3d/model/book_reading_plate/notes/reference_petg.ini",
+  "--center",
+  "130,130",
+  "--export-gcode",
+  "--output",
+  "/home/hevar/git/vibe-modelling-3d/model/book_reading_plate/notes/final_plate_left/slice.gcode",
+  "/home/hevar/git/vibe-modelling-3d/model/book_reading_plate/plate_left.stl"
+]

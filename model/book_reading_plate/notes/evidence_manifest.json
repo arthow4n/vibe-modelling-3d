@@ -1,28 +1,36 @@
 {
-  "recorded_date": "2026-09-22",
-  "observed_versions": {
-    "cadquery": "2.8.0",
-    "OCP": "7.9.3.1.1",
-    "python": "3.12.14",
-    "cadquery_mcp_server": "0.2.0",
-    "PrusaSlicer": "2.9.6+flathub.org"
-  },
-  "code_sha256": {
-    "model/book_reading_plate/print_preview.py": "9c7d92ccb4f99ab9ff317226ff011f696d8f378f1f476c13dfde073725148405",
-    "model/book_reading_plate/components.py": "b08991a74618a257e5bdb0af46be140a24c5475e08baabc54b62937a2d25da61",
-    "model/book_reading_plate/joint_locked.py": "fb3d222b6e0699492b58239a8b21604a7c5e7d668910ba26c5d8f19a00c39c4f",
-    "model/book_reading_plate/export_plate.py": "7ec30a215e5fa398acb94ffdc1bea4f5020027d082128a3bf2caf822e338a2aa",
-    "model/book_reading_plate/book_reading_plate.py": "ff122dd312b8137faaafb16aacc4fb582bd3e9d9e32d3718ed6a0cfe513aae27",
-    "model/book_reading_plate/verify_exports.py": "a5a7b9a631f7bf8f07766f2d9c25b6c4849a7b9b29c73bc52c659e7ece633a86",
-    "model/book_reading_plate/joint_detail.py": "915d6f494771e4e45ee27b20ed2223c08e5912ddcecae35de4b707494fd92d4a",
-    ".codex/skills/cadquery-3d-design/scripts/check_exports.py": "a0ef34ad37a3ff206fda5972200251d15a3d41b392a3306b678acef8c40bf2f0",
-    ".codex/skills/prusa-slicer-printability/scripts/review_print.py": "4243cbfee94600d5b9f1a325c12243a4f58f717d794dc57209c181bc646618f7",
-    ".codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py": "3c2e2e93aa7e9585895d9f6f9cb19b00c7cf3fc30370ddccac07a76a1d869853"
-  },
-  "revision": "Two-piece stopped dovetail with one integral catch; no loose connectors",
-  "slice_reports": {
-    "plate_left": "notes/dovetail_final_plate_left/summary.json",
-    "plate_right": "notes/dovetail_plate_right/summary.json",
-    "joint_test": "notes/dovetail_final_joint_test/summary.json"
+  "cadquery": "2.8.0",
+  "OCP": "7.9.3.1.1",
+  "cadquery_mcp_server": "0.2.0",
+  "python_cad_worker": "3.12.14",
+  "slicer": "PrusaSlicer 2.9.6+flathub.org",
+  "date": "2026-09-23",
+  "verification": "Final source/check/export/slice hashes agree; local README links valid; CAD final views and targeted screw paths inspected. Physical full-plate validation pending.",
+  "sha256": {
+    "book_reading_plate.py": "7dfb8bb539f091c9a6e828bab45b31c69eeca1ce1d3e124f02e6bd16704cc163",
+    "book_reading_plate_assembled.step": "a6a2b1c5de051cb751166d9d667c0372948ece2020f942a6e945092aa64aa870",
+    "components.py": "d885e768ba49be4f45d6676ad651b14e02a77fefd4d5d890496be6ba468aa65c",
+    "export_plate.py": "234a7c660d3721e433b06afb9f5ba6d10e70e41e8f11133a48f71dd3ddc3c24b",
+    "load_checks.py": "e7dea97a92101b3b5ec606ebccbea23e65b0183b03bf14eafb3eac09c31fce8a",
+    "measure_structure.py": "b571ae3b298ca7434ecfabc55c4c46b3cecb6a1ccc1a54bd2586cb2316d4c9e5",
+    "notes/final_screws/head_socket.png": "dbd142649c69262962323f21c6bed85afac7390a682a2c67bb70bb1cabf89f9b",
+    "notes/final_screws/head_socket.svg": "6763e38cd3ac644730d8b8961275df722e2b5fba44e6f44f84fd20f1aed371bf",
+    "notes/reference_petg.ini": "f281dcf654a0bf137c66b1e11fb21702fce40fe9f54083b035245e5791b2f9cb",
+    "notes/reference_screws.ini": "cc48df07b2affd3a28e4f0838aac76cf2a3fef186530a476a7d456bf4075cb7a",
+    "plate_left.step": "023e4afbc21d8f83a2cf6855a5a6d042531a27aab3f18444361739cb5073af38",
+    "plate_left.stl": "5bfc168cadc13a3a1f8fd8bc60346cc0837dc60dca6b8b85d293fda8d67164cd",
+    "plate_right.step": "0fded5ed5ee7af119fb93a5eaa3dc0349124c17b8df8a0331b7b369ea2515233",
+    "plate_right.stl": "03f2e33c9a19bb7192bef4d75d4dc759066579ee0b92742169a92c99f7a4ea3d",
+    "print_preview.py": "4333d588d63972a5f7977a314231e5d9e97e6934bbaa68cdaaeb4d30a5907703",
+    "rear_view.py": "e8adbcb4e960a46c95797befbc0f77c8fd99150a7c41eac9dff655bf0ff53900",
+    "renders/final/book_reading_plate_isometric.png": "9e6bc99015777933c596d28fffd568ca658990fb4d77f1e1144402d63f793275",
+    "renders/final/print_preview_isometric.png": "3719787ada97e46a58fc888af9d6329e69e54e1442a3ceccb570addbba79dd5f",
+    "renders/final/rear_view_isometric.png": "7ed26f2b851b7ae28d1da82f7551756dc8be9fa1795ae377428b245618d37720",
+    "renders/final/screw_view_front.png": "92bd677a4e093b6afb081b9857b4963ba950d950574f8d8c14aab4715bef6541",
+    "renders/final/screw_view_isometric.png": "1b44d558a456567a242f021c6137c056d85640cb5cda98f2267b4735952da83b",
+    "screw_view.py": "8efdba78b01abacfa46ad5fd90a6b9579e4d30717ca89493ba3dc9664b6f7f1c",
+    "screws.step": "53fa056de68747b272f31e23d3e27de966df19dcfbef78d301c6e459466aab66",
+    "screws.stl": "304b28eede711589064201887a29dbff50c87c56df33da8247c04b8ce7616603",
+    "verify_exports.py": "781370a7dd8d479178e9430559b69e4f66cfb6e72d121afcc167e3b18c4cd999"
   }
 }

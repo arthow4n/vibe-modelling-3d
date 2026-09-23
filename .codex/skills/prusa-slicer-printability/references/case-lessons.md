@@ -82,6 +82,25 @@ on a 0.2 mm layer grid. Preserve dimensions, but do not assume layer registratio
 or printed clearance stays identical. This was observed with PrusaSlicer 2.9.6.
 
 
+## A printed screw's drive socket is also a fit-critical surface
+
+The book-plate user reported usable threads but poor head/socket printing and
+difficulty driving the supplied screw; actual print settings were not supplied.
+The head-down CAD layout placed a roof over its shallow hex pocket. The revision
+prints head-up, deepens the socket and replaces the flat underside of the head
+with a 45-degree cone and matching seat. This changes both printability and the
+seat load path, so the head/seat strength checks were repeated.
+
+PrusaSlicer 2.9.6 reference evidence at 0.2 mm layers and supports off shows a
+solid floor followed by upward-growing hex walls, with no roof over the socket:
+[final screw paths](../../../../model/book_reading_plate/notes/final_screws/head_socket.png)
+and [scope/settings](../../../../model/book_reading_plate/README.md#verification-evidence).
+No support or bridge-role paths were generated in that screw job; short thread
+overhang paths remain. Revised physical print quality is unreported. Check the
+tool-engagement surface and its orientation alongside the thread, rather than
+treating a successful thread fit as validation of the whole fastener. A cone
+does not establish a universal support-free angle for every printer/material.
+
 ## Remaining limitations
 
 Selected layer-window SVGs are supported by the review helper. Automatic
