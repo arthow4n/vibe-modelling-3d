@@ -15,6 +15,15 @@ Finish the complete model. Include a small test piece only when it meaningfully 
 * Evaluate test pieces through the same applicable CAD and printability workflow as the model, including practical bed contact and intended component positions. Export them with clear names inside the object's directory. Make their purpose and the full-model print file easy to distinguish.
 * Provide brief instructions for what to try and observe, such as whether a latch engages securely and releases comfortably, and identify the parameter to adjust if it binds or feels loose. State what the sample does not test, such as full-object stiffness, compression resistance or fatigue life. Offer a small labeled set of clearance variants only when comparison would help; avoid unnecessary samples.
 
+For a structural coupon, derive the representative force, moment and restraint
+from the complete assembly's load case before specifying a test load. Preserve
+the effective load-bearing section, print-layer direction and relevant contact
+or support conditions. A short joint sample may answer fit or driveability while
+missing the full span's bending and stiffness; label that scope explicitly and
+screen the complete load path separately. Do not recommend a coupon as a
+strength-qualified trial when the assembly's structural screen already rejects
+its joint architecture.
+
 Before printing, coupon checks establish only preserved geometry/constraints,
 experiment scope, bed fit, plausible toolpaths and estimated cost savings. They
 do not measure release force, friction, spring return, hinge wobble or fatigue.

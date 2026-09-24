@@ -24,6 +24,7 @@ Reopen affected checks after changes; do not repeat unrelated checks for a small
 - [ ] Build understandable parametric geometry; preserve critical interfaces.
 - [ ] Evaluate source through CadQuery MCP; check bounds and topology; select useful views.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
+- [ ] For load-bearing parts and joints, screen the full assembly load path and weakest sections against intended use before recommending a structural trial.
 - [ ] Review final generic FDM geometry and resolve significant defects, especially on fit-critical surfaces.
 - [ ] Review exposed edges, corners and grip areas without weakening interfaces.
 - [ ] Export STEP/STL from the same print-ready geometry and placement; verify artifacts.
@@ -40,7 +41,7 @@ do not mistake a parameter value for a verified measurement or physical result.
 
 | Trigger | Reference |
 | --- | --- |
-| New requirements, assembly choices, mechanisms, motion checks, force estimates, “tight/loose” feedback | [Design decisions](references/design-decisions.md) |
+| New requirements, assembly choices, load-bearing joints, mechanisms, motion checks, force estimates, “tight/loose” feedback | [Design decisions](references/design-decisions.md) |
 | Generic FDM review, final smoke slice, orientation, moving parts or support constraints | [Print planning](references/print-planning.md) |
 | Fit, force, friction or durability needs physical validation | [Physical experiments](references/physical-experiments.md) |
 | Dimensions, shared builders, modular source or edge treatment | [Parametric construction and edges](references/parametric-and-edges.md) |

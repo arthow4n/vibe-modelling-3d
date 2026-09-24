@@ -96,10 +96,12 @@ solid floor followed by upward-growing hex walls, with no roof over the socket:
 [final screw paths](../../../../model/book_reading_plate/notes/final_screws/head_socket.png)
 and [scope/settings](../../../../model/book_reading_plate/README.md#verification-evidence).
 No support or bridge-role paths were generated in that screw job; short thread
-overhang paths remain. Revised physical print quality is unreported. Check the
-tool-engagement surface and its orientation alongside the thread, rather than
-treating a successful thread fit as validation of the whole fastener. A cone
-does not establish a universal support-free angle for every printer/material.
+overhang paths remain. The user later reported that the complete revised plate
+printed with a really nice result, without specific socket-drive observations or
+print settings; see the [physical status](../../../../model/book_reading_plate/README.md#physical-status).
+Check the tool-engagement surface and its orientation alongside the thread,
+rather than treating a successful thread fit as validation of the whole fastener.
+A cone does not establish a universal support-free angle for every printer/material.
 
 ## Remaining limitations
 
