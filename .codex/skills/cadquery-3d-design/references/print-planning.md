@@ -22,6 +22,13 @@ Unless the request specifies otherwise, design for FDM/FFF printing in a single 
 
 Use the confirmed printer setup in the repository's `AGENTS.md` when present; it takes precedence over generic printer assumptions.
 
+For a proposed split assembly, compare rough part bounds and planned print aids
+against the practical envelope before detailed CAD. Estimate the load on each
+candidate joint in the proposed layer direction and the full-size assembly
+travel. Bed fit alone does not select a viable split or print orientation; use
+the early numerical screen in [structural load paths and joint screens](design-decisions.md#structural-load-paths-and-joint-screens),
+then confirm actual geometry and deposited footprint later.
+
 Choose a plausible print orientation before committing to major geometry, and revisit it as the design evolves:
 
 * Provide a stable bed-contact surface and check the oriented dimensions against the build volume when known. Avoid unnecessary tall, slender geometry or footprints prone to lifting. Record the intended orientation and any assumed build-volume limits.

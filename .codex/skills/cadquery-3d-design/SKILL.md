@@ -19,12 +19,13 @@ Reopen affected checks after changes; do not repeat unrelated checks for a small
 - [ ] Confirm scope, references, user edits and required CAD tool availability.
 - [ ] Establish use, critical dimensions, assembly/material preferences, mechanism effort and failure modes.
 - [ ] Check the full print layout against the practical printer envelope; for an oversized assembly, resolve segmentation and joint/load requirements with the user before finalizing it.
+- [ ] For structurally important parts and joints, estimate loads and stiffness and calculate full-size assembly travel before detailed CAD; use the results to choose the split, joint and print orientation.
 - [ ] Identify physical uncertainties early; plan worthwhile small experiments.
 - [ ] Choose orientation, wall sizes, layer direction and support strategy.
 - [ ] Build understandable parametric geometry; preserve critical interfaces.
 - [ ] Evaluate source through CadQuery MCP; check bounds and topology; select useful views.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
-- [ ] For load-bearing parts and joints, screen the full assembly load path and weakest sections against intended use before recommending a structural trial.
+- [ ] For structurally important parts and joints, repeat the load and stiffness screen using measured CAD sections before recommending a structural trial.
 - [ ] Review final generic FDM geometry and resolve significant defects, especially on fit-critical surfaces.
 - [ ] Review exposed edges, corners and grip areas without weakening interfaces.
 - [ ] Export STEP/STL from the same print-ready geometry and placement; verify artifacts.

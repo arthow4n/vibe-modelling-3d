@@ -37,24 +37,32 @@ rather than treating joint strength as a routine default.
 
 ## Structural load paths and joint screens
 
-For a load-bearing part or split assembly, derive service and foreseeable handling
-loads from its intended use before recommending a structural trial. Trace how
-bending, shear, torsion and withdrawal travel through the actual assembled
-geometry, including both sides of a seam and any change in load direction. Credit
-friction, a butt seam, preload or shared contact only when the design and stated
-assumptions support it. A positive geometric lock or successful fit test does
-not establish strength.
+For a structurally important part or split assembly, start with a dimensioned
+sketch or parameter table before detailed CAD. Derive service and foreseeable
+handling cases from intended use, including support and grip positions. Estimate
+reactions, bending in each direction that puts a different seam face in tension,
+shear, torsion and withdrawal. Estimate required section size and joint or
+fastener capacity with stated material allowances. Set provisional limits for
+sag and joint rotation from intended use, then estimate whether the concept
+meets them. Compare those demands with plausible joint dimensions and print
+layer direction; vary uncertain loads, properties and load sharing. Reject a
+concept that fails even an optimistic bound before spending time modelling it.
 
-Measure the likely weak sections from evaluated CAD geometry, including reliefs,
-holes, thin skins and local attachment roots; outside dimensions alone can hide
-the governing section. Use a proportionate calculation to screen the relevant
-failure modes, such as part bending, joint rotation, bearing, fastener seating,
-thread or catch failure and edge tear-out. State load sharing, boundary
-conditions, print orientation, infill, material-property source and allowance;
-check plausible sensitivity where these are uncertain. If even an optimistic
-screen fails, revise the load path before recommending a strength trial. A
-passing screen is conditional evidence, not a certified load rating or a
-substitute for physical validation.
+At the same stage, calculate the full-size insertion travel and swept space for
+the proposed assembly sequence. Check whether the parts can be aligned, held,
+fastened and released with available hand and tool access. A short fit coupon or
+collision-free rigid path does not establish that the full assembly is practical.
+
+Once the geometry exists, measure likely weak sections from evaluated CAD,
+including reliefs, holes, thin skins and attachment roots. Recalculate the
+relevant bending, stiffness, bearing, fastener seating, thread or catch and edge
+tear-out screens using the actual assembled load path. Credit friction, a butt
+seam, preload or shared contact only when the design and stated assumptions
+support it. Record boundary conditions, print orientation, infill,
+material-property source and allowance; check sensitivity where uncertain. A
+positive geometric lock, clean slice or successful fit test does not establish
+strength. A passing calculation is conditional evidence, not a certified load
+rating or a substitute for physical validation.
 
 ## Functional design
 
