@@ -32,6 +32,15 @@ Choose a plausible print orientation before committing to major geometry, and re
 * Give mating and moving parts deliberate clearance rather than nominally identical dimensions. Account for orientation, hole accuracy, surface finish, and first-layer spread at bed-facing fits. Keep nominal dimensions separate from fit allowances; state whether an allowance is radial, diametral, axial, or per side. For angled mating surfaces, distinguish coordinate-direction clearance from the shortest surface-normal gap. For uncertain tight fits and other physically sensitive mechanisms, follow [optional test prints for physical validation](physical-experiments.md).
 * For print-in-place mechanisms, evaluate the connected print arrangement as well as the working positions. Check captive retention, movement clearance, bed contact for each moving part, unsupported starts and roofs, and whether supports would become trapped or fuse the joint. Preserve mating-part positions in the printable export; separate-part exports are not a substitute. Distinguish no assembly from no post-processing, and document any freeing of joints or support removal. A valid CAD assembly does not establish that the mechanism will print and move successfully. Trace where each pin, socket roof and attachment first appears and how subsequent layers gain support; pin length alone is not a printability test. For a concrete support-free hinge alternative, read the [opposing conical pivot example](print-in-place-hinges.md) when designing or diagnosing a captive hinge.
 
+After changing orientation to make one critical feature printable, inspect the
+surfaces that now face downward. A printed screw placed with its drive socket
+upward may leave a flat head underside as an unsupported ledge. A tapered
+underside can grow outward gradually; if it bears on the assembly, model its
+matching seat and recheck seated position, contact and local strength. Choose
+the slope and support strategy for the actual geometry and process rather than
+assuming a universal printable angle. The [book plate screw case](../../prusa-slicer-printability/references/case-lessons.md#a-printed-screws-drive-socket-is-also-a-fit-critical-surface)
+shows the orientation and seat tradeoff.
+
 Use these assumptions when interpreting ambiguous requirements and judging whether a model is satisfactory. If the request calls for a different printer, nozzle, material, or manufacturing process, follow that request instead and record important assumptions where useful.
 
 ## Final review and reference smoke slice
