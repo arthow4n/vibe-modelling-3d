@@ -8,7 +8,15 @@ effect on function and the cost of discovering a failure late.
 
 ## Optional test prints for physical validation
 
-Finish the complete model. Include a small test piece only when it meaningfully reduces the cost of testing an uncertain interaction while preserving the relevant behavior. A test piece is an optional first print, not a default gate that makes the agent stop and wait. Continue evaluating, refining and exporting the complete design while physical feedback is unavailable; identify remaining uncertainty at handoff. Pause dependent work only when the user has requested a staged testing workflow or an essential unresolved requirement prevents a meaningful final design.
+For a requested full design, finish the complete model. Include a small test
+piece only when it meaningfully reduces the cost of testing an uncertain
+interaction while preserving the relevant behavior. A test piece is an optional
+first print, not a default gate that makes the agent stop and wait. Continue
+evaluating, refining and exporting the complete design while physical feedback
+is unavailable; identify remaining uncertainty at handoff. If the user requests
+samples only, deliver that scope. Pause dependent work only when the user has
+requested a staged testing workflow or an essential unresolved requirement
+prevents a meaningful final design.
 
 * Consider test pieces for behavior that CAD and slicing cannot establish reliably: hinge freedom, snap-latch engagement and release, friction fits, sliding joints, clip grip, flexible tabs, printed threads, and press-fit inserts. Provide one when it can meaningfully reduce the cost of discovering a likely fit or mechanism problem; do not create coupons automatically for every feature.
 * Reuse the production interface construction and parameters where practical. Preserve mating geometry, material, relevant slicing settings and print orientation, plus wall thickness, flexible length, attachment stiffness and surrounding geometry that determine the tested behavior. A shortened clip can be much stiffer than the real part. If a small sample cannot represent the interaction adequately, explain that limitation instead of treating it as a substitute for a full-part trial.
@@ -85,9 +93,9 @@ coupon is proposed:
 | Test piece(s) | Yes / No / Partial / N/A / Unknown | Exact exported file names | What was observed, or what remains to test |
 | Final printable object(s) | Yes / No / Partial / Unknown | Exact exported file names | What was observed, or what remains to test |
 
-Use **N/A** when the full object is intentionally the physical trial and there
-is no separate test piece. Use **Unknown** when the repository has no user print
-report; do not turn an absent note into a claim that a part was not printed.
+Use **N/A** for test pieces when none were designed. Use **Unknown** when the
+repository has no user print report for an exported item; do not turn an absent
+note into a claim that a part was not printed.
 Keep “printed” separate from “functionally tested”: a print can exist without a
 fit, force, durability or use result. Add the report date, source revision or
 artifact hash, material, orientation and printer/profile when known; record

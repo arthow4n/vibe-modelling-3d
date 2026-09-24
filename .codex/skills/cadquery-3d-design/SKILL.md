@@ -19,7 +19,7 @@ Reopen affected checks after changes; do not repeat unrelated checks for a small
 - [ ] Confirm scope, references, user edits and required CAD tool availability.
 - [ ] Establish use, critical dimensions, assembly/material preferences, mechanism effort and failure modes.
 - [ ] Check the full print layout against the practical printer envelope; for an oversized assembly, resolve segmentation and joint/load requirements with the user before finalizing it.
-- [ ] For structurally important parts and joints, estimate loads and stiffness and calculate full-size assembly travel before detailed CAD; use the results to choose the split, joint and print orientation.
+- [ ] For structurally important parts and joints, estimate loads and stiffness before detailed CAD; use the estimates to choose sections and print orientation. For split assemblies, also calculate full-size assembly travel before choosing the split and joint.
 - [ ] Identify physical uncertainties early; plan worthwhile small experiments.
 - [ ] Choose orientation, wall sizes, layer direction and support strategy.
 - [ ] Build understandable parametric geometry; preserve critical interfaces.

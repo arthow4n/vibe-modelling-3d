@@ -7,6 +7,7 @@ Read when interpreting a new object, mechanism or ambiguous physical feedback.
 Reuse the user's known dimensions, printer, material and assembly preferences.
 Honor an explicit request to proceed autonomously: choose a reasonable mechanism
 and document assumptions instead of asking for routine preference decisions.
+The oversized-assembly joint/load agreement below still applies.
 Otherwise ask only when an unresolved requirement would materially change fit,
 function, usability or manufacturing. Continue independent work while awaiting
 an essential answer; do not mistake elapsed time for an answer.
@@ -31,9 +32,10 @@ is acceptable, permanent versus demountable assembly, permitted fasteners or
 adhesives, assembly access, and the consequence of failure. Recommend a concrete
 joint approach with its strength, printing and assembly tradeoffs. A locating
 feature, friction fit, dovetail or simple connector is not automatically a
-structural joint. If the user explicitly delegates these decisions, choose and
-document conservative load assumptions and flag safety-critical uncertainty
-rather than treating joint strength as a routine default.
+structural joint. If the user delegates the joint design after establishing the
+required loads, assembly permanence, permitted hardware or adhesive, and failure
+consequences, choose the details and document the assumptions. Do not substitute
+guessed loads for the required agreement on an oversized assembly.
 
 ## Structural load paths and joint screens
 
