@@ -126,15 +126,15 @@ views, use
 Use hidden lines or sections for a specific internal-geometry question. Remove
 disposable scratch output before staging; retain historical evidence deliberately.
 
-Actually open saved views when visual judgment is needed; a path or successful
-render status is not visual inspection. When the agent's tools support composing
-command execution and image reading within one outer tool call, prefer running
-the command, reading its successful view paths, and returning the needed images
-in that same call. Those are sequential operations, not an image returned by the
-shell command. Otherwise use a separate image-reading call. Reuse the saved
-image; do not rebuild the model merely to open it. Keep the command's four-view
-default, and explicitly choose fewer views or `--views none` when the question
-does not require all four.
+Use CAD renders only when they help answer a concrete visual question. If the
+agent chooses to inspect a render, prefer composing command execution and image
+reading in one outer tool call when its tools support that: run the command, read
+the successful view paths, and return the selected images in that call. These
+are sequential operations, not an image returned by the shell command. Otherwise
+open selected images in a separate call. A path or render status alone is not
+evidence of visual inspection. Reuse saved images rather than rebuilding merely
+to open them. Keep the command's four-view default; explicitly choose fewer
+views or `--views none` when appropriate.
 
 ## Avoid repeated work
 
