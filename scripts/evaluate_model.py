@@ -111,7 +111,8 @@ def render(shape, view, width, height, show_hidden, image_format):
     if image_format == "svg":
         return svg
     import cairosvg
-    return cairosvg.svg2png(bytestring=svg, output_width=width, output_height=height)
+    return cairosvg.svg2png(bytestring=svg, output_width=width, output_height=height,
+                            background_color="#ffffff")
 
 
 def worker(request, response):

@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+from PIL import Image
 
 COMMAND = Path(__file__).resolve().parents[1] / "scripts/evaluate_model.py"
 
@@ -29,6 +30,12 @@ def test_sibling_import_exports_and_view(tmp_path):
     assert (tmp_path / "renders/piece_front.svg").read_text().startswith("<?xml")
     assert (tmp_path / "piece.step").stat().st_size > 0
     assert (tmp_path / "piece.stl").stat().st_size > 0
+
+    png = call(source, "--views", "front", "--output-dir", "renders")
+    assert png.returncode == 0, png.stderr + png.stdout
+    image = Image.open(tmp_path / "renders/piece_front.png").convert("RGBA")
+    assert image.getpixel((0, 0)) == (255, 255, 255, 255)
+    assert image.getextrema()[0][0] < 255  # visible model strokes
 
     # A second worker must read the changed sibling source, not stale bytecode.
     (tmp_path / "dimensions.py").write_text("WIDTH = 17\n")
