@@ -12,13 +12,12 @@ geometry. From the repository root:
 ```sh
 uv run --locked python scripts/evaluate_model.py \
   model/object_name/object_name.py --views none \
-  --step object_name.step --stl object_name.stl \
-  --report notes/evaluation.json
+  --step object_name.step --stl object_name.stl
 ```
 
 Relative output paths resolve against the entry point's directory. Check each
-export's `ok` status and hash in the JSON result. A successful export is not
-mesh verification. Then evaluate an object-owned checker entry point:
+export's `ok` status in the JSON result. A successful export is not mesh
+verification. Then evaluate an object-owned checker entry point:
 
 ```sh
 uv run --locked python scripts/evaluate_model.py \

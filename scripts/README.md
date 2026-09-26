@@ -10,16 +10,14 @@ raster conversion. PrusaSlicer is a separate system command for print review.
 uv run --locked python scripts/evaluate_model.py \
   model/vaseline_transfer_spatula/vaseline_transfer_spatula.py \
   --views isometric,front --output-dir renders/print \
-  --step vaseline_transfer_spatula.step --stl vaseline_transfer_spatula.stl \
-  --report notes/evaluation.json
+  --step vaseline_transfer_spatula.step --stl vaseline_transfer_spatula.stl
 ```
 
-Paths for exports, images and `--report` are relative to the selected entry
-point's directory unless absolute. The default four views go to
-`renders/scratch/`; `--views none` skips images. Choose only views that answer a
-question, and use `--image-format svg` when PNG is unnecessary. Other options
-include `--width`, `--height`, `--show-hidden`, `--stl-tolerance`,
-`--stl-angular-tolerance`, and `--timeout`; see `--help`.
+Export and image paths are relative to the selected entry point's directory
+unless absolute. STEP and STL are disabled unless `--step` or `--stl` is
+specified. The default four views go to `renders/scratch/`; `--views none`
+skips images. Choose only views that answer a question, and use
+`--image-format svg` when PNG is unnecessary. `--help` lists every default.
 
 Visual inspection is optional and should answer a specific question. JSON names
 output paths but contains no image content. Select a `views` entry with `ok: true`
@@ -37,11 +35,10 @@ Top-level execution is supported; a `__main__` guard does not run. Sibling
 imports are fresh on each invocation. A model may itself write files or invoke
 other processes; those side effects are not rolled back on failure or timeout.
 
-The command always prints one complete JSON report to stdout. Add
-`--report notes/evaluation.json` to save the same report in the object directory.
-The JSON contains geometry, CQGI-discovered top-level parameters,
-source/local-import hashes, timings, per-output status and errors. The process
-exit code is zero for a successful evaluation and nonzero when evaluation fails.
+The command always prints one complete JSON report to stdout. It contains
+geometry, CQGI-discovered top-level parameters, source/local-import hashes,
+timings, per-output status and errors. The process exit code is zero for a
+successful evaluation and nonzero when evaluation fails.
 Only an output with `ok: true` is a current successful artifact; a failed output
 may leave an older file at its destination. A view failure does not erase valid
 geometry or successful exports. A successful export is not independent mesh

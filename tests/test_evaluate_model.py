@@ -19,10 +19,9 @@ def test_sibling_import_exports_and_view(tmp_path):
     source.write_text("import cadquery as cq\nfrom dimensions import WIDTH\n"
                       "result = cq.Workplane('XY').box(WIDTH, 7, 3)\n")
     run = call(source, "--views", "front", "--image-format", "svg",
-               "--output-dir", "renders", "--step", "piece.step", "--stl", "piece.stl",
-               "--report", "report.json")
+               "--output-dir", "renders", "--step", "piece.step", "--stl", "piece.stl")
     assert run.returncode == 0, run.stderr + run.stdout
-    data = json.loads((tmp_path / "report.json").read_text())
+    data = json.loads(run.stdout)
     assert data["ok"] and data["geometry"]["topology"]["solids"] == 1
     assert data["geometry"]["size_mm"] == [13, 7, 3]
     assert len(data["local_module_sha256"]) == 1
@@ -39,7 +38,7 @@ def test_sibling_import_exports_and_view(tmp_path):
 
     # A second worker must read the changed sibling source, not stale bytecode.
     (tmp_path / "dimensions.py").write_text("WIDTH = 17\n")
-    rerun = call(source, "--views", "none", "--json")
+    rerun = call(source, "--views", "none")
     assert rerun.returncode == 0, rerun.stderr + rerun.stdout
     assert json.loads(rerun.stdout)["geometry"]["size_mm"][0] == 17
 
@@ -49,8 +48,8 @@ def test_build_error_cannot_claim_old_artifacts(tmp_path):
     source.write_text("raise ValueError('bad geometry')\n")
     old = tmp_path / "old.step"
     old.write_text("old output")
-    run = call(source, "--views", "none", "--step", "old.step", "--report", "report.json")
+    run = call(source, "--views", "none", "--step", "old.step")
     assert run.returncode != 0
-    data = json.loads((tmp_path / "report.json").read_text())
+    data = json.loads(run.stdout)
     assert not data["ok"] and data["errors"][0]["stage"] == "build"
     assert data["exports"] == [] and old.read_text() == "old output"

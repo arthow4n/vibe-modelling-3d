@@ -215,21 +215,31 @@ def positive_pixel(value):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("file_path", type=Path, help="Trusted CadQuery Python entry point")
     parser.add_argument("--views", default="isometric,front,top,right",
-                        help="Comma-separated views, or none (default: isometric,front,top,right)")
-    parser.add_argument("--output-dir", default="renders/scratch", help="Relative to the model file")
-    parser.add_argument("--image-format", choices=("png", "svg"), default="png")
-    parser.add_argument("--width", type=positive_pixel, default=800)
-    parser.add_argument("--height", type=positive_pixel, default=600)
-    parser.add_argument("--show-hidden", action="store_true")
-    parser.add_argument("--step", type=Path, help="STEP output, relative to the model file")
-    parser.add_argument("--stl", type=Path, help="STL output, relative to the model file")
-    parser.add_argument("--stl-tolerance", type=positive_float, default=.02)
-    parser.add_argument("--stl-angular-tolerance", type=positive_float, default=.1)
-    parser.add_argument("--timeout", type=positive_float, default=300)
-    parser.add_argument("--report", type=Path, help="Optional JSON report path (relative to the model file)")
+                        help=f"Comma-separated views from {', '.join(VIEWS)}, or none")
+    parser.add_argument("--output-dir", default="renders/scratch",
+                        help="Render output directory, relative to the model file")
+    parser.add_argument("--image-format", choices=("png", "svg"), default="png",
+                        help="Rendered image format")
+    parser.add_argument("--width", type=positive_pixel, default=800,
+                        help="Rendered image width in pixels (1–4096)")
+    parser.add_argument("--height", type=positive_pixel, default=600,
+                        help="Rendered image height in pixels (1–4096)")
+    parser.add_argument("--show-hidden", action="store_true",
+                        help="Include hidden edges in rendered views")
+    parser.add_argument("--step", type=Path,
+                        help="Optional STEP output path, relative to the model file; disabled when omitted")
+    parser.add_argument("--stl", type=Path,
+                        help="Optional STL output path, relative to the model file; disabled when omitted")
+    parser.add_argument("--stl-tolerance", type=positive_float, default=.02,
+                        help="STL linear tessellation tolerance")
+    parser.add_argument("--stl-angular-tolerance", type=positive_float, default=.1,
+                        help="STL angular tessellation tolerance")
+    parser.add_argument("--timeout", type=positive_float, default=300,
+                        help="Maximum evaluation time in seconds")
     args = parser.parse_args(argv)
     source = args.file_path.resolve()
     if not source.is_file():
@@ -251,10 +261,9 @@ def main(argv=None):
         paths.add(path)
         exports.append({"path": str(path), "format": name,
                         "tolerance": args.stl_tolerance, "angular_tolerance": args.stl_angular_tolerance})
-    report_path = (root / args.report).resolve() if args.report else None
     destinations = {output_dir / f"{source.stem}_{view}.{args.image_format}" for view in views}
-    if source in destinations or paths & destinations or (report_path and report_path in paths | destinations):
-        parser.error("Report, source, view and export paths must be distinct")
+    if source in destinations or paths & destinations:
+        parser.error("Source, view and export paths must be distinct")
     request = {"file_path": str(source), "views": views, "output_dir": str(output_dir),
                "image_format": args.image_format, "width": args.width, "height": args.height,
                "show_hidden": args.show_hidden, "exports": exports}
@@ -285,8 +294,6 @@ def main(argv=None):
                     report["ok"] = False
                     report["errors"].append({"stage": "worker", "message": f"Worker exited {returncode}"})
     report.setdefault("timings_seconds", {})["total"] = time.monotonic() - started
-    if report_path:
-        atomic_bytes(report_path, (json.dumps(report, indent=2) + "\n").encode())
     print(json.dumps(report, indent=2))
     return 0 if report["ok"] else 1
 
