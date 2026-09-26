@@ -128,13 +128,15 @@ disposable scratch output before staging; retain historical evidence deliberatel
 
 Use CAD renders only when they help answer a concrete visual question. If the
 agent chooses to inspect a render, prefer composing command execution and image
-reading in one outer tool call when its tools support that: run the command, read
-the successful view paths, and return the selected images in that call. These
-are sequential operations, not an image returned by the shell command. Otherwise
-open selected images in a separate call. A path or render status alone is not
-evidence of visual inspection. Reuse saved images rather than rebuilding merely
-to open them. Keep the command's four-view default; explicitly choose fewer
-views or `--views none` when appropriate.
+reading in one outer tool call when its tools support that. For example: run the
+evaluator, parse its stdout JSON, select a `views` entry with `ok: true`, read the
+image at that entry's absolute `path`, and return the image, all within the same
+outer call. These are sequential operations composed by the outer call; the
+image is not returned by the shell command. Otherwise open the selected image in
+a separate call. A path or render status alone is not evidence of visual
+inspection. Reuse saved images rather than rebuilding merely to open them. Keep
+the command's four-view default; explicitly choose fewer views or `--views none`
+when appropriate.
 
 ## Avoid repeated work
 
