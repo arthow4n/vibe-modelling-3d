@@ -27,6 +27,8 @@ VIEWS = {
     "left": (-1, 0, 0), "right": (1, 0, 0),
     "top": (0, 0, 1), "bottom": (0, 0, -1),
 }
+STL_LINEAR_TOLERANCE_MM = 0.003
+STL_ANGULAR_TOLERANCE_RAD = 0.5
 
 
 def selected_shape(value):
@@ -94,22 +96,24 @@ def export(shape, item):
     with tempfile.NamedTemporaryFile(dir=path.parent, suffix=path.suffix, delete=False) as file:
         temporary = Path(file.name)
     try:
-        cq.exporters.export(shape, str(temporary), exportType=item["format"],
-                            tolerance=item["tolerance"], angularTolerance=item["angular_tolerance"])
+        export_options = {"exportType": item["format"]}
+        if item["format"] == "STL":
+            export_options.update(tolerance=STL_LINEAR_TOLERANCE_MM,
+                                  angularTolerance=STL_ANGULAR_TOLERANCE_RAD)
+        cq.exporters.export(shape, str(temporary), **export_options)
         data = temporary.read_bytes()
         temporary.replace(path)
-        return {**item, "ok": True, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+        result = {key: value for key, value in item.items() if key != "format"}
+        return {**result, "ok": True, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
     finally:
         temporary.unlink(missing_ok=True)
 
 
-def render(shape, view, width, height, show_hidden, image_format):
+def render(shape, view, width, height, show_hidden):
     from cadquery.occ_impl.exporters.svg import getSVG
     svg = getSVG(shape, opts={"width": width, "height": height,
                               "projectionDir": VIEWS[view], "showHidden": show_hidden,
                               "showAxes": view.startswith("isometric")}).encode("utf-8")
-    if image_format == "svg":
-        return svg
     import cairosvg
     return cairosvg.svg2png(bytestring=svg, output_width=width, output_height=height,
                             background_color="#ffffff")
@@ -175,15 +179,16 @@ def worker(request, response):
                 try:
                     report["exports"].append(export(shape, item))
                 except Exception as exc:
-                    report["exports"].append({**item, "ok": False})
+                    result = {key: value for key, value in item.items() if key != "format"}
+                    report["exports"].append({**result, "ok": False})
                     error("export", exc, path=item["path"])
             report["timings_seconds"]["export"] = time.monotonic() - before
             before = time.monotonic()
             for view in args["views"]:
-                destination = Path(args["output_dir"]) / f'{path.stem}_{view}.{args["image_format"]}'
+                destination = Path(args["output_dir"]) / f'{path.stem}_{view}.png'
                 try:
                     data = render(shape, view, args["width"], args["height"],
-                                  args["show_hidden"], args["image_format"])
+                                  args["show_hidden"])
                     atomic_bytes(destination, data)
                     report["views"].append({"view": view, "ok": True, "path": str(destination),
                                             "sha256": hashlib.sha256(data).hexdigest()})
@@ -216,14 +221,14 @@ def positive_pixel(value):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(
-        description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+        description=f"{__doc__}\nSTL exports use {STL_LINEAR_TOLERANCE_MM} mm linear and "
+                    f"{STL_ANGULAR_TOLERANCE_RAD} rad angular tessellation tolerances.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("file_path", type=Path, help="Trusted CadQuery Python entry point")
     parser.add_argument("--views", default="isometric,front,top,right",
                         help=f"Comma-separated views from {', '.join(VIEWS)}, or none")
     parser.add_argument("--output-dir", default="renders/scratch",
                         help="Render output directory, relative to the model file")
-    parser.add_argument("--image-format", choices=("png", "svg"), default="png",
-                        help="Rendered image format")
     parser.add_argument("--width", type=positive_pixel, default=800,
                         help="Rendered image width in pixels (1–4096)")
     parser.add_argument("--height", type=positive_pixel, default=600,
@@ -234,10 +239,6 @@ def main(argv=None):
                         help="Optional STEP output path, relative to the model file; disabled when omitted")
     parser.add_argument("--stl", type=Path,
                         help="Optional STL output path, relative to the model file; disabled when omitted")
-    parser.add_argument("--stl-tolerance", type=positive_float, default=.02,
-                        help="STL linear tessellation tolerance")
-    parser.add_argument("--stl-angular-tolerance", type=positive_float, default=.1,
-                        help="STL angular tessellation tolerance")
     parser.add_argument("--timeout", type=positive_float, default=300,
                         help="Maximum evaluation time in seconds")
     args = parser.parse_args(argv)
@@ -259,13 +260,16 @@ def main(argv=None):
         if path.suffix.lower() not in suffixes or path in paths:
             parser.error(f"{name} path must be distinct from the source and have a matching extension")
         paths.add(path)
-        exports.append({"path": str(path), "format": name,
-                        "tolerance": args.stl_tolerance, "angular_tolerance": args.stl_angular_tolerance})
-    destinations = {output_dir / f"{source.stem}_{view}.{args.image_format}" for view in views}
+        item = {"path": str(path), "format": name}
+        if name == "STL":
+            item.update(tolerance_mm=STL_LINEAR_TOLERANCE_MM,
+                        angular_tolerance_rad=STL_ANGULAR_TOLERANCE_RAD)
+        exports.append(item)
+    destinations = {output_dir / f"{source.stem}_{view}.png" for view in views}
     if source in destinations or paths & destinations:
         parser.error("Source, view and export paths must be distinct")
     request = {"file_path": str(source), "views": views, "output_dir": str(output_dir),
-               "image_format": args.image_format, "width": args.width, "height": args.height,
+               "width": args.width, "height": args.height,
                "show_hidden": args.show_hidden, "exports": exports}
     started = time.monotonic()
     with tempfile.TemporaryDirectory(prefix="cadquery-evaluate-") as directory:

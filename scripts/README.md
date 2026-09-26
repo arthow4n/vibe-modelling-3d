@@ -16,8 +16,9 @@ uv run --locked python scripts/evaluate_model.py \
 Export and image paths are relative to the selected entry point's directory
 unless absolute. STEP and STL are disabled unless `--step` or `--stl` is
 specified. The default four views go to `renders/scratch/`; `--views none`
-skips images. Choose only views that answer a question, and use
-`--image-format svg` when PNG is unnecessary. `--help` lists every default.
+skips images. Choose only views that answer a question; rendered views are
+always PNG. STL export uses fixed 0.003 mm linear and 0.5 rad angular
+tessellation tolerances. `--help` lists every CLI option and default.
 
 Visual inspection is optional and should answer a specific question. JSON names
 output paths but contains no image content. Select a `views` entry with `ok: true`

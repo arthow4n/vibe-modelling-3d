@@ -18,7 +18,7 @@ def test_sibling_import_exports_and_view(tmp_path):
     source = tmp_path / "piece.py"
     source.write_text("import cadquery as cq\nfrom dimensions import WIDTH\n"
                       "result = cq.Workplane('XY').box(WIDTH, 7, 3)\n")
-    run = call(source, "--views", "front", "--image-format", "svg",
+    run = call(source, "--views", "front",
                "--output-dir", "renders", "--step", "piece.step", "--stl", "piece.stl")
     assert run.returncode == 0, run.stderr + run.stdout
     data = json.loads(run.stdout)
@@ -26,7 +26,7 @@ def test_sibling_import_exports_and_view(tmp_path):
     assert data["geometry"]["size_mm"] == [13, 7, 3]
     assert len(data["local_module_sha256"]) == 1
     assert all(item["ok"] for item in data["exports"] + data["views"])
-    assert (tmp_path / "renders/piece_front.svg").read_text().startswith("<?xml")
+    assert (tmp_path / "renders/piece_front.png").stat().st_size > 0
     assert (tmp_path / "piece.step").stat().st_size > 0
     assert (tmp_path / "piece.stl").stat().st_size > 0
 
