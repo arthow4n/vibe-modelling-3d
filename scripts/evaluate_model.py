@@ -213,7 +213,9 @@ def positive_pixel(value):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(
-        description=f"{__doc__}\nSTL exports use {STL_LINEAR_TOLERANCE_MM} mm linear and "
+        description=f"{__doc__}\nFor valid evaluations, stdout always contains one JSON object. "
+                    "Model, view, and export paths in the report are absolute.\n"
+                    f"STL exports use {STL_LINEAR_TOLERANCE_MM} mm linear and "
                     f"{STL_ANGULAR_TOLERANCE_RAD} rad angular tessellation tolerances.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("file_path", type=Path, help="Trusted CadQuery Python entry point")
