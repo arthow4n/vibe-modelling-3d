@@ -126,15 +126,34 @@ views, use
 Use hidden lines or sections for a specific internal-geometry question. Remove
 disposable scratch output before staging; retain historical evidence deliberately.
 
-Use CAD renders only when they help answer a concrete visual question. Keep the
-command's four-view default; explicitly choose fewer views or `--views none`
-when appropriate. A JSON report contains paths, not image data. Inspect only a
-`views` entry with `ok: true`; failed views can leave an older file at the same
-path. Reuse saved images rather than rebuilding merely to open them.
+Use renders only to answer a concrete visual question. Keep the four-view
+default when it is useful; request only the needed views or `--views none` for
+geometry-only checks. Add `--step` and `--stl` together when final exports are
+needed so they come from the same build. Reuse saved images rather than
+rebuilding merely to open them.
 
-When the agent environment can compose tools, invoke the evaluator, parse its
-JSON, and read the selected image in one outer tool call. For example, in one
-`functions.exec` call:
+For valid evaluation invocations, stdout is one JSON report. Its top-level
+properties are `ok`, `file_path`, `units`, `geometry`, `parameters`, `views`, `exports`,
+`timings_seconds`, `versions`, `errors`, and `diagnostics`; `parameter_note` is
+optional. `geometry` contains `valid`, `bounds_mm`, `size_mm`, `volume_mm3`,
+`surface_area_mm2`, `center_of_mass_mm`, `topology` counts (`solids`, `faces`,
+`edges`, `vertices`), and per-solid `components` with the same measurements.
+Each parameter entry has `value`, `type`, and `description`. A view entry has
+`view` and `ok`, plus an absolute `path` when the PNG was written successfully.
+An export entry has absolute `path`, `ok`, and `bytes`; STL entries also have
+`tolerance_mm` and `angular_tolerance_rad`. The extension identifies STEP versus
+STL; there is no `format` field. Timing properties are `build`, `export`,
+`render`, `worker`, and `total` when available. Version properties are
+`python` and `cadquery`. Error entries have `stage`, `type`, `message`, `file`,
+`line`, and `traceback`, with `view` or `path` when relevant. `diagnostics`
+contains captured model output; `parameter_note` explains unavailable CQGI
+metadata. Some properties are absent when evaluation ends before that stage.
+
+For visual inspection, parse the JSON inside the same outer tool call that runs
+the evaluator, then read only a successful view's path. Print a compact summary
+of the geometry/status, output paths, errors, timings, and versions; avoid
+echoing the full report or diagnostics on success. Example `functions.exec`
+workflow (use the needed views/exports and set `workdir` to the repository):
 
 ```js
 let run = await tools.exec_command({
@@ -153,32 +172,47 @@ while (run.session_id) {
   });
   stdout += run.output;
 }
-
 const report = JSON.parse(stdout);
-text(JSON.stringify(report, null, 2)); // all fields, statuses, and artifact paths
+const summary = {
+  ok: report.ok,
+  file_path: report.file_path,
+  units: report.units,
+  geometry: report.geometry && {
+    valid: report.geometry.valid,
+    bounds_mm: report.geometry.bounds_mm,
+    size_mm: report.geometry.size_mm,
+    volume_mm3: report.geometry.volume_mm3,
+    surface_area_mm2: report.geometry.surface_area_mm2,
+    center_of_mass_mm: report.geometry.center_of_mass_mm,
+    topology: report.geometry.topology,
+    components: report.geometry.components?.map(({ valid, size_mm, volume_mm3 }) =>
+      ({ valid, size_mm, volume_mm3 })),
+  },
+  parameters: report.parameters,
+  parameter_note: report.parameter_note,
+  views: (report.views ?? []).map(({ view, ok, path }) => ({ view, ok, path })),
+  exports: report.exports,
+  timings_seconds: report.timings_seconds,
+  versions: report.versions,
+  errors: (report.errors ?? []).map(({ stage, type, message, file, line, view, path }) =>
+    ({ stage, type, message, file, line, view, path })),
+};
+text(JSON.stringify(summary, null, 2));
+if (!report.ok && report.diagnostics) text(report.diagnostics);
 
 const view = report.views?.find((item) => item.view === "isometric" && item.ok);
 if (view) {
-  text(`Image path: ${view.path}`); // absolute path, if only the path is needed
-  const rendered = await tools.view_image({ path: view.path });
-  image(rendered.image_url); // return the PNG itself in this same outer call
-}
-for (const output of report.exports ?? []) {
-  text(`Export path: ${output.path} (ok=${output.ok})`);
+  text(`Image path: ${view.path}`); // omit view_image when only the path is needed
+  image((await tools.view_image({ path: view.path })).image_url);
 }
 ```
 
-The report includes `ok`, `file_path`, `units`, `geometry`, `parameters`,
-`views`, `exports`, `timings_seconds`, `versions`, `errors`, and `diagnostics`;
-`parameter_note` is present when CQGI metadata cannot be read. Each successful
-view has its absolute `path`. Export entries have an absolute `path`, `ok`, and
-`bytes`; STL entries also include `tolerance_mm` and `angular_tolerance_rad`.
-The file extension identifies STEP versus STL; there is no separate format
-field. Iterate `report.exports` to print or use each path. The script's stdout
-is JSON; redirect stderr in the composed shell call so it cannot prefix logs to
-that JSON. The image is loaded in the later, sequential `view_image` operation,
-not returned by the shell command. Without tool composition, open the selected
-image in a separate call. A path or render status alone is not visual evidence.
+The shell command returns the JSON paths, not image data. `view_image` reads the
+PNG sequentially within the same outer call. Choose the view based on the
+question; if no image is needed, omit image loading and request `--views none`.
+A successful view can still be useful when another stage failed, so select by
+the entry's `ok` status rather than the report's overall `ok` alone. A path or
+status alone is not visual evidence.
 
 ## Avoid repeated work
 
