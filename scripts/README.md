@@ -21,13 +21,13 @@ question, and use `--image-format svg` when PNG is unnecessary. Other options
 include `--width`, `--height`, `--show-hidden`, `--stl-tolerance`,
 `--stl-angular-tolerance`, and `--timeout`; see `--help`.
 
-Visual inspection is optional and should answer a specific question. If the agent
-chooses to inspect a view, the command's terminal text and JSON contain paths,
-not image content. When its environment can compose tool operations, prefer
-running the command and reading selected successful PNG paths within one outer
-call, returning those images to the agent. This saves an agent round trip but
-still performs a command and a file read. Otherwise open selected images in a
-following call. Reuse saved files rather than rendering again just to view them.
+Visual inspection is optional and should answer a specific question. JSON names
+output paths but contains no image content. Select a `views` entry with `ok: true`
+and load its `path`; a failed render can leave an older file at that path. When
+the agent environment can compose tool operations, run the command, parse its
+JSON, and read the selected successful PNG within one outer call. Otherwise open
+the selected image in a following call. Reuse saved files rather than rendering
+again just to view them.
 
 The command builds trusted Python in a fresh child process with `__file__`, the
 file's directory as the working/import directory, and the file's `result` as
@@ -37,10 +37,11 @@ Top-level execution is supported; a `__main__` guard does not run. Sibling
 imports are fresh on each invocation. A model may itself write files or invoke
 other processes; those side effects are not rolled back on failure or timeout.
 
-The command prints a compact status summary. Add `--report notes/evaluation.json`
-to save structured JSON, or `--json` to print it. The JSON contains geometry,
-CQGI-discovered top-level parameters, source/local-import hashes, timings,
-per-output status and errors.
+The command always prints one complete JSON report to stdout. Add
+`--report notes/evaluation.json` to save the same report in the object directory.
+The JSON contains geometry, CQGI-discovered top-level parameters,
+source/local-import hashes, timings, per-output status and errors. The process
+exit code is zero for a successful evaluation and nonzero when evaluation fails.
 Only an output with `ok: true` is a current successful artifact; a failed output
 may leave an older file at its destination. A view failure does not erase valid
 geometry or successful exports. A successful export is not independent mesh

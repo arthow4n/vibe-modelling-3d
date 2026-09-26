@@ -230,7 +230,6 @@ def main(argv=None):
     parser.add_argument("--stl-angular-tolerance", type=positive_float, default=.1)
     parser.add_argument("--timeout", type=positive_float, default=300)
     parser.add_argument("--report", type=Path, help="Optional JSON report path (relative to the model file)")
-    parser.add_argument("--json", action="store_true", help="Print the complete JSON report to stdout")
     args = parser.parse_args(argv)
     source = args.file_path.resolve()
     if not source.is_file():
@@ -288,22 +287,7 @@ def main(argv=None):
     report.setdefault("timings_seconds", {})["total"] = time.monotonic() - started
     if report_path:
         atomic_bytes(report_path, (json.dumps(report, indent=2) + "\n").encode())
-    if args.json:
-        print(json.dumps(report, indent=2))
-    else:
-        geometry = report.get("geometry", {})
-        print(f"{'OK' if report['ok'] else 'FAILED'}: {source}")
-        if geometry:
-            print(f"  valid={geometry['valid']} solids={geometry['topology']['solids']} "
-                  f"size_mm={geometry['size_mm']}")
-        for item in report.get("exports", []):
-            print(f"  {'saved' if item['ok'] else 'FAILED'} {item['format']}: {item['path']}")
-        for item in report.get("views", []):
-            print(f"  {'saved' if item['ok'] else 'FAILED'} view {item['view']}: {item.get('path', '')}")
-        for item in report.get("errors", []):
-            print(f"  {item['stage']}: {item['message']}", file=sys.stderr)
-        if report_path:
-            print(f"  report: {report_path}")
+    print(json.dumps(report, indent=2))
     return 0 if report["ok"] else 1
 
 
