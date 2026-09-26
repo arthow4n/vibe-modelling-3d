@@ -21,6 +21,13 @@ question, and use `--image-format svg` when PNG is unnecessary. Other options
 include `--width`, `--height`, `--show-hidden`, `--stl-tolerance`,
 `--stl-angular-tolerance`, and `--timeout`; see `--help`.
 
+For visual review, open the saved view files with an image-capable tool; the
+command's terminal text and JSON contain paths, not image content. If the agent
+environment can compose tool operations, run this command and read its successful
+PNG paths within one outer call, returning those images to the agent. This saves
+an agent round trip but still performs a command and a file read. Otherwise open
+the images in a following tool call. Do not render again just to view the files.
+
 The command builds trusted Python in a fresh child process with `__file__`, the
 file's directory as the working/import directory, and the file's `result` as
 selected geometry. If `result` is absent, all `show_object()` values are used.

@@ -126,6 +126,16 @@ views, use
 Use hidden lines or sections for a specific internal-geometry question. Remove
 disposable scratch output before staging; retain historical evidence deliberately.
 
+Actually open saved views when visual judgment is needed; a path or successful
+render status is not visual inspection. When the agent's tools support composing
+command execution and image reading within one outer tool call, prefer running
+the command, reading its successful view paths, and returning the needed images
+in that same call. Those are sequential operations, not an image returned by the
+shell command. Otherwise use a separate image-reading call. Reuse the saved
+image; do not rebuild the model merely to open it. Keep the command's four-view
+default, and explicitly choose fewer views or `--views none` when the question
+does not require all four.
+
 ## Avoid repeated work
 
 Choose the cheapest reliable evidence for the remaining question, following the
