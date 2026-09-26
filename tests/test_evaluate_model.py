@@ -24,7 +24,6 @@ def test_sibling_import_exports_and_view(tmp_path):
     data = json.loads(run.stdout)
     assert data["ok"] and data["geometry"]["topology"]["solids"] == 1
     assert data["geometry"]["size_mm"] == [13, 7, 3]
-    assert len(data["local_module_sha256"]) == 1
     assert all(item["ok"] for item in data["exports"] + data["views"])
     assert (tmp_path / "renders/piece_front.png").stat().st_size > 0
     assert (tmp_path / "piece.step").stat().st_size > 0

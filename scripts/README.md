@@ -37,9 +37,9 @@ imports are fresh on each invocation. A model may itself write files or invoke
 other processes; those side effects are not rolled back on failure or timeout.
 
 The command always prints one complete JSON report to stdout. It contains
-geometry, CQGI-discovered top-level parameters, source/local-import hashes,
-timings, per-output status and errors. The process exit code is zero for a
-successful evaluation and nonzero when evaluation fails.
+geometry, CQGI-discovered top-level parameters, timings, per-output status and
+errors. The process exit code is zero for a successful evaluation and nonzero
+when evaluation fails.
 Only an output with `ok: true` is a current successful artifact; a failed output
 may leave an older file at its destination. A view failure does not erase valid
 geometry or successful exports. A successful export is not independent mesh

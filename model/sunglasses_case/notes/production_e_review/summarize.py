@@ -1,6 +1,5 @@
-"""Hash and footprint checks for the final case's diagnostic PrusaSlicer paths."""
+"""Footprint checks for the final case's diagnostic PrusaSlicer paths."""
 from pathlib import Path
-import hashlib
 import importlib.util
 import json
 
@@ -23,12 +22,7 @@ for paths in layers.values():
             keeper_roles.add(path['role'])
 assert min(lo)>=0 and max(hi)<=260 and max(layers)<=250
 assert not keeper_roles.intersection({'Overhang perimeter','Bridge infill'})
-stl_hash=hashlib.sha256((HERE.parents[1]/'sunglasses_case.stl').read_bytes()).hexdigest()
-checks=json.loads((HERE/'geometry_checks.json').read_text())
-assert stl_hash==checks['STL_sha256']
 summary={'slicer':'PrusaSlicer 2.9.6','profile':'../closure_review/review.ini',
-    'profile_sha256':hashlib.sha256((HERE.parent/'closure_review'/'review.ini').read_bytes()).hexdigest(),
-    'STL_sha256':stl_hash,'gcode_sha256':hashlib.sha256(gcode.read_bytes()).hexdigest(),
     'deposited_xy_bounds_including_half_width_mm':lo+hi,'max_z_mm':max(layers),
     'metadata':metadata,'separate_keeper_roles':sorted(keeper_roles),'warnings':[]}
 (HERE/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')

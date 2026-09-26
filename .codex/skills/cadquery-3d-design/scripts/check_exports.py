@@ -6,7 +6,6 @@ Does not prove shape identity, absence of self-intersections, strength or printa
 from collections import Counter, defaultdict
 from pathlib import Path
 import argparse
-import hashlib
 import json
 import math
 import struct
@@ -116,8 +115,6 @@ def check_pair(step_path, stl_path, expected_solids, tolerance=0.035,
             'bounds_tolerance_mm': tolerance, 'volume_relative_tolerance': volume_relative_tolerance,
             'bed_contact_required': require_bed_contact,
             'step_components': cad, 'stl_components': meshes, 'component_assignment': pairs,
-            'STEP_sha256': hashlib.sha256(step_path.read_bytes()).hexdigest(),
-            'STL_sha256': hashlib.sha256(stl_path.read_bytes()).hexdigest(),
             'limits': 'Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation.'}
 
 

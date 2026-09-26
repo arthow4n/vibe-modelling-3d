@@ -52,7 +52,7 @@ shared command is the normal entry point for model builds and views.
 
 Checks include valid STEP solids, binary STL length, finite/nondegenerate facets,
 two incident faces per edge with consistent winding, positive closed-component
-volume, one-to-one component bounds/volume agreement, hashes and optional bed
+volume, one-to-one component bounds/volume agreement and optional bed
 contact. Pairing does not depend on input solid order. It uses optimal geometric
 STEP bounds to avoid confusing loose curved-surface boxes with material below
 the bed.

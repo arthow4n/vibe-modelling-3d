@@ -15,8 +15,8 @@ cavity, closed fit, shell/hinge sweep at 5-degree intervals, opening obstruction
 with a seated loop, clearance after outward release, and keeper capture against
 upward/outward movement. Small tapered-key interference is intentional.
 
-`geometry_checks.json` records E interface comparisons, final STEP/STL hashes,
-individual component bounds and three watertight, nondegenerate mesh components
+`geometry_checks.json` records E interface comparisons, individual component
+bounds and three watertight, nondegenerate mesh components
 (50,656 triangles). All parts meet the bed at Z=0; STEP and STL bounds agree
 within 0.035 mm per component. An alternate 168 × 88 × 68 mm cavity also passed
 the geometry checks without changing the final exports. The source evaluator's
@@ -38,7 +38,7 @@ The fresh slice completed without warnings or support-material paths. It uses
 layers, with maximum commanded layer Z=43.4 mm for the 43.5 mm CAD height.
 Deposited paths including half extrusion width and brim lie within
 X 28.381–233.471 mm and Y 25.804–230.196 mm, inside the 260 × 260 × 250 mm safe volume.
-`summary.json` retains hashes, actual bounds and estimates; `paths.json` retains
+`summary.json` retains actual bounds and estimates; `paths.json` retains
 role statistics. Generic diagnostic G-code is not a validated printer job.
 
 ## Inspected local layer windows

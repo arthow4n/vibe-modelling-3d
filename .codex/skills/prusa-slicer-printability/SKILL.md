@@ -92,7 +92,7 @@ authorization to redesign or print.
 
 ## Evidence
 
-Save the profile or exact profile reference, input hashes, command/version,
+Save the profile or exact profile reference, input paths, command/version,
 warnings, estimates and any necessary layer views inside the object's directory.
 Label the purpose (smoke/investigation) and profile scope (reference/actual) in
 the concise evidence record; report smoke acceptance separately from notices or

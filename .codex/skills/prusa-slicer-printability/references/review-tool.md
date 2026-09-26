@@ -1,7 +1,7 @@
 # Reproducible review command
 
 `scripts/review_print.py` composes the existing linear ASCII path parser with
-PrusaSlicer invocation, fresh-output checks, hashes, notices, estimates, actual
+PrusaSlicer invocation, fresh-output checks, notices, estimates, actual
 deposited footprint and optional SVG layer windows. It never sends a printer job
 and does not rotate, split or arrange components. It centers the supplied layout.
 
@@ -21,7 +21,7 @@ The profile controls nozzle, material, layers, supports and other settings;
 the wrapper does not override them. Confirm the profile matches the intended
 investigation and bed. `--expect-no-supports` flags generated supports, rather
 than silently changing the profile. Use a self-contained INI; included/external
-profile dependencies are not resolved or independently hashed.
+profile dependencies are not resolved by the wrapper.
 
 Add `--expect-no-supports` when that is the intended strategy. Add `--windows`
 only for a named path question that structured output cannot answer.
@@ -44,14 +44,14 @@ adaptive follow-up, use `inspect_gcode.py` on the saved `slice.gcode` to draw a
 new window without reslicing. Its required `--json` argument can target this
 run's existing `paths.json`: with the same G-code and unchanged parser, this
 rewrites the same summary instead of creating a duplicate. Do not target
-`summary.json`, which contains the wrapper's hashes and review results. Preserve
-separate evidence when the input or parser changes. See the command in
+`summary.json`, which contains the wrapper's review results. Preserve separate
+evidence when the input or parser changes. See the command in
 [CLI and paths](cli-and-paths.md).
 
 Outputs: `command.json`, `summary.json`, `paths.json`, requested SVGs, and ignored
-`slice.gcode`/`slice.log`. The summary records input/G-code hashes, CLI help header
-with installed version, log notices, filament/time metadata, support count,
-and deposition bounds including half path width, brims and supports. `paths.json`
+`slice.gcode`/`slice.log`. The summary records the CLI help header with installed
+version, log notices, filament/time metadata, support count, and deposition
+bounds including half path width, brims and supports. `paths.json`
 adds layer count, role totals and per-layer roles. Use only the relevant fields
 first; no new parser is needed for those facts. Inspect every chosen
 SVG (or convert it to PNG); writing an image is not inspection.
@@ -65,7 +65,7 @@ exhaustive understanding of slicer diagnostics; retain/read the raw log when
 results are uncertain.
 
 In the object's concise evidence record, link these existing outputs and report:
-profile scope/purpose, slicer/version, profile and input hash, smoke acceptance
+profile scope/purpose, slicer/version, input paths, smoke acceptance
 (fresh nonempty deposited output / failed / unavailable), notices, reference
 footprint/height and support presence. A completed helper report establishes
 fresh parsed deposition, but `review_required` is not a universal printability

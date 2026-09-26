@@ -147,12 +147,11 @@ sweeps after interface changes, not merely to obtain another view.
 Reuse evidence only when its relevant inputs are unchanged and recorded:
 
 - CAD: source modules, parameters, placement and tool versions.
-- Exports: actual file hashes and checker settings/version.
+- Exports: exact output files and checker settings/version.
 - Slicing: mesh, effective profile, command options and slicer version.
 
-Changed inputs invalidate affected checks; rerun if dependencies are unclear.
-The command's imported-module hashes are useful evidence, not a complete record
-of arbitrary files a script reads. Final verification must cover the final files.
+Changed source or output files invalidate affected checks; rerun if dependencies
+are unclear. Final verification must cover the final files.
 Do not introduce a caching framework for a one-off task. Unchanged helpers do not
 need their own regression suites rerun for every model.
 

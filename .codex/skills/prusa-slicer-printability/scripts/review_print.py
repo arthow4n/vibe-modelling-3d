@@ -1,10 +1,9 @@
 """Create a fresh diagnostic PrusaSlicer review directory; never send a print job.
 
-Writes raw G-code/log (ignored), hashes, role/footprint summary and optional SVGs.
+Writes raw G-code/log (ignored), role/footprint summary and optional SVGs.
 Requires the caller's profile and safe build volume; no rotation or splitting.
 """
 import argparse
-import hashlib
 import json
 import math
 from pathlib import Path
@@ -39,9 +38,6 @@ def footprint(layers, bed):
 def review(model, profile, output, bed, slicer='prusa-slicer', windows=None,
            expect_no_supports=False, timeout=600):
     model, profile, output = Path(model).resolve(), Path(profile).resolve(), Path(output).resolve()
-    # Verify inputs before reserving a new directory. Existing output is never reused.
-    hashes = {key: hashlib.sha256(path.read_bytes()).hexdigest()
-              for key, path in [('model', model), ('profile', profile)]}
     if len(bed) != 3 or not all(math.isfinite(v) and v > 0 for v in bed):
         raise ValueError('Invalid safe build volume')
     windows = windows or []
@@ -79,18 +75,13 @@ def review(model, profile, output, bed, slicer='prusa-slicer', windows=None,
         r'warning|error|detected print stability|long bridging|loose extrusions|consider enabling supports', line, re.I)]
     for item in windows:
         draw_layers(layers, item['layers'], item['window'], output/(item['name']+'.svg'))
-    # Catch changed inputs rather than assigning the wrong hashes to a slice.
-    if any(hashlib.sha256(path.read_bytes()).hexdigest() != hashes[key]
-           for key, path in [('model', model), ('profile', profile)]):
-        raise RuntimeError('Input changed during slicing; repeat in a fresh directory')
-    report = {'model': str(model), 'profile': str(profile), 'input_sha256': hashes,
+    report = {'model': str(model), 'profile': str(profile),
               'slicer_help_header': version_header,
-              'gcode_sha256': hashlib.sha256(gcode.read_bytes()).hexdigest(),
               'safe_build_volume_mm': list(bed), 'metadata': metadata, **bounds,
               'log_notices': notices, 'windows': windows,
               'review_required': bool(notices) or not bounds['inside_safe_volume'] or
                   (expect_no_supports and bounds['support_segments'] > 0),
-              'limits': 'Generic diagnostic job, not sent to a printer. Linear ASCII paths; width fallback is 0.45 mm if no WIDTH comment. Bounds exclude travel/start/end motion and flow spread. Role labels do not establish anchors or free-air spans. Profile includes are not resolved or independently hashed.'}
+              'limits': 'Generic diagnostic job, not sent to a printer. Linear ASCII paths; width fallback is 0.45 mm if no WIDTH comment. Bounds exclude travel/start/end motion and flow spread. Role labels do not establish anchors or free-air spans. Profile includes are not resolved.'}
     (output/'paths.json').write_text(json.dumps(paths, indent=2)+'\n')
     (output/'summary.json').write_text(json.dumps(report, indent=2)+'\n')
     return report

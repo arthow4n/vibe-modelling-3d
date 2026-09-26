@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import argparse
 import contextlib
-import hashlib
 import io
 import json
 import math
@@ -104,7 +103,7 @@ def export(shape, item):
         data = temporary.read_bytes()
         temporary.replace(path)
         result = {key: value for key, value in item.items() if key != "format"}
-        return {**result, "ok": True, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+        return {**result, "ok": True, "bytes": len(data)}
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -144,7 +143,6 @@ def worker(request, response):
     with contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
         try:
             source = path.read_bytes()
-            report["source_sha256"] = hashlib.sha256(source).hexdigest()
             # CQGI supplies parameter metadata, while run_path preserves __file__
             # and normal sibling imports. Both use the same top-level source.
             try:
@@ -169,11 +167,6 @@ def worker(request, response):
             report["geometry"] = geometry_data(shape)
             if not report["geometry"]["valid"]:
                 raise ValueError("Selected geometry is invalid; exports and views skipped")
-            report["local_module_sha256"] = {str(p): hashlib.sha256(p.read_bytes()).hexdigest()
-                for module in list(sys.modules.values())
-                if (filename := getattr(module, "__file__", None))
-                and (p := Path(filename).resolve()).suffix == ".py"
-                and p.is_relative_to(root) and p.is_file()}
             before = time.monotonic()
             for item in args["exports"]:
                 try:
@@ -190,8 +183,7 @@ def worker(request, response):
                     data = render(shape, view, args["width"], args["height"],
                                   args["show_hidden"])
                     atomic_bytes(destination, data)
-                    report["views"].append({"view": view, "ok": True, "path": str(destination),
-                                            "sha256": hashlib.sha256(data).hexdigest()})
+                    report["views"].append({"view": view, "ok": True, "path": str(destination)})
                 except Exception as exc:
                     report["views"].append({"view": view, "ok": False})
                     error("render", exc, view=view)
