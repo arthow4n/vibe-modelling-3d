@@ -132,22 +132,10 @@ geometry-only checks. Add `--step` and `--stl` together when final exports are
 needed so they come from the same build. Reuse saved images rather than
 rebuilding merely to open them.
 
-For valid evaluation invocations, stdout is one JSON report. Its top-level
-properties are `ok`, `file_path`, `units`, `geometry`, `parameters`, `views`, `exports`,
-`timings_seconds`, `versions`, `errors`, and `diagnostics`; `parameter_note` is
-optional. `geometry` contains `valid`, `bounds_mm`, `size_mm`, `volume_mm3`,
-`surface_area_mm2`, `center_of_mass_mm`, `topology` counts (`solids`, `faces`,
-`edges`, `vertices`), and per-solid `components` with the same measurements.
-Each parameter entry has `value`, `type`, and `description`. A view entry has
-`view` and `ok`, plus an absolute `path` when the PNG was written successfully.
-An export entry has absolute `path`, `ok`, and `bytes`; STL entries also have
-`tolerance_mm` and `angular_tolerance_rad`. The extension identifies STEP versus
-STL; there is no `format` field. Timing properties are `build`, `export`,
-`render`, `worker`, and `total` when available. Version properties are
-`python` and `cadquery`. Error entries have `stage`, `type`, `message`, `file`,
-`line`, and `traceback`, with `view` or `path` when relevant. `diagnostics`
-contains captured model output; `parameter_note` explains unavailable CQGI
-metadata. Some properties are absent when evaluation ends before that stage.
+For valid evaluation invocations, stdout is one JSON report. The example below
+is illustrative, not a required summary schema. Read only the report fields
+needed for the current task; inspect diagnostics and tracebacks when a failure
+needs investigation.
 
 For visual inspection, parse the JSON inside the same outer tool call that runs
 the evaluator, then read only a successful view's path. Print a compact summary
@@ -176,24 +164,13 @@ const report = JSON.parse(stdout);
 const summary = {
   ok: report.ok,
   file_path: report.file_path,
-  units: report.units,
   geometry: report.geometry && {
     valid: report.geometry.valid,
-    bounds_mm: report.geometry.bounds_mm,
     size_mm: report.geometry.size_mm,
-    volume_mm3: report.geometry.volume_mm3,
-    surface_area_mm2: report.geometry.surface_area_mm2,
-    center_of_mass_mm: report.geometry.center_of_mass_mm,
     topology: report.geometry.topology,
-    components: report.geometry.components?.map(({ valid, size_mm, volume_mm3 }) =>
-      ({ valid, size_mm, volume_mm3 })),
   },
-  parameters: report.parameters,
-  parameter_note: report.parameter_note,
   views: (report.views ?? []).map(({ view, ok, path }) => ({ view, ok, path })),
-  exports: report.exports,
-  timings_seconds: report.timings_seconds,
-  versions: report.versions,
+  exports: (report.exports ?? []).map(({ path, ok }) => ({ path, ok })),
   errors: (report.errors ?? []).map(({ stage, type, message, file, line, view, path }) =>
     ({ stage, type, message, file, line, view, path })),
 };
