@@ -4,10 +4,11 @@ Experiment field for random vibe-modelled 3D objects. Mainly for 3D printing.
 ## Modelling tools
 
 The repository is a uv Python project. Run `uv sync --locked` once, then use the
-shared [CadQuery evaluation command](scripts/README.md) to build, inspect,
-render and optionally export a model file. It runs directly as a command; no MCP
-server configuration is needed. CairoSVG in the uv environment produces PNG
-views; PrusaSlicer is a separate installed command for print review.
+shared [CadQuery evaluation command](evaluate_model.py) to build, inspect,
+render and optionally export a model file. Invoke it directly as
+`./evaluate_model.py`; `--help` lists its options and defaults. No MCP server
+configuration is needed. CairoSVG in the uv environment produces PNG views;
+PrusaSlicer is a separate installed command for print review.
 
 ## Models
 

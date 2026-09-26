@@ -38,7 +38,7 @@ interfaces and load path.
    require the joint/load agreement described above unless the user already
    supplied it. Document important assumptions.
 2. Confirm `uv` and the repository's shared
-   [CadQuery command](scripts/evaluate_model.py) are available. Run `uv sync --locked`
+   [CadQuery command](evaluate_model.py) are available. Run `uv sync --locked`
    from the repository root when the locked environment is not installed.
 3. Create or revise the object's parametric Python source. Evaluate the file
    through the shared command and inspect validity, topology, bounds, parameters and errors;
@@ -92,9 +92,9 @@ modelling representation.
 
 ## CadQuery evaluation and exports
 
-Run `uv run --locked python scripts/evaluate_model.py model/object_name/object_name.py`
-from the repository root. See [command usage](scripts/README.md) for views,
-exports, reports and dependencies. The command supplies
+Run `./evaluate_model.py model/object_name/object_name.py` from the repository
+root. Its shebang runs it through `uv run --locked`; `./evaluate_model.py --help`
+lists its options and defaults. The command supplies
 `__file__`, the model directory as the worker's working/import directory, and a
 fresh process per evaluation. Ordinary sibling imports therefore see current
 source. `result` explicitly selects the output; otherwise all `show_object()`
@@ -126,17 +126,59 @@ views, use
 Use hidden lines or sections for a specific internal-geometry question. Remove
 disposable scratch output before staging; retain historical evidence deliberately.
 
-Use CAD renders only when they help answer a concrete visual question. If the
-agent chooses to inspect a render, prefer composing command execution and image
-reading in one outer tool call when its tools support that. For example: run the
-evaluator, parse its stdout JSON, select a `views` entry with `ok: true`, read the
-image at that entry's absolute `path`, and return the image, all within the same
-outer call. These are sequential operations composed by the outer call; the
-image is not returned by the shell command. Otherwise open the selected image in
-a separate call. A path or render status alone is not evidence of visual
-inspection. Reuse saved images rather than rebuilding merely to open them. Keep
-the command's four-view default; explicitly choose fewer views or `--views none`
-when appropriate.
+Use CAD renders only when they help answer a concrete visual question. Keep the
+command's four-view default; explicitly choose fewer views or `--views none`
+when appropriate. A JSON report contains paths, not image data. Inspect only a
+`views` entry with `ok: true`; failed views can leave an older file at the same
+path. Reuse saved images rather than rebuilding merely to open them.
+
+When the agent environment can compose tools, invoke the evaluator, parse its
+JSON, and read the selected image in one outer tool call. For example, in one
+`functions.exec` call:
+
+```js
+let run = await tools.exec_command({
+  cmd: "./evaluate_model.py model/object_name/object_name.py --views isometric,front --step object_name.step --stl object_name.stl 2>/dev/null",
+  workdir: "/absolute/path/to/repository",
+  yield_time_ms: 30000,
+  max_output_tokens: 12000,
+});
+let stdout = run.output;
+while (run.session_id) {
+  run = await tools.write_stdin({
+    session_id: run.session_id,
+    chars: "",
+    yield_time_ms: 30000,
+    max_output_tokens: 12000,
+  });
+  stdout += run.output;
+}
+
+const report = JSON.parse(stdout);
+text(JSON.stringify(report, null, 2)); // all fields, statuses, and artifact paths
+
+const view = report.views?.find((item) => item.view === "isometric" && item.ok);
+if (view) {
+  text(`Image path: ${view.path}`); // absolute path, if only the path is needed
+  const rendered = await tools.view_image({ path: view.path });
+  image(rendered.image_url); // return the PNG itself in this same outer call
+}
+for (const output of report.exports ?? []) {
+  text(`Export path: ${output.path} (ok=${output.ok})`);
+}
+```
+
+The report includes `ok`, `file_path`, `units`, `geometry`, `parameters`,
+`views`, `exports`, `timings_seconds`, `versions`, `errors`, and `diagnostics`;
+`parameter_note` is present when CQGI metadata cannot be read. Each successful
+view has its absolute `path`. Export entries have an absolute `path`, `ok`, and
+`bytes`; STL entries also include `tolerance_mm` and `angular_tolerance_rad`.
+The file extension identifies STEP versus STL; there is no separate format
+field. Iterate `report.exports` to print or use each path. The script's stdout
+is JSON; redirect stderr in the composed shell call so it cannot prefix logs to
+that JSON. The image is loaded in the later, sequential `view_image` operation,
+not returned by the shell command. Without tool composition, open the selected
+image in a separate call. A path or render status alone is not visual evidence.
 
 ## Avoid repeated work
 

@@ -5,7 +5,7 @@ import subprocess
 import sys
 from PIL import Image
 
-COMMAND = Path(__file__).resolve().parents[1] / "scripts/evaluate_model.py"
+COMMAND = Path(__file__).resolve().parents[1] / "evaluate_model.py"
 
 
 def call(path, *args):

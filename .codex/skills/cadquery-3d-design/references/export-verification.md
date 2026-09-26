@@ -10,7 +10,7 @@ For an ordinary model, build once and save STEP/STL from the same selected
 geometry. From the repository root:
 
 ```sh
-uv run --locked python scripts/evaluate_model.py \
+./evaluate_model.py \
   model/object_name/object_name.py --views none \
   --step object_name.step --stl object_name.stl
 ```
@@ -20,7 +20,7 @@ export's `ok` status in the JSON result. A successful export is not mesh
 verification. Then evaluate an object-owned checker entry point:
 
 ```sh
-uv run --locked python scripts/evaluate_model.py \
+./evaluate_model.py \
   model/object_name/verify_and_export.py --views none
 ```
 

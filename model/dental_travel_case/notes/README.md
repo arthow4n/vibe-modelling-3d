@@ -129,7 +129,7 @@ remain physical test questions.
 
 ## Parametric changes and regeneration
 
-Edit **`../parameters.py`**, then evaluate **`../export_and_check.py` with the [shared command](../../../scripts/README.md)** (`uv run --locked python scripts/evaluate_model.py model/dental_travel_case/export_and_check.py --views none` from the repository root). That rebuilds the complete case and tests, checks nominal
+Edit **`../parameters.py`**, then evaluate **`../export_and_check.py` with the [shared command](../../../evaluate_model.py)** (`./evaluate_model.py model/dental_travel_case/export_and_check.py --views none` from the repository root). That rebuilds the complete case and tests, checks nominal
 contents and lid movement, and exports all paired STEP/STL artifacts. Install the locked Python environment with `uv sync --locked` first. Source modules live entirely
 inside this object directory. Dependency imports are refreshed between command runs.
 

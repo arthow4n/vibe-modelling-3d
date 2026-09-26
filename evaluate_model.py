@@ -1,6 +1,7 @@
+#!/usr/bin/env -S uv run --locked
 """Evaluate a trusted CadQuery source file without an MCP server.
 
-Run from the repository root with `uv run python scripts/evaluate_model.py --help`.
+Run from the repository root with `./evaluate_model.py --help`.
 Each invocation builds in a fresh child process. Model code has ordinary user
 permissions and may itself write files; process isolation is not a sandbox.
 """
