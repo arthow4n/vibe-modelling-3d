@@ -6,7 +6,7 @@ description: Design practical parametric CadQuery objects for single-material 3D
 # CadQuery 3D design
 
 Use this skill for functional, manufacturable models. AGENTS.md owns repository
-workflow, required CadQuery MCP evaluation, printer setup, attribution, artifacts
+workflow, shared CadQuery command, printer setup, attribution, artifacts
 and Git rules. A valid solid or clean slice alone does not establish function.
 
 ## Modelling TODO checklist
@@ -23,7 +23,7 @@ Reopen affected checks after changes; do not repeat unrelated checks for a small
 - [ ] Identify physical uncertainties early; plan worthwhile small experiments.
 - [ ] Choose orientation, wall sizes, layer direction and support strategy.
 - [ ] Build understandable parametric geometry; preserve critical interfaces.
-- [ ] Evaluate source through CadQuery MCP; check bounds and topology; select useful views.
+- [ ] Evaluate source through the shared CadQuery command; check bounds and topology; select useful views.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
 - [ ] For structurally important parts and joints, repeat the load and stiffness screen using measured CAD sections before recommending a structural trial.
 - [ ] Review final generic FDM geometry and resolve significant defects, especially on fit-critical surfaces.
@@ -121,5 +121,5 @@ Use [print planning](references/print-planning.md) for CAD-first FDM review and
 [PrusaSlicer inspection](../prusa-slicer-printability/SKILL.md) for the final smoke
 slice or a slicer-sensitive question. An unknown user profile makes repository
 slices reference evidence, not predictions of the user's toolpaths.
-For export consistency, use the verification helper through a CadQuery MCP
+For export consistency, use the verification helper through a CadQuery
 evaluation entry point. Neither replaces function review or physical testing.

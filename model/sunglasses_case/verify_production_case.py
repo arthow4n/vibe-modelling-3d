@@ -1,4 +1,4 @@
-"""CadQuery MCP checks of production interfaces, dimensions and final exports."""
+"""Check production interfaces, dimensions and exports with the shared CadQuery command."""
 from pathlib import Path
 from collections import Counter, defaultdict
 import ast

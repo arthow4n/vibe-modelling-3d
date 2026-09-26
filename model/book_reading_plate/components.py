@@ -1,5 +1,5 @@
 """Parametric PETG reading plate, mm. X width, Y book height, Z toward book.
-Reusable builders only; evaluate book_reading_plate.py or export_plate.py via MCP.
+Reusable builders only; evaluate book_reading_plate.py or export_plate.py with the shared command.
 """
 from dataclasses import dataclass
 import cadquery as cq

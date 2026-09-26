@@ -1,4 +1,4 @@
-"""Evaluate through CadQuery MCP to build/export/check all eight alternatives."""
+"""Evaluate through the shared CadQuery command to build/export/check all eight alternatives."""
 from pathlib import Path
 import sys
 import json

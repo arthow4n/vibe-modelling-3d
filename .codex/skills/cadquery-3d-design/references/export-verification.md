@@ -2,32 +2,31 @@
 
 Use `scripts/check_exports.py` instead of copying a mesh checker into each model.
 Call `check_pair(step_path, stl_path, expected_solids, ...)` from a small
-object-owned Python entry point evaluated with CadQuery MCP. It loads files and
-checks them; it does not build, repair or replace the model. See the exercised
-[case entry point](../../../../model/sunglasses_case/notes/workflow_tools_check.py).
+object-owned Python entry point evaluated with the shared CadQuery command. It
+loads files and checks them; it does not build, repair or replace the model. See
+the exercised [case entry point](../../../../model/sunglasses_case/notes/workflow_tools_check.py).
 
-The updated customized evaluator defines `__file__` and resolves relative output
-paths against the model directory. A root-level object wrapper can therefore use
-`Path(__file__).resolve().parent`; a wrapper inside `notes/` uses `.parent.parent`.
-For ordinary exports, pass an `exports` list to `evaluate_file` so one build writes
-both files, then run the independent checker on that pair:
+For an ordinary model, build once and save STEP/STL from the same selected
+geometry. From the repository root:
 
-```json
-{"file_path": "/absolute/repository/model/object_name/object_name.py",
- "exports": [{"path": "object_name.step", "format": "STEP"},
-             {"path": "object_name.stl", "format": "STL"}]}
+```sh
+uv run --locked python scripts/evaluate_model.py \
+  model/object_name/object_name.py --views none \
+  --step object_name.step --stl object_name.stl \
+  --report notes/evaluation.json
 ```
 
-Check each export's status and hash; a successful export is not mesh verification.
-The server preserves geometry and successful exports if a requested view fails.
+Relative output paths resolve against the entry point's directory. Check each
+export's `ok` status and hash in the JSON result. A successful export is not
+mesh verification. Then evaluate an object-owned checker entry point:
 
-Compatibility: older running servers may lack `exports` and `__file__`. Inspect
-the advertised schema and restart the updated server when available. Until then,
-use the existing object-owned export wrapper with one explicit absolute object
-path derived from the checkout. Do not repeat failing `__file__` attempts or
-replace the required MCP evaluator with a shell script.
+```sh
+uv run --locked python scripts/evaluate_model.py \
+  model/object_name/verify_and_export.py --views none
+```
 
-Typical entry point (adapt paths to the actual object):
+The checker entry point can use `Path(__file__).resolve().parent` for a wrapper
+in the object's root (or `.parent.parent` for one inside `notes/`). For example:
 
 ```python
 from pathlib import Path
@@ -35,7 +34,7 @@ import importlib.util
 import json
 import cadquery as cq
 
-object_dir = Path(__file__).resolve().parent  # wrapper in the object's root
+object_dir = Path(__file__).resolve().parent
 helper_path = object_dir.parents[1] / '.codex/skills/cadquery-3d-design/scripts/check_exports.py'
 spec = importlib.util.spec_from_file_location('export_checks', helper_path)
 helper = importlib.util.module_from_spec(spec)
@@ -49,9 +48,8 @@ result = cq.importers.importStep(str(step))
 
 Use the expected solid count from the design, not the count found in the file.
 Ensure the notes directory exists. Keep wrappers/results inside the object.
-AGENTS.md's requirement to use CadQuery MCP still applies; the helper's optional
-CLI is for environments where that evaluation requirement does not apply and
-CadQuery/OCP are already available. Do not install an ad-hoc Python environment.
+The helper's optional CLI can also run in the locked uv environment, but the
+shared command is the normal entry point for model builds and views.
 
 Checks include valid STEP solids, binary STL length, finite/nondegenerate facets,
 two incident faces per edge with consistent winding, positive closed-component
@@ -75,7 +73,6 @@ and volumes do not prove shape identity, correct nominal dimensions, collision
 clearance, strength or printability. Both exports must still originate from the
 same print-ready source geometry; inspect views and verify critical dimensions.
 
-Validation: synthetic damaged-mesh tests are in `tests/test_export_mesh.py`.
-The case and E sample passed through CadQuery MCP; a wrong component count and
-mismatched case STEP/E STL were rejected. Retained evidence:
-[workflow_tools_validation.json](../../../../model/sunglasses_case/notes/workflow_tools_validation.json).
+Synthetic damaged-mesh tests are in `tests/test_export_mesh.py`. Historical
+CadQuery MCP validation for the case and E sample, including rejected mismatches,
+is retained in [workflow_tools_validation.json](../../../../model/sunglasses_case/notes/workflow_tools_validation.json).

@@ -1,4 +1,4 @@
-"""Read-only STEP/binary-STL consistency checks. Import inside a CadQuery MCP entry point.
+"""Read-only STEP/binary-STL consistency checks. Import inside a CadQuery evaluation entry point.
 
 Checks topology, winding, bounds, component volume and optional bed contact.
 Does not prove shape identity, absence of self-intersections, strength or printability.

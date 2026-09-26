@@ -1,4 +1,4 @@
-"""Evaluate with CadQuery MCP to export and verify the production print layout."""
+"""Evaluate with the shared CadQuery command to export and verify the production print layout."""
 import sys, importlib, importlib.util, json, hashlib
 from pathlib import Path
 HERE=Path(globals().get('__file__','/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/export.py')).resolve().parent

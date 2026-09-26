@@ -1,6 +1,6 @@
 """D/E: open-frame hinge/loop fixtures with a side-printed keeper insert.
 
-All dimensions mm. Evaluate this file through CadQuery MCP. The original case
+All dimensions mm. Evaluate this file through the shared CadQuery command. The original case
 and A/B/C source remain unchanged. Hinge construction reproduces closure_trials.py
 at 578bc5d; both bearing positions and clearances remain the accepted baseline.
 """

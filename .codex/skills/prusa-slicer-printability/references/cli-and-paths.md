@@ -112,7 +112,7 @@ nonplanar deposition. It ignores stationary retractions/unretractions and travel
 Its expected input is commented, linear, ASCII PrusaSlicer G-code in millimetres.
 
 ```sh
-python3 .codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py \
+uv run --locked python .codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py \
   "$run_dir/slice.gcode" --json "$run_dir/paths.json" \
   --svg "$review_dir/hinge_layers.svg" --layers 33.6 37.0 40.6 \
   --window 82 117 108 140

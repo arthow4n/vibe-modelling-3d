@@ -1,4 +1,4 @@
-"""Geometric checks for the five-digit revision; evaluate using CadQuery MCP."""
+"""Geometric checks for the five-digit revision; evaluate using the shared CadQuery command."""
 import sys, json, math, importlib, hashlib
 from pathlib import Path
 HERE=Path(globals().get('__file__','/home/hevar/git/vibe-modelling-3d/model/glove_drying_insert/verify.py')).resolve().parent

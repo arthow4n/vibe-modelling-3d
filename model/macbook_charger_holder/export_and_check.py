@@ -1,4 +1,4 @@
-"""Regenerate final artifacts; run with CadQuery or evaluate_file.
+"""Regenerate final artifacts; run with CadQuery or the shared command.
 
 Reference comparison is optional and only runs if the ignored STEP exists.
 """

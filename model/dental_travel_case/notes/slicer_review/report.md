@@ -50,7 +50,7 @@ against the real handle before printing the larger socket/shoulder test.
 
 ## Reproduction
 
-Run from the repository root after regenerating exports with CadQuery MCP:
+Run from the repository root after regenerating exports with the shared CadQuery command:
 
 ```sh
 prusa-slicer --load model/dental_travel_case/notes/slicer_review/review.ini \

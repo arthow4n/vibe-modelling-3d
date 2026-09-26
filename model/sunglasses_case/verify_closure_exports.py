@@ -1,4 +1,4 @@
-"""Evaluate with CadQuery MCP to check actual exported STEP and STL files."""
+"""Evaluate with the shared CadQuery command to check actual exported STEP and STL files."""
 from pathlib import Path
 from collections import Counter, defaultdict
 import hashlib

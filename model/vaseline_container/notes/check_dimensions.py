@@ -1,4 +1,4 @@
-"""One representative parameter change; evaluate with CadQuery MCP."""
+"""One representative parameter change; evaluate with the shared CadQuery command."""
 from pathlib import Path
 import json
 D = Path('/home/hevar/git/vibe-modelling-3d/model/vaseline_container')

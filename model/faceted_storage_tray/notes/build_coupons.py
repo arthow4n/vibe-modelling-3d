@@ -1,4 +1,4 @@
-"""Evaluate through CadQuery MCP to build and export all exterior coupons."""
+"""Evaluate through the shared CadQuery command to build and export all exterior coupons."""
 from pathlib import Path
 import hashlib
 import importlib.util

@@ -1,6 +1,6 @@
 """Five-finger folding glove insert. Millimetres; one four-part kit per glove.
 Two slotted hand skeletons separate through the thickness of every digit.
-Evaluate this source with CadQuery MCP for the print layout.
+Evaluate this source with the shared CadQuery command for the print layout.
 """
 import math
 from pathlib import Path

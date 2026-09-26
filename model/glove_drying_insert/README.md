@@ -70,8 +70,8 @@ was also built and checked. This is one verified variant, not validation of ever
 parameter combination or its print layout. Larger versions may need the panels
 printed separately to stay inside the bed limits.
 
-Use CadQuery MCP `evaluate_file` on the source and the relevant entry points.
-Wrappers reload the source module to avoid stale imports in the MCP process.
+Use the [shared CadQuery command](../../scripts/README.md) on the source and relevant entry points.
+Each invocation uses a fresh process; existing wrappers also reload their source modules.
 Re-run the affected geometry/export/slicer checks after changing dimensions.
 
 ## Physical print status

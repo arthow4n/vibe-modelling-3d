@@ -1,4 +1,4 @@
-"""Evaluate with CadQuery MCP to export and verify production geometry."""
+"""Evaluate with the shared CadQuery command to export and verify production geometry."""
 from pathlib import Path
 import runpy, importlib.util, json, math
 import cadquery as cq

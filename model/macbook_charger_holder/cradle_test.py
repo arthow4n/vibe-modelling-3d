@@ -1,6 +1,6 @@
 """Optional fit coupon, same rails and print orientation as the full holder.
 
-Run from the repository root, or evaluate this entry point through the MCP.
+Run from the repository root, or evaluate this entry point through the shared command.
 Only validates connector fit, not whole-band grip or cable winding.
 """
 from pathlib import Path

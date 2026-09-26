@@ -1,4 +1,4 @@
-"""Small closure experiments; evaluate with CadQuery MCP. Millimetres.
+"""Small closure experiments; evaluate with the shared CadQuery command. Millimetres.
 
 Independent from the production case. Each file contains a complete captive
 hinge plus loop latch. STEP and STL share the open print pose. No supports.

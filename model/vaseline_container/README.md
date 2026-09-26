@@ -11,8 +11,8 @@ Turn clockwise to close gently against the shoulder; turn counterclockwise to un
 - `base.step` / `.stl`, `lid.step` / `.stl`: individual parts, same print orientation.
 - `vaseline_container_assembled.step`: closed inspection pose only.
 - `renders/`: final print and assembled views.
-- `verify_and_export.py`: MCP evaluation entry point for exports and mechanical/file checks.
-- `inspect_assembled.py`: MCP evaluation entry point for the closed pose.
+- `verify_and_export.py`: shared-command evaluation entry point for exports and mechanical/file checks.
+- `inspect_assembled.py`: shared-command evaluation entry point for the closed pose.
 
 Print the base floor down and the lid outside-top down, as exported. Assumed PETG, 0.4 mm nozzle, 0.2 mm layers, four perimeters, five top/bottom layers, 20% infill, no supports. Use your own printer profile; the stored profile is diagnostic. Layout is about 107.3 × 49.3 × 22.75 mm, comfortably inside the confirmed 260 × 260 × 250 mm limits.
 

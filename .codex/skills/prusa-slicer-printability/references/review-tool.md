@@ -8,7 +8,7 @@ and does not rotate, split or arrange components. It centers the supplied layout
 For a final reference smoke slice, from the repository root with actual paths:
 
 ```sh
-python3 .codex/skills/prusa-slicer-printability/scripts/review_print.py \
+uv run --locked python .codex/skills/prusa-slicer-printability/scripts/review_print.py \
   --model model/object_name/object_name.stl \
   --profile model/object_name/notes/review.ini \
   --out model/object_name/notes/review_run_01 \

@@ -53,7 +53,7 @@ paths are still intentions, not physical measurements.
 A known defect on a critical mating surface should inform an authorized redesign,
 not merely recur in another trial with a disclaimer. For CAD decisions or
 physical experiments, use [CAD design](../cadquery-3d-design/SKILL.md), including
-the required CadQuery MCP workflow.
+the shared CadQuery command workflow.
 
 ## Read selectively
 

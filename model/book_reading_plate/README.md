@@ -94,7 +94,7 @@ Also on 2026-09-23, the user reported that the **complete revised plate** was pr
 
 ## Source and reproduction
 
-[components.py](components.py) owns parameters and shared geometry; [book_reading_plate.py](book_reading_plate.py) displays the assembly. Evaluate [export_plate.py](export_plate.py), [measure_structure.py](measure_structure.py) and [verify_exports.py](verify_exports.py) through the CadQuery MCP evaluator. Then run `python3 model/book_reading_plate/load_checks.py` for arithmetic. The width and inner height are adjustable; a 360 × 230 mm alternate was built to check those dependencies. Thickness, screw proportions and clearances form a coupled mechanism and must be rechecked if changed.
+[components.py](components.py) owns parameters and shared geometry; [book_reading_plate.py](book_reading_plate.py) displays the assembly. Evaluate [export_plate.py](export_plate.py), [measure_structure.py](measure_structure.py) and [verify_exports.py](verify_exports.py) with `uv run --locked python scripts/evaluate_model.py <entry-point> --views none` from the repository root. Then run `uv run --locked python model/book_reading_plate/load_checks.py` for arithmetic. The width and inner height are adjustable; a 360 × 230 mm alternate was built to check those dependencies. Thickness, screw proportions and clearances form a coupled mechanism and must be rechecked if changed.
 
 The saved profiles are [plate halves](notes/reference_petg.ini) and [screws](notes/reference_screws.ini). The screw profile differs only by disabling supports. Inspection-only entries are [rear_view.py](rear_view.py), [screw_view.py](screw_view.py) and [print_preview.py](print_preview.py). Do not print their inspection poses in place of the supplied STLs.
 

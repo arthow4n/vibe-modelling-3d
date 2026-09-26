@@ -37,12 +37,11 @@ interfaces and load path.
    materially affect fit, function or manufacturing. Oversized objects still
    require the joint/load agreement described above unless the user already
    supplied it. Document important assumptions.
-2. Confirm the required CadQuery MCP `evaluate_file` tool is available. If absent,
-   stop modelling and ask the user to install the customized
-   [cadquery-contrib server](https://github.com/arthow4n/cadquery-contrib/tree/feature/loop-customisations).
-   Do not recreate the evaluator with ad-hoc scripts.
+2. Confirm `uv` and the repository's shared
+   [CadQuery command](scripts/evaluate_model.py) are available. Run `uv sync --locked`
+   from the repository root when the locked environment is not installed.
 3. Create or revise the object's parametric Python source. Evaluate the file
-   through MCP and inspect validity, topology, bounds, parameters and errors;
+   through the shared command and inspect validity, topology, bounds, parameters and errors;
    choose views using the skill's evidence guidance.
 4. Compare the geometry against the intended use and references. Check access,
    insertion, retention and release as relevant. Correct the largest functional,
@@ -85,7 +84,7 @@ in global format-based directories such as `exports/` or `references/`.
 The object's CadQuery Python source is authoritative. Keep likely adjustments
 as named parameters with dependent geometry derived from them. Use a clear main
 entry point and component modules when that improves readability; document useful
-component/assembled entry points and verify imports through MCP. Follow the
+component/assembled entry points and verify imports through the shared command. Follow the
 [construction guidance](.codex/skills/cadquery-3d-design/references/parametric-and-edges.md)
 for parameters, components and edges. Prefer understandable CadQuery operations;
 use lower-level OCP only when it materially helps. Do not make a mesh the primary
@@ -93,24 +92,25 @@ modelling representation.
 
 ## CadQuery evaluation and exports
 
-Evaluate the object's source directly. The updated customized server supplies
+Run `uv run --locked python scripts/evaluate_model.py model/object_name/object_name.py`
+from the repository root. See [command usage](scripts/README.md) for views,
+exports, reports and dependencies. The command supplies
 `__file__`, the model directory as the worker's working/import directory, and a
 fresh process per evaluation. Ordinary sibling imports therefore see current
 source. `result` explicitly selects the output; otherwise all `show_object()`
 outputs are combined. Do not mix display-only reference geometry into the
 selected printable result.
 
-Use `views: []` for checks that need no images. Inspect structured error status:
+Use `--views none` for checks that need no images. Inspect structured error status:
 a failed view can coexist with successful geometry or exports. Saved paths are
 successful outputs only when their corresponding status says so. Build and
-render timings are separate. Older running servers may need a restart to expose
-these capabilities; see the compatibility note in the
-[export guidance](.codex/skills/cadquery-3d-design/references/export-verification.md).
+render timings are separate. Model files are trusted Python and may write their
+own artifacts; the command does not roll back those side effects.
 
 For normal printable models, deliver at least `.py`, `.step` and `.stl`.
 Export STEP and STL from the **same geometry and print placement**, with matching
-units, orientation, bed position and relative component positions. The evaluator's
-optional `exports` list can write both from one build; use an object-owned wrapper
+units, orientation, bed position and relative component positions. The command's
+`--step` and `--stl` options write both from one build; use an object-owned wrapper
 when custom checks or component exports require it. Verify the actual final pair
 using the [export checker](.codex/skills/cadquery-3d-design/references/export-verification.md).
 Use an explicit `_assembled.step` suffix for an additional inspection pose.
@@ -141,7 +141,7 @@ Reuse evidence only when its relevant inputs are unchanged and recorded:
 - Slicing: mesh, effective profile, command options and slicer version.
 
 Changed inputs invalidate affected checks; rerun if dependencies are unclear.
-The server's imported-module hashes are useful evidence, not a complete record
+The command's imported-module hashes are useful evidence, not a complete record
 of arbitrary files a script reads. Final verification must cover the final files.
 Do not introduce a caching framework for a one-off task. Unchanged helpers do not
 need their own regression suites rerun for every model.
@@ -166,9 +166,10 @@ and creator attribution intact; consult the root README's licensing section.
 
 ## Python dependencies
 
-Use `uv` for genuinely needed Python dependencies and reproducible project files
-such as `pyproject.toml` and `uv.lock`. Commit those files, not environments or
-caches. Do not use ad-hoc virtual environments or another environment manager.
+Use the root `pyproject.toml` and `uv.lock` for Python tooling. Run commands with
+`uv run --locked` and commit dependency changes to both files, not environments
+or caches. PrusaSlicer is a separate system command. Do not use
+ad-hoc virtual environments or another environment manager.
 
 ## Git workflow and handoff
 
