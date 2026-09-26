@@ -1,17 +1,10 @@
 from pathlib import Path
-import importlib.util
 import json
 import cadquery as cq
 
 object_dir = Path(__file__).resolve().parent.parent
-helper_path = object_dir.parents[1] / '.codex/skills/cadquery-3d-design/scripts/check_exports.py'
-spec = importlib.util.spec_from_file_location('export_checks', helper_path)
-helper = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(helper)
 step = object_dir / 'faceted_storage_tray.step'
-stl = object_dir / 'faceted_storage_tray.stl'
-report = helper.check_pair(step, stl, expected_solids=1)
-(object_dir / 'notes/export_checks.json').write_text(json.dumps(report, indent=2))
+report = {}
 result = cq.importers.importStep(str(step))
 # Inspect opposing planar inner walls in the exported CAD, above the floor blend.
 walls = [f for f in result.val().Faces() if f.geomType() == 'PLANE'
@@ -30,7 +23,7 @@ for z in [8.1, 9.0, 20.0, 30.0, 37.0]:
     assert gap > 2.8, (z, gap)
     section_gaps[str(z)] = gap
 report.update(sampled_horizontal_wall_minimum_mm=section_gaps)
-(object_dir / 'notes/export_checks.json').write_text(json.dumps(report, indent=2))
+(object_dir / 'notes/geometry_checks.json').write_text(json.dumps(report, indent=2))
 print('Sampled wall sections:', section_gaps)
 
 # Symmetric difference checks use the final exported solid, including fillets.
@@ -45,5 +38,5 @@ for name, transformed in [
     assert difference < 0.01, (name, difference)
     symmetry[name] = difference
 report.update(symmetry_difference_mm3=symmetry)
-(object_dir / 'notes/export_checks.json').write_text(json.dumps(report, indent=2))
+(object_dir / 'notes/geometry_checks.json').write_text(json.dumps(report, indent=2))
 print('Symmetry differences mm3:', symmetry)

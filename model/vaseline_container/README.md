@@ -11,7 +11,7 @@ Turn clockwise to close gently against the shoulder; turn counterclockwise to un
 - `base.step` / `.stl`, `lid.step` / `.stl`: individual parts, same print orientation.
 - `vaseline_container_assembled.step`: closed inspection pose only.
 - `renders/`: final print and assembled views.
-- `verify_and_export.py`: shared-command evaluation entry point for exports and mechanical/file checks.
+- `verify_and_export.py`: shared-command evaluation entry point for exports and mechanical geometry checks.
 - `inspect_assembled.py`: shared-command evaluation entry point for the closed pose.
 
 Print the base floor down and the lid outside-top down, as exported. Assumed PETG, 0.4 mm nozzle, 0.2 mm layers, four perimeters, five top/bottom layers, 20% infill, no supports. Use your own printer profile; the stored profile is diagnostic. Layout is about 107.3 × 49.3 × 22.75 mm, comfortably inside the confirmed 260 × 260 × 250 mm limits.
@@ -22,7 +22,7 @@ Print the base floor down and the lid outside-top down, as exported. Assumed PET
 - Neck wall 2 mm; base floor and lid roof 2 mm. Grip valleys stay outside the thread groove. Mouth has a 0.45 mm fillet, top grip edges a 0.65 mm fillet, and bed edges a 0.35 mm chamfer.
 - Nominal radial fit allowance 0.30 mm; groove flank allowance includes 0.25 mm axial expansion. Female thread extends through the mouth for entry and release.
 - CAD motion sampled every 30° through three opening turns: no solid interference. A straight 0.8 mm lift collides with the retaining thread flanks. These checks establish geometric retention, not friction or opening torque.
-- `notes/verification.json`: final combined exports passed solid validity, watertight mesh, component/bounds/volume and bed-contact checks, with file hashes.
+- `notes/verification.json`: sampled screw-opening motion and axial-pull interference measurements for the final geometry.
 - `notes/slice_review/summary.json`: PrusaSlicer 2.9.6 diagnostic slice, no notices or support paths; deposited footprint inside safe limits. Estimate **25.58 g / 2 h 22 min**.
 - `notes/thread_layers.png`: inspected current/preceding paths at lid groove and base thread heights. Thread contours grow from adjoining walls; no isolated starts or unsupported cavity roof. Internal solid-fill bridges are over infill, not across the open jar.
 - A 52 × 27 mm alternate parameter configuration was checked for a valid two-solid build. Fit and print checks apply to the delivered 50 × 25 mm configuration.

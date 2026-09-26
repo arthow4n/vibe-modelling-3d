@@ -47,7 +47,6 @@ do not mistake a parameter value for a verified measurement or physical result.
 | Fit, force, friction or durability needs physical validation | [Physical experiments](references/physical-experiments.md) |
 | Dimensions, shared builders, modular source or edge treatment | [Parametric construction and edges](references/parametric-and-edges.md) |
 | Captive hinge construction | [Opposing conical pivot example](references/print-in-place-hinges.md) |
-| Final STEP/STL checks | [Export verification helper](references/export-verification.md) |
 
 Read the relevant references during planning, not only after a failed print.
 Do not load every reference for every task.

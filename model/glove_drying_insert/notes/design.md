@@ -2,7 +2,7 @@
 
 Decisions, attribution, print/use instructions and physical limitations are in
 ../README.md. The five_digit_slice and five_digit_sample runs cover the current
-exports; geometry/export reports include source and file hashes.
+exports; geometry reports retain the mechanism measurements.
 
 - [x] Corrected scope: all four fingers plus thumb, general adult fit, all-printed PETG.
 - [x] Replaced the palm-only frames with paired slotted hand skeletons and wrist hinge.
@@ -12,6 +12,6 @@ exports; geometry/export reports include source and file hashes.
 - [x] Evaluated a larger/longer hand with a different opening; restored/evaluated the default.
 - [x] Inspected final print/open/folded renders and topology.
 - [x] Inspected final slicer layers and safe footprint including brims/skirt.
-- [x] Exported matching STEP/STL pairs and verified final file hashes.
+- [x] Exported matching STEP/STL pairs from the same production geometry.
 - [x] Included optional hinge sample; physical glove fit and force tests remain unperformed.
 - [x] Final diff reviewed; redesign delivered through repository commit/push (see Git history).

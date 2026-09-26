@@ -54,7 +54,8 @@ Use these assumptions when interpreting ambiguous requirements and judging wheth
 
 Always record a concise final FDM rationale: intended orientation and build fit,
 stable bed contact, feature/wall/gap sizing, unsupported geometry, support access
-and layer direction where relevant, alongside final CAD and export validation.
+and layer direction where relevant, alongside final CAD review and export
+generation.
 Detailed toolpath inspection is conditional; skipping layer images does not skip
 this review. State material/nozzle assumptions and remaining physical uncertainty.
 
@@ -65,7 +66,8 @@ existing slice of the same final artifact and relevant settings; do not slice
 again merely to label it final. This checks acceptance of the actual exported
 mesh by an independent manufacturing toolchain, not universal printability.
 No layer windows are required. If unavailable, record the missing smoke evidence
-and complete the authorized deliverables using the available CAD/export review.
+and complete the authorized deliverables using the available CAD review and
+export generation.
 
 Use one documented diagnostic profile unless the user's actual slicer/profile
 is supplied. Actual settings supersede reference settings for toolpath-specific

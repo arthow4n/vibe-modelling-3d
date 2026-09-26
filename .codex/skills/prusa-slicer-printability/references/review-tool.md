@@ -74,9 +74,9 @@ verdict. Report any unresolved notice separately from smoke acceptance.
 Automatic repair is not classified by this helper; notice extraction is not an
 exhaustive repair detector. If relevant, inspect the saved log for reported repair
 or other automatic treatment. Say “not assessed” or “none reported in inspected
-log,” not “no repair occurred.” Do not claim smoke coverage for every malformed
-mesh or lost component; retain the independent export checks. The helper centers
-the layout, so its footprint does not verify the export's original absolute XY
+log,” not “no repair occurred.” A smoke slice does not prove that every intended
+component is present or that every mesh defect is absent. The helper centers the
+layout, so its footprint does not verify the export's original absolute XY
 placement. Parser incompatibility is a reporting limitation, not proof that the
 slicer failed; use suitable CLI evidence without silently altering actual settings.
 

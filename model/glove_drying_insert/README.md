@@ -55,8 +55,8 @@ CAD nor slicing verifies real drying rate, fit or the position of wet lining.
 - `hinge_fit_sample.stl` / `.step`: optional three-part sample of the current wrist hinge.
 - `inspect.py` / `inspect_folded.py`: assembled inspection entry points.
 - `verify.py`: validity, sampled motion, retention, five digit slots and alternate sizing.
-- `export.py`: batch export and repository STEP/STL consistency checks.
-- `renders/`: final print/open/folded views; `notes/`: hashes, checks and slice evidence.
+- `export.py`: batch export of the production layout and optional hinge-fit sample.
+- `renders/`: final print/open/folded views; `notes/`: geometry checks and slice evidence.
 
 Edit `HAND_SCALE` for overall hand proportions, `FINGER_LENGTH_SCALE` to lengthen
 or shorten just the digit centerlines, and `FINGER_WIDTH_SCALE` for branch widths.
@@ -147,9 +147,8 @@ a conservative circular bore with 0.1 mm remaining slit space. An empty-space
 probe passed through the long slot near the tip of **each of the five branches**.
 These checks establish geometric room and contacts, not elastic stress or force.
 
-Final STEP/STL pairs passed validity, closed/wound mesh, per-component bounds,
-volume and bed-contact checks. Reports record the source and exported hashes.
-The assembled STEP is explicitly separate from the primary print-ready pair.
+The production STEP and STL are exported from the same print geometry and
+placement. The assembled STEP is a separate inspection pose.
 
 PrusaSlicer 2.9.6: approximately **45.3 g / 4 hours** per complete insert. No
 support paths or slicer notices; deposited paths including brim/skirt fit the

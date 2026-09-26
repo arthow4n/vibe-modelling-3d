@@ -26,10 +26,10 @@ The 238 mm footprint fits the 250 × 250 × 250 mm practical envelope. The refer
 - CadQuery MCP evaluation: valid single solid, 238 × 238 × 38 mm, volume 406,928.46 mm³. Versions: CadQuery 2.8.0, OCP 7.9.3.1.1, Python 3.12.14, server 0.2.0.
 - Source SHA256: `3f657965938c29a4bde6afae6df1a9de52b35ab9c506a67186e9bd51252336cc`.
 - Viewed the revised preview for triangular corner faces, polygonal lower band, smooth cavity and softened rim. Facet positions are inferred from the photo; a single photograph does not establish exact original geometry.
-- [Export checks](notes/export_checks.json): valid STEP, closed consistently wound STL, one matching component, bounds/volume agreement and bed contact passed. [MCP check entry point](notes/check_exports.py) also verifies four interior wall planes at X/Y = ±110 mm in the actual STEP. Section wire distances at Z=8.1, 9, 20, 30 and 37 mm are 5.35, 5.53, 4.54, 3.63 and 3.00 mm respectively; these are sampled horizontal thicknesses. A representative 200 mm interior variant also builds as a valid 218 mm-wide solid via `notes/check_parameters.py`; the final 220 mm source was then re-evaluated.
+- [Geometry checks](notes/geometry_checks.json), reproduced by [verify_export_geometry.py](notes/verify_export_geometry.py), inspect the four interior wall planes at X/Y = ±110 mm and sample horizontal thickness at Z=8.1, 9, 20, 30 and 37 mm. A representative 200 mm interior variant also builds as a valid 218 mm-wide solid via `notes/check_parameters.py`; the final 220 mm source was then re-evaluated.
 - Final STEP symmetry: symmetric-difference volume was 0.0 mm³ for 90° rotation, reflection across X=0, and reflection across X=Y (acceptance tolerance 0.01 mm³). This checks the completed solid including rim fillets and proves matching corners within CAD tolerance.
 - [Reference smoke slice](notes/symmetric_slice_review/summary.json), [command](notes/symmetric_slice_review/command.json), [profile](notes/review.ini): PrusaSlicer 2.9.6 produced fresh nonempty deposition, no supports, no notices; no repair reported in the inspected log. Deposited XY bounds after centering: 6.017–243.983 mm on each axis; height 38 mm.
-- Reference estimate: 312.58 g PLA, 25 h 16 min. These are profile-specific estimates, not predictions for the user's printer. CAD/export and slice checks do not establish physical strength or print quality.
+- Reference estimate: 312.58 g PLA, 25 h 16 min. These are profile-specific estimates, not predictions for the user's printer. Geometry and slice checks do not establish physical strength or print quality.
 
 ### Design checklist
 
@@ -37,7 +37,7 @@ The 238 mm footprint fits the 250 × 250 × 250 mm practical envelope. The refer
 - [x] Interior dimension, access, retention, edge treatment and ordinary storage use reviewed.
 - [x] Single-piece layout, bed contact, wall sizes, overhangs and support strategy reviewed.
 - [x] Parametric source evaluated; bounds, topology, final views and actual interior wall positions checked.
-- [x] Matching exports independently checked; final reference smoke slice passed.
+- [x] STEP geometry checks and final reference smoke slice completed.
 - [x] Deliverables, reference, print instructions, attribution and physical limitations saved.
 - [x] Separate test piece considered: not warranted; full tray is the first physical trial.
 

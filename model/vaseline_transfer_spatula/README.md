@@ -46,8 +46,7 @@ not scratch the source container and that the flat blade releases cleanly into
 the small jar.
 
 CadQuery 2.8.0 evaluation found one valid solid with a 30 × 141 × 7 mm
-bounding box. The exported pair passed the independent STEP/STL checker;
-details and hashes are in `notes/export_checks.json`. The current final
+bounding box. STEP and STL were exported from that evaluation. The current final
 PrusaSlicer 2.9.6 reference smoke slice is recorded in
 `notes/reference_smoke_run_02/summary.json`; it produced fresh nonempty paths,
 no notices, no support segments, and an in-bed deposited footprint of about

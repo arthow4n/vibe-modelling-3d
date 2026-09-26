@@ -1,6 +1,6 @@
 """Evaluate with the shared CadQuery command to export and verify production geometry."""
 from pathlib import Path
-import runpy, importlib.util, json, math
+import runpy, json
 import cadquery as cq
 D = Path('/home/hevar/git/vibe-modelling-3d/model/vaseline_container')
 m = runpy.run_path(str(D/'vaseline_container.py'))
@@ -19,11 +19,9 @@ for name, shape in [('vaseline_container',result),('base',base.val()),('lid',m['
     cq.exporters.export(shape,str(D/(name+'.step')))
     cq.exporters.export(shape,str(D/(name+'.stl')),tolerance=0.015,angularTolerance=0.08)
 cq.exporters.export(cq.Compound.makeCompound([base.val(),lid.val()]),str(D/'vaseline_container_assembled.step'))
-spec = importlib.util.spec_from_file_location('checks',D.parents[1]/'.codex/skills/cadquery-3d-design/scripts/check_exports.py')
-h = importlib.util.module_from_spec(spec); spec.loader.exec_module(h)
-report = h.check_pair(D/'vaseline_container.step',D/'vaseline_container.stl',expected_solids=2)
-report['motion_samples'] = motion
-report['axial_pull_collision_mm3'] = retention
-report['closed_height_mm'] = 25
+report = {'motion_samples': motion, 'axial_pull_intersection_mm3': retention,
+          'closed_height_mm': 25}
 (D/'notes/verification.json').write_text(json.dumps(report,indent=2)+'\n')
-print(json.dumps({'export_checks':report,'retention':retention}))
+print(json.dumps({'motion_sample_count': len(motion),
+                  'maximum_motion_intersection_mm3': max(x['intersection_mm3'] for x in motion),
+                  'axial_pull_intersection_mm3': retention}))

@@ -5,7 +5,7 @@
   "python_cad_worker": "3.12.14",
   "slicer": "PrusaSlicer 2.9.6+flathub.org",
   "date": "2026-09-23",
-  "verification": "Final source/check/export/slice hashes agree; local README links valid; CAD final views and targeted screw paths inspected. Physical full-plate validation pending.",
+  "verification": "Local README links were validated; CAD final views and targeted screw paths were inspected. Artifact hashes and tool versions are retained as a historical inventory. Physical full-plate validation was pending when recorded.",
   "sha256": {
     "book_reading_plate.py": "7dfb8bb539f091c9a6e828bab45b31c69eeca1ce1d3e124f02e6bd16704cc163",
     "book_reading_plate_assembled.step": "a6a2b1c5de051cb751166d9d667c0372948ece2020f942a6e945092aa64aa870",
@@ -30,7 +30,6 @@
     "renders/final/screw_view_isometric.png": "1b44d558a456567a242f021c6137c056d85640cb5cda98f2267b4735952da83b",
     "screw_view.py": "8efdba78b01abacfa46ad5fd90a6b9579e4d30717ca89493ba3dc9664b6f7f1c",
     "screws.step": "53fa056de68747b272f31e23d3e27de966df19dcfbef78d301c6e459466aab66",
-    "screws.stl": "304b28eede711589064201887a29dbff50c87c56df33da8247c04b8ce7616603",
-    "verify_exports.py": "781370a7dd8d479178e9430559b69e4f66cfb6e72d121afcc167e3b18c4cd999"
+    "screws.stl": "304b28eede711589064201887a29dbff50c87c56df33da8247c04b8ce7616603"
   }
 }

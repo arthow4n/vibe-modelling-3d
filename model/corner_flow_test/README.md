@@ -39,14 +39,11 @@ The CadQuery source was evaluated as one valid solid made from one closed outer
 wire extruded vertically. The default profile has 15 straight analytic edges and
 three analytic circular edges, one face at every horizontal cut, and the exact
 100 × 70 × 50 mm bounds. STEP and STL were exported from the same evaluation.
-The retained export report checks the STEP solid and the binary STL for finite,
-non-zero-area facets, closed manifold connectivity, consistent winding, positive
-volume, matching bounds/volume and bed contact. The reference PrusaSlicer smoke
-slice (2.9.6) generated fresh, nonempty paths with no supports or notices, a
-112.758 × 82.758 mm deposited footprint after slicer centering, and 50 mm maximum
-Z. Its planar one-wall profile is independent mesh-acceptance evidence only:
-the repository parser cannot analyze vase mode's intentionally non-planar spiral
-extrusion. Use the actual Orca profile for vase-mode calibration.
+The reference PrusaSlicer smoke slice (2.9.6) generated fresh, nonempty paths
+with no supports or notices, a 112.758 × 82.758 mm deposited footprint after
+slicer centering, and 50 mm maximum Z. Its planar one-wall profile does not
+model vase mode's intentionally non-planar spiral extrusion. Use the actual
+Orca profile for vase-mode calibration.
 
 ## Physical print status
 

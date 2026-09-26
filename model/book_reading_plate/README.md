@@ -75,10 +75,10 @@ Full-span L-beam integration predicts about **1.11 mm service sag**, including e
 ## Verification evidence
 
 - CadQuery MCP: valid full assembly of six solids; sampled screw insertion/removal and joint assembly paths clear; direct screw withdrawal obstructed; all four seating rings contact; ±1° rotations about each axis encounter fastener bearing; standard 8 mm key access clear. [Geometry report](notes/geometry_checks.json). These are geometric checks, not force validation.
-- Final STEP/STL pairs: expected solid counts **1 / 1 / 4**, closed manifold meshes, matching bounds/volumes and bed contact. [Export report](notes/export_checks.json). Both formats come from the same build and print placements.
+- Final STEP/STL pairs are exported from the same build and print placements.
 - PrusaSlicer 2.9.6 reference slices: fresh nonempty output for all three jobs, no reported warnings/repairs in inspected logs. Deposited footprints including brim/support: left **140.03 × 253.24 × 235 mm**, right **140.19 × 253.14 × 235 mm**, screws **100.60 × 22.70 × 9.60 mm**. All fit the 260 × 260 × 250 mm practical envelope. Supports are generated for the halves; none for screws. Reports: [left](notes/final_plate_left/summary.json), [right](notes/final_plate_right/summary.json), [screws](notes/final_screws/summary.json).
 - Targeted [screw toolpath inspection](notes/final_screws/head_socket.png): the solid socket floor precedes upward-growing hex walls; the 45° head expands gradually. No roof is printed over the hex opening. No support or bridge-role paths occur in the screw job; short overhang-role paths remain on the threads. This resolves the orientation defect geometrically and in this reference profile, not by claiming measured print quality.
-- Final book-face, outside-face, screw and print-placement views were inspected. Source/export/profile hashes and tool versions are recorded in [manifest](notes/evidence_manifest.json).
+- Final book-face, outside-face, screw and print-placement views were inspected. Artifact hashes and tool versions are recorded in [manifest](notes/evidence_manifest.json) as historical inventory; no automated hash comparison is provided.
 
 ## Physical status
 
@@ -94,7 +94,7 @@ Also on 2026-09-23, the user reported that the **complete revised plate** was pr
 
 ## Source and reproduction
 
-[components.py](components.py) owns parameters and shared geometry; [book_reading_plate.py](book_reading_plate.py) displays the assembly. Evaluate [export_plate.py](export_plate.py), [measure_structure.py](measure_structure.py) and [verify_exports.py](verify_exports.py) with `./evaluate_model.py <entry-point> --views none` from the repository root. Then run `uv run --locked python model/book_reading_plate/load_checks.py` for arithmetic. The width and inner height are adjustable; a 360 × 230 mm alternate was built to check those dependencies. Thickness, screw proportions and clearances form a coupled mechanism and must be rechecked if changed.
+[components.py](components.py) owns parameters and shared geometry; [book_reading_plate.py](book_reading_plate.py) displays the assembly. Evaluate [export_plate.py](export_plate.py) and [measure_structure.py](measure_structure.py) with `./evaluate_model.py <entry-point> --views none` from the repository root. Then run `uv run --locked python model/book_reading_plate/load_checks.py` for arithmetic. The width and inner height are adjustable; a 360 × 230 mm alternate was built to check those dependencies. Thickness, screw proportions and clearances form a coupled mechanism and must be rechecked if changed.
 
 The saved profiles are [plate halves](notes/reference_petg.ini) and [screws](notes/reference_screws.ini). The screw profile differs only by disabling supports. Inspection-only entries are [rear_view.py](rear_view.py), [screw_view.py](screw_view.py) and [print_preview.py](print_preview.py). Do not print their inspection poses in place of the supplied STLs.
 

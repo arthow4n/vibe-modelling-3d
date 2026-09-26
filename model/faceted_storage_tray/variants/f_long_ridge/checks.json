@@ -1,45 +1,4 @@
 {
-  "checks_passed": true,
-  "expected_solids": 1,
-  "bounds_tolerance_mm": 0.035,
-  "volume_relative_tolerance": 0.01,
-  "bed_contact_required": true,
-  "step_components": [
-    {
-      "bounds_mm": [
-        -120.025,
-        -120.025,
-        -1.0531575611594235e-11,
-        120.025,
-        120.025,
-        38.0
-      ],
-      "volume_mm3": 420078.1200905575
-    }
-  ],
-  "stl_components": [
-    {
-      "bounds_mm": [
-        -120.0250015258789,
-        -120.0250015258789,
-        -1.7041923427996153e-14,
-        120.0250015258789,
-        120.0250015258789,
-        38.0
-      ],
-      "volume_mm3": 420108.6130476618,
-      "triangles": 19090
-    }
-  ],
-  "component_assignment": [
-    [
-      0,
-      0
-    ]
-  ],
-  "STEP_sha256": "9ad86ab5dfe4d081c313e5d676ce31f55c1e1341fa498b888bceccc2618c91d9",
-  "STL_sha256": "6dd483891c13edf96581b0a421f409cae425039396469eb020ead41a1681b3a3",
-  "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation.",
   "config": {
     "name": "f_long_ridge",
     "panels": 12,

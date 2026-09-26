@@ -1,45 +1,4 @@
 {
-  "checks_passed": true,
-  "expected_solids": 1,
-  "bounds_tolerance_mm": 0.035,
-  "volume_relative_tolerance": 0.01,
-  "bed_contact_required": true,
-  "step_components": [
-    {
-      "bounds_mm": [
-        -119.00000000000293,
-        -119.00000000000293,
-        -1.0531575611594235e-11,
-        119.00000000000293,
-        119.00000000000293,
-        38.0
-      ],
-      "volume_mm3": 409803.92843135726
-    }
-  ],
-  "stl_components": [
-    {
-      "bounds_mm": [
-        -119.0,
-        -119.0,
-        -1.7041923427996153e-14,
-        119.0,
-        119.0,
-        38.0
-      ],
-      "volume_mm3": 409835.6117605238,
-      "triangles": 18988
-    }
-  ],
-  "component_assignment": [
-    [
-      0,
-      0
-    ]
-  ],
-  "STEP_sha256": "2486c623aa9a28c4f9e8c598b904602908d0e21165c27b495d553af3812cbbe8",
-  "STL_sha256": "e908b051947c8f464d95ed820db284b0658bb75d3cc71da4cb70a1a7c44597d3",
-  "limits": "Binary STL in mm; exact shared vertices required. Bounds/volume agreement is not shape identity. No self-intersection, force or printability simulation.",
   "config": {
     "name": "h_soft",
     "panels": 12,

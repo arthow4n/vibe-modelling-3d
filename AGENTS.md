@@ -111,8 +111,7 @@ For normal printable models, deliver at least `.py`, `.step` and `.stl`.
 Export STEP and STL from the **same geometry and print placement**, with matching
 units, orientation, bed position and relative component positions. The command's
 `--step` and `--stl` options write both from one build; use an object-owned wrapper
-when custom checks or component exports require it. Verify the actual final pair
-using the [export checker](.codex/skills/cadquery-3d-design/references/export-verification.md).
+when custom checks or component exports require it.
 Use an explicit `_assembled.step` suffix for an additional inspection pose.
 Respect an explicit user request for a different export arrangement. Add 3MF or
 other formats only when useful.
@@ -202,7 +201,7 @@ sweeps after interface changes, not merely to obtain another view.
 Reuse evidence only when its relevant inputs are unchanged and recorded:
 
 - CAD: source modules, parameters, placement and tool versions.
-- Exports: exact output files and checker settings/version.
+- Exports: actual output files and exporter settings/version.
 - Slicing: mesh, effective profile, command options and slicer version.
 
 Changed source or output files invalidate affected checks; rerun if dependencies

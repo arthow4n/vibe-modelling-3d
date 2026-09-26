@@ -55,11 +55,11 @@ Print flat underside down, exactly as supplied, with the same material, layer he
 
 ## Verification and reproducibility
 
-All eight were built through CadQuery MCP, exported as STEP/STL from the same solid, then independently checked using [build_exploration.py](notes/build_exploration.py). [Build summary](notes/exploration_build.json) records individual bounds. Versions: CadQuery 2.8.0, OCP 7.9.3.1.1, Python 3.12.14, server 0.2.0. Each `checks.json` records source/builder and export hashes. The final default source also rebuilt successfully through the CAD view entry point.
+All eight were built through CadQuery MCP and exported as STEP/STL from the same solid. [build_exploration.py](notes/build_exploration.py) checks interior wall positions, sampled section thicknesses and symmetry in the exported STEP. [Build summary](notes/exploration_build.json) records individual bounds. Versions: CadQuery 2.8.0, OCP 7.9.3.1.1, Python 3.12.14, server 0.2.0. Each `checks.json` records the configuration, custom geometry measurements and source/builder hashes. The final default source also rebuilt successfully through the CAD view entry point.
 
 For every alternative:
 
-- Valid single STEP solid and closed consistently wound STL; component bounds, volume agreement and bed contact passed.
+- The final exported STEP has the expected interior wall positions, sampled section thicknesses and symmetry.
 - Exported interior wall planes verified at X/Y = ±110 mm.
 - Sampled horizontal wall separations at Z=9, 20, 30 and 37 mm all exceed 2.8 mm; the smallest sample is approximately 2.91 mm. These are sampled section distances, not a global minimum claim.
 - Final STEP symmetric-difference volume was 0.0 mm³ for 90° rotation and reflection across X=Y, under a 0.01 mm³ threshold. This checks matching corners, matching sides and diagonal mirror symmetry of the complete solid including fillets.
@@ -69,25 +69,25 @@ One [reference profile](notes/review.ini) was used throughout. [Slice runner](no
 
 | Version | PLA estimate | Time estimate | Evidence |
 | --- | --- | --- | --- |
-| A Airy | 317.08 g | 1d 1h 53m 55s | [CAD/export checks](variants/a_airy/checks.json) · [Slice](variants/a_airy/slice_review/summary.json) |
-| B Narrow | 317.25 g | 1d 1h 55m 47s | [CAD/export checks](variants/b_narrow/checks.json) · [Slice](variants/b_narrow/slice_review/summary.json) |
-| C Slender | 317.47 g | 1d 2h 2m 22s | [CAD/export checks](variants/c_slender/checks.json) · [Slice](variants/c_slender/slice_review/summary.json) |
-| D Fine | 317.84 g | 1d 2h 6m 9s | [CAD/export checks](variants/d_fine/checks.json) · [Slice](variants/d_fine/slice_review/summary.json) |
-| E Dense | 318.21 g | 1d 2h 10m 48s | [CAD/export checks](variants/e_dense/checks.json) · [Slice](variants/e_dense/slice_review/summary.json) |
-| F Long Ridge | 318.75 g | 1d 2h 6m 40s | [CAD/export checks](variants/f_long_ridge/checks.json) · [Slice](variants/f_long_ridge/slice_review/summary.json) |
-| G Fine Ridge | 319.60 g | 1d 2h 12m 3s | [CAD/export checks](variants/g_fine_ridge/checks.json) · [Slice](variants/g_fine_ridge/slice_review/summary.json) |
-| H Soft | 313.83 g | 1d 1h 26m 42s | [CAD/export checks](variants/h_soft/checks.json) · [Slice](variants/h_soft/slice_review/summary.json) |
+| A Airy | 317.08 g | 1d 1h 53m 55s | [Geometry checks](variants/a_airy/checks.json) · [Slice](variants/a_airy/slice_review/summary.json) |
+| B Narrow | 317.25 g | 1d 1h 55m 47s | [Geometry checks](variants/b_narrow/checks.json) · [Slice](variants/b_narrow/slice_review/summary.json) |
+| C Slender | 317.47 g | 1d 2h 2m 22s | [Geometry checks](variants/c_slender/checks.json) · [Slice](variants/c_slender/slice_review/summary.json) |
+| D Fine | 317.84 g | 1d 2h 6m 9s | [Geometry checks](variants/d_fine/checks.json) · [Slice](variants/d_fine/slice_review/summary.json) |
+| E Dense | 318.21 g | 1d 2h 10m 48s | [Geometry checks](variants/e_dense/checks.json) · [Slice](variants/e_dense/slice_review/summary.json) |
+| F Long Ridge | 318.75 g | 1d 2h 6m 40s | [Geometry checks](variants/f_long_ridge/checks.json) · [Slice](variants/f_long_ridge/slice_review/summary.json) |
+| G Fine Ridge | 319.60 g | 1d 2h 12m 3s | [Geometry checks](variants/g_fine_ridge/checks.json) · [Slice](variants/g_fine_ridge/slice_review/summary.json) |
+| H Soft | 313.83 g | 1d 1h 26m 42s | [Geometry checks](variants/h_soft/checks.json) · [Slice](variants/h_soft/slice_review/summary.json) |
 
 The [comparison renderer](notes/preview_renderer/compare.py) uses the actual STL files with a depth buffer, identical lighting and camera settings. Reproduce with `uv run --directory model/faceted_storage_tray/notes/preview_renderer python compare.py`; dependency lock is retained. Inspected the complete sheet and C's CAD edge view for proportion, continuity, smooth cavity and rim. No physical result is inferred from these images or slice checks.
 
-The coupons were built and exported together through CadQuery MCP using [build_coupons.py](notes/build_coupons.py); [coupon_build.json](notes/coupon_build.json) and each coupon's `checks.json` record the final dimensions, source/export hashes, valid single-solid STEP, closed consistently wound STL, volume agreement and bed contact. Matching final views were generated from each source. [slice_coupons.py](notes/slice_coupons.py) then produced fresh PrusaSlicer 2.9.6 toolpaths for all eight with the same reference profile: zero supports, no notices or repairs, and approximately 15.05–15.45 g PLA. These are reference-profile results, not predictions for the user's printer.
+The coupons were built and exported together through CadQuery MCP using [build_coupons.py](notes/build_coupons.py); [coupon_build.json](notes/coupon_build.json) and each coupon's `checks.json` record the configuration, final dimensions and source/builder hashes. Matching final views were generated from each source. [slice_coupons.py](notes/slice_coupons.py) then produced fresh PrusaSlicer 2.9.6 toolpaths for all eight with the same reference profile: zero supports, no notices or repairs, and approximately 15.05–15.45 g PLA. These are reference-profile results, not predictions for the user's printer.
 
 ### Design checklist
 
 - [x] User intent, prior reference, approved original preservation and MCP availability checked.
 - [x] Eight distinct comparisons defined; common interior, symmetry, access and edges reviewed.
 - [x] Every configuration built and exported; final default C built and inspected.
-- [x] Actual exports, interior planes, sampled walls, symmetry and oriented bounds checked.
+- [x] Interior planes, sampled walls, symmetry and oriented bounds checked.
 - [x] Final generic FDM review and eight reference smoke slices passed.
 - [x] Individual exports, comparison views, print instructions, evidence and physical status saved.
 - [x] Eight equal-window, full-scale exterior coupons built, exported, inspected and smoke sliced.
