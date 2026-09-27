@@ -1,0 +1,1280 @@
+{
+  "plate_1": {
+    "metadata": {
+      "filament used [mm]": "6197.32",
+      "filament used [cm3]": "14.91",
+      "filament used [g]": "18.93",
+      "estimated printing time (normal mode)": "49m 45s"
+    },
+    "layer_count": 114,
+    "roles": {
+      "Brim": {
+        "segments": 12480,
+        "length_mm": 10686.030744612151,
+        "max_segment_mm": 2.3218234213651923
+      },
+      "Inner wall": {
+        "segments": 56847,
+        "length_mm": 42543.185831115356,
+        "max_segment_mm": 1.7438314138700513
+      },
+      "Outer wall": {
+        "segments": 59137,
+        "length_mm": 43142.601093852914,
+        "max_segment_mm": 1.769298731136136
+      },
+      "Bottom surface": {
+        "segments": 525,
+        "length_mm": 7296.906027513818,
+        "max_segment_mm": 47.0918974134617
+      },
+      "Internal solid infill": {
+        "segments": 23570,
+        "length_mm": 59391.492148552825,
+        "max_segment_mm": 48.12144488686932
+      },
+      "Sparse infill": {
+        "segments": 6151,
+        "length_mm": 9257.763077418867,
+        "max_segment_mm": 47.36139796289802
+      },
+      "Internal Bridge": {
+        "segments": 827,
+        "length_mm": 7895.647859642716,
+        "max_segment_mm": 47.22600000000001
+      },
+      "Top surface": {
+        "segments": 697,
+        "length_mm": 8473.836160429148,
+        "max_segment_mm": 43.50828024640829
+      },
+      "Gap infill": {
+        "segments": 5862,
+        "length_mm": 4282.080257297794,
+        "max_segment_mm": 1.9083783691920373
+      }
+    },
+    "longest_bridge_segments": [
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          159.975,
+          111.39
+        ],
+        "b": [
+          159.975,
+          158.616
+        ],
+        "length_mm": 47.22600000000001,
+        "filament_mm": 2.34397,
+        "width_mm": 0.4,
+        "line": 22179
+      },
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          159.525,
+          158.604
+        ],
+        "b": [
+          159.525,
+          111.396
+        ],
+        "length_mm": 47.20800000000001,
+        "filament_mm": 2.34304,
+        "width_mm": 0.4,
+        "line": 22182
+      },
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          159.075,
+          111.483
+        ],
+        "b": [
+          159.075,
+          158.517
+        ],
+        "length_mm": 47.03399999999999,
+        "filament_mm": 2.33443,
+        "width_mm": 0.4,
+        "line": 22184
+      },
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          158.625,
+          158.415
+        ],
+        "b": [
+          158.625,
+          111.585
+        ],
+        "length_mm": 46.83,
+        "filament_mm": 2.32432,
+        "width_mm": 0.4,
+        "line": 22186
+      },
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          167.625,
+          158.402
+        ],
+        "b": [
+          167.625,
+          111.593
+        ],
+        "length_mm": 46.80899999999998,
+        "filament_mm": 2.32321,
+        "width_mm": 0.4,
+        "line": 22145
+      },
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          169.425,
+          158.404
+        ],
+        "b": [
+          169.425,
+          111.596
+        ],
+        "length_mm": 46.80799999999999,
+        "filament_mm": 2.32318,
+        "width_mm": 0.4,
+        "line": 22134
+      },
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          160.425,
+          158.384
+        ],
+        "b": [
+          160.425,
+          111.618
+        ],
+        "length_mm": 46.76599999999999,
+        "filament_mm": 2.32114,
+        "width_mm": 0.4,
+        "line": 22177
+      },
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          168.075,
+          112.011
+        ],
+        "b": [
+          168.075,
+          158.646
+        ],
+        "length_mm": 46.63499999999999,
+        "filament_mm": 2.31463,
+        "width_mm": 0.4,
+        "line": 22143
+      },
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          158.175,
+          111.689
+        ],
+        "b": [
+          158.175,
+          158.311
+        ],
+        "length_mm": 46.622000000000014,
+        "filament_mm": 2.31396,
+        "width_mm": 0.4,
+        "line": 22188
+      },
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          169.875,
+          111.703
+        ],
+        "b": [
+          169.875,
+          158.16
+        ],
+        "length_mm": 46.456999999999994,
+        "filament_mm": 2.30582,
+        "width_mm": 0.4,
+        "line": 22131
+      },
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          168.525,
+          158.594
+        ],
+        "b": [
+          168.525,
+          112.17
+        ],
+        "length_mm": 46.42399999999999,
+        "filament_mm": 2.30413,
+        "width_mm": 0.4,
+        "line": 22140
+      },
+      {
+        "z": 1.2,
+        "role": "Internal Bridge",
+        "a": [
+          167.175,
+          111.809
+        ],
+        "b": [
+          167.175,
+          158.192
+        ],
+        "length_mm": 46.38300000000001,
+        "filament_mm": 2.30214,
+        "width_mm": 0.4,
+        "line": 22147
+      }
+    ],
+    "layers": [
+      {
+        "z": 0.2,
+        "roles": {
+          "Brim": 12480,
+          "Inner wall": 409,
+          "Outer wall": 473,
+          "Bottom surface": 525
+        }
+      },
+      {
+        "z": 0.4,
+        "roles": {
+          "Inner wall": 475,
+          "Outer wall": 507,
+          "Internal solid infill": 595
+        }
+      },
+      {
+        "z": 0.6,
+        "roles": {
+          "Inner wall": 479,
+          "Outer wall": 506,
+          "Internal solid infill": 579
+        }
+      },
+      {
+        "z": 0.8,
+        "roles": {
+          "Inner wall": 481,
+          "Outer wall": 504,
+          "Sparse infill": 118
+        }
+      },
+      {
+        "z": 1.0,
+        "roles": {
+          "Inner wall": 481,
+          "Outer wall": 508,
+          "Sparse infill": 111,
+          "Internal solid infill": 182
+        }
+      },
+      {
+        "z": 1.2,
+        "roles": {
+          "Inner wall": 480,
+          "Outer wall": 508,
+          "Sparse infill": 112,
+          "Internal Bridge": 394
+        }
+      },
+      {
+        "z": 1.4,
+        "roles": {
+          "Inner wall": 482,
+          "Outer wall": 509,
+          "Sparse infill": 218,
+          "Internal solid infill": 447
+        }
+      },
+      {
+        "z": 1.6,
+        "roles": {
+          "Inner wall": 481,
+          "Outer wall": 509,
+          "Sparse infill": 239,
+          "Internal solid infill": 450
+        }
+      },
+      {
+        "z": 1.8,
+        "roles": {
+          "Inner wall": 480,
+          "Outer wall": 508,
+          "Sparse infill": 233,
+          "Internal solid infill": 451
+        }
+      },
+      {
+        "z": 2.0,
+        "roles": {
+          "Inner wall": 797,
+          "Outer wall": 507,
+          "Internal solid infill": 316,
+          "Sparse infill": 210,
+          "Top surface": 210
+        }
+      },
+      {
+        "z": 2.2,
+        "roles": {
+          "Inner wall": 798,
+          "Outer wall": 824,
+          "Sparse infill": 197,
+          "Internal solid infill": 468
+        }
+      },
+      {
+        "z": 2.4,
+        "roles": {
+          "Inner wall": 798,
+          "Outer wall": 823,
+          "Sparse infill": 198,
+          "Internal solid infill": 325
+        }
+      },
+      {
+        "z": 2.6,
+        "roles": {
+          "Inner wall": 782,
+          "Outer wall": 807,
+          "Internal solid infill": 206,
+          "Sparse infill": 196
+        }
+      },
+      {
+        "z": 2.8,
+        "roles": {
+          "Inner wall": 789,
+          "Outer wall": 814,
+          "Sparse infill": 144,
+          "Internal solid infill": 251
+        }
+      },
+      {
+        "z": 3.0,
+        "roles": {
+          "Inner wall": 783,
+          "Outer wall": 809,
+          "Sparse infill": 136,
+          "Internal solid infill": 321
+        }
+      },
+      {
+        "z": 3.2,
+        "roles": {
+          "Inner wall": 792,
+          "Outer wall": 819,
+          "Sparse infill": 122,
+          "Gap infill": 5,
+          "Internal solid infill": 155
+        }
+      },
+      {
+        "z": 3.4,
+        "roles": {
+          "Inner wall": 787,
+          "Outer wall": 813,
+          "Sparse infill": 93,
+          "Gap infill": 15,
+          "Internal solid infill": 192
+        }
+      },
+      {
+        "z": 3.6,
+        "roles": {
+          "Inner wall": 768,
+          "Outer wall": 794,
+          "Sparse infill": 75,
+          "Internal solid infill": 212,
+          "Gap infill": 19
+        }
+      },
+      {
+        "z": 3.8,
+        "roles": {
+          "Inner wall": 780,
+          "Outer wall": 807,
+          "Internal solid infill": 224,
+          "Gap infill": 18,
+          "Sparse infill": 78
+        }
+      },
+      {
+        "z": 4.0,
+        "roles": {
+          "Inner wall": 770,
+          "Outer wall": 801,
+          "Gap infill": 31,
+          "Internal solid infill": 236,
+          "Sparse infill": 66
+        }
+      },
+      {
+        "z": 4.2,
+        "roles": {
+          "Inner wall": 778,
+          "Outer wall": 808,
+          "Internal solid infill": 269,
+          "Gap infill": 31,
+          "Sparse infill": 62
+        }
+      },
+      {
+        "z": 4.4,
+        "roles": {
+          "Inner wall": 783,
+          "Outer wall": 815,
+          "Sparse infill": 56,
+          "Internal solid infill": 289,
+          "Gap infill": 23
+        }
+      },
+      {
+        "z": 4.6,
+        "roles": {
+          "Inner wall": 785,
+          "Outer wall": 820,
+          "Internal solid infill": 325,
+          "Gap infill": 33,
+          "Sparse infill": 60
+        }
+      },
+      {
+        "z": 4.8,
+        "roles": {
+          "Inner wall": 789,
+          "Outer wall": 822,
+          "Sparse infill": 64,
+          "Internal solid infill": 328,
+          "Gap infill": 44
+        }
+      },
+      {
+        "z": 5.0,
+        "roles": {
+          "Inner wall": 788,
+          "Outer wall": 818,
+          "Internal solid infill": 401,
+          "Gap infill": 62,
+          "Sparse infill": 64
+        }
+      },
+      {
+        "z": 5.2,
+        "roles": {
+          "Inner wall": 788,
+          "Outer wall": 820,
+          "Internal solid infill": 422,
+          "Gap infill": 46,
+          "Sparse infill": 46
+        }
+      },
+      {
+        "z": 5.4,
+        "roles": {
+          "Inner wall": 785,
+          "Outer wall": 817,
+          "Sparse infill": 52,
+          "Internal solid infill": 406,
+          "Gap infill": 45
+        }
+      },
+      {
+        "z": 5.6,
+        "roles": {
+          "Inner wall": 782,
+          "Outer wall": 813,
+          "Internal solid infill": 453,
+          "Gap infill": 45,
+          "Sparse infill": 52
+        }
+      },
+      {
+        "z": 5.8,
+        "roles": {
+          "Inner wall": 780,
+          "Outer wall": 812,
+          "Gap infill": 47,
+          "Internal solid infill": 372,
+          "Sparse infill": 78
+        }
+      },
+      {
+        "z": 6.0,
+        "roles": {
+          "Inner wall": 782,
+          "Outer wall": 814,
+          "Gap infill": 71,
+          "Internal solid infill": 444,
+          "Sparse infill": 75
+        }
+      },
+      {
+        "z": 6.2,
+        "roles": {
+          "Inner wall": 779,
+          "Outer wall": 813,
+          "Internal solid infill": 419,
+          "Sparse infill": 89,
+          "Gap infill": 51
+        }
+      },
+      {
+        "z": 6.4,
+        "roles": {
+          "Inner wall": 778,
+          "Outer wall": 809,
+          "Sparse infill": 89,
+          "Internal solid infill": 405,
+          "Gap infill": 45
+        }
+      },
+      {
+        "z": 6.6,
+        "roles": {
+          "Inner wall": 780,
+          "Outer wall": 810,
+          "Internal solid infill": 457,
+          "Gap infill": 46,
+          "Sparse infill": 91
+        }
+      },
+      {
+        "z": 6.8,
+        "roles": {
+          "Inner wall": 780,
+          "Outer wall": 810,
+          "Sparse infill": 120,
+          "Internal solid infill": 377,
+          "Gap infill": 54
+        }
+      },
+      {
+        "z": 7.0,
+        "roles": {
+          "Inner wall": 788,
+          "Outer wall": 811,
+          "Sparse infill": 109,
+          "Internal solid infill": 451,
+          "Gap infill": 67
+        }
+      },
+      {
+        "z": 7.2,
+        "roles": {
+          "Inner wall": 784,
+          "Outer wall": 811,
+          "Gap infill": 47,
+          "Internal solid infill": 443,
+          "Sparse infill": 136
+        }
+      },
+      {
+        "z": 7.4,
+        "roles": {
+          "Inner wall": 781,
+          "Outer wall": 807,
+          "Internal solid infill": 398,
+          "Gap infill": 45,
+          "Sparse infill": 102
+        }
+      },
+      {
+        "z": 7.6,
+        "roles": {
+          "Inner wall": 781,
+          "Outer wall": 809,
+          "Sparse infill": 117,
+          "Internal solid infill": 445,
+          "Gap infill": 44
+        }
+      },
+      {
+        "z": 7.8,
+        "roles": {
+          "Inner wall": 785,
+          "Outer wall": 814,
+          "Sparse infill": 113,
+          "Internal solid infill": 475,
+          "Gap infill": 50
+        }
+      },
+      {
+        "z": 8.0,
+        "roles": {
+          "Inner wall": 783,
+          "Outer wall": 808,
+          "Internal solid infill": 460,
+          "Gap infill": 63,
+          "Sparse infill": 111
+        }
+      },
+      {
+        "z": 8.2,
+        "roles": {
+          "Outer wall": 802,
+          "Inner wall": 782,
+          "Internal solid infill": 436,
+          "Gap infill": 47,
+          "Sparse infill": 97
+        }
+      },
+      {
+        "z": 8.4,
+        "roles": {
+          "Outer wall": 805,
+          "Inner wall": 774,
+          "Internal solid infill": 403,
+          "Gap infill": 47,
+          "Sparse infill": 95
+        }
+      },
+      {
+        "z": 8.6,
+        "roles": {
+          "Outer wall": 795,
+          "Inner wall": 770,
+          "Internal solid infill": 431,
+          "Gap infill": 42,
+          "Sparse infill": 86
+        }
+      },
+      {
+        "z": 8.8,
+        "roles": {
+          "Outer wall": 803,
+          "Inner wall": 772,
+          "Internal solid infill": 402,
+          "Gap infill": 48,
+          "Sparse infill": 117
+        }
+      },
+      {
+        "z": 9.0,
+        "roles": {
+          "Inner wall": 771,
+          "Outer wall": 801,
+          "Sparse infill": 68,
+          "Internal solid infill": 432,
+          "Gap infill": 66
+        }
+      },
+      {
+        "z": 9.2,
+        "roles": {
+          "Inner wall": 770,
+          "Outer wall": 801,
+          "Sparse infill": 66,
+          "Gap infill": 50,
+          "Internal solid infill": 466
+        }
+      },
+      {
+        "z": 9.4,
+        "roles": {
+          "Inner wall": 765,
+          "Outer wall": 795,
+          "Internal solid infill": 449,
+          "Gap infill": 44,
+          "Sparse infill": 64
+        }
+      },
+      {
+        "z": 9.6,
+        "roles": {
+          "Inner wall": 764,
+          "Outer wall": 796,
+          "Gap infill": 42,
+          "Internal solid infill": 437,
+          "Sparse infill": 54
+        }
+      },
+      {
+        "z": 9.8,
+        "roles": {
+          "Inner wall": 765,
+          "Outer wall": 795,
+          "Sparse infill": 53,
+          "Internal solid infill": 458,
+          "Gap infill": 60
+        }
+      },
+      {
+        "z": 10.0,
+        "roles": {
+          "Inner wall": 391,
+          "Outer wall": 788,
+          "Sparse infill": 49,
+          "Top surface": 245,
+          "Gap infill": 9
+        }
+      },
+      {
+        "z": 10.2,
+        "roles": {
+          "Inner wall": 391,
+          "Outer wall": 404,
+          "Sparse infill": 42
+        }
+      },
+      {
+        "z": 10.4,
+        "roles": {
+          "Inner wall": 384,
+          "Outer wall": 396,
+          "Sparse infill": 33
+        }
+      },
+      {
+        "z": 10.6,
+        "roles": {
+          "Inner wall": 385,
+          "Outer wall": 397,
+          "Sparse infill": 32
+        }
+      },
+      {
+        "z": 10.8,
+        "roles": {
+          "Inner wall": 385,
+          "Outer wall": 396,
+          "Sparse infill": 31
+        }
+      },
+      {
+        "z": 11.0,
+        "roles": {
+          "Inner wall": 383,
+          "Outer wall": 394,
+          "Sparse infill": 31
+        }
+      },
+      {
+        "z": 11.2,
+        "roles": {
+          "Inner wall": 387,
+          "Outer wall": 398,
+          "Sparse infill": 30
+        }
+      },
+      {
+        "z": 11.4,
+        "roles": {
+          "Inner wall": 384,
+          "Outer wall": 395,
+          "Sparse infill": 31
+        }
+      },
+      {
+        "z": 11.6,
+        "roles": {
+          "Inner wall": 388,
+          "Outer wall": 399,
+          "Sparse infill": 33
+        }
+      },
+      {
+        "z": 11.8,
+        "roles": {
+          "Inner wall": 388,
+          "Outer wall": 399,
+          "Sparse infill": 36
+        }
+      },
+      {
+        "z": 12.0,
+        "roles": {
+          "Inner wall": 384,
+          "Outer wall": 395,
+          "Sparse infill": 45
+        }
+      },
+      {
+        "z": 12.2,
+        "roles": {
+          "Inner wall": 383,
+          "Outer wall": 394,
+          "Sparse infill": 51
+        }
+      },
+      {
+        "z": 12.4,
+        "roles": {
+          "Inner wall": 386,
+          "Outer wall": 397,
+          "Sparse infill": 59
+        }
+      },
+      {
+        "z": 12.6,
+        "roles": {
+          "Inner wall": 390,
+          "Outer wall": 401,
+          "Sparse infill": 69
+        }
+      },
+      {
+        "z": 12.8,
+        "roles": {
+          "Inner wall": 384,
+          "Outer wall": 395,
+          "Sparse infill": 77
+        }
+      },
+      {
+        "z": 13.0,
+        "roles": {
+          "Inner wall": 386,
+          "Outer wall": 397,
+          "Sparse infill": 100
+        }
+      },
+      {
+        "z": 13.2,
+        "roles": {
+          "Inner wall": 384,
+          "Outer wall": 395,
+          "Sparse infill": 90
+        }
+      },
+      {
+        "z": 13.4,
+        "roles": {
+          "Inner wall": 385,
+          "Outer wall": 396,
+          "Sparse infill": 96
+        }
+      },
+      {
+        "z": 13.6,
+        "roles": {
+          "Inner wall": 386,
+          "Outer wall": 397,
+          "Sparse infill": 93
+        }
+      },
+      {
+        "z": 13.8,
+        "roles": {
+          "Inner wall": 386,
+          "Outer wall": 397,
+          "Sparse infill": 90
+        }
+      },
+      {
+        "z": 14.0,
+        "roles": {
+          "Inner wall": 385,
+          "Outer wall": 396,
+          "Internal solid infill": 353,
+          "Sparse infill": 101
+        }
+      },
+      {
+        "z": 14.2,
+        "roles": {
+          "Inner wall": 388,
+          "Outer wall": 399,
+          "Internal Bridge": 433
+        }
+      },
+      {
+        "z": 14.4,
+        "roles": {
+          "Inner wall": 385,
+          "Outer wall": 396,
+          "Internal solid infill": 608
+        }
+      },
+      {
+        "z": 14.6,
+        "roles": {
+          "Inner wall": 386,
+          "Outer wall": 399,
+          "Internal solid infill": 607
+        }
+      },
+      {
+        "z": 14.8,
+        "roles": {
+          "Inner wall": 377,
+          "Outer wall": 397,
+          "Internal solid infill": 644
+        }
+      },
+      {
+        "z": 15.0,
+        "roles": {
+          "Inner wall": 306,
+          "Outer wall": 385,
+          "Top surface": 242,
+          "Gap infill": 148
+        }
+      },
+      {
+        "z": 15.2,
+        "roles": {
+          "Inner wall": 304,
+          "Outer wall": 305,
+          "Gap infill": 149
+        }
+      },
+      {
+        "z": 15.4,
+        "roles": {
+          "Inner wall": 306,
+          "Outer wall": 307,
+          "Gap infill": 149
+        }
+      },
+      {
+        "z": 15.6,
+        "roles": {
+          "Inner wall": 294,
+          "Outer wall": 296,
+          "Gap infill": 143
+        }
+      },
+      {
+        "z": 15.8,
+        "roles": {
+          "Inner wall": 292,
+          "Outer wall": 294,
+          "Gap infill": 139
+        }
+      },
+      {
+        "z": 16.0,
+        "roles": {
+          "Inner wall": 285,
+          "Outer wall": 288,
+          "Gap infill": 145
+        }
+      },
+      {
+        "z": 16.2,
+        "roles": {
+          "Inner wall": 280,
+          "Outer wall": 285,
+          "Internal solid infill": 20,
+          "Gap infill": 134
+        }
+      },
+      {
+        "z": 16.4,
+        "roles": {
+          "Inner wall": 289,
+          "Outer wall": 287,
+          "Internal solid infill": 38,
+          "Gap infill": 132
+        }
+      },
+      {
+        "z": 16.6,
+        "roles": {
+          "Inner wall": 291,
+          "Outer wall": 294,
+          "Internal solid infill": 66,
+          "Gap infill": 116
+        }
+      },
+      {
+        "z": 16.8,
+        "roles": {
+          "Inner wall": 291,
+          "Outer wall": 292,
+          "Internal solid infill": 96,
+          "Gap infill": 101
+        }
+      },
+      {
+        "z": 17.0,
+        "roles": {
+          "Inner wall": 291,
+          "Outer wall": 296,
+          "Internal solid infill": 123,
+          "Gap infill": 93
+        }
+      },
+      {
+        "z": 17.2,
+        "roles": {
+          "Inner wall": 293,
+          "Outer wall": 300,
+          "Gap infill": 81,
+          "Internal solid infill": 151
+        }
+      },
+      {
+        "z": 17.4,
+        "roles": {
+          "Inner wall": 295,
+          "Outer wall": 298,
+          "Gap infill": 80,
+          "Internal solid infill": 168
+        }
+      },
+      {
+        "z": 17.6,
+        "roles": {
+          "Inner wall": 297,
+          "Outer wall": 300,
+          "Gap infill": 78,
+          "Internal solid infill": 175
+        }
+      },
+      {
+        "z": 17.8,
+        "roles": {
+          "Inner wall": 297,
+          "Outer wall": 304,
+          "Gap infill": 76,
+          "Internal solid infill": 165
+        }
+      },
+      {
+        "z": 18.0,
+        "roles": {
+          "Inner wall": 305,
+          "Outer wall": 308,
+          "Gap infill": 79,
+          "Internal solid infill": 169
+        }
+      },
+      {
+        "z": 18.2,
+        "roles": {
+          "Inner wall": 307,
+          "Outer wall": 309,
+          "Gap infill": 83,
+          "Internal solid infill": 165
+        }
+      },
+      {
+        "z": 18.4,
+        "roles": {
+          "Inner wall": 310,
+          "Outer wall": 306,
+          "Gap infill": 86,
+          "Internal solid infill": 171
+        }
+      },
+      {
+        "z": 18.6,
+        "roles": {
+          "Inner wall": 307,
+          "Outer wall": 308,
+          "Gap infill": 82,
+          "Internal solid infill": 175
+        }
+      },
+      {
+        "z": 18.8,
+        "roles": {
+          "Inner wall": 305,
+          "Outer wall": 306,
+          "Gap infill": 83,
+          "Internal solid infill": 165
+        }
+      },
+      {
+        "z": 19.0,
+        "roles": {
+          "Inner wall": 304,
+          "Outer wall": 307,
+          "Gap infill": 77,
+          "Internal solid infill": 172
+        }
+      },
+      {
+        "z": 19.2,
+        "roles": {
+          "Inner wall": 305,
+          "Outer wall": 308,
+          "Gap infill": 80,
+          "Internal solid infill": 170
+        }
+      },
+      {
+        "z": 19.4,
+        "roles": {
+          "Inner wall": 302,
+          "Outer wall": 304,
+          "Gap infill": 83,
+          "Internal solid infill": 167
+        }
+      },
+      {
+        "z": 19.6,
+        "roles": {
+          "Inner wall": 306,
+          "Outer wall": 310,
+          "Gap infill": 82,
+          "Internal solid infill": 167
+        }
+      },
+      {
+        "z": 19.8,
+        "roles": {
+          "Inner wall": 316,
+          "Outer wall": 320,
+          "Gap infill": 85,
+          "Internal solid infill": 177
+        }
+      },
+      {
+        "z": 20.0,
+        "roles": {
+          "Inner wall": 307,
+          "Outer wall": 310,
+          "Gap infill": 83,
+          "Internal solid infill": 164
+        }
+      },
+      {
+        "z": 20.2,
+        "roles": {
+          "Inner wall": 306,
+          "Outer wall": 309,
+          "Gap infill": 83,
+          "Internal solid infill": 168
+        }
+      },
+      {
+        "z": 20.4,
+        "roles": {
+          "Inner wall": 300,
+          "Outer wall": 306,
+          "Gap infill": 81,
+          "Internal solid infill": 172
+        }
+      },
+      {
+        "z": 20.6,
+        "roles": {
+          "Inner wall": 301,
+          "Outer wall": 304,
+          "Gap infill": 75,
+          "Internal solid infill": 162
+        }
+      },
+      {
+        "z": 20.8,
+        "roles": {
+          "Inner wall": 300,
+          "Outer wall": 300,
+          "Gap infill": 83,
+          "Internal solid infill": 145
+        }
+      },
+      {
+        "z": 21.0,
+        "roles": {
+          "Inner wall": 297,
+          "Outer wall": 300,
+          "Gap infill": 94,
+          "Internal solid infill": 113
+        }
+      },
+      {
+        "z": 21.2,
+        "roles": {
+          "Inner wall": 297,
+          "Outer wall": 297,
+          "Gap infill": 109,
+          "Internal solid infill": 83
+        }
+      },
+      {
+        "z": 21.4,
+        "roles": {
+          "Inner wall": 292,
+          "Outer wall": 299,
+          "Gap infill": 123,
+          "Internal solid infill": 55
+        }
+      },
+      {
+        "z": 21.6,
+        "roles": {
+          "Inner wall": 297,
+          "Outer wall": 301,
+          "Internal solid infill": 29,
+          "Gap infill": 134
+        }
+      },
+      {
+        "z": 21.8,
+        "roles": {
+          "Inner wall": 303,
+          "Outer wall": 307,
+          "Gap infill": 144,
+          "Internal solid infill": 4
+        }
+      },
+      {
+        "z": 22.0,
+        "roles": {
+          "Inner wall": 309,
+          "Outer wall": 312,
+          "Gap infill": 151
+        }
+      },
+      {
+        "z": 22.2,
+        "roles": {
+          "Inner wall": 313,
+          "Outer wall": 313,
+          "Gap infill": 156
+        }
+      },
+      {
+        "z": 22.4,
+        "roles": {
+          "Inner wall": 318,
+          "Outer wall": 318,
+          "Gap infill": 159
+        }
+      },
+      {
+        "z": 22.6,
+        "roles": {
+          "Inner wall": 304,
+          "Outer wall": 306,
+          "Gap infill": 142
+        }
+      },
+      {
+        "z": 22.8,
+        "roles": {
+          "Outer wall": 317,
+          "Gap infill": 159
+        }
+      }
+    ],
+    "limits": "Centerline lengths include anchors; no free-air span or physical simulation."
+  }
+}

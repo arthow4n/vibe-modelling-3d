@@ -3,7 +3,7 @@ from pathlib import Path
 import importlib.util,json,hashlib
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[3]
-spec=importlib.util.spec_from_file_location('inspect_gcode',ROOT/'.codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py')
+spec=importlib.util.spec_from_file_location('inspect_gcode',ROOT/'.codex/skills/orca-slicer-printability/scripts/inspect_gcode.py')
 helper=importlib.util.module_from_spec(spec);spec.loader.exec_module(helper)
 report={'slicer':'PrusaSlicer 2.9.6+flathub.org','profile_sha256':hashlib.sha256((HERE/'review.ini').read_bytes()).hexdigest(),'slices':{}}
 for name in ('dental_travel_case','test_pieces','accessories'):

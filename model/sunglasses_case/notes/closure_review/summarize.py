@@ -6,7 +6,7 @@ import json
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
-spec = importlib.util.spec_from_file_location('paths', ROOT / '.codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py')
+spec = importlib.util.spec_from_file_location('paths', ROOT / '.codex/skills/orca-slicer-printability/scripts/inspect_gcode.py')
 helper = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(helper)
 report = {}

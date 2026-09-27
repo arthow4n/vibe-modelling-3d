@@ -14,11 +14,10 @@ def run(config):
     folder = root / 'test_pieces' / name
     command = [
         sys.executable,
-        str(repo / '.codex/skills/prusa-slicer-printability/scripts/review_print.py'),
+        str(repo / '.codex/skills/orca-slicer-printability/scripts/review_print.py'),
         '--model', str(folder / f'{name}_coupon.stl'),
-        '--profile', str(root / 'notes/review.ini'),
-        '--out', str(folder / 'slice_review'),
-        '--bed', '250', '250', '250',
+        '--out', str(folder / 'orca_slice_review'),
+        '--bed', '260', '260', '250',
         '--expect-no-supports',
     ]
     job = subprocess.run(command, capture_output=True, text=True)

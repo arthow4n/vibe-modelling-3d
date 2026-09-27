@@ -101,9 +101,12 @@ The diagnostic G-code is ignored and is not a validated machine job.
 
 Reproduction from repository root:
 
+The current parser command recreates the structured path summary. The saved
+layer close-up is historical evidence from the PrusaSlicer review.
+
 ```sh
 prusa-slicer --load model/macbook_charger_holder/notes/slicing/diagnostic.ini --center 130,130 --export-gcode --output model/macbook_charger_holder/notes/slicing/revised.gcode model/macbook_charger_holder/macbook_charger_holder.stl
-python3 .codex/skills/prusa-slicer-printability/scripts/inspect_gcode.py model/macbook_charger_holder/notes/slicing/revised.gcode --json model/macbook_charger_holder/notes/slicing/paths.json --svg model/macbook_charger_holder/notes/slicing/cradle_layers.svg --layers 6.2 10.2 12.8 --window 88 107 114 118
+uv run --locked python .codex/skills/orca-slicer-printability/scripts/inspect_gcode.py model/macbook_charger_holder/notes/slicing/revised.gcode --json model/macbook_charger_holder/notes/slicing/paths.json
 ```
 
 STEP reimport checks confirmed valid single solids. STEP/STL bounds agree within

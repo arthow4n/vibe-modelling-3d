@@ -1,0 +1,21 @@
+[
+  "flatpak",
+  "run",
+  "com.orcaslicer.OrcaSlicer",
+  "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/vaseline_container.stl",
+  "--load-settings",
+  "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json;/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+  "--load-filaments",
+  "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json",
+  "--arrange",
+  "1",
+  "--orient",
+  "0",
+  "--allow-rotations=0",
+  "--slice",
+  "0",
+  "--outputdir",
+  "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/notes/orcaslicer_setup/orca_review_final_04",
+  "--export-settings",
+  "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/notes/orcaslicer_setup/orca_review_final_04/effective-settings.json"
+]

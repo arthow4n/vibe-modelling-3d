@@ -24,6 +24,7 @@ Print the base floor down and the lid outside-top down, as exported. Assumed PET
 - CAD motion sampled every 30° through three opening turns: no solid interference. A straight 0.8 mm lift collides with the retaining thread flanks. These checks establish geometric retention, not friction or opening torque.
 - `notes/verification.json`: sampled screw-opening motion and axial-pull interference measurements for the final geometry.
 - `notes/slice_review/summary.json`: PrusaSlicer 2.9.6 diagnostic slice, no notices or support paths; deposited footprint inside safe limits. Estimate **25.58 g / 2 h 22 min**.
+- `notes/orcaslicer_setup/README.md`: OrcaSlicer 2.4.2 headless smoke slice using Qidi Q2C 0.4 mm, Generic PETG and 7% adaptive cubic reference settings; effective-settings and path evidence are linked there.
 - `notes/thread_layers.png`: inspected current/preceding paths at lid groove and base thread heights. Thread contours grow from adjoining walls; no isolated starts or unsupported cavity roof. Internal solid-fill bridges are over infill, not across the open jar.
 - A 52 × 27 mm alternate parameter configuration was checked for a valid two-solid build. Fit and print checks apply to the delivered 50 × 25 mm configuration.
 
