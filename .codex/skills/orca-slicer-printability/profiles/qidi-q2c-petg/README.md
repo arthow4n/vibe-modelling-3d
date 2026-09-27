@@ -13,9 +13,11 @@ snapshot overrides the inherited Standard process's sparse infill density and
 pattern. The effective settings export is the final authority for what a CLI
 run actually used.
 
-The Q2C preset reports a 270 × 270 mm printable area and 256 mm height. For
-repository reference reviews, continue to use the more conservative practical
-envelope of 260 × 260 × 250 mm, including brim/support bounds.
+The Q2C preset and [manufacturer specifications](https://us.qidi3d.com/products/q2c)
+report a 270 × 270 × 256 mm build volume. Orca review checks default to that
+volume, including brim/support bounds. The repository's more conservative CAD
+design envelope remains 260 × 260 × 250 mm; pass those smaller limits when a
+review should enforce the design margin instead.
 
 `Generic PETG` is a generic diagnostic material preset. It does not represent a
 particular spool's temperature, flow, cooling or pressure-advance calibration,

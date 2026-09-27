@@ -11,7 +11,7 @@ Qidi/PETG profiles by default:
 uv run --locked python .codex/skills/orca-slicer-printability/scripts/review_print.py \
   --model model/object_name/object_name.stl \
   --out model/object_name/notes/orca_review_01 \
-  --bed 260 260 250
+  --bed 270 270 256
 ```
 
 The output path must not exist; the helper refuses stale-output reuse. Defaults
@@ -28,12 +28,13 @@ uv run --locked python .codex/skills/orca-slicer-printability/scripts/review_pri
   --profile-scope actual \
   --purpose investigation \
   --out model/object_name/notes/orca_investigation_01 \
-  --bed 260 260 250
+  --bed 270 270 256
 ```
 
-Use the user's confirmed safe dimensions; 260 × 260 × 250 mm is this
-repository's practical review envelope, not Orca's system default. `--bed`
-checks each oriented axis and includes brim/support paths from the G-code.
+The default review volume is the Qidi Q2C's 270 × 270 × 256 mm build volume.
+The repository's CAD design envelope remains a more conservative 260 × 260 ×
+250 mm; use the user's smaller confirmed safe dimensions when applicable.
+`--bed` checks each oriented axis and includes brim/support paths from G-code.
 `--expect-no-supports` flags any generated support paths. The helper does not
 change support settings.
 

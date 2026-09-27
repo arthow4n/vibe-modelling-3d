@@ -76,7 +76,7 @@ def _log_notices(text):
         line, re.I)]
 
 
-def review(model, printer, process, filament, output, bed=(260, 260, 250),
+def review(model, printer, process, filament, output, bed=(270, 270, 256),
            slicer=None, expect_no_supports=False, timeout=600,
            purpose="smoke", profile_scope="reference", placement="center"):
     model = Path(model).resolve(strict=True)
@@ -183,7 +183,9 @@ def main():
     parser.add_argument("--process", type=Path, default=DEFAULTS["process"])
     parser.add_argument("--filament", type=Path, default=DEFAULTS["filament"])
     parser.add_argument("--out", type=Path, required=True)
-    parser.add_argument("--bed", type=float, nargs=3, default=(260, 260, 250), metavar=("X", "Y", "Z"))
+    parser.add_argument("--bed", type=float, nargs=3, default=(270, 270, 256),
+                        metavar=("X", "Y", "Z"),
+                        help="deposited-path check volume in mm (default: Qidi Q2C 270 270 256)")
     parser.add_argument("--slicer", help="Executable command; defaults to orca-slicer or Flatpak OrcaSlicer")
     parser.add_argument("--placement", choices=("preserve", "center", "assembly"), default="center")
     parser.add_argument("--expect-no-supports", action="store_true")

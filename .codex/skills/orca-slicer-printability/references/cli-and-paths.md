@@ -83,7 +83,7 @@ check all of the following:
 During setup on 2026-09-27, `vaseline_container.stl` sliced in 2.4.2 with the
 Qidi Q2C 0.4 / Generic PETG / 0.20 mm / 7% adaptive cubic profiles. The result
 reported success with no warning, 114 layers, PETG, 250°C nozzle, 80°C hot
-plate, and sparse-infill paths. The 260 × 260 × 250 mm reference envelope
+plate, and sparse-infill paths. The 270 × 270 × 256 mm Q2C build-volume check
 contained the placed paths and 5 mm brim. Evidence is retained in
 [`model/vaseline_container/notes/orcaslicer_setup`](../../../../model/vaseline_container/notes/orcaslicer_setup/README.md).
 

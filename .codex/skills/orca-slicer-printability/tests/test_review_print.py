@@ -183,6 +183,7 @@ class ReviewTests(unittest.TestCase):
             self.assertEqual(result["effective_settings"]["filament_type"], ["PETG"])
             self.assertEqual(result["plates"][0]["support_segments"], 1)
             self.assertEqual(result["plates"][0]["plate"], 1)
+            self.assertEqual(result["safe_build_volume_mm"], [270, 270, 256])
 
     @staticmethod
     def _inputs(path):

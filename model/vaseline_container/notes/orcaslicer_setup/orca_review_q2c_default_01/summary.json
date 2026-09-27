@@ -18,9 +18,9 @@
     "                     If enabled, Arrange will allow multiple colors on one plate."
   ],
   "safe_build_volume_mm": [
-    260.0,
-    260.0,
-    250.0
+    270,
+    270,
+    256
   ],
   "placement": "center",
   "effective_settings": {
@@ -59,12 +59,12 @@
     "sparse_infill_density": "7%",
     "sparse_infill_pattern": "adaptivecubic"
   },
-  "effective_settings_file": "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/notes/orcaslicer_setup/orca_review_final_04/effective-settings.json",
-  "result_file": "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/notes/orcaslicer_setup/orca_review_final_04/result.json",
+  "effective_settings_file": "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/notes/orcaslicer_setup/orca_review_q2c_default_01/effective-settings.json",
+  "result_file": "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/notes/orcaslicer_setup/orca_review_q2c_default_01/result.json",
   "plates": [
     {
       "plate": 1,
-      "gcode": "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/notes/orcaslicer_setup/orca_review_final_04/plate_1.gcode",
+      "gcode": "/home/hevar/git/vibe-modelling-3d/model/vaseline_container/notes/orcaslicer_setup/orca_review_q2c_default_01/plate_1.gcode",
       "xy_bounds_including_half_width_mm": [
         67.775,
         96.775,

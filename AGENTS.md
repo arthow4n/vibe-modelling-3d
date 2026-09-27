@@ -19,6 +19,12 @@ is the usable design limit, not the printer's physical plate dimensions. Include
 generated brims/supports when checking XY, and check each oriented axis
 independently.
 
+For OrcaSlicer reviews using the Qidi Q2C profile, default the slicer-envelope
+check to the manufacturer's **270 × 270 × 256 mm** build volume
+([Q2C specifications](https://us.qidi3d.com/products/q2c)). This is the machine
+limit; it does not change the more conservative CAD design envelope above. Use
+smaller user-confirmed safe limits when provided.
+
 Do not reject an object merely because its assembled size exceeds that envelope.
 Plan it as multiple printable parts when no acceptable orientation fits. Before
 committing to the split and joint geometry, establish with the user the required

@@ -34,9 +34,11 @@ Actual-profile paths are still toolpath intentions, not physical measurements.
    support preferences; label unknown settings as diagnostic assumptions.
 2. Choose supplied profiles or the maintained Qidi Q2C 0.4 mm / Generic PETG /
    0.20 mm Standard / 7% adaptive cubic reference set. See
-   [CLI and profile setup](references/cli-and-paths.md). The default review
-   envelope is 260 × 260 × 250 mm; use the user's safe limits when supplied.
-   The Q2C system preset itself reports a 270 × 270 × 256 mm printable volume.
+   [CLI and profile setup](references/cli-and-paths.md). The default Q2C review
+   envelope is 270 × 270 × 256 mm, matching the
+   [manufacturer's build volume](https://us.qidi3d.com/products/q2c).
+   This is the machine limit; the repo's CAD design envelope remains the more
+   conservative 260 × 260 × 250 mm unless the user specifies otherwise.
 3. Use the [review helper](references/review-tool.md), or the CLI notebook when
    the helper is unsuitable. Use a fresh output directory. The helper records
    its placement choice, uses Orca's effective-settings export, checks

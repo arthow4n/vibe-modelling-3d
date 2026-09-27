@@ -12,7 +12,7 @@ def run(config):
     folder = root/'variants'/name
     command = [sys.executable,str(repo/'.codex/skills/orca-slicer-printability/scripts/review_print.py'),
                '--model',str(folder/(name+'.stl')),
-               '--out',str(folder/'orca_slice_review'),'--bed','260','260','250','--expect-no-supports']
+               '--out',str(folder/'orca_slice_review'),'--bed','270','270','256','--expect-no-supports']
     job = subprocess.run(command,capture_output=True,text=True)
     print(name,job.returncode,job.stdout.strip(),job.stderr.strip(),flush=True)
     if job.returncode:
