@@ -76,15 +76,13 @@ def geometry_data(shape):
         BRepBndLib.AddOptimal_s(item.wrapped, box, False, False)
         bounds = list(box.Get())
         return {"valid": item.isValid(), "bounds_mm": bounds,
-                "size_mm": [bounds[i + 3] - bounds[i] for i in range(3)],
-                "volume_mm3": item.Volume(), "surface_area_mm2": item.Area(),
-                "center_of_mass_mm": list(item.Center().toTuple())}
+                "size_mm": [bounds[i + 3] - bounds[i] for i in range(3)]}
 
     data = measure(shape)
-    data["topology"] = {name: len(getattr(shape, method)()) for name, method in
-                        (("solids", "Solids"), ("faces", "Faces"),
-                         ("edges", "Edges"), ("vertices", "Vertices"))}
-    data["components"] = [measure(part) for part in shape.Solids()]
+    data["volume_mm3"] = shape.Volume()
+    solids = shape.Solids()
+    data["topology"] = {"solids": len(solids)}
+    data["components"] = [measure(part) for part in solids]
     return data
 
 
@@ -115,10 +113,9 @@ def export(shape, item):
                 raise RuntimeError("STL export failed")
         else:
             cq.exporters.export(shape, str(temporary), exportType=item["format"])
-        data = temporary.read_bytes()
         temporary.replace(path)
         result = {key: value for key, value in item.items() if key != "format"}
-        return {**result, "ok": True, "bytes": len(data)}
+        return {**result, "ok": True}
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -135,7 +132,6 @@ def render(shape, view, width, height, show_hidden):
 
 def worker(request, response):
     import cadquery as cq
-    from cadquery import cqgi
     import runpy
 
     args = json.loads(Path(request).read_text())
@@ -145,7 +141,6 @@ def worker(request, response):
               "views": [], "exports": [], "timings_seconds": {},
               "versions": {"python": sys.version.split()[0], "cadquery": cq.__version__}}
     log = io.StringIO()
-    started = time.monotonic()
 
     def error(stage, exc, **details):
         frames = traceback.extract_tb(exc.__traceback__)
@@ -157,17 +152,6 @@ def worker(request, response):
 
     with contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
         try:
-            source = path.read_bytes()
-            # CQGI supplies parameter metadata, while run_path preserves __file__
-            # and normal sibling imports. Both use the same top-level source.
-            try:
-                parsed = cqgi.parse(source.decode("utf-8"))
-                report["parameters"] = {name: {"value": param.default_value,
-                    "type": param.varType.__name__ if param.varType else "unknown",
-                    "description": param.desc} for name, param in parsed.metadata.parameters.items()}
-            except Exception as exc:
-                report["parameter_note"] = f"CQGI metadata unavailable: {exc}"
-                report["parameters"] = {}
             os.chdir(root)
             sys.path.insert(0, str(root))
             sys.dont_write_bytecode = True
@@ -182,7 +166,6 @@ def worker(request, response):
             report["geometry"] = geometry_data(shape)
             if not report["geometry"]["valid"]:
                 raise ValueError("Selected geometry is invalid; exports and views skipped")
-            before = time.monotonic()
             for item in args["exports"]:
                 try:
                     report["exports"].append(export(shape, item))
@@ -190,8 +173,6 @@ def worker(request, response):
                     result = {key: value for key, value in item.items() if key != "format"}
                     report["exports"].append({**result, "ok": False})
                     error("export", exc, path=item["path"])
-            report["timings_seconds"]["export"] = time.monotonic() - before
-            before = time.monotonic()
             for view in args["views"]:
                 destination = Path(args["output_dir"]) / f'{path.stem}_{view}.png'
                 try:
@@ -202,11 +183,10 @@ def worker(request, response):
                 except Exception as exc:
                     report["views"].append({"view": view, "ok": False})
                     error("render", exc, view=view)
-            report["timings_seconds"]["render"] = time.monotonic() - before
         except Exception as exc:
             error("build", exc)
-    report["diagnostics"] = log.getvalue()[:16384]
-    report["timings_seconds"]["worker"] = time.monotonic() - started
+    if report["errors"] and log.getvalue():
+        report["diagnostics"] = log.getvalue()[:16384]
     report["ok"] = not report["errors"]
     Path(response).write_text(json.dumps(report, indent=2) + "\n")
     return 0 if report["ok"] else 1
@@ -325,7 +305,6 @@ def _auto_support_probe(command, run_dir, effective, primary_result):
         "ok": True,
         "generated": bool(supported),
         "supported_plates": supported,
-        "reused_primary_slice": reuse_primary,
         "effective_support_type": probe_effective["support_type"],
         "effective_support_threshold_angle": probe_effective.get("support_threshold_angle"),
         "effective_max_bridge_length_mm": probe_effective.get("max_bridge_length"),
@@ -345,7 +324,10 @@ def _review_in_directory(model, profiles, run_dir, placement):
     # Keep Orca's incidental CLI files and app data inside this temporary run.
     help_run = subprocess.run(prefix + ["--help"], cwd=run_dir, capture_output=True,
                               text=True, timeout=30, check=False)
-    version_header = (help_run.stdout + help_run.stderr).splitlines()[:8]
+    version_match = re.search(
+        r"(?i)orcaslicer[^\n]{0,80}?\b(v?\d+\.\d+(?:\.\d+)?(?:[-+][\w.]+)?)",
+        help_run.stdout + help_run.stderr)
+    slicer_version = version_match.group(1) if version_match else "unknown"
     effective_path = run_dir / "effective-settings.json"
     command = prefix + [str(model),
         "--load-settings", f"{profiles['process']};{profiles['printer']}",
@@ -381,14 +363,13 @@ def _review_in_directory(model, profiles, run_dir, placement):
     report = {
         "model": str(model),
         "profiles": {key: str(path) for key, path in profiles.items()},
-        "slicer_help_header": version_header,
+        "slicer_version": slicer_version,
         "placement": placement,
         "effective_settings": _settings_summary(effective),
         "sliced_plates": [plate.get("id") for plate in result["sliced_plates"]],
         "support_probe": support_probe,
         "log_notices": notices,
         "review_required": bool(notices) or not support_probe["ok"] or support_probe.get("generated", False),
-        "limits": "Reports Orca's slice status and effective settings under the selected profiles. The automatic-support probe enables support and permits support under bridges, then checks Orca's emitted support line types. Generated support is a prompt to inspect placement and removal, not proof it is physically necessary; no generated support does not prove every overhang or bridge will print well. The probe uses the selected profile's support threshold and maximum bridge length. Orientation and arrangement rotation are disabled. Center placement may reposition multiple independent objects; use assembly mode to translate a grouped 3MF layout while retaining its internal positions, or preserve mode for an already positioned project. This smoke slice does not inspect deposited bounds, mesh repair, clearance or physical print quality.",
     }
     return report
 

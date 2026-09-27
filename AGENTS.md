@@ -74,8 +74,10 @@ interfaces and load path.
    [CadQuery command](evaluate_model.py) are available. Run `uv sync --locked`
    from the repository root when the locked environment is not installed.
 4. Create or revise the object's parametric Python source. Evaluate the file
-   through the shared command and inspect validity, topology, bounds, parameters and errors;
-   choose views using the skill's evidence guidance.
+   through the shared command and inspect validity, solid count, bounds and errors;
+   read named dimensions in the source or object notes rather than treating
+   automatically extracted parameters as authoritative. Choose views using the
+   skill's evidence guidance.
 5. Compare the geometry against the intended use and references. Check access,
    insertion, retention and release as relevant. Correct the largest functional,
    structural, ergonomic or printability discrepancies and evaluate again.
@@ -153,7 +155,7 @@ rebuilding CAD; the same slice profile and placement options apply.
 Use `--views none` for checks that need no images. Inspect structured error status:
 a failed view can coexist with successful geometry or exports. Saved paths are
 successful outputs only when their corresponding status says so. Build and
-render timings are separate. Model files are trusted Python and may write their
+slice timings are reported separately. Model files are trusted Python and may write their
 own artifacts; the command does not roll back those side effects.
 
 For normal printable models, deliver at least `.py`, `.step` and `.stl`.

@@ -137,7 +137,8 @@ primary slice already uses those auto-support settings, its output serves as
 the probe; otherwise Orca runs a second diagnostic slice. The evaluator reads
 only Orca's `;TYPE:` line labels from that slice and reports whether support
 or support-interface roles occurred, by plate. It does not reconstruct motion
-or measure unsupported spans.
+or measure unsupported spans, deposited bounds, mesh repair, clearance or
+physical print quality.
 
 `support_probe.generated=true` requests review, not redesign. Orca may propose
 unnecessary support, or omit support that the physical print needs. Inspect the

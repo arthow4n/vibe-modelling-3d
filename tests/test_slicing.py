@@ -156,7 +156,6 @@ class ReviewTests(unittest.TestCase):
                     patch("evaluate_model.subprocess.run", side_effect=fake):
                 result = self._review(files)
             self.assertEqual(len(slice_commands), 1)
-            self.assertTrue(result["support_probe"]["reused_primary_slice"])
             self.assertTrue(result["support_probe"]["generated"])
 
     def test_probe_failure_preserves_primary_slice_result(self):
