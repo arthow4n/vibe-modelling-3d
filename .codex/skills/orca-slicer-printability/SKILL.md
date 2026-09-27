@@ -126,17 +126,20 @@ timeout is fixed at 600 seconds.
 --allow-rotations=0`. One STL moves as a whole and retains internal component
 positions. For a multi-object project, use `preserve` when its existing
 placement is intentional, or `assembly` when grouping the objects on one plate
-is acceptable. Do not silently rotate, scale, repair, split or union the input.
+is acceptable. Record any different placement or compound splitting intended
+when importing STEP in Orca's GUI. Do not silently rotate, scale, repair, split
+or union the input.
 
 ## Read the result
 
 The helper verifies Orca's exit status, a successful `result.json` with one or
 more sliced plates, fresh nonempty G-code matched to every reported plate ID,
 effective settings and parseable deposition. The JSON report includes selected
-profiles and effective settings, slicer version, printer volume, placement,
+profiles and key effective settings, slicer version, printer volume, placement,
 whether supports were expected, notices, and per-plate:
 
-- deposited XY bounds including half line width, brim and generated support;
+- deposited XY bounds including half line width, brim and generated support,
+  plus a conservative check against excluded bed regions;
 - layer range and count, support-segment count and path-role totals;
 - longest bridge-role centerlines and filament/time metadata.
 
@@ -145,6 +148,9 @@ missing G-code width uses the parser's 0.45 mm fallback, which is only a
 diagnostic estimate. Path roles and segment lengths do not establish anchors,
 free-air spans, clearance or physical print quality. The helper does not assess
 whether Orca repaired a mesh or retained every intended component.
+It reads G-code to check the paths Orca actually emitted, including print aids;
+Orca's successful-slice status alone does not supply those path bounds. An
+excluded-area warning uses segment bounding boxes and may be a false alarm.
 
 The notice list combines structured plate warnings with keyword-filtered log
 lines. An empty list does not prove the full slicer log is message-free. Use
@@ -154,9 +160,10 @@ Otherwise G-code, logs, `result.json`, effective settings and intermediate files
 are deleted automatically.
 
 Exit 0 means no automated review condition was found. Exit 2 means Orca reported
-a notice, paths extend beyond the selected printer volume, or the optional
-no-support expectation was violated. Exit 1 means the review could not
-complete. These statuses are not universal printability verdicts.
+a notice, paths extend beyond the selected printer volume or may overlap an
+excluded bed region, or the optional no-support expectation was violated.
+Exit 1 means the review could not complete. These statuses are not universal
+printability verdicts.
 
 Keep one concise object record with model and profile paths, Orca version,
 placement, effective settings, smoke result, notices, per-plate bounds and

@@ -31,7 +31,7 @@ _AREA_POINT = re.compile(rf"^\s*({_NUMBER})x({_NUMBER})\s*$", re.I)
 
 
 def printer_volume(settings):
-    """Read an axis-aligned rectangular volume from Orca's effective settings."""
+    """Read the rectangular bed, excluded regions and height from effective settings."""
     area = settings.get("printable_area")
     if not isinstance(area, list) or len(area) != 4:
         raise ValueError("Effective printer profile must define four rectangular printable_area points")
@@ -58,8 +58,30 @@ def printer_volume(settings):
         raise ValueError("Effective printer profile must define a numeric printable_height") from exc
     if not math.isfinite(height) or height <= 0 or xs[0] >= xs[1] or ys[0] >= ys[1]:
         raise ValueError("Printer profile has invalid printable dimensions")
+
+    excluded = settings.get("bed_exclude_area") or []
+    if not isinstance(excluded, list) or any(not isinstance(item, str) for item in excluded):
+        raise ValueError("Cannot parse printer bed_exclude_area")
+    groups = [excluded] if excluded and all("," not in item for item in excluded) else [
+        item.split(",") for item in excluded]
+    excluded_bounds = []
+    for group in groups:
+        if len(group) < 3:
+            raise ValueError("Printer bed_exclude_area polygon needs at least three points")
+        polygon = []
+        for item in group:
+            match = _AREA_POINT.fullmatch(item)
+            if not match:
+                raise ValueError(f"Cannot parse printer bed_exclude_area point: {item!r}")
+            point = tuple(float(value) for value in match.groups())
+            if not all(math.isfinite(value) for value in point):
+                raise ValueError("Printer bed_exclude_area contains a nonfinite coordinate")
+            polygon.append(point)
+        excluded_bounds.append([min(x for x, _ in polygon), min(y for _, y in polygon),
+                                max(x for x, _ in polygon), max(y for _, y in polygon)])
     return {
         "xy_bounds_mm": [xs[0], ys[0], xs[1], ys[1]],
+        "excluded_xy_bounds_mm": excluded_bounds,
         "height_mm": height,
         "dimensions_mm": [xs[1] - xs[0], ys[1] - ys[0], height],
     }
@@ -78,29 +100,42 @@ def footprint(layers, volume):
 
     lo, hi = [float("inf")] * 2, [-float("inf")] * 2
     support_segments = 0
+    excluded_area_overlap_possible = False
+    excluded_bounds = volume.get("excluded_xy_bounds_mm", [])
     for paths in layers.values():
         for path in paths:
             support_segments += int(_is_support(path["role"]))
             width = path["width_mm"]
             if not math.isfinite(width) or width <= 0:
                 raise ValueError("Invalid extrusion width")
+            half_width = width / 2
             for point in (path["a"], path["b"]):
                 if not all(math.isfinite(value) for value in point):
                     raise ValueError("Nonfinite deposition position")
-                lo[0] = min(lo[0], point[0] - width / 2)
-                hi[0] = max(hi[0], point[0] + width / 2)
-                lo[1] = min(lo[1], point[1] - width / 2)
-                hi[1] = max(hi[1], point[1] + width / 2)
+                lo[0] = min(lo[0], point[0] - half_width)
+                hi[0] = max(hi[0], point[0] + half_width)
+                lo[1] = min(lo[1], point[1] - half_width)
+                hi[1] = max(hi[1], point[1] + half_width)
+            if excluded_bounds and not excluded_area_overlap_possible:
+                segment_bounds = [min(path["a"][0], path["b"][0]) - half_width,
+                                  min(path["a"][1], path["b"][1]) - half_width,
+                                  max(path["a"][0], path["b"][0]) + half_width,
+                                  max(path["a"][1], path["b"][1]) + half_width]
+                excluded_area_overlap_possible = any(
+                    segment_bounds[0] <= area[2] and segment_bounds[2] >= area[0]
+                    and segment_bounds[1] <= area[3] and segment_bounds[3] >= area[1]
+                    for area in excluded_bounds)
     if not layers:
         raise ValueError("No deposited layers found")
     zlo, zhi = min(layers), max(layers)
     fits = (zlo >= 0 and zhi <= height and xmin <= lo[0] <= hi[0] <= xmax
-            and ymin <= lo[1] <= hi[1] <= ymax)
+            and ymin <= lo[1] <= hi[1] <= ymax and not excluded_area_overlap_possible)
     return {
         "xy_bounds_including_half_width_mm": lo + hi,
         "min_layer_z_mm": zlo,
         "max_layer_z_mm": zhi,
         "inside_printer_volume": fits,
+        "excluded_area_overlap_possible": excluded_area_overlap_possible,
         "support_segments": support_segments,
     }
 
@@ -128,9 +163,12 @@ def _resolve_profile(value):
 
 def _settings_summary(settings):
     keys = ("printer_model", "printer_variant", "nozzle_diameter", "printable_area",
-            "printable_height", "filament_type", "filament_settings_id",
+            "printable_height", "bed_exclude_area", "filament_type", "filament_settings_id",
             "nozzle_temperature", "nozzle_temperature_initial_layer", "hot_plate_temp",
             "hot_plate_temp_initial_layer", "print_settings_id", "layer_height",
+            "wall_loops", "line_width", "outer_wall_line_width", "inner_wall_line_width",
+            "initial_layer_line_width", "brim_type", "brim_width", "brim_object_gap",
+            "enable_support", "support_type", "filament_flow_ratio", "enable_arc_fitting",
             "sparse_infill_density", "sparse_infill_pattern")
     return {key: settings[key] for key in keys if key in settings}
 
@@ -217,6 +255,8 @@ def _review_in_directory(model, profiles, run_dir, expect_no_supports, placement
             notices.append(f"plate {plate.get('id', '?')}: {warning}")
     if result.get("error_string") not in (None, "", "Success", "Success."):
         notices.append(str(result["error_string"]))
+    if any(plate["excluded_area_overlap_possible"] for plate in plates):
+        notices.append("Deposited paths may overlap an excluded bed area; inspect the plate in Orca")
     inside = all(plate["inside_printer_volume"] for plate in plates)
     support_segments = sum(plate["support_segments"] for plate in plates)
     report = {
@@ -232,7 +272,7 @@ def _review_in_directory(model, profiles, run_dir, expect_no_supports, placement
         "support_segments": support_segments,
         "log_notices": notices,
         "review_required": bool(notices) or not inside or (expect_no_supports and support_segments > 0),
-        "limits": "Reports Orca's exported paths under the selected profiles. Orientation and arrangement rotation are disabled. Center placement may reposition multiple independent objects; use assembly mode to translate a grouped 3MF layout while retaining its internal positions, or preserve mode for an already positioned project. Bounds include half line width, brim and generated support paths, but exclude travel, start/end machine motion and physical flow spread. Linear ASCII extrusion paths only; role labels and segment lengths do not establish anchors, free-air spans, clearance or physical print quality.",
+        "limits": "Reports Orca's exported paths under the selected profiles. Orientation and arrangement rotation are disabled. Center placement may reposition multiple independent objects; use assembly mode to translate a grouped 3MF layout while retaining its internal positions, or preserve mode for an already positioned project. Bounds include half line width, brim and generated support paths, but exclude travel, start/end machine motion and physical flow spread. Excluded bed areas use conservative segment bounding boxes; a possible overlap requires visual review and may be a false alarm. Linear ASCII extrusion paths only; role labels and segment lengths do not establish anchors, free-air spans, clearance or physical print quality.",
     }
     return report
 

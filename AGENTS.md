@@ -162,6 +162,11 @@ The shared evaluator meshes its STL with Orca GUI's default STEP-import
 settings: 0.003 mm absolute linear deflection and 0.5 rad angular deflection.
 The two paths can still produce different triangles because Orca reopens STEP
 and uses a different Open Cascade version. GUI settings may also be changed.
+Use the shared evaluator for new printable exports. When an object-owned exporter
+is necessary, use the evaluator's absolute STL meshing settings. Older exporters
+and their artifacts are historical pairs; update the script, STEP/STL pair and
+affected slice evidence together when that object is next revised, rather than
+silently changing an exporter without its deliverables.
 Export STEP and STL from the **same geometry and print placement**, with matching
 units, orientation, bed position and relative component positions. The shared
 command's `--export` writes both files named after the source; `--slice` writes
@@ -169,6 +174,9 @@ the same pair and reviews the STL with OrcaSlicer. Supply compatible
 `--slice-printer`, `--slice-process` and `--slice-filament` profiles when the
 agreed setup differs from the diagnostic defaults. Use an object-owned wrapper
 when custom checks, naming or component exports require it.
+For a position-sensitive layout, use `--slice-placement preserve`. Record any
+different arrangement or compound splitting intended in Orca's GUI; the CLI
+smoke slice only covers the placement it actually used.
 For ordinary exports, use the evaluator's successful output status and inspect
 the actual files only when a concrete export concern remains; routine STEP
 reimport, STL triangle parsing and bounds comparison add little value.

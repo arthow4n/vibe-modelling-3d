@@ -29,7 +29,10 @@ or relative XYZ and extrusion modes, layer/role/width comments and extrusion
 resets; it rejects arcs and nonplanar deposition. Historical PrusaSlicer
 comments are accepted for archived model reports. Bounds include half the
 reported extrusion width and generated brims/supports, and are compared with
-the effective printer profile's rectangular printable area and height.
+the effective printer profile's rectangular printable area and height. The
+helper also checks each deposited segment's expanded bounding box against
+excluded-bed-region bounding boxes. Possible overlap requests review; this
+conservative check can flag paths that do not actually enter the polygon.
 
 The report excludes travel, start/end machine moves and physical flow spread.
 Bridge-role centerline length includes anchors and does not measure free-air
