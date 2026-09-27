@@ -39,8 +39,8 @@ has not yet been printed.
 - Main shell: **249.8 × 106.2 × 64.8 mm closed**.
 - Including external hinge/latch: approximately **249.8 × 125.7 × 64.8 mm**.
 - Main print layout: **249.8 × 236.44 × 61.8 mm**. With a 3 mm brim on each side,
-  its bounding footprint stays inside the confirmed 260 × 260 mm bed. Safe Z is
-  250 mm. Center the object, disable skirts, preserve relative shell placement.
+  its bounding footprint stays inside the Qidi Q2C's 270 × 270 × 256 mm build
+  volume. Center the object, disable skirts, preserve relative shell placement.
 - Provisional brush: 238 mm overall, 26 mm round handle, 169 mm shoulder-to-butt.
   Its approximate head envelope is 28 × 18 × 22 mm. These are not measurements
   of the user's brush. Handle button is assumed to face up between the clips.

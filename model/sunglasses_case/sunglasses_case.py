@@ -1,6 +1,6 @@
 """Reduced sunglasses case with the physically preferred E loop latch.
 
-Millimetres. PETG, 0.4 mm nozzle; 260 x 260 x 250 mm safe build volume.
+Millimetres. PETG, 0.4 mm nozzle; Qidi Q2C 270 x 270 x 256 mm build volume.
 Print open and flat, plus the small side-printed keeper. Slide the keeper
 into the body after printing. No hardware or hinge assembly; supports off.
 """

@@ -49,7 +49,7 @@ Status reviewed 2026-09-14.
 
 ## Printing and assembly
 
-- PETG, 0.4 mm nozzle, 260 × 260 × 250 mm safe printer volume.
+- PETG, 0.4 mm nozzle, Qidi Q2C 270 × 270 × 256 mm build volume.
 - Use your calibrated printer profile. The diagnostic check used 0.2 mm layers,
   5 perimeters, 8 top/bottom layers, 25% gyroid and a 5 mm brim, with supports off.
 - Keep both hinged halves in their supplied relative positions. Keep the small

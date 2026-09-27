@@ -58,7 +58,7 @@ def build():
             'screw_tip_recess_mm':P.thickness-bb.zmax,'hex_key_af_mm':8,'layouts':{}}
     for name,shape in layouts.items():
         s=solid(shape);bb=s.BoundingBox();size=[bb.xlen,bb.ylen,bb.zlen]
-        assert s.isValid() and all(v<=lim for v,lim in zip(size,[260,260,250]))
+        assert s.isValid() and all(v<=lim for v,lim in zip(size,[270,270,256]))
         for ext in ['step','stl']:
             cq.exporters.export(s,str(ROOT/f'{name}.{ext}'),**({'tolerance':.012,'angularTolerance':.07} if ext=='stl' else {}))
         report['layouts'][name]={'size_mm':size,'solids':len(s.Solids()),'volume_mm3':s.Volume()}

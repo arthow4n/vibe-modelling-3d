@@ -30,8 +30,8 @@ the flow ramp in Orca Slicer. No such values are encoded in the geometry.
 
 The planar 100 × 70 mm bottom face lies at Z=0. The object is a vertical prism,
 so it has stable bed contact, no bridges, overhangs, holes, cavities or supports.
-Its 100 × 70 × 50 mm bounds fit the repository's confirmed 260 × 260 × 250 mm
-printer volume. All intentionally sharp test corners remain untreated.
+Its 100 × 70 × 50 mm bounds fit the Qidi Q2C's 270 × 270 × 256 mm printer
+volume. All intentionally sharp test corners remain untreated.
 
 ## Verification
 

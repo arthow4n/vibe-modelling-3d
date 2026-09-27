@@ -86,8 +86,8 @@ Use PETG, 0.4 mm nozzle, ring face down. Diagnostic slice used 0.2 mm layers,
 left lip grows from the bed; the shortened right lip grows out from the
 backplate along its sloping underside. The opening requires no roof bridge.
 Use the user's normal PETG temperatures and printer profile for an actual job.
-The 260 × 260 × 250 mm safe volume leaves ample room for a brim if needed;
-the small coupon has less adhesion area than the full ring.
+The Qidi Q2C's 270 × 270 × 256 mm build volume leaves ample room for a brim if
+needed; the small coupon has less adhesion area than the full ring.
 
 PrusaSlicer 2.9.6 produced 125 layers without stability warnings. Parsed paths
 contained no bridge, overhang-perimeter or support roles. Layer close-ups at

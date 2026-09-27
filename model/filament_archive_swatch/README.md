@@ -46,8 +46,8 @@ Render and export the default orientation without rotating the card: its broad
 face lies on the bed. The source is designed around a **0.4 mm nozzle** and
 **0.2 mm layer height**. A normal flat-plate profile should not need supports;
 use the actual material and first-layer settings for the target printer. The
-default 80 × 50 mm footprint and 2 mm height fit within the repository's
-confirmed 260 × 260 × 250 mm printer limits.
+default 80 × 50 mm footprint and 2 mm height fit within the Qidi Q2C's
+270 × 270 × 256 mm printer limits.
 
 After exporting the STL from the live editor, read the opacity steps from their
 remaining floor thickness and use the engraved fields for the sample's identity.

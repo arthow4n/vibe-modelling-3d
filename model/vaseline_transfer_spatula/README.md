@@ -29,7 +29,7 @@ is 2.4 mm thick and tapers to a 1.2 mm rounded scraping nose over its final
 8 mm; the handle is 7 mm thick and overlaps the blade by 2 mm. No supports or
 assembly are intended. The overall footprint is approximately 30 × 141 mm and
 the height is 7 mm, within
-the confirmed 260 × 260 × 250 mm printer envelope.
+the Qidi Q2C's 270 × 270 × 256 mm printer envelope.
 
 PETG is the assumed material with a 0.4 mm nozzle. Use several perimeters and
 moderate infill for a durable handle. This is not claimed sterile or medical

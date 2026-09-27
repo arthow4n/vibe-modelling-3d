@@ -152,7 +152,7 @@ placement. The assembled STEP is a separate inspection pose.
 
 PrusaSlicer 2.9.6: approximately **45.3 g / 4 hours** per complete insert. No
 support paths or slicer notices; deposited paths including brim/skirt fit the
-confirmed **260 × 260 × 250 mm** usable limits. Inspected layers show the five
+Qidi Q2C's **270 × 270 × 256 mm** usable volume. Inspected layers show the five
 finger slots remain open, the rails start on the bed, the axle slit and brace
 lips are retained, and the bore roof closes over a narrow bridge. The diagnostic
 profile/G-code is not a tuned machine job; slice the STL with your own profile.
