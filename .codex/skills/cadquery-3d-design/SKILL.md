@@ -16,7 +16,9 @@ save decisions and evidence in the object's primary notes without a duplicate
 completed checklist. Track commit/push completion in the active task checklist,
 as described in AGENTS.md.
 Apply relevant items; this is not a requirement to run every evidence method.
-Reopen affected checks after changes; do not repeat unrelated checks for a small revision.
+Reopen affected checks after changes; avoid repeating unrelated manual or
+expensive reviews for a small revision. Established automatic checks can run
+with each applicable evaluation.
 
 - [ ] Confirm scope, references, user edits, known preferences and required CAD tool availability; check the reusable-model evidence for an analogous design.
 - [ ] Establish use, critical dimensions, assembly/material preferences, mechanism effort and failure modes.
@@ -59,10 +61,11 @@ Do not load every reference for every task.
 
 Ask: **What uncertainty remains, what would the result change, and what is the
 cheapest reliable evidence that can resolve it?** Apply AGENTS.md's check-value,
-reuse and batching rules. Each check or render needs a credible failure mode or
-concrete unanswered question; omit it when either outcome would lead to the same
-action. Stop once adequate evidence answers the question; reopen only when
-relevant inputs change or a limitation is discovered.
+reuse and batching rules when choosing new checks or extra manual reviews. Omit
+them when either outcome would lead to the same action. Established automatic
+checks can run routinely without a fresh decision each time. Stop extra review
+once adequate evidence answers the question; reopen it when relevant inputs
+change or a limitation is discovered.
 Use approximate concept calculations before committing to CAD when they can
 reject a weak approach. Use the evaluated model for exact geometry that the
 approximation cannot establish, and physical prints for material or tactile

@@ -265,16 +265,23 @@ status alone is not visual evidence.
 
 ## Avoid repeated work
 
-Before running, adding or repeating a check, identify the credible failure or
-uncertainty it addresses and what decision its result could change. Ask whether
-existing calculations, CAD evidence or the tool's own status already answer it.
-Skip a check when no plausible result would change the design, print plan,
-delivery or handling of a consequential risk. Do not add an independent checker
-merely to revalidate a toolchain guarantee without a concrete reason to doubt
-it. For a non-obvious check, briefly record its purpose with the result; do not
-create a separate justification document or checklist. Apply the same standard
-before writing reusable check scripts: their expected benefit must justify the
-maintenance and future agent work they create.
+When creating a check or requesting extra manual inspection, identify the
+credible failure or uncertainty it addresses and what decision its result could
+change. Ask whether existing evidence or the tool's own status already answers
+it. Skip a new check when no plausible result would change the design, print
+plan, delivery or handling of a consequential risk. Do not add an independent
+checker merely to revalidate a toolchain guarantee without a concrete reason
+to doubt it. A reusable check's expected benefit must justify its development
+and maintenance; record the purpose of a non-obvious check with its result,
+without creating a separate justification document.
+
+Once a useful check is built into a reusable script or the shared workflow, run
+it automatically when applicable. Repeated automatic execution is not repeated
+agent work and needs no new justification each time. Judge it by its marginal
+runtime and resource cost, not its invocation count. Avoid repeating manual
+reasoning, tool setup or expensive checks when relevant inputs and evidence are
+unchanged. If an established automatic check proves consistently uninformative,
+reconsider the check itself rather than skipping it case by case.
 
 Choose the cheapest reliable evidence for the remaining question, following the
 [skill's evidence selection](.codex/skills/cadquery-3d-design/SKILL.md#proportionate-review).
