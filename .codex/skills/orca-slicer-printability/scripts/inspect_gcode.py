@@ -1,12 +1,10 @@
-"""Summarize linear ASCII slicer paths from OrcaSlicer output.
+"""Parse and summarize linear ASCII slicer paths for the Orca review helper.
 
 The parser also covers historical PrusaSlicer output used in this repository.
 It follows absolute/relative XYZ and E modes, requires millimetres, and rejects
 arcs and unsupported motion rather than guessing.
 """
-import argparse
 from collections import defaultdict
-import json
 import math
 from pathlib import Path
 import re
@@ -139,16 +137,5 @@ def summarize(layers, metadata):
             "limits": "Centerline lengths include anchors; no free-air span or physical simulation."}
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("gcode", type=Path)
-    parser.add_argument("--json", type=Path, required=True)
-    args = parser.parse_args()
-    layers, metadata = read_paths(args.gcode)
-    summary = summarize(layers, metadata)
-    args.json.write_text(json.dumps(summary, indent=2) + "\n")
-    print(json.dumps({"layer_count": len(layers), "roles": summary["roles"], "metadata": metadata}))
-
-
 if __name__ == "__main__":
-    main()
+    raise SystemExit("inspect_gcode.py is an internal parser; use review_print.py")

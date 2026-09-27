@@ -16,8 +16,6 @@ def run(config):
         sys.executable,
         str(repo / '.codex/skills/orca-slicer-printability/scripts/review_print.py'),
         '--model', str(folder / f'{name}_coupon.stl'),
-        '--out', str(folder / 'orca_slice_review'),
-        '--bed', '270', '270', '256',
         '--expect-no-supports',
     ]
     job = subprocess.run(command, capture_output=True, text=True)
