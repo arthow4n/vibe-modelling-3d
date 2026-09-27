@@ -57,10 +57,12 @@ Do not load every reference for every task.
 
 ## Proportionate review
 
-Ask: **What uncertainty remains, and what is the cheapest reliable evidence that
-can resolve it?** Follow AGENTS.md's reuse and batching rules. Each additional
-check or render needs a concrete unanswered question. Stop once adequate evidence
-answers it; reopen only when relevant inputs change or a limitation is discovered.
+Ask: **What uncertainty remains, what would the result change, and what is the
+cheapest reliable evidence that can resolve it?** Apply AGENTS.md's check-value,
+reuse and batching rules. Each check or render needs a credible failure mode or
+concrete unanswered question; omit it when either outcome would lead to the same
+action. Stop once adequate evidence answers the question; reopen only when
+relevant inputs change or a limitation is discovered.
 Use approximate concept calculations before committing to CAD when they can
 reject a weak approach. Use the evaluated model for exact geometry that the
 approximation cannot establish, and physical prints for material or tactile
@@ -72,7 +74,7 @@ Choose evidence by question, not as a mandatory sequence or universal ranking:
 | Evidence | What it establishes within its assumptions |
 | --- | --- |
 | Deterministic CAD/geometric checks | Intersections, mating dimensions, wall/gap thickness, bounds, bed placement, engagement and motion/clearance within the checked scope |
-| Slicer/toolpaths | Export-to-toolpath smoke check; generated paths, feature survival, supports, layer registration and footprint for the documented profile only |
+| Slicer status; GUI preview when needed | Completed slice and warnings for the selected profile; preview can answer specific generated path, support or placement questions |
 | CAD renders | Proportions, recognition, appearance, finger access, control comprehension, assembly layout and visual diagnosis |
 | Analytical mechanics; selective simulation | Predicted stiffness, force, torque, strain or structural behavior under stated assumptions |
 | Physical prints/tests | Actual fit, friction, effort, spring return, sag, material response, wear and subjective feel under tested conditions |

@@ -265,6 +265,17 @@ status alone is not visual evidence.
 
 ## Avoid repeated work
 
+Before running, adding or repeating a check, identify the credible failure or
+uncertainty it addresses and what decision its result could change. Ask whether
+existing calculations, CAD evidence or the tool's own status already answer it.
+Skip a check when no plausible result would change the design, print plan,
+delivery or handling of a consequential risk. Do not add an independent checker
+merely to revalidate a toolchain guarantee without a concrete reason to doubt
+it. For a non-obvious check, briefly record its purpose with the result; do not
+create a separate justification document or checklist. Apply the same standard
+before writing reusable check scripts: their expected benefit must justify the
+maintenance and future agent work they create.
+
 Choose the cheapest reliable evidence for the remaining question, following the
 [skill's evidence selection](.codex/skills/cadquery-3d-design/SKILL.md#proportionate-review).
 Build once where possible and batch exports, measurements and needed views.
