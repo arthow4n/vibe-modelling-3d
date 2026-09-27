@@ -84,7 +84,8 @@ for the transferred interfaces are zero. All three exported solids are valid,
 all three mesh components are watertight and nondegenerate, and their individual
 bounds and bed positions agree.
 
-See [production review](production_e_review/report.md),
-[checklist](production_e_checklist.md), and [provenance](provenance.md).
+See the [production review](production_e_review/report.md),
+[closure history](mechanism_history.md), and [provenance](provenance.md).
 Current renders are in `renders/print/`, `renders/closed/` and `renders/verified/`.
-Old production renders were removed; historical trial sources and artifacts remain.
+Historical trial sources and artifacts remain in this directory; the closure
+history identifies their superseded results.

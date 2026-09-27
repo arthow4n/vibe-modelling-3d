@@ -46,19 +46,6 @@ Status reviewed 2026-09-12.
 | Test piece(s) | N/A | None; `vaseline_container.stl` is the full-pair trial | No separate thread coupon was used or needed. |
 | Final printable object(s) | Yes | `vaseline_container.stl` (base and lid) | User report recorded 2026-09-12: the full pair was printed and was good. Print date, material, printer and profile are unknown. |
 
-## Checklist
-
-- [x] Scope, existing edits and required MCP tool checked.
-- [x] Use, critical dimensions, material assumption and failure modes established.
-- [x] Record the successful user print of the full pair; no separate thread coupon was used.
-- [x] Orientation, walls and support strategy chosen.
-- [x] Parametric geometry built, evaluated and rendered through CadQuery MCP.
-- [x] Screw motion, retention, release, grip and scoop access reviewed.
-- [x] Final slice and relevant layer paths inspected.
-- [x] Exposed edges treated.
-- [x] Matching final STEP/STL verified; useful views saved.
-- [x] Assumptions, evidence and print instructions recorded.
-
 ## Attribution
 
 Primary language model: **GPT-6 Astra**. Reasoning effort: **low** (user-provided attribution, interpreting “recently effort load” as “reasoning effort low”). Harness: **Codex**. Provider: **OpenAI**.

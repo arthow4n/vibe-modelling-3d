@@ -19,7 +19,13 @@ Print flat underside down, open side up. Assumed indoor general storage in PLA, 
 
 The broad flat base provides stable contact. The lower exterior grows just 2 mm per side over 9 mm of height. Corner facets are deliberately left crisp to preserve their broad triangular faces, while the rim stays rounded. The upper wall slopes inward and the cavity remains open, with no roof or trapped supports. Wall thickness accommodates multiple extrusion paths. The floor blend makes small items easier to retrieve and avoids a sharp internal dirt trap. Retention is by the open tray walls, with unrestricted top access; it is not a closed transport container.
 
-The 238 mm footprint fits the 250 × 250 × 250 mm practical envelope. The reference slice uses no skirt or brim. If adhesion needs a brim, allow at most 5 mm per side and recheck the complete slicer footprint. Large flat prints can warp; actual flatness, surface feel and load capacity remain untested. No separate coupon is useful for this simple tray because full-footprint warping is the main physical uncertainty.
+The 238 mm footprint passed the original 250 × 250 × 250 mm review limit; the
+repository's current Qidi Q2C default is 270 × 270 × 256 mm. The reference
+slice uses no skirt or brim. If adhesion needs a brim, recheck the complete
+footprint against the selected printer profile. Large flat prints can warp;
+actual flatness, surface feel and load capacity remain untested. No separate
+coupon is useful for this simple tray because full-footprint warping is the
+main physical uncertainty.
 
 ## Verification
 
@@ -30,16 +36,6 @@ The 238 mm footprint fits the 250 × 250 × 250 mm practical envelope. The refer
 - Final STEP symmetry: symmetric-difference volume was 0.0 mm³ for 90° rotation, reflection across X=0, and reflection across X=Y (acceptance tolerance 0.01 mm³). This checks the completed solid including rim fillets and proves matching corners within CAD tolerance.
 - [Reference smoke slice](notes/symmetric_slice_review/summary.json), [command](notes/symmetric_slice_review/command.json), [profile](notes/review.ini): PrusaSlicer 2.9.6 produced fresh nonempty deposition, no supports, no notices; no repair reported in the inspected log. Deposited XY bounds after centering: 6.017–243.983 mm on each axis; height 38 mm.
 - Reference estimate: 312.58 g PLA, 25 h 16 min. These are profile-specific estimates, not predictions for the user's printer. Geometry and slice checks do not establish physical strength or print quality.
-
-### Design checklist
-
-- [x] Scope, photo, user changes and required MCP tool checked; defaults chosen under user authorization.
-- [x] Interior dimension, access, retention, edge treatment and ordinary storage use reviewed.
-- [x] Single-piece layout, bed contact, wall sizes, overhangs and support strategy reviewed.
-- [x] Parametric source evaluated; bounds, topology, final views and actual interior wall positions checked.
-- [x] STEP geometry checks and final reference smoke slice completed.
-- [x] Deliverables, reference, print instructions, attribution and physical limitations saved.
-- [x] Separate test piece considered: not warranted; full tray is the first physical trial.
 
 ## Physical print status
 

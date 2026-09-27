@@ -242,10 +242,14 @@ are unclear. Final verification must cover the final files.
 Do not introduce a caching framework for a one-off task. Unchanged helpers do not
 need their own regression suites rerun for every model.
 
-Keep one concise current decision/evidence record per object; add detailed reports
-only when they answer a distinct question. Return compact summaries and inspect
-full logs only for a failure or unresolved question. Documentation-only changes
-need document validation, not new CAD evaluations or slices.
+Keep one concise current decision/evidence record per object; add detailed
+reports only when they answer a distinct question. Track work in the active
+task checklist, but do not commit a separate completed checklist that repeats
+the object's record. Preserve unique physical observations and attribution;
+recover superseded process narratives from Git history when needed. Return
+compact summaries and inspect full logs only for a failure or unresolved
+question. Documentation-only changes need document validation, not new CAD
+evaluations or slices.
 
 ## Model provenance and attribution
 

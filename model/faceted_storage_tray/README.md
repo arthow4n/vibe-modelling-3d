@@ -10,6 +10,8 @@ The previous six-panel pattern was nearly square (27.3 × 27 mm). This explorati
 
 **C Slender is the current default**: approximately twice as tall as wide, with a clear triangular pattern. D gives a finer rhythm; F gives more elongated, crystal-like ridges. These are visual judgments offered for comparison, not an assumed user selection.
 
+For choosing a texture, print the eight [full-scale exterior samples](#full-scale-exterior-test-pieces). The full-tray A–H exports were produced during the earlier exploration and are retained as existing files; the samples are sufficient for the intended pattern comparison. The user later reported that a print of H works well. That report does not, by itself, change the root C export.
+
 | Version | Panels per side | Panel width × height, mm | Relief, mm | Visual intention | Files |
 | --- | --- | --- | --- | --- | --- |
 | A Airy | 8 | 20.5 × 27 | 2.4 | More open spacing | [STL](variants/a_airy/a_airy.stl) · [STEP](variants/a_airy/a_airy.step) · [Preview](variants/a_airy/iso.png) |
@@ -32,7 +34,7 @@ The root [STL](faceted_storage_tray.stl) and [STEP](faceted_storage_tray.step) a
 - Floor 4 mm; straight rim wall 4 mm before rounding; minimum nominal corner chord thickness approximately 2.91 mm. Rim fillet 0.8 mm, underside chamfer 0.6 mm, upper border 2 mm.
 - One solid each, millimetres, XY centred at zero, underside at Z=0. Matching STEP/STL print placement. No assembly.
 
-Print open side up, flat underside down. Reference assumptions: PLA, 0.4 mm nozzle, 0.2 mm layers, four perimeters, five top/bottom layers, 20% gyroid infill, no supports/skirt/brim. Use your machine's own material profile; reference inspection G-code is not a printer job. All eight fit the 250 × 250 × 250 mm practical envelope. If adding a brim, allow at most 4 mm per side for every option and check the full slicer footprint.
+Print open side up, flat underside down. Reference assumptions: PLA, 0.4 mm nozzle, 0.2 mm layers, four perimeters, five top/bottom layers, 20% gyroid infill, no supports/skirt/brim. Use your machine's own material profile; reference inspection G-code is not a printer job. All eight full trays passed the original 250 × 250 × 250 mm review limit; the repository's current Qidi Q2C default is 270 × 270 × 256 mm. Recheck any generated brim against the selected printer profile.
 
 Broad bed contact supports ordinary tabletop storage. Smooth interior walls and floor blends preserve insertion, retrieval and cleaning. Exterior facet edges are deliberately crisp; the rim remains rounded. Point-peak relief develops over 13.5 mm of height; ridge relief develops over 7.425 mm at each end. These have supporting material beneath them, with no floating ornaments, roofs or trapped supports. Walls accommodate multiple extrusion paths. The narrowest panel is 8.2 mm wide, comfortably above nozzle scale. Layer direction, large-floor warping, texture feel and strength with real contents remain physical uncertainties.
 
@@ -78,19 +80,9 @@ One [reference profile](notes/review.ini) was used throughout. [Slice runner](no
 | G Fine Ridge | 319.60 g | 1d 2h 12m 3s | [Geometry checks](variants/g_fine_ridge/checks.json) · [Slice](variants/g_fine_ridge/slice_review/summary.json) |
 | H Soft | 313.83 g | 1d 1h 26m 42s | [Geometry checks](variants/h_soft/checks.json) · [Slice](variants/h_soft/slice_review/summary.json) |
 
-The [comparison renderer](notes/preview_renderer/compare.py) uses the actual STL files with a depth buffer, identical lighting and camera settings. Reproduce with `uv run --directory model/faceted_storage_tray/notes/preview_renderer python compare.py`; dependency lock is retained. Inspected the complete sheet and C's CAD edge view for proportion, continuity, smooth cavity and rim. No physical result is inferred from these images or slice checks.
+The saved [comparison sheet](renders/print/comparison.png) uses the actual STL files with identical lighting and camera settings. Its historical renderer is at [compare.py](notes/preview_renderer/compare.py). The sheet and C's CAD edge view were inspected for proportion, continuity, cavity and rim; images do not establish physical finish.
 
 The coupons were built and exported together through CadQuery MCP using [build_coupons.py](notes/build_coupons.py); [coupon_build.json](notes/coupon_build.json) and each coupon's `checks.json` record the configuration, final dimensions and source/builder hashes. Matching final views were generated from each source. [slice_coupons.py](notes/slice_coupons.py) then produced fresh PrusaSlicer 2.9.6 toolpaths for all eight with the same reference profile: zero supports, no notices or repairs, and approximately 15.05–15.45 g PLA. These are reference-profile results, not predictions for the user's printer.
-
-### Design checklist
-
-- [x] User intent, prior reference, approved original preservation and MCP availability checked.
-- [x] Eight distinct comparisons defined; common interior, symmetry, access and edges reviewed.
-- [x] Every configuration built and exported; final default C built and inspected.
-- [x] Interior planes, sampled walls, symmetry and oriented bounds checked.
-- [x] Final generic FDM review and eight reference smoke slices passed.
-- [x] Individual exports, comparison views, print instructions, evidence and physical status saved.
-- [x] Eight equal-window, full-scale exterior coupons built, exported, inspected and smoke sliced.
 
 ## Physical print status
 

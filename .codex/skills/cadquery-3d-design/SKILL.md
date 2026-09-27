@@ -11,8 +11,10 @@ and Git rules. A valid solid or clean slice alone does not establish function.
 
 ## Modelling TODO checklist
 
-Track design and validation checks in the object's notes or planning tool; track
-commit/push completion in the active task checklist, as described in AGENTS.md.
+Track active design and validation checks in a planning tool or working notes;
+save decisions and evidence in the object's primary notes without a duplicate
+completed checklist. Track commit/push completion in the active task checklist,
+as described in AGENTS.md.
 Apply relevant items; this is not a requirement to run every evidence method.
 Reopen affected checks after changes; do not repeat unrelated checks for a small revision.
 

@@ -46,9 +46,9 @@ case's latch or compression resistance.
 
 ## Evidence
 
-The completed revision is preserved at Git commit `c2fe963`. Consult its
-[design and print notes](../../../../model/sunglasses_case/notes/printing_and_design.md)
-and [slicer review](../../../../model/sunglasses_case/notes/support_free_review/report.md)
-for dimensions, toolpath evidence and limitations; linked working files may
-change in later revisions. Use the current [OrcaSlicer skill](../../orca-slicer-printability/SKILL.md)
+The completed revision is preserved at Git commit `c2fe963`. Consult the
+[current design notes](../../../../model/sunglasses_case/notes/printing_and_design.md)
+and [closure history](../../../../model/sunglasses_case/notes/mechanism_history.md)
+for the later physical results and limits. Use the current
+[OrcaSlicer skill](../../orca-slicer-printability/SKILL.md)
 for new reference reviews rather than duplicating its commands here.

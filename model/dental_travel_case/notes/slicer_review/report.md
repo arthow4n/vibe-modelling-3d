@@ -1,4 +1,8 @@
-# Final diagnostic printability review — 2026-09-06
+# Historical PrusaSlicer review of the delivered case — 2026-09-06
+
+This report preserves the original diagnostic evidence and the profile used
+at the time. Use the repository's OrcaSlicer skill and selected printer profile
+for a new review.
 
 PrusaSlicer 2.9.6+flathub.org. Confirmed 260 × 260 × 250 mm usable volume and
 0.4 mm nozzle; PETG selected. `review.ini` contains generic diagnostic temperatures

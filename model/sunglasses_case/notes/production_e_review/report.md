@@ -1,4 +1,9 @@
-# Reduced production case: CAD and slicing review
+# Historical reduced-case CAD and PrusaSlicer review
+
+This records the diagnostic review of the delivered geometry. Use the
+[current case instructions](../printing_and_design.md) and the repository's
+OrcaSlicer skill for new work; the commands below reproduce the historical
+PrusaSlicer run and its former printer profile.
 
 The user approved E's closure after printing D/E and explicitly confirmed
 158 × 78 × 63 mm internal dimensions. The case retains its previous rounded
