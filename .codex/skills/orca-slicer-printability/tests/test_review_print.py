@@ -231,6 +231,7 @@ class ReviewTests(unittest.TestCase):
             self.assertEqual(result["plates"][0]["plate"], 1)
             self.assertEqual(result["printer_volume"]["dimensions_mm"], [270, 270, 256])
             self.assertEqual(result["support_segments"], 1)
+            self.assertTrue(result["expect_no_supports"])
             self.assertIn("path_roles", result["plates"][0])
             self.assertFalse(run_dirs[0].exists())
 

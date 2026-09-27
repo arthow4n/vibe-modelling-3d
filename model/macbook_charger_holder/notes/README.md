@@ -99,15 +99,10 @@ See `slicing/paths.json` and
 `slicing/cradle_layers.png`. This is geometric/slicer validation, not a test print.
 The diagnostic G-code is ignored and is not a validated machine job.
 
-Reproduction from repository root:
-
-The current parser command recreates the structured path summary. The saved
-layer close-up is historical evidence from the PrusaSlicer review.
-
-```sh
-prusa-slicer --load model/macbook_charger_holder/notes/slicing/diagnostic.ini --center 130,130 --export-gcode --output model/macbook_charger_holder/notes/slicing/revised.gcode model/macbook_charger_holder/macbook_charger_holder.stl
-uv run --locked python .codex/skills/orca-slicer-printability/scripts/inspect_gcode.py model/macbook_charger_holder/notes/slicing/revised.gcode --json model/macbook_charger_holder/notes/slicing/paths.json
-```
+The saved path summary and layer close-up are historical PrusaSlicer evidence.
+The former standalone `inspect_gcode.py` command has been retired; that module
+is now an internal parser used by the unified OrcaSlicer review helper. Existing
+evidence remains available in `slicing/paths.json` and `slicing/cradle_layers.png`.
 
 STEP reimport checks confirmed valid single solids. STEP/STL bounds agree within
 0.03 mm for both exports. Triangulation can inflate reported CAD bounds by a few

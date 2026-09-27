@@ -34,42 +34,14 @@ A first flat-print trial with 6 top/bottom layers left sparse infill inside the
 panels are solid throughout and those roles disappear. The final review uses
 that setting, 0.2 mm layers, a 0.4 mm nozzle and 5 perimeters.
 
-## Reproduce
+## Historical evidence
 
-Run from the repository root. These files are diagnostic; do not send their
-G-code directly to a printer. Temporary G-code and logs are intentionally ignored.
-The current parser commands recreate structured JSON summaries only. The
-referenced layer images are retained historical evidence from the PrusaSlicer
-review.
-
-```sh
-review_dir=model/sunglasses_case/notes/support_free_review
-mkdir -p "$review_dir/run03"
-prusa-slicer --load "$review_dir/review.ini" --export-gcode \
-  --output "$review_dir/run03/case.gcode" model/sunglasses_case/sunglasses_case.stl
-prusa-slicer --load "$review_dir/review.ini" --export-gcode \
-  --output "$review_dir/run03/hinge.gcode" model/sunglasses_case/hinge_test.stl
-uv run --locked python .codex/skills/orca-slicer-printability/scripts/inspect_gcode.py \
-  "$review_dir/run03/case.gcode" --json "$review_dir/case_paths.json"
-uv run --locked python .codex/skills/orca-slicer-printability/scripts/inspect_gcode.py \
-  "$review_dir/run03/hinge.gcode" --json "$review_dir/hinge_paths.json"
-```
-
-The individual mechanism samples used the same profile and orientation:
-
-```sh
-for name in mechanism_test_baseline mechanism_test_tight_hinge_current_latch \
-  mechanism_test_tight_hinge_deep_latch \
-  mechanism_test_very_tight_hinge_current_latch \
-  mechanism_test_very_tight_hinge_deep_latch; do
-  prusa-slicer --load "$review_dir/review.ini" --export-gcode \
-    --output "$review_dir/run05/$name.gcode" \
-    "model/sunglasses_case/$name.stl"
-  uv run --locked python .codex/skills/orca-slicer-printability/scripts/inspect_gcode.py \
-    "$review_dir/run05/$name.gcode" \
-    --json "$review_dir/${name}_paths.json"
-done
-```
+The saved path summaries, G-code and layer images record the earlier
+PrusaSlicer review and its profile. The standalone `inspect_gcode.py` command
+has been retired; that module is now an internal parser used by the unified
+OrcaSlicer helper. New Orca reviews use
+`.codex/skills/orca-slicer-printability/scripts/review_print.py`, which emits a
+single JSON summary and removes temporary files unless `--keep-run` is set.
 
 The user successfully printed the previous, looser hinge. The final 0.6 mm
 radial cone clearance and 0.5 mm ear gap are slightly tighter; print success

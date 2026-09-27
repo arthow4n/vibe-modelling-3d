@@ -14,7 +14,7 @@ Turn clockwise to close gently against the shoulder; turn counterclockwise to un
 - `verify_and_export.py`: shared-command evaluation entry point for exports and mechanical geometry checks.
 - `inspect_assembled.py`: shared-command evaluation entry point for the closed pose.
 
-Print the base floor down and the lid outside-top down, as exported. Assumed PETG, 0.4 mm nozzle, 0.2 mm layers, four perimeters, five top/bottom layers, 20% infill, no supports. Use your own printer profile; the stored profile is diagnostic. Layout is about 107.3 × 49.3 × 22.75 mm, comfortably inside the repository's 260 × 260 × 250 mm practical CAD envelope and the Q2C's 270 × 270 × 256 mm build volume.
+Print the base floor down and the lid outside-top down, as exported. Assumed PETG, 0.4 mm nozzle, 0.2 mm layers, four perimeters, five top/bottom layers, 20% infill, no supports. Use your own printer profile; the stored profile is diagnostic. Layout is about 107.3 × 49.3 × 22.75 mm, comfortably inside the Q2C's 270 × 270 × 256 mm build volume.
 
 ## Decisions and evidence
 

@@ -225,6 +225,7 @@ def _review_in_directory(model, profiles, run_dir, expect_no_supports, placement
         "slicer_help_header": version_header,
         "printer_volume": volume,
         "placement": placement,
+        "expect_no_supports": expect_no_supports,
         "effective_settings": _settings_summary(effective),
         "plates": plates,
         "inside_printer_volume": inside,

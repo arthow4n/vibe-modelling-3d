@@ -13,17 +13,15 @@ The skill owns functional design, ergonomics, critical dimensions, mechanisms,
 edge treatment, print planning and physical experiments. This file owns
 repository workflow, tools, ownership, attribution and delivery.
 
-Use **260 × 260 × 250 mm (X × Y × Z)** as the default practical printable
-envelope and a **0.4 mm nozzle**, unless the user specifies another setup. This
-is the usable design limit, not the printer's physical plate dimensions. Include
-generated brims/supports when checking XY, and check each oriented axis
-independently.
-
-For OrcaSlicer reviews using the Qidi Q2C profile, default the slicer-envelope
-check to the manufacturer's **270 × 270 × 256 mm** build volume
-([Q2C specifications](https://us.qidi3d.com/products/q2c)). This is the machine
-limit; it does not change the more conservative CAD design envelope above. Use
-smaller user-confirmed safe limits when provided.
+Use the Qidi Q2C **270 × 270 × 256 mm (X × Y × Z)** build volume and a **0.4 mm
+nozzle** as the default practical printable envelope
+([Q2C specifications](https://us.qidi3d.com/products/q2c)), unless the user
+specifies another setup. This is the usable design limit, not the printer's
+physical plate dimensions. Include generated brims/supports when checking XY,
+and check each oriented axis independently. For OrcaSlicer reviews, take the
+printable area and height from the selected printer profile; do not maintain a
+separate bed-size override. Use a smaller user-confirmed safe volume by
+providing a printer profile with those limits.
 
 Do not reject an object merely because its assembled size exceeds that envelope.
 Plan it as multiple printable parts when no acceptable orientation fits. Before

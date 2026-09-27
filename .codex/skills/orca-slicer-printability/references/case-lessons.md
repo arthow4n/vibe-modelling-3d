@@ -129,4 +129,5 @@ lower-arc layers identified abrupt lateral growth; adding a supporting pedestal
 removed the accessory warning. Replacing small grip bumps alone did not. Do not
 assume a clean mixed-plate warning result validates the same part in every layout;
 inspect the production plate's paths. See the object's review report and layer
-images for geometry and profile scope, rather than treating the fix as universal.
+images for geometry and selected profile settings, rather than treating the fix
+as universal.
