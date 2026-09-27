@@ -85,7 +85,9 @@ interfaces and load path.
 6. Apply the skill's CAD/export checks and final generic FDM review, including
    its final reference-slice smoke check when available. Use the shared
    evaluator's `--slice` option for ordinary final layouts so paired exports
-   and the smoke check come from one command. Continue until the
+   and the smoke check come from one command. Read its automatic-support probe
+   as a request to review support placement, not a rule that supports are
+   forbidden. Continue until the
    concrete review questions are resolved and further iteration is unlikely to
    materially improve the result. Distinguish CAD/slicer evidence from physical
    testing; document any remaining limitation. Export the agreed printable
@@ -241,6 +243,7 @@ const summary = {
   slice: report.slice && {
     ok: report.slice.ok,
     review_required: report.slice.review_required,
+    support_probe: report.slice.support_probe,
     log_notices: report.slice.log_notices,
   },
   errors: (report.errors ?? []).map(({ stage, type, message, file, line, view, path }) =>

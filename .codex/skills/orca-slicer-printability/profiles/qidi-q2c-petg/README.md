@@ -19,8 +19,8 @@ pattern. The effective settings export is the final authority for what a CLI
 run actually used.
 
 The Q2C preset and [manufacturer specifications](https://us.qidi3d.com/products/q2c)
-report a 270 × 270 × 256 mm build volume. Orca review checks read that volume
-from Orca's effective printer settings, including brim/support bounds. Use a
+report a 270 × 270 × 256 mm build volume. Orca review reports the effective
+printer settings, and the automatic-support probe flags generated support. Use a
 different printer profile when another usable build volume applies; there is no
 separate bed-size override.
 

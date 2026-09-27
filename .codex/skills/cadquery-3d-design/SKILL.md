@@ -77,7 +77,7 @@ Choose evidence by question, not as a mandatory sequence or universal ranking:
 | Evidence | What it establishes within its assumptions |
 | --- | --- |
 | Deterministic CAD/geometric checks | Intersections, mating dimensions, wall/gap thickness, bounds, bed placement, engagement and motion/clearance within the checked scope |
-| Slicer status; GUI preview when needed | Completed slice and warnings for the selected profile; preview can answer specific generated path, support or placement questions |
+| Slicer status and auto-support probe; GUI preview when needed | Completed slice, warnings and generated-support signal for the selected profile; preview can answer specific path or placement questions |
 | CAD renders | Proportions, recognition, appearance, finger access, control comprehension, assembly layout and visual diagnosis |
 | Analytical mechanics; selective simulation | Predicted stiffness, force, torque, strain or structural behavior under stated assumptions |
 | Physical prints/tests | Actual fit, friction, effort, spring return, sag, material response, wear and subjective feel under tested conditions |

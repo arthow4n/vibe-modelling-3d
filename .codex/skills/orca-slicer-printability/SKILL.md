@@ -1,6 +1,6 @@
 ---
 name: orca-slicer-printability
-description: Run an OrcaSlicer reference-profile smoke slice and review its status, warnings and effective settings. Results describe the selected profile only; inspection does not authorize redesign or printing.
+description: Run an OrcaSlicer smoke slice with an automatic-support probe and review its status, warnings and effective settings. Results describe the selected profile only; inspection does not authorize redesign or printing.
 ---
 
 # OrcaSlicer printability inspection
@@ -13,9 +13,9 @@ orientation. A reference slice says Orca completed a plate under the selected
 profiles. It does not establish temperatures, flow, dimensional accuracy,
 bridge quality, physical clearance, strength or tactile behavior.
 
-This skill covers final-mesh smoke reviews. Resolve geometry questions in CAD;
-inspect Orca's GUI preview when a specific generated path or support placement
-could change the design.
+This skill covers final-mesh smoke reviews and a narrow automatic-support probe.
+Resolve geometry questions in CAD; inspect Orca's GUI preview when generated
+support or a specific path could change the design.
 
 Choose nozzle, layer height, material, walls and infill during the design
 agreement, before CAD detail; see [AGENTS.md](../../../AGENTS.md). The user's
@@ -52,7 +52,8 @@ For a normal final model, run this from the repository root:
 ./evaluate_model.py model/object_name/object_name.py --views none --slice
 ```
 
-It exports the STEP/STL pair and runs this helper on the STL. Optional
+It exports the STEP/STL pair and runs this helper on the STL. The helper also
+probes automatic supports in the same call. Optional
 `--slice-printer`, `--slice-process`
 and `--slice-filament` accept compatible Orca JSON profiles; otherwise the
 diagnostic defaults below apply. The evaluator returns the slice result in its
@@ -130,24 +131,39 @@ or union the input.
 
 The helper checks Orca's exit status and `result.json` for a completed plate,
 then reports the selected profiles, key effective settings, slicer version,
-placement, sliced plate IDs and notices. It does not parse G-code or independently
-check deposited bounds, support presence or mesh repair. For a tight bed fit,
-unwanted supports or another placement-sensitive question, inspect the sliced
-layout in Orca's GUI.
+placement, sliced plate IDs and notices. It also probes the same model and
+placement with automatic supports enabled and `bridge_no_support=0`, while
+keeping the profile's overhang threshold and maximum bridge length. If the
+primary slice already uses those auto-support settings, its output serves as
+the probe; otherwise Orca runs a second diagnostic slice. The helper reads
+only Orca's `;TYPE:` line labels from that slice and reports whether support
+or support-interface roles occurred, by plate. It does not reconstruct motion
+or measure unsupported spans.
+
+`support_probe.generated=true` requests review, not redesign. Orca may propose
+unnecessary support, or omit support that the physical print needs. Inspect the
+support's location and removal path in Orca's GUI when generated; inspect a
+specific suspect bridge there even when the probe finds none. A probe failure
+is reported as `support_probe.ok=false` and also requests review. A tight bed
+fit or other placement-sensitive question still needs the sliced layout in
+Orca's GUI.
 
 The notice list combines structured plate warnings with keyword-filtered log
 lines. An empty list does not prove the full slicer log is message-free. Use
 `--keep-run` when the complete log or raw G-code is needed; on success the JSON
-includes the retained directory, and on error the message gives its location.
+includes the retained directory (with any second slice under `support_probe/`),
+and on error the message gives its location.
 Otherwise G-code, logs, `result.json`, effective settings and intermediate files
 are deleted automatically.
 
 Exit 0 means no automated review condition was found. Exit 2 means Orca reported
-a notice. Exit 1 means the review could not complete. These statuses are not
+a notice or the support probe needs review. Exit 1 means the primary review
+could not complete. These statuses are not
 universal printability verdicts.
 
 Keep one concise object record with model and profile paths, Orca version,
-placement, effective settings, smoke result, notices and physical limitations.
+placement, effective settings, smoke result, support-probe result, notices and
+physical limitations.
 Keep temporary files only when they answer a concrete question.
 
 ## Related references

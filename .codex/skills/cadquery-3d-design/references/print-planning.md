@@ -76,8 +76,10 @@ existing slice of the same final artifact and relevant settings; do not slice
 again merely to label it final. STEP is the primary print-ready file. The
 headless Orca CLI cannot import STEP in the installed version, so smoke-slice
 the matching exported STL and state that the result does not verify Orca's GUI
-STEP import. This checks toolpath generation from the delivered design's STL,
-not universal printability.
+STEP import. This checks toolpath generation from the delivered design's STL
+and probes whether Orca's automatic support settings generate support. Support
+generation is a review signal, not proof that support is physically necessary;
+no generated support is not proof that a bridge or overhang will print well.
 No layer windows are required. If unavailable, record the missing smoke evidence
 and complete the authorized deliverables using the available CAD review and
 export generation.

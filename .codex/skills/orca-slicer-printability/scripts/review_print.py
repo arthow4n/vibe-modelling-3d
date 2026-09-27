@@ -53,7 +53,8 @@ def _settings_summary(settings):
             "hot_plate_temp_initial_layer", "print_settings_id", "layer_height",
             "wall_loops", "line_width", "outer_wall_line_width", "inner_wall_line_width",
             "initial_layer_line_width", "brim_type", "brim_width", "brim_object_gap",
-            "enable_support", "support_type", "filament_flow_ratio", "enable_arc_fitting",
+            "enable_support", "support_type", "support_threshold_angle",
+            "bridge_no_support", "max_bridge_length", "filament_flow_ratio", "enable_arc_fitting",
             "sparse_infill_density", "sparse_infill_pattern")
     return {key: settings[key] for key in keys if key in settings}
 
@@ -62,6 +63,86 @@ def _log_notices(text):
     return [line.strip() for line in text.splitlines() if re.search(
         r"warning|error|detected print stability|long bridging|loose extrusions|consider enabling supports",
         line, re.I)]
+
+
+def _support_roles(run_dir, sliced_plates):
+    """Read only Orca's emitted line-type labels, not G-code motion."""
+    expected_ids = {int(plate["id"]) for plate in sliced_plates}
+    found_ids = set()
+    supported = []
+    for gcode in sorted(run_dir.glob("*.gcode")):
+        match = re.fullmatch(r"plate_(\d+)", gcode.stem)
+        if not match:
+            raise ValueError(f"Unrecognized Orca G-code plate name: {gcode.name}")
+        plate_id = int(match.group(1))
+        if plate_id in found_ids:
+            raise ValueError(f"Duplicate Orca G-code plate ID: {plate_id}")
+        found_ids.add(plate_id)
+        roles = set()
+        saw_role = False
+        with gcode.open(errors="replace") as lines:
+            for line in lines:
+                if line.startswith(";TYPE:"):
+                    saw_role = True
+                    role = line.partition(":")[2].strip()
+                    if role.casefold().startswith("support"):
+                        roles.add(role)
+        if not saw_role:
+            raise ValueError(f"Orca G-code has no line-type labels: {gcode.name}")
+        if roles:
+            supported.append({"plate": plate_id, "roles": sorted(roles)})
+    if found_ids != expected_ids:
+        raise ValueError(f"Orca reported plates {sorted(expected_ids)} but wrote G-code for {sorted(found_ids)}")
+    return supported
+
+
+def _auto_support_probe(command, run_dir, effective, primary_result):
+    """Probe the same layout with Orca's automatic support enabled."""
+    support_type = str(effective.get("support_type", ""))
+    auto_type = (support_type if support_type.endswith("(auto)") else
+                 "tree(auto)" if support_type.startswith("tree") else "normal(auto)")
+    reuse_primary = (str(effective.get("enable_support", "0")) == "1"
+                     and support_type == auto_type
+                     and str(effective.get("bridge_no_support", "1")) == "0")
+    if reuse_primary:
+        probe_dir, probe_effective, probe_result = run_dir, effective, primary_result
+    else:
+        probe_dir = run_dir / "support_probe"
+        probe_dir.mkdir()
+        probe_command = command.copy()
+        probe_command[probe_command.index("--outputdir") + 1] = str(probe_dir)
+        effective_path = probe_dir / "effective-settings.json"
+        probe_command[probe_command.index("--export-settings") + 1] = str(effective_path)
+        probe_command.extend(("--enable-support=1", "--bridge-no-support=0",
+                              f"--support-type={auto_type}"))
+        (probe_dir / "command.json").write_text(json.dumps(probe_command, indent=2) + "\n")
+        with (probe_dir / "slicer.log").open("w") as log:
+            completed = subprocess.run(probe_command, cwd=probe_dir, stdout=log,
+                                       stderr=subprocess.STDOUT, timeout=SLICE_TIMEOUT_SECONDS,
+                                       check=False)
+        result_path = probe_dir / "result.json"
+        if completed.returncode != 0 or not result_path.is_file():
+            raise RuntimeError("Orca automatic-support probe failed; use --keep-run for its log")
+        probe_result = json.loads(result_path.read_text())
+        if probe_result.get("return_code") != 0 or not probe_result.get("sliced_plates"):
+            raise RuntimeError("Orca automatic-support probe did not complete a plate")
+        if not effective_path.is_file():
+            raise RuntimeError("Orca automatic-support probe did not export effective settings")
+        probe_effective = json.loads(effective_path.read_text())
+    if (str(probe_effective.get("enable_support")) != "1"
+            or not str(probe_effective.get("support_type", "")).endswith("(auto)")
+            or str(probe_effective.get("bridge_no_support")) != "0"):
+        raise RuntimeError("Orca did not apply automatic-support probe settings")
+    supported = _support_roles(probe_dir, probe_result["sliced_plates"])
+    return {
+        "ok": True,
+        "generated": bool(supported),
+        "supported_plates": supported,
+        "reused_primary_slice": reuse_primary,
+        "effective_support_type": probe_effective["support_type"],
+        "effective_support_threshold_angle": probe_effective.get("support_threshold_angle"),
+        "effective_max_bridge_length_mm": probe_effective.get("max_bridge_length"),
+    }
 
 
 def _review_in_directory(model, profiles, run_dir, placement):
@@ -106,6 +187,10 @@ def _review_in_directory(model, profiles, run_dir, placement):
             notices.append(f"plate {plate.get('id', '?')}: {warning}")
     if result.get("error_string") not in (None, "", "Success", "Success."):
         notices.append(str(result["error_string"]))
+    try:
+        support_probe = _auto_support_probe(command, run_dir, effective, result)
+    except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as exc:
+        support_probe = {"ok": False, "message": str(exc)}
     report = {
         "model": str(model),
         "profiles": {key: str(path) for key, path in profiles.items()},
@@ -113,9 +198,10 @@ def _review_in_directory(model, profiles, run_dir, placement):
         "placement": placement,
         "effective_settings": _settings_summary(effective),
         "sliced_plates": [plate.get("id") for plate in result["sliced_plates"]],
+        "support_probe": support_probe,
         "log_notices": notices,
-        "review_required": bool(notices),
-        "limits": "Reports Orca's slice status and effective settings under the selected profiles. Orientation and arrangement rotation are disabled. Center placement may reposition multiple independent objects; use assembly mode to translate a grouped 3MF layout while retaining its internal positions, or preserve mode for an already positioned project. This smoke slice does not inspect deposited paths, support presence, mesh repair, clearance or physical print quality.",
+        "review_required": bool(notices) or not support_probe["ok"] or support_probe.get("generated", False),
+        "limits": "Reports Orca's slice status and effective settings under the selected profiles. The automatic-support probe enables support and permits support under bridges, then checks Orca's emitted support line types. Generated support is a prompt to inspect placement and removal, not proof it is physically necessary; no generated support does not prove every overhang or bridge will print well. The probe uses the selected profile's support threshold and maximum bridge length. Orientation and arrangement rotation are disabled. Center placement may reposition multiple independent objects; use assembly mode to translate a grouped 3MF layout while retaining its internal positions, or preserve mode for an already positioned project. This smoke slice does not inspect deposited bounds, mesh repair, clearance or physical print quality.",
     }
     return report
 

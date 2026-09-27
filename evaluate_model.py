@@ -237,7 +237,7 @@ def main(argv=None):
     parser.add_argument("--export", action="store_true",
                         help="Export matching STEP and STL beside the source, using its stem")
     parser.add_argument("--slice", action="store_true",
-                        help="Export the pair and smoke-slice its STL with OrcaSlicer")
+                        help="Export the pair, smoke-slice its STL and probe Orca automatic supports")
     parser.add_argument("--slice-printer", type=Path,
                         help="Orca printer profile; use with --slice")
     parser.add_argument("--slice-process", type=Path,
@@ -326,7 +326,7 @@ def main(argv=None):
         before = time.monotonic()
         try:
             sliced = subprocess.run(command, cwd=Path(__file__).resolve().parent,
-                                    capture_output=True, text=True, timeout=SLICE_TIMEOUT_SECONDS + 60,
+                                    capture_output=True, text=True, timeout=2 * SLICE_TIMEOUT_SECONDS + 60,
                                     check=False)
             if sliced.returncode not in (0, 2):
                 raise RuntimeError(sliced.stderr.strip() or "OrcaSlicer review failed")

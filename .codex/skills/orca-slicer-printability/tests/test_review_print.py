@@ -10,7 +10,7 @@ import unittest
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from review_print import DEFAULTS, build_parser, review
+from review_print import DEFAULTS, _support_roles, build_parser, review
 
 
 EFFECTIVE_SETTINGS = {
@@ -20,12 +20,28 @@ EFFECTIVE_SETTINGS = {
     "printable_area": ["0x0", "270x0", "270x270", "0x270"],
     "printable_height": "256",
     "filament_type": ["PETG"],
+    "enable_support": "0",
+    "support_type": "tree(auto)",
+    "bridge_no_support": "0",
+    "max_bridge_length": "10",
+    "support_threshold_angle": "30",
     "sparse_infill_density": "7%",
     "sparse_infill_pattern": "adaptivecubic",
 }
 
 
 class ReviewTests(unittest.TestCase):
+    def test_reads_only_orca_support_line_types(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "plate_1.gcode").write_text(
+                "; support material extrusion width = 0.42mm\n"
+                ";TYPE:Inner wall\nG1 X1 E.1\n"
+                ";TYPE:Support interface\nG1 X2 E.1\n")
+            (root / "plate_2.gcode").write_text(";TYPE:Inner wall\nG1 X1 E.1\n")
+            result = _support_roles(root, [{"id": 1}, {"id": 2}])
+        self.assertEqual(result, [{"plate": 1, "roles": ["Support interface"]}])
+
     def test_cli_help_matches_profile_defaults_and_exposes_only_unified_options(self):
         help_text = re.sub(r"-\s+", "-", build_parser().format_help())
         help_text = " ".join(help_text.split())
@@ -71,17 +87,26 @@ class ReviewTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             files = self._inputs(Path(tmp))
             run_dirs = []
+            probe_commands = []
 
             def fake(command, **kwargs):
                 if command[-1] == "--help":
                     return SimpleNamespace(returncode=0, stdout="OrcaSlicer 2.4.2", stderr="")
                 output = Path(command[command.index("--outputdir") + 1])
                 run_dirs.append(output)
+                is_probe = "--enable-support=1" in command
+                if is_probe:
+                    probe_commands.append(command)
+                (output / "plate_1.gcode").write_text(
+                    ";TYPE:Support\nG1 X1 E.1\n" if is_probe else
+                    ";TYPE:Inner wall\nG1 X1 E.1\n")
                 (output / "result.json").write_text(json.dumps({
                     "error_string": "Success.", "return_code": 0,
                     "sliced_plates": [{"id": 1, "warning_message": "Long bridging extrusions"}],
                 }))
-                (output / "effective-settings.json").write_text(json.dumps(EFFECTIVE_SETTINGS))
+                (output / "effective-settings.json").write_text(json.dumps({
+                    **EFFECTIVE_SETTINGS, "enable_support": "1" if is_probe else "0",
+                }))
                 kwargs["stdout"].write("Detected print stability issue\n")
                 return SimpleNamespace(returncode=0)
 
@@ -91,6 +116,11 @@ class ReviewTests(unittest.TestCase):
             self.assertTrue(result["review_required"])
             self.assertEqual(result["effective_settings"]["filament_type"], ["PETG"])
             self.assertEqual(result["sliced_plates"], [1])
+            self.assertTrue(result["support_probe"]["generated"])
+            self.assertEqual(result["support_probe"]["supported_plates"],
+                             [{"plate": 1, "roles": ["Support"]}])
+            self.assertIn("--bridge-no-support=0", probe_commands[0])
+            self.assertIn("--support-type=tree(auto)", probe_commands[0])
             self.assertFalse(run_dirs[0].exists())
 
     def test_keep_run_preserves_artifacts_and_records_location(self):
@@ -101,11 +131,14 @@ class ReviewTests(unittest.TestCase):
                 if command[-1] == "--help":
                     return SimpleNamespace(returncode=0, stdout="OrcaSlicer 2.4.2", stderr="")
                 output = Path(command[command.index("--outputdir") + 1])
-                (output / "plate_1.gcode").write_text("historical artifact")
+                (output / "plate_1.gcode").write_text(";TYPE:Inner wall\nG1 X1 E.1\n")
                 (output / "result.json").write_text(json.dumps({
                     "return_code": 0, "sliced_plates": [{"id": 1, "warning_message": ""}],
                 }))
-                (output / "effective-settings.json").write_text(json.dumps(EFFECTIVE_SETTINGS))
+                (output / "effective-settings.json").write_text(json.dumps({
+                    **EFFECTIVE_SETTINGS,
+                    "enable_support": "1" if "--enable-support=1" in command else "0",
+                }))
                 return SimpleNamespace(returncode=0)
 
             with patch("review_print.slicer_prefix", return_value=["fake"]), \
@@ -114,10 +147,62 @@ class ReviewTests(unittest.TestCase):
             kept = Path(result["kept_run_directory"])
             try:
                 self.assertTrue((kept / "plate_1.gcode").is_file())
+                self.assertTrue((kept / "support_probe" / "plate_1.gcode").is_file())
                 self.assertTrue((kept / "summary.json").is_file())
                 self.assertEqual(json.loads((kept / "summary.json").read_text())["kept_run_directory"], str(kept))
+                self.assertFalse(result["support_probe"]["generated"])
+                self.assertFalse(result["review_required"])
             finally:
                 shutil.rmtree(kept)
+
+    def test_reuses_primary_auto_support_slice(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            files = self._inputs(Path(tmp))
+            slice_commands = []
+
+            def fake(command, **kwargs):
+                if command[-1] == "--help":
+                    return SimpleNamespace(returncode=0, stdout="OrcaSlicer 2.4.2", stderr="")
+                slice_commands.append(command)
+                output = Path(command[command.index("--outputdir") + 1])
+                (output / "plate_1.gcode").write_text(";TYPE:Support\nG1 X1 E.1\n")
+                (output / "result.json").write_text(json.dumps({
+                    "return_code": 0, "sliced_plates": [{"id": 1, "warning_message": ""}],
+                }))
+                (output / "effective-settings.json").write_text(json.dumps({
+                    **EFFECTIVE_SETTINGS, "enable_support": "1",
+                }))
+                return SimpleNamespace(returncode=0)
+
+            with patch("review_print.slicer_prefix", return_value=["fake"]), \
+                    patch("review_print.subprocess.run", side_effect=fake):
+                result = self._review(files)
+            self.assertEqual(len(slice_commands), 1)
+            self.assertTrue(result["support_probe"]["reused_primary_slice"])
+            self.assertTrue(result["support_probe"]["generated"])
+
+    def test_probe_failure_preserves_primary_slice_result(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            files = self._inputs(Path(tmp))
+
+            def fake(command, **kwargs):
+                if command[-1] == "--help":
+                    return SimpleNamespace(returncode=0, stdout="OrcaSlicer 2.4.2", stderr="")
+                if "--enable-support=1" in command:
+                    return SimpleNamespace(returncode=1)
+                output = Path(command[command.index("--outputdir") + 1])
+                (output / "result.json").write_text(json.dumps({
+                    "return_code": 0, "sliced_plates": [{"id": 1, "warning_message": ""}],
+                }))
+                (output / "effective-settings.json").write_text(json.dumps(EFFECTIVE_SETTINGS))
+                return SimpleNamespace(returncode=0)
+
+            with patch("review_print.slicer_prefix", return_value=["fake"]), \
+                    patch("review_print.subprocess.run", side_effect=fake):
+                result = self._review(files)
+            self.assertFalse(result["support_probe"]["ok"])
+            self.assertTrue(result["review_required"])
+            self.assertEqual(result["sliced_plates"], [1])
 
     @staticmethod
     def _inputs(path):
