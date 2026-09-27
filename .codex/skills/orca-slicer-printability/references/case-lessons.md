@@ -22,12 +22,13 @@ The accepted design side-printed the keeper tooth so its locking face grows
 from the bed. Detect one-sided retaining projections in CAD before slicing;
 path labels alone cannot establish support or surface quality.
 
-## Clean slicing does not prove clean mesh topology
+## Inspect mesh topology only for a specific concern
 
 Exact conical hinge tips on the sunglasses case produced degenerate STL
 triangles although CAD was valid and slicing raised no warning. Small flat tips
 resolved the mesh defect. Check the final mesh components and mating features
-when such defects can affect a moving interface; see the
+only when a current feature shows a specific defect risk that the slicer cannot
+settle; do not make mesh-topology inspection routine. See the
 [sunglasses history](../../../../model/sunglasses_case/notes/mechanism_history.md).
 
 ## A printed screw's drive socket is also a fit-critical surface

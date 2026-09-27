@@ -121,8 +121,18 @@ setup cannot establish printer fit for the agreed setup. Revisit a stage when
 relevant inputs change or a specific failure creates a reason to doubt its
 result. A successful STL smoke slice does not verify Orca's separate GUI STEP
 import. Keep targeted checks for questions outside the earlier stage's scope;
-do not create generic checkers to
-reprove an upstream tool's successful status.
+do not create generic checkers to reprove an upstream tool's successful status.
+
+These omissions are deliberate. The shared evaluator does not report routine
+CAD bounds, size, volume, solid count or per-solid measurements. The workflow
+does not routinely reopen STEP, audit STL triangles or edges, compare STEP/STL
+bounds, or parse G-code motion and deposited footprint. Do not recreate those
+outputs through object scripts, new tests, extra renders or manual calculations
+merely because they are available. An exception needs a concrete suspected
+failure, an expected result, a decision that would change with that result, and
+a reason the planning work or responsible tool's own status cannot answer it.
+Keep a justified check specific to that question; add it to the shared workflow
+only after it has demonstrated recurring value.
 
 ## Object ownership and source of truth
 
