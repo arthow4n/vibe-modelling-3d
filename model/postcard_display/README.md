@@ -6,6 +6,99 @@ Print **[postcard_display.step](postcard_display.step)**, or the matching
 the long feet run behind the card. Lower the card onto both feet, centre it,
 and lean it against the two rear ribs. Lift it out to change orientation.
 
+## Three further sculptural alternatives
+
+**Orbit, Bolt and Pebble** explore different silhouette families, rather than
+reworking the triangular frame or Wave. All four earlier models and their
+printable exports remain unchanged. These are complete printable holders.
+
+![New silhouettes beside the existing Wave, at one scale](renders/sculptural_comparison.png)
+
+| Style | Design character and functional tradeoff | Print STEP | Matching STL |
+| --- | --- | --- | --- |
+| Orbit | Two circular bodies with crowned openings; broad round silhouette and negative space. Deeper footprint, backing contact around 33 mm above the shelf | [STEP](postcard_orbit.step) | [STL](postcard_orbit.stl) |
+| Bolt | One central folded lightning spine; sharp changes of direction instead of a curve or frame. Narrow central upper contact, so less resistance to card curl | [STEP](postcard_bolt.step) | [STL](postcard_bolt.stl) |
+| Pebble | Low, broad rounded mound; deliberately no tall arms or frame. Broad lower contact, leaving more of the upper card unsupported | [STEP](postcard_pebble.step) | [STL](postcard_pebble.stl) |
+
+The intended footprints/heights are approximately **64 × 62 × 53 mm** for Orbit,
+**64 × 40 × 56.6 mm** for Bolt, and **64 × 40 × 27 mm** for Pebble. The printed
+stops still rise only 1.4 mm above the 1.6 mm seating level. Pebble adds a low
+central strip beneath the card as the rounded body reaches the bed. The backing
+bodies remain behind a centred opaque card from the front. All use the original
+nominal 12° card plane, with small settling changes at the rounded contacts.
+
+Use flat, stiff A6 or 100 × 150 mm postcards in either orientation, assuming
+0.2–0.8 mm thickness. This set intentionally trades backing coverage for the
+three different appearances. It does not flatten curled cards. Centre the card,
+rest it on both feet behind the stops, and lean it back; remove by lifting.
+Orbit is the largest visual statement from the side; Pebble is the lowest.
+Transparency, highlights and visible infill depend on the actual print.
+
+Source entry points are `postcard_orbit.py`, `postcard_bolt.py`, and
+`postcard_pebble.py`. Shared construction and editable dimensions are in
+[sculptural_variants.py](sculptural_variants.py); it reuses the existing feet
+builder and interface parameters. Keep the sibling source modules together.
+The named ring dimensions, zigzag path/width/depth and mound section table are
+the main design controls. All three print feet-down in the supplied placement,
+with the same PETG / 0.4 mm nozzle / 0.2 mm layers / two walls / 7% adaptive cubic
+setup. Supports off; use a brim only if your adhesion needs it.
+
+### Sculptural-set evidence
+
+Planning retained the centred 150 mm-card centre-of-mass estimate of roughly
+17 mm behind the seat, within every footprint. The bodies also lie inside their
+feet's support area; Orbit extends the rear feet to 60 mm. For an assumed 10 g
+card, the reduced backing heights still imply only roughly 0.03–0.09 N backing
+reaction. This is a stationary bookshelf gravity support, not a clamp or a
+knock-resistant fixture. Each model easily fits the printer envelope in the
+planned feet-down pose; no assembly or joints are required.
+
+Final CadQuery 2.7.0 builds were valid and matching STEP/STL exports succeeded.
+[sculptural_review.py](sculptural_review.py) checks seated rigid-card clearance
+for both sizes, both orientations and 0.2/0.8 mm thickness endpoints: all passed.
+The [front scene](renders/sculptural_assembled/sculptural_review_front.png) was
+inspected for concealment. Side and perspective views confirmed the separate
+silhouette families, contact locations and base connections:
+[Orbit](renders/orbit/postcard_orbit_isometric.png),
+[Bolt](renders/bolt/postcard_bolt_isometric.png),
+[Pebble](renders/pebble/postcard_pebble_isometric.png).
+The [vector comparison](renders/sculptural_comparison.svg) uses an explicit
+common drawing scale and shows the nominal card plane as a dashed line.
+
+FDM review: Orbit's broad lower plinths support the round bodies and its pointed
+inner crowns close gradually; the rounded lower holes are open from above as
+printing progresses. Bolt's folded segments rise on sloped edges; the central
+plinth overlaps the rear crossbar. Its profile corners have 0.65 mm rounds.
+Pebble starts directly on the bed with a broad flat underside and shrinks upward,
+so its body does not bridge across the feet. The original rounded feet/stops
+are retained. Orbit's circular outline and rounded opening corners remove
+pointed tips; its flat extrusion rims are intentionally crisp. No inaccessible
+supports or unsupported starts remain in the reviewed designs.
+
+Final OrcaSlicer **2.4.2** smoke checks on each STL completed one centred plate,
+with **no notices, no review conditions and no generated automatic supports**.
+They used the same diagnostic profiles/effective settings documented below:
+Qidi Q2C, PETG, 0.4 mm nozzle, 0.2 mm layers, two walls, 7% adaptive cubic,
+supports off, auto brim 5 mm; probe 30° threshold / 10 mm maximum bridge length.
+This does not establish the user's filament calibration, physical quality, or
+Orca GUI STEP import. Earlier variants were not rebuilt or resliced.
+
+No physical print reports exist for this set. Check actual seating, stability,
+card curl, contact finish and appearance. Bolt and Pebble particularly rely on
+card stiffness beyond their limited backing areas. Use the complete small
+holders as the aesthetic trials; no separate samples were made. Attribution
+is the same user-supplied model/effort and environment record below.
+
+Reproduce (substitute `bolt` or `pebble` for `orbit`):
+
+```sh
+./evaluate_model.py model/postcard_display/postcard_orbit.py --views isometric,right --output-dir renders/orbit --slice
+./evaluate_model.py model/postcard_display/sculptural_review.py --views front --output-dir renders/sculptural_assembled
+```
+
+The review script also generates the comparison SVG/PNG. Its scene includes
+reference postcards and must not be printed.
+
 ## Three aesthetic alternatives
 
 The original `postcard_display.py`, STEP and STL are retained unchanged.
@@ -189,6 +282,9 @@ Reproduce exports/review from repository root:
 | Final printable object — Outline | Unknown | `postcard_outline.step`, `postcard_outline.stl` | No print report; check seating, stability, frame finish and appearance |
 | Final printable object — Wave | Unknown | `postcard_wave.step`, `postcard_wave.stl` | No print report; check upper backing contact, curl, stability and appearance |
 | Final printable object — Prism | Unknown | `postcard_prism.step`, `postcard_prism.stl` | No print report; check backing contact, stability, facet finish and appearance |
+| Final printable object — Orbit | Unknown | `postcard_orbit.step`, `postcard_orbit.stl` | No print report; check seating, stability, curl, finish and appearance |
+| Final printable object — Bolt | Unknown | `postcard_bolt.step`, `postcard_bolt.stl` | No print report; check seating, stability, curl, finish and appearance |
+| Final printable object — Pebble | Unknown | `postcard_pebble.step`, `postcard_pebble.stl` | No print report; check seating, stability, curl, finish and appearance |
 
 ## Attribution
 
