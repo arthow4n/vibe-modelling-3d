@@ -2,7 +2,12 @@
 
 ## Printability
 
-Consider printability at both planning and review: first choose a feasible printing approach before building geometry, then inspect the actual evaluated geometry against that plan. Revisit the plan after changes and perform a final printability review; an early intention to make the object printable is not evidence that the finished geometry is printable.
+Consider printability at both planning and review: agree on a feasible nozzle,
+layer height, material and wall/infill approach, and choose an orientation before
+building geometry. Inspect the actual evaluated geometry against that plan. Revisit
+the plan after consequential changes and perform a final printability review;
+an early intention to make the object printable is not evidence that the
+finished geometry is printable.
 
 Start with slicer-independent CAD interrogation and manufacturing reasoning.
 Use measurements/sections to establish orientation, bed contact, thicknesses,
@@ -18,9 +23,12 @@ ordinary perimeters. Use math for geometry; query a real slicer for uncertain
 path planning rather than recreating variable-width perimeters, gap fill, bridge
 classification, seams or support-generation algorithms.
 
-Unless the request specifies otherwise, design for FDM/FFF printing in a single colour and material with a typical 0.4 mm nozzle. Do not rely on multi-material features or colour changes unless explicitly requested.
-
-Use the confirmed printer setup in the repository's `AGENTS.md` when present; it takes precedence over generic printer assumptions.
+Unless the request specifies otherwise, design for FDM/FFF printing in a single
+colour and material. Use the agreed print setup and the preferences in
+`AGENTS.md` when planning feature sizes, structural sections and orientation;
+the slicer profile does not make those decisions for the model. Explain and
+discuss consequential changes before relying on them. Do not rely on
+multi-material features or colour changes unless explicitly requested.
 
 For a proposed split assembly, compare rough part bounds and planned print aids
 against the practical envelope before detailed CAD. Estimate the load on each
@@ -45,7 +53,7 @@ upward may leave a flat head underside as an unsupported ledge. A tapered
 underside can grow outward gradually; if it bears on the assembly, model its
 matching seat and recheck seated position, contact and local strength. Choose
 the slope and support strategy for the actual geometry and process rather than
-assuming a universal printable angle. The [book plate screw case](../../prusa-slicer-printability/references/case-lessons.md#a-printed-screws-drive-socket-is-also-a-fit-critical-surface)
+assuming a universal printable angle. The [book plate screw case](../../orca-slicer-printability/references/case-lessons.md#a-printed-screws-drive-socket-is-also-a-fit-critical-surface)
 shows the orientation and seat tradeoff.
 
 Use these assumptions when interpreting ambiguous requirements and judging whether a model is satisfactory. If the request calls for a different printer, nozzle, material, or manufacturing process, follow that request instead and record important assumptions where useful.
@@ -59,9 +67,9 @@ generation.
 Detailed toolpath inspection is conditional; skipping layer images does not skip
 this review. State material/nozzle assumptions and remaining physical uncertainty.
 
-For normal FDM deliverables, run one final smoke slice per exported printable
-layout when PrusaSlicer is available, using the
-[reference probe workflow](../../prusa-slicer-printability/SKILL.md). Reuse an
+For normal FDM deliverables, run one final smoke slice per agreed exported
+printable layout when OrcaSlicer is available, using the
+[reference review workflow](../../orca-slicer-printability/SKILL.md). Reuse an
 existing slice of the same final artifact and relevant settings; do not slice
 again merely to label it final. This checks acceptance of the actual exported
 mesh by an independent manufacturing toolchain, not universal printability.
@@ -69,9 +77,12 @@ No layer windows are required. If unavailable, record the missing smoke evidence
 and complete the authorized deliverables using the available CAD review and
 export generation.
 
-Use one documented diagnostic profile unless the user's actual slicer/profile
-is supplied. Actual settings supersede reference settings for toolpath-specific
-claims; a suitable final actual-profile slice also satisfies the smoke check.
+Use the agreed nozzle, material and process profile when supplied and compatible
+with the slicer. Otherwise use one documented diagnostic profile and state any
+mismatch with the intended print setup. If the mismatch changes feature or path
+behavior materially, record that setup-specific smoke evidence is missing.
+Actual settings supersede reference settings for toolpath-specific claims; a
+suitable final actual-profile slice also satisfies the smoke check.
 Do not add multiple reference slicers to approximate an unknown setup. Escalate
 only for unresolved path-generation questions, following the probe skill; actual
 fit, sag, strength and mechanism feel still require physical evidence.

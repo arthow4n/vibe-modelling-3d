@@ -19,12 +19,27 @@ not request layer-window checks or generate layer images. Resolve geometry
 questions in CAD; do not treat the path summary as a detailed local investigation
 across selected layers.
 
-Use the maintained Qidi Q2C 0.4 mm / Generic PETG / 0.20 mm Standard / 7%
-adaptive cubic profiles by default. Use supplied Orca profiles when the user's
-settings are needed; do not translate another slicer's profile into Orca or add
-more reference slicers. For a final smoke review, slice the final exported STL
-or 3MF. Reuse a result only while its model, profiles, placement and slicer
-version still match; follow the evidence reuse rules in [AGENTS.md](../../../AGENTS.md).
+Choose nozzle, layer height, material, walls and infill during the design
+agreement, before CAD detail; see [AGENTS.md](../../../AGENTS.md). The user's
+preferred starting point is the Qidi Q2C with a 0.4 mm nozzle and 0.2 mm
+layers. A 0.8 mm nozzle and several PLA, PETG and TPU filaments are available.
+Two walls with 7% adaptive cubic infill are the user's general experience for
+ordinary prints, not a strength requirement. Explain and discuss consequential
+changes to this starting approach before relying on them in the design.
+
+The maintained Qidi Q2C 0.4 mm, Generic PETG, 0.20 mm Standard, two-wall,
+7% adaptive cubic profiles are a diagnostic fallback, not the user's fixed
+production setup. Prefer compatible supplied Orca profiles for the agreed
+nozzle, material and process. If the fallback differs from the intended print,
+state the mismatch and limit conclusions to diagnostic path acceptance; do not
+claim that its settings predict the agreed print. A 0.8 mm or TPU design needs
+an appropriate printer/process/filament profile for setup-specific path claims;
+if none is available, record that evidence gap. Do not substitute the 0.4 mm
+PETG profile silently. Do not translate another slicer's profile into Orca or
+add more reference slicers. For a final smoke review, slice the final exported
+STL or 3MF. Reuse a result only while its
+model, profiles, placement and slicer version still match; follow the evidence
+reuse rules in AGENTS.md.
 
 ## Run the review
 
@@ -43,14 +58,15 @@ and defaults synchronized:
 | Argument | Default | Meaning |
 | --- | --- | --- |
 | `--model MODEL` | Required | STL or 3MF to slice. |
-| `--printer PRINTER` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json` | Printer and machine dimensions. |
-| `--process PROCESS` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json` | 0.20 mm Standard, 7% adaptive cubic sparse infill. |
-| `--filament FILAMENT` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json` | Generic PETG. |
+| `--printer PRINTER` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json` | Diagnostic 0.4 mm printer and machine dimensions. |
+| `--process PROCESS` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json` | Diagnostic 0.20 mm, two-wall, 7% adaptive cubic process. |
+| `--filament FILAMENT` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json` | Diagnostic Generic PETG. |
 | `--placement {preserve,center,assembly}` | `center` | Center the layout without rotation or auto-orientation. |
 | `--expect-no-supports` | Off (`false`) | Request review if Orca generates support paths. |
 | `--keep-run` | Off (`false`) | Retain temporary G-code and diagnostics. |
 
-To use other Orca profiles, pass all three profile files:
+To use the agreed setup with other Orca profiles, pass all three compatible
+profile files:
 
 ```sh
 uv run --locked python .codex/skills/orca-slicer-printability/scripts/review_print.py \

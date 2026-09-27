@@ -13,8 +13,8 @@ The skill owns functional design, ergonomics, critical dimensions, mechanisms,
 edge treatment, print planning and physical experiments. This file owns
 repository workflow, tools, ownership, attribution and delivery.
 
-Use the Qidi Q2C **270 × 270 × 256 mm (X × Y × Z)** build volume and a **0.4 mm
-nozzle** as the default practical printable envelope
+Use the Qidi Q2C **270 × 270 × 256 mm (X × Y × Z)** build volume as the default
+practical printable envelope
 ([Q2C specifications](https://us.qidi3d.com/products/q2c)), unless the user
 specifies another setup. This is the usable design limit, not the printer's
 physical plate dimensions. Include generated brims/supports when checking XY,
@@ -22,6 +22,17 @@ and check each oriented axis independently. For OrcaSlicer reviews, take the
 printable area and height from the selected printer profile; do not maintain a
 separate bed-size override. Use a smaller user-confirmed safe volume by
 providing a printer profile with those limits.
+
+The user's preferred starting setup is a **0.4 mm nozzle and 0.2 mm layers**.
+They also have a **0.8 mm nozzle** and several **PLA, PETG and TPU** filaments.
+Their experience is that **two walls and 7% adaptive cubic infill** are often
+enough for general prints; these are starting assumptions, not strength or
+printability requirements. Discuss the proposed nozzle, layer height, material,
+walls and infill approach during the initial design agreement. Explain and agree
+on consequential changes, especially when fit, flexibility, strength, print
+time or finish depends on them. Use the agreed setup to size geometry and screen
+loads before slicing. The reference Orca profile is diagnostic, not a substitute
+for the agreed print setup.
 
 Do not reject an object merely because its assembled size exceeds that envelope.
 Plan it as multiple printable parts when no acceptable orientation fits. Before
@@ -36,34 +47,50 @@ interfaces and load path.
 ## Core workflow
 
 1. Inspect the request, references, existing files and user changes. Reuse known
-   preferences. Honor requests to choose reasonable defaults autonomously;
-   otherwise ask focused questions only for unresolved requirements that
-   materially affect fit, function or manufacturing. Oversized objects still
-   require the joint/load agreement described above unless the user already
-   supplied it. Document important assumptions.
-2. Confirm `uv` and the repository's shared
+   preferences. Before detailed CAD, make the cheapest useful concept screen:
+   approximate fit and assembly travel, mating engagement, print envelope, and
+   loads, stiffness or force where relevant. Reject a concept that fails even
+   optimistic assumptions. Identify what needs actual modelled geometry and what
+   can only be learned from a physical print; do not make every simple object
+   undergo structural calculations.
+2. If the deliverables and sequence are not already agreed, present viable
+   options and a recommendation before detailed modelling. Explain the proposed
+   print setup, consequential assumptions, tradeoffs and the few decisions the
+   user must make. Options may include a complete printable design, representative
+   samples followed by a selected final design, or samples only. Agree on what
+   this phase will deliver and when physical feedback is needed. An explicit
+   choice or authorization already in the conversation counts; do not ask again.
+   Oversized objects still require the joint/load agreement above. After the
+   agreement, choose routine details and complete the agreed phase autonomously.
+   Seek a new decision only when evidence invalidates a consequential part of
+   the agreement or the agreed phase is complete. Progress updates need no
+   approval gate. At a staged handoff, request the specific physical
+   observations needed for the next phase.
+3. Confirm `uv` and the repository's shared
    [CadQuery command](evaluate_model.py) are available. Run `uv sync --locked`
    from the repository root when the locked environment is not installed.
-3. Create or revise the object's parametric Python source. Evaluate the file
+4. Create or revise the object's parametric Python source. Evaluate the file
    through the shared command and inspect validity, topology, bounds, parameters and errors;
    choose views using the skill's evidence guidance.
-4. Compare the geometry against the intended use and references. Check access,
+5. Compare the geometry against the intended use and references. Check access,
    insertion, retention and release as relevant. Correct the largest functional,
    structural, ergonomic or printability discrepancies and evaluate again.
    Repair the smallest underlying cause of a build failure; simplify the approach
-   if it repeatedly fails. A valid build alone does not establish function.
-5. Apply the skill's CAD/export checks and final generic FDM review, including
+   if it repeatedly fails. Recalculate where measured CAD geometry changes the
+   concept-screen inputs. A valid build alone does not establish function.
+6. Apply the skill's CAD/export checks and final generic FDM review, including
    its final reference-slice smoke check when available. Continue until the
    concrete review questions are resolved and further iteration is unlikely to
    materially improve the result. Distinguish CAD/slicer evidence from physical
-   testing; document any remaining limitation.
-6. Save matching print-ready exports, useful final views and one concise record
+   testing; document any remaining limitation. Export and slice the agreed
+   printable layouts; a samples-only phase does not require full-object exports.
+7. Save matching print-ready exports, useful final views and one concise record
    of assumptions, print/use instructions and verification evidence. Include
    the [standard per-object print-status block](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record)
-   for test piece(s) and the final printable object(s), even when one category
-   is not applicable. When a user reports a print, update the object block and
-   the root model-index summary together.
-7. Review, commit and push the completed work using the Git workflow below.
+   for test piece(s) and the final printable object(s), using N/A when a category
+   is outside the agreed phase. When a user reports a print, update the object
+   block and the root model-index summary together.
+8. Review, commit and push the completed work using the Git workflow below.
 
 ## Object ownership and source of truth
 
@@ -112,6 +139,8 @@ render timings are separate. Model files are trusted Python and may write their
 own artifacts; the command does not roll back those side effects.
 
 For normal printable models, deliver at least `.py`, `.step` and `.stl`.
+This applies to the printable objects agreed for the current phase, including
+samples; it does not require full-size variants when only samples were requested.
 Export STEP and STL from the **same geometry and print placement**, with matching
 units, orientation, bed position and relative component positions. The command's
 `--step` and `--stl` options write both from one build; use an object-owned wrapper
@@ -213,7 +242,8 @@ are unclear. Final verification must cover the final files.
 Do not introduce a caching framework for a one-off task. Unchanged helpers do not
 need their own regression suites rerun for every model.
 
-Keep one concise decision/evidence record. Return compact summaries and inspect
+Keep one concise current decision/evidence record per object; add detailed reports
+only when they answer a distinct question. Return compact summaries and inspect
 full logs only for a failure or unresolved question. Documentation-only changes
 need document validation, not new CAD evaluations or slices.
 

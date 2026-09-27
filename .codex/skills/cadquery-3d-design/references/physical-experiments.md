@@ -1,27 +1,35 @@
 # Small, informative physical experiments
 
 Read during planning whenever fit, friction, flexibility, surface finish or
-mechanism feel is uncertain. Identify what CAD can establish (dimensions,
-topology, rigid motion) and mechanics predictions separately from what needs a
-print (actual force, wear, spring return, bonding or actual clearance). Prioritize uncertainty by its
-effect on function and the cost of discovering a failure late.
+mechanism feel is uncertain. Use a concept calculation first when it can reject
+an approach; identify what modelled geometry can establish (dimensions, local
+sections, topology, rigid motion) separately from what needs a print (actual
+force, wear, spring return, bonding or actual clearance). Prioritize uncertainty
+by its effect on function and the cost of discovering a failure late.
 
 ## Optional test prints for physical validation
 
-For a requested full design, finish the complete model. Include a small test
-piece only when it meaningfully reduces the cost of testing an uncertain
-interaction while preserving the relevant behavior. A test piece is an optional
-first print, not a default gate that makes the agent stop and wait. Continue
-evaluating, refining and exporting the complete design while physical feedback
-is unavailable; identify remaining uncertainty at handoff. If the user requests
-samples only, deliver that scope. Pause dependent work only when the user has
-requested a staged testing workflow or an essential unresolved requirement
-prevents a meaningful final design.
+Follow the agreed deliverable sequence. For a full-design phase, finish the
+complete model and include a small test piece only when it meaningfully reduces
+the cost of testing an uncertain interaction while preserving the relevant
+behavior. Continue evaluating and refining the full design while physical
+feedback is unavailable. For a samples-only phase, deliver the samples without
+generating full-object variants. For an agreed staged sequence, finish the
+current phase and use the requested physical result to choose the next one.
+Do not turn an optional sample into an unrequested gate.
 
 * Consider test pieces for behavior that CAD and slicing cannot establish reliably: hinge freedom, snap-latch engagement and release, friction fits, sliding joints, clip grip, flexible tabs, printed threads, and press-fit inserts. Provide one when it can meaningfully reduce the cost of discovering a likely fit or mechanism problem; do not create coupons automatically for every feature.
 * Reuse the production interface construction and parameters where practical. Preserve mating geometry, material, relevant slicing settings and print orientation, plus wall thickness, flexible length, attachment stiffness and surrounding geometry that determine the tested behavior. A shortened clip can be much stiffer than the real part. If a small sample cannot represent the interaction adequately, explain that limitation instead of treating it as a substitute for a full-part trial.
 * Evaluate test pieces through the same applicable CAD and printability workflow as the model, including practical bed contact and intended component positions. Export them with clear names inside the object's directory. Make their purpose and the full-model print file easy to distinguish.
 * Provide brief instructions for what to try and observe, such as whether a latch engages securely and releases comfortably, and identify the parameter to adjust if it binds or feels loose. State what the sample does not test, such as full-object stiffness, compression resistance or fatigue life. Offer a small labeled set of clearance variants only when comparison would help; avoid unnecessary samples.
+
+When the decision is between appearances or surface textures, compare
+representative full-scale samples first and produce full-object variants only
+if those are agreed deliverables. When several physical hypotheses can be
+tested in one print session, batch distinguishable samples if their print
+placement and process remain representative. Each result should point to a
+specific next choice; a larger batch has value only when it saves a feedback
+cycle or resolves a requested comparison.
 
 For a structural coupon, derive the representative force, moment and restraint
 from the complete assembly's load case before specifying a test load. Preserve
@@ -72,11 +80,10 @@ default clearance matrix.
 
 ## Recommend a first print without blocking modelling
 
-Deliver the authorized full design alongside useful samples unless the user
-requested samples only. Clearly recommend which sample to print first, its
-cost, what to observe, and what it does not validate. Continue independent
-modelling while the user is away. Do not turn a sample into an unrequested
-approval gate or ask the user to reauthorize work.
+Deliver the agreed phase and clearly recommend what to print first, its cost,
+what to observe, and what it does not validate. Continue independent modelling
+within that phase while the user is away. Do not turn a sample into an
+unrequested approval gate or ask the user to reauthorize work.
 
 Use [the experiment record](../assets/experiment-record.md) inside the object's
 notes when there are multiple trials or iterations; omit irrelevant fields for
@@ -91,11 +98,13 @@ coupon is proposed:
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | Yes / No / Partial / N/A / Unknown | Exact exported file names | What was observed, or what remains to test |
-| Final printable object(s) | Yes / No / Partial / Unknown | Exact exported file names | What was observed, or what remains to test |
+| Final printable object(s) | Yes / No / Partial / N/A / Unknown | Exact exported file names, or none | What was observed, or what remains to test |
 
 Use **N/A** for test pieces when none were designed. Use **Unknown** when the
 repository has no user print report for an exported item; do not turn an absent
 note into a claim that a part was not printed.
+Use **N/A** for the final object during a samples-only phase when no final
+printable object was included. Update that row when a later phase delivers one.
 Keep “printed” separate from “functionally tested”: a print can exist without a
 fit, force, durability or use result. Add the report date, source revision or
 artifact hash, material, orientation and printer/profile when known; record

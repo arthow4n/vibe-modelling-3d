@@ -30,8 +30,8 @@ These links identify current instructions; retained experiments are historical
 unless the current instructions recommend them. The two print-status columns use
 the [standard per-object status block](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record):
 **Unknown** means no user print report is recorded, while **N/A** means no
-separate test piece exists. Detailed results and remaining physical checks are
-documented with each object.
+printable item exists in that category for the current phase. Detailed results
+and remaining physical checks are documented with each object.
 
 ## Licensing
 

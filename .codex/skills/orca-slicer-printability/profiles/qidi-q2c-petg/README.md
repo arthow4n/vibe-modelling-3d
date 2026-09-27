@@ -1,8 +1,13 @@
 # Qidi Q2C 0.4 mm PETG reference profiles
 
-These OrcaSlicer JSON settings select the bundled **Qidi Q2C 0.4 nozzle**
-printer and **Generic PETG** filament profiles, with a 0.20 mm Standard process
-customized to **7% adaptive cubic sparse infill**.
+These diagnostic OrcaSlicer JSON settings select the bundled **Qidi Q2C 0.4
+nozzle** printer and **Generic PETG** filament profiles, with a 0.20 mm Standard
+process customized to **two walls and 7% adaptive cubic sparse infill**. The
+user also has a 0.8 mm nozzle and PLA, PETG and TPU filaments. The 0.4 mm nozzle
+and 0.2 mm layers are the preferred starting point; two walls and 7% infill are
+general experience, not a requirement for every object. Agree on consequential
+setup changes during design planning and use compatible profiles for the chosen
+nozzle and material.
 
 The three profiles are resolved snapshots of OrcaSlicer 2.4.2 Flathub presets:
 `Qidi Q2C 0.4 nozzle`, `Generic PETG @Qidi Q2C 0.4 nozzle` and

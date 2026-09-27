@@ -16,22 +16,22 @@ commit/push completion in the active task checklist, as described in AGENTS.md.
 Apply relevant items; this is not a requirement to run every evidence method.
 Reopen affected checks after changes; do not repeat unrelated checks for a small revision.
 
-- [ ] Confirm scope, references, user edits and required CAD tool availability.
+- [ ] Confirm scope, references, user edits, known preferences and required CAD tool availability.
 - [ ] Establish use, critical dimensions, assembly/material preferences, mechanism effort and failure modes.
-- [ ] Check the full print layout against the practical printer envelope; for an oversized assembly, resolve segmentation and joint/load requirements with the user before finalizing it.
-- [ ] For structurally important parts and joints, estimate loads and stiffness before detailed CAD; use the estimates to choose sections and print orientation. For split assemblies, also calculate full-size assembly travel before choosing the split and joint.
-- [ ] Identify physical uncertainties early; plan worthwhile small experiments.
-- [ ] Choose orientation, wall sizes, layer direction and support strategy.
+- [ ] Screen the concept with rough fit, engagement, assembly-travel and print-envelope calculations as relevant. For structurally important parts and joints, estimate loads, stiffness and force before detailed CAD; reject an infeasible concept early.
+- [ ] Recommend viable deliverables and a print setup, explain tradeoffs, and agree on this phase's sequence if it is not already established.
+- [ ] Decide which remaining questions require modelled geometry and which require a physical print. For an oversized assembly, resolve segmentation and joint/load requirements with the user before finalizing it.
+- [ ] Choose orientation, wall sizes, layer direction and support strategy using the agreed print setup; plan worthwhile physical experiments only for unresolved physical behavior.
 - [ ] Build understandable parametric geometry; preserve critical interfaces.
 - [ ] Evaluate source through the shared CadQuery command; check bounds and topology; select useful views.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
-- [ ] For structurally important parts and joints, repeat the load and stiffness screen using measured CAD sections before recommending a structural trial.
+- [ ] For structurally important parts and joints, update the load and stiffness screen using measured CAD sections before recommending a structural trial.
 - [ ] Review final generic FDM geometry and resolve significant defects, especially on fit-critical surfaces.
 - [ ] Review exposed edges, corners and grip areas without weakening interfaces.
-- [ ] Export STEP/STL from the same print-ready geometry and placement; verify artifacts.
-- [ ] Run/reuse the final reference smoke slice when available; investigate detailed paths only for unresolved slicer-sensitive questions.
+- [ ] Export the agreed printable layouts as STEP/STL from the same print-ready geometry and placement; verify artifacts.
+- [ ] Run/reuse the final reference smoke slice for those layouts when available; investigate detailed paths only for unresolved slicer-sensitive questions.
 - [ ] Save useful final views, assumptions, physical evidence and print instructions.
-- [ ] Record separate print status for test piece(s) and the final printable object in the object's notes; do not infer a physical print from CAD or slicer output.
+- [ ] Record separate print status for test piece(s) and any final printable object in the object's notes; use N/A when a category is outside the agreed phase and do not infer a physical print from CAD or slicer output.
 - [ ] Review and commit/push according to AGENTS.md.
 
 Prioritize function, manufacturability, proportions and topology before cosmetic
@@ -57,6 +57,11 @@ Ask: **What uncertainty remains, and what is the cheapest reliable evidence that
 can resolve it?** Follow AGENTS.md's reuse and batching rules. Each additional
 check or render needs a concrete unanswered question. Stop once adequate evidence
 answers it; reopen only when relevant inputs change or a limitation is discovered.
+Use approximate concept calculations before committing to CAD when they can
+reject a weak approach. Use the evaluated model for exact geometry that the
+approximation cannot establish, and physical prints for material or tactile
+behavior. A changed CAD section warrants an updated calculation, not a restart
+of every earlier check.
 
 Choose evidence by question, not as a mandatory sequence or universal ranking:
 
@@ -105,10 +110,12 @@ design and validate a segmented assembly. Joint strength and assembly method are
 functional requirements, not routine implementation details to guess silently;
 use the design-decisions reference to resolve them.
 
-Continue the authorized full design; offer a first-print sample when it saves
-meaningful material or time without losing the behavior under test.
-A coupon is not a default stopping gate. Minimize material while preserving the
-behavior under test, and make every variant answer an observable question.
+Complete the deliverables agreed for this phase. For a full-design phase, offer
+a first-print sample when it saves meaningful material or time without losing
+the behavior under test. For a samples-only or explicitly staged phase, finish
+that phase and use the resulting physical feedback for the next agreed phase.
+Minimize material while preserving the behavior under test, and make every
+variant answer an observable question.
 
 Preserve successful interfaces during integration; the final smoke slice covers
 the full printable layout. Revisit detailed paths only where changes invalidate
@@ -117,8 +124,8 @@ A change in surrounding stiffness or print height can matter without changing
 nominal fit. Do not claim physical validation beyond actual user feedback.
 
 Use [print planning](references/print-planning.md) for CAD-first FDM review and
-[PrusaSlicer inspection](../prusa-slicer-printability/SKILL.md) for the final smoke
+[OrcaSlicer inspection](../orca-slicer-printability/SKILL.md) for the final smoke
 slice or a slicer-sensitive question. An unknown user profile makes repository
 slices reference evidence, not predictions of the user's toolpaths.
-For export consistency, use the verification helper through a CadQuery
-evaluation entry point. Neither replaces function review or physical testing.
+Export final STEP/STL pairs from the same evaluated geometry and verify the
+changed pair once. This does not replace function review or physical testing.

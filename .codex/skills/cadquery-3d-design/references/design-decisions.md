@@ -5,12 +5,16 @@ Read when interpreting a new object, mechanism or ambiguous physical feedback.
 ## Requirements clarification
 
 Reuse the user's known dimensions, printer, material and assembly preferences.
-Honor an explicit request to proceed autonomously: choose a reasonable mechanism
-and document assumptions instead of asking for routine preference decisions.
-The oversized-assembly joint/load agreement below still applies.
-Otherwise ask only when an unresolved requirement would materially change fit,
-function, usability or manufacturing. Continue independent work while awaiting
-an essential answer; do not mistake elapsed time for an answer.
+Before detailed CAD, use available requirements for a cheap concept screen and
+present viable deliverable and process options when they have not yet been agreed.
+Recommend an approach, explain its consequential assumptions and print setup,
+and establish whether this phase delivers a full model, samples before a selected
+full model, or samples only. A choice already made in the conversation counts as
+agreement. Honor explicit delegation of routine choices without asking again.
+The oversized-assembly joint/load agreement below still applies. Ask only when
+an unresolved requirement would materially change fit, function, usability or
+manufacturing. Continue independent work while awaiting an essential answer;
+do not mistake elapsed time for an answer.
 
 Useful questions establish the intended use, critical interfaces, loads and
 whether required hardware or assembly is acceptable. Explain what to measure
@@ -20,9 +24,23 @@ access to purchased parts merely because the user has a printer.
 When a mechanism choice needs user input, recommend one feasible approach and
 briefly explain the meaningful tradeoff. When the user has delegated the choice,
 select it directly within known constraints. State the interpreted use, print
-approach and consequential assumptions before building. Revisit clarification
-only if new evidence reveals a material conflict; a named fit parameter is not
-proof that the assumed dimension is correct.
+approach and consequential assumptions before building. After agreement,
+complete the phase autonomously; revisit the decision only if new evidence
+reveals a material conflict or the agreed physical observation is needed.
+A named fit parameter is not proof that the assumed dimension is correct.
+
+## Pre-CAD concept screen
+
+Use rough, stated assumptions to answer consequential questions before detailed
+geometry. As relevant, calculate a fit stack, mating-surface engagement,
+clearance or release travel, full-size assembly path, oriented part envelope,
+or a structural load and deflection estimate. Compare alternative concepts at
+the level needed to reject one; avoid detailed calculations that cannot change
+the choice. If a concept fails even an optimistic bound, revise it before CAD
+or a print trial. List what needs actual modelled geometry, such as local weak
+sections or motion interference, and what needs a physical print, such as
+friction, spring force, sag or feel. Confirm concept estimates with measured CAD
+sections and interfaces only where those measurements change the decision.
 
 An assembled object may exceed the repository's practical printable envelope;
 do not reject the request for size alone. If it must be divided into printable
