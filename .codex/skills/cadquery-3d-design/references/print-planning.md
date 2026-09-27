@@ -35,7 +35,7 @@ against the practical envelope before detailed CAD. Estimate the load on each
 candidate joint in the proposed layer direction and the full-size assembly
 travel. Bed fit alone does not select a viable split or print orientation; use
 the early numerical screen in [structural load paths and joint screens](design-decisions.md#structural-load-paths-and-joint-screens),
-then confirm actual geometry and deposited footprint later.
+then let the final Orca slice check the selected print layout and print aids.
 
 Choose a plausible print orientation before committing to major geometry, and revisit it as the design evolves:
 

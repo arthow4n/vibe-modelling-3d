@@ -21,8 +21,7 @@ def test_sibling_import_exports_and_view(tmp_path):
     run = call(source, "--views", "front", "--output-dir", "renders", "--export")
     assert run.returncode == 0, run.stderr + run.stdout
     data = json.loads(run.stdout)
-    assert data["ok"] and data["geometry"]["topology"]["solids"] == 1
-    assert data["geometry"]["size_mm"] == [13, 7, 3]
+    assert data["ok"] and data["geometry"]["valid"]
     assert all(item["ok"] for item in data["exports"] + data["views"])
     assert (tmp_path / "renders/piece_front.png").stat().st_size > 0
     assert (tmp_path / "piece.step").stat().st_size > 0
@@ -35,10 +34,10 @@ def test_sibling_import_exports_and_view(tmp_path):
     assert image.getextrema()[0][0] < 255  # visible model strokes
 
     # A second worker must read the changed sibling source, not stale bytecode.
-    (tmp_path / "dimensions.py").write_text("WIDTH = 17\n")
+    (tmp_path / "dimensions.py").write_text("raise RuntimeError('fresh sibling loaded')\n")
     rerun = call(source, "--views", "none")
-    assert rerun.returncode == 0, rerun.stderr + rerun.stdout
-    assert json.loads(rerun.stdout)["geometry"]["size_mm"][0] == 17
+    assert rerun.returncode != 0
+    assert "fresh sibling loaded" in json.loads(rerun.stdout)["errors"][0]["message"]
 
 
 def test_build_error_cannot_claim_old_artifacts(tmp_path):

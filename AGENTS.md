@@ -17,8 +17,9 @@ Use the Qidi Q2C **270 × 270 × 256 mm (X × Y × Z)** build volume as the defa
 practical printable envelope
 ([Q2C specifications](https://us.qidi3d.com/products/q2c)), unless the user
 specifies another setup. This is the usable design limit, not the printer's
-physical plate dimensions. Include generated brims/supports when checking XY,
-and check each oriented axis independently. For OrcaSlicer reviews, take the
+physical plate dimensions. Allow for likely brims/supports in the rough plan,
+and check each oriented axis independently. Let the final Orca slice decide
+whether its actual print aids fit. For OrcaSlicer reviews, take the
 printable area and height from the selected printer profile; do not maintain a
 separate bed-size override. Use a smaller user-confirmed safe volume by
 providing a printer profile with those limits.
@@ -40,9 +41,9 @@ committing to the split and joint geometry, establish with the user the required
 joint strength, relevant loads and directions, acceptable hardware/adhesive,
 permanent versus demountable assembly, and any safety consequences. Recommend a
 feasible joint strategy and explain its tradeoffs; do not silently assume that a
-simple alignment or friction joint is structurally adequate. Check every part,
-including its print aids, against the practical envelope and verify the assembled
-interfaces and load path.
+simple alignment or friction joint is structurally adequate. Plan each part for
+the practical envelope; let the final slice check its selected print layout and
+generated print aids. Verify the assembled interfaces and load path separately.
 
 ## Core workflow
 
@@ -74,9 +75,9 @@ interfaces and load path.
    [CadQuery command](evaluate_model.py) are available. Run `uv sync --locked`
    from the repository root when the locked environment is not installed.
 4. Create or revise the object's parametric Python source. Evaluate the file
-   through the shared command and inspect validity, solid count, bounds and errors;
-   read named dimensions in the source or object notes rather than treating
-   automatically extracted parameters as authoritative. Choose views using the
+   through the shared command and inspect validity and errors. Read named
+   dimensions in the source or object notes; use targeted CAD measurements for
+   geometry questions that planning cannot settle. Choose views using the
    skill's evidence guidance.
 5. Compare the geometry against the intended use and references. Check access,
    insertion, retention and release as relevant. Correct the largest functional,
@@ -92,9 +93,8 @@ interfaces and load path.
    forbidden. Continue until the
    concrete review questions are resolved and further iteration is unlikely to
    materially improve the result. Distinguish CAD/slicer evidence from physical
-   testing; document any remaining limitation. Export the agreed printable
-   layouts and smoke-slice their matching STL files through the evaluator;
-   a samples-only phase does not require full-object exports.
+   testing; document any remaining limitation. A samples-only phase does not
+   require full-object exports.
 7. Save matching print-ready exports, useful final views and one concise record
    of assumptions, print/use instructions and verification evidence. Include
    the [standard per-object print-status block](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record)
@@ -104,6 +104,25 @@ interfaces and load path.
    design skill's reusable-evidence reference when a result can inform another
    model; keep the detailed evidence with its object.
 8. Review, commit and push the completed work using the Git workflow below.
+
+## Trust each stage for the question it answers
+
+| Stage | Establish here | Trust afterward; do not repeat routinely |
+| --- | --- | --- |
+| Planning | Agree on the print setup and deliverable; screen rough fit, print envelope, assembly travel and relevant loads before detailed CAD. | Do not model or slice merely to discover that the concept fails simple math. |
+| CAD | Build valid geometry; use specific assertions or measurements for consequential fit, motion, access and structure questions. Use views for visual questions. | A generic bounds or solid-count report is not a check against design intent. Do not add one without an expected result and decision it could change. |
+| Export | Write STEP and STL from the same selected print geometry and check each export's status. | Trust successful conversion unless a concrete defect suggests otherwise; do not routinely reimport STEP, parse STL triangles or compare exported bounds. |
+| Orca slice | Under the selected effective printer, process, filament and placement, check completion, notices and the automatic-support signal. | Trust Orca's acceptance of that print layout for printer fit, including generated brims/supports. Do not repeat its envelope decision with CAD bounds or a G-code reader. Generated support calls for targeted review, not automatic redesign. |
+| Physical print | Check actual fit, friction, bridge quality, strength, comfort and material response where they matter. | CAD and slice success do not establish these physical outcomes. |
+
+Trust applies only to the checked source or artifact, orientation, placement,
+profile and tool version. A diagnostic profile that differs from the agreed
+setup cannot establish printer fit for the agreed setup. Revisit a stage when
+relevant inputs change or a specific failure creates a reason to doubt its
+result. A successful STL smoke slice does not verify Orca's separate GUI STEP
+import. Keep targeted checks for questions outside the earlier stage's scope;
+do not create generic checkers to
+reprove an upstream tool's successful status.
 
 ## Object ownership and source of truth
 
@@ -183,9 +202,6 @@ when custom checks, naming or component exports require it.
 For a position-sensitive layout, use `--slice-placement preserve`. Record any
 different arrangement or compound splitting intended in Orca's GUI; the CLI
 smoke slice only covers the placement it actually used.
-For ordinary exports, use the evaluator's successful output status and inspect
-the actual files only when a concrete export concern remains; routine STEP
-reimport, STL triangle parsing and bounds comparison add little value.
 Use an explicit `_assembled.step` suffix for an additional inspection pose.
 Respect an explicit user request for a different export arrangement. Add 3MF or
 other formats only when useful.
@@ -239,8 +255,6 @@ const summary = {
   file_path: report.file_path,
   geometry: report.geometry && {
     valid: report.geometry.valid,
-    size_mm: report.geometry.size_mm,
-    topology: report.geometry.topology,
   },
   views: (report.views ?? []).map(({ view, ok, path }) => ({ view, ok, path })),
   exports: (report.exports ?? []).map(({ path, ok }) => ({ path, ok })),

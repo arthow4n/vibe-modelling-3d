@@ -27,7 +27,7 @@ with each applicable evaluation.
 - [ ] Decide which remaining questions require modelled geometry and which require a physical print. For an oversized assembly, resolve segmentation and joint/load requirements with the user before finalizing it.
 - [ ] Choose orientation, wall sizes, layer direction and support strategy using the agreed print setup; plan worthwhile physical experiments only for unresolved physical behavior.
 - [ ] Build understandable parametric geometry; preserve critical interfaces.
-- [ ] Evaluate source through the shared CadQuery command; check bounds and topology; select useful views.
+- [ ] Evaluate source through the shared CadQuery command; inspect build validity and errors, then select views or targeted geometry checks for unresolved questions.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
 - [ ] For structurally important parts and joints, update the load and stiffness screen using measured CAD sections before recommending a structural trial.
 - [ ] Review final generic FDM geometry and resolve significant defects, especially on fit-critical surfaces.
@@ -76,8 +76,8 @@ Choose evidence by question, not as a mandatory sequence or universal ranking:
 
 | Evidence | What it establishes within its assumptions |
 | --- | --- |
-| Deterministic CAD/geometric checks | Intersections, mating dimensions, wall/gap thickness, bounds, bed placement, engagement and motion/clearance within the checked scope |
-| Slicer status and auto-support probe; GUI preview when needed | Completed slice, warnings and generated-support signal for the selected profile; preview can answer specific path or placement questions |
+| Deterministic CAD/geometric checks | Intersections, mating dimensions, wall/gap thickness, engagement and motion/clearance within the checked scope |
+| Slicer status and auto-support probe; GUI preview when needed | Completed slice, printer fit for the selected layout and profile, warnings and generated-support signal; preview can answer specific path or placement questions |
 | CAD renders | Proportions, recognition, appearance, finger access, control comprehension, assembly layout and visual diagnosis |
 | Analytical mechanics; selective simulation | Predicted stiffness, force, torque, strain or structural behavior under stated assumptions |
 | Physical prints/tests | Actual fit, friction, effort, spring return, sag, material response, wear and subjective feel under tested conditions |

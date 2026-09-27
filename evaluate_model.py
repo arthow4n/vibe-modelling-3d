@@ -68,22 +68,7 @@ def selected_shape(value):
 
 
 def geometry_data(shape):
-    from OCP.Bnd import Bnd_Box
-    from OCP.BRepBndLib import BRepBndLib
-
-    def measure(item):
-        box = Bnd_Box()
-        BRepBndLib.AddOptimal_s(item.wrapped, box, False, False)
-        bounds = list(box.Get())
-        return {"valid": item.isValid(), "bounds_mm": bounds,
-                "size_mm": [bounds[i + 3] - bounds[i] for i in range(3)]}
-
-    data = measure(shape)
-    data["volume_mm3"] = shape.Volume()
-    solids = shape.Solids()
-    data["topology"] = {"solids": len(solids)}
-    data["components"] = [measure(part) for part in solids]
-    return data
+    return {"valid": shape.isValid()}
 
 
 def atomic_bytes(path, data):
@@ -114,8 +99,7 @@ def export(shape, item):
         else:
             cq.exporters.export(shape, str(temporary), exportType=item["format"])
         temporary.replace(path)
-        result = {key: value for key, value in item.items() if key != "format"}
-        return {**result, "ok": True}
+        return {"path": str(path), "ok": True}
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -137,7 +121,7 @@ def worker(request, response):
     args = json.loads(Path(request).read_text())
     path = Path(args["file_path"])
     root = path.parent
-    report = {"ok": False, "file_path": str(path), "units": "mm", "errors": [],
+    report = {"ok": False, "file_path": str(path), "errors": [],
               "views": [], "exports": [], "timings_seconds": {},
               "versions": {"python": sys.version.split()[0], "cadquery": cq.__version__}}
     log = io.StringIO()
@@ -170,8 +154,7 @@ def worker(request, response):
                 try:
                     report["exports"].append(export(shape, item))
                 except Exception as exc:
-                    result = {key: value for key, value in item.items() if key != "format"}
-                    report["exports"].append({**result, "ok": False})
+                    report["exports"].append({"path": item["path"], "ok": False})
                     error("export", exc, path=item["path"])
             for view in args["views"]:
                 destination = Path(args["output_dir"]) / f'{path.stem}_{view}.png'
@@ -505,12 +488,7 @@ def main(argv=None):
             if path in paths:
                 parser.error(f"{name} output path must be distinct from the source")
             paths.add(path)
-            item = {"path": str(path), "format": name}
-            if name == "STL":
-                item.update(tolerance_mm=STL_LINEAR_TOLERANCE_MM,
-                            angular_tolerance_rad=STL_ANGULAR_TOLERANCE_RAD,
-                            linear_tolerance_mode="absolute")
-            exports.append(item)
+            exports.append({"path": str(path), "format": name})
     destinations = {output_dir / f"{source.stem}_{view}.png" for view in views}
     if source in destinations or paths & destinations:
         parser.error("Source, view and export paths must be distinct")
