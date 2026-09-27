@@ -46,10 +46,10 @@ defaults synchronized:
 
 | Argument | Default | Meaning |
 | --- | --- | --- |
-| `--model PATH` | Required | STL or 3MF to slice. |
-| `--printer PATH` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json` | Printer and machine dimensions. |
-| `--process PATH` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json` | 0.20 mm Standard, 7% adaptive cubic sparse infill. |
-| `--filament PATH` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json` | Generic PETG. |
+| `--model MODEL` | Required | STL or 3MF to slice. |
+| `--printer PRINTER` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json` | Printer and machine dimensions. |
+| `--process PROCESS` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json` | 0.20 mm Standard, 7% adaptive cubic sparse infill. |
+| `--filament FILAMENT` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json` | Generic PETG. |
 | `--placement {preserve,center,assembly}` | `center` | Centering mode; rotation and auto-orientation stay disabled. |
 | `--expect-no-supports` | Off (`false`) | Request review if Orca generates support paths. |
 | `--keep-run` | Off (`false`) | Preserve temporary G-code and diagnostics. |

@@ -43,10 +43,10 @@ These values must match `review_print.py --help`:
 
 | Argument | Default |
 | --- | --- |
-| `--model PATH` | Required |
-| `--printer PATH` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json` |
-| `--process PATH` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json` |
-| `--filament PATH` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json` |
+| `--model MODEL` | Required |
+| `--printer PRINTER` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json` |
+| `--process PROCESS` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json` |
+| `--filament FILAMENT` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json` |
 | `--placement {preserve,center,assembly}` | `center` |
 | `--expect-no-supports` | Off (`false`) |
 | `--keep-run` | Off (`false`) |
