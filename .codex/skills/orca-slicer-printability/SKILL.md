@@ -36,14 +36,44 @@ claim that its settings predict the agreed print. A 0.8 mm or TPU design needs
 an appropriate printer/process/filament profile for setup-specific path claims;
 if none is available, record that evidence gap. Do not substitute the 0.4 mm
 PETG profile silently. Do not translate another slicer's profile into Orca or
-add more reference slicers. For a final smoke review, slice the final exported
-STL or 3MF. Reuse a result only while its
+add more reference slicers. STEP is the user's primary print-ready interchange
+file. The installed headless Orca CLI rejects STEP input, so for a final smoke
+review slice the matching exported STL. This result does not verify Orca's GUI
+STEP import; do not describe it as a STEP slice. Use 3MF when it is the agreed
+print file. Reuse a result only while its
 model, profiles, placement and slicer version still match; follow the evidence
 reuse rules in AGENTS.md.
 
 ## Run the review
 
-From the repository root, run the unified helper. It infers OrcaSlicer, loads
+For a normal final model, run this from the repository root:
+
+```sh
+./evaluate_model.py model/object_name/object_name.py --views none --slice
+```
+
+It exports the STEP/STL pair and runs this helper on the STL. Optional
+`--slice-printer`, `--slice-process`
+and `--slice-filament` accept compatible Orca JSON profiles; otherwise the
+diagnostic defaults below apply. The evaluator returns the slice result in its
+single JSON report. Use the standalone helper below when reviewing an already
+exported file without rebuilding the model.
+
+The evaluator also passes through `--slice-placement`,
+`--slice-expect-no-supports` and `--slice-keep-run` when needed. A completed
+slice that needs review exits 2 and reports `slice.review_required=true`;
+failure exits 1. Read stage status even if a view render failed.
+
+For an agreed setup with different profiles, pass them in the same command:
+
+```sh
+./evaluate_model.py model/object_name/object_name.py --views none --slice \
+  --slice-printer model/object_name/notes/printer.json \
+  --slice-process model/object_name/notes/process.json \
+  --slice-filament model/object_name/notes/filament.json
+```
+
+For an existing export, run the unified helper from the repository root. It infers OrcaSlicer, loads
 profiles, slices the model, reads effective settings, summarizes deposited
 paths and prints one JSON report to stdout. It never sends a printer job.
 

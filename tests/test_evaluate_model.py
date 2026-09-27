@@ -18,8 +18,7 @@ def test_sibling_import_exports_and_view(tmp_path):
     source = tmp_path / "piece.py"
     source.write_text("import cadquery as cq\nfrom dimensions import WIDTH\n"
                       "result = cq.Workplane('XY').box(WIDTH, 7, 3)\n")
-    run = call(source, "--views", "front",
-               "--output-dir", "renders", "--step", "piece.step", "--stl", "piece.stl")
+    run = call(source, "--views", "front", "--output-dir", "renders", "--export")
     assert run.returncode == 0, run.stderr + run.stdout
     data = json.loads(run.stdout)
     assert data["ok"] and data["geometry"]["topology"]["solids"] == 1
@@ -45,10 +44,11 @@ def test_sibling_import_exports_and_view(tmp_path):
 def test_build_error_cannot_claim_old_artifacts(tmp_path):
     source = tmp_path / "broken.py"
     source.write_text("raise ValueError('bad geometry')\n")
-    old = tmp_path / "old.step"
+    old = tmp_path / "broken.step"
     old.write_text("old output")
-    run = call(source, "--views", "none", "--step", "old.step")
+    run = call(source, "--views", "none", "--export")
     assert run.returncode != 0
     data = json.loads(run.stdout)
     assert not data["ok"] and data["errors"][0]["stage"] == "build"
     assert data["exports"] == [] and old.read_text() == "old output"
+    assert not (tmp_path / "broken.stl").exists()

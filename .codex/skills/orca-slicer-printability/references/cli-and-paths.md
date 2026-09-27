@@ -4,6 +4,13 @@ Use the [OrcaSlicer skill](../SKILL.md#run-the-review) for the current command,
 profile arguments and report. The findings below were checked with Flatpak
 OrcaSlicer 2.4.2 on 2026-09-27; recheck them when the slicer or profiles change.
 
+## STEP input in the headless CLI
+
+Orca's GUI imports STEP, but the installed 2.4.2 headless CLI rejected a
+positional `.step` file with `Unknown file format` and listed STL, OBJ and AMF
+as accepted model inputs. Use the matching exported STL for the reference CLI
+slice. That result cannot establish how Orca's GUI tessellates the STEP file.
+
 ## Resolved profiles matter
 
 The headless CLI accepted bundled child preset names but did not reliably

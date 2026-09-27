@@ -29,6 +29,7 @@ VIEWS = {
 }
 STL_LINEAR_TOLERANCE_MM = 0.003
 STL_ANGULAR_TOLERANCE_RAD = 0.5
+SLICE_TIMEOUT_SECONDS = 600
 
 
 def selected_shape(value):
@@ -230,13 +231,29 @@ def main(argv=None):
                         help="Rendered image height in pixels (1–4096)")
     parser.add_argument("--show-hidden", action="store_true",
                         help="Include hidden edges in rendered views")
-    parser.add_argument("--step", type=Path,
-                        help="Optional STEP output path, relative to the model file; disabled when omitted")
-    parser.add_argument("--stl", type=Path,
-                        help="Optional STL output path, relative to the model file; disabled when omitted")
+    parser.add_argument("--export", action="store_true",
+                        help="Export matching STEP and STL beside the source, using its stem")
+    parser.add_argument("--slice", action="store_true",
+                        help="Export the pair and smoke-slice its STL with OrcaSlicer")
+    parser.add_argument("--slice-printer", type=Path,
+                        help="Orca printer profile; use with --slice")
+    parser.add_argument("--slice-process", type=Path,
+                        help="Orca process profile; use with --slice")
+    parser.add_argument("--slice-filament", type=Path,
+                        help="Orca filament profile; use with --slice")
+    parser.add_argument("--slice-placement", choices=("preserve", "center", "assembly"),
+                        default="center", help="Orca placement; use with --slice")
+    parser.add_argument("--slice-expect-no-supports", action="store_true",
+                        help="Flag generated supports for review; use with --slice")
+    parser.add_argument("--slice-keep-run", action="store_true",
+                        help="Keep Orca diagnostics and G-code; use with --slice")
     parser.add_argument("--timeout", type=positive_float, default=300,
                         help="Maximum evaluation time in seconds")
     args = parser.parse_args(argv)
+    if not args.slice and any((args.slice_printer, args.slice_process,
+                               args.slice_filament, args.slice_expect_no_supports,
+                               args.slice_keep_run, args.slice_placement != "center")):
+        parser.error("Slice settings require --slice")
     source = args.file_path.resolve()
     if not source.is_file():
         parser.error(f"Model source does not exist: {source}")
@@ -247,19 +264,17 @@ def main(argv=None):
     output_dir = (root / args.output_dir).resolve()
     exports = []
     paths = {source}
-    for name, choice, suffixes in (("STEP", args.step, (".step", ".stp")),
-                                   ("STL", args.stl, (".stl",))):
-        if choice is None:
-            continue
-        path = (root / choice).resolve()
-        if path.suffix.lower() not in suffixes or path in paths:
-            parser.error(f"{name} path must be distinct from the source and have a matching extension")
-        paths.add(path)
-        item = {"path": str(path), "format": name}
-        if name == "STL":
-            item.update(tolerance_mm=STL_LINEAR_TOLERANCE_MM,
-                        angular_tolerance_rad=STL_ANGULAR_TOLERANCE_RAD)
-        exports.append(item)
+    if args.export or args.slice:
+        for name, suffix in (("STEP", ".step"), ("STL", ".stl")):
+            path = root / f"{source.stem}{suffix}"
+            if path in paths:
+                parser.error(f"{name} output path must be distinct from the source")
+            paths.add(path)
+            item = {"path": str(path), "format": name}
+            if name == "STL":
+                item.update(tolerance_mm=STL_LINEAR_TOLERANCE_MM,
+                            angular_tolerance_rad=STL_ANGULAR_TOLERANCE_RAD)
+            exports.append(item)
     destinations = {output_dir / f"{source.stem}_{view}.png" for view in views}
     if source in destinations or paths & destinations:
         parser.error("Source, view and export paths must be distinct")
@@ -293,8 +308,39 @@ def main(argv=None):
                     report["ok"] = False
                     report["errors"].append({"stage": "worker", "message": f"Worker exited {returncode}"})
     report.setdefault("timings_seconds", {})["total"] = time.monotonic() - started
+    pair_ready = (len(report.get("exports", [])) == 2
+                  and all(item.get("ok") for item in report["exports"]))
+    if args.slice and pair_ready:
+        slicer = Path(__file__).resolve().parent / ".codex/skills/orca-slicer-printability/scripts/review_print.py"
+        command = [sys.executable, str(slicer), "--model", str(root / f"{source.stem}.stl"),
+                   "--placement", args.slice_placement]
+        for option, value in (("--printer", args.slice_printer),
+                              ("--process", args.slice_process),
+                              ("--filament", args.slice_filament)):
+            if value is not None:
+                command.extend((option, str(value)))
+        if args.slice_expect_no_supports:
+            command.append("--expect-no-supports")
+        if args.slice_keep_run:
+            command.append("--keep-run")
+        before = time.monotonic()
+        try:
+            sliced = subprocess.run(command, cwd=Path(__file__).resolve().parent,
+                                    capture_output=True, text=True, timeout=SLICE_TIMEOUT_SECONDS + 60,
+                                    check=False)
+            if sliced.returncode not in (0, 2):
+                raise RuntimeError(sliced.stderr.strip() or "OrcaSlicer review failed")
+            report["slice"] = {"ok": True, **json.loads(sliced.stdout)}
+        except (OSError, ValueError, subprocess.TimeoutExpired, RuntimeError) as exc:
+            report["slice"] = {"ok": False, "message": str(exc)}
+            report["errors"].append({"stage": "slice", "message": str(exc)})
+            report["ok"] = False
+        report["timings_seconds"]["slice"] = time.monotonic() - before
+        report["timings_seconds"]["total"] = time.monotonic() - started
     print(json.dumps(report, indent=2))
-    return 0 if report["ok"] else 1
+    if not report["ok"]:
+        return 1
+    return 2 if args.slice and report["slice"]["review_required"] else 0
 
 
 if __name__ == "__main__":

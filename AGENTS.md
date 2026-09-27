@@ -47,7 +47,11 @@ interfaces and load path.
 ## Core workflow
 
 1. Inspect the request, references, existing files and user changes. Reuse known
-   preferences. Before detailed CAD, make the cheapest useful concept screen:
+   preferences. Look for an analogous model in the
+   [reusable design evidence](.codex/skills/cadquery-3d-design/references/reusable-model-lessons.md)
+   and its linked source before starting from zero; carry over only evidence
+   that applies to the new geometry and print setup. Before detailed CAD, make
+   the cheapest useful concept screen:
    approximate fit and assembly travel, mating engagement, print envelope, and
    loads, stiffness or force where relevant. Reject a concept that fails even
    optimistic assumptions. Identify what needs actual modelled geometry and what
@@ -79,17 +83,22 @@ interfaces and load path.
    if it repeatedly fails. Recalculate where measured CAD geometry changes the
    concept-screen inputs. A valid build alone does not establish function.
 6. Apply the skill's CAD/export checks and final generic FDM review, including
-   its final reference-slice smoke check when available. Continue until the
+   its final reference-slice smoke check when available. Use the shared
+   evaluator's `--slice` option for ordinary final layouts so paired exports
+   and the smoke check come from one command. Continue until the
    concrete review questions are resolved and further iteration is unlikely to
    materially improve the result. Distinguish CAD/slicer evidence from physical
-   testing; document any remaining limitation. Export and slice the agreed
-   printable layouts; a samples-only phase does not require full-object exports.
+   testing; document any remaining limitation. Export the agreed printable
+   layouts and smoke-slice their matching STL files with the headless Orca helper;
+   a samples-only phase does not require full-object exports.
 7. Save matching print-ready exports, useful final views and one concise record
    of assumptions, print/use instructions and verification evidence. Include
    the [standard per-object print-status block](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record)
    for test piece(s) and the final printable object(s), using N/A when a category
    is outside the agreed phase. When a user reports a print, update the object
-   block and the root model-index summary together.
+   block and the root model-index summary together. Add a concise entry to the
+   design skill's reusable-evidence reference when a result can inform another
+   model; keep the detailed evidence with its object.
 8. Review, commit and push the completed work using the Git workflow below.
 
 ## Object ownership and source of truth
@@ -132,6 +141,11 @@ source. `result` explicitly selects the output; otherwise all `show_object()`
 outputs are combined. Do not mix display-only reference geometry into the
 selected printable result.
 
+`--slice` implies `--export`. Exit status 2 means Orca completed the slice but
+its report requires review; inspect `slice.review_required` and notices in the
+JSON. Exit status 1 means evaluation or slicing failed. A render failure may
+coexist with successful exports and a successful slice, so inspect stage status.
+
 Use `--views none` for checks that need no images. Inspect structured error status:
 a failed view can coexist with successful geometry or exports. Saved paths are
 successful outputs only when their corresponding status says so. Build and
@@ -141,10 +155,19 @@ own artifacts; the command does not roll back those side effects.
 For normal printable models, deliver at least `.py`, `.step` and `.stl`.
 This applies to the printable objects agreed for the current phase, including
 samples; it does not require full-size variants when only samples were requested.
+STEP is the primary print-ready interchange file. STL is a matching secondary
+export used for the headless reference slice and compatibility. An STL-based
+slice does not validate Orca's separate GUI STEP import or its tessellation.
 Export STEP and STL from the **same geometry and print placement**, with matching
-units, orientation, bed position and relative component positions. The command's
-`--step` and `--stl` options write both from one build; use an object-owned wrapper
-when custom checks or component exports require it.
+units, orientation, bed position and relative component positions. The shared
+command's `--export` writes both files named after the source; `--slice` writes
+the same pair and reviews the STL with OrcaSlicer. Supply compatible
+`--slice-printer`, `--slice-process` and `--slice-filament` profiles when the
+agreed setup differs from the diagnostic defaults. Use an object-owned wrapper
+when custom checks, naming or component exports require it.
+For ordinary exports, use the evaluator's successful output status and inspect
+the actual files only when a concrete export concern remains; routine STEP
+reimport, STL triangle parsing and bounds comparison add little value.
 Use an explicit `_assembled.step` suffix for an additional inspection pose.
 Respect an explicit user request for a different export arrangement. Add 3MF or
 other formats only when useful.
@@ -160,8 +183,8 @@ disposable scratch output before staging; retain historical evidence deliberatel
 
 Use renders only to answer a concrete visual question. Keep the four-view
 default when it is useful; request only the needed views or `--views none` for
-geometry-only checks. Add `--step` and `--stl` together when final exports are
-needed so they come from the same build. Reuse saved images rather than
+geometry-only checks. Use `--export` for the final pair or `--slice` for the
+pair plus smoke review. Reuse saved images rather than
 rebuilding merely to open them.
 
 For valid evaluation invocations, stdout is one JSON report. The example below
@@ -177,7 +200,7 @@ workflow (use the needed views/exports and set `workdir` to the repository):
 
 ```js
 let run = await tools.exec_command({
-  cmd: "./evaluate_model.py model/object_name/object_name.py --views isometric,front --step object_name.step --stl object_name.stl 2>/dev/null",
+  cmd: "./evaluate_model.py model/object_name/object_name.py --views isometric,front --slice 2>/dev/null",
   workdir: "/absolute/path/to/repository",
   yield_time_ms: 30000,
   max_output_tokens: 12000,
@@ -203,6 +226,12 @@ const summary = {
   },
   views: (report.views ?? []).map(({ view, ok, path }) => ({ view, ok, path })),
   exports: (report.exports ?? []).map(({ path, ok }) => ({ path, ok })),
+  slice: report.slice && {
+    ok: report.slice.ok,
+    review_required: report.slice.review_required,
+    inside_printer_volume: report.slice.inside_printer_volume,
+    log_notices: report.slice.log_notices,
+  },
   errors: (report.errors ?? []).map(({ stage, type, message, file, line, view, path }) =>
     ({ stage, type, message, file, line, view, path })),
 };
@@ -235,7 +264,8 @@ Reuse evidence only when its relevant inputs are unchanged and recorded:
 
 - CAD: source modules, parameters, placement and tool versions.
 - Exports: actual output files and exporter settings/version.
-- Slicing: mesh, effective profile, command options and slicer version.
+- Slicing: the sliced STL, effective profile, command options and slicer
+  version. Do not treat that result as verification of GUI STEP import.
 
 Changed source or output files invalidate affected checks; rerun if dependencies
 are unclear. Final verification must cover the final files.

@@ -19,8 +19,7 @@ small jar mouth, and press/draw the blade against the inner wall to release the
 material. Repeat as needed and leave headspace below the thread.
 
 The source of truth is `vaseline_transfer_spatula.py`. It produces one solid in
-print orientation. `verify_and_export.py` independently checks the delivered
-STEP/STL pair.
+print orientation. The delivered STEP and STL are matching exports of that model.
 
 ## Print plan
 

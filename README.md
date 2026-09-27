@@ -5,7 +5,8 @@ Experiment field for random vibe-modelled 3D objects. Mainly for 3D printing.
 
 The repository is a uv Python project. Run `uv sync --locked` once, then use the
 shared [CadQuery evaluation command](evaluate_model.py) to build, inspect,
-render and optionally export a model file. Invoke it directly as
+render and export matching STEP/STL files with `--export`; `--slice` also runs a
+reference OrcaSlicer smoke review on the STL. Invoke it directly as
 `./evaluate_model.py`; `--help` lists its options and defaults. No MCP server
 configuration is needed. CairoSVG in the uv environment produces PNG views;
 OrcaSlicer is installed from Flathub for reference-profile CLI print review.
@@ -32,6 +33,9 @@ the [standard per-object status block](.codex/skills/cadquery-3d-design/referenc
 **Unknown** means no user print report is recorded, while **N/A** means no
 printable item exists in that category for the current phase. Detailed results
 and remaining physical checks are documented with each object.
+For a new design, the design skill's
+[reusable model evidence](.codex/skills/cadquery-3d-design/references/reusable-model-lessons.md)
+points to tested interfaces and their transfer limits.
 
 ## Licensing
 

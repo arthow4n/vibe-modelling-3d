@@ -18,7 +18,7 @@ as described in AGENTS.md.
 Apply relevant items; this is not a requirement to run every evidence method.
 Reopen affected checks after changes; do not repeat unrelated checks for a small revision.
 
-- [ ] Confirm scope, references, user edits, known preferences and required CAD tool availability.
+- [ ] Confirm scope, references, user edits, known preferences and required CAD tool availability; check the reusable-model evidence for an analogous design.
 - [ ] Establish use, critical dimensions, assembly/material preferences, mechanism effort and failure modes.
 - [ ] Screen the concept with rough fit, engagement, assembly-travel and print-envelope calculations as relevant. For structurally important parts and joints, estimate loads, stiffness and force before detailed CAD; reject an infeasible concept early.
 - [ ] Recommend viable deliverables and a print setup, explain tradeoffs, and agree on this phase's sequence if it is not already established.
@@ -30,10 +30,11 @@ Reopen affected checks after changes; do not repeat unrelated checks for a small
 - [ ] For structurally important parts and joints, update the load and stiffness screen using measured CAD sections before recommending a structural trial.
 - [ ] Review final generic FDM geometry and resolve significant defects, especially on fit-critical surfaces.
 - [ ] Review exposed edges, corners and grip areas without weakening interfaces.
-- [ ] Export the agreed printable layouts as STEP/STL from the same print-ready geometry and placement; verify artifacts.
+- [ ] Export the agreed printable layouts as STEP/STL from the same print-ready geometry and placement; check output status and any specific export concern.
 - [ ] Run/reuse the final reference smoke slice for those layouts when available; investigate detailed paths only for unresolved slicer-sensitive questions.
 - [ ] Save useful final views, assumptions, physical evidence and print instructions.
 - [ ] Record separate print status for test piece(s) and any final printable object in the object's notes; use N/A when a category is outside the agreed phase and do not infer a physical print from CAD or slicer output.
+- [ ] Add a reusable-evidence entry only if this work produced a transferable result; link to its detailed object record.
 - [ ] Review and commit/push according to AGENTS.md.
 
 Prioritize function, manufacturability, proportions and topology before cosmetic
@@ -49,6 +50,7 @@ do not mistake a parameter value for a verified measurement or physical result.
 | Fit, force, friction or durability needs physical validation | [Physical experiments](references/physical-experiments.md) |
 | Dimensions, shared builders, modular source or edge treatment | [Parametric construction and edges](references/parametric-and-edges.md) |
 | Captive hinge construction | [Opposing conical pivot example](references/print-in-place-hinges.md) |
+| A similar model or a transferable physical result | [Reusable model evidence](references/reusable-model-lessons.md) |
 
 Read the relevant references during planning, not only after a failed print.
 Do not load every reference for every task.
@@ -85,10 +87,11 @@ A clean slice does not prove physical function. Once only tactile or material
 uncertainty remains, record the limit and offer a physical comparison if worthwhile;
 more virtual variants or inspections cannot supply the missing observation.
 
-Export STEP/STL together from the same geometry. Check the final pair once per
-changed export set, rather than after every intermediate adjustment. This guards
-against stale files and placement/export defects; it is not a second design
-review or proof of shape identity. Batch meaningful sample variants and their
+Use the shared evaluator's `--export` to write STEP/STL together, or `--slice`
+to write the pair and run the reference smoke slice in one command. STEP is the
+primary printable interchange file; the headless review uses the matching STL.
+Confirm successful output status for the final files. Reimport or inspect mesh topology only when a
+specific defect or risk warrants it. Batch meaningful sample variants and their
 checks when useful, keeping each variant tied to a distinct hypothesis.
 
 ## Essential working rules
@@ -129,5 +132,6 @@ Use [print planning](references/print-planning.md) for CAD-first FDM review and
 [OrcaSlicer inspection](../orca-slicer-printability/SKILL.md) for the final smoke
 slice or a slicer-sensitive question. An unknown user profile makes repository
 slices reference evidence, not predictions of the user's toolpaths.
-Export final STEP/STL pairs from the same evaluated geometry and verify the
-changed pair once. This does not replace function review or physical testing.
+Export final STEP/STL pairs from the same evaluated geometry and check successful
+output status. Apply object-specific geometric and mechanical checks where they
+answer a functional question; this does not replace physical testing.

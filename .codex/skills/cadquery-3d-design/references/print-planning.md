@@ -69,10 +69,15 @@ this review. State material/nozzle assumptions and remaining physical uncertaint
 
 For normal FDM deliverables, run one final smoke slice per agreed exported
 printable layout when OrcaSlicer is available, using the
-[reference review workflow](../../orca-slicer-printability/SKILL.md). Reuse an
+[reference review workflow](../../orca-slicer-printability/SKILL.md). For an
+ordinary model source, use the evaluator's `--slice` and `--views none` options
+to write the pair and perform this review in one run. Reuse an
 existing slice of the same final artifact and relevant settings; do not slice
-again merely to label it final. This checks acceptance of the actual exported
-mesh by an independent manufacturing toolchain, not universal printability.
+again merely to label it final. STEP is the primary print-ready file. The
+headless Orca CLI cannot import STEP in the installed version, so smoke-slice
+the matching exported STL and state that the result does not verify Orca's GUI
+STEP import. This checks toolpath generation from the delivered design's STL,
+not universal printability.
 No layer windows are required. If unavailable, record the missing smoke evidence
 and complete the authorized deliverables using the available CAD review and
 export generation.
