@@ -55,10 +55,9 @@ the sunglasses closure trial's 12 mm loop bridge was represented by
 roughly 6.2 mm `Bridge infill` paths appeared on a keeper lip whose outer
 edges were themselves unsupported. Neither the longest Bridge infill segment
 nor its presence established the actual free-air span or two sound anchors.
-Compare the previous layer with the first spanning layer, including perimeter
-roles, and distinguish one-sided overhangs from bridges. See the
-[closure review and layer windows](../../../../model/sunglasses_case/notes/closure_review/report.md).
-No automatic anchor classifier was implemented; these were visual inspections.
+The historical [closure review](../../../../model/sunglasses_case/notes/closure_review/report.md)
+used layer images to show why role labels alone did not establish bridge
+anchors. No automatic anchor classifier was implemented.
 
 Subsequent physical A/B/C tests confirmed keeper droop despite the clean slices.
 The D/E revision uses a separate side-printed keeper; checking its local paths
@@ -72,14 +71,11 @@ from CAD and assess/reorient that critical surface before slicing. The historica
 images establish this profile's paths, not a need to rediscover the geometry or
 a universal sag threshold.
 
-When transferring a tested mechanism to a different height, revisit generated
-paths if layer registration can materially affect its function, even if CAD
-comparison shows identical translated geometry. Start with structured layer facts;
-request images only if the relevant topology remains unclear. In the
-[reduced full case](../../../../model/sunglasses_case/notes/production_e_review/report.md),
+In the historical [reduced full case](../../../../model/sunglasses_case/notes/production_e_review/report.md),
 the first loop bridge moved from Z=36.2 to 40.8 mm after a 4.5 mm CAD translation
 on a 0.2 mm layer grid. Preserve dimensions, but do not assume layer registration
-or printed clearance stays identical. This was observed with PrusaSlicer 2.9.6.
+or printed clearance stays identical. This was observed with PrusaSlicer 2.9.6;
+the saved report contains the layer images used to explain the change.
 
 
 ## A printed screw's drive socket is also a fit-critical surface
@@ -105,11 +101,12 @@ A cone does not establish a universal support-free angle for every printer/mater
 
 ## Remaining limitations
 
-Selected layer-window SVGs are supported by the review helper. Automatic
-free-air span measurement, support-removal accessibility checking and a reliable
-pass/fail printability score remain unimplemented here. No universal safe bridge length or overhang-angle limit
-has been established; behavior depends on geometry, anchors, process and material.
-Slicer evidence does not physically measure sag, surface finish or hinge freedom.
+The Orca helper does not generate layer diagrams. Automatic free-air span
+measurement, support-removal accessibility checking and a reliable pass/fail
+printability score remain unimplemented here. No universal safe bridge length or
+overhang-angle limit has been established; behavior depends on geometry, anchors,
+process and material. Slicer evidence does not physically measure sag, surface
+finish or hinge freedom.
 
 ## Check the actual brim and deposited-path footprint
 

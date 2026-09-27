@@ -137,7 +137,7 @@ class ReviewTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, r"reported plate IDs \[2\] but wrote G-code for plate IDs \[1\]"):
                     self._review(files, p / "run")
 
-    def test_requested_window_must_name_a_sliced_plate(self):
+    def test_rejects_duplicate_gcode_plate_ids(self):
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp)
             files = self._inputs(p)
@@ -146,18 +146,18 @@ class ReviewTests(unittest.TestCase):
                     return SimpleNamespace(returncode=0, stdout="OrcaSlicer 2.4.2", stderr="")
                 output = Path(command[command.index("--outputdir") + 1])
                 (output / "plate_1.gcode").write_text(ORCA_GCODE)
+                (output / "orca_plate_1.gcode").write_text(ORCA_GCODE)
                 (output / "result.json").write_text(json.dumps({
                     "return_code": 0, "sliced_plates": [{"id": 1, "warning_message": ""}],
                 }))
                 (output / "effective-settings.json").write_text("{}")
                 return SimpleNamespace(returncode=0)
-            windows = [{"name": "missing", "plate": 2, "layers": [0.2], "window": [0, 0, 6, 4]}]
             with patch("review_print.slicer_prefix", return_value=["fake"]), \
                  patch("review_print.subprocess.run", side_effect=fake):
-                with self.assertRaisesRegex(ValueError, "missing plate"):
-                    self._review(files, p / "run", windows=windows)
+                with self.assertRaisesRegex(RuntimeError, "duplicate G-code plate IDs"):
+                    self._review(files, p / "run")
 
-    def test_completed_review_preserves_notice_and_requested_window(self):
+    def test_completed_review_preserves_notice_and_selected_profile(self):
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp)
             files = self._inputs(p)
@@ -178,13 +178,11 @@ class ReviewTests(unittest.TestCase):
                 return SimpleNamespace(returncode=0)
             with patch("review_print.slicer_prefix", return_value=["fake"]), \
                  patch("review_print.subprocess.run", side_effect=fake):
-                result = self._review(files, p / "run", windows=[{
-                    "name": "bridge", "plate": 1, "layers": [0.2], "window": [0, 0, 6, 4],
-                }])
+                result = self._review(files, p / "run")
             self.assertTrue(result["review_required"])
             self.assertEqual(result["effective_settings"]["filament_type"], ["PETG"])
             self.assertEqual(result["plates"][0]["support_segments"], 1)
-            self.assertTrue((p / "run" / "bridge.svg").exists())
+            self.assertEqual(result["plates"][0]["plate"], 1)
 
     @staticmethod
     def _inputs(path):
@@ -196,9 +194,9 @@ class ReviewTests(unittest.TestCase):
         files["model"] = model
         return files
 
-    def _review(self, files, output, windows=None):
+    def _review(self, files, output):
         return review(files["model"], files["printer"], files["process"], files["filament"],
-                      output, windows=windows)
+                      output)
 
 
 if __name__ == "__main__":

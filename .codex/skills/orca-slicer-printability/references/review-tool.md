@@ -1,9 +1,8 @@
 # Reproducible OrcaSlicer review command
 
 `scripts/review_print.py` runs OrcaSlicer in CLI mode, checks its structured
-result and fresh G-code, records the effective settings, parses deposited paths,
-checks bounds and optionally draws targeted layer windows. It never sends a
-printer job.
+result and fresh G-code, records the effective settings, parses deposited paths
+and checks bounds. It never sends a printer job.
 
 From the repository root, a final reference smoke slice can use the maintained
 Qidi/PETG profiles by default:
@@ -56,30 +55,12 @@ The exact arguments are retained in `command.json`. Do not silently rotate,
 scale, repair, split or union the input. The slicer checks the delivered mesh;
 the placement mode only affects how it is positioned on the plate.
 
-## Targeted layer windows
-
-Add `--windows` only for a named path question that structured output cannot
-answer. Example file, with bed coordinates after the selected placement:
-
-```json
-[
-  {"name":"hinge", "plate":1, "layers":[31.0,34.4,37.8], "window":[78,117,102,139]}
-]
-```
-
-Omit `plate` for plate 1. Choose heights and bounds from the current geometry
-and paths. Missing requested layers fail instead of silently substituting a
-different height. For a new window on the same slice, use `inspect_gcode.py` on
-the saved G-code; do not reslice. Roles and segment lengths do not establish
-anchors or unsupported spans.
-
 ## Outputs and acceptance
 
 The fresh output directory contains:
 
 - `command.json`, `summary.json`, `effective-settings.json`, `result.json`, and
-  `paths.json`;
-- requested SVG windows;
+  `paths.json` with per-layer role counts and bridge-role path summaries;
 - ignored raw `*.gcode` and `*.log` files.
 
 The helper requires a zero CLI exit, a successful `result.json` with at least one

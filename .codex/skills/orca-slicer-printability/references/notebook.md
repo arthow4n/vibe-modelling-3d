@@ -5,7 +5,7 @@ Read only the entries relevant to the current question.
 - [CLI and path interpretation](cli-and-paths.md): headless Flatpak invocation,
   resolved profile settings, G-code parsing and its limits.
 - [Review helper](review-tool.md): fresh reference or actual-profile slices,
-  effective settings, notices, footprint and targeted windows.
+  effective settings, notices, footprint and structured path summaries.
 - [Case lessons](case-lessons.md): retained historical observations, with each
   finding labeled by its original slicer and profile.
 

@@ -1,8 +1,8 @@
 """Create a fresh OrcaSlicer reference review; never send a printer job.
 
 Writes G-code and slicer logs (ignored), effective-settings and result records,
-deposited-path summaries, bounds and optional layer-window SVGs. It preserves
-the supplied model arrangement and orientation.
+deposited-path summaries and bounds. It preserves the supplied model
+arrangement and orientation.
 """
 import argparse
 import json
@@ -13,7 +13,7 @@ import re
 import shlex
 import shutil
 import subprocess
-from inspect_gcode import _is_support, draw_layers, read_paths, summarize
+from inspect_gcode import _is_support, read_paths, summarize
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
 PROFILE_DIR = REPO_ROOT / ".codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg"
@@ -61,26 +61,6 @@ def slicer_prefix(command=None):
     return prefix
 
 
-def _windows(items):
-    items = items or []
-    names = set()
-    for item in items:
-        name = item["name"]
-        box = item["window"]
-        layers = item["layers"]
-        plate = item.get("plate", 1)
-        if not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", name) or name in names:
-            raise ValueError("Window names must be unique lowercase filename stems")
-        names.add(name)
-        if not isinstance(plate, int) or plate < 1:
-            raise ValueError("Window plate numbers start at 1")
-        if not layers or not all(math.isfinite(v) for v in layers):
-            raise ValueError("Window layers must be finite and nonempty")
-        if len(box) != 4 or not all(math.isfinite(v) for v in box) or box[2] <= box[0] or box[3] <= box[1]:
-            raise ValueError("Invalid layer window")
-    return items
-
-
 def _settings_summary(settings):
     keys = ("printer_model", "printer_variant", "nozzle_diameter", "printable_area",
             "printable_height", "filament_type", "filament_settings_id",
@@ -97,7 +77,7 @@ def _log_notices(text):
 
 
 def review(model, printer, process, filament, output, bed=(260, 260, 250),
-           slicer=None, windows=None, expect_no_supports=False, timeout=600,
+           slicer=None, expect_no_supports=False, timeout=600,
            purpose="smoke", profile_scope="reference", placement="center"):
     model = Path(model).resolve(strict=True)
     profiles = {key: Path(value).resolve(strict=True) for key, value in {
@@ -105,7 +85,6 @@ def review(model, printer, process, filament, output, bed=(260, 260, 250),
     output = Path(output).resolve()
     if len(bed) != 3 or not all(math.isfinite(v) and v > 0 for v in bed):
         raise ValueError("Invalid safe build volume")
-    windows = _windows(windows)
     placement_args = {
         "preserve": ["--arrange", "0", "--orient", "0"],
         "center": ["--arrange", "1", "--orient", "0", "--allow-rotations=0"],
@@ -149,32 +128,28 @@ def review(model, printer, process, filament, output, bed=(260, 260, 250),
     expected_plate_numbers = [int(plate["id"]) for plate in expected_plates]
     if len(expected_plate_numbers) != len(set(expected_plate_numbers)):
         raise RuntimeError(f"OrcaSlicer reported duplicate sliced plate IDs: {expected_plate_numbers}")
-
-    plates, path_summaries, notices = [], {}, _log_notices(log_text)
+    gcode_plate_numbers = []
     for gcode in gcode_files:
         match = re.search(r"plate[_-]?(\d+)", gcode.stem, re.I)
         if not match:
             raise RuntimeError(f"Cannot match G-code file to an Orca plate ID: {gcode.name}")
-        plate_number = int(match.group(1))
+        gcode_plate_numbers.append(int(match.group(1)))
+    if len(gcode_plate_numbers) != len(set(gcode_plate_numbers)):
+        raise RuntimeError(f"OrcaSlicer wrote duplicate G-code plate IDs: {gcode_plate_numbers}")
+    if set(gcode_plate_numbers) != set(expected_plate_numbers):
+        raise RuntimeError(
+            f"OrcaSlicer reported plate IDs {sorted(expected_plate_numbers)} "
+            f"but wrote G-code for plate IDs {sorted(gcode_plate_numbers)}"
+        )
+
+    plates, path_summaries, notices = [], {}, _log_notices(log_text)
+    for gcode, plate_number in zip(gcode_files, gcode_plate_numbers):
         layers, metadata = read_paths(gcode)
         path_summary = summarize(layers, metadata)
         bounds = footprint(layers, bed)
         plates.append({"plate": plate_number, "gcode": str(gcode), **bounds,
                        "layer_count": path_summary["layer_count"], "metadata": metadata})
         path_summaries[f"plate_{plate_number}"] = path_summary
-        for item in windows:
-            if item.get("plate", 1) == plate_number:
-                draw_layers(layers, item["layers"], item["window"], output / f"{item['name']}.svg")
-
-    actual_plates = {plate["plate"] for plate in plates}
-    if actual_plates != set(expected_plate_numbers):
-        raise RuntimeError(
-            f"OrcaSlicer reported plate IDs {sorted(expected_plate_numbers)} "
-            f"but wrote G-code for plate IDs {sorted(actual_plates)}"
-        )
-    missing_plates = sorted({item.get("plate", 1) for item in windows} - actual_plates)
-    if missing_plates:
-        raise ValueError(f"Requested layer windows refer to missing plate(s): {missing_plates}")
 
     for plate in result.get("sliced_plates", []):
         warning = plate.get("warning_message", "").strip()
@@ -193,7 +168,6 @@ def review(model, printer, process, filament, output, bed=(260, 260, 250),
         "effective_settings_file": str(effective_path), "result_file": str(result_path),
         "plates": plates, "inside_safe_volume": inside,
         "support_segments": support_segments, "log_notices": notices,
-        "windows": windows,
         "review_required": bool(notices) or not inside or (expect_no_supports and support_segments > 0),
         "limits": "Generic reference/actual-profile paths only. Orientation and arrangement rotation are disabled. Center placement may reposition multiple independent objects; use assembly mode to translate a grouped 3MF layout while retaining its internal positions, or preserve mode for an already positioned project. Bounds include half line width, brim and generated support paths, but exclude travel, start/end machine motion and physical flow spread. Linear ASCII extrusion paths only; role labels and segment lengths do not establish anchors, free-air spans, clearance or physical print quality."
     }
@@ -212,16 +186,16 @@ def main():
     parser.add_argument("--bed", type=float, nargs=3, default=(260, 260, 250), metavar=("X", "Y", "Z"))
     parser.add_argument("--slicer", help="Executable command; defaults to orca-slicer or Flatpak OrcaSlicer")
     parser.add_argument("--placement", choices=("preserve", "center", "assembly"), default="center")
-    parser.add_argument("--windows", type=Path, help="JSON list of {name, plate, layers, window} in sliced bed coordinates")
     parser.add_argument("--expect-no-supports", action="store_true")
     parser.add_argument("--timeout", type=float, default=600)
     parser.add_argument("--purpose", choices=("smoke", "investigation"), default="smoke")
     parser.add_argument("--profile-scope", choices=("reference", "actual"), default="reference")
     args = parser.parse_args()
-    window_items = json.loads(args.windows.read_text()) if args.windows else None
     report = review(args.model, args.printer, args.process, args.filament, args.out,
-                    args.bed, args.slicer, window_items, args.expect_no_supports,
-                    args.timeout, args.purpose, args.profile_scope, args.placement)
+                    bed=args.bed, slicer=args.slicer,
+                    expect_no_supports=args.expect_no_supports, timeout=args.timeout,
+                    purpose=args.purpose, profile_scope=args.profile_scope,
+                    placement=args.placement)
     print(json.dumps({"report": str(args.out.resolve() / "summary.json"),
                       "effective_settings": report["effective_settings"],
                       "plates": report["plates"], "review_required": report["review_required"]}))

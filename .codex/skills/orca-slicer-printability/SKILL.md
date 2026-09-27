@@ -1,6 +1,6 @@
 ---
 name: orca-slicer-printability
-description: Run an OrcaSlicer reference-profile smoke slice or investigate slicer-sensitive FDM toolpaths with the CLI and targeted layer paths. Results describe the selected profile only; inspection does not authorize redesign or printing.
+description: Run an OrcaSlicer reference-profile smoke slice and review slicer-generated path summaries with the CLI. Results describe the selected profile only; inspection does not authorize redesign or printing.
 ---
 
 # OrcaSlicer printability inspection
@@ -37,20 +37,16 @@ Actual-profile paths are still toolpath intentions, not physical measurements.
    [CLI and profile setup](references/cli-and-paths.md). The default review
    envelope is 260 × 260 × 250 mm; use the user's safe limits when supplied.
    The Q2C system preset itself reports a 270 × 270 × 256 mm printable volume.
-3. Use the [review helper](references/review-tool.md) without `--windows` for
-   the initial smoke slice, or the CLI notebook when the helper is unsuitable.
-   Use a fresh output directory. The helper records
+3. Use the [review helper](references/review-tool.md), or the CLI notebook when
+   the helper is unsuitable. Use a fresh output directory. The helper records
    its placement choice, uses Orca's effective-settings export, checks
    `result.json`, requires fresh nonempty G-code, and parses deposited paths.
    This checks export-to-toolpath acceptance, not model function.
 4. Read notices, effective profiles, actual deposited footprint/height and
-   support count. Resolve relevant notices without automatically escalating to
-   images. For multiple plates, evaluate bounds separately. A named path
-   question may justify a targeted current/preceding-layer window; inspect its
-   SVG. Resolve dimensions, gaps and clearances from CAD first. Use a window
-   only for a remaining question about Orca's path conversion, such as whether a
-   near-nozzle-width feature survives slicing or where generated bridge/support
-   paths land. Roles and segment lengths alone do not establish anchors or
+   support count. Resolve relevant notices from structured slice results.
+   For multiple plates, evaluate bounds separately. Resolve dimensions, gaps
+   and clearances from CAD; this check reports Orca's generated paths, not
+   physical fit. Roles and segment lengths alone do not establish anchors or
    unsupported spans.
 5. Report the scoped result and remaining physical uncertainty; stop when the
    question is answered. Inspection-only requests do not authorize redesign,
@@ -72,17 +68,14 @@ including the shared CadQuery command workflow.
 ## Read selectively
 
 Use one slice for each changed set of relevant inputs, following AGENTS.md's
-evidence reuse rules. Detailed layer diagrams are conditional, not routine
-deliverables. Select the layer window from the unresolved feature/question; do
-not inspect arbitrary layers for reassurance after that question is answered.
-For another window on the same slice, use `inspect_gcode.py` on saved G-code
-rather than reslicing. The review wrapper orchestrates OrcaSlicer; the parser
-inspects its output. Neither is another slicer or physical simulation. The
-wrapper has no automatic cache: compare recorded inputs before reusing evidence,
-and use a fresh output directory when a new slice is needed.
+evidence reuse rules. The review wrapper orchestrates OrcaSlicer; the parser
+produces structured summaries from its output. Neither is another slicer or
+physical simulation. The wrapper has no automatic cache: compare recorded
+inputs before reusing evidence, and use a fresh output directory when a new
+slice is needed.
 
 - [Review helper](references/review-tool.md): reproducible CLI slice, notices,
-  effective settings, deposited bounds and optional windows.
+  effective settings, deposited bounds and per-layer path summaries.
 - [CLI and path interpretation](references/cli-and-paths.md): Flatpak launch,
   profile inheritance, parser limits and manual commands.
 - [Case lessons](references/case-lessons.md): retained observations from prior

@@ -1,10 +1,8 @@
-"""Summarize linear ASCII slicer paths and optionally draw layer windows.
+"""Summarize linear ASCII slicer paths from OrcaSlicer output.
 
-The parser covers OrcaSlicer output and historical PrusaSlicer output used in
-this repository. It follows absolute/relative XYZ and E modes, requires
-millimetres, and rejects arcs and unsupported motion rather than guessing.
-Layer SVGs show deposited centerlines over the previous layer; they do not
-simulate plastic, bonding or sag.
+The parser also covers historical PrusaSlicer output used in this repository.
+It follows absolute/relative XYZ and E modes, requires millimetres, and rejects
+arcs and unsupported motion rather than guessing.
 """
 import argparse
 from collections import defaultdict
@@ -141,84 +139,14 @@ def summarize(layers, metadata):
             "limits": "Centerline lengths include anchors; no free-air span or physical simulation."}
 
 
-def clip_segment(a, b, window):
-    """Clip centerlines numerically; avoids renderer-dependent SVG clip paths."""
-    low, high = 0.0, 1.0
-    for axis in (0, 1):
-        delta = b[axis] - a[axis]
-        minimum, maximum = window[axis], window[axis + 2]
-        if abs(delta) < 1e-12:
-            if not minimum <= a[axis] <= maximum:
-                return None
-        else:
-            t0, t1 = sorted(((minimum - a[axis]) / delta, (maximum - a[axis]) / delta))
-            low, high = max(low, t0), min(high, t1)
-            if low > high:
-                return None
-    return ([a[k] + low * (b[k] - a[k]) for k in (0, 1)],
-            [a[k] + high * (b[k] - a[k]) for k in (0, 1)])
-
-
-def draw_layers(layers, requested, window, output):
-    xmin, ymin, xmax, ymax = window
-    if xmax <= xmin or ymax <= ymin:
-        raise ValueError("Window must have positive width and height")
-    scale = min(400 / (xmax - xmin), 400 / (ymax - ymin))
-    panel_width, panel_height = (xmax - xmin) * scale + 36, (ymax - ymin) * scale + 100
-    svg = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{panel_width * len(requested)}" height="{panel_height + 65}" viewBox="0 0 {panel_width * len(requested)} {panel_height + 65}">',
-           '<rect width="100%" height="100%" fill="white"/>',
-           '<g font-family="DejaVu Sans" font-size="13" fill="#18212b">',
-           '<text x="18" y="22">Actual sliced paths: gray = preceding layer; black = current; orange = overhang; red = bridge</text>']
-    heights = sorted(layers)
-    for index, target in enumerate(requested):
-        z = min(heights, key=lambda value: abs(value - target))
-        if abs(z - target) > .001:
-            raise ValueError(f"Requested layer {target} absent; nearest is {z}")
-        previous = heights[heights.index(z) - 1] if heights.index(z) else None
-        left, top = index * panel_width + 18, 75
-        w, h = (xmax - xmin) * scale, (ymax - ymin) * scale
-        svg += [f'<text x="{left}" y="52">Z = {z:.2f} mm; previous = {previous}</text>',
-                f'<rect x="{left}" y="{top}" width="{w}" height="{h}" fill="#fafafa" stroke="#b9c0c6"/>',
-                '<g>']
-        for background, height in [(True, previous), (False, z)]:
-            for segment in layers.get(height, []):
-                clipped = clip_segment(segment["a"], segment["b"], window)
-                if clipped is None:
-                    continue
-                (ax, ay), (bx, by) = clipped
-                role = segment["role"].casefold()
-                if _is_bridge(role):
-                    color = "#dd293e"
-                elif "overhang" in role:
-                    color = "#d87500"
-                elif _is_support(role):
-                    color = "#168ca0"
-                else:
-                    color = "#20252a"
-                if background:
-                    color = "#c5c9ce"
-                stroke = segment["width_mm"] * scale if background else .11 * scale
-                svg.append(f'<line x1="{left + (ax - xmin) * scale}" y1="{top + (ymax - ay) * scale}" x2="{left + (bx - xmin) * scale}" y2="{top + (ymax - by) * scale}" stroke="{color}" stroke-width="{stroke}" stroke-linecap="round"/>')
-        svg += ['</g>', f'<text x="{left}" y="{top + h + 22}">Window X {xmin:g}–{xmax:g}, Y {ymin:g}–{ymax:g} mm</text>']
-    svg += ['<text x="18" y="' + str(panel_height + 45) + '">Previous paths use reported width; this is not a prediction of sag, bonding or hinge freedom.</text>', '</g></svg>']
-    Path(output).write_text("\n".join(svg) + "\n")
-
-
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("gcode", type=Path)
     parser.add_argument("--json", type=Path, required=True)
-    parser.add_argument("--svg", type=Path)
-    parser.add_argument("--layers", type=float, nargs="+")
-    parser.add_argument("--window", type=float, nargs=4, metavar=("XMIN", "YMIN", "XMAX", "YMAX"))
     args = parser.parse_args()
     layers, metadata = read_paths(args.gcode)
     summary = summarize(layers, metadata)
     args.json.write_text(json.dumps(summary, indent=2) + "\n")
-    if args.svg:
-        if not args.layers or not args.window:
-            parser.error("--svg requires --layers and --window")
-        draw_layers(layers, args.layers, args.window, args.svg)
     print(json.dumps({"layer_count": len(layers), "roles": summary["roles"], "metadata": metadata}))
 
 
