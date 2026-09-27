@@ -28,10 +28,13 @@ changes to this starting approach before relying on them in the design.
 
 The maintained Qidi Q2C 0.4 mm, Generic PETG, 0.20 mm Standard, two-wall,
 7% adaptive cubic profiles are a diagnostic fallback, not the user's fixed
-production setup. Prefer compatible supplied Orca profiles for the agreed
-nozzle, material and process. If the fallback differs from the intended print,
-state the mismatch and limit conclusions to diagnostic path acceptance; do not
-claim that its settings predict the agreed print. A 0.8 mm or TPU design needs
+production setup. They are resolved OrcaSlicer 2.4.2 snapshots because the
+headless CLI did not reliably apply inherited values from partial presets;
+check effective settings rather than trusting preset names. Prefer compatible
+supplied Orca profiles for the agreed nozzle, material and process. If the
+fallback differs from the intended print, state the mismatch and limit
+conclusions to diagnostic path acceptance; do not claim that its settings
+predict the agreed print. A 0.8 mm or TPU design needs
 an appropriate printer/process/filament profile for setup-specific path claims;
 if none is available, record that evidence gap. Do not substitute the 0.4 mm
 PETG profile silently. Do not translate another slicer's profile into Orca or
@@ -166,11 +169,6 @@ Keep one concise object record with model and profile paths, Orca version,
 placement, effective settings, smoke result, support-probe result, notices and
 physical limitations.
 Keep temporary files only when they answer a concrete question.
-
-## Related references
-
-- [CLI and profile notes](references/cli-and-profiles.md): headless STEP input
-  and profile inheritance.
 
 Correct disproven advice and consolidate useful techniques instead of appending
 session transcripts. Record tested slicer version, profile assumptions,
