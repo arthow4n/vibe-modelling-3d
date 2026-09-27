@@ -118,6 +118,45 @@ class ReviewTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, "fresh nonempty G-code"):
                     self._review(files, p / "run")
 
+    def test_requires_matching_gcode_for_every_sliced_plate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p = Path(tmp)
+            files = self._inputs(p)
+            def fake(command, **kwargs):
+                if command[-1] == "--help":
+                    return SimpleNamespace(returncode=0, stdout="OrcaSlicer 2.4.2", stderr="")
+                output = Path(command[command.index("--outputdir") + 1])
+                (output / "plate_1.gcode").write_text(ORCA_GCODE)
+                (output / "result.json").write_text(json.dumps({
+                    "return_code": 0, "sliced_plates": [{"id": 2, "warning_message": ""}],
+                }))
+                (output / "effective-settings.json").write_text("{}")
+                return SimpleNamespace(returncode=0)
+            with patch("review_print.slicer_prefix", return_value=["fake"]), \
+                 patch("review_print.subprocess.run", side_effect=fake):
+                with self.assertRaisesRegex(RuntimeError, r"reported plate IDs \[2\] but wrote G-code for plate IDs \[1\]"):
+                    self._review(files, p / "run")
+
+    def test_requested_window_must_name_a_sliced_plate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p = Path(tmp)
+            files = self._inputs(p)
+            def fake(command, **kwargs):
+                if command[-1] == "--help":
+                    return SimpleNamespace(returncode=0, stdout="OrcaSlicer 2.4.2", stderr="")
+                output = Path(command[command.index("--outputdir") + 1])
+                (output / "plate_1.gcode").write_text(ORCA_GCODE)
+                (output / "result.json").write_text(json.dumps({
+                    "return_code": 0, "sliced_plates": [{"id": 1, "warning_message": ""}],
+                }))
+                (output / "effective-settings.json").write_text("{}")
+                return SimpleNamespace(returncode=0)
+            windows = [{"name": "missing", "plate": 2, "layers": [0.2], "window": [0, 0, 6, 4]}]
+            with patch("review_print.slicer_prefix", return_value=["fake"]), \
+                 patch("review_print.subprocess.run", side_effect=fake):
+                with self.assertRaisesRegex(ValueError, "missing plate"):
+                    self._review(files, p / "run", windows=windows)
+
     def test_completed_review_preserves_notice_and_requested_window(self):
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp)

@@ -19,7 +19,8 @@ modes:
   exported-artifact smoke check or answers a specific path question.
 - **Actual profile:** use the supplied actual OrcaSlicer settings when
   available for toolpath claims. These supersede generic reference settings.
-  Do not silently translate another slicer's profile into OrcaSlicer.
+  Do not silently translate another slicer's profile into OrcaSlicer or add
+  more reference slicers.
 
 A reference result means OrcaSlicer produced these paths under this profile.
 It does not establish the user's temperatures, flow, supports, dimensional
@@ -36,8 +37,9 @@ Actual-profile paths are still toolpath intentions, not physical measurements.
    [CLI and profile setup](references/cli-and-paths.md). The default review
    envelope is 260 × 260 × 250 mm; use the user's safe limits when supplied.
    The Q2C system preset itself reports a 270 × 270 × 256 mm printable volume.
-3. Use the [review helper](references/review-tool.md), or the CLI notebook when
-   the helper is unsuitable. Use a fresh output directory. The helper records
+3. Use the [review helper](references/review-tool.md) without `--windows` for
+   the initial smoke slice, or the CLI notebook when the helper is unsuitable.
+   Use a fresh output directory. The helper records
    its placement choice, uses Orca's effective-settings export, checks
    `result.json`, requires fresh nonempty G-code, and parses deposited paths.
    This checks export-to-toolpath acceptance, not model function.
@@ -45,8 +47,11 @@ Actual-profile paths are still toolpath intentions, not physical measurements.
    support count. Resolve relevant notices without automatically escalating to
    images. For multiple plates, evaluate bounds separately. A named path
    question may justify a targeted current/preceding-layer window; inspect its
-   SVG. Roles and segment lengths alone do not establish anchors or unsupported
-   spans.
+   SVG. Resolve dimensions, gaps and clearances from CAD first. Use a window
+   only for a remaining question about Orca's path conversion, such as whether a
+   near-nozzle-width feature survives slicing or where generated bridge/support
+   paths land. Roles and segment lengths alone do not establish anchors or
+   unsupported spans.
 5. Report the scoped result and remaining physical uncertainty; stop when the
    question is answered. Inspection-only requests do not authorize redesign,
    deployment, print tuning outside scope, or printing.

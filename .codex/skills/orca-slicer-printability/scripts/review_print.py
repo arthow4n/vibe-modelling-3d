@@ -145,11 +145,17 @@ def review(model, printer, process, filament, output, bed=(260, 260, 250),
     gcode_files = sorted(output.glob("*.gcode"))
     if not gcode_files or any(not path.is_file() or path.stat().st_size == 0 for path in gcode_files):
         raise RuntimeError(f"OrcaSlicer did not produce fresh nonempty G-code in {output}")
+    expected_plates = result["sliced_plates"]
+    expected_plate_numbers = [int(plate["id"]) for plate in expected_plates]
+    if len(expected_plate_numbers) != len(set(expected_plate_numbers)):
+        raise RuntimeError(f"OrcaSlicer reported duplicate sliced plate IDs: {expected_plate_numbers}")
 
     plates, path_summaries, notices = [], {}, _log_notices(log_text)
-    for index, gcode in enumerate(gcode_files, 1):
+    for gcode in gcode_files:
         match = re.search(r"plate[_-]?(\d+)", gcode.stem, re.I)
-        plate_number = int(match.group(1)) if match else index
+        if not match:
+            raise RuntimeError(f"Cannot match G-code file to an Orca plate ID: {gcode.name}")
+        plate_number = int(match.group(1))
         layers, metadata = read_paths(gcode)
         path_summary = summarize(layers, metadata)
         bounds = footprint(layers, bed)
@@ -159,6 +165,16 @@ def review(model, printer, process, filament, output, bed=(260, 260, 250),
         for item in windows:
             if item.get("plate", 1) == plate_number:
                 draw_layers(layers, item["layers"], item["window"], output / f"{item['name']}.svg")
+
+    actual_plates = {plate["plate"] for plate in plates}
+    if actual_plates != set(expected_plate_numbers):
+        raise RuntimeError(
+            f"OrcaSlicer reported plate IDs {sorted(expected_plate_numbers)} "
+            f"but wrote G-code for plate IDs {sorted(actual_plates)}"
+        )
+    missing_plates = sorted({item.get("plate", 1) for item in windows} - actual_plates)
+    if missing_plates:
+        raise ValueError(f"Requested layer windows refer to missing plate(s): {missing_plates}")
 
     for plate in result.get("sliced_plates", []):
         warning = plate.get("warning_message", "").strip()
