@@ -13,7 +13,8 @@ orientation. A reference slice says Orca completed a plate under the selected
 profiles. It does not establish temperatures, flow, dimensional accuracy,
 bridge quality, physical clearance, strength or tactile behavior.
 
-This skill covers final-mesh smoke reviews and a narrow automatic-support probe.
+This skill covers final-mesh smoke reviews and a narrow automatic-support probe
+through the repository's shared evaluator.
 Resolve geometry questions in CAD; inspect Orca's GUI preview when generated
 support or a specific path could change the design.
 
@@ -52,15 +53,15 @@ For a normal final model, run this from the repository root:
 ./evaluate_model.py model/object_name/object_name.py --views none --slice
 ```
 
-It exports the STEP/STL pair and runs this helper on the STL. The helper also
-probes automatic supports in the same call. Optional
+It exports the STEP/STL pair, reviews the STL with OrcaSlicer, and probes
+automatic supports in the same call. Optional
 `--slice-printer`, `--slice-process`
 and `--slice-filament` accept compatible Orca JSON profiles; otherwise the
 diagnostic defaults below apply. The evaluator returns the slice result in its
-single JSON report. Use the standalone helper below when reviewing an already
+single JSON report. Use `--slice-existing` below only when reviewing an already
 exported file without rebuilding the model.
 
-The evaluator also passes through `--slice-placement` and `--slice-keep-run`
+The evaluator also accepts `--slice-placement` and `--slice-keep-run`
 when needed. A completed slice that needs review exits 2 and reports
 `slice.review_required=true`;
 failure exits 1. Read stage status even if a view render failed.
@@ -74,37 +75,35 @@ For an agreed setup with different profiles, pass them in the same command:
   --slice-filament model/object_name/notes/filament.json
 ```
 
-For an existing export, run the unified helper from the repository root. It
-infers OrcaSlicer, loads profiles, slices the model, reads effective settings
+For an existing export, use the same command from the repository root. It
+infers OrcaSlicer, loads profiles, slices the file, reads effective settings
 and prints one JSON report to stdout. It never sends a printer job.
 
 ```sh
-uv run --locked python .codex/skills/orca-slicer-printability/scripts/review_print.py \
-  --model model/object_name/object_name.stl
+./evaluate_model.py --slice-existing model/object_name/object_name.stl
 ```
 
-The CLI help and this table are the interface contract; keep argument names
-and defaults synchronized:
+The CLI help and this table are the interface contract for slice options:
 
 | Argument | Default | Meaning |
 | --- | --- | --- |
-| `--model MODEL` | Required | STL or 3MF to slice. |
-| `--printer PRINTER` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json` | Diagnostic 0.4 mm printer and machine dimensions. |
-| `--process PROCESS` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json` | Diagnostic 0.20 mm, two-wall, 7% adaptive cubic process. |
-| `--filament FILAMENT` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json` | Diagnostic Generic PETG. |
-| `--placement {preserve,center,assembly}` | `center` | Center the layout without rotation or auto-orientation. |
-| `--keep-run` | Off (`false`) | Retain temporary G-code and diagnostics. |
+| `--slice` | Off | Export the CAD result as STEP/STL and review its STL. |
+| `--slice-existing STL_OR_3MF` | Off | Review an existing STL or 3MF without rebuilding CAD. |
+| `--slice-printer PRINTER` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json` | Diagnostic 0.4 mm printer and machine dimensions. |
+| `--slice-process PROCESS` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json` | Diagnostic 0.20 mm, two-wall, 7% adaptive cubic process. |
+| `--slice-filament FILAMENT` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json` | Diagnostic Generic PETG. |
+| `--slice-placement {preserve,center,assembly}` | `center` | Center the layout without rotation or auto-orientation. |
+| `--slice-keep-run` | Off | Retain temporary G-code and diagnostics. |
 
 To use the agreed setup with other Orca profiles, pass all three compatible
 profile files:
 
 ```sh
-uv run --locked python .codex/skills/orca-slicer-printability/scripts/review_print.py \
-  --model model/object_name/object_name.stl \
-  --printer model/object_name/notes/printer.json \
-  --process model/object_name/notes/process.json \
-  --filament model/object_name/notes/filament.json \
-  --placement preserve
+./evaluate_model.py --slice-existing model/object_name/object_name.stl \
+  --slice-printer model/object_name/notes/printer.json \
+  --slice-process model/object_name/notes/process.json \
+  --slice-filament model/object_name/notes/filament.json \
+  --slice-placement preserve
 ```
 
 The printer profile supplies Orca's machine bounds. There is no
@@ -129,13 +128,13 @@ or union the input.
 
 ## Read the result
 
-The helper checks Orca's exit status and `result.json` for a completed plate,
+The evaluator checks Orca's exit status and `result.json` for a completed plate,
 then reports the selected profiles, key effective settings, slicer version,
 placement, sliced plate IDs and notices. It also probes the same model and
 placement with automatic supports enabled and `bridge_no_support=0`, while
 keeping the profile's overhang threshold and maximum bridge length. If the
 primary slice already uses those auto-support settings, its output serves as
-the probe; otherwise Orca runs a second diagnostic slice. The helper reads
+the probe; otherwise Orca runs a second diagnostic slice. The evaluator reads
 only Orca's `;TYPE:` line labels from that slice and reports whether support
 or support-interface roles occurred, by plate. It does not reconstruct motion
 or measure unsupported spans.
@@ -150,7 +149,7 @@ Orca's GUI.
 
 The notice list combines structured plate warnings with keyword-filtered log
 lines. An empty list does not prove the full slicer log is message-free. Use
-`--keep-run` when the complete log or raw G-code is needed; on success the JSON
+`--slice-keep-run` when the complete log or raw G-code is needed; on success the JSON
 includes the retained directory (with any second slice under `support_probe/`),
 and on error the message gives its location.
 Otherwise G-code, logs, `result.json`, effective settings and intermediate files

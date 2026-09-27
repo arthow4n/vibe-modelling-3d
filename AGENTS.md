@@ -91,7 +91,7 @@ interfaces and load path.
    concrete review questions are resolved and further iteration is unlikely to
    materially improve the result. Distinguish CAD/slicer evidence from physical
    testing; document any remaining limitation. Export the agreed printable
-   layouts and smoke-slice their matching STL files with the headless Orca helper;
+   layouts and smoke-slice their matching STL files through the evaluator;
    a samples-only phase does not require full-object exports.
 7. Save matching print-ready exports, useful final views and one concise record
    of assumptions, print/use instructions and verification evidence. Include
@@ -147,6 +147,8 @@ selected printable result.
 its report requires review; inspect `slice.review_required` and notices in the
 JSON. Exit status 1 means evaluation or slicing failed. A render failure may
 coexist with successful exports and a successful slice, so inspect stage status.
+Use `--slice-existing FILE.stl` (or `.3mf`) to review an existing export without
+rebuilding CAD; the same slice profile and placement options apply.
 
 Use `--views none` for checks that need no images. Inspect structured error status:
 a failed view can coexist with successful geometry or exports. Saved paths are

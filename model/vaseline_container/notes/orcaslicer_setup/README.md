@@ -26,18 +26,17 @@ The equivalent current smoke-slice command is below. The historical run used
 the retired `--expect-no-supports` flag; its saved evidence remains historical.
 
 ```sh
-uv run --locked python .codex/skills/orca-slicer-printability/scripts/review_print.py \
-  --model model/vaseline_container/vaseline_container.stl
+./evaluate_model.py --slice-existing model/vaseline_container/vaseline_container.stl
 ```
 
 The profile files are [printer](../../../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json),
 [Generic PETG](../../../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json), and
 [process](../../../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json).
 The [shared OrcaSlicer skill](../../../../.codex/skills/orca-slicer-printability/SKILL.md)
-describes the helper and its temporary output lifecycle.
+describes the evaluator's slice review and its temporary output lifecycle.
 
 The JSON report is printed to stdout. G-code, logs, effective settings and
-intermediate records are temporary and removed at exit; rerun with `--keep-run`
+intermediate records are temporary and removed at exit; rerun with `--slice-keep-run`
 only if those diagnostics are needed. This is profile-specific smoke evidence,
 not a calibrated print job or physical test. The object's earlier
 user-reported physical print status remains as recorded in its main README.

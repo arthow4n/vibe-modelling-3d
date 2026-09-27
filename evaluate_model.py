@@ -1,5 +1,5 @@
 #!/usr/bin/env -S uv run --locked
-"""Evaluate a trusted CadQuery source file without an MCP server.
+"""Evaluate CadQuery and run optional OrcaSlicer reviews from one command.
 
 Run from the repository root with `./evaluate_model.py --help`.
 Each invocation builds in a fresh child process. Model code has ordinary user
@@ -14,6 +14,9 @@ import json
 import math
 import os
 from pathlib import Path
+import re
+import shlex
+import shutil
 import signal
 import subprocess
 import sys
@@ -30,6 +33,13 @@ VIEWS = {
 STL_LINEAR_TOLERANCE_MM = 0.003
 STL_ANGULAR_TOLERANCE_RAD = 0.5
 SLICE_TIMEOUT_SECONDS = 600
+REPO_ROOT = Path(__file__).resolve().parent
+PROFILE_DIR = Path(".codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg")
+DEFAULTS = {
+    "printer": PROFILE_DIR / "qidi-q2c-0.4-nozzle.json",
+    "process": PROFILE_DIR / "qidi-q2c-0.20-standard-adaptive-cubic-7.json",
+    "filament": PROFILE_DIR / "generic-petg-qidi-q2c-0.4.json",
+}
 
 
 def selected_shape(value):
@@ -202,6 +212,209 @@ def worker(request, response):
     return 0 if report["ok"] else 1
 
 
+def slicer_prefix():
+    """Find OrcaSlicer from an explicit environment override or installed app."""
+    command = os.environ.get("ORCASLICER_COMMAND")
+    if command:
+        prefix = shlex.split(command)
+    elif shutil.which("orca-slicer"):
+        prefix = [shutil.which("orca-slicer")]
+    else:
+        prefix = ["flatpak", "run", "com.orcaslicer.OrcaSlicer"]
+    if not prefix or not shutil.which(prefix[0]):
+        raise FileNotFoundError(f"OrcaSlicer command is unavailable: {prefix}")
+    return prefix
+
+
+def _resolve_profile(value):
+    path = Path(value).expanduser()
+    if not path.is_absolute() and not path.exists() and (REPO_ROOT / path).exists():
+        path = REPO_ROOT / path
+    return path.resolve(strict=True)
+
+
+def _settings_summary(settings):
+    keys = ("printer_model", "printer_variant", "nozzle_diameter", "printable_area",
+            "printable_height", "bed_exclude_area", "filament_type", "filament_settings_id",
+            "nozzle_temperature", "nozzle_temperature_initial_layer", "hot_plate_temp",
+            "hot_plate_temp_initial_layer", "print_settings_id", "layer_height",
+            "wall_loops", "line_width", "outer_wall_line_width", "inner_wall_line_width",
+            "initial_layer_line_width", "brim_type", "brim_width", "brim_object_gap",
+            "enable_support", "support_type", "support_threshold_angle",
+            "bridge_no_support", "max_bridge_length", "filament_flow_ratio", "enable_arc_fitting",
+            "sparse_infill_density", "sparse_infill_pattern")
+    return {key: settings[key] for key in keys if key in settings}
+
+
+def _log_notices(text):
+    return [line.strip() for line in text.splitlines() if re.search(
+        r"warning|error|detected print stability|long bridging|loose extrusions|consider enabling supports",
+        line, re.I)]
+
+
+def _support_roles(run_dir, sliced_plates):
+    """Read only Orca's emitted line-type labels, not G-code motion."""
+    expected_ids = {int(plate["id"]) for plate in sliced_plates}
+    found_ids = set()
+    supported = []
+    for gcode in sorted(run_dir.glob("*.gcode")):
+        match = re.fullmatch(r"plate_(\d+)", gcode.stem)
+        if not match:
+            raise ValueError(f"Unrecognized Orca G-code plate name: {gcode.name}")
+        plate_id = int(match.group(1))
+        if plate_id in found_ids:
+            raise ValueError(f"Duplicate Orca G-code plate ID: {plate_id}")
+        found_ids.add(plate_id)
+        roles = set()
+        saw_role = False
+        with gcode.open(errors="replace") as lines:
+            for line in lines:
+                if line.startswith(";TYPE:"):
+                    saw_role = True
+                    role = line.partition(":")[2].strip()
+                    if role.casefold().startswith("support"):
+                        roles.add(role)
+        if not saw_role:
+            raise ValueError(f"Orca G-code has no line-type labels: {gcode.name}")
+        if roles:
+            supported.append({"plate": plate_id, "roles": sorted(roles)})
+    if found_ids != expected_ids:
+        raise ValueError(f"Orca reported plates {sorted(expected_ids)} but wrote G-code for {sorted(found_ids)}")
+    return supported
+
+
+def _auto_support_probe(command, run_dir, effective, primary_result):
+    """Probe the same layout with Orca's automatic support enabled."""
+    support_type = str(effective.get("support_type", ""))
+    auto_type = (support_type if support_type.endswith("(auto)") else
+                 "tree(auto)" if support_type.startswith("tree") else "normal(auto)")
+    reuse_primary = (str(effective.get("enable_support", "0")) == "1"
+                     and support_type == auto_type
+                     and str(effective.get("bridge_no_support", "1")) == "0")
+    if reuse_primary:
+        probe_dir, probe_effective, probe_result = run_dir, effective, primary_result
+    else:
+        probe_dir = run_dir / "support_probe"
+        probe_dir.mkdir()
+        probe_command = command.copy()
+        probe_command[probe_command.index("--outputdir") + 1] = str(probe_dir)
+        effective_path = probe_dir / "effective-settings.json"
+        probe_command[probe_command.index("--export-settings") + 1] = str(effective_path)
+        probe_command.extend(("--enable-support=1", "--bridge-no-support=0",
+                              f"--support-type={auto_type}"))
+        (probe_dir / "command.json").write_text(json.dumps(probe_command, indent=2) + "\n")
+        with (probe_dir / "slicer.log").open("w") as log:
+            completed = subprocess.run(probe_command, cwd=probe_dir, stdout=log,
+                                       stderr=subprocess.STDOUT, timeout=SLICE_TIMEOUT_SECONDS,
+                                       check=False)
+        result_path = probe_dir / "result.json"
+        if completed.returncode != 0 or not result_path.is_file():
+            raise RuntimeError("Orca automatic-support probe failed; use --slice-keep-run for its log")
+        probe_result = json.loads(result_path.read_text())
+        if probe_result.get("return_code") != 0 or not probe_result.get("sliced_plates"):
+            raise RuntimeError("Orca automatic-support probe did not complete a plate")
+        if not effective_path.is_file():
+            raise RuntimeError("Orca automatic-support probe did not export effective settings")
+        probe_effective = json.loads(effective_path.read_text())
+    if (str(probe_effective.get("enable_support")) != "1"
+            or not str(probe_effective.get("support_type", "")).endswith("(auto)")
+            or str(probe_effective.get("bridge_no_support")) != "0"):
+        raise RuntimeError("Orca did not apply automatic-support probe settings")
+    supported = _support_roles(probe_dir, probe_result["sliced_plates"])
+    return {
+        "ok": True,
+        "generated": bool(supported),
+        "supported_plates": supported,
+        "reused_primary_slice": reuse_primary,
+        "effective_support_type": probe_effective["support_type"],
+        "effective_support_threshold_angle": probe_effective.get("support_threshold_angle"),
+        "effective_max_bridge_length_mm": probe_effective.get("max_bridge_length"),
+    }
+
+
+def _review_in_directory(model, profiles, run_dir, placement):
+    placement_args = {
+        "preserve": ["--arrange", "0", "--orient", "0"],
+        "center": ["--arrange", "1", "--orient", "0", "--allow-rotations=0"],
+        "assembly": ["--assemble", "--arrange", "1", "--orient", "0", "--allow-rotations=0"],
+    }
+    if placement not in placement_args:
+        raise ValueError("placement must be preserve, center or assembly")
+    prefix = slicer_prefix()
+
+    # Keep Orca's incidental CLI files and app data inside this temporary run.
+    help_run = subprocess.run(prefix + ["--help"], cwd=run_dir, capture_output=True,
+                              text=True, timeout=30, check=False)
+    version_header = (help_run.stdout + help_run.stderr).splitlines()[:8]
+    effective_path = run_dir / "effective-settings.json"
+    command = prefix + [str(model),
+        "--load-settings", f"{profiles['process']};{profiles['printer']}",
+        "--load-filaments", str(profiles["filament"]),
+        *placement_args[placement], "--slice", "0",
+        "--outputdir", str(run_dir), "--export-settings", str(effective_path)]
+    (run_dir / "command.json").write_text(json.dumps(command, indent=2) + "\n")
+    with (run_dir / "slicer.log").open("w") as log:
+        completed = subprocess.run(command, cwd=run_dir, stdout=log, stderr=subprocess.STDOUT,
+                                   timeout=SLICE_TIMEOUT_SECONDS, check=False)
+    log_text = (run_dir / "slicer.log").read_text(errors="replace")
+
+    result_path = run_dir / "result.json"
+    if completed.returncode != 0 or not result_path.is_file():
+        raise RuntimeError("OrcaSlicer CLI failed; use --slice-keep-run to retain the slicer log")
+    result = json.loads(result_path.read_text())
+    if result.get("return_code") != 0 or not result.get("sliced_plates"):
+        raise RuntimeError("OrcaSlicer did not report a completed plate")
+    if not effective_path.is_file():
+        raise RuntimeError("OrcaSlicer did not export effective printer settings")
+    effective = json.loads(effective_path.read_text())
+    notices = _log_notices(log_text)
+    for plate in result["sliced_plates"]:
+        warning = plate.get("warning_message", "").strip()
+        if warning:
+            notices.append(f"plate {plate.get('id', '?')}: {warning}")
+    if result.get("error_string") not in (None, "", "Success", "Success."):
+        notices.append(str(result["error_string"]))
+    try:
+        support_probe = _auto_support_probe(command, run_dir, effective, result)
+    except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as exc:
+        support_probe = {"ok": False, "message": str(exc)}
+    report = {
+        "model": str(model),
+        "profiles": {key: str(path) for key, path in profiles.items()},
+        "slicer_help_header": version_header,
+        "placement": placement,
+        "effective_settings": _settings_summary(effective),
+        "sliced_plates": [plate.get("id") for plate in result["sliced_plates"]],
+        "support_probe": support_probe,
+        "log_notices": notices,
+        "review_required": bool(notices) or not support_probe["ok"] or support_probe.get("generated", False),
+        "limits": "Reports Orca's slice status and effective settings under the selected profiles. The automatic-support probe enables support and permits support under bridges, then checks Orca's emitted support line types. Generated support is a prompt to inspect placement and removal, not proof it is physically necessary; no generated support does not prove every overhang or bridge will print well. The probe uses the selected profile's support threshold and maximum bridge length. Orientation and arrangement rotation are disabled. Center placement may reposition multiple independent objects; use assembly mode to translate a grouped 3MF layout while retaining its internal positions, or preserve mode for an already positioned project. This smoke slice does not inspect deposited bounds, mesh repair, clearance or physical print quality.",
+    }
+    return report
+
+
+def review(model, printer=DEFAULTS["printer"], process=DEFAULTS["process"],
+           filament=DEFAULTS["filament"], placement="center", keep_run=False):
+    model = Path(model).expanduser().resolve(strict=True)
+    profiles = {key: _resolve_profile(value) for key, value in {
+        "printer": printer, "process": process, "filament": filament}.items()}
+    # Flatpak OrcaSlicer can access the user's home, but may not see host /tmp.
+    run_dir = Path(tempfile.mkdtemp(prefix="orca-slicer-review-", dir=Path.home()))
+    try:
+        report = _review_in_directory(model, profiles, run_dir, placement)
+        if keep_run:
+            report["kept_run_directory"] = str(run_dir)
+            (run_dir / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
+        return report
+    except Exception as exc:
+        if keep_run:
+            raise RuntimeError(f"{exc}; run artifacts kept at {run_dir}") from exc
+        raise
+    finally:
+        if not keep_run:
+            shutil.rmtree(run_dir, ignore_errors=True)
+
+
 def positive_float(value):
     number = float(value)
     if not math.isfinite(number) or number <= 0:
@@ -216,6 +429,23 @@ def positive_pixel(value):
     return number
 
 
+def add_slice_review(report, model, args):
+    before = time.monotonic()
+    try:
+        sliced = review(model,
+                        printer=args.slice_printer or DEFAULTS["printer"],
+                        process=args.slice_process or DEFAULTS["process"],
+                        filament=args.slice_filament or DEFAULTS["filament"],
+                        placement=args.slice_placement,
+                        keep_run=args.slice_keep_run)
+        report["slice"] = {"ok": True, **sliced}
+    except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as exc:
+        report["slice"] = {"ok": False, "message": str(exc)}
+        report["errors"].append({"stage": "slice", "message": str(exc)})
+        report["ok"] = False
+    report.setdefault("timings_seconds", {})["slice"] = time.monotonic() - before
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(
         description=f"{__doc__}\nFor valid evaluations, stdout always contains one JSON object. "
@@ -223,7 +453,7 @@ def main(argv=None):
                     f"STL exports use {STL_LINEAR_TOLERANCE_MM} mm absolute linear and "
                     f"{STL_ANGULAR_TOLERANCE_RAD} rad angular tessellation tolerances.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument("file_path", type=Path, help="Trusted CadQuery Python entry point")
+    parser.add_argument("file_path", type=Path, nargs="?", help="Trusted CadQuery Python entry point")
     parser.add_argument("--views", default="isometric,front,top,right",
                         help=f"Comma-separated views from {', '.join(VIEWS)}, or none")
     parser.add_argument("--output-dir", default="renders/scratch",
@@ -238,23 +468,46 @@ def main(argv=None):
                         help="Export matching STEP and STL beside the source, using its stem")
     parser.add_argument("--slice", action="store_true",
                         help="Export the pair, smoke-slice its STL and probe Orca automatic supports")
+    parser.add_argument("--slice-existing", type=Path, metavar="STL_OR_3MF",
+                        help="Review an existing STL or 3MF without rebuilding CAD")
     parser.add_argument("--slice-printer", type=Path,
-                        help="Orca printer profile; use with --slice")
+                        help=f"Orca printer profile (default: {DEFAULTS['printer']})")
     parser.add_argument("--slice-process", type=Path,
-                        help="Orca process profile; use with --slice")
+                        help=f"Orca process profile (default: {DEFAULTS['process']})")
     parser.add_argument("--slice-filament", type=Path,
-                        help="Orca filament profile; use with --slice")
+                        help=f"Orca filament profile (default: {DEFAULTS['filament']})")
     parser.add_argument("--slice-placement", choices=("preserve", "center", "assembly"),
-                        default="center", help="Orca placement; use with --slice")
+                        default="center", help="Orca placement for --slice or --slice-existing")
     parser.add_argument("--slice-keep-run", action="store_true",
-                        help="Keep Orca diagnostics and G-code; use with --slice")
+                        help="Keep Orca diagnostics and G-code for a slice review")
     parser.add_argument("--timeout", type=positive_float, default=300,
                         help="Maximum evaluation time in seconds")
     args = parser.parse_args(argv)
-    if not args.slice and any((args.slice_printer, args.slice_process,
-                               args.slice_filament, args.slice_keep_run,
-                               args.slice_placement != "center")):
-        parser.error("Slice settings require --slice")
+    if args.slice_existing and (args.file_path or args.slice or args.export):
+        parser.error("--slice-existing takes an STL or 3MF instead of a CAD source or --slice/--export")
+    if args.slice_existing and (args.views != "isometric,front,top,right"
+                                or args.output_dir != "renders/scratch" or args.show_hidden
+                                or args.width != 800 or args.height != 600):
+        parser.error("CAD view options cannot be used with --slice-existing")
+    if not args.slice_existing and not args.file_path:
+        parser.error("Provide a CadQuery source or --slice-existing STL_OR_3MF")
+    if not (args.slice or args.slice_existing) and any((args.slice_printer, args.slice_process,
+                                                       args.slice_filament, args.slice_keep_run,
+                                                       args.slice_placement != "center")):
+        parser.error("Slice settings require --slice or --slice-existing")
+    if args.slice_existing:
+        existing = args.slice_existing.resolve()
+        if not existing.is_file() or existing.suffix.lower() not in (".stl", ".3mf"):
+            parser.error(f"Existing slice input must be an STL or 3MF file: {existing}")
+        started = time.monotonic()
+        report = {"ok": True, "file_path": str(existing), "errors": [],
+                  "views": [], "exports": [], "timings_seconds": {}}
+        add_slice_review(report, existing, args)
+        report["timings_seconds"]["total"] = time.monotonic() - started
+        print(json.dumps(report, indent=2))
+        if not report["ok"]:
+            return 1
+        return 2 if report["slice"]["review_required"] else 0
     source = args.file_path.resolve()
     if not source.is_file():
         parser.error(f"Model source does not exist: {source}")
@@ -313,34 +566,12 @@ def main(argv=None):
     pair_ready = (len(report.get("exports", [])) == 2
                   and all(item.get("ok") for item in report["exports"]))
     if args.slice and pair_ready:
-        slicer = Path(__file__).resolve().parent / ".codex/skills/orca-slicer-printability/scripts/review_print.py"
-        command = [sys.executable, str(slicer), "--model", str(root / f"{source.stem}.stl"),
-                   "--placement", args.slice_placement]
-        for option, value in (("--printer", args.slice_printer),
-                              ("--process", args.slice_process),
-                              ("--filament", args.slice_filament)):
-            if value is not None:
-                command.extend((option, str(value)))
-        if args.slice_keep_run:
-            command.append("--keep-run")
-        before = time.monotonic()
-        try:
-            sliced = subprocess.run(command, cwd=Path(__file__).resolve().parent,
-                                    capture_output=True, text=True, timeout=2 * SLICE_TIMEOUT_SECONDS + 60,
-                                    check=False)
-            if sliced.returncode not in (0, 2):
-                raise RuntimeError(sliced.stderr.strip() or "OrcaSlicer review failed")
-            report["slice"] = {"ok": True, **json.loads(sliced.stdout)}
-        except (OSError, ValueError, subprocess.TimeoutExpired, RuntimeError) as exc:
-            report["slice"] = {"ok": False, "message": str(exc)}
-            report["errors"].append({"stage": "slice", "message": str(exc)})
-            report["ok"] = False
-        report["timings_seconds"]["slice"] = time.monotonic() - before
+        add_slice_review(report, root / f"{source.stem}.stl", args)
         report["timings_seconds"]["total"] = time.monotonic() - started
     print(json.dumps(report, indent=2))
     if not report["ok"]:
         return 1
-    return 2 if args.slice and report["slice"]["review_required"] else 0
+    return 2 if args.slice and pair_ready and report["slice"]["review_required"] else 0
 
 
 if __name__ == "__main__":

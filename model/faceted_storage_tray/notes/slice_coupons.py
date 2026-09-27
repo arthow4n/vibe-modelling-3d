@@ -14,12 +14,12 @@ def run(config):
     folder = root / 'test_pieces' / name
     command = [
         sys.executable,
-        str(repo / '.codex/skills/orca-slicer-printability/scripts/review_print.py'),
-        '--model', str(folder / f'{name}_coupon.stl'),
+        str(repo / 'evaluate_model.py'),
+        '--slice-existing', str(folder / f'{name}_coupon.stl'),
     ]
     job = subprocess.run(command, capture_output=True, text=True)
     print(name, job.returncode, job.stdout.strip(), job.stderr.strip(), flush=True)
-    if job.returncode:
+    if job.returncode not in (0, 2):
         raise RuntimeError(name)
 
 with ThreadPoolExecutor(max_workers=2) as pool:

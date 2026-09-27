@@ -2,15 +2,14 @@
 from pathlib import Path
 from types import SimpleNamespace
 import json
-import re
 import shutil
 import sys
 import tempfile
 import unittest
 from unittest.mock import patch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from review_print import DEFAULTS, _support_roles, build_parser, review
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from evaluate_model import _support_roles, review
 
 
 EFFECTIVE_SETTINGS = {
@@ -42,27 +41,6 @@ class ReviewTests(unittest.TestCase):
             result = _support_roles(root, [{"id": 1}, {"id": 2}])
         self.assertEqual(result, [{"plate": 1, "roles": ["Support interface"]}])
 
-    def test_cli_help_matches_profile_defaults_and_exposes_only_unified_options(self):
-        help_text = re.sub(r"-\s+", "-", build_parser().format_help())
-        help_text = " ".join(help_text.split())
-        skill_text = (Path(__file__).resolve().parents[1] / "SKILL.md").read_text()
-        for profile in (
-                "qidi-q2c-0.4-nozzle.json",
-                "qidi-q2c-0.20-standard-adaptive-cubic-7.json",
-                "generic-petg-qidi-q2c-0.4.json"):
-            self.assertIn(profile, help_text)
-        for profile in DEFAULTS.values():
-            path = profile.as_posix()
-            self.assertIn(path, help_text)
-            self.assertIn(path, skill_text)
-        for option in ("--model", "--printer", "--process", "--filament",
-                       "--placement", "--keep-run"):
-            self.assertIn(option, help_text)
-        for removed in ("--bed", "--out", "--slicer", "--timeout", "--purpose", "--profile-scope"):
-            self.assertNotIn(removed, help_text)
-        self.assertIn("default: center", help_text)
-        self.assertIn("default: false", help_text)
-
     def test_zero_exit_without_completed_plate_is_failure_and_temp_is_removed(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -77,8 +55,8 @@ class ReviewTests(unittest.TestCase):
                 (output / "result.json").write_text(json.dumps({"return_code": 0, "sliced_plates": []}))
                 return SimpleNamespace(returncode=0)
 
-            with patch("review_print.slicer_prefix", return_value=["fake"]), \
-                    patch("review_print.subprocess.run", side_effect=fake), \
+            with patch("evaluate_model.slicer_prefix", return_value=["fake"]), \
+                    patch("evaluate_model.subprocess.run", side_effect=fake), \
                     self.assertRaisesRegex(RuntimeError, "completed plate"):
                 self._review(files)
             self.assertFalse(run_dirs[0].exists())
@@ -110,8 +88,8 @@ class ReviewTests(unittest.TestCase):
                 kwargs["stdout"].write("Detected print stability issue\n")
                 return SimpleNamespace(returncode=0)
 
-            with patch("review_print.slicer_prefix", return_value=["fake"]), \
-                    patch("review_print.subprocess.run", side_effect=fake):
+            with patch("evaluate_model.slicer_prefix", return_value=["fake"]), \
+                    patch("evaluate_model.subprocess.run", side_effect=fake):
                 result = self._review(files)
             self.assertTrue(result["review_required"])
             self.assertEqual(result["effective_settings"]["filament_type"], ["PETG"])
@@ -141,8 +119,8 @@ class ReviewTests(unittest.TestCase):
                 }))
                 return SimpleNamespace(returncode=0)
 
-            with patch("review_print.slicer_prefix", return_value=["fake"]), \
-                    patch("review_print.subprocess.run", side_effect=fake):
+            with patch("evaluate_model.slicer_prefix", return_value=["fake"]), \
+                    patch("evaluate_model.subprocess.run", side_effect=fake):
                 result = self._review(files, keep_run=True)
             kept = Path(result["kept_run_directory"])
             try:
@@ -174,8 +152,8 @@ class ReviewTests(unittest.TestCase):
                 }))
                 return SimpleNamespace(returncode=0)
 
-            with patch("review_print.slicer_prefix", return_value=["fake"]), \
-                    patch("review_print.subprocess.run", side_effect=fake):
+            with patch("evaluate_model.slicer_prefix", return_value=["fake"]), \
+                    patch("evaluate_model.subprocess.run", side_effect=fake):
                 result = self._review(files)
             self.assertEqual(len(slice_commands), 1)
             self.assertTrue(result["support_probe"]["reused_primary_slice"])
@@ -197,8 +175,8 @@ class ReviewTests(unittest.TestCase):
                 (output / "effective-settings.json").write_text(json.dumps(EFFECTIVE_SETTINGS))
                 return SimpleNamespace(returncode=0)
 
-            with patch("review_print.slicer_prefix", return_value=["fake"]), \
-                    patch("review_print.subprocess.run", side_effect=fake):
+            with patch("evaluate_model.slicer_prefix", return_value=["fake"]), \
+                    patch("evaluate_model.subprocess.run", side_effect=fake):
                 result = self._review(files)
             self.assertFalse(result["support_probe"]["ok"])
             self.assertTrue(result["review_required"])

@@ -10,11 +10,11 @@ configs = json.loads((root/'notes/variants.json').read_text())
 def run(config):
     name = config['name']
     folder = root/'variants'/name
-    command = [sys.executable,str(repo/'.codex/skills/orca-slicer-printability/scripts/review_print.py'),
-               '--model',str(folder/(name+'.stl'))]
+    command = [sys.executable,str(repo/'evaluate_model.py'),
+               '--slice-existing',str(folder/(name+'.stl'))]
     job = subprocess.run(command,capture_output=True,text=True)
     print(name,job.returncode,job.stdout.strip(),job.stderr.strip(),flush=True)
-    if job.returncode:
+    if job.returncode not in (0, 2):
         raise RuntimeError(name)
 with ThreadPoolExecutor(max_workers=2) as pool:
     list(pool.map(run,configs))
