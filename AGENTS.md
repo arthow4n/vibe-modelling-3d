@@ -241,7 +241,6 @@ const summary = {
   slice: report.slice && {
     ok: report.slice.ok,
     review_required: report.slice.review_required,
-    inside_printer_volume: report.slice.inside_printer_volume,
     log_notices: report.slice.log_notices,
   },
   errors: (report.errors ?? []).map(({ stage, type, message, file, line, view, path }) =>

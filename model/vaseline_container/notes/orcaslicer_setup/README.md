@@ -22,12 +22,12 @@ a printer or change model geometry.
   67.775–202.171 mm, Y 96.775–173.225 mm; Z is 0.2–22.8 mm. It fits the Q2C
   volume. No support paths were generated under these profiles.
 
-The command used was:
+The equivalent current smoke-slice command is below. The historical run used
+the retired `--expect-no-supports` flag; its saved evidence remains historical.
 
 ```sh
 uv run --locked python .codex/skills/orca-slicer-printability/scripts/review_print.py \
-  --model model/vaseline_container/vaseline_container.stl \
-  --expect-no-supports
+  --model model/vaseline_container/vaseline_container.stl
 ```
 
 The profile files are [printer](../../../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json),

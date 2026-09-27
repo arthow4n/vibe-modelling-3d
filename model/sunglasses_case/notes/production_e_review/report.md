@@ -35,7 +35,6 @@ PrusaSlicer 2.9.6, diagnostic PETG profile `../closure_review/review.ini`,
 
 ```sh
 prusa-slicer --load ../closure_review/review.ini --center 130,130 --export-gcode --output case.gcode ../../sunglasses_case.stl
-python3 summarize.py
 ```
 
 The fresh slice completed without warnings or support-material paths. It uses
@@ -43,8 +42,9 @@ The fresh slice completed without warnings or support-material paths. It uses
 layers, with maximum commanded layer Z=43.4 mm for the 43.5 mm CAD height.
 Deposited paths including half extrusion width and brim lie within
 X 28.381–233.471 mm and Y 25.804–230.196 mm, inside the 260 × 260 × 250 mm safe volume.
-`summary.json` retains actual bounds and estimates; `paths.json` retains
-role statistics. Generic diagnostic G-code is not a validated printer job.
+`summary.json` retains historical bounds and estimates from a retired
+path-analysis script; `paths.json` retains role statistics. Generic diagnostic
+G-code is not a validated printer job.
 
 ## Inspected local layer windows
 

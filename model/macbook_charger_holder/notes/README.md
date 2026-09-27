@@ -100,8 +100,7 @@ See `slicing/paths.json` and
 The diagnostic G-code is ignored and is not a validated machine job.
 
 The saved path summary and layer close-up are historical PrusaSlicer evidence.
-The former standalone `inspect_gcode.py` command has been retired; that module
-is now an internal parser used by the unified OrcaSlicer review helper. Existing
+The old G-code parser has been removed from the current workflow. Existing
 evidence remains available in `slicing/paths.json` and `slicing/cradle_layers.png`.
 
 STEP reimport checks confirmed valid single solids. STEP/STL bounds agree within

@@ -40,11 +40,13 @@ both the fastening interface and the tool-engagement surface when selecting
 orientation. The [final plate record](../../../../model/book_reading_plate/README.md#what-changed-after-the-successful-l-sample)
 contains the geometry, print plan and limits.
 
-## Check the actual brim and deposited-path footprint
+## Allow for generated print aids near bed limits
 
 The model bounds alone did not describe the dental case's generated brim and
 supports. The historical review measured deposited paths including half line
 width and compared X, Y and Z independently with that review's printer profile.
+For a new layout close to bed limits, inspect Orca's preview with the selected
+profile instead of routinely parsing G-code.
 Its accessory clip also raised a loose-extrusion warning on the production
 plate but not on a mixed coupon plate; adding a supporting pedestal resolved
 the local growth problem. Review the delivered layout, and use the selected

@@ -246,16 +246,14 @@ def main(argv=None):
                         help="Orca filament profile; use with --slice")
     parser.add_argument("--slice-placement", choices=("preserve", "center", "assembly"),
                         default="center", help="Orca placement; use with --slice")
-    parser.add_argument("--slice-expect-no-supports", action="store_true",
-                        help="Flag generated supports for review; use with --slice")
     parser.add_argument("--slice-keep-run", action="store_true",
                         help="Keep Orca diagnostics and G-code; use with --slice")
     parser.add_argument("--timeout", type=positive_float, default=300,
                         help="Maximum evaluation time in seconds")
     args = parser.parse_args(argv)
     if not args.slice and any((args.slice_printer, args.slice_process,
-                               args.slice_filament, args.slice_expect_no_supports,
-                               args.slice_keep_run, args.slice_placement != "center")):
+                               args.slice_filament, args.slice_keep_run,
+                               args.slice_placement != "center")):
         parser.error("Slice settings require --slice")
     source = args.file_path.resolve()
     if not source.is_file():
@@ -323,8 +321,6 @@ def main(argv=None):
                               ("--filament", args.slice_filament)):
             if value is not None:
                 command.extend((option, str(value)))
-        if args.slice_expect_no_supports:
-            command.append("--expect-no-supports")
         if args.slice_keep_run:
             command.append("--keep-run")
         before = time.monotonic()

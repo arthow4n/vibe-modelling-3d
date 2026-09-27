@@ -65,15 +65,14 @@ prusa-slicer --load model/dental_travel_case/notes/slicer_review/review.ini \
 ```
 
 Repeat with `accessories` and `test_pieces`. Preserve all model placements; do not
-split, repair, rotate or arrange captive shells independently. Then run
-`python3 model/dental_travel_case/notes/slicer_review/summarize.py`.
+split, repair, rotate or arrange captive shells independently. The saved
+`summary.json` is historical evidence from a retired path-analysis script.
 Diagnostic G-code and raw logs stay ignored under `run/`; they are not print jobs.
 
 The recorded historical layer windows are clip X 50–75 / Y 110–150 at
 2.6/3.2/3.6 mm; hinge X 46–69 / Y 121–151 at 29.0/32.4/35.6 mm; socket
-X 211–238 / Y 14–54 at 8.8/9.0/10.4 mm. The `inspect_gcode.py` module is now
-an internal parser, not a separate command; these archived PrusaSlicer views
-and reports remain unchanged.
+X 211–238 / Y 14–54 at 8.8/9.0/10.4 mm. The path parser used for these
+archived PrusaSlicer reports has been removed from the current workflow.
 
 The path bounds are a conservative bound on reported straight extrusion paths,
 not predicted plastic spread, ooze, sag or a complete printer-motion envelope.
