@@ -231,8 +231,9 @@ and creator attribution intact; consult the root README's licensing section.
 
 Use the root `pyproject.toml` and `uv.lock` for Python tooling. Run commands with
 `uv run --locked` and commit dependency changes to both files, not environments
-or caches. PrusaSlicer is a separate system command. Do not use
-ad-hoc virtual environments or another environment manager.
+or caches. OrcaSlicer is a separate Flatpak CLI for reference slicing. Use the
+repository's [OrcaSlicer printability skill](.codex/skills/orca-slicer-printability/SKILL.md).
+Do not use ad-hoc virtual environments or another environment manager.
 
 ## Git workflow and handoff
 
