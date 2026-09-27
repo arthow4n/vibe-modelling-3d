@@ -11,7 +11,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from inspect_gcode import read_paths
-from review_print import build_parser, footprint, printer_volume, review
+from review_print import DEFAULTS, build_parser, footprint, printer_volume, review
 
 
 ORCA_GCODE = """G21
@@ -110,11 +110,16 @@ class ReviewTests(unittest.TestCase):
     def test_cli_help_matches_profile_defaults_and_exposes_only_unified_options(self):
         help_text = re.sub(r"-\s+", "-", build_parser().format_help())
         help_text = " ".join(help_text.split())
+        skill_text = (Path(__file__).resolve().parents[1] / "SKILL.md").read_text()
         for profile in (
                 "qidi-q2c-0.4-nozzle.json",
                 "qidi-q2c-0.20-standard-adaptive-cubic-7.json",
                 "generic-petg-qidi-q2c-0.4.json"):
             self.assertIn(profile, help_text)
+        for profile in DEFAULTS.values():
+            path = profile.as_posix()
+            self.assertIn(path, help_text)
+            self.assertIn(path, skill_text)
         for option in ("--model", "--printer", "--process", "--filament",
                        "--placement", "--expect-no-supports", "--keep-run"):
             self.assertIn(option, help_text)

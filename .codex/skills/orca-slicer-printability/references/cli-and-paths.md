@@ -21,19 +21,10 @@ its app data filesystem grants access to the user home, including this
 repository. See [Flathub](https://flathub.org/en/apps/com.orcaslicer.OrcaSlicer)
 and the official [CLI mode documentation](https://www.orcaslicer.com/wiki/cli/cli_mode).
 
-Use the unified helper for normal slicing and path review:
-
-```sh
-uv run --locked python .codex/skills/orca-slicer-printability/scripts/review_print.py \
-  --model model/object_name/object_name.stl
-```
-
-It passes `--load-settings` with process/printer profiles and `--load-filaments`
-with the filament profile, slices all plates and exports effective settings in
-an automatic temporary directory. Use `--keep-run` only when raw CLI evidence
-is needed. The helper handles `result.json`, plate-to-G-code matching and path
-parsing internally; it prints a single JSON report. See
-[review-tool.md](review-tool.md) for the full argument defaults.
+For the review command and its argument defaults, use the
+[OrcaSlicer skill](../SKILL.md#run-the-review). It passes `--load-settings` with
+process/printer profiles and `--load-filaments` with the filament profile,
+slices all plates and handles effective settings and path parsing internally.
 
 ## Resolve profile inheritance before CLI use
 

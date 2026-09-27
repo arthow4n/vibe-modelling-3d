@@ -7,42 +7,38 @@ description: Run an OrcaSlicer reference-profile smoke slice and review slicer-g
 
 ## Scope
 
-Generic FDM review starts with [CAD/print planning](../cadquery-3d-design/references/print-planning.md).
-Use CAD geometry for support at bridge ends, projections, walls, gaps and
-orientation. Use a slicer for paths Orca actually generated; do not recreate its
-planning algorithms. A successful slice says Orca produced paths under the
-selected profiles. It does not establish temperatures, flow, supports,
-dimensional accuracy, bridge quality, physical clearance, strength or tactile
-behavior. Toolpath intentions are not physical measurements.
+Start with [CAD/print planning](../cadquery-3d-design/references/print-planning.md).
+Use CAD geometry to check support at bridge ends, projections, walls, gaps and
+orientation. Use Orca for the paths it generated; do not recreate its planning
+algorithms. A reference slice says Orca produced paths under the selected
+profiles. It does not establish temperatures, flow, dimensional accuracy,
+bridge quality, physical clearance, strength or tactile behavior.
 
-This skill does not request layer-window checks or generate layer images.
-Resolve geometry questions in CAD; use the path summary only for a remaining
-question about Orca's generated paths. It supports smoke review and aggregate
-path summaries, not a detailed local path investigation across selected layers.
+This skill covers final-mesh smoke reviews and aggregate path summaries. It does
+not request layer-window checks or generate layer images. Resolve geometry
+questions in CAD; do not treat the path summary as a detailed local investigation
+across selected layers.
 
 Use the maintained Qidi Q2C 0.4 mm / Generic PETG / 0.20 mm Standard / 7%
-adaptive cubic profile set by default. Use supplied Orca profiles when a review
-needs the user's actual settings; do not silently translate another slicer's
-profile into OrcaSlicer or add more reference slicers. See
-[CLI and profile setup](references/cli-and-paths.md).
+adaptive cubic profiles by default. Use supplied Orca profiles when the user's
+settings are needed; do not translate another slicer's profile into Orca or add
+more reference slicers. For a final smoke review, slice the final exported STL
+or 3MF. Reuse a result only while its model, profiles, placement and slicer
+version still match; follow the evidence reuse rules in [AGENTS.md](../../../AGENTS.md).
 
-For the final smoke review, slice the final exported STL or 3MF. Reuse an
-existing result only when its model, profiles, placement and slicer version
-still match; follow the evidence reuse rules in [AGENTS.md](../../../AGENTS.md).
+## Run the review
 
-## Unified review command
+From the repository root, run the unified helper. It infers OrcaSlicer, loads
+profiles, slices the model, reads effective settings, summarizes deposited
+paths and prints one JSON report to stdout. It never sends a printer job.
 
-From the repository root, run
-`.codex/skills/orca-slicer-printability/scripts/review_print.py`. It infers the
-Orca command, loads profiles, slices the model, reads effective settings,
-summarizes deposited paths and prints one JSON report to stdout. G-code, logs
-and intermediate files live in a temporary directory and are removed when the
-command exits. Use `--keep-run` only when raw diagnostics are needed; its JSON
-report includes the retained directory. The parser is an internal module, not a
-separate command.
+```sh
+uv run --locked python .codex/skills/orca-slicer-printability/scripts/review_print.py \
+  --model model/object_name/object_name.stl
+```
 
-The CLI help and this table are the interface contract. Keep option names and
-defaults synchronized:
+The CLI help and this table are the interface contract; keep argument names
+and defaults synchronized:
 
 | Argument | Default | Meaning |
 | --- | --- | --- |
@@ -50,69 +46,86 @@ defaults synchronized:
 | `--printer PRINTER` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json` | Printer and machine dimensions. |
 | `--process PROCESS` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json` | 0.20 mm Standard, 7% adaptive cubic sparse infill. |
 | `--filament FILAMENT` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json` | Generic PETG. |
-| `--placement {preserve,center,assembly}` | `center` | Centering mode; rotation and auto-orientation stay disabled. |
+| `--placement {preserve,center,assembly}` | `center` | Center the layout without rotation or auto-orientation. |
 | `--expect-no-supports` | Off (`false`) | Request review if Orca generates support paths. |
-| `--keep-run` | Off (`false`) | Preserve temporary G-code and diagnostics. |
+| `--keep-run` | Off (`false`) | Retain temporary G-code and diagnostics. |
 
-There is no separate `--bed`: bounds come from Orca's effective printer
-`printable_area` and `printable_height`. Qidi Q2C defaults to the manufacturer's
-**270 × 270 × 256 mm** build volume
-([Q2C specifications](https://us.qidi3d.com/products/q2c)). Supply a printer
-profile with smaller limits when those are the appropriate usable dimensions.
-The helper supports axis-aligned rectangular printable areas and stops with an
-error for another shape rather than guessing. Slicer selection is inferred in
-this order: `ORCASLICER_COMMAND`, host `orca-slicer`, Flatpak OrcaSlicer.
+To use other Orca profiles, pass all three profile files:
 
-The default `center` placement uses `--arrange 1 --orient 0
---allow-rotations=0`. A single STL moves as one mesh and retains internal
-component positions. For a project with independent objects, use `preserve` if
-the existing placement is intentional, or `assembly` when grouping the objects
-is acceptable. Record the selected placement in the object note. Do not
-silently split, rotate, scale, repair or union input geometry.
+```sh
+uv run --locked python .codex/skills/orca-slicer-printability/scripts/review_print.py \
+  --model model/object_name/object_name.stl \
+  --printer model/object_name/notes/printer.json \
+  --process model/object_name/notes/process.json \
+  --filament model/object_name/notes/filament.json \
+  --placement preserve
+```
 
-## Review and evidence
+The printer profile also supplies the checked machine bounds. There is no
+separate bed-size argument: bounds come from Orca's effective
+`printable_area` and `printable_height`. The Qidi Q2C profile defines the
+manufacturer's **270 × 270 × 256 mm** build volume
+([Q2C specifications](https://us.qidi3d.com/products/q2c)). Use a printer
+profile with smaller dimensions when those are the appropriate usable limits.
+Only axis-aligned rectangular printable areas are supported; the helper errors
+on other shapes rather than guessing. Orca is inferred in this order:
+`ORCASLICER_COMMAND`, host `orca-slicer`, then Flatpak OrcaSlicer. Its CLI
+timeout is fixed at 600 seconds.
 
-Read effective profiles, Orca notices, per-plate bounds and support paths.
-Bounds include half the reported line width, brim and generated support paths;
-they exclude travel, start/end machine motion and physical flow spread. Support
-counts are reported on every run. `--expect-no-supports` makes any generated
-support path a review condition; it does not change support settings. For
-multiple plates, evaluate bounds separately. Resolve dimensions, gaps and
-clearance from CAD. Roles and segment lengths alone do not establish anchors or
-unsupported spans.
+### Placement
 
-The notice list combines structured per-plate warnings with keyword-filtered
-log lines, so an empty list does not establish that the full slicer log is
-message-free. Use `--keep-run` if the complete log needs review. The helper does
-not assess whether Orca repaired a mesh or whether every intended component was
-retained.
+`center` is the default. It uses `--arrange 1 --orient 0
+--allow-rotations=0`. One STL moves as a whole and retains internal component
+positions. For a multi-object project, use `preserve` when its existing
+placement is intentional, or `assembly` when grouping the objects on one plate
+is acceptable. Do not silently rotate, scale, repair, split or union the input.
 
-Exit 0 means no automated review condition was found. Exit 2 means Orca
-reported a notice, paths extend beyond the selected printer volume, or the
-optional no-support expectation was violated. Exit 1 means the review could not
-complete. None of these statuses is a universal printability verdict.
+## Read the result
 
-Keep one concise object record with profile file paths, Orca version, model,
-placement, effective settings, smoke-slice result, notices, per-plate footprint
-and height, support presence, and physical limitations. Do not save temporary
-report files by default. Keep raw evidence only when it answers a concrete
-question. No automated free-air-span, anchor, sag, stress, support-removal
-accessibility, mesh-repair assessment or physical printability classifier is
-supplied.
+The helper verifies Orca's exit status, a successful `result.json` with one or
+more sliced plates, fresh nonempty G-code matched to every reported plate ID,
+effective settings and parseable deposition. The JSON report includes selected
+profiles and effective settings, slicer version, printer volume, placement,
+whether supports were expected, notices, and per-plate:
+
+- deposited XY bounds including half line width, brim and generated support;
+- layer range and count, support-segment count and path-role totals;
+- longest bridge-role centerlines and filament/time metadata.
+
+Bounds exclude travel, start/end machine motion and physical flow spread. A
+missing G-code width uses the parser's 0.45 mm fallback, which is only a
+diagnostic estimate. Path roles and segment lengths do not establish anchors,
+free-air spans, clearance or physical print quality. The helper does not assess
+whether Orca repaired a mesh or retained every intended component.
+
+The notice list combines structured plate warnings with keyword-filtered log
+lines. An empty list does not prove the full slicer log is message-free. Use
+`--keep-run` when the complete log or raw G-code is needed; on success the JSON
+includes the retained directory, and on error the message gives its location.
+Otherwise G-code, logs, `result.json`, effective settings and intermediate files
+are deleted automatically.
+
+Exit 0 means no automated review condition was found. Exit 2 means Orca reported
+a notice, paths extend beyond the selected printer volume, or the optional
+no-support expectation was violated. Exit 1 means the review could not
+complete. These statuses are not universal printability verdicts.
+
+Keep one concise object record with model and profile paths, Orca version,
+placement, effective settings, smoke result, notices, per-plate bounds and
+support presence, plus physical limitations. Keep temporary files only when
+they answer a concrete question. No automatic layer-window views, free-air
+span, anchor, sag, stress, support-removal accessibility, mesh-repair assessment
+or physical printability classifier is provided.
 
 ## Related references
 
-- [Review helper](references/review-tool.md): command, arguments and output.
 - [CLI and path interpretation](references/cli-and-paths.md): Flatpak launch,
   profile inheritance and parser limits.
 - [Case lessons](references/case-lessons.md): retained observations and limits.
-- [Notebook index](references/notebook.md): maintained findings.
-
-## Notebook maintenance
 
 Correct disproven advice and consolidate useful techniques instead of appending
-session transcripts. Record the tested slicer version, profile assumptions,
-observation and limits. Label untested ideas. Do not generalize one
-printer's clearance or bridge result into a universal rule. Capture reusable
-geometric lessons in print planning or the relevant case lesson. Inspection
-does not authorize redesign, deployment, print tuning outside scope or printing.
+session transcripts. Record tested slicer version, profile assumptions,
+observation and limits. Do not generalize one printer's clearance or bridge
+result into a universal rule. Capture reusable geometric lessons in print
+planning or the relevant case lesson. Inspection does not authorize redesign,
+deployment, print tuning outside scope or printing.
