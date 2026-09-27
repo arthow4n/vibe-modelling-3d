@@ -83,6 +83,10 @@ the `expect_no_supports` choice, notices, and per-plate:
 Travel, start/end machine motion, physical flow spread, anchor/free-air span,
 clearance and physical print quality are not measured. A missing G-code width
 uses the parser's 0.45 mm fallback and is only a diagnostic estimate.
+The notice list combines structured plate warnings with keyword-filtered log
+lines; an empty list does not prove the full slicer log contains no messages.
+Use `--keep-run` if full log review is needed. Mesh-repair status and retention
+of every intended component are not assessed.
 
 By default G-code, logs, `result.json`, effective settings and other temporary
 files are deleted at exit. `--keep-run` retains these files and includes

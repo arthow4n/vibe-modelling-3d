@@ -26,6 +26,10 @@ needs the user's actual settings; do not silently translate another slicer's
 profile into OrcaSlicer or add more reference slicers. See
 [CLI and profile setup](references/cli-and-paths.md).
 
+For the final smoke review, slice the final exported STL or 3MF. Reuse an
+existing result only when its model, profiles, placement and slicer version
+still match; follow the evidence reuse rules in [AGENTS.md](../../../AGENTS.md).
+
 ## Unified review command
 
 From the repository root, run
@@ -77,6 +81,12 @@ multiple plates, evaluate bounds separately. Resolve dimensions, gaps and
 clearance from CAD. Roles and segment lengths alone do not establish anchors or
 unsupported spans.
 
+The notice list combines structured per-plate warnings with keyword-filtered
+log lines, so an empty list does not establish that the full slicer log is
+message-free. Use `--keep-run` if the complete log needs review. The helper does
+not assess whether Orca repaired a mesh or whether every intended component was
+retained.
+
 Exit 0 means no automated review condition was found. Exit 2 means Orca
 reported a notice, paths extend beyond the selected printer volume, or the
 optional no-support expectation was violated. Exit 1 means the review could not
@@ -87,7 +97,8 @@ placement, effective settings, smoke-slice result, notices, per-plate footprint
 and height, support presence, and physical limitations. Do not save temporary
 report files by default. Keep raw evidence only when it answers a concrete
 question. No automated free-air-span, anchor, sag, stress, support-removal
-accessibility or physical printability classifier is supplied.
+accessibility, mesh-repair assessment or physical printability classifier is
+supplied.
 
 ## Related references
 
