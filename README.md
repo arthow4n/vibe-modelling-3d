@@ -15,7 +15,7 @@ OrcaSlicer is installed from Flathub for reference-profile CLI print review.
 
 | Object | Current use and print instructions | Model provenance | Test piece(s) printed | Final object printed |
 | --- | --- | --- | --- | --- |
-| Postcard display | [Minimal one-card portrait/landscape easel](model/postcard_display/README.md) | [Record](model/postcard_display/README.md#attribution) | N/A — full holder is the trial | Unknown — no user print report |
+| Postcard displays | [Original + Outline, Wave and Prism postcard displays](model/postcard_display/README.md) | [Record](model/postcard_display/README.md#attribution) | N/A — full holder is the trial | Unknown — no user print report |
 | Book reading plate | [Final PETG plate and head-up screws](model/book_reading_plate/README.md) | [Record](model/book_reading_plate/README.md#attribution) | Yes — prior L sample worked; head/socket issue revised; no new coupon | Yes — user reports the complete plate printed with a really nice result |
 | Decorative faceted tray | [Eight texture samples and retained tray exports](model/faceted_storage_tray/README.md) | [Record](model/faceted_storage_tray/README.md#attribution) | Unknown — eight coupons, no user report | Partial — variant H printed; user reports it works well; other variants unreported |
 | Rounded storage tray | [220 mm interior tray](model/storage_tray/README.md) | [Record](model/storage_tray/README.md#attribution) | N/A — full tray is the trial | Unknown — no user report |

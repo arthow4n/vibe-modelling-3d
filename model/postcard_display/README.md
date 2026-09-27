@@ -6,6 +6,91 @@ Print **[postcard_display.step](postcard_display.step)**, or the matching
 the long feet run behind the card. Lower the card onto both feet, centre it,
 and lean it against the two rear ribs. Lift it out to change orientation.
 
+## Three aesthetic alternatives
+
+The original `postcard_display.py`, STEP and STL are retained unchanged.
+All three alternatives are complete one-piece holders using the same PETG,
+0.4 mm nozzle, 0.2 mm layer, two-wall, 7% adaptive cubic setup described below.
+They keep the 64 × 40 mm footprint, approximately 56.6 mm height, low 1.4 mm
+front stops, and support for A6 / 100 × 150 mm cards in both orientations.
+
+![Side profiles, front at left](renders/style_comparison.png)
+
+| Style | Character and tradeoff | Print STEP | Matching STL |
+| --- | --- | --- | --- |
+| Outline | Open triangular frames; light architectural side profile, retaining the original continuous backing line | [STEP](postcard_outline.step) | [STL](postcard_outline.stl) |
+| Wave | Two curved arms with open space behind the card; softest silhouette, upper backing contact only, best with flat stiff cards | [STEP](postcard_wave.step) | [STL](postcard_wave.stl) |
+| Prism | Broad facets and inward-tapering fins; a more substantial sculptural appearance, upper supports closer together | [STEP](postcard_prism.step) | [STL](postcard_prism.stl) |
+
+For the largest aesthetic departure, start with **Wave**. Outline is the choice
+for visual lightness with distributed backing. Prism deliberately retains more
+material for its broad surfaces. These are geometric differences, not verified
+claims about transparency: translucent PETG can show infill and seams, and the
+actual lighting effect needs a print.
+
+Sources: `postcard_outline.py`, `postcard_wave.py`, `postcard_prism.py` call the
+shared builders in [style_variants.py](style_variants.py), which imports original
+interface dimensions. Keep these modules and `postcard_display.py` together.
+The frame window, wave width/depth and prism section table are the main style
+adjustments. The prism's backing surface has a deliberate 0.10 mm setback;
+the card settles slightly beyond the nominal 12° lean.
+
+[Outline perspective](renders/outline/postcard_outline_isometric.png) ·
+[Wave perspective](renders/wave/postcard_wave_isometric.png) ·
+[Prism perspective](renders/prism/postcard_prism_isometric.png) ·
+[Vector comparison](renders/style_comparison.svg)
+
+### Variant verification
+
+The original gravity/stability screen below still applies to the shared card
+size, lean and footprint. Wave carries the approximately 0.03 N backing reaction
+through two 4.8 mm-wide, nominally 5 mm-deep curved stems; it is not a spring
+clip. Frame openings retain connected front and rear rails. Prism fins grow
+from overlapping bases and narrow toward their tops. All are open from above
+for insertion and removal without flexing or squeezing the postcard. All remain
+concealed behind a centred opaque postcard when viewed from the front.
+
+Each final variant passed CadQuery 2.7.0 validity and matching STEP/STL export.
+[style_review.py](style_review.py) passed targeted seated-card collision checks
+for both card sizes, both orientations, and 0.2/0.8 mm thickness endpoints on
+all three variants. The [assembled front scene](renders/styles_assembled/style_review_front.png)
+was inspected for concealment. Individual side and perspective views were
+inspected for the distinct profiles, contact areas and base connections.
+
+Final OrcaSlicer 2.4.2 checks, separately for each exported STL: completed one
+centred plate, **no notices, no review conditions, and no generated support**.
+The same diagnostic profiles and effective settings recorded below were used
+for all three (PETG, 0.4 mm, 0.2 mm, two walls, 7% adaptive cubic, supports off,
+auto brim 5 mm; probe 30° / 10 mm). This establishes selected-profile path
+acceptance, not physical quality or GUI STEP-import behavior.
+
+FDM review: all feet and crossbars start on the bed. Outline's pointed opening
+closes gradually rather than with a broad horizontal roof. Wave's smooth stems
+grow from the feet without unsupported starts, with rounded profile corners
+and short upper contact lands. Prism's sloping facets taper in both directions;
+its upper contact edges have a 0.3 mm bevel. Facet boundaries intentionally stay
+crisp; the feet and front stops retain rounded corners. No trapped supports or
+assembly joints are required. Print all variants feet down as supplied, supports
+off; use a brim if your adhesion needs it. Handle Wave by its base.
+
+All variants are untested physically. First-print observations: seating on both
+feet, forward retention, rocking/tipping on the intended shelf, postcard curl,
+and whether the side silhouette and translucent appearance suit the location.
+No separate coupons were made: complete small holders are the useful comparison.
+
+Reproduce a variant (replace `outline` with `wave` or `prism`):
+
+```sh
+./evaluate_model.py model/postcard_display/postcard_outline.py --views isometric,right --output-dir renders/outline --slice
+./evaluate_model.py model/postcard_display/style_review.py --views front --output-dir renders/styles_assembled
+uv run --locked python model/postcard_display/style_review.py
+```
+
+The last command creates the native vector comparison and its PNG; the review
+scene includes reference cards and **must not be printed**. The original and all
+three alternatives share the attribution below, supplied by the user. No
+physical print success is inferred from the user's approval of the original CAD.
+
 ## Design and use
 
 Designed for stiff, flat 100 × 150 mm and A6 (105 × 148 mm) postcards in either
@@ -101,6 +186,9 @@ Reproduce exports/review from repository root:
 | --- | --- | --- | --- |
 | Test piece(s) | N/A | None | Full holder is the trial |
 | Final printable object(s) | Unknown | `postcard_display.step`, `postcard_display.stl` | No user print report; check card seating, stability, curl and contact finish |
+| Final printable object — Outline | Unknown | `postcard_outline.step`, `postcard_outline.stl` | No print report; check seating, stability, frame finish and appearance |
+| Final printable object — Wave | Unknown | `postcard_wave.step`, `postcard_wave.stl` | No print report; check upper backing contact, curl, stability and appearance |
+| Final printable object — Prism | Unknown | `postcard_prism.step`, `postcard_prism.stl` | No print report; check backing contact, stability, facet finish and appearance |
 
 ## Attribution
 
