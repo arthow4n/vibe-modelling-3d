@@ -39,10 +39,12 @@ PETG profile silently. Do not translate another slicer's profile into Orca or
 add more reference slicers. STEP is the user's primary print-ready interchange
 file. The installed headless Orca CLI rejects STEP input, so for a final smoke
 review slice the matching exported STL. This result does not verify Orca's GUI
-STEP import; do not describe it as a STEP slice. Use 3MF when it is the agreed
-print file. Reuse a result only while its
-model, profiles, placement and slicer version still match; follow the evidence
-reuse rules in AGENTS.md.
+STEP import; do not describe it as a STEP slice. The shared evaluator's STL
+export uses Orca GUI's default STEP-import meshing settings (0.003 mm absolute
+linear deflection, 0.5 rad angular deflection), but reimport and Open Cascade
+version differences can still change the triangles. Use 3MF when it is the
+agreed print file. Reuse a result only while its model, profiles, placement
+and slicer version still match; follow the evidence reuse rules in AGENTS.md.
 
 ## Run the review
 

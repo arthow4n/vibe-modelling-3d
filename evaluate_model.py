@@ -97,11 +97,14 @@ def export(shape, item):
     with tempfile.NamedTemporaryFile(dir=path.parent, suffix=path.suffix, delete=False) as file:
         temporary = Path(file.name)
     try:
-        export_options = {"exportType": item["format"]}
         if item["format"] == "STL":
-            export_options.update(tolerance=STL_LINEAR_TOLERANCE_MM,
-                                  angularTolerance=STL_ANGULAR_TOLERANCE_RAD)
-        cq.exporters.export(shape, str(temporary), **export_options)
+            # Orca's GUI STEP import meshes with the same absolute deflection settings.
+            if not shape.exportStl(str(temporary), tolerance=STL_LINEAR_TOLERANCE_MM,
+                                   angularTolerance=STL_ANGULAR_TOLERANCE_RAD,
+                                   relative=False):
+                raise RuntimeError("STL export failed")
+        else:
+            cq.exporters.export(shape, str(temporary), exportType=item["format"])
         data = temporary.read_bytes()
         temporary.replace(path)
         result = {key: value for key, value in item.items() if key != "format"}
@@ -217,7 +220,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(
         description=f"{__doc__}\nFor valid evaluations, stdout always contains one JSON object. "
                     "Model, view, and export paths in the report are absolute.\n"
-                    f"STL exports use {STL_LINEAR_TOLERANCE_MM} mm linear and "
+                    f"STL exports use {STL_LINEAR_TOLERANCE_MM} mm absolute linear and "
                     f"{STL_ANGULAR_TOLERANCE_RAD} rad angular tessellation tolerances.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("file_path", type=Path, help="Trusted CadQuery Python entry point")
@@ -273,7 +276,8 @@ def main(argv=None):
             item = {"path": str(path), "format": name}
             if name == "STL":
                 item.update(tolerance_mm=STL_LINEAR_TOLERANCE_MM,
-                            angular_tolerance_rad=STL_ANGULAR_TOLERANCE_RAD)
+                            angular_tolerance_rad=STL_ANGULAR_TOLERANCE_RAD,
+                            linear_tolerance_mode="absolute")
             exports.append(item)
     destinations = {output_dir / f"{source.stem}_{view}.png" for view in views}
     if source in destinations or paths & destinations:

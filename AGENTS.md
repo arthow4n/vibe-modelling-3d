@@ -158,6 +158,10 @@ samples; it does not require full-size variants when only samples were requested
 STEP is the primary print-ready interchange file. STL is a matching secondary
 export used for the headless reference slice and compatibility. An STL-based
 slice does not validate Orca's separate GUI STEP import or its tessellation.
+The shared evaluator meshes its STL with Orca GUI's default STEP-import
+settings: 0.003 mm absolute linear deflection and 0.5 rad angular deflection.
+The two paths can still produce different triangles because Orca reopens STEP
+and uses a different Open Cascade version. GUI settings may also be changed.
 Export STEP and STL from the **same geometry and print placement**, with matching
 units, orientation, bed position and relative component positions. The shared
 command's `--export` writes both files named after the source; `--slice` writes
