@@ -13,7 +13,7 @@ What CAD/slicing establishes:
 What needs physical observation:
 Accepted baseline (revision/hash, material, orientation, printer/profile where known):
 
-| Label / file | Change from baseline | Predicted observation | Decision informed | Filament / time |
+| Label / file | Change from baseline | Predicted observation | Decision informed | Cost estimate if useful |
 | --- | --- | --- | --- | --- |
 
 Preserved interfaces, flexure dimensions and constraints:

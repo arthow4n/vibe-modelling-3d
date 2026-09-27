@@ -40,9 +40,9 @@ screen the complete load path separately. Do not recommend a coupon as a
 strength-qualified trial when the assembly's structural screen already rejects
 its joint architecture.
 
-Before printing, coupon checks establish only preserved geometry/constraints,
-experiment scope, bed fit, plausible toolpaths and estimated cost savings. They
-do not measure release force, friction, spring return, hinge wobble or fatigue.
+Before printing, coupon review establishes only preserved geometry/constraints,
+experiment scope and, when sliced, acceptance under the selected profile. It
+does not measure release force, friction, spring return, hinge wobble or fatigue.
 Once virtual checks have narrowed the uncertainty to physical behavior, stop
 generating virtual variants and recommend the informative print comparison.
 
@@ -55,12 +55,12 @@ attachment stiffness, movement constraints and print orientation. Do not
 shorten spring arms or scale a mechanism to reduce material.
 
 A skeletal fixture may test seating but underrepresent enclosure stiffness;
-say so. Reuse smoke-slice filament/time estimates, scoped to that profile, when
-available; otherwise label a rough cost estimate. Compare with a less simplified
-fixture when the savings/validity
-tradeoff is uncertain. A full box is justified only if its structure is needed
-for the intended observation. Do not impose a universal bridge length or
-coupon mass.
+say so. Estimate material or print time only when it changes the sample choice;
+use a slicer's existing estimate when available, without adding G-code analysis
+solely to obtain a precise number. Compare with a less simplified fixture when
+the savings/validity tradeoff is uncertain. A full box is justified only if its
+structure is needed for the intended observation. Do not impose a universal
+bridge length or coupon mass.
 
 ## Make variants distinguishable and diagnostic
 

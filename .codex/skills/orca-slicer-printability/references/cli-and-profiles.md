@@ -2,7 +2,9 @@
 
 Use the [OrcaSlicer skill](../SKILL.md#run-the-review) for the current command,
 profile arguments and report. These findings were checked with Flatpak
-OrcaSlicer 2.4.2 on 2026-09-27; recheck them when the slicer or profiles change.
+OrcaSlicer 2.4.2 on 2026-09-27. Use the effective-settings report during routine
+reviews; investigate changed CLI or profile behavior when a concrete mismatch
+appears.
 
 ## STEP input in the headless CLI
 

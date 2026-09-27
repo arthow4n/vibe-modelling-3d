@@ -53,7 +53,7 @@ upward may leave a flat head underside as an unsupported ledge. A tapered
 underside can grow outward gradually; if it bears on the assembly, model its
 matching seat and recheck seated position, contact and local strength. Choose
 the slope and support strategy for the actual geometry and process rather than
-assuming a universal printable angle. The [book plate screw case](../../orca-slicer-printability/references/case-lessons.md#a-printed-screws-drive-socket-is-also-a-fit-critical-surface)
+assuming a universal printable angle. The [book plate screw case](../../../../model/book_reading_plate/README.md#what-changed-after-the-successful-l-sample)
 shows the orientation and seat tradeoff.
 
 Use these assumptions when interpreting ambiguous requirements and judging whether a model is satisfactory. If the request calls for a different printer, nozzle, material, or manufacturing process, follow that request instead and record important assumptions where useful.

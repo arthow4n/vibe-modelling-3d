@@ -6,8 +6,8 @@ option, not a default hinge specification or a guaranteed printable profile.
 ## Start with the whole object's orientation
 
 The sunglasses case's earlier standing orientation helped its hinge but left
-an overhead cavity wall with an approximately 87 mm bridge. Printing the case
-open 180 degrees with both broad exterior panels on the bed removed that roof.
+a broad unsupported cavity roof. Printing the case open 180 degrees with both
+broad exterior panels on the bed removed that roof.
 The hinge then had to work with a horizontal rotation axis. This illustrates
 why a locally printable joint does not establish a printable complete object.
 

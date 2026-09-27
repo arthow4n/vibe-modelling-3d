@@ -144,9 +144,10 @@ physical print quality.
 unnecessary support, or omit support that the physical print needs. Inspect the
 support's location and removal path in Orca's GUI when generated; inspect a
 specific suspect bridge there even when the probe finds none. A probe failure
-is reported as `support_probe.ok=false` and also requests review. A tight bed
-fit or other placement-sensitive question still needs the sliced layout in
-Orca's GUI.
+is reported as `support_probe.ok=false` and also requests review. Open the
+sliced layout in Orca's GUI when acceptance is ambiguous or print-aid location
+affects removal or use. A completed slice covers routine bed-fit acceptance
+under the selected profile.
 
 The notice list combines structured plate warnings with keyword-filtered log
 lines. An empty list does not prove the full slicer log is message-free. Use
@@ -170,11 +171,11 @@ Keep temporary files only when they answer a concrete question.
 
 - [CLI and profile notes](references/cli-and-profiles.md): headless STEP input
   and profile inheritance.
-- [Case lessons](references/case-lessons.md): retained observations and limits.
 
 Correct disproven advice and consolidate useful techniques instead of appending
 session transcripts. Record tested slicer version, profile assumptions,
 observation and limits. Do not generalize one printer's clearance or bridge
 result into a universal rule. Capture reusable geometric lessons in print
-planning or the relevant case lesson. Inspection does not authorize redesign,
-deployment, print tuning outside scope or printing.
+planning or the [reusable model evidence index](../cadquery-3d-design/references/reusable-model-lessons.md)
+when transferable. Inspection does not authorize redesign, deployment, print
+tuning outside scope or printing.
