@@ -57,6 +57,24 @@ do not mistake a parameter value for a verified measurement or physical result.
 Read the relevant references during planning, not only after a failed print.
 Do not load every reference for every task.
 
+## Early comparison for aesthetic alternatives
+
+When the user requests visually distinct alternatives, compare inexpensive
+silhouettes or rough forms before detailed CAD and exports. Choose views that
+reveal the requested differences; include the held object or use context when
+it affects visibility, and use a common scale when comparing proportions.
+Look for differences in overall shape, open space and support arrangement;
+surface details or cutouts alone may not satisfy a request for distinct styles.
+Revise repetitive concepts at this stage while preserving the functional
+constraints and screening rough print feasibility.
+
+Share the comparison early. Treat it as a design review within the agreed
+scope, not an automatic approval gate: continue autonomously when authorized,
+and complete the agreed deliverables. Use physical samples when material,
+texture or finish is the deciding uncertainty; silhouettes cannot establish
+those outcomes. This comparison is conditional on aesthetic exploration,
+not a required stage for every model.
+
 ## Proportionate review
 
 Ask: **What uncertainty remains, what would the result change, and what is the

@@ -332,9 +332,14 @@ are unclear. Final verification must cover the final files.
 Do not introduce a caching framework for a one-off task. Unchanged helpers do not
 need their own regression suites rerun for every model.
 
-Keep one concise current decision/evidence record per object; add detailed
-reports only when they answer a distinct question. Track work in the active
-task checklist, but do not commit a separate completed checklist that repeats
+Keep one concise current decision/evidence record per object. State shared
+print/use instructions and assumptions once; for multiple variants, use a
+compact comparison and record only their consequential differences and specific
+evidence. Update this structure as variants are added instead of appending
+repeated handoff sections. Keep deliverable links, relevant verification and
+physical results, the standard print-status block, and attribution easy to find.
+Add detailed reports only when they answer a distinct question. Track work in
+the active task checklist, but do not commit a separate completed checklist that repeats
 the object's record. Preserve unique physical observations and attribution;
 recover superseded process narratives from Git history when needed. Return
 compact summaries and inspect full logs only for a failure or unresolved
