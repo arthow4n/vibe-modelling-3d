@@ -166,9 +166,11 @@ crisp; the feet and front stops retain rounded corners. No trapped supports or
 assembly joints are required. Print all variants feet down as supplied, supports
 off; use a brim if your adhesion needs it. Handle Wave by its base.
 
-All variants are untested physically. First-print observations: seating on both
-feet, forward retention, rocking/tipping on the intended shelf, postcard curl,
-and whether the side silhouette and translucent appearance suit the location.
+Wave was printed and the user reports that it works well (2026-09-28; Wave
+artifact from commit `24636e0`). Printer, material, settings and card size were
+not reported. For Orbit, Bolt and Pebble, first-print observations remain:
+seating on both feet, forward retention, rocking/tipping on the shelf, postcard
+curl, and whether the silhouette and translucent appearance suit the location.
 No separate coupons were made: complete small holders are the useful comparison.
 
 Reproduce a variant (replace `outline` with `wave` or `prism`):
@@ -181,8 +183,9 @@ uv run --locked python model/postcard_display/style_review.py
 
 The last command creates the native vector comparison and its PNG; the review
 scene includes reference cards and **must not be printed**. The original and all
-three alternatives share the attribution below, supplied by the user. No
-physical print success is inferred from the user's approval of the original CAD.
+three alternatives share the attribution below, supplied by the user. Wave
+physical success is recorded from the separate print report below; CAD approval
+alone is not treated as print evidence for the other designs.
 
 ## Design and use
 
@@ -280,7 +283,7 @@ Reproduce exports/review from repository root:
 | Test piece(s) | N/A | None | Full holder is the trial |
 | Final printable object(s) | Unknown | `postcard_display.step`, `postcard_display.stl` | No user print report; check card seating, stability, curl and contact finish |
 | Final printable object — Outline | Unknown | `postcard_outline.step`, `postcard_outline.stl` | No print report; check seating, stability, frame finish and appearance |
-| Final printable object — Wave | Unknown | `postcard_wave.step`, `postcard_wave.stl` | No print report; check upper backing contact, curl, stability and appearance |
+| Final printable object — Wave | Yes | `postcard_wave.step`, `postcard_wave.stl` (printed artifact from commit `24636e0`) | User reports full holder printed and works well (2026-09-28); printer, material, settings and card size unknown |
 | Final printable object — Prism | Unknown | `postcard_prism.step`, `postcard_prism.stl` | No print report; check backing contact, stability, facet finish and appearance |
 | Final printable object — Orbit | Unknown | `postcard_orbit.step`, `postcard_orbit.stl` | No print report; check seating, stability, curl, finish and appearance |
 | Final printable object — Bolt | Unknown | `postcard_bolt.step`, `postcard_bolt.stl` | No print report; check seating, stability, curl, finish and appearance |
