@@ -65,6 +65,7 @@ class Constraint:
     selection: Selection
     displacement_mm: tuple  # None = free DOF
     name: str
+    progress: tuple | None = None  # (normalized time, translation multiplier)
 
 @dataclass(frozen=True)
 class Load:
@@ -77,6 +78,7 @@ class Contact:
     master: Selection
     penalty_N_mm3: float
     penetration_limit_mm: float
+    discretization: str = "node_to_surface"
 
 class Backend(Protocol):
     def run(self, case: 'AnalysisCase', directory: Path): ...
@@ -115,24 +117,36 @@ class AnalysisCase:
             raise ValueError(f'Unknown part: {part}')
         return Selection(part, region if region is not None else Region())
 
-    def constrain(self, part, region=None, *, displacement_mm=(0, 0, 0), name=None):
+    def constrain(self, part, region=None, *, displacement_mm=(0, 0, 0), name=None, progress=None):
         values = tuple(displacement_mm)
         if len(values) != 3 or all(v is None for v in values) or any(
             v is not None and not math.isfinite(v) for v in values
         ):
             raise ValueError('Constraint needs three finite values or None, at least one constrained')
+        if progress is not None:
+            progress = tuple(tuple(vector_point) for vector_point in progress)
+            if (len(progress)<2 or any(len(p)!=2 or not all(math.isfinite(x) for x in p) for p in progress)
+                    or progress[0]!=(0,0) or progress[-1][0]!=1
+                    or any(b[0]<=a[0] for a,b in zip(progress,progress[1:]))):
+                raise ValueError('Motion progress needs increasing times from (0,0) through time 1')
+            if not any(v for v in values if v is not None):
+                raise ValueError('Motion progress needs a nonzero translation')
         name = name or f'BC{len(self.constraints)}'
         if not re.fullmatch(r'[A-Za-z][A-Za-z0-9_]{0,47}', name) or any(c.name == name for c in self.constraints):
             raise ValueError('Constraint names must be unique short identifiers')
-        self.constraints.append(Constraint(self.select(part, region), values, name))
+        self.constraints.append(Constraint(self.select(part, region), values, name, progress))
         return self
 
     def fix(self, part, region=None, *, name=None):
         return self.constrain(part, region, name=name)
 
-    def prescribe_motion(self, part, region=None, *, displacement_mm, name=None):
-        """Translation ramp from zero; None leaves a direction unconstrained."""
-        return self.constrain(part, region, displacement_mm=displacement_mm, name=name)
+    def prescribe_motion(self, part, region=None, *, displacement_mm, name=None, progress=None):
+        """Translation, optionally scaled by a piecewise-linear (time, multiplier) path.
+
+        Time spans 0..1; (0,0),(.5,1),(1,0) loads and returns without resetting
+        contact/deformation. None leaves a direction unconstrained.
+        """
+        return self.constrain(part, region, displacement_mm=displacement_mm, name=name, progress=progress)
 
     def apply_force(self, part, region, *, force_N):
         """Total force distributed as uniform traction on selected exterior faces."""
@@ -142,15 +156,17 @@ class AnalysisCase:
         self.loads.append(Load(self.select(part, region), values))
         return self
 
-    def contact(self, slave, slave_region, master, master_region, *, penalty_N_mm3, penetration_limit_mm=.05):
+    def contact(self, slave, slave_region, master, master_region, *, penalty_N_mm3, penetration_limit_mm=.05, discretization="node_to_surface"):
         if not self.nonlinear:
             raise ValueError('Contact requires nonlinear=True')
         if slave == master:
             raise ValueError('Self-contact is outside this backend scope')
+        if discretization not in ('node_to_surface', 'surface_to_surface'):
+            raise ValueError('Unsupported contact discretization')
         positive(penalty_N_mm3, 'Contact penalty')
         positive(penetration_limit_mm, 'Penetration limit')
         self.contacts.append(Contact(self.select(slave, slave_region),
-            self.select(master, master_region), penalty_N_mm3, penetration_limit_mm))
+            self.select(master, master_region), penalty_N_mm3, penetration_limit_mm, discretization))
         return self
 
     def observe(self, part, region, *, name):

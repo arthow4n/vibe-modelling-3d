@@ -164,3 +164,91 @@ def test_contact_drives_flexure_and_penetration_guard(tmp_path):
     r=c.run(tmp_path/'penetration')
     assert not r.completed and r.status=='quality_failed'
     assert 'penetration' in str(r.errors).lower()
+
+
+def test_surface_contact_compression_and_gap(tmp_path):
+    """Qualify pressure/penetration reporting for the snap's new formulation."""
+    from dataclasses import replace
+    for motion, engaged in ((.02, True), (.005, False)):
+        c=contact_case(motion=motion)
+        c.contacts[0]=replace(c.contacts[0],discretization='surface_to_surface')
+        r=c.run(tmp_path/f'surface_{motion}').require_completed()
+        assert r.metrics['contact_detected'] is engaged
+        if engaged:
+            assert r.metrics['peak_motion_force_N']['BC2']==pytest.approx(12,rel=.03)
+            assert r.metrics['max_penetration_mm']==pytest.approx(3/120000,rel=.05)
+        else:
+            assert r.metrics['peak_motion_force_N']['BC2']<1e-5
+    with pytest.raises(ValueError, match='discretization'):
+        c.contact('block',Region(),'floor',Region(),penalty_N_mm3=1,discretization='unknown')
+
+
+def test_motion_cycle_preserves_contact_then_unloads(tmp_path):
+    """Compression/release in one solve: amplitude, force sign, recovery, balance."""
+    from dataclasses import replace
+    c=contact_case()
+    c.contacts[0]=replace(c.contacts[0],discretization='surface_to_surface')
+    c.constraints[-1]=replace(c.constraints[-1],displacement_mm=(0,0,-.02),progress=((0,0),(.5,1),(1,0)))
+    # Zero-valued DOFs remain compatible with existing constant supports even
+    # when the moving constraint has a reversing progress curve.
+    c.observe('block',Region.plane('z',4.01),name='top')
+    r=c.run(tmp_path/'cycle').require_completed()
+    assert r.metrics['peak_motion_force_N']['BC2']==pytest.approx(12,rel=.03)
+    assert abs(r.metrics['observations']['top']['mean_mm'][2])<1e-8
+    assert r.metrics['max_force_balance_relative']<.001
+    assert r.history[-1]['max_contact_pressure_MPa']<1e-8
+    assert any(h['motion_force_N']['BC2']>1 for h in r.history if h['load_fraction']<.5)
+    assert any(h['motion_force_N']['BC2']<-1 for h in r.history if .5<h['load_fraction']<.75)
+    # Result extraction can be repaired without rerunning this expensive solve.
+    # The private recovery path requires byte-identical regenerated input.
+    import subprocess
+    import sys
+    from physical_analysis.backends.structural import runtime_environment
+    directory=tmp_path/'cycle'
+    before=(directory/'analysis.inp').read_bytes()
+    recovered=subprocess.run([sys.executable,'-m','physical_analysis.backends.worker',
+        str(directory),'--postprocess-only'],env=runtime_environment(),capture_output=True,text=True)
+    assert recovered.returncode==0, recovered.stderr
+    answer=json.loads((directory/'answer.json').read_text())
+    assert answer['completed'] and answer['provenance']['postprocess_only']
+    assert answer['metrics']['peak_motion_force_N']==r.metrics['peak_motion_force_N']
+    assert (directory/'analysis.inp').read_bytes()==before
+    (directory/'analysis.inp').write_bytes(before+b'\n')
+    rejected=subprocess.run([sys.executable,'-m','physical_analysis.backends.worker',
+        str(directory),'--postprocess-only'],env=runtime_environment(),capture_output=True,text=True)
+    assert rejected.returncode!=0 and 'differs from saved input' in rejected.stderr
+    assert (directory/'analysis.inp').read_bytes()==before+b'\n'
+    for progress in (((0,0),(.5,1)), ((0,1),(1,0)), ((0,0),(.8,1),(.7,0),(1,0))):
+        with pytest.raises(ValueError,match='progress'):
+            beam().prescribe_motion('beam',displacement_mm=(0,0,1),progress=progress)
+
+
+def test_fortran_three_digit_exponents_preserve_fields(tmp_path):
+    from physical_analysis.backends.worker import parse_dat, solver_number
+    assert solver_number('3.732985-100')==pytest.approx(3.732985e-100,abs=0)
+    assert solver_number('-9.960957-100')==pytest.approx(-9.960957e-100,abs=0)
+    assert solver_number('1.0D+003')==1000
+    path=tmp_path/'residual.dat'
+    path.write_text(' strains (exx,eyy,ezz,exy,exz,eyz) for set ALLE and time 1.0\n'
+                    ' 1781 2 -3.623533E-94 1.405042E-94 1.363908E-94 -2.432368E-95 -9.779253E-95 3.732985-100\n')
+    frames=parse_dat(path)
+    assert len(frames[1]['strains'])==1
+    assert frames[1]['strains'][0][-1]==pytest.approx(3.732985e-100,abs=0)
+
+
+def test_circular_cam_screen_against_sampled_contact_geometry():
+    from physical_analysis.screening import circular_cam_detent
+    k,r,g=2.3,4.8,4.0
+    answer=circular_cam_detent(stiffness_N_mm=k,radius_sum_mm=r,transverse_spacing_mm=g)
+    # Independent angular geometry/spring-force projection over the contact arc.
+    forces=[]
+    for i in range(10001):
+        angle=math.acos(g/r)*i/10000
+        spring_travel=r*math.cos(angle)-g
+        forces.append(k*spring_travel*math.tan(angle))
+    assert answer['peak_slide_force_N']==pytest.approx(max(forces),rel=1e-6)
+    assert answer['maximum_spring_travel_mm']==pytest.approx(.8)
+    gap=circular_cam_detent(stiffness_N_mm=k,radius_sum_mm=r,transverse_spacing_mm=5)
+    assert not gap['contact_possible'] and gap['peak_slide_force_N']==0
+    with pytest.raises(ValueError):
+        circular_cam_detent(stiffness_N_mm=k,radius_sum_mm=r,transverse_spacing_mm=0)

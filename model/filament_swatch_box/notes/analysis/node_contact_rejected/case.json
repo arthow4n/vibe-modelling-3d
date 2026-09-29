@@ -1,0 +1,143 @@
+{
+  "name": "snap_close",
+  "nonlinear": true,
+  "max_increment": 0.025,
+  "parts": [
+    {
+      "name": "arm",
+      "geometry": "part_0.brep",
+      "sha256": "8f0f59c1c09aa133c9d6e6fe1d952078ebf1c4355b94989606c141ea8d7070fb",
+      "material": {
+        "name": "uncalibrated solid PETG",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Explicit isotropic short-term screening assumption, not derived from wall count or filament data",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 0.8
+    },
+    {
+      "name": "body_cam",
+      "geometry": "part_1.brep",
+      "sha256": "c855be878ac37fed59c6298422023ccb18209ce24cd223c31a422a06b799d9b1",
+      "material": {
+        "name": "uncalibrated solid PETG",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Explicit isotropic short-term screening assumption, not derived from wall count or filament data",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 0.8
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "arm",
+        "region": {
+          "lower": [
+            5.0,
+            null,
+            null
+          ],
+          "upper": [
+            5.0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root"
+    },
+    {
+      "selection": {
+        "part": "body_cam",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        -8,
+        0,
+        0
+      ],
+      "name": "drive"
+    }
+  ],
+  "loads": [],
+  "contacts": [
+    {
+      "slave": {
+        "part": "arm",
+        "region": {
+          "lower": [
+            31.9,
+            27.7,
+            -0.01
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "body_cam",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 60000,
+      "penetration_limit_mm": 0.02
+    }
+  ],
+  "observations": [
+    {
+      "name": "tip",
+      "selection": {
+        "part": "arm",
+        "region": {
+          "lower": [
+            33.75,
+            27.55,
+            -0.01
+          ],
+          "upper": [
+            34.25,
+            28.05,
+            3.21
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}

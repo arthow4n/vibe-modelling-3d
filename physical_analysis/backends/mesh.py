@@ -35,16 +35,18 @@ def mesh_part(path, size, node_offset, element_offset):
         quality = gmsh.model.mesh.getElementQualities(elem_tags[0], 'minDetJac')
         if not len(quality) or min(quality) <= 0:
             raise ValueError('Non-positive element Jacobian; revise mesh/geometry')
-        candidates = []
-        for eid, con in elements.items():
-            for side, indices in enumerate(FACES, 1):
-                ns = [con[i] for i in indices]
-                candidates.append((eid, side, ns))
-        counts = Counter(tuple(sorted(ns[:3])) for _,_,ns in candidates)
-        surface = [(e,s,ns) for e,s,ns in candidates if counts[tuple(sorted(ns[:3]))] == 1]
+        surface = exterior_faces(elements)
         return nodes, elements, surface, float(min(quality))
     finally:
         gmsh.finalize()
+
+
+def exterior_faces(elements):
+    """Exterior faces from the backend's C3D10 connectivity, retaining ID/order."""
+    candidates = [(eid, side, [con[i] for i in indices])
+                  for eid, con in elements.items() for side, indices in enumerate(FACES, 1)]
+    counts = Counter(tuple(sorted(ns[:3])) for _, _, ns in candidates)
+    return [(e, s, ns) for e, s, ns in candidates if counts[tuple(sorted(ns[:3]))] == 1]
 
 
 def contains(region, point):

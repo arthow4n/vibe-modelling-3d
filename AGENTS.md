@@ -70,6 +70,29 @@ simple alignment or friction joint is structurally adequate. Plan each part for
 the practical envelope; let the final slice check its selected print layout and
 generated print aids. Verify the assembled interfaces and load path separately.
 
+## Co-design geometry and manufacturing
+
+The functional FDM object includes geometry, material, orientation, nozzle/layer
+setup, perimeters, infill or locally solid regions, supports and consequential
+process choices. Agents may recommend or revise any of these within the user's
+authorized scope when that improves function; normal settings are starting
+points. Explain consequential choices and follow existing design-agreement rules.
+Prefer the cheapest adequate change, whether in CAD or manufacture.
+
+Use the evidence loop: design → cheap engineering checks → numerical analysis
+only for unresolved physical questions → manufacturing strategy → actual slice
+review → physical validation. Revisit geometry or process as evidence changes.
+When slicer settings affect an engineering decision, inspect the resulting paths,
+not just requested settings. Do not routinely inspect paths for ordinary walls.
+
+Never derive quantitative modulus, strength, fatigue life or strain limits from
+wall count, infill, orientation or layer height without supporting evidence.
+For homogeneous-solid analysis, make the relevant load-bearing feature reasonably
+solid in the actual slice, document an explicit effective-material assumption,
+or record the mismatch as uncertainty. Solid toolpaths do not establish isotropy,
+layer bonding or bulk material properties. Separate numerical uncertainty,
+material/process uncertainty and observations requiring a physical print.
+
 ## Core workflow
 
 1. Inspect the request, references, existing files and user changes. Reuse known

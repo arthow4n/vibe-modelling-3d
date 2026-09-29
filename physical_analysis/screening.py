@@ -22,3 +22,29 @@ def rectangular_cantilever(*, length_mm, width_mm, thickness_mm, youngs_modulus_
         small_deflection_applicable=abs(travel)/length_mm<=.1 and length_mm/thickness_mm>=10,
         assumptions='Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. '
                     'Euler load is an ideal instability estimate, not a strength rating.')
+
+
+def circular_cam_detent(*, stiffness_N_mm, radius_sum_mm, transverse_spacing_mm):
+    """Frictionless circular cams driving a linear transverse spring.
+
+    The straight travel coordinate is x; the cam center normal separation during
+    contact is y=sqrt(R²-x²), spring travel y-g and sliding force k*(y-g)*x/y.
+    Its maximum occurs at y=(g*R²)^(1/3). This is an order-of-force screen:
+    rigid circular profiles, no spring-axis shortening, head rotation, friction,
+    enclosure/guide compliance, layer effects or calibrated material law.
+    Input stiffness must come from a documented assumption or actual evidence.
+    """
+    for name,value in (('stiffness_N_mm',stiffness_N_mm),('radius_sum_mm',radius_sum_mm),
+                       ('transverse_spacing_mm',transverse_spacing_mm)):
+        positive(value,name)
+    r,g=radius_sum_mm,transverse_spacing_mm
+    engaged=g<r
+    peak_y=(g*r*r)**(1/3) if engaged else r
+    peak_x=math.sqrt(max(0,r*r-peak_y*peak_y)) if engaged else 0
+    return dict(contact_possible=engaged,
+        peak_slide_force_N=stiffness_N_mm*peak_x*(1-g/peak_y) if engaged else 0,
+        peak_force_axial_offset_mm=peak_x,
+        maximum_spring_travel_mm=max(0,r-g),
+        contact_half_travel_mm=math.sqrt(max(0,r*r-g*g)),
+        assumptions='Frictionless rigid circular cams and a linear transverse spring; '
+                    'no axial shortening, head rotation, guide motion or material/process calibration.')

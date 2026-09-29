@@ -16,12 +16,49 @@ def chunks(values, count=12):
     return [','.join(map(str,values[i:i+count])) for i in range(0,len(values),count)]
 
 
-def compile_case(case, directory):
+def saved_meshes(case, path):
+    """Read NODE/C3D10 records from our own generated deck, not arbitrary decks.
+
+    Reprocessing must use the original node/element IDs. Remeshing can differ
+    even with unchanged geometry. compile_case still requires byte-identical
+    regenerated input before old fields are accepted.
+    """
+    from .mesh import exterior_faces
+    meshes={}; group=None; mode=None
+    for line in path.read_text().splitlines():
+        if line.startswith('*NODE') and line=='*NODE':
+            mode='nodes'; group=dict(nodes={},elements={},min_jacobian=None)
+        elif line.startswith('*ELEMENT,TYPE=C3D10,ELSET=P'):
+            index=int(line.split('ELSET=P')[1])
+            if index>=len(case['parts']) or group is None:
+                raise ValueError('Unrecognized saved mesh part')
+            meshes[case['parts'][index]['name']]=group;mode='elements'
+        elif line.startswith('*'):
+            mode=None
+        elif mode=='nodes':
+            fields=line.split(',');group['nodes'][int(fields[0])]=[float(v) for v in fields[1:]]
+        elif mode=='elements':
+            fields=[int(v) for v in line.split(',')];group['elements'][fields[0]]=fields[1:]
+    if set(meshes)!={p['name'] for p in case['parts']}:
+        raise ValueError('Saved input does not contain all case meshes')
+    for mesh in meshes.values():
+        if not mesh['nodes'] or any(len(c)!=10 for c in mesh['elements'].values()):
+            raise ValueError('Saved input needs complete C3D10 meshes')
+        mesh['surface']=exterior_faces(mesh['elements'])
+    return meshes
+
+
+def compile_case(case, directory, *, expected_input_sha256=None):
     from .mesh import mesh_part, select_nodes, select_faces, traction_weights
     meshes={}; nodes={}; elements={}; deck=['*HEADING', case['name']]; selections={}
+    original=saved_meshes(case,directory/'analysis.inp') if expected_input_sha256 is not None else None
     for i,part in enumerate(case['parts']):
-        ns,es,surface,jac = mesh_part(directory/part['geometry'],part['mesh_size_mm'],
-                                     max(nodes,default=0),max(elements,default=0))
+        if original is None:
+            ns,es,surface,jac = mesh_part(directory/part['geometry'],part['mesh_size_mm'],
+                                         max(nodes,default=0),max(elements,default=0))
+        else:
+            m=original[part['name']]
+            ns,es,surface,jac=m['nodes'],m['elements'],m['surface'],None
         meshes[part['name']]=dict(nodes=ns,elements=es,surface=surface,min_jacobian=jac)
         nodes.update(ns); elements.update(es)
         deck+=['*NODE']+[f'{n},'+','.join(f'{v:.12g}' for v in p) for n,p in ns.items()]
@@ -36,16 +73,21 @@ def compile_case(case, directory):
     for i,c in enumerate(case['constraints']):
         ns=select_nodes(c['selection'],meshes)
         name=c['name']
-        selections[name]=dict(part=c['selection']['part'],nodes=ns,displacement_mm=c['displacement_mm'])
+        selections[name]=dict(part=c['selection']['part'],nodes=ns,displacement_mm=c['displacement_mm'],progress=c.get('progress'))
+        if c.get('progress'):
+            deck += [f'*AMPLITUDE,NAME=A{i}']+[f'{t:.12g},{v:.12g}' for t,v in c['progress']]
+        boundary.append('*BOUNDARY'+(f',AMPLITUDE=A{i}' if c.get('progress') else ''))
         deck += [f'*NSET,NSET=BC{i}']+chunks(ns)
         for n in ns:
             for dof,value in enumerate(c['displacement_mm'],1):
                 if value is None: continue
                 key=(n,dof)
-                if key in constraints and constraints[key] != value:
+                signature=(value,c.get('progress') if value else None)
+                if key in constraints and constraints[key] != signature:
                     raise ValueError(f'Conflicting constraints at node {n}, DOF {dof}')
-                constraints[key]=value
-    boundary=[f'{n},{dof},{dof},{value:.12g}' for (n,dof),value in constraints.items()]
+                if key not in constraints:
+                    boundary.append(f'{n},{dof},{dof},{value:.12g}')
+                constraints[key]=signature
     loads=defaultdict(float); load_records=[]
     for load in case['loads']:
         faces=select_faces(load['selection'],meshes)
@@ -62,12 +104,14 @@ def compile_case(case, directory):
             name=f'C{i}{side.upper()}'
             deck += [f'*SURFACE,NAME={name},TYPE=ELEMENT']+[f'{e},S{s}' for e,s,_ in faces]
             record[side]=dict(part=c[side]['part'],face_count=len(faces))
+        contact_type = {'node_to_surface': 'NODE TO SURFACE', 'surface_to_surface': 'SURFACE TO SURFACE'}[c.get('discretization', 'node_to_surface')]
+        record['discretization'] = c.get('discretization', 'node_to_surface')
         deck += [f'*SURFACE INTERACTION,NAME=I{i}', '*SURFACE BEHAVIOR,PRESSURE-OVERCLOSURE=LINEAR',
                  f"{c['penalty_N_mm3']},1e-10",
-                 f'*CONTACT PAIR,INTERACTION=I{i},TYPE=NODE TO SURFACE',f'C{i}SLAVE,C{i}MASTER']
+                 f'*CONTACT PAIR,INTERACTION=I{i},TYPE={contact_type}',f'C{i}SLAVE,C{i}MASTER']
         contact_records.append(record)
     deck += ['*STEP'+(',NLGEOM' if case['nonlinear'] else '')+',INC=1000','*STATIC',
-             f"{case['max_increment']},1,1e-6,{case['max_increment']}",'*BOUNDARY']+boundary
+             f"{case['max_increment']},1,1e-6,{case['max_increment']}"]+boundary
     if loads:
         deck+=['*CLOAD']+[f'{n},{d},{v:.12g}' for (n,d),v in loads.items() if abs(v)>1e-14]
     deck += ['*NODE PRINT,NSET=ALLN,FREQUENCY=1','U,RF','*EL PRINT,ELSET=ALLE,FREQUENCY=1','S,E']
@@ -76,11 +120,26 @@ def compile_case(case, directory):
     deck += ['*END STEP']
     for obs in case['observations']:
         selections['@observe:'+obs['name']]=dict(part=obs['selection']['part'],nodes=select_nodes(obs['selection'],meshes),displacement_mm=(None,None,None))
-    (directory/'analysis.inp').write_text('\n'.join(deck)+'\n')
+    input_text='\n'.join(deck)+'\n'
+    if expected_input_sha256 is not None:
+        if hashlib.sha256(input_text.encode()).hexdigest()!=expected_input_sha256:
+            raise ValueError('Regenerated input differs from saved input; cannot reuse solver fields')
+    else:
+        (directory/'analysis.inp').write_text(input_text)
     return meshes,nodes,elements,selections,load_records,contact_records
 
 
 HEADER = re.compile(r'^\s*(displacements|forces|stresses|strains|relative contact displacement|contact stress)\s+.*?time\s+([\d.Ee+\-]+)')
+
+
+FORTRAN_EXPONENT = re.compile(r'^([+-]?(?:\d+\.\d*|\.\d+))([+-]\d+)$')
+
+
+def solver_number(value):
+    # CalculiX's fixed-width Fortran output omits E for three-digit exponents,
+    # e.g. 3.732985-100 after an elastic return. Keep every field, including these
+    # tiny residuals, so completeness checks remain meaningful.
+    return float(FORTRAN_EXPONENT.sub(r'\1E\2', value.replace('D', 'E')))
 
 
 def parse_dat(path):
@@ -89,12 +148,12 @@ def parse_dat(path):
     for line in path.read_text().splitlines():
         match=HEADER.match(line)
         if match:
-            kind,time=match[1],float(match[2]); frames.setdefault(time,{})[kind]=[]
+            kind,time=match[1],solver_number(match[2]); frames.setdefault(time,{})[kind]=[]
             continue
         fields=line.split()
         if not fields: continue
         if kind and fields[0].isdigit():
-            try: row=[float(x.replace('D','E')) for x in fields]
+            try: row=[solver_number(x) for x in fields]
             except ValueError: kind=None; continue
             expected=4 if kind in ('displacements','forces') else (5 if kind in ('relative contact displacement','contact stress') else 8)
             if kind in ('relative contact displacement','contact stress') and len(row)==4:
@@ -142,7 +201,12 @@ def summarize(case, frames, meshes, nodes, elements, selections):
             reactions[name]=[float(v) if sel['displacement_mm'][d] is not None else 0.0 for d,v in enumerate(total)]
             motion=np.array([v or 0 for v in sel['displacement_mm']])
             if np.linalg.norm(motion)>0:
-                motion_forces[name]=float(np.dot(total,motion)/np.linalg.norm(motion))
+                direction=1
+                if sel.get('progress'):
+                    points=sel['progress']
+                    a,b=next(((a,b) for a,b in zip(points,points[1:]) if time<=b[0]+1e-9),(points[-2],points[-1]))
+                    direction=float(np.sign(b[1]-a[1]))
+                motion_forces[name]=direction*float(np.dot(total,motion)/np.linalg.norm(motion))
         max_displacement=max(float(np.linalg.norm(u)) for u in us.values())
         strain_rows=np.asarray(frame['strains'])
         values=strain_rows[:,2:]
@@ -163,7 +227,15 @@ def summarize(case, frames, meshes, nodes, elements, selections):
         vm=np.sqrt(((stress[:,0]-stress[:,1])**2+(stress[:,1]-stress[:,2])**2+
                     (stress[:,2]-stress[:,0])**2)/2+3*np.sum(stress[:,3:]**2,axis=1))
         peak_stress=max(peak_stress,float(vm.max()))
+        prescribed={(n,d) for sel in selections.values() for n in sel['nodes']
+                    for d,v in enumerate(sel['displacement_mm']) if v is not None}
+        net=np.zeros(3)
+        for n,d in prescribed: net[d]+=forces[n][d]
+        applied=time*np.sum([x['force_N'] for x in case['loads']],axis=0) if case['loads'] else np.zeros(3)
+        residual=float(np.linalg.norm(net+applied))
+        reference=max(float(np.linalg.norm(applied)),sum(float(np.linalg.norm(v)) for v in reactions.values()),1)
         history.append(dict(load_fraction=time,max_displacement_mm=max_displacement,
+                            force_balance_residual_N=residual,force_balance_relative=residual/reference,
                             max_abs_principal_strain=frame_strain,reactions_N=reactions,observations=observations,motion_force_N=motion_forces,
                             contact_points=len(frame.get('contact stress',[])),
                             max_contact_pressure_MPa=max((r[2] for r in frame.get('contact stress',[])),default=0),
@@ -185,6 +257,7 @@ def summarize(case, frames, meshes, nodes, elements, selections):
         max_strain_element_centroid_mm=np.mean([nodes[n] for n in elements[peak_strain[2]][:4]],axis=0).tolist(),
         max_von_mises_MPa=peak_stress, max_strain_by_part=part_strains, force_balance_residual_N=residual,
         force_balance_relative=residual/ref,
+        max_force_balance_relative=max(h['force_balance_relative'] for h in history),
         peak_reaction_force_N={name:max(float(np.linalg.norm(h['reactions_N'][name])) for h in history)
                                for name in last['reactions_N']},
         observations=last['observations'],
@@ -195,7 +268,7 @@ def summarize(case, frames, meshes, nodes, elements, selections):
     return metrics,history
 
 
-def main(directory):
+def main(directory, *, postprocess_only=False):
     import gmsh
     case=json.loads((directory/'case.json').read_text())
     result=AnalysisResult(case['name'],'failed',assumptions=[
@@ -203,12 +276,20 @@ def main(directory):
         'No printed infill/layer failure, plastic set, creep, fatigue, or friction prediction.',
         'Strain is maximum absolute principal mechanical strain at integration points, over all saved increments.',
         'Contact is finite-sliding frictionless penalty contact; completion alone does not prove engagement.',
-        'Prescribed translations and loads ramp together from zero over normalized time 0..1.',
+        'Loads ramp over normalized time 0..1; translations follow their recorded progress curves or a linear ramp.',
         'Peak values are sampled at converged increments, not continuous extrema.'])
-    meshes,nodes,elements,selections,loads,contacts=compile_case(case,directory)
+    # Recovery from a parser failure may reuse a completed expensive solve.
+    # Use the saved mesh and regenerate a byte-identical deck before
+    # attaching old node/element fields to the current extractor.
+    expected=hashlib.sha256((directory/'analysis.inp').read_bytes()).hexdigest() if postprocess_only else None
+    meshes,nodes,elements,selections,loads,contacts=compile_case(case,directory,expected_input_sha256=expected)
     env=os.environ.copy(); command=[env['CALCULIX_COMMAND'],'-i','analysis']
-    with (directory/'solver.log').open('w') as log:
-        run=subprocess.run(command,cwd=directory,env=env,stdout=log,stderr=subprocess.STDOUT)
+    if not postprocess_only:
+        with (directory/'solver.log').open('w') as log:
+            run=subprocess.run(command,cwd=directory,env=env,stdout=log,stderr=subprocess.STDOUT)
+        solver_exit=run.returncode
+    else:
+        solver_exit=0  # completion/errors are checked from the immutable saved log below
     log=(directory/'solver.log').read_text(errors='replace')
     version=re.search(r'This is Version\s+(\S+)',log)
     (directory/'regions.json').write_text(json.dumps(selections,indent=2)+'\n')
@@ -217,7 +298,7 @@ def main(directory):
         input_sha256=hashlib.sha256((directory/'analysis.inp').read_bytes()).hexdigest(),
         case_sha256=hashlib.sha256((directory/'case.json').read_bytes()).hexdigest(),
         backend_sha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in Path(__file__).parent.glob('*.py')},
-        command=command,mesh={name:dict(nodes=len(m['nodes']),elements=len(m['elements']),
+        command=command,postprocess_only=postprocess_only,mesh={name:dict(nodes=len(m['nodes']),elements=len(m['elements']),
                    min_jacobian=m['min_jacobian']) for name,m in meshes.items()},
         regions={k:dict(part=v['part'],node_count=len(v['nodes']),displacement_mm=v['displacement_mm']) for k,v in selections.items()},loads=loads,contacts=contacts)
     result.artifacts=dict(case='case.json',input='analysis.inp',solver_log='solver.log',
@@ -231,8 +312,8 @@ def main(directory):
                 if not extra.strip() or extra.startswith(' *'): break
                 block.append(extra.strip())
             result.warnings.append(' '.join(block))
-    if run.returncode != 0 or '*ERROR' in log.upper() or 'Job finished' not in log or 'parameter not recognized' in log.lower():
-        result.errors.append(f'Solver failed or did not finish (exit {run.returncode}); see solver.log')
+    if solver_exit != 0 or '*ERROR' in log.upper() or 'Job finished' not in log or 'parameter not recognized' in log.lower():
+        result.errors.append(f'Solver failed or did not finish (exit {solver_exit}); see solver.log')
     else:
         frames=parse_dat(directory/'analysis.dat')
         if not frames or abs(max(frames)-1)>1e-6:
@@ -243,12 +324,14 @@ def main(directory):
             if result.metrics['max_penetration_mm']>limit:
                 result.status='quality_failed'
                 result.errors.append(f'Contact penetration exceeds {limit:g} mm; refine increments/mesh/contact penalty')
-            elif result.metrics['force_balance_relative']>.01:
-                result.errors.append('Force balance residual exceeds 1%')
+            elif result.metrics['max_force_balance_relative']>.01:
+                result.errors.append('Force balance residual exceeds 1% at a saved increment')
             else:
                 result.completed=True
                 result.status='completed_with_warnings' if result.warnings else 'completed'
     result.write(directory/'answer.json')
 
 if __name__=='__main__':
-    main(Path(sys.argv[1]))
+    if len(sys.argv) not in (2,3) or (len(sys.argv)==3 and sys.argv[2]!='--postprocess-only'):
+        raise SystemExit('Usage: worker DIRECTORY [--postprocess-only]')
+    main(Path(sys.argv[1]),postprocess_only=len(sys.argv)==3)

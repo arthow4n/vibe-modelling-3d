@@ -1,0 +1,197 @@
+{
+  "runs": {
+    "cycle_base": {
+      "status": "completed",
+      "peak_closing_force_N": 0.5600349887991496,
+      "peak_opening_force_N": 0.6114249411025487,
+      "peak_mean_tip_inward_mm": 0.7958386866425989,
+      "peak_nodal_tip_inward_mm": 0.9825154,
+      "peak_nodal_tip_axial_mm": 0.1369294,
+      "peak_nodal_tip_out_of_plane_mm": 0.0008507812,
+      "return_error_mm": 1.111417e-24,
+      "closed_and_open_end_contact_free": true,
+      "peak_strain": 0.011293419589119898,
+      "peak_strain_location_mm": [
+        -16.1938434549447,
+        26.397282888215194,
+        1.603350851879617
+      ],
+      "peak_penetration_mm": 0.002854151,
+      "max_force_balance_relative": 2.097467486092779e-07,
+      "strain_screen": {
+        "max_abs_principal_strain": 0.011293419589119898,
+        "limit": 0.015,
+        "passes": true
+      }
+    },
+    "cycle_fine": {
+      "status": "completed",
+      "peak_closing_force_N": 0.5591968159878056,
+      "peak_opening_force_N": 0.6107411060003414,
+      "peak_mean_tip_inward_mm": 0.8128632257867141,
+      "peak_nodal_tip_inward_mm": 0.9838839,
+      "peak_nodal_tip_axial_mm": 0.1370463,
+      "peak_nodal_tip_out_of_plane_mm": 0.0007222878,
+      "return_error_mm": 1.212063e-24,
+      "closed_and_open_end_contact_free": true,
+      "peak_strain": 0.010794311363853145,
+      "peak_strain_location_mm": [
+        -16.106255556947644,
+        26.560397186109427,
+        1.949198655880726
+      ],
+      "peak_penetration_mm": 0.00139256,
+      "max_force_balance_relative": 1.5187794241070463e-07,
+      "strain_screen": {
+        "max_abs_principal_strain": 0.010794311363853145,
+        "limit": 0.015,
+        "passes": true
+      }
+    },
+    "cycle_penalty": {
+      "status": "completed",
+      "peak_closing_force_N": 0.5602465576991495,
+      "peak_opening_force_N": 0.6124138301025487,
+      "peak_mean_tip_inward_mm": 0.7962558236462106,
+      "peak_nodal_tip_inward_mm": 0.9831351,
+      "peak_nodal_tip_axial_mm": 0.1369986,
+      "peak_nodal_tip_out_of_plane_mm": 0.0008744413,
+      "return_error_mm": 1.375237e-24,
+      "closed_and_open_end_contact_free": true,
+      "peak_strain": 0.011298700013943659,
+      "peak_strain_location_mm": [
+        -16.19384345494472,
+        26.397282888215216,
+        1.6033508518796435
+      ],
+      "peak_penetration_mm": 0.002636884,
+      "max_force_balance_relative": 3.547906177368002e-07,
+      "strain_screen": {
+        "max_abs_principal_strain": 0.011298700013943659,
+        "limit": 0.015,
+        "passes": true
+      }
+    },
+    "cycle_increment": {
+      "status": "completed",
+      "peak_closing_force_N": 0.44318818749923145,
+      "peak_opening_force_N": 0.45901811029879463,
+      "peak_mean_tip_inward_mm": 0.7722160944043326,
+      "peak_nodal_tip_inward_mm": 0.9537919,
+      "peak_nodal_tip_axial_mm": 0.1328401,
+      "peak_nodal_tip_out_of_plane_mm": 0.0006907708,
+      "return_error_mm": 1.20062e-69,
+      "closed_and_open_end_contact_free": true,
+      "peak_strain": 0.010897789295184767,
+      "peak_strain_location_mm": [
+        -16.19384345495,
+        26.397282888225,
+        1.6033508518825
+      ],
+      "peak_penetration_mm": 0.001425834,
+      "max_force_balance_relative": 2.4855913262288847e-07,
+      "strain_screen": {
+        "max_abs_principal_strain": 0.010897789295184767,
+        "limit": 0.015,
+        "passes": true
+      }
+    },
+    "cycle_small_increment": {
+      "status": "completed",
+      "peak_closing_force_N": 0.39502269311053456,
+      "peak_opening_force_N": 0.39694824483436464,
+      "peak_mean_tip_inward_mm": 0.7661675805054143,
+      "peak_nodal_tip_inward_mm": 0.9462658,
+      "peak_nodal_tip_axial_mm": 0.1315636,
+      "peak_nodal_tip_out_of_plane_mm": 0.0006838057,
+      "return_error_mm": 2.683354e-143,
+      "closed_and_open_end_contact_free": true,
+      "peak_strain": 0.010782746532618459,
+      "peak_strain_location_mm": [
+        -16.19384345494483,
+        26.397282888215333,
+        1.603350851879853
+      ],
+      "peak_penetration_mm": 0.001371364,
+      "max_force_balance_relative": 3.2364538826855176e-07,
+      "strain_screen": {
+        "max_abs_principal_strain": 0.010782746532618459,
+        "limit": 0.015,
+        "passes": true
+      }
+    }
+  },
+  "comparisons": {
+    "cycle_fine": {
+      "peak_motion_force_N.drive": {
+        "coarse": 0.6114249411025487,
+        "refined": 0.6107411060003414,
+        "relative_change": 0.001119680819726899,
+        "passes": true
+      },
+      "max_abs_principal_strain": {
+        "coarse": 0.011293419589119898,
+        "refined": 0.010794311363853145,
+        "relative_change": 0.04623807934039351,
+        "passes": true
+      }
+    },
+    "cycle_penalty": {
+      "peak_motion_force_N.drive": {
+        "coarse": 0.6114249411025487,
+        "refined": 0.6124138301025487,
+        "relative_change": 0.001614739823616243,
+        "passes": true
+      },
+      "max_abs_principal_strain": {
+        "coarse": 0.011293419589119898,
+        "refined": 0.011298700013943659,
+        "relative_change": 0.0004673479973133693,
+        "passes": true
+      }
+    },
+    "cycle_increment": {
+      "peak_motion_force_N.drive": {
+        "coarse": 0.6114249411025487,
+        "refined": 0.45901811029879463,
+        "relative_change": 0.33202792522618757,
+        "passes": false
+      },
+      "max_abs_principal_strain": {
+        "coarse": 0.011293419589119898,
+        "refined": 0.010897789295184767,
+        "relative_change": 0.03630372025177084,
+        "passes": true
+      }
+    },
+    "cycle_small_increment": {
+      "peak_motion_force_N.drive": {
+        "coarse": 0.6114249411025487,
+        "refined": 0.39694824483436464,
+        "relative_change": 0.5403140058162474,
+        "passes": false
+      },
+      "max_abs_principal_strain": {
+        "coarse": 0.011293419589119898,
+        "refined": 0.010782746532618459,
+        "relative_change": 0.04736020224129556,
+        "passes": true
+      }
+    }
+  },
+  "final_increment_comparison": {
+    "peak_motion_force_N.drive": {
+      "coarse": 0.45901811029879463,
+      "refined": 0.39694824483436464,
+      "relative_change": 0.15636765314412715,
+      "passes": false
+    },
+    "max_abs_principal_strain": {
+      "coarse": 0.010897789295184767,
+      "refined": 0.010782746532618459,
+      "relative_change": 0.010669152077190783,
+      "passes": true
+    }
+  },
+  "limits": "Conditional frictionless isotropic elastic local fixture; physical force, bonding, wear, set and creep uncalibrated."
+}

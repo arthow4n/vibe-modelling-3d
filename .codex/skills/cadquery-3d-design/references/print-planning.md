@@ -1,5 +1,17 @@
 # Print orientation and manufacturing
 
+## Functional process co-design
+
+Apply [AGENTS.md](../../../../AGENTS.md#co-design-geometry-and-manufacturing):
+geometry and manufacturing are joint design variables. Reorienting a flexure,
+adding perimeters or making its load path locally solid can be preferable to
+changing its shape. Document why, then inspect actual toolpaths when the analysis
+depends on that choice. Requested infill or wall count alone is not evidence of
+a solid feature. Do not assign quantitative mechanical improvements without
+material/process evidence. A homogeneous-solid solve needs a defensible sliced
+section, an explicit effective-material assumption, or a stated discrepancy;
+even solid paths leave anisotropy and bonding uncalibrated.
+
 ## Printability
 
 Consider printability at both planning and review: agree on a feasible nozzle,

@@ -38,7 +38,7 @@ class CalculixBackend:
         directory = directory.resolve()
         directory.mkdir(parents=True, exist_ok=False)
         result = AnalysisResult(case.name, 'preparing', assumptions=[
-            'mm, N, MPa; static loads ramp linearly over normalized time 0..1.',
+            'mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.',
             'Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.',
             'Quadratic tetrahedra; integration-point mechanical strain; no stress singularity removal.',
             'Frictionless finite-sliding penalty contact, where explicitly requested.',
