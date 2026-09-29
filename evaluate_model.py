@@ -104,11 +104,35 @@ def export(shape, item):
         temporary.unlink(missing_ok=True)
 
 
+def view_up(view):
+    # Top/bottom look along Z, so Y is their screen-up reference.
+    return (0, 1, 0) if view in ("top", "bottom") else (0, 0, 1)
+
+
+def view_transform(view):
+    """Rigid world-to-camera transform; Z stays upright in side/isometric views.
+
+    CadQuery getSVG only accepts a projection direction and gp_Ax2 chooses its
+    screen axes implicitly. Project a render-only copy into an explicit frame
+    and use getSVG's identity top projection instead of inheriting camera roll.
+    """
+    import cadquery as cq
+    from OCP.gp import gp_Trsf
+    direction = cq.Vector(*VIEWS[view]).normalized()
+    right = cq.Vector(*view_up(view)).cross(direction).normalized()
+    up = direction.cross(right).normalized()
+    transform = gp_Trsf()
+    transform.SetValues(*[value for axis in (right, up, direction)
+                          for value in (*axis.toTuple(), 0)])
+    return cq.Matrix(transform)
+
+
 def render(shape, view, width, height, show_hidden):
     from cadquery.occ_impl.exporters.svg import getSVG
-    svg = getSVG(shape, opts={"width": width, "height": height,
-                              "projectionDir": VIEWS[view], "showHidden": show_hidden,
-                              "showAxes": view.startswith("isometric")}).encode("utf-8")
+    projected = shape.transformShape(view_transform(view))
+    svg = getSVG(projected, opts={"width": width, "height": height,
+                                 "projectionDir": (0, 0, 1), "showHidden": show_hidden,
+                                 "showAxes": False}).encode("utf-8")
     import cairosvg
     return cairosvg.svg2png(bytestring=svg, output_width=width, output_height=height,
                             background_color="#ffffff")
@@ -162,7 +186,9 @@ def worker(request, response):
                     data = render(shape, view, args["width"], args["height"],
                                   args["show_hidden"])
                     atomic_bytes(destination, data)
-                    report["views"].append({"view": view, "ok": True, "path": str(destination)})
+                    report["views"].append({"view": view, "ok": True, "path": str(destination),
+                                            "camera": {"from_direction": VIEWS[view],
+                                                       "up_direction": view_up(view)}})
                 except Exception as exc:
                     report["views"].append({"view": view, "ok": False})
                     error("render", exc, view=view)
@@ -419,7 +445,8 @@ def main(argv=None):
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("file_path", type=Path, nargs="?", help="Trusted CadQuery Python entry point")
     parser.add_argument("--views", default="isometric,front,top,right",
-                        help=f"Comma-separated views from {', '.join(VIEWS)}, or none")
+                        help=f"Comma-separated views from {', '.join(VIEWS)}, or none; "
+                             "Z is upright except top/bottom, which use Y upright")
     parser.add_argument("--output-dir", default="renders/scratch",
                         help="Render output directory, relative to the model file")
     parser.add_argument("--width", type=positive_pixel, default=800,

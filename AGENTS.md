@@ -281,6 +281,13 @@ geometry-only checks. Use `--export` for the final pair or `--slice` for the
 pair plus smoke review. Reuse saved images rather than
 rebuilding merely to open them.
 
+The shared renderer uses Z upright for side/isometric views and Y upright for
+top/bottom views; each successful view reports its camera directions. Camera
+orientation changes only the image. Print placement comes from the selected
+source geometry, while an assembled inspection entry point can use a different
+pose. Images made before the camera-up correction may appear tilted or sideways;
+do not infer their print orientation from the screen's vertical direction.
+
 For valid evaluation invocations, stdout is one JSON report. The example below
 is illustrative, not a required summary schema. Read only the report fields
 needed for the current task; inspect diagnostics and tracebacks when a failure
