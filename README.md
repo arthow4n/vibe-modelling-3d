@@ -11,6 +11,11 @@ reference OrcaSlicer smoke review on the STL. Invoke it directly as
 configuration is needed. CairoSVG in the uv environment produces PNG views;
 OrcaSlicer is installed from Flathub for reference-profile CLI print review.
 
+Physical questions such as loaded deflection, flexure reaction force and contact
+are available through the [physical analysis API](physical_analysis/README.md).
+It wraps Gmsh and CalculiX, retains solver evidence, and distinguishes numerical
+completion from design adequacy and physical validation.
+
 ## Models
 
 | Object | Current use and print instructions | Model provenance | Test piece(s) printed | Final object printed |

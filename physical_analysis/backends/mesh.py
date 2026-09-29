@@ -1,0 +1,91 @@
+"""Gmsh geometry adapter. Called only inside the isolated worker."""
+from collections import Counter
+import numpy as np
+import gmsh
+
+# Abaqus/CalculiX C3D10 local face nodes (corners followed by midsides).
+FACES = ((0,1,2,4,5,6), (0,3,1,7,8,4), (1,3,2,8,9,5), (2,3,0,9,7,6))
+
+
+def mesh_part(path, size, node_offset, element_offset):
+    gmsh.initialize()
+    try:
+        gmsh.option.setNumber('General.Terminal', 0)
+        gmsh.option.setNumber('General.NumThreads', 1)
+        gmsh.model.add('part')
+        gmsh.model.occ.importShapes(str(path))
+        gmsh.model.occ.synchronize()
+        if len(gmsh.model.getEntities(3)) != 1:
+            raise ValueError('Mesher expects one volume per part')
+        gmsh.option.setNumber('Mesh.MeshSizeMin', size)
+        gmsh.option.setNumber('Mesh.MeshSizeMax', size)
+        gmsh.option.setNumber('Mesh.ElementOrder', 2)
+        gmsh.model.mesh.generate(3)
+        tags, coords, _ = gmsh.model.mesh.getNodes()
+        nodes = {int(t)+node_offset: p.tolist() for t,p in zip(tags,np.asarray(coords).reshape(-1,3))}
+        kinds, elem_tags, connectivity = gmsh.model.mesh.getElements(3)
+        if list(kinds) != [11]:
+            raise ValueError(f'Expected quadratic tetrahedra, got {kinds}')
+        elements = {}
+        for t, con in zip(elem_tags[0], np.asarray(connectivity[0]).reshape(-1,10)):
+            # Gmsh uses 2-3 before 1-3; CalculiX uses 1-3 before 2-3.
+            order = con[[0,1,2,3,4,5,6,7,9,8]]
+            elements[int(t)+element_offset] = [int(n)+node_offset for n in order]
+        quality = gmsh.model.mesh.getElementQualities(elem_tags[0], 'minDetJac')
+        if not len(quality) or min(quality) <= 0:
+            raise ValueError('Non-positive element Jacobian; revise mesh/geometry')
+        candidates = []
+        for eid, con in elements.items():
+            for side, indices in enumerate(FACES, 1):
+                ns = [con[i] for i in indices]
+                candidates.append((eid, side, ns))
+        counts = Counter(tuple(sorted(ns[:3])) for _,_,ns in candidates)
+        surface = [(e,s,ns) for e,s,ns in candidates if counts[tuple(sorted(ns[:3]))] == 1]
+        return nodes, elements, surface, float(min(quality))
+    finally:
+        gmsh.finalize()
+
+
+def contains(region, point):
+    return all((a is None or x >= a-region['tolerance_mm']) and
+               (b is None or x <= b+region['tolerance_mm'])
+               for x,a,b in zip(point,region['lower'],region['upper']))
+
+
+def select_nodes(selection, meshes):
+    mesh = meshes[selection['part']]
+    found = [n for n,p in mesh['nodes'].items() if contains(selection['region'],p)]
+    if not found:
+        raise ValueError(f'Empty node region: {selection}')
+    return found
+
+
+def select_faces(selection, meshes):
+    mesh = meshes[selection['part']]
+    faces = [f for f in mesh['surface'] if all(contains(selection['region'],mesh['nodes'][n]) for n in f[2])]
+    if not faces:
+        raise ValueError(f'Empty surface region: {selection}; select complete exterior element faces')
+    return faces
+
+
+def traction_weights(faces, nodes):
+    """Integrate quadratic triangle shape functions (including curved faces).
+
+    Three-point triangle quadrature, exact for planar quadratic shape functions.
+    Curved boundaries use the same isoparametric integration approximation.
+    """
+    weights = {}
+    for _,_,ids in faces:
+        points = np.array([nodes[n] for n in ids])
+        for r,s in ((1/6,1/6),(2/3,1/6),(1/6,2/3)):
+            a=1-r-s
+            N=np.array([a*(2*a-1),r*(2*r-1),s*(2*s-1),4*a*r,4*r*s,4*s*a])
+            dr=np.array([1-4*a,4*r-1,0,4*(a-r),4*s,-4*s])
+            ds=np.array([1-4*a,0,4*s-1,-4*r,4*r,4*(a-s)])
+            jac=np.linalg.norm(np.cross(dr@points,ds@points))
+            for n,w in zip(ids,N*jac/6):
+                weights[n]=weights.get(n,0)+float(w)
+    area=sum(weights.values())
+    if area <= 0:
+        raise ValueError('Loaded surface has zero area')
+    return {n:w/area for n,w in weights.items()},area
