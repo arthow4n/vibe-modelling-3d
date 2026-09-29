@@ -28,6 +28,7 @@ with each applicable evaluation.
 - [ ] Co-design geometry, material, orientation, nozzle/layers, perimeters, infill/local solidity and supports; revise either CAD or process using the cheapest adequate evidence. Inspect actual sliced paths when a mechanical assumption depends on them; never infer calibrated material properties from settings. Plan physical experiments for remaining uncertainty.
 - [ ] Build understandable parametric geometry; preserve critical interfaces.
 - [ ] Evaluate source through the shared CadQuery command; inspect build validity and errors, then select views or targeted geometry checks for unresolved questions.
+- [ ] Once rough complete geometry exists, review [whole-object form and handling](references/design-decisions.md#whole-object-form-and-handling) before detailed mechanism refinement or expensive analysis; resolve consequential visual or handling problems.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
 - [ ] For structurally important parts and joints, update the load and stiffness screen using measured CAD sections before recommending a structural trial.
 - [ ] When contact analysis is needed, use the [decision-driven study guidance](../../../physical_analysis/README.md#plan-a-contact-study) and connect local fixture/deformation evidence to the surrounding assembly.
@@ -48,7 +49,7 @@ do not mistake a parameter value for a verified measurement or physical result.
 
 | Trigger | Reference |
 | --- | --- |
-| New requirements, assembly choices, load-bearing joints, mechanisms, motion checks, force estimates, “tight/loose” feedback | [Design decisions](references/design-decisions.md) |
+| New requirements, assembly choices, whole-object form/handling, load-bearing joints, mechanisms, motion checks, force estimates, “tight/loose” feedback | [Design decisions](references/design-decisions.md) |
 | Generic FDM review, final smoke slice, orientation, moving parts or support constraints | [Print planning](references/print-planning.md) |
 | Fit, force, friction or durability needs physical validation | [Physical experiments](references/physical-experiments.md) |
 | Dimensions, shared builders, modular source or edge treatment | [Parametric construction and edges](references/parametric-and-edges.md) |

@@ -128,7 +128,9 @@ material/process uncertainty and observations requiring a physical print.
    geometry questions that planning cannot settle. Choose views using the
    skill's evidence guidance.
 5. Compare the geometry against the intended use and references. Check access,
-   insertion, retention and release as relevant. Correct the largest functional,
+   insertion, retention and release as relevant. Apply the skill's
+   [whole-object form and handling review](.codex/skills/cadquery-3d-design/references/design-decisions.md#whole-object-form-and-handling)
+   to rough complete geometry before expensive analysis. Correct the largest functional,
    structural, ergonomic or printability discrepancies and evaluate again.
    Repair the smallest underlying cause of a build failure; simplify the approach
    if it repeatedly fails. Recalculate where measured CAD geometry changes the

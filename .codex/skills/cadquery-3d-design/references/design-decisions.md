@@ -110,6 +110,37 @@ Can the user still access or operate it?
 
 A visible slot, opening, hook, or retaining feature is not enough if the held object can fall through, the opening blocks installation, retention is ineffective, or the user cannot reach the object. Avoid designs that require threading a long or attached item through a closed hole when it should be installable in place.
 
+## Whole-object form and handling
+
+As soon as rough complete geometry exists, review the assembled object and its
+normal handling sequence before detailed mechanism refinement or expensive
+simulation. Assess whether local features form a coherent, usable object:
+proportions, rim/guide transitions, openings, grips and exposed mechanisms. A
+contact shape selected for solver robustness still needs deliberate integration
+into the product; a successful local analysis does not justify its exterior form.
+
+Check whether protruding catches or unprotected flexible arms could snag, receive
+unintended handling loads or obstruct a grip. Consider recessing or protecting
+them when useful, while preserving contact travel, access and manufacturability.
+Make insertion and opening understandable from the grip and geometry. Coordinate
+edge treatment and transitions; asymmetry or an exposed mechanism can be
+appropriate when it serves the intended use. Do not impose symmetry, concealed
+mechanisms or decoration as universal requirements.
+
+Use the smallest adequate visual review: an existing clear view can suffice for
+a simple object. For an assembly, choose closed/open or use-context views only
+where they answer different questions. If line drawings obscure depth, use a
+clearer camera or shaded CAD view when available. Better presentation helps
+diagnosis but does not repair awkward geometry. This review does not require
+style variants, a new rendering tool or a user approval gate.
+
+Resolve consequential integration problems early and revisit only affected
+questions after substantial changes. Protect critical fits, flexure dimensions
+and print orientation during visual refinement; changes to contact, attachment
+stiffness or supporting geometry require their affected checks. Keep the brief
+decision in the object's existing record instead of creating a separate review
+report. Continue autonomously within the authorized design scope.
+
 ## Critical and vibe dimensions
 
 Separate dimensions that control function from dimensions chosen mainly by visual judgment:
