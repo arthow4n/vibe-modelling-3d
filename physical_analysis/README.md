@@ -167,6 +167,10 @@ are never overwritten. Hashes, mesh sizes, tool versions and boundary selections
 are retained. Runs have a wall-clock timeout covering meshing and solving; the
 worker and solver process group are stopped together. Gmsh's global state is
 isolated per run, so independent callers can run concurrently.
+Caller interruption also stops that isolated process group, records an
+`interrupted` result, and re-raises `KeyboardInterrupt`. Retain it as incomplete
+evidence if useful; cancelling a superseded design must not leave its solver
+running in the background.
 
 The default PETG material is an explicitly assumed homogeneous solid, **not a
 model of two walls and 7% infill**. Use geometry that represents the load-bearing

@@ -97,6 +97,20 @@ class CalculixBackend:
                     result.status = 'timeout'
                     result.errors.append(f'Analysis exceeded {case.timeout_seconds:g} seconds; worker and solver stopped')
                     code = None
+                except KeyboardInterrupt:
+                    # The worker starts its own process group. Ctrl-C in the
+                    # caller does not reach it; do not leave an obsolete solve
+                    # consuming resources after a design revision cancels it.
+                    try:
+                        os.killpg(process.pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+                    process.wait()
+                    result.status = 'interrupted'
+                    result.errors.append('Caller interrupted analysis; worker and solver stopped')
+                    result.artifacts['worker_log'] = 'worker.log'
+                    result.write(directory/'result.json')
+                    raise
             answer = directory/'answer.json'
             if code == 0 and answer.exists():
                 payload = json.loads(answer.read_text())

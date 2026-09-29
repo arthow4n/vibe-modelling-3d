@@ -102,6 +102,16 @@ mismatch with the intended print setup. If the mismatch changes feature or path
 behavior materially, record that setup-specific smoke evidence is missing.
 Actual settings supersede reference settings for toolpath-specific claims; a
 suitable final actual-profile slice also satisfies the smoke check.
+
+The user accepts removable supports when needed, with minimal contact and easy
+access for removal as the preferred strategy. Use supports only where they
+solve an actual manufacturing problem; protect fit and snap contact surfaces
+from removal damage. Choose interface separation and placement for the selected
+material/process, then inspect the resulting support where removal is
+consequential. Requested gaps do not prove light adhesion or easy removal; that
+remains a physical observation. Discuss consequential support/removal tradeoffs
+before detailed modelling when autonomy has not been delegated; under autonomous
+scope, choose and document the cheapest adequate geometry/process combination.
 Do not add multiple reference slicers to approximate an unknown setup. Escalate
 only for unresolved path-generation questions, following the probe skill; actual
 fit, sag, strength and mechanism feel still require physical evidence.

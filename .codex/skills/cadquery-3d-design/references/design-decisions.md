@@ -119,6 +119,22 @@ different layouts, such as frequent selection versus occasional bulk removal.
 Use known preferences and document delegated assumptions; a simple object can
 need only a sentence in its existing record.
 
+For containers, establish the protection requirement before choosing openings:
+dust exclusion, spills, impact and retention imply different closures. Reuse
+known preferences; discuss consequential uncertainty when design choices have
+not been delegated. Under autonomous scope, ordinary protective storage should
+start with a covered cavity and overlapping closure unless ventilation or open
+access serves the stated task. Finger cutouts and mechanism slots must not
+silently create paths into the stored contents. Keep necessary snap travel or
+grips outside a continuous inner enclosure where practical. A covered cavity or
+labyrinth seam is dust-resistant geometry, not evidence of airtightness or an
+ingress rating. Verify the actual closure and openings in CAD; physical sealing
+requires suitable tests. Resolve access within that protection requirement,
+rather than treating convenient removal as permission to leave holes. The user's
+default for ordinary storage here is a fully covered cavity that excludes basic
+dust and sheds incidental spills; do not silently substitute an open organizer.
+Do not claim a watertight seal from covered geometry alone.
+
 As soon as rough complete geometry exists, review the assembled object and its
 normal handling sequence before detailed mechanism refinement or expensive
 simulation. Assess whether local features form a coherent, usable object:
@@ -133,6 +149,15 @@ Make insertion and opening understandable from the grip and geometry. Coordinate
 edge treatment and transitions; asymmetry or an exposed mechanism can be
 appropriate when it serves the intended use. Do not impose symmetry, concealed
 mechanisms or decoration as universal requirements.
+
+The user's default in this repository is to conceal mechanisms in the assembled
+object where practical, leaving understandable, modest controls for operation.
+Prefer covers, internal interfaces or protected recesses over exposing the whole
+flexure or catch for convenience during analysis. Inspect both the working
+mechanism and the final covered appearance; an inspection pose is not the
+product's intended appearance. Discuss a consequential visibility/access tradeoff
+when autonomy has not been delegated, and choose/document it when it has. This
+preference does not require hiding a feature whose exposure serves the task.
 
 Choose the cheapest evidence for the remaining handling question; these are
 available methods, not three mandatory stages:

@@ -20,6 +20,29 @@ def beam(mesh=2, nonlinear=False):
     return c
 
 
+def test_interrupt_stops_isolated_worker_and_retains_failure(tmp_path, monkeypatch):
+    from physical_analysis.backends import structural
+    killed=[]
+    class InterruptedWorker:
+        pid=123456
+        calls=0
+        def wait(self, timeout=None):
+            self.calls+=1
+            if self.calls==1:
+                raise KeyboardInterrupt
+            return -9
+    worker=InterruptedWorker()
+    monkeypatch.setattr(structural.subprocess,'Popen',lambda *a,**kw: worker)
+    monkeypatch.setattr(structural.os,'killpg',lambda pid,sig: killed.append((pid,sig)))
+    with pytest.raises(KeyboardInterrupt):
+        beam().run(tmp_path/'interrupted')
+    assert killed==[(worker.pid,structural.signal.SIGKILL)]
+    assert worker.calls==2
+    result=json.loads((tmp_path/'interrupted/result.json').read_text())
+    assert result['status']=='interrupted' and not result['completed']
+    assert 'worker and solver stopped' in result['errors'][0]
+
+
 def test_beam_refinement_and_force_balance(tmp_path):
     results=[]
     expected=.1*40**3/(3*1200*(8*2**3/12))
