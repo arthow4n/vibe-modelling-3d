@@ -114,6 +114,14 @@ print. Calibrate against physical tests before claiming real force or strength.
 
 ## Evidence and extension
 
+This API is an evolving foundation. Agents may improve it autonomously when a
+real modelling task exposes a reusable need, following the repository's
+[shared-tool guidance](../AGENTS.md#improve-shared-tools-from-concrete-needs).
+Use simpler CAD checks or analytical screens when they adequately answer the
+question; neither using nor expanding this API is a goal in itself. Keep
+model-specific fixtures with their object, and bring reusable analysis behavior
+into this package with an exercised consumer and appropriate numerical evidence.
+
 Acceptance tests cover beam bending/refinement, displacement-controlled flexure,
 contact onset and an open gap, contact penalty sensitivity, contact-driven flexure, force balance,
 invalid regions, conflicting constraints, ignored solver parameters, excessive penetration,

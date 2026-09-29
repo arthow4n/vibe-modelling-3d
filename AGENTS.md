@@ -294,6 +294,35 @@ A successful view can still be useful when another stage failed, so select by
 the entry's `ok` status rather than the report's overall `ok` alone. A path or
 status alone is not visual evidence.
 
+## Improve shared tools from concrete needs
+
+Agents are welcome to autonomously improve the repository's shared APIs, tools
+and workflow while completing an authorized task. This includes the evolving
+physical-analysis API; its current capabilities are a foundation, not a frozen
+interface or a requirement to use simulation for every model. Routine reusable
+improvements need no separate permission. Keep them within the task's purpose;
+seek a decision if they would materially change the agreed deliverable or scope.
+
+Let an actual consumer drive an extension: repeated manual work, a demonstrated
+failure, or a concrete design question that existing tools cannot answer well.
+Before adding shared functionality, identify the decision it will inform and
+the operation that can transfer to other models without their specific geometry
+or dimensions. A second consumer is useful evidence, not a prerequisite when
+the reusable need is already clear. Prefer improving an existing abstraction;
+keep object-specific fixtures, assumptions and experiments in the object directory.
+Do not add speculative frameworks, duplicate established checks, or generalize
+merely because something could someday be useful.
+
+Use the cheapest adequate evidence: CAD for rigid fit and clearance, simple
+calculations for suitable load screens, and numerical analysis when deformation,
+contact or geometry makes those approaches insufficient or materially uncertain.
+Do not run analysis merely to demonstrate the API. When extending a shared tool,
+exercise it on the motivating task, validate the new behavior proportionately
+(numerical benchmarks for new physical-analysis capabilities), and document its
+contract and limits. Retain explicit unsupported/failure outcomes; solver
+completion must not become a claim of physical validation. Feed useful fixes
+back into the shared tool rather than copying solver plumbing into each model.
+
 ## Avoid repeated work
 
 When creating a check or requesting extra manual inspection, identify the
