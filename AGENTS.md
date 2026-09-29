@@ -35,6 +35,31 @@ time or finish depends on them. Use the agreed setup to size geometry and screen
 loads before slicing. The reference Orca profile is diagnostic, not a substitute
 for the agreed print setup.
 
+The user also has an on-hand screw and nut assortment
+([Jula assortment 002837](https://www.jula.se/catalog/bygg-och-farg/infastning/sortimentsatser/skruvsatser/skruv-muttersats-002837/))
+that should be preferred whenever screw or bolt fasteners are needed:
+- **Machine screws (maskinskruvar):**
+  - M3 × 10 mm (60 pcs)
+  - M3 × 12 mm (60 pcs)
+  - M4 × 10 mm (50 pcs)
+  - M4 × 12 mm (35 pcs)
+  - M4 × 25 mm (25 pcs)
+  - M5 × 20 mm (25 pcs)
+  - M5 × 30 mm (20 pcs)
+  - M6 × 12 mm (25 pcs)
+  - M6 × 20 mm (18 pcs)
+  - M6 × 30 mm (12 pcs)
+- **Nuts (muttrar):**
+  - M3 (120 pcs)
+  - M4 (110 pcs)
+  - M5 (45 pcs)
+  - M6 (55 pcs)
+
+During planning, if fasteners are useful, discuss with the user whether they
+prefer a fully printed design or whether using this stock hardware is
+acceptable. If the user explicitly requests full autonomous implementation, use
+best engineering judgment; using these available stock materials is allowed.
+
 Do not reject an object merely because its assembled size exceeds that envelope.
 Plan it as multiple printable parts when no acceptable orientation fits. Before
 committing to the split and joint geometry, establish with the user the required

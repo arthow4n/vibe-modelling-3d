@@ -19,7 +19,12 @@ do not mistake elapsed time for an answer.
 Useful questions establish the intended use, critical interfaces, loads and
 whether required hardware or assembly is acceptable. Explain what to measure
 and why; do not expect the user to specify every printing detail. Do not assume
-access to purchased parts merely because the user has a printer.
+access to arbitrary purchased parts merely because the user has a printer, but
+prefer the user's on-hand screw and nut assortment (listed in `AGENTS.md`) when
+fasteners are needed. Discuss during planning whether the user prefers a fully
+printed design or if using this stock hardware is acceptable; if the user
+explicitly requests full autonomous implementation, use best judgment and using
+this stock hardware is permitted.
 
 When a mechanism choice needs user input, recommend one feasible approach and
 briefly explain the meaningful tradeoff. When the user has delegated the choice,
