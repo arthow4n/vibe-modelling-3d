@@ -764,6 +764,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "matplotlib" },
     { name = "pytest" },
 ]
 
@@ -775,7 +776,10 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "pytest", specifier = ">=9,<10" }]
+dev = [
+    { name = "matplotlib", specifier = ">=3.10,<4" },
+    { name = "pytest", specifier = ">=9,<10" },
+]
 
 [[package]]
 name = "vtk"

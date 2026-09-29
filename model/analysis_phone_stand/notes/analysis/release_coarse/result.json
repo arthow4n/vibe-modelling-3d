@@ -1,0 +1,552 @@
+{
+  "case": "latch_release",
+  "status": "completed",
+  "completed": true,
+  "metrics": {
+    "max_displacement_mm": 4.700228326799455,
+    "max_abs_principal_strain": 0.011040805559279651,
+    "max_strain_part": "latch",
+    "max_strain_element": 12195,
+    "max_strain_integration_point": 3,
+    "max_strain_element_centroid_mm": [
+      -11.877713618737582,
+      59.89131924484654,
+      8.975
+    ],
+    "max_von_mises_MPa": 13.086543558349142,
+    "max_strain_by_part": {
+      "latch": 0.011040805559279651
+    },
+    "force_balance_residual_N": 1.7490422868233389e-06,
+    "force_balance_relative": 1.3476754829105432e-07,
+    "peak_reaction_force_N": {
+      "mount": 6.48910742000021,
+      "thumb": 6.489108099999999
+    },
+    "observations": {
+      "tooth": {
+        "min_mm": [
+          -0.005927758,
+          -0.4083202,
+          -2.395871
+        ],
+        "max_mm": [
+          0.005887386,
+          -0.3950481,
+          -2.236373
+        ],
+        "mean_mm": [
+          -3.977465872727274e-05,
+          -0.40140814909090916,
+          -2.3174082727272722
+        ]
+      }
+    },
+    "peak_motion_force_N": {
+      "thumb": 6.489108099999999
+    },
+    "strain_limits": {
+      "latch": 0.015
+    },
+    "contact_detected": null,
+    "max_penetration_mm": 0
+  },
+  "history": [
+    {
+      "load_fraction": 0.1,
+      "max_displacement_mm": 0.4704845243633056,
+      "max_abs_principal_strain": 0.0011189346546640702,
+      "reactions_N": {
+        "mount": [
+          -6.079199998439014e-08,
+          1.6381999877468356e-07,
+          0.648616675530001
+        ],
+        "thumb": [
+          0.0,
+          0.0,
+          -0.64831716
+        ]
+      },
+      "observations": {
+        "tooth": {
+          "min_mm": [
+            -0.0005786196,
+            -0.05000283,
+            -0.237258
+          ],
+          "max_mm": [
+            0.0006003731,
+            -0.04969622,
+            -0.2212158
+          ],
+          "mean_mm": [
+            8.527682472727279e-06,
+            -0.049828787818181806,
+            -0.22936762000000002
+          ]
+        }
+      },
+      "motion_force_N": {
+        "thumb": 0.64831716
+      },
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.2,
+      "max_displacement_mm": 0.9407261529325736,
+      "max_abs_principal_strain": 0.0022334784668628757,
+      "reactions_N": {
+        "mount": [
+          -1.9294500002721947e-07,
+          -7.575000281895283e-08,
+          1.2962837221760006
+        ],
+        "thumb": [
+          0.0,
+          0.0,
+          -1.29628348
+        ]
+      },
+      "observations": {
+        "tooth": {
+          "min_mm": [
+            -0.001160226,
+            -0.09796652,
+            -0.4749755
+          ],
+          "max_mm": [
+            0.001197994,
+            -0.09712549,
+            -0.442909
+          ],
+          "mean_mm": [
+            1.4274841818181804e-05,
+            -0.09750295927272724,
+            -0.4592031600000001
+          ]
+        }
+      },
+      "motion_force_N": {
+        "thumb": 1.29628348
+      },
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.3,
+      "max_displacement_mm": 1.4107775677910848,
+      "max_abs_principal_strain": 0.003343965924245226,
+      "reactions_N": {
+        "mount": [
+          -2.820599975979221e-08,
+          -7.490000004384267e-07,
+          1.9431990363410017
+        ],
+        "thumb": [
+          0.0,
+          0.0,
+          -1.9431990900000002
+        ]
+      },
+      "observations": {
+        "tooth": {
+          "min_mm": [
+            -0.001745117,
+            -0.1438947,
+            -0.7131709
+          ],
+          "max_mm": [
+            0.001793233,
+            -0.142292,
+            -0.6650989
+          ],
+          "mean_mm": [
+            1.7275092181818117e-05,
+            -0.1430264709090909,
+            -0.6895256490909091
+          ]
+        }
+      },
+      "motion_force_N": {
+        "thumb": 1.94319909
+      },
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.4,
+      "max_displacement_mm": 1.8806911713776016,
+      "max_abs_principal_strain": 0.004450859520537025,
+      "reactions_N": {
+        "mount": [
+          -2.408999982893116e-08,
+          1.872600002214564e-06,
+          2.589874652457995
+        ],
+        "thumb": [
+          0.0,
+          0.0,
+          -2.58987457
+        ]
+      },
+      "observations": {
+        "tooth": {
+          "min_mm": [
+            -0.002333177,
+            -0.1877881,
+            -0.9518681
+          ],
+          "max_mm": [
+            0.002385936,
+            -0.1851969,
+            -0.8878103
+          ],
+          "mean_mm": [
+            1.750891745454539e-05,
+            -0.18640021818181823,
+            -0.9203592818181815
+          ]
+        }
+      },
+      "motion_force_N": {
+        "thumb": 2.58987457
+      },
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.5,
+      "max_displacement_mm": 2.3505193042946386,
+      "max_abs_principal_strain": 0.005554590515874427,
+      "reactions_N": {
+        "mount": [
+          -8.42139997216107e-08,
+          -1.0550999881911438e-06,
+          3.236740245349997
+        ],
+        "thumb": [
+          0.0,
+          0.0,
+          -3.2367411999999995
+        ]
+      },
+      "observations": {
+        "tooth": {
+          "min_mm": [
+            -0.002924398,
+            -0.2296466,
+            -1.19109
+          ],
+          "max_mm": [
+            0.002976077,
+            -0.2258403,
+            -1.111067
+          ],
+          "mean_mm": [
+            1.4967791272727307e-05,
+            -0.22762425454545457,
+            -1.1517272
+          ]
+        }
+      },
+      "motion_force_N": {
+        "thumb": 3.2367411999999995
+      },
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.6,
+      "max_displacement_mm": 2.8203142737895734,
+      "max_abs_principal_strain": 0.006655586999620941,
+      "reactions_N": {
+        "mount": [
+          2.2752001497877358e-08,
+          7.338999944983549e-07,
+          3.884228511079996
+        ],
+        "thumb": [
+          0.0,
+          0.0,
+          -3.8842309900000003
+        ]
+      },
+      "observations": {
+        "tooth": {
+          "min_mm": [
+            -0.003518773,
+            -0.2694687,
+            -1.430858
+          ],
+          "max_mm": [
+            0.00356363,
+            -0.2642212,
+            -1.334892
+          ],
+          "mean_mm": [
+            9.641646909090908e-06,
+            -0.26669729636363637,
+            -1.3836527272727273
+          ]
+        }
+      },
+      "motion_force_N": {
+        "thumb": 3.8842309900000007
+      },
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.7,
+      "max_displacement_mm": 3.2901284139314275,
+      "max_abs_principal_strain": 0.007754275990215829,
+      "reactions_N": {
+        "mount": [
+          1.6786000089398512e-07,
+          -5.164999947321336e-07,
+          4.532776302540008
+        ],
+        "thumb": [
+          0.0,
+          0.0,
+          -4.5327761
+        ]
+      },
+      "observations": {
+        "tooth": {
+          "min_mm": [
+            -0.004116299,
+            -0.3072517,
+            -1.671197
+          ],
+          "max_mm": [
+            0.004148567,
+            -0.3003369,
+            -1.559311
+          ],
+          "mean_mm": [
+            1.5187218181817465e-06,
+            -0.30361675999999993,
+            -1.616159509090909
+          ]
+        }
+      },
+      "motion_force_N": {
+        "thumb": 4.5327761
+      },
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.8,
+      "max_displacement_mm": 3.7600141467110024,
+      "max_abs_principal_strain": 0.008851088211687338,
+      "reactions_N": {
+        "mount": [
+          -5.17949999509406e-07,
+          2.5277999912698412e-06,
+          5.182810337789991
+        ],
+        "thumb": [
+          0.0,
+          0.0,
+          -5.1828117
+        ]
+      },
+      "observations": {
+        "tooth": {
+          "min_mm": [
+            -0.004716971,
+            -0.3429917,
+            -1.91213
+          ],
+          "max_mm": [
+            0.00473086,
+            -0.3341837,
+            -1.784348
+          ],
+          "mean_mm": [
+            -9.41448313454539e-06,
+            -0.33837878363636364,
+            -1.8492715272727274
+          ]
+        }
+      },
+      "motion_force_N": {
+        "thumb": 5.1828117
+      },
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.9,
+      "max_displacement_mm": 4.2300296877727535,
+      "max_abs_principal_strain": 0.009946452627330366,
+      "reactions_N": {
+        "mount": [
+          -5.209919982404436e-07,
+          -1.4297999969686837e-06,
+          5.8347743008900075
+        ],
+        "thumb": [
+          0.0,
+          0.0,
+          -5.834774700000001
+        ]
+      },
+      "observations": {
+        "tooth": {
+          "min_mm": [
+            -0.005320791,
+            -0.3766834,
+            -2.15368
+          ],
+          "max_mm": [
+            0.005310477,
+            -0.3657563,
+            -2.010027
+          ],
+          "mean_mm": [
+            -2.3173311636363535e-05,
+            -0.3709780945454545,
+            -2.0830129454545454
+          ]
+        }
+      },
+      "motion_force_N": {
+        "thumb": 5.834774700000001
+      },
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 1.0,
+      "max_displacement_mm": 4.700228326799455,
+      "max_abs_principal_strain": 0.011040805559279651,
+      "reactions_N": {
+        "mount": [
+          5.619099991559413e-07,
+          -1.5103000088750873e-06,
+          6.4891074200000105
+        ],
+        "thumb": [
+          0.0,
+          0.0,
+          -6.489108099999999
+        ]
+      },
+      "observations": {
+        "tooth": {
+          "min_mm": [
+            -0.005927758,
+            -0.4083202,
+            -2.395871
+          ],
+          "max_mm": [
+            0.005887386,
+            -0.3950481,
+            -2.236373
+          ],
+          "mean_mm": [
+            -3.977465872727274e-05,
+            -0.40140814909090916,
+            -2.3174082727272722
+          ]
+        }
+      },
+      "motion_force_N": {
+        "thumb": 6.489108099999999
+      },
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    }
+  ],
+  "assumptions": [
+    "Units mm, N, MPa. Isotropic homogeneous linear-elastic material; geometric nonlinearity=True",
+    "No printed infill/layer failure, plastic set, creep, fatigue, or friction prediction.",
+    "Strain is maximum absolute principal mechanical strain at integration points, over all saved increments.",
+    "Contact is finite-sliding frictionless penalty contact; completion alone does not prove engagement.",
+    "Prescribed translations and loads ramp together from zero over normalized time 0..1.",
+    "Peak values are sampled at converged increments, not continuous extrema."
+  ],
+  "warnings": [],
+  "errors": [],
+  "provenance": {
+    "backend": "CalculiX",
+    "version": "unknown",
+    "gmsh": "4.15.2",
+    "cadquery": "2.7.0",
+    "python": "3.12.14",
+    "input_sha256": "c467fb4952bb8c113688c4b392f59806b90d832e1ae497dae3056ecc59dd6ef9",
+    "case_sha256": "f2b7f763fadff3fe4d1f55b97a5b752ede6815986b708919962e78bd38d6ab1c",
+    "backend_sha256": {
+      "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+      "mesh.py": "4619ca7aa33caec0cac5efcc48fdd9fdc991c97f783b33145c6c5ec4aa3db13c",
+      "structural.py": "88cc97c1b1934aaffd676eec2680b135df26f35f861b622dd17d9ff1477772d7",
+      "worker.py": "adfdc94ffc29213f43b3f3427bdad1210b1d9935f66925788443c831a81d9bc0"
+    },
+    "command": [
+      "/home/hevar/.local/opt/physical-analysis/usr/bin/ccx",
+      "-i",
+      "analysis"
+    ],
+    "mesh": {
+      "latch": {
+        "nodes": 15345,
+        "elements": 8260,
+        "min_jacobian": 0.030302004839616405
+      }
+    },
+    "regions": {
+      "mount": {
+        "part": "latch",
+        "node_count": 814,
+        "displacement_mm": [
+          0,
+          0,
+          0
+        ]
+      },
+      "thumb": {
+        "part": "latch",
+        "node_count": 23,
+        "displacement_mm": [
+          null,
+          null,
+          -4.7
+        ]
+      },
+      "@observe:tooth": {
+        "part": "latch",
+        "node_count": 55,
+        "displacement_mm": [
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "loads": [],
+    "contacts": []
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "analysis.inp.gz",
+    "solver_log": "solver.log.gz",
+    "increments": "analysis.sta",
+    "raw_fields_retained_in_git": false,
+    "reproduce": "Decompress analysis.inp.gz into a fresh run directory; run ccx -i analysis. Use analyze.py to rebuild geometry, mesh and compact result."
+  }
+}

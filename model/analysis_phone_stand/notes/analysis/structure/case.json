@@ -1,0 +1,96 @@
+{
+  "name": "structure_load",
+  "nonlinear": true,
+  "max_increment": 0.25,
+  "parts": [
+    {
+      "name": "structure",
+      "geometry": "part_0.brep",
+      "sha256": "f590517096f490330dae8e1f79f50abd05849bda3fad90148268aa1f7b228573",
+      "material": {
+        "name": "PETG solid assumption",
+        "youngs_modulus_MPa": 800.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated solid PETG short-term isotropic sensitivity assumption; actual print must be tested",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 2.3
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "structure",
+        "region": {
+          "lower": [
+            null,
+            22,
+            null
+          ],
+          "upper": [
+            null,
+            22,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "sector_support"
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "structure",
+        "region": {
+          "lower": [
+            -30,
+            110,
+            3.99
+          ],
+          "upper": [
+            30,
+            130,
+            4.01
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        -2.837748077770922
+      ]
+    },
+    {
+      "selection": {
+        "part": "structure",
+        "region": {
+          "lower": [
+            -100,
+            32.0,
+            4.0
+          ],
+          "upper": [
+            100,
+            32.0,
+            20.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        -2.7746870093760125,
+        0.0630610683949091
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": []
+}

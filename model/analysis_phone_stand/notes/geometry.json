@@ -1,0 +1,74 @@
+{
+  "checks": {
+    "locked_poses": "No unintended solid overlaps at 45, 60, 75 degrees; shared mounting faces touch.",
+    "motion": "Arm/base and cradle/base: no overlaps at 2-degree samples over 45..75; not a continuous proof. Tooth/latch interaction belongs to elastic analysis.",
+    "device": "90 x 180 x 14 mm device envelope seats and lifts out along cradle; 20 mm open cable notch, 8 mm retaining lip.",
+    "release_floor_gap_mm": 2.8999999999999995,
+    "thumb_stop": "Base pedestal arrests the front tab at nominal 4.7 mm travel; remaining leaf clears the well.",
+    "pivot": "M4 nominal 4 mm shaft clears both actual 4.5 mm bores in assembled pose; 0.4 mm axial clearance per side.",
+    "layout": "Four separated print solids; final bed fit delegated to Orca."
+  },
+  "concept": {
+    "scope": "Concept screen; hardware assembled, desk use only",
+    "spring": {
+      "force_N": 6.229248046875,
+      "tip_displacement_mm": 2.1,
+      "stiffness_N_mm": 2.96630859375,
+      "root_strain": 0.009228515625000001,
+      "fixed_free_euler_buckling_N": 78.07011293830449,
+      "small_deflection_applicable": true,
+      "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+    },
+    "cases": [
+      {
+        "angle_deg": 45,
+        "phone_com_Y_mm": 106.48885271170678,
+        "rear_tipping_margin_mm": 18.511147288293216,
+        "service_torque_Nmm": 289.95479247979335,
+        "tooth_tangential_force_N": 14.644181438373401,
+        "ideal_buckling_ratio": 5.331135322711224
+      },
+      {
+        "angle_deg": 60,
+        "phone_com_Y_mm": 79.47372055837118,
+        "rear_tipping_margin_mm": 45.52627944162881,
+        "service_torque_Nmm": 193.17965960328644,
+        "tooth_tangential_force_N": 9.756548464812447,
+        "ideal_buckling_ratio": 8.001816751064052
+      },
+      {
+        "angle_deg": 75,
+        "phone_com_Y_mm": 48.95073941332778,
+        "rear_tipping_margin_mm": 76.04926058667222,
+        "service_torque_Nmm": 83.23965216929734,
+        "tooth_tangential_force_N": 4.204022836833199,
+        "ideal_buckling_ratio": 18.570335121469757
+      }
+    ],
+    "assumptions": {
+      "phone_kg": 0.3,
+      "phone_height_mm": 180.0,
+      "phone_thickness_mm": 14.0,
+      "moving_printed_mass_allowance_kg": 0.1,
+      "material": "Solid PETG, assumed E=1200 MPa; sensitivity at 800 MPa required",
+      "finger_release_target_N": [
+        2,
+        12
+      ],
+      "strain_screen": 0.015,
+      "structural_sag_target_mm": 2,
+      "hardware": "M4 pivot and two M3 cradle bolts, two M3 latch bolts",
+      "rough_print_layout_mm": [
+        230,
+        240,
+        40
+      ]
+    }
+  },
+  "source_sha256": {
+    "components.py": "75e85239c5df8c4a00e6dc4bc203b4e7dd3af813e9df7d30c66e1ad122e8d6b3",
+    "concept.py": "e0cb9c74abef00c194173787ce777c77adb22afecf48796b8cae2b1cf9c72b24",
+    "verify.py": "01a873cab617e05ea72f6bd0ea5d81a8409615150ea1c806ff1f9eb5e77cbaf7",
+    "analysis_phone_stand.py": "a4a59403e27760126efe867deb0535b9c457dbc02e4d2c4316623f0cc8a45250"
+  }
+}

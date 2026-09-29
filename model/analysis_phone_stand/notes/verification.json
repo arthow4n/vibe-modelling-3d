@@ -1,0 +1,101 @@
+{
+  "conditions": {
+    "phone_kg": 0.3,
+    "moving_mass_allowance_kg": 0.1,
+    "measured_moving_volume_mm3": 68398.85657656274,
+    "mass_g_at_assumed_density_1_27_g_cm3": 86.86654785223469,
+    "print": "Solid PETG, 0.4 mm nozzle, 0.2 mm layers, two walls, 100% rectilinear infill"
+  },
+  "release": {
+    "force_N": 6.493609299999999,
+    "thumb_travel_mm": 4.7,
+    "least_tooth_downward_travel_mm": 2.204143,
+    "strain_screen": {
+      "latch": {
+        "max_abs_principal_strain": 0.013966831971663877,
+        "limit": 0.015,
+        "passes": true
+      }
+    }
+  },
+  "holding": {
+    "checked_tangential_force_N": 22.699478259390332,
+    "required_service_force_N": 14.644181438373401,
+    "ratio_of_checked_force_to_service": 1.5500680836901506,
+    "max_penetration_mm": 0.001696226,
+    "scope": "Local tangential tooth translation, not full rotating assembly; no friction credit. E=800 MPa."
+  },
+  "structure": {
+    "max_displacement_mm": 0.8621492763566747,
+    "scope": "E=800 MPa, 300 g phone + conservative 100 g moving-part allowance. Bonded arm/cradle; fixed sector cut; excludes hinge and latch rotation."
+  },
+  "release_refinement": {
+    "peak_motion_force_N.thumb": {
+      "coarse": 6.489108099999999,
+      "refined": 6.493609299999999,
+      "relative_change": 0.0006931738255333569,
+      "passes": true
+    },
+    "max_abs_principal_strain": {
+      "coarse": 0.011040805559279651,
+      "refined": 0.013966831971663877,
+      "relative_change": 0.20949821823020373,
+      "passes": false
+    }
+  },
+  "holding_mesh_and_penalty_sensitivity": {
+    "peak_motion_force_N.drive": {
+      "coarse": 22.779560011495914,
+      "refined": 22.699478259390332,
+      "relative_change": 0.0035279115753443784,
+      "passes": true
+    },
+    "max_abs_principal_strain": {
+      "coarse": 0.010186028404799364,
+      "refined": 0.011105329735702541,
+      "relative_change": 0.08278019228440503,
+      "passes": false
+    }
+  },
+  "hardware": {
+    "scope": "Conservative projected-area screens, 2x local load allowance; no whole-stand 2x rating.",
+    "pivot_bearing_MPa": 0.7736742265988917,
+    "cradle_bolt_bearing_MPa": 2.239296,
+    "assumed_bearing_limit_MPa": 7,
+    "cradle_bolt_force_bound_N": 16.794719999999998,
+    "assumptions": "M4 steel pivot, two M3 steel cradle screws; countersink leaves 2.5 mm. No fastener preload or joint-slip prediction."
+  },
+  "limitations": [
+    "Release force and tooth travel are stable under the sampled refinement; peak root strain remains mesh sensitive near the idealized clamp.",
+    "Final peak strain is below the assumed 1.5% screen, but this is not a converged local-yield or permanent-set prediction.",
+    "Sharp-tooth pass-over did not converge on the retained earlier fixture; use press-adjust-release. No full rotational/contact or fatigue model.",
+    "Material properties, printed anisotropy, creep, real fit and durability need physical calibration. No tablet or load certification."
+  ],
+  "source_sha256": {
+    "analyze.py": "f27332e174782dc4cda5af8fca63b686f5b42202bb072a39cdde5efe5a23d395",
+    "evidence.py": "3b654f0a7737d1169c13c08aabe7e5031fc6a4ecdcbb93094d5333a4bc6cc7a9",
+    "verify.py": "01a873cab617e05ea72f6bd0ea5d81a8409615150ea1c806ff1f9eb5e77cbaf7",
+    "stand_arm.py": "828e2b1189063036db17a2f6707611cb25d5d4d11fae7caa4da2aa023c470a03",
+    "components.py": "75e85239c5df8c4a00e6dc4bc203b4e7dd3af813e9df7d30c66e1ad122e8d6b3",
+    "plot_evidence.py": "b51b6bb1b3e6d53466615ccc74bd897e9664394f18d7fbc5e609dc49d1833623",
+    "stand_latch.py": "9fd4a9e6762afcdc5b9c1484b067192238ecb4d4ae14b0990cfe9170e883ead5",
+    "analysis_phone_stand.py": "a4a59403e27760126efe867deb0535b9c457dbc02e4d2c4316623f0cc8a45250",
+    "summarize_evidence.py": "76ae954dffa941c6816d8bed79e486107eb5740e44e6b24345f068fc5388b5d8",
+    "inspect_assembled.py": "b47eeadc64d3476358993341131e08f1d30dcffa9be43f397b54d211041482ac",
+    "stand_cradle.py": "1ef2a51a6ea2eec190e1ab16f4140596bed89025683a3f5e19cf2792bde938d1",
+    "stand_base.py": "cec80769453d262db12b4b8d2bf1cac086677b1bb7512b74a835197632642f04",
+    "concept.py": "e0cb9c74abef00c194173787ce777c77adb22afecf48796b8cae2b1cf9c72b24"
+  },
+  "export_sha256": {
+    "stand_arm.step": "2d0f72f4f4b79c5f39e48f6df8417185e5773301c689f4bc0087bfd99e151aef",
+    "stand_latch.step": "88094b56b0862257e71df8af1e152d820bbdc86cd44ec2dc143472fee81bde9a",
+    "stand_cradle.step": "dcc4cda213f9f5628989711e30434b94b5950c6388b7064624393081594adbf6",
+    "stand_base.step": "53f6f8f9aed0191855809b4e9d9f5096c7fe6c03c74d56b1a2cdb65de1a1e401",
+    "analysis_phone_stand.step": "f20d4bf8ae94c8be1251aabbec6fc72c5b09cc07f576838eef07560f29dd5f4b",
+    "stand_latch.stl": "15477d5e43a99eb95edab6eafef1fcce2adcfc06f804d36c60dd722792fefdda",
+    "stand_cradle.stl": "786e32e613a8061ac6c64ab4b2156bc7579ba3717ebc80978081af084932d9ec",
+    "stand_base.stl": "61c978a50efcb3ed677f0b785b442e52390af6e1d94a06ea72aa606f9b1a5ed8",
+    "analysis_phone_stand.stl": "557bf12a5e6cadc67449418d138e2e7c67586b060e9cc67fa178df98ffbb5c10",
+    "stand_arm.stl": "8497a0d4e8ce241959d9e7bb49fbbf6015315eaf40eae5480ff846697d40053c"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "case": "tooth_pass_over",
+  "status": "failed",
+  "completed": false,
+  "metrics": {},
+  "history": [],
+  "assumptions": [
+    "Units mm, N, MPa. Isotropic homogeneous linear-elastic material; geometric nonlinearity=True",
+    "No printed infill/layer failure, plastic set, creep, fatigue, or friction prediction.",
+    "Strain is maximum absolute principal mechanical strain at integration points, over all saved increments.",
+    "Contact is finite-sliding frictionless penalty contact; completion alone does not prove engagement.",
+    "Prescribed translations and loads ramp together from zero over normalized time 0..1.",
+    "Peak values are sampled at converged increments, not continuous extrema."
+  ],
+  "warnings": [],
+  "errors": [
+    "Solver failed or did not finish (exit 201); see solver.log"
+  ],
+  "provenance": {
+    "backend": "CalculiX",
+    "version": "unknown",
+    "gmsh": "4.15.2",
+    "cadquery": "2.7.0",
+    "python": "3.12.14",
+    "input_sha256": "822afc4dc190590b866ad35cdc46b3b6e78cf3c2590dfb0c100e690312e94504",
+    "case_sha256": "553305c6ca788105ae4b0fb930c21b2e79bba151957e967ca665dc1bb07d25db",
+    "backend_sha256": {
+      "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+      "mesh.py": "4619ca7aa33caec0cac5efcc48fdd9fdc991c97f783b33145c6c5ec4aa3db13c",
+      "structural.py": "88cc97c1b1934aaffd676eec2680b135df26f35f861b622dd17d9ff1477772d7",
+      "worker.py": "52f1fd90175839f7ac9e5d960b76be32d29af5ba2b91d92265f62edf05c32463"
+    },
+    "command": [
+      "/home/hevar/.local/opt/physical-analysis/usr/bin/ccx",
+      "-i",
+      "analysis"
+    ],
+    "mesh": {
+      "latch": {
+        "nodes": 3209,
+        "elements": 1499,
+        "min_jacobian": 0.3673170202052739
+      },
+      "gear_patch": {
+        "nodes": 2637,
+        "elements": 1280,
+        "min_jacobian": 0.0013361572598403378
+      }
+    },
+    "regions": {
+      "mount": {
+        "part": "latch",
+        "node_count": 211,
+        "displacement_mm": [
+          0,
+          0,
+          0
+        ]
+      },
+      "drive": {
+        "part": "gear_patch",
+        "node_count": 2637,
+        "displacement_mm": [
+          0,
+          5.8,
+          0
+        ]
+      },
+      "@observe:tooth": {
+        "part": "latch",
+        "node_count": 31,
+        "displacement_mm": [
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "loads": [],
+    "contacts": [
+      {
+        "slave": {
+          "part": "latch",
+          "face_count": 32
+        },
+        "master": {
+          "part": "gear_patch",
+          "face_count": 480
+        }
+      }
+    ]
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "analysis.inp.gz",
+    "solver_log": "solver.log.gz",
+    "increments": "analysis.sta",
+    "raw_fields_retained_in_git": false,
+    "reproduce": "Decompress analysis.inp.gz into a fresh run directory; run ccx -i analysis. Use analyze.py to rebuild geometry, mesh and compact result."
+  }
+}
