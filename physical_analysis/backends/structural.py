@@ -38,6 +38,7 @@ def evidence_files(directory):
     Raw fields remain in the source run for extraction/recovery.
     """
     files = dict(case=('case.json', False), input=('analysis.inp', True),
+                 rigid_driver_clearance=('rigid_driver_clearance.json',False),
                  solver_log=('solver.log', True), worker_log=('worker.log', True),
                  increments=('analysis.sta', False), regions=('regions.json', True),
                  fixture_geometry=[(p.name, True) for p in sorted(directory.glob('part_*.brep'))])
@@ -85,6 +86,16 @@ class CalculixBackend:
                     material=asdict(part.material), mesh_size_mm=part.mesh_size_mm))
             (directory/'case.json').write_text(json.dumps(request, indent=2, allow_nan=False)+'\n')
             result.artifacts['case'] = 'case.json'
+            from ..motion import rigid_driver_clearance
+            clearance=rigid_driver_clearance(case)
+            if clearance['pairs']:
+                (directory/'rigid_driver_clearance.json').write_text(json.dumps(clearance,indent=2)+'\n')
+                result.artifacts['rigid_driver_clearance']='rigid_driver_clearance.json'
+            if not clearance['ok']:
+                result.status='invalid_rigid_motion'
+                result.errors.append('Prescribed rigid drivers overlap at sampled poses; revise their physical path before solving')
+                result.write(directory/'result.json')
+                return result
             with (directory/'worker.log').open('w') as log:
                 process = subprocess.Popen([sys.executable, '-m', 'physical_analysis.backends.worker',
                     str(directory)], cwd=directory, env=runtime_environment(), stdout=log,
@@ -119,6 +130,8 @@ class CalculixBackend:
                 result.status = 'failed'
                 result.errors.append((directory/'worker.log').read_text()[-4000:])
             result.artifacts.update(directory=str(directory), result='result.json', worker_log='worker.log')
+            if clearance['pairs']:
+                result.artifacts['rigid_driver_clearance']='rigid_driver_clearance.json'
         except Exception as exc:
             result.status = 'failed'
             result.errors.append(f'{type(exc).__name__}: {exc}')

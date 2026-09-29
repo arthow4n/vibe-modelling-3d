@@ -155,6 +155,10 @@ reaction projected along each prescribed translation and its current progress
 direction. `peak_motion_force_N`
 is the corresponding actuation-force magnitude; it excludes orthogonal holding
 reactions. `check_strain_limits()` returns per-part conditional screening results.
+At a stationary plateau in a progress curve, the motion-direction force is zero
+because there is no current travel. A press-and-hold release still needs holding
+effort: read the relevant axis of its recorded `reactions_N` across that plateau,
+not only `peak_motion_force_N`. All reaction components remain available.
 
 Contact penetration above the explicit `penetration_limit_mm` (default 0.05 mm)
 rejects the result with `status='quality_failed'`, retaining diagnostic metrics.
@@ -171,6 +175,17 @@ Caller interruption also stops that isolated process group, records an
 `interrupted` result, and re-raises `KeyboardInterrupt`. Retain it as incomplete
 evidence if useful; cancelling a superseded design must not leave its solver
 running in the background.
+
+Before meshing, moving pairs of fully prescribed whole-part translations receive
+a sampled CAD clearance screen. Their relative progress knots are subdivided
+to at most 0.25 mm relative travel per interval. An overlap above 1e-7 mm³ returns
+`invalid_rigid_motion` without launching the solver; the case, fixtures and
+`rigid_driver_clearance.json` remain available. This catches collisions between
+rigid drivers that would otherwise be ignored when contact is defined only to
+the flexible part. No sampled overlap is not continuous-path proof. Partial
+region constraints, deformable parts and static relative pairs are excluded;
+contact/deformation still needs its own analysis. The lift-off box motivates
+this check: a press actuator must withdraw before a cap window passes it.
 
 The default PETG material is an explicitly assumed homogeneous solid, **not a
 model of two walls and 7% infill**. Use geometry that represents the load-bearing
@@ -239,6 +254,15 @@ The current process isolation targets POSIX hosts.
 buckling rejection screen before meshing. `physical_analysis.studies.compare_results`
 compares named metrics from already completed runs without launching new solves.
 Convergence of force does not imply convergence of a local strain concentration.
+
+For a mechanical assumption that depends on actual sliced solidity or support
+placement, `physical_analysis.manufacturing.orca_linear_paths(path)` yields
+linear deposited segments with Orca's width/role metadata. The sliding box and
+lift-off box use this narrow reader for local feature reviews. It requires
+absolute XYZ, relative E and linear layer moves; incompatible modes fail.
+Keep geometry registration, section choices, support access and decisions with
+the object. This does not replace Orca's layout acceptance, predict polymer
+properties or justify routine G-code inspection of ordinary walls.
 
 `physical_analysis.screening.circular_cam_detent` screens two rigid circular
 profiles against a linear transverse spring, returning pass-over travel and peak

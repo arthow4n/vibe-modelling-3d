@@ -5,7 +5,6 @@ paths, rejects arcs. Plots deposited centerlines with actual WIDTH metadata.
 """
 from pathlib import Path
 import argparse
-import re
 import json
 import matplotlib
 matplotlib.use('Agg')
@@ -13,22 +12,8 @@ import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 from components import OUT_Y, LID_HALF_Y, BASE_CAM_Y, CAM_R, ARM_Y, ARM_T
 import math
+from physical_analysis.manufacturing import orca_linear_paths as paths
 
-
-def paths(path):
-    x=y=z=0.; width=.42; role=''; started=False
-    for line in Path(path).read_text().splitlines():
-        if line.startswith(';LAYER_CHANGE'): started=True
-        if not started: continue
-        if line.startswith(';TYPE:'): role=line[6:]
-        if line.startswith(';WIDTH:'): width=float(line[7:])
-        if line.startswith(('G2 ','G3 ','M82','G91')): raise ValueError('Unsupported path mode')
-        if not line.startswith(('G0 ','G1 ')): continue
-        args={k:float(v) for k,v in re.findall(r'([XYZE])(-?[\d.]+)',line)}
-        nx,ny,nz=args.get('X',x),args.get('Y',y),args.get('Z',z)
-        if args.get('E',0)>0 and (nx!=x or ny!=y) and role!='Custom':
-            yield (x,y,nx,ny,nz,width,role)
-        x,y,z=nx,ny,nz
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('run');p.add_argument('output');a=p.parse_args()
