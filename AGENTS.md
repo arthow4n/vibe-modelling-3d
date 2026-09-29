@@ -387,6 +387,17 @@ back into the shared tool rather than copying solver plumbing into each model.
 
 ## Avoid repeated work
 
+Interpret "cheap" and "expensive" as total workflow cost, including agent turns,
+manual reasoning, implementation, maintenance and compute. The user's preference
+is to spend reliable, repeatable compute when it reduces agent effort or improves
+the evidence; compute is generally cheaper than repeated coding-agent turns.
+Do not label an automated check expensive merely because it repeats or takes
+time to run. Prefer a straightforward deterministic script or applicable shared
+tool over repeatedly doing the same reasoning manually. Distinguish solver
+runtime from development or review effort when reporting cost. Optimize runtime
+only when an observed resource or turnaround constraint warrants it; preserve
+the necessary checks and the rule against speculative infrastructure.
+
 When creating a check or requesting extra manual inspection, identify the
 credible failure or uncertainty it addresses and what decision its result could
 change. Ask whether existing evidence or the tool's own status already answers
@@ -399,11 +410,12 @@ without creating a separate justification document.
 
 Once a useful check is built into a reusable script or the shared workflow, run
 it automatically when applicable. Repeated automatic execution is not repeated
-agent work and needs no new justification each time. Judge it by its marginal
-runtime and resource cost, not its invocation count. Avoid repeating manual
-reasoning, tool setup or expensive checks when relevant inputs and evidence are
-unchanged. If an established automatic check proves consistently uninformative,
-reconsider the check itself rather than skipping it case by case.
+agent work and needs no new justification each time. Judge its marginal compute
+cost alongside the agent effort it saves, not its invocation count. Reuse valid
+evidence to avoid unnecessary manual reasoning, tool setup or solver reruns when
+relevant inputs and evidence are unchanged. If an established automatic check
+proves consistently uninformative, reconsider the check itself rather than
+skipping it case by case.
 
 Choose the cheapest reliable evidence for the remaining question, following the
 [skill's evidence selection](.codex/skills/cadquery-3d-design/SKILL.md#proportionate-review).

@@ -81,9 +81,11 @@ not a required stage for every model.
 
 Ask: **What uncertainty remains, what would the result change, and what is the
 cheapest reliable evidence that can resolve it?** Apply AGENTS.md's check-value,
-reuse and batching rules when choosing new checks or extra manual reviews. Omit
-them when either outcome would lead to the same action. Established automatic
-checks can run routinely without a fresh decision each time. Stop extra review
+reuse and batching rules when choosing new checks or extra manual reviews.
+Apply its total-workflow-cost preference: reliable repeatable compute can save
+agent turns; "cheap" does not mean minimizing computation at their expense.
+Omit new checks when either outcome would lead to the same action. Established
+automatic checks can run routinely without a fresh decision each time. Stop extra review
 once adequate evidence answers the question; reopen it when relevant inputs
 change or a limitation is discovered.
 Use approximate concept calculations before committing to CAD when they can
