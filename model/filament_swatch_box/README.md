@@ -182,12 +182,23 @@ was introduced. Multiple steps, friction, plasticity and creep remain unsupporte
 - **Material/process:** uncalibrated modulus and strain allowance, layer bonding, porosity, shrinkage, seam texture, friction and global lid/body flexibility. Dense paths improve the solid-section approximation without establishing printed material properties.
 - **Physical:** fit of the actual 20-card stack, convenient handling, perceived/measured operating force, snap recovery, wear, binding, permanent set and behavior after remaining closed.
 
+Pre-print workflow review identified two functional limits: no minimum acceptable
+retention force was specified, and the clearance check covers the moving head
+rather than every solver-deformed beam surface against the complete lid. The
+local clamped-root solve is not a whole-box compliance check. First-print feedback
+must include resistance to accidental sliding as well as comfortable opening;
+opening force alone cannot separate modulus, friction and dimensional effects.
+Measure the existing stack if available to check the capacity allowance. These
+are unresolved acceptance/integration questions, not newly validated behavior.
+
 For the first complete-box print, record the artifact hash/revision, printer,
 filament brand/material, actual nozzle/layers/walls/infill, orientation, temperature
 and flow settings. Try all 20 cards and several opening/closing cycles before
 relying on retention. Record force in N if measurable, otherwise light/good/too
 stiff; inspect recovery, wear and any whitening or cracks. Repeat after leaving
-it closed for a day and report the dwell time and any change. Keep observations
+it closed for a day and report the dwell time and any change. Check whether the
+lid stays closed during ordinary handling without deliberately pulling it.
+Keep observations
 against the tested revision so later material/printer calibration can use them.
 
 If guides bind, identify the rubbing surface before adjusting `RUNNING_GAP` or
@@ -199,7 +210,7 @@ when physical feedback arrives.
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | N/A | None | Complete box is the first functional trial. |
-| Final printable object(s) | Unknown | `filament_swatch_box.step`, `filament_swatch_box.stl` | No print report; verify capacity, fit, force, recovery, wear, set and closed dwell. |
+| Final printable object(s) | No | `filament_swatch_box.step`, `filament_swatch_box.stl` | User reports not yet printed; verify capacity, fit, force, retention, recovery, wear, set and closed dwell. |
 
 ## Reproduction
 
@@ -213,8 +224,9 @@ uv run --locked python model/filament_swatch_box/summarize_evidence.py
 ```
 
 Use a new directory for every analysis. The summary reads retained results and
-launches no solver. [evidence.py](evidence.py) follows the phone-stand retention
-pattern: compressed solver input, fixture BREPs, logs, case, increments and result
+launches no solver. [evidence.py](evidence.py) delegates to the
+[shared retention helper](../../physical_analysis/README.md#retain-analysis-evidence):
+compressed solver input, fixture BREPs, logs, case, increments and result
 history are kept in `notes/analysis`; large raw fields can be reproduced by
 replaying the compressed input. See [shared API documentation](../../physical_analysis/README.md)
 for native setup and limitations. The closed inspection source is

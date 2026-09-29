@@ -423,6 +423,13 @@ compact summaries and inspect full logs only for a failure or unresolved
 question. Documentation-only changes need document validation, not new CAD
 evaluations or slices.
 
+For numerical studies, use generated summaries as the source for tables and keep
+prose focused on the decision and limits; do not hand-maintain the same history in
+several records. Retain successful and informative failed runs with the shared
+[analysis evidence helper](physical_analysis/README.md#retain-analysis-evidence)
+instead of copying archive/solver-file handling into each model. Model-specific
+acceptance conditions and interpretation remain with the object.
+
 ## Model provenance and attribution
 
 Record attribution **per model**, in its documentation or clearly linked notes:

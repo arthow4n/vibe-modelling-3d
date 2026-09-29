@@ -30,6 +30,23 @@ def runtime_environment():
     return env
 
 
+def evidence_files(directory):
+    """Compact replay files for this backend; absent files are allowed on failure.
+
+    Values are (relative path, compress) pairs, or lists of those pairs. Keeping
+    this policy here avoids solver filenames and replay commands in model code.
+    Raw fields remain in the source run for extraction/recovery.
+    """
+    files = dict(case=('case.json', False), input=('analysis.inp', True),
+                 solver_log=('solver.log', True), worker_log=('worker.log', True),
+                 increments=('analysis.sta', False), regions=('regions.json', True),
+                 fixture_geometry=[(p.name, True) for p in sorted(directory.glob('part_*.brep'))])
+    replay = ('Decompress analysis.inp.gz in a new directory and run ccx -i analysis '
+              'in the configured native environment to regenerate raw solver fields. '
+              'Use the model analysis source to rebuild the current case; retained fixtures may be historical.')
+    return files, replay
+
+
 class CalculixBackend:
     def run(self, case, directory):
         import cadquery as cq

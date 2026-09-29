@@ -136,9 +136,11 @@ Run directories must be new. [Retained cases](notes/analysis/) contain compact
 results, parameters, compressed solver input and logs, and increment records.
 Decompress a case's `analysis.inp.gz` into a fresh directory and run `ccx -i analysis`
 to replay its exact finite-element input. Geometry BREP snapshots and large raw
-result fields are not committed; `analyze.py` rebuilds them from current source.
+result fields are absent from the historical archives; `analyze.py` rebuilds them from current source.
 The rejected pass-over deck preserves its earlier geometry independently.
-[evidence.py](evidence.py) retains a run, [summarize_evidence.py](summarize_evidence.py)
+[evidence.py](evidence.py) now delegates to the [shared retention helper](../../physical_analysis/README.md#retain-analysis-evidence),
+which also keeps available fixture BREPs for new archives. Historical records
+are unchanged. [summarize_evidence.py](summarize_evidence.py)
 compares completed evidence, and [plot_evidence.py](plot_evidence.py) rebuilds views.
 
 ## First physical trial and print status

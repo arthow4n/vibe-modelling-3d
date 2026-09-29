@@ -93,6 +93,31 @@ holding forces. At a knot the signed projection uses the incoming segment.
 Multiple steps, rotations, friction, rigid-body joints, contact activation changes
 and self-contact remain unsupported.
 
+## Plan a contact study
+
+Before solving, name the design decision, relevant quantities and acceptable
+uncertainty. Separate passage, strain, recovery and operating-force targets;
+they need not require the same precision. Use the cheapest analytical force
+screen first when applicable, including consequential guide/fit extremes.
+
+For a new operation, first obtain and inspect one complete representative path:
+actual motion, contact passage, reaction history, strain location, penetration
+and return. Check travel-increment resolution before spending on mesh/penalty
+studies when narrow contact events or force peaks could be under-resolved.
+Then compare mesh and contact settings at adequate travel resolution, varying
+one factor where practical. Revisit coupled sensitivities if a change alters the
+contact sequence; no study order guarantees convergence. Do not treat all runs
+sharing a coarse increment as independent evidence of a resolved force peak.
+
+Choose relative or absolute change criteria against the decision before repeated
+refinement. A small absolute force change may leave the same first-print decision
+while failing a percentage criterion; record the failure and conditional force
+range, rather than renaming it convergence. Stop when additional precision cannot
+change the next action, keeping unresolved numerical limits separate from
+material/friction uncertainty. Existing `studies.compare_results` reads completed
+results without rerunning a solver. Local-fixture completion does not establish
+whole-assembly compliance or collision clearance.
+
 ## Result contract
 
 `completed` means the solver finished the entire normalized load interval,
@@ -147,6 +172,29 @@ The default PETG material is an explicitly assumed homogeneous solid, **not a
 model of two walls and 7% infill**. Use geometry that represents the load-bearing
 section, a documented conservative effective material, or an appropriate solid
 print. Calibrate against physical tests before claiming real force or strength.
+
+## Retain analysis evidence
+
+Use `physical_analysis.evidence.retain_run(run, destination)` or:
+
+```sh
+uv run --locked python -m physical_analysis.evidence /tmp/box_run model/filament_swatch_box/notes/analysis/new_trial
+```
+
+The destination must be new. The helper preserves result history, assumptions,
+failure status and provenance; copies the case and increment record; and retains
+available input, logs, selected regions and all fixture BREPs as deterministic
+gzip files. Artifact links name only files actually copied. Bulky raw fields are
+excluded; replay instructions come from the backend. Failed/timeout runs can be
+retained without claiming completion. This archives an existing CalculiX run;
+it launches no solver, changes no source run, and does not replace original raw
+fields needed for postprocess-only recovery. Older object archives remain valid
+historical records even when they contain fewer artifacts.
+
+Keep object-specific metrics, acceptance conditions and plots with their model.
+Do not copy this file-retention implementation or hand-maintain a second history
+table; derive summaries from retained results and link them from the decision
+record.
 
 ## Evidence and extension
 

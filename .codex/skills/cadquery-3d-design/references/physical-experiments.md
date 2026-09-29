@@ -114,6 +114,15 @@ unknown fields as unknown.
 
 Record physical feedback against the tested source revision or artifact hash, interface parameters, material, print orientation, and printer/profile where known in the object's notes. Preserve a successful baseline before changing fit; adjust clearances incrementally using the observed play or binding. A changed clearance, orientation or surrounding geometry is a new configuration: distinguish the user's successful earlier print from CAD/slicer checks of the revision. Record the user's subjective result (too light / good / too stiff) and observed failure mode separately from interpretation; mark unknown settings as unknown. Do not generalize one successful coupon's tolerances to other printers or materials, or treat it as evidence for untested latch force or full-object strength.
 
+A functional observation is not automatically material calibration. Opening
+force combines stiffness, friction, dimensions, guide play and attachment
+compliance. Preserve the measurement and known setup without inferring modulus
+or a strength limit from it alone. Before recommending a print, choose observations
+that discriminate the remaining hypotheses: for a detent, accidental-release
+resistance as well as deliberate effort, rubbing location, recovery and dwell.
+Use the complete object when those interactions make a coupon unrepresentative;
+do not require another print solely to collect a calibration value.
+
 ## Transfer a successful mechanism deliberately
 
 Reuse its builder where practical. Preserve actual mating geometry, nominal

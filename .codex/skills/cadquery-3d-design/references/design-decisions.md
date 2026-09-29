@@ -33,6 +33,9 @@ approach and consequential assumptions before building. After agreement,
 complete the phase autonomously; revisit the decision only if new evidence
 reveals a material conflict or the agreed physical observation is needed.
 A named fit parameter is not proof that the assumed dimension is correct.
+For an existing collection, a measured stack or mating item can cheaply settle
+capacity when available; otherwise document the source dimensions and practical
+allowance without blocking authorized modelling on a measurement.
 
 ## Pre-CAD concept screen
 
@@ -152,6 +155,14 @@ geometry pair, and any detected collision or sampled minimum clearance/pose.
 Use “none detected at sampled poses,” not continuous-motion proof, for a plain
 coarse sweep. Zero intersection volume alone does not establish positive clearance.
 
+Connect local flexible-motion evidence to the surrounding assembly. A cam/arm
+fixture may omit guides, reliefs, root support and shell flexibility. Where an
+unmodelled collision could change function, check the relevant deformed envelope
+or saved poses against surrounding CAD, or record that integration gap. A head
+clearance check does not cover the whole beam. A fixed root is not automatically
+conservative for both strain and operating force; qualify the quantities it
+screens rather than claiming complete assembly validation.
+
 If a clear/colliding pair brackets contact, refine numerically to useful precision
 (e.g. 75–80° to approximately 77.4°), then render a diagnostic pose only if needed.
 Bisection locates that transition; it does not exclude earlier narrow collision
@@ -170,6 +181,14 @@ thumb” as a functional requirement. Where useful, choose and record a provisio
 force or torque range at the actual finger contact, based on use and delegated
 preferences. Words such as light, firm or near-locking have no universal numeric
 scale. Record the target as an assumption, not an achieved measurement.
+
+Define both acceptable deliberate operation and resistance to accidental release
+from intended use. A qualitative acceptance condition is sufficient when no
+numerical target is justified; autonomous scope allows choosing and documenting
+it. Easy opening and positive geometric obstruction alone do not establish
+adequate retention. Screen engagement and effort at consequential clearance
+extremes, including guide play and alignment, before refining nominal force.
+Do not apply every tolerance combination when only one could change the decision.
 
 Trace the load path and user leverage: torque = force × perpendicular moment arm.
 For tangential finger force, F = torque / finger radius. A strong internal detent
@@ -200,6 +219,13 @@ Stiffness scales with b, t³ and 1/L³. All else equal, changing 2.2 mm leaves t
 same displacement. This motivates a physical stiffness comparison, not a claim
 of doubled release force. Contact, undercut, preload, friction and finger leverage
 can dominate release; beam spring force is not complete latch actuation force.
+
+For rounded detents, use the shared circular-cam spring screen during concept
+selection when its assumptions fit; it can expose sliding-force or guide-play
+issues before a costly solve. Treat failure of a screen's applicability criterion
+as a limit on its evidence, not permission to report a precise force. Use the
+[contact-study guidance](../../../../physical_analysis/README.md#plan-a-contact-study)
+when deformation and contact remain consequentially coupled.
 
 Use simulation only when a consequential question exceeds simple mechanics,
 for example interacting or curved/tapered flexures, large deformation or
