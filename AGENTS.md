@@ -224,6 +224,11 @@ source. `result` explicitly selects the output; otherwise all `show_object()`
 outputs are combined. Do not mix display-only reference geometry into the
 selected printable result.
 
+Keep handling-review hands, held-item envelopes and supporting surfaces in an
+inspection-only entry point when needed, reusing the object's component builders.
+Render it without `--export` or `--slice`; the ordinary print entry point must
+select only the intended printable geometry.
+
 `--slice` implies `--export`. Exit status 2 means Orca completed the slice but
 its report requires review; inspect `slice.review_required` and notices in the
 JSON. Exit status 1 means evaluation or slicing failed. A render failure may

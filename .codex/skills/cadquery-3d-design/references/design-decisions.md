@@ -112,6 +112,13 @@ A visible slot, opening, hook, or retaining feature is not enough if the held ob
 
 ## Whole-object form and handling
 
+Before selecting a mechanism, state the intended task and consequential context:
+what is accessed, which hand or surface supports the object, where the operating
+hand acts, and the sequence of movement/regripping. Distinguish tasks that need
+different layouts, such as frequent selection versus occasional bulk removal.
+Use known preferences and document delegated assumptions; a simple object can
+need only a sentence in its existing record.
+
 As soon as rough complete geometry exists, review the assembled object and its
 normal handling sequence before detailed mechanism refinement or expensive
 simulation. Assess whether local features form a coherent, usable object:
@@ -127,12 +134,33 @@ edge treatment and transitions; asymmetry or an exposed mechanism can be
 appropriate when it serves the intended use. Do not impose symmetry, concealed
 mechanisms or decoration as universal requirements.
 
-Use the smallest adequate visual review: an existing clear view can suffice for
-a simple object. For an assembly, choose closed/open or use-context views only
-where they answer different questions. If line drawings obscure depth, use a
-clearer camera or shaded CAD view when available. Better presentation helps
-diagnosis but does not repair awkward geometry. This review does not require
-style variants, a new rendering tool or a user approval gate.
+Choose the cheapest evidence for the remaining handling question; these are
+available methods, not three mandatory stages:
+
+| Method | Establish | Limit |
+| --- | --- | --- |
+| Task walkthrough and useful views | Supporting/operating contact locations, motion direction, access, surrounding space and understandable operation | A plausible sequence does not establish comfortable handling |
+| Targeted CAD checks with reference envelopes or poses | Clearance, reach or extraction along the stated path and sampled poses | Access for an assumed envelope is not a validated human grasp or comfort result |
+| Physical handling of a suitable mockup or print | Actual grip, coordination, friction, effort and tactile response in the tested task | A mockup only establishes the behavior it represents; results depend on the tested user/setup |
+
+Reuse clear views and component builders. Add object-owned inspection geometry
+only when it answers a question; identify display-only hands, held items and
+supports. If line drawings obscure depth, choose a clearer camera or shaded CAD
+view when available. Better presentation does not repair awkward geometry.
+No style variants, new rendering tool, separate review file or approval gate are
+required by this review.
+
+For a consequential access uncertainty, start with a simple finger/thumb or tool
+envelope and selected poses, documenting dimensions, their source/assumption,
+approach path and intended contact. Check unintended obstructions rather than
+treating deliberate grip contact as a failure. If a pose fails, consider plausible
+alternative poses before rejecting the design. Do not infer comfortable skin
+contact, grip friction or acceptable human effort from clearance or mechanism FEA
+alone.
+Keep task-specific poses and checks with the model; extract shared operations
+only after a real consumer demonstrates their value, without introducing a
+general hand simulator. Translate unresolved assumptions into the
+[physical observation plan](physical-experiments.md#recommend-a-first-print-without-blocking-modelling).
 
 Resolve consequential integration problems early and revisit only affected
 questions after substantial changes. Protect critical fits, flexure dimensions

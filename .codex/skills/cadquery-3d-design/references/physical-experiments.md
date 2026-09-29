@@ -90,6 +90,15 @@ notes when there are multiple trials or iterations; omit irrelevant fields for
 a simple one-off fit check. Link the record to artifact hashes/revisions and
 slicer reports, distinguishing predictions, observed feedback and decisions.
 
+For unresolved handling questions, turn the design's task walkthrough into brief
+observable steps: support the object, operate it, access the item, and restore it
+as applicable. Record slips, unintended contact, obstructed access or awkward
+regripping separately from the suspected cause. Preserve the relevant hand/surface
+support and use context; a light internal mechanism force alone does not establish
+easy operation. Use a simple full-size mockup when it cheaply answers access or
+coordination, and a functional print for fit, friction or snap behavior. State
+which behavior the trial cannot represent; no extra mockup or coupon is required.
+
 ## Standard per-object print-status record
 
 Keep the same small status block in each object's primary notes, even when no

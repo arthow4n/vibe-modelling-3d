@@ -8,9 +8,11 @@ Status last updated:
 | Final printable object(s) | Yes / No / Partial / N/A / Unknown | Exact exported file names, or none |  |
 
 Question and suspected cause:
+Handling task, supporting/operating contacts and use context (if relevant):
 Effort target at user contact and analytical prediction/assumptions (if relevant):
 What CAD/slicing establishes:
 What needs physical observation:
+Handling assumptions to check and observable pass/fail behavior (if relevant):
 Accepted baseline (revision/hash, material, orientation, printer/profile where known):
 
 | Label / file | Change from baseline | Predicted observation | Decision informed | Cost estimate if useful |

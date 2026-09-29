@@ -21,14 +21,14 @@ expensive reviews for a small revision. Established automatic checks can run
 with each applicable evaluation.
 
 - [ ] Confirm scope, references, user edits, known preferences and required CAD tool availability; check the reusable-model evidence for an analogous design.
-- [ ] Establish use, critical dimensions, assembly/material preferences, operating effort, required retention and failure modes; screen consequential tolerance extremes together.
+- [ ] Establish the actual handling task, critical dimensions, assembly/material preferences, operating effort, required retention and failure modes; screen consequential tolerance extremes together.
 - [ ] Screen the concept with rough fit, engagement, assembly-travel and print-envelope calculations as relevant. For structurally important parts and joints, estimate loads, stiffness and force before detailed CAD; reject an infeasible concept early.
 - [ ] Recommend viable deliverables and a print setup, explain tradeoffs, and agree on this phase's sequence if it is not already established.
 - [ ] Decide which remaining questions require modelled geometry and which require a physical print. For an oversized assembly, resolve segmentation and joint/load requirements with the user before finalizing it.
 - [ ] Co-design geometry, material, orientation, nozzle/layers, perimeters, infill/local solidity and supports; revise either CAD or process using the cheapest adequate evidence. Inspect actual sliced paths when a mechanical assumption depends on them; never infer calibrated material properties from settings. Plan physical experiments for remaining uncertainty.
 - [ ] Build understandable parametric geometry; preserve critical interfaces.
 - [ ] Evaluate source through the shared CadQuery command; inspect build validity and errors, then select views or targeted geometry checks for unresolved questions.
-- [ ] Once rough complete geometry exists, review [whole-object form and handling](references/design-decisions.md#whole-object-form-and-handling) before detailed mechanism refinement or expensive analysis; resolve consequential visual or handling problems.
+- [ ] Once rough complete geometry exists, review [whole-object form and handling](references/design-decisions.md#whole-object-form-and-handling) before detailed mechanism refinement or expensive analysis; use a task walkthrough, targeted access checks or physical observations as needed to resolve consequential problems.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
 - [ ] For structurally important parts and joints, update the load and stiffness screen using measured CAD sections before recommending a structural trial.
 - [ ] When contact analysis is needed, use the [decision-driven study guidance](../../../physical_analysis/README.md#plan-a-contact-study) and connect local fixture/deformation evidence to the surrounding assembly.
