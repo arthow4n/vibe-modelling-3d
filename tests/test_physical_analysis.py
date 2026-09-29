@@ -122,3 +122,45 @@ def test_three_parts_named_regions_and_limits(tmp_path):
         assert r.metrics['peak_reaction_force_N'][f'root{i}']==pytest.approx(.1*(i+1),rel=.001)
     assert all(x['passes'] is False for x in r.check_strain_limits().values())
     assert all('nodes' not in x for x in r.provenance['regions'].values())
+
+
+def test_observations_and_scalar_screens(tmp_path):
+    from physical_analysis.screening import rectangular_cantilever
+    from physical_analysis.studies import compare_results
+    c=beam(nonlinear=False)
+    c.prescribe_motion('beam',Region.plane('x',40),displacement_mm=(None,None,1),name='tip')
+    c.observe('beam',Region.plane('x',40),name='tip')
+    r=c.run(tmp_path/'observe').require_completed()
+    assert r.metrics['observations']['tip']['mean_mm'][2]==pytest.approx(1)
+    assert r.metrics['peak_motion_force_N']['tip']==pytest.approx(.3,rel=.06)
+    assert compare_results(r,r,metrics=['peak_motion_force_N.tip'])['peak_motion_force_N.tip']['passes']
+    s=rectangular_cantilever(length_mm=40,width_mm=8,thickness_mm=2,youngs_modulus_MPa=1200,tip_force_N=.1)
+    assert s['tip_displacement_mm']==pytest.approx(1/3)
+    assert s['root_strain']==pytest.approx(.000625)
+
+
+def test_unknown_solver_parameter_is_failure(tmp_path,monkeypatch):
+    executable=tmp_path/'fake_ccx'
+    executable.write_text('#!/bin/sh\necho "*WARNING reading *CONTACT PAIR: parameter not recognized:"\necho "Job finished"\n')
+    executable.chmod(0o755)
+    monkeypatch.setenv('CALCULIX_COMMAND',str(executable))
+    r=beam().run(tmp_path/'unknown')
+    assert not r.completed and r.status=='failed'
+    assert 'parameter not recognized' in str(r.warnings)
+
+
+def test_contact_drives_flexure_and_penetration_guard(tmp_path):
+    from dataclasses import replace
+    c=beam(mesh=1.5,nonlinear=True)
+    c.add_part('pusher',cq.Workplane('XY').box(2,8,2,centered=False).translate((38,0,2.1)),material=MATERIAL,mesh_size_mm=1.5)
+    c.prescribe_motion('pusher',displacement_mm=(0,0,-1.1),name='push')
+    c.contact('beam',Region(lower=(38,0,2),upper=(40,8,2)),
+              'pusher',Region.plane('z',2.1),penalty_N_mm3=60000)
+    r=c.run(tmp_path/'contact_flexure').require_completed()
+    assert r.metrics['contact_detected']
+    assert r.metrics['peak_motion_force_N']['push']==pytest.approx(.34,rel=.2)
+    c=contact_case()
+    c.contacts[0]=replace(c.contacts[0],penetration_limit_mm=1e-6)
+    r=c.run(tmp_path/'penetration')
+    assert not r.completed and r.status=='quality_failed'
+    assert 'penetration' in str(r.errors).lower()

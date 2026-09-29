@@ -63,7 +63,7 @@ case.contact('spring', Region.plane('z', 2),
              'obstacle', Region.plane('z', 2.1), penalty_N_mm3=60000)
 ```
 
-Contact uses frictionless finite sliding with an explicit penalty stiffness.
+Contact uses frictionless node-to-face finite sliding with an explicit penalty stiffness.
 Check engagement, penetration, force balance, mesh sensitivity and penalty
 sensitivity before using its numbers. No geometry is silently adjusted to close
 gaps. All loads/motions share one proportional static ramp. Multiple steps,
@@ -89,6 +89,17 @@ fixed edges can create mesh-sensitive singularities. Inspect/converge the
 quantity relevant to the design rather than treating a peak as a universal
 failure criterion. Displacement includes prescribed rigid travel.
 
+`observe(part, region, name='tooth')` adds signed displacement minima, maxima
+and means for a feature. History includes these observations and the signed
+reaction projected along each prescribed translation. `peak_motion_force_N`
+is the corresponding actuation-force magnitude; it excludes orthogonal holding
+reactions. `check_strain_limits()` returns per-part conditional screening results.
+
+Contact penetration above the explicit `penetration_limit_mm` (default 0.05 mm)
+rejects the result with `status='quality_failed'`, retaining diagnostic metrics.
+Choose a tighter limit when fit requires it. Unknown solver parameters fail
+instead of being accepted as warnings. Other warning messages include context.
+
 Each new run directory owns `case.json`, geometry BREP snapshots, solver input,
 raw `.dat` results, logs, increment status and `result.json`. Existing directories
 are never overwritten. Hashes, mesh sizes, tool versions and boundary selections
@@ -104,14 +115,15 @@ print. Calibrate against physical tests before claiming real force or strength.
 ## Evidence and extension
 
 Acceptance tests cover beam bending/refinement, displacement-controlled flexure,
-contact onset and an open gap, contact penalty sensitivity, force balance,
-invalid regions, conflicting constraints, missing solver, timeout and stale-run
+contact onset and an open gap, contact penalty sensitivity, contact-driven flexure, force balance,
+invalid regions, conflicting constraints, ignored solver parameters, excessive penetration,
+feature observations, missing solver, timeout and stale-run
 protection. Benchmarks qualify these analysis types, not every nonlinear model.
 
 The implementation follows the [CalculiX 2.21 manual](https://www.dhondt.de/ccx_2.21.pdf)
 and [Gmsh API documentation](https://gmsh.info/doc/texinfo/). Tetrahedral midside
 node ordering is explicitly converted to C3D10 ordering. Loads integrate
-quadratic surface shape functions. CalculiX 2.21 face-contact `.dat` output uses
+quadratic surface shape functions. CalculiX 2.21 contact `.dat` output uses
 negative normal CDIS for overlap in the compression benchmark; penetration is
 reported as `max(0, -CDIS_normal)` and tested against pressure/penalty.
 
@@ -119,4 +131,11 @@ Add a backend by implementing `run(case, directory) -> AnalysisResult`. Reject
 unsupported case features explicitly. Add a numerical benchmark before exposing
 a new analysis type; keep solver keywords out of object scripts. Future joint
 networks and material laws should extend the case contract only when a concrete
-model needs them.
+model needs them. Sharp-tooth pass-over remains unqualified: the phone-stand
+experiment did not converge, and its failed result is retained with that model.
+The current process isolation targets POSIX hosts.
+
+`physical_analysis.screening.rectangular_cantilever` provides a cheap beam and
+buckling rejection screen before meshing. `physical_analysis.studies.compare_results`
+compares named metrics from already completed runs without launching new solves.
+Convergence of force does not imply convergence of a local strain concentration.

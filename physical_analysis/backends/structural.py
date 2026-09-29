@@ -47,9 +47,10 @@ class CalculixBackend:
         try:
             request = {key: getattr(case, key) for key in ('name','nonlinear','max_increment')}
             request.update(parts=[], constraints=[asdict(x) for x in case.constraints],
-                           loads=[asdict(x) for x in case.loads], contacts=[asdict(x) for x in case.contacts])
+                           loads=[asdict(x) for x in case.loads], contacts=[asdict(x) for x in case.contacts],
+                           observations=[dict(name=k,selection=asdict(v)) for k,v in case.observations.items()])
             # JSON has no infinities. Null bounds denote an unbounded side.
-            for group in ('constraints', 'loads', 'contacts'):
+            for group in ('constraints', 'loads', 'contacts', 'observations'):
                 for item in request[group]:
                     for key in ('selection', 'slave', 'master'):
                         if key in item:

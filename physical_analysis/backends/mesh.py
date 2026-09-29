@@ -21,6 +21,7 @@ def mesh_part(path, size, node_offset, element_offset):
         gmsh.option.setNumber('Mesh.MeshSizeMax', size)
         gmsh.option.setNumber('Mesh.ElementOrder', 2)
         gmsh.model.mesh.generate(3)
+        gmsh.model.mesh.optimize('HighOrder')
         tags, coords, _ = gmsh.model.mesh.getNodes()
         nodes = {int(t)+node_offset: p.tolist() for t,p in zip(tags,np.asarray(coords).reshape(-1,3))}
         kinds, elem_tags, connectivity = gmsh.model.mesh.getElements(3)

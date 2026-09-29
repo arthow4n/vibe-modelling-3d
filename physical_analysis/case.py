@@ -76,6 +76,7 @@ class Contact:
     slave: Selection
     master: Selection
     penalty_N_mm3: float
+    penetration_limit_mm: float
 
 class Backend(Protocol):
     def run(self, case: 'AnalysisCase', directory: Path): ...
@@ -90,6 +91,7 @@ class AnalysisCase:
     constraints: list[Constraint] = field(default_factory=list, init=False)
     loads: list[Load] = field(default_factory=list, init=False)
     contacts: list[Contact] = field(default_factory=list, init=False)
+    observations: dict[str, Selection] = field(default_factory=dict, init=False)
 
     def __post_init__(self):
         if not re.fullmatch(r'[A-Za-z][A-Za-z0-9_]{0,47}', self.name):
@@ -140,14 +142,22 @@ class AnalysisCase:
         self.loads.append(Load(self.select(part, region), values))
         return self
 
-    def contact(self, slave, slave_region, master, master_region, *, penalty_N_mm3):
+    def contact(self, slave, slave_region, master, master_region, *, penalty_N_mm3, penetration_limit_mm=.05):
         if not self.nonlinear:
             raise ValueError('Contact requires nonlinear=True')
         if slave == master:
             raise ValueError('Self-contact is outside this backend scope')
         positive(penalty_N_mm3, 'Contact penalty')
+        positive(penetration_limit_mm, 'Penetration limit')
         self.contacts.append(Contact(self.select(slave, slave_region),
-            self.select(master, master_region), penalty_N_mm3))
+            self.select(master, master_region), penalty_N_mm3, penetration_limit_mm))
+        return self
+
+    def observe(self, part, region, *, name):
+        """Report displacement ranges and means on a meaningful feature."""
+        if not re.fullmatch(r'[A-Za-z][A-Za-z0-9_]{0,47}', name) or name in self.observations:
+            raise ValueError('Observation names must be unique short identifiers')
+        self.observations[name] = self.select(part, region)
         return self
 
     def run(self, directory, *, backend: Backend | None = None):

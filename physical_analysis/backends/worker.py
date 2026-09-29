@@ -63,8 +63,8 @@ def compile_case(case, directory):
             deck += [f'*SURFACE,NAME={name},TYPE=ELEMENT']+[f'{e},S{s}' for e,s,_ in faces]
             record[side]=dict(part=c[side]['part'],face_count=len(faces))
         deck += [f'*SURFACE INTERACTION,NAME=I{i}', '*SURFACE BEHAVIOR,PRESSURE-OVERCLOSURE=LINEAR',
-                 f"{c['penalty_N_mm3']}",
-                 f'*CONTACT PAIR,INTERACTION=I{i},TYPE=SURFACE TO SURFACE,LARGE SLIDING',f'C{i}SLAVE,C{i}MASTER']
+                 f"{c['penalty_N_mm3']},1e-10",
+                 f'*CONTACT PAIR,INTERACTION=I{i},TYPE=NODE TO SURFACE',f'C{i}SLAVE,C{i}MASTER']
         contact_records.append(record)
     deck += ['*STEP'+(',NLGEOM' if case['nonlinear'] else '')+',INC=1000','*STATIC',
              f"{case['max_increment']},1,1e-6,{case['max_increment']}",'*BOUNDARY']+boundary
@@ -74,6 +74,8 @@ def compile_case(case, directory):
     if case['contacts']:
         deck += ['*CONTACT PRINT,FREQUENCY=1','CDIS,CSTR']
     deck += ['*END STEP']
+    for obs in case['observations']:
+        selections['@observe:'+obs['name']]=dict(part=obs['selection']['part'],nodes=select_nodes(obs['selection'],meshes),displacement_mm=(None,None,None))
     (directory/'analysis.inp').write_text('\n'.join(deck)+'\n')
     return meshes,nodes,elements,selections,load_records,contact_records
 
@@ -95,6 +97,8 @@ def parse_dat(path):
             try: row=[float(x.replace('D','E')) for x in fields]
             except ValueError: kind=None; continue
             expected=4 if kind in ('displacements','forces') else (5 if kind in ('relative contact displacement','contact stress') else 8)
+            if kind in ('relative contact displacement','contact stress') and len(row)==4:
+                row=[row[0],0,*row[1:]]
             if len(row)==expected:
                 frames[time][kind].append(row)
             else: kind=None
@@ -124,26 +128,43 @@ def summarize(case, frames, meshes, nodes, elements, selections):
             expected={(e,ip) for e in elements for ip in range(1,5)}
             actual={(int(r[0]),int(r[1])) for r in frame[kind]}
             if actual!=expected: raise ValueError(f'Incomplete integration-point {kind}')
-        if not all(np.isfinite(v).all() for rows in frame.values() for v in rows):
+        if not all(np.isfinite(np.asarray(rows)).all() for rows in frame.values()):
             raise ValueError('Non-finite solver output')
         reactions={}
+        observations={}
+        motion_forces={}
         for name,sel in selections.items():
+            if name.startswith('@observe:'):
+                samples=np.array([us[n] for n in sel['nodes']])
+                observations[name[9:]]=dict(min_mm=samples.min(axis=0).tolist(),max_mm=samples.max(axis=0).tolist(),mean_mm=samples.mean(axis=0).tolist())
+                continue
             total=np.sum([forces[n] for n in sel['nodes']],axis=0)
             reactions[name]=[float(v) if sel['displacement_mm'][d] is not None else 0.0 for d,v in enumerate(total)]
+            motion=np.array([v or 0 for v in sel['displacement_mm']])
+            if np.linalg.norm(motion)>0:
+                motion_forces[name]=float(np.dot(total,motion)/np.linalg.norm(motion))
         max_displacement=max(float(np.linalg.norm(u)) for u in us.values())
-        frame_strain=0
-        for row in frame['strains']:
-            value=float(np.max(np.abs(np.linalg.eigvalsh(tensor(row[2:])))))
-            frame_strain=max(frame_strain,value)
-            part=part_for_element[int(row[0])]
-            part_strains[part]=max(part_strains[part],value)
-            if value>peak_strain[0]:
-                peak_strain=(value,part_for_element[int(row[0])],int(row[0]),int(row[1]))
-        for row in frame['stresses']:
-            s=tensor(row[2:]); dev=s-np.eye(3)*np.trace(s)/3
-            peak_stress=max(peak_stress,float(np.sqrt(1.5*np.sum(dev*dev))))
+        strain_rows=np.asarray(frame['strains'])
+        values=strain_rows[:,2:]
+        tensors=np.empty((len(values),3,3))
+        tensors[:,0,0],tensors[:,1,1],tensors[:,2,2]=values[:,0],values[:,1],values[:,2]
+        tensors[:,0,1]=tensors[:,1,0]=values[:,3]
+        tensors[:,0,2]=tensors[:,2,0]=values[:,4]
+        tensors[:,1,2]=tensors[:,2,1]=values[:,5]
+        principal=np.max(np.abs(np.linalg.eigvalsh(tensors)),axis=1)
+        peak=int(np.argmax(principal)); frame_strain=float(principal[peak])
+        parts=np.array([part_for_element[int(e)] for e in strain_rows[:,0]])
+        for part in part_strains:
+            part_strains[part]=max(part_strains[part],float(principal[parts==part].max()))
+        if frame_strain>peak_strain[0]:
+            row=strain_rows[peak]
+            peak_strain=(frame_strain,part_for_element[int(row[0])],int(row[0]),int(row[1]))
+        stress=np.asarray(frame['stresses'])[:,2:]
+        vm=np.sqrt(((stress[:,0]-stress[:,1])**2+(stress[:,1]-stress[:,2])**2+
+                    (stress[:,2]-stress[:,0])**2)/2+3*np.sum(stress[:,3:]**2,axis=1))
+        peak_stress=max(peak_stress,float(vm.max()))
         history.append(dict(load_fraction=time,max_displacement_mm=max_displacement,
-                            max_abs_principal_strain=frame_strain,reactions_N=reactions,
+                            max_abs_principal_strain=frame_strain,reactions_N=reactions,observations=observations,motion_force_N=motion_forces,
                             contact_points=len(frame.get('contact stress',[])),
                             max_contact_pressure_MPa=max((r[2] for r in frame.get('contact stress',[])),default=0),
                             max_penetration_mm=max((max(0,-r[2]) for r in frame.get('relative contact displacement',[])),default=0)))
@@ -161,10 +182,13 @@ def summarize(case, frames, meshes, nodes, elements, selections):
     metrics=dict(max_displacement_mm=last['max_displacement_mm'],
         max_abs_principal_strain=peak_strain[0],max_strain_part=peak_strain[1],
         max_strain_element=peak_strain[2],max_strain_integration_point=peak_strain[3],
+        max_strain_element_centroid_mm=np.mean([nodes[n] for n in elements[peak_strain[2]][:4]],axis=0).tolist(),
         max_von_mises_MPa=peak_stress, max_strain_by_part=part_strains, force_balance_residual_N=residual,
         force_balance_relative=residual/ref,
         peak_reaction_force_N={name:max(float(np.linalg.norm(h['reactions_N'][name])) for h in history)
-                               for name in selections},
+                               for name in last['reactions_N']},
+        observations=last['observations'],
+        peak_motion_force_N={name:max(abs(h['motion_force_N'][name]) for h in history) for name in last['motion_force_N']},
         strain_limits={p['name']:p['material']['strain_limit'] for p in case['parts']},
         contact_detected=any(h['max_contact_pressure_MPa']>1e-8 for h in history) if case['contacts'] else None,
         max_penetration_mm=max(h['max_penetration_mm'] for h in history))
@@ -198,8 +222,16 @@ def main(directory):
         regions={k:dict(part=v['part'],node_count=len(v['nodes']),displacement_mm=v['displacement_mm']) for k,v in selections.items()},loads=loads,contacts=contacts)
     result.artifacts=dict(case='case.json',input='analysis.inp',solver_log='solver.log',
                           raw_results='analysis.dat',increments='analysis.sta',regions='regions.json')
-    result.warnings=[line.strip() for line in log.splitlines() if '*WARNING' in line.upper()]
-    if run.returncode != 0 or '*ERROR' in log.upper() or 'Job finished' not in log:
+    lines=log.splitlines()
+    result.warnings=[]
+    for i,line in enumerate(lines):
+        if '*WARNING' in line.upper():
+            block=[line.strip()]
+            for extra in lines[i+1:i+7]:
+                if not extra.strip() or extra.startswith(' *'): break
+                block.append(extra.strip())
+            result.warnings.append(' '.join(block))
+    if run.returncode != 0 or '*ERROR' in log.upper() or 'Job finished' not in log or 'parameter not recognized' in log.lower():
         result.errors.append(f'Solver failed or did not finish (exit {run.returncode}); see solver.log')
     else:
         frames=parse_dat(directory/'analysis.dat')
@@ -207,7 +239,11 @@ def main(directory):
             result.errors.append('Requested load interval did not complete')
         else:
             result.metrics,result.history=summarize(case,frames,meshes,nodes,elements,selections)
-            if result.metrics['force_balance_relative']>.01:
+            limit=min((c['penetration_limit_mm'] for c in case['contacts']),default=float('inf'))
+            if result.metrics['max_penetration_mm']>limit:
+                result.status='quality_failed'
+                result.errors.append(f'Contact penetration exceeds {limit:g} mm; refine increments/mesh/contact penalty')
+            elif result.metrics['force_balance_relative']>.01:
                 result.errors.append('Force balance residual exceeds 1%')
             else:
                 result.completed=True
