@@ -97,8 +97,10 @@ translation, as checked by CAD subtraction. Its free-tab envelope also clears
 the new shield. Therefore the [retained contact studies](../filament_swatch_lift_box/notes/numerical_results.md)
 are reused for that local clamped-root, rigid-driver question. Their unresolved
 penetration and convergence failures still apply. **This is not a qualified
-contact-driven mechanism or operating-force prediction.** Another nominally
-identical solve would not resolve the demonstrated backend limitation. The deep
+contact-driven mechanism or operating-force prediction.** The subsequent
+[controlled diagnosis](../filament_swatch_lift_box/notes/debug/README.md) separates
+analysis mistakes from unresolved contact behavior; it does not establish that
+the box is impossible or that CalculiX cannot solve it. The deep
 cap, full-body compliance, asymmetric single catch and printed friction have
 not been numerically established. Physical retention and cap rocking matter.
 

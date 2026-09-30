@@ -231,6 +231,278 @@
         "Solver failed or did not finish (exit 201); see solver.log"
       ],
       "history_frames": 0
+    },
+    "debug_fixed_increment01": {
+      "status": "quality_failed",
+      "completed": false,
+      "setup": {
+        "mesh_mm": 1.6,
+        "increment": 0.01,
+        "penalty_N_mm3": 12000.0,
+        "discretization": "surface_to_surface"
+      },
+      "stages": {
+        "close": {
+          "peak_lid_axis_force_N": 5.823173959995193,
+          "peak_press_axis_force_N": 1.3800000051356015e-33,
+          "peak_strain": 0.008826065164368443,
+          "peak_penetration_mm": 0.01324472
+        },
+        "press": {
+          "peak_lid_axis_force_N": 3.3733399599149045e-17,
+          "peak_press_axis_force_N": 2.9033940028205247,
+          "peak_strain": 0.005977904090605291,
+          "peak_penetration_mm": 0.0006574354
+        },
+        "initial_lift": {
+          "peak_lid_axis_force_N": 3.076540017306538e-17,
+          "peak_press_axis_force_N": 2.9068485236986743,
+          "peak_strain": 0.005984737782234064,
+          "peak_penetration_mm": 0.0003212972
+        },
+        "withdraw": {
+          "peak_lid_axis_force_N": 1.8704310949987935,
+          "peak_press_axis_force_N": 2.193882430296435,
+          "peak_strain": 0.004528759414337729,
+          "peak_penetration_mm": 0.005140964
+        },
+        "finish_lift": {
+          "peak_lid_axis_force_N": 4.937866000005026,
+          "peak_press_axis_force_N": 0.0,
+          "peak_strain": 0.01230335868261703,
+          "peak_penetration_mm": 0.09337617
+        }
+      },
+      "peak_strain": 0.01230335868261703,
+      "peak_strain_location_mm": [
+        4.844342356615,
+        38.604774740399996,
+        52.40523033082499
+      ],
+      "peak_penetration_mm": 0.09337617,
+      "force_balance_relative": 3.248502593969856e-06,
+      "free_tab_envelope": {
+        "inward_mm": 1.844136,
+        "axial_mm": 0.04034302,
+        "vertical_min_mm": -0.1573426,
+        "vertical_max_mm": 0.4926608
+      },
+      "return_error_mm": 5.240313e-196,
+      "closed_contact_points": 0,
+      "end_contact_points": 0,
+      "screens": {
+        "strain": true,
+        "penetration": false,
+        "force_balance": true,
+        "approximate_pair_closing_force": true,
+        "approximate_pair_opening_force": true,
+        "free_tab_clearance_envelope": true,
+        "elastic_recovery": true
+      }
+    },
+    "debug_increment005": {
+      "status": "quality_failed",
+      "completed": false,
+      "setup": {
+        "mesh_mm": 1.6,
+        "increment": 0.005,
+        "penalty_N_mm3": 12000.0,
+        "discretization": "surface_to_surface"
+      },
+      "stages": {
+        "close": {
+          "peak_lid_axis_force_N": 5.125614204996431,
+          "peak_press_axis_force_N": 9.266999990368784e-33,
+          "peak_strain": 0.017691331036410206,
+          "peak_penetration_mm": 0.05737214
+        },
+        "press": {
+          "peak_lid_axis_force_N": 3.3733399599149045e-17,
+          "peak_press_axis_force_N": 2.901544530290647,
+          "peak_strain": 0.00597282121123485,
+          "peak_penetration_mm": 0.0004759179
+        },
+        "initial_lift": {
+          "peak_lid_axis_force_N": 3.656139986160194e-17,
+          "peak_press_axis_force_N": 2.898141534300116,
+          "peak_strain": 0.005972843563211486,
+          "peak_penetration_mm": 0.000226546
+        },
+        "withdraw": {
+          "peak_lid_axis_force_N": 1.8697905868987932,
+          "peak_press_axis_force_N": 2.5277450329977476,
+          "peak_strain": 0.005236990950359966,
+          "peak_penetration_mm": 0.003853764
+        },
+        "finish_lift": {
+          "peak_lid_axis_force_N": 2.2198636683045287,
+          "peak_press_axis_force_N": 0.0,
+          "peak_strain": 0.0051061466427799835,
+          "peak_penetration_mm": 0.04156584
+        }
+      },
+      "peak_strain": 0.017691331036410206,
+      "peak_strain_location_mm": [
+        -3.4224100937304303,
+        38.58309067101939,
+        47.978490700690855
+      ],
+      "peak_penetration_mm": 0.05737214,
+      "force_balance_relative": 5.545435752948441e-07,
+      "free_tab_envelope": {
+        "inward_mm": 1.688357,
+        "axial_mm": 0.1217259,
+        "vertical_min_mm": -0.1510658,
+        "vertical_max_mm": 0.461826
+      },
+      "return_error_mm": 5.34e-322,
+      "closed_contact_points": 0,
+      "end_contact_points": 0,
+      "screens": {
+        "strain": false,
+        "penetration": false,
+        "force_balance": true,
+        "approximate_pair_closing_force": true,
+        "approximate_pair_opening_force": true,
+        "free_tab_clearance_envelope": true,
+        "elastic_recovery": true
+      }
+    },
+    "debug_increment0025": {
+      "status": "quality_failed",
+      "completed": false,
+      "setup": {
+        "mesh_mm": 1.6,
+        "increment": 0.0025,
+        "penalty_N_mm3": 12000.0,
+        "discretization": "surface_to_surface"
+      },
+      "stages": {
+        "close": {
+          "peak_lid_axis_force_N": 4.901298639997101,
+          "peak_press_axis_force_N": 1.3400000012093302e-33,
+          "peak_strain": 0.007264116082692774,
+          "peak_penetration_mm": 0.01244127
+        },
+        "press": {
+          "peak_lid_axis_force_N": 3.3733399599149045e-17,
+          "peak_press_axis_force_N": 2.894646062700648,
+          "peak_strain": 0.005960975686637872,
+          "peak_penetration_mm": 0.0003339517
+        },
+        "initial_lift": {
+          "peak_lid_axis_force_N": 4.0008698834348233e-17,
+          "peak_press_axis_force_N": 2.8860650170006488,
+          "peak_strain": 0.005955866465501657,
+          "peak_penetration_mm": 0.0001696147
+        },
+        "withdraw": {
+          "peak_lid_axis_force_N": 1.869456513998793,
+          "peak_press_axis_force_N": 2.6834323283012074,
+          "peak_strain": 0.0055766175426853444,
+          "peak_penetration_mm": 0.00375944
+        },
+        "finish_lift": {
+          "peak_lid_axis_force_N": 2.773506181964113,
+          "peak_press_axis_force_N": 0.0,
+          "peak_strain": 0.007962698539931505,
+          "peak_penetration_mm": 0.3787064
+        }
+      },
+      "peak_strain": 0.007962698539931505,
+      "peak_strain_location_mm": [
+        -3.4224100937304303,
+        38.58309067101939,
+        47.978490700690855
+      ],
+      "peak_penetration_mm": 0.3787064,
+      "force_balance_relative": 1.6271159169562917e-05,
+      "free_tab_envelope": {
+        "inward_mm": 1.684537,
+        "axial_mm": 0.0359236,
+        "vertical_min_mm": -0.1506664,
+        "vertical_max_mm": 0.461126
+      },
+      "return_error_mm": 1.9e-322,
+      "closed_contact_points": 0,
+      "end_contact_points": 0,
+      "screens": {
+        "strain": true,
+        "penetration": false,
+        "force_balance": true,
+        "approximate_pair_closing_force": true,
+        "approximate_pair_opening_force": true,
+        "free_tab_clearance_envelope": true,
+        "elastic_recovery": true
+      }
+    },
+    "debug_mating_side01": {
+      "status": "quality_failed",
+      "completed": false,
+      "setup": {
+        "mesh_mm": 1.6,
+        "increment": 0.01,
+        "penalty_N_mm3": 12000.0,
+        "discretization": "surface_to_surface"
+      },
+      "stages": {
+        "close": {
+          "peak_lid_axis_force_N": 5.823174509995194,
+          "peak_press_axis_force_N": 1.3800000051356015e-33,
+          "peak_strain": 0.008826065164368443,
+          "peak_penetration_mm": 0.009243145
+        },
+        "press": {
+          "peak_lid_axis_force_N": 3.3733399599149045e-17,
+          "peak_press_axis_force_N": 2.9033940028205247,
+          "peak_strain": 0.005977904090605291,
+          "peak_penetration_mm": 0.0006574354
+        },
+        "initial_lift": {
+          "peak_lid_axis_force_N": 3.076540017306538e-17,
+          "peak_press_axis_force_N": 2.9068485236986743,
+          "peak_strain": 0.005984737782234064,
+          "peak_penetration_mm": 0.0003212972
+        },
+        "withdraw": {
+          "peak_lid_axis_force_N": 1.8704310949987935,
+          "peak_press_axis_force_N": 2.193882430296435,
+          "peak_strain": 0.004528759414337729,
+          "peak_penetration_mm": 0.005140964
+        },
+        "finish_lift": {
+          "peak_lid_axis_force_N": 4.404894500003637,
+          "peak_press_axis_force_N": 0.0,
+          "peak_strain": 0.01812648042154189,
+          "peak_penetration_mm": 0.111026
+        }
+      },
+      "peak_strain": 0.01812648042154189,
+      "peak_strain_location_mm": [
+        -4.7818884059675,
+        38.604774703625,
+        52.226735232125
+      ],
+      "peak_penetration_mm": 0.111026,
+      "force_balance_relative": 3.0808838043411304e-06,
+      "free_tab_envelope": {
+        "inward_mm": 1.844136,
+        "axial_mm": 0.04297059,
+        "vertical_min_mm": -0.1573426,
+        "vertical_max_mm": 0.4926608
+      },
+      "return_error_mm": 5.425511e-195,
+      "closed_contact_points": 0,
+      "end_contact_points": 0,
+      "screens": {
+        "strain": false,
+        "penetration": false,
+        "force_balance": true,
+        "approximate_pair_closing_force": true,
+        "approximate_pair_opening_force": true,
+        "free_tab_clearance_envelope": true,
+        "elastic_recovery": true
+      }
     }
   },
   "limits": "Conditional local frictionless elastic fixture; approximate two-snap forces omit full shell compliance, asymmetry and friction. Recovery is elastic-model recovery, not plastic set, creep, fatigue or printed bonding."

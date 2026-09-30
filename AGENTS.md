@@ -385,6 +385,19 @@ contract and limits. Retain explicit unsupported/failure outcomes; solver
 completion must not become a claim of physical validation. Feed useful fixes
 back into the shared tool rather than copying solver plumbing into each model.
 
+When numerical analysis fails, distinguish invalid fixtures or generated input,
+solver convergence failure, completed solves rejected by quality checks, and
+material/design screens. A failed check does not establish that the object is
+impossible or that the backend cannot solve it. First localize the failure using
+saved logs, histories and fields; verify the actual formulation's documented
+behavior. Freeze geometry and vary one consequential numerical setting at a
+time where practical. Express motion resolution as travel near the relevant
+feature, not only normalized time. Separate a demonstrated defect from a
+suspected cause and an unresolved limitation. Automate reusable extraction and
+comparison instead of repeating manual inspection or rerunning a valid solve
+to obtain another diagnostic. At handoff, distinguish delivered CAD/exports
+from unresolved functional confidence and state which decision remains blocked.
+
 ## Avoid repeated work
 
 Interpret "cheap" and "expensive" as total workflow cost, including agent turns,

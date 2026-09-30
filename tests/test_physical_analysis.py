@@ -57,6 +57,35 @@ def test_beam_refinement_and_force_balance(tmp_path):
     assert abs(results[1]-results[0])/results[1]<.02
 
 
+def test_mesh_reuse_holds_native_mesh_fixed_and_rejects_changed_inputs(tmp_path):
+    source=tmp_path/'source'
+    c=beam(nonlinear=False)
+    c.apply_force('beam',Region.plane('x',40),force_N=(0,0,-.1))
+    first=c.run(source).require_completed()
+    c.max_increment=.05
+    reused=c.run(tmp_path/'reused',mesh_from=source).require_completed()
+    assert reused.provenance['mesh_reuse']['input_sha256']==first.provenance['input_sha256']
+    assert reused.metrics['max_displacement_mm']==pytest.approx(first.metrics['max_displacement_mm'],rel=1e-7)
+    # Motion resolution may change, but native nodes/elements remain identical.
+    decks=[(p/'analysis.inp').read_text().split('*STATIC')[0] for p in (source,tmp_path/'reused')]
+    assert decks[0]==decks[1]
+    assert (tmp_path/'reused/mesh_source.inp').read_bytes()==(source/'analysis.inp').read_bytes()
+    from physical_analysis.evidence import retain_run
+    archive=retain_run(tmp_path/'reused',tmp_path/'archive')
+    assert (archive/'mesh_source.inp.gz').is_file()
+    assert (archive/'mesh_source_case.json').is_file()
+    c=beam(mesh=1,nonlinear=False)
+    rejected=c.run(tmp_path/'changed_size',mesh_from=source)
+    assert not rejected.completed and 'geometry or mesh settings differ' in str(rejected.errors)
+    c=beam(nonlinear=False)
+    c.parts['beam'].shape=c.parts['beam'].shape.translate((0,0,.1))
+    rejected=c.run(tmp_path/'changed_geometry',mesh_from=source)
+    assert not rejected.completed and 'geometry or mesh settings differ' in str(rejected.errors)
+    (source/'analysis.inp').write_bytes((source/'analysis.inp').read_bytes()+b'\n')
+    rejected=beam().run(tmp_path/'changed_deck',mesh_from=source)
+    assert not rejected.completed and 'source identity differs' in str(rejected.errors)
+
+
 def test_prescribed_flexure_force_and_strain(tmp_path):
     c=beam(nonlinear=True)
     c.prescribe_motion('beam',Region.plane('x',40),displacement_mm=(None,None,1))
@@ -223,6 +252,34 @@ def test_surface_contact_compression_and_gap(tmp_path):
         if engaged:
             assert r.metrics['peak_motion_force_N']['BC2']==pytest.approx(12,rel=.03)
             assert r.metrics['max_penetration_mm']==pytest.approx(3/120000,rel=.05)
+            from physical_analysis.diagnostics import contact_frames
+            directory=tmp_path/f'surface_{motion}'
+            diagnostics=contact_frames(directory,[1],rigid_parts=['floor'])
+            faces=diagnostics['frames'][0]['faces']
+            assert max(f['peak_penetration_mm'] for f in faces)==pytest.approx(r.metrics['max_penetration_mm'])
+            assert max(f['peak_pressure_MPa'] for f in faces)==pytest.approx(3,rel=.03)
+            # Native output has multiple rows per face; retaining those rows
+            # must not accidentally pair one quadrature gap with another force.
+            assert any(f['contact_output_rows']>1 for f in faces)
+            for face in faces:
+                assert len(face['deformed_samples_mm'])==10
+                assert face['sampled_rigid_CAD']['floor']['maximum_sampled_inside_depth_mm']==pytest.approx(3/120000,rel=.05)
+            with pytest.raises(ValueError,match='unavailable'):
+                contact_frames(directory,[.999])
+            with pytest.raises(ValueError,match='not a uniform rigid translation'):
+                contact_frames(directory,[1],rigid_parts=['block'])
+            # Read-only diagnostics cannot silently attach fields to changed
+            # geometry or a different native input.
+            before=(directory/'part_1.brep').read_bytes()
+            (directory/'part_1.brep').write_bytes(before+b'\n')
+            with pytest.raises(ValueError,match='geometry differs'):
+                contact_frames(directory,[1],rigid_parts=['floor'])
+            (directory/'part_1.brep').write_bytes(before)
+            before=(directory/'analysis.inp').read_bytes()
+            (directory/'analysis.inp').write_bytes(before+b'\n')
+            with pytest.raises(ValueError,match='differs from result provenance'):
+                contact_frames(directory,[1])
+            (directory/'analysis.inp').write_bytes(before)
         else:
             assert r.metrics['peak_motion_force_N']['BC2']<1e-5
     with pytest.raises(ValueError, match='discretization'):

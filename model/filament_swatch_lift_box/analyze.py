@@ -8,7 +8,7 @@ import json
 from components import *
 from physical_analysis import AnalysisCase, Material, Region
 
-def operation(mesh=1.6,penalty=6000.,increment=.01,timeout=3600,discretization='surface_to_surface'):
+def operation(mesh=1.6,penalty=6000.,increment=.01,timeout=3600,discretization='surface_to_surface',contact_scope='whole_cap'):
     mat=Material('uncalibrated solid PETG',1200.,.38,
         'Isotropic elastic short-term assumption; vertical printed tab bonding is uncalibrated',.015)
     c=AnalysisCase('covered_lift_close_release',max_increment=increment,timeout_seconds=timeout)
@@ -26,7 +26,11 @@ def operation(mesh=1.6,penalty=6000.,increment=.01,timeout=3600,discretization='
         progress=((0,0),(.3,0),(.32,2/3.4),(.45,1),(.55,1),(.65,0),(1,0)))
     head=Region(lower=(-CAM_WIDTH/2-.01,ARM_Y-ARM_T/2-.01,HEAD_Z-3.01),
                 upper=(CAM_WIDTH/2+.01,BUTTON_FRONT+.01,HEAD_Z+3.01))
-    c.contact('arm',head,'lid_catch',Region(),penalty_N_mm3=penalty,
+    # Diagnostic comparison: exclude outer cap faces beyond the pad's possible
+    # outward reach; preserve inner catches and the complete lower lead.
+    # This changes the fixture's contact selection, not the printed geometry.
+    master=Region() if contact_scope=='whole_cap' else Region(upper=(float('inf'),BUTTON_FRONT+.15,float('inf')))
+    c.contact('arm',head,'lid_catch',master,penalty_N_mm3=penalty,
               penetration_limit_mm=.02,discretization=discretization)
     # Normal actuation only; the finite pad's other faces are not a model
     # of skin edges, friction or vertical finger restraint.
@@ -40,6 +44,8 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('directory');p.add_argument('--mesh',type=float,default=1.6)
     p.add_argument('--penalty',type=float,default=6000);p.add_argument('--increment',type=float,default=.01)
     p.add_argument('--timeout',type=float,default=3600)
+    p.add_argument('--mesh-from',help='Reuse an existing unchanged-geometry mesh for a controlled parameter study')
+    p.add_argument('--contact-scope',choices=('whole_cap','mating_side'),default='whole_cap')
     p.add_argument('--discretization',choices=('surface_to_surface','node_to_surface'),default='surface_to_surface')
-    a=p.parse_args();r=operation(a.mesh,a.penalty,a.increment,a.timeout,a.discretization).run(a.directory)
+    a=p.parse_args();r=operation(a.mesh,a.penalty,a.increment,a.timeout,a.discretization,a.contact_scope).run(a.directory,mesh_from=a.mesh_from)
     print(json.dumps(dict(status=r.status,errors=r.errors,metrics=r.metrics),indent=2))

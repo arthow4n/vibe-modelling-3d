@@ -135,7 +135,12 @@ alternative failed to converge on both coarse and finer meshes. These results do
 not establish robust snap passage, operating force or printed recovery. No quantitative force
 rating is transferred from these failed studies.
 
-The concrete remaining numerical need is robust finite-sliding contact through
+The [controlled diagnosis](notes/debug/README.md) found an inaccurate description
+of the selected contact formulation and a missing guard for fixed-mesh studies.
+Those shared issues are corrected. Smaller increments on an identical mesh
+still produce unstable edge-transition results, so the failed studies do not
+establish that the object is impossible or that CalculiX is incapable of solving
+it. The concrete remaining numerical need is robust sliding contact through
 the pad/window/catch transitions, with adequately small penetration and stable
 forces/strains under mesh, penalty and motion-increment changes. Piecewise staged
 driver motion is already supported; adding another staging API would not resolve

@@ -81,7 +81,7 @@ class Contact:
     discretization: str = "node_to_surface"
 
 class Backend(Protocol):
-    def run(self, case: 'AnalysisCase', directory: Path): ...
+    def run(self, case: 'AnalysisCase', directory: Path, *, mesh_from=None): ...
 
 @dataclass
 class AnalysisCase:
@@ -176,9 +176,15 @@ class AnalysisCase:
         self.observations[name] = self.select(part, region)
         return self
 
-    def run(self, directory, *, backend: Backend | None = None):
-        """Write reproducible artifacts to a NEW directory, returning a compact result."""
+    def run(self, directory, *, backend: Backend | None = None, mesh_from=None):
+        """Run in a NEW directory; optionally reuse a saved unchanged-part mesh.
+
+        The backend must verify geometry, mesh settings and source identity.
+        Changing motion/contact/material settings produces a new solve, not
+        reuse of old physical predictions.
+        """
         if backend is None:
             from .backends.structural import CalculixBackend
             backend = CalculixBackend()
-        return backend.run(self, Path(directory))
+        options={} if mesh_from is None else dict(mesh_from=Path(mesh_from))
+        return backend.run(self, Path(directory), **options)

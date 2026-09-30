@@ -41,6 +41,7 @@ def evidence_files(directory):
                  rigid_driver_clearance=('rigid_driver_clearance.json',False),
                  solver_log=('solver.log', True), worker_log=('worker.log', True),
                  increments=('analysis.sta', False), regions=('regions.json', True),
+                 mesh_source_input=('mesh_source.inp',True), mesh_source_case=('mesh_source_case.json',False),
                  fixture_geometry=[(p.name, True) for p in sorted(directory.glob('part_*.brep'))])
     replay = ('Decompress analysis.inp.gz in a new directory and run ccx -i analysis '
               'in the configured native environment to regenerate raw solver fields. '
@@ -49,7 +50,7 @@ def evidence_files(directory):
 
 
 class CalculixBackend:
-    def run(self, case, directory):
+    def run(self, case, directory, *, mesh_from=None):
         import cadquery as cq
         if not case.parts or not case.constraints:
             raise ValueError('An analysis needs parts and explicit constraints')
@@ -59,7 +60,7 @@ class CalculixBackend:
             'mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.',
             'Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.',
             'Quadratic tetrahedra; integration-point mechanical strain; no stress singularity removal.',
-            'Frictionless finite-sliding penalty contact, where explicitly requested.',
+            'Frictionless penalty contact; pairing-update behavior depends on the selected formulation.',
             'Numerical completion is not physical validation or a load rating.'])
         result.artifacts = {'directory': str(directory), 'result': 'result.json'}
         try:
@@ -84,6 +85,21 @@ class CalculixBackend:
                 request['parts'].append(dict(name=part.name, geometry=path.name,
                     sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
                     material=asdict(part.material), mesh_size_mm=part.mesh_size_mm))
+            if mesh_from is not None:
+                source=Path(mesh_from).resolve()
+                previous=json.loads((source/'case.json').read_text())
+                provenance=json.loads((source/'result.json').read_text())['provenance']
+                identity={key:hashlib.sha256((source/name).read_bytes()).hexdigest()
+                    for key,name in (('input_sha256','analysis.inp'),('case_sha256','case.json'))}
+                if any(provenance.get(key)!=value for key,value in identity.items()):
+                    raise ValueError('Mesh source identity differs from its result provenance')
+                signature=lambda parts:[(p['name'],p['sha256'],p['mesh_size_mm']) for p in parts]
+                if signature(previous['parts'])!=signature(request['parts']):
+                    raise ValueError('Mesh source geometry or mesh settings differ from the new case')
+                shutil.copyfile(source/'analysis.inp',directory/'mesh_source.inp')
+                shutil.copyfile(source/'case.json',directory/'mesh_source_case.json')
+                request['mesh_reuse']=dict(**identity,input='mesh_source.inp',case='mesh_source_case.json',
+                                          mesh=provenance.get('mesh',{}))
             (directory/'case.json').write_text(json.dumps(request, indent=2, allow_nan=False)+'\n')
             result.artifacts['case'] = 'case.json'
             from ..motion import rigid_driver_clearance

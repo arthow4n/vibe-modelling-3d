@@ -52,6 +52,13 @@ def compile_case(case, directory, *, expected_input_sha256=None):
     from .mesh import mesh_part, select_nodes, select_faces, traction_weights
     meshes={}; nodes={}; elements={}; deck=['*HEADING', case['name']]; selections={}
     original=saved_meshes(case,directory/'analysis.inp') if expected_input_sha256 is not None else None
+    reuse=case.get('mesh_reuse')
+    if reuse:
+        for key,name in (('input_sha256',reuse['input']),('case_sha256',reuse['case'])):
+            if hashlib.sha256((directory/name).read_bytes()).hexdigest()!=reuse[key]:
+                raise ValueError('Copied mesh source identity differs')
+        if original is None:
+            original=saved_meshes(case,directory/reuse['input'])
     for i,part in enumerate(case['parts']):
         if original is None:
             ns,es,surface,jac = mesh_part(directory/part['geometry'],part['mesh_size_mm'],
@@ -59,6 +66,7 @@ def compile_case(case, directory, *, expected_input_sha256=None):
         else:
             m=original[part['name']]
             ns,es,surface,jac=m['nodes'],m['elements'],m['surface'],None
+            if reuse: jac=reuse['mesh'].get(part['name'],{}).get('min_jacobian')
         meshes[part['name']]=dict(nodes=ns,elements=es,surface=surface,min_jacobian=jac)
         nodes.update(ns); elements.update(es)
         deck+=['*NODE']+[f'{n},'+','.join(f'{v:.12g}' for v in p) for n,p in ns.items()]
@@ -106,6 +114,8 @@ def compile_case(case, directory, *, expected_input_sha256=None):
             record[side]=dict(part=c[side]['part'],face_count=len(faces))
         contact_type = {'node_to_surface': 'NODE TO SURFACE', 'surface_to_surface': 'SURFACE TO SURFACE'}[c.get('discretization', 'node_to_surface')]
         record['discretization'] = c.get('discretization', 'node_to_surface')
+        record['pairing_update'] = ('once_per_increment' if record['discretization']=='surface_to_surface'
+                                    else 'per_iteration_until_iteration_eight_then_frozen')
         deck += [f'*SURFACE INTERACTION,NAME=I{i}', '*SURFACE BEHAVIOR,PRESSURE-OVERCLOSURE=LINEAR',
                  f"{c['penalty_N_mm3']},1e-10",
                  f'*CONTACT PAIR,INTERACTION=I{i},TYPE={contact_type}',f'C{i}SLAVE,C{i}MASTER']
@@ -282,12 +292,15 @@ def summarize(case, frames, meshes, nodes, elements, selections):
 
 def main(directory, *, postprocess_only=False):
     import gmsh
+    # Snapshot implementation identity before the long native solve. Hashing
+    # afterward can incorrectly attribute edits made while the solver runs.
+    backend_hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in Path(__file__).parent.glob('*.py')}
     case=json.loads((directory/'case.json').read_text())
     result=AnalysisResult(case['name'],'failed',assumptions=[
         'Units mm, N, MPa. Isotropic homogeneous linear-elastic material; geometric nonlinearity='+str(case['nonlinear']),
         'No printed infill/layer failure, plastic set, creep, fatigue, or friction prediction.',
         'Strain is maximum absolute principal mechanical strain at integration points, over all saved increments.',
-        'Contact is finite-sliding frictionless penalty contact; completion alone does not prove engagement.',
+        'Frictionless penalty contact. Surface-to-surface pairing is fixed within each increment; node-to-surface re-pairs through iteration eight then freezes. Completion alone does not prove engagement.',
         'Loads ramp over normalized time 0..1; translations follow their recorded progress curves or a linear ramp.',
         'Peak values are sampled at converged increments, not continuous extrema.'])
     # Recovery from a parser failure may reuse a completed expensive solve.
@@ -309,10 +322,11 @@ def main(directory, *, postprocess_only=False):
         gmsh=gmsh.__version__,cadquery=cq.__version__,python=sys.version.split()[0],
         input_sha256=hashlib.sha256((directory/'analysis.inp').read_bytes()).hexdigest(),
         case_sha256=hashlib.sha256((directory/'case.json').read_bytes()).hexdigest(),
-        backend_sha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in Path(__file__).parent.glob('*.py')},
+        backend_sha256=backend_hashes,
         command=command,postprocess_only=postprocess_only,mesh={name:dict(nodes=len(m['nodes']),elements=len(m['elements']),
                    min_jacobian=m['min_jacobian']) for name,m in meshes.items()},
         regions={k:dict(part=v['part'],node_count=len(v['nodes']),displacement_mm=v['displacement_mm']) for k,v in selections.items()},loads=loads,contacts=contacts)
+    if case.get('mesh_reuse'): result.provenance['mesh_reuse']=case['mesh_reuse']
     result.artifacts=dict(case='case.json',input='analysis.inp',solver_log='solver.log',
                           raw_results='analysis.dat',increments='analysis.sta',regions='regions.json')
     lines=log.splitlines()

@@ -63,15 +63,25 @@ case.contact('spring', Region.plane('z', 2),
              'obstacle', Region.plane('z', 2.1), penalty_N_mm3=60000)
 ```
 
-Contact uses frictionless finite-sliding penalty contact. The default
+Contact uses frictionless penalty contact. The default
 `discretization="node_to_surface"` preserves existing cases; the optional
 `discretization="surface_to_surface"` integrates over contacting faces and is
-qualified for the storage-box rounded snap and the compression benchmark.
-The [CalculiX manual](https://www.dhondt.de/ccx_2.22.pdf) cautions against
+qualified by the compression benchmark and conditional storage-box studies.
+The [CalculiX 2.21 manual](https://www.dhondt.de/ccx_2.21.pdf) cautions against
 node-to-face contact with quadratic elements. Surface-to-surface contact enabled
 the revised box's pass-over studies after exploratory node-contact timeouts;
 geometry also changed, so this is not an isolated formulation comparison.
 Both choices require an explicit penalty stiffness.
+In CalculiX 2.21, node-to-surface normally updates the pairing during Newton
+iterations, freezing it from iteration nine to improve convergence;
+surface-to-surface updates it once at the start of each increment and keeps it
+fixed during that increment ([manual, §7.22 and §10.4](https://www.dhondt.de/ccx_2.21.pdf)).
+Surface-to-surface can accumulate large total travel, but each increment must
+resolve changes at edges and curved leads. It is not the same per-iteration
+finite-sliding algorithm. Earlier result assumption strings calling every
+formulation finite sliding are inaccurate descriptions, not evidence of that
+capability. Keep those historical results and reassess consequential motion
+resolution instead of silently relabelling their predictions.
 Check engagement, penetration, force balance, mesh sensitivity and penalty
 sensitivity before using its numbers. No geometry is silently adjusted to close
 gaps. Loads retain one proportional static ramp. A translation can instead follow a
@@ -108,6 +118,17 @@ Then compare mesh and contact settings at adequate travel resolution, varying
 one factor where practical. Revisit coupled sensitivities if a change alters the
 contact sequence; no study order guarantees convergence. Do not treat all runs
 sharing a coarse increment as independent evidence of a resolved force peak.
+
+For fixed-mesh controls, use `case.run(new_directory, mesh_from=existing_run)`.
+This performs a new solve on the saved nodes/elements; it does not reuse old
+predictions. Source input/case hashes must match their result provenance, and
+ordered part names, fixture BREP hashes and mesh-size settings must match the
+new case. Geometry or mesh changes are rejected; material, constraints, contact
+and increments are compiled afresh. The original mesh input/case are copied
+into the new run and retained by the evidence helper. This avoids assuming
+that remeshing with the same requested size creates an identical mesh: the
+lift-box study exposed different node positions with unchanged geometry,
+settings, mesher version and adapter. Compare mesh-refinement runs separately.
 
 Choose relative or absolute change criteria against the decision before repeated
 refinement. A small absolute force change may leave the same first-print decision
@@ -206,6 +227,33 @@ model of two walls and 7% infill**. Use geometry that represents the load-bearin
 section, a documented conservative effective material, or an appropriate solid
 print. Calibrate against physical tests before claiming real force or strength.
 
+## Locate a contact-quality failure
+
+Before launching another solve, use the saved result, input and raw fields:
+
+```sh
+uv run --locked python -m physical_analysis.diagnostics /tmp/box_run model/box/notes/contact_locations.json --rigid-parts lid_catch release_pad
+```
+
+`physical_analysis.diagnostics.contact_frames(run, fractions=None,
+rigid_parts=())` defaults to the saved frame with greatest reported penetration.
+Pass `--fractions .29 .75` or an explicit Python sequence for other saved frames.
+The isolated adapter reads the original C3D10 mesh, pairs CDIS/CSTR rows in output
+order, groups repeated element/face identifiers without mistaking them for unique
+integration points, and returns pressures, gaps and ten deformed quadratic-face
+samples. Optional named rigid parts use their saved BREP and actual recorded
+uniform translation to report signed sample distances: positive outside,
+negative inside. Input/case identity is checked against result provenance;
+changed fixture snapshots, missing frames or deforming comparison parts fail.
+
+Native contact gaps and sampled CAD distances answer different questions.
+Matched master faces and actual contact quadrature coordinates are not present
+in these fields; face samples do not prove absence of intersection. A discrepancy
+helps locate a suspect projection, edge transition or mesh approximation. It
+does not erase a failed quality screen or prove a solver defect. Keep the report
+with the model, including its limits. The helper is read-only and needs raw DAT
+fields still present in the original run; compact archives omit those fields.
+
 ## Retain analysis evidence
 
 Use `physical_analysis.evidence.retain_run(run, destination)` or:
@@ -223,6 +271,11 @@ retained without claiming completion. This archives an existing CalculiX run;
 it launches no solver, changes no source run, and does not replace original raw
 fields needed for postprocess-only recovery. Older object archives remain valid
 historical records even when they contain fewer artifacts.
+
+Reused-mesh runs also retain `mesh_source.inp.gz` and `mesh_source_case.json`.
+Unpack the mesh-source input as well as the run input before postprocess-only
+recovery; source identity is still checked. `mesh_from` expects an existing run
+with uncompressed input/case/result files, not a compressed archive directly.
 
 Keep object-specific metrics, acceptance conditions and plots with their model.
 Do not copy this file-retention implementation or hand-maintain a second history
