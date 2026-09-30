@@ -1,4 +1,5 @@
-from physical_analysis.manufacturing import orca_linear_paths
+from physical_analysis.manufacturing import orca_linear_paths,section_coverage
+import math
 import pytest
 
 
@@ -12,3 +13,29 @@ def test_layer_segments_keep_position_width_role_and_relative_extrusion(tmp_path
 def test_incompatible_path_modes_fail_instead_of_inventing_paths(tmp_path,unsupported):
     p=tmp_path/'slice.gcode';p.write_text(';LAYER_CHANGE\n'+unsupported+'\n')
     with pytest.raises(ValueError): list(orca_linear_paths(p))
+
+
+def test_section_unions_duplicate_strokes_and_keeps_real_gap():
+    a=(-1,-.3,1,-.3,.2,.4,'Inner wall')
+    b=(-1,.3,1,.3,.2,.4,'Outer wall')
+    support=(-1,0,1,0,.2,.4,'Support interface')
+    other_layer=(-1,0,1,0,.4,.4,'Inner wall')
+    r=section_coverage([a,a,b,support,other_layer],x_mm=0,z_mm=.2,span_mm=(-1,1))
+    assert r['filled_width_mm']==pytest.approx(.8)
+    assert r['internal_gap_mm']==pytest.approx(.2)
+    assert r['uncovered_width_mm']==pytest.approx(1.2)
+
+
+def test_parallel_section_includes_finite_rounded_stroke():
+    r=section_coverage([(0,-1,0,1,.2,.4,'Inner wall')],x_mm=.1,z_mm=.2,span_mm=(-2,2))
+    half=math.sqrt(.2**2-.1**2)
+    assert r['intervals_mm'][0]==pytest.approx([-1-half,1+half])
+    assert r['internal_gap_mm']==0
+
+
+def test_diagonal_section_and_horizontal_endpoint_cap():
+    diagonal=section_coverage([(-1,-1,1,1,.2,.4,'Inner wall')],x_mm=0,z_mm=.2,span_mm=(-1,1))
+    assert diagonal['filled_width_mm']==pytest.approx(.4*math.sqrt(2))
+    cap=section_coverage([(-1,0,1,0,.2,.4,'Inner wall')],x_mm=1.1,z_mm=.2,span_mm=(-1,1))
+    assert cap['filled_width_mm']==pytest.approx(2*math.sqrt(.2**2-.1**2))
+    with pytest.raises(ValueError): section_coverage([],x_mm=0,z_mm=.2,span_mm=(1,0))

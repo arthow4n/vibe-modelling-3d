@@ -6,43 +6,8 @@
       "setup": {
         "mesh_mm": 1.6,
         "increment": 0.01,
-        "contact": {
-          "slave": {
-            "part": "arm",
-            "region": {
-              "lower": [
-                -8.01,
-                32.09,
-                47.79
-              ],
-              "upper": [
-                8.01,
-                38.809999999999995,
-                53.809999999999995
-              ],
-              "tolerance_mm": 1e-05
-            }
-          },
-          "master": {
-            "part": "lid_catch",
-            "region": {
-              "lower": [
-                null,
-                null,
-                null
-              ],
-              "upper": [
-                null,
-                null,
-                null
-              ],
-              "tolerance_mm": 1e-05
-            }
-          },
-          "penalty_N_mm3": 12000.0,
-          "penetration_limit_mm": 0.02,
-          "discretization": "surface_to_surface"
-        }
+        "penalty_N_mm3": 12000.0,
+        "discretization": "surface_to_surface"
       },
       "stages": {
         "close": {
@@ -109,43 +74,8 @@
       "setup": {
         "mesh_mm": 1.2,
         "increment": 0.01,
-        "contact": {
-          "slave": {
-            "part": "arm",
-            "region": {
-              "lower": [
-                -8.01,
-                32.09,
-                47.79
-              ],
-              "upper": [
-                8.01,
-                38.809999999999995,
-                53.809999999999995
-              ],
-              "tolerance_mm": 1e-05
-            }
-          },
-          "master": {
-            "part": "lid_catch",
-            "region": {
-              "lower": [
-                null,
-                null,
-                null
-              ],
-              "upper": [
-                null,
-                null,
-                null
-              ],
-              "tolerance_mm": 1e-05
-            }
-          },
-          "penalty_N_mm3": 12000.0,
-          "penetration_limit_mm": 0.02,
-          "discretization": "surface_to_surface"
-        }
+        "penalty_N_mm3": 12000.0,
+        "discretization": "surface_to_surface"
       },
       "stages": {
         "close": {
@@ -212,43 +142,8 @@
       "setup": {
         "mesh_mm": 1.6,
         "increment": 0.005,
-        "contact": {
-          "slave": {
-            "part": "arm",
-            "region": {
-              "lower": [
-                -8.01,
-                32.09,
-                47.79
-              ],
-              "upper": [
-                8.01,
-                38.809999999999995,
-                53.809999999999995
-              ],
-              "tolerance_mm": 1e-05
-            }
-          },
-          "master": {
-            "part": "lid_catch",
-            "region": {
-              "lower": [
-                null,
-                null,
-                null
-              ],
-              "upper": [
-                null,
-                null,
-                null
-              ],
-              "tolerance_mm": 1e-05
-            }
-          },
-          "penalty_N_mm3": 24000.0,
-          "penetration_limit_mm": 0.02,
-          "discretization": "surface_to_surface"
-        }
+        "penalty_N_mm3": 24000.0,
+        "discretization": "surface_to_surface"
       },
       "stages": {
         "close": {
@@ -315,43 +210,22 @@
       "setup": {
         "mesh_mm": 1.6,
         "increment": 0.005,
-        "contact": {
-          "slave": {
-            "part": "arm",
-            "region": {
-              "lower": [
-                -8.01,
-                32.09,
-                47.79
-              ],
-              "upper": [
-                8.01,
-                38.809999999999995,
-                53.809999999999995
-              ],
-              "tolerance_mm": 1e-05
-            }
-          },
-          "master": {
-            "part": "lid_catch",
-            "region": {
-              "lower": [
-                null,
-                null,
-                null
-              ],
-              "upper": [
-                null,
-                null,
-                null
-              ],
-              "tolerance_mm": 1e-05
-            }
-          },
-          "penalty_N_mm3": 24000.0,
-          "penetration_limit_mm": 0.02,
-          "discretization": "node_to_surface"
-        }
+        "penalty_N_mm3": 24000.0,
+        "discretization": "node_to_surface"
+      },
+      "errors": [
+        "Solver failed or did not finish (exit 201); see solver.log"
+      ],
+      "history_frames": 0
+    },
+    "window_node_fine": {
+      "status": "failed",
+      "completed": false,
+      "setup": {
+        "mesh_mm": 1.2,
+        "increment": 0.005,
+        "penalty_N_mm3": 24000.0,
+        "discretization": "node_to_surface"
       },
       "errors": [
         "Solver failed or did not finish (exit 201); see solver.log"

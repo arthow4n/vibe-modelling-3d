@@ -278,6 +278,14 @@ Keep geometry registration, section choices, support access and decisions with
 the object. This does not replace Orca's layout acceptance, predict polymer
 properties or justify routine G-code inspection of ordinary walls.
 
+For the lift-off and upright boxes' repeated local fill question,
+`section_coverage(paths, x_mm=..., z_mm=..., span_mm=(y0,y1))` clips and unions
+the recorded-width extrusion strokes on one Y section, excluding support and
+brim roles. It returns filled/uncovered widths, internal gaps and intervals.
+The planar capsule approximation includes parallel segments and finite rounded
+ends; it does not measure deposited polymer. Select consequential sections and
+interpret them in the object, without inferring modulus, isotropy or bonding.
+
 `physical_analysis.screening.circular_cam_detent` screens two rigid circular
 profiles against a linear transverse spring, returning pass-over travel and peak
 frictionless sliding force from an explicitly supplied stiffness. The swatch box

@@ -35,6 +35,7 @@ completion from design adequacy and physical validation.
 | Filament archive swatch | [SCAD instructions](model/filament_archive_swatch/README.md) | [Record](model/filament_archive_swatch/README.md#attribution) | N/A — full swatch is the trial | Yes — user reports previous print works as intended |
 | Twenty-swatch snap box | [Sliding PETG box and contact-cycle evidence](model/filament_swatch_box/README.md) | [Record](model/filament_swatch_box/README.md#attribution) | N/A — complete box is the trial | No — user reports not yet printed |
 | Lift-off swatch archive box | [Covered bulk-storage box; diagnostic contact studies](model/filament_swatch_lift_box/README.md) | [Record](model/filament_swatch_lift_box/README.md#attribution) | N/A — complete box is the trial | Unknown — no print report; contact quality unresolved |
+| Upright swatch card file | [Covered file for browsing twenty cards](model/filament_swatch_upright_box/README.md) | [Record](model/filament_swatch_upright_box/README.md#attribution) | N/A — complete file is the trial | Unknown — no print report; local contact limitation inherited |
 
 These links identify current instructions; retained experiments are historical
 unless the current instructions recommend them. The two print-status columns use

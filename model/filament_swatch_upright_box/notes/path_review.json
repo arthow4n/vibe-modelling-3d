@@ -1,0 +1,1145 @@
+{
+  "gcode": "/home/hevar/orca-slicer-review-zds73y8s/plate_1.gcode",
+  "gcode_sha256": "3cf9669b3593aea93c1f31d5ce88ef43c14b5215df1411bd11ea685f729046c0",
+  "registration_mm": {
+    "x": 135.0,
+    "body_y": 176.675,
+    "lid_y": 93.87500000000001
+  },
+  "tab_section_mm_by_layer": {
+    "6.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "6.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "6.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "6.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "6.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "7.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "7.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "7.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "7.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "7.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "8.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "8.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "8.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "8.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "8.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "9.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "9.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "9.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "9.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "9.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "10.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "10.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "10.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "10.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "10.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "11.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "11.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "11.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "11.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "11.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "12.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "12.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "12.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "12.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "12.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "13.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "13.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "13.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "13.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "13.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "14.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "14.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "14.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "14.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "14.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "15.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "15.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "15.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "15.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "15.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "16.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "16.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "16.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "16.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "16.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "17.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "17.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "17.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "17.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "17.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "18.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "18.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "18.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "18.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "18.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "19.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "19.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "19.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "19.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "19.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "20.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "20.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "20.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "20.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "20.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "21.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "21.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "21.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "21.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "21.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "22.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "22.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "22.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "22.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "22.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "23.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "23.2": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "23.4": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "23.6": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "23.8": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    },
+    "24.0": {
+      "filled_width_mm": 1.799999999999983,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          33.900000000000006,
+          35.69999999999999
+        ]
+      ]
+    }
+  },
+  "pad_section_mm_by_layer": {
+    "27.0": {
+      "filled_width_mm": 5.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          35.599999999999994,
+          40.599999999999994
+        ]
+      ]
+    },
+    "27.2": {
+      "filled_width_mm": 5.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          35.599999999999994,
+          40.599999999999994
+        ]
+      ]
+    },
+    "27.4": {
+      "filled_width_mm": 5.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          35.599999999999994,
+          40.599999999999994
+        ]
+      ]
+    },
+    "27.6": {
+      "filled_width_mm": 5.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          35.599999999999994,
+          40.599999999999994
+        ]
+      ]
+    },
+    "27.8": {
+      "filled_width_mm": 5.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          35.599999999999994,
+          40.599999999999994
+        ]
+      ]
+    },
+    "28.0": {
+      "filled_width_mm": 5.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          35.599999999999994,
+          40.599999999999994
+        ]
+      ]
+    },
+    "28.2": {
+      "filled_width_mm": 5.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          35.599999999999994,
+          40.599999999999994
+        ]
+      ]
+    },
+    "28.4": {
+      "filled_width_mm": 5.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          35.599999999999994,
+          40.599999999999994
+        ]
+      ]
+    },
+    "28.6": {
+      "filled_width_mm": 5.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          35.599999999999994,
+          40.599999999999994
+        ]
+      ]
+    },
+    "28.8": {
+      "filled_width_mm": 5.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          35.599999999999994,
+          40.599999999999994
+        ]
+      ]
+    },
+    "29.0": {
+      "filled_width_mm": 5.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          35.599999999999994,
+          40.599999999999994
+        ]
+      ]
+    }
+  },
+  "maximum_tab_internal_gap_mm": 0,
+  "maximum_pad_internal_gap_mm": 0,
+  "maximum_tab_uncovered_width_mm": 0,
+  "maximum_pad_uncovered_width_mm": 0,
+  "support_roles": [
+    "Support",
+    "Support interface"
+  ],
+  "limits": "One representative X section of critical tab/pad layers; recorded-width approximation, not measured polymer, layer bonding or mechanical calibration. Support adhesion/removal remain physical checks.",
+  "path_reader_sha256": "0378f1543acb8931a281a838d9b35150f52c93b3e4571389a21b92f728483ba7"
+}

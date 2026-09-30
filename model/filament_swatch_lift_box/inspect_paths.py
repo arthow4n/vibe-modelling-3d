@@ -2,13 +2,12 @@
 from pathlib import Path
 import argparse
 import json
-import math
 import hashlib
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
-from physical_analysis.manufacturing import orca_linear_paths
+from physical_analysis.manufacturing import orca_linear_paths,section_coverage
 from components import *
 
 def review(run,output):
@@ -19,21 +18,9 @@ def review(run,output):
     ty=135-((-OUT_Y-14-(OUT_Y/2+FIT+1.6))+BUTTON_FRONT)/2
     ly=ty-OUT_Y-14
     def intervals(z,lo,hi):
-        spans=[]
-        for x,y,nx,ny,h,width,role in rows:
-            if abs(h-z)>1e-5 or role.startswith('Support') or role=='Brim' or abs(nx-x)<1e-8: continue
-            if not min(x,nx)<=tx<=max(x,nx): continue
-            cy=y+(ny-y)*(tx-x)/(nx-x)-ty
-            half=width/2*math.hypot(nx-x,ny-y)/abs(nx-x)
-            a,b=max(lo,cy-half),min(hi,cy+half)
-            if b>=a: spans.append((a,b))
-        merged=[]
-        for a,b in sorted(spans):
-            if merged and a<=merged[-1][1]: merged[-1][1]=max(b,merged[-1][1])
-            else: merged.append([a,b])
-        filled=sum(b-a for a,b in merged)
-        return dict(filled_width_mm=filled,uncovered_width_mm=max(0,hi-lo-filled),
-            internal_gap_mm=sum(b[0]-a[1] for a,b in zip(merged,merged[1:])),intervals_mm=merged)
+        section=section_coverage(rows,x_mm=tx,z_mm=z,span_mm=(ty+lo,ty+hi))
+        section['intervals_mm']=[[a-ty,b-ty] for a,b in section['intervals_mm']]
+        return section
     layers=sorted({r[4] for r in rows})
     beam={h:intervals(h,ARM_Y-ARM_T/2,ARM_Y+ARM_T/2) for h in layers if ROOT_Z+2<=h<=HEAD_Z-4}
     button={h:intervals(h,HEAD_Y,BUTTON_FRONT) for h in layers if HEAD_Z-1<=h<=HEAD_Z+1}
@@ -51,6 +38,7 @@ def review(run,output):
     summary=dict(gcode=str(Path(run)/'plate_1.gcode'),
         gcode_sha256=hashlib.sha256((Path(run)/'plate_1.gcode').read_bytes()).hexdigest(),
         process_sha256=hashlib.sha256((Path(__file__).parent/'notes/process.json').read_bytes()).hexdigest(),
+        path_reader_sha256=hashlib.sha256((Path(__file__).resolve().parents[2]/'physical_analysis/manufacturing.py').read_bytes()).hexdigest(),
         registration_mm=dict(x=tx,body_y=ty,lid_y=ly),
         tab_section_mm_by_layer=beam,button_section_mm_by_layer=button,
         maximum_tab_internal_gap_mm=max(v['internal_gap_mm'] for v in beam.values()),

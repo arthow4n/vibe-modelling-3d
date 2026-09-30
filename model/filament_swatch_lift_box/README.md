@@ -131,8 +131,8 @@ their starting geometry, but **none passed the contact-quality screen**. Mesh
 refinement reduced release penetration without resolving it; tighter penalty
 and smaller travel increments changed the release response substantially and
 still failed penetration, including during closing. The existing node-to-surface
-alternative failed to converge on the coarse mesh. These results do not establish
-robust snap passage, operating force or printed recovery. No quantitative force
+alternative failed to converge on both coarse and finer meshes. These results do
+not establish robust snap passage, operating force or printed recovery. No quantitative force
 rating is transferred from these failed studies.
 
 The concrete remaining numerical need is robust finite-sliding contact through
