@@ -86,8 +86,35 @@ class CalculixBackend:
     def configure_request(self, request):
         pass
 
-    def run(self, case, directory, *, mesh_from=None):
+    def prepare_request(self, case, directory):
+        """Canonical physical intent and geometry snapshots, shared with evidence checks."""
         import cadquery as cq
+        request = {key: getattr(case, key) for key in ('name', 'nonlinear', 'max_increment')}
+        request.update(parts=[], constraints=[asdict(x) for x in case.constraints],
+                       loads=[asdict(x) for x in case.loads], contacts=[asdict(x) for x in case.contacts],
+                       observations=[dict(name=k, selection=asdict(v)) for k, v in case.observations.items()])
+        for group in ('constraints', 'loads', 'contacts', 'observations'):
+            for item in request[group]:
+                for key in ('selection', 'slave', 'master'):
+                    if key in item:
+                        values = item[key] if isinstance(item[key], (list, tuple)) else (item[key],)
+                        for selection in values:
+                            reg = selection['region']
+                            for side in ('lower', 'upper'):
+                                reg[side] = [v if abs(v) != float('inf') else None for v in reg[side]]
+        for i, part in enumerate(case.parts.values()):
+            shape = part.shape.val() if isinstance(part.shape, cq.Workplane) else part.shape
+            if not isinstance(shape, cq.Shape) or not shape.isValid() or len(shape.Solids()) != 1:
+                raise ValueError(f'{part.name}: provide one valid connected solid per part')
+            path = directory/f'part_{i}.brep'
+            shape.exportBrep(str(path))
+            request['parts'].append(dict(name=part.name, geometry=path.name,
+                sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
+                material=asdict(part.material), mesh_size_mm=part.mesh_size_mm))
+        self.configure_request(request)
+        return request
+
+    def run(self, case, directory, *, mesh_from=None):
         if not case.parts or not case.constraints:
             raise ValueError('An analysis needs parts and explicit constraints')
         directory = directory.resolve()
@@ -101,29 +128,7 @@ class CalculixBackend:
         result.artifacts = {'directory': str(directory), 'result': 'result.json'}
         result.provenance = dict(backend=self.backend_name)
         try:
-            request = {key: getattr(case, key) for key in ('name','nonlinear','max_increment')}
-            request.update(parts=[], constraints=[asdict(x) for x in case.constraints],
-                           loads=[asdict(x) for x in case.loads], contacts=[asdict(x) for x in case.contacts],
-                           observations=[dict(name=k,selection=asdict(v)) for k,v in case.observations.items()])
-            # JSON has no infinities. Null bounds denote an unbounded side.
-            for group in ('constraints', 'loads', 'contacts', 'observations'):
-                for item in request[group]:
-                    for key in ('selection', 'slave', 'master'):
-                        if key in item:
-                            values = item[key] if isinstance(item[key], (list, tuple)) else (item[key],)
-                            for selection in values:
-                                reg = selection['region']
-                                for side in ('lower', 'upper'):
-                                    reg[side] = [v if abs(v) != float('inf') else None for v in reg[side]]
-            for i, part in enumerate(case.parts.values()):
-                shape = part.shape.val() if isinstance(part.shape, cq.Workplane) else part.shape
-                if not isinstance(shape, cq.Shape) or not shape.isValid() or len(shape.Solids()) != 1:
-                    raise ValueError(f'{part.name}: provide one valid connected solid per part')
-                path = directory/f'part_{i}.brep'
-                shape.exportBrep(str(path))
-                request['parts'].append(dict(name=part.name, geometry=path.name,
-                    sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
-                    material=asdict(part.material), mesh_size_mm=part.mesh_size_mm))
+            request = self.prepare_request(case, directory)
             if mesh_from is not None:
                 source=Path(mesh_from).resolve()
                 previous=json.loads((source/'case.json').read_text())
@@ -139,7 +144,6 @@ class CalculixBackend:
                 shutil.copyfile(source/'case.json',directory/'mesh_source_case.json')
                 request['mesh_reuse']=dict(**identity,input='mesh_source.inp',case='mesh_source_case.json',
                                           mesh=provenance.get('mesh',{}))
-            self.configure_request(request)
             (directory/'case.json').write_text(json.dumps(request, indent=2, allow_nan=False)+'\n')
             result.artifacts['case'] = 'case.json'
             from ..motion import rigid_driver_clearance

@@ -320,9 +320,10 @@ def test_motion_cycle_preserves_contact_then_unloads(tmp_path):
     assert answer['completed'] and answer['provenance']['postprocess_only']
     assert answer['metrics']['peak_motion_force_N']==r.metrics['peak_motion_force_N']
     # Recovery preserves all numerical decisions, not just a force summary.
-    centroid='max_strain_element_centroid_mm'
-    assert {k:v for k,v in answer['metrics'].items() if k!=centroid}=={k:v for k,v in r.metrics.items() if k!=centroid}
-    assert answer['metrics'][centroid]==pytest.approx(r.metrics[centroid],abs=1e-8)
+    centroids=('max_strain_element_centroid_mm','max_stress_element_centroid_mm')
+    assert {k:v for k,v in answer['metrics'].items() if k not in centroids}=={k:v for k,v in r.metrics.items() if k not in centroids}
+    for centroid in centroids:
+        assert answer['metrics'][centroid]==pytest.approx(r.metrics[centroid],abs=1e-8)
     assert answer['history']==r.history
     assert (directory/'analysis.inp').read_bytes()==before
     (directory/'analysis.inp').write_bytes(before+b'\n')

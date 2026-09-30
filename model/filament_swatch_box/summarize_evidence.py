@@ -4,8 +4,8 @@ from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from physical_analysis.results import AnalysisResult
-from physical_analysis.studies import compare_results
+from physical_analysis import QuestionStudy
+from analyze import operation
 from components import RELIEF_INWARD_SCREEN
 
 ROOT = Path(__file__).resolve().parent
@@ -13,27 +13,28 @@ LABELS = ('cycle_base', 'cycle_fine', 'cycle_penalty', 'cycle_increment', 'cycle
 
 
 def summarize():
-    results={label:AnalysisResult(**json.loads((ROOT/'notes'/'analysis'/label/'result.json').read_text()))
-             for label in LABELS}
+    questions={}
+    for label in LABELS:
+        case=json.loads((ROOT/'notes/analysis'/label/'case.json').read_text())
+        questions[label]=operation(mesh=case['parts'][0]['mesh_size_mm'],
+            penalty=case['contacts'][0]['penalty_N_mm3'],cycle=True,max_increment=case['max_increment'])
+    results={label:questions[label].read_evidence(ROOT/'notes/analysis'/label) for label in LABELS}
     summary={}
     fig,axes=plt.subplots(1,3,figsize=(13,4))
     for label,r in results.items():
         r.require_completed()
         h=r.history
-        closing=[f for f in h if f['load_fraction']<=.5]
-        opening=[f for f in h if f['load_fraction']>.5]
-        middle=min(h,key=lambda f:abs(f['load_fraction']-.5))
         max_inward=max(-f['observations']['tip']['min_mm'][1] for f in h)
         max_axial=max(max(abs(f['observations']['tip'][k][0]) for k in ('min_mm','max_mm')) for f in h)
         max_out_of_plane=max(max(abs(f['observations']['tip'][k][2]) for k in ('min_mm','max_mm')) for f in h)
-        return_error=max(abs(v) for k in ('min_mm','max_mm') for v in h[-1]['observations']['tip'][k])
+        question=r.metrics['question']
+        return_error=question['elastic_return_error_mm']
         assert max_inward<RELIEF_INWARD_SCREEN and max_axial<.15
         assert max_out_of_plane<.01  # The cams must pass in-plane, not escape over their ends.
-        assert middle['max_contact_pressure_MPa']<1e-8 and h[-1]['max_contact_pressure_MPa']<1e-8
-        assert return_error<1e-6
+        assert question['contact_passage_established'] and question['numerical_elastic_return_ok']
         summary[label]=dict(status=r.status,
-            peak_closing_force_N=max(abs(f['motion_force_N']['drive']) for f in closing),
-            peak_opening_force_N=max(abs(f['motion_force_N']['drive']) for f in opening),
+            peak_closing_force_N=question['peak_directional_actuation_force_N']['drive']['forward'],
+            peak_opening_force_N=question['peak_directional_actuation_force_N']['drive']['reverse'],
             peak_mean_tip_inward_mm=max(-f['observations']['tip']['mean_mm'][1] for f in h),
             peak_nodal_tip_inward_mm=max_inward,peak_nodal_tip_axial_mm=max_axial,
             peak_nodal_tip_out_of_plane_mm=max_out_of_plane,
@@ -54,12 +55,15 @@ def summarize():
     axes[0].legend(fontsize=8)
     axes[2].axhline(1.5,color='red',linestyle='--',label='Provisional 1.5% screen');axes[2].legend(fontsize=8)
     fig.tight_layout();fig.savefig(ROOT/'renders'/'contact_cycle.png',dpi=180)
-    comparisons={label:compare_results(results['cycle_base'],results[label],
-                 metrics=['peak_motion_force_N.drive','max_abs_principal_strain'],relative_tolerance=.05)
-                 for label in LABELS[1:]}
-    increment_comparison=compare_results(results['cycle_increment'],results['cycle_small_increment'],
-        metrics=['peak_motion_force_N.drive','max_abs_principal_strain'],relative_tolerance=.10)
-    answer=dict(runs=summary,comparisons=comparisons,final_increment_comparison=increment_comparison,
+    study=QuestionStudy(questions['cycle_base'],
+        'Ten-percent actuation-force/strain precision for a conditional prototype screen',
+        ('peak_motion_force_N.drive','max_abs_principal_strain'),relative_tolerance=.10,
+        motion_levels=2,mesh_levels=1,contact_levels=1).run(evidence={
+            key:ROOT/'notes/analysis'/label for key,label in zip(
+                ('baseline','mesh_sensitivity_1','contact_parameter_sensitivity_1','increment_sensitivity_1','increment_sensitivity_2'),
+                LABELS)})
+    answer=dict(runs=summary,
+        engineering_question=study.metrics['question'],
         limits='Conditional frictionless isotropic elastic local fixture; physical force, bonding, wear, set and creep uncalibrated.')
     (ROOT/'notes'/'numerical_summary.json').write_text(json.dumps(answer,indent=2)+'\n')
     print(json.dumps(answer,indent=2))

@@ -109,6 +109,33 @@ Also on 2026-09-23, the user reported that the **complete revised plate** was pr
 
 The saved profiles are [plate halves](notes/reference_petg.ini) and [screws](notes/reference_screws.ini). The screw profile differs only by disabling supports. Inspection-only entries are [rear_view.py](rear_view.py), [screw_view.py](screw_view.py) and [print_preview.py](print_preview.py). Do not print their inspection poses in place of the supplied STLs.
 
+## Structural question cross-check
+
+[analyze.py](analyze.py) describes supports, stated book/plate loads and observations
+through `StructuralQuestion`; it contains no meshing, native contact/output or
+force-balance plumbing. The existing [analytical equations](load_checks.py) remain
+the primary joint/load screen. No CAD or print exports were revised.
+
+The [plain-back cross-check](notes/analysis/question_plain_back/result.json) uses
+the actual back CAD clipped clear of lip, edge rounds and end chamfers. It applies
+the existing plain-back sensitivity equation with the clipped 396 mm span and
+240 mm section width: predicted sag 3.1729 mm, numerical mean midspan sag
+3.0000 mm (ratio 0.946). Peak strain/stress are near midspan; supported-end vertical
+displacement is zero. This is an explicit monolithic idealization, with the same
+800 MPa effective assumption, rather than a rating for the bolted assembly.
+
+The informative [whole-L fixture](notes/analysis/question_whole_L/result.json)
+predicts mean midspan sag 0.8301 mm versus 0.2340 mm from its monolithic beam
+equation. Face loading permits section distortion/twist absent from that equation.
+Its analytical cross-check is recorded as false despite native numerical completion.
+This discrepancy limits whole-section beam idealization; it does not revise the
+existing joint equations or establish assembled load capacity. The prior successful
+physical print report remains intact; neither solve validates load capacity or creep.
+
 ## Attribution
 
 Primary language model: GPT-6 Astra (user-reported); reasoning effort: low (user-reported). Harness: Codex API agent; provider: OpenAI. No other agents contributed. This final plate builds on the repository's earlier joint work; historical provenance remains in Git. User print feedback drove the head-up screw and recess revisions.
+
+Engineering-question migration contributor: GPT-6 family (specific runtime variant
+and reasoning effort not exposed); Codex shared-workspace API agent; provider not
+separately exposed. No sub-agents. Historical model attribution above is preserved.

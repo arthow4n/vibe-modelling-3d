@@ -389,6 +389,14 @@ evidence without requiring a permanent public feature.
 Use the cheapest adequate evidence: CAD for rigid fit and clearance, simple
 calculations for suitable load screens, and numerical analysis when deformation,
 contact or geometry makes those approaches insufficient or materially uncertain.
+For a known snap/contact operation, flexure or loaded structural part, prefer
+the [shared engineering questions](physical_analysis/README.md#use) over manually
+constructing an `AnalysisCase`. Supply the geometry, regions, loads, material and
+manufacturing assumptions explicitly. Use its opt-in decision-driven study plan
+and identity-checked retained evidence when applicable. Keep model-specific
+acceptance and physical observations with the object. `AnalysisCase` remains the
+lower-level escape hatch for genuinely novel fixtures; a wrapper never promotes
+failed contact evidence or numerical recovery to printed validation.
 Do not run analysis merely to demonstrate the API. When extending a shared tool,
 exercise it on the motivating task, validate the new behavior proportionately
 (numerical benchmarks for new physical-analysis capabilities), and document its

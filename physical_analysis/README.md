@@ -1,6 +1,6 @@
 # Physical questions from CadQuery
 
-A small, solver-independent case API with a working Gmsh → CalculiX backend.
+A small engineering-question layer over a solver-independent case API with a working Gmsh → CalculiX backend.
 Source geometry stays in CadQuery. Callers describe named parts, material
 assumptions, supports, total surface forces, translations and explicit contact
 pairs. The backend owns meshing, solver input, execution and result extraction.
@@ -28,6 +28,137 @@ run `uv run --locked pytest -q tests/test_physical_analysis.py` to qualify them.
 Missing tools are failures, not silently skipped benchmarks.
 
 ## Use
+
+Prefer `SnapFitQuestion`, `FlexureQuestion` or `StructuralQuestion` for a known
+physical situation. Identify the geometry and named regions explicitly; supply
+loads, material assumptions and provisional acceptance limits. The shared layer
+constructs the case, restraints, observations and contacts, then checks the
+answer. `AnalysisCase` remains the escape hatch for genuinely novel fixtures,
+such as the lift-off box's isolated-release/contact-formulation investigations.
+
+```python
+import cadquery as cq
+from physical_analysis import (FlexureQuestion, Support, Motion, Region,
+                               PETG_SCREEN, BeamApproximation)
+
+question = FlexureQuestion(
+    name='tip_push', part=cq.Workplane('XY').box(40, 8, 2, centered=False),
+    material=PETG_SCREEN, supports=(Support(Region.plane('x', 0)),),
+    motion=Motion((None, None, 1), Region.plane('x', 40)),
+    observations={'tip': Region.plane('x', 40)}, mesh_size_mm=1,
+    beam=BeamApproximation(40, 8, 2, 'Straight uniform end-loaded leaf',
+                           tip_displacement_mm=1, adequate_for_decision=True))
+answer = question.run('notes/tip_push')
+print(answer.metrics['question'])
+```
+
+This explicitly adequate, slender, small-deflection approximation uses the cheap
+beam screen without meshing. Set `numerical=True` for a cross-check; otherwise
+numerical analysis is selected when no adequate applicable approximation was
+supplied. Screens remain in the numerical answer, with their rationale and
+response ratio. A variable section, notch, tooth or different load distribution
+needs its own applicability decision; supplying dimensions alone does not make
+the approximation adequate. Analytical-only results have `status='analytical_screen'`
+and `completed=False`: no solver was run. Numerical results retain native status,
+history, assumptions, warnings and provenance. No new result framework is used.
+
+`StructuralQuestion` accepts `supports`, total `SurfaceForce(region, force_N)`
+loads, optional prescribed `motion` and named `observations`. Supports may leave
+DOFs free through `None`. No service load is inferred. `acceptance` maps existing
+metric paths to explicit upper limits, for example `{'max_displacement_mm': 2}`.
+Material strain limits remain provisional screens, not calibrated printed limits.
+
+`SnapFitQuestion` takes the same `part`, `material`, `supports`, `observations`
+and mesh controls, plus `contact_region`, a tuple of `MatingPart(name, shape,
+motion, contact_region)`, explicit `penalty_N_mm3` and `penetration_limit_mm`.
+Whole-part fully prescribed translations make the mating parts rigid drivers.
+Surface-to-surface is the qualified normal default here; the low-level case's
+historical node-contact default is unchanged. `Motion.round_trip(displacement)`
+constructs forward/reverse travel in one solve. Piecewise `progress` remains
+available for staged motions; rotations and automatic mechanism recognition are
+outside this interface. All forces and signed motion histories stay available in
+`AnalysisResult.history`, including reactions during stationary holding plateaus.
+
+For passage, specify `contact_free_at` normalized-time checkpoints and
+`displacement_limits_mm={observation: ((xmin,xmax),(ymin,ymax),(zmin,zmax))}`.
+An optional `return_observation` requests return to the initial unloaded pose;
+all drivers must return to their start. The shared answer checks engagement,
+penetration, all-frame force balance, checkpoints, displacement envelopes and
+elastic return. Missing passage criteria, observations or failed native quality
+cannot become a successful snap. Checkpoints use the nearest saved frame only
+within `checkpoint_tolerance`; this is sampled evidence, not continuous collision
+proof. Surrounding rigid-driver clearance uses the existing CAD preflight;
+envelopes do not prove full deformed-flexure clearance against the enclosure.
+
+`metrics['question']` distinguishes `solver_completed` (a full extracted history),
+`operation_completed` (native accepted completion), `numerical_evidence_adequate`
+(the requested checks), `design_screen_passes` (only the supplied provisional
+limits), and `physical_limits.physically_validated` (never inferred). A completed
+history rejected for penetration may have `solver_completed=True` while the
+others remain false/unknown. Peak locations are undeformed element centroids of
+the peak integration points; missing historical stress locations stay unknown.
+Elastic numerical return does **not** establish printed recovery. The layer
+does not infer calibration, friction, fatigue, plasticity or creep.
+
+Associate `ManufacturingAssumption(description, gcode, sections)` when solidity
+matters. Explicit registered sections `(x_mm, z_mm, (y0,y1))` use actual Orca
+paths through the existing coverage helper. An uncovered section rejects the
+solid-section provisional screen. Description-only records leave path coverage
+unknown. Neither mode turns walls/infill/orientation into material properties.
+
+### Standard question studies and retained evidence
+
+For an explicitly constructed snap question:
+
+```python
+from physical_analysis import QuestionStudy
+study = QuestionStudy(snap_question, decision='Force precision for prototype selection',
+    metrics=('question.peak_actuation_force_N', 'question.peak_strain'),
+    relative_tolerance=.10, motion_levels=2, mesh_levels=1, contact_levels=1)
+answer = study.run('notes/study')
+```
+
+Select only axes that can affect the decision (all default to zero). The bounded
+plan halves the motion increment, reduces mesh size by 0.7 or doubles contact
+penalty, one factor at a time. Mesh/contact factors and absolute metric tolerances
+are explicit overrides. Requested travel per increment is reported in mm from
+each progress segment; actual adaptive increments may be smaller. A rejected
+baseline stops without refinements. Each level compares decision quantities with
+the preceding level, stopping that axis when its quantities meet the tolerance.
+The answer reports `stable`, `unstable`, `unresolved` or `not_run` and the stopping
+reason; stability is a bounded comparison, not proof of asymptotic convergence.
+`baseline_quality_adequate` preserves the operation checks; requested unstable or
+unresolved studies make overall `numerical_evidence_adequate=False` without
+erasing independently established passage or changing native completion/status.
+Failed refinements and missing quantities remain unresolved. Force precision
+and provisional strain acceptance are separate; convergence does not calibrate
+material properties. Crossing a supplied acceptance limit prevents a stable
+classification even if the relative change is small. Backend/tool identity
+changes make a comparison descriptive; later matching levels can still establish
+their own comparison. The caller chooses tolerances against the stated action.
+
+Pass `evidence={'baseline': existing_run, 'increment_sensitivity_1': refined_run,
+...}` to reuse checked runs; a missing entry requires a new output directory.
+`question.read_evidence(path)` compares current geometry hashes, material,
+supports, selections, motion, contacts, observations and numerical settings to
+the saved case, and checks case/input hashes against result provenance. Changing
+intent fails explicitly. Case names and timeouts are not physical inputs.
+Historical backend versions/implementation identities are preserved and exposed;
+interpreting historical evidence does not qualify today's backend. No saved solve
+is rerun merely to add interpretation. Native result status is never promoted.
+
+The [sliding box](../model/filament_swatch_box/analyze.py),
+[phone stand](../model/analysis_phone_stand/analyze.py),
+[book plate](../model/book_reading_plate/analyze.py) and
+[lift-off box](../model/filament_swatch_lift_box/analyze.py) are regression consumers.
+Run `uv run --locked pytest -q tests/test_engineering_questions.py` for real
+consumer evidence binding, positive/negative answers and native cross-checks.
+The sliding snap retains increment-sensitive force; the lift-off release remains
+unresolved. The book's plain-back calculation agrees with structural analysis,
+while its monolithic L face-load fixture exposes section distortion absent from
+the beam assumption. Existing joint equations remain the cheaper primary screen.
+
+### Lower-level experiments
 
 ```python
 import cadquery as cq

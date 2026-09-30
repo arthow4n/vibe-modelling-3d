@@ -1,0 +1,186 @@
+{
+  "name": "plain_back_symmetry",
+  "nonlinear": false,
+  "max_increment": 0.1,
+  "parts": [
+    {
+      "name": "plate",
+      "geometry": "part_0.brep",
+      "sha256": "58e38bf7d0befbb6be28ff565dbfe6ecdbb545a9833341c1f40d3a60dbb5013c",
+      "material": {
+        "name": "book plate effective solid",
+        "youngs_modulus_MPa": 800,
+        "poisson_ratio": 0.4,
+        "source": "Same explicit effective modulus as load_checks.py; not calibrated printed PETG",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 10
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "plate",
+        "region": {
+          "lower": [
+            0,
+            null,
+            null
+          ],
+          "upper": [
+            0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        null,
+        null
+      ],
+      "name": "midspan_symmetry",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "plate",
+        "region": {
+          "lower": [
+            198.0,
+            null,
+            null
+          ],
+          "upper": [
+            198.0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        null,
+        null,
+        0
+      ],
+      "name": "end_support",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "plate",
+        "region": {
+          "lower": [
+            0,
+            10,
+            -1
+          ],
+          "upper": [
+            0,
+            10,
+            51
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        null,
+        0,
+        null
+      ],
+      "name": "lateral_anchor",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "plate",
+        "region": {
+          "lower": [
+            0,
+            null,
+            null
+          ],
+          "upper": [
+            0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        -14.715
+      ]
+    },
+    {
+      "selection": {
+        "part": "plate",
+        "region": {
+          "lower": [
+            null,
+            null,
+            10
+          ],
+          "upper": [
+            null,
+            null,
+            10
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        -7.848000000000001
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": [
+    {
+      "name": "midspan",
+      "selection": {
+        "part": "plate",
+        "region": {
+          "lower": [
+            0,
+            null,
+            null
+          ],
+          "upper": [
+            0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "supported_end",
+      "selection": {
+        "part": "plate",
+        "region": {
+          "lower": [
+            198.0,
+            null,
+            null
+          ],
+          "upper": [
+            198.0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}

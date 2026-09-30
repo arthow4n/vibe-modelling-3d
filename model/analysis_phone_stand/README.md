@@ -159,6 +159,24 @@ changes both force and strain. Physical feedback is needed before a load claim.
 | Test piece(s) | N/A | None; full stand is the trial | No separate coupon phase |
 | Final printable object(s) | Unknown | `analysis_phone_stand.step/.stl`, `stand_base`, `stand_arm`, `stand_cradle`, `stand_latch` STEP/STL pairs | No print report; fit, release, recovery, holding, creep and durability untested |
 
+## Shared flexure question
+
+[analyze.py](analyze.py) uses `FlexureQuestion` for release and
+`StructuralQuestion` for the stated phone-load fixture. The release's five
+case-construction calls move into shared code; root/thumb/tooth regions, free
+thumb DOFs and acceptance criteria stay here. The sharp gear-tooth contact
+investigation continues to use the lower-level case API.
+
+The [fresh release run](notes/analysis/question_release/result.json) reproduces
+6.4936 N and 1.3967% peak strain. A uniform root-to-thumb beam predicts 4.1309 N;
+the explicit variable-width CAD fixture is 1.572 times stiffer in this response.
+The beam screen is visible and is not treated as adequate for this geometry.
+The [generated decision record](notes/verification.json) now uses shared study
+planning: the existing force comparison is stable, while local peak strain remains
+mesh-sensitive. Older histories' all-frame force balance is calculated from saved
+reactions; no solve is repeated just to recover that summary. These are conditional
+solid PETG results; print status and physical-test requirements above are unchanged.
+
 ## Attribution
 
 Primary model: GPT-6 in the Codex agent environment. The user identified the model
@@ -167,3 +185,7 @@ are not independently exposed. Harness: Codex via API. Provider: OpenAI.
 No sub-agents contributed. Geometry and analysis integration are repository-owned
 work under the root MIT licence. CalculiX and Gmsh remain separately licensed
 external dependencies; no solver binaries are included.
+
+Engineering-question migration contributor: GPT-6 family (specific runtime variant
+and reasoning effort not exposed); Codex shared-workspace API agent; provider not
+separately exposed. No sub-agents. Historical model attribution above is preserved.

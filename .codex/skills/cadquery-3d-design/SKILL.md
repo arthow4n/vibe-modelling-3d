@@ -32,6 +32,7 @@ with each applicable evaluation.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
 - [ ] For structurally important parts and joints, update the load and stiffness screen using measured CAD sections before recommending a structural trial.
 - [ ] When contact analysis is needed, use the [decision-driven study guidance](../../../physical_analysis/README.md#plan-a-contact-study) and connect local fixture/deformation evidence to the surrounding assembly.
+- [ ] Prefer [shared engineering questions](../../../physical_analysis/README.md#use) for known snap, flexure and structural situations; supply explicit physical intent, reuse identity-checked evidence and select only decision-relevant study axes. Reserve `AnalysisCase` for novel experiments.
 - [ ] Review final generic FDM geometry and resolve significant defects, especially on fit-critical surfaces.
 - [ ] Review exposed edges, corners and grip areas without weakening interfaces.
 - [ ] Export the agreed printable layouts as STEP/STL from the same print-ready geometry and placement; check output status and any specific export concern.

@@ -1,0 +1,95 @@
+{
+  "name": "latch_release",
+  "nonlinear": true,
+  "max_increment": 0.1,
+  "parts": [
+    {
+      "name": "latch",
+      "geometry": "part_0.brep",
+      "sha256": "8ba06f03f124b2f8f1467a5e122227c7bd6f2447869096a97f55b1e7d3ce0cd9",
+      "material": {
+        "name": "PETG solid assumption",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated solid PETG short-term isotropic sensitivity assumption; actual print must be tested",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 1.1
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "latch",
+        "region": {
+          "lower": [
+            -100,
+            60.0,
+            8.59
+          ],
+          "upper": [
+            100,
+            100,
+            8.61
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "mount",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "latch",
+        "region": {
+          "lower": [
+            -8,
+            12.0,
+            11.59
+          ],
+          "upper": [
+            8,
+            12.0,
+            11.61
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        null,
+        null,
+        -4.7
+      ],
+      "name": "thumb",
+      "progress": null
+    }
+  ],
+  "loads": [],
+  "contacts": [],
+  "observations": [
+    {
+      "name": "tooth",
+      "selection": {
+        "part": "latch",
+        "region": {
+          "lower": [
+            -6,
+            27.0,
+            13.790000000000001
+          ],
+          "upper": [
+            6,
+            29.0,
+            13.81
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}

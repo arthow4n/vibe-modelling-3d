@@ -187,6 +187,26 @@ force alone cannot calibrate modulus because friction and fit also contribute.
 | Test piece(s) | N/A | None | Complete box is the primary trial |
 | Final printable object(s) | Unknown | `filament_swatch_lift_box.step`, `filament_swatch_lift_box.stl` | No print report; checks above remain |
 
+## Shared snap question and negative regression
+
+[analyze.py](analyze.py) states the staged cap/pad motions with `SnapFitQuestion`.
+Its eleven case-construction calls (three parts, root, two motions, two contacts,
+two observations and case initialization) move into the shared constructor;
+the actual head, finite pad faces, root and motion timing remain explicit here.
+`operation()` still exposes the constructed `AnalysisCase` for the isolated
+release/master-union and experimental-backend investigations in `analyze_release.py`.
+Those investigations are not silently generalized into the normal snap interface.
+
+The [generated summary](notes/numerical_summary.json) binds applicable retained
+window-lead cases to the question. The baseline retains `quality_failed`:
+0.09338 mm penetration exceeds 0.02 mm. The extracted history reaches the end,
+but accepted operation, adequate passage evidence and design acceptance remain
+false/unknown. A study rejects this baseline before launching force refinements.
+Numerical return in that history does not qualify the contact sequence or printed
+recovery. Historical variants that fail input identity are explicitly rejected
+for reuse; they are not relabelled as successful results. The finite-edge release
+and experimental contact witnesses remain unresolved as described above.
+
 ## Attribution
 
 Primary model: GPT-6.1 Sol, high reasoning effort, as identified by the user.
@@ -194,3 +214,7 @@ Harness: Codex shared repository workspace. Provider: not separately exposed.
 No subagents. The existing swatch and sliding-box records retain their historical
 attribution; their source dimensions and analysis/path-review patterns informed
 this independent variant.
+
+Engineering-question migration contributor: GPT-6 family (specific runtime variant
+and reasoning effort not exposed); Codex shared-workspace API agent; provider not
+separately exposed. No sub-agents. Historical model attribution above is preserved.

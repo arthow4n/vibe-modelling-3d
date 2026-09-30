@@ -1,4 +1,150 @@
 {
+  "engineering_question": {
+    "operation_completed": true,
+    "solver_completed": true,
+    "evidence_method": "retained_numerical",
+    "numerical_evidence_adequate": false,
+    "peak_actuation_force_N": 6.489108099999999,
+    "peak_strain": 0.011040805559279651,
+    "peak_strain_location_mm": [
+      -11.877713618737582,
+      59.89131924484654,
+      8.975
+    ],
+    "strain_location_kind": "undeformed element centroid of peak integration point",
+    "peak_von_mises_MPa": 13.086543558349142,
+    "peak_stress_location_mm": null,
+    "deformation_mm": {
+      "tooth": {
+        "min_mm": [
+          -0.005927758,
+          -0.4083202,
+          -2.395871
+        ],
+        "max_mm": [
+          0.005887386,
+          -0.3950481,
+          -2.236373
+        ],
+        "mean_mm": [
+          -3.977465872727274e-05,
+          -0.40140814909090916,
+          -2.3174082727272722
+        ]
+      }
+    },
+    "max_displacement_mm": 4.700228326799455,
+    "force_balance_ok": true,
+    "max_force_balance_relative": 0.0002309412961292194,
+    "force_balance_source": "computed_from_retained_reactions",
+    "strain_screen_passes": true,
+    "acceptance": {
+      "peak_motion_force_N.thumb": true
+    },
+    "design_screen_passes": true,
+    "design_screen_scope": "Only the supplied provisional strain and acceptance quantities",
+    "analytical_screen": {
+      "force_N": 4.130859375,
+      "tip_displacement_mm": 4.7,
+      "stiffness_N_mm": 0.87890625,
+      "root_strain": 0.0091796875,
+      "fixed_free_euler_buckling_N": 34.69782797257977,
+      "small_deflection_applicable": true,
+      "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+    },
+    "beam_rationale": "Uniform-width root-to-thumb cantilever is a cheap compliance screen; widened root, tab and tooth require CAD analysis.",
+    "analytical_numerical_comparison": {
+      "prediction": 4.130859375,
+      "numerical": 6.489108099999999,
+      "ratio": 1.5708857433569738,
+      "scope": "Ideal end response versus stated CAD fixture; not a calibration or equality requirement"
+    },
+    "manufacturing": {
+      "assumption": "Side-printed latch, intended solid PETG process; actual bonding and modulus uncalibrated.",
+      "local_solid_paths_established": null
+    },
+    "physical_limits": {
+      "material_calibrated": false,
+      "friction_modelled": false,
+      "printed_recovery_established": false,
+      "physically_validated": false
+    },
+    "numerical_confidence": {
+      "increment_sensitivity": "not_run",
+      "mesh_sensitivity": "unstable",
+      "contact_parameter_sensitivity": "not_run"
+    },
+    "historical_backend_identity": {
+      "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+      "mesh.py": "4619ca7aa33caec0cac5efcc48fdd9fdc991c97f783b33145c6c5ec4aa3db13c",
+      "structural.py": "88cc97c1b1934aaffd676eec2680b135df26f35f861b622dd17d9ff1477772d7",
+      "worker.py": "adfdc94ffc29213f43b3f3427bdad1210b1d9935f66925788443c831a81d9bc0"
+    },
+    "study": {
+      "decision": "Release force and local-strain precision at five percent; tooth clearance remains object-owned",
+      "comparisons": {
+        "mesh_sensitivity_1": {
+          "peak_motion_force_N.thumb": {
+            "previous": 6.489108099999999,
+            "refined": 6.493609299999999,
+            "relative_change": 0.0006931738255333569,
+            "passes": true
+          },
+          "max_abs_principal_strain": {
+            "previous": 0.011040805559279651,
+            "refined": 0.013966831971663877,
+            "relative_change": 0.20949821823020373,
+            "passes": false
+          }
+        }
+      },
+      "comparison_limits": {},
+      "acceptance_changed": {
+        "mesh_sensitivity_1": false
+      },
+      "runs": {
+        "baseline": {
+          "status": "completed",
+          "case": "latch_release",
+          "input_sha256": "c467fb4952bb8c113688c4b392f59806b90d832e1ae497dae3056ecc59dd6ef9",
+          "case_sha256": "f2b7f763fadff3fe4d1f55b97a5b752ede6815986b708919962e78bd38d6ab1c",
+          "backend_identity_sha256": "32a46968a99a7c84ebc282d5c3d6ab9acd79d2eef173897670b7aaa5a60d0f33",
+          "versions": {
+            "backend": "CalculiX",
+            "version": "unknown",
+            "gmsh": "4.15.2",
+            "cadquery": "2.7.0",
+            "python": "3.12.14"
+          },
+          "requested_travel_per_increment_mm": {
+            "thumb": 0.47000000000000003
+          }
+        },
+        "mesh_sensitivity_1": {
+          "status": "completed",
+          "case": "latch_release",
+          "input_sha256": "eb7f00735bc027c858315105d20226888c5ec0f4c60c4a1e8c67d9b21cc1de4e",
+          "case_sha256": "a1ca2a803ce8646200799fa29b2dd6657ae9cec6bbef5003c1f10efdc79da313",
+          "backend_identity_sha256": "32a46968a99a7c84ebc282d5c3d6ab9acd79d2eef173897670b7aaa5a60d0f33",
+          "versions": {
+            "backend": "CalculiX",
+            "version": "unknown",
+            "gmsh": "4.15.2",
+            "cadquery": "2.7.0",
+            "python": "3.12.14"
+          },
+          "requested_travel_per_increment_mm": {
+            "thumb": 0.47000000000000003
+          }
+        }
+      },
+      "stopping_reason": {
+        "mesh_sensitivity": "Refinement budget exhausted; selected quantities remain sensitive"
+      }
+    },
+    "selected_metrics_stable": false,
+    "baseline_quality_adequate": true
+  },
   "conditions": {
     "phone_kg": 0.3,
     "moving_mass_allowance_kg": 0.1,
@@ -29,20 +175,6 @@
     "max_displacement_mm": 0.8621492763566747,
     "scope": "E=800 MPa, 300 g phone + conservative 100 g moving-part allowance. Bonded arm/cradle; fixed sector cut; excludes hinge and latch rotation."
   },
-  "release_refinement": {
-    "peak_motion_force_N.thumb": {
-      "coarse": 6.489108099999999,
-      "refined": 6.493609299999999,
-      "relative_change": 0.0006931738255333569,
-      "passes": true
-    },
-    "max_abs_principal_strain": {
-      "coarse": 0.011040805559279651,
-      "refined": 0.013966831971663877,
-      "relative_change": 0.20949821823020373,
-      "passes": false
-    }
-  },
   "holding_mesh_and_penalty_sensitivity": {
     "peak_motion_force_N.drive": {
       "coarse": 22.779560011495914,
@@ -72,15 +204,15 @@
     "Material properties, printed anisotropy, creep, real fit and durability need physical calibration. No tablet or load certification."
   ],
   "source_sha256": {
-    "analyze.py": "f27332e174782dc4cda5af8fca63b686f5b42202bb072a39cdde5efe5a23d395",
-    "evidence.py": "3b654f0a7737d1169c13c08aabe7e5031fc6a4ecdcbb93094d5333a4bc6cc7a9",
+    "analyze.py": "ffe8d199a5f4dcfb055d7f22f5df0c074c681b2c4f30dade0390daf937191978",
+    "evidence.py": "bbd31376e093ed95f90237e9acb4953099da50e9c222e3e8d1cc5f331448b83d",
     "verify.py": "01a873cab617e05ea72f6bd0ea5d81a8409615150ea1c806ff1f9eb5e77cbaf7",
     "stand_arm.py": "828e2b1189063036db17a2f6707611cb25d5d4d11fae7caa4da2aa023c470a03",
     "components.py": "75e85239c5df8c4a00e6dc4bc203b4e7dd3af813e9df7d30c66e1ad122e8d6b3",
     "plot_evidence.py": "b51b6bb1b3e6d53466615ccc74bd897e9664394f18d7fbc5e609dc49d1833623",
     "stand_latch.py": "9fd4a9e6762afcdc5b9c1484b067192238ecb4d4ae14b0990cfe9170e883ead5",
     "analysis_phone_stand.py": "a4a59403e27760126efe867deb0535b9c457dbc02e4d2c4316623f0cc8a45250",
-    "summarize_evidence.py": "76ae954dffa941c6816d8bed79e486107eb5740e44e6b24345f068fc5388b5d8",
+    "summarize_evidence.py": "d9be4fa2e0851beec0dbd2788895b0f03b1844dbc185fddf08611515fa6dd20c",
     "inspect_assembled.py": "b47eeadc64d3476358993341131e08f1d30dcffa9be43f397b54d211041482ac",
     "stand_cradle.py": "1ef2a51a6ea2eec190e1ab16f4140596bed89025683a3f5e19cf2792bde938d1",
     "stand_base.py": "cec80769453d262db12b4b8d2bf1cac086677b1bb7512b74a835197632642f04",

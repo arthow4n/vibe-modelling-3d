@@ -41,6 +41,119 @@
           "peak_penetration_mm": 0.0933759
         }
       },
+      "engineering_question": {
+        "operation_completed": false,
+        "solver_completed": true,
+        "evidence_method": "retained_numerical",
+        "numerical_evidence_adequate": false,
+        "peak_actuation_force_N": 5.823177919995193,
+        "peak_strain": 0.012303382587060076,
+        "peak_strain_location_mm": [
+          4.844342356611293,
+          38.60477474039811,
+          52.40523033083707
+        ],
+        "strain_location_kind": "undeformed element centroid of peak integration point",
+        "peak_von_mises_MPa": 15.811654225491415,
+        "peak_stress_location_mm": null,
+        "deformation_mm": {
+          "head": {
+            "min_mm": [
+              -1.261044e-190,
+              -3.994792e-189,
+              -2.09013e-190
+            ],
+            "max_mm": [
+              1.247242e-190,
+              -2.354058e-189,
+              1.203358e-189
+            ],
+            "mean_mm": [
+              -2.2353826621224298e-192,
+              -3.2246276939287422e-189,
+              5.213838668164073e-190
+            ]
+          },
+          "free_tab": {
+            "min_mm": [
+              -1.261044e-190,
+              -3.994792e-189,
+              -2.681199e-190
+            ],
+            "max_mm": [
+              1.351182e-190,
+              6.337197e-192,
+              1.203358e-189
+            ],
+            "mean_mm": [
+              1.8867887739705647e-191,
+              -2.1298629995358753e-189,
+              2.396155246389899e-190
+            ]
+          }
+        },
+        "max_displacement_mm": 0.0,
+        "force_balance_ok": true,
+        "max_force_balance_relative": 3.1130445607722102e-06,
+        "force_balance_source": "native_summary",
+        "strain_screen_passes": true,
+        "acceptance": {},
+        "design_screen_passes": null,
+        "design_screen_scope": "Only the supplied provisional strain and acceptance quantities",
+        "analytical_screen": null,
+        "beam_rationale": null,
+        "analytical_numerical_comparison": null,
+        "manufacturing": {
+          "assumption": "Vertical solid tab under six-wall reviewed paths; layer bonding and printed recovery unknown.",
+          "local_solid_paths_established": null
+        },
+        "physical_limits": {
+          "material_calibrated": false,
+          "friction_modelled": false,
+          "printed_recovery_established": false,
+          "physically_validated": false
+        },
+        "numerical_confidence": {
+          "increment_sensitivity": "not_run",
+          "mesh_sensitivity": "not_run",
+          "contact_parameter_sensitivity": "not_run"
+        },
+        "contact_quality_ok": false,
+        "contact_engaged": true,
+        "contact_passage_established": false,
+        "passage_scope": "Sampled native contact, caller-defined free checkpoints and displacement envelopes; no continuous no-intersection proof",
+        "peak_actuation_force_by_driver_N": {
+          "lid": 5.823177919995193,
+          "pinch": 2.9033957386705262
+        },
+        "peak_directional_actuation_force_N": {
+          "lid": {
+            "forward": 5.823177919995193,
+            "reverse": 4.937871800005026
+          },
+          "pinch": {
+            "forward": 2.9033957386705262,
+            "reverse": 2.1938837543964347
+          }
+        },
+        "elastic_return_error_mm": 3.994792e-189,
+        "numerical_elastic_return_ok": true,
+        "max_penetration_mm": 0.0933759,
+        "penetration_ok": false,
+        "contact_free_checkpoints_ok": [
+          true,
+          true
+        ],
+        "displacement_envelope_ok": {
+          "free_tab": true
+        },
+        "historical_backend_identity": {
+          "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+          "mesh.py": "76e5dce0426281d886e2f060ac91c0fdcc0301e45c824e21f67cb1da7627402e",
+          "structural.py": "5585bb40b7039e39c5d02bfd2073073a2b254ede7f96e9dce657a5fb4a510e08",
+          "worker.py": "6e14c596fdbcd66264d69225ea63874359eb7b334802cf3d2e0f9c0c5c2a5b84"
+        }
+      },
       "peak_strain": 0.012303382587060076,
       "peak_strain_location_mm": [
         4.844342356611293,
@@ -109,6 +222,119 @@
           "peak_penetration_mm": 0.06285081
         }
       },
+      "engineering_question": {
+        "operation_completed": false,
+        "solver_completed": true,
+        "evidence_method": "retained_numerical",
+        "numerical_evidence_adequate": false,
+        "peak_actuation_force_N": 5.693927503999066,
+        "peak_strain": 0.01428861977535493,
+        "peak_strain_location_mm": [
+          -4.815853659878008,
+          38.62184865294333,
+          52.39735949827423
+        ],
+        "strain_location_kind": "undeformed element centroid of peak integration point",
+        "peak_von_mises_MPa": 16.87759829361123,
+        "peak_stress_location_mm": null,
+        "deformation_mm": {
+          "head": {
+            "min_mm": [
+              1.731007e-199,
+              3.216439e-196,
+              -1.498513e-196
+            ],
+            "max_mm": [
+              5.02242e-198,
+              4.844108e-196,
+              2.331572e-197
+            ],
+            "mean_mm": [
+              2.8881051243171893e-198,
+              4.0181725359765145e-196,
+              -5.994827661893101e-197
+            ]
+          },
+          "free_tab": {
+            "min_mm": [
+              -2.331781e-198,
+              1.311715e-199,
+              -1.498513e-196
+            ],
+            "max_mm": [
+              5.02242e-198,
+              4.844108e-196,
+              3.105953e-197
+            ],
+            "mean_mm": [
+              1.707891094280807e-198,
+              2.608199384108543e-196,
+              -2.733312242330118e-197
+            ]
+          }
+        },
+        "max_displacement_mm": 0.0,
+        "force_balance_ok": true,
+        "max_force_balance_relative": 5.972511911844119e-06,
+        "force_balance_source": "native_summary",
+        "strain_screen_passes": true,
+        "acceptance": {},
+        "design_screen_passes": null,
+        "design_screen_scope": "Only the supplied provisional strain and acceptance quantities",
+        "analytical_screen": null,
+        "beam_rationale": null,
+        "analytical_numerical_comparison": null,
+        "manufacturing": {
+          "assumption": "Vertical solid tab under six-wall reviewed paths; layer bonding and printed recovery unknown.",
+          "local_solid_paths_established": null
+        },
+        "physical_limits": {
+          "material_calibrated": false,
+          "friction_modelled": false,
+          "printed_recovery_established": false,
+          "physically_validated": false
+        },
+        "numerical_confidence": {
+          "increment_sensitivity": "not_run",
+          "mesh_sensitivity": "not_run",
+          "contact_parameter_sensitivity": "not_run"
+        },
+        "contact_quality_ok": false,
+        "contact_engaged": true,
+        "contact_passage_established": false,
+        "passage_scope": "Sampled native contact, caller-defined free checkpoints and displacement envelopes; no continuous no-intersection proof",
+        "peak_actuation_force_by_driver_N": {
+          "lid": 5.693927503999066,
+          "pinch": 2.8514043003696403
+        },
+        "peak_directional_actuation_force_N": {
+          "lid": {
+            "forward": 5.693927503999066,
+            "reverse": 4.371965330002343
+          },
+          "pinch": {
+            "forward": 2.8514043003696403,
+            "reverse": 2.1548710659999895
+          }
+        },
+        "elastic_return_error_mm": 4.844108e-196,
+        "numerical_elastic_return_ok": true,
+        "max_penetration_mm": 0.06285081,
+        "penetration_ok": false,
+        "contact_free_checkpoints_ok": [
+          true,
+          true
+        ],
+        "displacement_envelope_ok": {
+          "free_tab": true
+        },
+        "historical_backend_identity": {
+          "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+          "mesh.py": "76e5dce0426281d886e2f060ac91c0fdcc0301e45c824e21f67cb1da7627402e",
+          "structural.py": "5585bb40b7039e39c5d02bfd2073073a2b254ede7f96e9dce657a5fb4a510e08",
+          "worker.py": "6e14c596fdbcd66264d69225ea63874359eb7b334802cf3d2e0f9c0c5c2a5b84"
+        }
+      },
       "peak_strain": 0.01428861977535493,
       "peak_strain_location_mm": [
         -4.815853659878008,
@@ -175,6 +401,119 @@
           "peak_press_axis_force_N": 0.0,
           "peak_strain": 0.0051154180650770245,
           "peak_penetration_mm": 0.02315456
+        }
+      },
+      "engineering_question": {
+        "operation_completed": false,
+        "solver_completed": true,
+        "evidence_method": "retained_numerical",
+        "numerical_evidence_adequate": false,
+        "peak_actuation_force_N": 5.133812609996431,
+        "peak_strain": 0.007723102267898511,
+        "peak_strain_location_mm": [
+          7.3995843489,
+          32.184329080124996,
+          27.205641134675
+        ],
+        "strain_location_kind": "undeformed element centroid of peak integration point",
+        "peak_von_mises_MPa": 9.013334536482555,
+        "peak_stress_location_mm": null,
+        "deformation_mm": {
+          "head": {
+            "min_mm": [
+              -6.4e-323,
+              -3.7e-322,
+              -8.4e-323
+            ],
+            "max_mm": [
+              9e-323,
+              -2.5e-323,
+              2.4e-322
+            ],
+            "mean_mm": [
+              5e-324,
+              -2.1e-322,
+              7e-323
+            ]
+          },
+          "free_tab": {
+            "min_mm": [
+              -7e-323,
+              -3.7e-322,
+              -8.4e-323
+            ],
+            "max_mm": [
+              9e-323,
+              2.2e-322,
+              2.4e-322
+            ],
+            "mean_mm": [
+              5e-324,
+              -6e-323,
+              3e-323
+            ]
+          }
+        },
+        "max_displacement_mm": 0.0,
+        "force_balance_ok": true,
+        "max_force_balance_relative": 8.221478929105641e-07,
+        "force_balance_source": "native_summary",
+        "strain_screen_passes": true,
+        "acceptance": {},
+        "design_screen_passes": null,
+        "design_screen_scope": "Only the supplied provisional strain and acceptance quantities",
+        "analytical_screen": null,
+        "beam_rationale": null,
+        "analytical_numerical_comparison": null,
+        "manufacturing": {
+          "assumption": "Vertical solid tab under six-wall reviewed paths; layer bonding and printed recovery unknown.",
+          "local_solid_paths_established": null
+        },
+        "physical_limits": {
+          "material_calibrated": false,
+          "friction_modelled": false,
+          "printed_recovery_established": false,
+          "physically_validated": false
+        },
+        "numerical_confidence": {
+          "increment_sensitivity": "not_run",
+          "mesh_sensitivity": "not_run",
+          "contact_parameter_sensitivity": "not_run"
+        },
+        "contact_quality_ok": false,
+        "contact_engaged": true,
+        "contact_passage_established": false,
+        "passage_scope": "Sampled native contact, caller-defined free checkpoints and displacement envelopes; no continuous no-intersection proof",
+        "peak_actuation_force_by_driver_N": {
+          "lid": 5.133812609996431,
+          "pinch": 2.9079433696905266
+        },
+        "peak_directional_actuation_force_N": {
+          "lid": {
+            "forward": 5.133812609996431,
+            "reverse": 2.224173653114529
+          },
+          "pinch": {
+            "forward": 2.9079433696905266,
+            "reverse": 2.537653551157748
+          }
+        },
+        "elastic_return_error_mm": 3.7e-322,
+        "numerical_elastic_return_ok": true,
+        "max_penetration_mm": 0.03927935,
+        "penetration_ok": false,
+        "contact_free_checkpoints_ok": [
+          true,
+          true
+        ],
+        "displacement_envelope_ok": {
+          "free_tab": true
+        },
+        "historical_backend_identity": {
+          "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+          "mesh.py": "76e5dce0426281d886e2f060ac91c0fdcc0301e45c824e21f67cb1da7627402e",
+          "structural.py": "273b35760a5de75249d0cc5fa8ac5fad72cc92323a109dd603ff5f073b72dff6",
+          "worker.py": "0ef6dabab627afa51c9676a979e5005527554c3606899cbce2b7d2256b03a981"
         }
       },
       "peak_strain": 0.007723102267898511,
@@ -273,6 +612,7 @@
           "peak_penetration_mm": 0.09337617
         }
       },
+      "engineering_question": null,
       "peak_strain": 0.01230335868261703,
       "peak_strain_location_mm": [
         4.844342356615,
@@ -341,6 +681,7 @@
           "peak_penetration_mm": 0.04156584
         }
       },
+      "engineering_question": null,
       "peak_strain": 0.017691331036410206,
       "peak_strain_location_mm": [
         -3.4224100937304303,
@@ -409,6 +750,7 @@
           "peak_penetration_mm": 0.3787064
         }
       },
+      "engineering_question": null,
       "peak_strain": 0.007962698539931505,
       "peak_strain_location_mm": [
         -3.4224100937304303,
@@ -477,6 +819,7 @@
           "peak_penetration_mm": 0.111026
         }
       },
+      "engineering_question": null,
       "peak_strain": 0.01812648042154189,
       "peak_strain_location_mm": [
         -4.7818884059675,

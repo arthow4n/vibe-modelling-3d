@@ -232,6 +232,27 @@ replaying the compressed input. See [shared API documentation](../../physical_an
 for native setup and limitations. The closed inspection source is
 [inspect_assembled.py](inspect_assembled.py); it is not the bed layout.
 
+## Shared snap question
+
+[analyze.py](analyze.py) now states the local fixture through `SnapFitQuestion`:
+the original arm/root, cam translation, tip region, PETG assumption and contact
+limits are preserved. Seven object-owned case-construction calls are replaced
+by one question declaration. Shared code now handles contact/restraint/observation
+construction, passage/penetration/balance/return checks and bounded sensitivity
+planning. Geometry, guide-relief envelopes and acceptance remain object-owned.
+
+The generated [numerical summary](notes/numerical_summary.json) includes the
+machine answer and standard study: mesh and penalty comparisons remain stable,
+while peak force remains increment-sensitive at the stated ten-percent tolerance.
+The first increment comparison spans historical backend identities and is marked
+descriptive; the two finer increment runs share an identity and remain unstable.
+The new [native question-cycle run](notes/analysis/question_cycle/result.json)
+reproduces the retained baseline: 0.6114 N peak sliding force, 1.129% peak strain,
+0.002854 mm penetration, accepted balance and numerical elastic return.
+Signed closing/opening force histories remain in the result; the earlier force
+precision and enclosure/physical limitations above still apply. No print geometry,
+exports, process assumptions or physical print status changed in this migration.
+
 ## Attribution
 
 Primary language model for completion: **GPT-6.1 Sol**, reasoning effort **high**,
@@ -242,3 +263,7 @@ completed clearance/process review, result extraction, evidence and delivery.
 Harness/agent environment: **Codex shared-workspace agent**. Provider:
 **not separately exposed**. No sub-agents were used. The prior swatch's Gemini attribution remains
 with its existing object and is preserved.
+
+Engineering-question migration contributor: GPT-6 family (specific runtime variant
+and reasoning effort not exposed); Codex shared-workspace API agent; provider not
+separately exposed. No sub-agents. Historical model attribution above is preserved.

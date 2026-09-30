@@ -1,0 +1,351 @@
+{
+  "case": "whole_L_symmetry",
+  "status": "completed",
+  "completed": true,
+  "metrics": {
+    "max_displacement_mm": 1.819966,
+    "max_abs_principal_strain": 0.005323229319418888,
+    "max_strain_part": "plate",
+    "max_strain_element": 5790,
+    "max_strain_integration_point": 3,
+    "max_strain_element_centroid_mm": [
+      3.6304495364822387,
+      259.7716684322687,
+      3.8639749764043083
+    ],
+    "max_von_mises_MPa": 3.386367031744143,
+    "max_strain_by_part": {
+      "plate": 0.005323229319418888
+    },
+    "force_balance_residual_N": 5.96533787755155e-06,
+    "force_balance_relative": 2.6438578288346304e-07,
+    "max_force_balance_relative": 2.6438578288346304e-07,
+    "peak_reaction_force_N": {
+      "midspan_symmetry": 5.7500000034682586e-06,
+      "end_support": 22.56299876599998,
+      "lateral_anchor": 1.0000000010279564e-06
+    },
+    "observations": {
+      "midspan": {
+        "min_mm": [
+          0.0,
+          -0.03322247,
+          -1.819966
+        ],
+        "max_mm": [
+          0.0,
+          0.2611403,
+          -0.2034609
+        ],
+        "mean_mm": [
+          0.0,
+          0.04333355800901425,
+          -0.830079830960854
+        ]
+      },
+      "supported_end": {
+        "min_mm": [
+          -0.05656871,
+          0.008256711,
+          0.0
+        ],
+        "max_mm": [
+          0.03750429,
+          0.03385284,
+          0.0
+        ],
+        "mean_mm": [
+          -0.0037369050011284064,
+          0.01540784006614786,
+          0.0
+        ]
+      }
+    },
+    "peak_motion_force_N": {},
+    "strain_limits": {
+      "plate": null
+    },
+    "contact_detected": null,
+    "max_penetration_mm": 0,
+    "question": {
+      "operation_completed": true,
+      "solver_completed": true,
+      "evidence_method": "numerical",
+      "numerical_evidence_adequate": true,
+      "peak_actuation_force_N": null,
+      "peak_strain": 0.005323229319418888,
+      "peak_strain_location_mm": [
+        3.6304495364822387,
+        259.7716684322687,
+        3.8639749764043083
+      ],
+      "strain_location_kind": "undeformed element centroid of peak integration point",
+      "peak_von_mises_MPa": 3.386367031744143,
+      "deformation_mm": {
+        "midspan": {
+          "min_mm": [
+            0.0,
+            -0.03322247,
+            -1.819966
+          ],
+          "max_mm": [
+            0.0,
+            0.2611403,
+            -0.2034609
+          ],
+          "mean_mm": [
+            0.0,
+            0.04333355800901425,
+            -0.830079830960854
+          ]
+        },
+        "supported_end": {
+          "min_mm": [
+            -0.05656871,
+            0.008256711,
+            0.0
+          ],
+          "max_mm": [
+            0.03750429,
+            0.03385284,
+            0.0
+          ],
+          "mean_mm": [
+            -0.0037369050011284064,
+            0.01540784006614786,
+            0.0
+          ]
+        }
+      },
+      "max_displacement_mm": 1.819966,
+      "force_balance_ok": true,
+      "max_force_balance_relative": 2.6438578288346304e-07,
+      "force_balance_source": "native_summary",
+      "strain_screen_passes": null,
+      "acceptance": {},
+      "design_screen_passes": null,
+      "analytical_screen": null,
+      "beam_rationale": null,
+      "analytical_numerical_comparison": null,
+      "manufacturing": {
+        "assumption": "Effective homogeneous section assumption from the analytical record; actual lap, infill, warping and creep excluded.",
+        "local_solid_paths_established": null
+      },
+      "physical_limits": {
+        "material_calibrated": false,
+        "friction_modelled": false,
+        "printed_recovery_established": false,
+        "physically_validated": false
+      },
+      "numerical_confidence": {
+        "increment_sensitivity": "not_run",
+        "mesh_sensitivity": "not_run",
+        "contact_parameter_sensitivity": "not_run"
+      },
+      "structural_cross_check": {
+        "analytical_monolithic_sag_mm": 0.2340337811625085,
+        "numerical_mean_midspan_sag_mm": 0.830079830960854,
+        "numerical_to_analytical": 3.5468376694920924,
+        "supported_end_max_abs_z_mm": 0.0,
+        "peak_strain_location_mm": [
+          3.6304495364822387,
+          259.7716684322687,
+          3.8639749764043083
+        ],
+        "scope": "Half-span symmetry of actual continuous L-profile; joint compliance is excluded from both sides. Face loads approximate the existing point book and distributed plate loads.",
+        "order_and_support_response_agree": false
+      }
+    }
+  },
+  "history": [
+    {
+      "load_fraction": 1.0,
+      "max_displacement_mm": 1.819966,
+      "force_balance_residual_N": 5.96533787755155e-06,
+      "force_balance_relative": 2.6438578288346304e-07,
+      "max_abs_principal_strain": 0.005323229319418888,
+      "reactions_N": {
+        "midspan_symmetry": [
+          -5.7500000034682586e-06,
+          0.0,
+          0.0
+        ],
+        "end_support": [
+          0.0,
+          0.0,
+          22.56299876599998
+        ],
+        "lateral_anchor": [
+          0.0,
+          -1.0000000010279564e-06,
+          0.0
+        ]
+      },
+      "observations": {
+        "midspan": {
+          "min_mm": [
+            0.0,
+            -0.03322247,
+            -1.819966
+          ],
+          "max_mm": [
+            0.0,
+            0.2611403,
+            -0.2034609
+          ],
+          "mean_mm": [
+            0.0,
+            0.04333355800901425,
+            -0.830079830960854
+          ]
+        },
+        "supported_end": {
+          "min_mm": [
+            -0.05656871,
+            0.008256711,
+            0.0
+          ],
+          "max_mm": [
+            0.03750429,
+            0.03385284,
+            0.0
+          ],
+          "mean_mm": [
+            -0.0037369050011284064,
+            0.01540784006614786,
+            0.0
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    }
+  ],
+  "assumptions": [
+    "Units mm, N, MPa. Isotropic homogeneous linear-elastic material; geometric nonlinearity=False",
+    "No printed infill/layer failure, plastic set, creep, fatigue, or friction prediction.",
+    "Strain is maximum absolute principal mechanical strain at integration points, over all saved increments.",
+    "Frictionless contact. Surface-to-surface penalty pairing and Mortar segmentation are fixed within each increment; node-to-surface penalty re-pairs through iteration eight then freezes. Mortar contact-field extraction is unqualified. Completion alone does not prove engagement.",
+    "Loads ramp over normalized time 0..1; translations follow their recorded progress curves or a linear ramp.",
+    "Peak values are sampled at converged increments, not continuous extrema."
+  ],
+  "warnings": [],
+  "errors": [],
+  "provenance": {
+    "backend": "CalculiX",
+    "version": "unknown",
+    "gmsh": "4.15.2",
+    "cadquery": "2.7.0",
+    "python": "3.12.14",
+    "input_sha256": "aa79fdd66379a405c0fcf8230659efba298087d8ee0d77db22b8320a1f3d64d8",
+    "case_sha256": "07a3563b63e5fc12b1c5e399ae7c28030976a0357bc2f78bdc186d48faea19d7",
+    "backend_sha256": {
+      "febio_worker.py": "e21170224b7292f877ae7bfba4040cc260d5ec1b003682fdce1e9293ca4c0de6",
+      "contact_diagnostics.py": "5f03341a9cdba8ca01b9c3da6f2fcc397237af403779686bb8cc8f8011b3b1b1",
+      "febio.py": "ed73e0cefb609408ca21aa1af8acb4ad9c2ddeda97f006b9971d62febcc4e956",
+      "tet10_strain.py": "0eb4b4a1ec129adab94015e73126a650c3e62a281dae143b645b2c1953c1406a",
+      "febio_diagnostics.py": "b24d83c8b6dbf04396b2c50d69b9403a73dc2f695a240ef73c84c4e415584255",
+      "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+      "mesh.py": "76e5dce0426281d886e2f060ac91c0fdcc0301e45c824e21f67cb1da7627402e",
+      "structural.py": "8339757bd3dad1a56be0dc17cd482c6d384daea2c2174d4577958b97f97ee7cf",
+      "worker.py": "7c34bc88245e80b240feb45e4197309ef9e5b41762c7c98d5bfc1be991841350"
+    },
+    "command": [
+      "/home/hevar/.local/opt/physical-analysis/usr/bin/ccx",
+      "-i",
+      "analysis"
+    ],
+    "postprocess_only": false,
+    "mesh": {
+      "plate": {
+        "nodes": 10974,
+        "elements": 5436,
+        "min_jacobian": 5.62452014624081
+      }
+    },
+    "regions": {
+      "midspan_symmetry": {
+        "part": "plate",
+        "node_count": 281,
+        "displacement_mm": [
+          0,
+          null,
+          null
+        ]
+      },
+      "end_support": {
+        "part": "plate",
+        "node_count": 257,
+        "displacement_mm": [
+          null,
+          null,
+          0
+        ]
+      },
+      "lateral_anchor": {
+        "part": "plate",
+        "node_count": 3,
+        "displacement_mm": [
+          null,
+          0,
+          null
+        ]
+      },
+      "@observe:midspan": {
+        "part": "plate",
+        "node_count": 281,
+        "displacement_mm": [
+          null,
+          null,
+          null
+        ]
+      },
+      "@observe:supported_end": {
+        "part": "plate",
+        "node_count": 257,
+        "displacement_mm": [
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "loads": [
+      {
+        "part": "plate",
+        "area_mm2": 2975.894886397771,
+        "force_N": [
+          0.0,
+          0.0,
+          -14.715
+        ]
+      },
+      {
+        "part": "plate",
+        "area_mm2": 47916.00000000001,
+        "force_N": [
+          0.0,
+          0.0,
+          -7.848000000000001
+        ]
+      }
+    ],
+    "contacts": []
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "analysis.inp.gz",
+    "run_metadata": "run_metadata.json",
+    "solver_log": "solver.log.gz",
+    "worker_log": "worker.log.gz",
+    "increments": "analysis.sta",
+    "regions": "regions.json.gz",
+    "fixture_geometry": [
+      "part_0.brep.gz"
+    ],
+    "raw_fields_retained": false,
+    "reproduce": "Decompress analysis.inp.gz in a new directory and run ccx -i analysis in the configured native environment to regenerate raw solver fields. Use the model analysis source to rebuild the current case; retained fixtures may be historical."
+  }
+}

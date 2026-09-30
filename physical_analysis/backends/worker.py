@@ -214,7 +214,7 @@ def tensor(values):
 
 def summarize(case, frames, meshes, nodes, elements, selections):
     history=[]; part_for_element={e:name for name,m in meshes.items() for e in m['elements']}
-    peak_strain=(-1,None,None,None); peak_stress=0
+    peak_strain=(-1,None,None,None); peak_stress=(-1,None,None,None)
     part_strains={p['name']:0.0 for p in case['parts']}
     for time,frame in sorted(frames.items()) if isinstance(frames,dict) else frames:
         if case['contacts'] and any(field not in frame for field in ('relative contact displacement','contact stress')):
@@ -265,10 +265,14 @@ def summarize(case, frames, meshes, nodes, elements, selections):
         if frame_strain>peak_strain[0]:
             row=strain_rows[peak]
             peak_strain=(frame_strain,part_for_element[int(row[0])],int(row[0]),int(row[1]))
-        stress=np.asarray(frame['stresses'])[:,2:]
+        stress_rows=np.asarray(frame['stresses'])
+        stress=stress_rows[:,2:]
         vm=np.sqrt(((stress[:,0]-stress[:,1])**2+(stress[:,1]-stress[:,2])**2+
                     (stress[:,2]-stress[:,0])**2)/2+3*np.sum(stress[:,3:]**2,axis=1))
-        peak_stress=max(peak_stress,float(vm.max()))
+        stress_peak=int(np.argmax(vm))
+        if float(vm[stress_peak])>peak_stress[0]:
+            row=stress_rows[stress_peak]
+            peak_stress=(float(vm[stress_peak]),part_for_element[int(row[0])],int(row[0]),int(row[1]))
         prescribed={(n,d) for sel in selections.values() for n in sel['nodes']
                     for d,v in enumerate(sel['displacement_mm']) if v is not None}
         net=np.zeros(3)
@@ -297,7 +301,10 @@ def summarize(case, frames, meshes, nodes, elements, selections):
         max_abs_principal_strain=peak_strain[0],max_strain_part=peak_strain[1],
         max_strain_element=peak_strain[2],max_strain_integration_point=peak_strain[3],
         max_strain_element_centroid_mm=np.mean([nodes[n] for n in elements[peak_strain[2]][:4]],axis=0).tolist(),
-        max_von_mises_MPa=peak_stress, max_strain_by_part=part_strains, force_balance_residual_N=residual,
+        max_von_mises_MPa=peak_stress[0], max_stress_part=peak_stress[1],
+        max_stress_element=peak_stress[2],max_stress_integration_point=peak_stress[3],
+        max_stress_element_centroid_mm=np.mean([nodes[n] for n in elements[peak_stress[2]][:4]],axis=0).tolist(),
+        max_strain_by_part=part_strains, force_balance_residual_N=residual,
         force_balance_relative=residual/ref,
         max_force_balance_relative=max(h['force_balance_relative'] for h in history),
         peak_reaction_force_N={name:max(float(np.linalg.norm(h['reactions_N'][name])) for h in history)

@@ -9,6 +9,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from analyze import snap_question
 
 ROOT=Path(__file__).resolve().parent
 STAGES=(('close',0,.3),('press',.3,.45),('initial_lift',.45,.55),
@@ -23,6 +24,14 @@ def summarize(labels):
         setup=dict(mesh_mm=case['parts'][0]['mesh_size_mm'],
             increment=case['max_increment'],penalty_N_mm3=case['contacts'][0]['penalty_N_mm3'],
             discretization=case['contacts'][0]['discretization'])
+        engineering_question=None
+        if label.startswith('window_lead'):
+            try:
+                engineering_question=snap_question(mesh=setup['mesh_mm'],penalty=setup['penalty_N_mm3'],
+                    increment=setup['increment']).read_evidence(ROOT/'notes/analysis'/label).metrics['question']
+            except ValueError as exc:
+                engineering_question=dict(evidence_reuse_rejected=str(exc),
+                    numerical_evidence_adequate=False,contact_passage_established=False)
         h=r['history']
         if not h:
             summary[label]=dict(status=r['status'],completed=r['completed'],setup=setup,errors=r['errors'],history_frames=0)
@@ -43,6 +52,7 @@ def summarize(labels):
         recovery=max(abs(a) for k in ('min_mm','max_mm') for a in end[k])
         m=r['metrics']
         summary[label]=dict(status=r['status'],completed=r['completed'],setup=setup,stages=stages,
+            engineering_question=engineering_question,
             peak_strain=m['max_abs_principal_strain'],peak_strain_location_mm=m['max_strain_element_centroid_mm'],
             peak_penetration_mm=m['max_penetration_mm'],force_balance_relative=m['max_force_balance_relative'],
             free_tab_envelope=envelope,return_error_mm=recovery,

@@ -42,4 +42,5 @@ def measure():
     (ROOT/'notes/sections.json').write_text(json.dumps(report,indent=2)+'\n')
     print({name:d['minimum_section'] for name,d in data.items()});print(surfaces)
     return cq.Compound.makeCompound([a.val(),b.val()])
-result=measure()
+if __name__ in ('__main__','__cqgi__'):
+    result=measure()
