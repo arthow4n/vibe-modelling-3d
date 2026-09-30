@@ -178,6 +178,12 @@ Before solving, name the design decision, relevant quantities and acceptable
 uncertainty. Separate passage, strain, recovery and operating-force targets;
 they need not require the same precision. Use the cheapest analytical force
 screen first when applicable, including consequential guide/fit extremes.
+Choose residual, travel-resolution and sensitivity tolerances around the accuracy
+that could change the next action. Benchmark identities can need much tighter
+accuracy than a first-print force estimate. Treat tool qualification, failure
+diagnosis and product acceptance as distinct purposes; state which one a study
+serves. Extra decimal places do not remove uncertainty in material, friction or
+fixture assumptions.
 
 Qualify a new formulation/backend on a known open gap, contact onset,
 compression and separation/return before interpreting the object's operation.
@@ -220,7 +226,21 @@ refinement. A small absolute force change may leave the same first-print decisio
 while failing a percentage criterion; record the failure and conditional force
 range, rather than renaming it convergence. Stop when additional precision cannot
 change the next action, keeping unresolved numerical limits separate from
-material/friction uncertainty. Existing `studies.compare_results` reads completed
+material/friction uncertainty. Identify numerical quality screens, provisional
+design targets and evidence-backed physical limits separately: a penetration
+screen is not automatically a measured physical failure boundary. Do not relax
+a screen to make a run pass; document why a revised threshold is sufficient for
+the decision and recheck affected evidence.
+
+A saved frame that rejects the current route can justify stopping before the
+whole path finishes. Continue only when the remaining solve or refinement could
+answer a named diagnostic question. Retain the witness and stop reason; deliberate
+backoff is not a native convergence-limit failure. Report useful tool/debugging
+findings separately from confidence in the object's operation. Established
+benchmarks should run automatically when applicable, without repeating manual
+review of already qualified behavior.
+
+Existing `studies.compare_results` reads completed
 results without rerunning a solver. Local-fixture completion does not establish
 whole-assembly compliance or collision clearance.
 

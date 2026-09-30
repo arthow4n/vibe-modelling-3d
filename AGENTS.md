@@ -358,6 +358,11 @@ status alone is not visual evidence.
 
 ## Improve shared tools from concrete needs
 
+Requests to improve the "workflow" or "instructions" include relevant repository
+rules, skills and shared-tool documentation. Choose the source that owns the
+guidance; link to it where needed rather than duplicating the lesson or requiring
+the user to identify the right file.
+
 Agents are welcome to autonomously improve the repository's shared APIs, tools
 and workflow while completing an authorized task. This includes the evolving
 physical-analysis API; its current capabilities are a foundation, not a frozen
@@ -384,6 +389,15 @@ exercise it on the motivating task, validate the new behavior proportionately
 contract and limits. Retain explicit unsupported/failure outcomes; solver
 completion must not become a claim of physical validation. Feed useful fixes
 back into the shared tool rather than copying solver plumbing into each model.
+
+Before numerical tuning, choose accuracy and stopping rules against the physical
+decision using the shared [study guidance](physical_analysis/README.md#study-sequence).
+Distinguish tool qualification and failure diagnosis from product acceptance,
+and numerical quality screens from evidence-backed physical limits. More digits
+do not compensate for uncertain material or fixture assumptions. Continue a
+rejected route only to answer a named diagnostic question; record deliberate
+investigation stops separately from native convergence failures. Useful shared
+improvements do not themselves validate the object.
 
 When numerical analysis fails, distinguish invalid fixtures or generated input,
 solver convergence failure, completed solves rejected by quality checks, and
