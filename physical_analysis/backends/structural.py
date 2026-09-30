@@ -79,12 +79,29 @@ def run_worker(directory, module, environment, timeout_seconds, result, *,
 class CalculixBackend:
     backend_name = 'CalculiX'
     worker_module = 'physical_analysis.backends.worker'
+    meshing_assumption = 'Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.'
 
     def environment(self):
         return runtime_environment()
 
     def configure_request(self, request):
         pass
+
+    def reuse_mesh(self, request, directory, source):
+        """Backend-owned input identity; stable route keeps its existing deck guard."""
+        previous=json.loads((source/'case.json').read_text())
+        provenance=json.loads((source/'result.json').read_text())['provenance']
+        identity={key:hashlib.sha256((source/name).read_bytes()).hexdigest()
+            for key,name in (('input_sha256','analysis.inp'),('case_sha256','case.json'))}
+        if any(provenance.get(key)!=value for key,value in identity.items()):
+            raise ValueError('Mesh source identity differs from its result provenance')
+        signature=lambda parts:[(p['name'],p['sha256'],p['mesh_size_mm']) for p in parts]
+        if signature(previous['parts'])!=signature(request['parts']):
+            raise ValueError('Mesh source geometry or mesh settings differ from the new case')
+        shutil.copyfile(source/'analysis.inp',directory/'mesh_source.inp')
+        shutil.copyfile(source/'case.json',directory/'mesh_source_case.json')
+        request['mesh_reuse']=dict(**identity,input='mesh_source.inp',case='mesh_source_case.json',
+                                  mesh=provenance.get('mesh',{}))
 
     def prepare_request(self, case, directory):
         """Canonical physical intent and geometry snapshots, shared with evidence checks."""
@@ -122,7 +139,7 @@ class CalculixBackend:
         result = AnalysisResult(case.name, 'preparing', assumptions=[
             'mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.',
             'Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.',
-            'Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.',
+            self.meshing_assumption,
             'Frictionless contact; enforcement and pairing depend on backend/formulation.',
             'Numerical completion is not physical validation or a load rating.'])
         result.artifacts = {'directory': str(directory), 'result': 'result.json'}
@@ -130,20 +147,7 @@ class CalculixBackend:
         try:
             request = self.prepare_request(case, directory)
             if mesh_from is not None:
-                source=Path(mesh_from).resolve()
-                previous=json.loads((source/'case.json').read_text())
-                provenance=json.loads((source/'result.json').read_text())['provenance']
-                identity={key:hashlib.sha256((source/name).read_bytes()).hexdigest()
-                    for key,name in (('input_sha256','analysis.inp'),('case_sha256','case.json'))}
-                if any(provenance.get(key)!=value for key,value in identity.items()):
-                    raise ValueError('Mesh source identity differs from its result provenance')
-                signature=lambda parts:[(p['name'],p['sha256'],p['mesh_size_mm']) for p in parts]
-                if signature(previous['parts'])!=signature(request['parts']):
-                    raise ValueError('Mesh source geometry or mesh settings differ from the new case')
-                shutil.copyfile(source/'analysis.inp',directory/'mesh_source.inp')
-                shutil.copyfile(source/'case.json',directory/'mesh_source_case.json')
-                request['mesh_reuse']=dict(**identity,input='mesh_source.inp',case='mesh_source_case.json',
-                                          mesh=provenance.get('mesh',{}))
+                self.reuse_mesh(request,directory,Path(mesh_from).resolve())
             (directory/'case.json').write_text(json.dumps(request, indent=2, allow_nan=False)+'\n')
             result.artifacts['case'] = 'case.json'
             from ..motion import rigid_driver_clearance

@@ -1,0 +1,329 @@
+{
+  "input_sha256": "548bb92144f0ebb564b44641188dd2b2fec22025ada712a85f737ba049593a7f",
+  "case_sha256": "8e07f06be6dfda9bd27c38ab70449a84b308ad1c98c8895d91a13b80b932472e",
+  "mesh_sha256": "f41f3ece84df5fc1b11219b364a8216f638acb13ecd11198ed63b425e8f994c4",
+  "result_status": "timeout",
+  "frames": [
+    {
+      "load_fraction": 0.125,
+      "native_ipc": {
+        "force_active": true,
+        "maximum_vertex_force_N": 0.23564225679259193,
+        "native_gap_mm": null,
+        "evidence": "Accepted collision-surface field from IPC; no native penetration bound exposed by this extractor"
+      },
+      "independent_mesh": {
+        "body_cam": {
+          "intersection_detected": true,
+          "triangle_intersection_witnesses": [
+            {
+              "deformable_triangle": 546,
+              "obstacle_triangle": 1066,
+              "deformable_points_mm": [
+                [
+                  -32.45433555670656,
+                  29.279586690248944,
+                  2.2296748334830347
+                ],
+                [
+                  -32.420983598714734,
+                  29.251384760386888,
+                  1.6111395495493726
+                ],
+                [
+                  -32.9277562843045,
+                  29.59026692655029,
+                  1.8776224066791725
+                ]
+              ],
+              "obstacle_points_mm": [
+                [
+                  -33.04284098790694,
+                  29.638407375581316,
+                  1.8979387154619818
+                ],
+                [
+                  -32.806884610388785,
+                  29.539704173007937,
+                  1.7502601830325675
+                ],
+                [
+                  -32.806866152801135,
+                  29.539697584068914,
+                  2.045611372542865
+                ]
+              ]
+            },
+            {
+              "deformable_triangle": 547,
+              "obstacle_triangle": 1066,
+              "deformable_points_mm": [
+                [
+                  -32.9277562843045,
+                  29.59026692655029,
+                  1.8776224066791725
+                ],
+                [
+                  -32.420983598714734,
+                  29.251384760386888,
+                  1.6111395495493726
+                ],
+                [
+                  -32.74878287631933,
+                  29.491752019985977,
+                  1.2605552173275716
+                ]
+              ],
+              "obstacle_points_mm": [
+                [
+                  -33.04284098790694,
+                  29.638407375581316,
+                  1.8979387154619818
+                ],
+                [
+                  -32.806884610388785,
+                  29.539704173007937,
+                  1.7502601830325675
+                ],
+                [
+                  -32.806866152801135,
+                  29.539697584068914,
+                  2.045611372542865
+                ]
+              ]
+            },
+            {
+              "deformable_triangle": 582,
+              "obstacle_triangle": 1066,
+              "deformable_points_mm": [
+                [
+                  -32.89567817341194,
+                  29.573504787267062,
+                  2.59558373084823
+                ],
+                [
+                  -32.45433555670656,
+                  29.279586690248944,
+                  2.2296748334830347
+                ],
+                [
+                  -32.9277562843045,
+                  29.59026692655029,
+                  1.8776224066791725
+                ]
+              ],
+              "obstacle_points_mm": [
+                [
+                  -33.04284098790694,
+                  29.638407375581316,
+                  1.8979387154619818
+                ],
+                [
+                  -32.806884610388785,
+                  29.539704173007937,
+                  1.7502601830325675
+                ],
+                [
+                  -32.806866152801135,
+                  29.539697584068914,
+                  2.045611372542865
+                ]
+              ]
+            },
+            {
+              "deformable_triangle": 584,
+              "obstacle_triangle": 1066,
+              "deformable_points_mm": [
+                [
+                  -32.89567817341194,
+                  29.573504787267062,
+                  2.59558373084823
+                ],
+                [
+                  -32.9277562843045,
+                  29.59026692655029,
+                  1.8776224066791725
+                ],
+                [
+                  -33.33327747697575,
+                  29.748349630547175,
+                  2.1830631545691745
+                ]
+              ],
+              "obstacle_points_mm": [
+                [
+                  -33.04284098790694,
+                  29.638407375581316,
+                  1.8979387154619818
+                ],
+                [
+                  -32.806884610388785,
+                  29.539704173007937,
+                  1.7502601830325675
+                ],
+                [
+                  -32.806866152801135,
+                  29.539697584068914,
+                  2.045611372542865
+                ]
+              ]
+            },
+            {
+              "deformable_triangle": 665,
+              "obstacle_triangle": 1066,
+              "deformable_points_mm": [
+                [
+                  -33.23504016764656,
+                  29.71822988768904,
+                  1.2036109435490112
+                ],
+                [
+                  -33.503310985319196,
+                  29.79102032863563,
+                  1.7360468059110996
+                ],
+                [
+                  -32.9277562843045,
+                  29.59026692655029,
+                  1.8776224066791725
+                ]
+              ],
+              "obstacle_points_mm": [
+                [
+                  -33.04284098790694,
+                  29.638407375581316,
+                  1.8979387154619818
+                ],
+                [
+                  -32.806884610388785,
+                  29.539704173007937,
+                  1.7502601830325675
+                ],
+                [
+                  -32.806866152801135,
+                  29.539697584068914,
+                  2.045611372542865
+                ]
+              ]
+            },
+            {
+              "deformable_triangle": 666,
+              "obstacle_triangle": 1066,
+              "deformable_points_mm": [
+                [
+                  -33.23504016764656,
+                  29.71822988768904,
+                  1.2036109435490112
+                ],
+                [
+                  -32.9277562843045,
+                  29.59026692655029,
+                  1.8776224066791725
+                ],
+                [
+                  -32.74878287631933,
+                  29.491752019985977,
+                  1.2605552173275716
+                ]
+              ],
+              "obstacle_points_mm": [
+                [
+                  -33.04284098790694,
+                  29.638407375581316,
+                  1.8979387154619818
+                ],
+                [
+                  -32.806884610388785,
+                  29.539704173007937,
+                  1.7502601830325675
+                ],
+                [
+                  -32.806866152801135,
+                  29.539697584068914,
+                  2.045611372542865
+                ]
+              ]
+            },
+            {
+              "deformable_triangle": 668,
+              "obstacle_triangle": 1066,
+              "deformable_points_mm": [
+                [
+                  -32.9277562843045,
+                  29.59026692655029,
+                  1.8776224066791725
+                ],
+                [
+                  -33.503310985319196,
+                  29.79102032863563,
+                  1.7360468059110996
+                ],
+                [
+                  -33.33327747697575,
+                  29.748349630547175,
+                  2.1830631545691745
+                ]
+              ],
+              "obstacle_points_mm": [
+                [
+                  -33.04284098790694,
+                  29.638407375581316,
+                  1.8979387154619818
+                ],
+                [
+                  -32.806884610388785,
+                  29.539704173007937,
+                  1.7502601830325675
+                ],
+                [
+                  -32.806866152801135,
+                  29.539697584068914,
+                  2.045611372542865
+                ]
+              ]
+            }
+          ],
+          "contained_vertex_or_centroid_count": 1,
+          "obstacle_surface_closed": true,
+          "triangle_pairs_tested": 430,
+          "search_distance_mm": 0.001,
+          "minimum_distance_mm": 0.0,
+          "distance_lower_bound_mm": 0.0,
+          "scope": "All straight-triangle pairs with overlapping expanded AABBs; closed-obstacle vertex/centroid containment. Touching counts as intersection. Bounded distance search, accepted states only; no exact CAD or continuous-path proof."
+        }
+      },
+      "independent_native_rest_mesh": {
+        "body_cam": {
+          "intersection_detected": false,
+          "triangle_intersection_witnesses": [],
+          "contained_vertex_or_centroid_count": 0,
+          "obstacle_surface_closed": true,
+          "triangle_pairs_tested": 430,
+          "search_distance_mm": 0.001,
+          "minimum_distance_mm": 1.2469664130551273e-07,
+          "distance_lower_bound_mm": 1.2469664130551273e-07,
+          "scope": "All straight-triangle pairs with overlapping expanded AABBs; closed-obstacle vertex/centroid containment. Touching counts as intersection. Bounded distance search, accepted states only; no exact CAD or continuous-path proof."
+        }
+      },
+      "native_rest_mapping": {
+        "maximum_rest_coordinate_shift_mm": 2.0571937921705297e-06,
+        "legacy_single_precision_input": true,
+        "qualification_limit": "Version 1 conversion invalidates unqualified input-mesh/contact comparisons; retain both geometries"
+      },
+      "sampled_rigid_CAD": {
+        "body_cam": {
+          "min_sampled_signed_clearance_mm": -0.0034082577618701373,
+          "maximum_sampled_inside_depth_mm": 0.0034082577618701373,
+          "worst_sample_index": 103,
+          "worst_sample_point_mm": [
+            -32.9277562843045,
+            29.59026692655029,
+            1.8776224066791725
+          ]
+        }
+      },
+      "selected_CAD_sample_count": 434
+    }
+  ],
+  "limits": "All numerical surface triangle pairs checked independently; exact-CAD comparison samples selected slave vertices and centroids only. CAD samples are not a global proof. CAD solids include faces intentionally omitted from an open obstacle patch: interpret witnesses against the recorded contact selection. Accepted saved states, not continuous-path proof; no completion/status changes."
+}

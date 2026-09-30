@@ -1,0 +1,4 @@
+{
+  "reason": "Stop after more than 100 AL Newton iterations without first accepted contact frame; diagnose mass-weighted obstacle constraint enforcement with a fixed-mesh weight control.",
+  "kind": "deliberate diagnostic stop"
+}

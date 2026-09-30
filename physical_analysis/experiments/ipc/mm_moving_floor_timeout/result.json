@@ -1,0 +1,77 @@
+{
+  "case": "ipc_compression",
+  "status": "timeout",
+  "completed": false,
+  "metrics": {},
+  "history": [],
+  "assumptions": [
+    "mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.",
+    "Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.",
+    "Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.",
+    "Frictionless contact; enforcement and pairing depend on backend/formulation.",
+    "Numerical completion is not physical validation or a load rating."
+  ],
+  "warnings": [],
+  "errors": [
+    "Analysis exceeded 180 seconds; worker and solver stopped"
+  ],
+  "provenance": {
+    "backend": "PolyFEM-IPC-experimental",
+    "case_sha256": "1d8ef7888cd000d666440b6fd46c48dd3cb187c3dbdfb5c718108a2bd82eae60",
+    "backend_sha256": "3e08dd75eb1525bc89d248f773377348a4fcee4ecc5e228572de059e20f625c6",
+    "executable": "/tmp/polyfem-docker-native/PolyFEM_bin",
+    "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da",
+    "polyfem_commit": "591b08bd5e115bdefec7e2998e98f5b56bc1367e",
+    "ipc_settings": {
+      "activation_distance_mm": 0.001,
+      "obstacle_mesh_size_mm": null,
+      "gradient_tolerance_N": 1e-06,
+      "max_iterations": 200,
+      "initial_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_system": "mm_N_MPa",
+      "deformable": "block"
+    },
+    "input_sha256": "9b659049943150cadc2b12bbb50c4fee3433d689345f1b788ea74caeb6d35bd1",
+    "mesh_sha256": "371b105868e0cddf37c8f1e6fe6b0b3b2d5f0838debc26798ba4f1bd957a11c4",
+    "mesh_files_sha256": {
+      "part_0.mesh": "5c961b59a6d11b4a69fa7d63b8c9b371e37d2122bf52411c429dd1813f61c0fd",
+      "part_1.obj": "60226aac6c26f6762cf56a7d16a772d36417e3a9b11742d5f1b90fa020fa1578"
+    },
+    "geometry_sha256": {
+      "block": "df00b228a026ffc1b7bfb3c57ea2fb379c130d99133897184302dcf0fb4d7d92",
+      "floor": "2d4cf7001b95983909ddc90208e1794a8d37c934aeee79e795979138431630b6"
+    },
+    "unit_mapping": {
+      "length_mm_to_native": 1,
+      "stress_MPa_to_native": 1,
+      "force_N_to_native": 1
+    },
+    "formulation": "P1 SaintVenant, time.quasistatic=true",
+    "versions": {
+      "python": "3.12.14",
+      "gmsh": "4.15.2"
+    }
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "scene.json.gz",
+    "run_metadata": "run_metadata.json",
+    "solver_log": "solver.log.gz",
+    "worker_log": "worker.log.gz",
+    "fixture_geometry": [
+      "part_0.brep.gz",
+      "part_1.brep.gz"
+    ],
+    "mesh": "mesh.json.gz",
+    "numerical_meshes": [
+      "part_0.mesh.gz",
+      "part_1.obj.gz"
+    ],
+    "raw_fields_retained": false,
+    "reproduce": "Decompress scene.json, *.mesh and *.obj into a new directory; run the recorded POLYFEM_COMMAND --json scene.json --max_threads 1. SI meshes/materials; quasi-static, frictionless SaintVenant elasticity. Native VTU fields are required for independent recovery/inspection."
+  }
+}

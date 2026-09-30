@@ -9,6 +9,12 @@ joint/dynamics, plasticity or printed-material simulator.
 
 ## Setup
 
+An [optional external PolyFEM/IPC investigation](backends/polyfem.md) targets
+finite-edge contact where geometric nonintersection affects the answer. It has
+qualified simple contact/coupling cases but has not reproduced complete sliding
+passage or tested lift-off. It remains isolated from ordinary engineering-question
+selection; see the [checkpoint decision](experiments/ipc/README.md).
+
 `uv sync --locked` installs the editable Python package and pinned Gmsh binding.
 Install CalculiX and Gmsh's native library dependencies on the host, for example
 on Ubuntu 24.04: `sudo apt install calculix-ccx libxft2 libglu1-mesa`.

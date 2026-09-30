@@ -1,0 +1,59 @@
+{
+  "backend": "PolyFEM-IPC-experimental",
+  "case_sha256": "313ba2baefba0f78301e88ddebb313ea6d9c60ea4f88943830f9725a5f183f1d",
+  "backend_sha256": "fa96bae47fccb3577faac409bc224b409aad32c6c94ab38ede5edbc2119e55fa",
+  "executable": "/home/hevar/.local/opt/polyfem-ipc/PolyFEM_bin",
+  "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da",
+  "polyfem_commit": "591b08bd5e115bdefec7e2998e98f5b56bc1367e",
+  "ipc_settings": {
+    "activation_distance_mm": 5e-05,
+    "obstacle_mesh_size_mm": null,
+    "gradient_tolerance_N": 1e-06,
+    "max_iterations": 200,
+    "initial_offset_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "unit_system": "mm_N_MPa",
+    "ccd_tolerance_mm": 1e-06,
+    "constraint_initial_weight": 1000000000000.0,
+    "convergent_barrier": true,
+    "deformable": "block"
+  },
+  "mesh_reuse": {
+    "input_sha256": "f0200b0d1075b95a32f17e7e4dd81c6e39bfeb1de5d1a03fdda88b73d2857efb",
+    "mesh_sha256": "e889b51b59c74b5322a77b2e21d0d9ee613acfdeb1b9397f962336408a56119a",
+    "case_sha256": "07f558394d49edfd792349fed4d12d971bd114a58d38e4f901a8a4f479c839b0",
+    "input": "mesh_source.json",
+    "case": "mesh_source_case.json"
+  },
+  "input_sha256": "e915ed58d80a8bd18130e8c151a61cb25b85696926d2084ee46f349cb900be6b",
+  "mesh_sha256": "e889b51b59c74b5322a77b2e21d0d9ee613acfdeb1b9397f962336408a56119a",
+  "mesh_files_sha256": {
+    "part_0.mesh": "5c961b59a6d11b4a69fa7d63b8c9b371e37d2122bf52411c429dd1813f61c0fd",
+    "part_1.obj": "60226aac6c26f6762cf56a7d16a772d36417e3a9b11742d5f1b90fa020fa1578"
+  },
+  "geometry_sha256": {
+    "block": "df00b228a026ffc1b7bfb3c57ea2fb379c130d99133897184302dcf0fb4d7d92",
+    "floor": "2d4cf7001b95983909ddc90208e1794a8d37c934aeee79e795979138431630b6"
+  },
+  "unit_mapping": {
+    "length_mm_to_native": 1,
+    "stress_MPa_to_native": 1,
+    "force_N_to_native": 1
+  },
+  "formulation": "P1 SaintVenant, time.quasistatic=true",
+  "versions": {
+    "python": "3.12.14",
+    "gmsh": "4.15.2"
+  },
+  "command": [
+    "/home/hevar/.local/opt/polyfem-ipc/PolyFEM_bin",
+    "--json",
+    "scene.json",
+    "--max_threads",
+    "1"
+  ],
+  "native_exit_code": 0
+}

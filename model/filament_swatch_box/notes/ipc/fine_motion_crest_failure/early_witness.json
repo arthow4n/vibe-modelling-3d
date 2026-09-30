@@ -1,0 +1,115 @@
+{
+  "input_sha256": "d7c3fd27c0877d6a9bf8e7fc07cf610e94d498a20ce77917adf611f1f8c75a65",
+  "case_sha256": "8ecc3a6cddf18512f83686aa7199cc6c29a7f13a7df90c557ae8485e7f32f92b",
+  "mesh_sha256": "e7e61479004ae61580d01467a4cb1c19aa3470e429cfda3e64995cad347a6241",
+  "result_status": "no_final_result",
+  "frames": [
+    {
+      "load_fraction": 0.125,
+      "native_ipc": {
+        "force_active": true,
+        "maximum_vertex_force_N": 0.23443335261650505,
+        "native_gap_mm": null,
+        "evidence": "Accepted collision-surface field from IPC; no native penetration bound exposed by this extractor"
+      },
+      "independent_mesh": {
+        "body_cam": {
+          "intersection_detected": false,
+          "triangle_intersection_witnesses": [],
+          "contained_vertex_or_centroid_count": 0,
+          "obstacle_surface_closed": true,
+          "triangle_pairs_tested": 430,
+          "search_distance_mm": 0.001,
+          "minimum_distance_mm": 2.0056355119052373e-06,
+          "distance_lower_bound_mm": 2.0056355119052373e-06,
+          "scope": "All straight-triangle pairs with overlapping expanded AABBs; closed-obstacle vertex/centroid containment. Touching counts as intersection. Bounded distance search, accepted states only; no exact CAD or continuous-path proof."
+        }
+      },
+      "independent_native_rest_mesh": {
+        "body_cam": {
+          "intersection_detected": false,
+          "triangle_intersection_witnesses": [],
+          "contained_vertex_or_centroid_count": 0,
+          "obstacle_surface_closed": true,
+          "triangle_pairs_tested": 430,
+          "search_distance_mm": 0.001,
+          "minimum_distance_mm": 2.0056355119052373e-06,
+          "distance_lower_bound_mm": 2.0056355119052373e-06,
+          "scope": "All straight-triangle pairs with overlapping expanded AABBs; closed-obstacle vertex/centroid containment. Touching counts as intersection. Bounded distance search, accepted states only; no exact CAD or continuous-path proof."
+        }
+      },
+      "native_rest_mapping": {
+        "maximum_rest_coordinate_shift_mm": 0.0,
+        "legacy_single_precision_input": false,
+        "qualification_limit": null
+      },
+      "sampled_rigid_CAD": {
+        "body_cam": {
+          "min_sampled_signed_clearance_mm": -0.0034023088208790446,
+          "maximum_sampled_inside_depth_mm": 0.0034023088208790446,
+          "worst_sample_index": 103,
+          "worst_sample_point_mm": [
+            -32.927757690596316,
+            29.590261064988788,
+            1.8776268733911148
+          ]
+        }
+      },
+      "selected_CAD_sample_count": 434
+    },
+    {
+      "load_fraction": 0.2,
+      "native_ipc": {
+        "force_active": true,
+        "maximum_vertex_force_N": 0.6535458779294326,
+        "native_gap_mm": null,
+        "evidence": "Accepted collision-surface field from IPC; no native penetration bound exposed by this extractor"
+      },
+      "independent_mesh": {
+        "body_cam": {
+          "intersection_detected": false,
+          "triangle_intersection_witnesses": [],
+          "contained_vertex_or_centroid_count": 0,
+          "obstacle_surface_closed": true,
+          "triangle_pairs_tested": 281,
+          "search_distance_mm": 0.001,
+          "minimum_distance_mm": 1.294569229889689e-06,
+          "distance_lower_bound_mm": 1.294569229889689e-06,
+          "scope": "All straight-triangle pairs with overlapping expanded AABBs; closed-obstacle vertex/centroid containment. Touching counts as intersection. Bounded distance search, accepted states only; no exact CAD or continuous-path proof."
+        }
+      },
+      "independent_native_rest_mesh": {
+        "body_cam": {
+          "intersection_detected": false,
+          "triangle_intersection_witnesses": [],
+          "contained_vertex_or_centroid_count": 0,
+          "obstacle_surface_closed": true,
+          "triangle_pairs_tested": 281,
+          "search_distance_mm": 0.001,
+          "minimum_distance_mm": 1.294569229889689e-06,
+          "distance_lower_bound_mm": 1.294569229889689e-06,
+          "scope": "All straight-triangle pairs with overlapping expanded AABBs; closed-obstacle vertex/centroid containment. Touching counts as intersection. Bounded distance search, accepted states only; no exact CAD or continuous-path proof."
+        }
+      },
+      "native_rest_mapping": {
+        "maximum_rest_coordinate_shift_mm": 0.0,
+        "legacy_single_precision_input": false,
+        "qualification_limit": null
+      },
+      "sampled_rigid_CAD": {
+        "body_cam": {
+          "min_sampled_signed_clearance_mm": -0.002536765029662532,
+          "maximum_sampled_inside_depth_mm": 0.002536765029662532,
+          "worst_sample_index": 97,
+          "worst_sample_point_mm": [
+            -33.57208929591705,
+            29.431587130819814,
+            2.64566143112605
+          ]
+        }
+      },
+      "selected_CAD_sample_count": 434
+    }
+  ],
+  "limits": "All numerical surface triangle pairs checked independently; exact-CAD comparison samples selected slave vertices and centroids only. CAD samples are not a global proof. CAD solids include faces intentionally omitted from an open obstacle patch: interpret witnesses against the recorded contact selection. Accepted saved states, not continuous-path proof; no completion/status changes."
+}

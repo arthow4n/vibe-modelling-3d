@@ -1,0 +1,374 @@
+{
+  "case": "snap_cycle",
+  "status": "solver_failed",
+  "completed": false,
+  "metrics": {
+    "peak_motion_force_N": {
+      "root": 0.0,
+      "drive": 0.20315517830566426
+    },
+    "max_abs_principal_strain": 0.001783274332500802,
+    "max_strain_by_part": {
+      "arm": 0.001783274332500802
+    },
+    "strain_limits": {
+      "arm": 0.015
+    },
+    "peak_strain_location": {
+      "part": "arm",
+      "element_index": 1985,
+      "reference_centroid_mm": [
+        -16.74705190128997,
+        26.796701991628193,
+        0.9130850724817952
+      ],
+      "load_fraction": 0.1
+    },
+    "max_force_balance_relative": 4.050056073310324e-09,
+    "max_free_dof_residual_norm_N": 3.770895471341616e-09,
+    "max_inertia_force_N": 0.0,
+    "max_displacement_mm": 0.1817508088498042,
+    "max_displacement_scope": "Deformable solid across accepted frames; rigid obstacle travel excluded",
+    "contact_detected": true,
+    "independent_mesh_intersection": false,
+    "observations": {
+      "tip": {
+        "min_mm": [
+          -0.028766682892969964,
+          -0.18149481947745855,
+          -0.00026490066143881327
+        ],
+        "max_mm": [
+          -0.004297856239510601,
+          -0.12412286715235514,
+          -5.5637977503028455e-05
+        ],
+        "mean_mm": [
+          -0.015586557250362175,
+          -0.14951008315585995,
+          -0.00017386122856652994
+        ]
+      }
+    },
+    "native_penetration_mm": null,
+    "contact_evidence": "IPC barrier forces, verified prescribed poses and independent accepted-frame triangle geometry; no native penetration metric fabricated.",
+    "diagnostic_prefix_only": true,
+    "native_operation_completed": false
+  },
+  "history": [
+    {
+      "load_fraction": 0.0,
+      "reactions_N": {
+        "root": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drive": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "root": 0.0,
+        "drive": 0.0
+      },
+      "max_abs_principal_strain": 7.410039195598664e-16,
+      "observations": {
+        "tip": {
+          "min_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_mm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "force_balance_relative": 0.0,
+      "free_dof_residual_norm_N": 0.0,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.025,
+      "reactions_N": {
+        "root": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drive": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "root": 0.0,
+        "drive": 0.0
+      },
+      "max_abs_principal_strain": 7.410039195598664e-16,
+      "observations": {
+        "tip": {
+          "min_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_mm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "force_balance_relative": 0.0,
+      "free_dof_residual_norm_N": 0.0,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.05,
+      "reactions_N": {
+        "root": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drive": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "root": 0.0,
+        "drive": 0.0
+      },
+      "max_abs_principal_strain": 7.410039195598664e-16,
+      "observations": {
+        "tip": {
+          "min_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_mm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "force_balance_relative": 0.0,
+      "free_dof_residual_norm_N": 0.0,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.075,
+      "reactions_N": {
+        "root": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "drive": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "root": 0.0,
+        "drive": 0.0
+      },
+      "max_abs_principal_strain": 7.410039195598664e-16,
+      "observations": {
+        "tip": {
+          "min_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_mm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "force_balance_relative": 0.0,
+      "free_dof_residual_norm_N": 0.0,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.1,
+      "reactions_N": {
+        "root": [
+          0.20315517635410657,
+          0.3695814123074379,
+          -7.543748002649883e-06
+        ],
+        "drive": [
+          -0.20315517830566426,
+          -0.36958141585629384,
+          7.54374801655122e-06
+        ]
+      },
+      "motion_force_N": {
+        "root": 0.0,
+        "drive": 0.20315517830566426
+      },
+      "max_abs_principal_strain": 0.001783274332500802,
+      "observations": {
+        "tip": {
+          "min_mm": [
+            -0.028766682892969964,
+            -0.18149481947745855,
+            -0.00026490066143881327
+          ],
+          "max_mm": [
+            -0.004297856239510601,
+            -0.12412286715235514,
+            -5.5637977503028455e-05
+          ],
+          "mean_mm": [
+            -0.015586557250362175,
+            -0.14951008315585995,
+            -0.00017386122856652994
+          ]
+        }
+      },
+      "force_balance_relative": 4.050056073310324e-09,
+      "free_dof_residual_norm_N": 3.770895471341616e-09,
+      "native_ipc_force_active": true,
+      "independent_mesh_intersection": false
+    }
+  ],
+  "assumptions": [
+    "Experimental IPC; native mm_N_MPa mapping; mm/N/MPa metrics.",
+    "Incremental quasi-static equilibrium, zero body force, frictionless SaintVenant homogeneous elasticity.",
+    "P1 tetrahedra and straight collision triangles, not exact CAD surfaces; mesh refinement required.",
+    "All deformable exterior triangles collide; rigid obstacle surfaces follow explicit master selections.",
+    "Numerical elastic results do not validate printed material, bonding, friction, creep or wear."
+  ],
+  "warnings": [],
+  "errors": [
+    "2026-10-01 00:34:07.161] [polyfem] [debug] Line search finished (nan_free_step_size=1 collision_free_step_size=0.018077850341796875 descent_step_size=0.018077850341796875 final_step_size=0.018077850341796875)\n[2026-10-01 00:34:07.161] [polyfem] [warning] Minimum distance during solve: 3.1981665743596616e-08, dhat: 0.001\n[2026-10-01 00:34:07.161] [polyfem] [debug] [SparseNewton][RobustArmijo] iters=194 \u0394f=0.256266 \u2016\u2207f\u2016=60.8304 \u2016\u2207f\u2016_rel=0.0203126 \u2016\u0394x\u2016=1.7556 \u2016\u0394x\u2016_rel=0.113271 \u0394x\u22c5\u2207f(x)=-18.154 1/2\u0394x^TH\u0394x=nan (stopping criteria: iters=200 \u0394f=0 \u2016\u2207f\u2016=6.25e-10 \u2016\u2207f\u2016_rel=0 \u2016\u0394x\u2016=0 \u2016\u0394x\u2016_rel=0 \u0394x\u22c5\u2207f(x)=-0 1/2\u0394x^TH\u0394x=0)\n[2026-10-01 00:34:09.249] [polyfem] [debug] Line search finished (nan_free_step_size=1 collision_free_step_size=0.00908041000366211 descent_step_size=0.00908041000366211 final_step_size=0.00908041000366211)\n[2026-10-01 00:34:09.250] [polyfem] [warning] Minimum distance during solve: 3.1167238177336744e-08, dhat: 0.001\n[2026-10-01 00:34:09.250] [polyfem] [debug] [SparseNewton][RobustArmijo] iters=195 \u0394f=0.324972 \u2016\u2207f\u2016=59.7309 \u2016\u2207f\u2016_rel=0.0199454 \u2016\u0394x\u2016=1.8559 \u2016\u0394x\u2016_rel=0.119743 \u0394x\u22c5\u2207f(x)=-17.5036 1/2\u0394x^TH\u0394x=nan (stopping criteria: iters=200 \u0394f=0 \u2016\u2207f\u2016=6.25e-10 \u2016\u2207f\u2016_rel=0 \u2016\u0394x\u2016=0 \u2016\u0394x\u2016_rel=0 \u0394x\u22c5\u2207f(x)=-0 1/2\u0394x^TH\u0394x=0)\n[2026-10-01 00:34:11.138] [polyfem] [debug] Line search finished (nan_free_step_size=1 collision_free_step_size=0.004810810089111328 descent_step_size=0.004810810089111328 final_step_size=0.004810810089111328)\n[2026-10-01 00:34:11.138] [polyfem] [warning] Minimum distance during solve: 3.0910904153193056e-08, dhat: 0.001\n[2026-10-01 00:34:11.138] [polyfem] [debug] [SparseNewton][RobustArmijo] iters=196 \u0394f=0.158096 \u2016\u2207f\u2016=59.1886 \u2016\u2207f\u2016_rel=0.0197643 \u2016\u0394x\u2016=1.84503 \u2016\u0394x\u2016_rel=0.119041 \u0394x\u22c5\u2207f(x)=-17.1871 1/2\u0394x^TH\u0394x=nan (stopping criteria: iters=200 \u0394f=0 \u2016\u2207f\u2016=6.25e-10 \u2016\u2207f\u2016_rel=0 \u2016\u0394x\u2016=0 \u2016\u0394x\u2016_rel=0 \u0394x\u22c5\u2207f(x)=-0 1/2\u0394x^TH\u0394x=0)\n[2026-10-01 00:34:13.132] [polyfem] [debug] Line search finished (nan_free_step_size=1 collision_free_step_size=0.002215862274169922 descent_step_size=0.002215862274169922 final_step_size=0.002215862274169922)\n[2026-10-01 00:34:13.133] [polyfem] [warning] Minimum distance during solve: 2.938322522595916e-08, dhat: 0.001\n[2026-10-01 00:34:13.133] [polyfem] [debug] [SparseNewton][RobustArmijo] iters=197 \u0394f=0.0824211 \u2016\u2207f\u2016=58.9038 \u2016\u2207f\u2016_rel=0.0196692 \u2016\u0394x\u2016=1.83866 \u2016\u0394x\u2016_rel=0.118631 \u0394x\u22c5\u2207f(x)=-17.0222 1/2\u0394x^TH\u0394x=nan (stopping criteria: iters=200 \u0394f=0 \u2016\u2207f\u2016=6.25e-10 \u2016\u2207f\u2016_rel=0 \u2016\u0394x\u2016=0 \u2016\u0394x\u2016_rel=0 \u0394x\u22c5\u2207f(x)=-0 1/2\u0394x^TH\u0394x=0)\n[2026-10-01 00:34:15.308] [polyfem] [debug] Line search finished (nan_free_step_size=1 collision_free_step_size=0.0011477470397949219 descent_step_size=0.0011477470397949219 final_step_size=0.0011477470397949219)\n[2026-10-01 00:34:15.309] [polyfem] [warning] Minimum distance during solve: 2.8384321530001136e-08, dhat: 0.001\n[2026-10-01 00:34:15.309] [polyfem] [debug] [SparseNewton][RobustArmijo] iters=198 \u0394f=0.0376476 \u2016\u2207f\u2016=58.7733 \u2016\u2207f\u2016_rel=0.0196257 \u2016\u0394x\u2016=1.83549 \u2016\u0394x\u2016_rel=0.118426 \u0394x\u22c5\u2207f(x)=-16.9468 1/2\u0394x^TH\u0394x=nan (stopping criteria: iters=200 \u0394f=0 \u2016\u2207f\u2016=6.25e-10 \u2016\u2207f\u2016_rel=0 \u2016\u0394x\u2016=0 \u2016\u0394x\u2016_rel=0 \u0394x\u22c5\u2207f(x)=-0 1/2\u0394x^TH\u0394x=0)\n[2026-10-01 00:34:16.972] [polyfem] [debug] Line search finished (nan_free_step_size=1 collision_free_step_size=0.0005540847778320312 descent_step_size=0.0005540847778320312 final_step_size=0.0005540847778320312)\n[2026-10-01 00:34:16.973] [polyfem] [warning] Minimum distance during solve: 2.8148342385954028e-08, dhat: 0.001\n[2026-10-01 00:34:16.973] [polyfem] [debug] [SparseNewton][RobustArmijo] iters=199 \u0394f=0.0194243 \u2016\u2207f\u2016=58.7058 \u2016\u2207f\u2016_rel=0.0196031 \u2016\u0394x\u2016=1.8339 \u2016\u0394x\u2016_rel=0.118323 \u0394x\u22c5\u2207f(x)=-16.9079 1/2\u0394x^TH\u0394x=nan (stopping criteria: iters=200 \u0394f=0 \u2016\u2207f\u2016=6.25e-10 \u2016\u2207f\u2016_rel=0 \u2016\u0394x\u2016=0 \u2016\u0394x\u2016_rel=0 \u0394x\u22c5\u2207f(x)=-0 1/2\u0394x^TH\u0394x=0)\n[2026-10-01 00:34:16.973] [polyfem] [error] [SparseNewton][RobustArmijo] Reached iteration limit (limit=200)\n[2026-10-01 00:34:16.973] [polyfem] [error] Reached iteration limit in AL\nterminate called after throwing an instance of 'std::runtime_error'\n  what():  Reached iteration limit in AL\n"
+  ],
+  "provenance": {
+    "backend": "PolyFEM-IPC-experimental",
+    "case_sha256": "818a420ad9463c7fdaa687c98f2e4dba9f3a1b89d4352c78311b4ab9ab4e6241",
+    "backend_sha256": "031dba8f549de87c45771679a0d9120a2d56cff62bcdd2240948b744798baa6b",
+    "executable": "/home/hevar/.local/opt/polyfem-ipc/PolyFEM_bin",
+    "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da",
+    "polyfem_commit": "591b08bd5e115bdefec7e2998e98f5b56bc1367e",
+    "ipc_settings": {
+      "activation_distance_mm": 0.001,
+      "obstacle_mesh_size_mm": 0.3,
+      "gradient_tolerance_N": 1e-06,
+      "max_iterations": 200,
+      "initial_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_system": "mm_N_MPa",
+      "ccd_tolerance_mm": 1e-06,
+      "constraint_initial_weight": 1000000000000.0,
+      "convergent_barrier": false,
+      "projected_newton": false,
+      "deformable": "arm"
+    },
+    "mesh_reuse": {
+      "input_sha256": "548bb92144f0ebb564b44641188dd2b2fec22025ada712a85f737ba049593a7f",
+      "mesh_sha256": "f41f3ece84df5fc1b11219b364a8216f638acb13ecd11198ed63b425e8f994c4",
+      "case_sha256": "8e07f06be6dfda9bd27c38ab70449a84b308ad1c98c8895d91a13b80b932472e",
+      "input": "mesh_source.json",
+      "case": "mesh_source_case.json"
+    },
+    "input_sha256": "9aa182a6020bb52302a6c73b5fa6ea8eed766b56f86a8d4258dfef22bb5139da",
+    "mesh_sha256": "f41f3ece84df5fc1b11219b364a8216f638acb13ecd11198ed63b425e8f994c4",
+    "mesh_files_sha256": {
+      "part_0.mesh": "a7f676095770ccb72bebc1c6723a9ddef31b0fed7c5be9b023b2420cb5f9eae6",
+      "part_1.obj": "46b39e211f3ec2c3332023cb9e3f6a708fdb91e2a25e0e49fab18b78c416bd92"
+    },
+    "geometry_sha256": {
+      "arm": "7093f5b9cfde23f1da5c3a05af5f9e780498d8b77d6f88e1c32ee11b53e8e21d",
+      "body_cam": "6e473619c7c02f876508e955e4489f1cda7ea7f2946648b214c6de7161ee4f62"
+    },
+    "unit_mapping": {
+      "length_mm_to_native": 1,
+      "stress_MPa_to_native": 1,
+      "force_N_to_native": 1
+    },
+    "formulation": "P1 SaintVenant, time.quasistatic=true",
+    "versions": {
+      "python": "3.12.14",
+      "gmsh": "4.15.2"
+    },
+    "command": [
+      "/home/hevar/.local/opt/polyfem-ipc/PolyFEM_bin",
+      "--json",
+      "scene.json",
+      "--max_threads",
+      "1"
+    ],
+    "native_exit_code": -6,
+    "extractor_sha256": "f6e61879c371e7c4335ec27d1ac7bfdcbe397f64ee668d26a1bc6dc18cfbbbf3",
+    "native_mesh_mapping": {
+      "maximum_rest_coordinate_shift_mm": 0.0,
+      "legacy_single_precision_input": false,
+      "qualification_limit": null
+    }
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "scene.json.gz",
+    "run_metadata": "run_metadata.json",
+    "solver_log": "solver.log.gz",
+    "worker_log": "worker.log.gz",
+    "mesh_source_case": "mesh_source_case.json",
+    "fixture_geometry": [
+      "part_0.brep.gz",
+      "part_1.brep.gz"
+    ],
+    "mesh": "mesh.json.gz",
+    "geometry_witness": "geometry_witness.json.gz",
+    "initial_geometry_witness": "initial_geometry_witness.json.gz",
+    "mesh_source": "mesh_source.json.gz",
+    "numerical_meshes": [
+      "part_0.mesh.gz",
+      "part_1.obj.gz"
+    ],
+    "raw_fields_retained": false,
+    "reproduce": "Decompress scene.json, *.mesh and *.obj into a new directory; run the recorded POLYFEM_COMMAND --json scene.json --max_threads 1. Use the recorded scene units; quasi-static, frictionless SaintVenant elasticity. Native VTU fields are required for independent recovery/inspection."
+  }
+}

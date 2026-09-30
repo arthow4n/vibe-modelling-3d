@@ -1,0 +1,18 @@
+{
+  "decision": "Contact coupling, strain/force order and independent geometry; 20% bounded precision comparison",
+  "comparison": {
+    "peak_motion_force_N.push": {
+      "coarse": 0.5596237448521522,
+      "refined": 0.42845299617600646,
+      "relative_change": 0.30614968233822637,
+      "passes": false
+    },
+    "max_abs_principal_strain": {
+      "coarse": 0.0028038942212083953,
+      "refined": 0.002416573159951781,
+      "relative_change": 0.16027698547489566,
+      "passes": true
+    }
+  },
+  "limits": "P1 beam force still mesh-sensitive. Coarse/fine completion and elastic return are established; no printed validation."
+}

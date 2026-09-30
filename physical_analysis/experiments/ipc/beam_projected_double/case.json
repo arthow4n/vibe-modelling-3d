@@ -1,0 +1,176 @@
+{
+  "name": "ipc_contact_beam",
+  "nonlinear": true,
+  "max_increment": 0.05,
+  "parts": [
+    {
+      "name": "beam",
+      "geometry": "part_0.brep",
+      "sha256": "080c586f9ff39189ae75bed129f0ceb2275f377b352c878bc59adc2759747637",
+      "material": {
+        "name": "benchmark",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.3,
+        "source": "Numerical homogeneous elastic benchmark",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 0.8
+    },
+    {
+      "name": "pusher",
+      "geometry": "part_1.brep",
+      "sha256": "17455cc668cd58bdd0c0977c79ce2be8a28c83c1a3342b3f702b870aaf933cab",
+      "material": {
+        "name": "benchmark",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.3,
+        "source": "Numerical homogeneous elastic benchmark",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 1
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "beam",
+        "region": {
+          "lower": [
+            0,
+            null,
+            null
+          ],
+          "upper": [
+            0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "pusher",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        -1.1
+      ],
+      "name": "push",
+      "progress": [
+        [
+          0,
+          0
+        ],
+        [
+          0.5,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  ],
+  "loads": [],
+  "contacts": [
+    {
+      "slave": {
+        "part": "beam",
+        "region": {
+          "lower": [
+            38,
+            0,
+            2
+          ],
+          "upper": [
+            40,
+            8,
+            2
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "pusher",
+        "region": {
+          "lower": [
+            null,
+            null,
+            2.1
+          ],
+          "upper": [
+            null,
+            null,
+            2.1
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 60000,
+      "penetration_limit_mm": 0.05,
+      "discretization": "surface_to_surface"
+    }
+  ],
+  "observations": [
+    {
+      "name": "tip",
+      "selection": {
+        "part": "beam",
+        "region": {
+          "lower": [
+            40,
+            null,
+            null
+          ],
+          "upper": [
+            40,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ],
+  "ipc": {
+    "activation_distance_mm": 0.001,
+    "obstacle_mesh_size_mm": null,
+    "gradient_tolerance_N": 1e-06,
+    "max_iterations": 200,
+    "initial_offset_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "unit_system": "mm_N_MPa",
+    "ccd_tolerance_mm": 1e-06,
+    "constraint_initial_weight": 1000000000000.0,
+    "convergent_barrier": false,
+    "projected_newton": true,
+    "deformable": "beam"
+  }
+}

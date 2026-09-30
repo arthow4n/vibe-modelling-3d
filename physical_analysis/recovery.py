@@ -16,13 +16,17 @@ def recover_run(directory, *, timeout_seconds=600):
     """
     directory=Path(directory).resolve()
     old=AnalysisResult(**json.loads((directory/'result.json').read_text()))
-    for key,name in (('input_sha256','analysis.inp'),('case_sha256','case.json')):
+    native_input='scene.json' if old.provenance.get('backend')=='PolyFEM-IPC-experimental' else 'analysis.inp'
+    for key,name in (('input_sha256',native_input),('case_sha256','case.json')):
         if hashlib.sha256((directory/name).read_bytes()).hexdigest()!=old.provenance.get(key):
             raise ValueError('Saved input/case identity differs from the original result')
     if old.provenance.get('backend','CalculiX')=='CalculiX':backend=CalculixBackend()
     elif old.provenance['backend']=='FEBio':
         from .backends.febio import FebioBackend
         backend=FebioBackend()
+    elif old.provenance['backend']=='PolyFEM-IPC-experimental':
+        from .backends.polyfem import PolyfemBackend
+        backend=PolyfemBackend()
     else:raise ValueError('No recovery adapter for this backend')
     scratch=AnalysisResult(old.case,'recovering')
     answer=directory/'answer.json'

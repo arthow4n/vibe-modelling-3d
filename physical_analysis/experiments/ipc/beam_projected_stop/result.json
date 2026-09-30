@@ -1,0 +1,94 @@
+{
+  "case": "ipc_contact_beam",
+  "status": "interrupted",
+  "completed": false,
+  "metrics": {},
+  "history": [],
+  "assumptions": [
+    "mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.",
+    "Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.",
+    "Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.",
+    "Frictionless contact; enforcement and pairing depend on backend/formulation.",
+    "Numerical completion is not physical validation or a load rating."
+  ],
+  "warnings": [],
+  "errors": [
+    "Caller interrupted analysis; worker and solver stopped"
+  ],
+  "provenance": {
+    "backend": "PolyFEM-IPC-experimental",
+    "case_sha256": "4103312ea071cd6a0d343e5bc6038b5b4bb20d0c00f5b1e25762397a0a9a4f5e",
+    "backend_sha256": "f06c05d13e2b6197b71363e2b9fdc700d65bf8737cc2be0b595d7bce47fd4f5b",
+    "executable": "/home/hevar/.local/opt/polyfem-ipc/PolyFEM_bin",
+    "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da",
+    "polyfem_commit": "591b08bd5e115bdefec7e2998e98f5b56bc1367e",
+    "ipc_settings": {
+      "activation_distance_mm": 0.001,
+      "obstacle_mesh_size_mm": null,
+      "gradient_tolerance_N": 1e-06,
+      "max_iterations": 200,
+      "initial_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_system": "mm_N_MPa",
+      "ccd_tolerance_mm": 1e-06,
+      "constraint_initial_weight": 1000000000000.0,
+      "convergent_barrier": false,
+      "projected_newton": true,
+      "deformable": "beam"
+    },
+    "mesh_reuse": {
+      "input_sha256": "bf8dd8d043688c5438482a9dc3fd9846ea98fa18eeae30250c06d22c75645f99",
+      "mesh_sha256": "c1e2c0a33301d400f7a56ecff8991d0a911dba676b47a88fbfddfad2089b78cb",
+      "case_sha256": "791ffac0a3d233ce480b1e8fde7767be141add7545e3ddfc893fb8719484ad9c",
+      "input": "mesh_source.json",
+      "case": "mesh_source_case.json"
+    },
+    "input_sha256": "164e63153b26eabb3eb5d4603cb259369f2d1dd39be2b88f5643017be91229c3",
+    "mesh_sha256": "c1e2c0a33301d400f7a56ecff8991d0a911dba676b47a88fbfddfad2089b78cb",
+    "mesh_files_sha256": {
+      "part_0.mesh": "2f9e0d609b016e98f3a433fa86c3506a0420f1238fe1aa0ea6038e0884afdaed",
+      "part_1.obj": "77576bf64a313a5b37e173ce3b8744a9ab4fb2eb37df8803be66ef75eb9f67da"
+    },
+    "geometry_sha256": {
+      "beam": "080c586f9ff39189ae75bed129f0ceb2275f377b352c878bc59adc2759747637",
+      "pusher": "17455cc668cd58bdd0c0977c79ce2be8a28c83c1a3342b3f702b870aaf933cab"
+    },
+    "unit_mapping": {
+      "length_mm_to_native": 1,
+      "stress_MPa_to_native": 1,
+      "force_N_to_native": 1
+    },
+    "formulation": "P1 SaintVenant, time.quasistatic=true",
+    "versions": {
+      "python": "3.12.14",
+      "gmsh": "4.15.2"
+    }
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "scene.json.gz",
+    "run_metadata": "run_metadata.json",
+    "solver_log": "solver.log.gz",
+    "worker_log": "worker.log.gz",
+    "mesh_source_case": "mesh_source_case.json",
+    "fixture_geometry": [
+      "part_0.brep.gz",
+      "part_1.brep.gz"
+    ],
+    "mesh": "mesh.json.gz",
+    "geometry_witness": "geometry_witness.json.gz",
+    "initial_geometry_witness": "initial_geometry_witness.json.gz",
+    "investigation_stop": "investigation_stop.json",
+    "prefix_diagnostics": "prefix_diagnostics.json.gz",
+    "mesh_source": "mesh_source.json.gz",
+    "numerical_meshes": [
+      "part_0.mesh.gz",
+      "part_1.obj.gz"
+    ],
+    "raw_fields_retained": false,
+    "reproduce": "Decompress scene.json, *.mesh and *.obj into a new directory; run the recorded POLYFEM_COMMAND --json scene.json --max_threads 1. Use the recorded scene units; quasi-static, frictionless SaintVenant elasticity. Native VTU fields are required for independent recovery/inspection."
+  }
+}

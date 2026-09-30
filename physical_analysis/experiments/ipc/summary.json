@@ -1,0 +1,1182 @@
+[
+  {
+    "run": "model/filament_swatch_box/notes/ipc/bounded_feasibility_user_stop",
+    "status": "interrupted",
+    "completed": false,
+    "double_precision_input": true,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.2,
+    "force_N": {
+      "root": 0.0,
+      "drive": 0.5466855924806175
+    },
+    "peak_Green_strain": 0.008607260907888974,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "arm": {
+        "nodes": 1295,
+        "tetrahedra": 4625,
+        "triangles": 1974
+      },
+      "body_cam": {
+        "nodes": 1349,
+        "tetrahedra": 0,
+        "triangles": 2694
+      }
+    },
+    "time_steps": 160,
+    "log_elapsed_seconds": 748.02
+  },
+  {
+    "run": "model/filament_swatch_box/notes/ipc/coarse_motion_failure",
+    "status": "solver_failed",
+    "completed": false,
+    "double_precision_input": true,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.1,
+    "force_N": {
+      "root": 0.0,
+      "drive": 0.20315517830566426
+    },
+    "peak_Green_strain": 0.001783274332500802,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "arm": {
+        "nodes": 1295,
+        "tetrahedra": 4625,
+        "triangles": 1974
+      },
+      "body_cam": {
+        "nodes": 1349,
+        "tetrahedra": 0,
+        "triangles": 2694
+      }
+    },
+    "time_steps": 40,
+    "log_elapsed_seconds": 936.381
+  },
+  {
+    "run": "model/filament_swatch_box/notes/ipc/fine_motion_crest_failure",
+    "status": "solver_failed",
+    "completed": false,
+    "double_precision_input": true,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.24375,
+    "force_N": {
+      "root": 0.0,
+      "drive": 0.5466855908952652
+    },
+    "peak_Green_strain": 0.009454750580169733,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "arm": {
+        "nodes": 1295,
+        "tetrahedra": 4625,
+        "triangles": 1974
+      },
+      "body_cam": {
+        "nodes": 1349,
+        "tetrahedra": 0,
+        "triangles": 2694
+      }
+    },
+    "time_steps": 160,
+    "log_elapsed_seconds": 1307.499
+  },
+  {
+    "run": "model/filament_swatch_box/notes/ipc/legacy_input_timeout",
+    "status": "timeout",
+    "completed": false,
+    "double_precision_input": false,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.125,
+    "force_N": {
+      "root": 0.0,
+      "drive": 0.38200751643541214
+    },
+    "peak_Green_strain": 0.0041651320802710695,
+    "independent_mesh_intersection": true,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "arm": {
+        "nodes": 1295,
+        "tetrahedra": 4625,
+        "triangles": 1974
+      },
+      "body_cam": {
+        "nodes": 1349,
+        "tetrahedra": 0,
+        "triangles": 2694
+      }
+    },
+    "time_steps": 40,
+    "log_elapsed_seconds": 1192.093
+  },
+  {
+    "run": "model/filament_swatch_box/notes/ipc/projected_newton_failure",
+    "status": "solver_failed",
+    "completed": false,
+    "double_precision_input": true,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.16875,
+    "force_N": {
+      "root": 0.0,
+      "drive": 0.4988604330240006
+    },
+    "peak_Green_strain": 0.007248627743395956,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "arm": {
+        "nodes": 1295,
+        "tetrahedra": 4625,
+        "triangles": 1974
+      },
+      "body_cam": {
+        "nodes": 1349,
+        "tetrahedra": 0,
+        "triangles": 2694
+      }
+    },
+    "time_steps": 160,
+    "log_elapsed_seconds": 857.726
+  },
+  {
+    "run": "model/filament_swatch_box/notes/ipc/step_scaled_constraints_failure",
+    "status": "solver_failed",
+    "completed": false,
+    "double_precision_input": true,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.0875,
+    "force_N": {
+      "root": 0.0,
+      "drive": 0.05374218703235449
+    },
+    "peak_Green_strain": 0.0003731599008260276,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "arm": {
+        "nodes": 1295,
+        "tetrahedra": 4625,
+        "triangles": 1974
+      },
+      "body_cam": {
+        "nodes": 1349,
+        "tetrahedra": 0,
+        "triangles": 2694
+      }
+    },
+    "time_steps": 160,
+    "log_elapsed_seconds": 337.358
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/activation_half",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.955037135869695,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.0024968764726152615,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 10.731
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/beam_coarse",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "root": 0.0,
+      "push": 0.5596237541950616
+    },
+    "peak_Green_strain": 0.0028038943082187547,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "beam": {
+        "nodes": 1922,
+        "tetrahedra": 6467,
+        "triangles": 3172
+      },
+      "pusher": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 38
+      }
+    },
+    "time_steps": 20,
+    "log_elapsed_seconds": 228.807
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/beam_coarse_double",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "root": 0.0,
+      "push": 0.5596237448521522
+    },
+    "peak_Green_strain": 0.0028038942212083953,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "beam": {
+        "nodes": 1922,
+        "tetrahedra": 6467,
+        "triangles": 3172
+      },
+      "pusher": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 38
+      }
+    },
+    "time_steps": 20,
+    "log_elapsed_seconds": 219.953
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/beam_middle_weight_stop",
+    "status": "interrupted",
+    "completed": false,
+    "double_precision_input": false,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.2,
+    "force_N": {
+      "root": 0.0,
+      "push": 0.14568120714116595
+    },
+    "peak_Green_strain": 0.0008220332839983027,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "beam": {
+        "nodes": 6146,
+        "tetrahedra": 24873,
+        "triangles": 7986
+      },
+      "pusher": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 38
+      }
+    },
+    "time_steps": 20,
+    "log_elapsed_seconds": 586.099
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/beam_physical_barrier_stop",
+    "status": "interrupted",
+    "completed": false,
+    "double_precision_input": false,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.05,
+    "force_N": {
+      "root": 0.0,
+      "push": 0.00432525293117408
+    },
+    "peak_Green_strain": 2.44159197025503e-05,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "beam": {
+        "nodes": 6146,
+        "tetrahedra": 24873,
+        "triangles": 7986
+      },
+      "pusher": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 38
+      }
+    },
+    "time_steps": 20,
+    "log_elapsed_seconds": 1144.815
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/beam_projected_double",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "root": 0.0,
+      "push": 0.5596227365555237
+    },
+    "peak_Green_strain": 0.0028035709519209683,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "beam": {
+        "nodes": 1922,
+        "tetrahedra": 6467,
+        "triangles": 3172
+      },
+      "pusher": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 38
+      }
+    },
+    "time_steps": 20,
+    "log_elapsed_seconds": 202.723
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/beam_projected_stop",
+    "status": "interrupted",
+    "completed": false,
+    "double_precision_input": false,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.2,
+    "force_N": {
+      "root": 0.0,
+      "push": 0.14568133054187216
+    },
+    "peak_Green_strain": 0.0008220332838074749,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "beam": {
+        "nodes": 6146,
+        "tetrahedra": 24873,
+        "triangles": 7986
+      },
+      "pusher": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 38
+      }
+    },
+    "time_steps": 20,
+    "log_elapsed_seconds": 680.071
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/beam_refined_double",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "root": 0.0,
+      "push": 0.42845299617600646
+    },
+    "peak_Green_strain": 0.002416573159951781,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "beam": {
+        "nodes": 6146,
+        "tetrahedra": 24873,
+        "triangles": 7986
+      },
+      "pusher": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 38
+      }
+    },
+    "time_steps": 20,
+    "log_elapsed_seconds": 1258.47
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/beam_refined_double_timeout",
+    "status": "timeout",
+    "completed": false,
+    "double_precision_input": true,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.65,
+    "force_N": {
+      "root": 0.0,
+      "push": 0.42845299617600646
+    },
+    "peak_Green_strain": 0.002416573159951781,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "beam": {
+        "nodes": 6146,
+        "tetrahedra": 24873,
+        "triangles": 7986
+      },
+      "pusher": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 38
+      }
+    },
+    "time_steps": 20,
+    "log_elapsed_seconds": 1190.248
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/beam_refined_timeout",
+    "status": "timeout",
+    "completed": false,
+    "double_precision_input": false,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.3,
+    "force_N": {
+      "root": 0.0,
+      "push": 0.23998253151529933
+    },
+    "peak_Green_strain": 0.0013536729212049732,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "beam": {
+        "nodes": 6146,
+        "tetrahedra": 24873,
+        "triangles": 7986
+      },
+      "pusher": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 38
+      }
+    },
+    "time_steps": 20,
+    "log_elapsed_seconds": 1183.699
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/beam_weak_constraints_stop",
+    "status": "interrupted",
+    "completed": false,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": null,
+    "force_N": null,
+    "peak_Green_strain": null,
+    "independent_mesh_intersection": null,
+    "max_inertia_force_N": null,
+    "mesh": {
+      "beam": {
+        "nodes": 1922,
+        "tetrahedra": 6467,
+        "triangles": 3172
+      },
+      "pusher": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 38
+      }
+    },
+    "time_steps": 20,
+    "log_elapsed_seconds": 143.302
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/bounded_feasibility_beam",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "root": 0.0,
+      "push": 0.5596237448521522
+    },
+    "peak_Green_strain": 0.0028038942212083953,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "beam": {
+        "nodes": 1922,
+        "tetrahedra": 6467,
+        "triangles": 3172
+      },
+      "pusher": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 38
+      }
+    },
+    "time_steps": 20,
+    "log_elapsed_seconds": 177.346
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/bounded_feasibility_compression",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.955037598606628,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.002496875160729441,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 9.025
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/bounded_feasibility_gap",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 8.740103264258645e-09,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 2.3992347058222658e-12,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 1.941
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/compression",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.955037182650688,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.002496876482611876,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 9.886
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/compression_double",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.955037598606628,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.002496875160729441,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 10.743
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/gap_double",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 8.740103264258645e-09,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 2.3992347058222658e-12,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 2.343
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/load_return",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.955037934721554,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.0024968766433148817,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 9.022
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/mm_moving_floor_timeout",
+    "status": "timeout",
+    "completed": false,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": null,
+    "force_N": null,
+    "peak_Green_strain": null,
+    "independent_mesh_intersection": null,
+    "max_inertia_force_N": null,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 169.967
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/open_gap",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 8.740086280255136e-09,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 2.3992347058222658e-12,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 2.077
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/physical_barrier_00005",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 12.014576933694594,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.0025093492955759133,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 44.699
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/physical_barrier_0001",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 12.074056815967296,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.0025218584753499613,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 10.724
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/physical_barrier_001",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 13.06376096167975,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.002793411025709649,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 9.616
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/physical_barrier_SI_double_failure",
+    "status": "solver_failed",
+    "completed": false,
+    "double_precision_input": true,
+    "inspected_prefix_only": true,
+    "accepted_last_fraction": 0.5,
+    "force_N": {
+      "push": 2.264405979117026e-06,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 6.21501416875113e-10,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 25.393
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/physical_barrier_open",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 8.740086280255136e-09,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 2.3992347058222658e-12,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 2.225
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/projected_compression",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.955037182650049,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.002496876482618927,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 7.887
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/projected_double_compression",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.955037598605939,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.002496875160730441,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 6.759
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/projected_double_gap",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 8.210111034363304e-09,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 2.2751527190388458e-12,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 1.854
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/qualified_SI",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.95503755182555,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.0024968750844757146,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 30.128
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/qualified_activation",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.955037551825551,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.0024968750844757137,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 12.9
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/qualified_compression",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.955037598606628,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.002496875160729441,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 12.535
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/qualified_open",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 8.740103264258645e-09,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 2.3992347058222658e-12,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 2.496
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/qualified_return",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": true,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.955038350677347,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.0024968763866091296,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 10.056
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/si_compression",
+    "status": "completed",
+    "completed": true,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": 1.0,
+    "force_N": {
+      "push": 11.955039581711794,
+      "floor": 0.0
+    },
+    "peak_Green_strain": 0.0024968754740434832,
+    "independent_mesh_intersection": false,
+    "max_inertia_force_N": 0.0,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 26.257
+  },
+  {
+    "run": "physical_analysis/experiments/ipc/si_moving_floor_timeout",
+    "status": "timeout",
+    "completed": false,
+    "double_precision_input": false,
+    "inspected_prefix_only": false,
+    "accepted_last_fraction": null,
+    "force_N": null,
+    "peak_Green_strain": null,
+    "independent_mesh_intersection": null,
+    "max_inertia_force_N": null,
+    "mesh": {
+      "block": {
+        "nodes": 108,
+        "tetrahedra": 265,
+        "triangles": 204
+      },
+      "floor": {
+        "nodes": 30,
+        "tetrahedra": 0,
+        "triangles": 42
+      }
+    },
+    "time_steps": 10,
+    "log_elapsed_seconds": 172.976
+  }
+]

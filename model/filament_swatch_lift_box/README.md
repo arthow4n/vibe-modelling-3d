@@ -151,6 +151,13 @@ overlap missed by native contact samples and retains convergence failures;
 the complete mechanism remains numerically unqualified. The analytical beam screen and positive CAD
 engagement support a **provisional complete-box trial**, not a validated mechanism.
 
+The subsequent [IPC checkpoint](../../physical_analysis/experiments/ipc/README.md)
+keeps a narrow external PolyFEM adapter experimental. Simple contact/coupling
+benchmarks behave credibly, but complete sliding-snap passage is not qualified;
+no IPC lift-off solve has started. The actual finite-edge mechanism remains
+unresolved. [analyze_ipc.py](analyze_ipc.py) retains the existing isolated-release
+fixture for a future qualified study; it does not supply new passage evidence.
+
 Material/process uncertainty is separate: the assumed homogeneous isotropic
 1200 MPa elastic solid and provisional 1.5% strain screen are uncalibrated, especially
 across the upright tab's printed layers. Solidity does not establish bonding,

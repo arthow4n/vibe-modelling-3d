@@ -96,6 +96,9 @@ def contact_frames(directory, fractions=None, *, rigid_parts=()):
     if result['provenance'].get('backend')=='FEBio':
         from .febio_diagnostics import contact_frames as febio_frames
         return febio_frames(directory,fractions,rigid_parts=rigid_parts)
+    if result['provenance'].get('backend')=='PolyFEM-IPC-experimental':
+        from .polyfem_diagnostics import contact_frames as ipc_frames
+        return ipc_frames(directory,fractions,rigid_parts=rigid_parts)
     if fractions is None:
         if not result['history']: raise ValueError('No saved history to select a diagnostic frame')
         fractions=[max(result['history'],key=lambda h:h['max_penetration_mm'])['load_fraction']]

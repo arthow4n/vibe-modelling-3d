@@ -1,0 +1,1268 @@
+{
+  "case": "ipc_compression",
+  "status": "completed",
+  "completed": true,
+  "metrics": {
+    "peak_motion_force_N": {
+      "push": 11.955039581711794,
+      "floor": 0.0
+    },
+    "max_abs_principal_strain": 0.0024968754740434832,
+    "max_strain_by_part": {
+      "block": 0.0024968754740434832
+    },
+    "strain_limits": {
+      "block": null
+    },
+    "peak_strain_location": {
+      "part": "block",
+      "element_index": 116,
+      "reference_centroid_mm": [
+        0.30268417471772835,
+        1.8519026558501912,
+        2.3296200423301285
+      ],
+      "load_fraction": 1.0
+    },
+    "max_force_balance_relative": 2.264412286911426e-06,
+    "max_free_dof_residual_norm_N": 8.452329410037974e-07,
+    "max_inertia_force_N": 0.0,
+    "max_displacement_mm": 0.02,
+    "contact_detected": true,
+    "independent_mesh_intersection": false,
+    "observations": {
+      "bottom": {
+        "min_mm": [
+          -2.9893345934281647e-12,
+          -1.748011686558721e-11,
+          -0.00999999972397888
+        ],
+        "max_mm": [
+          1.1292799026643706e-11,
+          1.74061197202839e-11,
+          -0.009999999662680515
+        ],
+        "mean_mm": [
+          1.416201388077799e-12,
+          4.2542038490698936e-14,
+          -0.009999999699332315
+        ]
+      }
+    },
+    "native_penetration_mm": null,
+    "contact_evidence": "IPC barrier forces, verified prescribed poses and independent accepted-frame triangle geometry; no native penetration metric fabricated."
+  },
+  "history": [
+    {
+      "load_fraction": 0.0,
+      "reactions_N": {
+        "push": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "floor": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "push": 0.0,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 3.823994908277106e-16,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_mm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "force_balance_relative": 0.0,
+      "free_dof_residual_norm_N": 0.0,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.1,
+      "reactions_N": {
+        "push": [
+          4.9922259545422384e-11,
+          3.2915714709425774e-09,
+          2.264409894029889e-06
+        ],
+        "floor": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "push": -2.264409894029889e-06,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 6.215023050374925e-10,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -4.201813968314248e-11,
+            -6.063860783544052e-11,
+            -0.002000000298934095
+          ],
+          "max_mm": [
+            -3.7989807570877396e-11,
+            -5.5961914246166145e-11,
+            -0.0020000002417701478
+          ],
+          "mean_mm": [
+            -4.005561300364671e-11,
+            -5.827917462250938e-11,
+            -0.0020000002704881918
+          ]
+        }
+      },
+      "force_balance_relative": 2.264412286911426e-06,
+      "free_dof_residual_norm_N": 6.825663252984998e-07,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.2,
+      "reactions_N": {
+        "push": [
+          4.991950003937671e-11,
+          3.2915638857697064e-09,
+          2.264408609007996e-06
+        ],
+        "floor": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "push": -2.264408609007996e-06,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 6.215023050374925e-10,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -4.201809627084278e-11,
+            -6.063853559982557e-11,
+            -0.0040000002989339116
+          ],
+          "max_mm": [
+            -3.798976706425639e-11,
+            -5.596184540013056e-11,
+            -0.004000000241770026
+          ],
+          "mean_mm": [
+            -4.005557101280519e-11,
+            -5.827910409420039e-11,
+            -0.00400000027048804
+          ]
+        }
+      },
+      "force_balance_relative": 2.264411001879804e-06,
+      "free_dof_residual_norm_N": 6.825659392294398e-07,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.3,
+      "reactions_N": {
+        "push": [
+          4.9919494076304464e-11,
+          3.291563891234265e-09,
+          2.2644086090080435e-06
+        ],
+        "floor": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "push": -2.2644086090080435e-06,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 6.21501416875113e-10,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -4.201809623268907e-11,
+            -6.063853563549774e-11,
+            -0.006000000298933912
+          ],
+          "max_mm": [
+            -3.798976703251333e-11,
+            -5.596184544490171e-11,
+            -0.006000000241770026
+          ],
+          "mean_mm": [
+            -4.005557097747941e-11,
+            -5.827910413608675e-11,
+            -0.006000000270488042
+          ]
+        }
+      },
+      "force_balance_relative": 2.264411001879859e-06,
+      "free_dof_residual_norm_N": 6.825659392295574e-07,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.4,
+      "reactions_N": {
+        "push": [
+          4.991888601654424e-11,
+          3.2915642525965016e-09,
+          2.2644086092758724e-06
+        ],
+        "floor": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "push": -2.2644086092758724e-06,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 6.21501416875113e-10,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -4.201809622131534e-11,
+            -6.063853558514312e-11,
+            -0.008000000298933913
+          ],
+          "max_mm": [
+            -3.798976702144979e-11,
+            -5.5961845394753884e-11,
+            -0.008000000241770026
+          ],
+          "mean_mm": [
+            -4.005557096740849e-11,
+            -5.827910408416049e-11,
+            -0.00800000027048804
+          ]
+        }
+      },
+      "force_balance_relative": 2.2644110021481996e-06,
+      "free_dof_residual_norm_N": 6.825659392093058e-07,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.5,
+      "reactions_N": {
+        "push": [
+          1.9320193282533612e-13,
+          3.713632610875269e-13,
+          -0.0005561654106022383
+        ],
+        "floor": [
+          -1.7903890825250575e-13,
+          -3.725874717848479e-13,
+          0.0005567658819979364
+        ]
+      },
+      "motion_force_N": {
+        "push": 0.0005561654106022383,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 1.7565270429547662e-07,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -3.03499898460407e-08,
+            -1.2300788761651119e-08,
+            -0.00999955654673656
+          ],
+          "max_mm": [
+            -1.7660300751921977e-08,
+            1.832072012896081e-08,
+            -0.009999494803752772
+          ],
+          "mean_mm": [
+            -2.594998172692446e-08,
+            3.103834675666252e-09,
+            -0.00999953145613618
+          ]
+        }
+      },
+      "force_balance_relative": 6.004713956980986e-07,
+      "free_dof_residual_norm_N": 1.4170113833276913e-07,
+      "native_ipc_force_active": true,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.6,
+      "reactions_N": {
+        "push": [
+          1.3855149333546695e-10,
+          -4.419980396203827e-12,
+          -2.3982014704059003
+        ],
+        "floor": [
+          -1.3855137615575865e-10,
+          4.41977982798997e-12,
+          2.398201668336089
+        ]
+      },
+      "motion_force_N": {
+        "push": 2.3982014704059003,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 0.0004998759308829221,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -2.760194707721022e-11,
+            -1.7476086062233557e-10,
+            -0.009999999513770176
+          ],
+          "max_mm": [
+            1.1558950284531852e-10,
+            1.738710665376226e-10,
+            -0.009999998901812336
+          ],
+          "mean_mm": [
+            1.652808580271013e-11,
+            3.4435692722662067e-13,
+            -0.009999999267716799
+          ]
+        }
+      },
+      "force_balance_relative": 4.126637877551898e-08,
+      "free_dof_residual_norm_N": 7.243864558787664e-08,
+      "native_ipc_force_active": true,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.7,
+      "reactions_N": {
+        "push": [
+          7.931883807100485e-11,
+          -2.5301998207759907e-12,
+          -4.792803544821139
+        ],
+        "floor": [
+          -7.931878878158597e-11,
+          2.5302893472331044e-12,
+          4.7928036853486224
+        ]
+      },
+      "motion_force_N": {
+        "push": 4.792803544821139,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 0.000999500350586112,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -8.066098698976782e-12,
+            -5.0043710875615325e-11,
+            -0.009999999680459974
+          ],
+          "max_mm": [
+            3.2908595974560025e-11,
+            4.979954458140395e-11,
+            -0.009999999505159538
+          ],
+          "mean_mm": [
+            4.5602233235404394e-12,
+            1.0435353183620088e-13,
+            -0.009999999609975972
+          ]
+        }
+      },
+      "force_balance_relative": 1.4660258824422407e-08,
+      "free_dof_residual_norm_N": 3.4135370601181144e-08,
+      "native_ipc_force_active": true,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.8,
+      "reactions_N": {
+        "push": [
+          6.922962111592163e-11,
+          -2.2084639498539056e-12,
+          -7.183809527851874
+        ],
+        "floor": [
+          -6.922974377877129e-11,
+          2.208447459443853e-12,
+          7.183809561881031
+        ]
+      },
+      "motion_force_N": {
+        "push": 7.183809527851874,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 0.0014988753220788753,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -4.790192489329387e-12,
+            -2.9130263753032644e-11,
+            -0.009999999708411545
+          ],
+          "max_mm": [
+            1.9044230794899145e-11,
+            2.8994366454796898e-11,
+            -0.009999999606332986
+          ],
+          "mean_mm": [
+            2.56065812190224e-12,
+            6.410794831369717e-14,
+            -0.009999999667368264
+          ]
+        }
+      },
+      "force_balance_relative": 2.368461758979821e-09,
+      "free_dof_residual_norm_N": 1.4147494055237756e-08,
+      "native_ipc_force_active": true,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.9,
+      "reactions_N": {
+        "push": [
+          6.92058509468862e-11,
+          -2.2077503875399684e-12,
+          -9.571220950788865
+        ],
+        "floor": [
+          -6.920668662034235e-11,
+          2.2077130162887015e-12,
+          9.57122213592158
+        ]
+      },
+      "motion_force_N": {
+        "push": 9.571220950788865,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 0.0019980003971522015,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -3.664455043430561e-12,
+            -2.184892880162446e-11,
+            -0.009999999718141136
+          ],
+          "max_mm": [
+            1.419978620321317e-11,
+            2.175170397841379e-11,
+            -0.009999999641550216
+          ],
+          "mean_mm": [
+            1.8447948881084966e-12,
+            5.062183125490812e-14,
+            -0.009999999687345811
+          ]
+        }
+      },
+      "force_balance_relative": 6.191125710294899e-08,
+      "free_dof_residual_norm_N": 2.8662165807263e-07,
+      "native_ipc_force_active": true,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 1.0,
+      "reactions_N": {
+        "push": [
+          6.918286538113083e-11,
+          -2.2072887730313926e-12,
+          -11.955039581711794
+        ],
+        "floor": [
+          -6.918363441097345e-11,
+          2.206978430469942e-12,
+          11.955043085911587
+        ]
+      },
+      "motion_force_N": {
+        "push": 11.955039581711794,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 0.0024968754740434832,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -2.9893345934281647e-12,
+            -1.748011686558721e-11,
+            -0.00999999972397888
+          ],
+          "max_mm": [
+            1.1292799026643706e-11,
+            1.74061197202839e-11,
+            -0.009999999662680515
+          ],
+          "mean_mm": [
+            1.416201388077799e-12,
+            4.2542038490698936e-14,
+            -0.009999999699332315
+          ]
+        }
+      },
+      "force_balance_relative": 1.4655741016336704e-07,
+      "free_dof_residual_norm_N": 8.452329410037974e-07,
+      "native_ipc_force_active": true,
+      "independent_mesh_intersection": false
+    }
+  ],
+  "assumptions": [
+    "Experimental IPC; native SI mapping; mm/N/MPa metrics.",
+    "Incremental quasi-static equilibrium, zero body force, frictionless SaintVenant homogeneous elasticity.",
+    "P1 tetrahedra and straight collision triangles, not exact CAD surfaces; mesh refinement required.",
+    "All deformable exterior triangles collide; rigid obstacle surfaces follow explicit master selections.",
+    "Numerical elastic results do not validate printed material, bonding, friction, creep or wear."
+  ],
+  "warnings": [],
+  "errors": [],
+  "provenance": {
+    "backend": "PolyFEM-IPC-experimental",
+    "case_sha256": "4182ff7839088e07338c8c00c790a48942bd534ba6e9f77ac7b631d9143405d3",
+    "backend_sha256": "0554d58fdaef16090d0d1409de051abfab417758cd4cd9aee9e22e5dde121219",
+    "executable": "/home/hevar/.local/opt/polyfem-ipc/PolyFEM_bin",
+    "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da",
+    "polyfem_commit": "591b08bd5e115bdefec7e2998e98f5b56bc1367e",
+    "ipc_settings": {
+      "activation_distance_mm": 0.001,
+      "obstacle_mesh_size_mm": null,
+      "gradient_tolerance_N": 1e-06,
+      "max_iterations": 200,
+      "initial_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_system": "SI",
+      "ccd_tolerance_mm": 1e-06,
+      "constraint_initial_weight": 1000000000000.0,
+      "deformable": "block"
+    },
+    "input_sha256": "342de28936620afa91c5c47db7076525af0b1246b0589cd9d2607fab543157aa",
+    "mesh_sha256": "e889b51b59c74b5322a77b2e21d0d9ee613acfdeb1b9397f962336408a56119a",
+    "mesh_files_sha256": {
+      "part_0.mesh": "205ec32ba440646050d845f792f96a4c530969baf29f8cc9a7c6fd90dae1818d",
+      "part_1.obj": "470890633a227fd68845ca7f4c8f65b877dcfe7d1e29d1e89e565223c929efe9"
+    },
+    "geometry_sha256": {
+      "block": "df00b228a026ffc1b7bfb3c57ea2fb379c130d99133897184302dcf0fb4d7d92",
+      "floor": "2d4cf7001b95983909ddc90208e1794a8d37c934aeee79e795979138431630b6"
+    },
+    "unit_mapping": {
+      "length_mm_to_native": 0.001,
+      "stress_MPa_to_native": 1000000.0,
+      "force_N_to_native": 1
+    },
+    "formulation": "P1 SaintVenant, time.quasistatic=true",
+    "versions": {
+      "python": "3.12.14",
+      "gmsh": "4.15.2"
+    },
+    "command": [
+      "/home/hevar/.local/opt/polyfem-ipc/PolyFEM_bin",
+      "--json",
+      "scene.json",
+      "--max_threads",
+      "1"
+    ],
+    "native_exit_code": 0,
+    "effective_parameters": {
+      "boundary_conditions": {
+        "dirichlet_boundary": [
+          {
+            "dimension": [
+              true,
+              true,
+              true
+            ],
+            "fe_space": -1,
+            "id": 1,
+            "interpolation": [],
+            "time_reference": [],
+            "value": [
+              0,
+              0,
+              "(-2.0000000000000002e-05)*((1)*min(max(t-(0),0),1))"
+            ]
+          }
+        ],
+        "neumann_boundary": [],
+        "nodal_neumann_boundary": [],
+        "normal_aligned_neumann_boundary": [],
+        "obstacle_displacements": [
+          {
+            "id": 1001,
+            "interpolation": [],
+            "value": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "periodic": [],
+        "pressure_boundary": [],
+        "pressure_cavity": [],
+        "rhs": [
+          0,
+          0,
+          0
+        ]
+      },
+      "common": "",
+      "constraints": {
+        "hard": [],
+        "soft": [],
+        "zero_mean": false
+      },
+      "contact": {
+        "adhesion": {
+          "adhesion_enabled": false,
+          "adhesion_strength": 0.001,
+          "dhat_a": 0.01,
+          "dhat_p": 0.001,
+          "epsa": 0.001,
+          "tangential_adhesion_coefficient": 0.0
+        },
+        "alpha_n": 0.5,
+        "alpha_t": 0.5,
+        "dhat": 1e-06,
+        "dhat_percentage": 0.8,
+        "enabled": true,
+        "epsv": 0.001,
+        "friction_coefficient": 0,
+        "min_distance_ratio": 0.5,
+        "periodic": false,
+        "use_adaptive_dhat": false,
+        "use_area_weighting": true,
+        "use_convergent_formulation": false,
+        "use_gcp_formulation": false,
+        "use_improved_max_operator": true,
+        "use_physical_barrier": true
+      },
+      "geometry": [
+        {
+          "advanced": {
+            "force_linear_geometry": false,
+            "min_component": -1,
+            "normalize_mesh": false,
+            "refinement_location": 0.5
+          },
+          "curve_selection": null,
+          "enabled": true,
+          "extract": "volume",
+          "is_obstacle": false,
+          "mesh": "part_0.mesh",
+          "n_refs": 0,
+          "surface_selection": [
+            {
+              "boundary_only": true,
+              "box": [
+                [
+                  -0.001,
+                  -0.001,
+                  0.004009990000000001
+                ],
+                [
+                  0.003,
+                  0.003,
+                  0.00401001
+                ]
+              ],
+              "id": 1,
+              "relative": false
+            }
+          ],
+          "transformation": {
+            "dimensions": 1,
+            "rotation": [],
+            "rotation_mode": "xyz",
+            "scale": [],
+            "translation": []
+          },
+          "type": "mesh",
+          "unit": "",
+          "volume_selection": 1
+        },
+        {
+          "advanced": {
+            "force_linear_geometry": false,
+            "min_component": -1,
+            "normalize_mesh": false,
+            "refinement_location": 0.5
+          },
+          "curve_selection": null,
+          "enabled": true,
+          "extract": "volume",
+          "is_obstacle": true,
+          "mesh": "part_1.obj",
+          "n_refs": 0,
+          "surface_selection": 1001,
+          "transformation": {
+            "dimensions": 1,
+            "rotation": [],
+            "rotation_mode": "xyz",
+            "scale": [],
+            "translation": []
+          },
+          "type": "mesh",
+          "unit": "",
+          "volume_selection": {
+            "id_offset": 0
+          }
+        }
+      ],
+      "initial_conditions": {
+        "acceleration": [],
+        "solution": [],
+        "velocity": []
+      },
+      "input": {
+        "data": {
+          "reorder": false,
+          "state": ""
+        }
+      },
+      "materials": {
+        "E": 1200000000.0,
+        "fiber_direction": [],
+        "id": 0,
+        "nu": 0,
+        "phi": 0,
+        "psi": 0,
+        "rho": 1200,
+        "type": "SaintVenant"
+      },
+      "output": {
+        "advanced": {
+          "compute_error": true,
+          "curved_mesh_size": false,
+          "save_ccd_debug_meshes": false,
+          "save_nl_solve_sequence": false,
+          "save_solve_sequence_debug": false,
+          "save_time_sequence": true,
+          "sol_at_node": -1,
+          "sol_on_grid": -1,
+          "spectrum": false,
+          "timestep_prefix": "step_",
+          "vis_boundary_only": false
+        },
+        "data": {
+          "advanced": {
+            "reorder_nodes": true
+          },
+          "file_index_offset": 0,
+          "full_mat": "",
+          "mises": "",
+          "nodes": "",
+          "rest_mesh": "",
+          "solution": "",
+          "state": "",
+          "stiffness_mat": "",
+          "stress_mat": ""
+        },
+        "directory": "",
+        "json": "native.json",
+        "log": {
+          "file_level": "trace",
+          "level": "debug",
+          "path": "",
+          "quiet": false
+        },
+        "paraview": {
+          "fields": [],
+          "file_name": "state.vtu",
+          "high_order_mesh": true,
+          "options": {
+            "acceleration": false,
+            "body_ids": false,
+            "contact_forces": true,
+            "discretization_order": true,
+            "force_high_order": false,
+            "forces": true,
+            "friction_forces": false,
+            "jacobian_validity": false,
+            "material": false,
+            "nodes": true,
+            "normal_adhesion_forces": false,
+            "scalar_values": false,
+            "tangential_adhesion_forces": false,
+            "tensor_values": false,
+            "use_hdf5": false,
+            "velocity": false
+          },
+          "points": false,
+          "skip_frame": 1,
+          "surface": false,
+          "vismesh_rel_area": 1,
+          "volume": true,
+          "wireframe": false
+        },
+        "reference": {
+          "gradient": [],
+          "solution": []
+        },
+        "restart_json": "",
+        "stats": true
+      },
+      "root_path": "scene.json",
+      "solver": {
+        "adjoint_linear": {
+          "AMGCL": {
+            "precond": {
+              "class": "amg",
+              "coarsening": {
+                "aggr": {
+                  "eps_strong": 0
+                },
+                "estimate_spectral_radius": true,
+                "relax": 1,
+                "type": "smoothed_aggregation"
+              },
+              "direct_coarse": false,
+              "max_levels": 6,
+              "ncycle": 2,
+              "relax": {
+                "degree": 16,
+                "higher": 2,
+                "lower": 0.008333333333,
+                "power_iters": 100,
+                "scale": true,
+                "type": "chebyshev"
+              }
+            },
+            "solver": {
+              "maxiter": 1000,
+              "tol": 1e-10,
+              "type": "cg"
+            }
+          },
+          "Eigen::BiCGSTAB": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Eigen::ConjugateGradient": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Eigen::DGMRES": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Eigen::GMRES": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Eigen::LeastSquaresConjugateGradient": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Eigen::MINRES": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Hypre": {
+            "dimension": 1,
+            "interp_rbms": false,
+            "max_iter": 1000,
+            "nodal_coarsening": false,
+            "pre_max_iter": 1,
+            "theta": 0.5,
+            "tolerance": 1e-10
+          },
+          "MAS": {
+            "absolute_tolerance": 1e-08,
+            "block_dim": 1,
+            "lazy_partitioning": true,
+            "max_iter": 10000,
+            "relative_tolerance": 0.0001,
+            "use_preconditioned_residual_norm": false
+          },
+          "Pardiso": {
+            "mtype": 11
+          },
+          "enable_overwrite_solver": false,
+          "precond": "Eigen::DiagonalPreconditioner",
+          "solver": "Eigen::SimplicialLDLT"
+        },
+        "advanced": {
+          "cache_size": 900000,
+          "characteristic_force_density": 10000,
+          "characteristic_length": -1,
+          "check_inversion": "Discrete",
+          "conservative_max_iter": 100000,
+          "jacobian_threshold": 0,
+          "lagged_regularization_iterations": 1,
+          "lagged_regularization_weight": 0,
+          "lump_mass_matrix": false
+        },
+        "augmented_lagrangian": {
+          "eta": 0.99,
+          "initial_weight": 1000000000000.0,
+          "lumping": "row_sum",
+          "max_weight": 1e+16,
+          "nonlinear": {
+            "ADAM": {
+              "alpha": 0.001,
+              "beta_1": 0.9,
+              "beta_2": 0.999,
+              "epsilon": 1e-08
+            },
+            "L-BFGS": {
+              "history_size": 6
+            },
+            "L-BFGS-B": {
+              "history_size": 6
+            },
+            "Newton": {
+              "force_psd_projection": false,
+              "reg_weight_inc": 10,
+              "reg_weight_max": 100000000.0,
+              "reg_weight_min": 1e-08,
+              "residual_tolerance": 1e-05,
+              "use_psd_projection": true,
+              "use_psd_projection_in_regularized": true
+            },
+            "StochasticADAM": {
+              "alpha": 0.001,
+              "beta_1": 0.9,
+              "beta_2": 0.999,
+              "epsilon": 1e-08,
+              "erase_component_probability": 0.3
+            },
+            "StochasticGradientDescent": {
+              "erase_component_probability": 0.3
+            },
+            "advanced": {
+              "apply_gradient_fd": "None",
+              "derivative_along_delta_x_tol": 0,
+              "f_delta_step_tol": 100,
+              "f_delta_tol": 0,
+              "gradient_fd_eps": 1e-07
+            },
+            "allow_non_grad_convergence": false,
+            "allow_out_of_iterations": false,
+            "box_constraints": {
+              "bounds": [],
+              "max_change": -1
+            },
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1e-08,
+            "iterations_per_strategy": 5,
+            "line_search": {
+              "Armijo": {
+                "c": 0.0001
+              },
+              "RobustArmijo": {
+                "delta_relative_tolerance": 0.1
+              },
+              "default_init_step_size": 1,
+              "max_step_size_iter": 30,
+              "max_step_size_iter_final": 100,
+              "method": "RobustArmijo",
+              "min_step_size": 1e-10,
+              "min_step_size_final": 1e-20,
+              "step_ratio": 0.5,
+              "use_grad_norm_tol": 1e-06
+            },
+            "max_iterations": 200,
+            "newton_decrement_tol": 0,
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "rel_x_delta_tol": 0,
+            "solver": "Newton",
+            "x_delta_tol": 0
+          },
+          "scaling": 2.0
+        },
+        "contact": {
+          "CCD": {
+            "broad_phase": "hash_grid",
+            "max_iterations": 1000000,
+            "tolerance": 1e-09
+          },
+          "barrier_stiffness": "adaptive",
+          "friction_convergence_tol": 0.01,
+          "friction_iterations": 0,
+          "initial_barrier_stiffness": 1,
+          "tangential_adhesion_iterations": 1
+        },
+        "linear": {
+          "AMGCL": {
+            "precond": {
+              "class": "amg",
+              "coarsening": {
+                "aggr": {
+                  "eps_strong": 0
+                },
+                "estimate_spectral_radius": true,
+                "relax": 1,
+                "type": "smoothed_aggregation"
+              },
+              "direct_coarse": false,
+              "max_levels": 6,
+              "ncycle": 2,
+              "relax": {
+                "degree": 16,
+                "higher": 2,
+                "lower": 0.008333333333,
+                "power_iters": 100,
+                "scale": true,
+                "type": "chebyshev"
+              }
+            },
+            "solver": {
+              "maxiter": 1000,
+              "tol": 1e-10,
+              "type": "cg"
+            }
+          },
+          "Eigen::BiCGSTAB": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Eigen::ConjugateGradient": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Eigen::DGMRES": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Eigen::GMRES": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Eigen::LeastSquaresConjugateGradient": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Eigen::MINRES": {
+            "max_iter": 1000,
+            "tolerance": 1e-12
+          },
+          "Hypre": {
+            "dimension": 1,
+            "interp_rbms": false,
+            "max_iter": 1000,
+            "nodal_coarsening": false,
+            "pre_max_iter": 1,
+            "theta": 0.5,
+            "tolerance": 1e-10
+          },
+          "MAS": {
+            "absolute_tolerance": 1e-08,
+            "block_dim": 1,
+            "lazy_partitioning": true,
+            "max_iter": 10000,
+            "relative_tolerance": 0.0001,
+            "use_preconditioned_residual_norm": false
+          },
+          "Pardiso": {
+            "mtype": 11
+          },
+          "enable_overwrite_solver": false,
+          "precond": "Eigen::DiagonalPreconditioner",
+          "solver": "Eigen::SimplicialLDLT"
+        },
+        "max_threads": 1,
+        "nonlinear": {
+          "ADAM": {
+            "alpha": 0.001,
+            "beta_1": 0.9,
+            "beta_2": 0.999,
+            "epsilon": 1e-08
+          },
+          "L-BFGS": {
+            "history_size": 6
+          },
+          "L-BFGS-B": {
+            "history_size": 6
+          },
+          "Newton": {
+            "force_psd_projection": false,
+            "reg_weight_inc": 10,
+            "reg_weight_max": 100000000.0,
+            "reg_weight_min": 1e-08,
+            "residual_tolerance": 1e-05,
+            "use_psd_projection": true,
+            "use_psd_projection_in_regularized": true
+          },
+          "StochasticADAM": {
+            "alpha": 0.001,
+            "beta_1": 0.9,
+            "beta_2": 0.999,
+            "epsilon": 1e-08,
+            "erase_component_probability": 0.3
+          },
+          "StochasticGradientDescent": {
+            "erase_component_probability": 0.3
+          },
+          "advanced": {
+            "apply_gradient_fd": "None",
+            "derivative_along_delta_x_tol": 0,
+            "f_delta_step_tol": 100,
+            "f_delta_tol": 0,
+            "gradient_fd_eps": 1e-07
+          },
+          "allow_non_grad_convergence": false,
+          "allow_out_of_iterations": false,
+          "box_constraints": {
+            "bounds": [],
+            "max_change": -1
+          },
+          "first_grad_norm_tol": 1e-12,
+          "grad_norm_tol": 1e-08,
+          "iterations_per_strategy": 5,
+          "line_search": {
+            "Armijo": {
+              "c": 0.0001
+            },
+            "RobustArmijo": {
+              "delta_relative_tolerance": 0.1
+            },
+            "default_init_step_size": 1,
+            "max_step_size_iter": 30,
+            "max_step_size_iter_final": 100,
+            "method": "RobustArmijo",
+            "min_step_size": 1e-10,
+            "min_step_size_final": 1e-20,
+            "step_ratio": 0.5,
+            "use_grad_norm_tol": 1e-06
+          },
+          "max_iterations": 200,
+          "newton_decrement_tol": 0,
+          "norm_type": "Euclidean",
+          "rel_grad_norm_tol": 0,
+          "rel_x_delta_tol": 0,
+          "solver": "Newton",
+          "x_delta_tol": 0
+        },
+        "rayleigh_damping": []
+      },
+      "space": {
+        "advanced": {
+          "B": 3,
+          "bc_method": "sample",
+          "count_flipped_els": true,
+          "count_flipped_els_continuous": false,
+          "discr_order_max": 4,
+          "force_no_ref_for_harmonic": false,
+          "h1_formula": false,
+          "integral_constraints": 2,
+          "isoparametric": false,
+          "mass_quadrature_order": -1,
+          "n_boundary_samples": -1,
+          "n_harmonic_samples": 10,
+          "quadrature_order": -1,
+          "use_corner_quadrature": false,
+          "use_particle_advection": false
+        },
+        "basis_type": "Lagrange",
+        "discr_order": 1,
+        "discr_orderq": 1,
+        "poly_basis_type": "MFSHarmonic",
+        "remesh": {
+          "collapse": {
+            "abs_max_edge_length": 1e+100,
+            "acceptance_tolerance": -1e-08,
+            "culling_threshold": 0.01,
+            "enabled": true,
+            "max_depth": 3,
+            "rel_max_edge_length": 1
+          },
+          "enabled": false,
+          "local_relaxation": {
+            "local_mesh_n_ring": 2,
+            "local_mesh_rel_area": 0.01,
+            "max_nl_iterations": 1
+          },
+          "smooth": {
+            "acceptance_tolerance": -1e-08,
+            "enabled": false,
+            "max_iters": 1
+          },
+          "split": {
+            "acceptance_tolerance": 0.001,
+            "culling_threshold": 0.95,
+            "enabled": true,
+            "max_depth": 3,
+            "min_edge_length": 1e-06
+          },
+          "swap": {
+            "acceptance_tolerance": -1e-08,
+            "enabled": false,
+            "max_depth": 3
+          },
+          "type": "physics"
+        },
+        "use_p_ref": false
+      },
+      "tests": {
+        "err_h1": 0,
+        "err_h1_semi": 0,
+        "err_l2": 0,
+        "err_linf": 0,
+        "err_linf_grad": 0,
+        "err_lp": 0,
+        "margin": 1e-05,
+        "time_steps": 1
+      },
+      "time": {
+        "dt": 0.1,
+        "integrator": "ImplicitEuler",
+        "quasistatic": true,
+        "t0": 0,
+        "tend": 1.0,
+        "time_steps": 10
+      },
+      "units": {
+        "characteristic_length": 10,
+        "length": "m",
+        "mass": "kg",
+        "temperature": "K",
+        "time": "s"
+      }
+    }
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "scene.json.gz",
+    "run_metadata": "run_metadata.json",
+    "solver_log": "solver.log.gz",
+    "worker_log": "worker.log.gz",
+    "fixture_geometry": [
+      "part_0.brep.gz",
+      "part_1.brep.gz"
+    ],
+    "mesh": "mesh.json.gz",
+    "native_statistics": "native.json.gz",
+    "geometry_witness": "geometry_witness.json.gz",
+    "numerical_meshes": [
+      "part_0.mesh.gz",
+      "part_1.obj.gz"
+    ],
+    "raw_fields_retained": false,
+    "reproduce": "Decompress scene.json, *.mesh and *.obj into a new directory; run the recorded POLYFEM_COMMAND --json scene.json --max_threads 1. SI meshes/materials; quasi-static, frictionless SaintVenant elasticity. Native VTU fields are required for independent recovery/inspection."
+  }
+}

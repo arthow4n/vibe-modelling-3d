@@ -21,6 +21,8 @@ def retain_run(run, destination):
         from .backends.structural import evidence_files
     elif backend=='FEBio':
         from .backends.febio import evidence_files
+    elif backend=='PolyFEM-IPC-experimental':
+        from .backends.polyfem import evidence_files
     else:raise ValueError(f'Evidence retention does not support backend {backend}')
     files, replay = evidence_files(run)
     destination.mkdir(parents=True, exist_ok=False)

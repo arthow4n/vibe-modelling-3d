@@ -1,0 +1,4 @@
+{
+  "reason": "MEDIT version 1 silently rounds deformable coordinates to float32. Classic IPC separation can be smaller than mapping error. Stop numerical controls and retest double-precision version 2 before qualification.",
+  "status": "deliberate diagnostic stop; no mechanism failure established"
+}

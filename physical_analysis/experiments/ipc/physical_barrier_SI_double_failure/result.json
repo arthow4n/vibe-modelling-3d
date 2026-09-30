@@ -1,0 +1,408 @@
+{
+  "case": "ipc_compression",
+  "status": "solver_failed",
+  "completed": false,
+  "metrics": {
+    "peak_motion_force_N": {
+      "push": 2.264405979117026e-06,
+      "floor": 0.0
+    },
+    "max_abs_principal_strain": 6.21501416875113e-10,
+    "max_strain_by_part": {
+      "block": 6.21501416875113e-10
+    },
+    "strain_limits": {
+      "block": null
+    },
+    "peak_strain_location": {
+      "part": "block",
+      "element_index": 127,
+      "reference_centroid_mm": [
+        1.7551201634322098,
+        1.3473900830920407,
+        3.8838084623073814
+      ],
+      "load_fraction": 0.1
+    },
+    "max_force_balance_relative": 2.2644083719895427e-06,
+    "max_free_dof_residual_norm_N": 6.825651153708685e-07,
+    "max_inertia_force_N": 0.0,
+    "max_displacement_mm": 0.01,
+    "max_displacement_scope": "Deformable solid across accepted frames; rigid obstacle travel excluded",
+    "contact_detected": true,
+    "independent_mesh_intersection": false,
+    "observations": {
+      "bottom": {
+        "min_mm": [
+          -2.9962973170709996e-11,
+          -1.6922356928903146e-11,
+          -0.009999999617828074
+        ],
+        "max_mm": [
+          -2.2858022502052896e-11,
+          1.7920593249543693e-11,
+          -0.009999999547194372
+        ],
+        "mean_mm": [
+          -2.78368149806478e-11,
+          8.158347690383101e-13,
+          -0.009999999594070672
+        ]
+      }
+    },
+    "native_penetration_mm": null,
+    "contact_evidence": "IPC barrier forces, verified prescribed poses and independent accepted-frame triangle geometry; no native penetration metric fabricated.",
+    "diagnostic_prefix_only": true,
+    "native_operation_completed": false
+  },
+  "history": [
+    {
+      "load_fraction": 0.0,
+      "reactions_N": {
+        "push": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "floor": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "push": 0.0,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 3.823994908277106e-16,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_mm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "force_balance_relative": 0.0,
+      "free_dof_residual_norm_N": 0.0,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.1,
+      "reactions_N": {
+        "push": [
+          4.99243613253718e-11,
+          3.2915623874589874e-09,
+          2.264405979117026e-06
+        ],
+        "floor": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "push": -2.264405979117026e-06,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 6.21501416875113e-10,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -4.2018077136190656e-11,
+            -6.063845811006278e-11,
+            -0.002000000298933705
+          ],
+          "max_mm": [
+            -3.798975686873835e-11,
+            -5.596177784522051e-11,
+            -0.002000000241769877
+          ],
+          "mean_mm": [
+            -4.005555636238189e-11,
+            -5.827903153377747e-11,
+            -0.002000000270487863
+          ]
+        }
+      },
+      "force_balance_relative": 2.2644083719895427e-06,
+      "free_dof_residual_norm_N": 6.825651153708685e-07,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.2,
+      "reactions_N": {
+        "push": [
+          4.9921298425137625e-11,
+          3.2915549232123318e-09,
+          2.264404692996775e-06
+        ],
+        "floor": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "push": -2.264404692996775e-06,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 6.21501416875113e-10,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -4.201803378293097e-11,
+            -6.063838554626393e-11,
+            -0.00400000029893352
+          ],
+          "max_mm": [
+            -3.798971640999042e-11,
+            -5.596170865414721e-11,
+            -0.004000000241769755
+          ],
+          "mean_mm": [
+            -4.00555144251882e-11,
+            -5.827896067130303e-11,
+            -0.0040000002704877104
+          ]
+        }
+      },
+      "force_balance_relative": 2.264407085859733e-06,
+      "free_dof_residual_norm_N": 6.825647283537269e-07,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.3,
+      "reactions_N": {
+        "push": [
+          4.992129429063415e-11,
+          3.2915549094029055e-09,
+          2.264404692996905e-06
+        ],
+        "floor": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "push": -2.264404692996905e-06,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 6.215005287127334e-10,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -4.2018033764732996e-11,
+            -6.063838549673649e-11,
+            -0.006000000298933521
+          ],
+          "max_mm": [
+            -3.798971640533753e-11,
+            -5.596170861857844e-11,
+            -0.006000000241769755
+          ],
+          "mean_mm": [
+            -4.005551441412466e-11,
+            -5.827896062704886e-11,
+            -0.00600000027048771
+          ]
+        }
+      },
+      "force_balance_relative": 2.2644070858598427e-06,
+      "free_dof_residual_norm_N": 6.825647283546853e-07,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.4,
+      "reactions_N": {
+        "push": [
+          4.9921477776701205e-11,
+          3.2915550790963645e-09,
+          2.264404692038949e-06
+        ],
+        "floor": [
+          -0.0,
+          -0.0,
+          -0.0
+        ]
+      },
+      "motion_force_N": {
+        "push": -2.264404692038949e-06,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 6.215005287127334e-10,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -4.20180338029901e-11,
+            -6.06383855263082e-11,
+            -0.008000000298933522
+          ],
+          "max_mm": [
+            -3.798971643904514e-11,
+            -5.5961708649184124e-11,
+            -0.008000000241769755
+          ],
+          "mean_mm": [
+            -4.0055514448504356e-11,
+            -5.827896065716858e-11,
+            -0.00800000027048771
+          ]
+        }
+      },
+      "force_balance_relative": 2.2644070849021385e-06,
+      "free_dof_residual_norm_N": 6.825647272644738e-07,
+      "native_ipc_force_active": false,
+      "independent_mesh_intersection": false
+    },
+    {
+      "load_fraction": 0.5,
+      "reactions_N": {
+        "push": [
+          -2.665927999537946e-16,
+          -1.8165550125175255e-16,
+          -4.827524607304112e-07
+        ],
+        "floor": [
+          -0.0,
+          -0.0,
+          1.028065313972466e-06
+        ]
+      },
+      "motion_force_N": {
+        "push": 4.827524607304112e-07,
+        "floor": 0.0
+      },
+      "max_abs_principal_strain": 1.7722859410851903e-10,
+      "observations": {
+        "bottom": {
+          "min_mm": [
+            -2.9962973170709996e-11,
+            -1.6922356928903146e-11,
+            -0.009999999617828074
+          ],
+          "max_mm": [
+            -2.2858022502052896e-11,
+            1.7920593249543693e-11,
+            -0.009999999547194372
+          ],
+          "mean_mm": [
+            -2.78368149806478e-11,
+            8.158347690383101e-13,
+            -0.009999999594070672
+          ]
+        }
+      },
+      "force_balance_relative": 5.453128532420549e-07,
+      "free_dof_residual_norm_N": 1.3298204128127165e-07,
+      "native_ipc_force_active": true,
+      "independent_mesh_intersection": false
+    }
+  ],
+  "assumptions": [
+    "Experimental IPC; native SI mapping; mm/N/MPa metrics.",
+    "Incremental quasi-static equilibrium, zero body force, frictionless SaintVenant homogeneous elasticity.",
+    "P1 tetrahedra and straight collision triangles, not exact CAD surfaces; mesh refinement required.",
+    "All deformable exterior triangles collide; rigid obstacle surfaces follow explicit master selections.",
+    "Numerical elastic results do not validate printed material, bonding, friction, creep or wear."
+  ],
+  "warnings": [],
+  "errors": [
+    "[polyfem] [debug] [SparseRegularizedNewton (reg_weight=0.001)][RobustArmijo] Update direction could not be computed; reverting to SparseRegularizedNewton (reg_weight=0.01)\n[2026-10-01 00:07:46.775] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=0.01)] large (or nan) linear solve residual 407.29350596345137>1e-05 (\u2016\u2207f\u2016=1.5586883637340662e+18)\n[2026-10-01 00:07:46.775] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=0.01)][RobustArmijo] Update direction could not be computed; reverting to SparseRegularizedNewton (reg_weight=0.1)\n[2026-10-01 00:07:46.778] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=0.1)] large (or nan) linear solve residual 407.29350596345137>1e-05 (\u2016\u2207f\u2016=1.5586883637340662e+18)\n[2026-10-01 00:07:46.778] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=0.1)][RobustArmijo] Update direction could not be computed; reverting to SparseRegularizedNewton (reg_weight=1)\n[2026-10-01 00:07:46.780] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=1)] large (or nan) linear solve residual 407.29350596345137>1e-05 (\u2016\u2207f\u2016=1.5586883637340662e+18)\n[2026-10-01 00:07:46.780] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=1)][RobustArmijo] Update direction could not be computed; reverting to SparseRegularizedNewton (reg_weight=10)\n[2026-10-01 00:07:46.782] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=10)] large (or nan) linear solve residual 407.29350596345137>1e-05 (\u2016\u2207f\u2016=1.5586883637340662e+18)\n[2026-10-01 00:07:46.782] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=10)][RobustArmijo] Update direction could not be computed; reverting to SparseRegularizedNewton (reg_weight=100)\n[2026-10-01 00:07:46.784] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=100)] large (or nan) linear solve residual 407.29350596345137>1e-05 (\u2016\u2207f\u2016=1.5586883637340662e+18)\n[2026-10-01 00:07:46.784] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=100)][RobustArmijo] Update direction could not be computed; reverting to SparseRegularizedNewton (reg_weight=1000)\n[2026-10-01 00:07:46.787] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=1000)] large (or nan) linear solve residual 407.29350596345137>1e-05 (\u2016\u2207f\u2016=1.5586883637340662e+18)\n[2026-10-01 00:07:46.787] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=1000)][RobustArmijo] Update direction could not be computed; reverting to SparseRegularizedNewton (reg_weight=10000)\n[2026-10-01 00:07:46.789] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=10000)] large (or nan) linear solve residual 407.29350596345137>1e-05 (\u2016\u2207f\u2016=1.5586883637340662e+18)\n[2026-10-01 00:07:46.789] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=10000)][RobustArmijo] Update direction could not be computed; reverting to SparseRegularizedNewton (reg_weight=100000)\n[2026-10-01 00:07:46.791] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=100000)] large (or nan) linear solve residual 407.29350596345137>1e-05 (\u2016\u2207f\u2016=1.5586883637340662e+18)\n[2026-10-01 00:07:46.791] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=100000)][RobustArmijo] Update direction could not be computed; reverting to SparseRegularizedNewton (reg_weight=1e+06)\n[2026-10-01 00:07:46.794] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=1e+06)] large (or nan) linear solve residual 407.29350596345137>1e-05 (\u2016\u2207f\u2016=1.5586883637340662e+18)\n[2026-10-01 00:07:46.794] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=1e+06)][RobustArmijo] Update direction could not be computed; reverting to SparseRegularizedNewton (reg_weight=1e+07)\n[2026-10-01 00:07:46.796] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=1e+07)] large (or nan) linear solve residual 407.29350596345137>1e-05 (\u2016\u2207f\u2016=1.5586883637340662e+18)\n[2026-10-01 00:07:46.796] [polyfem] [debug] [SparseRegularizedNewton (reg_weight=1e+07)][RobustArmijo] Update direction could not be computed; reverting to GradientDescent\nterminate called after throwing an instance of 'std::bad_alloc'\n  what():  std::bad_alloc\n"
+  ],
+  "provenance": {
+    "backend": "PolyFEM-IPC-experimental",
+    "case_sha256": "4168fa7f7eadafe0b00141b0da7dab333de21f0a3e54cba2084184a3e83e340c",
+    "backend_sha256": "1876831c031342e798c9841a6c5d33583a8cb745b72ea704bd5882a8a2f42ff1",
+    "executable": "/home/hevar/.local/opt/polyfem-ipc/PolyFEM_bin",
+    "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da",
+    "polyfem_commit": "591b08bd5e115bdefec7e2998e98f5b56bc1367e",
+    "ipc_settings": {
+      "activation_distance_mm": 0.0001,
+      "obstacle_mesh_size_mm": null,
+      "gradient_tolerance_N": 1e-06,
+      "max_iterations": 200,
+      "initial_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unit_system": "SI",
+      "ccd_tolerance_mm": 1e-06,
+      "constraint_initial_weight": 1000000000000.0,
+      "convergent_barrier": true,
+      "projected_newton": false,
+      "deformable": "block"
+    },
+    "input_sha256": "4274bd7001d062e189784702c315929b763920fbfa7abe0b1db891515932531e",
+    "mesh_sha256": "e889b51b59c74b5322a77b2e21d0d9ee613acfdeb1b9397f962336408a56119a",
+    "mesh_files_sha256": {
+      "part_0.mesh": "870138da44662acd5192eab1bda2facb5d63d16b2f1ca5ab7a3f54db00282d97",
+      "part_1.obj": "470890633a227fd68845ca7f4c8f65b877dcfe7d1e29d1e89e565223c929efe9"
+    },
+    "geometry_sha256": {
+      "block": "df00b228a026ffc1b7bfb3c57ea2fb379c130d99133897184302dcf0fb4d7d92",
+      "floor": "2d4cf7001b95983909ddc90208e1794a8d37c934aeee79e795979138431630b6"
+    },
+    "unit_mapping": {
+      "length_mm_to_native": 0.001,
+      "stress_MPa_to_native": 1000000.0,
+      "force_N_to_native": 1
+    },
+    "formulation": "P1 SaintVenant, time.quasistatic=true",
+    "versions": {
+      "python": "3.12.14",
+      "gmsh": "4.15.2"
+    },
+    "command": [
+      "/home/hevar/.local/opt/polyfem-ipc/PolyFEM_bin",
+      "--json",
+      "scene.json",
+      "--max_threads",
+      "1"
+    ],
+    "native_exit_code": -6,
+    "extractor_sha256": "f6e61879c371e7c4335ec27d1ac7bfdcbe397f64ee668d26a1bc6dc18cfbbbf3",
+    "native_mesh_mapping": {
+      "maximum_rest_coordinate_shift_mm": 4.440892098500626e-16,
+      "legacy_single_precision_input": false,
+      "qualification_limit": null
+    }
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "scene.json.gz",
+    "run_metadata": "run_metadata.json",
+    "solver_log": "solver.log.gz",
+    "worker_log": "worker.log.gz",
+    "fixture_geometry": [
+      "part_0.brep.gz",
+      "part_1.brep.gz"
+    ],
+    "mesh": "mesh.json.gz",
+    "geometry_witness": "geometry_witness.json.gz",
+    "initial_geometry_witness": "initial_geometry_witness.json.gz",
+    "numerical_meshes": [
+      "part_0.mesh.gz",
+      "part_1.obj.gz"
+    ],
+    "raw_fields_retained": false,
+    "reproduce": "Decompress scene.json, *.mesh and *.obj into a new directory; run the recorded POLYFEM_COMMAND --json scene.json --max_threads 1. Use the recorded scene units; quasi-static, frictionless SaintVenant elasticity. Native VTU fields are required for independent recovery/inspection."
+  }
+}

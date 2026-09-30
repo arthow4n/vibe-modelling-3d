@@ -1,0 +1,59 @@
+{
+  "upstream": "https://github.com/polyfem/polyfem",
+  "source_commit": "591b08bd5e115bdefec7e2998e98f5b56bc1367e",
+  "artifact": "teseoch/polyfem:591b08bd5e115bdefec7e2998e98f5b56bc1367e",
+  "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da",
+  "manifest": {
+    "schemaVersion": 2,
+    "mediaType": "application/vnd.oci.image.manifest.v1+json",
+    "config": {
+      "mediaType": "application/vnd.oci.image.config.v1+json",
+      "digest": "sha256:0c88e6c9766667b2504c9687c015d566c0f5b53c14eab68c6b0d97842fbb861e",
+      "size": 3281
+    },
+    "layers": [
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:edd1ed89f0d443580bd42e5a10cd8736aba5a3438b2a0645c2ebb50119bb0eba",
+        "size": 29764116
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:ff255e67c74509a0ecfe4391a0541ce0fa55eee21bb626094a08dfba2ca9dd9a",
+        "size": 186726763
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:a95d8da5ab744138ccf11703704c5ee21edde313032abd291b40a4a382cbdc11",
+        "size": 115
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:794d0a77164bc67e4ba338e2f18ae83e18ad131457ac5ff68ebe647e8d16fe58",
+        "size": 12580980
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+        "size": 32
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:6dde44b2b43c771abba679db62a59f29b65228932dcb1b22cf5f6a0511e0940a",
+        "size": 2369628541
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:ac24cbf1f20962799b360da7aa114fb86e5b9983b5db975b20829a1b53c8e981",
+        "size": 136166258
+      },
+      {
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "digest": "sha256:95d26e81333ea16c9dcb6adc56a23bbf78ed336ba319e9896905bdaba4dd92e4",
+        "size": 94
+      }
+    ]
+  },
+  "source_commit_kind": "Published container tag; not a native self-reported commit",
+  "note": "Native executable extracted outside repository; no binaries or upstream sources vendored."
+}

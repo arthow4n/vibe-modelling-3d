@@ -1,0 +1,4 @@
+{
+  "reason": "Native solve completed. Stop slow old AABB-bucket extraction; recover its unchanged saved fields with exact per-triangle broad-phase filtering.",
+  "kind": "extraction interruption, not solver failure"
+}
