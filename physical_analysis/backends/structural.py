@@ -128,7 +128,8 @@ class CalculixBackend:
                 result = AnalysisResult(**payload)
             elif code is not None:
                 result.status = 'failed'
-                result.errors.append((directory/'worker.log').read_text()[-4000:])
+                detail=(directory/'worker.log').read_text()[-4000:]
+                result.errors.append(f'Analysis worker exited with code {code}'+(f': {detail}' if detail else '; worker log is empty'))
             result.artifacts.update(directory=str(directory), result='result.json', worker_log='worker.log')
             if clearance['pairs']:
                 result.artifacts['rigid_driver_clearance']='rigid_driver_clearance.json'

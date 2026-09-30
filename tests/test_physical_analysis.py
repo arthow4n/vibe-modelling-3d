@@ -132,6 +132,29 @@ def test_partial_result_parser(tmp_path):
     assert max(parse_dat(path))==.5
 
 
+def test_streamed_frames_group_fields_without_mixing_times(tmp_path):
+    from physical_analysis.backends.worker import iter_dat
+    path=tmp_path/'frames.dat'
+    path.write_text(' displacements (vx,vy,vz) for set ALLN and time 0.2\n 1 0 1 0\n'
+                    ' forces (fx,fy,fz) for set ALLN and time 0.2\n 1 0 2 0\n'
+                    ' displacements (vx,vy,vz) for set ALLN and time 0.4\n 1 0 3 0\n')
+    frames=iter_dat(path)
+    first_time,first=next(frames)
+    second_time,second=next(frames)
+    assert first_time==.2 and second_time==.4
+    assert first['displacements'][0][2]==1 and first['forces'][0][2]==2
+    assert second['displacements'][0][2]==3 and 'forces' not in second
+    with pytest.raises(StopIteration): next(frames)
+
+
+def test_streamed_results_reject_backwards_time(tmp_path):
+    from physical_analysis.backends.worker import iter_dat
+    path=tmp_path/'backwards.dat'
+    path.write_text(' displacements (vx,vy,vz) for set ALLN and time 0.5\n 1 0 0 0\n'
+                    ' displacements (vx,vy,vz) for set ALLN and time 0.2\n 1 0 0 0\n')
+    with pytest.raises(ValueError,match='not increasing'): list(iter_dat(path))
+
+
 def test_three_parts_named_regions_and_limits(tmp_path):
     c=AnalysisCase('three_parts',nonlinear=False)
     material=Material('limit',1200,.3,'deliberately low acceptance threshold',1e-5)
@@ -235,6 +258,11 @@ def test_motion_cycle_preserves_contact_then_unloads(tmp_path):
     answer=json.loads((directory/'answer.json').read_text())
     assert answer['completed'] and answer['provenance']['postprocess_only']
     assert answer['metrics']['peak_motion_force_N']==r.metrics['peak_motion_force_N']
+    # Recovery preserves all numerical decisions, not just a force summary.
+    centroid='max_strain_element_centroid_mm'
+    assert {k:v for k,v in answer['metrics'].items() if k!=centroid}=={k:v for k,v in r.metrics.items() if k!=centroid}
+    assert answer['metrics'][centroid]==pytest.approx(r.metrics[centroid],abs=1e-8)
+    assert answer['history']==r.history
     assert (directory/'analysis.inp').read_bytes()==before
     (directory/'analysis.inp').write_bytes(before+b'\n')
     rejected=subprocess.run([sys.executable,'-m','physical_analysis.backends.worker',

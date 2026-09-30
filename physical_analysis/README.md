@@ -160,6 +160,12 @@ because there is no current travel. A press-and-hold release still needs holding
 effort: read the relevant axis of its recorded `reactions_N` across that plateau,
 not only `peak_motion_force_N`. All reaction components remain available.
 
+Choose driver contact faces for the intended load transfer. For a normal press
+actuator, including its side faces can add unintended vertical restraint;
+an engineering block is not a model of skin or grip. Conversely, include real
+cap edges that cross the snap during motion. Keep these fixture choices and
+their omitted physical behavior with the object.
+
 Contact penetration above the explicit `penetration_limit_mm` (default 0.05 mm)
 rejects the result with `status='quality_failed'`, retaining diagnostic metrics.
 Choose a tighter limit when fit requires it. Unknown solver parameters fail
@@ -175,6 +181,14 @@ Caller interruption also stops that isolated process group, records an
 `interrupted` result, and re-raises `KeyboardInterrupt`. Retain it as incomplete
 evidence if useful; cancelling a superseded design must not leave its solver
 running in the background.
+
+The worker streams full result fields one increment at a time, retaining a
+compact history. This bounds full-field memory independently of increment count;
+the compatibility `parse_dat` helper still collects frames when called directly.
+The lift-off study exposed a silent worker failure after a completed solve with
+nearly 1 GB of text fields. A worker failure now reports its exit code even when
+its log is empty. Recovery can re-extract the saved solve; it must still satisfy
+the input-identity and completion checks above, and does not repair contact quality.
 
 Before meshing, moving pairs of fully prescribed whole-part translations receive
 a sampled CAD clearance screen. Their relative progress knots are subdivided

@@ -142,28 +142,40 @@ def solver_number(value):
     return float(FORTRAN_EXPONENT.sub(r'\1E\2', value.replace('D', 'E')))
 
 
+def iter_dat(path):
+    """Yield one time frame at a time; memory does not grow with increments."""
+    frame={}; kind=None; time=None
+    with path.open() as source:
+        for line in source:
+            match=HEADER.match(line)
+            if match:
+                new_time=solver_number(match[2])
+                if time is not None and new_time!=time:
+                    if new_time<time: raise ValueError('Solver output times are not increasing')
+                    yield time,frame
+                    frame={}
+                kind,time=match[1],new_time
+                frame[kind]=[]
+                continue
+            fields=line.split()
+            if not fields: continue
+            if kind and fields[0].isdigit():
+                try: row=[solver_number(x) for x in fields]
+                except ValueError: kind=None; continue
+                expected=4 if kind in ('displacements','forces') else (5 if kind in ('relative contact displacement','contact stress') else 8)
+                if kind in ('relative contact displacement','contact stress') and len(row)==4:
+                    row=[row[0],0,*row[1:]]
+                if len(row)==expected:
+                    frame[kind].append(row)
+                else: kind=None
+            else:
+                kind=None
+    if time is not None: yield time,frame
+
+
 def parse_dat(path):
-    """Read documented numeric tables, never infer completion from partial output."""
-    frames={}; kind=None; time=None
-    for line in path.read_text().splitlines():
-        match=HEADER.match(line)
-        if match:
-            kind,time=match[1],solver_number(match[2]); frames.setdefault(time,{})[kind]=[]
-            continue
-        fields=line.split()
-        if not fields: continue
-        if kind and fields[0].isdigit():
-            try: row=[solver_number(x) for x in fields]
-            except ValueError: kind=None; continue
-            expected=4 if kind in ('displacements','forces') else (5 if kind in ('relative contact displacement','contact stress') else 8)
-            if kind in ('relative contact displacement','contact stress') and len(row)==4:
-                row=[row[0],0,*row[1:]]
-            if len(row)==expected:
-                frames[time][kind].append(row)
-            else: kind=None
-        else:
-            kind=None
-    return frames
+    """Compatibility table reader; the solver worker uses streaming iter_dat."""
+    return dict(iter_dat(path))
 
 
 def tensor(values):
@@ -176,7 +188,7 @@ def summarize(case, frames, meshes, nodes, elements, selections):
     history=[]; part_for_element={e:name for name,m in meshes.items() for e in m['elements']}
     peak_strain=(-1,None,None,None); peak_stress=0
     part_strains={p['name']:0.0 for p in case['parts']}
-    for time,frame in sorted(frames.items()):
+    for time,frame in sorted(frames.items()) if isinstance(frames,dict) else frames:
         for field in ('displacements','forces','stresses','strains'):
             if not frame.get(field): raise ValueError(f'Missing {field} at load fraction {time}')
         us={int(r[0]):np.array(r[1:]) for r in frame['displacements']}
@@ -240,10 +252,10 @@ def summarize(case, frames, meshes, nodes, elements, selections):
                             contact_points=len(frame.get('contact stress',[])),
                             max_contact_pressure_MPa=max((r[2] for r in frame.get('contact stress',[])),default=0),
                             max_penetration_mm=max((max(0,-r[2]) for r in frame.get('relative contact displacement',[])),default=0)))
+    if not history: raise ValueError('Missing solver output frames')
     last=history[-1]
     # Internal nodal forces cancel globally. Only prescribed DOFs are reactions.
-    final=frames[max(frames)]
-    force_map={int(r[0]):r[1:] for r in final['forces']}
+    force_map=forces
     prescribed={(n,d) for sel in selections.values() for n in sel['nodes']
                 for d,v in enumerate(sel['displacement_mm']) if v is not None}
     reaction=np.zeros(3)
@@ -315,11 +327,11 @@ def main(directory, *, postprocess_only=False):
     if solver_exit != 0 or '*ERROR' in log.upper() or 'Job finished' not in log or 'parameter not recognized' in log.lower():
         result.errors.append(f'Solver failed or did not finish (exit {solver_exit}); see solver.log')
     else:
-        frames=parse_dat(directory/'analysis.dat')
-        if not frames or abs(max(frames)-1)>1e-6:
+        metrics,history=summarize(case,iter_dat(directory/'analysis.dat'),meshes,nodes,elements,selections)
+        if abs(history[-1]['load_fraction']-1)>1e-6:
             result.errors.append('Requested load interval did not complete')
         else:
-            result.metrics,result.history=summarize(case,frames,meshes,nodes,elements,selections)
+            result.metrics,result.history=metrics,history
             limit=min((c['penetration_limit_mm'] for c in case['contacts']),default=float('inf'))
             if result.metrics['max_penetration_mm']>limit:
                 result.status='quality_failed'
