@@ -122,6 +122,32 @@ Explicit accepted frames can now be inspected using frozen run metadata before
 the native solve terminates; this avoids waiting for a final result merely to
 diagnose overlap. Such inspection never creates a completion claim.
 
+## What helped the box, and what remains experimental
+
+The practical aim is a covered box for twenty swatches whose lid closes, stays
+on, opens by hand and survives repeated use. The investigation asks whether the
+lid really pushes the printed catch out of the way and then passes it. Improving
+the software is useful when it answers that question better or saves work on
+the next object. Passing software benchmarks alone is not progress on the box's
+actual fit, handling or durability.
+
+| Tool | Demonstrated benefit | Limit or proposed follow-up |
+| --- | --- | --- |
+| Saved-field recovery | Repaired extraction and rechecked existing output without repeating the native solve. | Requires original fields and verified input identity; does not repair the physical calculation. |
+| Geometric contact inspection | Found overlap missed by the reported contact gap; changed the decision to reject that numerical route. | Sampled witnesses do not prove no intersection elsewhere. Inspect consequential frames earlier next time. |
+| FEBio peak-strain recovery | Prevented averaged element strains from being used as peak strain; checked against native means and simple known deformations. | Remains conditional on the mesh and assumed material; does not establish printed strength. |
+| Actual-travel progress | Showed where adaptive steps became tiny without repeatedly interpreting logs by hand. | Locates a stall, not its cause or eventual success. |
+| Combined master surface | Represented lid and actuator contact together while benchmarks verified independent obstacle motion. | Fixes interface representation, not the unresolved edge passage. |
+| FEBio route | Supplied a different contact method and passed basic benchmarks. | No robust complete box operation demonstrated; keep optional. |
+| Mortar probe | Revealed premature contact and missing supported contact output before an object study. | Little demonstrated value as a public option. Consider removing that exposure while retaining failed evidence; no removal made in this review. |
+
+Future investigations should name a question and a distinguishing result for
+each study, set stopping rules before launching, inspect saved frames early and leave
+qualified benchmark checks automatic. Keep the recovery/inspection tools; review
+experimental solver exposure before adding another method. These are workflow
+lessons and proposed simplifications, not new claims that the snap works. The
+0.020 mm numerical screen is not a measured failure boundary for a printed box.
+
 Numerical uncertainty remains separate from the uncalibrated 1200 MPa isotropic
 material and provisional 1.5% strain screen. No printed-layer bonding, friction,
 plasticity, creep or fatigue is predicted. The complete box remains an unprinted

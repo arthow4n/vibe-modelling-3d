@@ -379,6 +379,12 @@ the reusable need is already clear. Prefer improving an existing abstraction;
 keep object-specific fixtures, assumptions and experiments in the object directory.
 Do not add speculative frameworks, duplicate established checks, or generalize
 merely because something could someday be useful.
+Record what a new tool actually changed for its consumer: a design/print
+decision, a misleading result caught, or repeated work avoided. Keep experimental
+routes optional until their benefit is demonstrated; ordinary models should not
+inherit an investigation's complexity. Review features with no demonstrated
+benefit for simplification or removal. A useful failed experiment can remain as
+evidence without requiring a permanent public feature.
 
 Use the cheapest adequate evidence: CAD for rigid fit and clearance, simple
 calculations for suitable load screens, and numerical analysis when deformation,

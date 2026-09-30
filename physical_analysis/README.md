@@ -185,6 +185,16 @@ diagnosis and product acceptance as distinct purposes; state which one a study
 serves. Extra decimal places do not remove uncertainty in material, friction or
 fixture assumptions.
 
+Before an investigation run or batch, state the question in ordinary language, what
+result would distinguish the explanations, what action each outcome would
+change, and when to stop. Keep this in the existing object record; no separate
+form is required. Reuse that question and stopping rules for controlled
+comparisons; do not create repeated manual entries for automatic checks.
+Inspect consequential accepted frames early, including during
+a running solve when available, rather than waiting for completion merely to
+discover a rejecting overlap. Optional solver routes belong to investigations
+with a concrete need, not the default checklist for every model.
+
 Qualify a new formulation/backend on a known open gap, contact onset,
 compression and separation/return before interpreting the object's operation.
 Check signed forces, force balance, output availability and the strain measure.
