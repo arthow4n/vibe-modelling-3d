@@ -72,6 +72,11 @@ node-to-face contact with quadratic elements. Surface-to-surface contact enabled
 the revised box's pass-over studies after exploratory node-contact timeouts;
 geometry also changed, so this is not an isolated formulation comparison.
 Both choices require an explicit penalty stiffness.
+`master` may instead be a nonempty tuple of `case.select(part, region)` values.
+This makes one surface from multiple independently moving obstacles; it does
+not join their mechanics. Duplicate selected faces fail. For example, the same
+latch can touch a cap and a press actuator through one contact interface.
+CalculiX requires one contact discretization throughout the deck.
 In CalculiX 2.21, node-to-surface normally updates the pairing during Newton
 iterations, freezing it from iteration nine to improve convergence;
 surface-to-surface updates it once at the start of each increment and keeps it
@@ -105,10 +110,90 @@ and self-contact remain unsupported.
 
 ## Plan a contact study
 
+### Experimental alternative for finite-edge contact
+
+The swatch release exposed a concrete need for updating contact projections
+during iteration and controlling overlap through augmentation. The optional
+`physical_analysis.backends.febio.FebioBackend` uses FEBio's frictionless
+`sliding-elastic` formulation. It accepts the existing case intent, with
+`surface_to_surface` contact and prescribed nonlinear translations. Force
+loading, rotations, dynamics and other material laws are not supported by this
+narrow adapter; the default backend remains CalculiX.
+
+```python
+from physical_analysis.backends.febio import FebioBackend
+result = case.run(directory, backend=FebioBackend(), mesh_from=previous_run)
+```
+
+The numerical penalty remains explicit. Augmented Lagrangian enforcement is
+enabled by default; its native gap criterion is one tenth of the case's stated
+penetration limit. Projections update without an iteration limit, node
+relocation and friction are disabled, and the nonsymmetric tangent is used.
+`two_pass=True` checks projections in both directions and checks native maximum
+overlap on **both** surfaces; reported contact area remains the primary area's
+sum. These choices are numerical strategies, not fabricated material properties.
+See the [official formulation documentation](https://febiosoftware.github.io/febio-feature-manual/features/solid_surfaceinteraction_sliding-elastic/).
+
+Zero supports use zero-valued prescribed displacements because FEBio's fixed
+DOFs do not retain the needed reaction fields. Native nodal forces are negated
+to match the shared external-actuation-force convention. An explicit 1e-12
+native squared-residual floor avoids chasing roundoff during an unloaded
+approach; independent force-balance and native-field checks remain in force.
+`force_residual_tolerance_N` explicitly sets that absolute free-DOF residual
+norm (default 1e-6 N); FEBio's native `min_residual` receives its square.
+If tiny adaptive increments make the relative displacement criterion chase
+irrelevant corrections, choose a residual accuracy against the engineering
+decision, then check sensitivity. This may resolve convergence effort; it
+cannot repair missed contact, pass geometric witnesses, or calibrate material.
+Benchmarks cover open-gap onset, compression/unloading, bending driven by
+contact, independent obstacle motion, peak-strain recovery and rejection of
+excessive overlap. They do not qualify the box's edge sequence.
+
+Install the [official standalone FEBio Linux archive](https://repo.febio.org/download/)
+outside the repository and set `FEBIO_RUNTIME` to its `FEBio4` directory or
+`FEBIO_COMMAND` to its executable. The investigation used 4.13.0.3ef378562;
+record the downloaded archive hash and actual version. Native executable and
+core/mechanics/numerics library hashes are recorded in results. No Python
+dependency or new environment manager is needed. The `.inp` retained with a
+FEBio case is the shared mesh deck; `.feb` is its actual native solve input.
+
+For long contact runs, `python -m physical_analysis.progress RUN` reads compact
+native accepted-increment records and converts recent progress to actual
+prescribed driver travel. It does not forecast convergence or assert contact
+quality. Run metadata is saved before the native solve so timeout/interruption
+can retain mesh and implementation identity; no successful metrics are inferred.
+
+CalculiX `discretization="mortar"` is an **unqualified experimental probe**:
+its contact output is in FRD, outside the text extractor's supported contract.
+It returns `unsupported_output`, with no successful contact metrics. The known
+open-gap probe also exposed premature contact in that tested configuration.
+It is not promoted as a solution, and this does not prove all Mortar setups
+incapable. The [native manual](https://www.dhondt.de/ccx_2.21.pdf) also prohibits
+repeated surfaces across Mortar pairs; a union of selected obstacles expresses
+the cap/actuator interface without that duplicate definition.
+
+### Study sequence
+
 Before solving, name the design decision, relevant quantities and acceptable
 uncertainty. Separate passage, strain, recovery and operating-force targets;
 they need not require the same precision. Use the cheapest analytical force
 screen first when applicable, including consequential guide/fit extremes.
+
+Qualify a new formulation/backend on a known open gap, contact onset,
+compression and separation/return before interpreting the object's operation.
+Check signed forces, force balance, output availability and the strain measure.
+CalculiX Mortar and FEBio exposed different output locations, force conventions
+and strain-output averaging; successful native termination did not establish a
+compatible result contract. Missing fields fail explicitly rather than becoming
+zero penetration. An opening-only fixture may isolate a failure, but its
+assembled initial state is a dependency, not evidence that closing succeeds.
+
+Inspect finite-edge geometry when it drives the decision. A native maximum gap
+can miss a penetrating vertex between surface integration points. The swatch
+study found a vertex behind a selected **planar native master triangle**, not
+just inside a curved CAD approximation, despite a much smaller reported gap.
+The diagnostic helper can retain that planar-facet witness; it does not provide
+a global intersection bound or identify the solver's matched projection.
 
 For a new operation, first obtain and inspect one complete representative path:
 actual motion, contact passage, reaction history, strain location, penetration
@@ -162,6 +247,19 @@ log and reruns field/quality checks; it neither remeshes nor launches a solver.
 Recovery records its provenance and leaves the original input/log intact.
 Keep the original artifacts; this is not an importer for arbitrary solver decks.
 
+Use the shared wrapper for either backend:
+
+```sh
+uv run --locked python -m physical_analysis.recovery /tmp/existing_run --timeout 600
+```
+
+`recover_run(directory)` verifies original input/case identity, uses the same
+process-group cleanup as a solve, regenerates byte-identical native input, and
+rechecks existing fields. It launches no native solver and preserves the original
+result when recovery fails. A successful extraction repair records a separate
+recovery log; failed quality screens remain failures. Large raw fields must still
+be present locally.
+
 Strain is the maximum absolute principal mechanical strain at integration
 points across saved increments, with the part, element and integration point.
 It is neither engineering shear strain nor a promise of elastic recovery.
@@ -169,6 +267,16 @@ The named material strain limit is an explicit screening assumption. Sharp
 fixed edges can create mesh-sensitive singularities. Inspect/converge the
 quantity relevant to the design rather than treating a peak as a universal
 failure criterion. Displacement includes prescribed rigid travel.
+
+The optional FEBio route reports **Green–Lagrange strain**, recovered
+from nodal kinematics at the explicitly selected tet10 G8 points. The recovered
+principal-strain means must agree with FEBio's native element logs within
+1e-6 absolute strain. Element means alone cannot establish peak strain. Read
+each result's material law and strain assumptions when transferring a screen
+or comparing backends. CalculiX's nonlinear elastic E output is also Lagrangian
+strain; with no thermal loading it is the same strain measure. The selected
+elastic laws share the St Venant–Kirchhoff intent, while volume quadrature and
+contact algorithms differ ([CalculiX 2.21, §§6.8.1 and 7.36](https://www.dhondt.de/ccx_2.21.pdf)).
 
 `observe(part, region, name='tooth')` adds signed displacement minima, maxima
 and means for a feature. History includes these observations and the signed
@@ -254,6 +362,23 @@ does not erase a failed quality screen or prove a solver defect. Keep the report
 with the model, including its limits. The helper is read-only and needs raw DAT
 fields still present in the original run; compact archives omit those fields.
 
+For FEBio, the same helper samples **every selected slave face**, including
+faces with no detected projection. It records native maximum gap separately
+and retains the worst sampled face for each rigid CAD driver. Native FEBio gap
+is positive for overlap, unlike this CalculiX version's negative CDIS sign.
+Requested converged frames from an incomplete native run can be inspected
+without turning them into a completed operation. FEBio requires its original
+nodal/contact logs; compact archives retain replay inputs and summaries instead.
+An explicit accepted fraction can also be inspected before a final result file
+exists, using the frozen `run_metadata.json` identity. Missing/incomplete frames
+still fail, and the report remains `no_final_result`; no completion is inferred.
+For a worst sampled point on an exactly planar native master triangle, the
+helper also records its projection, triangle and signed plane distance. This
+can distinguish a real overlap witness from curved-master tessellation error;
+it is not a native matched contact point or an intersection bound. In the swatch
+release, a native gap below 0.001 mm coexisted with a 0.039 mm planar vertex
+overlap. A small native maximum gap alone therefore cannot establish passage.
+
 ## Retain analysis evidence
 
 Use `physical_analysis.evidence.retain_run(run, destination)` or:
@@ -267,7 +392,7 @@ failure status and provenance; copies the case and increment record; and retains
 available input, logs, selected regions and all fixture BREPs as deterministic
 gzip files. Artifact links name only files actually copied. Bulky raw fields are
 excluded; replay instructions come from the backend. Failed/timeout runs can be
-retained without claiming completion. This archives an existing CalculiX run;
+retained without claiming completion. This archives an existing CalculiX or FEBio run;
 it launches no solver, changes no source run, and does not replace original raw
 fields needed for postprocess-only recovery. Older object archives remain valid
 historical records even when they contain fewer artifacts.

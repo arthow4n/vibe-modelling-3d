@@ -1,0 +1,55 @@
+{
+  "reason": "Investigation stopped after saved accepted frames demonstrated approximately 0.039 mm planar-native/CAD overlap, exceeding the 0.020 mm geometric passage screen. Native completion cannot repair a previous rejected passage. Not a native convergence-limit failure or proof of physical impossibility.",
+  "progress": {
+    "backend": "FEBio",
+    "status": "no_final_result",
+    "completed": false,
+    "converged_frames": 137,
+    "last_converged_fraction": 0.606249258,
+    "recent_converged_fractions": [
+      0.589871562,
+      0.595841937,
+      0.601815809,
+      0.604177794,
+      0.605062341,
+      0.605266542,
+      0.605359338,
+      0.60578114,
+      0.605966674,
+      0.606077954,
+      0.606172158,
+      0.606249258
+    ],
+    "recent_driver_travel_mm": {
+      "lid": [
+        0.0,
+        0.06052696666666657,
+        0.0787328333333357,
+        0.029484899999998593,
+        0.0068066999999985,
+        0.0030932000000003512,
+        0.014060066666669258,
+        0.006184466666665944,
+        0.003709333333331344,
+        0.003140133333334738,
+        0.002569999999998185
+      ],
+      "pinch": [
+        0.13532849999999913,
+        0.09424942799999989,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "requested_max_increment": 0.006,
+    "limits": "Saved accepted increments only. No prediction of eventual convergence, operating force, strain or contact passage. Small travel steps locate adaptive cutback; they do not establish its cause."
+  },
+  "witness": "model/filament_swatch_lift_box/notes/contact_exploration/soft_tol001_contact_witness.json"
+}

@@ -15,6 +15,8 @@ def contact_frames(directory, fractions=None, *, rigid_parts=()):
     Omit fractions to inspect the saved frame with greatest reported penetration.
     Numerical gaps and sampled CAD distances are distinct evidence; neither
     replaces the original quality screen. Raw native fields must still exist.
+    Explicit accepted fractions may use frozen run metadata before a final
+    result exists; this never infers completion or writes a result file.
     Native imports and solver-specific field handling stay in an isolated worker.
     """
     request = dict(directory=str(Path(directory).resolve()),

@@ -105,16 +105,32 @@ def compile_case(case, directory, *, expected_input_sha256=None):
                 loads[n,dof]+=w*force
         load_records.append(dict(part=load['selection']['part'],area_mm2=area,force_N=load['force_N']))
     contact_records=[]
+    methods={c.get('discretization','node_to_surface') for c in case['contacts']}
+    if len(methods)>1:
+        raise ValueError('CalculiX requires one contact discretization throughout a case')
+    used_mortar_faces=set()
     for i,c in enumerate(case['contacts']):
         record={}
         for side in ('slave','master'):
-            faces=select_faces(c[side],meshes)
+            selections_for_side=c[side] if isinstance(c[side],(list,tuple)) else (c[side],)
+            faces=[]
+            for selection in selections_for_side:
+                faces.extend(select_faces(selection,meshes))
+            identifiers={(e,s) for e,s,_ in faces}
+            if len(identifiers)!=len(faces):
+                raise ValueError('Contact selection union contains duplicate faces')
+            if c.get('discretization')=='mortar':
+                if used_mortar_faces & identifiers:
+                    raise ValueError('Mortar contact surfaces must not participate in multiple definitions')
+                used_mortar_faces.update(identifiers)
             name=f'C{i}{side.upper()}'
             deck += [f'*SURFACE,NAME={name},TYPE=ELEMENT']+[f'{e},S{s}' for e,s,_ in faces]
-            record[side]=dict(part=c[side]['part'],face_count=len(faces))
-        contact_type = {'node_to_surface': 'NODE TO SURFACE', 'surface_to_surface': 'SURFACE TO SURFACE'}[c.get('discretization', 'node_to_surface')]
+            parts=list(dict.fromkeys(s['part'] for s in selections_for_side))
+            record[side]=dict(face_count=len(faces),parts=parts)
+            if len(parts)==1: record[side]['part']=parts[0]
+        contact_type = {'node_to_surface': 'NODE TO SURFACE', 'surface_to_surface': 'SURFACE TO SURFACE', 'mortar':'MORTAR'}[c.get('discretization', 'node_to_surface')]
         record['discretization'] = c.get('discretization', 'node_to_surface')
-        record['pairing_update'] = ('once_per_increment' if record['discretization']=='surface_to_surface'
+        record['pairing_update'] = ('once_per_increment' if record['discretization'] in ('surface_to_surface','mortar')
                                     else 'per_iteration_until_iteration_eight_then_frozen')
         deck += [f'*SURFACE INTERACTION,NAME=I{i}', '*SURFACE BEHAVIOR,PRESSURE-OVERCLOSURE=LINEAR',
                  f"{c['penalty_N_mm3']},1e-10",
@@ -127,6 +143,8 @@ def compile_case(case, directory, *, expected_input_sha256=None):
     deck += ['*NODE PRINT,NSET=ALLN,FREQUENCY=1','U,RF','*EL PRINT,ELSET=ALLE,FREQUENCY=1','S,E']
     if case['contacts']:
         deck += ['*CONTACT PRINT,FREQUENCY=1','CDIS,CSTR']
+        if 'mortar' in methods:
+            deck += ['*CONTACT FILE,FREQUENCY=1','CDIS,CSTR']
     deck += ['*END STEP']
     for obs in case['observations']:
         selections['@observe:'+obs['name']]=dict(part=obs['selection']['part'],nodes=select_nodes(obs['selection'],meshes),displacement_mm=(None,None,None))
@@ -199,6 +217,8 @@ def summarize(case, frames, meshes, nodes, elements, selections):
     peak_strain=(-1,None,None,None); peak_stress=0
     part_strains={p['name']:0.0 for p in case['parts']}
     for time,frame in sorted(frames.items()) if isinstance(frames,dict) else frames:
+        if case['contacts'] and any(field not in frame for field in ('relative contact displacement','contact stress')):
+            raise ValueError(f'Missing contact output at load fraction {time}; cannot assess penetration or engagement')
         for field in ('displacements','forces','stresses','strains'):
             if not frame.get(field): raise ValueError(f'Missing {field} at load fraction {time}')
         us={int(r[0]):np.array(r[1:]) for r in frame['displacements']}
@@ -300,7 +320,7 @@ def main(directory, *, postprocess_only=False):
         'Units mm, N, MPa. Isotropic homogeneous linear-elastic material; geometric nonlinearity='+str(case['nonlinear']),
         'No printed infill/layer failure, plastic set, creep, fatigue, or friction prediction.',
         'Strain is maximum absolute principal mechanical strain at integration points, over all saved increments.',
-        'Frictionless penalty contact. Surface-to-surface pairing is fixed within each increment; node-to-surface re-pairs through iteration eight then freezes. Completion alone does not prove engagement.',
+        'Frictionless contact. Surface-to-surface penalty pairing and Mortar segmentation are fixed within each increment; node-to-surface penalty re-pairs through iteration eight then freezes. Mortar contact-field extraction is unqualified. Completion alone does not prove engagement.',
         'Loads ramp over normalized time 0..1; translations follow their recorded progress curves or a linear ramp.',
         'Peak values are sampled at converged increments, not continuous extrema.'])
     # Recovery from a parser failure may reuse a completed expensive solve.
@@ -309,16 +329,8 @@ def main(directory, *, postprocess_only=False):
     expected=hashlib.sha256((directory/'analysis.inp').read_bytes()).hexdigest() if postprocess_only else None
     meshes,nodes,elements,selections,loads,contacts=compile_case(case,directory,expected_input_sha256=expected)
     env=os.environ.copy(); command=[env['CALCULIX_COMMAND'],'-i','analysis']
-    if not postprocess_only:
-        with (directory/'solver.log').open('w') as log:
-            run=subprocess.run(command,cwd=directory,env=env,stdout=log,stderr=subprocess.STDOUT)
-        solver_exit=run.returncode
-    else:
-        solver_exit=0  # completion/errors are checked from the immutable saved log below
-    log=(directory/'solver.log').read_text(errors='replace')
-    version=re.search(r'This is Version\s+(\S+)',log)
     (directory/'regions.json').write_text(json.dumps(selections,indent=2)+'\n')
-    result.provenance=dict(backend='CalculiX',version=version[1] if version else 'unknown',
+    result.provenance=dict(backend='CalculiX',version='unknown',
         gmsh=gmsh.__version__,cadquery=cq.__version__,python=sys.version.split()[0],
         input_sha256=hashlib.sha256((directory/'analysis.inp').read_bytes()).hexdigest(),
         case_sha256=hashlib.sha256((directory/'case.json').read_bytes()).hexdigest(),
@@ -327,6 +339,16 @@ def main(directory, *, postprocess_only=False):
                    min_jacobian=m['min_jacobian']) for name,m in meshes.items()},
         regions={k:dict(part=v['part'],node_count=len(v['nodes']),displacement_mm=v['displacement_mm']) for k,v in selections.items()},loads=loads,contacts=contacts)
     if case.get('mesh_reuse'): result.provenance['mesh_reuse']=case['mesh_reuse']
+    if not postprocess_only: (directory/'run_metadata.json').write_text(json.dumps(result.provenance,indent=2)+'\n')
+    if not postprocess_only:
+        with (directory/'solver.log').open('w') as log:
+            run=subprocess.run(command,cwd=directory,env=env,stdout=log,stderr=subprocess.STDOUT)
+        solver_exit=run.returncode
+    else:
+        solver_exit=0  # completion/errors are checked from the immutable saved log below
+    log=(directory/'solver.log').read_text(errors='replace')
+    version=re.search(r'This is Version\s+(\S+)',log)
+    result.provenance['version']=version[1] if version else 'unknown'
     result.artifacts=dict(case='case.json',input='analysis.inp',solver_log='solver.log',
                           raw_results='analysis.dat',increments='analysis.sta',regions='regions.json')
     lines=log.splitlines()
@@ -341,7 +363,15 @@ def main(directory, *, postprocess_only=False):
     if solver_exit != 0 or '*ERROR' in log.upper() or 'Job finished' not in log or 'parameter not recognized' in log.lower():
         result.errors.append(f'Solver failed or did not finish (exit {solver_exit}); see solver.log')
     else:
-        metrics,history=summarize(case,iter_dat(directory/'analysis.dat'),meshes,nodes,elements,selections)
+        try:
+            metrics,history=summarize(case,iter_dat(directory/'analysis.dat'),meshes,nodes,elements,selections)
+        except (ValueError, KeyError, StopIteration) as exc:
+            if 'mortar' in {c.get('discretization') for c in case['contacts']} and 'Missing contact output' in str(exc):
+                result.status='unsupported_output'
+                result.errors.append('Mortar supplies contact fields in FRD rather than DAT; this text-output extractor cannot qualify engagement or penetration')
+            result.errors.append(f'Result extraction failed: {exc}; native completion does not supply the missing evidence')
+            result.write(directory/'answer.json')
+            return
         if abs(history[-1]['load_fraction']-1)>1e-6:
             result.errors.append('Requested load interval did not complete')
         else:

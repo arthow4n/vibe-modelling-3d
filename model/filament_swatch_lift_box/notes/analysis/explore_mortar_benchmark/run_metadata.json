@@ -1,0 +1,88 @@
+{
+  "backend": "CalculiX",
+  "version": "unknown",
+  "gmsh": "4.15.2",
+  "cadquery": "2.7.0",
+  "python": "3.12.14",
+  "input_sha256": "8f1b3690d70b5ac3454bf7592890e42fc6de47278e05fd7e407a05319708566d",
+  "case_sha256": "777f3b4785892987bb153034741658a0674e2997fca61fc9138dfaa5d8de56bf",
+  "backend_sha256": {
+    "febio_worker.py": "0efadbe33c8634ac356d8fa87f994771053e9cf4ab1899359b35962f2a3b55b8",
+    "contact_diagnostics.py": "fddf204170d5f4a1e01187fba88fd2c03aac908851c980d6f2d5e6345533724e",
+    "febio.py": "d0fa019020c66dbd17bbe79615135dd0df5a7a93f4d876a86df4ffaa818d09c7",
+    "tet10_strain.py": "0eb4b4a1ec129adab94015e73126a650c3e62a281dae143b645b2c1953c1406a",
+    "febio_diagnostics.py": "1a2fe02942fa97d1b067c5d4f53ef830f4d0825dba6efd18de947c98a8bdbe67",
+    "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+    "mesh.py": "76e5dce0426281d886e2f060ac91c0fdcc0301e45c824e21f67cb1da7627402e",
+    "structural.py": "5e644484d5e9c4080b29e2f24c28b5b3c4341d34c57de0051b21b6950df1c874",
+    "worker.py": "3d897d189c370f5997e9ffb011cf87ccb3b46d5f2c0cb5fb57a6057daf7d80fd"
+  },
+  "command": [
+    "/home/hevar/.local/opt/physical-analysis/usr/bin/ccx",
+    "-i",
+    "analysis"
+  ],
+  "postprocess_only": false,
+  "mesh": {
+    "block": {
+      "nodes": 582,
+      "elements": 265,
+      "min_jacobian": 0.12703309424306428
+    },
+    "floor": {
+      "nodes": 411,
+      "elements": 186,
+      "min_jacobian": 0.2499999999999965
+    }
+  },
+  "regions": {
+    "BC0": {
+      "part": "floor",
+      "node_count": 411,
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ]
+    },
+    "BC1": {
+      "part": "block",
+      "node_count": 582,
+      "displacement_mm": [
+        0,
+        0,
+        null
+      ]
+    },
+    "BC2": {
+      "part": "block",
+      "node_count": 65,
+      "displacement_mm": [
+        null,
+        null,
+        -0.02
+      ]
+    }
+  },
+  "loads": [],
+  "contacts": [
+    {
+      "slave": {
+        "face_count": 26,
+        "parts": [
+          "block"
+        ],
+        "part": "block"
+      },
+      "master": {
+        "face_count": 42,
+        "parts": [
+          "floor"
+        ],
+        "part": "floor"
+      },
+      "discretization": "mortar",
+      "pairing_update": "once_per_increment"
+    }
+  ]
+}

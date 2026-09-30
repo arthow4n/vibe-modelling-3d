@@ -5,11 +5,10 @@ import json
 from pathlib import Path
 import shutil
 from .results import AnalysisResult
-from .backends.structural import evidence_files
 
 
 def retain_run(run, destination):
-    """Archive a completed or failed CalculiX run to a new object-owned directory.
+    """Archive a completed or failed native run to a new object-owned directory.
 
     Keep history/provenance unchanged and record only available replay artifacts.
     Large raw fields are excluded. Their omission does not remove them from run.
@@ -17,8 +16,12 @@ def retain_run(run, destination):
     """
     run, destination = Path(run), Path(destination)
     result = AnalysisResult(**json.loads((run/'result.json').read_text()))
-    if result.provenance.get('backend', 'CalculiX') != 'CalculiX':
-        raise ValueError('Evidence retention currently supports CalculiX runs only')
+    backend=result.provenance.get('backend','CalculiX')
+    if backend=='CalculiX':
+        from .backends.structural import evidence_files
+    elif backend=='FEBio':
+        from .backends.febio import evidence_files
+    else:raise ValueError(f'Evidence retention does not support backend {backend}')
     files, replay = evidence_files(run)
     destination.mkdir(parents=True, exist_ok=False)
     try:

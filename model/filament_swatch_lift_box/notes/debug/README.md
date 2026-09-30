@@ -1,5 +1,9 @@
 # Contact-failure diagnosis
 
+Follow-up: [alternate contact exploration](../contact_exploration/README.md)
+tests Mortar and an optional FEBio route on the unchanged release geometry.
+This record preserves the earlier CalculiX diagnosis.
+
 This investigation keeps the printable geometry, material assumption, physical
 path and quality limit unchanged. It asks whether a trustworthy operation can
 be obtained by correcting the analysis, rather than treating failed checks as

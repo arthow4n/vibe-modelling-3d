@@ -1,0 +1,313 @@
+{
+  "runs": [
+    {
+      "run": "explore_febio_compression",
+      "backend": "FEBio",
+      "status": "completed",
+      "completed": true,
+      "mesh_mm": {
+        "block": 0.8,
+        "floor": 1
+      },
+      "mesh_from": null,
+      "penalty_N_mm3": [
+        120000
+      ],
+      "max_increment": 0.1,
+      "formulation": {
+        "augmented_lagrange": true,
+        "search_radius_mm": 1.0
+      },
+      "input_sha256": "67dfb7867f93c4a2eafb43e7a8bfeaced2161208c4cb7bb77ab9c092dcd52a04",
+      "native_input_sha256": "80aa9111a608338d7657c195b35ac1b86105513d80f6f9c6ae465cb44619ba0c",
+      "peak_actuation_N": {
+        "BC2": 11.955022895946671
+      },
+      "peak_principal_strain": 0.002496871949011603,
+      "peak_strain_part": "block",
+      "peak_strain_centroid_mm": null,
+      "native_max_penetration_mm": 1.24098884785e-08,
+      "max_force_balance_relative": 1.1658489419154233e-11,
+      "final_observations": {},
+      "last_converged_fraction": 1.0,
+      "errors": []
+    },
+    {
+      "run": "explore_mortar_benchmark",
+      "backend": "CalculiX",
+      "status": "unsupported_output",
+      "completed": false,
+      "mesh_mm": {
+        "block": 0.8,
+        "floor": 1
+      },
+      "mesh_from": null,
+      "penalty_N_mm3": [
+        120000
+      ],
+      "max_increment": 0.1,
+      "formulation": [
+        "mortar"
+      ],
+      "input_sha256": "8f1b3690d70b5ac3454bf7592890e42fc6de47278e05fd7e407a05319708566d",
+      "native_input_sha256": null,
+      "peak_actuation_N": null,
+      "peak_principal_strain": null,
+      "peak_strain_part": null,
+      "peak_strain_centroid_mm": null,
+      "native_max_penetration_mm": null,
+      "max_force_balance_relative": null,
+      "final_observations": null,
+      "last_converged_fraction": null,
+      "errors": [
+        "Mortar supplies contact fields in FRD rather than DAT; this text-output extractor cannot qualify engagement or penetration",
+        "Result extraction failed: Missing contact output at load fraction 0.1; cannot assess penetration or engagement; native completion does not supply the missing evidence"
+      ]
+    },
+    {
+      "run": "explore_release_calculix",
+      "backend": "CalculiX",
+      "status": "quality_failed",
+      "completed": false,
+      "mesh_mm": {
+        "arm": 1.6,
+        "lid_catch": 1.6,
+        "release_pad": 1.6
+      },
+      "mesh_from": null,
+      "penalty_N_mm3": [
+        12000
+      ],
+      "max_increment": 0.006,
+      "formulation": [
+        "surface_to_surface"
+      ],
+      "input_sha256": "9e89f4eed7815ca5e8ce209ba39caf2d92ad1fbde7184932d6cccb42ad4f64b3",
+      "native_input_sha256": null,
+      "peak_actuation_N": {
+        "lid": 2.220638096077872,
+        "pinch": 2.900411163810647
+      },
+      "peak_principal_strain": 0.005971295152169057,
+      "peak_strain_part": "arm",
+      "peak_strain_centroid_mm": [
+        1.4756955539172498,
+        32.1007595670193,
+        26.746730437072287
+      ],
+      "native_max_penetration_mm": 0.04165903,
+      "max_force_balance_relative": 5.319386473116714e-07,
+      "final_observations": {
+        "head": {
+          "min_mm": [
+            -8e-323,
+            -5.93e-322,
+            -9.4e-323
+          ],
+          "max_mm": [
+            8.4e-323,
+            -3e-322,
+            1.9e-322
+          ],
+          "mean_mm": [
+            -2e-323,
+            -4.35e-322,
+            3e-323
+          ]
+        },
+        "free_tab": {
+          "min_mm": [
+            -8e-323,
+            -5.93e-322,
+            -9.4e-323
+          ],
+          "max_mm": [
+            8.4e-323,
+            1.5e-323,
+            1.9e-322
+          ],
+          "mean_mm": [
+            -1e-323,
+            -3.4e-322,
+            1e-323
+          ]
+        }
+      },
+      "last_converged_fraction": 1.0,
+      "errors": [
+        "Contact penetration exceeds 0.02 mm; refine increments/mesh/contact penalty"
+      ]
+    },
+    {
+      "run": "explore_release_febio_soft",
+      "backend": "FEBio",
+      "status": "failed",
+      "completed": false,
+      "mesh_mm": {
+        "arm": 1.6,
+        "lid_catch": 1.6,
+        "release_pad": 1.6
+      },
+      "mesh_from": "9e89f4eed7815ca5e8ce209ba39caf2d92ad1fbde7184932d6cccb42ad4f64b3",
+      "penalty_N_mm3": [
+        600.0
+      ],
+      "max_increment": 0.006,
+      "formulation": {
+        "augmented_lagrange": true,
+        "search_radius_mm": 1.0
+      },
+      "input_sha256": "038fdb50fbc97c0725725b0e5996773a74ba2fd490b645a1eaaf68e24338e94b",
+      "native_input_sha256": "01c546913accbaf47edf31f94d06df90f7055c2cbf562d91cec4810c5e91d2e4",
+      "peak_actuation_N": null,
+      "peak_principal_strain": null,
+      "peak_strain_part": null,
+      "peak_strain_centroid_mm": null,
+      "native_max_penetration_mm": null,
+      "max_force_balance_relative": null,
+      "final_observations": null,
+      "last_converged_fraction": 0.468658798,
+      "errors": [
+        "FEBio failed or did not finish (exit 1); see solver.log"
+      ]
+    },
+    {
+      "run": "explore_release_febio_soft_tol001",
+      "backend": "FEBio",
+      "status": "failed",
+      "completed": false,
+      "mesh_mm": {
+        "arm": 1.6,
+        "lid_catch": 1.6,
+        "release_pad": 1.6
+      },
+      "mesh_from": "038fdb50fbc97c0725725b0e5996773a74ba2fd490b645a1eaaf68e24338e94b",
+      "penalty_N_mm3": [
+        600.0
+      ],
+      "max_increment": 0.006,
+      "formulation": {
+        "augmented_lagrange": true,
+        "search_radius_mm": 1.0,
+        "two_pass": false,
+        "force_residual_tolerance_N": 0.001
+      },
+      "input_sha256": "038fdb50fbc97c0725725b0e5996773a74ba2fd490b645a1eaaf68e24338e94b",
+      "native_input_sha256": "5e64378ba32d5d36f9716ef9a6b0338cb1e0b8b51a7e78f7237836bb39411207",
+      "peak_actuation_N": null,
+      "peak_principal_strain": null,
+      "peak_strain_part": null,
+      "peak_strain_centroid_mm": null,
+      "native_max_penetration_mm": null,
+      "max_force_balance_relative": null,
+      "final_observations": null,
+      "last_converged_fraction": 0.606249258,
+      "errors": [
+        "FEBio failed or did not finish (exit -15); see solver.log"
+      ]
+    },
+    {
+      "run": "explore_release_febio_stopped",
+      "backend": "FEBio",
+      "status": "failed",
+      "completed": false,
+      "mesh_mm": {
+        "arm": 1.6,
+        "lid_catch": 1.6,
+        "release_pad": 1.6
+      },
+      "mesh_from": null,
+      "penalty_N_mm3": [
+        12000
+      ],
+      "max_increment": 0.006,
+      "formulation": {
+        "augmented_lagrange": true,
+        "search_radius_mm": 1.0
+      },
+      "input_sha256": "64315e99847a8ff8c1373238c90462bdac13c8325fca2593cbe234db5a6c9186",
+      "native_input_sha256": "99f3f084cceb7e88c76084bc7c10b648923dade6b2c825009297a5eb9b2c427a",
+      "peak_actuation_N": null,
+      "peak_principal_strain": null,
+      "peak_strain_part": null,
+      "peak_strain_centroid_mm": null,
+      "native_max_penetration_mm": null,
+      "max_force_balance_relative": null,
+      "final_observations": null,
+      "last_converged_fraction": 0.603528157,
+      "errors": [
+        "FEBio failed or did not finish (exit -15); see solver.log"
+      ]
+    },
+    {
+      "run": "explore_release_febio_two_pass",
+      "backend": "FEBio",
+      "status": "failed",
+      "completed": false,
+      "mesh_mm": {
+        "arm": 1.6,
+        "lid_catch": 1.6,
+        "release_pad": 1.6
+      },
+      "mesh_from": "9e89f4eed7815ca5e8ce209ba39caf2d92ad1fbde7184932d6cccb42ad4f64b3",
+      "penalty_N_mm3": [
+        12000
+      ],
+      "max_increment": 0.006,
+      "formulation": {
+        "augmented_lagrange": true,
+        "search_radius_mm": 1.0,
+        "two_pass": true
+      },
+      "input_sha256": "9e89f4eed7815ca5e8ce209ba39caf2d92ad1fbde7184932d6cccb42ad4f64b3",
+      "native_input_sha256": "2f90fe1f41d70775e4b2462ff4cfba2b4c44f92a89cf060ac4079a4a5bb1b9bc",
+      "peak_actuation_N": null,
+      "peak_principal_strain": null,
+      "peak_strain_part": null,
+      "peak_strain_centroid_mm": null,
+      "native_max_penetration_mm": null,
+      "max_force_balance_relative": null,
+      "final_observations": null,
+      "last_converged_fraction": 0.601723101,
+      "errors": [
+        "FEBio failed or did not finish (exit 1); see solver.log"
+      ]
+    },
+    {
+      "run": "explore_release_febio_two_pass_tol001",
+      "backend": "FEBio",
+      "status": "failed",
+      "completed": false,
+      "mesh_mm": {
+        "arm": 1.6,
+        "lid_catch": 1.6,
+        "release_pad": 1.6
+      },
+      "mesh_from": "9e89f4eed7815ca5e8ce209ba39caf2d92ad1fbde7184932d6cccb42ad4f64b3",
+      "penalty_N_mm3": [
+        12000
+      ],
+      "max_increment": 0.006,
+      "formulation": {
+        "augmented_lagrange": true,
+        "search_radius_mm": 1.0,
+        "two_pass": true,
+        "force_residual_tolerance_N": 0.001
+      },
+      "input_sha256": "9e89f4eed7815ca5e8ce209ba39caf2d92ad1fbde7184932d6cccb42ad4f64b3",
+      "native_input_sha256": "8b55971aa9ca17f73a2000125f48c92f1fa755ec244a98101569a8b8b7d8f634",
+      "peak_actuation_N": null,
+      "peak_principal_strain": null,
+      "peak_strain_part": null,
+      "peak_strain_centroid_mm": null,
+      "native_max_penetration_mm": null,
+      "max_force_balance_relative": null,
+      "final_observations": null,
+      "last_converged_fraction": 0.602144435,
+      "errors": [
+        "FEBio failed or did not finish (exit 1); see solver.log"
+      ]
+    }
+  ],
+  "limits": "Native completion is distinct from model acceptance. Failed or incomplete operations have no successful whole-path metrics. Release-only cases assume an unloaded assembled state; they do not prove closing. Mesh-source identity is explicit; equal requested mesh size is not equal actual mesh. Numerical force tolerance is not a material property."
+}

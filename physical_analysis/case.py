@@ -75,7 +75,7 @@ class Load:
 @dataclass(frozen=True)
 class Contact:
     slave: Selection
-    master: Selection
+    master: Selection | tuple[Selection, ...]
     penalty_N_mm3: float
     penetration_limit_mm: float
     discretization: str = "node_to_surface"
@@ -156,17 +156,34 @@ class AnalysisCase:
         self.loads.append(Load(self.select(part, region), values))
         return self
 
-    def contact(self, slave, slave_region, master, master_region, *, penalty_N_mm3, penetration_limit_mm=.05, discretization="node_to_surface"):
+    def contact(self, slave, slave_region, master, master_region=None, *, penalty_N_mm3, penetration_limit_mm=.05, discretization="node_to_surface"):
+        """Frictionless contact against one part or a union of selected obstacles.
+
+        A tuple of ``case.select(...)`` values combines independently moving
+        obstacles into one master surface, without joining their mechanics.
+        """
         if not self.nonlinear:
             raise ValueError('Contact requires nonlinear=True')
-        if slave == master:
-            raise ValueError('Self-contact is outside this backend scope')
-        if discretization not in ('node_to_surface', 'surface_to_surface'):
+        if discretization not in ('node_to_surface', 'surface_to_surface', 'mortar'):
             raise ValueError('Unsupported contact discretization')
+        if self.contacts and any(c.discretization != discretization for c in self.contacts):
+            raise ValueError('CalculiX requires one contact discretization throughout a case')
+        if isinstance(master, str):
+            masters = (self.select(master, master_region),)
+            selected_master = masters[0]
+        else:
+            if master_region is not None:
+                raise ValueError('A master selection union already specifies its regions')
+            masters = tuple(master)
+            if not masters or any(not isinstance(s, Selection) or s.part not in self.parts for s in masters):
+                raise ValueError('Master union needs nonempty selections of existing parts')
+            selected_master = masters
+        if any(slave == s.part for s in masters):
+            raise ValueError('Self-contact is outside this backend scope')
         positive(penalty_N_mm3, 'Contact penalty')
         positive(penetration_limit_mm, 'Penetration limit')
         self.contacts.append(Contact(self.select(slave, slave_region),
-            self.select(master, master_region), penalty_N_mm3, penetration_limit_mm, discretization))
+            selected_master, penalty_N_mm3, penetration_limit_mm, discretization))
         return self
 
     def observe(self, part, region, *, name):

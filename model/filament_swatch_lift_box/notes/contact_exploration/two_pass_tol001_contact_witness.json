@@ -1,0 +1,228 @@
+{
+  "input_sha256": "9e89f4eed7815ca5e8ce209ba39caf2d92ad1fbde7184932d6cccb42ad4f64b3",
+  "native_input_sha256": "8b55971aa9ca17f73a2000125f48c92f1fa755ec244a98101569a8b8b7d8f634",
+  "case_sha256": "b7e2d62c934c70b0ef88c6e948c8e75ab35481db4ad058ab6237e404b7ce3693",
+  "rigid_geometry_sha256": {
+    "lid_catch": "496c3ea3256f2004c4d5859ab6ac4fbe291cbbb1fc9f114ae23d29ee318297d7",
+    "release_pad": "5c25160bc45f3b5a7112f67c551d359e4015200292dd9c3d409f233d512cef23"
+  },
+  "frames": [
+    {
+      "load_fraction": 0.602144435,
+      "selected_face_count": 524,
+      "solver_max_penetration_mm": 2.09291854282e-05,
+      "sampled_rigid_CAD": {
+        "lid_catch": {
+          "min_sampled_signed_clearance_mm": -0.002148604780641874,
+          "maximum_sampled_inside_depth_mm": 0.002148604780641874
+        },
+        "release_pad": {
+          "min_sampled_signed_clearance_mm": 3.0897454064894037,
+          "maximum_sampled_inside_depth_mm": 0
+        }
+      },
+      "worst_faces_by_driver": {
+        "lid_catch": {
+          "part": "arm",
+          "element": 3254,
+          "face": 3,
+          "node_ids": [
+            531,
+            3600,
+            3616,
+            3678,
+            3680,
+            3676
+          ],
+          "deformed_samples_mm": [
+            [
+              -1.3224075991029071e-05,
+              37.874385715338,
+              48.192828291116996
+            ],
+            [
+              0.7374439612871266,
+              37.78744163533,
+              49.408425451768
+            ],
+            [
+              -0.724881531582813,
+              37.790033914629994,
+              49.372020014658
+            ],
+            [
+              0.36866206729098466,
+              37.830869879332994,
+              48.800717636987
+            ],
+            [
+              0.0062723639819210995,
+              37.78873381444,
+              49.390207951907996
+            ],
+            [
+              -0.36240221997545313,
+              37.832193051797,
+              48.782489882861
+            ],
+            [
+              0.0041755155068320116,
+              37.817258412998,
+              48.99115423660901
+            ],
+            [
+              0.002080319487527932,
+              37.84580904663067,
+              48.592027683012006
+            ],
+            [
+              0.37079090926102526,
+              37.80234127417566,
+              49.19979942624467
+            ],
+            [
+              -0.3603390174511006,
+              37.80364642476367,
+              49.18158836249934
+            ]
+          ],
+          "sampled_rigid_CAD": {
+            "lid_catch": {
+              "min_sampled_signed_clearance_mm": -0.002148604780641874,
+              "maximum_sampled_inside_depth_mm": 0.002148604780641874,
+              "worst_sample_index": 0
+            },
+            "release_pad": {
+              "min_sampled_signed_clearance_mm": 3.2396539637031405,
+              "maximum_sampled_inside_depth_mm": 0,
+              "worst_sample_index": 1
+            }
+          }
+        },
+        "release_pad": {
+          "part": "arm",
+          "element": 3861,
+          "face": 1,
+          "node_ids": [
+            3619,
+            3601,
+            3624,
+            3722,
+            3725,
+            3727
+          ],
+          "deformed_samples_mm": [
+            [
+              -2.828998817146866,
+              37.706860709989996,
+              50.537565277583
+            ],
+            [
+              -2.318291325471468,
+              37.79101267809,
+              49.359822420079
+            ],
+            [
+              -1.4481346205153731,
+              37.68793410374,
+              50.800932723487996
+            ],
+            [
+              -2.5736449445406913,
+              37.74894097057,
+              49.948684850439
+            ],
+            [
+              -1.8832041811889753,
+              37.739479060639994,
+              50.080357199096
+            ],
+            [
+              -2.1385584519721945,
+              37.69739419291,
+              50.66924839181
+            ],
+            [
+              -2.1984672830748604,
+              37.72860548940667,
+              50.232760149358896
+            ],
+            [
+              -2.51373216172749,
+              37.717732705856676,
+              50.385162842187896
+            ],
+            [
+              -2.258378240907951,
+              37.75981165113332,
+              49.79628482544855
+            ],
+            [
+              -1.8232971750664206,
+              37.70826986713,
+              50.51684277370856
+            ]
+          ],
+          "sampled_rigid_CAD": {
+            "lid_catch": {
+              "min_sampled_signed_clearance_mm": 0.8819944974194543,
+              "maximum_sampled_inside_depth_mm": 0,
+              "worst_sample_index": 1
+            },
+            "release_pad": {
+              "min_sampled_signed_clearance_mm": 3.0897454064894037,
+              "maximum_sampled_inside_depth_mm": 0,
+              "worst_sample_index": 7
+            }
+          }
+        }
+      },
+      "native_planar_master_witnesses": {
+        "lid_catch": {
+          "element": 8464,
+          "face": 2,
+          "node_ids": [
+            8496,
+            6279,
+            6278,
+            8517,
+            6285,
+            8518
+          ],
+          "point_mm": [
+            -1.3224075991029071e-05,
+            37.874385715338,
+            48.192828291116996
+          ],
+          "projected_point_mm": [
+            -1.3224075991029071e-05,
+            37.8728664223275,
+            48.1943475841275
+          ],
+          "outward_signed_plane_distance_mm": -0.0021486047806720254,
+          "corners_mm": [
+            [
+              0.0,
+              38.15,
+              48.4714811618
+            ],
+            [
+              0.785714285714,
+              37.75,
+              48.0714811618
+            ],
+            [
+              -0.785714285714,
+              37.75,
+              48.0714811618
+            ]
+          ],
+          "limits": "Projection lies inside a selected planar native master triangle with straight midsides. Negative is behind its outward plane. Not a native matched contact point, global distance, curved-facet check, or full intersection proof."
+        },
+        "release_pad": null
+      }
+    }
+  ],
+  "result_status": "failed",
+  "limits": "Ten samples on every selected quadratic slave face; only worst faces per driver retained. Not a maximum intersection, continuous path check, native contact gap, or matched projection point. Signed CAD distance positive outside, negative inside. Native max contact gap is a separate projection-dependent integration-point quantity. These diagnostics never change the original completion status."
+}

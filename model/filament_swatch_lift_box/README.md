@@ -144,8 +144,11 @@ it. The concrete remaining numerical need is robust sliding contact through
 the pad/window/catch transitions, with adequately small penetration and stable
 forces/strains under mesh, penalty and motion-increment changes. Piecewise staged
 driver motion is already supported; adding another staging API would not resolve
-this observed issue. No other solver is introduced without evidence that it
-answers that requirement better. The analytical beam screen and positive CAD
+this observed issue. The follow-up [alternate contact investigation](notes/contact_exploration/README.md)
+qualifies an optional FEBio adapter on benchmarks and tests this actual release
+transition, while leaving the print geometry unchanged. It exposes geometric
+overlap missed by native contact samples and retains convergence failures;
+the complete mechanism remains numerically unqualified. The analytical beam screen and positive CAD
 engagement support a **provisional complete-box trial**, not a validated mechanism.
 
 Material/process uncertainty is separate: the assumed homogeneous isotropic

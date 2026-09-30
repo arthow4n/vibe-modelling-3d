@@ -38,8 +38,10 @@ def evidence_files(directory):
     Raw fields remain in the source run for extraction/recovery.
     """
     files = dict(case=('case.json', False), input=('analysis.inp', True),
+                 run_metadata=('run_metadata.json',False),
                  rigid_driver_clearance=('rigid_driver_clearance.json',False),
                  solver_log=('solver.log', True), worker_log=('worker.log', True),
+                 recovery_log=('recovery.log',True),
                  increments=('analysis.sta', False), regions=('regions.json', True),
                  mesh_source_input=('mesh_source.inp',True), mesh_source_case=('mesh_source_case.json',False),
                  fixture_geometry=[(p.name, True) for p in sorted(directory.glob('part_*.brep'))])
@@ -49,7 +51,41 @@ def evidence_files(directory):
     return files, replay
 
 
+def run_worker(directory, module, environment, timeout_seconds, result, *,
+               arguments=(), log_name='worker.log', failure_record='result.json'):
+    """One process-group lifecycle for solves and saved-field recovery."""
+    with (directory/log_name).open('w') as log:
+        process=subprocess.Popen([sys.executable,'-m',module,str(directory),*arguments],
+            cwd=directory,env=environment,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+        try:
+            return process.wait(timeout=timeout_seconds)
+        except subprocess.TimeoutExpired:
+            os.killpg(process.pid,signal.SIGKILL);process.wait()
+            result.status='timeout'
+            result.errors.append(f'Analysis exceeded {timeout_seconds:g} seconds; worker and solver stopped')
+            return None
+        except KeyboardInterrupt:
+            try:os.killpg(process.pid,signal.SIGKILL)
+            except ProcessLookupError:pass
+            process.wait();result.status='interrupted'
+            result.errors.append('Caller interrupted analysis; worker and solver stopped')
+            metadata=directory/'run_metadata.json'
+            if metadata.is_file():result.provenance.update(json.loads(metadata.read_text()))
+            result.artifacts['worker_log']=log_name
+            result.write(directory/failure_record)
+            raise
+
+
 class CalculixBackend:
+    backend_name = 'CalculiX'
+    worker_module = 'physical_analysis.backends.worker'
+
+    def environment(self):
+        return runtime_environment()
+
+    def configure_request(self, request):
+        pass
+
     def run(self, case, directory, *, mesh_from=None):
         import cadquery as cq
         if not case.parts or not case.constraints:
@@ -59,10 +95,11 @@ class CalculixBackend:
         result = AnalysisResult(case.name, 'preparing', assumptions=[
             'mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.',
             'Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.',
-            'Quadratic tetrahedra; integration-point mechanical strain; no stress singularity removal.',
-            'Frictionless penalty contact; pairing-update behavior depends on the selected formulation.',
+            'Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.',
+            'Frictionless contact; enforcement and pairing depend on backend/formulation.',
             'Numerical completion is not physical validation or a load rating.'])
         result.artifacts = {'directory': str(directory), 'result': 'result.json'}
+        result.provenance = dict(backend=self.backend_name)
         try:
             request = {key: getattr(case, key) for key in ('name','nonlinear','max_increment')}
             request.update(parts=[], constraints=[asdict(x) for x in case.constraints],
@@ -73,9 +110,11 @@ class CalculixBackend:
                 for item in request[group]:
                     for key in ('selection', 'slave', 'master'):
                         if key in item:
-                            reg = item[key]['region']
-                            for side in ('lower', 'upper'):
-                                reg[side] = [v if abs(v) != float('inf') else None for v in reg[side]]
+                            values = item[key] if isinstance(item[key], (list, tuple)) else (item[key],)
+                            for selection in values:
+                                reg = selection['region']
+                                for side in ('lower', 'upper'):
+                                    reg[side] = [v if abs(v) != float('inf') else None for v in reg[side]]
             for i, part in enumerate(case.parts.values()):
                 shape = part.shape.val() if isinstance(part.shape, cq.Workplane) else part.shape
                 if not isinstance(shape, cq.Shape) or not shape.isValid() or len(shape.Solids()) != 1:
@@ -100,6 +139,7 @@ class CalculixBackend:
                 shutil.copyfile(source/'case.json',directory/'mesh_source_case.json')
                 request['mesh_reuse']=dict(**identity,input='mesh_source.inp',case='mesh_source_case.json',
                                           mesh=provenance.get('mesh',{}))
+            self.configure_request(request)
             (directory/'case.json').write_text(json.dumps(request, indent=2, allow_nan=False)+'\n')
             result.artifacts['case'] = 'case.json'
             from ..motion import rigid_driver_clearance
@@ -112,33 +152,10 @@ class CalculixBackend:
                 result.errors.append('Prescribed rigid drivers overlap at sampled poses; revise their physical path before solving')
                 result.write(directory/'result.json')
                 return result
-            with (directory/'worker.log').open('w') as log:
-                process = subprocess.Popen([sys.executable, '-m', 'physical_analysis.backends.worker',
-                    str(directory)], cwd=directory, env=runtime_environment(), stdout=log,
-                    stderr=subprocess.STDOUT, start_new_session=True)
-                try:
-                    code = process.wait(timeout=case.timeout_seconds)
-                except subprocess.TimeoutExpired:
-                    os.killpg(process.pid, signal.SIGKILL)
-                    process.wait()
-                    result.status = 'timeout'
-                    result.errors.append(f'Analysis exceeded {case.timeout_seconds:g} seconds; worker and solver stopped')
-                    code = None
-                except KeyboardInterrupt:
-                    # The worker starts its own process group. Ctrl-C in the
-                    # caller does not reach it; do not leave an obsolete solve
-                    # consuming resources after a design revision cancels it.
-                    try:
-                        os.killpg(process.pid, signal.SIGKILL)
-                    except ProcessLookupError:
-                        pass
-                    process.wait()
-                    result.status = 'interrupted'
-                    result.errors.append('Caller interrupted analysis; worker and solver stopped')
-                    result.artifacts['worker_log'] = 'worker.log'
-                    result.write(directory/'result.json')
-                    raise
+            code=run_worker(directory,self.worker_module,self.environment(),case.timeout_seconds,result)
             answer = directory/'answer.json'
+            if code!=0 and (directory/'run_metadata.json').is_file():
+                result.provenance.update(json.loads((directory/'run_metadata.json').read_text()))
             if code == 0 and answer.exists():
                 payload = json.loads(answer.read_text())
                 result = AnalysisResult(**payload)

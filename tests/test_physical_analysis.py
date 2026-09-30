@@ -32,7 +32,10 @@ def test_interrupt_stops_isolated_worker_and_retains_failure(tmp_path, monkeypat
                 raise KeyboardInterrupt
             return -9
     worker=InterruptedWorker()
-    monkeypatch.setattr(structural.subprocess,'Popen',lambda *a,**kw: worker)
+    def start_worker(*args,**kwargs):
+        (kwargs['cwd']/'run_metadata.json').write_text(json.dumps({'backend':'CalculiX','input_sha256':'known-native-input'}))
+        return worker
+    monkeypatch.setattr(structural.subprocess,'Popen',start_worker)
     monkeypatch.setattr(structural.os,'killpg',lambda pid,sig: killed.append((pid,sig)))
     with pytest.raises(KeyboardInterrupt):
         beam().run(tmp_path/'interrupted')
@@ -41,6 +44,7 @@ def test_interrupt_stops_isolated_worker_and_retains_failure(tmp_path, monkeypat
     result=json.loads((tmp_path/'interrupted/result.json').read_text())
     assert result['status']=='interrupted' and not result['completed']
     assert 'worker and solver stopped' in result['errors'][0]
+    assert result['provenance']['input_sha256']=='known-native-input'
 
 
 def test_beam_refinement_and_force_balance(tmp_path):

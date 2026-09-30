@@ -390,7 +390,19 @@ solver convergence failure, completed solves rejected by quality checks, and
 material/design screens. A failed check does not establish that the object is
 impossible or that the backend cannot solve it. First localize the failure using
 saved logs, histories and fields; verify the actual formulation's documented
-behavior. Freeze geometry and vary one consequential numerical setting at a
+behavior. Before using a different contact formulation/backend on the object,
+qualify known-gap contact onset, compression, separation/return, force signs and
+balance on a simple benchmark. Verify output availability and strain measures;
+missing fields are not zeros and different strain definitions are not silently
+interchangeable. A benchmark does not qualify the object's contact sequence.
+An isolated transition can reduce debugging work; document its initial-state
+dependency before rejoining the complete operation. Use identity-guarded saved-field
+recovery for extraction fixes instead of repeating a valid native solve.
+At finite contact edges, native integration-point gaps may miss overlap between
+samples. When passage remains suspect, compare saved deformed interface samples
+with the mating geometry; keep a geometric witness distinct from the native gap
+and from a proof of no intersection.
+Freeze geometry and vary one consequential numerical setting at a
 time where practical. Express motion resolution as travel near the relevant
 feature, not only normalized time. Separate a demonstrated defect from a
 suspected cause and an unresolved limitation. Automate reusable extraction and
