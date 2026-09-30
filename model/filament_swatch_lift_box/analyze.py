@@ -1,0 +1,45 @@
+"""Close, pinch-release, lift and recover using physical contact drivers.
+
+The release pad is a rigid engineering actuator, not a human finger model.
+All progress curves use the shared intent API; no solver keywords live here.
+"""
+import argparse
+import json
+from components import *
+from physical_analysis import AnalysisCase, Material, Region
+
+def operation(mesh=1.6,penalty=6000.,increment=.01,timeout=3600,discretization='surface_to_surface'):
+    mat=Material('uncalibrated solid PETG',1200.,.38,
+        'Isotropic elastic short-term assumption; vertical printed tab bonding is uncalibrated',.015)
+    c=AnalysisCase('covered_lift_close_release',max_increment=increment,timeout_seconds=timeout)
+    c.add_part('arm',snap_arm(),material=mat,mesh_size_mm=mesh)
+    c.fix('arm',Region.plane('z',ROOT_Z-2),name='root')
+    c.add_part('lid_catch',analysis_cap().translate((0,0,12)),material=mat,mesh_size_mm=mesh)
+    c.prescribe_motion('lid_catch',displacement_mm=(0,0,-12),name='lid',
+        progress=((0,0),(.3,1),(.45,1),(.55,5/6),(.65,5/6),(.9,0),(1,0)))
+    # Park clear of the cap, approach after closure, press, lift 2 mm,
+    # withdraw through the window, then finish lifting the cap.
+    # Its 9 mm width fits the real 11 mm cap window throughout the operation.
+    pad=block(-4.5,BUTTON_FRONT+2,HEAD_Z-.2,9,1.2,1.2)
+    c.add_part('release_pad',pad,material=mat,mesh_size_mm=mesh)
+    c.prescribe_motion('release_pad',displacement_mm=(0,-3.4,0),name='pinch',
+        progress=((0,0),(.3,0),(.32,2/3.4),(.45,1),(.55,1),(.65,0),(1,0)))
+    head=Region(lower=(-CAM_WIDTH/2-.01,ARM_Y-ARM_T/2-.01,HEAD_Z-3.01),
+                upper=(CAM_WIDTH/2+.01,BUTTON_FRONT+.01,HEAD_Z+3.01))
+    c.contact('arm',head,'lid_catch',Region(),penalty_N_mm3=penalty,
+              penetration_limit_mm=.02,discretization=discretization)
+    # Normal actuation only; the finite pad's other faces are not a model
+    # of skin edges, friction or vertical finger restraint.
+    c.contact('arm',head,'release_pad',Region.plane('y',BUTTON_FRONT+2),penalty_N_mm3=penalty,
+              penetration_limit_mm=.02,discretization=discretization)
+    c.observe('arm',head,name='head')
+    c.observe('arm',Region(lower=(-20,0,ROOT_Z+.7),upper=(20,50,LID_TOP)),name='free_tab')
+    return c
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser();p.add_argument('directory');p.add_argument('--mesh',type=float,default=1.6)
+    p.add_argument('--penalty',type=float,default=6000);p.add_argument('--increment',type=float,default=.01)
+    p.add_argument('--timeout',type=float,default=3600)
+    p.add_argument('--discretization',choices=('surface_to_surface','node_to_surface'),default='surface_to_surface')
+    a=p.parse_args();r=operation(a.mesh,a.penalty,a.increment,a.timeout,a.discretization).run(a.directory)
+    print(json.dumps(dict(status=r.status,errors=r.errors,metrics=r.metrics),indent=2))

@@ -1,0 +1,35 @@
+{
+  "case": "covered_lift_close_release",
+  "status": "failed",
+  "completed": false,
+  "metrics": {},
+  "history": [],
+  "assumptions": [
+    "mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.",
+    "Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.",
+    "Quadratic tetrahedra; integration-point mechanical strain; no stress singularity removal.",
+    "Frictionless finite-sliding penalty contact, where explicitly requested.",
+    "Numerical completion is not physical validation or a load rating."
+  ],
+  "warnings": [],
+  "errors": [
+    ""
+  ],
+  "provenance": {},
+  "artifacts": {
+    "case": "case.json",
+    "input": "analysis.inp.gz",
+    "rigid_driver_clearance": "rigid_driver_clearance.json",
+    "solver_log": "solver.log.gz",
+    "worker_log": "worker.log.gz",
+    "increments": "analysis.sta",
+    "regions": "regions.json.gz",
+    "fixture_geometry": [
+      "part_0.brep.gz",
+      "part_1.brep.gz",
+      "part_2.brep.gz"
+    ],
+    "raw_fields_retained": false,
+    "reproduce": "Decompress analysis.inp.gz in a new directory and run ccx -i analysis in the configured native environment to regenerate raw solver fields. Use the model analysis source to rebuild the current case; retained fixtures may be historical."
+  }
+}

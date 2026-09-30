@@ -34,6 +34,7 @@ completion from design adequacy and physical validation.
 | Vaseline transfer spatula | [Flat scrape-and-fill tool](model/vaseline_transfer_spatula/README.md) | [Record](model/vaseline_transfer_spatula/README.md#attribution) | N/A — complete tool is the first proposed trial | Unknown — no user report |
 | Filament archive swatch | [SCAD instructions](model/filament_archive_swatch/README.md) | [Record](model/filament_archive_swatch/README.md#attribution) | N/A — full swatch is the trial | Yes — user reports previous print works as intended |
 | Twenty-swatch snap box | [Sliding PETG box and contact-cycle evidence](model/filament_swatch_box/README.md) | [Record](model/filament_swatch_box/README.md#attribution) | N/A — complete box is the trial | No — user reports not yet printed |
+| Lift-off swatch archive box | [Covered bulk-storage box; diagnostic contact studies](model/filament_swatch_lift_box/README.md) | [Record](model/filament_swatch_lift_box/README.md#attribution) | N/A — complete box is the trial | Unknown — no print report; contact quality unresolved |
 
 These links identify current instructions; retained experiments are historical
 unless the current instructions recommend them. The two print-status columns use

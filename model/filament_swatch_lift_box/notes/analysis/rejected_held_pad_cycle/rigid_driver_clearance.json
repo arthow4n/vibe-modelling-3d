@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "pairs": [
+    {
+      "first": "lid_catch",
+      "second": "release_pad",
+      "samples_planned": 113,
+      "first_sampled_overlap": {
+        "time": 0.15312499999999998,
+        "intersection_mm3": 0.787500000000006
+      },
+      "minimum_sampled_gap_mm": 0.0
+    }
+  ],
+  "max_relative_step_mm": 0.25,
+  "volume_tolerance_mm3": 1e-07,
+  "scope": "Whole-part translations only; no overlap detected at sampled poses is not continuous-path proof. Static relative pairs and partial-region constraints are excluded. This does not test flexible contact.",
+  "provenance": "Retrospective preflight on the exact saved rejected case and fixture BREPs, after the new check was implemented."
+}

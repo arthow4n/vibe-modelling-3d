@@ -1,0 +1,12 @@
+{
+  "raw_dat_bytes": 997681354,
+  "streamed_maximum_RSS_kB": 532104,
+  "postprocess_elapsed_seconds": 137.45,
+  "solver_repeated": false,
+  "original_input_identity_required": true,
+  "parity": {
+    "metrics_except_centroid_exact": true,
+    "history_exact": true,
+    "centroid_difference_below_mm": 1e-08
+  }
+}

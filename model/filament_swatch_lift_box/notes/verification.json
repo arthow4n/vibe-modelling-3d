@@ -1,0 +1,206 @@
+{
+  "capacity": {
+    "count": 20,
+    "source": "model/filament_archive_swatch/filament_archive_swatch.scad",
+    "nominal_stack_mm": [
+      80.0,
+      50.0,
+      40.0
+    ],
+    "allowance_trial_mm": [
+      81.0,
+      51.0,
+      42.0
+    ],
+    "cavity_mm": [
+      100.0,
+      56.0,
+      52.4
+    ],
+    "platform_mm": 6.0,
+    "nominal_top_gap_mm": 6.4,
+    "allowance_stack_displaced_positions_mm": [
+      [
+        -1,
+        -2
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        -1,
+        2
+      ],
+      [
+        0,
+        -2
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        -2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  },
+  "enclosure": {
+    "missing_wall_mm3": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "missing_cover_mm3": 0.0,
+    "inner_lip_overlap_mm": 4,
+    "lip_radial_gap_mm": 0.35,
+    "minimum_liner_mm": 1.2
+  },
+  "rigid_lid_lift": [
+    {
+      "lift_mm": 0,
+      "unintended_intersection_mm3": 0.0
+    },
+    {
+      "lift_mm": 0.25,
+      "unintended_intersection_mm3": 0.0
+    },
+    {
+      "lift_mm": 0.5,
+      "unintended_intersection_mm3": 0.0
+    },
+    {
+      "lift_mm": 1,
+      "unintended_intersection_mm3": 0.0
+    },
+    {
+      "lift_mm": 2,
+      "unintended_intersection_mm3": 0.0
+    },
+    {
+      "lift_mm": 3,
+      "unintended_intersection_mm3": 0.0
+    },
+    {
+      "lift_mm": 4,
+      "unintended_intersection_mm3": 0.0
+    },
+    {
+      "lift_mm": 6,
+      "unintended_intersection_mm3": 0.0
+    },
+    {
+      "lift_mm": 8,
+      "unintended_intersection_mm3": 0.0
+    },
+    {
+      "lift_mm": 10,
+      "unintended_intersection_mm3": 0.0
+    },
+    {
+      "lift_mm": 12,
+      "unintended_intersection_mm3": 0.0
+    }
+  ],
+  "locked_intersection_at_1mm_lift_mm3": 1.040064843283322,
+  "locked_at_outward_guide_play_mm3": 0.5150648432832499,
+  "shoulder_overlap_mm": 0.6157568056677798,
+  "minimum_overlap_with_guide_play_mm": 0.2657568056677798,
+  "released_rigid_tab_lift_samples_mm": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1,
+    2,
+    3,
+    4,
+    6,
+    8,
+    10,
+    12
+  ],
+  "release_tab_translation_mm": 1.4,
+  "full_free_tab_relief_mm": [
+    0,
+    0.4,
+    0.8,
+    1.4,
+    2.2
+  ],
+  "extra_axial_envelope_mm": 0.2,
+  "extra_vertical_envelope_mm": [
+    -0.3,
+    0.9
+  ],
+  "end_finger_access": [
+    {
+      "side": -1,
+      "ellipse_mm": [
+        12,
+        18
+      ],
+      "vertical_sweep_z_mm": [
+        2.6,
+        62.4
+      ],
+      "body_intersection_mm3": 0.0
+    },
+    {
+      "side": 1,
+      "ellipse_mm": [
+        12,
+        18
+      ],
+      "vertical_sweep_z_mm": [
+        2.6,
+        62.4
+      ],
+      "body_intersection_mm3": 0.0
+    }
+  ],
+  "beam_screen": {
+    "force_N": 1.6199999999999946,
+    "tip_displacement_mm": 0.7999999999999972,
+    "stiffness_N_mm": 2.0250000000000004,
+    "root_strain": 0.0037499999999999873,
+    "fixed_free_euler_buckling_N": 39.971897824411904,
+    "small_deflection_applicable": true,
+    "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+  },
+  "rounded_contact_order_screen": {
+    "contact_possible": true,
+    "peak_slide_force_N": 0.41626530435559006,
+    "peak_force_axial_offset_mm": 1.487150962006191,
+    "maximum_spring_travel_mm": 0.7999999999999972,
+    "contact_half_travel_mm": 2.3999999999999964,
+    "assumptions": "Frictionless rigid circular cams and a linear transverse spring; no axial shortening, head rotation, guide motion or material/process calibration."
+  },
+  "retention_weight_screen": {
+    "assumed_payload_kg": 0.25,
+    "assumed_acceleration_g": 2,
+    "force_per_snap_N": 2.4525,
+    "assumed_eccentricity_mm": 2.5,
+    "ideal_root_strain": 0.000662326388888889,
+    "limits": "Equal load sharing and ideal axial/eccentric beam section; no shell compliance, notch, bonding, contact-bearing strength or accidental pulling/dropping rating."
+  },
+  "limits": "Sampled rigid poses; assumed finger envelope is not comfort; envelope is conservative rigid translation, not a saved elastic mesh; circle formula omits head torsion and ramp additions; enclosure has unsealed seams.",
+  "source_sha256": {
+    "model/filament_swatch_lift_box/components.py": "a85f6cf76c3a7486921f9a223988018f7d6b0ea3c2baf0cff41962e54e6bc739",
+    "model/filament_archive_swatch/filament_archive_swatch.scad": "d1577f4320cbc5597f9c7aa0e9cedf740c287845e0793fa32886ab8358bef67d"
+  }
+}
