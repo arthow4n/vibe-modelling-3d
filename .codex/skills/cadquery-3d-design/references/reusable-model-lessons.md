@@ -16,12 +16,40 @@ configuration, not every material or printer.
 | Analysis-driven flexible catch | [Phone stand API experiment](../../../../model/analysis_phone_stand/README.md#what-using-the-api-changed): prescribed release and local holding-contact solves informed a wider root and positive travel stop; force was stable across the recorded refinement studies. | Unprinted, solid PETG assumptions. Local peak strain was mesh sensitive; sharp-tooth pass-over failed. Reuse the analysis pattern, not the numerical load rating or material limit. |
 | Known snap, flexure and structural questions | [Shared engineering questions](../../../../physical_analysis/README.md#use) bind explicit intent to evidence and bounded studies. Phone release reproduces retained results; the book plain-back cross-check agrees within 6%; a [local rounded-contact fixture](../../../../physical_analysis/experiments/ipc/fixtures/rounded_snap/README.md) exercises passage/return and evidence guards. | The fixture is synthetic geometry derived from a failed product, not a product precedent. Its force remains increment-sensitive. Numerical, material, manufacturing and physical evidence remain separate. |
 | Numerical mesh conversion at tiny contact gaps | [IPC investigation](../../../../physical_analysis/experiments/ipc/README.md) independently compared supplied and native rest meshes and caught MEDIT version-1 float32 conversion despite high-precision ASCII. Version 2 preserves doubles; accepted-frame triangle checks catch crossing without relying on selected contact nodes. | IPC has not qualified complete rounded-fixture passage. Mesh witnesses are independent numerical evidence, not global exact-CAD or continuous-path proof; rounded obstacle facets need separate sensitivity. |
-| Product architecture before local verification | Three autonomous swatch-storage concepts accumulated detailed fit, contact, handling, slice and simulation evidence while remaining poor product designs; one was physically printed and rejected. Sophisticated local verification does not establish coherent whole-product architecture. | Before mechanism refinement, establish the human task, component roles, required physical relationships and normal handling sequence on rough complete geometry; apply the [architecture gate](design-decisions.md#product-architecture-gate). Git history preserves the rejected concepts. |
-| Complete content/access states and one-way snap seating | [Hinged swatch case](../../../../model/swatch_book_case/README.md#architecture-and-whole-product-checks): both packets stay in the body; actual packet lifting/fanning, hardware motion, independent guide/seat and retention contacts are represented and checked before local physics. Contact-driven release informed press travel; actual wall paths informed four walls. The [one-way closing helper](../../../../model/swatch_book_case/README.md#retention-physics-and-its-limits) checks unloaded leaf return with the keeper seated, without an invented reverse opening. | Unprinted. Release has bounded mesh/motion stability; closing completes but fails its provisional local contact-strain screen. Filled paths support a solid-section idealization only. Coupon tooth wear/recovery and full-product handling/carrying remain physical questions. |
+| Premature mechanism commitment | [Four rejected swatch-storage designs](#four-rejected-swatch-storage-designs) repeated excessive engineering around weak product concepts despite earlier architecture guidance. | Challenge mechanism necessity and total product cost on rough complete geometry; resolve whole-product value before local mechanics. A coupon or numerical pass cannot justify the product. |
 
 Add or revise an entry autonomously when a printed result, measured model check,
 or repeatable failure can save work on another object. Link to the current
 object record and source, state what was actually observed and under which known
 setup, and name the boundary of transfer. Keep detailed measurements and trial
-history in the object directory. Remove or correct an entry when later evidence
+history in the object directory. For removed products, link Git history and retain
+only a concise negative lesson here. Remove or correct an entry when later evidence
 supersedes it; do not append session narratives or untested clearance rules.
+
+## Four rejected swatch-storage designs
+
+The sliding box, lift-off box, upright file and hinged case were removed. The
+original sliding version was physically printed and found unusable; the other
+three were rejected before printing. The hinged case was rejected for visible
+design, architecture and proposed use, not demonstrated print or material failure.
+The earlier [three-design cleanup](https://github.com/arthow4n/vibe-modelling-3d/commit/818ee96fa37615c1ab376fad9f7c1a636de38ab6)
+and [hinged-case commit](https://github.com/arthow4n/vibe-modelling-3d/commit/1c30dd337298285f9d6ae0deb97343048c95c64e)
+preserve the rejected work in Git history; none is a positive product or latch pattern.
+
+For twenty small plastic swatches, the hinged case added two screw/nut hinge
+pivots, a separately printed flexible catch secured by a third screw/nut, an
+exposed press-release button, keeper/tooth/retaining geometry and surrounding
+reliefs, substantial analysis and a three-piece retention coupon. Browsing still
+required lifting one of two horizontal ten-card packets out and fanning it in
+hand: insufficient improvement to justify construction. The coupon legitimately
+tested local latch mechanics but omitted actual hinge motion, full enclosure,
+contents and normal browsing. Predictions of approximately 10 N release effort
+and 3.23% local closing strain against a provisional 1.5% screening limit were
+additional uncertainties, not reasons to need the mechanism.
+
+The agent committed to a complicated mechanism, then invested in making and
+verifying it without adequately challenging product necessity. Earlier workflow
+corrections did not stop that repetition. Apply the
+[necessity and whole-product stopping gate](design-decisions.md#product-architecture-gate)
+before latch studies; abandon weak concepts regardless of sunk work. Generic
+engineering experiments can stand independently without preserving the products.

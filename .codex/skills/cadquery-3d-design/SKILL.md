@@ -11,17 +11,17 @@ and Git rules. A valid solid or clean slice alone does not establish function.
 
 ## Product architecture before mechanisms
 
-For functional multi-part or moving products, apply the
+Before adding a mechanism, and for functional multi-part or moving products, apply the
 [product-architecture gate](references/design-decisions.md#product-architecture-gate)
-in the normal decision record. Establish physical roles, actual mating contacts
-and normal handling sequence; review rough complete geometry with contents and
-moving states before mechanism optimization, detailed tolerances, FEA or final
-slicing. Remove retention temporarily to test whether guidance, seating and stops
-still work. Revise or abandon incoherent concepts early. Local CAD, contact and
-slice passes cannot establish whole-product usefulness. User physical rejection
-supersedes speculative confidence; follow the
+in the normal decision record. First challenge mechanism necessity and total
+product complexity. Review rough complete geometry with realistic contents and
+normal interaction; resolve whole-product objections before detailed engineering.
+Seek human review of consequential subjective choices when not delegated. A
+poor concept is a stopping condition, even after local checks pass or substantial
+work is sunk. The reference owns the detailed questions and staged sequence.
+User product rejection supersedes speculative confidence; follow the
 [physical-failure guidance](references/physical-experiments.md#when-product-use-fails).
-This adds sequencing and concrete reasoning, not another form or approval gate.
+Use existing notes and design agreements, without extra forms or repeated approvals.
 
 ## Modelling TODO checklist
 
@@ -36,27 +36,29 @@ with each applicable evaluation.
 
 - [ ] Confirm scope, references, user edits, known preferences and required CAD tool availability; check the reusable-model evidence for an analogous design.
 - [ ] Establish the actual handling task, critical dimensions, assembly/material preferences, operating effort, required retention and failure modes; screen consequential tolerance extremes together.
-- [ ] Before refining mechanisms, record the [physical interaction concept](references/design-decisions.md#product-architecture-gate): user task, contents location, component jobs, named support/guide/seat/stop/retain/release contacts, required contact/clearance, normal sequence and necessity of added mechanisms.
+- [ ] Propose one simple architecture for the actual task; before developing any mechanism, apply the [necessity and total-simplicity questions](references/design-decisions.md#product-architecture-gate), including what happens if it is omitted. Record the practical benefit and construction/use cost; explore alternatives only to resolve a real choice.
 - [ ] Screen the concept with rough fit, engagement, assembly-travel and print-envelope calculations as relevant. For structurally important parts and joints, estimate loads, stiffness and force before detailed CAD; reject an infeasible concept early.
 - [ ] Recommend viable deliverables and a print setup, explain tradeoffs, and agree on this phase's sequence if it is not already established.
 - [ ] Decide which remaining questions require modelled geometry and which require a physical print. For an oversized assembly, resolve segmentation and joint/load requirements with the user before finalizing it.
 - [ ] Build rough complete geometry including contents/held item and all major moving parts in normal open/working states; define meaningful intermediate and release states. A local coupon is not this whole-object review.
-- [ ] Inspect a useful rough assembled/open/content-populated view and describe the user's physical operation. Check required/forbidden relationships at the defined states; temporarily remove retention to check independent alignment, guidance, seating and stops. Reconsider an incoherent concept before adding compensating features.
+- [ ] Inspect rough complete geometry with realistic contents; explain loading, access, browsing where relevant, transport and opening/closing. Resolve consequential whole-product objections, including human review of subjective choices when not delegated. Stop or abandon awkward or disproportionate concepts before interface/mechanism refinement; sunk work and local passes do not protect them.
+- [ ] For the worthwhile concept, name component jobs and support/guide/seat/stop/retain/release contacts. Verify required/forbidden relationships at meaningful states; temporarily remove retention to check independent alignment, guidance, seating and stops.
 - [ ] Co-design geometry, material, orientation, nozzle/layers, perimeters, infill/local solidity and supports; revise either CAD or process using the cheapest adequate evidence. Inspect actual sliced paths when a mechanical assumption depends on them; never infer calibrated material properties from settings. Plan physical experiments for remaining uncertainty.
 - [ ] Only after that architecture gate, refine understandable parametric geometry and mechanisms; preserve critical interfaces.
 - [ ] Evaluate source through the shared CadQuery command; inspect build validity and errors, then select views or targeted geometry checks for unresolved questions.
 - [ ] Revisit affected [whole-object form and handling](references/design-decisions.md#whole-object-form-and-handling) relationships when detailed geometry changes them; preserve the architecture gate ahead of expensive analysis.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
 - [ ] For structurally important parts and joints, update the load and stiffness screen using measured CAD sections before recommending a structural trial.
-- [ ] Use mechanics/simulation only for remaining consequential physical uncertainty in a coherent concept; do not run expensive contact analysis merely because a snap exists. When contact analysis is needed, use the [decision-driven study guidance](../../../physical_analysis/README.md#plan-a-contact-study) and connect local fixture/deformation evidence to the surrounding assembly.
+- [ ] Use mechanics/simulation only for remaining consequential uncertainty in a worthwhile concept; consider removing the mechanism first if it alone creates extensive analysis work. Tool availability never justifies a mechanism. When contact analysis is needed, use the [decision-driven study guidance](../../../physical_analysis/README.md#plan-a-contact-study).
 - [ ] Prefer [shared engineering questions](../../../physical_analysis/README.md#use) for known snap, flexure and structural situations; supply explicit physical intent, reuse identity-checked evidence and select only decision-relevant study axes. Reserve `AnalysisCase` for novel experiments.
 - [ ] Review final generic FDM geometry and resolve significant defects, especially on fit-critical surfaces.
 - [ ] Review exposed edges, corners and grip areas without weakening interfaces.
 - [ ] Export the agreed printable layouts as STEP/STL from the same print-ready geometry and placement; check output status and any specific export concern.
 - [ ] Run/reuse the final reference smoke slice for those layouts when available; investigate detailed paths only for unresolved slicer-sensitive questions.
 - [ ] Save useful final views, assumptions, physical evidence and print instructions.
+- [ ] Before recommending a coupon, state its uncertainty, reproduced product feature, omissions, observable success/failure and resulting design decision; apply the [experiment guidance](references/physical-experiments.md#optional-test-prints-for-physical-validation). A rejected or seriously doubtful product does not warrant a mechanism-only coupon.
 - [ ] Record separate print status for test piece(s) and any final printable object in the object's notes; use N/A when a category is outside the agreed phase and do not infer a physical print from CAD or slicer output.
-- [ ] On user physical product rejection, update conclusions/readiness and the root index immediately; identify the narrower scope of earlier passes, avoid an unsupported tolerance/process diagnosis, and feed recurring failures into shared guidance.
+- [ ] On user product rejection, update conclusions/readiness and the root index immediately; distinguish rejection before printing from physical use failure, identify the narrower scope of earlier passes, and feed recurring failures into shared guidance without an unsupported tolerance/process diagnosis.
 - [ ] Add a reusable-evidence entry only if this work produced a transferable result; link to its detailed object record.
 - [ ] Review and commit/push according to AGENTS.md.
 

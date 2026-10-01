@@ -9,8 +9,11 @@ by its effect on function and the cost of discovering a failure late.
 
 ## When product use fails
 
-A user who physically prints and rejects a product provides stronger evidence about
-its actual usefulness than internal assertions, FEA, slicing or autonomous reviews.
+A user can reject a product's visible design, architecture or proposed use before
+printing. Record that as product-design rejection, not a demonstrated print or
+material failure. A user who physically prints and rejects a product provides
+stronger evidence about its actual usefulness than internal assertions, FEA,
+slicing or autonomous reviews.
 Update the current object conclusion and root index immediately; remove “ready to
 print” or equivalent confidence. Identify what earlier checks established narrowly
 (fit, local deformation, slice acceptance) and what product relationship failed.
@@ -35,6 +38,15 @@ feedback is unavailable. For a samples-only phase, deliver the samples without
 generating full-object variants. For an agreed staged sequence, finish the
 current phase and use the requested physical result to choose the next one.
 Do not turn an optional sample into an unrequested gate.
+
+Before recommending a coupon, state in the existing record: the uncertainty it
+tests, the actual product feature it reproduces, what it omits, the observation
+that counts as success or failure, and the design decision each result would
+change. Its material, print and feedback cost must be justified by that decision.
+An interesting unprinted mechanism alone is no reason for a coupon. If the
+whole-product concept is rejected or seriously doubtful, a mechanism-only coupon
+is not a useful next print; resolve product value first. A local latch fixture
+cannot establish the full enclosure, hinge motion, contents or browsing interaction.
 
 * Consider test pieces for behavior that CAD and slicing cannot establish reliably: hinge freedom, snap-latch engagement and release, friction fits, sliding joints, clip grip, flexible tabs, printed threads, and press-fit inserts. Provide one when it can meaningfully reduce the cost of discovering a likely fit or mechanism problem; do not create coupons automatically for every feature.
 * Reuse the production interface construction and parameters where practical. Preserve mating geometry, material, relevant slicing settings and print orientation, plus wall thickness, flexible length, attachment stiffness and surrounding geometry that determine the tested behavior. A shortened clip can be much stiffer than the real part. If a small sample cannot represent the interaction adequately, explain that limitation instead of treating it as a substitute for a full-part trial.

@@ -8,7 +8,8 @@ import sys
 import cadquery as cq
 import pytest
 from physical_analysis import (FlexureQuestion, StructuralQuestion, Support, Motion,
-    Region, Material, SurfaceForce, BeamApproximation, QuestionStudy, ManufacturingAssumption, SnapFitQuestion)
+    Region, Material, SurfaceForce, BeamApproximation, QuestionStudy, ManufacturingAssumption,
+    SnapFitQuestion, MatingPart, AnalysisResult)
 
 ROOT = Path(__file__).resolve().parents[1]
 from physical_analysis.experiments.ipc.fixtures.rounded_snap.question import question as rounded_question
@@ -96,43 +97,77 @@ def test_local_rounded_snap_retains_passage_and_increment_sensitivity():
     assert answer['physical_limits']['printed_recovery_established'] is False
 
 
+def recovery_contract(*, one_way=False):
+    """Independent boxes and synthetic history; no claimed native/physical solve.
+
+    Test only interpretation of driver pose and sampled unloaded deformation,
+    without reassigning retained solver evidence to a different physical intent.
+    """
+    motion = Motion((0,0,-1)) if one_way else Motion.round_trip((0,0,-1))
+    q = SnapFitQuestion(name='recovery_contract',
+        part=cq.Workplane('XY').box(4,1,1,centered=False),material=MAT,
+        supports=(Support(Region.plane('x',0)),),contact_region=Region.plane('z',1),
+        mating_parts=(MatingPart('driver',cq.Workplane('XY').box(1,1,1),motion),),
+        observations={'tip':Region.plane('x',4)},penalty_N_mm3=1000,
+        return_observation='tip',require_driver_return=not one_way,contact_free_at=(1,),
+        displacement_limits_mm={'tip':((-.2,.2),)*3})
+    def frame(time, pressure, displacement):
+        return dict(load_fraction=time,max_contact_pressure_MPa=pressure,
+            observations={'tip':{'min_mm':[0,0,displacement],'max_mm':[0,0,displacement]}})
+    r = AnalysisResult(q.name,'completed',completed=True,
+        metrics={'max_force_balance_relative':0,'max_strain_by_part':{'part':.001},
+                 'max_penetration_mm':.001,'contact_detected':True},
+        history=[frame(.5,.1,-.1),frame(1,0,0)])
+    return q,r
+
+
 def test_snap_return_accepts_stationary_mate_but_rejects_nonreturning_motion():
-    # A seated keeper is unchanged while a thumb proxy presses/withdraws.
-    # Use already qualified native return history to isolate the intent check;
-    # the swatch-case consumer exercises both drivers in a real native solve.
-    from physical_analysis import MatingPart
-    q=rounded_question()
-    r=q.read_evidence(ROUNDED/'evidence/calculix/cycle_base')
-    fixed=MatingPart('fixed_keeper',cq.Workplane('XY').box(1,1,1),
-                     Motion((0,0,0),name='fixed_keeper'))
+    q,r = recovery_contract()
+    fixed = MatingPart('stationary',cq.Workplane('XY').box(1,1,1),
+                       Motion((0,0,0),name='stationary'))
     q.mating_parts += (fixed,)
+    assert len(q.build_case().parts) == 3
     q._answer(r)
+    assert r.metrics['question']['contact_passage_established']
     assert r.metrics['question']['numerical_elastic_return_ok']
-    q.mating_parts=q.mating_parts[:-1]+(replace(fixed,motion=Motion((0,1,0))),)
+    assert r.metrics['question']['elastic_return_driver_policy'] == 'initial_pose'
+    q.mating_parts = q.mating_parts[:-1]+(replace(fixed,motion=Motion((0,1,0))),)
     with pytest.raises(ValueError,match='return to their initial pose'):
         q._answer(r)
 
 
-def test_one_way_unloaded_return_requires_explicit_final_free_checkpoint():
-    # Contract checks on qualified retained history; the swatch case exercises
-    # the new policy on actual one-way closing native evidence.
-    q=rounded_question()
-    r=q.read_evidence(ROUNDED/'evidence/calculix/cycle_base')
-    p=q.mating_parts[0]
-    q.mating_parts=(replace(p,motion=Motion(p.motion.displacement_mm)),)
-    q.require_driver_return=False
-    q.contact_free_at=(.5,)
+def test_one_way_unloaded_return_requires_explicit_policy_and_final_free_checkpoint():
+    q,r = recovery_contract(one_way=True)
+    q.require_driver_return = True
+    with pytest.raises(ValueError,match='return to their initial pose'):
+        q._answer(r)
+    q.require_driver_return = False
+    q.contact_free_at = (.5,)
     with pytest.raises(ValueError,match='final contact-free checkpoint'):
         q._answer(r)
-    q.contact_free_at=(1,)
+    q.contact_free_at = (1,)
     q._answer(r)
+    assert r.metrics['question']['contact_passage_established']
     assert r.metrics['question']['numerical_elastic_return_ok']
-    assert r.metrics['question']['elastic_return_driver_policy']=='final_contact_free_pose'
-    # A final loaded contact cannot be promoted merely by enabling the policy.
-    r.history[-1]['max_contact_pressure_MPa']=.1
+    assert r.metrics['question']['elastic_return_driver_policy'] == 'final_contact_free_pose'
+    assert not r.metrics['question']['physical_limits']['printed_recovery_established']
+
+
+@pytest.mark.parametrize('failure',['loaded','residual','missing_observation','missing_final_frame'])
+def test_one_way_recovery_does_not_promote_failed_or_missing_evidence(failure):
+    q,r = recovery_contract(one_way=True)
+    if failure == 'loaded':
+        r.history[-1]['max_contact_pressure_MPa'] = .1
+    elif failure == 'residual':
+        r.history[-1]['observations']['tip']['max_mm'][2] = .001
+    elif failure == 'missing_observation':
+        r.history[-1]['observations'] = {}
+    else:
+        r.history.pop()
     q._answer(r)
     assert not r.metrics['question']['contact_passage_established']
     assert not r.metrics['question']['numerical_elastic_return_ok']
+    assert not r.metrics['question']['numerical_evidence_adequate']
 
 
 def test_phone_release_preserves_force_and_exposes_approximation():

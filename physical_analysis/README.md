@@ -108,6 +108,9 @@ unintended opening motion. The default still requires drivers to return to their
 start. Both policies verify the observed leaf displacement; the alternate policy
 also requires the sampled final contact-free condition. Neither establishes
 printed recovery or permits a loaded final state to count as unloaded return.
+Independent synthetic-history contract tests cover stationary mates and one-way
+recovery, including rejected loaded/residual/missing-evidence states. They test
+the answer policy, not native contact qualification or a product mechanism.
 
 `metrics['question']` distinguishes `solver_completed` (a full extracted history),
 `operation_completed` (native accepted completion), `numerical_evidence_adequate`

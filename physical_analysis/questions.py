@@ -277,6 +277,12 @@ class FlexureQuestion(StructuralQuestion):
 
 @dataclass(kw_only=True)
 class SnapFitQuestion(StructuralQuestion):
+    """Explicit contact operation; recovery need not imply reverse driver motion.
+
+    Stationary mates are already at their initial pose. A one-way driver may
+    remain at its final pose only with explicit final contact-free recovery;
+    this interprets supplied evidence, not product value or printed behavior.
+    """
     contact_region: Region
     mating_parts: tuple[MatingPart, ...]
     penalty_N_mm3: float  # explicit baseline; never inferred from material

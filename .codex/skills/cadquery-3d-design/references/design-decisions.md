@@ -39,9 +39,36 @@ allowance without blocking authorized modelling on a measurement.
 
 ## Product architecture gate
 
-For functional multi-part or moving products, establish a short physical interaction
-concept in the normal object decision record **before mechanism refinement**, detailed
-tolerance studies, FEA or final slicing. Answer these in ordinary physical language:
+Before developing a hinge, snap, latch, detent, release button or similar feature,
+establish the specific user problem it solves. Also apply this gate to functional
+multi-part or moving products. Use the normal decision record, before detailed
+interfaces, tolerance studies, FEA or final slicing. First ask:
+
+- What happens if the mechanism is omitted? Is the simpler product already adequate?
+- What practical improvement does it deliver, and could a familiar, simpler physical
+  arrangement deliver the same benefit?
+- Is that benefit worth the added parts, material, assembly, tolerance sensitivity,
+  failure modes and analysis work?
+
+Judge **total product simplicity**, not just individual parts: printed-part and
+purchased-fastener counts, assembly steps/tools, opening/closing actions, one- or
+two-hand operation, printing/support complexity, adjustment and tolerance
+sensitivity. Is the whole object proportionate to its task? A locally elegant
+mechanism can still make a poor product. Prefer an ordinary arrangement that works
+when added mechanics provide no compelling benefit. Having `SnapFitQuestion`,
+FEA, IPC or other tools available is never a reason to invent a mechanism.
+
+The normal progression is: understand the actual task → propose one simple physical
+architecture → build and inspect rough complete geometry with realistic contents →
+resolve consequential whole-product objections → verify necessary interfaces and
+motions → add and screen justified mechanisms → use expensive numerical analysis
+only for remaining consequential questions → review manufacturing/slicing →
+recommend a physical print that can change the next decision. Cheap fit/load math
+may invalidate a concept earlier. These are stages of commitment, not nine documents
+or approval forms. Explore alternatives only when needed to resolve a real choice;
+do not generate several complete products by default.
+
+For the worthwhile architecture, answer these in ordinary physical language:
 
 - What does the user actually do, and where does the stored/held/supported item sit?
 - What is each major component's single primary job? Which actual surfaces support
@@ -50,7 +77,6 @@ tolerance studies, FEA or final slicing. Answer these in ordinary physical langu
 - What must touch, and what must remain clear?
 - What simple sequence takes the normal open/unassembled state to working/closed,
   then through intentional release back to open?
-- Why is every added mechanism necessary?
 
 Name consequential mating geometry: “this face seats on this face,” “this rail
 constrains this direction,” “this hook sits behind this shelf,” “this gap allows
@@ -78,24 +104,30 @@ name which required relationships are established and which forbidden contacts
 remain clear. Use deterministic CAD for interface facts where possible; this
 requires neither a general motion planner nor a separate review artifact.
 
-Before expensive mechanics, inspect at least one useful rough assembled/open view
-with contents where relevant. Describe what the user physically does in the rendered
-object: where fingers act, what moves, where contents sit, where alignment occurs,
-what stops motion, what retains it and how it releases. Add views only for distinct
-unanswered questions. Hidden choreography requiring a long explanation, or many
-compensating reliefs/guides/windows/shields/stops, is reason to reconsider or abandon
-the concept before adding further mechanisms/checks. Visual representation is
-necessary evidence for form, handling and understandable interaction; it is not
-an aesthetic score or proof of comfortable physical use.
+Before expensive mechanics, inspect a useful rough assembled/open view with realistic
+contents. Explain how the user loads, accesses, browses where relevant, transports,
+opens and closes the actual object: fingers, support, movement and regripping.
+Add views only for distinct unanswered questions. Ask whether the central task is
+improved enough to justify construction and operation. Awkward proportions,
+handling requiring too much explanation, poor central-task performance or
+accumulating compensating reliefs/guides/windows/shields/stops are stopping
+conditions: reconsider or abandon the concept before further engineering.
 
-The normal order is user task → physical interaction architecture → rough complete
-geometry with contents → whole-object visual and deterministic interface review →
-cheap fit/load/mechanism screens → detailed CAD → numerical analysis only for
-remaining physical uncertainty → manufacturing/slice review → physical validation.
-Do not run contact FEA just because a snap exists: its question must matter to the
-normal operating sequence of an already coherent concept. A local mechanism pass
-never establishes whole-product usefulness. Record unresolved relationships and
-revise the concept rather than treating more narrow evidence as closure.
+For consequential subjective qualities (appearance, proportions, intuitive handling,
+whether the object is worth owning), present the rough object for human review
+when those choices have not been delegated. Automated self-assessment and valid
+CAD cannot supply that feedback. Explicit delegation permits autonomous judgment
+but still requires willingness to reject a poor concept. Resolve objections before
+committing substantial work; respect existing agreement without repeated approval.
+
+Sunk CAD, tests, simulation or slicing never protects an architecture that fails
+its purpose. Reopen the product choice even late; prefer deleting unnecessary
+complexity over adding code to defend it. Separate product value from tool
+validation: use simulation for a consequential uncertainty in an otherwise
+worthwhile design. If an unnecessary mechanism creates the need for extensive
+simulation, consider eliminating it first. Keep numerical benchmarks as independent
+engineering experiments; a product project must not become a disguised framework
+benchmark. A coupon or solver pass cannot settle whole-product value.
 
 ## Pre-CAD concept screen
 
@@ -232,8 +264,9 @@ Reuse clear views and component builders. Add object-owned inspection geometry
 only when it answers a question; identify display-only hands, held items and
 supports. If line drawings obscure depth, choose a clearer camera or shaded CAD
 view when available. Better presentation does not repair awkward geometry.
-No style variants, new rendering tool, separate review file or approval gate are
-required by this review.
+No style variants, new rendering tool or separate review file are required.
+Human review of undelegated consequential choices follows the architecture gate;
+this is not a repeated approval of routine details.
 
 For a consequential access uncertainty, start with a simple finger/thumb or tool
 envelope and selected poses, documenting dimensions, their source/assumption,
