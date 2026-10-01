@@ -83,6 +83,24 @@ def test_explicit_threads_override_inherited_single_thread_environment(monkeypat
         with pytest.raises(ValueError,match='thread count'):IPCSettings(threads=invalid)
 
 
+def test_retained_thread_study_is_independent_of_retired_products():
+    from pathlib import Path
+    from physical_analysis.experiments.ipc.summarize_thread_performance import summarize
+    root = Path(__file__).resolve().parents[1]
+    d = summarize(write=False)  # Verifies hashes, time interval, metrics and witness; no native solve.
+    assert d['machine']['Model name'] == 'AMD Ryzen 7 1700 Eight-Core Processor'
+    group = d['rounded_snap_prefix']
+    assert group['fastest_tested_threads'] == 8
+    assert group['runs'][1]['speedup'] == pytest.approx(1.502,rel=.001)
+    for row in group['runs']:
+        assert (root/row['run']/'result.json').is_file()
+        assert row['mesh']['arm']['tetrahedra'] == 4625
+        assert row['mesh']['body_cam']['triangles'] == 2694
+        assert not row['independent_mesh_intersection']
+        assert row['native_operation_completed'] is False
+        assert row['accepted_time_interval'] == [0,.1125]
+
+
 def test_intermediate_search_cannot_relax_final_equilibrium_policy():
     from physical_analysis.backends.polyfem_output import require_final_equilibrium_policy
     policy=dict(allow_out_of_iterations=False,allow_non_grad_convergence=False,grad_norm_tol=1e-8)

@@ -1,0 +1,12 @@
+{
+  "machine": {
+    "Architecture": "x86_64",
+    "CPU(s)": "16",
+    "Model name": "AMD Ryzen 7 1700 Eight-Core Processor",
+    "Thread(s) per core": "2",
+    "Core(s) per socket": "8",
+    "Socket(s)": "1"
+  },
+  "source_commit": "d37763c",
+  "scope": "Recorded measurement machine; do not replace with the summarizer host"
+}

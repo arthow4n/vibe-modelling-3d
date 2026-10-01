@@ -1,7 +1,8 @@
 # Optional PolyFEM / IPC investigation
 
-This external-executable adapter investigates the swatch lift-off failure where
-native contact samples missed overlap at finite edges. It is absent from normal
+This external-executable adapter investigates finite-edge contact where native
+contact samples can miss geometric overlap. Its historical motivating storage
+products were rejected and removed; current consumers are numerical benchmarks. It is absent from normal
 engineering-question selection. `SnapFitQuestion` and CalculiX remain unchanged.
 Qualification and the decision to keep/promote this route are recorded beside
 [the experiments](../experiments/ipc/README.md).
@@ -31,8 +32,8 @@ result = question.build_case().run(new_directory, backend=PolyfemBackend())
 ```
 
 This low-level experiment does not call the stable question's CalculiX-specific
-answer adapter or manufacture a penetration number. Model experiment entry
-points reuse the existing questions' physical cases. `IPCSettings` is explicitly
+answer adapter or manufacture a penetration number. The minimal [rounded numerical fixture](../experiments/ipc/fixtures/rounded_snap/README.md)
+reuses question-level physical intent without retaining its failed source product. `IPCSettings` is explicitly
 experimental and keeps numerical investigation controls out of ordinary models.
 
 The [thread measurements](../experiments/ipc/performance/README.md) establish an
@@ -102,8 +103,8 @@ nonphysical search permits its iteration limit; the final reduced equilibrium
 still rejects iteration-limit/non-gradient completion and must satisfy the
 recorded gradient tolerance and independent accepted-state checks. Extraction
 verifies the effective final native policy. This control completed the generic
-benchmarks, but its sliding experiment was interrupted for the user-requested
-checkpoint. It has not qualified passage or earned promotion.
+benchmarks, but its historical rounded-contact experiment was interrupted for the user-requested
+checkpoint (archived in Git through `d37763c`). It has not qualified passage or earned promotion.
 
 Obstacle forces come from exported collision-surface variational gradients;
 support reactions negate elastic+contact gradients at prescribed DOFs. Compression

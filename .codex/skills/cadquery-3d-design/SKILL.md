@@ -9,6 +9,20 @@ Use this skill for functional, manufacturable models. AGENTS.md owns repository
 workflow, shared CadQuery command, printer setup, attribution, artifacts
 and Git rules. A valid solid or clean slice alone does not establish function.
 
+## Product architecture before mechanisms
+
+For functional multi-part or moving products, apply the
+[product-architecture gate](references/design-decisions.md#product-architecture-gate)
+in the normal decision record. Establish physical roles, actual mating contacts
+and normal handling sequence; review rough complete geometry with contents and
+moving states before mechanism optimization, detailed tolerances, FEA or final
+slicing. Remove retention temporarily to test whether guidance, seating and stops
+still work. Revise or abandon incoherent concepts early. Local CAD, contact and
+slice passes cannot establish whole-product usefulness. User physical rejection
+supersedes speculative confidence; follow the
+[physical-failure guidance](references/physical-experiments.md#when-product-use-fails).
+This adds sequencing and concrete reasoning, not another form or approval gate.
+
 ## Modelling TODO checklist
 
 Track active design and validation checks in a planning tool or working notes;
@@ -22,16 +36,19 @@ with each applicable evaluation.
 
 - [ ] Confirm scope, references, user edits, known preferences and required CAD tool availability; check the reusable-model evidence for an analogous design.
 - [ ] Establish the actual handling task, critical dimensions, assembly/material preferences, operating effort, required retention and failure modes; screen consequential tolerance extremes together.
+- [ ] Before refining mechanisms, record the [physical interaction concept](references/design-decisions.md#product-architecture-gate): user task, contents location, component jobs, named support/guide/seat/stop/retain/release contacts, required contact/clearance, normal sequence and necessity of added mechanisms.
 - [ ] Screen the concept with rough fit, engagement, assembly-travel and print-envelope calculations as relevant. For structurally important parts and joints, estimate loads, stiffness and force before detailed CAD; reject an infeasible concept early.
 - [ ] Recommend viable deliverables and a print setup, explain tradeoffs, and agree on this phase's sequence if it is not already established.
 - [ ] Decide which remaining questions require modelled geometry and which require a physical print. For an oversized assembly, resolve segmentation and joint/load requirements with the user before finalizing it.
+- [ ] Build rough complete geometry including contents/held item and all major moving parts in normal open/working states; define meaningful intermediate and release states. A local coupon is not this whole-object review.
+- [ ] Inspect a useful rough assembled/open/content-populated view and describe the user's physical operation. Check required/forbidden relationships at the defined states; temporarily remove retention to check independent alignment, guidance, seating and stops. Reconsider an incoherent concept before adding compensating features.
 - [ ] Co-design geometry, material, orientation, nozzle/layers, perimeters, infill/local solidity and supports; revise either CAD or process using the cheapest adequate evidence. Inspect actual sliced paths when a mechanical assumption depends on them; never infer calibrated material properties from settings. Plan physical experiments for remaining uncertainty.
-- [ ] Build understandable parametric geometry; preserve critical interfaces.
+- [ ] Only after that architecture gate, refine understandable parametric geometry and mechanisms; preserve critical interfaces.
 - [ ] Evaluate source through the shared CadQuery command; inspect build validity and errors, then select views or targeted geometry checks for unresolved questions.
-- [ ] Once rough complete geometry exists, review [whole-object form and handling](references/design-decisions.md#whole-object-form-and-handling) before detailed mechanism refinement or expensive analysis; use a task walkthrough, targeted access checks or physical observations as needed to resolve consequential problems.
+- [ ] Revisit affected [whole-object form and handling](references/design-decisions.md#whole-object-form-and-handling) relationships when detailed geometry changes them; preserve the architecture gate ahead of expensive analysis.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
 - [ ] For structurally important parts and joints, update the load and stiffness screen using measured CAD sections before recommending a structural trial.
-- [ ] When contact analysis is needed, use the [decision-driven study guidance](../../../physical_analysis/README.md#plan-a-contact-study) and connect local fixture/deformation evidence to the surrounding assembly.
+- [ ] Use mechanics/simulation only for remaining consequential physical uncertainty in a coherent concept; do not run expensive contact analysis merely because a snap exists. When contact analysis is needed, use the [decision-driven study guidance](../../../physical_analysis/README.md#plan-a-contact-study) and connect local fixture/deformation evidence to the surrounding assembly.
 - [ ] Prefer [shared engineering questions](../../../physical_analysis/README.md#use) for known snap, flexure and structural situations; supply explicit physical intent, reuse identity-checked evidence and select only decision-relevant study axes. Reserve `AnalysisCase` for novel experiments.
 - [ ] Review final generic FDM geometry and resolve significant defects, especially on fit-critical surfaces.
 - [ ] Review exposed edges, corners and grip areas without weakening interfaces.
@@ -39,6 +56,7 @@ with each applicable evaluation.
 - [ ] Run/reuse the final reference smoke slice for those layouts when available; investigate detailed paths only for unresolved slicer-sensitive questions.
 - [ ] Save useful final views, assumptions, physical evidence and print instructions.
 - [ ] Record separate print status for test piece(s) and any final printable object in the object's notes; use N/A when a category is outside the agreed phase and do not infer a physical print from CAD or slicer output.
+- [ ] On user physical product rejection, update conclusions/readiness and the root index immediately; identify the narrower scope of earlier passes, avoid an unsupported tolerance/process diagnosis, and feed recurring failures into shared guidance.
 - [ ] Add a reusable-evidence entry only if this work produced a transferable result; link to its detailed object record.
 - [ ] Review and commit/push according to AGENTS.md.
 

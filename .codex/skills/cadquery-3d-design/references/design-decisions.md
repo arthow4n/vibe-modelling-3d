@@ -37,6 +37,66 @@ For an existing collection, a measured stack or mating item can cheaply settle
 capacity when available; otherwise document the source dimensions and practical
 allowance without blocking authorized modelling on a measurement.
 
+## Product architecture gate
+
+For functional multi-part or moving products, establish a short physical interaction
+concept in the normal object decision record **before mechanism refinement**, detailed
+tolerance studies, FEA or final slicing. Answer these in ordinary physical language:
+
+- What does the user actually do, and where does the stored/held/supported item sit?
+- What is each major component's single primary job? Which actual surfaces support
+  the item, guide movement, and establish its final seated position or stop?
+- Which feature prevents unintended removal/opening, and how does the user undo it?
+- What must touch, and what must remain clear?
+- What simple sequence takes the normal open/unassembled state to working/closed,
+  then through intentional release back to open?
+- Why is every added mechanism necessary?
+
+Name consequential mating geometry: “this face seats on this face,” “this rail
+constrains this direction,” “this hook sits behind this shelf,” “this gap allows
+this motion,” or “this stop carries the closed-position load.” If the responsible
+mating geometry cannot be named, resolve the architecture before simulating that
+function. Bounding-envelope fit or generic absence of collision is insufficient.
+
+Build low-detail **complete geometry** as soon as possible: the actual object,
+contents/held item, all major moving parts, and assembled/open states. A local
+mechanism coupon answers mechanics, not whole-object architecture. Cheap math may
+reject an obviously infeasible concept earlier; do not use it to skip this gate.
+
+For a closure, temporarily subtract the latch/snap: does the rest still align,
+guide, seat and stop correctly? If retention disappeared, would the object remain
+coherent and usable, merely unable to stay closed under disturbance? One mechanism
+carrying alignment, guidance, stopping, structural support and retention is a
+complexity warning that needs a concrete reason. Prefer geometry that guides, a
+hard surface that seats/stops, enclosure that contains, retention that retains,
+and release that releases. Multifunctional parts are allowed when justified.
+
+Identify a small set of meaningful states along an explicit path: open/unassembled,
+initial alignment, partial engagement, mechanism engagement, maximum required
+flexure if relevant, seated/working, intentional release and open again. At each,
+name which required relationships are established and which forbidden contacts
+remain clear. Use deterministic CAD for interface facts where possible; this
+requires neither a general motion planner nor a separate review artifact.
+
+Before expensive mechanics, inspect at least one useful rough assembled/open view
+with contents where relevant. Describe what the user physically does in the rendered
+object: where fingers act, what moves, where contents sit, where alignment occurs,
+what stops motion, what retains it and how it releases. Add views only for distinct
+unanswered questions. Hidden choreography requiring a long explanation, or many
+compensating reliefs/guides/windows/shields/stops, is reason to reconsider or abandon
+the concept before adding further mechanisms/checks. Visual representation is
+necessary evidence for form, handling and understandable interaction; it is not
+an aesthetic score or proof of comfortable physical use.
+
+The normal order is user task → physical interaction architecture → rough complete
+geometry with contents → whole-object visual and deterministic interface review →
+cheap fit/load/mechanism screens → detailed CAD → numerical analysis only for
+remaining physical uncertainty → manufacturing/slice review → physical validation.
+Do not run contact FEA just because a snap exists: its question must matter to the
+normal operating sequence of an already coherent concept. A local mechanism pass
+never establishes whole-product usefulness. Record unresolved relationships and
+revise the concept rather than treating more narrow evidence as closure.
+
 ## Pre-CAD concept screen
 
 Use rough, stated assumptions to answer consequential questions before detailed

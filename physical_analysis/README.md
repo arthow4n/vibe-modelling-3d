@@ -11,8 +11,8 @@ joint/dynamics, plasticity or printed-material simulator.
 
 An [optional external PolyFEM/IPC investigation](backends/polyfem.md) targets
 finite-edge contact where geometric nonintersection affects the answer. It has
-qualified simple contact/coupling cases but has not reproduced complete sliding
-passage or tested lift-off. It remains isolated from ordinary engineering-question
+qualified simple contact/coupling cases but has not completed crest passage in
+the local rounded-contact fixture. It remains isolated from ordinary engineering-question
 selection; see the [checkpoint decision](experiments/ipc/README.md).
 
 `uv sync --locked` installs the editable Python package and pinned Gmsh binding.
@@ -40,7 +40,9 @@ physical situation. Identify the geometry and named regions explicitly; supply
 loads, material assumptions and provisional acceptance limits. The shared layer
 constructs the case, restraints, observations and contacts, then checks the
 answer. `AnalysisCase` remains the escape hatch for genuinely novel fixtures,
-such as the lift-off box's isolated-release/contact-formulation investigations.
+such as isolated multi-driver contact-formulation investigations.
+For a product, first establish coherent [physical interaction architecture](../.codex/skills/cadquery-3d-design/references/design-decisions.md#product-architecture-gate);
+these questions answer remaining local physics, not whole-product usefulness.
 
 ```python
 import cadquery as cq
@@ -153,16 +155,17 @@ Historical backend versions/implementation identities are preserved and exposed;
 interpreting historical evidence does not qualify today's backend. No saved solve
 is rerun merely to add interpretation. Native result status is never promoted.
 
-The [sliding box](../model/filament_swatch_box/analyze.py),
-[phone stand](../model/analysis_phone_stand/analyze.py),
-[book plate](../model/book_reading_plate/analyze.py) and
-[lift-off box](../model/filament_swatch_lift_box/analyze.py) are regression consumers.
-Run `uv run --locked pytest -q tests/test_engineering_questions.py` for real
-consumer evidence binding, positive/negative answers and native cross-checks.
-The sliding snap retains increment-sensitive force; the lift-off release remains
-unresolved. The book's plain-back calculation agrees with structural analysis,
-while its monolithic L face-load fixture exposes section distortion absent from
-the beam assumption. Existing joint equations remain the cheaper primary screen.
+The [local rounded-contact fixture](experiments/ipc/fixtures/rounded_snap/README.md),
+[phone stand](../model/analysis_phone_stand/analyze.py) and
+[book plate](../model/book_reading_plate/analyze.py) exercise evidence binding,
+positive/negative answers and native cross-checks in
+`uv run --locked pytest -q tests/test_engineering_questions.py`.
+The fixture is synthetic numerical geometry derived from a physically rejected
+storage product, not a product precedent. Local CalculiX passage/return is retained;
+force remains increment-sensitive. The book's plain-back calculation agrees with
+structural analysis, while its monolithic L face-load fixture exposes section
+distortion absent from the beam assumption. Existing joint equations remain the
+cheaper primary screen. No numerical pass validates whole-product architecture.
 
 ### Lower-level experiments
 
@@ -203,10 +206,10 @@ case.contact('spring', Region.plane('z', 2),
 Contact uses frictionless penalty contact. The default
 `discretization="node_to_surface"` preserves existing cases; the optional
 `discretization="surface_to_surface"` integrates over contacting faces and is
-qualified by the compression benchmark and conditional storage-box studies.
+qualified by the compression benchmark and local rounded-contact studies.
 The [CalculiX 2.21 manual](https://www.dhondt.de/ccx_2.21.pdf) cautions against
 node-to-face contact with quadratic elements. Surface-to-surface contact enabled
-the revised box's pass-over studies after exploratory node-contact timeouts;
+the historical local rounded-cam pass-over studies after node-contact timeouts;
 geometry also changed, so this is not an isolated formulation comparison.
 Both choices require an explicit penalty stiffness.
 `master` may instead be a nonempty tuple of `case.select(part, region)` values.
@@ -249,8 +252,8 @@ and self-contact remain unsupported.
 
 ### Experimental alternative for finite-edge contact
 
-The swatch release exposed a concrete need for updating contact projections
-during iteration and controlling overlap through augmentation. The optional
+A historical finite-edge release investigation exposed a need for updating
+contact projections during iteration and controlling overlap through augmentation. The optional
 `physical_analysis.backends.febio.FebioBackend` uses FEBio's frictionless
 `sliding-elastic` formulation. It accepts the existing case intent, with
 `surface_to_surface` contact and prescribed nonlinear translations. Force
@@ -284,7 +287,7 @@ decision, then check sensitivity. This may resolve convergence effort; it
 cannot repair missed contact, pass geometric witnesses, or calibrate material.
 Benchmarks cover open-gap onset, compression/unloading, bending driven by
 contact, independent obstacle motion, peak-strain recovery and rejection of
-excessive overlap. They do not qualify the box's edge sequence.
+excessive overlap. They do not qualify a new finite-edge operating sequence.
 
 Install the [official standalone FEBio Linux archive](https://repo.febio.org/download/)
 outside the repository and set `FEBIO_RUNTIME` to its `FEBio4` directory or
@@ -342,8 +345,8 @@ zero penetration. An opening-only fixture may isolate a failure, but its
 assembled initial state is a dependency, not evidence that closing succeeds.
 
 Inspect finite-edge geometry when it drives the decision. A native maximum gap
-can miss a penetrating vertex between surface integration points. The swatch
-study found a vertex behind a selected **planar native master triangle**, not
+can miss a penetrating vertex between surface integration points. A historical
+finite-edge fixture study found a vertex behind a selected **planar native master triangle**, not
 just inside a curved CAD approximation, despite a much smaller reported gap.
 The diagnostic helper can retain that planar-facet witness; it does not provide
 a global intersection bound or identify the solver's matched projection.
@@ -365,8 +368,8 @@ new case. Geometry or mesh changes are rejected; material, constraints, contact
 and increments are compiled afresh. The original mesh input/case are copied
 into the new run and retained by the evidence helper. This avoids assuming
 that remeshing with the same requested size creates an identical mesh: the
-lift-box study exposed different node positions with unchanged geometry,
-settings, mesher version and adapter. Compare mesh-refinement runs separately.
+historical finite-edge study exposed different node positions with unchanged
+geometry, settings, mesher version and adapter. Compare mesh-refinement runs separately.
 
 Choose relative or absolute change criteria against the decision before repeated
 refinement. A small absolute force change may leave the same first-print decision
@@ -481,8 +484,8 @@ running in the background.
 The worker streams full result fields one increment at a time, retaining a
 compact history. This bounds full-field memory independently of increment count;
 the compatibility `parse_dat` helper still collects frames when called directly.
-The lift-off study exposed a silent worker failure after a completed solve with
-nearly 1 GB of text fields. A worker failure now reports its exit code even when
+A historical large contact study exposed a silent worker failure after a completed
+solve with nearly 1 GB of text fields. A worker failure now reports its exit code even when
 its log is empty. Recovery can re-extract the saved solve; it must still satisfy
 the input-identity and completion checks above, and does not repair contact quality.
 
@@ -494,8 +497,9 @@ to at most 0.25 mm relative travel per interval. An overlap above 1e-7 mm³ retu
 rigid drivers that would otherwise be ignored when contact is defined only to
 the flexible part. No sampled overlap is not continuous-path proof. Partial
 region constraints, deformable parts and static relative pairs are excluded;
-contact/deformation still needs its own analysis. The lift-off box motivates
-this check: a press actuator must withdraw before a cap window passes it.
+contact/deformation still needs its own analysis. For example, a press actuator
+must withdraw before another rigid driver passes it; generic tests cover this
+preflight independently of the retired source products.
 
 The default PETG material is an explicitly assumed homogeneous solid, **not a
 model of two walls and 7% infill**. Use geometry that represents the load-bearing
@@ -542,16 +546,17 @@ still fail, and the report remains `no_final_result`; no completion is inferred.
 For a worst sampled point on an exactly planar native master triangle, the
 helper also records its projection, triangle and signed plane distance. This
 can distinguish a real overlap witness from curved-master tessellation error;
-it is not a native matched contact point or an intersection bound. In the swatch
-release, a native gap below 0.001 mm coexisted with a 0.039 mm planar vertex
-overlap. A small native maximum gap alone therefore cannot establish passage.
+it is not a native matched contact point or an intersection bound. In a historical
+finite-edge release (product scene archived in Git through `d37763c`), a native gap
+below 0.001 mm coexisted with a 0.039 mm planar vertex overlap. A small native
+maximum gap alone therefore cannot establish passage.
 
 ## Retain analysis evidence
 
 Use `physical_analysis.evidence.retain_run(run, destination)` or:
 
 ```sh
-uv run --locked python -m physical_analysis.evidence /tmp/box_run model/filament_swatch_box/notes/analysis/new_trial
+uv run --locked python -m physical_analysis.evidence /tmp/box_run model/your_object/notes/analysis/new_trial
 ```
 
 The destination must be new. The helper preserves result history, assumptions,
@@ -602,8 +607,8 @@ Add a backend by implementing `run(case, directory) -> AnalysisResult`. Reject
 unsupported case features explicitly. Add a numerical benchmark before exposing
 a new analysis type; keep solver keywords out of object scripts. Future joint
 networks and material laws should extend the case contract only when a concrete
-model needs them. The [swatch box](../model/filament_swatch_box/README.md) exercises a rounded
-contact-driven pass-over and reopening with mesh/contact/increment sensitivity;
+model needs them. The [local numerical fixture](experiments/ipc/fixtures/rounded_snap/README.md)
+exercises rounded contact-driven pass-over and reopening with mesh/contact/increment sensitivity;
 its numerical result is conditional on frictionless elastic solids and a locally
 clamped root. Sharp-tooth pass-over remains unqualified: the phone-stand
 experiment did not converge, and its failed result is retained with that model.
@@ -616,14 +621,14 @@ Convergence of force does not imply convergence of a local strain concentration.
 
 For a mechanical assumption that depends on actual sliced solidity or support
 placement, `physical_analysis.manufacturing.orca_linear_paths(path)` yields
-linear deposited segments with Orca's width/role metadata. The sliding box and
-lift-off box use this narrow reader for local feature reviews. It requires
+linear deposited segments with Orca's width/role metadata for consequential
+local feature reviews. It requires
 absolute XYZ, relative E and linear layer moves; incompatible modes fail.
 Keep geometry registration, section choices, support access and decisions with
 the object. This does not replace Orca's layout acceptance, predict polymer
 properties or justify routine G-code inspection of ordinary walls.
 
-For the lift-off and upright boxes' repeated local fill question,
+For a consequential local fill question,
 `section_coverage(paths, x_mm=..., z_mm=..., span_mm=(y0,y1))` clips and unions
 the recorded-width extrusion strokes on one Y section, excluding support and
 brim roles. It returns filled/uncovered widths, internal gaps and intervals.
@@ -633,9 +638,9 @@ interpret them in the object, without inferring modulus, isotropy or bonding.
 
 `physical_analysis.screening.circular_cam_detent` screens two rigid circular
 profiles against a linear transverse spring, returning pass-over travel and peak
-frictionless sliding force from an explicitly supplied stiffness. The swatch box
-uses it to interpret increment-sensitive numerical reaction forces. It omits
-head rotation, spring-axis shortening, guide compliance and friction; stiffness
+frictionless sliding force from an explicitly supplied stiffness. This can
+help interpret increment-sensitive reaction forces in rounded contact benchmarks.
+It omits head rotation, spring-axis shortening, guide compliance and friction; stiffness
 and printed material properties require separate assumptions/evidence. An
 independent sampled-angle projection qualifies the analytical maximum. It does
 not replace nonlinear contact analysis when those interactions matter.

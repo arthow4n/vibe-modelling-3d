@@ -1,4 +1,4 @@
-"""Question contracts, real consumer regressions and native structural answers."""
+"""Question contracts, numerical fixtures, consumer regressions and native answers."""
 from dataclasses import replace
 import importlib.util
 import json
@@ -8,9 +8,12 @@ import sys
 import cadquery as cq
 import pytest
 from physical_analysis import (FlexureQuestion, StructuralQuestion, Support, Motion,
-    Region, Material, SurfaceForce, BeamApproximation, QuestionStudy, ManufacturingAssumption)
+    Region, Material, SurfaceForce, BeamApproximation, QuestionStudy, ManufacturingAssumption, SnapFitQuestion)
 
 ROOT = Path(__file__).resolve().parents[1]
+from physical_analysis.experiments.ipc.fixtures.rounded_snap.question import question as rounded_question
+
+ROUNDED = ROOT/'physical_analysis/experiments/ipc/fixtures/rounded_snap'
 MAT = Material('benchmark',1200,.3,'Numerical qualification only',.01)
 
 
@@ -69,12 +72,11 @@ def test_adequate_beam_screen_avoids_solver_and_bad_screen_escalates(tmp_path):
         q.run(tmp_path/'unused',numerical=False)
 
 
-def test_sliding_snap_retains_passage_and_increment_sensitivity():
-    module = consumer('filament_swatch_box')
-    q = module.operation(cycle=True,max_increment=.025)
+def test_local_rounded_snap_retains_passage_and_increment_sensitivity():
+    q = rounded_question()
     labels = ['baseline','mesh_sensitivity_1','contact_parameter_sensitivity_1','increment_sensitivity_1','increment_sensitivity_2']
     archives = ['cycle_base','cycle_fine','cycle_penalty','cycle_increment','cycle_small_increment']
-    evidence = {key:ROOT/'model/filament_swatch_box/notes/analysis'/value for key,value in zip(labels,archives)}
+    evidence = {key:ROUNDED/'evidence/calculix'/value for key,value in zip(labels,archives)}
     r = QuestionStudy(q,'Ten-percent force precision for a conditional prototype screen',
         ('peak_motion_force_N.drive','max_abs_principal_strain'),relative_tolerance=.1,
         motion_levels=2,mesh_levels=1,contact_levels=1).run(evidence=evidence)
@@ -105,23 +107,33 @@ def test_phone_release_preserves_force_and_exposes_approximation():
     assert a['analytical_screen'] and a['analytical_numerical_comparison']['ratio'] > 1
 
 
-def test_lift_off_remains_rejected_and_study_does_not_run_refinements(tmp_path):
-    q = consumer('filament_swatch_lift_box').snap_question(penalty=12000)
+def test_rejected_quality_baseline_does_not_run_refinements(tmp_path,monkeypatch):
+    # Synthetic contract failure, not a claimed mechanical outcome for a product.
+    q = rounded_question()
+    r = q.read_evidence(ROUNDED/'evidence/calculix/cycle_base')
+    r.status = 'quality_failed'
+    r.completed = False
+    r.metrics['max_penetration_mm'] = .2
+    q._answer(r)
+    calls = []
+    def rejected_response(question,directory,**kwargs):
+        calls.append(directory)
+        return r
+    monkeypatch.setattr(SnapFitQuestion,'run',rejected_response)
     r = QuestionStudy(q,'Passage must be qualified before force refinement',
-        ('max_abs_principal_strain',),motion_levels=1).run(evidence={
-            'baseline':ROOT/'model/filament_swatch_lift_box/notes/analysis/window_lead_base'})
+        ('max_abs_principal_strain',),motion_levels=1).run(tmp_path/'study')
     a = r.metrics['question']
     assert r.status == 'quality_failed' and not r.completed
     assert a['solver_completed'] and not a['numerical_evidence_adequate']
     assert not a['contact_passage_established'] and not a['penetration_ok']
     assert a['design_screen_passes'] is None
     assert a['numerical_confidence']['increment_sensitivity'] == 'unresolved'
-    assert len(a['study']['runs']) == 1
+    assert len(a['study']['runs']) == len(calls) == 1
 
 
 def test_missing_passage_contract_and_excess_penetration_cannot_be_qualified():
-    q = consumer('filament_swatch_box').operation(cycle=True,max_increment=.025)
-    archive = ROOT/'model/filament_swatch_box/notes/analysis/cycle_base'
+    q = rounded_question()
+    archive = ROUNDED/'evidence/calculix/cycle_base'
     r = replace(q,contact_free_at=()).read_evidence(archive)
     assert not r.metrics['question']['contact_passage_established']
     assert not r.metrics['question']['numerical_evidence_adequate']
@@ -138,8 +150,8 @@ def test_missing_passage_contract_and_excess_penetration_cannot_be_qualified():
 
 
 def test_stale_geometry_motion_material_settings_and_archive_are_rejected(tmp_path):
-    q = consumer('filament_swatch_box').operation(cycle=True,max_increment=.025)
-    archive = ROOT/'model/filament_swatch_box/notes/analysis/cycle_base'
+    q = rounded_question()
+    archive = ROUNDED/'evidence/calculix/cycle_base'
     for changed in [replace(q,part=q.part.translate((0,0,.1))),
                     replace(q,material=replace(q.material,youngs_modulus_MPa=800)),
                     replace(q,max_increment=.0125),replace(q,penalty_N_mm3=12000),

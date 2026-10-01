@@ -79,9 +79,11 @@ authorized scope when that improves function; normal settings are starting
 points. Explain consequential choices and follow existing design-agreement rules.
 Prefer the cheapest adequate change, whether in CAD or manufacture.
 
-Use the evidence loop: design → cheap engineering checks → numerical analysis
-only for unresolved physical questions → manufacturing strategy → actual slice
-review → physical validation. Revisit geometry or process as evidence changes.
+Use the evidence loop: user task → physical interaction architecture → rough
+complete geometry with contents → whole-object visual and deterministic interface
+review → cheap fit/load/mechanism screens → detailed CAD → numerical analysis
+only for remaining physical uncertainty → manufacturing/slice review → physical
+validation. Revisit geometry or process as evidence changes.
 When slicer settings affect an engineering decision, inspect the resulting paths,
 not just requested settings. Do not routinely inspect paths for ordinary walls.
 
@@ -119,15 +121,26 @@ material/process uncertainty and observations requiring a physical print.
    the agreement or the agreed phase is complete. Progress updates need no
    approval gate. At a staged handoff, request the specific physical
    observations needed for the next phase.
-3. Confirm `uv` and the repository's shared
+3. For functional multi-part or moving products, apply the skill's
+   [product-architecture gate](.codex/skills/cadquery-3d-design/references/design-decisions.md#product-architecture-gate)
+   in the existing decision record before detailed mechanisms, tolerance studies,
+   FEA or final slicing. Name component jobs and actual support/guide/seat/stop/
+   retain/release contacts, required clearance and the normal handling sequence.
+   Build low-detail complete geometry with contents and all major moving parts;
+   define meaningful operating/release states. Inspect a useful rough view and
+   describe the user's physical actions. Temporarily remove retention to check
+   whether the rest still aligns, guides, seats and stops. Reconsider or abandon
+   incoherent concepts before accumulating compensating features or local checks.
+   This is no separate form, self-rating or automatic permission gate.
+4. Confirm `uv` and the repository's shared
    [CadQuery command](evaluate_model.py) are available. Run `uv sync --locked`
    from the repository root when the locked environment is not installed.
-4. Create or revise the object's parametric Python source. Evaluate the file
+5. Create or revise the object's parametric Python source. Evaluate the file
    through the shared command and inspect validity and errors. Read named
    dimensions in the source or object notes; use targeted CAD measurements for
    geometry questions that planning cannot settle. Choose views using the
    skill's evidence guidance.
-5. Compare the geometry against the intended use and references. Check access,
+6. Compare the geometry against the intended use and references. Check access,
    insertion, retention and release as relevant. Apply the skill's
    [whole-object form and handling review](.codex/skills/cadquery-3d-design/references/design-decisions.md#whole-object-form-and-handling)
    to rough complete geometry before expensive analysis. Correct the largest functional,
@@ -135,7 +148,7 @@ material/process uncertainty and observations requiring a physical print.
    Repair the smallest underlying cause of a build failure; simplify the approach
    if it repeatedly fails. Recalculate where measured CAD geometry changes the
    concept-screen inputs. A valid build alone does not establish function.
-6. Apply the skill's CAD/export checks and final generic FDM review, including
+7. Apply the skill's CAD/export checks and final generic FDM review, including
    its final reference-slice smoke check when available. Use the shared
    evaluator's `--slice` option for ordinary final layouts so paired exports
    and the smoke check come from one command. Read its automatic-support probe
@@ -145,25 +158,29 @@ material/process uncertainty and observations requiring a physical print.
    materially improve the result. Distinguish CAD/slicer evidence from physical
    testing; document any remaining limitation. A samples-only phase does not
    require full-object exports.
-7. Save matching print-ready exports, useful final views and one concise record
+8. Save matching print-ready exports, useful final views and one concise record
    of assumptions, print/use instructions and verification evidence. Include
    the [standard per-object print-status block](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record)
    for test piece(s) and the final printable object(s), using N/A when a category
    is outside the agreed phase. When a user reports a print, update the object
-   block and the root model-index summary together. Add a concise entry to the
+   block and the root model-index summary together. Physical product rejection
+   requires immediate correction of readiness/conclusions, identification of the
+   narrower earlier evidence, and no unsupported tolerance/process explanation;
+   follow the skill's [failure guidance](.codex/skills/cadquery-3d-design/references/physical-experiments.md#when-product-use-fails). Add a concise entry to the
    design skill's reusable-evidence reference when a result can inform another
    model; keep the detailed evidence with its object.
-8. Review, commit and push the completed work using the Git workflow below.
+9. Review, commit and push the completed work using the Git workflow below.
 
 ## Trust each stage for the question it answers
 
 | Stage | Establish here | Trust afterward; do not repeat routinely |
 | --- | --- | --- |
 | Planning | Agree on the print setup and deliverable; screen rough fit, print envelope, assembly travel and relevant loads before detailed CAD. | Do not model or slice merely to discover that the concept fails simple math. |
+| Product architecture | Explain normal use, component roles and named mating contacts; review rough complete geometry with contents, operating states and a physical walkthrough before mechanism refinement. | A local mechanism coupon or solver pass does not establish coherent whole-product architecture. Reconsider concepts with unexplained coupling or compensating features. |
 | CAD | Build valid geometry; use specific assertions or measurements for consequential fit, motion, access and structure questions. Use views for visual questions. | A generic bounds or solid-count report is not a check against design intent. Do not add one without an expected result and decision it could change. |
 | Export | Write STEP and STL from the same selected print geometry and check each export's status. | Trust successful conversion unless a concrete defect suggests otherwise; do not routinely reimport STEP, parse STL triangles or compare exported bounds. |
 | Orca slice | Under the selected effective printer, process, filament and placement, check completion, notices and the automatic-support signal. | Trust Orca's acceptance of that print layout for printer fit, including generated brims/supports. Do not repeat its envelope decision with CAD bounds or a G-code reader. Generated support calls for targeted review, not automatic redesign. |
-| Physical print | Check actual fit, friction, bridge quality, strength, comfort and material response where they matter. | CAD and slice success do not establish these physical outcomes. |
+| Physical print | Check normal product use as well as actual fit, friction, bridge quality, strength, comfort and material response. | User product rejection supersedes speculative autonomous confidence; local CAD/solver/slice passes do not establish whole-product usefulness. |
 
 Trust applies only to the checked source or artifact, orientation, placement,
 profile and tool version. A diagnostic profile that differs from the agreed
@@ -386,6 +403,9 @@ inherit an investigation's complexity. Review features with no demonstrated
 benefit for simplification or removal. A useful failed experiment can remain as
 evidence without requiring a permanent public feature.
 
+Before detailed mechanisms or analysis, establish coherent product architecture
+through the skill gate above. Simulation answers remaining physical uncertainty;
+do not run expensive contact FEA merely because a snap exists.
 Use the cheapest adequate evidence: CAD for rigid fit and clearance, simple
 calculations for suitable load screens, and numerical analysis when deformation,
 contact or geometry makes those approaches insufficient or materially uncertain.

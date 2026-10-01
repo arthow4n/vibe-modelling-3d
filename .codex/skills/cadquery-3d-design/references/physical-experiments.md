@@ -7,6 +7,24 @@ sections, topology, rigid motion) separately from what needs a print (actual
 force, wear, spring return, bonding or actual clearance). Prioritize uncertainty
 by its effect on function and the cost of discovering a failure late.
 
+## When product use fails
+
+A user who physically prints and rejects a product provides stronger evidence about
+its actual usefulness than internal assertions, FEA, slicing or autonomous reviews.
+Update the current object conclusion and root index immediately; remove “ready to
+print” or equivalent confidence. Identify what earlier checks established narrowly
+(fit, local deformation, slice acceptance) and what product relationship failed.
+Do not reinterpret product-level rejection as tolerance, excessive snap force or
+print-process trouble without evidence. Record unknown details as unknown.
+
+When the failure exposes a recurring workflow problem, add one concise reusable
+negative lesson and correct the responsible shared guidance. Abandoning a bad
+concept is allowed; Git history can preserve retired products without dead
+supported directories. Start any replacement from the user task and
+[architecture gate](design-decisions.md#product-architecture-gate), not from momentum
+in the rejected mechanisms. Local numerical work may remain useful independently;
+it does not rehabilitate the product.
+
 ## Optional test prints for physical validation
 
 Follow the agreed deliverable sequence. For a full-design phase, finish the

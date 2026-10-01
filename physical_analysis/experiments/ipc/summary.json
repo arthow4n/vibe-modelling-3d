@@ -1,64 +1,6 @@
 [
   {
-    "run": "model/filament_swatch_box/notes/ipc/bounded_feasibility_user_stop",
-    "status": "interrupted",
-    "completed": false,
-    "double_precision_input": true,
-    "inspected_prefix_only": true,
-    "accepted_last_fraction": 0.2,
-    "force_N": {
-      "root": 0.0,
-      "drive": 0.5466855924806175
-    },
-    "peak_Green_strain": 0.008607260907888974,
-    "independent_mesh_intersection": false,
-    "max_inertia_force_N": 0.0,
-    "mesh": {
-      "arm": {
-        "nodes": 1295,
-        "tetrahedra": 4625,
-        "triangles": 1974
-      },
-      "body_cam": {
-        "nodes": 1349,
-        "tetrahedra": 0,
-        "triangles": 2694
-      }
-    },
-    "time_steps": 160,
-    "log_elapsed_seconds": 748.02
-  },
-  {
-    "run": "model/filament_swatch_box/notes/ipc/coarse_motion_failure",
-    "status": "solver_failed",
-    "completed": false,
-    "double_precision_input": true,
-    "inspected_prefix_only": true,
-    "accepted_last_fraction": 0.1,
-    "force_N": {
-      "root": 0.0,
-      "drive": 0.20315517830566426
-    },
-    "peak_Green_strain": 0.001783274332500802,
-    "independent_mesh_intersection": false,
-    "max_inertia_force_N": 0.0,
-    "mesh": {
-      "arm": {
-        "nodes": 1295,
-        "tetrahedra": 4625,
-        "triangles": 1974
-      },
-      "body_cam": {
-        "nodes": 1349,
-        "tetrahedra": 0,
-        "triangles": 2694
-      }
-    },
-    "time_steps": 40,
-    "log_elapsed_seconds": 936.381
-  },
-  {
-    "run": "model/filament_swatch_box/notes/ipc/fine_motion_crest_failure",
+    "run": "physical_analysis/experiments/ipc/fixtures/rounded_snap/evidence/ipc/fine_motion_crest_failure",
     "status": "solver_failed",
     "completed": false,
     "double_precision_input": true,
@@ -87,7 +29,7 @@
     "log_elapsed_seconds": 1307.499
   },
   {
-    "run": "model/filament_swatch_box/notes/ipc/legacy_input_timeout",
+    "run": "physical_analysis/experiments/ipc/fixtures/rounded_snap/evidence/ipc/legacy_input_timeout",
     "status": "timeout",
     "completed": false,
     "double_precision_input": false,
@@ -114,64 +56,6 @@
     },
     "time_steps": 40,
     "log_elapsed_seconds": 1192.093
-  },
-  {
-    "run": "model/filament_swatch_box/notes/ipc/projected_newton_failure",
-    "status": "solver_failed",
-    "completed": false,
-    "double_precision_input": true,
-    "inspected_prefix_only": true,
-    "accepted_last_fraction": 0.16875,
-    "force_N": {
-      "root": 0.0,
-      "drive": 0.4988604330240006
-    },
-    "peak_Green_strain": 0.007248627743395956,
-    "independent_mesh_intersection": false,
-    "max_inertia_force_N": 0.0,
-    "mesh": {
-      "arm": {
-        "nodes": 1295,
-        "tetrahedra": 4625,
-        "triangles": 1974
-      },
-      "body_cam": {
-        "nodes": 1349,
-        "tetrahedra": 0,
-        "triangles": 2694
-      }
-    },
-    "time_steps": 160,
-    "log_elapsed_seconds": 857.726
-  },
-  {
-    "run": "model/filament_swatch_box/notes/ipc/step_scaled_constraints_failure",
-    "status": "solver_failed",
-    "completed": false,
-    "double_precision_input": true,
-    "inspected_prefix_only": true,
-    "accepted_last_fraction": 0.0875,
-    "force_N": {
-      "root": 0.0,
-      "drive": 0.05374218703235449
-    },
-    "peak_Green_strain": 0.0003731599008260276,
-    "independent_mesh_intersection": false,
-    "max_inertia_force_N": 0.0,
-    "mesh": {
-      "arm": {
-        "nodes": 1295,
-        "tetrahedra": 4625,
-        "triangles": 1974
-      },
-      "body_cam": {
-        "nodes": 1349,
-        "tetrahedra": 0,
-        "triangles": 2694
-      }
-    },
-    "time_steps": 160,
-    "log_elapsed_seconds": 337.358
   },
   {
     "run": "physical_analysis/experiments/ipc/activation_half",

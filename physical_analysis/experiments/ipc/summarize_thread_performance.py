@@ -2,16 +2,15 @@
 import gzip
 import json
 from pathlib import Path
-import subprocess
 from physical_analysis.results import AnalysisResult
 from physical_analysis.studies import compare_results
 
 
-def summarize():
+def summarize(*, write=True):
     root=Path(__file__).resolve().parents[3]
     groups={
         'compression':('physical_analysis/experiments/ipc/performance/compression_threads_', (1,2,4,8,16),'push'),
-        'sliding_prefix':('model/filament_swatch_box/notes/ipc/performance/prefix_threads_', (1,8,16),'drive')}
+        'rounded_snap_prefix':('physical_analysis/experiments/ipc/performance/rounded_snap_prefix_threads_', (1,8,16),'drive')}
     result={}
     for group,(prefix,counts,motion) in groups.items():
         rows=[];baseline=None
@@ -42,17 +41,16 @@ def summarize():
                 input_sha256=r.provenance['input_sha256'],mesh_sha256=r.provenance['mesh_sha256'],
                 executable_sha256=r.provenance['executable_sha256']))
         result[group]=dict(fastest_tested_threads=min(rows,key=lambda r:r['wall_seconds'])['threads'],runs=rows)
-    cpu=json.loads(subprocess.check_output(['lscpu','--json'],text=True))
-    result['machine']={r['field'].rstrip(':'):r['data'] for r in cpu['lscpu'] if r['field'].rstrip(':') in
-        ('Architecture','CPU(s)','Model name','Thread(s) per core','Core(s) per socket','Socket(s)')}
+    result['machine']=json.loads((Path(__file__).with_name('performance')/'machine.json').read_text())['machine']
     result['limits']='One timed solve per configuration; no universal optimum or formal timing statistics. Native process wall/CPU time includes initialization and native I/O, excludes Python extraction. Prefix completion is not snap passage. One-percent comparison is a numerical equivalence screen, not physical validation.'
     output=Path(__file__).with_name('performance')/'summary.json'
-    output.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
+    if write:
+        output.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
     return result
 
 
 if __name__=='__main__':
     d=summarize()
-    for group in ('compression','sliding_prefix'):
+    for group in ('compression','rounded_snap_prefix'):
         print(group,d[group]['fastest_tested_threads'])
         for r in d[group]['runs']:print(r['threads'],round(r['wall_seconds'],2),round(r['cpu_percent'],1),round(r['speedup'],3))

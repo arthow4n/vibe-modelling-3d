@@ -1,89 +1,76 @@
-# IPC investigation checkpoint
+# Experimental IPC evidence
 
-Paused at the user's request on 2026-10-01. This is an unfinished investigation,
-not a qualified snap backend. The optional external CLI adapter and useful
-diagnostics are retained without changing `SnapFitQuestion` or its CalculiX
-default. No printed geometry, material assumption or operation was redesigned.
-See the [adapter contract](../../backends/polyfem.md), [generated run summary](summary.json)
-and [exact stopped command/settings](checkpoint-run.md).
+The optional external CLI adapter and useful diagnostics remain isolated from
+`SnapFitQuestion` selection and its CalculiX default. The three swatch-storage
+products that motivated this work were rejected by the user and removed. The
+sliding product was physically printed: its failure was whole-product architecture,
+not evidence of a tolerance or process defect. Local solver checks answered narrower
+questions. Git history through `d37763c` preserves those products and investigations.
+No replacement design or crest investigation is part of this cleanup.
 
-The subsequent [thread-only performance phase](performance/README.md) qualifies
-an automatic eight-thread preference on this machine: the bounded sliding prefix
-is 1.50× faster with materially equivalent results and clean independent mesh
-witnesses. It stops before the crest. Linear-solver, tolerance and crest diagnosis
-remain deferred; the investigation is paused again at the user's request.
+See the [adapter contract](../../backends/polyfem.md), [generated run summary](summary.json),
+[minimal local rounded fixture](fixtures/rounded_snap/README.md) and
+[thread-performance measurements](performance/README.md). The fixture is synthetic
+numerical geometry derived from a failed product, with only an elastic leaf/root
+and moving cam; no storage architecture is preserved.
 
-The corrected double-precision route completes open-gap, compression, SI mapping,
-activation-distance control and separation/return tests. The open case has only
-roundoff reaction; compression agrees with the SaintVenant analytical reaction
-11.9550375 N (12 N small-strain approximation). Independent accepted-state mesh
-witnesses agree with clean native contact on these cases. Native quasi-static
-arguments and zero inertia fields establish absence of inertial loading; motion
-continuation sensitivity remains a separate issue.
+The double-precision route completes open-gap, compression, SI mapping,
+activation-distance controls and separation/return tests. Open-gap reaction is
+roundoff; compression agrees with the SaintVenant reaction 11.9550375 N
+(12 N small-strain approximation). Independent accepted-state mesh witnesses
+agree with clean native contact. Native quasi-static arguments and zero inertia
+fields establish absence of inertial loading; motion continuation sensitivity
+remains separate.
 
 The contact-driven beam completes and elastically returns. Its .8/.5 mm P1 meshes
-give 0.560/0.428 N and 0.280/0.242% Green strain. The shared
+give .560/.428 N and .280/.242% Green strain. The shared
 [20% comparison](beam_comparison.json) rejects force precision (30.6% change),
-while strain changes 16.0%. Both remain in the expected bending regime with clean
-independent triangle witnesses. The refined 24,873-element, 20-step cycle took
-1,258 s versus 220 s for 6,467 elements. Its earlier 1,200 s timeout occurred on
-unloading after useful peak evidence. Logs localize the cost to contact/boundary
-feasibility and nonlinear solves, rather than dynamic time integration. Continuing
-that identical mesh to completion answered return; further beam refinement is
-not justified for the current coupling/order qualification question.
+while strain changes 16.0%. Both have recognizable bending and clean independent
+triangle witnesses. The refined 24,873-element, 20-step cycle took 1,258 s versus
+220 s for 6,467 elements. Its earlier timeout occurred on unloading; completing
+the identical mesh answered return. These records qualify coupling/order, not
+precise forces or a printed mechanism.
 
-Sliding remains unqualified. The corrected .7 mm deformable/.3 mm obstacle scene
-fails with .4 mm cam steps at progress .125; .1 mm steps reach .24375, then fail
-at the .25 crest. Accepted states reach 0.547 N and 0.945% strain, broadly comparable
-to the retained CalculiX light-detent result, but do not establish passage or
-return. Projected Newton fails earlier; a weaker boundary-penalty control also
-fails. A bounded intermediate AL search was interrupted at the user's checkpoint
-request, with accepted states only through .2. See the
-[model-owned investigation](../../../model/filament_swatch_box/notes/ipc-investigation.md).
-The smallest identified numerical issue is near-contact boundary-feasibility /
-Newton convergence: trial clearances collapse to approximately 1e-12 mm and
-gradients remain far above the requested tolerance. This is not evidence of
-physical blockage, and the bounded search has not resolved it.
+The retained rounded-fixture crest failure uses .7 mm deformable/.3 mm obstacle
+meshes and .1 mm cam increments. Accepted states reach progress .24375,
+.547 N and .945% strain; the next .25 crest step fails. Trial clearances collapse
+to approximately 1e-12 mm and gradients remain far above the requested tolerance.
+This localizes a near-contact boundary-feasibility/Newton convergence issue,
+but does not distinguish the exact cause or establish physical blockage.
+The tolerance/unit-scaling audit is still outstanding. Earlier alternative trials
+and interrupted searches remain in Git history, not current product directories.
 
-An early conversion defect was caught independently: MEDIT version 1 converted
-ASCII coordinates to float32, shifting sliding nodes by up to 2.1e-6 mm. Supplied
-mesh and actual native mesh witnesses disagreed. Version 2 fixes that adapter
-defect and fresh witnesses agree. Version-1 archives remain historical and are
-unqualified for comparisons at smaller contact gaps. Sampled exact-CAD comparison
-also sees about .0034 mm intrusion between rounded-cam collision facets; this
-distinct tessellation uncertainty remains unresolved. No global exact-CAD or
-continuous-path nonintersection proof is claimed.
+MEDIT version 1 shifted rounded-fixture rest nodes by up to 2.1e-6 mm through
+float32 conversion. Independent supplied/native mesh witnesses disagreed.
+Version 2 fixes that adapter defect; fresh witnesses agree. The retained
+version-1 case is explicitly unqualified. Sampled CAD inspection also found
+approximately .0034 mm intrusion between rounded-cam collision facets in earlier
+states: this is a separate unresolved tessellation question. There is no global
+exact-CAD or continuous-path nonintersection proof.
 
-| Route | Specific demonstrated evidence | Current limit |
+| Route | Specific numerical question answered | Limit |
 | --- | --- | --- |
-| CalculiX | Existing sliding passage/return; roughly .4–.6 N and 1.08–1.13% strain | Exact force is increment-sensitive; lift-off finite-edge contact remains rejected |
-| FEBio experimental | Existing contact benchmarks and actual isolated lift release | Native near-clean gaps disagreed with independent approximately .039 mm finite-edge overlap |
-| IPC experimental | Corrected gap/compression/return and contact-driven beam; independent all-triangle witnesses | No complete sliding passage; no lift-off solve started |
+| CalculiX | Local rounded spring/cam passage and elastic return; approximately .4–.6 N and 1.08–1.13% strain | Force is increment-sensitive; these observations never validated the rejected product |
+| FEBio experimental | Generic contact qualifications; historical isolated finite-edge release diagnosis | Native gap below .001 mm coexisted with approximately .039 mm planar geometric overlap; product scene is archived in Git, not a current fixture |
+| IPC experimental | Gap/compression/return and contact-driven beam; accepted rounded prefix with independent triangle checks | No complete rounded crest passage; no lift-off solve was started |
 
-**Decision at checkpoint:** IPC has not yet solved the motivating physical
-question. Sliding has not been reproduced as a complete IPC operation. Lift-off
-remains **unresolved and untested by IPC**, because the earlier sliding rung has
-not qualified. Keep this route isolated for investigation; do not promote it or
-make ordinary model authors choose solver ecosystems. Independent numerical mesh
-inspection agrees on corrected accepted states, while sampled exact-CAD evidence
-still requires obstacle-tessellation sensitivity. Printed fit, friction, layer
-bonding, material response/recovery, creep and wear remain separate uncertainties.
+**Current decision:** keep the narrow adapter optional for its contact qualification,
+mesh-precision diagnostics and measured performance evidence. It has not supplied
+a completed mechanism capability advantage and is not promoted to ordinary question
+selection. The eight-thread bounded default remains justified on the measured
+Ryzen 7 1700 workload: the contact prefix is 1.50× faster than one thread with
+materially equivalent metrics and clean independent numerical meshes. Threading
+alone justifies no long full-cycle run. No solver work was resumed for this cleanup.
 
-Any resumed study should first target the saved sliding crest/convergence issue
-on the frozen mesh with a bounded diagnostic, not launch a finer full cycle by
-default. Only after credible sliding qualification should the existing isolated
-lift release be attempted; the complete lift sequence comes later. No new run
-is authorized by this checkpoint record itself.
+Original outcomes, backend hashes and provenance remain unchanged in selected
+archives; only index paths changed. Replay inputs are retained, while bulky raw
+VTUs remain external `/tmp` artifacts and may no longer exist. The executable is
+external and [identified here](native_identity.json). Earlier records lack some
+later provenance fields. Native tests are opt-in; skipping them is no qualification.
+Printed friction, bonding, material response, recovery, creep and wear remain
+separate from numerical contact uncertainty. A physical product rejection is
+stronger evidence about whole-product usefulness than any local numerical pass.
 
-Provenance and replay inputs live in each retained directory; large raw VTUs
-remain in the original external `/tmp` runs and are omitted from Git. The native
-executable is external and [identified here](native_identity.json). Historical
-archives preserve their original backend hashes and outcomes. Earlier runs lack
-some package-version fields added later. Native tests are opt-in; skipping them
-does not qualify the route. Final checkpoint checks are recorded in the commit
-handoff; this record does not pre-claim a push.
-
-This analysis-only phase adds no printable deliverables or physical observations.
-Historical object print status and attribution remain unchanged. Investigation
-attribution: primary GPT-6 family (exact runtime variant and reasoning effort not
-exposed), Codex harness; provider metadata not separately exposed. No subagents.
+Historical investigation attribution: GPT-6 family (exact runtime variant and
+reasoning effort not exposed), Codex harness; provider metadata not separately
+exposed. No subagents. Historical records remain evidence of their tested scope.

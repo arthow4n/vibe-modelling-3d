@@ -7,6 +7,9 @@ are the source for this comparison. The machine is an AMD Ryzen 7 1700 with eigh
 physical cores and sixteen logical CPUs. Each configuration has one timed native
 solve, run sequentially; timing statistics and a universal optimum are not claimed.
 
+The contact prefix is a synthetic/local benchmark derived from historical
+failed-product geometry, containing only a clamped elastic leaf and moving cam.
+[Fixture scope](../fixtures/rounded_snap/README.md) excludes all storage architecture.
 Geometry, material, numerical settings, native executable and meshes are fixed.
 Thread count changes both `--max_threads` and `OMP_NUM_THREADS` /
 `OPENBLAS_NUM_THREADS`. Wall time covers the native process, including initialization
@@ -23,7 +26,7 @@ summed child user+system CPU time divided by wall time, so it can exceed 100%.
 | 8 | 8.95 | 219.4 | 1.583× | 11.955037599 | 0.020000000 | 0.249687516 | completed / clear |
 | 16 | 8.59 | 325.5 | 1.651× | 11.955037599 | 0.020000000 | 0.249687516 | completed / clear |
 
-## Fixed sliding prefix
+## Fixed local rounded-contact prefix
 
 | Threads | Wall s | CPU % | Speedup | Force N | Peak displacement mm | Peak Green strain % | Status / independent mesh |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -37,8 +40,8 @@ floor, ten steps, dt=.1, tend=1, native gradient tolerance 1e-8,
 Sixteen threads has the shortest observed wall time here, but only 4% separates
 it from eight. All reactions agree with the same analytical compression result.
 
-The sliding prefix replays the current question's physical case from
-[the retained fine-motion scene](../../../../model/filament_swatch_box/notes/ipc/fine_motion_crest_failure/result.json).
+The prefix replays the synthetic local spring/cam case from
+[the retained fine-motion scene](../fixtures/rounded_snap/evidence/ipc/fine_motion_crest_failure/result.json).
 It uses exactly the frozen .7 mm deformable mesh: 4,625 tetrahedra, 1,295 nodes
 and 1,974 exterior triangles; the .3 mm cam mesh has 2,694 triangles / 1,349 nodes.
 Only the endpoint is clipped to progress .1125: 18 steps, dt=.00625, tend=.1125.
@@ -66,7 +69,7 @@ Prefix completion is not full-operation completion: the result records
 `native_operation_completed=False`. This study establishes no crest crossing,
 return or new lift-off capability. The approximately .0034 mm curved-CAD versus
 collision-facet discrepancy from earlier studies is still unresolved. A
-[sampled CAD witness at this prefix endpoint](../../../../model/filament_swatch_box/notes/ipc/performance/sampled_CAD_witness.json)
+[sampled CAD witness at this prefix endpoint](sampled_CAD_witness.json)
 keeps that evidence separate from the clean numerical mesh witness; it is not a
 global CAD proof. No obstacle refinement was performed.
 
@@ -93,6 +96,6 @@ witnesses, meshes and replay inputs are committed.
 
 Analysis-only attribution: primary GPT-6 family; exact runtime variant and
 reasoning effort not exposed; Codex harness; provider metadata not separately
-exposed. No subagents or new printed observations. Historical object status and
-attribution remain unchanged. Further investigation is paused; a full cycle is
+exposed. No subagents or new printed observations. Original numerical outcomes and attribution remain unchanged. The source storage
+product was physically rejected and removed; this coupon is no product precedent. Further investigation is paused; a full cycle is
 not justified by a thread-speed improvement alone.
