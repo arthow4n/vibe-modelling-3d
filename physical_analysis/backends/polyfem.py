@@ -25,6 +25,7 @@ class IPCSettings:
     convergent_barrier: bool = False
     projected_newton: bool = False
     bounded_feasibility_search: bool = False
+    threads: int | None = None
 
     def __post_init__(self):
         for value in (self.activation_distance_mm, self.gradient_tolerance_N,self.ccd_tolerance_mm,
@@ -34,6 +35,8 @@ class IPCSettings:
             positive(self.obstacle_mesh_size_mm, 'Obstacle mesh size')
         if type(self.max_iterations) is not int or self.max_iterations < 1:
             raise ValueError('IPC iteration limit must be a positive integer')
+        if self.threads is not None and (type(self.threads) is not int or self.threads < 1):
+            raise ValueError('IPC thread count must be a positive integer')
         from ..case import vector
         vector(self.initial_offset_mm)
         if self.unit_system not in ('SI', 'mm_N_MPa'):
@@ -49,6 +52,9 @@ class PolyfemBackend(CalculixBackend):
 
     def __init__(self, settings=None):
         self.settings = settings or IPCSettings()
+        available=len(os.sched_getaffinity(0)) if hasattr(os,'sched_getaffinity') else os.cpu_count() or 1
+        # Measured sliding-prefix preference; no claim of a universal optimum.
+        self.threads=self.settings.threads if self.settings.threads is not None else min(8,available)
 
     def reuse_mesh(self, request, directory, source):
         if not all((source/file).is_file() for file in ('case.json','result.json','mesh.json','scene.json')):
@@ -92,10 +98,13 @@ class PolyfemBackend(CalculixBackend):
         if masters != rigid:
             raise ValueError('Every rigid part must be a collision obstacle')
         request['ipc'] = dict(asdict(self.settings), deformable=deformable)
+        request['ipc']['threads']=self.threads
 
     def environment(self):
         env = runtime_environment()
         env['POLYFEM_COMMAND'] = os.environ.get('POLYFEM_COMMAND', 'PolyFEM_bin')
+        env['OMP_NUM_THREADS']=str(self.threads)
+        env['OPENBLAS_NUM_THREADS']=str(self.threads)
         return env
 
 
@@ -114,6 +123,6 @@ def evidence_files(directory):
                  numerical_meshes=[(p.name, True) for p in sorted(directory.glob('*.mesh'))] +
                                   [(p.name, True) for p in sorted(directory.glob('*.obj'))])
     return files, ('Decompress scene.json, *.mesh and *.obj into a new directory; '
-                   'run the recorded POLYFEM_COMMAND --json scene.json --max_threads 1. '
+                   'run the recorded command and thread environment in run_metadata.json. '
                    'Use the recorded scene units; quasi-static, frictionless SaintVenant elasticity. '
                    'Native VTU fields are required for independent recovery/inspection.')

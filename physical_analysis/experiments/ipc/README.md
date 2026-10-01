@@ -7,6 +7,12 @@ default. No printed geometry, material assumption or operation was redesigned.
 See the [adapter contract](../../backends/polyfem.md), [generated run summary](summary.json)
 and [exact stopped command/settings](checkpoint-run.md).
 
+The subsequent [thread-only performance phase](performance/README.md) qualifies
+an automatic eight-thread preference on this machine: the bounded sliding prefix
+is 1.50× faster with materially equivalent results and clean independent mesh
+witnesses. It stops before the crest. Linear-solver, tolerance and crest diagnosis
+remain deferred; the investigation is paused again at the user's request.
+
 The corrected double-precision route completes open-gap, compression, SI mapping,
 activation-distance control and separation/return tests. The open case has only
 roundoff reaction; compression agrees with the SaintVenant analytical reaction

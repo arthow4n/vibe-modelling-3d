@@ -35,6 +35,15 @@ answer adapter or manufacture a penetration number. Model experiment entry
 points reuse the existing questions' physical cases. `IPCSettings` is explicitly
 experimental and keeps numerical investigation controls out of ordinary models.
 
+The [thread measurements](../experiments/ipc/performance/README.md) establish an
+eight-thread preference for the tested sliding contact workload (1.50× faster
+than one; sixteen was slower). The automatic default caps this at available
+process-affinity CPUs. `IPCSettings(threads=1)` retains explicit single-thread
+execution; other positive counts are available for controlled measurements.
+The resolved native command, OpenMP/OpenBLAS environment and native wall/CPU
+time are recorded. This policy applies only to the experimental IPC adapter;
+it is not a universal machine optimum or new passage qualification.
+
 ## Units, mesh and equilibrium
 
 The default system is mm, N, MPa, seconds and tonnes: density 1.2e-9 tonne/mm³.

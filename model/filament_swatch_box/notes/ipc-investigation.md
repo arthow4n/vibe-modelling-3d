@@ -47,3 +47,12 @@ records the exact command, cost settings and stop. The
 compares retained routes and preserves the unqualified status.
 Native completion, passage, numerical confidence and printed validation remain
 separate. Historical CalculiX evidence remains useful and unchanged.
+
+The subsequent [thread performance study](../../../physical_analysis/experiments/ipc/performance/README.md)
+replayed only a fixed prefix through progress .1125, with unchanged dt and native
+tolerance. Eight threads completed in 87.18 s versus 130.92 s for one and 95.70 s
+for sixteen. Accepted force/deformation/strain agree and all triangle witnesses
+are clear. Sampled CAD still detects .00229 mm intrusion at that endpoint, distinct
+from the earlier .0034 mm faceting discrepancy; neither is a numerical mesh
+intersection. No crest crossing or obstacle refinement was attempted. The user
+requested commit/push and pause after this thread-only phase.

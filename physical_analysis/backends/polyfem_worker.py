@@ -7,6 +7,8 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import time
+import resource
 from fractions import Fraction
 import numpy as np
 from .mesh import contains
@@ -226,11 +228,17 @@ def main():
             r.errors.append('IPC initial numerical surfaces intersect/touch; no hidden initial adjustment applied')
             r.write(directory/'answer.json')
             return
-        command=[executable,'--json','scene.json','--max_threads','1']
+        command=[executable,'--json','scene.json','--max_threads',str(case['ipc'].get('threads',1))]
         r.provenance['command']=command
+        r.provenance['thread_environment']={k:os.environ.get(k) for k in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS')}
+        write_json(directory/'run_metadata.json',r.provenance)
         stage='native_solve'
+        before=resource.getrusage(resource.RUSAGE_CHILDREN);started=time.perf_counter()
         with (directory/'solver.log').open('w') as log:
             native=subprocess.run(command,cwd=directory,stdout=log,stderr=subprocess.STDOUT)
+        elapsed=time.perf_counter()-started;after=resource.getrusage(resource.RUSAGE_CHILDREN)
+        cpu=after.ru_utime+after.ru_stime-before.ru_utime-before.ru_stime
+        r.provenance['native_timing']=dict(wall_seconds=elapsed,cpu_seconds=cpu,cpu_percent=100*cpu/elapsed)
         r.provenance['native_exit_code']=native.returncode
         write_json(directory/'run_metadata.json',r.provenance)
         if native.returncode:

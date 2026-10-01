@@ -1,0 +1,469 @@
+{
+  "compression": {
+    "fastest_tested_threads": 16,
+    "runs": [
+      {
+        "threads": 1,
+        "run": "physical_analysis/experiments/ipc/performance/compression_threads_1",
+        "status": "completed",
+        "wall_seconds": 14.175681601000008,
+        "cpu_seconds": 14.072716,
+        "cpu_percent": 99.27364620694681,
+        "speedup": 1.0,
+        "force_N": 11.955037598606628,
+        "displacement_mm": 0.02,
+        "peak_Green_strain": 0.002496875160729441,
+        "independent_mesh_intersection": false,
+        "max_free_dof_residual_N": 6.825651146887093e-07,
+        "max_balance_relative": 2.264408371474569e-06,
+        "native_operation_completed": true,
+        "accepted_time_interval": [
+          0,
+          1.0
+        ],
+        "time_steps": 10,
+        "comparison_with_one_thread": {
+          "peak_motion_force_N.push": {
+            "coarse": 11.955037598606628,
+            "refined": 11.955037598606628,
+            "relative_change": 0.0,
+            "passes": true
+          },
+          "max_abs_principal_strain": {
+            "coarse": 0.002496875160729441,
+            "refined": 0.002496875160729441,
+            "relative_change": 0.0,
+            "passes": true
+          },
+          "max_displacement_mm": {
+            "coarse": 0.02,
+            "refined": 0.02,
+            "relative_change": 0.0,
+            "passes": true
+          }
+        },
+        "mesh": {
+          "block": {
+            "nodes": 108,
+            "tetrahedra": 265,
+            "triangles": 204
+          },
+          "floor": {
+            "nodes": 30,
+            "tetrahedra": 0,
+            "triangles": 42
+          }
+        },
+        "input_sha256": "dd1d1815cd3a952c42ea2dc43e0c1d3c82296086be50fe73ea1b145711189c13",
+        "mesh_sha256": "e889b51b59c74b5322a77b2e21d0d9ee613acfdeb1b9397f962336408a56119a",
+        "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da"
+      },
+      {
+        "threads": 2,
+        "run": "physical_analysis/experiments/ipc/performance/compression_threads_2",
+        "status": "completed",
+        "wall_seconds": 11.304540424000038,
+        "cpu_seconds": 15.627206000000001,
+        "cpu_percent": 138.23831322521306,
+        "speedup": 1.253981238450385,
+        "force_N": 11.955037598606628,
+        "displacement_mm": 0.02,
+        "peak_Green_strain": 0.002496875160729441,
+        "independent_mesh_intersection": false,
+        "max_free_dof_residual_N": 6.825651146885812e-07,
+        "max_balance_relative": 2.2644083714746267e-06,
+        "native_operation_completed": true,
+        "accepted_time_interval": [
+          0,
+          1.0
+        ],
+        "time_steps": 10,
+        "comparison_with_one_thread": {
+          "peak_motion_force_N.push": {
+            "coarse": 11.955037598606628,
+            "refined": 11.955037598606628,
+            "relative_change": 0.0,
+            "passes": true
+          },
+          "max_abs_principal_strain": {
+            "coarse": 0.002496875160729441,
+            "refined": 0.002496875160729441,
+            "relative_change": 0.0,
+            "passes": true
+          },
+          "max_displacement_mm": {
+            "coarse": 0.02,
+            "refined": 0.02,
+            "relative_change": 0.0,
+            "passes": true
+          }
+        },
+        "mesh": {
+          "block": {
+            "nodes": 108,
+            "tetrahedra": 265,
+            "triangles": 204
+          },
+          "floor": {
+            "nodes": 30,
+            "tetrahedra": 0,
+            "triangles": 42
+          }
+        },
+        "input_sha256": "dd1d1815cd3a952c42ea2dc43e0c1d3c82296086be50fe73ea1b145711189c13",
+        "mesh_sha256": "e889b51b59c74b5322a77b2e21d0d9ee613acfdeb1b9397f962336408a56119a",
+        "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da"
+      },
+      {
+        "threads": 4,
+        "run": "physical_analysis/experiments/ipc/performance/compression_threads_4",
+        "status": "completed",
+        "wall_seconds": 9.527862416999994,
+        "cpu_seconds": 16.689023,
+        "cpu_percent": 175.1602014133073,
+        "speedup": 1.4878134234712697,
+        "force_N": 11.955037598606628,
+        "displacement_mm": 0.02,
+        "peak_Green_strain": 0.002496875160729441,
+        "independent_mesh_intersection": false,
+        "max_free_dof_residual_N": 6.825651146892813e-07,
+        "max_balance_relative": 2.2644083714746843e-06,
+        "native_operation_completed": true,
+        "accepted_time_interval": [
+          0,
+          1.0
+        ],
+        "time_steps": 10,
+        "comparison_with_one_thread": {
+          "peak_motion_force_N.push": {
+            "coarse": 11.955037598606628,
+            "refined": 11.955037598606628,
+            "relative_change": 0.0,
+            "passes": true
+          },
+          "max_abs_principal_strain": {
+            "coarse": 0.002496875160729441,
+            "refined": 0.002496875160729441,
+            "relative_change": 0.0,
+            "passes": true
+          },
+          "max_displacement_mm": {
+            "coarse": 0.02,
+            "refined": 0.02,
+            "relative_change": 0.0,
+            "passes": true
+          }
+        },
+        "mesh": {
+          "block": {
+            "nodes": 108,
+            "tetrahedra": 265,
+            "triangles": 204
+          },
+          "floor": {
+            "nodes": 30,
+            "tetrahedra": 0,
+            "triangles": 42
+          }
+        },
+        "input_sha256": "dd1d1815cd3a952c42ea2dc43e0c1d3c82296086be50fe73ea1b145711189c13",
+        "mesh_sha256": "e889b51b59c74b5322a77b2e21d0d9ee613acfdeb1b9397f962336408a56119a",
+        "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da"
+      },
+      {
+        "threads": 8,
+        "run": "physical_analysis/experiments/ipc/performance/compression_threads_8",
+        "status": "completed",
+        "wall_seconds": 8.953047871000024,
+        "cpu_seconds": 19.644930999999993,
+        "cpu_percent": 219.42171295243753,
+        "speedup": 1.5833358433072506,
+        "force_N": 11.955037598606626,
+        "displacement_mm": 0.02,
+        "peak_Green_strain": 0.002496875160729441,
+        "independent_mesh_intersection": false,
+        "max_free_dof_residual_N": 6.82565114689387e-07,
+        "max_balance_relative": 2.2644083714746072e-06,
+        "native_operation_completed": true,
+        "accepted_time_interval": [
+          0,
+          1.0
+        ],
+        "time_steps": 10,
+        "comparison_with_one_thread": {
+          "peak_motion_force_N.push": {
+            "coarse": 11.955037598606628,
+            "refined": 11.955037598606626,
+            "relative_change": 1.4858647032672544e-16,
+            "passes": true
+          },
+          "max_abs_principal_strain": {
+            "coarse": 0.002496875160729441,
+            "refined": 0.002496875160729441,
+            "relative_change": 0.0,
+            "passes": true
+          },
+          "max_displacement_mm": {
+            "coarse": 0.02,
+            "refined": 0.02,
+            "relative_change": 0.0,
+            "passes": true
+          }
+        },
+        "mesh": {
+          "block": {
+            "nodes": 108,
+            "tetrahedra": 265,
+            "triangles": 204
+          },
+          "floor": {
+            "nodes": 30,
+            "tetrahedra": 0,
+            "triangles": 42
+          }
+        },
+        "input_sha256": "dd1d1815cd3a952c42ea2dc43e0c1d3c82296086be50fe73ea1b145711189c13",
+        "mesh_sha256": "e889b51b59c74b5322a77b2e21d0d9ee613acfdeb1b9397f962336408a56119a",
+        "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da"
+      },
+      {
+        "threads": 16,
+        "run": "physical_analysis/experiments/ipc/performance/compression_threads_16",
+        "status": "completed",
+        "wall_seconds": 8.587215138999966,
+        "cpu_seconds": 27.95215100000001,
+        "cpu_percent": 325.50891700676794,
+        "speedup": 1.650789152424898,
+        "force_N": 11.95503759860663,
+        "displacement_mm": 0.02,
+        "peak_Green_strain": 0.002496875160729441,
+        "independent_mesh_intersection": false,
+        "max_free_dof_residual_N": 6.82565114688906e-07,
+        "max_balance_relative": 2.264408371474604e-06,
+        "native_operation_completed": true,
+        "accepted_time_interval": [
+          0,
+          1.0
+        ],
+        "time_steps": 10,
+        "comparison_with_one_thread": {
+          "peak_motion_force_N.push": {
+            "coarse": 11.955037598606628,
+            "refined": 11.95503759860663,
+            "relative_change": 1.485864703267254e-16,
+            "passes": true
+          },
+          "max_abs_principal_strain": {
+            "coarse": 0.002496875160729441,
+            "refined": 0.002496875160729441,
+            "relative_change": 0.0,
+            "passes": true
+          },
+          "max_displacement_mm": {
+            "coarse": 0.02,
+            "refined": 0.02,
+            "relative_change": 0.0,
+            "passes": true
+          }
+        },
+        "mesh": {
+          "block": {
+            "nodes": 108,
+            "tetrahedra": 265,
+            "triangles": 204
+          },
+          "floor": {
+            "nodes": 30,
+            "tetrahedra": 0,
+            "triangles": 42
+          }
+        },
+        "input_sha256": "dd1d1815cd3a952c42ea2dc43e0c1d3c82296086be50fe73ea1b145711189c13",
+        "mesh_sha256": "e889b51b59c74b5322a77b2e21d0d9ee613acfdeb1b9397f962336408a56119a",
+        "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da"
+      }
+    ]
+  },
+  "sliding_prefix": {
+    "fastest_tested_threads": 8,
+    "runs": [
+      {
+        "threads": 1,
+        "run": "model/filament_swatch_box/notes/ipc/performance/prefix_threads_1",
+        "status": "completed",
+        "wall_seconds": 130.92042359800007,
+        "cpu_seconds": 130.883211,
+        "cpu_percent": 99.97157617048785,
+        "speedup": 1.0,
+        "force_N": 0.3230322123603151,
+        "displacement_mm": 0.31194334416018377,
+        "peak_Green_strain": 0.003072188856531972,
+        "independent_mesh_intersection": false,
+        "max_free_dof_residual_N": 6.3975841313135e-07,
+        "max_balance_relative": 7.863374990992736e-07,
+        "native_operation_completed": false,
+        "accepted_time_interval": [
+          0,
+          0.1125
+        ],
+        "time_steps": 18,
+        "comparison_with_one_thread": {
+          "peak_motion_force_N.drive": {
+            "coarse": 0.3230322123603151,
+            "refined": 0.3230322123603151,
+            "relative_change": 0.0,
+            "passes": true
+          },
+          "max_abs_principal_strain": {
+            "coarse": 0.003072188856531972,
+            "refined": 0.003072188856531972,
+            "relative_change": 0.0,
+            "passes": true
+          },
+          "max_displacement_mm": {
+            "coarse": 0.31194334416018377,
+            "refined": 0.31194334416018377,
+            "relative_change": 0.0,
+            "passes": true
+          }
+        },
+        "mesh": {
+          "arm": {
+            "nodes": 1295,
+            "tetrahedra": 4625,
+            "triangles": 1974
+          },
+          "body_cam": {
+            "nodes": 1349,
+            "tetrahedra": 0,
+            "triangles": 2694
+          }
+        },
+        "input_sha256": "7da9e62e3e27b4016dc86fc94dad89c8b6a163a9f7ab308c9f8fa3892e7625ff",
+        "mesh_sha256": "5528a56f2b68ec531e149328fdc8ac54167b5d13544ec090a488bcfc44402181",
+        "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da"
+      },
+      {
+        "threads": 8,
+        "run": "model/filament_swatch_box/notes/ipc/performance/prefix_threads_8",
+        "status": "completed",
+        "wall_seconds": 87.18365675400003,
+        "cpu_seconds": 216.62962100000001,
+        "cpu_percent": 248.4750342730502,
+        "speedup": 1.5016624499636324,
+        "force_N": 0.32303248182537975,
+        "displacement_mm": 0.31194334415417196,
+        "peak_Green_strain": 0.0030721888565150976,
+        "independent_mesh_intersection": false,
+        "max_free_dof_residual_N": 6.386690957177853e-07,
+        "max_balance_relative": 7.850509184472002e-07,
+        "native_operation_completed": false,
+        "accepted_time_interval": [
+          0,
+          0.1125
+        ],
+        "time_steps": 18,
+        "comparison_with_one_thread": {
+          "peak_motion_force_N.drive": {
+            "coarse": 0.3230322123603151,
+            "refined": 0.32303248182537975,
+            "relative_change": 8.341732791945857e-07,
+            "passes": true
+          },
+          "max_abs_principal_strain": {
+            "coarse": 0.003072188856531972,
+            "refined": 0.0030721888565150976,
+            "relative_change": 5.492670991491654e-12,
+            "passes": true
+          },
+          "max_displacement_mm": {
+            "coarse": 0.31194334416018377,
+            "refined": 0.31194334415417196,
+            "relative_change": 1.927209629522589e-11,
+            "passes": true
+          }
+        },
+        "mesh": {
+          "arm": {
+            "nodes": 1295,
+            "tetrahedra": 4625,
+            "triangles": 1974
+          },
+          "body_cam": {
+            "nodes": 1349,
+            "tetrahedra": 0,
+            "triangles": 2694
+          }
+        },
+        "input_sha256": "7da9e62e3e27b4016dc86fc94dad89c8b6a163a9f7ab308c9f8fa3892e7625ff",
+        "mesh_sha256": "5528a56f2b68ec531e149328fdc8ac54167b5d13544ec090a488bcfc44402181",
+        "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da"
+      },
+      {
+        "threads": 16,
+        "run": "model/filament_swatch_box/notes/ipc/performance/prefix_threads_16",
+        "status": "completed",
+        "wall_seconds": 95.69812607699998,
+        "cpu_seconds": 308.95588999999995,
+        "cpu_percent": 322.8442422701255,
+        "speedup": 1.368056292896057,
+        "force_N": 0.3230322123603171,
+        "displacement_mm": 0.3119433441601837,
+        "peak_Green_strain": 0.003072188856531972,
+        "independent_mesh_intersection": false,
+        "max_free_dof_residual_N": 6.388298063483867e-07,
+        "max_balance_relative": 7.852349864995908e-07,
+        "native_operation_completed": false,
+        "accepted_time_interval": [
+          0,
+          0.1125
+        ],
+        "time_steps": 18,
+        "comparison_with_one_thread": {
+          "peak_motion_force_N.drive": {
+            "coarse": 0.3230322123603151,
+            "refined": 0.3230322123603171,
+            "relative_change": 6.186384415731957e-15,
+            "passes": true
+          },
+          "max_abs_principal_strain": {
+            "coarse": 0.003072188856531972,
+            "refined": 0.003072188856531972,
+            "relative_change": 0.0,
+            "passes": true
+          },
+          "max_displacement_mm": {
+            "coarse": 0.31194334416018377,
+            "refined": 0.3119433441601837,
+            "relative_change": 1.7795267079894067e-16,
+            "passes": true
+          }
+        },
+        "mesh": {
+          "arm": {
+            "nodes": 1295,
+            "tetrahedra": 4625,
+            "triangles": 1974
+          },
+          "body_cam": {
+            "nodes": 1349,
+            "tetrahedra": 0,
+            "triangles": 2694
+          }
+        },
+        "input_sha256": "7da9e62e3e27b4016dc86fc94dad89c8b6a163a9f7ab308c9f8fa3892e7625ff",
+        "mesh_sha256": "5528a56f2b68ec531e149328fdc8ac54167b5d13544ec090a488bcfc44402181",
+        "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da"
+      }
+    ]
+  },
+  "machine": {
+    "Architecture": "x86_64",
+    "CPU(s)": "16",
+    "Model name": "AMD Ryzen 7 1700 Eight-Core Processor",
+    "Thread(s) per core": "2",
+    "Core(s) per socket": "8",
+    "Socket(s)": "1"
+  },
+  "limits": "One timed solve per configuration; no universal optimum or formal timing statistics. Native process wall/CPU time includes initialization and native I/O, excludes Python extraction. Prefix completion is not snap passage. One-percent comparison is a numerical equivalence screen, not physical validation."
+}

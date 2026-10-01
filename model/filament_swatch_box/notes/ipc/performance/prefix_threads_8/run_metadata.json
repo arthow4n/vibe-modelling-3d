@@ -1,0 +1,84 @@
+{
+  "backend": "PolyFEM-IPC-experimental",
+  "case_sha256": "a837757445df13094ab567927cf5330dfdea55ba513538879774cc6d808e69dc",
+  "backend_sha256": "41dc4d02c154a242efe5adf737928d606295c4a8b87ba971d815ff3980cab4bb",
+  "executable": "/home/hevar/.local/opt/polyfem-ipc/PolyFEM_bin",
+  "executable_sha256": "e170ca7faa449defb41ff266b111c2768c3503824756305f5063be4f959455da",
+  "polyfem_commit": "591b08bd5e115bdefec7e2998e98f5b56bc1367e",
+  "ipc_settings": {
+    "activation_distance_mm": 0.001,
+    "obstacle_mesh_size_mm": 0.3,
+    "gradient_tolerance_N": 1e-06,
+    "max_iterations": 200,
+    "initial_offset_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "unit_system": "mm_N_MPa",
+    "ccd_tolerance_mm": 1e-06,
+    "constraint_initial_weight": 1000000000000.0,
+    "convergent_barrier": false,
+    "projected_newton": false,
+    "deformable": "arm"
+  },
+  "mesh_reuse": {
+    "input_sha256": "548bb92144f0ebb564b44641188dd2b2fec22025ada712a85f737ba049593a7f",
+    "mesh_sha256": "f41f3ece84df5fc1b11219b364a8216f638acb13ecd11198ed63b425e8f994c4",
+    "case_sha256": "8e07f06be6dfda9bd27c38ab70449a84b308ad1c98c8895d91a13b80b932472e",
+    "input": "mesh_source.json",
+    "case": "mesh_source_case.json"
+  },
+  "input_sha256": "7da9e62e3e27b4016dc86fc94dad89c8b6a163a9f7ab308c9f8fa3892e7625ff",
+  "mesh_sha256": "5528a56f2b68ec531e149328fdc8ac54167b5d13544ec090a488bcfc44402181",
+  "mesh_files_sha256": {
+    "part_0.mesh": "a7f676095770ccb72bebc1c6723a9ddef31b0fed7c5be9b023b2420cb5f9eae6",
+    "part_1.obj": "46b39e211f3ec2c3332023cb9e3f6a708fdb91e2a25e0e49fab18b78c416bd92"
+  },
+  "geometry_sha256": {
+    "arm": "7093f5b9cfde23f1da5c3a05af5f9e780498d8b77d6f88e1c32ee11b53e8e21d",
+    "body_cam": "6e473619c7c02f876508e955e4489f1cda7ea7f2946648b214c6de7161ee4f62"
+  },
+  "unit_mapping": {
+    "length_mm_to_native": 1,
+    "stress_MPa_to_native": 1,
+    "force_N_to_native": 1
+  },
+  "formulation": "P1 SaintVenant, time.quasistatic=true",
+  "versions": {
+    "python": "3.12.14",
+    "gmsh": "4.15.2"
+  },
+  "command": [
+    "/home/hevar/.local/opt/polyfem-ipc/PolyFEM_bin",
+    "--json",
+    "scene.json",
+    "--max_threads",
+    "8"
+  ],
+  "native_exit_code": 0,
+  "extractor_sha256": "f6e61879c371e7c4335ec27d1ac7bfdcbe397f64ee668d26a1bc6dc18cfbbbf3",
+  "native_mesh_mapping": {
+    "maximum_rest_coordinate_shift_mm": 0.0,
+    "legacy_single_precision_input": false,
+    "qualification_limit": null
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": "8",
+    "OPENBLAS_NUM_THREADS": "8"
+  },
+  "study_changes": {
+    "threads": 8,
+    "bounded_prefix_end": 0.1125,
+    "steps": 18,
+    "unchanged_dt": 0.00625,
+    "unchanged_native_gradient_tolerance": 3.90625e-11,
+    "geometry": "Frozen .7 mm deformable / .3 mm obstacle; current question physical case"
+  },
+  "source_input_sha256": "d7c3fd27c0877d6a9bf8e7fc07cf610e94d498a20ce77917adf611f1f8c75a65",
+  "native_timing": {
+    "wall_seconds": 87.18365675400003,
+    "cpu_seconds": 216.62962100000001,
+    "cpu_percent": 248.4750342730502
+  }
+}

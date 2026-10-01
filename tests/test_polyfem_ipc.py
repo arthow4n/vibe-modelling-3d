@@ -69,12 +69,30 @@ def test_double_precision_mesh_contract(tmp_path):
         require_native_rest_mesh(tmp_path,p,p.astype(np.float32).astype(float))
 
 
+def test_explicit_threads_override_inherited_single_thread_environment(monkeypatch):
+    import physical_analysis.backends.polyfem as module
+    monkeypatch.setattr(module,'runtime_environment',lambda:dict(OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1'))
+    for n in (1,2,4,8,16):
+        backend=PolyfemBackend(IPCSettings(threads=n));env=backend.environment()
+        assert env['OMP_NUM_THREADS']==env['OPENBLAS_NUM_THREADS']==str(n)
+    monkeypatch.setattr(module.os,'sched_getaffinity',lambda _:set(range(16)))
+    assert PolyfemBackend().threads==8
+    monkeypatch.setattr(module.os,'sched_getaffinity',lambda _:set(range(2)))
+    assert PolyfemBackend().threads==2
+    for invalid in (0,-1,True,2.5):
+        with pytest.raises(ValueError,match='thread count'):IPCSettings(threads=invalid)
+
+
 def test_intermediate_search_cannot_relax_final_equilibrium_policy():
     from physical_analysis.backends.polyfem_output import require_final_equilibrium_policy
     policy=dict(allow_out_of_iterations=False,allow_non_grad_convergence=False,grad_norm_tol=1e-8)
     native=dict(args=dict(solver=dict(nonlinear=policy,
         augmented_lagrangian=dict(nonlinear=dict(allow_out_of_iterations=True)))))
     require_final_equilibrium_policy(native,1e-6,10)
+    # A clipped prefix retains its original dt, not 1 / shortened step count.
+    policy['grad_norm_tol']=3.90625e-11
+    require_final_equilibrium_policy(native,1e-6,18,dt=.00625)
+    policy['grad_norm_tol']=1e-8
     for key in ('allow_out_of_iterations','allow_non_grad_convergence'):
         policy[key]=True
         with pytest.raises(ValueError,match='Final native equilibrium'):
@@ -86,6 +104,19 @@ def test_intermediate_search_cannot_relax_final_equilibrium_policy():
 
 
 native=pytest.mark.skipif(not os.environ.get('POLYFEM_COMMAND'),reason='Optional external IPC CLI not configured; no qualification claimed')
+
+
+@native
+def test_native_thread_command_environment_and_timing(tmp_path):
+    from physical_analysis.backends.ipc_benchmarks import compression
+    r=compression().run(tmp_path/'threads',backend=PolyfemBackend(IPCSettings(threads=4))).require_completed()
+    assert r.provenance['command'][-2:]==['--max_threads','4']
+    assert set(r.provenance['thread_environment'].values())=={'4'}
+    assert json.loads((tmp_path/'threads/native.json').read_text())['num_threads']==4
+    assert r.provenance['native_timing']['wall_seconds']>0
+    assert r.provenance['native_timing']['cpu_seconds']>0
+    assert not r.metrics['independent_mesh_intersection']
+    assert r.metrics['peak_motion_force_N']['push']==pytest.approx(11.9550375,abs=.01)
 
 
 @native

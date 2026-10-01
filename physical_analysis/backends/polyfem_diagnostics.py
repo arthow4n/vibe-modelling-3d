@@ -50,14 +50,15 @@ def contact_frames(directory, fractions=None, *, rigid_parts=()):
             raise ValueError('Saved IPC numerical mesh differs from result provenance')
     case=json.loads((directory/'case.json').read_text());data=json.loads((directory/'mesh.json').read_text())
     scene=json.loads((directory/'scene.json').read_text());scale=1000 if scene['units']['length']=='m' else 1
+    start=scene['time'].get('t0',0);dt=(scene['time']['tend']-start)/data['steps']
     flexible=case['ipc']['deformable'];mesh=data['parts'][flexible];reference=np.asarray(mesh['points_mm'])
     if fractions is None:
         if not result['history']:raise ValueError('Choose explicit accepted fractions for an unfinished IPC run')
         fractions=[max(result['history'],key=lambda h:h['max_abs_principal_strain'])['load_fraction']]
     found=[]
     for time in fractions:
-        index=round(time*data['steps'])
-        if not np.isfinite(time) or not 0<=time<=1 or abs(time-index/data['steps'])>1e-8:
+        index=round((time-start)/dt)
+        if not np.isfinite(time) or not 0<=index<=data['steps'] or abs(time-(start+index*dt))>1e-8:
             raise ValueError('Requested IPC fraction is not a saved grid point')
         points,fields=read_vtu(directory/f'step_{index}.vtu',scale)
         mapping=map_points(reference,points,scale)

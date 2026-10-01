@@ -100,25 +100,27 @@ def principal_strain(mesh, displacement):
     return np.linalg.eigvalsh(green)
 
 
-def require_final_equilibrium_policy(native, tolerance_N, steps):
+def require_final_equilibrium_policy(native, tolerance_N, steps, *, dt=None):
     """A bounded intermediate AL search cannot relax final native equilibrium."""
     policy=native['args']['solver']['nonlinear']
     if policy['allow_out_of_iterations'] or policy['allow_non_grad_convergence']:
         raise ValueError('Final native equilibrium must reject iteration-limit/non-gradient completion')
-    if policy['grad_norm_tol']>tolerance_N/steps**2*(1+1e-10):
+    dt=1/steps if dt is None else dt
+    if policy['grad_norm_tol']>tolerance_N*dt**2*(1+1e-10):
         raise ValueError('Effective final native gradient tolerance exceeds the recorded request')
 
 
 def extract(directory, case, meshes, selections, scene, result, *, partial=False):
     result.provenance['extractor_sha256']=digest(__file__)
     steps=scene['time']['time_steps'];flexible=case['ipc']['deformable'];mesh=meshes[flexible]
+    start=scene['time'].get('t0',0);dt=(scene['time']['tend']-start)/steps
     length_to_mm=1000 if scene['units']['length']=='m' else 1
     reference=np.asarray(mesh['points_mm']);tets=np.asarray(mesh['tets'])
     native=json.loads((directory/'native.json').read_text()) if (directory/'native.json').is_file() else None
     if not partial and (not native or native['args']['time']['quasistatic'] is not True):
         raise ValueError('Native quasi-static formulation not confirmed')
     if not partial:
-        require_final_equilibrium_policy(native,case['ipc']['gradient_tolerance_N'],steps)
+        require_final_equilibrium_policy(native,case['ipc']['gradient_tolerance_N'],steps,dt=dt)
     if native:
         result.provenance['effective_parameters']=native['args']
     forces_peak={name:0. for name in selections};strain_peak=0.;strain_location=None;maximum_balance=0.;intersection=False
@@ -133,7 +135,7 @@ def extract(directory, case, meshes, selections, scene, result, *, partial=False
     if not available or (not partial and available!=list(range(steps+1))):
         raise ValueError('Incomplete native accepted-state deformation history')
     for i in available:
-        time=i/steps;points,fields=read_vtu(directory/f'step_{i}.vtu',length_to_mm)
+        time=start+i*dt;points,fields=read_vtu(directory/f'step_{i}.vtu',length_to_mm)
         needed=('solution','elastic_forces','contact_forces','inertia_forces')
         if any(k not in fields for k in needed):
             raise ValueError('Missing native displacement/variational force fields')
@@ -215,7 +217,8 @@ def extract(directory, case, meshes, selections, scene, result, *, partial=False
         observations=result.history[-1]['observations'],native_penetration_mm=None,
         contact_evidence='IPC barrier forces, verified prescribed poses and independent accepted-frame triangle geometry; no native penetration metric fabricated.')
     result.metrics['diagnostic_prefix_only']=partial
-    result.metrics['native_operation_completed']=not partial
+    result.metrics['native_operation_completed']=not partial and start==0 and scene['time']['tend']==1
+    result.metrics['accepted_time_interval']=[start,result.history[-1]['load_fraction']]
     result.artifacts['geometry_witness']='geometry_witness.json'
     adequate=(not intersection and maximum_balance<.01 and max_inertia<1e-12
               and max_free_residual <= max(1e-5,10*case['ipc']['gradient_tolerance_N']))
