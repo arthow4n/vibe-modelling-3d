@@ -30,33 +30,55 @@ it does not rehabilitate the product.
 
 ## Optional test prints for physical validation
 
-Follow the agreed deliverable sequence. For a full-design phase, finish the
-complete model and include a small test piece only when it meaningfully reduces
-the cost of testing an uncertain interaction while preserving the relevant
-behavior. Continue evaluating and refining the full design while physical
-feedback is unavailable. For a samples-only phase, deliver the samples without
-generating full-object variants. For an agreed staged sequence, finish the
-current phase and use the requested physical result to choose the next one.
-Do not turn an optional sample into an unrequested gate.
+Follow the agreed deliverable sequence and the
+[feedback rules](design-decisions.md#feedback-and-autonomous-continuation).
+Do not automatically finish the complete product before an experiment: qualify
+a consequential unknown interface before dependent full-product refinement when
+the result could change it. For an agreed sample phase, deliver that sample and
+obtain the needed observation before the next phase. Continue independent work
+within authorization while feedback is unavailable. If remaining uncertainty is
+minor and direct completion is justified, an optional first-print sample need
+not become a gate. Existing successful evidence can remove the need for a new test.
 
-Before recommending a coupon, state in the existing record: the uncertainty it
-tests, the actual product feature it reproduces, what it omits, the observation
-that counts as success or failure, and the design decision each result would
-change. Its material, print and feedback cost must be justified by that decision.
-An interesting unprinted mechanism alone is no reason for a coupon. If the
-whole-product concept is rejected or seriously doubtful, a mechanism-only coupon
-is not a useful next print; resolve product value first. A local latch fixture
-cannot establish the full enclosure, hinge motion, contents or browsing interaction.
+Choose the least expensive experiment capable of answering the question:
+
+| Experiment | Represents | Typical limit |
+| --- | --- | --- |
+| Mechanism coupon | One specific interface, such as a snap, hinge or thread | Does not establish integrated handling, overall stiffness or product value. |
+| Partial-product prototype | A section of the actual product with enough surrounding geometry to reproduce a meaningful assembly or handling interaction | Omitted span, contents or supports can still change behavior. |
+| Complete prototype | The full object for integrated function, appearance and handling | May cost more, but can be the cheapest informative test for a small object or an inseparable interaction. |
+
+The smallest specimen is not necessarily the most informative. A full-size simple
+mockup can answer access or coordination cheaply; a functional mechanism trial
+needs representative interfaces and manufacturing. Do not recommend a mechanism
+coupon for a rejected or seriously doubtful whole-product concept; resolve product
+value first. Local mechanics cannot establish enclosure usefulness or normal use.
+
+Before recommending any physical test, answer these six questions briefly in the
+existing record, without a compulsory separate report:
+
+1. Which consequential uncertainty is tested?
+2. Which real geometry, material, orientation and manufacturing conditions must
+   be preserved for the observation to transfer?
+3. Which parts of the product are omitted, and how does that limit the evidence?
+4. What should the user do, and what observations are expected?
+5. Which result would accept, revise or abandon the design or tested interface?
+6. Why is this print preferable to a cheaper check or a complete-product print,
+   considering preparation, material, print time and feedback cycles?
+
+If no plausible result changes a consequential decision, omit the test. Acceptance
+qualifies only what the specimen represents; it cannot validate omitted interactions.
 
 * Consider test pieces for behavior that CAD and slicing cannot establish reliably: hinge freedom, snap-latch engagement and release, friction fits, sliding joints, clip grip, flexible tabs, printed threads, and press-fit inserts. Provide one when it can meaningfully reduce the cost of discovering a likely fit or mechanism problem; do not create coupons automatically for every feature.
 * Reuse the production interface construction and parameters where practical. Preserve mating geometry, material, relevant slicing settings and print orientation, plus wall thickness, flexible length, attachment stiffness and surrounding geometry that determine the tested behavior. A shortened clip can be much stiffer than the real part. If a small sample cannot represent the interaction adequately, explain that limitation instead of treating it as a substitute for a full-part trial.
 * Evaluate test pieces through the same applicable CAD and printability workflow as the model, including practical bed contact and intended component positions. Export them with clear names inside the object's directory. Make their purpose and the full-model print file easy to distinguish.
 * Provide brief instructions for what to try and observe, such as whether a latch engages securely and releases comfortably, and identify the parameter to adjust if it binds or feels loose. State what the sample does not test, such as full-object stiffness, compression resistance or fatigue life. Offer a small labeled set of clearance variants only when comparison would help; avoid unnecessary samples.
 
-When the decision is between appearances or surface textures, compare
-representative full-scale samples first and produce full-object variants only
-if those are agreed deliverables. When several physical hypotheses can be
-tested in one print session, batch distinguishable samples if their print
+When the decision depends on physical texture, finish or feel, compare
+representative full-scale samples when they are more informative per cost than
+complete objects. For visual form alone, use rough visual evidence first.
+Produce full-object variants only if those are agreed deliverables. When several
+physical hypotheses can be tested in one print session, batch distinguishable samples if their print
 placement and process remain representative. Each result should point to a
 specific next choice; a larger batch has value only when it saves a feedback
 cycle or resolves a requested comparison.
@@ -88,8 +110,9 @@ A skeletal fixture may test seating but underrepresent enclosure stiffness;
 say so. Estimate material or print time only when it changes the sample choice;
 use a slicer's existing estimate when available, without adding G-code analysis
 solely to obtain a precise number. Compare with a less simplified fixture when
-the savings/validity tradeoff is uncertain. A full box is justified only if its
-structure is needed for the intended observation. Do not impose a universal
+the savings/validity tradeoff is uncertain. A complete prototype is justified
+when integrated use or structure is needed for the observation, or simplifying
+it saves little total cost. Do not impose a universal
 bridge length or coupon mass.
 
 ## Make variants distinguishable and diagnostic
@@ -110,10 +133,12 @@ default clearance matrix.
 
 ## Recommend a first print without blocking modelling
 
-Deliver the agreed phase and clearly recommend what to print first, its cost,
-what to observe, and what it does not validate. Continue independent modelling
-within that phase while the user is away. Do not turn a sample into an
-unrequested approval gate or ask the user to reauthorize work.
+Deliver the agreed phase and recommend what to print first, with the six questions
+above answered. Continue independent modelling within that phase while the user
+is away; do not complete dependent work whose design awaits the observation.
+Do not turn a minor optional sample into an unrequested approval gate or ask the
+user to reauthorize work. If new evidence makes proceeding unjustified, hand off
+the informative intermediate deliverable and explain the dependency.
 
 Use [the experiment record](../assets/experiment-record.md) inside the object's
 notes when there are multiple trials or iterations; omit irrelevant fields for
@@ -142,8 +167,9 @@ coupon is proposed:
 Use **N/A** for test pieces when none were designed. Use **Unknown** when the
 repository has no user print report for an exported item; do not turn an absent
 note into a claim that a part was not printed.
-Use **N/A** for the final object during a samples-only phase when no final
-printable object was included. Update that row when a later phase delivers one.
+Use **N/A** for the final object during a samples-only or rough-concept phase when
+no final printable object was included; both rows can be N/A for visual studies.
+Update the relevant row when a later phase delivers a printable item.
 Keep “printed” separate from “functionally tested”: a print can exist without a
 fit, force, durability or use result. Add the report date, source revision or
 artifact hash, material, orientation and printer/profile when known; record

@@ -6,11 +6,11 @@ Read when interpreting a new object, mechanism or ambiguous physical feedback.
 
 Reuse the user's known dimensions, printer, material and assembly preferences.
 Before detailed CAD, use available requirements for a cheap concept screen and
-present viable deliverable and process options when they have not yet been agreed.
-Recommend an approach, explain its consequential assumptions and print setup,
-and establish whether this phase delivers a full model, samples before a selected
-full model, or samples only. A choice already made in the conversation counts as
-agreement. Honor explicit delegation of routine choices without asking again.
+choose the [next useful deliverable](#adaptive-development-and-the-next-deliverable).
+Explain the approach, consequential assumptions and proposed print setup; for a
+visual-only phase, defer settings that cannot affect its decision. A choice or
+authorization already made in the conversation counts as agreement. Honor
+explicit delegation without asking again.
 The oversized-assembly joint/load agreement below still applies. Ask only when
 an unresolved requirement would materially change fit, function, usability or
 manufacturing. Continue independent work while awaiting an essential answer;
@@ -30,12 +30,116 @@ When a mechanism choice needs user input, recommend one feasible approach and
 briefly explain the meaningful tradeoff. When the user has delegated the choice,
 select it directly within known constraints. State the interpreted use, print
 approach and consequential assumptions before building. After agreement,
-complete the phase autonomously; revisit the decision only if new evidence
-reveals a material conflict or the agreed physical observation is needed.
+complete the phase autonomously, subject to the
+[feedback and continuation rules](#feedback-and-autonomous-continuation).
 A named fit parameter is not proof that the assumed dimension is correct.
 For an existing collection, a measured stack or mating item can cheaply settle
 capacity when available; otherwise document the source dimensions and practical
 allowance without blocking authorized modelling on a measurement.
+
+## Adaptive development and the next deliverable
+
+First identify which unresolved choice could make the product undesirable or
+unworkable, and what evidence would change that choice. Resolve high-impact
+uncertainty before work that depends on it. Consider total development, feedback
+and print cost, not just CAD build time. Record the next decision, useful evidence
+and intended deliverable briefly in existing notes; no new phase schema is needed.
+
+| Task and remaining uncertainty | Appropriate next investment |
+| --- | --- |
+| Straightforward, well-specified object; little subjective or mechanical uncertainty | Direct complete implementation with applicable CAD, FDM and delivery checks. No preliminary variants, intermediate approvals or coupons by default. |
+| Consequential silhouette, proportions or style remain open | A small rough visual comparison before detailed implementation; normally two or three meaningful directions. |
+| New mechanism or critical mating behavior | Establish a coherent whole-product concept, then qualify the critical interface with the cheapest adequate checks or representative experiment before dependent full-product work. |
+| Both form/use and mechanics remain uncertain | Resolve useful form and normal interaction first, then critical interfaces, then complete the product. |
+| Established product with one isolated uncertainty | Preserve the accepted architecture and successful evidence; investigate the affected interface or relationship without restarting product design. |
+
+During initial agreement, recommend the most useful next deliverable: one finished
+printable object, one rough complete concept, a few rough visual variants, an
+interface sample, a partial-product prototype, or the full product using an already
+qualified interface. A request for an object does not automatically require
+end-to-end detailing, nor does it automatically require staged discussion.
+Use known requirements and authorization to choose; ask only for a consequential
+decision that cannot reasonably be resolved within them.
+
+## Levels of investment
+
+Move to a more expensive representation only when it can answer the next question
+and current evidence justifies that investment. Skip levels that add no useful
+evidence; combine them for simple objects. These are neither five reports nor five
+approval gates. A rough model can be the correct final deliverable for a phase.
+
+| Representation | Purpose and sufficient detail |
+| --- | --- |
+| Concept representation | A short physical description, established reference or sketch that explains the intended experience and architecture; cheap fit/load math can reject impossibility here. |
+| Rough complete geometry | Dimensionally meaningful overall form, actual contents or held-item envelopes, major components, openings, approximate proportions and intended motion. A few parametric primitives can suffice. |
+| Critical interfaces and representative experiments | Only details that decide feasibility: targeted CAD checks, local geometry, simple mechanics, physical samples or justified numerical studies. |
+| Detailed complete product | Finish parametric geometry, necessary verification, manufacturing choices, useful renders, final slicing and matching exports after concept and critical interfaces are sufficiently established. |
+| Physical validation | Print the appropriate next sample or complete product; observe real fit, use, appearance and handling, then update object evidence and transferable lessons. |
+
+For CAD-driven fit or assembly questions, prefer simple real parametric CAD to
+detailed meshes or attractive illustrations that cannot establish dimensions.
+Keep low-detail geometry easy to revise; do not add final fillets, decorative
+features, elaborate mechanisms or print-ready exports merely to make a rough
+review look finished. Finish/export only the printable specimens agreed for an
+experiment phase; rough visual studies do not require slicing.
+
+## Feedback and autonomous continuation
+
+Before a substantial increase in commitment, ask whether the evidence resolves
+the decision that investment depends on. Seek focused feedback or stop at a useful
+intermediate deliverable when a consequential choice remains unresolved and:
+
+- it is subjective and requires the user's undelegated judgment;
+- the next stage costs substantially more and present evidence cannot justify it;
+- or a representative small experiment could materially reduce the risk of that
+  commitment and its result is needed to choose the design.
+
+Present concrete rough evidence or a reviewable sample and name the decision or
+observation needed. Do not ask the user to approve an abstract plan when cheap
+independent work can make the choice reviewable. Do not refine dependent mechanisms,
+simulate them or finish manufacturing while awaiting concept feedback. If the
+agreed phase ends at a rough study or sample, complete that deliverable and stop
+there; its existence does not authorize the next phase. An already authorized
+next phase can proceed once its dependency is resolved, without renewed approval.
+Continue independent authorized work while an answer is pending.
+
+Proceed autonomously when requirements and concept are established, uncertainty
+is minor, or adequate evidence supports a reasonable choice within delegated
+scope. Do not ask at every level or repeat answered questions. Explicit autonomous
+end-to-end implementation normally authorizes routine choices and completion,
+with honest reporting of consequential assumptions and remaining physical limits.
+It does not establish a physical result or justify major investment in a doubtful
+concept. Stop only for a new decision outside that scope or an unjustified
+commitment; explain the unresolved dependency and why proceeding would waste work.
+The oversized joint/load agreement below still applies.
+
+## Inexpensive visual and form exploration
+
+Identify a consequential design-space choice; variants must be able to change a
+real decision. Unspecified visual style in an appearance-driven object is a reason
+to explore even without an explicit variants request. A clear reference or an
+already adequate straightforward architecture may remove that need. Neither
+“always three concepts” nor “always finish one concept” is a general rule.
+
+Normally compare two or three rough alternatives that differ in silhouette,
+proportions, open space, support arrangement or interaction as relevant. Share
+dimensions, functional constraints, reference contents and builders where useful;
+avoid duplicated detailed engineering. Sketches, references, silhouettes, volume
+studies or simplified CAD are sufficient when they expose the actual differences.
+Screen rough fit and print feasibility, then stop exploring when the choice is
+adequately informed. Compare before expensive simulation, manufacturing refinement
+and print-ready exports.
+
+Choose limited views to answer specific questions: proportions and overall form,
+contents in place, hand/tool approach, major component relationships, meaningful
+open/closed/operating states, or understandable normal use. Use comparable scale
+and context, noting dimensions when separately framed renders are auto-fitted.
+Surface detail alone may not distinguish visual directions. No final textures or
+perfect presentation are required. Assess objective conflicts and explain
+subjective tradeoffs; never substitute an automated aesthetic score for the user's
+preference. Use the feedback rules above to decide whether to hand off or continue.
+If the deciding uncertainty is printed texture, finish or feel, renders cannot
+settle it; choose a representative physical comparison instead.
 
 ## Product architecture gate
 
@@ -58,15 +162,12 @@ mechanism can still make a poor product. Prefer an ordinary arrangement that wor
 when added mechanics provide no compelling benefit. Having `SnapFitQuestion`,
 FEA, IPC or other tools available is never a reason to invent a mechanism.
 
-The normal progression is: understand the actual task → propose one simple physical
-architecture → build and inspect rough complete geometry with realistic contents →
-resolve consequential whole-product objections → verify necessary interfaces and
-motions → add and screen justified mechanisms → use expensive numerical analysis
-only for remaining consequential questions → review manufacturing/slicing →
-recommend a physical print that can change the next decision. Cheap fit/load math
-may invalidate a concept earlier. These are stages of commitment, not nine documents
-or approval forms. Explore alternatives only when needed to resolve a real choice;
-do not generate several complete products by default.
+Use the adaptive strategy above. This gate establishes product value before
+mechanical investment, not a requirement for every spacer or simple bracket to
+produce an intermediate review. For an established product, reuse the accepted
+concept and revisit only relationships affected by the change. Passing a rough
+self-review is insufficient when consequential subjective choices remain
+undelegated: stop at the reviewable concept before doing the dependent engineering.
 
 For the worthwhile architecture, answer these in ordinary physical language:
 
@@ -115,10 +216,10 @@ conditions: reconsider or abandon the concept before further engineering.
 
 For consequential subjective qualities (appearance, proportions, intuitive handling,
 whether the object is worth owning), present the rough object for human review
-when those choices have not been delegated. Automated self-assessment and valid
-CAD cannot supply that feedback. Explicit delegation permits autonomous judgment
-but still requires willingness to reject a poor concept. Resolve objections before
-committing substantial work; respect existing agreement without repeated approval.
+when those choices have not been delegated, using the feedback rules above.
+Automated self-assessment and valid CAD cannot supply that feedback. Explicit
+delegation permits autonomous judgment but still requires willingness to reject
+a poor concept.
 
 Sunk CAD, tests, simulation or slicing never protects an architecture that fails
 its purpose. Reopen the product choice even late; prefer deleting unnecessary
@@ -264,7 +365,8 @@ Reuse clear views and component builders. Add object-owned inspection geometry
 only when it answers a question; identify display-only hands, held items and
 supports. If line drawings obscure depth, choose a clearer camera or shaded CAD
 view when available. Better presentation does not repair awkward geometry.
-No style variants, new rendering tool or separate review file are required.
+Style variants are conditional on the unresolved choice; no new rendering tool
+or separate review file is required.
 Human review of undelegated consequential choices follows the architecture gate;
 this is not a repeated approval of routine details.
 

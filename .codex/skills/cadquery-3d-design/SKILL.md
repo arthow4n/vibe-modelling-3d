@@ -9,19 +9,33 @@ Use this skill for functional, manufacturable models. AGENTS.md owns repository
 workflow, shared CadQuery command, printer setup, attribution, artifacts
 and Git rules. A valid solid or clean slice alone does not establish function.
 
-## Product architecture before mechanisms
+## Choose the next useful investment
 
-Before adding a mechanism, and for functional multi-part or moving products, apply the
-[product-architecture gate](references/design-decisions.md#product-architecture-gate)
-in the normal decision record. First challenge mechanism necessity and total
-product complexity. Review rough complete geometry with realistic contents and
-normal interaction; resolve whole-product objections before detailed engineering.
-Seek human review of consequential subjective choices when not delegated. A
-poor concept is a stopping condition, even after local checks pass or substantial
-work is sunk. The reference owns the detailed questions and staged sequence.
+Choose development strategy from the consequential uncertainty, using
+[adaptive development](references/design-decisions.md#adaptive-development-and-the-next-deliverable):
+
+- Clear requirements and a straightforward concept: complete the printable object
+  directly, without compulsory variants, intermediate approvals or coupons.
+- Unresolved appearance or form: compare a few inexpensive rough directions,
+  even when the user has not explicitly requested variants.
+- Unqualified fit or mechanics: establish the whole-product concept, then resolve
+  the critical interface with targeted checks or representative experiments before
+  committing to dependent full-product work.
+- Combined uncertainty: settle useful form and interaction before qualifying the
+  mechanics; finish the product when those decisions are sufficiently established.
+
+These are adaptable levels of investment, not a universal sequence. Choose the
+initial deliverable deliberately; rough geometry or a partial prototype can be
+the complete deliverable for this phase. Stop for a consequential unresolved
+decision when the next investment lacks justification; otherwise continue within
+existing authorization. Follow the reference's
+[feedback rules](references/design-decisions.md#feedback-and-autonomous-continuation),
+without extra forms or repeated approvals.
+Before new mechanisms or functional moving assemblies, apply the
+[product-architecture gate](references/design-decisions.md#product-architecture-gate).
+Local passes and sunk work never protect a poor concept.
 User product rejection supersedes speculative confidence; follow the
 [physical-failure guidance](references/physical-experiments.md#when-product-use-fails).
-Use existing notes and design agreements, without extra forms or repeated approvals.
 
 ## Modelling TODO checklist
 
@@ -36,15 +50,16 @@ with each applicable evaluation.
 
 - [ ] Confirm scope, references, user edits, known preferences and required CAD tool availability; check the reusable-model evidence for an analogous design.
 - [ ] Establish the actual handling task, critical dimensions, assembly/material preferences, operating effort, required retention and failure modes; screen consequential tolerance extremes together.
-- [ ] Propose one simple architecture for the actual task; before developing any mechanism, apply the [necessity and total-simplicity questions](references/design-decisions.md#product-architecture-gate), including what happens if it is omitted. Record the practical benefit and construction/use cost; explore alternatives only to resolve a real choice.
 - [ ] Screen the concept with rough fit, engagement, assembly-travel and print-envelope calculations as relevant. For structurally important parts and joints, estimate loads, stiffness and force before detailed CAD; reject an infeasible concept early.
-- [ ] Recommend viable deliverables and a print setup, explain tradeoffs, and agree on this phase's sequence if it is not already established.
+- [ ] Identify the uncertainty that could change the next decision; choose direct completion, rough form exploration, staged interface development or a combination. Recommend the next useful deliverable and relevant print assumptions; use existing agreement or delegated scope without asking again.
 - [ ] Decide which remaining questions require modelled geometry and which require a physical print. For an oversized assembly, resolve segmentation and joint/load requirements with the user before finalizing it.
-- [ ] Build rough complete geometry including contents/held item and all major moving parts in normal open/working states; define meaningful intermediate and release states. A local coupon is not this whole-object review.
-- [ ] Inspect rough complete geometry with realistic contents; explain loading, access, browsing where relevant, transport and opening/closing. Resolve consequential whole-product objections, including human review of subjective choices when not delegated. Stop or abandon awkward or disproportionate concepts before interface/mechanism refinement; sunk work and local passes do not protect them.
-- [ ] For the worthwhile concept, name component jobs and support/guide/seat/stop/retain/release contacts. Verify required/forbidden relationships at meaningful states; temporarily remove retention to check independent alignment, guidance, seating and stops.
+- [ ] When visual directions could change the choice, compare two or three meaningful rough alternatives using shared dimensions and references; inspect only views that reveal the differences. Stop exploration when the choice is adequately informed.
+- [ ] For uncertain form, handling or new mechanisms, build and inspect rough complete geometry with contents, major components, openings and relevant operating states. Challenge mechanism necessity and total construction/use cost through the architecture gate. An already established product needs only affected relationships reviewed.
+- [ ] Before substantial refinement, resolve consequential whole-product objections and undelegated subjective choices. Hand off the agreed rough studies if that is the phase; do not complete details while waiting for the decision that justifies them.
+- [ ] For justified mechanisms, name component jobs and support/guide/seat/stop/retain/release contacts. Verify required/forbidden relationships at meaningful states; temporarily remove retention to check independent alignment, guidance, seating and stops.
 - [ ] Co-design geometry, material, orientation, nozzle/layers, perimeters, infill/local solidity and supports; revise either CAD or process using the cheapest adequate evidence. Inspect actual sliced paths when a mechanical assumption depends on them; never infer calibrated material properties from settings. Plan physical experiments for remaining uncertainty.
-- [ ] Only after that architecture gate, refine understandable parametric geometry and mechanisms; preserve critical interfaces.
+- [ ] Before any physical test recommendation, choose a mechanism coupon, partial-product prototype or complete prototype using the [six experiment questions](references/physical-experiments.md#optional-test-prints-for-physical-validation). Preserve representative conditions; a rejected or seriously doubtful concept does not warrant a mechanism coupon.
+- [ ] Develop only the critical details needed to qualify the next investment. Finish understandable parametric geometry when concept and interface evidence justify it; preserve successful interfaces and stop at the agreed staged deliverable.
 - [ ] Evaluate source through the shared CadQuery command; inspect build validity and errors, then select views or targeted geometry checks for unresolved questions.
 - [ ] Revisit affected [whole-object form and handling](references/design-decisions.md#whole-object-form-and-handling) relationships when detailed geometry changes them; preserve the architecture gate ahead of expensive analysis.
 - [ ] Check insertion, load-bearing contact, retention, release effort and user access.
@@ -56,7 +71,6 @@ with each applicable evaluation.
 - [ ] Export the agreed printable layouts as STEP/STL from the same print-ready geometry and placement; check output status and any specific export concern.
 - [ ] Run/reuse the final reference smoke slice for those layouts when available; investigate detailed paths only for unresolved slicer-sensitive questions.
 - [ ] Save useful final views, assumptions, physical evidence and print instructions.
-- [ ] Before recommending a coupon, state its uncertainty, reproduced product feature, omissions, observable success/failure and resulting design decision; apply the [experiment guidance](references/physical-experiments.md#optional-test-prints-for-physical-validation). A rejected or seriously doubtful product does not warrant a mechanism-only coupon.
 - [ ] Record separate print status for test piece(s) and any final printable object in the object's notes; use N/A when a category is outside the agreed phase and do not infer a physical print from CAD or slicer output.
 - [ ] On user product rejection, update conclusions/readiness and the root index immediately; distinguish rejection before printing from physical use failure, identify the narrower scope of earlier passes, and feed recurring failures into shared guidance without an unsupported tolerance/process diagnosis.
 - [ ] Add a reusable-evidence entry only if this work produced a transferable result; link to its detailed object record.
@@ -70,7 +84,7 @@ do not mistake a parameter value for a verified measurement or physical result.
 
 | Trigger | Reference |
 | --- | --- |
-| New requirements, assembly choices, whole-object form/handling, load-bearing joints, mechanisms, motion checks, force estimates, “tight/loose” feedback | [Design decisions](references/design-decisions.md) |
+| Development strategy, next deliverable, visual alternatives, feedback, requirements, whole-object handling, joints or mechanisms | [Design decisions](references/design-decisions.md) |
 | Generic FDM review, final smoke slice, orientation, moving parts or support constraints | [Print planning](references/print-planning.md) |
 | Fit, force, friction or durability needs physical validation | [Physical experiments](references/physical-experiments.md) |
 | Dimensions, shared builders, modular source or edge treatment | [Parametric construction and edges](references/parametric-and-edges.md) |
@@ -82,21 +96,11 @@ Do not load every reference for every task.
 
 ## Early comparison for aesthetic alternatives
 
-When the user requests visually distinct alternatives, compare inexpensive
-silhouettes or rough forms before detailed CAD and exports. Choose views that
-reveal the requested differences; include the held object or use context when
-it affects visibility, and use a common scale when comparing proportions.
-Look for differences in overall shape, open space and support arrangement;
-surface details or cutouts alone may not satisfy a request for distinct styles.
-Revise repetitive concepts at this stage while preserving the functional
-constraints and screening rough print feasibility.
-
-Share the comparison early. Treat it as a design review within the agreed
-scope, not an automatic approval gate: continue autonomously when authorized,
-and complete the agreed deliverables. Use physical samples when material,
-texture or finish is the deciding uncertainty; silhouettes cannot establish
-those outcomes. This comparison is conditional on aesthetic exploration,
-not a required stage for every model.
+Treat rough geometry and renders as decision tools. The
+[conditional exploration guidance](references/design-decisions.md#inexpensive-visual-and-form-exploration)
+owns variant selection, representation and review. Trigger exploration from an
+unresolved consequential visual choice, not only an explicit request for variants.
+Do not invent automated aesthetic ratings or engineer each direction in full.
 
 ## Proportionate review
 
@@ -163,12 +167,10 @@ design and validate a segmented assembly. Joint strength and assembly method are
 functional requirements, not routine implementation details to guess silently;
 use the design-decisions reference to resolve them.
 
-Complete the deliverables agreed for this phase. For a full-design phase, offer
-a first-print sample when it saves meaningful material or time without losing
-the behavior under test. For a samples-only or explicitly staged phase, finish
-that phase and use the resulting physical feedback for the next agreed phase.
-Minimize material while preserving the behavior under test, and make every
-variant answer an observable question.
+Complete the deliverables agreed for this phase, using the feedback rules above
+when new evidence makes dependent work an unjustified commitment. A sample is
+useful only when its result can change a consequential decision; finish a staged
+sample phase and obtain that observation before dependent refinement.
 
 Preserve successful interfaces during integration; the final smoke slice covers
 the full printable layout. Revisit detailed paths only where changes invalidate

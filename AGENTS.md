@@ -28,8 +28,10 @@ The user's preferred starting setup is a **0.4 mm nozzle and 0.2 mm layers**.
 They also have a **0.8 mm nozzle** and several **PLA, PETG and TPU** filaments.
 Their experience is that **two walls and 7% adaptive cubic infill** are often
 enough for general prints; these are starting assumptions, not strength or
-printability requirements. Discuss the proposed nozzle, layer height, material,
-walls and infill approach during the initial design agreement. Explain and agree
+printability requirements. For a phase with printable deliverables, discuss the
+proposed nozzle, layer height, material, walls and infill during initial agreement;
+for rough visual studies, state only process assumptions that affect the choice.
+Explain and agree
 on consequential changes, especially when fit, flexibility, strength, print
 time or finish depends on them. Use the agreed setup to size geometry and screen
 loads before slicing. The reference Orca profile is diagnostic, not a substitute
@@ -79,11 +81,9 @@ authorized scope when that improves function; normal settings are starting
 points. Explain consequential choices and follow existing design-agreement rules.
 Prefer the cheapest adequate change, whether in CAD or manufacture.
 
-Use the skill's [staged commitment of effort](.codex/skills/cadquery-3d-design/references/design-decisions.md#product-architecture-gate):
-establish product value and total simplicity on rough complete geometry before
-investing in interfaces, mechanisms or numerical studies. Revisit the product
-choice as evidence changes; completed engineering work never obliges preservation
-of a poor concept.
+Use the skill's [adaptive development guidance](.codex/skills/cadquery-3d-design/references/design-decisions.md#adaptive-development-and-the-next-deliverable)
+to choose the next investment and deliverable. Revisit the product choice as
+evidence changes; completed work never obliges preservation of a poor concept.
 When slicer settings affect an engineering decision, inspect the resulting paths,
 not just requested settings. Do not routinely inspect paths for ordinary walls.
 
@@ -108,30 +108,23 @@ material/process uncertainty and observations requiring a physical print.
    optimistic assumptions. Identify what needs actual modelled geometry and what
    can only be learned from a physical print; do not make every simple object
    undergo structural calculations.
-2. If the deliverables and sequence are not already agreed, recommend one simple
-   physical architecture and viable deliverable options before detailed modelling.
-   Explore product alternatives only to resolve a real decision, not by generating
-   several complete designs by default. Explain the proposed
-   print setup, consequential assumptions, tradeoffs and the few decisions the
-   user must make. Options may include a complete printable design, representative
-   samples followed by a selected final design, or samples only. Agree on what
-   this phase will deliver and when physical feedback is needed. An explicit
-   choice or authorization already in the conversation counts; do not ask again.
-   Oversized objects still require the joint/load agreement above. After the
-   agreement, choose routine details and complete the agreed phase autonomously.
-   Seek a new decision only when evidence invalidates a consequential part of
-   the agreement or the agreed phase is complete. Progress updates need no
-   approval gate. At a staged handoff, request the specific physical
-   observations needed for the next phase.
-3. Before adding mechanisms, and for functional multi-part or moving products, apply the skill's
+2. Choose the development strategy and next useful deliverable through the skill's
+   [adaptive guidance](.codex/skills/cadquery-3d-design/references/design-decisions.md#adaptive-development-and-the-next-deliverable).
+   Use existing agreement and authorization; if needed, establish this phase's
+   deliverable, proposed print setup and consequential assumptions. Complete clear,
+   ordinary tasks directly. Follow the skill's
+   [feedback rules](.codex/skills/cadquery-3d-design/references/design-decisions.md#feedback-and-autonomous-continuation)
+   before unjustified dependent work; otherwise proceed autonomously. A rough-study
+   or sample handoff completes that phase, without automatically authorizing the
+   next one. Oversized objects still require the joint/load agreement above.
+3. For new mechanisms and functional multi-part or moving products, apply the skill's
    [product-architecture gate](.codex/skills/cadquery-3d-design/references/design-decisions.md#product-architecture-gate)
    in the existing decision record before detailed mechanisms, tolerance studies,
    FEA or final slicing. Challenge necessity and total construction/use cost, then
    review rough complete geometry with realistic contents and normal interaction.
-   Resolve consequential whole-product objections before advancing. Present the
-   rough object for human review when consequential subjective choices have not
-   been delegated; automated self-assessment cannot supply that feedback. Use the
-   existing record and design agreement, without extra forms or repeated approvals.
+   Resolve consequential whole-product objections before advancing. Reuse the
+   accepted architecture for an existing product and review only affected
+   relationships. Use the existing record and design agreement.
 4. Confirm `uv` and the repository's shared
    [CadQuery command](evaluate_model.py) are available. Run `uv sync --locked`
    from the repository root when the locked environment is not installed.
@@ -150,7 +143,8 @@ material/process uncertainty and observations requiring a physical print.
    Repair the smallest underlying cause of a build failure; simplify the approach
    if it repeatedly fails. Recalculate where measured CAD geometry changes the
    concept-screen inputs. A valid build alone does not establish function.
-7. Apply the skill's CAD/export checks and final generic FDM review, including
+7. For printable deliverables in the agreed phase, apply the skill's CAD/export
+   checks and final generic FDM review, including
    its final reference-slice smoke check when available. Use the shared
    evaluator's `--slice` option for ordinary final layouts so paired exports
    and the smoke check come from one command. Read its automatic-support probe
@@ -158,9 +152,11 @@ material/process uncertainty and observations requiring a physical print.
    forbidden. Continue until the
    concrete review questions are resolved and further iteration is unlikely to
    materially improve the result. Distinguish CAD/slicer evidence from physical
-   testing; document any remaining limitation. A samples-only phase does not
-   require full-object exports.
-8. Save matching print-ready exports, useful final views and one concise record
+   testing; document any remaining limitation. Rough studies need useful evidence,
+   not print-ready exports or slicing; a sample phase requires only its printable
+   specimens.
+8. Save the agreed outputs, matching print-ready exports where applicable, useful
+   views and one concise record
    of assumptions, print/use instructions and verification evidence. Include
    the [standard per-object print-status block](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record)
    for test piece(s) and the final printable object(s), using N/A when a category
@@ -175,6 +171,9 @@ material/process uncertainty and observations requiring a physical print.
 9. Review, commit and push the completed work using the Git workflow below.
 
 ## Trust each stage for the question it answers
+
+These are evidence responsibilities, not compulsory development phases; use only
+the stages needed for the agreed deliverable.
 
 | Stage | Establish here | Trust afterward; do not repeat routinely |
 | --- | --- | --- |
@@ -243,6 +242,11 @@ fresh process per evaluation. Ordinary sibling imports therefore see current
 source. `result` explicitly selects the output; otherwise all `show_object()`
 outputs are combined. Do not mix display-only reference geometry into the
 selected printable result.
+
+The same command evaluates simplified parametric studies without exports or
+slicing. Select only useful `--views` (or `--views none` for geometry checks).
+Keep rough-review reference items and operating poses in inspection-only entry
+points; rough studies need neither STEP/STL pairs nor smoke slices.
 
 Keep handling-review hands, held-item envelopes and supporting surfaces in an
 inspection-only entry point when needed, reusing the object's component builders.
