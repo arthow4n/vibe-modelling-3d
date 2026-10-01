@@ -1,0 +1,56 @@
+{
+  "all_checks_pass": true,
+  "scope": "Source geometry, nominal swatches, sampled rigid sweep and conservative leaf displacement envelope; no physical validation",
+  "contents": {
+    "count": 20,
+    "pockets": 2,
+    "per_packet": 10,
+    "edge_clearance_mm": 0.7,
+    "under_packet_mm": 4.0,
+    "front_finger_bay_mm": 12.0,
+    "finger_proxy_mm": [
+      10,
+      14,
+      3.5
+    ],
+    "straight_packet_lift_checked_mm": 30
+  },
+  "cover": {
+    "hinge_sweep_degrees": [
+      0,
+      180,
+      2
+    ],
+    "lip_radial_clearance_mm": 0.40000000000000013,
+    "seat": "cover skirt lower face / body rim shoulder",
+    "retention_removed_guidance_and_seating_checked": true,
+    "overclosing_0_1_mm_rejected": true,
+    "lateral_error_0_6_mm_rejected": true
+  },
+  "retention": {
+    "first_contact_closing_angle_degrees": 2.97,
+    "maximum_deflection_angle_degrees": 1.55,
+    "circular_envelope_actual_arc_deflection_bound_mm": 0.7634125842830843,
+    "closed_cam_clearance_mm": 0.4810056873250434,
+    "positive_retaining_underside_z_mm": 23.7,
+    "conservative_transverse_release_mm": 1.15,
+    "intended_button_stroke_mm": 1.35,
+    "positive_leaf_travel_stop_gap_mm": 2.0,
+    "leaf_back_clearance_at_release_mm": 2.15,
+    "released_bead_opening_sweep_degrees": [
+      0,
+      120,
+      0.1
+    ]
+  },
+  "states": [
+    "Loaded: two supported 20 mm packets; conservative full envelopes clear shell and roof",
+    "Aligned: screw pivots constrain rotation; lip aligns final closure independently of snap",
+    "Partial: cover at 12 degrees, no catch contact or content collision",
+    "First contact: named round keeper touches named catch bead",
+    "Maximum interference: round keeper passes bead; required elastic displacement calculated from exact arc",
+    "Seated: skirt stops at shoulder; returned bead above keeper; no preloaded bead contact",
+    "Release: inward exposed tip travel clears bead; inner barrier stays clear",
+    "Open: cover 120 degrees; both packets lift directly through unobstructed openings"
+  ]
+}

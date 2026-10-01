@@ -1,0 +1,148 @@
+{
+  "gcode_sha256": "723ad6ee5df6396224daa2618abaf03c55836b94d2bc099d98975d27bba6fe7c",
+  "placement": "preserve; source positive bed coordinates",
+  "local_solid_paths_established": true,
+  "spring_sections": [
+    {
+      "x_mm": 32.0,
+      "z_mm": 0.6,
+      "span_mm": [
+        176.4,
+        179.6
+      ],
+      "filled_width_mm": 3.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          176.4,
+          179.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 32.0,
+      "z_mm": 2.2,
+      "span_mm": [
+        176.4,
+        179.6
+      ],
+      "filled_width_mm": 3.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          176.4,
+          179.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 32.0,
+      "z_mm": 4.2,
+      "span_mm": [
+        176.4,
+        179.6
+      ],
+      "filled_width_mm": 3.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          176.4,
+          179.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 32.0,
+      "z_mm": 6.2,
+      "span_mm": [
+        176.4,
+        179.6
+      ],
+      "filled_width_mm": 3.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          176.4,
+          179.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 42.0,
+      "z_mm": 0.6,
+      "span_mm": [
+        176.4,
+        179.6
+      ],
+      "filled_width_mm": 3.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          176.4,
+          179.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 42.0,
+      "z_mm": 2.2,
+      "span_mm": [
+        176.4,
+        179.6
+      ],
+      "filled_width_mm": 3.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          176.4,
+          179.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 42.0,
+      "z_mm": 4.2,
+      "span_mm": [
+        176.4,
+        179.6
+      ],
+      "filled_width_mm": 3.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          176.4,
+          179.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 42.0,
+      "z_mm": 6.2,
+      "span_mm": [
+        176.4,
+        179.6
+      ],
+      "filled_width_mm": 3.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          176.4,
+          179.6
+        ]
+      ]
+    }
+  ],
+  "support_path_categories": {
+    "rear hinge barrels": 11480,
+    "front catch mount/nut access": 4620
+  },
+  "limits": "Stroke-width approximation on selected sections; not measured fill, isotropy, layer bonding or calibrated stiffness."
+}

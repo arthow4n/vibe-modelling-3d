@@ -1,0 +1,134 @@
+{
+  "backend": "CalculiX",
+  "version": "unknown",
+  "gmsh": "4.15.2",
+  "cadquery": "2.7.0",
+  "python": "3.12.14",
+  "input_sha256": "4b21edf677cef0d00d3dbc2bebf6b70de444c2d48d0ed47aef49b637a8e62c4d",
+  "case_sha256": "fb1fa148bf47db58f91c32924562a3372e156214c24cc2ccfda01e28a0100da5",
+  "backend_sha256": {
+    "febio_worker.py": "e21170224b7292f877ae7bfba4040cc260d5ec1b003682fdce1e9293ca4c0de6",
+    "contact_diagnostics.py": "2f708d98921416d255b35d05dbe09d5009b117b0f3c301d84f0ffbd2956c0b36",
+    "febio.py": "ed73e0cefb609408ca21aa1af8acb4ad9c2ddeda97f006b9971d62febcc4e956",
+    "tet10_strain.py": "0eb4b4a1ec129adab94015e73126a650c3e62a281dae143b645b2c1953c1406a",
+    "polyfem_worker.py": "c98d18db46e55085aca4cfa97c4e07d449669ef44772c1979dcfa718fbaad161",
+    "febio_diagnostics.py": "b24d83c8b6dbf04396b2c50d69b9403a73dc2f695a240ef73c84c4e415584255",
+    "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+    "polyfem_output.py": "058f0e7a0b56934290bf46383ee40fbf18c5a83ee7f9040990fe611374144ecf",
+    "mesh.py": "8dc89777fafe5c9a7bab70c43125d48ffd96180cd04ded4735e7d2bcf75ec94c",
+    "polyfem.py": "19ce29d418f274ca39cc0cf82f895eede604b266e69153567935d2098dec1fde",
+    "ipc_benchmarks.py": "22f37fa1c230b8ed22bbdf22dca58de9ac088db3e3128cae0962068390b01a93",
+    "structural.py": "eebf0324d99b1d4eb73c46dcd1ed563bfbd900e3af99a39873447b44521983ff",
+    "worker.py": "9be18d7883d1a50aee020d6dcc4fc51156ea8fa3cc76045853ee772257f36cf5",
+    "polyfem_diagnostics.py": "e2bbad2721f8d8aa91990b99ca78f712f616fe9914d03f5d63ab840091069922"
+  },
+  "command": [
+    "/home/hevar/.local/opt/physical-analysis/usr/bin/ccx",
+    "-i",
+    "analysis"
+  ],
+  "postprocess_only": false,
+  "mesh": {
+    "catch": {
+      "nodes": 11857,
+      "elements": 6677,
+      "min_jacobian": 0.01807759766022829
+    },
+    "thumb": {
+      "nodes": 416,
+      "elements": 185,
+      "min_jacobian": 0.1499999999999711
+    },
+    "keeper": {
+      "nodes": 306,
+      "elements": 131,
+      "min_jacobian": 0.06741233287889958
+    }
+  },
+  "regions": {
+    "keyed_root": {
+      "part": "catch",
+      "node_count": 4714,
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ]
+    },
+    "press": {
+      "part": "thumb",
+      "node_count": 416,
+      "displacement_mm": [
+        0,
+        1.25,
+        0
+      ]
+    },
+    "seated_keeper": {
+      "part": "keeper",
+      "node_count": 306,
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ]
+    },
+    "@observe:bead": {
+      "part": "catch",
+      "node_count": 225,
+      "displacement_mm": [
+        null,
+        null,
+        null
+      ]
+    },
+    "@observe:free_leaf": {
+      "part": "catch",
+      "node_count": 6804,
+      "displacement_mm": [
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "loads": [],
+  "contacts": [
+    {
+      "slave": {
+        "face_count": 268,
+        "parts": [
+          "catch"
+        ],
+        "part": "catch"
+      },
+      "master": {
+        "face_count": 44,
+        "parts": [
+          "thumb"
+        ],
+        "part": "thumb"
+      },
+      "discretization": "surface_to_surface",
+      "pairing_update": "once_per_increment"
+    },
+    {
+      "slave": {
+        "face_count": 268,
+        "parts": [
+          "catch"
+        ],
+        "part": "catch"
+      },
+      "master": {
+        "face_count": 112,
+        "parts": [
+          "keeper"
+        ],
+        "part": "keeper"
+      },
+      "discretization": "surface_to_surface",
+      "pairing_update": "once_per_increment"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "scope": "Successful shared evaluator geometry and paired export status, with delivered-artifact identities; no reimport or mesh audit",
+  "reviewed_date": "2026-10-01",
+  "records": [
+    {
+      "entry_point": "body.py",
+      "valid": true,
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      },
+      "exports": [
+        {
+          "file": "body.step",
+          "ok": true,
+          "sha256": "08096fd4bcfef25593c68ce9fdcbdbcdd712e1bc4d8c9edc2003f0cfba685d09"
+        },
+        {
+          "file": "body.stl",
+          "ok": true,
+          "sha256": "d5004ffd6b29f5fabcf3f00bb9d4bd2c689128a3077091b11c5a4bbdaa8b46e3"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "entry_point": "cover.py",
+      "valid": true,
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      },
+      "exports": [
+        {
+          "file": "cover.step",
+          "ok": true,
+          "sha256": "4a31ed144c1d0cb77b5961a8eef8f3db84eaf13e46664bc6c28aab29ce37abd7"
+        },
+        {
+          "file": "cover.stl",
+          "ok": true,
+          "sha256": "9c9b2a778594cdd5327767d4c0cff9a8afa94457e366653732111b6fedef68d6"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "entry_point": "catch.py",
+      "valid": true,
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      },
+      "exports": [
+        {
+          "file": "catch.step",
+          "ok": true,
+          "sha256": "5a810d21914b8af22f3f8365d3ef673d04e4b0055c6b1f8ccbe469e328c34511"
+        },
+        {
+          "file": "catch.stl",
+          "ok": true,
+          "sha256": "a6ed9a37eee29350b57242adc96d1d78cd4b8466840cda877d7bc48915cb3a34"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "entry_point": "swatch_book_case.py",
+      "valid": true,
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      },
+      "exports": [
+        {
+          "file": "swatch_book_case.step",
+          "ok": true,
+          "sha256": "d51bb22f017191cd30629cd0b7de1f84dfc99b9bd60f5776bbd33fb0cffa14c3"
+        },
+        {
+          "file": "swatch_book_case.stl",
+          "ok": true,
+          "sha256": "fab849b13901277a6a4c158f31f31d22190bcbe305462668eb3da95622284ffe"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "entry_point": "retention_coupon.py",
+      "valid": true,
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      },
+      "exports": [
+        {
+          "file": "retention_coupon.step",
+          "ok": true,
+          "sha256": "78f4b98ab56634eff77db0cfcfda4389bb634fdae221b543642da1cb9a9fe69a"
+        },
+        {
+          "file": "retention_coupon.stl",
+          "ok": true,
+          "sha256": "b7e0eb5b9a59b818e7ac1b0585c11640d5d26c451f61a413d2a6b95abb2dd79d"
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

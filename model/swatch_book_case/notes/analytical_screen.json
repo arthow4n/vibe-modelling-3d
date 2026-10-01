@@ -1,0 +1,87 @@
+{
+  "scope": "Uncalibrated beam and frictionless circular-cam CLOSING screens; flat retaining underside prevents cam-only opening. Not actual force or printed strain limits",
+  "clearance_variation_mm": 0.2,
+  "rows": [
+    {
+      "modulus_MPa": 800,
+      "interference_mm": 0.7,
+      "closing_slide_force_N": 1.4639775747497852,
+      "bead_transverse_force_N": 4.587520000000001,
+      "approximate_release_force_N": 5.120000000000003,
+      "stiffness_at_bead_N_mm": 6.553600000000002,
+      "root_strain": 0.008400000000000001
+    },
+    {
+      "modulus_MPa": 800,
+      "interference_mm": 0.9,
+      "closing_slide_force_N": 2.1943649259329776,
+      "bead_transverse_force_N": 5.898240000000002,
+      "approximate_release_force_N": 5.120000000000003,
+      "stiffness_at_bead_N_mm": 6.553600000000002,
+      "root_strain": 0.010800000000000002
+    },
+    {
+      "modulus_MPa": 800,
+      "interference_mm": 1.1,
+      "closing_slide_force_N": 3.056683639023821,
+      "bead_transverse_force_N": 7.208960000000003,
+      "approximate_release_force_N": 5.120000000000003,
+      "stiffness_at_bead_N_mm": 6.553600000000002,
+      "root_strain": 0.013200000000000003
+    },
+    {
+      "modulus_MPa": 1200,
+      "interference_mm": 0.7,
+      "closing_slide_force_N": 2.1959663621246777,
+      "bead_transverse_force_N": 6.881280000000001,
+      "approximate_release_force_N": 7.680000000000003,
+      "stiffness_at_bead_N_mm": 9.830400000000003,
+      "root_strain": 0.008400000000000001
+    },
+    {
+      "modulus_MPa": 1200,
+      "interference_mm": 0.9,
+      "closing_slide_force_N": 3.2915473888994664,
+      "bead_transverse_force_N": 8.847360000000002,
+      "approximate_release_force_N": 7.680000000000003,
+      "stiffness_at_bead_N_mm": 9.830400000000003,
+      "root_strain": 0.0108
+    },
+    {
+      "modulus_MPa": 1200,
+      "interference_mm": 1.1,
+      "closing_slide_force_N": 4.585025458535731,
+      "bead_transverse_force_N": 10.813440000000003,
+      "approximate_release_force_N": 7.680000000000003,
+      "stiffness_at_bead_N_mm": 9.830400000000003,
+      "root_strain": 0.013200000000000003
+    },
+    {
+      "modulus_MPa": 1800,
+      "interference_mm": 0.7,
+      "closing_slide_force_N": 3.2939495431870163,
+      "bead_transverse_force_N": 10.321920000000002,
+      "approximate_release_force_N": 11.520000000000003,
+      "stiffness_at_bead_N_mm": 14.745600000000003,
+      "root_strain": 0.008400000000000001
+    },
+    {
+      "modulus_MPa": 1800,
+      "interference_mm": 0.9,
+      "closing_slide_force_N": 4.937321083349199,
+      "bead_transverse_force_N": 13.271040000000003,
+      "approximate_release_force_N": 11.520000000000003,
+      "stiffness_at_bead_N_mm": 14.745600000000003,
+      "root_strain": 0.010800000000000002
+    },
+    {
+      "modulus_MPa": 1800,
+      "interference_mm": 1.1,
+      "closing_slide_force_N": 6.877538187803596,
+      "bead_transverse_force_N": 16.220160000000003,
+      "approximate_release_force_N": 11.520000000000003,
+      "stiffness_at_bead_N_mm": 14.745600000000003,
+      "root_strain": 0.013200000000000003
+    }
+  ]
+}

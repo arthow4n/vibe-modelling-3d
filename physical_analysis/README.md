@@ -90,13 +90,24 @@ outside this interface. All forces and signed motion histories stay available in
 For passage, specify `contact_free_at` normalized-time checkpoints and
 `displacement_limits_mm={observation: ((xmin,xmax),(ymin,ymax),(zmin,zmax))}`.
 An optional `return_observation` requests return to the initial unloaded pose;
-all drivers must return to their start. The shared answer checks engagement,
+all moving drivers must return to their start; a stationary mating part already
+satisfies that condition. This permits a press-and-return release question with
+a fixed keeper and a moving finger proxy. The shared answer checks engagement,
 penetration, all-frame force balance, checkpoints, displacement envelopes and
 elastic return. Missing passage criteria, observations or failed native quality
 cannot become a successful snap. Checkpoints use the nearest saved frame only
 within `checkpoint_tolerance`; this is sampled evidence, not continuous collision
 proof. Surrounding rigid-driver clearance uses the existing CAD preflight;
 envelopes do not prove full deformed-flexure clearance against the enclosure.
+
+For a one-way snap closing, the keeper may finish in its seated position while
+the flexible catch returns to its initial unloaded shape. Set
+`require_driver_return=False` with `return_observation` and an explicit final
+`contact_free_at=(1,)` checkpoint to check that recovery without inventing an
+unintended opening motion. The default still requires drivers to return to their
+start. Both policies verify the observed leaf displacement; the alternate policy
+also requires the sampled final contact-free condition. Neither establishes
+printed recovery or permits a loaded final state to count as unloaded return.
 
 `metrics['question']` distinguishes `solver_completed` (a full extracted history),
 `operation_completed` (native accepted completion), `numerical_evidence_adequate`

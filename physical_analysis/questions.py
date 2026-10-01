@@ -284,6 +284,7 @@ class SnapFitQuestion(StructuralQuestion):
     contact_free_at: tuple[float, ...] = ()
     checkpoint_tolerance: float = .01
     return_observation: str | None = None
+    require_driver_return: bool = True
     return_tolerance_mm: float = 1e-4
     displacement_limits_mm: dict[str, tuple] = field(default_factory=dict)
     discretization: str = 'surface_to_surface'
@@ -339,14 +340,21 @@ class SnapFitQuestion(StructuralQuestion):
         error = None
         return_requested = self.return_observation is not None
         if return_requested:
-            returns = all(p.motion.progress is not None and p.motion.progress[-1][1] == 0 for p in self.mating_parts)
-            if not returns:
+            returns = all(all(v == 0 for v in p.motion.displacement_mm) or
+                          (p.motion.progress is not None and p.motion.progress[-1][1] == 0)
+                          for p in self.mating_parts)
+            if self.require_driver_return and not returns:
                 raise ValueError('Elastic return requires all drivers to return to their initial pose')
+            if not self.require_driver_return and 1 not in self.contact_free_at:
+                raise ValueError('Unloaded return with a different final driver pose requires a final contact-free checkpoint at 1')
             row = h[-1].get('observations', {}).get(self.return_observation) if h else None
             if row:
                 error = max(abs(v) for key in ('min_mm', 'max_mm') for v in row[key])
         quality = q['numerical_evidence_adequate'] and penetration_ok and engaged
         return_ok = error is not None and error <= self.return_tolerance_mm
+        if return_requested and not self.require_driver_return:
+            final_free = any(t == 1 and ok for t, ok in zip(self.contact_free_at, checkpoints))
+            return_ok = return_ok and final_free
         passage = bool(quality and checkpoints and all(checkpoints) and clearance and all(clearance.values())
                        and (not return_requested or return_ok))
         forces = m.get('peak_motion_force_N', {})
@@ -369,6 +377,7 @@ class SnapFitQuestion(StructuralQuestion):
             peak_actuation_force_by_driver_N=forces,
             peak_directional_actuation_force_N=directional_forces,
             elastic_return_error_mm=error, numerical_elastic_return_ok=return_ok if return_requested else None,
+            elastic_return_driver_policy=('initial_pose' if self.require_driver_return else 'final_contact_free_pose') if return_requested else None,
             max_penetration_mm=penetration, penetration_ok=penetration_ok,
             contact_free_checkpoints_ok=checkpoints, displacement_envelope_ok=clearance)
         if not quality or not passage:

@@ -96,6 +96,45 @@ def test_local_rounded_snap_retains_passage_and_increment_sensitivity():
     assert answer['physical_limits']['printed_recovery_established'] is False
 
 
+def test_snap_return_accepts_stationary_mate_but_rejects_nonreturning_motion():
+    # A seated keeper is unchanged while a thumb proxy presses/withdraws.
+    # Use already qualified native return history to isolate the intent check;
+    # the swatch-case consumer exercises both drivers in a real native solve.
+    from physical_analysis import MatingPart
+    q=rounded_question()
+    r=q.read_evidence(ROUNDED/'evidence/calculix/cycle_base')
+    fixed=MatingPart('fixed_keeper',cq.Workplane('XY').box(1,1,1),
+                     Motion((0,0,0),name='fixed_keeper'))
+    q.mating_parts += (fixed,)
+    q._answer(r)
+    assert r.metrics['question']['numerical_elastic_return_ok']
+    q.mating_parts=q.mating_parts[:-1]+(replace(fixed,motion=Motion((0,1,0))),)
+    with pytest.raises(ValueError,match='return to their initial pose'):
+        q._answer(r)
+
+
+def test_one_way_unloaded_return_requires_explicit_final_free_checkpoint():
+    # Contract checks on qualified retained history; the swatch case exercises
+    # the new policy on actual one-way closing native evidence.
+    q=rounded_question()
+    r=q.read_evidence(ROUNDED/'evidence/calculix/cycle_base')
+    p=q.mating_parts[0]
+    q.mating_parts=(replace(p,motion=Motion(p.motion.displacement_mm)),)
+    q.require_driver_return=False
+    q.contact_free_at=(.5,)
+    with pytest.raises(ValueError,match='final contact-free checkpoint'):
+        q._answer(r)
+    q.contact_free_at=(1,)
+    q._answer(r)
+    assert r.metrics['question']['numerical_elastic_return_ok']
+    assert r.metrics['question']['elastic_return_driver_policy']=='final_contact_free_pose'
+    # A final loaded contact cannot be promoted merely by enabling the policy.
+    r.history[-1]['max_contact_pressure_MPa']=.1
+    q._answer(r)
+    assert not r.metrics['question']['contact_passage_established']
+    assert not r.metrics['question']['numerical_elastic_return_ok']
+
+
 def test_phone_release_preserves_force_and_exposes_approximation():
     q = consumer('analysis_phone_stand').release_case(mesh=1.1)
     r = q.read_evidence(ROOT/'model/analysis_phone_stand/notes/analysis/release')

@@ -1,0 +1,253 @@
+{
+  "name": "catch_press_return",
+  "nonlinear": true,
+  "max_increment": 0.0125,
+  "parts": [
+    {
+      "name": "catch",
+      "geometry": "part_0.brep",
+      "sha256": "5df2b0d65f47c496f6a78a173f5fefd3c1ede0c2b4133205c80147e92114712a",
+      "material": {
+        "name": "PETG screening assumption",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus, not measured filament data. Use sensitivity studies and calibrate against the actual print.",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 1.0
+    },
+    {
+      "name": "thumb",
+      "geometry": "part_1.brep",
+      "sha256": "94d646d105dc34327d4baff5b41c559904d0a1814231a32890113556f6528642",
+      "material": {
+        "name": "PETG screening assumption",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus, not measured filament data. Use sensitivity studies and calibrate against the actual print.",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 1.0
+    },
+    {
+      "name": "keeper",
+      "geometry": "part_2.brep",
+      "sha256": "c92aaa8a64ba30896034551b27145dc51cd2d069b8e68cdc60d392e917038412",
+      "material": {
+        "name": "PETG screening assumption",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus, not measured filament data. Use sensitivity studies and calibrate against the actual print.",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 1.0
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "catch",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            -10.0,
+            -26.0,
+            28.1
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "keyed_root",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "thumb",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        1.4500000000000002,
+        0
+      ],
+      "name": "press",
+      "progress": [
+        [
+          0,
+          0
+        ],
+        [
+          0.5,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "selection": {
+        "part": "keeper",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "seated_keeper",
+      "progress": null
+    }
+  ],
+  "loads": [],
+  "contacts": [
+    {
+      "slave": {
+        "part": "catch",
+        "region": {
+          "lower": [
+            6.8,
+            -35.400000000000006,
+            19.9
+          ],
+          "upper": [
+            17.1,
+            -34.050000000000004,
+            28.1
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "thumb",
+        "region": {
+          "lower": [
+            null,
+            -34.2,
+            null
+          ],
+          "upper": [
+            null,
+            -34.2,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 6000,
+      "penetration_limit_mm": 0.03,
+      "discretization": "surface_to_surface"
+    },
+    {
+      "slave": {
+        "part": "catch",
+        "region": {
+          "lower": [
+            6.8,
+            -35.400000000000006,
+            19.9
+          ],
+          "upper": [
+            17.1,
+            -34.050000000000004,
+            28.1
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "keeper",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 6000,
+      "penetration_limit_mm": 0.03,
+      "discretization": "surface_to_surface"
+    }
+  ],
+  "observations": [
+    {
+      "name": "bead",
+      "selection": {
+        "part": "catch",
+        "region": {
+          "lower": [
+            7.0,
+            -35.400000000000006,
+            22.9
+          ],
+          "upper": [
+            11.0,
+            -34.0,
+            25.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "free_leaf",
+      "selection": {
+        "part": "catch",
+        "region": {
+          "lower": [
+            -9.0,
+            -35.400000000000006,
+            19.9
+          ],
+          "upper": [
+            17.1,
+            -30.8,
+            28.1
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}
