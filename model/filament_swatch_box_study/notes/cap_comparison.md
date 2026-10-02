@@ -316,3 +316,88 @@ upper-wall thickness and module spacing together. Joined modules remain future
 ideas; the completed print does not qualify a joint or establish that a thick
 collar is worth keeping. This discussion has produced no new CAD, specimens,
 simulation or slices.
+
+## E — thin hood with base-mounted detents
+
+The user now explicitly authorizes a very thin hood and a new matching base,
+including closure changes needed for the thin form. Deliver one complete
+five-card prototype; keep the proven card seating source and historical D
+artifacts intact. Joined modules remain a future option, not part of this trial.
+Active work: concept/complete-form review, CAD and interface checks, final paired
+exports/reference slice with local path review, physical-status documentation,
+then review/commit/push. Physical acceptance is outside autonomous verification.
+
+Architecture screen before detailed geometry: without detents a thin lift-off
+hood guides and encloses the cards but cannot meet the requested own-weight
+retention. Four integral base leaves engaging shallow hood pockets retain the
+existing two-part press/pull interaction without buttons, keys or hardware.
+Move flexure space into the substantial base's exterior walls; leave the hood
+mostly 0.8 mm, with a short 1.6 mm lower band carrying the pockets. The band is
+still much slimmer than D's 6 mm wall envelope. All parts use PETG, 0.4 mm nozzle,
+0.2 mm layers, two walls and 7% adaptive cubic as before; the thin walls and
+leaves need actual path review, not an assumed infill-based material law.
+
+The rounded base foot seats the cap rim at Z = 5 mm, independently of the
+detents or cards. Four-sided entry lead-in and 0.4 mm coordinate-side clearance
+guide the skirt. Opposed underside recesses give purchase on the exposed foot;
+pull the lower reinforced hood band rather than squeezing the upper panels.
+The hood closes on the foot with a continuous visible seam; there are no internal
+rim stops that can leave this lower rim suspended. The base guides/seats and
+card clips remain separate from the closure leaves. Contents stay upright,
+notch up, and the cap lifts vertically clear of the 80 mm cards.
+
+Rough screen: five-card upper hood approximately 62 × 46.8 mm, lower band
+63.6 × 48.4 mm, base foot 64 × 48.8 mm, roof around Z = 87.6 mm. A separated
+roof-down hood and floor-down base are comfortably inside the Q2C's practical
+270 × 270 × 256 mm envelope before final slicing. Main sidewalls and roof are
+0.8 mm; paired inner/outer roof rounds are intended to preserve shell material.
+Lower band expansion is ramped in the roof-down print direction. Base leaves
+grow upward from their roots; cam pads and hood-pocket returns use slopes.
+
+Provisional leaf screen: 12 mm width, 1.2 mm thickness, 14.8 mm contact-to-root
+length, shortened by 0.6 mm root blend for the beam approximation. Nominal
+crest travel 0.8 mm; the maximum 1.4 mm adds 0.4 mm guide play and an assumed
+0.2 mm half-width error, not measured print error. With homogeneous effective
+PETG E = 1000–2000 MPa and a provisional 1.5% strain screen, the maximum
+predicted root strain is about 1.25%; free-end travel is about 1.70 mm within
+2.0 mm rear relief. These calculations screen feasibility, not actual force,
+elastic contact passage, layer adhesion, fatigue or creep. Thin-pocket wall
+compliance can reduce retention; a complete sample represents that uncertainty.
+
+Before final export, inspect closed/open geometry with real card references and
+review the full form, foot seam and grip. Target CAD checks at seating contact,
+guidance without detents, card/leaf clearance, pocket skin and rigid translated
+pad witnesses; these do not prove the elastic path. The complete five-card
+print, rather than a mechanism coupon, is the useful experiment for shell feel,
+guide friction, seam contact and four-leaf press/pull operation together.
+
+E handoff evidence: the complete closed/open views with actual reference cards
+show the reduced outline, rounded roof, rim seated on the exposed foot and
+independent access to standing cards. The card floor/seats are not filled by
+the added foot: it is a perimeter ring overlapping only the outer base wall.
+Local wall relief alters the exterior card-guide region above Z = 5 mm; the
+low corner seats and broad card clips remain from their existing builders.
+
+`check_cap_e.py` passed for five and twenty positions: foot/rim contact, clear
+sampled rigid lift with relaxed pads removed, card-envelope clearance, preload
+contact and depressed pad escape witnesses at the screened 1.4 mm stroke.
+Pocket skin is 0.95 mm. Beam maximum strain is 1.25%, with 1.61 mm free-end travel
+and approximately 0.39 mm rear margin. This does not qualify elastic release,
+force or printed PETG properties.
+
+The paired export and both component exports are valid and passed separate
+OrcaSlicer 2.4.2 diagnostic Q2C PETG reviews: no notices, review flags or generated
+supports. The preserved paired layout's targeted requested-width path review
+found all 36 sampled sections filled within 0.05 mm, including the uniform
+base-leaf spans, 0.8 mm sidewalls and four roof layers. Supports are not intended;
+roof/corner rounds grow from the flat roof bed contact, band expansion and
+pocket returns are sloped, and the base leaves/cams grow from attached roots.
+Toolpaths do not establish isotropic material, optical clarity or comfort.
+
+The experiment is the complete five-card pair, not a separate mechanism test.
+Test empty/sparse/full seating, own-weight hold, deliberate lower-band/foot pull,
+shell feel and edge comfort; repeat and compare after overnight dwell. Actual
+printed status is **Unknown**, with no user report. Full-capacity production is
+**N/A** at this handoff. Do not transfer D's reported fit to E, or treat reference
+STL slicing as validation of Orca's separate GUI STEP import. Print-status and
+current conclusions are also reflected in the object README and root index.

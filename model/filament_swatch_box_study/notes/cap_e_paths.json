@@ -1,0 +1,514 @@
+{
+  "placement": "Preserve source placement at PRINT_ANCHOR",
+  "sections": [
+    {
+      "feature": "base_leaf",
+      "x_mm": 51.2,
+      "z_mm": 10,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 50.8,
+      "z_mm": 10,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 50.4,
+      "z_mm": 10,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 108.8,
+      "z_mm": 10,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 109.2,
+      "z_mm": 10,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 109.6,
+      "z_mm": 10,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 51.2,
+      "z_mm": 10,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 50.8,
+      "z_mm": 10,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 50.4,
+      "z_mm": 10,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 108.8,
+      "z_mm": 10,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 109.2,
+      "z_mm": 10,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 109.6,
+      "z_mm": 10,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 51.2,
+      "z_mm": 14,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 50.8,
+      "z_mm": 14,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 50.4,
+      "z_mm": 14,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 108.8,
+      "z_mm": 14,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 109.2,
+      "z_mm": 14,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 109.6,
+      "z_mm": 14,
+      "filled_width_mm": 11.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          120.1,
+          131.5
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 51.2,
+      "z_mm": 14,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 50.8,
+      "z_mm": 14,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 50.4,
+      "z_mm": 14,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 108.8,
+      "z_mm": 14,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 109.2,
+      "z_mm": 14,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "base_leaf",
+      "x_mm": 109.6,
+      "z_mm": 14,
+      "filled_width_mm": 11.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          138.5,
+          149.89999999999998
+        ]
+      ]
+    },
+    {
+      "feature": "thin_sidewall",
+      "x_mm": 123.4,
+      "z_mm": 52.599999999999994,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    },
+    {
+      "feature": "thin_sidewall",
+      "x_mm": 123.00000000000001,
+      "z_mm": 52.599999999999994,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    },
+    {
+      "feature": "thin_sidewall",
+      "x_mm": 184.20000000000002,
+      "z_mm": 52.599999999999994,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    },
+    {
+      "feature": "thin_sidewall",
+      "x_mm": 184.60000000000002,
+      "z_mm": 52.599999999999994,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    },
+    {
+      "feature": "thin_sidewall",
+      "x_mm": 123.4,
+      "z_mm": 42.599999999999994,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    },
+    {
+      "feature": "thin_sidewall",
+      "x_mm": 123.00000000000001,
+      "z_mm": 42.599999999999994,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    },
+    {
+      "feature": "thin_sidewall",
+      "x_mm": 184.20000000000002,
+      "z_mm": 42.599999999999994,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    },
+    {
+      "feature": "thin_sidewall",
+      "x_mm": 184.60000000000002,
+      "z_mm": 42.599999999999994,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    },
+    {
+      "feature": "thin_roof",
+      "x_mm": 153.8,
+      "z_mm": 0.2,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    },
+    {
+      "feature": "thin_roof",
+      "x_mm": 153.8,
+      "z_mm": 0.4,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    },
+    {
+      "feature": "thin_roof",
+      "x_mm": 153.8,
+      "z_mm": 0.6,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    },
+    {
+      "feature": "thin_roof",
+      "x_mm": 153.8,
+      "z_mm": 0.8,
+      "filled_width_mm": 24,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          123,
+          147
+        ]
+      ]
+    }
+  ],
+  "result": "Sampled base leaves, 0.8 mm sidewalls and four roof layers filled within 0.05 mm",
+  "limits": "Sampled coverage uses requested stroke widths, not measured polymer. No modulus, layer bonding, optical clarity or whole-feature strength calibration.",
+  "gcode_sha256": "816c957fcebbc4d025c9f696733553f3a1a301c1e37c1711fd2323d640c01b96",
+  "source_sha256": "50026143c82f329a000de9bc484a95f9e0c2fb1a9d28ea757bbc5314bb5ed32a",
+  "stl_sha256": "3e0ae4d5cb59b8a8cc03d0e3d9db4ced0f631bd8528b09125ac59e1a3d512323"
+}

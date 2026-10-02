@@ -1,0 +1,130 @@
+{
+  "configurations": [
+    {
+      "count": 5,
+      "lifts_mm": [
+        0,
+        0.2,
+        0.5,
+        1,
+        2,
+        4,
+        8,
+        12,
+        16,
+        30,
+        84
+      ],
+      "rim_seated": true,
+      "guide_and_card_path_clear": true,
+      "relaxed_pad_preload_and_withdrawal_contact": true,
+      "pad_only_escape_stroke_mm": 1.4000000000000006,
+      "pocket_skin_mm": 0.9500000000000001
+    },
+    {
+      "count": 20,
+      "lifts_mm": [
+        0,
+        0.2,
+        0.5,
+        1,
+        2,
+        4,
+        8,
+        12,
+        16,
+        30,
+        84
+      ],
+      "rim_seated": true,
+      "guide_and_card_path_clear": true,
+      "relaxed_pad_preload_and_withdrawal_contact": true,
+      "pad_only_escape_stroke_mm": 1.4000000000000006,
+      "pocket_skin_mm": 0.9500000000000001
+    }
+  ],
+  "beam_screens": [
+    {
+      "modulus_MPa": 1000,
+      "travel_mm": 0.1500000000000007,
+      "beam": {
+        "force_N": 0.2715758945659687,
+        "tip_displacement_mm": 0.1500000000000007,
+        "stiffness_N_mm": 1.8105059637731162,
+        "root_strain": 0.0013390200357072067,
+        "fixed_free_euler_buckling_N": 21.144956860100187,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "modulus_MPa": 1000,
+      "travel_mm": 0.8000000000000007,
+      "beam": {
+        "force_N": 1.4484047710184942,
+        "tip_displacement_mm": 0.8000000000000007,
+        "stiffness_N_mm": 1.8105059637731162,
+        "root_strain": 0.007141440190438409,
+        "fixed_free_euler_buckling_N": 21.144956860100187,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "modulus_MPa": 1000,
+      "travel_mm": 1.4000000000000006,
+      "beam": {
+        "force_N": 2.5347083492823637,
+        "tip_displacement_mm": 1.4000000000000006,
+        "stiffness_N_mm": 1.8105059637731162,
+        "root_strain": 0.01249752033326721,
+        "fixed_free_euler_buckling_N": 21.144956860100187,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "modulus_MPa": 2000,
+      "travel_mm": 0.1500000000000007,
+      "beam": {
+        "force_N": 0.5431517891319374,
+        "tip_displacement_mm": 0.1500000000000007,
+        "stiffness_N_mm": 3.6210119275462325,
+        "root_strain": 0.0013390200357072067,
+        "fixed_free_euler_buckling_N": 42.289913720200374,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "modulus_MPa": 2000,
+      "travel_mm": 0.8000000000000007,
+      "beam": {
+        "force_N": 2.8968095420369884,
+        "tip_displacement_mm": 0.8000000000000007,
+        "stiffness_N_mm": 3.6210119275462325,
+        "root_strain": 0.007141440190438409,
+        "fixed_free_euler_buckling_N": 42.289913720200374,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "modulus_MPa": 2000,
+      "travel_mm": 1.4000000000000006,
+      "beam": {
+        "force_N": 5.069416698564727,
+        "tip_displacement_mm": 1.4000000000000006,
+        "stiffness_N_mm": 3.6210119275462325,
+        "root_strain": 0.01249752033326721,
+        "fixed_free_euler_buckling_N": 42.289913720200374,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    }
+  ],
+  "free_end_travel_mm": 1.6070422535211268,
+  "rear_clearance_margin_mm": 0.39295774647887316,
+  "scope": "Rigid guidance, rim contact, card envelope, blind-pocket skin and translated pad space. Beam screens use an explicit uncalibrated effective-solid assumption.",
+  "limits": "No proof of coupled elastic passage or measured retention/press/pull force. Physical shell feel, optical appearance, creep and fatigue remain unknown."
+}

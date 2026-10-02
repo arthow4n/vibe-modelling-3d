@@ -1,6 +1,73 @@
-# Filament swatch box — press-on / pull-off cap
+# Filament swatch box — thin press-on hood
 
-**Latest prototype printed: fit reported okay, but the hood is too bulky and exposed edges feel insufficiently rounded. Revision needed.**
+**Current deliverable: E, a very thin PETG hood and matching five-card base, ready for a physical trial.**
+The printed D fit was okay, but the hood was too bulky and exposed edges were
+insufficiently rounded. The user authorizes a new matching base and mechanism
+to prioritize a thin hood. E is not yet physically tested; D's fit result does
+not qualify this new closure.
+
+## E — thin hood and matching base
+
+- [Both parts, STEP](cap_e_thin_5.step), [matching STL](cap_e_thin_5.stl),
+  [parametric source](cap_e_thin_5.py).
+- [Thin hood only, STEP](cap_e_hood_5.step), [STL](cap_e_hood_5.stl).
+- [Matching base only, STEP](cap_e_base_5.step), [STL](cap_e_base_5.stl).
+
+Print **both E parts**; the D base and older bases are not matching mates.
+Separate files let you print the hood in translucent PETG and the base in a
+different PETG colour. Use **0.4 mm nozzle, 0.2 mm layers, two walls, 7% adaptive
+cubic** as before. Supplied geometry places the base floor down and hood roof
+down; supports are not requested. These are reference-profile assumptions,
+not confirmation of the user's exact settings or optical appearance.
+
+The main hood walls and roof are **0.8 mm**. A **1.6 mm** lower band holds four
+shallow blind snap pockets and provides a stronger place to grip. The flexing
+leaves now belong to the base, so the hood no longer needs D's 6 mm wall envelope.
+The upper outline is approximately **62 × 46.8 mm**, versus D's 72.4 × 57.2 mm;
+the lower band is 63.6 × 48.4 mm. A 3 mm outside roof round has a matching
+2.2 mm cavity round to preserve the thin shell. Corners, rim and base foot have
+deliberate edge treatment; broad underside recesses return on sloped surfaces.
+
+The hood's lower rim rests directly on the rounded base foot at Z = 5 mm.
+Four-sided entry clearance guides it, the foot stops it, and four base-mounted
+detents provide retention. Hold the exposed foot using its two underside grip
+recesses, grip the hood's **lower band**, and pull upward. Avoid relying on
+squeezing the thin upper panels to open it. Card clips and low corner seats
+reuse the previous builders; local exterior-wall relief now accommodates the
+closure leaves. There are only two printed parts and no release button/hardware.
+
+![E closed and open with upright cards](renders/cap_e_assembled/inspect_cap_e_isometric.png)
+
+The paired and separate layouts passed the OrcaSlicer 2.4.2 Q2C PETG reference
+reviews with no notices or generated supports. Targeted path review found
+36 sampled sections filled through the base leaves, thin long-side walls and
+four roof layers; this does not establish material properties or transparency.
+Rigid five/twenty-card checks confirm rim seating, sampled clear withdrawal,
+blind-pocket skin and depressed pad escape space. The twenty-card geometry is
+checked but is not exported or recommended before this complete five-card trial.
+
+A conservative effective-solid beam screen predicts approximately 1.25% maximum
+root strain and 1.61 mm free-end travel within 2 mm relief. The 1.5% strain screen
+and 1000–2000 MPa modulus range are provisional uncalibrated assumptions; actual
+hood compliance, friction, layer bonding and elastic passage are not established.
+No measured retention or release force is claimed. STEP GUI import remains
+separate from the successful STL smoke slices.
+
+Try the empty pair first, then one, three and five cards. Report whether the
+rim meets the foot, the corners feel comfortable, the hood feels acceptably
+thin, and deliberate pulling opens it without buckling the shell. Check loaded
+own-weight retention a few centimetres over a table with a hand beneath it;
+repeat closure/opening and compare after an overnight closed dwell. Translucent
+appearance, spring return, pocket wear and grip are physical questions. This
+complete sample represents the thin hood and new base together, rather than a
+local latch coupon. Joined modules remain future work.
+
+[E design record](notes/cap_comparison.md#e--thin-hood-with-base-mounted-detents),
+[geometry/beam checks](notes/cap_e_checks.json), [local path evidence](notes/cap_e_paths.json)
+and [manufacturing review](notes/cap_e_review.json) retain the actual evidence.
+
+## Printed reference — D
+
 The previous PETG print's broad clip grips nicely, but its tiny end spring gives
 no useful sideways pressure. The new base removes that spring, adds two fixed
 seats matching each card's bottom corners, and strengthens the broad clip.
@@ -16,9 +83,10 @@ of a thinner hood and expandable joined five-card boxes. Both remain
 [future ideas](notes/cap_comparison.md#future-ideas--translucent-petg-and-joined-modules),
 initially deferred until the print finished. The subsequent report makes a
 slimmer hood and more pronounced rounding the next concept priorities, including
-for opaque filament. The base is probably fine according to the user. No thinner
-or modular variant has been modelled in this discussion; the current artifacts
-remain the printed reference, not an accepted finished product.
+for opaque filament. The base is probably fine according to the user. The later
+authorization produced the E thin-hood prototype above; modular joints remain
+discussion only. D artifacts remain the printed reference, not an accepted
+finished product.
 
 Additional closure requirement: the user wants the hood's lower rim to meet
 the base neatly when fully closed, while remaining easy to pull apart. The
@@ -28,7 +96,7 @@ base grips below the seam. This is recorded in the
 The existing source seats on internal pads; that does not establish the desired
 visible rim-to-base contact in the printed object.
 
-## Current matched prototype — D
+### Historical matched prototype — D
 
 - [Both parts, STEP](cap_d_snap_5.step), [matching STL](cap_d_snap_5.stl),
   [parametric source](cap_d_snap_5.py).
@@ -339,6 +407,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
+| Test — E thin hood and matching five-card base | Unknown — no print report | `cap_e_thin_5.step/.stl`, `cap_e_hood_5.step/.stl`, `cap_e_base_5.step/.stl` | CAD/reference slices passed; new fit, seam contact, thin-shell feel, comfort, optics and retention need the complete trial |
 | Test — selected D five-card press-on cap/base | Yes — latest prototype reported printed | `cap_d_snap_5.step/.stl`, `cap_d_hood_5.step/.stl`, `cap_d_base_5.step/.stl`; printed files unconfirmed | Fit okay; base probably fine; hood too bulky and exposed edges insufficiently rounded. Partial success; revision required. Loaded retention, force, recovery and dwell unqualified |
 | Test — current five-card corner seat | Unknown — standalone artifact unconfirmed | `card_base_corner_seat_5.step/.stl` | D's integrated base reported probably fine; this separate trial and detailed centering/grip result remain unconfirmed |
 | Test — A five-card hood/rounded base | Unknown | `cap_a_lift_off_5.step/.stl`, `cap_a_hood_5.step/.stl`, `base_rounded_5.step/.stl` | No report; cap fit, seating, lift, protection and handling unqualified |
@@ -347,7 +416,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | N/A | D printed reference needs a slimmer, more rounded hood; no qualified production box | Fit report does not qualify overall form, retention or twenty-card use; thinner/modular concepts are discussion only |
+| Final printable object | N/A | E five-card prototype is the current physical trial; no qualified production box | E normal use and retention await physical results before full-capacity exports; joined modules remain concepts |
 
 ## Attribution
 
