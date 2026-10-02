@@ -1,6 +1,9 @@
 # Filament swatch box — five- and fifteen-card base trials
 
-**Print the five-card base first.** Both bases are standalone, fully printed
+**Five-card baseline printed; seated movement needs revision.** The user reports
+that it generally works, but cards still move too much when fully bottomed out.
+The files below preserve that baseline, not a fix for the seated movement.
+Both bases are standalone, fully printed
 handling trials for the existing **80 mm tall × 50 mm wide × 2 mm thick** cards,
 with the notch at the top. No cover, button, latch, hardware or assembly is
 included. The user requested these base prints to resolve card return before
@@ -21,6 +24,31 @@ included in either printable export.
 
 ## Entrance and support
 
+### Physical feedback and the next decision
+
+The user reports a printed five-card version which generally works, but cards
+move excessively at their deepest seated position. Movement direction/magnitude,
+actual card thickness, filament, nozzle/layers and slicer settings remain unknown.
+This is partial physical success; the steady-upright requirement is not met.
+It does not establish a print-process defect or comfortable entry from every direction.
+
+Feedback arrived at repository commit `64986ae`. Swatch source and artifacts are
+unchanged from delivery `ff71602`; the intervening commit concerned the phone
+stand. The user's actual printed file/hash is not independently confirmed.
+[The retained export hashes](notes/base_tests_review.json) identify the baseline.
+
+The lower groove has 0.8 mm nominal total thickness clearance and 4 mm along the
+card's bottom edge. Floor contact does not tighten either fit. A simple 0.8/14
+clearance/depth screen permits roughly 3.3° of lean; this is a nominal geometric
+possibility, not measured play or a diagnosis of the reported motion.
+
+Preserve the four-sided entrances while revising the lower locating surfaces.
+Closer rigid clearances are the cheapest change for consistent card dimensions.
+For varied cards that must feel fixed, gentle printed spring preload against
+fixed locating faces is a possible alternative, pending material and contact/
+release review. Identify movement direction and actual dimensions before sizing
+the next five-card trial. Cover integration remains dependent on seated restraint.
+
 The earlier straight-slot study provided nominal support but left the user to
 find a narrow entrance. The user questioned that interaction before printing;
 no physical failure was reported. These trials replace that entrance with a
@@ -29,7 +57,8 @@ no physical failure was reported. These trials replace that entrance with a
 - Slots are on 7 mm centres, leaving 5 mm between adjacent nominal card faces.
 - Each lower groove is 2.8 mm wide and 14 mm deep: 0.8 mm total allowance for a
   nominal 2 mm card. It constrains lean without gripping by interference or
-  relying on neighbouring cards. Printed clearance and steadiness are untested.
+  relying on neighbouring cards. The five-card print does not meet the user's
+  desired seated steadiness; actual clearance is unmeasured.
 - A 4 mm deep taper widens the entrance to 5.6 mm across card thickness. The
   two end faces also flare: the width available to the 50 mm edge grows from
   54 mm below to 56.4 mm at the entrance. It is not just a chamfer on two sides.
@@ -52,7 +81,7 @@ behaviour or handling with all fifteen cards. Neither base establishes cover fit
 or protection. The older cover sketches are not compatible print-ready covers
 for these revised bases.
 
-## Print and try
+## Baseline print setup and check procedure
 
 Use the supplied orientation: **flat underside on the bed, entrances upward**.
 Recommended starting setup is **PETG, 0.4 mm nozzle, 0.2 mm layers, two walls,
@@ -110,6 +139,8 @@ corner, rather than incorrectly placing that corner below the entrance.
 These checks establish **possible hand-guided paths**, not passive self-centring,
 a continuous-motion proof, printed fit, comfortable grip or automatic insertion
 from arbitrary angles. The physical trial is needed for those handling questions.
+The user's five-card print now shows excessive seated movement, which these
+entry-path and slice checks did not qualify.
 
 Both final STLs completed their **OrcaSlicer 2.4.2** reference slices on the
 Qidi Q2C profile, centred without rotation, with no notices or review flags.
@@ -140,8 +171,9 @@ Status reviewed 2026-10-02. Printable deliverables in this phase are base trials
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | Unknown | `card_base_test_5.step/.stl`, `card_base_test.step/.stl` | No print report; five-card entry, selection and independent-support trial first |
-| Final printable object(s) | N/A | No final covered box in this test phase | Cover selection/integration and transport retention await base feedback |
+| Test piece(s) — five-card baseline | Yes | `card_base_test_5.step/.stl`, delivery `ff71602`; actual printed hash unconfirmed | User reports generally works, but fully seated cards move excessively; motion direction and print details unreported |
+| Test piece(s) — fifteen-card baseline | Unknown | `card_base_test.step/.stl` | No print report; same lower seat is provisional after five-card feedback |
+| Final printable object(s) | N/A | No final covered box in this test phase | Seated restraint needs revision before cover integration or final acceptance |
 
 ## Attribution
 
