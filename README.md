@@ -33,7 +33,7 @@ completion from design adequacy and physical validation.
 | Vaseline container | [Screw-top jar](model/vaseline_container/README.md) | [Record](model/vaseline_container/README.md#attribution) | N/A — full pair is the trial | Yes — user reports good print |
 | Vaseline transfer spatula | [Flat scrape-and-fill tool](model/vaseline_transfer_spatula/README.md) | [Record](model/vaseline_transfer_spatula/README.md#attribution) | N/A — complete tool is the first proposed trial | Unknown — no user report |
 | Filament archive swatch | [SCAD instructions](model/filament_archive_swatch/README.md) | [Record](model/filament_archive_swatch/README.md#attribution) | N/A — full swatch is the trial | Yes — user reports previous print works as intended |
-| Upright swatch box | [Press-on cap and seating trial](model/filament_swatch_box_study/README.md) | [Record](model/filament_swatch_box_study/README.md#attribution) | Partial — broad clip accepted; selected D matched press-on cap/base has no print report | N/A — D architecture selected; five-card fit/retention precedes full-capacity production |
+| Upright swatch box | [Press-on cap and seating trial](model/filament_swatch_box_study/README.md) | [Record](model/filament_swatch_box_study/README.md#attribution) | Partial — latest D printed; fit okay, base probably fine, hood bulk and exposed-edge comfort rejected | N/A — slimmer rounded hood needed; translucent PETG and joined modules remain concept options |
 
 These links identify current instructions; retained experiments are historical
 unless the current instructions recommend them. The two print-status columns use

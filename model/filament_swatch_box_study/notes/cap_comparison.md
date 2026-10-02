@@ -166,3 +166,111 @@ five-card matched pair is the next physical experiment. Record cap and base
 dimensions/setup, seated hold, own-weight retention, press/pull feel, return and
 overnight dwell; use those observations to choose reach or stiffness adjustments.
 Actual twenty-row loaded retention and transport remain outside this trial.
+
+## Future ideas — translucent PETG and joined modules
+
+Initial user update, 2026-10-02: the latest prototype was printing; the translucent
+spools are PETG. The user requested ideas and theoretical screens only, with
+**no modelling until the print finished**. During this discussion they then
+reported completion: fit okay, base probably fine, hood too fat even in opaque
+filament, and exposed base/bottom and hood/top insufficiently rounded. The hood
+therefore needs a form/handling revision; successful fit is only partial success.
+Do not preserve the bulky shell merely because its local checks passed.
+Exact printed artifacts/settings remain unconfirmed; loaded retention and
+release force were not reported.
+
+Continue the concept discussion around that feedback. The future mechanisms
+and thicknesses below are possibilities, not accepted or print-ready variants.
+No source, export, slice evidence or current print setup changes in this phase.
+
+### Translucent hood
+
+Keep the substantial base, complete enclosure and fully printed construction.
+The present D shell has a 6.0 mm sidewall envelope and 2.4 mm roof. The sidewall
+envelope accommodates the lower hidden leaves and their relief but continues
+above them. Leaf roots are at Z = 31.4 mm. A provisional upper-body transition
+around Z = 35 mm would leave the root region intact geometrically; that alone
+does not preserve its stiffness or establish unchanged retention. Thinning only
+from the inside would retain the rejected bulky outline: the next concept must
+also reduce the exterior envelope. Treat opaque-PETG bulk/comfort as a requirement
+alongside translucency, rather than making the change solely an optical variant.
+
+| Discussion option | Intended appearance and handling | Main unresolved relationship |
+| --- | --- | --- |
+| Thin upper body, reinforced lower clip regions; approximately 1.0–1.2 mm upper walls | Slimmer frosted or tinted cover, deeper-coloured lower details; a firm opening grip | Preserve leaf support, roof stiffness and release without retaining an unnecessarily thick full collar; preferred next concept |
+| Thin panels, approximately 0.8–1.0 mm, with thicker corners or selected ribs | More light through the panels, visible darker framing; reinforcement may reduce the flimsy feel | Rib locations and roof/perimeter support; all panels remain closed printed plastic |
+| Very thin shell with retention moved into the substantial base | Light, flexible cover with fewer bulky features in the transparent body | New base-side flexures and a load-spreading hood rim; larger architecture change, defer rather than assume it improves the product |
+
+Illustrative thicknesses are not a new print agreement. For equally supported,
+solid panels of the same material, local bending stiffness scales with t³:
+0.8 mm has (0.8/1.2)³ = 0.296, about 30% of a 1.2 mm panel's stiffness;
+1.0 mm has about 58%. This is a relative thickness screen, not a prediction of
+whole-hood deflection, release force, strength or printed PETG properties.
+Do not apply it to the current thick, sparsely filled shell as if it were solid.
+
+Thinner walls are an optical opportunity, not a proportional transparency
+guarantee. Extrusion air gaps scatter light, so wall paths and finish matter as
+well as thickness; see [Prusa's transparent-print experiments](https://blog.prusa3d.com/3d-printed-lens-and-other-transparent-objects_31231/).
+Do not transfer their bulk-lens settings directly to this flexible enclosure.
+Aim first for a deliberate translucent finish rather than readable labels
+through a glass-clear wall. Tinted hoods also tint the apparent swatch colours;
+neutral clear PETG is preferable for viewing colour without an added tint.
+No coatings, separate sheets or other materials are proposed.
+
+Form/edge priority after the print report: visibly round the roof-to-side
+transition, lower exposed hood rim and base's exposed foot/grip edges. A broad
+flat roof is not itself a sharp edge; rounding must address the places fingers
+contact, as well as the overall silhouette. Construct the thin shell and its
+rounded transitions together, preserving material and card headroom, rather
+than applying a large fillet that cuts away a thin wall. Keep mating ramps,
+seating stops and card-contact datums dimensionally deliberate. The current
+small edge treatments were not adequate physical comfort evidence.
+
+Envelope screen: preserving the current 60.4 × 45.2 mm five-card cavity while
+using 1.2 mm upper walls gives approximately 62.8 × 47.6 mm upper exterior,
+versus the present 72.4 × 57.2 mm. That is 9.6 mm less on each overall axis,
+before rounded transitions or reinforcement. It does not establish the lower
+clip-zone footprint; protruding reinforcement still governs modular spacing.
+
+### Expandable five-card boxes
+
+User intent: print another small box when needed, join it to existing boxes,
+and retain the option to expand beyond a fixed fifteen/twenty-card capacity.
+Prefer joining the **bases**, with independently removable hoods, so adding
+capacity does not require one long replacement cap. Preserve card insertion,
+firm upright seating and opposing cap/base grips. Joins must clear the skirt
+and leave each cap's vertical withdrawal accessible.
+
+| Discussion option | Benefit | Cost or uncertainty |
+| --- | --- | --- |
+| Integral sliding joints along the lower base edges | No additional pieces; join identical modules into a row | Joint assembly travel, cap clearance, empty end appearance and accessible release need consideration |
+| Short separate printed keys joining underside/base sockets | Identical boxes, reversible links, tidy unused sockets; all materials still printed | Extra printed pieces and underside access; a flush key must not make the bases rock |
+| Expandable printed carrier sections holding plain boxes | Existing boxes might remain usable without new side joints | More material, components and footprint; only worthwhile if compatibility matters |
+
+Provisional preference: short printed keys connecting bases along the row of
+card positions. Keep each box independently enclosed. Treat the row as supported
+desk storage for now; no joined-row carrying strength is established. Connector
+geometry, resistance to sliding/twisting, detachment and any carrying load must
+be decided before modelling a joint. The base has only a 6.4 mm exposed band
+below the current skirt, so an external joint cannot simply occupy the full
+20.4 mm base side without obstructing the hood.
+
+Capacity screen: n five-card modules hold 5n cards. Current D five-card hood
+footprint is 72.4 × 57.2 mm; the corresponding base depth is 44.4 mm. Joining
+bases directly face-to-face would overlap the hoods. Illustrative 2 mm gaps
+between hoods require a 59.2 mm module pitch, or 14.8 mm between base ends.
+This gap is a packing assumption, not qualified finger access or tolerance.
+Overall row length is 57.2n + 2(n−1) mm: four modules/20 cards occupy 234.8 mm,
+versus 162.2 mm for the current twenty-card hood envelope. A future thinner
+hood could alter those dimensions; do not freeze joint spacing now. Repeated
+end walls and four sets of detents also cost more material than one large box.
+Every module remains individually printable as capacity grows; total row length
+is practically limited by shelf space and handling, not a fixed card count.
+
+Next concept decision: use the reported fit as a starting point, revise the
+bulky outline and uncomfortable edges, and decide whether local clip supports
+can achieve the slim form before changing the closure architecture. Revisit
+upper-wall thickness and module spacing together. Joined modules remain future
+ideas; the completed print does not qualify a joint or establish that a thick
+collar is worth keeping. This discussion has produced no new CAD, specimens,
+simulation or slices.

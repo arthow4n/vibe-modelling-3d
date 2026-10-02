@@ -1,6 +1,6 @@
 # Filament swatch box — press-on / pull-off cap
 
-**Current deliverable: a matched five-card press-on / pull-off cap and base, awaiting a physical report.**
+**Latest prototype printed: fit reported okay, but the hood is too bulky and exposed edges feel insufficiently rounded. Revision needed.**
 The previous PETG print's broad clip grips nicely, but its tiny end spring gives
 no useful sideways pressure. The new base removes that spring, adds two fixed
 seats matching each card's bottom corners, and strengthens the broad clip.
@@ -10,6 +10,15 @@ authorizes autonomous cap exploration while away; this permits independent cap
 concept work without promoting the corner seat to printed validation. They now
 select a simple lift-off cover with retention: press it on from above and pull
 deliberately to separate it.
+
+The user confirms translucent spools are **PETG** and requests discussion only
+of a thinner hood and expandable joined five-card boxes. Both remain
+[future ideas](notes/cap_comparison.md#future-ideas--translucent-petg-and-joined-modules),
+initially deferred until the print finished. The subsequent report makes a
+slimmer hood and more pronounced rounding the next concept priorities, including
+for opaque filament. The base is probably fine according to the user. No thinner
+or modular variant has been modelled in this discussion; the current artifacts
+remain the printed reference, not an accepted finished product.
 
 ## Current matched prototype — D
 
@@ -303,20 +312,32 @@ before printing. `study.py`, `inspect_lift_off.py`, `inspect_flip.py`,
 concept history. Their cover/hinge envelopes do not qualify any current closure.
 All `inspect_*.py` entries are display-only; never export their reference cards.
 
-The table preserves the two physical trial reports and distinguishes the newer
-unreported prototypes. Printed and usable remain separate questions.
+The latest D prototype was then reported printed on 2026-10-02. Fit was okay;
+the base is probably fine, but the hood feels too fat even for opaque filament.
+The base/bottom and hood/top feel square or flat with inadequate edge rounding.
+This is a physical form/handling rejection with partial fit success, not a
+reported mating failure. Existing source includes small rim fillets/chamfers;
+their presence did not establish the user's desired comfort. No print defect,
+material cause or missing-feature diagnosis is established. The earlier rigid
+checks, beam screens and clean slices remain narrower geometry/manufacturing
+evidence; they did not qualify hood bulk or hand comfort. Release force, loaded
+retention and durability remain unreported. Exact printed files and settings
+are still unconfirmed; PETG is confirmed for the proposed translucent variant.
+
+The table preserves completed physical trial reports and distinguishes them
+from other unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test — selected D five-card press-on cap/base | Unknown | `cap_d_snap_5.step/.stl`, `cap_d_hood_5.step/.stl`, `cap_d_base_5.step/.stl` | No report; press/pull effort, loaded own-weight retention, grip, spring recovery and dwell unqualified |
-| Test — current five-card corner seat | Unknown | `card_base_corner_seat_5.step/.stl` | No report; check firmer grip, corner centering, reinsertion, effort and overnight set |
+| Test — selected D five-card press-on cap/base | Yes — latest prototype reported printed | `cap_d_snap_5.step/.stl`, `cap_d_hood_5.step/.stl`, `cap_d_base_5.step/.stl`; printed files unconfirmed | Fit okay; base probably fine; hood too bulky and exposed edges insufficiently rounded. Partial success; revision required. Loaded retention, force, recovery and dwell unqualified |
+| Test — current five-card corner seat | Unknown — standalone artifact unconfirmed | `card_base_corner_seat_5.step/.stl` | D's integrated base reported probably fine; this separate trial and detailed centering/grip result remain unconfirmed |
 | Test — A five-card hood/rounded base | Unknown | `cap_a_lift_off_5.step/.stl`, `cap_a_hood_5.step/.stl`, `base_rounded_5.step/.stl` | No report; cap fit, seating, lift, protection and handling unqualified |
 | Test — B five-card drawer/enclosure | Unknown | `cap_b_drawer_5.step/.stl` | No report; running fit, overlap, tray support and card access unqualified |
 | Test — C five-card hinged hood | Unknown | `cap_c_hinged_5.step/.stl` | No report; axle/key fit, last-card access, stop strength, stability and handling unqualified |
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | N/A | D architecture selected; no qualified full-capacity production box | Five-card fit and normal use await physical evidence before twenty-card exports |
+| Final printable object | N/A | D printed reference needs a slimmer, more rounded hood; no qualified production box | Fit report does not qualify overall form, retention or twenty-card use; thinner/modular concepts are discussion only |
 
 ## Attribution
 
