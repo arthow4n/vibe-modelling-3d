@@ -1,0 +1,640 @@
+{
+  "phase": "H larger key without handle: compact five-card prototype and actual-end fit sample. Desk-supported alignment; no print report.",
+  "layouts": {
+    "cap_h_module_5": {
+      "ok": true,
+      "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_module_5.py",
+      "errors": [],
+      "views": [],
+      "exports": [
+        {
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_module_5.step",
+          "ok": true
+        },
+        {
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_module_5.stl",
+          "ok": true
+        }
+      ],
+      "timings_seconds": {
+        "build": 23.04150907600706,
+        "total": 37.08995584699733,
+        "slice": 9.678910654998617
+      },
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      },
+      "geometry": {
+        "valid": true
+      },
+      "slice": {
+        "ok": true,
+        "model": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_module_5.stl",
+        "profiles": {
+          "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+          "process": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json",
+          "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
+        },
+        "slicer_version": "2.4.2",
+        "placement": "preserve",
+        "effective_settings": {
+          "printer_model": "Qidi Q2C",
+          "printer_variant": "0.4",
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "printable_area": [
+            "0x0",
+            "270x0",
+            "270x270",
+            "0x270"
+          ],
+          "printable_height": "256",
+          "bed_exclude_area": [
+            "0x0",
+            "11x0",
+            "11x16",
+            "0x16"
+          ],
+          "filament_type": [
+            "PETG"
+          ],
+          "filament_settings_id": [
+            "Generic PETG @Qidi Q2C 0.4 nozzle"
+          ],
+          "nozzle_temperature": [
+            "250"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "245"
+          ],
+          "hot_plate_temp": [
+            "80"
+          ],
+          "hot_plate_temp_initial_layer": [
+            "80"
+          ],
+          "print_settings_id": "0.20mm Standard 7% Adaptive Cubic @Qidi Q2C",
+          "layer_height": "0.2",
+          "wall_loops": "2",
+          "line_width": "0.42",
+          "outer_wall_line_width": "0.42",
+          "inner_wall_line_width": "0.45",
+          "initial_layer_line_width": "0.5",
+          "brim_type": "auto_brim",
+          "brim_width": "5",
+          "brim_object_gap": "0.1",
+          "enable_support": "0",
+          "support_type": "tree(auto)",
+          "support_threshold_angle": "30",
+          "bridge_no_support": "0",
+          "max_bridge_length": "10",
+          "filament_flow_ratio": [
+            "0.95"
+          ],
+          "enable_arc_fitting": "0",
+          "sparse_infill_density": "7%",
+          "sparse_infill_pattern": "adaptivecubic"
+        },
+        "sliced_plates": [
+          1
+        ],
+        "support_probe": {
+          "ok": true,
+          "generated": false,
+          "supported_plates": [],
+          "effective_support_type": "tree(auto)",
+          "effective_support_threshold_angle": "30",
+          "effective_max_bridge_length_mm": "10"
+        },
+        "log_notices": [],
+        "review_required": false,
+        "kept_run_directory": "/home/hevar/orca-slicer-review-_gwjud32"
+      }
+    },
+    "cap_h_base_5": {
+      "ok": true,
+      "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_base_5.py",
+      "errors": [],
+      "views": [],
+      "exports": [
+        {
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_base_5.step",
+          "ok": true
+        },
+        {
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_base_5.stl",
+          "ok": true
+        }
+      ],
+      "timings_seconds": {
+        "build": 22.019112624009722,
+        "total": 33.59330491400033,
+        "slice": 7.1545736160042
+      },
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      },
+      "geometry": {
+        "valid": true
+      },
+      "slice": {
+        "ok": true,
+        "model": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_base_5.stl",
+        "profiles": {
+          "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+          "process": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json",
+          "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
+        },
+        "slicer_version": "2.4.2",
+        "placement": "preserve",
+        "effective_settings": {
+          "printer_model": "Qidi Q2C",
+          "printer_variant": "0.4",
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "printable_area": [
+            "0x0",
+            "270x0",
+            "270x270",
+            "0x270"
+          ],
+          "printable_height": "256",
+          "bed_exclude_area": [
+            "0x0",
+            "11x0",
+            "11x16",
+            "0x16"
+          ],
+          "filament_type": [
+            "PETG"
+          ],
+          "filament_settings_id": [
+            "Generic PETG @Qidi Q2C 0.4 nozzle"
+          ],
+          "nozzle_temperature": [
+            "250"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "245"
+          ],
+          "hot_plate_temp": [
+            "80"
+          ],
+          "hot_plate_temp_initial_layer": [
+            "80"
+          ],
+          "print_settings_id": "0.20mm Standard 7% Adaptive Cubic @Qidi Q2C",
+          "layer_height": "0.2",
+          "wall_loops": "2",
+          "line_width": "0.42",
+          "outer_wall_line_width": "0.42",
+          "inner_wall_line_width": "0.45",
+          "initial_layer_line_width": "0.5",
+          "brim_type": "auto_brim",
+          "brim_width": "5",
+          "brim_object_gap": "0.1",
+          "enable_support": "0",
+          "support_type": "tree(auto)",
+          "support_threshold_angle": "30",
+          "bridge_no_support": "0",
+          "max_bridge_length": "10",
+          "filament_flow_ratio": [
+            "0.95"
+          ],
+          "enable_arc_fitting": "0",
+          "sparse_infill_density": "7%",
+          "sparse_infill_pattern": "adaptivecubic"
+        },
+        "sliced_plates": [
+          1
+        ],
+        "support_probe": {
+          "ok": true,
+          "generated": false,
+          "supported_plates": [],
+          "effective_support_type": "tree(auto)",
+          "effective_support_threshold_angle": "30",
+          "effective_max_bridge_length_mm": "10"
+        },
+        "log_notices": [],
+        "review_required": false,
+        "kept_run_directory": "/home/hevar/orca-slicer-review-vda6isx_"
+      }
+    },
+    "cap_h_key": {
+      "ok": true,
+      "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_key.py",
+      "errors": [],
+      "views": [],
+      "exports": [
+        {
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_key.step",
+          "ok": true
+        },
+        {
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_key.stl",
+          "ok": true
+        }
+      ],
+      "timings_seconds": {
+        "build": 0.1297489449934801,
+        "total": 5.34054200600076,
+        "slice": 1.7557891420001397
+      },
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      },
+      "geometry": {
+        "valid": true
+      },
+      "slice": {
+        "ok": true,
+        "model": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_key.stl",
+        "profiles": {
+          "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+          "process": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json",
+          "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
+        },
+        "slicer_version": "2.4.2",
+        "placement": "preserve",
+        "effective_settings": {
+          "printer_model": "Qidi Q2C",
+          "printer_variant": "0.4",
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "printable_area": [
+            "0x0",
+            "270x0",
+            "270x270",
+            "0x270"
+          ],
+          "printable_height": "256",
+          "bed_exclude_area": [
+            "0x0",
+            "11x0",
+            "11x16",
+            "0x16"
+          ],
+          "filament_type": [
+            "PETG"
+          ],
+          "filament_settings_id": [
+            "Generic PETG @Qidi Q2C 0.4 nozzle"
+          ],
+          "nozzle_temperature": [
+            "250"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "245"
+          ],
+          "hot_plate_temp": [
+            "80"
+          ],
+          "hot_plate_temp_initial_layer": [
+            "80"
+          ],
+          "print_settings_id": "0.20mm Standard 7% Adaptive Cubic @Qidi Q2C",
+          "layer_height": "0.2",
+          "wall_loops": "2",
+          "line_width": "0.42",
+          "outer_wall_line_width": "0.42",
+          "inner_wall_line_width": "0.45",
+          "initial_layer_line_width": "0.5",
+          "brim_type": "auto_brim",
+          "brim_width": "5",
+          "brim_object_gap": "0.1",
+          "enable_support": "0",
+          "support_type": "tree(auto)",
+          "support_threshold_angle": "30",
+          "bridge_no_support": "0",
+          "max_bridge_length": "10",
+          "filament_flow_ratio": [
+            "0.95"
+          ],
+          "enable_arc_fitting": "0",
+          "sparse_infill_density": "7%",
+          "sparse_infill_pattern": "adaptivecubic"
+        },
+        "sliced_plates": [
+          1
+        ],
+        "support_probe": {
+          "ok": true,
+          "generated": false,
+          "supported_plates": [],
+          "effective_support_type": "tree(auto)",
+          "effective_support_threshold_angle": "30",
+          "effective_max_bridge_length_mm": "10"
+        },
+        "log_notices": [],
+        "review_required": false,
+        "kept_run_directory": "/home/hevar/orca-slicer-review-agvl04ks"
+      }
+    },
+    "cap_h_connector_test": {
+      "ok": true,
+      "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_connector_test.py",
+      "errors": [],
+      "views": [],
+      "exports": [
+        {
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_connector_test.step",
+          "ok": true
+        },
+        {
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_connector_test.stl",
+          "ok": true
+        }
+      ],
+      "timings_seconds": {
+        "build": 44.001242105994606,
+        "total": 49.88647781799955,
+        "slice": 2.4836997090023942
+      },
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      },
+      "geometry": {
+        "valid": true
+      },
+      "slice": {
+        "ok": true,
+        "model": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_h_connector_test.stl",
+        "profiles": {
+          "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+          "process": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json",
+          "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
+        },
+        "slicer_version": "2.4.2",
+        "placement": "preserve",
+        "effective_settings": {
+          "printer_model": "Qidi Q2C",
+          "printer_variant": "0.4",
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "printable_area": [
+            "0x0",
+            "270x0",
+            "270x270",
+            "0x270"
+          ],
+          "printable_height": "256",
+          "bed_exclude_area": [
+            "0x0",
+            "11x0",
+            "11x16",
+            "0x16"
+          ],
+          "filament_type": [
+            "PETG"
+          ],
+          "filament_settings_id": [
+            "Generic PETG @Qidi Q2C 0.4 nozzle"
+          ],
+          "nozzle_temperature": [
+            "250"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "245"
+          ],
+          "hot_plate_temp": [
+            "80"
+          ],
+          "hot_plate_temp_initial_layer": [
+            "80"
+          ],
+          "print_settings_id": "0.20mm Standard 7% Adaptive Cubic @Qidi Q2C",
+          "layer_height": "0.2",
+          "wall_loops": "2",
+          "line_width": "0.42",
+          "outer_wall_line_width": "0.42",
+          "inner_wall_line_width": "0.45",
+          "initial_layer_line_width": "0.5",
+          "brim_type": "auto_brim",
+          "brim_width": "5",
+          "brim_object_gap": "0.1",
+          "enable_support": "0",
+          "support_type": "tree(auto)",
+          "support_threshold_angle": "30",
+          "bridge_no_support": "0",
+          "max_bridge_length": "10",
+          "filament_flow_ratio": [
+            "0.95"
+          ],
+          "enable_arc_fitting": "0",
+          "sparse_infill_density": "7%",
+          "sparse_infill_pattern": "adaptivecubic"
+        },
+        "sliced_plates": [
+          1
+        ],
+        "support_probe": {
+          "ok": true,
+          "generated": false,
+          "supported_plates": [],
+          "effective_support_type": "tree(auto)",
+          "effective_support_threshold_angle": "30",
+          "effective_max_bridge_length_mm": "10"
+        },
+        "log_notices": [],
+        "review_required": false,
+        "kept_run_directory": "/home/hevar/orca-slicer-review-ab70ovr5"
+      }
+    }
+  },
+  "inspection": {
+    "inspect_cap_h": {
+      "ok": true,
+      "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_cap_h.py",
+      "errors": [],
+      "views": [
+        {
+          "view": "isometric",
+          "ok": true,
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/cap_h_assembled/inspect_cap_h_isometric.png",
+          "camera": {
+            "from_direction": [
+              1,
+              -1,
+              1
+            ],
+            "up_direction": [
+              0,
+              0,
+              1
+            ]
+          }
+        }
+      ],
+      "exports": [],
+      "timings_seconds": {
+        "build": 24.415849701006664,
+        "total": 34.14732851399458
+      },
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      },
+      "geometry": {
+        "valid": true
+      }
+    },
+    "inspect_connector_h": {
+      "ok": true,
+      "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_connector_h.py",
+      "errors": [],
+      "views": [
+        {
+          "view": "top",
+          "ok": true,
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/cap_h_connector/inspect_connector_h_top.png",
+          "camera": {
+            "from_direction": [
+              0,
+              0,
+              1
+            ],
+            "up_direction": [
+              0,
+              1,
+              0
+            ]
+          }
+        }
+      ],
+      "exports": [],
+      "timings_seconds": {
+        "build": 43.72472777799703,
+        "total": 47.92835279100109
+      },
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      },
+      "geometry": {
+        "valid": true
+      }
+    }
+  },
+  "physical_status": "Unknown: no H print report. User rejects G arm as unnecessary before reported print; preserve its source/artifacts as history.",
+  "hood": "Unchanged G hood builder and separate cap_g_hood_5 files are reused; H base/key must match H pockets.",
+  "limits": "Rigid sampled entry and relative-base separation only; no printed force, friction, nail comfort, frame stiffness, creep or carrying rating. Cropped sample omits the upper entry notch/hoods; full CAD checks address rigid geometry only.",
+  "input_identities": [
+    {
+      "path": "model/filament_swatch_box_study/cap_h_base_5.py",
+      "sha256": "8d1d488e99b11bd312f8b667cd479aca4cd37eb05286bbc2a29fdd25be766157"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_h_connector_test.py",
+      "sha256": "5eabc26032cf7522697ef09acfb91ae1ccea1fb5afd08c8cadc90a93770a41fa"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_h_key.py",
+      "sha256": "cd0f6d0443cb8d06947108354ecfee39e2206c5805b4ccc376c1a70c5795976b"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_h_module_5.py",
+      "sha256": "a73adf2ae5e8ac6e2ae206b7d2515194d7c1eef78b9d7ca8d2c0449dedcb355e"
+    },
+    {
+      "path": "model/filament_swatch_box_study/check_h.py",
+      "sha256": "34c9dd62995172682699d98fb85da38a98f11d4bad026840d7bb57b4abb8f84b"
+    },
+    {
+      "path": "model/filament_swatch_box_study/inspect_cap_h.py",
+      "sha256": "362ecd1a519490614408b66fa3cbb3ac92dbb32c8fdd1ae9bb0ef45a769fa8b1"
+    },
+    {
+      "path": "model/filament_swatch_box_study/inspect_connector_h.py",
+      "sha256": "b9d8e2cd46b343ea996779aa93b8d787d8354d122b5e222ad61c338f20ae0333"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_g_module_5.py",
+      "sha256": "5dfb2f0b03c2b5b3f545166898a291c742d9fcc8204675a9036de7b2a76ffc91"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_e_thin_5.py",
+      "sha256": "50026143c82f329a000de9bc484a95f9e0c2fb1a9d28ea757bbc5314bb5ed32a"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_common.py",
+      "sha256": "b4e1056f6e3361264f9ecaec0d82e08f08c59b965538036183d8d200225f2015"
+    },
+    {
+      "path": "model/filament_swatch_box_study/card_base_corner_seat_5.py",
+      "sha256": "a0f8f2d89d89fda3e92e7d255387361144454edf1b74a849a9a0ab15ce420cd6"
+    },
+    {
+      "path": "model/filament_swatch_box_study/card_base_petg_5.py",
+      "sha256": "1082fcb7b2163f80d76efa7216fc0fea07fb80690fadfc26111e0da3d45385ea"
+    },
+    {
+      "path": "model/filament_swatch_box_study/card_base_test.py",
+      "sha256": "aef72e9449777c08e36a5eac4150acd7c8ebfa76fe78ca97eb68221dba6368a2"
+    },
+    {
+      "path": "model/filament_swatch_box_study/study.py",
+      "sha256": "657f032e40326e6cfc72c9d5ab83dfd573d4dbfde1b1dc00db81826d1ae18eac"
+    }
+  ],
+  "output_identities": [
+    {
+      "path": "model/filament_swatch_box_study/cap_h_base_5.step",
+      "sha256": "edaa0bdc03634fed023ec8889f4d32df75ace91e458ed87f40a0252d171dc2ed"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_h_connector_test.step",
+      "sha256": "0933a14f95dd56490c6cbb85167856b8e9933af6725402458b110886a10bed28"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_h_key.step",
+      "sha256": "85bdfdf8a45131245b6857f7ebc1c017371ea448792fdcc10a71e938cf85af35"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_h_module_5.step",
+      "sha256": "22b4ee8de9a27e6d3c8b86942ac85f7da84dac9266c813e5693b87ddcafa473f"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_h_base_5.stl",
+      "sha256": "f782e1149d861b2488ad722315aae708a4b9f5d34d5b97ece32733774dc66f49"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_h_connector_test.stl",
+      "sha256": "0dc526250bb5d2e9802adf0b0e8f17cdbe3160133d1ee4ea9710cfce77719946"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_h_key.stl",
+      "sha256": "4c87a053243346093c0536d20777fecf28c5bd93a4fba96eb95147b15aebf064"
+    },
+    {
+      "path": "model/filament_swatch_box_study/cap_h_module_5.stl",
+      "sha256": "0c8bee63f8cf0f5bb9b48128dd2b0be565fe3872917a8a6ff070dec06c5c01dd"
+    },
+    {
+      "path": "model/filament_swatch_box_study/notes/cap_h_checks.json",
+      "sha256": "6bf50c2c8111450e15c4b2e3e5403d94eac85cdff15e7ad1af9a3f2bf7afa2e4"
+    }
+  ],
+  "profile_identities": [
+    {
+      "path": ".codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "sha256": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+    },
+    {
+      "path": ".codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json",
+      "sha256": "d0ff4d67939b4f75dc4146f331ec6cf1a70cb076034da8ebc8dc4efbdf0b25f3"
+    },
+    {
+      "path": ".codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json",
+      "sha256": "186159c2b3f1e046f0004e86bdf99722da291e31cc6472be277302767113e2db"
+    }
+  ]
+}

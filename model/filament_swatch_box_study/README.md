@@ -1,12 +1,49 @@
 # Filament swatch box — thin press-on hood
 
-**New deliverable: G, a compact five-card modular proof with a drop-in key.**
-F remains available unchanged and explicitly unprinted. G adds joining pockets
-to a smaller matching base and keeps the thin, smooth hood form. This is a
-supported desk-storage prototype; joined carrying and physical fit are untested.
-No ten-card module is included.
+**New deliverable: H, a broader connector without G's long handle.**
+Previous versions are preserved. The user finds G's projecting arm unnecessary
+for modules that usually remain joined. H changes the pockets and key, retaining
+the compact five-card footprint and the existing G hood. No H print is reported.
 
-## G — modular five-card proof
+## H — connector without a handle
+
+- [Small connector test, STEP](cap_h_connector_test.step), [STL](cap_h_connector_test.stl).
+- [One base, G hood and key, STEP](cap_h_module_5.step), [STL](cap_h_module_5.stl), [source](cap_h_module_5.py).
+- Separate [H base STEP](cap_h_base_5.step), [H key STEP](cap_h_key.step), with matching same-name STLs. The [unchanged G hood](cap_g_hood_5.step) is compatible.
+
+The new key is **16 × 6.7 × 3.4 mm**, with an 8 mm waist. The long arm and its
+foot channel are gone; nothing projects from the side. The deeper head needs a
+straight-sided entry notch in the base wall, visible when the hood is removed.
+The notch is beyond the last card clip relief. Foot depth remains 44.8 mm and
+hood walls/roof remain 0.8 mm. H keys/pockets differ from G; print matching parts.
+
+![H wider connector seated between actual base ends](renders/cap_h_connector/inspect_connector_h_top.png)
+
+Sideways spreading is the motion the bow tie prevents. To separate occasionally,
+remove both hoods, lift one base about 4 mm relative to the other, then move it
+away. Its pocket floor can carry the key upward until it clears the other foot;
+which half retains the key and the actual effort depend on printed fit. Two
+small nail recesses also let you lift the key directly. These are occasional
+release provisions, not a frequent-operation handle. The key is intended to
+seat without a forced interference fit; closed hoods cover upward key release.
+
+![H complete open and closed modules](renders/cap_h_assembled/inspect_cap_h_isometric.png)
+
+Use the same PETG, 0.4 mm nozzle, 0.2 mm layers, two walls and 7% adaptive cubic.
+Print bases floor down, keys flat and hoods roof down. The small sample uses two
+actual end crops and one key: bring end faces about 0.3 mm apart, seat the key,
+check planar play, then try lifting one half and moving it away. Check nail
+access separately. The sample omits the tall wall and hoods; full-base CAD checks
+cover their geometry, but actual loaded handling, closure and frame stiffness
+require the complete pair. Never infer whole-product success from the sample.
+
+[CAD checks](notes/cap_h_checks.json) cover full-base entry, a lifted-base release
+path, hood clearance/coverage and nominal nail-tip access. [Reference slices](notes/cap_h_review.json)
+cover the final layouts; fit, force, nail comfort and strength remain unprinted.
+This is a desk-supported storage proof, with no joined carrying rating.
+[Design record](notes/cap_comparison.md#h--wider-connector-without-a-handle).
+
+## G — retained modular five-card proof
 
 - [Small connector test, STEP](cap_g_connector_test.step), [STL](cap_g_connector_test.stl): two actual base-end crops and one key.
 - [One base, hood and key, STEP](cap_g_module_5.step), [STL](cap_g_module_5.stl), [parametric source](cap_g_module_5.py).
@@ -20,7 +57,8 @@ rounded edges. **Use G's matching base and hood together.** F/E are retained.
 
 ![G: joined closed/open modules with a removed hood](renders/cap_g_assembled/inspect_cap_g_isometric.png)
 
-The connector has a bow-tie head, a slim arm and a rounded side tab. Remove both
+The user finds the long arm unnecessary before any reported G print. The
+retained connector has a bow-tie head, a slim arm and a rounded side tab. Remove both
 hoods, place the bases together on a desk and lower the key into the top pockets.
 Its wide ends constrain spreading and planar movement. The closed hoods cover
 straight upward withdrawal. To separate, remove both hoods and lift the key by
@@ -493,6 +531,8 @@ from other unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
+| Test — H connector without handle | Unknown — no print report | `cap_h_connector_test.step/.stl` | Larger head and nail recesses; actual insertion, relative-base lift and occasional removal need printing. No tall wall/hoods represented by sample |
+| Test — H complete five-card module | Unknown — no print report | `cap_h_module_5.step/.stl`, `cap_h_base_5.step/.stl`, `cap_h_key.step/.stl`; unchanged G hood | CAD checks passed; new entry notch, whole-base stiffness, comfort and retention remain physical questions. Desk-supported only |
 | Test — G modular connector | Unknown — no print report | `cap_g_connector_test.step/.stl` | Actual end geometry; vertical fit, planar play and removal await the small trial. No hood restraint or full-module stiffness represented |
 | Test — G compact five-card module | Unknown — no print report | `cap_g_module_5.step/.stl`, `cap_g_base_5.step/.stl`, `cap_g_hood_5.step/.stl`, `cap_g_key.step/.stl` | CAD/reference slices passed; reduced frame, card grip, hood seating/release and joined handling untested. Desk-supported proof only |
 | Test — F flush hood with E five-card base | No — user explicitly has not printed it yet | `cap_f_flat_5.step/.stl`, `cap_f_hood_5.step/.stl`, unchanged `cap_e_base_5.step/.stl` | User prefers appearance and keeps this version; CAD/reference slices passed. Comfort, thin-shell feel, fit/seam contact, optics and retention need the complete trial |
@@ -505,7 +545,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | N/A | G modular proof and F/E complete five-card prototypes; no qualified production box | Normal use and retention await physical results before full-capacity exports; joined carrying remains unqualified |
+| Final printable object | N/A | H/G modular proofs and F/E complete five-card prototypes; no qualified production box | Normal use and retention await physical results before full-capacity exports; joined carrying remains unqualified |
 
 ## Attribution
 

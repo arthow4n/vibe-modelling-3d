@@ -621,3 +621,45 @@ Closed hoods should block lifting the key; remove both and check that the tab
 releases it easily. Record movement separately from any suspected print cause.
 Carry, force, durability and long-row behavior remain unqualified. No user print
 report exists for G; F is preserved and explicitly not printed yet.
+
+## H — wider connector without a handle
+
+The user finds G's long arm unnecessary for modules that usually stay joined,
+and suggests exploring a larger bow tie. This is form feedback before any
+reported G print: retain G, but its prior fit/slice checks do not establish that
+the handle is worthwhile. H keeps the compact frame and unchanged G hood.
+
+Architecture screen: remove the arm and its long foot channel. Increase head
+width from 10 to 16 mm and waist width from 6 to 8 mm; increase embed from 1.8
+to 3.2 mm, making the key 16 × 6.7 × 3.4 mm.
+A straight-sided notch above the foot clears top-down entry and sideways escape
+after a 4 mm relative lift. The notch begins beyond the last card clip relief
+(17.6 mm), at Y = 18.85 mm. Keep the 0.2 mm nominal pocket allowance. No foot
+or hood growth is needed; the notch changes frame support and remains unprinted.
+New exposed vertical notch mouths have 0.35 mm rounds; key top/bottom edges
+retain 0.15 mm chamfers. Two small nail recesses expose the key edge/underside
+for occasional
+removal, without an external projection. No spring or forced interference fit
+is added. Wider geometry does not establish stronger printed behavior.
+
+Ordinary desk use remains supported. The head constrains sideways spreading;
+pulling the bases apart horizontally is therefore not its intended release.
+With both hoods removed, lift one base relative to the other: its pocket floor
+can carry the key upward until the other pocket is clear. Alternatively lift
+the key at the nail recesses. Actual friction, which half keeps the loose key,
+and finger/nail comfort need printing. Closed hoods block straight upward key
+release. Larger rows and joined carrying remain unqualified.
+
+Delivered geometry: revised five-card source and complete view, wider joined
+connector view, full-base insertion/separation checks and economical end-crop
+fit sample; retain previous variants. PETG/.4 mm nozzle/.2 mm layers/two walls/
+7% adaptive cubic remain the reference setup. Complete geometry and nail access
+were inspected; CAD checks cover entry and
+relative-base release with both hoods removed. All four final print layouts
+exported matching STEP/STL pairs and passed Orca
+2.4.2 Q2C PETG reference slices without notices or generated supports; native
+reports are retained in [cap_h_review.json](cap_h_review.json). No quantitative
+printed force/strength is claimed.
+The floor can carry the key in the checked rigid path; friction and which base
+keeps the key are physical questions. G remains historical, not a recommended
+handle architecture after this feedback.
