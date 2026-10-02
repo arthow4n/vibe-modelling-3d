@@ -335,6 +335,18 @@ proportions, rim/guide transitions, openings, grips and exposed mechanisms. A
 contact shape selected for solver robustness still needs deliberate integration
 into the product; a successful local analysis does not justify its exterior form.
 
+When operation moves substantial weight toward or beyond a freestanding object's
+table support, screen tipping before refining the mechanism. Include relevant
+empty, sparse and full contents distributions and critical opening/withdrawal
+poses; state any stabilizing hand. Compare the gravity line with the supported
+footprint, including operating forces when consequential. CAD centroids can
+screen shape, but solid-volume weights do not predict low-infill printed masses:
+use measured/slicer-estimated component masses or explicit mass sensitivity
+assumptions. Keep the check and remaining physical observations with the object.
+The [swatch cap comparison](../../../../model/filament_swatch_box_study/notes/cap_comparison.md#comparison-at-handoff)
+illustrates a gravity screen that motivated a rear foot; its printed stability
+remains unqualified.
+
 Check whether protruding catches or unprotected flexible arms could snag, receive
 unintended handling loads or obstruct a grip. Consider recessing or protecting
 them when useful, while preserving contact travel, access and manufacturability.
