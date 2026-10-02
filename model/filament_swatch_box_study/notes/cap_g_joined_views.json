@@ -1,0 +1,91 @@
+{
+  "purpose": "Explain the actual underside of two joined G modules and expose the seated key from above.",
+  "geometry_change": false,
+  "print_evidence": "Existing G geometry/export/slice records remain applicable; these are inspection-only entry points without exports or slicing.",
+  "observations": [
+    "Bottom skins hide the bow-tie head and most of its arm; rounded side tab remains exposed at the seam.",
+    "Top close-up uses actual joined base-end crops and seated connector, omitting the hoods."
+  ],
+  "views": [
+    {
+      "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_joined_g.py",
+      "geometry": {
+        "valid": true
+      },
+      "views": [
+        {
+          "view": "bottom",
+          "ok": true,
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/cap_g_joined/inspect_joined_g_bottom.png",
+          "camera": {
+            "from_direction": [
+              0,
+              0,
+              -1
+            ],
+            "up_direction": [
+              0,
+              1,
+              0
+            ]
+          }
+        }
+      ],
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      }
+    },
+    {
+      "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_joined_connector_g.py",
+      "geometry": {
+        "valid": true
+      },
+      "views": [
+        {
+          "view": "top",
+          "ok": true,
+          "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/cap_g_joined/inspect_joined_connector_g_top.png",
+          "camera": {
+            "from_direction": [
+              0,
+              0,
+              1
+            ],
+            "up_direction": [
+              0,
+              1,
+              0
+            ]
+          }
+        }
+      ],
+      "versions": {
+        "python": "3.12.14",
+        "cadquery": "2.7.0"
+      }
+    }
+  ],
+  "identities": [
+    {
+      "path": "model/filament_swatch_box_study/cap_g_module_5.py",
+      "sha256": "5dfb2f0b03c2b5b3f545166898a291c742d9fcc8204675a9036de7b2a76ffc91"
+    },
+    {
+      "path": "model/filament_swatch_box_study/inspect_joined_g.py",
+      "sha256": "18d40ec45258d4935dc2acf81c57c034ffda5c2fd68c26b6ab3ffa3e50444d6e"
+    },
+    {
+      "path": "model/filament_swatch_box_study/renders/cap_g_joined/inspect_joined_g_bottom.png",
+      "sha256": "9c1d3373c28b1a9dfd2f26977c9a56be3143b60e634287095594cbe7dde4cc01"
+    },
+    {
+      "path": "model/filament_swatch_box_study/inspect_joined_connector_g.py",
+      "sha256": "17f821ac7eb0a4a4621cffb09003874a8206a236fde4d0fe399a297381d3b63e"
+    },
+    {
+      "path": "model/filament_swatch_box_study/renders/cap_g_joined/inspect_joined_connector_g_top.png",
+      "sha256": "f6e4ce68969fef4932376331bd8dd0266447a6d52c77d59c380fad2afd76d91c"
+    }
+  ]
+}

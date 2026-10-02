@@ -29,6 +29,12 @@ supported while operating. This proof does not qualify group carrying.
 
 ![Actual end pockets and drop-in key](renders/cap_g_connector/inspect_connector_g_isometric.png)
 
+The [joined underside](renders/cap_g_joined/inspect_joined_g_bottom.png) shows
+two flat bottom skins and the exposed side tab; most of the key sits above those
+skins. The [joined pocket close-up from above](renders/cap_g_joined/inspect_joined_connector_g_top.png)
+omits the hoods and crops the bases to expose the seated bow-tie head and arm.
+These are inspection views of the existing G geometry, not revised print files.
+
 Print **PETG, 0.4 mm nozzle, 0.2 mm layers, two walls, 7% adaptive cubic**.
 The supplied poses are base/sample floor down, hood roof down and key flat.
 Separate files allow translucent PETG for the hood. Start with the small
