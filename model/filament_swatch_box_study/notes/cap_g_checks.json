@@ -1,0 +1,38 @@
+{
+  "compact_module": {
+    "count": 5,
+    "body_depth_mm": 40.4,
+    "foot_depth_mm": 44.8,
+    "mouth_end_margin_mm": 3.3999999999999986,
+    "cap_seated": true,
+    "card_path_clear": true,
+    "pad_escape_space": true
+  },
+  "connector": {
+    "vertical_insertion_samples_mm": [
+      0,
+      0.5,
+      1,
+      2,
+      3,
+      4,
+      8,
+      16,
+      22
+    ],
+    "nominal_fit_clear": true,
+    "pocket_floor_stop": true,
+    "planar_spread_yaw_obstruction": true,
+    "hood_covers_vertical_escape": true,
+    "embed_mm": 1.8,
+    "nominal_body_entry_gap_mm": 0.3999999999999986,
+    "key_to_hood_gap_mm": 0.09999999999999964,
+    "scope": "Full base vertical entry, actual cropped foot contacts and rigid collision witnesses; no load capacity"
+  },
+  "packing": {
+    "four_modules_length_mm": 180.1,
+    "former_four_F_modules_mm": 196.1
+  },
+  "limits": "Open hoods allow vertical key removal; no calibrated force, printed fit, group carrying, creep or fatigue qualification. Unchanged leaf dimensions inherit E provisional beam assumptions only.",
+  "source_sha256": "5dfb2f0b03c2b5b3f545166898a291c742d9fcc8204675a9036de7b2a76ffc91"
+}

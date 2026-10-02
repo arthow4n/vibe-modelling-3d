@@ -515,4 +515,109 @@ cap-release loads, bending and twisting that grow with grip location and row
 length. Do not call a captured key a qualified structural joint. Before detailed
 CAD, establish whether carrying the group is required, releasability, supported
 loads and permitted part overhead. A clarification has been requested while
-the independent concept work continues. No joint has been modelled or tested.
+the independent concept work continues. At this earlier discussion stage no joint
+had been modelled; G below now supplies a proof, still physically untested.
+
+## G — compact five-card modules and drop-in connector proof
+
+The user authorizes a connector proof and new five-card variant, preserving all
+previous versions and omitting ten-card modules. This is a desk-supported row
+prototype. Carrying a joined group remains an unanswered requirement and is not
+qualified. The delivered geometry includes one compact base/hood/key layout,
+separate components, two-module inspection and a small connector fit sample.
+
+### Architecture and overhead
+
+Preserve the smooth 0.8 mm hood walls/roof, hidden 1.6 mm reinforcement, closure
+leaves, rim-to-foot seating, broad card clips and corner seats. Trim 2 mm of each
+unused end margin: the five-card entry mouths end at Y = ±16.8 mm and the body
+ends at ±20.2 mm, leaving 3.4 mm. The foot becomes 64 × 44.8 mm, versus
+64 × 48.8 mm; the matching hood becomes 63.6 × 44.4 mm. Card pitch and height
+remain unchanged. G requires its new matching hood/base; F/E files are intact.
+
+With a provisional 0.3 mm foot gap, four modules occupy 180.1 mm, versus
+196.1 mm for four F/E modules: 16 mm, about 8%, less row length. This is a
+packing comparison, not a filament saving or strength measurement. For n modules
+use n bases, n hoods and n−1 identical keys. There is no carrier, separate release
+button or hardware. Every base has the same pocket at both ends.
+
+### Connector and normal use
+
+A flat bow-tie head drops into matching open-top pockets in the adjacent feet.
+Its wider ends constrain spreading, planar translation and yaw; its pocket floor
+stops downward travel. A 2 mm wide arm runs below the hood rim to a rounded tab
+outside the long side. The nominal pocket clearance is 0.2 mm in plan. Each head
+embeds 1.8 mm
+into the foot, leaving 0.4 mm nominally to the tall body for vertical entry. Key
+bottom/top are Z = 1.5/4.9 mm; the hood seats at Z = 5 mm. Thus the hoods cover
+upward key escape without needing a spring or friction latch. This is rigid
+geometry evidence, not a measured restraint force. The tab has rounded plan
+corners and 0.15 mm top/bottom edge chamfers. Base foot/hood edge treatment
+retains the preceding ergonomic changes.
+
+Place empty bases together on a desk, remove both hoods, align their end pockets
+and lower the key until it seats. Then press the hoods on normally. To separate,
+remove both hoods and lift the key using its exposed tab. Joining requires access
+from above; unlike the earlier sliding concept, the keys are not removable with
+closed hoods. Individual hood opening remains clear of the installed key. Keep
+the bases on the desk while operating; this is not a row carrying handle. A row
+may extend by adding identical modules, but arbitrarily long unsupported spans
+are not part of this proof. One open hood is not a qualified key retention state.
+
+The complete inspection shows one closed five-card box and one open box with
+three cards, plus the removed thin hood. Port/tab access remains at the long side
+and does not add features to the hood exterior. The shorter ends alter frame
+support, so earlier D feedback and E beam assumptions do not validate G's grip
+or closure. No full-capacity or ten-card model is delivered.
+
+### Rejected underside route
+
+The first underneath sliding-key model passed nominal rigid insertion/capture
+checks, but its web clearance left a thin outer capture lip beginning above the
+bed. Orca's sample and base slices warned of a floating cantilever and generated
+supports. Local support paths placed the issue along the joint lip and curved
+port, not on the key. Removing the outer lip with a sloped return lost the
+spreading restraint in the CAD check. Stop that route rather than refine a poor
+interface: open-top pockets remove concealed roofs and print from the floor up.
+The first drop-in head reached 2.7 mm into the foot: cropped fit geometry
+passed, but a full-base entry check caught its interference with the tall end
+wall. Reducing the embed to 1.8 mm clears that wall. The saved check now uses
+full bases for vertical entry and end crops only for the local contacts.
+Only the final drop-in source/exports are delivered. Earlier F/E/D versions were
+not altered. No reusable shared-tool change was needed; the existing collision
+checks and support probe caught the relevant issues.
+
+### Verification and physical trial
+
+[CAD checks](cap_g_checks.json) cover sampled vertical key entry against the full
+bases, pocket seating,
+planar/spreading/yaw obstruction, hood clearance and covered upward escape; they
+also cover compact hood/card withdrawal, closure pad escape and actual pocket
+floor material. These are collision witnesses, not strength or force predictions.
+[Manufacturing review](cap_g_review.json) retains successful STEP/STL export and
+OrcaSlicer 2.4.2 Q2C PETG reference slice reports for the paired layout, separate
+base/hood/key and fit sample. All final layouts have no notices or generated
+supports. [Local paths](cap_g_paths.json) inspect the thin shell, closure leaves,
+key arm and pocket floor. STL slicing does not establish GUI STEP import,
+printed clearance, optics, layer bonding or load capacity.
+
+Use PETG, 0.4 mm nozzle, 0.2 mm layers, two walls and 7% adaptive cubic. Print
+base/sample feet floor down, hood roof down and key flat as supplied. Separate
+files allow translucent PETG for the hood and another PETG colour for the base.
+
+The economical sample contains two actual 8 mm end crops and one actual key,
+preserving pockets, floor, outer port shape and print orientation. Place the
+ends facing each other approximately 0.3 mm apart and lower the key; check
+binding location, normal insertion/lift effort, seam alignment, spreading and
+planar play under gentle desk handling. There are no hood barriers on the sample:
+upward removal is intentionally free. The crops cannot qualify full-module
+stiffness, tall-box handling or closed-hood restraint.
+
+If the connector fit is useful, the complete variant can be tested with two
+bases, two hoods and one key. First check card insertion/firm alignment with one,
+three and five cards, comfortable gripping, complete hood seating and deliberate
+release; then join the pair and compare each hood's opening effort and access.
+Closed hoods should block lifting the key; remove both and check that the tab
+releases it easily. Record movement separately from any suspected print cause.
+Carry, force, durability and long-row behavior remain unqualified. No user print
+report exists for G; F is preserved and explicitly not printed yet.

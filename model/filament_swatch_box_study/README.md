@@ -1,15 +1,50 @@
 # Filament swatch box — thin press-on hood
 
-**Current deliverable: F, a thin hood with a flush exterior, using the same E five-card base.**
-The raised outside band on E was rejected in form feedback before any reported
-E print. F moves that reinforcement inside and leaves the outside profile
-continuous. Main walls/roof remain 0.8 mm; rounded roof edges and base seating
-remain. The constant outside footprint is 63.6 × 48.4 mm, 1.6 mm wider overall
-than E's upper body. Its lower cavity and snap pockets are unchanged, so no new
-matching base is necessary. The user says F looks better and wants to keep this
-version. It is explicitly **not printed yet**; appearance preference does not
-qualify the closure. A separate expandable variant remains a
-[concept discussion](notes/cap_comparison.md#expandable-variant--minimal-additional-parts).
+**New deliverable: G, a compact five-card modular proof with a drop-in key.**
+F remains available unchanged and explicitly unprinted. G adds joining pockets
+to a smaller matching base and keeps the thin, smooth hood form. This is a
+supported desk-storage prototype; joined carrying and physical fit are untested.
+No ten-card module is included.
+
+## G — modular five-card proof
+
+- [Small connector test, STEP](cap_g_connector_test.step), [STL](cap_g_connector_test.stl): two actual base-end crops and one key.
+- [One base, hood and key, STEP](cap_g_module_5.step), [STL](cap_g_module_5.stl), [parametric source](cap_g_module_5.py).
+- Separate [base STEP](cap_g_base_5.step), [hood STEP](cap_g_hood_5.step) and [key STEP](cap_g_key.step), each with a matching same-name STL.
+
+The foot is **44.8 mm deep**, down from F/E's 48.8 mm. Four five-card modules
+with 0.3 mm joint gaps occupy 180.1 mm instead of 196.1 mm, about 8% less row
+length. Each join adds one printed key; the same base repeats at either end.
+The hood's main walls and roof remain 0.8 mm, with hidden reinforcement and
+rounded edges. **Use G's matching base and hood together.** F/E are retained.
+
+![G: joined closed/open modules with a removed hood](renders/cap_g_assembled/inspect_cap_g_isometric.png)
+
+The connector has a bow-tie head, a slim arm and a rounded side tab. Remove both
+hoods, place the bases together on a desk and lower the key into the top pockets.
+Its wide ends constrain spreading and planar movement. The closed hoods cover
+straight upward withdrawal. To separate, remove both hoods and lift the key by
+its side tab. Individual hoods can open with the key installed; keep the bases
+supported while operating. This proof does not qualify group carrying.
+
+![Actual end pockets and drop-in key](renders/cap_g_connector/inspect_connector_g_isometric.png)
+
+Print **PETG, 0.4 mm nozzle, 0.2 mm layers, two walls, 7% adaptive cubic**.
+The supplied poses are base/sample floor down, hood roof down and key flat.
+Separate files allow translucent PETG for the hood. Start with the small
+connector test to check lowering/lifting effort, binding and desk-supported
+alignment. Its two end faces should be approximately 0.3 mm apart; it has no
+hoods, so upward key removal is deliberately free. The sample cannot test
+closed-hood restraint, full-module stiffness or tall-box handling.
+
+The full two-module trial needs **two bases, two hoods and one key**; the combined
+file contains one of each. Check cards with one, three and five occupied slots,
+then hood seating, grip/release and the joined pair's handling. G has no reported
+print result. [CAD checks](notes/cap_g_checks.json), [manufacturing review](notes/cap_g_review.json)
+and [local path checks](notes/cap_g_paths.json) passed. The final combined,
+component and sample layouts sliced with no notices or generated supports.
+Actual fit, force, comfort, optics and durability remain physical questions.
+See the [design and trial record](notes/cap_comparison.md#g--compact-five-card-modules-and-drop-in-connector-proof).
 
 ## F — smooth exterior hood
 
@@ -39,8 +74,8 @@ Test the complete pair empty, then with one, three and five cards: check the rim
 meets the foot, the sides feel comfortable, the cap stays attached under loaded
 own weight, and pulling near the bottom releases it without buckling. Repeat
 and compare after an overnight closed dwell. Twenty-card geometry is checked,
-but this phase still supplies the five-card physical trial only. Joined modules
-remain future work. See the [F design record](notes/cap_comparison.md#f--flush-exterior-reinforcement-inside),
+but this phase still supplies the five-card physical trial only. G above
+separately explores joined modules; F is unchanged. See the [F design record](notes/cap_comparison.md#f--flush-exterior-reinforcement-inside),
 [affected CAD checks](notes/cap_f_checks.json) and [local path record](notes/cap_f_paths.json).
 
 ## Earlier thin hood — E
@@ -452,6 +487,8 @@ from other unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
+| Test — G modular connector | Unknown — no print report | `cap_g_connector_test.step/.stl` | Actual end geometry; vertical fit, planar play and removal await the small trial. No hood restraint or full-module stiffness represented |
+| Test — G compact five-card module | Unknown — no print report | `cap_g_module_5.step/.stl`, `cap_g_base_5.step/.stl`, `cap_g_hood_5.step/.stl`, `cap_g_key.step/.stl` | CAD/reference slices passed; reduced frame, card grip, hood seating/release and joined handling untested. Desk-supported proof only |
 | Test — F flush hood with E five-card base | No — user explicitly has not printed it yet | `cap_f_flat_5.step/.stl`, `cap_f_hood_5.step/.stl`, unchanged `cap_e_base_5.step/.stl` | User prefers appearance and keeps this version; CAD/reference slices passed. Comfort, thin-shell feel, fit/seam contact, optics and retention need the complete trial |
 | Test — E thin hood and matching five-card base | Unknown — no print report | `cap_e_thin_5.step/.stl`, `cap_e_hood_5.step/.stl`, `cap_e_base_5.step/.stl` | Raised exterior band rejected before printing; narrower CAD/slice evidence retained. F uses this same base with a flush hood |
 | Test — selected D five-card press-on cap/base | Yes — latest prototype reported printed | `cap_d_snap_5.step/.stl`, `cap_d_hood_5.step/.stl`, `cap_d_base_5.step/.stl`; printed files unconfirmed | Fit okay; base probably fine; hood too bulky and exposed edges insufficiently rounded. Partial success; revision required. Loaded retention, force, recovery and dwell unqualified |
@@ -462,7 +499,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | N/A | F hood / E base five-card prototype is the current physical trial; no qualified production box | Normal use and retention await physical results before full-capacity exports; joined modules remain concepts |
+| Final printable object | N/A | G modular proof and F/E complete five-card prototypes; no qualified production box | Normal use and retention await physical results before full-capacity exports; joined carrying remains unqualified |
 
 ## Attribution
 
