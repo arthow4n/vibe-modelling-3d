@@ -5,6 +5,27 @@ Previous versions are preserved. The user finds G's projecting arm unnecessary
 for modules that usually remain joined. H changes the pockets and key, retaining
 the compact five-card footprint and the existing G hood. No H print is reported.
 
+## Requirements to preserve
+
+- Store the cards with their long dimension vertical and notch at the top; the
+  closed hood fully covers them.
+- Keep seated cards upright and aligned even with only a few occupied positions.
+  A final downward press is acceptable. The broad clip was liked; the tiny end
+  spring gave no useful centering in the earlier PETG print.
+- Guide insertion from left/right and front/back so replacing thin cards does
+  not require precise alignment with a narrow slot.
+- Use printed parts throughout. Seat the hood's lower rim against the base while
+  retaining a practical grip and deliberate opening motion.
+- Support adding modules with modest repeated material and part overhead.
+  Occasional separation should remain possible; joined carrying is unqualified.
+- Use the five-card trial for this phase; retain earlier unprinted variants.
+
+Reusable form preferences are maintained in the
+[design preference reference](../../.codex/skills/cadquery-3d-design/references/user-preferences.md).
+Exact dimensions, artifact compatibility and physical results remain here and
+in the linked object records. The user plans to print the latest variant soon;
+this is a plan, with no completed print or result reported.
+
 ## H — connector without a handle
 
 - [Small connector test, STEP](cap_h_connector_test.step), [STL](cap_h_connector_test.stl).

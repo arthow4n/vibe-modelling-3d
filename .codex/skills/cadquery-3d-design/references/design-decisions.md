@@ -162,6 +162,13 @@ mechanism can still make a poor product. Prefer an ordinary arrangement that wor
 when added mechanics provide no compelling benefit. Having `SnapFitQuestion`,
 FEA, IPC or other tools available is never a reason to invent a mechanism.
 
+Distinguish routine operation from occasional assembly or separation. A permanent
+handle or projection for a rare operation needs a benefit worth its effect on
+normal grip, appearance and material use. Check simpler release motions before
+adding a control, and make their direction clear in the assembled view or
+explanation. The [G/H connector feedback](../../../../model/filament_swatch_box_study/notes/cap_comparison.md#h--wider-connector-without-a-handle)
+illustrates this tradeoff; its CAD release path does not establish printed effort.
+
 Use the adaptive strategy above. This gate establishes product value before
 mechanical investment, not a requirement for every spacer or simple bracket to
 produce an intermediate review. For an established product, reuse the accepted

@@ -9,6 +9,10 @@ Use this skill for functional, manufacturable models. AGENTS.md owns repository
 workflow, shared CadQuery command, printer setup, attribution, artifacts
 and Git rules. A valid solid or clean slice alone does not establish function.
 
+For form, handling and mechanism choices, read the repository user's
+[design preferences](references/user-preferences.md). Apply relevant preferences
+with their stated scope; the latest request overrides recorded defaults.
+
 ## Choose the next useful investment
 
 Choose development strategy from the consequential uncertainty, using
@@ -84,6 +88,7 @@ do not mistake a parameter value for a verified measurement or physical result.
 
 | Trigger | Reference |
 | --- | --- |
+| Form, grip, enclosure feel, mechanism overhead or recording user preferences | [User design preferences](references/user-preferences.md) |
 | Development strategy, next deliverable, visual alternatives, feedback, requirements, whole-object handling, joints or mechanisms | [Design decisions](references/design-decisions.md) |
 | Generic FDM review, final smoke slice, orientation, moving parts or support constraints | [Print planning](references/print-planning.md) |
 | Fit, force, friction or durability needs physical validation | [Physical experiments](references/physical-experiments.md) |
