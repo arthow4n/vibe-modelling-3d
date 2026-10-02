@@ -320,8 +320,9 @@ unreported prototypes. Printed and usable remain separate questions.
 
 ## Attribution
 
-Primary language model: **GPT-6** (runtime identifies this family; exact variant
-and reasoning effort not exposed). Harness: **Codex**, shared repository
-workspace. Provider: **OpenAI**. No subagents. Swatch dimensions and reference
+Primary language model: **GPT-6.1 Sol**. Reasoning effort: **high**. The exact
+model and effort are explicitly user-provided, refining the earlier family-only
+**GPT-6** record where variant and effort were not exposed. Harness: **Codex**,
+shared repository workspace. Provider: **OpenAI**. No subagents. Swatch dimensions and reference
 outline derive from the existing user-provided SCAD source; its historical
 Gemini attribution remains with that object.
