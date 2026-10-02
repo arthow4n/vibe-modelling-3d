@@ -23,8 +23,9 @@ Architecture screen before detailed mechanisms:
 Keep the card rows vertical, notch up, independent of how many positions are
 loaded. All closed concepts must continuously cover the cards and use an overlap,
 not introduce finger slots into the enclosure. No airtight or water-seal claim.
-The cap roof's inner height is 86.8 mm: 4 mm above the conservative 82.8 mm card
-top. Twenty positions use a 149.4 mm base length, well inside the default Q2C
+The cap roof's inner height is 86.8 mm: 4 mm above a nominal-height card at the
+highest screened seat, or 3.8 mm above the enlarged 80.2 mm check envelope.
+Twenty positions use a 149.4 mm base length, well inside the default Q2C
 envelope. Printed five-card prototypes qualify only their actual layout and
 interfaces; retain whole twenty-card inspection views to judge the intended box.
 
