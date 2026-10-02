@@ -6,12 +6,16 @@ notch at the top. Twenty individual lower guides keep cards independent of their
 neighbours; the six-card views show a sparse collection distributed across the
 tray. No screws, nuts, magnets, glue or other materials are proposed.
 
-**Recommended direction: A, a low guided tray with a removable deep hood.** It
-exposes more of each card and needs only two printed parts. B keeps the cover
-attached but requires a higher body, greater front/back clearance and a hinge.
-The next decision is the cover arrangement and whether bag transport requires
-positive retention. Neither concept has a working catch. The intended result is
-fully covered ordinary storage, not a tested seal.
+**Provisional direction: A's low tray, with card reinsertion under review.** The
+user raised a concern about finding the narrow grooves when returning cards;
+this is a design question before printing, not a reported physical failure or
+an unqualified rejection of both concepts. The current straight entrances have
+no funnel or insertion mechanism. Upright support and nominal clearance do not
+establish easy return. Resolve that interaction before selecting/refining the
+cover. A exposes more of each card and needs only two printed parts. B keeps
+the cover attached but requires a higher body, greater front/back clearance and
+a hinge. Bag-transport retention remains unspecified. Neither concept has a
+working catch. The intended result is fully covered storage, not a tested seal.
 
 ## Concepts and normal use
 
@@ -41,6 +45,22 @@ faces of adjacent nominal cards at the 4.8 mm pitch; dense-row selection is a
 specific physical handling question. The [empty-guide view](renders/guides/inspect_guides_isometric.png)
 shows how six cards can remain individually supported. [Closed A](renders/closed/study_isometric.png)
 shows the full exterior cover.
+
+Returning a nominal 2 mm card into a 2.8 mm straight groove leaves only 0.4 mm
+of centred alignment allowance per face. Across a full 50 mm edge, the rigid
+projected-width condition `50*sin(yaw) + 2*cos(yaw) <= 2.8` permits only about
+0.92° of yaw once that full edge engages. The chamfered bottom corners ease
+initial contact but do not remove the eventual full-width constraint. The
+current insertion instruction assumes this alignment instead of helping the
+user achieve it, especially between neighbouring cards. No printed difficulty
+or force has been measured.
+
+The next useful comparison is a wider, flared entrance leading into a narrower
+lower guide, with sufficient spacing to return a middle card. Fifteen positions
+are allowed by the user's original capacity request and may provide more useful
+room than twenty at the current pitch. This is a proposed direction, not updated
+CAD or demonstrated usability; assess sparse support, full-row selection and
+imperfectly aligned return together before further closure work.
 
 ## Dimensions, architecture and evidence
 
@@ -105,7 +125,7 @@ Status reviewed 2026-10-02. This phase delivers rough geometry and review views.
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | N/A | None in this rough-study phase | No physical test recommended before concept selection |
-| Final printable object(s) | N/A | No print-ready STEP/STL in this phase | Cover arrangement, retention requirement and physical handling remain open |
+| Final printable object(s) | N/A | No print-ready STEP/STL in this phase | Reinsertion questioned before printing; support geometry is provisional; cover and retention remain open |
 
 ## Attribution
 
