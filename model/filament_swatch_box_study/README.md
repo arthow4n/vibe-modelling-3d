@@ -1,15 +1,71 @@
-# Filament swatch box — seating and cap prototypes
+# Filament swatch box — press-on / pull-off cap
 
-**Current deliverable: five-card seating and three cap prototypes, awaiting physical reports.**
+**Current deliverable: a matched five-card press-on / pull-off cap and base, awaiting a physical report.**
 The previous PETG print's broad clip grips nicely, but its tiny end spring gives
 no useful sideways pressure. The new base removes that spring, adds two fixed
 seats matching each card's bottom corners, and strengthens the broad clip.
 The user accepts a final downward press and specifically requests firmer grip.
 Lateral alignment and the stronger grip still need a physical trial. The user now
 authorizes autonomous cap exploration while away; this permits independent cap
-concept work without promoting the corner seat to printed validation.
+concept work without promoting the corner seat to printed validation. They now
+select a simple lift-off cover with retention: press it on from above and pull
+deliberately to separate it.
 
-## Cap variants under exploration
+## Current matched prototype — D
+
+- [Both parts, STEP](cap_d_snap_5.step), [matching STL](cap_d_snap_5.stl),
+  [parametric source](cap_d_snap_5.py).
+- [Cap only, STEP](cap_d_hood_5.step), [STL](cap_d_hood_5.stl).
+- [Matching base only, STEP](cap_d_base_5.step), [STL](cap_d_base_5.stl).
+
+**Print the matching base as well as the cap.** Earlier ungrooved bases are not
+the intended mate. Four 0.8 mm-deep exterior grooves are the base's only functional
+change; the card seats, guides and stronger broad clips stay as before. The plain
+rounded hood has four hidden integral spring pads, ramped for downward entry and
+upward release. Four separate end-rim pads stop the cap independently of its
+snaps and contents. A continuous outer wall covers the spring relief pockets.
+There are only two printed parts, with no release button or extra materials.
+
+![D closed/open concept](renders/cap_d_assembled/inspect_cap_d_isometric.png)
+
+Use **PETG, 0.4 mm nozzle, 0.2 mm layers, two walls, 7% adaptive cubic**. Print
+the base floor down and cap roof down as supplied; no supports are requested.
+The paired reference slice preserves the source's Q2C coordinates, enabling a
+specific stem-path review. GUI rearrangement is allowed but is a different slice.
+Hold the base's lower 6.4 mm band/underside, align the hood, and press straight
+down until it reaches the rim stops. Grip the hood and pull straight up to open.
+Its approximately 86 mm withdrawal clears the cap skirt past the full-height cards.
+
+First test the empty matched pair, then one, three and five cards. Check:
+
+1. The cap seats fully, with a distinct hold, without binding or excessive force.
+2. Hold the cap a few centimetres over the table and check that the loaded base
+   stays attached under its own weight; keep a hand ready beneath the base.
+3. Deliberate two-hand pulling releases it cleanly, and both parts are easy to grip.
+4. Repeat opening/closing, then leave it closed overnight and compare the hold.
+   Report remaining play, slipping, rubbing, cracking, whitening or lost spring return.
+
+The 5–20 N deliberate pull band is a provisional target. Nominal beam/ramp
+estimates are only an order-of-force screen, not measured press, release or
+retention forces. The complete five-card prototype represents the tall shell,
+four interacting detents, guidance, seating and opposing grips that a local
+coupon would omit. It does not qualify twenty-card holding strength, loaded
+transport, creep life or fatigue. Five/twenty-card rigid checks include actual
+rounded pads and sampled withdrawal; elastic motion and friction remain physical
+questions. No loaded carry rating is claimed before the trial.
+
+Likely adjustments live in `cap_d_snap_5.py`: `TIP_EXTRA_REACH` changes pad reach;
+`STEM_THICKNESS` and `FLEX_LENGTH` change stiffness; `FIT_GAP` is currently inherited
+from the shared dimensions. Change reach in small steps after observing actual
+hold/binding; rerun the affected checks and exports. Keep earlier successful
+trial files intact. Do not change the shared gap casually, since it affects A/B/C.
+
+[D design decision](notes/cap_comparison.md#d--selected-press-on--pull-off-direction),
+[rigid and beam checks](notes/cap_d_checks.json), [paired manufacturing review](notes/cap_d_review.json)
+and [targeted stem-path record](notes/cap_d_paths.json) retain the assumptions and
+scope. Actual fit, force, spring return and comfortable use await the print.
+
+## Earlier cap alternatives
 
 [Architecture and comparison record](notes/cap_comparison.md) owns this phase.
 **A: removable hood** is the first finished five-card prototype. It continuously
@@ -85,12 +141,9 @@ fit; the stability sensitivity uses explicit assumed mass-density ratios, not
 slicer-derived weights. [C CAD/export/slice record](notes/cap_c_review.json) is
 reference manufacturing evidence; it does not establish physical operation.
 
-Start with **A cap only** on the existing five-card base. It is the least print
-and assembly work and leaves card access unrestricted. Select B if a fixed desk
-enclosure is useful and there is room to withdraw the tray; select C if an
-attached cover is worth four parts, a taller frame and the rear foot. Each is a
-prototype, not a selected production box. Do not print all three just to fulfill
-the comparison; the next observation should decide which merits further work.
+The earlier recommendation to start with A cap only applied to an unlatched desk
+cover. The current request selects D with press-on retention. A/B/C remain useful
+historical comparisons; D's matching five-card pair is now the first print.
 
 | Version | Primary print file | Matching STL | Status |
 | --- | --- | --- | --- |
@@ -250,11 +303,12 @@ before printing. `study.py`, `inspect_lift_off.py`, `inspect_flip.py`,
 concept history. Their cover/hinge envelopes do not qualify any current closure.
 All `inspect_*.py` entries are display-only; never export their reference cards.
 
-Status updated after the user's second trial report. Printed and usable remain
-separate questions.
+The table preserves the two physical trial reports and distinguishes the newer
+unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
+| Test — selected D five-card press-on cap/base | Unknown | `cap_d_snap_5.step/.stl`, `cap_d_hood_5.step/.stl`, `cap_d_base_5.step/.stl` | No report; press/pull effort, loaded own-weight retention, grip, spring recovery and dwell unqualified |
 | Test — current five-card corner seat | Unknown | `card_base_corner_seat_5.step/.stl` | No report; check firmer grip, corner centering, reinsertion, effort and overnight set |
 | Test — A five-card hood/rounded base | Unknown | `cap_a_lift_off_5.step/.stl`, `cap_a_hood_5.step/.stl`, `base_rounded_5.step/.stl` | No report; cap fit, seating, lift, protection and handling unqualified |
 | Test — B five-card drawer/enclosure | Unknown | `cap_b_drawer_5.step/.stl` | No report; running fit, overlap, tray support and card access unqualified |
@@ -262,7 +316,7 @@ separate questions.
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | N/A | No selected production box in this exploration phase | Seating and cap variants await physical use and selection |
+| Final printable object | N/A | D architecture selected; no qualified full-capacity production box | Five-card fit and normal use await physical evidence before twenty-card exports |
 
 ## Attribution
 

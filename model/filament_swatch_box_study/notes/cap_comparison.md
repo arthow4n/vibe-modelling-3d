@@ -100,3 +100,69 @@ The broad clip and new corner seats are unchanged by the cap builders. The new
 feedback without changing slot crests or card-contact geometry. Recommend the
 cap-only A print first, then choose a direction from actual cover fit and normal
 use; simulation or more virtual variants cannot establish that feel.
+
+## D — selected press-on / pull-off direction
+
+The user now asks for a simple cap that encloses the base and stays attached
+until deliberately pulled apart. Reuse A's two-piece lift-off architecture;
+replace its unlatched skirt with four concealed integral detents, no buttons,
+axles or separate fasteners. A matching base adds only shallow exterior grooves;
+the broad card clips, guides and corner seats stay unchanged. Earlier A/B/C
+remain historical alternatives, not the current requested closure.
+
+Guidance comes from the four-sided skirt lead-in, seating from four end-rim
+pads, and retention from side spring pads engaging 0.8 mm grooves. Moving the
+rim pads to the ends keeps them from bracing the side flexures. A continuous
+outer wall backs the flexure pockets, preserving the covered cavity. A 6.4 mm
+lower base band and its underside remain accessible for the opposing pull grip.
+Ordinary desk storage and holding the loaded base under its own weight are the
+retention task; deliberate two-hand pull should release it without an extra
+operation. A provisional 5–20 N pull band guides the screen, not an achieved force.
+
+Keep PETG, 0.4 mm nozzle, 0.2 mm layers, two walls and 7% adaptive cubic. The
+four nominal 16 mm-wide, 1.2 mm-thick, 16.2 mm contact-to-root stems use an
+explicit uncalibrated homogeneous modulus range of 1000–2000 MPa for a simple
+beam screen, conservatively shortening the span by the 0.6 mm root blend.
+Expected centred crest travel is about 0.95 mm, screened at 0.75–1.15 mm;
+the maximum one-sided bound also includes 0.4 mm guide play, reaching 1.55 mm.
+Lengthening the stems and increasing rear relief to 2.4 mm screens that extra
+travel and the lower pad's displacement beyond its loaded contact point;
+the strain screen is provisional, not printed PETG qualification. Pads are
+ramped in both directions. Actual friction, root/wall compliance, creep and
+dimensional error remain physical questions; do not infer a retention rating.
+
+Next useful deliverable: one complete matched five-card prototype with the
+actual tall hood and base, rather than a latch coupon that omits body stiffness,
+guidance, stop loading and opposing grips. Parametric five/twenty-card clearance
+checks should cover the rigid shell independently of the intentionally
+interfering pads. Check spring relief and actual sliced stem fill before handoff.
+Then test empty/sparse/full press-on, own-weight retention and deliberate pull,
+including overnight dwell. Defer full twenty-card exports until this fit and
+operation are accepted. No further concept variants are needed for this request.
+
+Final D evidence: rigid checks for five/twenty positions find no sampled shell,
+seat-stop or contents obstruction. Every relaxed pad contacts the base when
+closed and still obstructs a 1 mm upward move; translated pad-only witnesses
+clear within the screened 1.55 mm stroke. These checks establish contact-space
+relationships, not an elastic release sequence. The 16.2 mm contact-to-root span
+uses 15.6 mm for the beam screen after allowing for its 0.6 mm root blend; the
+largest 1.55 mm stroke stays within that screen's small-deflection applicability.
+The largest predicted root strain is about 1.15%, below the provisional 1.5%
+screen. Estimated lower-end travel is 1.85 mm, leaving about 0.55 mm of the
+2.4 mm rear relief. Neither strain limit nor material law is printed calibration.
+
+The paired layout, cap-only and base-only exports are valid and each passed the
+OrcaSlicer 2.4.2 reference Q2C PETG review with no notices, review flags or
+generated supports. Print the hood roof down and base floor down. Thin stems
+grow from their attached roots, rear pockets begin beneath existing material in
+the print direction, detent ramps grow gradually, and base-groove upper shoulders
+return at 45 degrees. No suspended starts or trapped supports are intended.
+Exterior corners/rims, mouth lead-in, pad edges and root relief have deliberate
+edge treatment; the mating groove ramps remain planar.
+
+The targeted path record addresses the solid-stem idealization only; do not
+infer PETG modulus or layer bonding from filled extrusion paths. The complete
+five-card matched pair is the next physical experiment. Record cap and base
+dimensions/setup, seated hold, own-weight retention, press/pull feel, return and
+overnight dwell; use those observations to choose reach or stiffness adjustments.
+Actual twenty-row loaded retention and transport remain outside this trial.

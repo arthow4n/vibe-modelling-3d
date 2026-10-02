@@ -1,0 +1,347 @@
+{
+  "placement": "Preserve source geometry at PRINT_ANCHOR; no GUI rearrangement qualified",
+  "scope": "24 sections of four 1.2 mm stems in uniform span; width endpoints trimmed by 0.3 mm",
+  "sections": [
+    {
+      "x_mm": 125.6,
+      "y_center_mm": 144.2,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 125.2,
+      "y_center_mm": 144.2,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 124.8,
+      "y_center_mm": 144.2,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 186.4,
+      "y_center_mm": 144.2,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 186.8,
+      "y_center_mm": 144.2,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 187.2,
+      "y_center_mm": 144.2,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 125.6,
+      "y_center_mm": 125.8,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    },
+    {
+      "x_mm": 125.2,
+      "y_center_mm": 125.8,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    },
+    {
+      "x_mm": 124.8,
+      "y_center_mm": 125.8,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    },
+    {
+      "x_mm": 186.4,
+      "y_center_mm": 125.8,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    },
+    {
+      "x_mm": 186.8,
+      "y_center_mm": 125.8,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    },
+    {
+      "x_mm": 187.2,
+      "y_center_mm": 125.8,
+      "z_mm": 67.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    },
+    {
+      "x_mm": 125.6,
+      "y_center_mm": 144.2,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 125.2,
+      "y_center_mm": 144.2,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 124.8,
+      "y_center_mm": 144.2,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 186.4,
+      "y_center_mm": 144.2,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 186.8,
+      "y_center_mm": 144.2,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 187.2,
+      "y_center_mm": 144.2,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.399999999999977,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.5,
+          151.89999999999998
+        ]
+      ]
+    },
+    {
+      "x_mm": 125.6,
+      "y_center_mm": 125.8,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    },
+    {
+      "x_mm": 125.2,
+      "y_center_mm": 125.8,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    },
+    {
+      "x_mm": 124.8,
+      "y_center_mm": 125.8,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    },
+    {
+      "x_mm": 186.4,
+      "y_center_mm": 125.8,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    },
+    {
+      "x_mm": 186.8,
+      "y_center_mm": 125.8,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    },
+    {
+      "x_mm": 187.2,
+      "y_center_mm": 125.8,
+      "z_mm": 64.2,
+      "filled_width_mm": 15.400000000000006,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118.1,
+          133.5
+        ]
+      ]
+    }
+  ],
+  "result": "Selected stem sections filled within 0.05 mm",
+  "limits": "Coverage uses requested stroke widths, not deposited polymer. No modulus, layer bonding, root strength, contact or friction calibration.",
+  "gcode_sha256": "6f70515e6d9bbaac0ea7248da335e3e95a5f8dad9be9a9fcde2492c432e4dbdf",
+  "source_sha256": "51c925db7aba42cd7d5dad62ae848ca6cf0cd51cf0b7db1cc2998821b9393530",
+  "stl_sha256": "78266f36021cb008a2fa0ff2613f47031613682acd0bbed57fc11b1fab760cff"
+}
