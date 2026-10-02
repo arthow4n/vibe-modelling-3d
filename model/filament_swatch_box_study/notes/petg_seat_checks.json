@@ -1,0 +1,265 @@
+{
+  "seated_rigid_checks": [
+    {
+      "slot": 0,
+      "width": 49.6,
+      "thickness": 1.8,
+      "front_travel_mm": 0.15000000000000013,
+      "side_travel_mm": 0.13900000000000212
+    },
+    {
+      "slot": 0,
+      "width": 50,
+      "thickness": 2,
+      "front_travel_mm": 0.3500000000000001,
+      "side_travel_mm": 0.5390000000000007
+    },
+    {
+      "slot": 0,
+      "width": 50.4,
+      "thickness": 2.2,
+      "front_travel_mm": 0.5500000000000003,
+      "side_travel_mm": 0.9389999999999993
+    },
+    {
+      "slot": 1,
+      "width": 49.6,
+      "thickness": 1.8,
+      "front_travel_mm": 0.15000000000000013,
+      "side_travel_mm": 0.13900000000000212
+    },
+    {
+      "slot": 1,
+      "width": 50,
+      "thickness": 2,
+      "front_travel_mm": 0.3500000000000001,
+      "side_travel_mm": 0.5390000000000007
+    },
+    {
+      "slot": 1,
+      "width": 50.4,
+      "thickness": 2.2,
+      "front_travel_mm": 0.5500000000000003,
+      "side_travel_mm": 0.9389999999999993
+    },
+    {
+      "slot": 2,
+      "width": 49.6,
+      "thickness": 1.8,
+      "front_travel_mm": 0.15000000000000013,
+      "side_travel_mm": 0.13900000000000212
+    },
+    {
+      "slot": 2,
+      "width": 50,
+      "thickness": 2,
+      "front_travel_mm": 0.3500000000000001,
+      "side_travel_mm": 0.5390000000000007
+    },
+    {
+      "slot": 2,
+      "width": 50.4,
+      "thickness": 2.2,
+      "front_travel_mm": 0.5500000000000003,
+      "side_travel_mm": 0.9389999999999993
+    },
+    {
+      "slot": 3,
+      "width": 49.6,
+      "thickness": 1.8,
+      "front_travel_mm": 0.15000000000000013,
+      "side_travel_mm": 0.13900000000000212
+    },
+    {
+      "slot": 3,
+      "width": 50,
+      "thickness": 2,
+      "front_travel_mm": 0.3500000000000001,
+      "side_travel_mm": 0.5390000000000007
+    },
+    {
+      "slot": 3,
+      "width": 50.4,
+      "thickness": 2.2,
+      "front_travel_mm": 0.5500000000000003,
+      "side_travel_mm": 0.9389999999999993
+    },
+    {
+      "slot": 4,
+      "width": 49.6,
+      "thickness": 1.8,
+      "front_travel_mm": 0.15000000000000013,
+      "side_travel_mm": 0.13900000000000212
+    },
+    {
+      "slot": 4,
+      "width": 50,
+      "thickness": 2,
+      "front_travel_mm": 0.3500000000000001,
+      "side_travel_mm": 0.5390000000000007
+    },
+    {
+      "slot": 4,
+      "width": 50.4,
+      "thickness": 2.2,
+      "front_travel_mm": 0.5500000000000003,
+      "side_travel_mm": 0.9389999999999993
+    }
+  ],
+  "leaf_screens": [
+    {
+      "leaf": "front",
+      "modulus_MPa": 1000,
+      "length_mm": 10,
+      "travel_mm": 0.85,
+      "screen": {
+        "force_N": 5.95,
+        "tip_displacement_mm": 0.85,
+        "stiffness_N_mm": 7.0,
+        "root_strain": 0.01275,
+        "fixed_free_euler_buckling_N": 57.572692339687926,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "leaf": "front",
+      "modulus_MPa": 2000,
+      "length_mm": 10,
+      "travel_mm": 0.85,
+      "screen": {
+        "force_N": 11.9,
+        "tip_displacement_mm": 0.85,
+        "stiffness_N_mm": 14.0,
+        "root_strain": 0.01275,
+        "fixed_free_euler_buckling_N": 115.14538467937585,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "leaf": "front",
+      "modulus_MPa": 1000,
+      "length_mm": 13,
+      "travel_mm": 0.85,
+      "screen": {
+        "force_N": 2.708238507055075,
+        "tip_displacement_mm": 0.8499999999999999,
+        "stiffness_N_mm": 3.186162949476559,
+        "root_strain": 0.007544378698224851,
+        "fixed_free_euler_buckling_N": 34.06668185780351,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "leaf": "front",
+      "modulus_MPa": 2000,
+      "length_mm": 13,
+      "travel_mm": 0.85,
+      "screen": {
+        "force_N": 5.41647701411015,
+        "tip_displacement_mm": 0.8499999999999999,
+        "stiffness_N_mm": 6.372325898953118,
+        "root_strain": 0.007544378698224851,
+        "fixed_free_euler_buckling_N": 68.13336371560702,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "leaf": "side",
+      "modulus_MPa": 1000,
+      "length_mm": 10,
+      "travel_mm": 0.95,
+      "screen": {
+        "force_N": 0.12160000000000003,
+        "tip_displacement_mm": 0.95,
+        "stiffness_N_mm": 0.12800000000000003,
+        "root_strain": 0.0114,
+        "fixed_free_euler_buckling_N": 1.0527578027828652,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "leaf": "side",
+      "modulus_MPa": 2000,
+      "length_mm": 10,
+      "travel_mm": 0.95,
+      "screen": {
+        "force_N": 0.24320000000000006,
+        "tip_displacement_mm": 0.95,
+        "stiffness_N_mm": 0.25600000000000006,
+        "root_strain": 0.0114,
+        "fixed_free_euler_buckling_N": 2.1055156055657305,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "leaf": "side",
+      "modulus_MPa": 1000,
+      "length_mm": 13,
+      "travel_mm": 0.95,
+      "screen": {
+        "force_N": 0.05534820209376424,
+        "tip_displacement_mm": 0.9500000000000001,
+        "stiffness_N_mm": 0.05826126536185709,
+        "root_strain": 0.006745562130177516,
+        "fixed_free_euler_buckling_N": 0.6229336111141214,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "leaf": "side",
+      "modulus_MPa": 2000,
+      "length_mm": 13,
+      "travel_mm": 0.95,
+      "screen": {
+        "force_N": 0.11069640418752848,
+        "tip_displacement_mm": 0.9500000000000001,
+        "stiffness_N_mm": 0.11652253072371418,
+        "root_strain": 0.006745562130177516,
+        "fixed_free_euler_buckling_N": 1.2458672222282428,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    }
+  ],
+  "limits": "No contact solve, friction/creep calibration or printed strength. Headroom bounds are travel screens, not deformed whole-leaf proof.",
+  "guide_entry": {
+    "samples": 88,
+    "slot": 2,
+    "bottom_travel_mm": 3.8,
+    "step_mm": 0.38,
+    "initial_offsets_mm": [
+      1.5,
+      1
+    ],
+    "tilt_degrees": 2,
+    "yaw_degrees": 1,
+    "dimensions_mm": [
+      50.4,
+      2.2,
+      80
+    ],
+    "result": "No rigid-guide intersection detected at sampled poses",
+    "limitations": "Leaves omitted: does not qualify elastic insertion or passive centering. Neighbours unchanged 7 mm pitch."
+  },
+  "nominal_front_touch_screen": [
+    {
+      "modulus_MPa": 1000,
+      "nominal_pad_force_N": 1.1151570323167956,
+      "tip_force_to_overcome_seating_moment_N": 0.1812130177514793,
+      "limitation": "Approximate moment balance; not an observed holding force, includes no friction or detailed pad contact."
+    },
+    {
+      "modulus_MPa": 2000,
+      "nominal_pad_force_N": 2.2303140646335913,
+      "tip_force_to_overcome_seating_moment_N": 0.3624260355029586,
+      "limitation": "Approximate moment balance; not an observed holding force, includes no friction or detailed pad contact."
+    }
+  ]
+}

@@ -33,7 +33,7 @@ completion from design adequacy and physical validation.
 | Vaseline container | [Screw-top jar](model/vaseline_container/README.md) | [Record](model/vaseline_container/README.md#attribution) | N/A — full pair is the trial | Yes — user reports good print |
 | Vaseline transfer spatula | [Flat scrape-and-fill tool](model/vaseline_transfer_spatula/README.md) | [Record](model/vaseline_transfer_spatula/README.md#attribution) | N/A — complete tool is the first proposed trial | Unknown — no user report |
 | Filament archive swatch | [SCAD instructions](model/filament_archive_swatch/README.md) | [Record](model/filament_archive_swatch/README.md#attribution) | N/A — full swatch is the trial | Yes — user reports previous print works as intended |
-| Upright swatch box | [Base trials; five-card print has excessive seated movement](model/filament_swatch_box_study/README.md) | [Record](model/filament_swatch_box_study/README.md#attribution) | Partial — five-card printed and generally works, seated play unacceptable; fifteen-card unreported | N/A — seated restraint unresolved before cover integration |
+| Upright swatch box | [PETG five-card locating-seat trial](model/filament_swatch_box_study/README.md) | [Record](model/filament_swatch_box_study/README.md#attribution) | Partial — first five-card print rocks and varies laterally; spring revision and fifteen-card baseline unreported | N/A — revised seated restraint needs physical testing before cover integration |
 
 These links identify current instructions; retained experiments are historical
 unless the current instructions recommend them. The two print-status columns use

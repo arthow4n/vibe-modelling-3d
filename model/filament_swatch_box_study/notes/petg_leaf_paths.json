@@ -1,0 +1,64 @@
+{
+  "scope": "Four uniform-stem local sections at Z=8 mm; does not establish layer bonding",
+  "sections": [
+    {
+      "leaf": "front",
+      "x_mm": 130,
+      "z_mm": 8.0,
+      "filled_width_mm": 1.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.4,
+          137.4
+        ]
+      ]
+    },
+    {
+      "leaf": "front",
+      "x_mm": 142,
+      "z_mm": 8.0,
+      "filled_width_mm": 1.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.4,
+          137.4
+        ]
+      ]
+    },
+    {
+      "leaf": "front",
+      "x_mm": 154,
+      "z_mm": 8.0,
+      "filled_width_mm": 1.0,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.4,
+          137.4
+        ]
+      ]
+    },
+    {
+      "leaf": "side",
+      "y_mm": 134.3,
+      "z_mm": 8.0,
+      "filled_width_mm": 0.8000000000000114,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          161,
+          161.8
+        ]
+      ]
+    }
+  ],
+  "result": "Each selected stem section filled within 0.05 mm",
+  "gcode_sha256": "94e404f8941659a73a14d5140ad0101bf8f4ad1eba5d500796215be7805b7873",
+  "stl_sha256": "d051f7f11fffb740a6990fb3e07bda00779af50b0345097f64bdf1347ed00a27"
+}
