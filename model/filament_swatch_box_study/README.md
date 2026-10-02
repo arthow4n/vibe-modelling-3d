@@ -6,7 +6,10 @@ E print. F moves that reinforcement inside and leaves the outside profile
 continuous. Main walls/roof remain 0.8 mm; rounded roof edges and base seating
 remain. The constant outside footprint is 63.6 × 48.4 mm, 1.6 mm wider overall
 than E's upper body. Its lower cavity and snap pockets are unchanged, so no new
-matching base is necessary. No F physical print is reported yet.
+matching base is necessary. The user says F looks better and wants to keep this
+version. It is explicitly **not printed yet**; appearance preference does not
+qualify the closure. A separate expandable variant remains a
+[concept discussion](notes/cap_comparison.md#expandable-variant--minimal-additional-parts).
 
 ## F — smooth exterior hood
 
@@ -449,7 +452,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test — F flush hood with E five-card base | Unknown — no print report | `cap_f_flat_5.step/.stl`, `cap_f_hood_5.step/.stl`, unchanged `cap_e_base_5.step/.stl` | CAD/reference slices passed; comfort, thin-shell feel, fit/seam contact, optics and retention need the complete trial |
+| Test — F flush hood with E five-card base | No — user explicitly has not printed it yet | `cap_f_flat_5.step/.stl`, `cap_f_hood_5.step/.stl`, unchanged `cap_e_base_5.step/.stl` | User prefers appearance and keeps this version; CAD/reference slices passed. Comfort, thin-shell feel, fit/seam contact, optics and retention need the complete trial |
 | Test — E thin hood and matching five-card base | Unknown — no print report | `cap_e_thin_5.step/.stl`, `cap_e_hood_5.step/.stl`, `cap_e_base_5.step/.stl` | Raised exterior band rejected before printing; narrower CAD/slice evidence retained. F uses this same base with a flush hood |
 | Test — selected D five-card press-on cap/base | Yes — latest prototype reported printed | `cap_d_snap_5.step/.stl`, `cap_d_hood_5.step/.stl`, `cap_d_base_5.step/.stl`; printed files unconfirmed | Fit okay; base probably fine; hood too bulky and exposed edges insufficiently rounded. Partial success; revision required. Loaded retention, force, recovery and dwell unqualified |
 | Test — current five-card corner seat | Unknown — standalone artifact unconfirmed | `card_base_corner_seat_5.step/.stl` | D's integrated base reported probably fine; this separate trial and detailed centering/grip result remain unconfirmed |

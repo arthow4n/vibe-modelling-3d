@@ -275,7 +275,7 @@
       "valid": true
     }
   },
-  "physical_status": "Unknown: F has no physical print report. E raised exterior band rejected before printing; E base geometry unchanged.",
+  "physical_status": "No: user explicitly has not printed F yet, prefers its appearance and keeps the version. Closure, comfort and optics remain untested. E base geometry unchanged.",
   "base_only_evidence": "cap_e_review.json base_only; exact E source, base exports and selected profile remain unchanged.",
   "input_identities": [
     {

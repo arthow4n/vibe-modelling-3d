@@ -452,3 +452,67 @@ coverage is not actual polymer, optical clarity or material calibration.
 Physical status is **Unknown**; full-capacity production remains **N/A**.
 Test the complete five-card F hood/E base for smooth handling, seated seam,
 loaded own-weight hold, deliberate low grip pull and change after closed dwell.
+
+## Expandable variant — minimal additional parts
+
+The user explicitly has not printed F yet, likes its appearance better and wants
+to keep it. Preserve F/E source and exports. Their next request is to think ahead
+about a separately expandable version with little additional hardware/material
+or assembly burden. This phase is concept discussion and arithmetic only, not
+new CAD, exports or a joint-strength qualification.
+
+Recommend repeated base modules with independently removable F-style hoods,
+joining along the row of card positions at the short ends. Keep each base
+functional alone, with the same fully printed construction. Adding one module
+adds capacity without replacing existing boxes, buying hardware or printing
+a longer common cover. Do not link the thin hoods together or require a full
+carrier frame for the ordinary desk-storage concept.
+
+| Joining approach | Additional pieces | Product/use tradeoff |
+| --- | --- | --- |
+| One short printed bridge key per adjacent pair; identical female sockets in both base ends | n−1 keys for n modules | Preferred: tidy unused ends, replaceable connectors, possible local disconnection without dismantling the whole row; a broad captured key must constrain spreading, vertical mismatch and yaw |
+| Integral male/female base-foot joints | None | Fewest pieces, but exposed unused male ends, wear belongs to the base, and assembly direction can force row dismantling to remove a middle module |
+| Shared carrier or rails | Additional carrier sections | Could support carrying, but adds material, components and a second structure; not the first choice for low-overhead desk storage |
+
+Preferred key concept: two short captured rails joined by a bridge, engaging
+socket tracks in neighboring base feet and inserted from an accessible side.
+It should finish flush with the underside, below the hood seam, with a deliberate
+stop/retainer against sliding out. Geometric capture
+should resist separation and vertical mismatch; do not depend on friction alone
+or claim a finished lock from this description. Side insertion should allow
+boxes to stay upright and avoid moving the whole row during expansion.
+One sufficiently broad key is preferable to two loose fasteners per join if
+the eventual stiffness and access checks support it. Exact geometry remains open.
+
+Sockets belong below the Z = 5 mm hood seat and must avoid the card floor,
+corner seats, cap leaves and underside grips. There is only a 5 mm-high foot:
+verify remaining floor/track material and usable insertion/removal travel before
+committing to the connector. A row of short joints must keep the hood's vertical
+opening path and grip access clear. Independent hoods still mean one opening
+per module; modularity is a capacity/storage choice, not automatically faster
+access to every card at once.
+
+Packing screen from the current F/E geometry: foot width 64 mm and depth
+48.8 mm per five-card module; hood depth 48.4 mm. A foot-to-foot row would leave
+0.4 mm nominal between hoods, but joint and hand-clearance gaps remain to be
+chosen. Four five-card modules/20 cards occupy 195.2 mm before those gaps;
+a corresponding single twenty-card F/E foot would be 153.8 mm. The repeated
+modules therefore add about 41.4 mm (27%) in row length. These are nominal
+envelope calculations, not an assembly fit, deposited-material or cost estimate.
+Repeated ends/closures account for unavoidable overhead beyond the tiny keys.
+
+Allowing five- and ten-card modules to share the same end connector reduces
+overhead without imposing a fixed final capacity. A ten-card foot is nominally
+83.8 mm deep; a 5+10+5 arrangement holds 20 cards in 181.4 mm before joint gaps,
+uses three boxes and two keys, versus four boxes and three keys for 5+5+5+5.
+For n modules the preferred construction has 2n base/hood parts and n−1 keys;
+four five-card modules are eleven printed pieces, adding another is three pieces.
+The connector standard belongs to the base end, independent of module length.
+
+Carry versus desk use is still a consequential requirement: a desk join keeps
+individually supported boxes aligned; carrying a joined row introduces weight,
+cap-release loads, bending and twisting that grow with grip location and row
+length. Do not call a captured key a qualified structural joint. Before detailed
+CAD, establish whether carrying the group is required, releasability, supported
+loads and permitted part overhead. A clarification has been requested while
+the independent concept work continues. No joint has been modelled or tested.
