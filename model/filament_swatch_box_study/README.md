@@ -20,6 +20,14 @@ for opaque filament. The base is probably fine according to the user. No thinner
 or modular variant has been modelled in this discussion; the current artifacts
 remain the printed reference, not an accepted finished product.
 
+Additional closure requirement: the user wants the hood's lower rim to meet
+the base neatly when fully closed, while remaining easy to pull apart. The
+preferred concept is a rounded base ledge supporting that rim, with accessible
+base grips below the seam. This is recorded in the
+[closure/handling notes](notes/cap_comparison.md#closed-seam-and-opening-grip).
+The existing source seats on internal pads; that does not establish the desired
+visible rim-to-base contact in the printed object.
+
 ## Current matched prototype — D
 
 - [Both parts, STEP](cap_d_snap_5.step), [matching STL](cap_d_snap_5.stl),
@@ -72,7 +80,9 @@ trial files intact. Do not change the shared gap casually, since it affects A/B/
 [D design decision](notes/cap_comparison.md#d--selected-press-on--pull-off-direction),
 [rigid and beam checks](notes/cap_d_checks.json), [paired manufacturing review](notes/cap_d_review.json)
 and [targeted stem-path record](notes/cap_d_paths.json) retain the assumptions and
-scope. Actual fit, force, spring return and comfortable use await the print.
+scope. Fit was reported okay; force and spring return remain unreported, while
+hood bulk and edge comfort require revision. Lower-rim contact is now also a
+next-iteration requirement.
 
 ## Earlier cap alternatives
 

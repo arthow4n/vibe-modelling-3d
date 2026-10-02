@@ -232,6 +232,48 @@ versus the present 72.4 × 57.2 mm. That is 9.6 mm less on each overall axis,
 before rounded transitions or reinforcement. It does not establish the lower
 clip-zone footprint; protruding reinforcement still governs modular spacing.
 
+### Closed seam and opening grip
+
+Further user feedback: when closed, the hood does not meet the bottom/base as
+desired. The future cover should close down against the base and still allow
+deliberate separation. Interpret this as a neat, positively seated lower-rim
+seam, with a usable opposing base grip. The exact observed gap/location has not
+been measured. Existing D geometry already has four internal pads intended to
+contact the base's top rim at Z = 20.4 mm; its skirt ends at Z = 6.4 mm and leaves
+that lower band exposed for gripping. That internal stop arrangement does not
+establish external lower-rim contact or that the printed pads actually seated.
+Do not diagnose binding or shift the existing snap alignment from this report.
+
+Preferred concept: a small rounded ledge/foot on the base, with the hood's lower
+rim resting on its upper shoulder. The side outline can meet neatly at this
+seam, while a short exposed base band below it remains available to grip.
+Rounded finger scoops on two opposite base sides or underneath its edges could
+make that grip easier without adding a button. Keep scoops below the closure
+seam so the cover still encloses the cards. They must provide useful finger
+purchase, not merely decoration or a sharp fingernail slot.
+
+Alternative if a fully flush bottom outline is preferred: extend the hood to
+the base's bottom level and provide opposed underside grip recesses in the
+base. This removes the exposed band but makes desk pickup and access more
+demanding; it is a secondary concept, not an assumed improvement. A separate
+ejector or release button adds parts/mechanisms and is not justified while
+passive opposing grips could solve the task.
+
+Keep seating, retention and gripping distinct: the ledge stops downward travel,
+the printed clips retain the seated cap, and the exposed/recessed grips provide
+the opposing pull. Coordinate the ledge height with detent/groove engagement
+and revise or relieve redundant internal stops so they cannot leave the rim
+hovering above its intended shoulder. Existing nominal pad/snap coordinates
+must not be assumed compatible with a changed seating height. Maintain the
+four-sided entrance and sufficient wall clearance; rim contact need not require
+tightening every vertical mating surface into a friction fit.
+
+For joined modules, keep the grip recesses accessible on the long outer sides
+or underside, and place the proposed joins clear of the seating ledge, skirt
+travel and grips. Changing the foot footprint affects module pitch as well as
+appearance; decide these relationships with the slim hood before detailing a
+joint. This requirement is still a concept update, with no new CAD or exports.
+
 ### Expandable five-card boxes
 
 User intent: print another small box when needed, join it to existing boxes,
