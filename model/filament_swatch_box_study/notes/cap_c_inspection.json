@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_cap_c.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric_back",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/cap_c_comparison/inspect_cap_c_isometric_back.png",
+      "camera": {
+        "from_direction": [
+          -1,
+          1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "build": 191.18430594999518,
+    "total": 207.19241935000173
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  }
+}

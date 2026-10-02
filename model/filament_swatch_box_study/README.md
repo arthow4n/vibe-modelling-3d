@@ -1,6 +1,6 @@
-# Filament swatch box — stronger clip and corner-seat trial
+# Filament swatch box — seating and cap prototypes
 
-**Current deliverable: a five-card seating trial, with no physical report yet.**
+**Current deliverable: five-card seating and three cap prototypes, awaiting physical reports.**
 The previous PETG print's broad clip grips nicely, but its tiny end spring gives
 no useful sideways pressure. The new base removes that spring, adds two fixed
 seats matching each card's bottom corners, and strengthens the broad clip.
@@ -53,6 +53,44 @@ check access/reinsertion in sparse/full rows. It does not qualify twenty-row
 flexure, tipping, drawer retention or loaded transport. [B reference slice](notes/cap_b_review.json)
 completed with no notices/review flags and no generated supports. Actual fit and
 handling are unknown, and neither B nor A has a positive closure latch.
+
+**C: attached hinged hood** is the third five-card prototype: [STEP layout](cap_c_hinged_5.step),
+[STL](cap_c_hinged_5.stl), [source](cap_c_hinged_5.py). Four printed parts comprise
+the base/rear frame, U-shaped hood, axle and tapered keeper key. A fixed rear wall
+and roof-height pivot let the hood swing clear of tall cards. It opens to a
+180-degree shelf stop; a rear foot extends 40 mm beyond the seating base's rear
+edge to improve open-box stability. This adds bulk and a permanent wall behind
+the last card. [Twenty-card closed/open view](renders/cap_c_comparison/inspect_cap_c_isometric_back.png)
+shows the cost of keeping the cap attached. Prefer A unless that benefit matters.
+
+Print the layout as supplied: base floor down, hood roof down, axle head down,
+key flat. Diamond bearing holes and beveled crowns avoid unsupported round-hole
+roofs in the two opposite print orientations. Align the centre hood bearing
+between the fixed ears, insert the axle from its headed end, then push the key
+through its exposed cross slot. The key's head stays outside the shaft; its loose
+taper is a trial fit, with no calibrated interference. Keep the key installed
+during operation. Check that it stays in during repeated opening; a slipping key
+means this retention is unqualified and needs adjustment. The cap has no closed
+latch, and lifting/carrying by the cap is unqualified.
+
+The complete five-card C print is the useful test because it retains the tall
+frame, lid sweep, roof stop, foot and actual card access. A bearing coupon would
+miss those relationships. With the base on a table, try empty, one, three and
+five cards; support the hood while first opening, check axle/key fit, clearance,
+open-stop contact, tipping and easy access to the last card, then close it.
+Actual mass distribution, touch forces, hinge/stop strength, key friction, wear
+and twenty-row stability remain unknown. [C rigid checks](notes/cap_c_checks.json)
+cover five/twenty-card sampled opening with conservative contents and axle/key
+fit; the stability sensitivity uses explicit assumed mass-density ratios, not
+slicer-derived weights. [C CAD/export/slice record](notes/cap_c_review.json) is
+reference manufacturing evidence; it does not establish physical operation.
+
+Start with **A cap only** on the existing five-card base. It is the least print
+and assembly work and leaves card access unrestricted. Select B if a fixed desk
+enclosure is useful and there is room to withdraw the tray; select C if an
+attached cover is worth four parts, a taller frame and the rear foot. Each is a
+prototype, not a selected production box. Do not print all three just to fulfill
+the comparison; the next observation should decide which merits further work.
 
 | Version | Primary print file | Matching STL | Status |
 | --- | --- | --- | --- |
@@ -220,6 +258,7 @@ separate questions.
 | Test — current five-card corner seat | Unknown | `card_base_corner_seat_5.step/.stl` | No report; check firmer grip, corner centering, reinsertion, effort and overnight set |
 | Test — A five-card hood/rounded base | Unknown | `cap_a_lift_off_5.step/.stl`, `cap_a_hood_5.step/.stl`, `base_rounded_5.step/.stl` | No report; cap fit, seating, lift, protection and handling unqualified |
 | Test — B five-card drawer/enclosure | Unknown | `cap_b_drawer_5.step/.stl` | No report; running fit, overlap, tray support and card access unqualified |
+| Test — C five-card hinged hood | Unknown | `cap_c_hinged_5.step/.stl` | No report; axle/key fit, last-card access, stop strength, stability and handling unqualified |
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |

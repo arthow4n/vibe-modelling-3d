@@ -1,0 +1,78 @@
+{
+  "checks": [
+    {
+      "count": 5,
+      "angles_degrees": [
+        0,
+        0.5,
+        1,
+        2,
+        5,
+        10,
+        20,
+        35,
+        50,
+        70,
+        90,
+        110,
+        135,
+        160,
+        180
+      ],
+      "bearing_normal_gap_mm": 0.2,
+      "hinge_above_conservative_card_top_mm": 1.0,
+      "stability_sensitivity": [
+        {
+          "fixed_to_lid_effective_density_ratio": 0.5,
+          "open_empty_COM_Y_mm": 41.20337050237031,
+          "rear_support_Y_mm": 62.2,
+          "rear_margin_mm": 20.99662949762969
+        },
+        {
+          "fixed_to_lid_effective_density_ratio": 1,
+          "open_empty_COM_Y_mm": 32.14265851794269,
+          "rear_support_Y_mm": 62.2,
+          "rear_margin_mm": 30.05734148205731
+        }
+      ],
+      "scope": "Rigid sampled sweep and centred axle fit. No continuous motion proof, key friction, hinge strength or physical validation. Stability uses assumed effective-density ratios, excluding touch forces; actual masses remain unknown."
+    },
+    {
+      "count": 20,
+      "angles_degrees": [
+        0,
+        0.5,
+        1,
+        2,
+        5,
+        10,
+        20,
+        35,
+        50,
+        70,
+        90,
+        110,
+        135,
+        160,
+        180
+      ],
+      "bearing_normal_gap_mm": 0.2,
+      "hinge_above_conservative_card_top_mm": 1.0,
+      "stability_sensitivity": [
+        {
+          "fixed_to_lid_effective_density_ratio": 0.5,
+          "open_empty_COM_Y_mm": 106.23985965308108,
+          "rear_support_Y_mm": 114.7,
+          "rear_margin_mm": 8.46014034691892
+        },
+        {
+          "fixed_to_lid_effective_density_ratio": 1,
+          "open_empty_COM_Y_mm": 79.49831539325979,
+          "rear_support_Y_mm": 114.7,
+          "rear_margin_mm": 35.201684606740216
+        }
+      ],
+      "scope": "Rigid sampled sweep and centred axle fit. No continuous motion proof, key friction, hinge strength or physical validation. Stability uses assumed effective-density ratios, excluding touch forces; actual masses remain unknown."
+    }
+  ]
+}

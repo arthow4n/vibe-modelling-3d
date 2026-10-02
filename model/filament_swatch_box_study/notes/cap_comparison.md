@@ -18,7 +18,7 @@ Architecture screen before detailed mechanisms:
 | --- | --- | --- |
 | A — lift-off hood | Lift cap, browse individually upright cards, replace cap. Lowest part count. | Two printed pieces; four internal stop pads and skirt guide. Unlatched desk cover; actual fit/friction unknown. |
 | B — sliding outer enclosure | Pull the standing-card tray clear of its fixed cover. Cap cannot be misplaced. | Tray + housing; more table travel and a front panel. Must check card access and running fit; prior rejected horizontal-packet designs are not evidence for this layout. |
-| C — hinged cap with fixed rear wall | Open an attached cap while the cards stay in place. | Lid + tall rear frame + printed pivot(s). More structure; must clear every card during opening and avoid an enclosure roof that cannot print. |
+| C — hinged cap with fixed rear wall | Open an attached cap while the cards stay in place. | Four parts: frame/base, hood, axle, keeper. Rear foot, tall wall and open stop add structure; sweep and open stability need review. |
 
 Keep the card rows vertical, notch up, independent of how many positions are
 loaded. All closed concepts must continuously cover the cards and use an overlap,
@@ -60,3 +60,42 @@ the tall cap's roof-down print or frame-floor print requirements.
 Physical fit, new spring force, comfortable operation and protection remain
 unprinted observations. Commit each reviewable variant as requested, without
 equating a rendered or sliced mechanism with physical validation.
+
+## Comparison at handoff
+
+| Variant | Printed parts | Main operation | Practical cost | Recommendation |
+| --- | --- | --- | --- | --- |
+| A lift-off | 2; only 1 new print if the existing base fits | Lift about 76 mm and set cover aside | Loose unlatched cover | First trial; simplest and best card access |
+| B drawer | 2 | Withdraw the tray, support it as it leaves, set it down | About 157 mm withdrawal for twenty positions; tall front panel | Alternative for a fixed desk enclosure |
+| C hinged | 4 | Swing hood to the 180-degree stop, browse in place | Fixed rear wall and 40 mm rear-foot reach; axle/key assembly | Alternative when an attached cap is worth the complexity |
+
+C's complete geometry revealed useful integration failures before printing:
+the four-wall hood's inner rear corner fillets caught the rounded base during
+opening; square hinge crowns obstructed the roof; and a rear-wall top corner
+made a small opening contact. The U cavity, beveled crowns and top-front relief
+address those causes. The keeper's original long tip touched the fixed wall;
+shortening its front reach preserves cross-slot engagement without that contact.
+These are deterministic CAD findings, not observed print defects.
+
+An empty open C with equal homogeneous density for both components had only
+about 3.3 mm rear stability margin for five cards and 8.2 mm for twenty, before
+adding the foot. Equal density is not a justified prediction of a two-wall,
+7%-infill body versus thin enclosure walls. The added foot deliberately improves
+the geometry. The final check varies fixed-frame effective density to 0.5 and
+1.0 of the hood's value and records the empty open-box gravity margin. Those
+ratios are assumed sensitivity cases, not inferred from the print settings or
+material calibration. They exclude hand forces and do not qualify printed
+tipping resistance. Actual empty/sparse-box opening belongs in the physical trial.
+
+Five-card STEP/STL layouts preserve actual enclosure height, interfaces and
+contents access. Whole twenty-card renders and geometric checks screen the
+intended capacity, without implying twenty-card print validation. No positive
+closed retention was requested or added in this exploration: A/B are unlatched;
+C has axle capture conditional on its keeper staying installed. All are desk
+prototypes. Do not use any of their cap grips as qualified carrying handles.
+
+The broad clip and new corner seats are unchanged by the cap builders. The new
+1 mm upper exterior rounding and 5 mm base corners address the user's edge
+feedback without changing slot crests or card-contact geometry. Recommend the
+cap-only A print first, then choose a direction from actual cover fit and normal
+use; simulation or more virtual variants cannot establish that feel.
