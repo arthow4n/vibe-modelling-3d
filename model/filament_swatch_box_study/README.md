@@ -39,6 +39,21 @@ review](notes/cap_a_review.json) records successful CAD, matching STEP/STL,
 OrcaSlicer 2.4.2 Q2C PETG slice, no notices and no generated supports. No physical
 cap report yet. Sources and exports for the earlier printed bases remain intact.
 
+**B: upright-card drawer** is the second five-card prototype: [STEP layout](cap_b_drawer_5.step),
+[STL](cap_b_drawer_5.stl), [source](cap_b_drawer_5.py). Pull the tray fully from its
+fixed cover and place it on the table to browse. The closed front panel seats on
+the housing rim; 3 mm side/top lips overlap the opening. The tray prints floor
+down and the enclosure prints closed-back down, opening upward. The cap stays on
+the desk, with the cost of greater table travel and a tall tray-front panel.
+[Twenty-card comparison](renders/cap_b_comparison/inspect_cap_b_isometric_back.png)
+and [rigid travel checks](notes/cap_b_checks.json) review this whole interaction.
+The full five-card prototype preserves floor contact, guide length, contents and
+front-lip geometry; test running fit, support the tray as it comes free, and
+check access/reinsertion in sparse/full rows. It does not qualify twenty-row
+flexure, tipping, drawer retention or loaded transport. [B reference slice](notes/cap_b_review.json)
+completed with no notices/review flags and no generated supports. Actual fit and
+handling are unknown, and neither B nor A has a positive closure latch.
+
 | Version | Primary print file | Matching STL | Status |
 | --- | --- | --- | --- |
 | **Current five-card corner seat** | [card_base_corner_seat_5.step](card_base_corner_seat_5.step) | [STL](card_base_corner_seat_5.stl) | CAD/slice checked; no print report |
@@ -204,6 +219,7 @@ separate questions.
 | --- | --- | --- | --- |
 | Test — current five-card corner seat | Unknown | `card_base_corner_seat_5.step/.stl` | No report; check firmer grip, corner centering, reinsertion, effort and overnight set |
 | Test — A five-card hood/rounded base | Unknown | `cap_a_lift_off_5.step/.stl`, `cap_a_hood_5.step/.stl`, `base_rounded_5.step/.stl` | No report; cap fit, seating, lift, protection and handling unqualified |
+| Test — B five-card drawer/enclosure | Unknown | `cap_b_drawer_5.step/.stl` | No report; running fit, overlap, tray support and card access unqualified |
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |

@@ -34,8 +34,29 @@ the rear wall fixed to the base, otherwise that wall swings into the back row.
 Do not tune a hinge until its complete card/cap sweep passes. An attached cover
 is worthwhile only if the extra frame and handling still make a useful box.
 
-Next work: complete A, check and export its five-card layout, then commit/push;
-develop and review B; model C's complete motion before any hinge refinement.
-Select representative fit/mechanism samples only if they inform a remaining
-decision. Commit each reviewable variant as requested. Physical fit, new spring
-force, comfortable operation and protection remain unprinted observations.
+A is complete and committed at `fdc459e`: valid five-card print layout and
+component exports, clean reference slices, and rigid seating/lift checks for
+five/twenty cards. It is the least costly construction and has unrestricted
+card access. Actual skirt fit and unlatched retention remain unknown.
+
+B's complete geometry and sampled horizontal withdrawal pass rigid checks for
+five/twenty cards. The front panel, side lips and top lip close the opening with
+a 3 mm overlap. The five-card print layout uses the tray floor and enclosure's
+closed back on the bed, avoiding a broad unsupported ceiling. The main practical
+cost is tabletop travel: a twenty-card tray needs about 157 mm to leave the
+housing and should be supported, then placed on the table. It adds a tall front
+panel and prevents losing the outer enclosure. No drawer latch or holding-force
+claim is made. Its five-card layout passed the Orca 2.4.2 reference slice with
+no notices and no generated supports. Physical running fit remains unknown.
+
+C must use a fixed rear wall and a hinge near the roof to avoid the tall-hood
+sweep problem. This costs a taller rear frame and an axle/retainer compared with
+A/B. Keep its actual contents in the motion check; do not qualify a hinge in an
+empty box. A standard printed axle is simpler here than forcing the successful
+sunglasses conical print-in-place hinge into incompatible whole-part orientations.
+That prior interface is physically useful evidence, not authorization to ignore
+the tall cap's roof-down print or frame-floor print requirements.
+
+Physical fit, new spring force, comfortable operation and protection remain
+unprinted observations. Commit each reviewable variant as requested, without
+equating a rendered or sliced mechanism with physical validation.
