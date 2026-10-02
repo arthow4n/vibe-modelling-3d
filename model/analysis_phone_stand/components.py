@@ -42,6 +42,38 @@ RELEASE_TRAVEL=4.7
 TOOTH_RELEASE_TRAVEL=2.1
 ANGLES=(45,60,75)
 
+# Jula 002837: zinc-plated C-1008 steel pan-head machine screws and plain nuts.
+# Jula does not specify head dimensions: these are conservative fit envelopes,
+# not measurements of the user's screws. Thread lengths are under-head lengths.
+M3_LENGTH=12.0
+M3_DIAMETER=3.0
+M3_HOLE_DIAMETER=3.4
+M3_HEAD_DIAMETER=6.0
+M3_HEAD_HEIGHT=2.4
+M3_HEAD_POCKET_DIAMETER=6.6
+BASE_HEAD_DEPTH=2.8
+CRADLE_HEAD_DEPTH=2.6
+ARM_NUT_DEPTH=1.0
+ARM_NUT_ACCESS_DIAMETER=9.0  # Access for a small 5.5 mm nut socket/spanner.
+M3_NUT_FLATS=5.5
+M3_NUT_HEIGHT=2.4
+M3_PITCH=.5
+PIVOT_LENGTH=25.0
+PIVOT_DIAMETER=4.0
+PIVOT_HEAD_DIAMETER=8.0
+PIVOT_HEAD_HEIGHT=3.1
+PIVOT_HEAD_POCKET_DIAMETER=8.6
+PIVOT_HEAD_DEPTH=3.7
+PIVOT_NUT_DEPTH=3.2
+PIVOT_NUT_FLATS=7.0
+PIVOT_NUT_POCKET_FLATS=7.4
+PIVOT_NUT_HEIGHT=3.2
+PIVOT_PITCH=.7
+
+
+def hex_x(y,z,flats,width,x):
+    return cq.Workplane('YZ',origin=(x,y,z)).polygon(6,flats/math.cos(math.pi/6)).extrude(width)
+
 
 def box(x,y,z,dx,dy,dz):
     return cq.Workplane('XY').box(dx,dy,dz,centered=False).translate((x,y,z))
@@ -81,8 +113,11 @@ def arm():
     result=result.edges('|X').fillet(.35)
     result=result.cut(x_cylinder(0,0,HINGE_DIAMETER/2,ARM_WIDTH+2,-ARM_WIDTH/2-1))
     for y in CRADLE_BOLT_Y:
-        hole=cq.Workplane('XY',origin=(0,y,-ARM_THICKNESS-1)).circle(1.7).extrude(ARM_THICKNESS+2)
+        hole=cq.Workplane('XY',origin=(0,y,-ARM_THICKNESS-1)).circle(M3_HOLE_DIAMETER/2).extrude(ARM_THICKNESS+2)
         result=result.cut(hole)
+        # Partial nut recess shortens the grip while leaving socket access.
+        pocket=cq.Workplane('XY',origin=(0,y,-ARM_THICKNESS-1)).circle(ARM_NUT_ACCESS_DIAMETER/2).extrude(ARM_NUT_DEPTH+1)
+        result=result.cut(pocket)
     return result
 
 
@@ -97,8 +132,8 @@ def cradle():
     result=result.cut(box(-10,CRADLE_BOTTOM-1,CRADLE_THICKNESS,20,16,PHONE_THICKNESS+10))
     result=result.edges('|Z').fillet(.7)
     for y in CRADLE_BOLT_Y:
-        hole=cq.Workplane('XY',origin=(0,y,-1)).circle(1.7).extrude(CRADLE_THICKNESS+2)
-        head=cq.Solid.makeCone(3.2,1.7,1.5,cq.Vector(0,y,CRADLE_THICKNESS),cq.Vector(0,0,-1))
+        hole=cq.Workplane('XY',origin=(0,y,-1)).circle(M3_HOLE_DIAMETER/2).extrude(CRADLE_THICKNESS+2)
+        head=cq.Workplane('XY',origin=(0,y,CRADLE_THICKNESS-CRADLE_HEAD_DEPTH)).circle(M3_HEAD_POCKET_DIAMETER/2).extrude(CRADLE_HEAD_DEPTH+1)
         result=result.cut(hole).cut(head)
     return result
 
@@ -118,7 +153,7 @@ def latch():
     tab=tab.edges('|Z').fillet(2)
     result=root.union(leaf).union(tooth).union(tab)
     for x in (-LATCH_BOLT_X,LATCH_BOLT_X):
-        hole=cq.Workplane('XY',origin=(x,LATCH_ROOT_Y+7,0)).circle(1.7).extrude(12)
+        hole=cq.Workplane('XY',origin=(x,LATCH_ROOT_Y+7,0)).circle(M3_HOLE_DIAMETER/2).extrude(12)
         result=result.cut(hole)
     return result
 
@@ -131,6 +166,12 @@ def base():
                             (PIVOT_Y+7,PIVOT_Z),(PIVOT_Y-7,PIVOT_Z)],CHEEK_THICKNESS,x)
         cheek=cheek.union(x_cylinder(PIVOT_Y,PIVOT_Z,7,CHEEK_THICKNESS,x))
         cheek=cheek.cut(teardrop_x(PIVOT_Y,PIVOT_Z,HINGE_DIAMETER/2,CHEEK_THICKNESS+2,x-1))
+        if x<0:
+            # Roof retains the head's round clearance without a horizontal ceiling.
+            cheek=cheek.cut(teardrop_x(PIVOT_Y,PIVOT_Z,PIVOT_HEAD_POCKET_DIAMETER/2,PIVOT_HEAD_DEPTH+1,x-1))
+        else:
+            # One plain nut is held by the hex; another jams against it outside.
+            cheek=cheek.cut(hex_x(PIVOT_Y,PIVOT_Z,PIVOT_NUT_POCKET_FLATS,PIVOT_NUT_DEPTH+1,x+CHEEK_THICKNESS-PIVOT_NUT_DEPTH))
         result=result.union(cheek)
     # Spring deflection well, open from above; at full release leaf remains >1 mm above floor.
     well=box(-15,PIVOT_Y-19,1,30,11.5,BASE_THICKNESS)
@@ -142,9 +183,9 @@ def base():
     result=result.union(box(-8,PIVOT_Y-16,1,16,5,stop_top-1))
     result=result.union(box(-LATCH_ROOT_WIDTH/2,LATCH_ROOT_Y,BASE_THICKNESS-.1,LATCH_ROOT_WIDTH,LATCH_MOUNT_LENGTH,LATCH_TOP-LATCH_THICKNESS-BASE_THICKNESS+.1))
     for x in (-LATCH_BOLT_X,LATCH_BOLT_X):
-        hole=cq.Workplane('XY',origin=(x,LATCH_ROOT_Y+7,-1)).circle(1.7).extrude(15)
-        # M3 countersunk head sits flush underneath; nut/washer clamps the latch above.
-        head=cq.Solid.makeCone(3.2,1.7,1.5,cq.Vector(x,LATCH_ROOT_Y+7,0),cq.Vector(0,0,1))
+        hole=cq.Workplane('XY',origin=(x,LATCH_ROOT_Y+7,-1)).circle(M3_HOLE_DIAMETER/2).extrude(15)
+        # Recess the pan head above the bed plane; plain nut clamps the latch.
+        head=cq.Workplane('XY',origin=(x,LATCH_ROOT_Y+7,-1)).circle(M3_HEAD_POCKET_DIAMETER/2).extrude(BASE_HEAD_DEPTH+1)
         result=result.cut(hole).cut(head)
     assert len(result.val().Solids())==1, 'Spring well must not sever the pivot cheeks from the base'
     return result

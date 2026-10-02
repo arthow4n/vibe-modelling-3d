@@ -26,7 +26,7 @@ def screen():
         phone_thickness_mm=PHONE_THICKNESS,moving_printed_mass_allowance_kg=.10,
         material='Solid PETG, assumed E=1200 MPa; sensitivity at 800 MPa required',
         finger_release_target_N=[2,12],strain_screen=.015,structural_sag_target_mm=2,
-        hardware='M4 pivot and two M3 cradle bolts, two M3 latch bolts',
+        hardware='Jula 002837: M4 x 25 pivot with two plain M4 nuts; four M3 x 12 screws with four plain M3 nuts; no washers',
         rough_print_layout_mm=[230,240,40]))
 
 if __name__=='__main__': print(json.dumps(screen(),indent=2))

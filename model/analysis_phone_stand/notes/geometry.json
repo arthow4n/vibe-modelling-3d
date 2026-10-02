@@ -1,5 +1,40 @@
 {
   "checks": {
+    "hardware": {
+      "cradle": {
+        "screw": "2 x M3 x 12",
+        "nuts": "2 x M3 plain",
+        "grip_mm": 8.4,
+        "thread_beyond_nut_mm": 1.1999999999999997,
+        "head_below_phone_plane_mm": 0.20000000000000018,
+        "remaining_backing_mm": 1.4,
+        "tool": "8.4 mm diameter nut socket envelope clears 9 mm rear access recess"
+      },
+      "latch": {
+        "screw": "2 x M3 x 12",
+        "nuts": "2 x M3 plain",
+        "grip_mm": 8.8,
+        "thread_beyond_nut_mm": 0.7999999999999994,
+        "head_above_desk_mm": 0.3999999999999999
+      },
+      "pivot": {
+        "screw": "1 x M4 x 25",
+        "nuts": "2 x M4 plain, captive inner and external jam nut",
+        "grip_mm": 17.9,
+        "thread_beyond_both_nuts_mm": 0.7000000000000011,
+        "remaining_cheek_thickness_mm": [
+          2.3,
+          2.8
+        ],
+        "head_below_outer_cheek_mm": 0.6000000000000001
+      },
+      "scope": "CAD clears assumed hardware and tool envelopes; pan-head/nut dimensions and actual printed fit need checking. No preload, loosening, or joint-slip prediction.",
+      "checked_angles_deg": [
+        45,
+        60,
+        75
+      ]
+    },
     "locked_poses": "No unintended solid overlaps at 45, 60, 75 degrees; shared mounting faces touch.",
     "motion": "Arm/base and cradle/base: no overlaps at 2-degree samples over 45..75; not a continuous proof. Tooth/latch interaction belongs to elastic analysis.",
     "device": "90 x 180 x 14 mm device envelope seats and lifts out along cradle; 20 mm open cable notch, 8 mm retaining lip.",
@@ -57,7 +92,7 @@
       ],
       "strain_screen": 0.015,
       "structural_sag_target_mm": 2,
-      "hardware": "M4 pivot and two M3 cradle bolts, two M3 latch bolts",
+      "hardware": "Jula 002837: M4 x 25 pivot with two plain M4 nuts; four M3 x 12 screws with four plain M3 nuts; no washers",
       "rough_print_layout_mm": [
         230,
         240,
@@ -66,9 +101,9 @@
     }
   },
   "source_sha256": {
-    "components.py": "75e85239c5df8c4a00e6dc4bc203b4e7dd3af813e9df7d30c66e1ad122e8d6b3",
-    "concept.py": "e0cb9c74abef00c194173787ce777c77adb22afecf48796b8cae2b1cf9c72b24",
-    "verify.py": "01a873cab617e05ea72f6bd0ea5d81a8409615150ea1c806ff1f9eb5e77cbaf7",
+    "components.py": "581a58718b1b5e72003519403ed6e1e90b7efe2fc5dedbde53ac90da4b9b906a",
+    "concept.py": "81caa8f049d02635eb4fc975755d10da2f772a07c587db62842245d2d33063f3",
+    "verify.py": "8f4a9b866525166c5b7842e64e126565254f5003980fd81116df90690fd2411c",
     "analysis_phone_stand.py": "a4a59403e27760126efe867deb0535b9c457dbc02e4d2c4316623f0cc8a45250"
   }
 }

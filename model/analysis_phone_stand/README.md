@@ -3,7 +3,8 @@
 A complete four-part, press-to-release phone-stand prototype used to develop and
 exercise the repository's [physical-analysis API](../../physical_analysis/README.md).
 Designed around a **300 g phone, up to 90 × 180 × 14 mm**, at **45°, 60° or 75°**.
-The source, matching exports and numerical evidence are complete. Physical fit,
+Hardware is matched to the user's **Jula Hard Head 002837 screw/nut assortment**.
+The source, matching exports and conditional numerical evidence are complete. Physical fit,
 creep, spring recovery and durability remain untested; this is not a tablet rating.
 
 ![Assembly with display-only phone envelope](renders/assembled/stand_in_use.png)
@@ -26,38 +27,75 @@ The shared dimensions/builders live in [components.py](components.py); the compl
 layout is [analysis_phone_stand.py](analysis_phone_stand.py).
 [inspect_assembled.py](inspect_assembled.py) is an inspection pose, not a print layout.
 
-Print **PETG, 0.4 mm nozzle, 0.2 mm layers, two walls, 100% rectilinear infill**.
+Print **PETG, 0.4 mm nozzle, 0.2 mm layers, two walls, 100% rectilinear infill,
+automatic tree supports** using the retained process profile.
 Solid infill deliberately replaces the usual 7% starting point so the homogeneous
 solid analysis has a useful physical counterpart. Use calibrated filament settings.
 The retained [process profile](notes/solid-petg-process.json) and Generic PETG
 reference filament used 250°C after the first layer, 245°C initially and an 80°C bed;
 these temperatures are reference evidence, not a filament calibration.
 
-OrcaSlicer 2.4.2 accepted the full layout and every individual export on its Qidi
-Q2C 0.4 mm profile: **no notices, no automatic supports generated**, with auto-brim
-available. See [slice evidence](notes/slices.json). The upright cradle avoids an
+OrcaSlicer 2.4.2 completed the full layout and every individual export on its Qidi
+Q2C 0.4 mm profile, with **no notices** and auto-brim available.
+Supports are generated at the base and cradle fastener recesses; the arm and
+catch need none in this profile. See [slice evidence](notes/slices.json) and
+[support placement review](notes/support_review.png). The upright cradle avoids an
 unsupported retaining lip; the spring bends along its printed layers. The base's
-teardrop pivot roofs and short screw-hole bridges require no supports in this
-profile. Edge radii soften the cradle, tab and tooth roots. Actual bridge quality,
+teardrop pivot bore/head roof reduces overhangs, but Orca supports the hex nut
+roof and the flat screw-head seats. Remove supports from the underside base
+recesses, outer pivot nut pocket and open cradle recesses before assembly; a
+small pick and pliers can reach these openings. Keep the bearing seats intact.
+Edge radii soften the cradle, tab and tooth roots. Actual support removal, bridge quality,
 layer bonding and fit still need a print. The STL smoke checks do not validate
 Orca's separate GUI STEP importer.
 
 ## Hardware and assembly
 
-Supply one **M4 × 35 mm socket-head bolt**, one M4 nyloc nut and two M4 washers;
-four **M3 × 16 mm countersunk screws**, four M3 nuts and four M3 washers. Nominal
-socket tools are 3 mm for the M4 bolt and 2 mm for M3 countersunk socket screws,
-plus 7 mm and 5.5 mm nut tools. Check the drive type of the hardware you buy.
+Use only the following hardware from the on-hand
+[Jula 002837 assortment](https://www.jula.se/catalog/bygg-och-farg/infastning/sortimentsatser/skruvsatser/skruv-muttersats-002837/):
 
-1. Insert two M3 screws upward through the base's countersunk underside holes.
+| Connection | Screws | Plain nuts |
+| --- | --- | --- |
+| Pivot | 1 × M4 × 25 mm | 2 × M4: one captive nut plus one external jam nut |
+| Cradle to arm | 2 × M3 × 12 mm | 2 × M3 |
+| Catch to base | 2 × M3 × 12 mm | 2 × M3 |
+
+Jula lists **zinc-plated C-1008 steel** screws and matching plain nuts; washers,
+nyloc nuts and the previously specified 35/16 mm screws are not required.
+The product photograph shows cross-drive pan heads, rather than countersunk or
+socket heads. Use a fitting cross-head screwdriver, a 7 mm M4 nut spanner and
+a 5.5 mm M3 nut tool. The rear arm recess accepts a small nut socket up to
+8.4 mm outside diameter; the partially exposed nut also permits side access.
+
+Jula does not publish head or nut dimensions. CAD assumes M3 heads no larger
+than **6.0 mm diameter × 2.4 mm high**, M4 heads **8.0 × 3.1 mm**, and nominal
+M3/M4 nut thicknesses **2.4/3.2 mm**. Pocket diameters are 6.6/8.6 mm, and the
+M4 captive hex is 7.4 mm across flats. Compare your screws with these envelopes
+before printing. The editable hardware parameters are in `components.py`;
+changing pocket depths also changes thread engagement and the remaining backing.
+
+The revision retains the established four-part architecture, phone envelope,
+angle range, flexible catch and PETG setup. Flat head seats replace countersinks;
+shallow rear arm nut recesses shorten the cradle grip. Deeper external pivot
+seats accommodate the M4 × 25 screw and two ordinary nuts without reducing the
+0.4 mm arm clearance per side. No additional printed hardware or tools are needed.
+
+1. Insert two M3 × 12 screws upward through the base's recessed underside holes.
    Set the catch on the raised rear mounting pad, with its tooth and broad thumb
-   tab pointing toward the front. Add washers and nuts above the catch root.
-2. Attach the cradle to the arm using the other two M3 screws from the phone side.
-   Their heads must sit flush in the cradle countersinks; washers and nuts go on
-   the arm's rear face. Snug the connection without crushing the PETG.
-3. Put the toothed arm between the base cheeks and insert the M4 pivot bolt with
-   washers outside the cheeks. Retain it with the nyloc nut while leaving the arm
-   free to rotate. The design has 0.4 mm axial clearance per side and 4.5 mm bores.
+   tab pointing toward the front. Add plain M3 nuts above the catch root and snug
+   them without crushing the PETG. Heads must remain above the desk plane.
+2. Attach the cradle to the arm using the other two M3 × 12 screws from the phone
+   side. Seat their pan heads below the phone-contact face and the plain nuts in
+   the shallow recesses on the arm's rear face. Tighten gently: 1.4 mm of backing
+   remains beneath each head seat. Nominal thread protrusion is 1.2 mm.
+3. Seat one M4 nut in the base's outer hex pocket. Put the toothed arm between the
+   cheeks and insert the M4 × 25 screw from the opposite, teardrop head pocket.
+   Snug it into the captive nut and check that the arm rotates freely. Thread the
+   second M4 nut onto the exposed end and jam it against the first, held by the
+   hex pocket. Use modest torque and recheck free rotation; do not flex the cheeks
+   inward to clamp the arm. Both nuts fully engage with 0.7 mm nominal thread
+   beyond them. The shaft bores remain 4.5 mm. Check the jam nut for loosening
+   during the first trial; this is not a qualified vibration-resistant joint.
 4. Support the cradle by hand, press the front tab down to its stop, set the angle,
    and release the tab into a tooth valley. Use the 45–75° range; valleys are
    spaced 15° apart. Verify engagement before letting go.
@@ -76,9 +114,9 @@ gravity holder, not a clamp for carrying the device around.
 | --- | --- | --- |
 | Thumb release | 6.49 N at 4.7 mm travel; least sampled tooth clearance travel 2.20 mm | E = 1200 MPa; front-edge press; idealized clamped root |
 | Holding contact | Checked to 22.70 N versus 14.64 N service demand; maximum penetration 0.0017 mm | E = 800 MPa; local tangential translation of an actual tooth patch; frictionless |
-| Arm/cradle bending | 0.86 mm maximum displacement; 0.37% peak strain | 300 g phone plus conservative 100 g moving-part allowance; E = 800 MPa |
+| Arm/cradle bending | 0.88 mm maximum displacement; 0.37% peak strain | Updated recessed-head geometry; 300 g phone plus conservative 100 g moving-part allowance; E = 800 MPa |
 | Release strain screen | 1.40% on the finer mesh versus an assumed 1.5% limit | Local peak remains mesh sensitive; not a converged yielding prediction |
-| Hardware bearing screen | 0.77 MPa at the pivot, 2.24 MPa at cradle bolts | Conservative projected areas versus an assumed 7 MPa allowance |
+| Hardware bearing screen | 1.82 MPa at the recessed pivot, 4.00 MPa at cradle bolts | Reduced printed ligaments, conservative projected areas versus an assumed 7 MPa PETG allowance |
 
 ![Predicted release and holding curves](renders/analysis/force_curves.png)
 
@@ -89,12 +127,27 @@ for release and 8% for holding. The high release value lies near the idealized
 clamp edge. Neither the assumed limit nor this elastic material law establishes
 permanent set, layer failure, fatigue or long-term PETG creep.
 
+The [updated structure case](notes/analysis/jula_structure/result.json) was rerun
+after changing the arm/cradle recesses. Its current fixture identity is checked
+when generating the verification summary. The older `notes/analysis/structure`
+is historical. Release evidence is reused with the unchanged catch fixture's
+identity checked; retained local holding evidence covers the unchanged tooth
+patch and catch, excluding the revised pivot support. No new steel modulus or
+strength grade is assumed from Jula's material label.
+
+The hardware revision's CAD checks cover the assumed screw heads, shafts, nuts
+and M3 socket access, plus thread engagement at all three locked poses. The
+unchanged release consumer regression also passed. These checks establish
+nominal compatibility; actual head dimensions and printed seats remain untested.
+
 The structure case treats the bolted arm/cradle interface as bonded and fixes a
 cut at the gear sector; its displacement excludes hinge play, catch rotation and
 joint slip. Contact uses a short straight tangential path, not a complete rotating
 assembly solve. The checked force/service ratio of 1.55 is not a certified safety
-factor. The moving CAD material volume corresponds to about 87 g at an assumed
-1.27 g/cm³, below the 100 g load allowance. The phone centre has an 18.5 mm rear
+factor. The historical moving geometry corresponds to about 87 g at an assumed
+1.27 g/cm³; this revision only removes material at bolt seats, so the unchanged
+100 g load allowance remains conservative under that density assumption.
+The phone centre has an 18.5 mm rear
 footprint margin at 45°, before counting stabilizing base weight. A lateral bump,
 a shifted phone or a cable pull is outside that static screen.
 
@@ -114,7 +167,8 @@ exceeded the provisional strain limit at 5.3 mm travel.
 
 A [sharp-tooth pass-over experiment](notes/analysis/pass_over_rejected/result.json)
 on an earlier fixture failed to converge. It remains explicitly rejected; the
-operating design uses deliberate release. All 19 repository tests passed, including solver-backed regression cases.
+operating design uses deliberate release. At the original model handoff, all 19
+then-existing repository tests passed, including solver-backed regression cases.
 The supported foundation now covers
 loaded solids, prescribed flexure deformation, smooth contact and this local
 holding-contact experiment. General rotating multipart mechanisms, friction,
@@ -150,14 +204,18 @@ pivot motion and repeated unloaded release/return, then use a supported 300 g
 surrogate before putting a phone on it. Report whether the catch fully returns,
 holds each angle, takes a permanent set, or drifts under an hour-long load. Record
 material, print settings, orientation and actual release effort if measurable.
-Check that countersunk heads are flush and the cradle joint does not slip.
+Check that pan heads are below the phone/desk surfaces, all nuts fully engage,
+the pivot remains free after locking, and the cradle joint does not slip. If
+hardware exceeds the stated envelopes, revise the pocket parameters and rerun
+the grip/clearance checks before using the stand. Plain M3 nuts and the M4 jam
+pair still need physical checks for loosening and creep.
 If the catch binds, diagnose the contact before changing thickness: thickness
 changes both force and strain. Physical feedback is needed before a load claim.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | N/A | None; full stand is the trial | No separate coupon phase |
-| Final printable object(s) | Unknown | `analysis_phone_stand.step/.stl`, `stand_base`, `stand_arm`, `stand_cradle`, `stand_latch` STEP/STL pairs | No print report; fit, release, recovery, holding, creep and durability untested |
+| Final printable object(s) | Unknown | `analysis_phone_stand.step/.stl`, `stand_base`, `stand_arm`, `stand_cradle`, `stand_latch` STEP/STL pairs | Jula 002837 revision; no print report. Actual head/nut fit, support removal, jam-nut locking, release, recovery, holding, creep and durability untested |
 
 ## Shared flexure question
 
@@ -189,3 +247,6 @@ external dependencies; no solver binaries are included.
 Engineering-question migration contributor: GPT-6 family (specific runtime variant
 and reasoning effort not exposed); Codex shared-workspace API agent; provider not
 separately exposed. No sub-agents. Historical model attribution above is preserved.
+
+Jula hardware adaptation: GPT-6 family, Codex API agent, OpenAI; exact runtime
+variant and reasoning effort unavailable. No sub-agents contributed.
