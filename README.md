@@ -33,7 +33,7 @@ completion from design adequacy and physical validation.
 | Vaseline container | [Screw-top jar](model/vaseline_container/README.md) | [Record](model/vaseline_container/README.md#attribution) | N/A — full pair is the trial | Yes — user reports good print |
 | Vaseline transfer spatula | [Flat scrape-and-fill tool](model/vaseline_transfer_spatula/README.md) | [Record](model/vaseline_transfer_spatula/README.md#attribution) | N/A — complete tool is the first proposed trial | Unknown — no user report |
 | Filament archive swatch | [SCAD instructions](model/filament_archive_swatch/README.md) | [Record](model/filament_archive_swatch/README.md#attribution) | N/A — full swatch is the trial | Yes — user reports previous print works as intended |
-| Upright swatch box | [Stronger clip and corner-seat trial](model/filament_swatch_box_study/README.md) | [Record](model/filament_swatch_box_study/README.md#attribution) | Partial — printed broad clip works, tiny end spring ineffective; new five-card corner seat has no print report | N/A — corner seating and stronger grip need physical testing before cover integration |
+| Upright swatch box | [Cap exploration and seating trials](model/filament_swatch_box_study/README.md) | [Record](model/filament_swatch_box_study/README.md#attribution) | Partial — broad clip accepted; corner-seat/stronger-grip and A hood prototypes have no print report | N/A — cap variants under comparison; no selected production box |
 
 These links identify current instructions; retained experiments are historical
 unless the current instructions recommend them. The two print-status columns use

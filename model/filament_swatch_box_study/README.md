@@ -5,8 +5,39 @@ The previous PETG print's broad clip grips nicely, but its tiny end spring gives
 no useful sideways pressure. The new base removes that spring, adds two fixed
 seats matching each card's bottom corners, and strengthens the broad clip.
 The user accepts a final downward press and specifically requests firmer grip.
-Lateral alignment and the stronger grip still need a physical trial before cover
-integration. This phase includes no cover, button, latch, hardware or assembly.
+Lateral alignment and the stronger grip still need a physical trial. The user now
+authorizes autonomous cap exploration while away; this permits independent cap
+concept work without promoting the corner seat to printed validation.
+
+## Cap variants under exploration
+
+[Architecture and comparison record](notes/cap_comparison.md) owns this phase.
+**A: removable hood** is the first finished five-card prototype. It continuously
+covers the cards, stops on four internal rim pads, has a four-sided skirt lead-in,
+and lifts off for unrestricted access. It is an unlatched desk cover; fit/friction
+and any transport retention are unqualified. Its roof prints on the bed, leaving
+all internal pads supported by gradual ramps.
+
+- [A cap only](cap_a_hood_5.step), [matching STL](cap_a_hood_5.stl): try this on the
+  nominal existing five-card footprint without printing a new base.
+- [A cap + softer base layout](cap_a_lift_off_5.step), [STL](cap_a_lift_off_5.stl).
+- [Softer base alone](base_rounded_5.step), [STL](base_rounded_5.stl): exterior corner
+  radius 5 mm and upper rim radius 1 mm; functional slot crests stay 0.4 mm.
+- [Twenty-card closed/open inspection](renders/cap_a_comparison/inspect_cap_a_isometric.png)
+  is a full-size concept view, not a twenty-card export or physical test.
+
+Use the existing PETG / 0.4 mm / 0.2 mm / two-wall / 7% setup. The cap requires
+about 76 mm upward travel to clear the tall cards. Its 0.4 mm per-side running
+gap is provisional. The full five-card cap is the meaningful first trial: check
+corner fit, rim seating, easy lift/replacement, headroom and overall handling.
+It includes actual height and stop geometry which a short rim coupon would omit;
+twenty-row rigidity, friction and carrying behaviour remain unqualified.
+
+[A rigid checks](notes/cap_a_checks.json) cover five/twenty-card configurations,
+four-pad seating, conservative contents and sampled vertical lift. [A layout
+review](notes/cap_a_review.json) records successful CAD, matching STEP/STL,
+OrcaSlicer 2.4.2 Q2C PETG slice, no notices and no generated supports. No physical
+cap report yet. Sources and exports for the earlier printed bases remain intact.
 
 | Version | Primary print file | Matching STL | Status |
 | --- | --- | --- | --- |
@@ -96,8 +127,9 @@ perform its locating job without another flexible part, force balance or release
 operation. The card's own chamfers already provide the mating geometry. A tighter
 rectangular guide would retain some clearance or bind variable cards; the relieved
 corner seat instead establishes two contacts, with slight height variation as its
-tradeoff. The user explicitly accepts pressing and stronger grip. No closed-box
-work is justified until this affected seating relationship is useful.
+tradeoff. The user explicitly accepts pressing and stronger grip, and subsequently
+authorizes independent cap exploration. Full-product validation remains dependent
+on actual seating and cap use.
 
 [Geometric and mechanical checks](notes/corner_seat_checks.json) establish:
 
@@ -171,10 +203,11 @@ separate questions.
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test — current five-card corner seat | Unknown | `card_base_corner_seat_5.step/.stl` | No report; check firmer grip, corner centering, reinsertion, effort and overnight set |
+| Test — A five-card hood/rounded base | Unknown | `cap_a_lift_off_5.step/.stl`, `cap_a_hood_5.step/.stl`, `base_rounded_5.step/.stl` | No report; cap fit, seating, lift, protection and handling unqualified |
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | N/A | No covered box in this trial phase | Corner seating and stronger grip await physical use before integration |
+| Final printable object | N/A | No selected production box in this exploration phase | Seating and cap variants await physical use and selection |
 
 ## Attribution
 
