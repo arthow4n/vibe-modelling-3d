@@ -1,136 +1,152 @@
-# Upright swatch box — rough concept comparison
+# Filament swatch box — five- and fifteen-card base trials
 
-Two **inspection-only** concepts for the existing [archive swatch](../filament_archive_swatch/README.md).
-Cards stand **80 mm vertically × 50 mm horizontally × 2 mm thick**, with the
-notch at the top. Twenty individual lower guides keep cards independent of their
-neighbours; the six-card views show a sparse collection distributed across the
-tray. No screws, nuts, magnets, glue or other materials are proposed.
+**Print the five-card base first.** Both bases are standalone, fully printed
+handling trials for the existing **80 mm tall × 50 mm wide × 2 mm thick** cards,
+with the notch at the top. No cover, button, latch, hardware or assembly is
+included. The user requested these base prints to resolve card return before
+investing in the enclosure.
 
-**Provisional direction: A's low tray, with card reinsertion under review.** The
-user raised a concern about finding the narrow grooves when returning cards;
-this is a design question before printing, not a reported physical failure or
-an unqualified rejection of both concepts. The current straight entrances have
-no funnel or insertion mechanism. Upright support and nominal clearance do not
-establish easy return. Resolve that interaction before selecting/refining the
-cover. A exposes more of each card and needs only two printed parts. B keeps
-the cover attached but requires a higher body, greater front/back clearance and
-a hinge. Bag-transport retention remains unspecified. Neither concept has a
-working catch. The intended result is fully covered storage, not a tested seal.
+| Base | Primary print file | Matching secondary file | Size from source, mm |
+| --- | --- | --- | --- |
+| Five cards — first trial | [card_base_test_5.step](card_base_test_5.step) | [card_base_test_5.stl](card_base_test_5.stl) | 59.6 × 44.4 × 20.4 |
+| Fifteen cards — larger base | [card_base_test.step](card_base_test.step) | [card_base_test.stl](card_base_test.stl) | 59.6 × 114.4 × 20.4 |
 
-## Concepts and normal use
+![Five-card trial and its flared entrances](renders/base_test_5/card_base_test_5_isometric.png)
 
-| | A — removable hood | B — flip-open hood |
-| --- | --- | --- |
-| Approximate closed exterior, mm | 62 × 106 × 86.8 | 62 × 124.5 × 86.8, including pivot envelopes |
-| Body rim above bed | 18.4 mm | 44.4 mm |
-| Card exposed above rim | 64 mm | 38 mm |
-| Opening | Lift hood vertically and put it aside | Swing hood backwards approximately 100° |
-| Main benefit | Full side access and little surrounding wall | Cover stays attached |
-| Main cost | Loose cover occupies a separate place | More material, rear working space and hinge development |
+[Five-card base with three swatches](renders/handling_test_5/inspect_base_test_5_isometric.png)
+and [fifteen-card base with six swatches](renders/handling_test_15/inspect_base_test_isometric.png)
+show sparse independent support. The larger base's [empty view](renders/base_test/card_base_test_isometric.png)
+shows all fifteen positions. Card references are inspection geometry, never
+included in either printable export.
 
-![A: six independently supported cards and removable hood](renders/lift_off/inspect_lift_off_isometric.png)
+## Entrance and support
 
-![B: six independently supported cards and flip-open hood](renders/flip/inspect_flip_isometric.png)
+The earlier straight-slot study provided nominal support but left the user to
+find a narrow entrance. The user questioned that interaction before printing;
+no physical failure was reported. These trials replace that entrance with a
+**four-sided funnel**, keeping the lower support section separate:
 
-For A, rest the tray on the desk, remove the hood and pinch a card at its exposed
-side edges. Lift vertically at least 14 mm to leave the guides, then remove it.
-Keep a hand on the tray while selecting. Insert a returned card into one empty
-groove before lowering the hood. Only the lower edge is guided; the upper notch
-is unobstructed. B uses the same grooves, with less exposed card height.
+- Slots are on 7 mm centres, leaving 5 mm between adjacent nominal card faces.
+- Each lower groove is 2.8 mm wide and 14 mm deep: 0.8 mm total allowance for a
+  nominal 2 mm card. It constrains lean without gripping by interference or
+  relying on neighbouring cards. Printed clearance and steadiness are untested.
+- A 4 mm deep taper widens the entrance to 5.6 mm across card thickness. The
+  two end faces also flare: the width available to the 50 mm edge grows from
+  54 mm below to 56.4 mm at the entrance. It is not just a chamfer on two sides.
+- A 0.4 mm fillet rounds the entrance perimeter and both edges of each divider
+  crest. The 1.4 mm divider width before rounding leaves a small flat crest;
+  landing directly on a divider can still need a small sideways movement. No
+  claim is made that every initial position automatically finds the right slot.
+- The taper guides small left/right and front/back errors before the card
+  engages the straight section. Fully seated cards rest on the 2.4 mm floor;
+  there is no lip, roof, snap or horizontal step inside the return path.
+- Outer corners are rounded, with a 0.4 mm bed-edge chamfer. The 2.8 mm walls
+  remain outside the card and provide a continuous low body for a later cover.
 
-The [full-row view](renders/full/inspect_full_isometric.png) shows twenty cards
-and one middle card raised 10 mm, still partly guided. This depicts the extraction
-path, not a demonstrated comfortable grasp. There is 2.8 mm between the broad
-faces of adjacent nominal cards at the 4.8 mm pitch; dense-row selection is a
-specific physical handling question. The [empty-guide view](renders/guides/inspect_guides_isometric.png)
-shows how six cards can remain individually supported. [Closed A](renders/closed/study_isometric.png)
-shows the full exterior cover.
+The five-card specimen is a shorter section with **identical** groove width,
+pitch, funnel geometry, depth, walls and print orientation. Its middle slot has
+neighbours on both sides; its end slots reproduce the larger base's ends. It
+is useful for insertion, grip, friction and independent card support. Its
+smaller footprint, mass and wall span do not establish the larger base's tipping
+behaviour or handling with all fifteen cards. Neither base establishes cover fit
+or protection. The older cover sketches are not compatible print-ready covers
+for these revised bases.
 
-Returning a nominal 2 mm card into a 2.8 mm straight groove leaves only 0.4 mm
-of centred alignment allowance per face. Across a full 50 mm edge, the rigid
-projected-width condition `50*sin(yaw) + 2*cos(yaw) <= 2.8` permits only about
-0.92° of yaw once that full edge engages. The chamfered bottom corners ease
-initial contact but do not remove the eventual full-width constraint. The
-current insertion instruction assumes this alignment instead of helping the
-user achieve it, especially between neighbouring cards. No printed difficulty
-or force has been measured.
+## Print and try
 
-The next useful comparison is a wider, flared entrance leading into a narrower
-lower guide, with sufficient spacing to return a middle card. Fifteen positions
-are allowed by the user's original capacity request and may provide more useful
-room than twenty at the current pitch. This is a proposed direction, not updated
-CAD or demonstrated usability; assess sparse support, full-row selection and
-imperfectly aligned return together before further closure work.
+Use the supplied orientation: **flat underside on the bed, entrances upward**.
+Recommended starting setup is **PETG, 0.4 mm nozzle, 0.2 mm layers, two walls,
+7% adaptive cubic infill, supports off**. Use calibrated settings for your
+filament and plate; record the actual setup with the result. No flexible action
+or calibrated material strength is assumed. The continuous flat underside has
+stable bed contact; the grooves are open upward, and their outward-opening
+voids leave supported narrowing ribs. There are no bridges or enclosed supports.
 
-## Dimensions, architecture and evidence
+1. Put one card in the middle slot, notch up. Leave it standing without neighbours
+   and note lean, wobble and whether it seats fully. Also try a single end card.
+2. Fill all five positions. Remove the middle card and return it using your normal
+   grip. Hold the small base on the desk during insertion and removal.
+3. Try returning it with a small left/right offset, front/back offset and slight
+   tilt. The desired result is a gentle hand-guided return without hunting for a
+   narrow slit or needing to force the card. Try the first and last slots too.
+4. Note where an awkward return happens: finding the opening, catching an end,
+   entering the lower groove, or gripping between the other cards. Try several
+   actual swatches so thickness or warping differences are visible.
 
-The authoritative swatch remains its original SCAD file. [study.py](study.py)
-reads its three overall dimensions directly. Its reference cards reproduce the
-outline and notch in the revised orientation, omitting engravings, concave recess
-and thickness/edge tests. No replacement swatch is supplied.
+A useful result is easy ordinary return, individual selection and near-upright
+support. If the entrance finds the card but the lower groove binds, reconsider
+`SLOT_WIDTH`. End catches implicate the end lead/clearance; repeated hunting
+implicates the mouth/pitch; excessive lean implicates lower clearance/depth.
+These are directions for interpreting observations, not diagnosed print causes.
+If the interaction still needs precise alignment, revisit the rack arrangement
+before developing the cover. Report filament/setup, cards tried and what happened.
 
-- Twenty grooves, 2.8 mm wide, on 4.8 mm centres; intervening ribs are 2 mm.
-- 14 mm guide height above a 2.4 mm floor. Nominal 2 mm cards have 0.8 mm total
-  groove allowance. A simple rigid parallel-face estimate permits roughly 3°
-  of lean, rather than falling against adjacent cards. Real printed fit, card
-  flatness and the original surface details remain untested.
-- 2 mm clearance at each short card edge. Nominal rim and cover geometry use
-  1.8 mm walls, 6 mm overlap, 0.4 mm cover clearance per side and 2 mm headroom.
-- The comb floor supports the card bottom; the vertical groove faces constrain
-  forward/backward lean; tray side walls limit sideways movement. Removing the
-  closure mechanism entirely leaves a coherent card rack and cover.
-- Four small hood lands seat on the tray rim. They sit outside the card width,
-  so they do not sweep through the tall card edges in concept B. The hood
-  walls guide A's downward placement; no friction or snap retention is assumed.
-- A low-pivot hinged deep hood is not interchangeable with A's cover: it would
-  sweep into tall cards. B deliberately raises the rim/pivot and enlarges its
-  front/back margins. Its cylinders only mark the intended pivot location;
-  hinge attachments, opening stops and retention are not developed.
-- All proposed shell parts are well inside the Qidi Q2C 270 × 270 × 256 mm
-  envelope. The intended FDM orientation is tray upright and hood roof-down,
-  with a 0.4 mm nozzle. Final process/material choices and hinge manufacture are
-  deferred until the concept choice; there are no print-ready files or slice claims.
+This five-slot physical trial is preferable to more nominal CAD checks because
+real card flatness, printed surface friction and hand-guided correction decide
+usability. It costs less than printing the long base and cover while preserving
+the relevant middle and end interfaces. The larger base is available as requested;
+the **whole box remains outside this test phase**. Use the first print's feedback
+to decide whether to retain or revise these guides before enclosure integration.
 
-The repository's earlier rejected swatch boxes were consulted as negative
-product evidence. No rejected latch or its numerical work was reused. The
-accepted sunglasses case demonstrates that a fully printed captive hinge is
-possible, but its success does not qualify this taller box or require a hinge.
-The architecture comparison precedes detailed closure design, simulations or
-physical coupons.
+## Source and verification
 
-Evaluated 2026-10-02 with `evaluate_model.py`, CadQuery **2.7.0**, Python
-**3.12.14**. All five inspection entry points produced valid geometry and their
-selected isometric renders. The [targeted checks](check_study.py) passed:
-nominal cards clear the comb and A's closed hood; B's hood clears the seated
-cards and body at 5° samples from closed through 100°. These samples are rigid
-clearance evidence, not a continuous-motion proof or a qualified hinge. Actual
-slot friction, sparse-card steadiness, dense-row picking and cover effort need
-physical observation after a worthwhile concept is selected.
+[card_base_test.py](card_base_test.py) owns the shared parameters and
+`build_base(card_count=15)`. [card_base_test_5.py](card_base_test_5.py) selects
+five positions from the same builder. Dimensions are derived from the existing
+SCAD swatch through [study.py](study.py); its surface details are omitted only
+in inspection references. Both STEP/STL pairs come from their respective same
+print geometry. Do not scale the exports to change card count or fit.
 
-Reproduce the specific checks from the repository root:
+Evaluated 2026-10-02 through the shared evaluator, **CadQuery 2.7.0 / Python
+3.12.14**. Both printable entries and their handling views built valid geometry.
+The [targeted entry checks](check_base_test.py) passed for both sizes:
+nominal seating in every groove, a conservative 51 mm wide × 2.2 mm thick
+card envelope, and 1,008 sampled entry poses in first, middle and last slots.
+Paths combine up to 1.5 mm sideways offset, 1 mm fore/aft offset, 1° yaw and
+2° lean in each axis, correcting through the funnel in 0.19 mm travel steps.
+They include adjacent seated card envelopes. Tilted entry starts at the lowest
+corner, rather than incorrectly placing that corner below the entrance.
+
+These checks establish **possible hand-guided paths**, not passive self-centring,
+a continuous-motion proof, printed fit, comfortable grip or automatic insertion
+from arbitrary angles. The physical trial is needed for those handling questions.
+
+Both final STLs completed their **OrcaSlicer 2.4.2** reference slices on the
+Qidi Q2C profile, centred without rotation, with no notices or review flags.
+Effective settings were 0.4 mm nozzle, 0.2 mm layers, PETG, two walls and 7%
+adaptive cubic. The automatic-support probes generated no supports. Printer
+fit, including print aids, was accepted by Orca using the profile's
+270 × 270 × 256 mm limits. These are diagnostic PETG paths; they do not verify
+Orca's separate GUI STEP import or the user's dimensional calibration.
+[The retained review](notes/base_tests_review.json) records native export/slice
+status, effective profiles and source/artifact/profile hashes.
 
 ```sh
-./evaluate_model.py model/filament_swatch_box_study/check_study.py --views none
+./evaluate_model.py model/filament_swatch_box_study/card_base_test_5.py --views none --slice
+./evaluate_model.py model/filament_swatch_box_study/card_base_test.py --views none --slice
+./evaluate_model.py model/filament_swatch_box_study/check_base_test.py --views none
 ```
 
-Render `study.py` for closed A, `inspect_lift_off.py` for sparse A,
-`inspect_flip.py` for sparse B, `inspect_full.py` for full A, or
-`inspect_guides.py` for the empty comb. **Do not export or slice these inspection
-entry points**: they include reference cards or undeveloped concept geometry.
+`inspect_base_test_5.py` and `inspect_base_test.py` are display-only entries.
+The earlier `study.py`, `inspect_lift_off.py`, `inspect_flip.py`,
+`inspect_full.py`, `inspect_guides.py` and `check_study.py` remain rough concept
+history using the old 20-slot layout; their enclosure/clearance evidence does
+not establish the revised bases' usability. Never export those inspection
+poses as the current test pieces.
 
 ## Physical print status
 
-Status reviewed 2026-10-02. This phase delivers rough geometry and review views.
+Status reviewed 2026-10-02. Printable deliverables in this phase are base trials.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A | None in this rough-study phase | No physical test recommended before concept selection |
-| Final printable object(s) | N/A | No print-ready STEP/STL in this phase | Reinsertion questioned before printing; support geometry is provisional; cover and retention remain open |
+| Test piece(s) | Unknown | `card_base_test_5.step/.stl`, `card_base_test.step/.stl` | No print report; five-card entry, selection and independent-support trial first |
+| Final printable object(s) | N/A | No final covered box in this test phase | Cover selection/integration and transport retention await base feedback |
 
 ## Attribution
 
 Primary language model: **GPT-6** (runtime identifies this family; exact variant
 and reasoning effort not exposed). Harness: **Codex**, shared repository
-workspace. Provider: **OpenAI**. No subagents. Swatch dimensions and outline
-come from the existing user-provided SCAD source; its historical Gemini
-attribution remains with that object.
+workspace. Provider: **OpenAI**. No subagents. Swatch dimensions and reference
+outline derive from the existing user-provided SCAD source; its historical
+Gemini attribution remains with that object.
