@@ -1,0 +1,86 @@
+{
+  "scope": "Six uniform front-stem sections; no layer bonding/material calibration",
+  "sections": [
+    {
+      "x_mm": 130,
+      "z_mm": 8.0,
+      "filled_width_mm": 1.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.4,
+          137.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 142,
+      "z_mm": 8.0,
+      "filled_width_mm": 1.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.4,
+          137.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 154,
+      "z_mm": 8.0,
+      "filled_width_mm": 1.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.4,
+          137.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 130,
+      "z_mm": 11.0,
+      "filled_width_mm": 1.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.4,
+          137.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 142,
+      "z_mm": 11.0,
+      "filled_width_mm": 1.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.4,
+          137.6
+        ]
+      ]
+    },
+    {
+      "x_mm": 154,
+      "z_mm": 11.0,
+      "filled_width_mm": 1.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          136.4,
+          137.6
+        ]
+      ]
+    }
+  ],
+  "result": "All selected 1.2 mm stem sections filled within 0.05 mm",
+  "gcode_sha256": "85c999f9e3c07da513c1a68e916360806c2ec3facad3cf61473a17add385a42e",
+  "stl_sha256": "0e13f5b3d13c40e3e8eb8390d766fd866ada8b62c08c77f75ab4ec6752777668"
+}

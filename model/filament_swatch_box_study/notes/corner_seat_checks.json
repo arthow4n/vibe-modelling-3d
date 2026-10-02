@@ -1,0 +1,367 @@
+{
+  "seated_geometry": [
+    {
+      "slot": 0,
+      "width_mm": 49.6,
+      "thickness_mm": 1.8,
+      "chamfer_mm": 3.8,
+      "height_mm": 2.4000000000000012,
+      "left_right_distance_mm": [
+        0.0,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 0,
+      "width_mm": 49.6,
+      "thickness_mm": 2.2,
+      "chamfer_mm": 4.2,
+      "height_mm": 2.000000000000001,
+      "left_right_distance_mm": [
+        4.440892098500626e-16,
+        4.440892098500626e-16
+      ]
+    },
+    {
+      "slot": 0,
+      "width_mm": 50,
+      "thickness_mm": 2,
+      "chamfer_mm": 4,
+      "height_mm": 2.4000000000000004,
+      "left_right_distance_mm": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "slot": 0,
+      "width_mm": 50.4,
+      "thickness_mm": 1.8,
+      "chamfer_mm": 3.8,
+      "height_mm": 2.8,
+      "left_right_distance_mm": [
+        0.0,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 0,
+      "width_mm": 50.4,
+      "thickness_mm": 2.2,
+      "chamfer_mm": 4.2,
+      "height_mm": 2.3999999999999995,
+      "left_right_distance_mm": [
+        8.881784197001252e-16,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 1,
+      "width_mm": 49.6,
+      "thickness_mm": 1.8,
+      "chamfer_mm": 3.8,
+      "height_mm": 2.4000000000000012,
+      "left_right_distance_mm": [
+        0.0,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 1,
+      "width_mm": 49.6,
+      "thickness_mm": 2.2,
+      "chamfer_mm": 4.2,
+      "height_mm": 2.000000000000001,
+      "left_right_distance_mm": [
+        4.440892098500626e-16,
+        4.440892098500626e-16
+      ]
+    },
+    {
+      "slot": 1,
+      "width_mm": 50,
+      "thickness_mm": 2,
+      "chamfer_mm": 4,
+      "height_mm": 2.4000000000000004,
+      "left_right_distance_mm": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "slot": 1,
+      "width_mm": 50.4,
+      "thickness_mm": 1.8,
+      "chamfer_mm": 3.8,
+      "height_mm": 2.8,
+      "left_right_distance_mm": [
+        0.0,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 1,
+      "width_mm": 50.4,
+      "thickness_mm": 2.2,
+      "chamfer_mm": 4.2,
+      "height_mm": 2.3999999999999995,
+      "left_right_distance_mm": [
+        8.881784197001252e-16,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 2,
+      "width_mm": 49.6,
+      "thickness_mm": 1.8,
+      "chamfer_mm": 3.8,
+      "height_mm": 2.4000000000000012,
+      "left_right_distance_mm": [
+        0.0,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 2,
+      "width_mm": 49.6,
+      "thickness_mm": 2.2,
+      "chamfer_mm": 4.2,
+      "height_mm": 2.000000000000001,
+      "left_right_distance_mm": [
+        4.440892098500626e-16,
+        4.440892098500626e-16
+      ]
+    },
+    {
+      "slot": 2,
+      "width_mm": 50,
+      "thickness_mm": 2,
+      "chamfer_mm": 4,
+      "height_mm": 2.4000000000000004,
+      "left_right_distance_mm": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "slot": 2,
+      "width_mm": 50.4,
+      "thickness_mm": 1.8,
+      "chamfer_mm": 3.8,
+      "height_mm": 2.8,
+      "left_right_distance_mm": [
+        0.0,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 2,
+      "width_mm": 50.4,
+      "thickness_mm": 2.2,
+      "chamfer_mm": 4.2,
+      "height_mm": 2.3999999999999995,
+      "left_right_distance_mm": [
+        8.881784197001252e-16,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 3,
+      "width_mm": 49.6,
+      "thickness_mm": 1.8,
+      "chamfer_mm": 3.8,
+      "height_mm": 2.4000000000000012,
+      "left_right_distance_mm": [
+        0.0,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 3,
+      "width_mm": 49.6,
+      "thickness_mm": 2.2,
+      "chamfer_mm": 4.2,
+      "height_mm": 2.000000000000001,
+      "left_right_distance_mm": [
+        4.440892098500626e-16,
+        4.440892098500626e-16
+      ]
+    },
+    {
+      "slot": 3,
+      "width_mm": 50,
+      "thickness_mm": 2,
+      "chamfer_mm": 4,
+      "height_mm": 2.4000000000000004,
+      "left_right_distance_mm": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "slot": 3,
+      "width_mm": 50.4,
+      "thickness_mm": 1.8,
+      "chamfer_mm": 3.8,
+      "height_mm": 2.8,
+      "left_right_distance_mm": [
+        0.0,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 3,
+      "width_mm": 50.4,
+      "thickness_mm": 2.2,
+      "chamfer_mm": 4.2,
+      "height_mm": 2.3999999999999995,
+      "left_right_distance_mm": [
+        8.881784197001252e-16,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 4,
+      "width_mm": 49.6,
+      "thickness_mm": 1.8,
+      "chamfer_mm": 3.8,
+      "height_mm": 2.4000000000000012,
+      "left_right_distance_mm": [
+        0.0,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 4,
+      "width_mm": 49.6,
+      "thickness_mm": 2.2,
+      "chamfer_mm": 4.2,
+      "height_mm": 2.000000000000001,
+      "left_right_distance_mm": [
+        4.440892098500626e-16,
+        4.440892098500626e-16
+      ]
+    },
+    {
+      "slot": 4,
+      "width_mm": 50,
+      "thickness_mm": 2,
+      "chamfer_mm": 4,
+      "height_mm": 2.4000000000000004,
+      "left_right_distance_mm": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "slot": 4,
+      "width_mm": 50.4,
+      "thickness_mm": 1.8,
+      "chamfer_mm": 3.8,
+      "height_mm": 2.8,
+      "left_right_distance_mm": [
+        0.0,
+        8.881784197001252e-16
+      ]
+    },
+    {
+      "slot": 4,
+      "width_mm": 50.4,
+      "thickness_mm": 2.2,
+      "chamfer_mm": 4.2,
+      "height_mm": 2.3999999999999995,
+      "left_right_distance_mm": [
+        8.881784197001252e-16,
+        8.881784197001252e-16
+      ]
+    }
+  ],
+  "guidance": {
+    "funnel_samples": 88,
+    "corner_samples": 22,
+    "corner_step_mm": 0.15,
+    "result": "No rigid intersection at sampled hand-guided poses; leaves omitted"
+  },
+  "stiffness_ratio_vs_printed_1mm_stem": 1.7279999999999998,
+  "beam_screens": [
+    {
+      "modulus_MPa": 1000,
+      "travel_mm": 0.35,
+      "screen": {
+        "force_N": 1.9269913518434225,
+        "tip_displacement_mm": 0.35,
+        "stiffness_N_mm": 5.505689576695493,
+        "root_strain": 0.0037278106508875732,
+        "fixed_free_euler_buckling_N": 58.867226250284446,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "modulus_MPa": 1000,
+      "travel_mm": 0.55,
+      "screen": {
+        "force_N": 3.0281292671825217,
+        "tip_displacement_mm": 0.55,
+        "stiffness_N_mm": 5.505689576695493,
+        "root_strain": 0.005857988165680473,
+        "fixed_free_euler_buckling_N": 58.867226250284446,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "modulus_MPa": 1000,
+      "travel_mm": 0.85,
+      "screen": {
+        "force_N": 4.67983614019117,
+        "tip_displacement_mm": 0.8500000000000001,
+        "stiffness_N_mm": 5.505689576695493,
+        "root_strain": 0.009053254437869822,
+        "fixed_free_euler_buckling_N": 58.867226250284446,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "modulus_MPa": 2000,
+      "travel_mm": 0.35,
+      "screen": {
+        "force_N": 3.853982703686845,
+        "tip_displacement_mm": 0.35,
+        "stiffness_N_mm": 11.011379153390987,
+        "root_strain": 0.0037278106508875732,
+        "fixed_free_euler_buckling_N": 117.73445250056889,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "modulus_MPa": 2000,
+      "travel_mm": 0.55,
+      "screen": {
+        "force_N": 6.0562585343650435,
+        "tip_displacement_mm": 0.55,
+        "stiffness_N_mm": 11.011379153390987,
+        "root_strain": 0.005857988165680473,
+        "fixed_free_euler_buckling_N": 117.73445250056889,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "modulus_MPa": 2000,
+      "travel_mm": 0.85,
+      "screen": {
+        "force_N": 9.35967228038234,
+        "tip_displacement_mm": 0.8500000000000001,
+        "stiffness_N_mm": 11.011379153390987,
+        "root_strain": 0.009053254437869822,
+        "fixed_free_euler_buckling_N": 117.73445250056889,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    }
+  ],
+  "limits": "Contact/entry friction, pad plate-bending, root strain concentrations, printed material response and fatigue need physical evidence. Grip ratio is not calibrated. Seated height changes with width/chamfer size."
+}
