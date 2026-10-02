@@ -436,6 +436,38 @@ def add_slice_review(report, model, args):
     report.setdefault("timings_seconds", {})["slice"] = time.monotonic() - before
 
 
+def emit_report(report, args):
+    """Retain native evidence and optionally shorten console output, without rerunning stages."""
+    if args.report:
+        try:
+            args.report.parent.mkdir(parents=True, exist_ok=True)
+            # A failed write must not truncate an earlier useful report.
+            with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=args.report.parent,
+                                             delete=False) as saved:
+                temporary = Path(saved.name)
+                try:
+                    saved.write(json.dumps(report, indent=2) + "\n")
+                    saved.close()
+                    temporary.replace(args.report)
+                finally:
+                    temporary.unlink(missing_ok=True)
+        except OSError as exc:
+            report["ok"] = False
+            report.setdefault("errors", []).append({"stage": "report", "message": str(exc)})
+    output = report
+    if args.summary:
+        output = {key: report[key] for key in
+                  ("ok", "file_path", "geometry", "views", "exports", "errors",
+                   "timings_seconds", "versions", "diagnostics") if key in report}
+        if "slice" in report:
+            output["slice"] = {key: report["slice"][key] for key in
+                               ("ok", "message", "review_required", "support_probe", "log_notices")
+                               if key in report["slice"]}
+        if not any(error.get("stage") == "report" for error in report.get("errors", [])):
+            output["report_path"] = str(args.report)
+    print(json.dumps(output, indent=2))
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(
         description=f"{__doc__}\nFor valid evaluations, stdout always contains one JSON object. "
@@ -473,7 +505,27 @@ def main(argv=None):
                         help="Keep Orca diagnostics and G-code for a slice review")
     parser.add_argument("--timeout", type=positive_float, default=300,
                         help="Maximum evaluation time in seconds")
+    parser.add_argument("--report", type=Path, metavar="JSON",
+                        help="Also save the complete native report; path relative to the current directory, "
+                             "parent directories created, existing report replaced")
+    parser.add_argument("--summary", action="store_true",
+                        help="With --report, print a compact stage summary instead of the complete report")
     args = parser.parse_args(argv)
+    if args.summary and not args.report:
+        parser.error("--summary requires --report so complete evidence is retained")
+    if args.report:
+        args.report = args.report.resolve()
+        if args.report.suffix.lower() != ".json":
+            parser.error("--report must use a .json path")
+        protected = [args.file_path, args.slice_existing]
+        for key, default in DEFAULTS.items():
+            value = getattr(args, f"slice_{key}") or default
+            try:
+                protected.append(_resolve_profile(value))
+            except OSError:
+                protected.append(Path(value).expanduser().resolve())
+        if any(path and args.report == path.resolve() for path in protected):
+            parser.error("Report path must be distinct from model input and slice profiles")
     if args.slice_existing and (args.file_path or args.slice or args.export):
         parser.error("--slice-existing takes an STL or 3MF instead of a CAD source or --slice/--export")
     if args.slice_existing and (args.views != "isometric,front,top,right"
@@ -495,7 +547,7 @@ def main(argv=None):
                   "views": [], "exports": [], "timings_seconds": {}}
         add_slice_review(report, existing, args)
         report["timings_seconds"]["total"] = time.monotonic() - started
-        print(json.dumps(report, indent=2))
+        emit_report(report, args)
         if not report["ok"]:
             return 1
         return 2 if report["slice"]["review_required"] else 0
@@ -554,7 +606,7 @@ def main(argv=None):
     if args.slice and pair_ready:
         add_slice_review(report, root / f"{source.stem}.stl", args)
         report["timings_seconds"]["total"] = time.monotonic() - started
-    print(json.dumps(report, indent=2))
+    emit_report(report, args)
     if not report["ok"]:
         return 1
     return 2 if args.slice and pair_ready and report["slice"]["review_required"] else 0

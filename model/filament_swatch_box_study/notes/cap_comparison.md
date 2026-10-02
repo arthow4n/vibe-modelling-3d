@@ -670,9 +670,12 @@ The G/H work exposed three opportunities to simplify future iterations while
 keeping the same evidence:
 
 - Native evaluator reports were manually assembled into combined review JSON.
-  Capture stdout directly into object-owned notes and link those reports; keep
-  only design conclusions and input identity in the human record. The existing
-  evaluator already provides the statuses, settings, versions and timings.
+  The shared evaluator now implements `--report PATH --summary` to save complete
+  native evidence and return compact stage status in the same run, replacing
+  manual report copying and repeated summary code. Keep design conclusions and
+  input identity in the human record; link the saved report for details.
+  Exercised on the unchanged H key's geometry-only evaluation: complete native
+  evidence and summary agree, with no new exports, renders or slices.
 - G and H check scripts repeat enclosure and closure assertions. Future variants
   should call one object-owned check function with their actual geometry, adding
   only the changed connector checks. This reduces copied code without reducing

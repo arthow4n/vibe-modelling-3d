@@ -323,21 +323,24 @@ needed for the current task; inspect diagnostics and tracebacks when a failure
 needs investigation.
 
 When a run needs retained evidence, capture its native stdout directly rather
-than manually rebuilding the report in another JSON schema. For example, from
-the repository root after creating the object's `notes/` directory:
+than manually rebuilding the report in another JSON schema. The shared command
+can save it and print a compact summary in one run:
 
 ```bash
 ./evaluate_model.py model/object_name/object_name.py --views none --slice \
-  > model/object_name/notes/object_name_final_review.json
+  --report model/object_name/notes/object_name_final_review.json --summary
 ```
 
-Read that saved JSON for the same compact stage summary used below; retain the
-original report and link it from the object notes. Inspect exit status 1 or 2
-and the report even when the command does not exit successfully. An invalid CLI
-invocation may produce no JSON. Record revision/input identity alongside the
-report when needed for later reuse; native report capture does not supply a
-dependency fingerprint. Keep existing valid historical reports. This is an
-optional evidence-saving route, not an extra report required for every build.
+`--report` paths are relative to the command's working directory; parents are
+created and an existing report is replaced. `--summary` requires `--report`,
+preserves errors, stage statuses, notices and the support probe, and points to
+the full evidence for effective settings and other slice details. Without
+`--summary`, stdout remains the complete native JSON. A report-write error is
+reported separately and returns status 1 without hiding completed stages.
+Inspect exit status 1 or 2 even when a report was saved. Invalid CLI arguments
+may produce no JSON. Record revision/input identity alongside the report when
+needed for reuse; this option does not supply a dependency fingerprint. Keep
+valid historical reports. Report saving remains optional.
 
 For visual inspection, parse the JSON inside the same outer tool call that runs
 the evaluator, then read only a successful view's path. Print a compact summary
@@ -347,7 +350,7 @@ workflow (use the needed views/exports and set `workdir` to the repository):
 
 ```js
 let run = await tools.exec_command({
-  cmd: "./evaluate_model.py model/object_name/object_name.py --views isometric,front --slice 2>/dev/null",
+  cmd: "./evaluate_model.py model/object_name/object_name.py --views isometric,front --slice --report model/object_name/notes/object_name_final_review.json --summary 2>/dev/null",
   workdir: "/absolute/path/to/repository",
   yield_time_ms: 30000,
   max_output_tokens: 12000,
@@ -363,25 +366,7 @@ while (run.session_id) {
   stdout += run.output;
 }
 const report = JSON.parse(stdout);
-const summary = {
-  ok: report.ok,
-  file_path: report.file_path,
-  geometry: report.geometry && {
-    valid: report.geometry.valid,
-  },
-  views: (report.views ?? []).map(({ view, ok, path }) => ({ view, ok, path })),
-  exports: (report.exports ?? []).map(({ path, ok }) => ({ path, ok })),
-  slice: report.slice && {
-    ok: report.slice.ok,
-    review_required: report.slice.review_required,
-    support_probe: report.slice.support_probe,
-    log_notices: report.slice.log_notices,
-  },
-  errors: (report.errors ?? []).map(({ stage, type, message, file, line, view, path }) =>
-    ({ stage, type, message, file, line, view, path })),
-};
-text(JSON.stringify(summary, null, 2));
-if (!report.ok && report.diagnostics) text(report.diagnostics);
+text(report);
 
 const view = report.views?.find((item) => item.view === "isometric" && item.ok);
 if (view) {
