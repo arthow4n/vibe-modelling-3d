@@ -322,6 +322,23 @@ is illustrative, not a required summary schema. Read only the report fields
 needed for the current task; inspect diagnostics and tracebacks when a failure
 needs investigation.
 
+When a run needs retained evidence, capture its native stdout directly rather
+than manually rebuilding the report in another JSON schema. For example, from
+the repository root after creating the object's `notes/` directory:
+
+```bash
+./evaluate_model.py model/object_name/object_name.py --views none --slice \
+  > model/object_name/notes/object_name_final_review.json
+```
+
+Read that saved JSON for the same compact stage summary used below; retain the
+original report and link it from the object notes. Inspect exit status 1 or 2
+and the report even when the command does not exit successfully. An invalid CLI
+invocation may produce no JSON. Record revision/input identity alongside the
+report when needed for later reuse; native report capture does not supply a
+dependency fingerprint. Keep existing valid historical reports. This is an
+optional evidence-saving route, not an extra report required for every build.
+
 For visual inspection, parse the JSON inside the same outer tool call that runs
 the evaluator, then read only a successful view's path. Print a compact summary
 of the geometry/status, output paths, errors, timings, and versions; avoid
@@ -503,6 +520,20 @@ Choose the cheapest reliable evidence for the remaining question, following the
 Build once where possible and batch exports, measurements and needed views.
 Separate cheap build assertions from expensive mechanism sweeps; rerun affected
 sweeps after interface changes, not merely to obtain another view.
+
+For a multi-variant object, keep repeated, applicable CAD checks in an object-owned
+function taking the actual builders or geometry and expected interface values.
+Thin variant entry points should add their changed behavior instead of copying
+the entire check script. Preserve each assertion's purpose and applicable scope;
+shared code does not qualify a new variant without running its affected checks.
+Do not build a general test framework for one object's fixtures.
+
+Resolve available CAD fit, complete assembly-path and form questions before the
+final batch of printable layouts is exported and sliced. This avoids regenerating
+every layout after a local geometry correction. An earlier targeted slice is
+still useful when support placement or actual toolpaths decide the geometry;
+review its result before producing dependent layouts. Documentation-only updates
+need documentation validation rather than new CAD exports or slices.
 
 Reuse evidence only when its relevant inputs are unchanged and recorded:
 

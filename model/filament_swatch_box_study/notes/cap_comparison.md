@@ -663,3 +663,27 @@ printed force/strength is claimed.
 The floor can carry the key in the checked rigid path; friction and which base
 keeps the key are physical questions. G remains historical, not a recommended
 handle architecture after this feedback.
+
+## Workflow retrospective after H
+
+The G/H work exposed three opportunities to simplify future iterations while
+keeping the same evidence:
+
+- Native evaluator reports were manually assembled into combined review JSON.
+  Capture stdout directly into object-owned notes and link those reports; keep
+  only design conclusions and input identity in the human record. The existing
+  evaluator already provides the statuses, settings, versions and timings.
+- G and H check scripts repeat enclosure and closure assertions. Future variants
+  should call one object-owned check function with their actual geometry, adding
+  only the changed connector checks. This reduces copied code without reducing
+  the checks run for changed geometry. Existing delivered scripts remain intact.
+- End-crop specimens can reuse one built base within an evaluation. Their local
+  checks still need the full-base insertion check: G's first longer drop-in head
+  cleared the crop but hit the tall wall. Run that CAD check before the final
+  multi-layout export/slice batch; use earlier targeted slices when printability
+  itself is the remaining decision, as it was for the rejected underside lip.
+
+These are workflow observations, not new physical validation. The guidance lives
+in [AGENTS.md](../../../AGENTS.md#avoid-repeated-work) and the design skill's
+[component guidance](../../../.codex/skills/cadquery-3d-design/references/parametric-and-edges.md#components-and-shared-parameters).
+No model source, printable artifact or existing verification report was changed.

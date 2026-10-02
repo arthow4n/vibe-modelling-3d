@@ -22,6 +22,14 @@ Use multiple Python files when separating components or shared dimensions makes 
 * Bring components together early enough to check alignment, clearances, retention, interference, and the installation/removal sequence. Independently valid parts do not prove the assembled object works. Re-evaluate affected components and the final main entry point after changing shared parameters.
 * Distinguish code organization from physical part separation. Separately built features intended as one printed part must form the intended connected solid. Parts intended to remain separate need individual printable exports and documented assembly placement; review each part's print orientation as well as the assembled fit. Splitting source files alone is not a reason to add physical joints.
 
+When one evaluation needs identical copies or several crops of the same component,
+build that component once and derive translated copies or intersections from it.
+For example, a two-ended connector sample can crop both ends from one actual
+base instead of calling the complete base builder for each end. Keep distinct
+parameter configurations separate and avoid mutating shared geometry. Reuse is
+local to that evaluation; it does not need a persistent cache or replace checks
+against the complete assembly when a crop omits an insertion blocker.
+
 ## Edge treatment
 
 For everyday objects, sharp CAD edges are not finished geometry by default. Actively decide whether exposed edges should be filleted, chamfered, or intentionally left sharp. Consider edges touched by fingers or hands, insertion openings, cable slots, clips and retaining features, handles and grips, corners likely to catch on clothing or nearby objects, parts that slide against another object, mating and alignment features, exposed corners that may chip or feel unpleasant, and 3D-printed transitions that create unnecessary stress concentrations. Visible and touchable exterior corners should usually receive intentional edge treatment unless a sharp edge is functionally required.
