@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "count": 5,
+      "rim_seated": true,
+      "rigid_withdrawal_clear": true,
+      "pad_contact_and_escape_space": true,
+      "pocket_skin_mm": 0.9500000000000001
+    },
+    {
+      "count": 20,
+      "rim_seated": true,
+      "rigid_withdrawal_clear": true,
+      "pad_contact_and_escape_space": true,
+      "pocket_skin_mm": 0.9500000000000001
+    }
+  ],
+  "base_identity": "50026143c82f329a000de9bc484a95f9e0c2fb1a9d28ea757bbc5314bb5ed32a",
+  "unchanged_base_screen": "cap_e_checks.json; unchanged leaves, material assumptions and relief",
+  "limits": "Rigid pad translation is not an elastic release solution. Physical hood smoothness, shell compliance and closure forces remain unknown."
+}

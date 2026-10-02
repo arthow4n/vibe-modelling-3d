@@ -1,12 +1,54 @@
 # Filament swatch box — thin press-on hood
 
-**Current deliverable: E, a very thin PETG hood and matching five-card base, ready for a physical trial.**
+**Current deliverable: F, a thin hood with a flush exterior, using the same E five-card base.**
+The raised outside band on E was rejected in form feedback before any reported
+E print. F moves that reinforcement inside and leaves the outside profile
+continuous. Main walls/roof remain 0.8 mm; rounded roof edges and base seating
+remain. The constant outside footprint is 63.6 × 48.4 mm, 1.6 mm wider overall
+than E's upper body. Its lower cavity and snap pockets are unchanged, so no new
+matching base is necessary. No F physical print is reported yet.
+
+## F — smooth exterior hood
+
+- [Hood only, STEP](cap_f_hood_5.step), [matching STL](cap_f_hood_5.stl).
+- [Both parts, STEP](cap_f_flat_5.step), [STL](cap_f_flat_5.stl),
+  [parametric source](cap_f_flat_5.py).
+- [Compatible E base, STEP](cap_e_base_5.step), [STL](cap_e_base_5.stl).
+
+Use the same **PETG, 0.4 mm nozzle, 0.2 mm layers, two walls and 7% adaptive cubic**.
+Print the hood roof down and E base floor down as supplied. If the E base is
+already printed, only the F hood is needed; earlier D/ungrooved bases remain
+incompatible. Hold the exposed base foot and pull the hood near its bottom,
+where its concealed 1.6 mm wall supports the pockets and grip. The 0.8 mm inner
+transition grows gradually in the roof-down orientation. The external band and
+shoulder are gone; roof rounding remains 3 mm.
+
+![F continuous exterior and open box](renders/cap_f_assembled/inspect_cap_f_isometric.png)
+
+The paired and hood-only exports passed their OrcaSlicer 2.4.2 Q2C PETG reference
+slices, with no notices or generated supports. The source's E base geometry,
+separate exports and base-only slice evidence are unchanged. Targeted F checks
+and [manufacturing evidence](notes/cap_f_review.json) cover affected guidance,
+rim seating, pocket material and selected toolpaths; they do not establish
+printed smoothness, optical clarity or actual holding/opening force.
+
+Test the complete pair empty, then with one, three and five cards: check the rim
+meets the foot, the sides feel comfortable, the cap stays attached under loaded
+own weight, and pulling near the bottom releases it without buckling. Repeat
+and compare after an overnight closed dwell. Twenty-card geometry is checked,
+but this phase still supplies the five-card physical trial only. Joined modules
+remain future work. See the [F design record](notes/cap_comparison.md#f--flush-exterior-reinforcement-inside),
+[affected CAD checks](notes/cap_f_checks.json) and [local path record](notes/cap_f_paths.json).
+
+## Earlier thin hood — E
+
+E's exports and evidence below are retained history; F is the next proposed print.
 The printed D fit was okay, but the hood was too bulky and exposed edges were
 insufficiently rounded. The user authorizes a new matching base and mechanism
 to prioritize a thin hood. E is not yet physically tested; D's fit result does
 not qualify this new closure.
 
-## E — thin hood and matching base
+### E — thin hood and matching base
 
 - [Both parts, STEP](cap_e_thin_5.step), [matching STL](cap_e_thin_5.stl),
   [parametric source](cap_e_thin_5.py).
@@ -407,7 +449,8 @@ from other unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test — E thin hood and matching five-card base | Unknown — no print report | `cap_e_thin_5.step/.stl`, `cap_e_hood_5.step/.stl`, `cap_e_base_5.step/.stl` | CAD/reference slices passed; new fit, seam contact, thin-shell feel, comfort, optics and retention need the complete trial |
+| Test — F flush hood with E five-card base | Unknown — no print report | `cap_f_flat_5.step/.stl`, `cap_f_hood_5.step/.stl`, unchanged `cap_e_base_5.step/.stl` | CAD/reference slices passed; comfort, thin-shell feel, fit/seam contact, optics and retention need the complete trial |
+| Test — E thin hood and matching five-card base | Unknown — no print report | `cap_e_thin_5.step/.stl`, `cap_e_hood_5.step/.stl`, `cap_e_base_5.step/.stl` | Raised exterior band rejected before printing; narrower CAD/slice evidence retained. F uses this same base with a flush hood |
 | Test — selected D five-card press-on cap/base | Yes — latest prototype reported printed | `cap_d_snap_5.step/.stl`, `cap_d_hood_5.step/.stl`, `cap_d_base_5.step/.stl`; printed files unconfirmed | Fit okay; base probably fine; hood too bulky and exposed edges insufficiently rounded. Partial success; revision required. Loaded retention, force, recovery and dwell unqualified |
 | Test — current five-card corner seat | Unknown — standalone artifact unconfirmed | `card_base_corner_seat_5.step/.stl` | D's integrated base reported probably fine; this separate trial and detailed centering/grip result remain unconfirmed |
 | Test — A five-card hood/rounded base | Unknown | `cap_a_lift_off_5.step/.stl`, `cap_a_hood_5.step/.stl`, `base_rounded_5.step/.stl` | No report; cap fit, seating, lift, protection and handling unqualified |
@@ -416,7 +459,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | N/A | E five-card prototype is the current physical trial; no qualified production box | E normal use and retention await physical results before full-capacity exports; joined modules remain concepts |
+| Final printable object | N/A | F hood / E base five-card prototype is the current physical trial; no qualified production box | Normal use and retention await physical results before full-capacity exports; joined modules remain concepts |
 
 ## Attribution
 

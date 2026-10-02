@@ -401,3 +401,54 @@ printed status is **Unknown**, with no user report. Full-capacity production is
 **N/A** at this handoff. Do not transfer D's reported fit to E, or treat reference
 STL slicing as validation of Orca's separate GUI STEP import. Print-status and
 current conclusions are also reflected in the object README and root index.
+
+## F — flush exterior, reinforcement inside
+
+The user requests a flat, smooth-to-hold hood exterior. Interpret this as removing
+E's raised lower band/step while keeping rounded roof/corners and the very thin
+main shell. This is form feedback before any reported E print; it does not
+establish a physical closure failure. Deliver a five-card hood and paired layout
+compatible with the existing E base, with STEP/STL, useful view and reference
+slices. Active work: revised form, affected interface/path checks, exports and
+records, then review/commit/push. No new mechanism or print setup is needed.
+
+Reuse E's accepted two-part press/pull architecture. Its 1.6 mm lower wall and
+snap-pocket positions remain intact; extend that exterior footprint over the
+whole height and widen the upper cavity so the main walls stay 0.8 mm. The new
+upper exterior is 63.6 × 48.4 mm, 1.6 mm wider on each overall axis than E's upper
+body. The upper cavity is 62 × 46.8 mm. Reinforcement projects inward only at
+the bottom, with a 0.8 mm-high transition; no external band or shoulder remains.
+Roof and side walls stay 0.8 mm, outside roof rounding 3 mm. Four-sided entry,
+foot seating, base grips and all E base leaves/ramps remain unchanged.
+
+This is preferable to thinning E's existing pocket band externally: subtracting
+0.8 mm from its 0.95 mm pocket skin would leave only 0.15 mm at the pockets.
+Uniformly thickening the whole hood to 1.6 mm would abandon the thin-shell goal.
+The modest upper-footprint increase preserves both thin walls and existing
+closure geometry. PETG, 0.4 mm nozzle, 0.2 mm layers, two walls and 7% adaptive
+cubic remain the proposed setup. Print roof down; the inner band grows inward
+over its sloped transition. Paired layout remains comfortably inside the Q2C
+envelope; final Orca acceptance is responsible for actual fit with print aids.
+
+Review the outside profile visually, rim seating and withdrawn states with
+actual cards, plus snap-pocket skin/escape in the affected hood. E's unchanged
+base-leaf beam screen remains a feasibility assumption; wider thin panels do
+not establish unchanged closure force or handling. Physical smoothness,
+thin-shell feel, appearance and press/pull retention remain untested.
+
+F handoff: front and isometric complete-product views show the continuous
+external side profile with roof rounding retained. Five/twenty-card checks
+passed rim seating, sampled rigid withdrawal, card clearance, relaxed preload/
+withdrawal obstruction, translated pad escape space and 0.95 mm pocket skin.
+The E base source and separate exports remain unchanged; no base reprint is
+needed if that matching base already exists. Do not transfer physical fit or
+force from D, or claim an E/F print that has not been reported.
+
+Paired and hood-only STEP/STL exports are valid, and both OrcaSlicer 2.4.2 Q2C
+PETG reviews passed without notices, review flags or generated supports. The
+paired path review found all 48 selected sections filled through the base leaves,
+0.8 mm sidewalls/roof and blind-pocket skins within 0.05 mm. Requested path
+coverage is not actual polymer, optical clarity or material calibration.
+Physical status is **Unknown**; full-capacity production remains **N/A**.
+Test the complete five-card F hood/E base for smooth handling, seated seam,
+loaded own-weight hold, deliberate low grip pull and change after closed dwell.
