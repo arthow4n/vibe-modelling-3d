@@ -173,8 +173,10 @@ A watchdog stops orphan process groups and observed detached descendants after
 abrupt coordinator death. On Linux, kernel parent-death signals additionally stop
 native jobs that hold the Python GIL; the preload host is created by the long-lived
 coordinator main thread. Owned external tools use an exec shim with the same
-parent-birth guard. The next command starts a replacement. Digest-verified
-artifact caches survive; in-memory geometry is reconstructed. Durable `jobs/`
+parent-birth guard. The next command starts a replacement, which also reaps
+repository-tagged arbitrary subprocesses whose
+recorded supervisor PID/birth identity has died, including detached children.
+Digest-verified artifact caches survive; in-memory geometry is reconstructed. Durable `jobs/`
 metadata records queued/running/terminal states without argument or environment
 values. `python -m execution.history --incomplete` lists recoverable work. A queued
 or running record whose owner died is evidence of interruption, not completion.

@@ -114,6 +114,7 @@ def span(name, **attributes):
 
 def child_environment(env=None):
     values = dict(env or os.environ)
+    values['ENGINEERING_REPOSITORY']=fingerprint(str(ROOT))
     from .resources import inherited_budget,current_affinity
     budget=inherited_budget()
     if budget:values['ENGINEERING_LEASE_THREADS']=str(budget)

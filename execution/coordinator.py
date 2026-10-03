@@ -173,8 +173,9 @@ def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
 
 class Coordinator:
     def __init__(self):
-        from .lifecycle import enable_reaper
+        from .lifecycle import enable_reaper,cleanup_abandoned
         enable_reaper()
+        cleanup_abandoned()
         self.runtime=runtime_identity()
         self.admission=Admission()
         self.ctx=mp.get_context('forkserver')

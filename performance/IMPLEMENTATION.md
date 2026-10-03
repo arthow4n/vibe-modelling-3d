@@ -189,3 +189,8 @@ thread killed persistent geometry owners; relying only on Python watchdogs left
 GIL-blocked work running. Both rejected variants were caught by regression tests.
 Focused corrected verification: **53 passed**. Saved reports now recheck source
 identity after slicing and use the same destination locks as managed artifacts.
+
+Ownership/import/automatic-mesh milestone `0efef63` and reproducible workflow/policy
+harness `1e0bb06` were pushed. Final abandoned-child coverage adds repository/owner
+birth tags: a replacement reaps detached arbitrary subprocesses after supervisor
+SIGKILL without replaying user code. Focused verification: **54 passed**.

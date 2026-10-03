@@ -144,6 +144,27 @@ def test_process_birth_identity_ignores_wall_clock(monkeypatch):
     assert process_identity()==identity and identity.startswith('ticks:')
 
 
+def test_replacement_reaps_detached_arbitrary_script_children(tmp_path,monkeypatch):
+    from execution import client,protocol
+    import signal,psutil,uuid
+    monkeypatch.setenv('ENGINEERING_INSTANCE',uuid.uuid4().hex)
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'records'))
+    source=tmp_path/'spawn.py';pidfile=tmp_path/'child'
+    source.write_text(f'import subprocess,sys,ctypes\np=subprocess.Popen([sys.executable,"-c","import time;time.sleep(60)"],start_new_session=True)\nopen({str(pidfile)!r},"w").write(str(p.pid))\nctypes.PyDLL("libc.so.6").sleep(60)\n')
+    proc=subprocess.Popen([sys.executable,str(CLI),str(source)],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+    deadline=time.monotonic()+10
+    while not pidfile.exists() and time.monotonic()<deadline:time.sleep(.02)
+    assert pidfile.exists()
+    c=client.connect();protocol.send(c,{'kind':'status'});status=protocol.receive(c);c.close()
+    os.kill(status['pid'],signal.SIGKILL);proc.wait(timeout=10)
+    pid=int(pidfile.read_text())
+    source.write_text('print("replacement")\n')
+    assert call(source).stdout=='replacement\n'
+    try:assert psutil.Process(pid).status()==psutil.STATUS_ZOMBIE
+    except psutil.NoSuchProcess:pass
+    c=client.connect();protocol.send(c,{'kind':'stop'});protocol.receive(c);c.close()
+
+
 def test_memory_limit_and_invalid_resource_request(tmp_path):
     source=tmp_path/'memory.py'
     source.write_text('import time\ndata=bytearray(80*1024**2)\ntime.sleep(5)\n')

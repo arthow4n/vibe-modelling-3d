@@ -40,6 +40,27 @@ def cleanup_orphans(run_id):
         except psutil.Error:pass
 
 
+def cleanup_abandoned():
+    """A replacement service reaps tagged work whose supervisor birth identity died.
+
+    Covers arbitrary subprocesses inherited from scripts, including detached
+    children surviving a supervisor SIGKILL. Never select by executable/name.
+    """
+    import psutil
+    from .identity import ROOT,fingerprint
+    repository=fingerprint(str(ROOT))
+    for process in psutil.process_iter():
+        try:
+            env=process.environ()
+            if env.get('ENGINEERING_REPOSITORY')!=repository or not env.get('ENGINEERING_RUN_ID'):continue
+            owner=env.get('ENGINEERING_OWNER_PID');expected=env.get('ENGINEERING_OWNER_ID')
+            if not owner or not expected:continue
+            try:alive=process_identity(int(owner))==expected and psutil.Process(int(owner)).status()!=psutil.STATUS_ZOMBIE
+            except (ProcessLookupError,psutil.Error):alive=False
+            if not alive:process.kill()
+        except (psutil.Error,ValueError):pass
+
+
 def process_identity(pid=None):
     """PID birth identity unaffected by wall-clock corrections on Linux/WSL."""
     from pathlib import Path
