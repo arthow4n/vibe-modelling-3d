@@ -1,0 +1,352 @@
+{
+  "panel": {
+    "centre_x_mm": 0.0,
+    "width_mm": 40.0,
+    "contact_width_mm": 16.0,
+    "thickness_mm": 1.2,
+    "contact_height_mm": 14.0,
+    "root_blend_mm": 0.6,
+    "actual_free_contact_y_mm": -0.2633891257005294,
+    "mirror_symmetric": true,
+    "plain_back_contact": true
+  },
+  "seating_cases": [
+    {
+      "slot": 0,
+      "width_mm": 49.6,
+      "thickness_mm": 1.8,
+      "corner_chamfer_mm": 3.8,
+      "actual_rounded_normal_overlap_mm": 0.13661087429947072
+    },
+    {
+      "slot": 0,
+      "width_mm": 49.6,
+      "thickness_mm": 2.2,
+      "corner_chamfer_mm": 4.2,
+      "actual_rounded_normal_overlap_mm": 0.5366108742994709
+    },
+    {
+      "slot": 0,
+      "width_mm": 50,
+      "thickness_mm": 2,
+      "corner_chamfer_mm": 4,
+      "actual_rounded_normal_overlap_mm": 0.3366108742994707
+    },
+    {
+      "slot": 0,
+      "width_mm": 50.4,
+      "thickness_mm": 1.8,
+      "corner_chamfer_mm": 3.8,
+      "actual_rounded_normal_overlap_mm": 0.13661087429947072
+    },
+    {
+      "slot": 0,
+      "width_mm": 50.4,
+      "thickness_mm": 2.2,
+      "corner_chamfer_mm": 4.2,
+      "actual_rounded_normal_overlap_mm": 0.5366108742994709
+    },
+    {
+      "slot": 1,
+      "width_mm": 49.6,
+      "thickness_mm": 1.8,
+      "corner_chamfer_mm": 3.8,
+      "actual_rounded_normal_overlap_mm": 0.13661087429947072
+    },
+    {
+      "slot": 1,
+      "width_mm": 49.6,
+      "thickness_mm": 2.2,
+      "corner_chamfer_mm": 4.2,
+      "actual_rounded_normal_overlap_mm": 0.5366108742994709
+    },
+    {
+      "slot": 1,
+      "width_mm": 50,
+      "thickness_mm": 2,
+      "corner_chamfer_mm": 4,
+      "actual_rounded_normal_overlap_mm": 0.3366108742994707
+    },
+    {
+      "slot": 1,
+      "width_mm": 50.4,
+      "thickness_mm": 1.8,
+      "corner_chamfer_mm": 3.8,
+      "actual_rounded_normal_overlap_mm": 0.13661087429947072
+    },
+    {
+      "slot": 1,
+      "width_mm": 50.4,
+      "thickness_mm": 2.2,
+      "corner_chamfer_mm": 4.2,
+      "actual_rounded_normal_overlap_mm": 0.5366108742994709
+    },
+    {
+      "slot": 2,
+      "width_mm": 49.6,
+      "thickness_mm": 1.8,
+      "corner_chamfer_mm": 3.8,
+      "actual_rounded_normal_overlap_mm": 0.13661087429947072
+    },
+    {
+      "slot": 2,
+      "width_mm": 49.6,
+      "thickness_mm": 2.2,
+      "corner_chamfer_mm": 4.2,
+      "actual_rounded_normal_overlap_mm": 0.5366108742994709
+    },
+    {
+      "slot": 2,
+      "width_mm": 50,
+      "thickness_mm": 2,
+      "corner_chamfer_mm": 4,
+      "actual_rounded_normal_overlap_mm": 0.3366108742994707
+    },
+    {
+      "slot": 2,
+      "width_mm": 50.4,
+      "thickness_mm": 1.8,
+      "corner_chamfer_mm": 3.8,
+      "actual_rounded_normal_overlap_mm": 0.13661087429947072
+    },
+    {
+      "slot": 2,
+      "width_mm": 50.4,
+      "thickness_mm": 2.2,
+      "corner_chamfer_mm": 4.2,
+      "actual_rounded_normal_overlap_mm": 0.5366108742994709
+    },
+    {
+      "slot": 3,
+      "width_mm": 49.6,
+      "thickness_mm": 1.8,
+      "corner_chamfer_mm": 3.8,
+      "actual_rounded_normal_overlap_mm": 0.13661087429947072
+    },
+    {
+      "slot": 3,
+      "width_mm": 49.6,
+      "thickness_mm": 2.2,
+      "corner_chamfer_mm": 4.2,
+      "actual_rounded_normal_overlap_mm": 0.5366108742994709
+    },
+    {
+      "slot": 3,
+      "width_mm": 50,
+      "thickness_mm": 2,
+      "corner_chamfer_mm": 4,
+      "actual_rounded_normal_overlap_mm": 0.3366108742994707
+    },
+    {
+      "slot": 3,
+      "width_mm": 50.4,
+      "thickness_mm": 1.8,
+      "corner_chamfer_mm": 3.8,
+      "actual_rounded_normal_overlap_mm": 0.13661087429947072
+    },
+    {
+      "slot": 3,
+      "width_mm": 50.4,
+      "thickness_mm": 2.2,
+      "corner_chamfer_mm": 4.2,
+      "actual_rounded_normal_overlap_mm": 0.5366108742994709
+    },
+    {
+      "slot": 4,
+      "width_mm": 49.6,
+      "thickness_mm": 1.8,
+      "corner_chamfer_mm": 3.8,
+      "actual_rounded_normal_overlap_mm": 0.13661087429947072
+    },
+    {
+      "slot": 4,
+      "width_mm": 49.6,
+      "thickness_mm": 2.2,
+      "corner_chamfer_mm": 4.2,
+      "actual_rounded_normal_overlap_mm": 0.5366108742994709
+    },
+    {
+      "slot": 4,
+      "width_mm": 50,
+      "thickness_mm": 2,
+      "corner_chamfer_mm": 4,
+      "actual_rounded_normal_overlap_mm": 0.3366108742994707
+    },
+    {
+      "slot": 4,
+      "width_mm": 50.4,
+      "thickness_mm": 1.8,
+      "corner_chamfer_mm": 3.8,
+      "actual_rounded_normal_overlap_mm": 0.13661087429947072
+    },
+    {
+      "slot": 4,
+      "width_mm": 50.4,
+      "thickness_mm": 2.2,
+      "corner_chamfer_mm": 4.2,
+      "actual_rounded_normal_overlap_mm": 0.5366108742994709
+    }
+  ],
+  "guidance": {
+    "samples": 88,
+    "rigid_path_clear": true,
+    "springs_omitted": true
+  },
+  "unchanged_interfaces": {
+    "foot_hood_socket_exterior_difference_outside_panels_mm3": 0,
+    "G_hood_seats": true,
+    "G_hood_card_path_clear": true,
+    "I_key_required_space_path_clear": true
+  },
+  "nominal_comparison": {
+    "old": {
+      "force_N": 2.1951928902654134,
+      "tip_displacement_mm": 0.3322612695597108,
+      "stiffness_N_mm": 6.606827492034592,
+      "root_strain": 0.0035388774272631916,
+      "fixed_free_euler_buckling_N": 70.64067150034133,
+      "small_deflection_applicable": true,
+      "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+    },
+    "new": {
+      "force_N": 2.900939896809872,
+      "tip_displacement_mm": 0.33661087429947056,
+      "stiffness_N_mm": 8.618081346442214,
+      "root_strain": 0.003374357171636483,
+      "fixed_free_euler_buckling_N": 94.98037650413458,
+      "small_deflection_applicable": true,
+      "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+    },
+    "conditional_force_ratio": 1.321496579947072,
+    "conditional_strain_ratio": 0.9535106092233487
+  },
+  "beam_screens": [
+    {
+      "effective_modulus_MPa": 1000,
+      "card_thickness_mm": 1.8,
+      "beam": {
+        "force_N": 1.0772601683052776,
+        "tip_displacement_mm": 0.15000000000000013,
+        "stiffness_N_mm": 7.1817344553685105,
+        "root_strain": 0.0015036756515927837,
+        "fixed_free_euler_buckling_N": 79.1503137534455,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "effective_modulus_MPa": 1000,
+      "card_thickness_mm": 2.0,
+      "beam": {
+        "force_N": 2.5136070593789794,
+        "tip_displacement_mm": 0.3500000000000001,
+        "stiffness_N_mm": 7.1817344553685105,
+        "root_strain": 0.0035085765203831595,
+        "fixed_free_euler_buckling_N": 79.1503137534455,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "effective_modulus_MPa": 1000,
+      "card_thickness_mm": 2.2,
+      "beam": {
+        "force_N": 3.9499539504526826,
+        "tip_displacement_mm": 0.5500000000000003,
+        "stiffness_N_mm": 7.1817344553685105,
+        "root_strain": 0.005513477389173537,
+        "fixed_free_euler_buckling_N": 79.1503137534455,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "effective_modulus_MPa": 1200,
+      "card_thickness_mm": 1.8,
+      "beam": {
+        "force_N": 1.2927122019663333,
+        "tip_displacement_mm": 0.15000000000000013,
+        "stiffness_N_mm": 8.618081346442214,
+        "root_strain": 0.0015036756515927837,
+        "fixed_free_euler_buckling_N": 94.98037650413458,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "effective_modulus_MPa": 1200,
+      "card_thickness_mm": 2.0,
+      "beam": {
+        "force_N": 3.0163284712547758,
+        "tip_displacement_mm": 0.3500000000000001,
+        "stiffness_N_mm": 8.618081346442214,
+        "root_strain": 0.0035085765203831595,
+        "fixed_free_euler_buckling_N": 94.98037650413458,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "effective_modulus_MPa": 1200,
+      "card_thickness_mm": 2.2,
+      "beam": {
+        "force_N": 4.73994474054322,
+        "tip_displacement_mm": 0.5500000000000003,
+        "stiffness_N_mm": 8.618081346442214,
+        "root_strain": 0.005513477389173537,
+        "fixed_free_euler_buckling_N": 94.98037650413458,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "effective_modulus_MPa": 2000,
+      "card_thickness_mm": 1.8,
+      "beam": {
+        "force_N": 2.154520336610555,
+        "tip_displacement_mm": 0.15000000000000013,
+        "stiffness_N_mm": 14.363468910737021,
+        "root_strain": 0.0015036756515927837,
+        "fixed_free_euler_buckling_N": 158.300627506891,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "effective_modulus_MPa": 2000,
+      "card_thickness_mm": 2.0,
+      "beam": {
+        "force_N": 5.027214118757959,
+        "tip_displacement_mm": 0.3500000000000001,
+        "stiffness_N_mm": 14.363468910737021,
+        "root_strain": 0.0035085765203831595,
+        "fixed_free_euler_buckling_N": 158.300627506891,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    },
+    {
+      "effective_modulus_MPa": 2000,
+      "card_thickness_mm": 2.2,
+      "beam": {
+        "force_N": 7.899907900905365,
+        "tip_displacement_mm": 0.5500000000000003,
+        "stiffness_N_mm": 14.363468910737021,
+        "root_strain": 0.005513477389173537,
+        "fixed_free_euler_buckling_N": 158.300627506891,
+        "small_deflection_applicable": true,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      }
+    }
+  ],
+  "assumptions": "Uncalibrated effective homogeneous isotropic PETG E=1000\u20132000 MPa, provisional short-term strain screen 1.5%. Uniform full-width beam loading; local pad/plate bending, root concentrations, layer bonding and actual fill not qualified. Actual card thickness/material/settings unknown. No creep or lifetime rating.",
+  "inputs_sha256": {
+    "cap_j_base_5.py": "c13ba902791736a0e00924954ba18f864f4a4167a917beeeda620db3b1cc54a9",
+    "check_cap_j.py": "cf7ca895234728083a5a386a8ee5aa10139cd135b8b0acba09acc9b2232be8e6",
+    "cap_h_module_5.py": "a73adf2ae5e8ac6e2ae206b7d2515194d7c1eef78b9d7ca8d2c0449dedcb355e",
+    "cap_g_module_5.py": "5dfb2f0b03c2b5b3f545166898a291c742d9fcc8204675a9036de7b2a76ffc91",
+    "cap_i_grip_keys.py": "2b0706fe0011014e0ddfec45706201aa3e309722513847d4dd85ec906b7994a0",
+    "card_base_corner_seat_5.py": "a0f8f2d89d89fda3e92e7d255387361144454edf1b74a849a9a0ab15ce420cd6",
+    "card_base_test.py": "aef72e9449777c08e36a5eac4150acd7c8ebfa76fe78ca97eb68221dba6368a2"
+  }
+}

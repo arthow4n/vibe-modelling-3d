@@ -806,3 +806,83 @@ interaction and whole-box handling were omitted by the key sample, so another
 coupon cannot answer those questions. The complete small pair is the cheapest
 useful next print using existing exports and keys. Long-row carrying, quantified
 loads and long-term durability remain outside this reported success.
+
+## J — centered, broader card panels
+
+The user requested this change before printing the matching complete H/G pair:
+center the broad card-holding panel, make it more grippy if useful, and consider
+PETG relaxation during storage. This is a pre-print design request, not a
+reported physical failure of the complete base. I keys 1/2/3 remain successful;
+number 3 is retained without changes. PETG, 0.4 mm nozzle, 0.2 mm layers, two
+walls and 7% adaptive cubic remain the proposed print setup.
+
+Architecture: retain the card funnels and two rigid bottom-corner seats. The
+seats set lateral alignment; a centered broad panel presses the flat card back
+against the opposite rigid datum. Centering the old front pad directly over the
+engraved swatch face could introduce an interrupted contact, so the panel moves
+to the plain-back side. Insert the card with its flat side toward the panel and
+its notched long edge upright. No new card catch, tool, separate spring, or
+modification of the swatch is needed.
+
+`cap_j_base_5.py` is a new source; previous base sources/exports are preserved.
+Panel center moves from X=7 to X=0 mm, width grows from 28 to 40 mm, and contact
+width grows from 4 to 16 mm. Thickness stays 1.2 mm. Contact height above the
+floor rises from 13 to 14 mm and panel height from 16 to 17 mm; the relief root
+has a 0.6 mm blend. Nominal squeeze remains 0.35 mm for a 2 mm card, with actual
+rounded contact measured separately. Broadening and slightly lengthening the
+panel targets more force with no increase in the idealized nominal bending
+strain; merely thickening or increasing interference would increase strain.
+These are conditional short-term beam comparisons, not measured forces, plate
+analysis or a creep prediction. Effective length conservatively subtracts the
+root blend. The homogeneous full-width beam assumption leaves actual local
+bending, printed fill, root concentration and material response uncertain.
+
+PETG's time-dependent behavior under sustained loading is established in
+[printed-PETG creep research](https://pmc.ncbi.nlm.nih.gov/articles/PMC12349189/).
+Its specimens, loads and manufacturing differ from this panel; no study value
+is transferred to a lifetime or spring-force rating. The design preserves rigid
+corner positioning, distributes contact over a wider centered patch, and avoids
+extra squeeze as the response to that concern. It does not eliminate stress
+relaxation or prove long-term grip.
+
+Next print remains the complete small pair, now using two J bases, two unchanged
+G hoods and the already printed I key 3. The accepted H sockets, foot and hood
+closure contacts are preserved; affected CAD checks compare the unchanged
+geometry outside the union of old/new panel regions and check card seating,
+entry, hood clearance and the key's required-space path. No new connector coupon
+or nonlinear contact solve is needed for the unchanged joining interface.
+
+The trial asks whether centered panels hold cards upright and aligned with one,
+three and five occupied positions while preserving easy four-direction entry,
+comfortable final seating and deliberate card withdrawal. It preserves full
+base stiffness, actual swatches and the agreed PETG setup. Unlike another small
+coupon, complete boxes also test hood closure, thin-shell comfort and joining.
+Accept firm comfortable normal storage/access; revise the affected panel if it
+binds, loses alignment, needs excessive insertion force or takes a permanent set.
+Leave at least one card seated for several days, then compare grip and alignment
+and inspect recovery after removal. That observation can reveal early relaxation;
+it cannot qualify years of storage. No long-term print result has been reported.
+
+Verification: `check_cap_j.py` passed 25 seated card cases, 88 sampled rigid
+four-direction funnel poses, centered panel symmetry, hood seat/lift/card
+clearance and the accepted I key's required-space path. The exterior, foot,
+hood closure and ports outside the union of the old/new panel regions matched
+H by CAD difference. Short-term uniform-width beam screens used explicitly
+assumed E=1000–2000 MPa and a provisional 1.5% strain screen. Measured rounded
+surfaces give a nominal force ratio of 1.3215 and strain ratio of 0.9535 relative
+to H's panel under that idealization; the largest screened strain is 0.5514% for
+a 2.2 mm card. No calibrated modulus, actual fill/bonding or lifetime is inferred.
+The [checks](cap_j_checks.json) retain scope and source identities. Generic FDM
+review: floor-down base has continuous bed contact; 1.2 mm panels and 0.8 mm
+side reliefs suit the agreed nozzle; pads grow from attached vertical stems on
+slopes and shrink toward their tips, with no suspended shelf added. Rounded
+roots/contact tips and inherited exterior rounding remain intentional. Bending
+across layer bonds and unknown PETG response remain physical uncertainties.
+
+Final delivery: [J STEP/STL export and native reference review](cap_j_review.json)
+completed under OrcaSlicer 2.4.2 with the established PETG 0.4 mm / 0.2 mm /
+two-wall / 7% adaptive-cubic profiles, preserved base placement, no notices and
+no generated automatic supports. Both matching exports and the top view
+succeeded. G hood and I key exports were unchanged and their prior relevant
+evidence was reused; no ordinary extrusion-path audit was added. J remains an
+unprinted complete-product trial, not a long-term retention qualification.
