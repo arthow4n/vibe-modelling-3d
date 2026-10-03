@@ -1,0 +1,101 @@
+---
+name: engineering-reflection
+description: Reflect on modelling and engineering work, print feedback, or repeated effort in this repository; carry evidence-backed lessons, preferences and useful automation into the owning records, skills or shared tools. Use at a phase handoff, on a print report, or when the user asks for reflection or workflow improvement.
+---
+
+# Engineering reflection
+
+Turn recent evidence into a smaller, more reliable next workflow. This skill
+owns the reflection checkpoint; existing design skills and repository rules
+own the engineering requirements. Apply it within the current task and user
+authorization, including any pause or prohibition on file edits or commands.
+Reflection does not authorize another product variant or print experiment.
+
+## Choose the scope
+
+- At a modelling-phase handoff, briefly review new decisions, surprises and
+  repeated work before committing. A rough-study or sample handoff counts; do
+  not wait for a final product. Review only the completed phase.
+- On a print report, first update the object's print-status record and root
+  index using the [physical-feedback rules](../cadquery-3d-design/references/physical-experiments.md#learning-from-trial-prints).
+  If rejected, correct readiness/conclusions through the
+  [failure guidance](../cadquery-3d-design/references/physical-experiments.md#when-product-use-fails).
+  Then reflect on what the new observation changes. A preference or failure
+  reported before printing remains that kind of evidence.
+- On an explicit reflection request, review the requested session, object or
+  workflow more broadly, including simplification and shared-code opportunities.
+
+Reuse the conversation, current object record, changed source and existing
+evidence. Inspect relevant shared instructions and consumers before proposing
+changes; avoid a repository-wide audit for a local handoff. Do not repeat a
+reflection on unchanged evidence or rerun CAD, slices or solvers just to reflect.
+Apply the [execution skill](../engineering-execution/SKILL.md) only when an actual
+performance investigation or recovery is needed.
+
+## Identify what should change
+
+Look across function and handling, reference fidelity, manufacturing, physical
+feedback, user preferences, evidence quality, agent effort and tool reuse.
+For a candidate improvement, establish:
+
+1. **Evidence and consequence:** what happened, under which known inputs, and
+   what decision, misleading claim, wasted print or repeated work it exposed.
+   Separate observation from interpretation; leave unknown causes/settings
+   unknown. Include successful reusable interfaces as well as failures.
+2. **Prevention or reuse:** the earliest useful decision/check that could have
+   changed the outcome, or the concrete operation worth sharing. A check needs
+   an expected result and an action that changes with it. It must represent the
+   intended source item and use, rather than reproduce the design's assumptions.
+3. **Existing coverage:** was guidance missing, ambiguous, hard to discover,
+   already adequate but not applied, or was a tool contract insufficient?
+   Strengthen routing or the concrete check when guidance already exists;
+   do not append another copy of the same warning.
+4. **Transfer and cost:** which other contexts benefit, what stays local, and
+   whether the improvement reduces total work without losing required evidence.
+   One demonstrated consumer can justify shared functionality; hypothetical
+   future usefulness alone cannot. Removing redundant work is a valid result.
+
+An unexplained physical result can still justify a corrected status or bounded
+lesson. It does not justify an invented root cause, material calibration or
+universal tolerance. A working coupon qualifies its tested interface, not the
+complete product. Avoid converting a one-off idea into a standing preference.
+
+## Put the result in its owning source
+
+| Result | Owner and action |
+| --- | --- |
+| Dimensions, matching variants, uncertain causes, exact checks or print observations | Update the object's existing decision/evidence record and affected root-index summary. Keep fixtures and acceptance criteria with the object. |
+| Explicit or repeated user preference | Update [user preferences](../cadquery-3d-design/references/user-preferences.md#updating-this-record) with scope and linked evidence; retain project-specific requirements locally. |
+| Transferable design success/failure | Add or revise a concise [reusable-evidence entry](../cadquery-3d-design/references/reusable-model-lessons.md), linking the detailed object record and naming transfer limits. |
+| Missing design decision or workflow instruction | Edit the responsible skill/reference, or [AGENTS.md](../../../AGENTS.md) for repository workflow. Link the owner rather than repeat its procedure in several places. |
+| Repeated code or a concrete API gap | Improve the existing shared script/API under [shared-tool guidance](../../../AGENTS.md#improve-shared-tools-from-concrete-needs). Share the general operation; retain object-specific geometry, material assumptions and pass/fail thresholds locally. |
+
+Before extracting code, identify its actual caller and current shared API.
+Try the existing API first when it covers the question; failure to use it is
+not a reason to build another abstraction. Repeated builders/checks for variants
+of one object normally belong in an object-owned helper. Shared parsing,
+execution or numerical operations can belong in the existing repository API.
+Prefer deleting duplication or extending a current abstraction over a new
+framework. Do not add a reflection script to manufacture lessons or automate
+engineering judgment.
+
+Make worthwhile, authorized changes now. Keep unqualified future explorations
+as brief ideas in the existing object record when useful; do not implement them
+as part of reflection. If editing is prohibited, retain notes in the conversation
+and distinguish them from saved changes. No worthwhile delta means no file edit,
+extra report, placeholder TODO or new requirement.
+
+## Validate and hand off
+
+Validate only the change made: document links and consistency for instructions;
+the skill-creator validator for a new or substantially changed skill; meaningful
+consumer/regression checks for shared code. Numerical extensions need appropriate
+benchmarks. Exercise extracted code on the motivating consumer and record what
+decision changed or repeated work disappeared; do not claim benefit merely
+because code moved. Revisit affected CAD/exports/slices only if their inputs changed.
+
+Use the repository's normal review, commit and push workflow. In the ordinary
+handoff, briefly state the useful lesson, what changed and where, verification,
+and any retained uncertainty or deliberately local work. When no shared change
+is justified, say so if the user asked. Keep one current record instead of a
+separate reflection log, scoring system or duplicate completed checklist.

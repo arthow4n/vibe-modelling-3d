@@ -86,7 +86,7 @@ with each applicable evaluation.
 - [ ] Save useful final views, assumptions, physical evidence and print instructions.
 - [ ] Record separate print status for test piece(s) and any final printable object in the object's notes; use N/A when a category is outside the agreed phase and do not infer a physical print from CAD or slicer output.
 - [ ] On user product rejection, update conclusions/readiness and the root index immediately; distinguish rejection before printing from physical use failure, identify the narrower scope of earlier passes, and feed recurring failures into shared guidance without an unsupported tolerance/process diagnosis.
-- [ ] Add a reusable-evidence entry only if this work produced a transferable result; link to its detailed object record.
+- [ ] Apply [engineering reflection](../engineering-reflection/SKILL.md) to new evidence at this phase's handoff or on print feedback: preserve useful lessons/preferences, simplify repeated work and add shared improvements only when justified. Follow its owning-source guidance rather than duplicate the object record.
 - [ ] Review and commit/push according to AGENTS.md.
 
 Prioritize function, manufacturability, proportions and topology before cosmetic

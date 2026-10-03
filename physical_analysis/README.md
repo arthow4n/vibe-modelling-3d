@@ -701,6 +701,8 @@ rejects that design without blaming printer accuracy; the replacement-key check
 uses actual pad/pocket interference. Its purpose is to catch a missing retention
 load path, not replace CAD contacts, a needed nonlinear solve or tactile testing.
 
+### Sliced manufacturing paths
+
 For a mechanical assumption that depends on actual sliced solidity or support
 placement, `physical_analysis.manufacturing.orca_linear_paths(path)` yields
 linear deposited segments with Orca's width/role metadata for consequential

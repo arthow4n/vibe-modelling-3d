@@ -422,6 +422,14 @@ status alone is not visual evidence.
 
 ## Improve shared tools from concrete needs
 
+Apply the [engineering reflection skill](.codex/skills/engineering-reflection/SKILL.md)
+at modelling-phase handoffs, when new print feedback arrives, and when the user
+asks for reflection or workflow improvement. Keep routine reflection brief and
+limited to new evidence; an explicit request can cover the broader session.
+The skill routes lessons, preferences and repeated work to their owning sources.
+It may conclude that no shared change is useful; it does not require extra CAD,
+slices, analysis, new abstractions or a separate reflection report.
+
 Requests to improve the "workflow" or "instructions" include relevant repository
 rules, skills and shared-tool documentation. Choose the source that owns the
 guidance; link to it where needed rather than duplicating the lesson or requiring
