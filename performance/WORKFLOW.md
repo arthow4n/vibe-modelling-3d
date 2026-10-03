@@ -14,6 +14,7 @@ Run from the repository root in the locked environment:
 .venv/bin/python performance/workflow.py --recent 2 --timeline
 .venv/bin/python performance/workflow.py --execution-only --last-runs 200
 .venv/bin/python performance/workflow.py --session /local/path/to/rollout.jsonl --agent-only
+.venv/bin/python performance/workflow.py --session "$PERF_SESSION_A" --question 'Which observed activity explains the waiting?' --timeline
 .venv/bin/python performance/workflow.py --execution-only --since 2026-10-01T00:00:00Z --until 2026-10-03T12:00:00Z
 ```
 
@@ -34,6 +35,45 @@ The configured execution-data root is assumed to belong to the selected reposito
 Related forks may replay old events: select independent sessions for combined
 usage. Shared response keys across files suppress combined token totals and flag
 overlapping accounting scopes. Tool outcomes without structured success status remain `returned`/unknown.
+
+## Engineering milestone investigations
+
+Default `--mode latency` answers a timing question without assessing engineering
+productivity. For `--mode modeling`, first read the object's existing record and
+required checks to establish an achieved milestone and its limits. Use explicit
+sessions (up to 20), an ordered period, evidence references, an outcome and an
+association explanation. Replace the example's local paths, period and assertions
+with reviewed evidence; the analyzer does not establish acceptance itself:
+
+```sh
+.venv/bin/python performance/workflow.py --mode modeling \
+  --session "$PERF_SESSION_A" --session "$PERF_SESSION_B" \
+  --since 2026-10-01T00:00:00Z --until 2026-10-03T12:00:00Z \
+  --question 'What work reached the checked variant?' \
+  --milestone 'Printable variant with required CAD and slice checks' \
+  --outcome 'Required digital checks passed; physical use remains untested' \
+  --evidence model/object_name/README.md \
+  --association-basis 'Selected sessions implement and check the documented variant' \
+  --timeline
+```
+
+Evidence references are existing repository-relative files, with content hashes;
+their contents are not copied into normalized metadata. These references preserve
+the investigation's evidence identity, not a task database or proof of success.
+The question, outcome and association basis are local analyst assertions. Review
+them against engineering evidence before drawing conclusions or publishing.
+
+The period bounds execution selection; selected session counters cover whole
+sessions, including activity outside the milestone. `sessions_extend_time_bounds`
+flags sessions that extend beyond the period. One session may contain several
+tasks and a milestone may span sessions. Exact run relationships, timing candidates
+and ambiguous executions keep their original strengths. An overlapping execution
+does not automatically belong to the milestone. Tool edits are observable activity,
+not a count of geometry revisions; failed regression fixtures are not failed designs.
+Use the object records to interpret exploration, equivalent calculations, reuse,
+verification and physical evidence. Fewer tokens/calls/revisions or shorter time
+cannot establish better engineering. Record a concrete improvement only when its
+expected benefit and correctness-preserving verification are testable.
 
 ## Verified formats and accounting
 
@@ -82,6 +122,92 @@ in two sessions with compaction. They are not interchangeable. This establishes
 an observed adapter contract, not billing or model-quality semantics. Cached input
 is an input subset; reasoning output is a reported output subset. No price/cost or
 "token efficiency" score is calculated.
+
+## Model timing qualification: Codex 0.160.0
+
+The installed CLI and four recent repository-associated rollout schemas were
+inspected during this extension. The installed format records per-response usage
+and native **turn** duration/first-token delay, but no per-response request-start,
+duration, first-token or streaming-delta timing. Qualification is field-driven;
+older records remain supported with missing native fields left unavailable.
+
+Semantics were checked against version-pinned upstream sources:
+[protocol definitions](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/protocol/src/protocol.rs),
+[turn timing](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/turn_timing.rs),
+[turn configuration serialization](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/session/turn_context.rs)
+and [retry handling](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/responses_retry.rs).
+No private records were used as fixtures. A matching version number does not
+guarantee every upstream event was persisted by the installed harness.
+
+| Measurement | Evidence and quality |
+| --- | --- |
+| Response count and usage | Observed unique keyed completed-usage records; failures/incomplete requests without usage are outside this count. Repeated/conflicting records and inherited scopes retain warnings. |
+| Usage-record timestamp | Observed persistence timestamp, retained locally; not an exact request boundary or streaming timestamp. |
+| Native turn duration | Observed `duration_ms` on completion/abort, based on a monotonic clock; separate from wall-clock interval unions. |
+| Turn interval duration | Derived from recorded start/end when native duration is absent; warnings retain negative intervals or substantial native/wall disagreements. |
+| Native turn first-token delay | Observed `time_to_first_token_ms` on completion: turn start to first recognized model event. Upstream accepts text/reasoning deltas and eligible output items, including tool/compaction items. It is not necessarily the first generated or visible token, nor request TTFT. |
+| Turn configuration associated with usage | Observed initial `turn_context` model/`effort`, matched by explicit turn key. Unique unchanged snapshots only; conflicts, missing keys and identified compaction responses remain unknown. This is contextual initial configuration, not independently verified request model or backend implementation. |
+| Request duration, request TTFT, throughput | Unavailable in qualified rollouts. Neither preceding tool completion nor turn start is an exact request start, even with only one completed usage record in a turn. |
+| Context occupancy, backend implementation | Unavailable. Cumulative session usage and input-token counts cannot establish actual context occupancy. |
+| Error/interrupt/reconnect observations | Observed error and stream-error notices plus completed/failed/interrupted/incomplete turns. Stream-error notices can describe explicit reconnect attempts, but some retries are hidden; full retry count, request attribution and backoff duration remain unavailable. |
+
+Each timing/rate statistic reports eligible and measured counts. `quality` describes
+the source observations; `statistics_quality` labels calculated statistics as derived.
+Token aggregate records likewise retain category coverage; uncached input is derived
+only when both counts exist and cached input does not exceed input. Reasoning is an
+output subset. Overlapping response histories suppress combined response counts and
+token totals. No timing estimates are currently emitted. Combined turn distributions
+are suppressed for histories that share turn keys, while wall-clock interval unions
+remain valid and warnings identify the overlap. Median and maximum are
+available for small samples; nearest-rank P90 requires ten measured observations.
+Groups describe configured turn context, not backend attribution or model rankings.
+
+For qualified, associated request observations the arithmetic is:
+`output_tokens / duration_seconds`, and approximate generation throughput is
+`output_tokens / (duration_seconds - first_token_delay_seconds)`. The latter requires
+a strictly positive denominator; missing/negative/nonfinite inputs and zero
+denominators leave the rate unavailable. The pure calculation is tested, but the
+rollout adapter has no qualified request timing inputs and does not enable rates.
+Output can include reasoning tokens; these formulas do not measure visible text speed.
+Visible-text throughput would also need visible text-token counts and genuine
+streaming timestamps, which these records do not supply.
+
+The report compares tools, recorded model items, compaction and unattributed time
+within measured turns using disjoint interval unions (tools take precedence over
+overlapping items, then compaction). Model-item spans are observed item activity,
+not request intervals or complete inference time. Native turn statistics are a
+separate layer and are never added to those wall-clock unions. Only genuine stored
+intervals enter the existing Perfetto timeline; no request intervals are invented.
+Slowest turns use generalized selection/turn labels; slowest responses are unavailable.
+
+### Optional native telemetry decision
+
+The [official telemetry documentation](https://learn.chatgpt.com/docs/config-file/config-advanced#observability-and-telemetry)
+supports opt-in OTel export. It also describes prompt/tool-result events: disabling
+prompt logging alone does not satisfy this repository's numerical-only retention
+policy. Nothing in this extension enables export or changes Codex configuration.
+
+Version-pinned [native telemetry](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/otel/src/events/session_telemetry.rs)
+records API attempt/status/duration and stream-event timings. Its API duration
+encloses an HTTP request operation, not necessarily the complete streamed response.
+The [SSE implementation](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/codex-api/src/sse/responses.rs)
+times individual stream polls. Completion telemetry has usage/configuration and
+a supplied TTFT field, but that log record alone does not establish full request
+duration and reliable response-key correlation. Poll durations and transport
+histograms must not be substituted for response duration or joined to rollout
+usage by mere adjacency.
+
+Native telemetry could improve transport-attempt and reconnect diagnosis. Exact
+request latency/throughput would require qualification of complete request/stream
+boundaries, TTFT scope and response association for the installed transport. Those
+are not established by the current rollouts or a generic telemetry configuration.
+No collector, background service or launch wrapper is justified for this baseline.
+If a future concrete investigation needs telemetry, first demonstrate the missing
+decision-relevant measurement and correlation; use explicitly enabled local-only
+collection with an allowlist of numerical timing/usage/configuration, discarding
+prompts, tool data, credentials and unrestricted attributes before storage. It must
+consume no resources during ordinary engineering work. Unqualified fields stay
+unsupported; an honest coverage gap is a complete analysis result.
 
 ## Timing and execution evidence
 

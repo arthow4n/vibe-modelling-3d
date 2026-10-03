@@ -31,6 +31,9 @@ changes; avoid a repository-wide audit for a local handoff. Do not repeat a
 reflection on unchanged evidence or rerun CAD, slices or solvers just to reflect.
 Use [workflow performance analysis](../workflow-performance-analysis/SKILL.md)
 when repeated agent effort, tool usage or time/token consumption needs measurement.
+For a modeling-effort investigation, reflection supplies the established milestone
+and necessary engineering evidence; performance measurements cannot decide that
+revisions or repeated validation were wasteful by their counts alone.
 Use [engineering execution](../engineering-execution/SKILL.md) for computational
 profiling, benchmarks or recovery; reflection still owns lesson placement.
 

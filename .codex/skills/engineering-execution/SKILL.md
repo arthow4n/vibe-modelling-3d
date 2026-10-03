@@ -11,6 +11,9 @@ need no performance-log review or service administration. For combined agent-ses
 and computation timing/token investigations, use
 [workflow performance analysis](../workflow-performance-analysis/SKILL.md); this
 skill retains ownership of computational profiling and execution correctness.
+Latency diagnosis alone does not authorize resource-policy or solver changes.
+Use a measured, decision-relevant hypothesis and preserve validation when a
+separately justified computational optimization follows.
 
 - Run ordinary Python files with `./execute.py`; evaluate CAD with the existing
   evaluator. Keep native solvers behind the physical-analysis APIs. Do not create
