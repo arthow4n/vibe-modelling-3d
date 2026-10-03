@@ -1,6 +1,90 @@
 # Cap exploration — authorized autonomous phase
 
+## J4/K4 — recessed upward-facing base grips
+
+User-approved direction after J3/K3 form rejection: preserve the original recess
+idea, put its bearing face upward, and keep the original outline. J4 delegates
+to J2 and K4 to K2, applying the same object-owned `recessed_grips.py` treatment.
+The accepted G hood and I key 3 remain the matching parts; the user ends hood
+exploration. No new card-support/dome mechanism or connector is introduced.
+
+Restore the old underside cutouts, then cut two upper-open side pockets into the
+foot: 18 mm length along Y, 2.2 mm depth from X=±32, nominal floor Z=2 mm below
+the unchanged Z=5 hood seat. This leaves a 3 mm side opening under the closed
+hood, within the original 64 × 44.8 mm footprint. Side entry avoids needing a
+large exposed shelf. The pocket does remove local rim seating material; four
+unchanged bearing patches outside the recesses still contact the G rim. About
+79% of the original rim-only .05 mm downward-overlap proxy remains. This is a
+geometric bearing comparison, not pressure, strength or deformation analysis.
+
+Contact floors face +Z, giving the required downward reaction on the base while
+the other hand lifts the hood. Each planar floor has about 22.48 mm² exposed
+area. The contact root has a .6 mm round, outer floor edge .35 mm round and
+plan ends 1 mm radius. Preserve the existing .8 mm bottom chamfer and perimeter
+rounds. The floor increased from an initial 1.6 mm concept to 2 mm so that the
+outer rounded edge above that chamfer has .85 mm nominal vertical material,
+rather than .45 mm. The inner loaded contact patch is solid to the bed. None
+of these dimensions establishes a force/strength rating or comfort threshold.
+An initially attempted post-boolean edge fillet failed; explicit circular arcs
+in the cutter provide the intended root/contact profile without that operation.
+
+The checked access assumption is a 12 mm wide, 2.6 mm thick distal-pad/nail-edge
+nose, with an 8 mm thick outer body kept beyond the hood. Side approach clears
+the closed G hood, the base and a joined neighbour at the sampled positions;
+pressing .05 mm downward contacts the floor. This is a deliberately small
+recess, not a whole-finger pocket. The user must judge reach, actual pad/nail
+contact and comfort. The section's large outside block is a reference volume,
+not a tab or printed part. The closed assembly view contains only actual parts.
+
+CAD differences prove the card support, broad spring/dome follower, closure
+roots, card slots and key sockets unchanged outside the bounded lower side
+regions. Added material stays in the original foot; both bases are valid
+connected solids. The G hood's sampled lifting path remains clear. Surrounding
+stiffness can still affect physical response; previous J2/K2 checks remain
+geometric evidence, not printed upright alignment or K dome engagement.
+
+Final FDM rationale: floor-down PETG, .4 mm nozzle, .2 mm layers, two walls and
+7% adaptive cubic. Pockets are open upward with no new suspended ceiling; their
+floor has ten nominal .2 mm layers, an existing chamfer at its outer underside,
+and rounded entry/contact edges. Both final STEP/STL pairs and Orca 2.4.2 reviews
+pass without notices or generated supports under the diagnostic Q2C profile.
+GUI STEP import and actual grip/card performance remain untested. Use complete
+five-card bases rather than a detached grip coupon because opening depends on
+the actual hood, closing effort, footprint and joined access. Earlier variants
+remain intact. No further hood variant is planned.
+
+## V1 print and recessed-grip feedback
+
+Recorded after the temporary no-command/no-edit pause was lifted. V1 was printed
+in PETG vase mode and holds the base. The user rejects its shell stability/feel:
+sides are not consistently flat, pressing one makes another bulge, and pressing
+produces popping/crackling sounds. Exact artifact hash, mating base, nozzle,
+process settings and measured dimensions are unknown. Shell deformation may be
+consistent with a thin wall changing shape, but this report does not identify
+warping, delamination, print tuning or a material cause. Earlier virtual paths
+and catch checks established interface geometry, not a stable-feeling shell.
+The accepted G hood remains the chosen cover; the user explicitly does not want
+another hood or further hood exploration.
+
+J2/K2 and J3/K3 have not been printed; the user will not print these grip designs.
+J3/K3 are rejected for their large outward flaps, despite passing geometric
+access/force-direction checks. K3's card mechanism looks plausible to the user;
+this is visual feedback, not dome-engagement or grip validation. The original
+recess idea is preferred, with the opening moved to the upper part of the lower
+base so the exposed bearing face points upward. No outward projections.
+
+Next authorized phase: J4/K4 five-card bases, preserving J2/K2 card supports,
+accepted G hood and I key 3, with two upward-facing recessed base grips. Keep
+the original exterior footprint, accessible side entry below the closed hood,
+rounded contact edges and a solid floor. Check actual closed-hood access and
+force direction; do not substitute positive access evidence for acceptance of
+the overall form. PETG/.4 nozzle/.2 layers/two walls/7% adaptive cubic remain
+the base setup. Earlier variants stay intact; no hood redesign is included.
+
 ## J3/K3 — upward-facing base holding ledges
+
+**Superseded form choice:** unprinted and rejected for outward projections.
+The following is historical design intent and narrower virtual evidence.
 
 Current user direction: implement upward-facing grips on both J2 and K2. The
 user explicitly confirms neither J2 nor K2 has been printed. Preserve those
@@ -1337,9 +1421,9 @@ remain outside this evidence.
 
 ## Deferred exploration after the current revisions
 
-The earlier user pause is revoked for the J2/K2 corrections and vase-mode hood.
-Broader redesigns and larger rows remain deferred; the J/K print feedback now
-drives the immediate corrections recorded at the top. These directions remain
+The current authorized correction is J4/K4 recessed grips, retaining G and I
+key 3. V1 was printed and its shell shape/feel rejected; further hood exploration
+is explicitly ended. Broader redesigns and larger rows remain deferred. These directions remain
 conditional possibilities after the current trial:
 
 - Compare J's centered flat contact with K's shoulder catch in normal use and
@@ -1354,5 +1438,5 @@ conditional possibilities after the current trial:
   complete boxes work. A ten-card module is not currently requested; joined
   carrying strength and long-term grip would need evidence before claiming them.
 
-The current G hood is printed and accepted. Keep it as the reference while
-the explicitly requested vase-mode variant explores greater transparency.
+The current G hood is printed and accepted. Use it for the J4/K4 trials; preserve
+V1 as a completed experiment rather than an ongoing exploration.

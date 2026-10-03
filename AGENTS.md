@@ -575,6 +575,9 @@ every layout after a local geometry correction. An earlier targeted slice is
 still useful when support placement or actual toolpaths decide the geometry;
 review its result before producing dependent layouts. Documentation-only updates
 need documentation validation rather than new CAD exports or slices.
+Finish Python edits before that batch; the execution system's
+[repository-wide input identity](execution/README.md#architecture-contract-version-1) can reject queued or
+running CAD after even an unrelated check-script edit.
 
 Reuse evidence only when its relevant inputs are unchanged and recorded:
 

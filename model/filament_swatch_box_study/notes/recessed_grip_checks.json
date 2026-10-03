@@ -1,0 +1,113 @@
+{
+  "variants": [
+    {
+      "variant": "J4",
+      "valid_connected_base": true,
+      "card_support_closure_and_key_geometry_preserved": true,
+      "no_outward_additions": true,
+      "contacts": [
+        {
+          "side": -1,
+          "upward_planar_area_mm2": 22.47812290166389,
+          "contact_normal": [
+            0,
+            0,
+            1
+          ],
+          "finger_force_on_base": [
+            0,
+            0,
+            -1
+          ],
+          "solid_floor_mm": 2.0
+        },
+        {
+          "side": 1,
+          "upward_planar_area_mm2": 22.47812290166389,
+          "contact_normal": [
+            0,
+            0,
+            1
+          ],
+          "finger_force_on_base": [
+            0,
+            0,
+            -1
+          ],
+          "solid_floor_mm": 2.0
+        }
+      ],
+      "closed_G_side_entry_clear": true,
+      "joined_neighbour_clear": true,
+      "G_rim_bearing_proxy_retained_fraction": 0.7898068182528591,
+      "bearing_scope": "Rigid .05 mm downward overlap proxy, not pressure or strength; four actual seating patches checked outside the grip."
+    },
+    {
+      "variant": "K4",
+      "valid_connected_base": true,
+      "card_support_closure_and_key_geometry_preserved": true,
+      "no_outward_additions": true,
+      "contacts": [
+        {
+          "side": -1,
+          "upward_planar_area_mm2": 22.47812290166389,
+          "contact_normal": [
+            0,
+            0,
+            1
+          ],
+          "finger_force_on_base": [
+            0,
+            0,
+            -1
+          ],
+          "solid_floor_mm": 2.0
+        },
+        {
+          "side": 1,
+          "upward_planar_area_mm2": 22.47812290166389,
+          "contact_normal": [
+            0,
+            0,
+            1
+          ],
+          "finger_force_on_base": [
+            0,
+            0,
+            -1
+          ],
+          "solid_floor_mm": 2.0
+        }
+      ],
+      "closed_G_side_entry_clear": true,
+      "joined_neighbour_clear": true,
+      "G_rim_bearing_proxy_retained_fraction": 0.7898068182528601,
+      "bearing_scope": "Rigid .05 mm downward overlap proxy, not pressure or strength; four actual seating patches checked outside the grip."
+    }
+  ],
+  "grip": {
+    "length_Y_mm": 18.0,
+    "recess_depth_X_mm": 2.1999999999999993,
+    "nominal_floor_mm": 2.0,
+    "gap_below_closed_hood_mm": 3.0,
+    "exposed_edge_radius_mm": 0.35,
+    "unchanged_width_mm": 64.0,
+    "unchanged_module_pitch": true
+  },
+  "assumed_contact": {
+    "nose_width_mm": 12.0,
+    "nose_thickness_mm": 2.6,
+    "body_thickness_mm": 8,
+    "method": "Thin distal-pad/nail-edge envelope with thicker body outside hood; sampled horizontal side entry. Not an anatomical hand or comfort/force simulation."
+  },
+  "load_path": "Upward floor reaction lets the hand press the base down as the hood is lifted. Inner contact patch is solid to the bed; the exposed outer edge retains the existing bottom chamfer. No grip-force or strength rating. Actual small-recess reach and skin/nail comfort require printing.",
+  "sources_sha256": {
+    "cap_j4_base_5.py": "a12c9d503a22d8a2e35a782517fd540855466ed87657e799726bc0b8515e7e71",
+    "cap_k4_base_5.py": "957eb24c719698d62e26cb02ecd7e185fedb790262b1309b6afa8223f7662988",
+    "recessed_grips.py": "6cee8d00e4ab8c39af7f535df26abe64cf3084a85366150c1f5e9424bc6c05b3",
+    "check_recessed_grips.py": "227a84b7b960417dcb56c5e32eae931759cc02e36c494f04fc0ba23a65e5482a",
+    "upward_grips.py": "dd0df3e6809e6c0670c41a8f1490d413875b03014196aa704b21dd958ded4ec5",
+    "cap_j2_base_5.py": "6982fe73dd835dfd89ac494efecc905b2e1940bc31a6b6e25bd1c0703d471299",
+    "cap_k2_base_5.py": "8e41eb9c43ae76bf2d05078b7c08459e57234c9a99ac2e58500be56f199d3eee"
+  }
+}

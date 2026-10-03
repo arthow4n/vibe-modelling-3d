@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_recessed_grip_section.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "front",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/recessed_grip_section/inspect_recessed_grip_section_front.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          -1,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.00140931200076011,
+    "build": 20.49686150299749,
+    "selection": 0.0007922100012365263,
+    "validation": 0.009417433000635356,
+    "render_front": 0.43726736700045876,
+    "worker": 21.039639831997192,
+    "total": 21.157252420001896
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "9eade176a289602a8c964a3e71fae14b85801d0f03675b43206e50ef473bec8a",
+    "artifact_identity": "0abe864cd5e99518331e6feb6e0f4d73c8b3858ec28ee904373ddfb3f18f2ad1"
+  }
+}

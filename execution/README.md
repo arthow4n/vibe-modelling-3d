@@ -35,6 +35,15 @@ reused stages are explicitly marked, never represented as fresh computation.
 Managed outputs are staged, identity-checked and atomically published with destination
 ownership. Model-written side effects are outside that transaction.
 
+Finish Python model/check edits before launching a final CAD batch. The current
+input identity conservatively includes all repository Python, so even editing an
+unrelated check while CAD is queued or running can invalidate publication. Work
+on documentation or review completed evidence during that batch instead. If the
+guard rejects a job, freeze Python edits and rerun that affected request; retained
+content-verified exports/renders can still be reused. The J4/K4 grip revision hit
+this guard when its check script was edited during final evaluation; freezing
+edits recovered the affected outputs without changing the geometry.
+
 Resource leases cover external tasks and script budgets; nested operations inherit
 and divide their parent's budget rather than creating uncontrolled parallelism.
 Solver-specific thread/evidence settings remain explicit. Independent tasks may

@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_recessed_grip.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/recessed_grip_assembled/inspect_recessed_grip_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014997700018284377,
+    "build": 19.312972407002235,
+    "selection": 0.0007871129964769352,
+    "validation": 0.21278301799975452,
+    "render_isometric": 1.8319094010003028,
+    "worker": 21.49995977800063,
+    "total": 40.805620624003495
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "2728856a1aa042e865bded5c3268f03a28ef9a2b6e8e5a0d6ca81ebab3a68fda",
+    "artifact_identity": "94f14757b5eac36964a5172b729deecb7322775cfcea1234b7163928008a7f1d"
+  }
+}
