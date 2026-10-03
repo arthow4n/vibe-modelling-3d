@@ -253,3 +253,14 @@ def test_missing_thread_crosscheck_is_explicit(tmp_path):
     assert s.tokens==usage(100)
     assert s.quality['missing_thread_usage_crosscheck']==1
     assert 'cross-check unavailable' in s.usage_method
+
+
+def test_history_orphan_run_timeline_keeps_filename_fallback(tmp_path,monkeypatch):
+    from execution.history import main as history_main
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path))
+    span={'traceId':'a','spanId':'b','name':'cad.command','startTimeUnixNano':'1000000000','endTimeUnixNano':'2000000000'}
+    write(tmp_path/'traces'/'orphan-1.otlp.jsonl',[{'resourceSpans':[{'resource':{},'scopeSpans':[{'spans':[span]}]}]}])
+    write(tmp_path/'traces'/'other-1.otlp.jsonl',[{'resourceSpans':[{'resource':{},'scopeSpans':[{'spans':[span]}]}]}])
+    target=tmp_path/'timeline.json'
+    assert history_main(['--run','orphan','--perfetto',str(target)])==0
+    assert len(json.loads(target.read_text())['traceEvents'])==1

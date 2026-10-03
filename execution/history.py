@@ -21,9 +21,11 @@ def iter_records(root=None):
             continue
 
 
-def iter_spans(root=None, trace_ids=None):
+def iter_spans(root=None, trace_ids=None, run_id=None):
     """Stream the existing OTLP format, optionally selecting exact trace IDs."""
     for path in sorted(((root or data_root())/'traces').glob('*.otlp.jsonl')):
+        if run_id and not path.name.startswith(run_id):
+            continue
         try:
             with path.open() as stream:
                 for line in stream:
@@ -89,8 +91,9 @@ def main(argv=None):
         if args.run:
             summary=data_root()/'runs'/f'{args.run}.json'
             if summary.exists():selected_trace=json.loads(summary.read_text()).get('trace_id')
-        selected = {selected_trace} if selected_trace else (set() if args.run else None)
-        events = [perfetto_event(resource, s) for resource, s in iter_spans(trace_ids=selected)]
+        selected = {selected_trace} if selected_trace else None
+        events = [perfetto_event(resource, s) for resource, s in
+                  iter_spans(trace_ids=selected, run_id=args.run if not selected_trace else None)]
         args.perfetto.write_text(json.dumps({'traceEvents':events}))
         return 0
     files=sorted((data_root()/'runs').glob('*.json'),key=lambda p:p.stat().st_mtime,reverse=True)[:args.last]
