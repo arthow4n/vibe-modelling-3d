@@ -12,6 +12,10 @@ from .telemetry import span, data_root
 
 def execute(request):
     os.environ.clear();os.environ.update(request['environment'])
+    from .resources import apply_affinity
+    apply_affinity()
+    from .lifecycle import watch_owner
+    watch_owner()
     os.chdir(request['cwd'])
     source=Path(request['source'])
     sys.argv=[str(source),*request.get('arguments',[])]
@@ -25,6 +29,14 @@ def execute(request):
     try:
         with span('script.execute', source_sha256=request['source_sha256']):
             if profiler:profiler.enable()
+            # Audit hook observes subprocess starts only; it does not invent completion timings.
+            def audit(event, values):
+                if event=='subprocess.Popen':
+                    try:
+                        from opentelemetry import trace
+                        trace.get_current_span().add_event('subprocess.start',{'executable':os.path.basename(str(values[0]))})
+                    except Exception:pass
+            sys.addaudithook(audit)
             runpy.run_path(str(source),run_name='__main__')
         return 0
     except SystemExit as exc:

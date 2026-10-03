@@ -25,7 +25,7 @@ def environment_identity(env=None):
 def runtime_identity():
     files = [ROOT/'pyproject.toml', ROOT/'uv.lock', ROOT/'.venv/pyvenv.cfg']
     files += sorted((ROOT/'execution').glob('*.py'))
-    return fingerprint(dict(python=sys.version, executable=sys.executable,
+    return fingerprint(dict(python=sys.version, executable=str(Path(sys.executable).resolve()),prefix=str(Path(sys.prefix).resolve()),
         files={str(p.relative_to(ROOT)): digest(p) for p in files if p.is_file()}))
 
 

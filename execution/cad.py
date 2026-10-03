@@ -16,6 +16,11 @@ def child(connection):
         try:request=connection.recv()
         except EOFError:break
         os.environ.clear();os.environ.update(request['environment'])
+        from .resources import apply_affinity
+        apply_affinity()
+        if jobs==0:
+            from .lifecycle import watch_owner
+            watch_owner()
         source=Path(request['source']);os.chdir(source.parent)
         sys.path.insert(0,str(source.parent))
         sys.dont_write_bytecode=True;sys.pycache_prefix=str(data_root()/'bytecode-disabled'/request['run_id'])
@@ -25,7 +30,7 @@ def child(connection):
         before=time.monotonic()
         with span('cad.worker'),threadpool_limits(limits=request['threads']):
             import evaluate_model
-            answer=evaluate_model.evaluate_request(request['cad'],cache if request.get('reuse') else None)
+            answer=evaluate_model.evaluate_request(request['cad'],cache if request.get('reuse') else None,progress=connection.send)
         answer.setdefault('timings_seconds',{})['worker']=time.monotonic()-before
         connection.send(answer);jobs+=1
         if not request.get('reuse') or jobs>=100:break
@@ -33,13 +38,13 @@ def child(connection):
     connection.close()
 
 
-def execute(request, *, coordinator=True):
+def execute(request, *, coordinator=True, on_event=None):
     from .client import submit, CoordinatorUnavailable
     request.update(kind='cad',strategy='persistent' if request.get('reuse') else 'preinitialized',
         cwd=str(Path(request['source']).parent))
     if coordinator:
         try:
-            response=submit(request)
+            response=submit(request,on_event=on_event)
             if 'report' not in response:raise RuntimeError(response.get('error','CAD execution failed'))
             return response['report']
         except CoordinatorUnavailable:pass

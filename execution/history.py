@@ -10,7 +10,12 @@ def main(argv=None):
     p.add_argument('--last', type=int, default=20)
     p.add_argument('--perfetto', type=Path)
     p.add_argument('--run')
+    p.add_argument('--incomplete',action='store_true')
     args = p.parse_args(argv)
+    if args.incomplete:
+        files=list((data_root()/'jobs').glob('*.json'))
+        print(json.dumps([d for p in files if (d:=json.loads(p.read_text()))['status'] in ('queued','running','interrupted','failed','timeout')],indent=2))
+        return 0
     if args.perfetto:
         events=[]
         for path in (data_root()/'traces').glob(f'{args.run or "*"}*.otlp.jsonl'):

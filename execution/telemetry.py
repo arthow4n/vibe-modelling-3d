@@ -108,6 +108,11 @@ def span(name, **attributes):
 
 def child_environment(env=None):
     values = dict(env or os.environ)
+    from .resources import inherited_budget,current_affinity
+    budget=inherited_budget()
+    if budget:values['ENGINEERING_LEASE_THREADS']=str(budget)
+    affinity=current_affinity()
+    if affinity:values['ENGINEERING_AFFINITY']=affinity
     if _active.get():
         values['ENGINEERING_RUN_ID'] = _active.get()
     try:
@@ -155,7 +160,7 @@ def run(name, source=None, strategy='isolated', argv=()):
     record = dict(run_id=run_id, operation=name, strategy=strategy, start_unix_ns=started,
         source_sha256=digest(source) if source and Path(source).is_file() else None,
         source=str(source) if source else None, arguments_sha256=fingerprint(argv),
-        python=platform.python_version(), platform=platform.platform(),
+        python=platform.python_version(), platform=" ".join((platform.system(),platform.release(),platform.machine())),
         lock_sha256=digest(ROOT/'uv.lock'), status='running')
     try:
         with span(name, strategy=strategy) as current:
@@ -187,7 +192,9 @@ def operation(name):
             if _active.get() or os.environ.get('ENGINEERING_RUN_ID'):
                 with span(name):
                     return function(*args, **kwargs)
-            with run(name):
-                return function(*args, **kwargs)
+            with run(name) as record:
+                answer=function(*args, **kwargs)
+                if isinstance(answer,int):record["exit_code"]=answer
+                return answer
         return wrapped
     return decorate

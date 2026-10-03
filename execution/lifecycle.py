@@ -67,7 +67,12 @@ def wait(process, timeout=None, cancelled=lambda: False, memory_mb=None, sample=
 def run(command, *, timeout=None, cwd=None, env=None, stdin=None, stdout=None, stderr=None,
         cancelled=lambda: False, memory_mb=None):
     with span('subprocess', executable=os.path.basename(str(command[0]))):
-        process=subprocess.Popen(command,cwd=cwd,env=child_environment(env),stdin=stdin,
+        import shutil
+        environment=child_environment(env)
+        affinity=environment.get('ENGINEERING_AFFINITY')
+        if affinity and shutil.which('taskset'):
+            command=['taskset','--cpu-list',affinity,*command]
+        process=subprocess.Popen(command,cwd=cwd,env=environment,stdin=stdin,
             stdout=stdout,stderr=stderr,start_new_session=(os.name=='posix'))
         try:
             code, measurements=wait(process,timeout,cancelled,memory_mb)
@@ -75,3 +80,31 @@ def run(command, *, timeout=None, cwd=None, env=None, stdin=None, stdout=None, s
             terminate(process)
             raise
         return code,measurements
+
+
+def watch_owner(environment=None):
+    """Stop orphan work after abrupt supervisor death, even during native calls."""
+    import threading
+    import psutil
+    env=environment or os.environ
+    owner=env.get('ENGINEERING_OWNER_PID')
+    if not owner:return
+    expected=env.get('ENGINEERING_OWNER_STARTED')
+    children={}
+    def watchdog():
+        while True:
+            try:
+                parent=psutil.Process(int(owner))
+                alive=parent.is_running() and parent.status()!=psutil.STATUS_ZOMBIE
+                if expected:alive &= abs(parent.create_time()-float(expected))<1e-3
+                own=psutil.Process()
+                children.update({p.pid:p for p in own.children(recursive=True)})
+            except psutil.Error:alive=False
+            if not alive:
+                for p in children.values():
+                    try:p.kill()
+                    except psutil.Error:pass
+                try:os.killpg(os.getpgrp(),signal.SIGKILL)
+                finally:os._exit(130)
+            time.sleep(.1)
+    threading.Thread(target=watchdog,name='engineering-owner-watchdog',daemon=True).start()

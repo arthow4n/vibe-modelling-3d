@@ -32,6 +32,7 @@ class Admission:
         self.memory_mb=memory_mb or int(os.environ.get('ENGINEERING_MEMORY_MB',psutil.virtual_memory().available*.6/1024**2))
         self.jobs=jobs or int(os.environ.get('ENGINEERING_JOBS',min(4,self.cpus)))
         self.used_cpus=self.used_memory=self.active=0
+        self.free_cores=sorted(os.sched_getaffinity(0))[:self.cpus] if hasattr(os,"sched_getaffinity") else list(range(self.cpus))
         self.condition=threading.Condition()
 
     @contextmanager
@@ -44,10 +45,14 @@ class Admission:
                 if cancelled():raise InterruptedError('Cancelled while waiting for resources')
                 if deadline and time.monotonic()>deadline:raise TimeoutError('Deadline expired waiting for resources')
                 self.condition.wait(.05)
+            allocated=self.free_cores[:cpus];del self.free_cores[:cpus]
             self.used_cpus+=cpus;self.used_memory+=memory_mb;self.active+=1
+        token=_affinity.set(",".join(map(str,allocated)))
         try:yield time.monotonic()-started
         finally:
+            _affinity.reset(token)
             with self.condition:
+                self.free_cores.extend(allocated);self.free_cores.sort()
                 self.used_cpus-=cpus;self.used_memory-=memory_mb;self.active-=1
                 self.condition.notify_all()
 
@@ -58,3 +63,53 @@ def thread_environment(env, threads):
         values[key]=str(threads)
     values['ENGINEERING_THREADS']=str(threads)
     return values
+
+# Nested repository operations borrow the admitted parent budget. Parallel children
+# divide it explicitly; they do not recursively acquire capacity and deadlock.
+import contextvars
+_budget=contextvars.ContextVar('engineering_budget',default=None)
+
+
+def inherited_budget():
+    value=_budget.get() or os.environ.get('ENGINEERING_LEASE_THREADS')
+    return int(value) if value else None
+
+
+@contextmanager
+def lease(threads=None,memory_mb=2048):
+    from .client import connect,CoordinatorUnavailable
+    from . import protocol
+    inherited=inherited_budget()
+    threads=threads or inherited or cores('50%',cpu_capacity())
+    if inherited:
+        if threads>inherited:raise ValueError('Nested thread request exceeds parent lease; increase the original command budget')
+        token=_budget.set(threads)
+        try:yield threads
+        finally:_budget.reset(token)
+        return
+    connection=None
+    try:
+        try:
+            connection=connect();protocol.send(connection,dict(kind='lease',threads=threads,memory_mb=memory_mb))
+            response=protocol.receive(connection)
+            if response.get('affinity'):affinity_token=_affinity.set(response['affinity'])
+            if not response.get('acquired'):raise ValueError(response.get('error','Resource admission failed'))
+        except CoordinatorUnavailable:pass
+        token=_budget.set(threads)
+        try:yield threads
+        finally:_budget.reset(token)
+    finally:
+        if connection:connection.close()
+        if "affinity_token" in locals():_affinity.reset(affinity_token)
+
+_affinity=contextvars.ContextVar('engineering_affinity',default=None)
+
+
+def current_affinity():
+    return _affinity.get() or os.environ.get('ENGINEERING_AFFINITY')
+
+
+def apply_affinity():
+    value=current_affinity()
+    if value and hasattr(os,'sched_setaffinity'):
+        os.sched_setaffinity(0,{int(x) for x in value.split(',')})

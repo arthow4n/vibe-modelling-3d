@@ -58,7 +58,7 @@ class CADPool:
             self.entries.clear()
 
 
-def run_cad(request,pool,cancelled,deadline,isolated=False):
+def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
     """Stage outputs, check final source identity, then publish with exclusive ownership."""
     import copy
     from .artifacts import destinations
@@ -67,10 +67,12 @@ def run_cad(request,pool,cancelled,deadline,isolated=False):
     managed=request['cad']
     output_paths=[item['path'] for item in managed['exports']]
     output_paths += [str(Path(managed['output_dir'])/f"{Path(request['source']).stem}_{view}.png") for view in managed['views']]
+    if request.get('reuse'):output_paths.append(str(data_root()/'geometry-ownership'/request['identity']))
     started=time.monotonic()
-    with destinations(output_paths),tempfile.TemporaryDirectory(prefix='engineering-cad-') as directory:
+    with destinations(output_paths,cancelled,deadline),tempfile.TemporaryDirectory(prefix='engineering-cad-',dir=data_root()) as directory:
         original=copy.deepcopy(request);request=copy.deepcopy(request)
         request['environment']=child_environment(request['environment'])
+        request['environment']['ENGINEERING_LEASE_THREADS']=str(request['threads'])
         remap={}
         for i,item in enumerate(request['cad']['exports']):
             staged=str(Path(directory)/f"export-{i}{Path(item['path']).suffix}")
@@ -103,7 +105,13 @@ def run_cad(request,pool,cancelled,deadline,isolated=False):
             else:
                 import psutil
                 peak=None
-                while not connection.poll(.02):
+                while True:
+                    if connection.poll(.02):
+                        message=connection.recv()
+                        if message.get('event'):
+                            if progress:progress(message)
+                            continue
+                        report=message;break
                     if not process.is_alive():raise RuntimeError(f'CAD worker exited {process.exitcode} without report')
                     if cancelled():raise InterruptedError('CAD request cancelled')
                     if time.monotonic()>deadline:raise TimeoutError('CAD evaluation exceeded deadline')
@@ -111,7 +119,7 @@ def run_cad(request,pool,cancelled,deadline,isolated=False):
                         rss=psutil.Process(process.pid).memory_info().rss;peak=max(peak or 0,rss)
                         if rss>request['memory_mb']*1024**2:raise MemoryError('CAD worker memory budget exceeded')
                     except psutil.Error:pass
-                report=connection.recv();resources=dict(peak_worker_rss_bytes=peak)
+                resources=dict(peak_worker_rss_bytes=peak)
             if cancelled():raise InterruptedError('CAD request cancelled before publication')
             if cad_identity(request['source'],request['dependencies'],request['environment'])!=request['identity']:
                 raise RuntimeError('CAD inputs changed during execution; managed artifacts were not published')
@@ -149,9 +157,22 @@ class Coordinator:
                     active=self.admission.active,pid=os.getpid(),runtime=self.runtime));return
             if request.get('kind')=='stop':
                 self.stopping.set();protocol.send(connection,dict(stopping=True));return
+            if request.get('kind')=='lease':
+                def abandoned():
+                    return self.stopping.is_set() or (bool(select.select([connection],[],[],0)[0]) and connection.recv(1,socket.MSG_PEEK)==b'')
+                with self.admission.acquire(request['threads'],request['memory_mb'],abandoned) as queued:
+                    from .resources import current_affinity
+                    protocol.send(connection,dict(acquired=True,queue_seconds=queued,affinity=current_affinity()))
+                    while not abandoned():time.sleep(.05)
+                return
             if len(fds)!=3:raise ValueError('Expected stdin, stdout and stderr descriptors')
             if request['kind'] not in ('script','cad'):raise ValueError('Unsupported execution operation')
+            from .journal import update as journal
+            journal(request,"queued")
             self.last_request=time.monotonic()
+            import psutil
+            request["environment"]["ENGINEERING_OWNER_PID"]=str(os.getpid())
+            request["environment"]["ENGINEERING_OWNER_STARTED"]=str(psutil.Process().create_time())
             def cancelled():
                 if self.stopping.is_set():return True
                 if select.select([connection],[],[],0)[0]:
@@ -166,13 +187,17 @@ class Coordinator:
             try:
                 with span('coordinator.admission'):
                     with self.admission.acquire(request['threads'],request['memory_mb'],cancelled,deadline) as queued:
-                        answer=run_cad(request,self.cad_pool,cancelled,deadline) if request['kind']=='cad' else self.execute(request,fds,cancelled,deadline)
+                        journal(request,'running')
+                        answer=run_cad(request,self.cad_pool,cancelled,deadline,progress=lambda event:protocol.send(connection,event)) if request['kind']=='cad' else self.execute(request,fds,cancelled,deadline)
                         answer['queue_seconds']=queued
+                        journal(request,'completed' if answer['exit_code']==0 else 'failed')
                         write_record(request['run_id'],dict(run_id=request['run_id'],source=request['source'],source_sha256=request['source_sha256'],**answer))
                 protocol.send(connection,answer)
             finally:detach(parent);_active.reset(token)
         except BaseException as exc:
             if 'request' in locals() and request.get('run_id'):
+                from .journal import update as journal
+                journal(request,'timeout' if isinstance(exc,(TimeoutError,subprocess.TimeoutExpired)) else 'interrupted' if isinstance(exc,InterruptedError) else 'failed')
                 write_record(request['run_id'],dict(run_id=request['run_id'],status='timeout' if isinstance(exc,(TimeoutError,subprocess.TimeoutExpired)) else 'interrupted' if isinstance(exc,InterruptedError) else 'failed',failure_type=type(exc).__name__))
             try:protocol.send(connection,dict(exit_code=124 if isinstance(exc,(TimeoutError,subprocess.TimeoutExpired)) else 1,
                 status='timeout' if isinstance(exc,(TimeoutError,subprocess.TimeoutExpired)) else 'failed',
@@ -195,6 +220,7 @@ class Coordinator:
         with span('worker.lifecycle',strategy=request['strategy']):
             from .telemetry import child_environment
             request['environment']=child_environment(request['environment'])
+            request['environment']['ENGINEERING_LEASE_THREADS']=str(request['threads'])
             if request['strategy']=='preinitialized':
                 from .runner import child
                 process=self.ctx.Process(target=child,args=(request,[DupFd(fd) for fd in fds]))

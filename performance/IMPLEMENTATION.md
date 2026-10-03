@@ -82,3 +82,20 @@ by 30 evaluator/script tests including declared-data invalidation, tampered-expo
 restoration and source-change-during-build prevention. Default builds still run
 validity checks; reused validity is identified as prior evidence for the same
 closed-input geometry. STEP/STL tessellation settings remain unchanged.
+
+### Scheduling/slicing/resilience milestone
+
+CAD commit `d9b8ab0` pushed. Added portable percent/integer resource budgets,
+disjoint CPU sets, borrowed/divided nested budgets, dependency-aware ordinary-script
+batches, shared native subprocess lifecycle, runtime alias normalization, durable
+job journals and owner-death watchdogs. Slicing snapshots its inputs, caches
+content-bound version discovery and optional completed reviews, overlaps explicit
+primary/probe work, preserves probe-failure review semantics and starts from STL
+completion independently of rendering. Controlled simultaneous artifacts are
+serialized by identity; arbitrary scripts are never result-cached or replayed.
+
+Validation: 38 existing/added execution/evaluator/slicing/telemetry checks passed;
+21 focused scheduling/slicing/telemetry tests including actual probe overlap and
+version invalidation passed. Real Orca 2.4.2 primary/probe completed on the fixture.
+Remaining stages: physical integration, measured kernels, dedicated resilience
+qualification, instructions, frozen-source regression and final benchmarks.

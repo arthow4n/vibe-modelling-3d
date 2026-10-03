@@ -25,6 +25,7 @@ import time
 import traceback
 
 from execution.telemetry import operation, span, child_environment
+from execution.process import run as run_command
 
 VIEWS = {
     "isometric": (1, -1, 1), "isometric_back": (-1, 1, 1),
@@ -143,7 +144,7 @@ def render(shape, view, width, height, show_hidden):
                             background_color="#ffffff")
 
 
-def evaluate_request(args, cache=None):
+def evaluate_request(args, cache=None, progress=None):
     dependency_started=time.monotonic()
     import cadquery as cq
     import runpy
@@ -219,6 +220,8 @@ def evaluate_request(args, cache=None):
                 except Exception as exc:
                     report["exports"].append({"path": item["path"], "ok": False})
                     error("export", exc, path=item["path"])
+            if progress and report['exports'] and all(e['ok'] for e in report['exports']):
+                progress({'event':'exports_ready','exports':report['exports']})
             for view in args["views"]:
                 destination = Path(args["output_dir"]) / f'{path.stem}_{view}.png'
                 try:
@@ -325,7 +328,7 @@ def _support_roles(run_dir, sliced_plates):
     return supported
 
 
-def _auto_support_probe(command, run_dir, effective, primary_result):
+def _auto_support_probe(command, run_dir, effective, primary_result, prepared=False):
     """Probe the same layout with Orca's automatic support enabled."""
     support_type = str(effective.get("support_type", ""))
     auto_type = (support_type if support_type.endswith("(auto)") else
@@ -337,7 +340,7 @@ def _auto_support_probe(command, run_dir, effective, primary_result):
         probe_dir, probe_effective, probe_result = run_dir, effective, primary_result
     else:
         probe_dir = run_dir / "support_probe"
-        probe_dir.mkdir()
+        probe_dir.mkdir(exist_ok=True)
         probe_command = command.copy()
         probe_command[probe_command.index("--outputdir") + 1] = str(probe_dir)
         effective_path = probe_dir / "effective-settings.json"
@@ -345,10 +348,13 @@ def _auto_support_probe(command, run_dir, effective, primary_result):
         probe_command.extend(("--enable-support=1", "--bridge-no-support=0",
                               f"--support-type={auto_type}"))
         (probe_dir / "command.json").write_text(json.dumps(probe_command, indent=2) + "\n")
-        with (probe_dir / "slicer.log").open("w") as log:
-            completed = subprocess.run(probe_command, cwd=probe_dir, stdout=log,
-                                       stderr=subprocess.STDOUT, timeout=SLICE_TIMEOUT_SECONDS,
-                                       check=False)
+        if not prepared:
+            with (probe_dir / "slicer.log").open("w") as log:
+                completed = run_command(probe_command, cwd=probe_dir, stdout=log,
+                                           stderr=subprocess.STDOUT, timeout=SLICE_TIMEOUT_SECONDS,
+                                           check=False)
+        else:
+            completed=prepared.result()
         result_path = probe_dir / "result.json"
         if completed.returncode != 0 or not result_path.is_file():
             raise RuntimeError("Orca automatic-support probe failed; use --slice-keep-run for its log")
@@ -373,7 +379,7 @@ def _auto_support_probe(command, run_dir, effective, primary_result):
     }
 
 
-def _review_in_directory(model, profiles, run_dir, placement):
+def _review_in_directory(model, profiles, run_dir, placement, threads=None):
     placement_args = {
         "preserve": ["--arrange", "0", "--orient", "0"],
         "center": ["--arrange", "1", "--orient", "0", "--allow-rotations=0"],
@@ -383,13 +389,15 @@ def _review_in_directory(model, profiles, run_dir, placement):
         raise ValueError("placement must be preserve, center or assembly")
     prefix = slicer_prefix()
 
-    # Keep Orca's incidental CLI files and app data inside this temporary run.
-    help_run = subprocess.run(prefix + ["--help"], cwd=run_dir, capture_output=True,
-                              text=True, timeout=30, check=False)
-    version_match = re.search(
-        r"(?i)orcaslicer[^\n]{0,80}?\b(v?\d+\.\d+(?:\.\d+)?(?:[-+][\w.]+)?)",
-        help_run.stdout + help_run.stderr)
-    slicer_version = version_match.group(1) if version_match else "unknown"
+    from execution.tools import version
+    from execution.resources import inherited_budget, cores, cpu_capacity
+    threads=threads or inherited_budget() or cores("50%",cpu_capacity())
+    def discover_version():
+        help_run = run_command(prefix + ["--help"], cwd=run_dir, capture_output=True,
+                                  text=True, timeout=30, check=False)
+        match = re.search(r"(?i)orcaslicer[^\n]{0,80}?\b(v?\d+\.\d+(?:\.\d+)?(?:[-+][\w.]+)?)",help_run.stdout+help_run.stderr)
+        return match.group(1) if match else "unknown"
+    slicer_version=version(prefix,run_dir,discover_version)
     effective_path = run_dir / "effective-settings.json"
     command = prefix + [str(model),
         "--load-settings", f"{profiles['process']};{profiles['printer']}",
@@ -397,9 +405,43 @@ def _review_in_directory(model, profiles, run_dir, placement):
         *placement_args[placement], "--slice", "0",
         "--outputdir", str(run_dir), "--export-settings", str(effective_path)]
     (run_dir / "command.json").write_text(json.dumps(command, indent=2) + "\n")
-    with (run_dir / "slicer.log").open("w") as log:
-        completed = subprocess.run(command, cwd=run_dir, stdout=log, stderr=subprocess.STDOUT,
-                                   timeout=SLICE_TIMEOUT_SECONDS, check=False)
+    from concurrent.futures import ThreadPoolExecutor
+    from execution.telemetry import child_environment
+    from execution.resources import thread_environment
+    # Loaded support flags are explicit in maintained resolved snapshots. Predict
+    # only these flags, and verify the real exported settings before trusting probe.
+    process_settings=json.loads(profiles['process'].read_text())
+    support_keys=("enable_support","support_type","bridge_no_support")
+    known=all(k in process_settings for k in support_keys)
+    primary_auto=(str(process_settings.get("enable_support"))=="1" and
+        str(process_settings.get("support_type","")).endswith("(auto)") and
+        str(process_settings.get("bridge_no_support"))=="0")
+    prepared=None
+    executor=ThreadPoolExecutor(1)
+    def probe_early():
+        with span("orca.support_probe"):
+            probe_dir=run_dir/'support_probe';probe_dir.mkdir(exist_ok=True)
+            cmd=command.copy();cmd[cmd.index('--outputdir')+1]=str(probe_dir)
+            cmd[cmd.index('--export-settings')+1]=str(probe_dir/'effective-settings.json')
+            kind=str(process_settings['support_type'])
+            auto_type=kind if kind.endswith('(auto)') else 'tree(auto)' if kind.startswith('tree') else 'normal(auto)'
+            cmd.extend(('--enable-support=1','--bridge-no-support=0',f'--support-type={auto_type}'))
+            (probe_dir/'command.json').write_text(json.dumps(cmd,indent=2)+'\n')
+            with (probe_dir/'slicer.log').open('w') as log:
+                return run_command(cmd,cwd=probe_dir,stdout=log,stderr=subprocess.STDOUT,
+                    timeout=SLICE_TIMEOUT_SECONDS,check=False,
+                    env=thread_environment(child_environment(),max(1,threads//2)))
+    if known and not primary_auto and threads>=2:
+        import contextvars
+        context=contextvars.copy_context()
+        prepared=executor.submit(context.run,probe_early)
+    try:
+        with span("orca.primary"), (run_dir / "slicer.log").open("w") as log:
+            completed = run_command(command, cwd=run_dir, stdout=log, stderr=subprocess.STDOUT,
+                                       timeout=SLICE_TIMEOUT_SECONDS, check=False,
+                                       env=thread_environment(child_environment(),max(1,threads//2) if prepared else threads))
+    finally:
+        executor.shutdown(wait=True,cancel_futures=True)
     log_text = (run_dir / "slicer.log").read_text(errors="replace")
 
     result_path = run_dir / "result.json"
@@ -419,7 +461,11 @@ def _review_in_directory(model, profiles, run_dir, placement):
     if result.get("error_string") not in (None, "", "Success", "Success."):
         notices.append(str(result["error_string"]))
     try:
-        support_probe = _auto_support_probe(command, run_dir, effective, result)
+        expected={k:str(process_settings[k]) for k in support_keys} if known else {}
+        actual={k:str(effective.get(k)) for k in support_keys}
+        if prepared and expected!=actual:
+            raise RuntimeError("Effective support settings differ from the concurrent probe prediction; review the probe")
+        support_probe = _auto_support_probe(command, run_dir, effective, result, prepared=prepared)
     except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as exc:
         support_probe = {"ok": False, "message": str(exc)}
     report = {
@@ -438,25 +484,52 @@ def _review_in_directory(model, profiles, run_dir, placement):
 
 @operation("orca.review")
 def review(model, printer=DEFAULTS["printer"], process=DEFAULTS["process"],
-           filament=DEFAULTS["filament"], placement="center", keep_run=False):
+           filament=DEFAULTS["filament"], placement="center", keep_run=False, reuse=False, threads=None):
     model = Path(model).expanduser().resolve(strict=True)
     profiles = {key: _resolve_profile(value) for key, value in {
         "printer": printer, "process": process, "filament": filament}.items()}
-    # Flatpak OrcaSlicer can access the user's home, but may not see host /tmp.
-    run_dir = Path(tempfile.mkdtemp(prefix="orca-slicer-review-", dir=Path.home()))
-    try:
-        report = _review_in_directory(model, profiles, run_dir, placement)
-        if keep_run:
-            report["kept_run_directory"] = str(run_dir)
-            (run_dir / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
-        return report
-    except Exception as exc:
-        if keep_run:
-            raise RuntimeError(f"{exc}; run artifacts kept at {run_dir}") from exc
-        raise
-    finally:
-        if not keep_run:
-            shutil.rmtree(run_dir, ignore_errors=True)
+    from execution.resources import lease
+    from execution.tools import tool_identity
+    from execution.identity import digest, fingerprint
+    from execution.artifacts import ArtifactCache, destinations
+    cache=ArtifactCache("slices")
+    identity=tool_identity(slicer_prefix()) if reuse and not keep_run else None
+    key={"model":digest(model),"profiles":{k:digest(p) for k,p in profiles.items()},
+         "placement":placement,"tool":identity,"threads":threads,"implementation":digest(__file__)}
+    ownership=destinations([cache.folder/fingerprint(key)]) if identity else contextlib.nullcontext()
+    with ownership:
+        if identity:
+            saved=cache.read(key)
+            if saved is not None:
+                report=json.loads(saved);report.update(reused=True,identity=fingerprint(key),model=str(model),
+                    profiles={k:str(p) for k,p in profiles.items()})
+                return report
+        # Flatpak OrcaSlicer can access the user's home, but may not see host /tmp.
+        run_dir = Path(tempfile.mkdtemp(prefix="orca-slicer-review-", dir=Path.home()))
+        try:
+            snapshot=run_dir/('input'+model.suffix)
+            snapshot.write_bytes(model.read_bytes())
+            snapshot_profiles={k:run_dir/(k+'.json') for k in profiles}
+            for k,p in profiles.items():snapshot_profiles[k].write_bytes(p.read_bytes())
+            snapshot_key={**key,'model':digest(snapshot),'profiles':{k:digest(p) for k,p in snapshot_profiles.items()}}
+            if snapshot_key!=key:raise RuntimeError('Slice inputs changed during snapshot; retry current inputs')
+            with lease(threads) as budget:
+                report = _review_in_directory(snapshot, snapshot_profiles, run_dir, placement,budget)
+            report.update(model=str(model),profiles={k:str(p) for k,p in profiles.items()})
+            report.update(reused=False,identity=fingerprint(key))
+            if identity and report["support_probe"]["ok"] and tool_identity(slicer_prefix())==identity:
+                cache.store(key,json.dumps(report).encode())
+            if keep_run:
+                report["kept_run_directory"] = str(run_dir)
+                (run_dir / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
+            return report
+        except Exception as exc:
+            if keep_run:
+                raise RuntimeError(f"{exc}; run artifacts kept at {run_dir}") from exc
+            raise
+        finally:
+            if not keep_run:
+                shutil.rmtree(run_dir, ignore_errors=True)
 
 
 def positive_float(value):
@@ -481,7 +554,7 @@ def add_slice_review(report, model, args):
                         process=args.slice_process or DEFAULTS["process"],
                         filament=args.slice_filament or DEFAULTS["filament"],
                         placement=args.slice_placement,
-                        keep_run=args.slice_keep_run)
+                        keep_run=args.slice_keep_run,reuse=args.reuse,threads=args.threads)
         report["slice"] = {"ok": True, **sliced}
     except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as exc:
         report["slice"] = {"ok": False, "message": str(exc)}
@@ -512,10 +585,10 @@ def emit_report(report, args):
     if args.summary:
         output = {key: report[key] for key in
                   ("ok", "file_path", "geometry", "views", "exports", "errors",
-                   "timings_seconds", "versions", "diagnostics") if key in report}
+                   "timings_seconds", "versions", "diagnostics", "reuse") if key in report}
         if "slice" in report:
             output["slice"] = {key: report["slice"][key] for key in
-                               ("ok", "message", "review_required", "support_probe", "log_notices")
+                               ("ok", "message", "review_required", "support_probe", "log_notices", "reused", "identity")
                                if key in report["slice"]}
         if not any(error.get("stage") == "report" for error in report.get("errors", [])):
             output["report_path"] = str(args.report)
@@ -570,6 +643,9 @@ def main(argv=None):
     parser.add_argument("--summary", action="store_true",
                         help="With --report, print a compact stage summary instead of the complete report")
     args = parser.parse_args(argv)
+    from execution.resources import cores,cpu_capacity
+    try:args.threads=cores(args.threads,cpu_capacity())
+    except ValueError as exc:parser.error(str(exc))
     if args.summary and not args.report:
         parser.error("--summary requires --report so complete evidence is retained")
     if args.report:
@@ -637,18 +713,33 @@ def main(argv=None):
     from execution.cad import execute as execute_cad
     from execution.telemetry import child_environment, _active
     from execution.resources import thread_environment
-    from execution.resources import cores,cpu_capacity
-    try:args.threads=cores(args.threads,cpu_capacity())
-    except ValueError as exc:parser.error(str(exc))
     execution_environment=thread_environment(child_environment(),args.threads)
     identity=cad_identity(source,args.dependency,execution_environment)
     request.update(identity=identity,run_id=_active.get())
     started = time.monotonic()
+    from concurrent.futures import ThreadPoolExecutor
+    slice_executor=ThreadPoolExecutor(1) if args.slice and views else None
+    slice_temporary=tempfile.TemporaryDirectory(prefix='engineering-slice-input-',dir=Path.home()) if slice_executor else None
+    slice_future=None
+    def exports_ready(event):
+        nonlocal slice_future
+        if not slice_executor or slice_future is not None:return
+        entry=next((e for e in event['exports'] if e['path'].endswith('.stl') and e['ok']),None)
+        if not entry:return
+        snapshot=Path(slice_temporary.name)/'input.stl';snapshot.write_bytes(Path(entry['path']).read_bytes())
+        slice_report={'ok':True,'errors':[]}
+        import contextvars
+        context=contextvars.copy_context()
+        def slice_work():
+            add_slice_review(slice_report,snapshot,args)
+            if 'slice' in slice_report:slice_report['slice']['model']=str(root/f'{source.stem}.stl')
+            return slice_report
+        slice_future=slice_executor.submit(context.run,slice_work)
     try:
         report=execute_cad(dict(source=str(source),source_sha256=digest(source),identity=identity,
             dependencies=[str(p.resolve()) for p in args.dependency],reuse=args.reuse,
             cad=request,run_id=_active.get(),environment=execution_environment,
-            runtime=runtime_identity(),threads=args.threads,memory_mb=2048,timeout=args.timeout),coordinator=not args.isolated)
+            runtime=runtime_identity(),threads=args.threads,memory_mb=2048,timeout=args.timeout),coordinator=not args.isolated,on_event=exports_ready)
     except KeyboardInterrupt:
         raise
     except Exception as exc:
@@ -656,9 +747,18 @@ def main(argv=None):
     report.setdefault("timings_seconds", {})["total"] = time.monotonic() - started
     pair_ready = (len(report.get("exports", [])) == 2
                   and all(item.get("ok") for item in report["exports"]))
-    if args.slice and pair_ready:
-        add_slice_review(report, root / f"{source.stem}.stl", args)
-        report["timings_seconds"]["total"] = time.monotonic() - started
+    try:
+        if args.slice and pair_ready:
+            if slice_future:
+                sliced=slice_future.result()
+                report['slice']=sliced['slice'];report['errors'].extend(sliced['errors'])
+                report['ok'] &= sliced['ok']
+                report['timings_seconds']['slice']=sliced['timings_seconds']['slice']
+            else:add_slice_review(report, root / f"{source.stem}.stl", args)
+            report["timings_seconds"]["total"] = time.monotonic() - started
+    finally:
+        if slice_executor:slice_executor.shutdown(wait=True,cancel_futures=True)
+        if slice_temporary:slice_temporary.cleanup()
     emit_report(report, args)
     if not report["ok"]:
         return 1

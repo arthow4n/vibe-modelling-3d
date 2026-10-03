@@ -77,3 +77,27 @@ def test_admission_and_release():
     assert max(results)==2 and gate.active==0
     with pytest.raises(ValueError):
         with gate.acquire(3,1):pass
+
+
+def test_percent_budgets_and_disjoint_affinity():
+    from execution.resources import cores,Admission,current_affinity
+    from concurrent.futures import ThreadPoolExecutor
+    import threading
+    assert cores('50%',16)==8 and cores('50%',3)==1 and cores('3',8)==3
+    barrier=threading.Barrier(2);gate=Admission(cpus=4,memory_mb=100,jobs=2)
+    def work():
+        with gate.acquire(2,10):
+            assigned=set(current_affinity().split(','));barrier.wait(2);return assigned
+    with ThreadPoolExecutor(2) as pool:
+        first=pool.submit(work);second=pool.submit(work)
+        assert not first.result()&second.result()
+
+
+def test_batch_dependencies_and_failed_dependency(tmp_path):
+    from execution.batch import ScriptTask,run
+    source=tmp_path/'work.py';source.write_text('import sys\nraise SystemExit(int(sys.argv[1]))\n')
+    results=run([ScriptTask('good',source,('0',),threads=1),ScriptTask('bad',source,('3',),threads=1),
+                 ScriptTask('after',source,('0',),depends_on=('good',),threads=1),
+                 ScriptTask('skip',source,('0',),depends_on=('bad',),threads=1)])
+    assert results['good']['exit_code']==results['after']['exit_code']==0
+    assert results['bad']['exit_code']==3 and results['skip']['status']=='dependency_failed'

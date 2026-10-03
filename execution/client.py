@@ -55,14 +55,17 @@ def connect():
     raise CoordinatorUnavailable('Local execution coordinator unavailable')
 
 
-def submit(request, fds=(0,1,2)):
+def submit(request, fds=(0,1,2), on_event=None):
     connection=connect()  # Only this pre-dispatch failure permits fallback.
     try:
         with span('coordinator.request'):
             request['environment']=child_environment(request.get('environment'))
             protocol.send(connection,request,fds)
             connection.settimeout(None)
-            return protocol.receive(connection)
+            while True:
+                answer=protocol.receive(connection)
+                if not answer.get('event'):return answer
+                if on_event:on_event(answer)
     except (EOFError,ConnectionError,OSError) as exc:
         raise RuntimeError('Coordinator connection lost after dispatch; execution was not replayed') from exc
     finally:connection.close()
@@ -78,6 +81,8 @@ def script(source, arguments=(), *, cwd=None, strategy='isolated', preload='scie
             strategy=strategy,preload=preload,timeout=timeout,threads=threads,memory_mb=memory_mb,
             profile=profile,environment=thread_environment(child_environment(),threads),
             runtime=runtime_identity(),pythonpath=[str(ROOT)])
+        from .resources import inherited_budget
+        if inherited_budget():coordinator=False
         if coordinator:
             try:answer=submit(request)
             except CoordinatorUnavailable:answer=fallback(request)
@@ -91,7 +96,7 @@ def fallback(request):
     from .lifecycle import run as run_process
     with tempfile.TemporaryDirectory(prefix='engineering-execute-') as directory:
         path=Path(directory)/'request.json';path.write_text(json.dumps(request));path.chmod(0o600)
-        env=child_environment(request['environment']);env['PYTHONPATH']=str(ROOT)+os.pathsep+env.get('PYTHONPATH','')
+        env=child_environment(request['environment']);env['ENGINEERING_LEASE_THREADS']=str(request['threads']);env['PYTHONPATH']=str(ROOT)+os.pathsep+env.get('PYTHONPATH','')
         try:
             code,resources=run_process([sys.executable,'-m','execution.runner',str(path)],
                 cwd=request['cwd'],env=env,timeout=request['timeout'],memory_mb=request['memory_mb'])

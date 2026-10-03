@@ -11,13 +11,20 @@ from .identity import fingerprint, digest
 
 
 @contextmanager
-def destinations(paths):
+def destinations(paths, cancelled=lambda:False, deadline=None):
     locks=[]
     try:
         folder=data_root()/'locks';folder.mkdir(parents=True,exist_ok=True)
         for name in sorted({str(Path(p).resolve()) for p in paths}):
             lock=(folder/f'{fingerprint(name)}.lock').open('a')
-            fcntl.flock(lock,fcntl.LOCK_EX);locks.append(lock)
+            import time
+            while True:
+                try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);break
+                except BlockingIOError:
+                    if cancelled():lock.close();raise InterruptedError('Cancelled waiting for output ownership')
+                    if deadline and time.monotonic()>deadline:lock.close();raise TimeoutError('Deadline expired waiting for output ownership')
+                    time.sleep(.02)
+            locks.append(lock)
         yield
     finally:
         for lock in reversed(locks):lock.close()

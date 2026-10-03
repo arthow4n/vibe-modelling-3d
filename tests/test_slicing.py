@@ -56,7 +56,7 @@ class ReviewTests(unittest.TestCase):
                 return SimpleNamespace(returncode=0)
 
             with patch("evaluate_model.slicer_prefix", return_value=["fake"]), \
-                    patch("evaluate_model.subprocess.run", side_effect=fake), \
+                    patch("evaluate_model.run_command", side_effect=fake), \
                     self.assertRaisesRegex(RuntimeError, "completed plate"):
                 self._review(files)
             self.assertFalse(run_dirs[0].exists())
@@ -89,7 +89,7 @@ class ReviewTests(unittest.TestCase):
                 return SimpleNamespace(returncode=0)
 
             with patch("evaluate_model.slicer_prefix", return_value=["fake"]), \
-                    patch("evaluate_model.subprocess.run", side_effect=fake):
+                    patch("evaluate_model.run_command", side_effect=fake):
                 result = self._review(files)
             self.assertTrue(result["review_required"])
             self.assertEqual(result["effective_settings"]["filament_type"], ["PETG"])
@@ -120,7 +120,7 @@ class ReviewTests(unittest.TestCase):
                 return SimpleNamespace(returncode=0)
 
             with patch("evaluate_model.slicer_prefix", return_value=["fake"]), \
-                    patch("evaluate_model.subprocess.run", side_effect=fake):
+                    patch("evaluate_model.run_command", side_effect=fake):
                 result = self._review(files, keep_run=True)
             kept = Path(result["kept_run_directory"])
             try:
@@ -153,7 +153,7 @@ class ReviewTests(unittest.TestCase):
                 return SimpleNamespace(returncode=0)
 
             with patch("evaluate_model.slicer_prefix", return_value=["fake"]), \
-                    patch("evaluate_model.subprocess.run", side_effect=fake):
+                    patch("evaluate_model.run_command", side_effect=fake):
                 result = self._review(files)
             self.assertEqual(len(slice_commands), 1)
             self.assertTrue(result["support_probe"]["generated"])
@@ -175,7 +175,7 @@ class ReviewTests(unittest.TestCase):
                 return SimpleNamespace(returncode=0)
 
             with patch("evaluate_model.slicer_prefix", return_value=["fake"]), \
-                    patch("evaluate_model.subprocess.run", side_effect=fake):
+                    patch("evaluate_model.run_command", side_effect=fake):
                 result = self._review(files)
             self.assertFalse(result["support_probe"]["ok"])
             self.assertTrue(result["review_required"])
@@ -197,3 +197,37 @@ class ReviewTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_version_discovery_is_content_bound(tmp_path,monkeypatch):
+    from execution import tools
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path))
+    identity=['tool-one'];calls=[]
+    monkeypatch.setattr(tools,'tool_identity',lambda prefix:identity[0])
+    def discover():calls.append(True);return '2.4.2'
+    assert tools.version(['slicer'],tmp_path,discover)=='2.4.2'
+    assert tools.version(['slicer'],tmp_path,discover)=='2.4.2' and len(calls)==1
+    identity[0]='tool-two'
+    assert tools.version(['slicer'],tmp_path,discover)=='2.4.2' and len(calls)==2
+
+
+def test_independent_probe_overlaps_primary_and_failure_preserves_primary(tmp_path,monkeypatch):
+    import threading,time
+    import evaluate_model
+    files=ReviewTests._inputs(tmp_path)
+    files['process'].write_text(json.dumps(EFFECTIVE_SETTINGS))
+    primary=threading.Event();probe=threading.Event()
+    def fake(command,**kwargs):
+        if command[-1]=='--help':return SimpleNamespace(returncode=0,stdout='OrcaSlicer 2.4.2',stderr='')
+        is_probe='--enable-support=1' in command
+        (probe if is_probe else primary).set()
+        assert (primary if is_probe else probe).wait(2),'Slices did not overlap'
+        if is_probe:return SimpleNamespace(returncode=1)
+        folder=Path(command[command.index('--outputdir')+1])
+        (folder/'result.json').write_text(json.dumps(dict(return_code=0,sliced_plates=[{'id':1}])))
+        (folder/'effective-settings.json').write_text(json.dumps(EFFECTIVE_SETTINGS))
+        return SimpleNamespace(returncode=0)
+    monkeypatch.setattr(evaluate_model,'slicer_prefix',lambda:['fake'])
+    monkeypatch.setattr(evaluate_model,'run_command',fake)
+    result=review(files['model'],files['printer'],files['process'],files['filament'],threads=2)
+    assert result['sliced_plates']==[1] and not result['support_probe']['ok'] and result['review_required']

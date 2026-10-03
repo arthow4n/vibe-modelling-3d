@@ -113,3 +113,57 @@ are staged and published atomically only after current-input checks under
 exclusive destination ownership; an old revision cannot replace newer exports.
 Cached artifact bytes are digest-verified, so tampered outputs are restored from
 valid artifacts, never claimed as verified in place. Cache size/count is bounded.
+
+## Concurrent agents, scheduling and recovery
+
+The default shared CPU capacity is **50%** of affinity/cgroup available cores.
+`ENGINEERING_CPUS=75%` or `ENGINEERING_CPUS=8` changes it; `--threads 50%` (the
+command default) allocates half that shared capacity. Integer thread counts are
+also accepted. Admission gives simultaneous jobs disjoint CPU sets on Linux.
+OCCT and BLAS receive the thread count; external native processes inherit CPU
+binding through `taskset`, so libraries ignoring OMP limits still stay within
+allocated cores. Process-tree memory budgets and a default maximum four jobs
+bound admission. Import-only preload remains single threaded for safe forking.
+
+Independent scripts can use `execution.batch.ScriptTask` and `execution.batch.run`:
+
+```python
+from execution.batch import ScriptTask, run
+answers = run([
+    ScriptTask('mesh_a', 'model/object/check_a.py'),
+    ScriptTask('mesh_b', 'model/object/check_b.py'),
+    ScriptTask('compare', 'model/object/compare.py', depends_on=('mesh_a', 'mesh_b')),
+])
+```
+
+Scripts stay ordinary files. Dependencies wait for successful upstream work;
+failed prerequisites produce `dependency_failed`. Declare output paths when
+jobs share destinations. Nested batches divide their parent's admitted CPU set
+and launch isolated children inside that lease; they do not recursively acquire
+capacity or deadlock. Conditional numerical refinements retain QuestionStudy's
+existing sequential acceptance/stopping rules.
+
+Concurrent coding agents use the same private coordinator without administration.
+Managed CAD destinations have cross-process ownership locks and staged publication;
+identical declared geometry/artifact jobs serialize around the identity and reuse
+completed work. Arbitrary scripts keep responsibility for their own side effects.
+
+A watchdog stops orphan process groups and observed detached descendants after
+abrupt coordinator death. The next command starts a replacement. Digest-verified
+artifact caches survive; in-memory geometry is reconstructed. Durable `jobs/`
+metadata records queued/running/terminal states without argument or environment
+values. `python -m execution.history --incomplete` lists recoverable work. A queued
+or running record whose owner died is evidence of interruption, not completion.
+`execute.py --restart RUN_ID SCRIPT [ARGS...]` explicitly restarts matching
+script inputs; it does not pretend to resume a partially executed Python function.
+Never automatically replay unknown side effects. Physical-analysis saved-field
+recovery and identity-checked mesh/evidence reuse remain the checkpoint APIs;
+an incomplete native solve cannot become successful evidence through recovery.
+
+Slicing uses immutable input/profile snapshots. Binary/deployment/configuration
+identities cache version discovery and opt-in completed reviews. Primary slices
+already using the required auto-support policy serve as their own probe. Explicit
+independent probe settings can run alongside the primary, with separate logs and
+verified effective settings; failures preserve the primary evidence and request
+review. For explicit renders plus slicing, slicing starts at STL completion while
+CAD rendering continues. Traces show the actual overlap rather than summed work.

@@ -18,6 +18,7 @@ def positive(value):
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--cwd')
+    p.add_argument('--restart',help='Explicitly restart a retained run with the same script/arguments; never automatic')
     p.add_argument('--strategy',choices=['isolated','preinitialized'],default='isolated')
     p.add_argument('--preload',choices=['scientific','cad'],default='scientific')
     p.add_argument('--timeout',type=positive)
@@ -33,6 +34,9 @@ def main(argv=None):
     except ValueError as exc:p.error(str(exc))
     if args.memory_mb<1:p.error('Memory budget must be positive')
     try:
+        if args.restart:
+            from execution.journal import check_restart
+            check_restart(args.restart,args.script,args.arguments)
         answer=script(args.script,args.arguments,cwd=args.cwd,strategy=args.strategy,preload=args.preload,
             timeout=args.timeout,threads=args.threads,memory_mb=args.memory_mb,profile=args.profile,coordinator=not args.isolated)
         if answer.get('error'):print(answer['error'],file=sys.stderr)
