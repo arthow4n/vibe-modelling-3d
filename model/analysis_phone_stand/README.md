@@ -10,9 +10,9 @@ No replacement architecture or printable revision has been agreed yet.
 The retained CAD, exports, slice reviews and local numerical studies are historical
 engineering evidence, not a recommendation to print this product. They establish
 the checked geometry, reference-profile slicing and conditional local mechanics;
-they do not establish whole-product usefulness or physical performance. The exact
-objection to the form and the intended everyday use remain to be clarified; this
-is not evidence of a tolerance, material or print-process failure.
+they do not establish whole-product usefulness or physical performance. The user
+finds the old form too bulky and dislikes the exposed gear. This is not evidence
+of a tolerance, material or print-process failure.
 
 ## New-revision discussion
 
@@ -21,6 +21,34 @@ new solver work. Start from the actual phone-use task rather than retaining the
 gear and catch by default. Establish the phone/case, portrait/landscape use,
 viewing versus touchscreen interaction, useful adjustment, footprint/portability,
 acceptable hardware and the visible form before selecting mechanisms.
+
+### Confirmed use and form requirements
+
+On 2026-10-04 the user clarified:
+
+- Table use, mainly watching videos and reading, with occasional touchscreen taps.
+- Support both portrait and landscape placement.
+- Allow a bottom-connected charging cable while the phone is in portrait.
+- Resist movement during occasional taps; distinguish cradle/phone wobble,
+  whole-stand sliding and tipping when assessing this requirement. No numerical
+  tap load or acceptable movement has been agreed yet.
+- Reduce the bulky appearance and avoid the exposed gear of the old design.
+- Preserve the purpose of exercising physical analysis in a useful product.
+
+The next discussion concerns whether adjustable viewing angles are useful and
+which phone/case and cable to accommodate. Hardware preference, exact analysis
+objectives, including the ambiguous possible snap-action reference, and print
+setup remain open. Desktop use is established; folding/portability is not yet a
+requirement. Charging clearance must include the plug and cable turn above the
+table, not only a notch in the retaining lip.
+
+A compact inclined cradle with an open centre between its lower supports is a
+candidate, not an accepted architecture. If adjustment is wanted, consider a rear
+prop and a few positive seating positions, with the adjustment behind the phone.
+Investigate solid seating faces carrying the service load and any flexible
+retention preventing unintended disengagement separately. First establish the
+benefit and handling of this arrangement; do not add a catch solely to create an
+analysis case. No replacement geometry or numerical qualification exists yet.
 
 The original implementation exercised flexible release, local holding contact and
 arm/cradle bending. Its gear patch translated tangentially; it did not solve the
