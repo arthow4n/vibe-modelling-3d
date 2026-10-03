@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_k2.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric_back",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/k2_assembled/inspect_k2_isometric_back.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          -1,
+          1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013884460004192078,
+    "build": 40.738887207000516,
+    "selection": 0.0008771049997449154,
+    "validation": 0.6816485719991761,
+    "render_isometric_back": 3.962176258999534,
+    "worker": 45.584336288000486,
+    "total": 68.30013048299952
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "c9d8cf1ff579a39559ca769205758ff23640dd6a26e546d32af2c4112e175935",
+    "artifact_identity": "064f5f65334691f02163c7eee31e7ec6d18f4ee75f81018c1bd93b725edb6e55"
+  }
+}

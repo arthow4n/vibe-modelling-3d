@@ -1,0 +1,127 @@
+{
+  "variant": "K2",
+  "source_transform": "Proper -120 degree rotation about (1,1,1); front +Y",
+  "real_card_cases": [
+    {
+      "slot": 0,
+      "thickness_mm": 1.8,
+      "source_card_clear": true
+    },
+    {
+      "slot": 1,
+      "thickness_mm": 1.8,
+      "source_card_clear": true
+    },
+    {
+      "slot": 2,
+      "thickness_mm": 1.8,
+      "source_card_clear": true
+    },
+    {
+      "slot": 3,
+      "thickness_mm": 1.8,
+      "source_card_clear": true
+    },
+    {
+      "slot": 4,
+      "thickness_mm": 1.8,
+      "source_card_clear": true
+    },
+    {
+      "slot": 0,
+      "thickness_mm": 2.0,
+      "source_card_clear": true
+    },
+    {
+      "slot": 1,
+      "thickness_mm": 2.0,
+      "source_card_clear": true
+    },
+    {
+      "slot": 2,
+      "thickness_mm": 2.0,
+      "source_card_clear": true
+    },
+    {
+      "slot": 3,
+      "thickness_mm": 2.0,
+      "source_card_clear": true
+    },
+    {
+      "slot": 4,
+      "thickness_mm": 2.0,
+      "source_card_clear": true
+    },
+    {
+      "slot": 0,
+      "thickness_mm": 2.2,
+      "source_card_clear": true
+    },
+    {
+      "slot": 1,
+      "thickness_mm": 2.2,
+      "source_card_clear": true
+    },
+    {
+      "slot": 2,
+      "thickness_mm": 2.2,
+      "source_card_clear": true
+    },
+    {
+      "slot": 3,
+      "thickness_mm": 2.2,
+      "source_card_clear": true
+    },
+    {
+      "slot": 4,
+      "thickness_mm": 2.2,
+      "source_card_clear": true
+    }
+  ],
+  "opposing_straight_height_from_floor_mm": 16.0,
+  "contact_z_mm": [
+    15.458503952754878,
+    17.34149604724512
+  ],
+  "support_z_mm": [
+    5.9,
+    18.4
+  ],
+  "tilt_witness_angles_deg": [
+    -0.5,
+    0.5
+  ],
+  "guided_entry_samples": 88,
+  "aligned_descent_samples": 9,
+  "scope": "Rigid source-card contact/path checks; springs excluded from entry. No physical alignment, force or creep validation.",
+  "unchanged_external_mates": true,
+  "G_hood_seats_and_lifts": true,
+  "I_key_entry_clear": true,
+  "dome": {
+    "source_centre": [
+      14.0,
+      9,
+      8.0
+    ],
+    "holder_centre": [
+      -16.0,
+      6.6,
+      16.4
+    ],
+    "real_rotation_determinant": 1,
+    "correct_face_seated_contact": true,
+    "old_K_wrong_seated_overlap_mm3": 30.925852535035183,
+    "turned_card_wrong_seated_overlap_mm3": 30.925852535047483,
+    "seated_spring_travel_y_mm": 0.25,
+    "card_lift_requires_extra_motion": true
+  },
+  "sources_sha256": {
+    "cap_k2_base_5.py": "8e41eb9c43ae76bf2d05078b7c08459e57234c9a99ac2e58500be56f199d3eee",
+    "dome_latch_study.py": "567b2982ed81a677a2b2cb1d0e6c48e416fb0c19a71b38a8e123f2aea7e0117b",
+    "swatch_reference.py": "c27d4fda19465669f8b9c587da33e4393ff0c2ddb027884c177562c14836d2e7",
+    "upright_datums.py": "0829f0eacf87eaa87a3fda96adf3f960c255bbab020a0cd3a1e6bc1d5138c139",
+    "revision_checks.py": "f3e4fde78573bc7877880d30ca876fd85b6531094111857d69b247fdc1308c9f",
+    "check_k2.py": "96fee6c53d36e0a8c0c1c5312642201ea63f5a7d6009f83bfc835a681868a5fb",
+    "../filament_archive_swatch/filament_archive_swatch.scad": "d1577f4320cbc5597f9c7aa0e9cedf740c287845e0793fa32886ab8358bef67d"
+  }
+}

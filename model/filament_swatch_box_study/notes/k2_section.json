@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_k2_section.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "right",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/k2_section/inspect_k2_section_right.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          0,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.001387427000736352,
+    "build": 0.7061841639988415,
+    "selection": 0.000943332001043018,
+    "validation": 0.01128344999960973,
+    "render_right": 0.3343413039983716,
+    "worker": 1.1242847060002532,
+    "total": 1.2334145650002029
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "847dc86b54bf7bcc8bad6f2fa1d7ce9b9f9d7c73f6211c54d589d1304931a953",
+    "artifact_identity": "fced739ba3d22d10f5c12745bdc294e29b1678236399eec9fe5f37cfe8f4c778"
+  }
+}

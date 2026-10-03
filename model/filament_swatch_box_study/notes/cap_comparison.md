@@ -44,10 +44,35 @@ This is a reference/geometry error, not tolerance, material or printer blame.
 The replacement reference constructs the source outline, notch, dome, opacity
 steps and face-edge treatments before one -120-degree rotation about (1,1,1).
 Engraved lettering is omitted and contact patches must stay outside its area.
-K2 will preserve the spring dimensions while reversing its lateral placement
-and adding opposing upright datums. Check the real feature, correct face and
-wrong-face/mirrored negative cases before any grip tuning. Earlier K local
-mechanics remain narrow historical evidence, not a passed product result.
+K2 preserves the spring dimensions while reversing its lateral placement
+and adding opposing upright datums. The source-derived bowl center is holder
+(-16, 6.6, 16.4) mm for back Y=-1.4 mm. The full proper source rotation puts its
+front toward +Y and notch upward; no independent recess is added afterward.
+The actual-card check reaches tangential shoulder contact after 0.25 mm normal
+spring travel with no rigid overlap; a 1 mm upward card movement requires more
+follower motion. Old K in that claimed seated pose overlaps the real card by
+about 30.93 mm³; turning the real card around produces the same wrong-face
+obstruction at K2. These negative cases demonstrate that the checker can detect
+the reported geometry defect. Relaxed grip overlap spans Z=15.46–17.34 mm,
+inside the opposing straight support's Z=5.9–18.4 mm interval. K2 also passes
+the 15 real-card thickness/slot cases and the shared sampled entry/mate checks.
+Earlier K local mechanics remain narrow historical evidence, not a passed
+product result. No new solver is needed to answer the handedness and support
+defects: K2's spring is an exact lateral reflection with the same dimensions,
+but the old archive is not relabeled as a K2 solve. Full contact sequence,
+friction, material response and dwell remain physical questions.
+
+The next K2 experiment is the full five-card base with the accepted G hood and
+I key 3 alongside J2. Preserve the real card and correct orientation. Check
+shoulder engagement, upright sparse/full rows, all-direction entry and deliberate
+withdrawal, then seated dwell/recovery. A cropped fixture would omit the actual
+guide, rail and shared interfaces; complete bases are small and directly test
+the prior use failures. J and K originals remain untouched for evidence.
+K2's paired export and reference PETG slice completed without notices or
+automatic supports. The mixed J2/K2 whole-product view uses the source-derived
+cards, and the section crosses the actual left shoulder contact at X=-20.4 mm.
+Its 0.25 mm rigid panel translation illustrates nominal tangency only; it is
+not a solved bending shape. K2 remains unprinted and unqualified in use.
 
 Observed hood: printed and good to use, with no reported problem. Preserve G;
 the vase variant is an additional transparency exploration. Match actual inner
@@ -1112,12 +1137,12 @@ or print-status claims changed. The current K trial conclusion is unchanged;
 independent increment/contact sensitivity, full dome insertion and physical use
 remain outside this evidence.
 
-## Deferred exploration — paused at the user's request
+## Deferred exploration after the current revisions
 
-The user requested stopping after this workflow optimization. No additional
-variant, solve or workflow project is being started. K was completed and pushed
-first; J/K print and use feedback is still pending. These directions remain
-conditional ideas for a later resumption:
+The earlier user pause is revoked for the J2/K2 corrections and vase-mode hood.
+Broader redesigns and larger rows remain deferred; the J/K print feedback now
+drives the immediate corrections recorded at the top. These directions remain
+conditional possibilities after the current trial:
 
 - Compare J's centered flat contact with K's shoulder catch in normal use and
   after seated dwell. Keep J if K adds orientation/handling cost without a useful
@@ -1131,5 +1156,5 @@ conditional ideas for a later resumption:
   complete boxes work. A ten-card module is not currently requested; joined
   carrying strength and long-term grip would need evidence before claiming them.
 
-The thin, smooth G hood already addresses the earlier hood exploration direction;
-another hood variant has no current justification without new print feedback.
+The current G hood is printed and accepted. Keep it as the reference while
+the explicitly requested vase-mode variant explores greater transparency.
