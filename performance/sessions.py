@@ -100,6 +100,8 @@ def category(name):
 
 def command_category(command):
     # Only classify; do not retain commands or their digests.
+    if isinstance(command, list):
+        command = ' '.join(part for part in command if isinstance(part, str))
     if not isinstance(command, str):
         return 'shell'
     if re.search(r'\bevaluate_model\.py\b', command):

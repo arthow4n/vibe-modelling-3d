@@ -67,7 +67,9 @@ The parser consumes timestamp/type/payload envelopes and these validated fields:
   This fallback is explicitly incomplete, especially across resumes/compaction.
   Response records take precedence when present; the two streams are never added.
 - `task_started`, `task_complete`, `turn_aborted`, response tool call/output pairs,
-  and `item_completed` millisecond intervals. Item and response tool layers remain
+  and `item_completed` millisecond intervals. Observed CommandExecution `command` fields
+  are argument lists; both those vectors and string-form fixtures are classified
+  without retaining their contents. Item and response tool layers remain
   separate in frequency tables; overlapping intervals are unioned for wall time.
   A completion timestamp is not proof that a shell child finished successfully.
 - `compacted`, context-compaction items and observable subagent activity. Compaction
@@ -92,17 +94,24 @@ engineering executions and nested spans retain overlap in the optional Perfetto
 file, using the existing `execution.history.perfetto_event` conversion.
 
 Run summaries provide actual elapsed, queue, dispatch, status, sampled resources
-and worker warmth where available. Trace spans describe CAD, Python, Orca and
+and geometry-worker reuse where available. A new geometry worker can inherit
+initialized imports; it is not necessarily a cold import host. Initialization
+spans report that separate cost. Trace spans describe CAD, Python, Orca and
 physical-analysis stages; stage sums are work totals and may include parent spans.
 Existing evaluator reuse decisions are now retained as bounded `artifact_reuse`
 summary counts for geometry, exports, views and slices, without output paths or
 changes to cache decisions. Older records do not have this field. Explicit trace
 `strategy=reused/fresh` is also reported as observed; absent fields do
 not imply fresh work. Warm workers and artifact reuse are different measurements.
+Admission observations report effective capacities and reason-specific blocking
+work; reasons can overlap. Native resource-lease spans provide the same metadata,
+summarized separately because they can be nested inside execution intervals.
+Missing historical observations cannot establish a specific limiting resource.
 CPU samples are lower bounds and RSS includes shared pages. Dispatch is not full
 initialization. Source/lock/repository/argument/strategy identity groups suggest
-repetition and narrowly comparable cold/warm groups, but do not control machine
-load or all process settings. A cache hit alone does not quantify saved time.
+repetition. New `execution_inputs_sha256` fingerprints also cover actual CAD
+options and resource budgets; legacy CAD argument hashes omit those options,
+so their groups are candidates only. Neither fingerprint controls machine load. A cache hit alone does not quantify saved time.
 
 An exact run ID extracted only from a structured `run_id` field in a tool return
 is a confident relationship; it can refer to an ancestor orchestration call.

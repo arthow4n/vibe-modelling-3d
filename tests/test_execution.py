@@ -234,3 +234,79 @@ def test_idle_worker_memory_is_reclaimed_before_admission():
     gate.reclaim_resident=reclaim
     with gate.acquire(1,30):assert gate.used_memory+idle[0]<=100
     assert reclaimed==[70]
+
+
+def test_admission_records_memory_block_and_releases_safely():
+    from execution.resources import Admission
+    from concurrent.futures import ThreadPoolExecutor
+    import threading
+    gate=Admission(cpus=2,memory_mb=100,jobs=2)
+    attempted=threading.Event();observed={}
+    def waiting():
+        attempted.set()
+        with gate.acquire(1,60,observation=observed):
+            assert gate.used_memory==60
+    with ThreadPoolExecutor(1) as pool:
+        with gate.acquire(1,60):
+            future=pool.submit(waiting)
+            assert attempted.wait(1)
+            deadline=time.monotonic()+1
+            while 'first_blocked' not in observed and time.monotonic()<deadline:time.sleep(.001)
+            assert observed['first_blocked']=={'used_cpus':1,'used_memory_mb':60,'active_jobs':1}
+        future.result(timeout=2)
+    assert observed['status']=='acquired' and observed['blocked_seconds']['memory']>0
+    assert observed['requested_memory_mb']==60 and observed['capacity_memory_mb']==100
+    assert not gate.active and not gate.used_cpus and not gate.used_memory
+
+
+@pytest.mark.parametrize('expired',[True,False])
+def test_admission_does_not_dispatch_expired_or_cancelled_ready_request(expired):
+    from execution.resources import Admission
+    gate=Admission(cpus=1,memory_mb=100,jobs=1);observed={}
+    with pytest.raises(TimeoutError if expired else InterruptedError):
+        with gate.acquire(1,50,cancelled=lambda:not expired,deadline=time.monotonic()-1 if expired else None,observation=observed):
+            pytest.fail('Request must not dispatch')
+    assert observed['status']=='not_acquired' and not gate.active
+    with gate.acquire(1,50):pass
+
+
+def test_execution_comparison_identity_covers_options_without_ephemeral_ids():
+    from execution.identity import execution_inputs_identity
+    request=dict(kind='cad',source_sha256='source',runtime='runtime',strategy='persistent',threads=2,memory_mb=512,
+        environment={'ENGINEERING_RUN_ID':'a','OMP_NUM_THREADS':'2'},cad=dict(run_id='a',views=['front'],exports=[],fresh=False))
+    original=execution_inputs_identity(request)
+    changed={**request,'cad':{**request['cad'],'run_id':'b'},'environment':{**request['environment'],'ENGINEERING_RUN_ID':'b'}}
+    assert original==execution_inputs_identity(changed)
+    assert original!=execution_inputs_identity({**request,'memory_mb':1024})
+    assert original!=execution_inputs_identity({**request,'cad':{**request['cad'],'views':['top']}})
+
+
+def test_coordinator_does_not_expire_while_handlers_are_queued():
+    from execution.coordinator import Coordinator
+    service=Coordinator();service.last_request=0
+    class Handler:
+        def is_alive(self):return True
+    service.jobs={Handler()}
+    assert not service.idle_expired(now=1000)
+    service.jobs.clear()
+    assert service.idle_expired(now=1000)
+    service.last_request=950
+    assert not service.idle_expired(now=1000)
+
+
+def test_completed_lease_starts_idle_timeout_at_completion(monkeypatch):
+    from execution import coordinator
+    from contextlib import contextmanager
+    service=coordinator.Coordinator();service.last_request=0;service.stopping.set()
+    class Connection:
+        def close(self):pass
+    @contextmanager
+    def acquired(*args,**kwargs):yield 0.
+    monkeypatch.setattr(service.admission,'acquire',acquired)
+    monkeypatch.setattr(coordinator.protocol,'receive',lambda *a,**k:({'kind':'lease','threads':1,'memory_mb':10},[]))
+    monkeypatch.setattr(coordinator.protocol,'send',lambda *a,**k:None)
+    monkeypatch.setattr(coordinator.time,'monotonic',lambda:1000.)
+    service.handle(Connection())
+    assert service.last_request==1000.
+    assert not service.idle_expired(now=1119.)
+    assert service.idle_expired(now=1121.)

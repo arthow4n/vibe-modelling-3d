@@ -21,7 +21,9 @@ Three strategies share this interface: isolated (ordinary scripts), preinitializ
 operations retaining immutable geometry under an explicit closed-input contract).
 No arbitrary script executes repeatedly in a shared mutable interpreter.
 Source/dependency/environment changes invalidate compatible infrastructure.
-Worker recycling bounds jobs, lifetime and resident memory.
+Worker recycling bounds jobs, lifetime and resident memory. The coordinator idle
+timeout starts after the last request completes and does not expire while handlers
+are queued. A long active job does not consume the subsequent idle allowance.
 
 Geometry reuse requires a closed-input declaration because trusted model scripts may read arbitrary
 files, clocks or environment and write side effects. `--reuse` declares deterministic
@@ -87,6 +89,15 @@ coordinator capacity. `ENGINEERING_TRACE=0` disables detailed spans for overhead
 measurement; compact run summaries remain. `ENGINEERING_DATA` selects local
 performance storage. No normal engineering task needs to inspect these records.
 
+When a performance investigation finds long waits, compare declared reservations
+with shared capacity before increasing concurrency. Two default 2048 MiB requests
+require at least 4096 MiB of admission capacity (plus retained worker RSS), even if
+their observed use is lower. For a stable workload, test an explicit budget with
+headroom above sampled peaks and verify representative cases; use larger budgets
+for changed/unmeasured workloads. Do not lower general defaults or overcommit
+reservations on the strength of one small fixture. See the
+[matched admission follow-up](../performance/README.md#targeted-admission-studies).
+
 ## CAD iterations and incremental outputs
 
 ```sh
@@ -120,6 +131,13 @@ Name it `object.execution.json` for `object.py`. Paths are relative to the sourc
 files/directories and the declaration itself enter the content identity. Subsequent
 ordinary evaluator calls automatically use compatible geometry. Undeclared inputs,
 randomness, clocks and required construction side effects cannot use this contract.
+
+For a measured workload, an optional `"resources":{"geometry_memory_mb":1024}`
+sets its admission reservation only for geometry-only evaluations (no views,
+exports or slicing). An explicit `--memory-mb` always overrides it; other stages
+and undeclared models retain the 2048 MiB default. Validate the reservation with
+representative fresh runs and headroom before declaring it. It is a scheduling
+budget, not an enforced RSS limit or a universal estimate for other geometry.
 
 `--reuse` also declares that geometry construction is deterministic, has no required
 side effects, and depends only on repository/adjacent Python sources and declared
@@ -235,7 +253,19 @@ values, script output or exception messages are stored in normal trace evidence.
 
 Run summaries can also retain `artifact_reuse`: existing evaluator decisions for
 geometry, export/view counts and slice status, with no paths or new cache semantics.
-Absence in older records means unreported. `queue_seconds` measures resource wait;
+Absence in older records means unreported. Effective request budgets and bounded
+`admission` observations now retain capacity, first blocking occupancy, wait status
+and work seconds attributed to CPU, memory, job slots or idle resident memory.
+Reasons can overlap and their sums are not elapsed time. Native leases carry a
+`resource.admission` span with the measured queue duration and effective budgets;
+its full span also includes connection/protocol overhead.
+
+`execution_inputs_sha256` is a comparison fingerprint of actual options, resource
+budgets and compatibility inputs. It does not authorize output caching. Older CAD
+`arguments_sha256` fields represent an empty outer argument list and do not
+establish matching view/export/fresh requests. Treat those groups as candidates
+only. Comparison fingerprints still do not control machine load or validate task
+necessity. `queue_seconds` measures resource wait;
 the `coordinator.admission` span encloses both waiting and admitted execution, so
 its duration must not be interpreted as queue time.
 

@@ -25,7 +25,7 @@ STAGES = {'cad.construction', 'cad.selection', 'cad.validation', 'cad.worker', '
           'coordinator.admission', 'coordinator.request', 'analysis.prepare', 'analysis.case',
           'analysis.input', 'analysis.worker', 'analysis.mesh', 'analysis.mesh_lookup',
           'analysis.native_input', 'analysis.extraction', 'analysis.contact_diagnostics',
-          'analysis.recovery', 'analysis.study', 'subprocess', 'cad.command', 'script.command', 'execution.batch'}
+          'analysis.recovery', 'analysis.study', 'subprocess', 'cad.command', 'script.command', 'execution.batch', 'resource.admission'}
 TOOL_ITEMS = {'shell', 'cad', 'script', 'slicing', 'edit', 'mcp', 'image', 'subagent'}
 
 
@@ -73,6 +73,7 @@ def analyze(sessions, records, spans, inventory_count=0):
     execution_intervals = [interval(r) for r in records]
     tools_union = union(tools); turn_union = union(turns)
     stages = defaultdict(list); stage_intervals = defaultdict(list); reuse = Counter(); covered_traces = set()
+    lease_queues=[]; lease_blocked=Counter()
     for _, span in spans:
         name = safe_label(span.get('name'), STAGES)
         try:
@@ -84,14 +85,31 @@ def analyze(sessions, records, spans, inventory_count=0):
         covered_traces.add(span.get('traceId'))
         stages[name].append(b-a); stage_intervals[name].append((a,b))
         attrs = {a.get('key'): a.get('value', {}) for a in span.get('attributes', [])}
+        if name=='resource.admission':
+            def numeric(key):
+                value=attrs.get(key,{})
+                try:return float(value.get('doubleValue',value.get('intValue')))
+                except (TypeError,ValueError):return None
+            queue_time=numeric('queue_seconds')
+            if queue_time is not None and math.isfinite(queue_time) and queue_time>=0:lease_queues.append(queue_time)
+            for reason in ('cpu','memory','jobs','resident_memory'):
+                seconds=numeric('blocked_'+reason+'_seconds')
+                if seconds is not None and math.isfinite(seconds) and seconds>=0:lease_blocked[reason]+=seconds
         strategy = attrs.get('strategy', {}).get('stringValue')
         if strategy in ('reused', 'fresh'):
             reuse[f'{name}:{strategy}'] += 1
-    recorded_reuse=Counter(); reuse_coverage=0
+    recorded_reuse=Counter(); reuse_coverage=0; admission_coverage=0; blocked=Counter(); strong_comparisons=0
     run_groups = defaultdict(list); repeats = defaultdict(list); resources = []; queue=[]; dispatch=[]
     warm=Counter(); associations=Counter(); statuses=Counter(); missing=Counter()
     comparisons=defaultdict(lambda: defaultdict(list))
     for r in records:
+        admission=r.get('admission')
+        if isinstance(admission,dict) and admission:
+            admission_coverage+=1
+            for reason in ('cpu','memory','jobs','resident_memory'):
+                value=admission.get('blocked_seconds',{}).get(reason)
+                if isinstance(value,(int,float)) and value>=0:
+                    blocked[reason]+=value
         observed=r.get('artifact_reuse')
         if isinstance(observed,dict) and observed:
             reuse_coverage+=1
@@ -109,12 +127,16 @@ def analyze(sessions, records, spans, inventory_count=0):
         run_groups[op].append(r.get('elapsed_seconds'))
         statuses[safe_label(r.get('status'), {'completed','failed','interrupted','timeout','running','review_required'})] += 1
         associations[associate(r,sessions)] += 1
-        warm['warm' if r.get('warm_worker') is True else 'cold' if r.get('warm_worker') is False else 'unreported'] += 1
+        warm['reused' if r.get('warm_worker') is True else 'new' if r.get('warm_worker') is False else 'unreported'] += 1
         key=tuple(r.get(k) for k in ('operation','strategy','source_sha256','repository_python_sha256','lock_sha256','arguments_sha256'))
+        exact_inputs=r.get('execution_inputs_sha256')
+        if isinstance(exact_inputs,str):
+            key+= (exact_inputs,)
+            strong_comparisons+=1
         if all(isinstance(part,str) and part for part in key):
             repeats[key].append(r)
             if isinstance(r.get('warm_worker'),bool) and isinstance(r.get('elapsed_seconds'),(int,float)):
-                comparisons[key]['warm' if r['warm_worker'] else 'cold'].append(r['elapsed_seconds'])
+                comparisons[key]['reused' if r['warm_worker'] else 'new'].append(r['elapsed_seconds'])
         for key,target in [('queue_seconds',queue),('startup_dispatch_seconds',dispatch)]:
             if isinstance(r.get(key),(int,float)):
                 target.append(r[key])
@@ -162,6 +184,9 @@ def analyze(sessions, records, spans, inventory_count=0):
                                'max_s':max((b-a for a,b in v if a is not None and b is not None),default=None)} for k,v in sorted(activity.items())},
         execution_groups={k:stats(v) for k,v in sorted(run_groups.items())},statuses=dict(statuses),
         queue=stats(queue),dispatch=stats(dispatch),missing_execution_fields=dict(missing),
+        admission_covered_executions=admission_coverage,blocked_reason_work_s=dict(blocked),
+        lease_queue=stats(lease_queues),lease_blocked_reason_work_s=dict(lease_blocked),
+        complete_comparison_identity_runs=strong_comparisons,
         longest_queues=[{'operation':safe_label(r.get('operation'),STAGES),
                          **{k:r.get(k) for k in ('elapsed_seconds','queue_seconds','worker_seconds') if isinstance(r.get(k),(int,float))}}
                         for r in sorted(records,key=lambda r:r.get('queue_seconds',0) if isinstance(r.get('queue_seconds'),(int,float)) else 0,reverse=True)[:5]],
@@ -171,8 +196,8 @@ def analyze(sessions, records, spans, inventory_count=0):
         stages={k:{**stats(v),'union_s':union(stage_intervals[k])} for k,v in sorted(stages.items())},
         repeated_identity_groups=sum(len(v)>1 for v in repeats.values()),
         repeated_identity_runs=sum(len(v)-1 for v in repeats.values()),
-        matched_cold_warm=[{'operation':safe_label(key[0],STAGES),'cold':stats(v['cold']),'warm':stats(v['warm'])}
-                           for key,v in comparisons.items() if v['cold'] and v['warm']],
+        matched_new_reused_workers=[{'operation':safe_label(key[0],STAGES),'new':stats(v['new']),'reused':stats(v['reused'])}
+                           for key,v in comparisons.items() if v['new'] and v['reused']],
         sampled_resources={'cpu_lower_bound_s':sum(r.get('sampled_tree_cpu_seconds',0) for r in resources),
                            'cpu_measured_runs':sum('sampled_tree_cpu_seconds' in r for r in resources),
                            'max_sampled_rss_bytes':max((r.get('peak_tree_rss_bytes',r.get('peak_worker_rss_bytes',0)) for r in resources),default=0)})
@@ -206,11 +231,12 @@ def markdown(summary):
     lines+=['','| Recorded stage | Spans | Work sum s | Interval union s |','| --- | ---: | ---: | ---: |']
     for k,v in sorted(s['stages'].items(),key=lambda x:x[1]['sum_s'],reverse=True):
         lines.append(f"| {k} | {v['count']} | {v['sum_s']:.3f} | {v['union_s']:.3f} |")
-    lines+=['',f"Longest recorded queues (not summed session time): {s['longest_queues']}.",'',f"Queue: {s['queue']}. Dispatch: {s['dispatch']} (dispatch is not complete initialization).",'',
-        f"Worker warmth: {s['warm_worker']}. Explicit stage reuse: {s['reuse']}.",'',
+    lines+=['',f"Admission reason coverage: {s['admission_covered_executions']}/{s['executions']}; blocked work seconds {s['blocked_reason_work_s']}. Reasons can overlap; their sums are not elapsed time.",'',f"Longest recorded queues (not summed session time): {s['longest_queues']}.",'',f"Queue: {s['queue']}. Dispatch: {s['dispatch']} (dispatch is not complete initialization).",'',
+        f"Geometry workers (new/reused): {s['warm_worker']}. New workers can inherit initialized imports; only initialization spans measure startup. Explicit stage reuse: {s['reuse']}.",'',
         f"Recorded artifact reuse: {s['artifact_reuse']}; coverage {s['reuse_covered_executions']}/{s['executions']}. Absent reuse records are unreported, not fresh.",'',
         f"Same recorded operation/strategy/source/repository/lock/argument identity: {s['repeated_identity_groups']} repeated groups; {s['repeated_identity_runs']} additional runs. These are candidates for review, not proof of unnecessary verification.",'',
-        f"Matched cold/warm groups: {s['matched_cold_warm']}. Matching identities alone do not control machine load, process settings or output requests.",'',
+        f"Matched new/reused worker groups: {s['matched_new_reused_workers']}. Complete option/budget comparison identities exist for {s['complete_comparison_identity_runs']} runs. Legacy CAD argument hashes omit view/export options; legacy groups are candidates, not verified repeats. Even complete identities do not control machine load.",'',
+        f"Separate native resource leases: queue {s['lease_queue']}; blocked work seconds {s['lease_blocked_reason_work_s']}. These may occur inside run intervals and are not added to elapsed time.",'',
         f"Association strengths: {s['associations']}. Timing-only associations are inferred; ambiguous matches remain ambiguous.",'',
         f"Sampled resources: {s['sampled_resources']}. Sampled CPU is a lower bound; RSS includes shared pages.",'',
         f"Measurement quality: {s['quality']}. Trace coverage: {s['trace_covered_executions']}/{s['executions']} runs. Missing execution fields: {s['missing_execution_fields']}.",'',

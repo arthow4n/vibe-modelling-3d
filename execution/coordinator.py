@@ -15,7 +15,7 @@ import tempfile
 import threading
 import time
 from . import protocol
-from .identity import ROOT, runtime_identity, digest
+from .identity import ROOT, runtime_identity, digest, execution_inputs_identity
 from .lifecycle import wait, terminate
 from .resources import Admission
 from .telemetry import span, write_record, data_root
@@ -212,6 +212,11 @@ class Coordinator:
                     self.ctx=mp.get_context('spawn');self.cad_pool.ctx=self.ctx
                 self.qualified=True
 
+    def idle_expired(self, now=None):
+        """Queued handlers are work too; expire only after actual idle time."""
+        return (not self.admission.active and not any(job.is_alive() for job in self.jobs)
+                and (time.monotonic() if now is None else now)-self.last_request>120)
+
     def handle(self, connection):
         fds=[]
         try:
@@ -224,9 +229,10 @@ class Coordinator:
             if request.get('kind')=='lease':
                 def abandoned():
                     return self.stopping.is_set() or (bool(select.select([connection],[],[],0)[0]) and connection.recv(1,socket.MSG_PEEK)==b'')
-                with self.admission.acquire(request['threads'],request['memory_mb'],abandoned) as queued:
+                admission={}
+                with self.admission.acquire(request['threads'],request['memory_mb'],abandoned,observation=admission) as queued:
                     from .resources import current_affinity
-                    protocol.send(connection,dict(acquired=True,queue_seconds=queued,affinity=current_affinity()))
+                    protocol.send(connection,dict(acquired=True,queue_seconds=queued,admission=admission,affinity=current_affinity()))
                     while not abandoned():time.sleep(.05)
                 return
             if len(fds)!=3:raise ValueError('Expected stdin, stdout and stderr descriptors')
@@ -238,6 +244,9 @@ class Coordinator:
             request["environment"]["ENGINEERING_OWNER_PID"]=str(os.getpid())
             from .lifecycle import process_identity
             request["environment"]["ENGINEERING_OWNER_ID"]=process_identity()
+            write_record(request['run_id'], dict(execution_inputs_sha256=execution_inputs_identity(request),
+                requested_cpus=request['threads'], requested_memory_mb=request['memory_mb']))
+            admission={}
             def cancelled():
                 if self.stopping.is_set():return True
                 if select.select([connection],[],[],0)[0]:
@@ -252,12 +261,13 @@ class Coordinator:
             enabled_token=_enabled.set(request['environment'].get('ENGINEERING_TRACE')!='0')
             try:
                 with span('coordinator.admission'):
-                    with self.admission.acquire(request['threads'],request['memory_mb'],cancelled,deadline) as queued:
+                    with self.admission.acquire(request['threads'],request['memory_mb'],cancelled,deadline,admission) as queued:
                         journal(request,'running')
                         if request['kind']=='cad' or request['strategy']=='preinitialized':
                             self.initialize(request,cancelled,deadline)
                         answer=run_cad(request,self.cad_pool,cancelled,deadline,progress=lambda event:protocol.send(connection,event)) if request['kind']=='cad' else self.execute(request,fds,cancelled,deadline)
                         answer['queue_seconds']=queued
+                        answer['admission']=admission
                         journal(request,'completed' if answer['exit_code']==0 else 'failed')
                         write_record(request['run_id'],dict(run_id=request['run_id'],source=request['source'],source_sha256=request['source_sha256'],
                             **{k:v for k,v in answer.items() if k!='report'}))
@@ -273,9 +283,13 @@ class Coordinator:
                 error=f'{type(exc).__name__}: {exc}'))
             except (OSError,EOFError):pass
         finally:
+            if 'request' in locals() and request.get('run_id') and 'admission' in locals():
+                write_record(request['run_id'],dict(admission=admission))
             for fd in fds:
                 os.close(fd)
             connection.close()
+            if 'request' in locals() and request.get('kind') in ('cad','script','lease'):
+                self.last_request=time.monotonic()
 
     def execute(self,request,fds,cancelled,deadline):
         started=time.monotonic()
@@ -337,7 +351,7 @@ class Coordinator:
                         except Exception as exc:self.preload_error=str(exc)
                         finally:self.preload_ready.set()
                     self.cad_pool.prune()
-                    if not self.admission.active and time.monotonic()-self.last_request>120:break
+                    if self.idle_expired():break
                     try:connection,_=server.accept()
                     except socket.timeout:continue
                     thread=threading.Thread(target=self.handle,args=(connection,))

@@ -43,22 +43,52 @@ class Admission:
         self.reclaim_resident=lambda available:None
 
     @contextmanager
-    def acquire(self, cpus, memory_mb, cancelled=lambda:False, deadline=None):
+    def acquire(self, cpus, memory_mb, cancelled=lambda:False, deadline=None, observation=None):
         if cpus<1 or cpus>self.cpus or memory_mb<1 or memory_mb>self.memory_mb:
             raise ValueError('Requested resources exceed coordinator capacity')
         started=time.monotonic()
-        with self.condition:
-            while True:
-                ready=(self.used_cpus+cpus<=self.cpus and self.used_memory+memory_mb<=self.memory_mb and self.active<self.jobs)
-                if ready:
-                    available=self.memory_mb-self.used_memory-memory_mb
-                    if self.resident_usage()>available:self.reclaim_resident(available)
-                    if self.resident_usage()<=available:break
-                if cancelled():raise InterruptedError('Cancelled while waiting for resources')
-                if deadline and time.monotonic()>deadline:raise TimeoutError('Deadline expired waiting for resources')
-                self.condition.wait(.05)
-            allocated=self.free_cores[:cpus];del self.free_cores[:cpus]
-            self.used_cpus+=cpus;self.used_memory+=memory_mb;self.active+=1
+        if observation is not None:
+            observation.update(requested_cpus=cpus, requested_memory_mb=memory_mb,
+                capacity_cpus=self.cpus, capacity_memory_mb=self.memory_mb, capacity_jobs=self.jobs,
+                blocked_seconds={}, wait_seconds=0., status='waiting')
+        previous=started; reasons=[]
+        def account():
+            nonlocal previous
+            now=time.monotonic()
+            if observation is not None:
+                for reason in reasons:
+                    observed=observation['blocked_seconds']
+                    observed[reason]=observed.get(reason,0.)+now-previous
+            previous=now
+        try:
+            with self.condition:
+                while True:
+                    account()
+                    # A cancelled/expired request must not dispatch just because
+                    # capacity happens to be available at this instant.
+                    if cancelled():raise InterruptedError('Cancelled while waiting for resources')
+                    if deadline is not None and time.monotonic()>deadline:raise TimeoutError('Deadline expired waiting for resources')
+                    reasons=[]
+                    if self.used_cpus+cpus>self.cpus:reasons.append('cpu')
+                    if self.used_memory+memory_mb>self.memory_mb:reasons.append('memory')
+                    if self.active>=self.jobs:reasons.append('jobs')
+                    if not reasons:
+                        available=self.memory_mb-self.used_memory-memory_mb
+                        if self.resident_usage()>available:self.reclaim_resident(available)
+                        if self.resident_usage()<=available:break
+                        reasons.append('resident_memory')
+                    if observation is not None and 'first_blocked' not in observation:
+                        observation['first_blocked']=dict(used_cpus=self.used_cpus,
+                            used_memory_mb=self.used_memory, active_jobs=self.active)
+                    self.condition.wait(.05)
+                allocated=self.free_cores[:cpus];del self.free_cores[:cpus]
+                self.used_cpus+=cpus;self.used_memory+=memory_mb;self.active+=1
+            if observation is not None:observation['status']='acquired'
+        except BaseException:
+            if observation is not None:observation['status']='not_acquired'
+            raise
+        finally:
+            if observation is not None:observation['wait_seconds']=time.monotonic()-started
         token=_affinity.set(",".join(map(str,allocated)))
         try:yield time.monotonic()-started
         finally:
@@ -102,12 +132,23 @@ def lease(threads=None,memory_mb=2048):
     connection=None
     try:
         try:
-            connection=connect();protocol.send(connection,dict(kind='lease',threads=threads,memory_mb=memory_mb))
-            import select
-            from .lifecycle import _cancellation
-            while not select.select([connection],[],[],.05)[0]:
-                if _cancellation.get()():raise InterruptedError('Cancelled during resource admission')
-            response=protocol.receive(connection)
+            from .telemetry import span
+            with span('resource.admission', requested_cpus=threads, requested_memory_mb=memory_mb) as waiting:
+                connection=connect();protocol.send(connection,dict(kind='lease',threads=threads,memory_mb=memory_mb))
+                import select
+                from .lifecycle import _cancellation
+                while not select.select([connection],[],[],.05)[0]:
+                    if _cancellation.get()():raise InterruptedError('Cancelled during resource admission')
+                response=protocol.receive(connection)
+                if waiting and response.get('acquired'):
+                    try:
+                        waiting.set_attribute('queue_seconds', response['queue_seconds'])
+                        observed=response.get('admission',{})
+                        for key in ('capacity_cpus','capacity_memory_mb','capacity_jobs'):
+                            if key in observed:waiting.set_attribute(key,observed[key])
+                        for reason,seconds in observed.get('blocked_seconds',{}).items():
+                            waiting.set_attribute('blocked_'+reason+'_seconds',seconds)
+                    except Exception:pass  # Diagnostic metadata cannot fail a calculation.
             if response.get('affinity'):affinity_token=_affinity.set(response['affinity'])
             if not response.get('acquired'):raise ValueError(response.get('error','Resource admission failed'))
         except CoordinatorUnavailable:pass

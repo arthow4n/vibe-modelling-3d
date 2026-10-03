@@ -117,7 +117,7 @@ def test_overlaps_and_correlation_strength():
     summary=analyze([s],[r,{'start_unix_ns':5e9,'elapsed_seconds':5,'warm_worker':False}],[])
     assert summary['tool_union_s']==13 and summary['execution_union_s']==7
     assert summary['turn_without_observed_tool_s']==7
-    assert summary['warm_worker']=={'warm':1,'cold':1}
+    assert summary['warm_worker']=={'reused':1,'new':1}
     assert union([(1,8),(2,3),(6,10),(12,14)])==11
 
 
@@ -264,3 +264,43 @@ def test_history_orphan_run_timeline_keeps_filename_fallback(tmp_path,monkeypatc
     target=tmp_path/'timeline.json'
     assert history_main(['--run','orphan','--perfetto',str(target)])==0
     assert len(json.loads(target.read_text())['traceEvents'])==1
+
+
+@pytest.mark.parametrize('command,expected',[
+    (['./evaluate_model.py',SECRET],'cad'),
+    (['bash','-lc','./execute.py '+SECRET],'script'),
+    (['OrcaSlicer','--private',SECRET],'slicing'),
+    (['unknown',SECRET],'shell'),
+])
+def test_actual_rollout_command_vectors_are_classified_without_arguments(command,expected,tmp_path):
+    item={'type':'CommandExecution','id':'c','command':command,'exit_code':0}
+    s=parse(write(tmp_path/'vector.jsonl',[row('event_msg',{'type':'item_completed','item':item})]))
+    assert s.events[0].category==expected
+    assert SECRET not in json.dumps(s.normalized())
+
+
+def test_complete_option_identity_does_not_group_changed_cad_requests():
+    base=dict(operation='cad.command',strategy='persistent',source_sha256='source',
+              repository_python_sha256='repo',lock_sha256='lock',arguments_sha256='legacy-empty',elapsed_seconds=1.)
+    rows=[{**base,'execution_inputs_sha256':'views-a'}, {**base,'execution_inputs_sha256':'views-b'}]
+    s=analyze([],rows,[])
+    assert s['repeated_identity_runs']==0 and s['complete_comparison_identity_runs']==2
+    rows.append({**base,'execution_inputs_sha256':'views-a'})
+    assert analyze([],rows,[])['repeated_identity_runs']==1
+
+
+def test_admission_reason_overlap_is_labeled_as_work():
+    s=analyze([], [{'admission':{'blocked_seconds':{'memory':2.,'jobs':2.},'status':'acquired'}}],[])
+    assert s['admission_covered_executions']==1
+    assert s['blocked_reason_work_s']=={'memory':2.,'jobs':2.}
+
+
+def test_native_lease_queue_is_reported_separately_from_run_intervals():
+    span={'name':'resource.admission','startTimeUnixNano':str(1_000_000_000),
+          'endTimeUnixNano':str(3_000_000_000),'traceId':'a','attributes':[
+              {'key':'queue_seconds','value':{'doubleValue':1.5}},
+              {'key':'blocked_memory_seconds','value':{'doubleValue':1.5}},
+              {'key':'blocked_jobs_seconds','value':{'doubleValue':1.5}}]}
+    summary=analyze([], [{'start_unix_ns':0,'elapsed_seconds':5}], [({},span)])
+    assert summary['execution_union_s']==5 and summary['lease_queue']['sum_s']==1.5
+    assert summary['lease_blocked_reason_work_s']=={'memory':1.5,'jobs':1.5}

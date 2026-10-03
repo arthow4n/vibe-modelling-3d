@@ -275,3 +275,49 @@ def test_custom_environment_inputs_invalidate_geometry(tmp_path,monkeypatch):
     assert json.loads(call(source,'--reuse').stdout)['reuse']['geometry']
     monkeypatch.setenv('ENGINEERING_DIMENSION','7')
     assert not json.loads(call(source,'--reuse').stdout)['reuse']['geometry']
+
+
+@pytest.mark.parametrize('options,expected', [([],1024),(['--memory-mb','1536'],1536),
+    (['--export'],2048),(['--views','front'],2048),(['--slice'],2048)])
+def test_geometry_memory_declaration_stage_scope_and_explicit_override(tmp_path,monkeypatch,capsys,options,expected):
+    import evaluate_model
+    from execution import cad
+    source=tmp_path/'budgeted.py';source.write_text('result = 1\n')
+    source.with_suffix('.execution.json').write_text(json.dumps(dict(schema_version=1,deterministic=False,
+        resources=dict(geometry_memory_mb=1024))))
+    requests=[]
+    def dispatch(request,**kwargs):
+        requests.append(request)
+        return dict(ok=True,errors=[],exports=[],views=[])
+    monkeypatch.setattr(cad,'execute',dispatch)
+    assert evaluate_model.main([str(source),*options])==0
+    capsys.readouterr()
+    assert requests[0]['memory_mb']==expected
+    assert not requests[0]['reuse']
+
+
+@pytest.mark.parametrize('memory',[True,0,-1,'1024'])
+def test_invalid_geometry_memory_declaration_is_rejected(tmp_path,memory):
+    source=tmp_path/'budgeted.py';source.write_text('result = 1\n')
+    source.with_suffix('.execution.json').write_text(json.dumps(dict(schema_version=1,deterministic=False,
+        resources=dict(geometry_memory_mb=memory))))
+    run=call(source)
+    assert run.returncode==2 and 'positive integer' in run.stderr
+
+
+def test_geometry_memory_declaration_reaches_actual_coordinator(tmp_path,monkeypatch):
+    from execution.history import iter_records
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'records'))
+    source=tmp_path/'budgeted.py'
+    source.write_text('import cadquery as cq\nresult=cq.Workplane("XY").box(3,4,5)\n')
+    declaration=source.with_suffix('.execution.json')
+    declaration.write_text(json.dumps(dict(schema_version=1,deterministic=False,resources=dict(geometry_memory_mb=1024))))
+    run=call(source,'--fresh')
+    assert run.returncode==0,run.stdout+run.stderr
+    first=list(iter_records(tmp_path/'records'))
+    assert first[0]['requested_memory_mb']==1024 and first[0]['admission']['requested_memory_mb']==1024
+    declaration.unlink()
+    run=call(source,'--fresh')
+    assert run.returncode==0,run.stdout+run.stderr
+    records=list(iter_records(tmp_path/'records'))
+    assert sorted(r['requested_memory_mb'] for r in records)==[1024,2048]

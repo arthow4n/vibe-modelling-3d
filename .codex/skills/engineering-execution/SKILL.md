@@ -24,6 +24,11 @@ skill retains ownership of computational profiling and execution correctness.
 - For performance investigations, compare source/tool identities and cold/warm
   command latency before changing kernels. Analyze `execution.history` summaries
   and Perfetto exports; target cProfile or allocation profiling only when needed.
+  Separate queue wait from initialization and kernels. For concurrency, compare
+  declared reservations with capacity and test explicit workload budgets under
+  [resource guidance](../../../execution/README.md#running-scripts); preserve general
+  defaults for unmeasured work. Use complete option/budget comparison identities
+  when available; legacy CAD argument hashes omit view/export settings.
   Native work may require solver/native sampling rather than Python profiles.
 - Prefer less repeated work, immutable intermediates, batching, NumPy and existing
   spatial indexes. Use compilation only when measured end-to-end savings justify

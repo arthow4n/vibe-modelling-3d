@@ -143,3 +143,21 @@ History analysis requires no rerun:
 Inspect history during dedicated performance/recovery work, not routinely during
 model iterations. Raw records retain 500 runs/14 days, with per-file/sample/cache
 bounds documented in the execution reference. No tool creates Git commits.
+
+
+## Targeted admission studies
+
+A focused study compares two fresh evaluations of one unchanged existing model
+under the same private CPU/memory capacity and qualified import host. Only the
+per-call memory reservation changes; variants are interleaved. It uses the
+existing coordinator, history and tracing, with no exports or physical-use claims.
+The outer execute lease covers the private study's resource capacity.
+
+```sh
+./execute.py --threads 4 --memory-mb 2560 performance/admission_benchmark.py --model model/filament_swatch_box_study/cap_v1_vase_hood_5.py --output .execution/workflow-analysis/admission-follow-up/budget-study.json
+```
+
+This needs four available admitted cores and 2560 MiB. Keep its evidence local;
+review any published numerical summary separately. Source/closed-input identity
+must stay unchanged throughout a study. A smaller tested reservation is specific
+to that model and operation; it does not justify lowering the general CAD budget.

@@ -37,6 +37,22 @@ def runtime_identity():
         files={str(p): digest(p) for p in files if p.is_file()}))
 
 
+def execution_inputs_identity(request):
+    """Comparison identity for actual options and budgets, not an output cache.
+
+    Exclude per-dispatch IDs; hash paths/arguments/environment without retaining
+    their values. CAD view/export/fresh options are consequential inputs too.
+    """
+    cad=request.get('cad')
+    return fingerprint(dict(kind=request.get('kind'), source=request.get('source_sha256'),
+        runtime=request.get('runtime'), strategy=request.get('strategy'),
+        threads=request.get('threads'), memory_mb=request.get('memory_mb'),
+        timeout=request.get('timeout'), preload=request.get('preload'),profile=request.get('profile'),
+        cwd=request.get('cwd'), arguments=request.get('arguments'),
+        environment=environment_identity(request.get('environment')),
+        cad={k:v for k,v in cad.items() if k!='run_id'} if isinstance(cad,dict) else None))
+
+
 def repository_revision():
     """Read Git identity without launching a process on each engineering command."""
     folder=ROOT/'.git'
