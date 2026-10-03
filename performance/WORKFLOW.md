@@ -192,22 +192,79 @@ records API attempt/status/duration and stream-event timings. Its API duration
 encloses an HTTP request operation, not necessarily the complete streamed response.
 The [SSE implementation](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/codex-api/src/sse/responses.rs)
 times individual stream polls. Completion telemetry has usage/configuration and
-a supplied TTFT field, but that log record alone does not establish full request
-duration and reliable response-key correlation. Poll durations and transport
-histograms must not be substituted for response duration or joined to rollout
-usage by mere adjacency.
+a `ttft_ms` field. In the pinned [client implementation](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/client.rs),
+this clock starts inside the stream-mapping task after transport setup and stops
+at the first `OutputItemAdded`. Preserve that meaning as a stream-to-first-item
+delay; it is neither full request-to-first-token latency nor visible-text speed.
+The completion log lacks a response ID and full response duration. Poll durations
+and transport histograms must not be substituted for response duration or joined
+to rollout usage by mere adjacency.
+
+Logs and traces have separate exporters. The pinned [sampling implementation](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/session/turn.rs)
+has `stream_request`, `receiving_stream` and event-specific `handle_responses`
+spans; the completion span carries usage and reasoning effort. Their parent/child
+relationships are a concrete candidate for associating a client-observed request
+operation with completion and usage. Qualify exported boundaries on the installed
+transport before implementing this association. The whole sampling span also
+includes tool-future draining, so its duration is not response duration. Do not
+assume the separately emitted `ttft_ms` log joins to that span tree.
+
+Other interfaces answer different questions:
+
+| Interface | Useful observations | Remaining limit |
+| --- | --- | --- |
+| Ordinary rollouts | Turn timing, persisted model items, usage, tools, configuration snapshots and notices supported by the adapter. | No qualified per-request start/completion pair; cannot recover missing boundaries retrospectively. |
+| Native OTel logs/traces | Transport attempts/errors, stream waits, completion usage/configuration; trace structure may associate client request-operation timing. | Export/correlation must be qualified; native `ttft_ms` has the narrower scope above. Aggregate metrics cannot reconstruct individual responses. |
+| [Hooks](https://learn.chatgpt.com/docs/hooks), including [plugin-bundled hooks](https://developers.openai.com/plugins/concepts/plugins) | Session/turn, tool, interruption and compaction lifecycle observations. | No documented model-request start/completion hooks. Packaging hooks in a plugin does not add those boundaries. |
+| [App-server](https://learn.chatgpt.com/docs/app-server) | Live turn/item events and assistant/reasoning deltas for a connected client. | Arrival time is client-observed output timing; no documented per-request lifecycle pair or visible-text token count. This is not a passive observer of an existing CLI session. |
+
+There is also a separate upstream [local rollout trace](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/rollout-trace/README.md),
+enabled by `CODEX_ROLLOUT_TRACE_ROOT`. Its [inference events](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/rollout-trace/src/inference.rs)
+have correlated start/completion/failure/cancellation identifiers, model/provider
+and response usage payloads. Writer wall-clock timestamps include payload-write
+overhead; they describe client-observed inference intervals, not isolated server
+compute. Stream deltas/first-token events are not retained by this producer.
+The installed 0.160.0 binary contains the trace-enabling/event strings, but this
+route has not been runtime-qualified here; even the README's `trace-reduce`
+command is absent from its debug help. This is source evidence, not a supported
+analyzer input.
+
+That diagnostic path writes full requests, responses, tool data and paths before
+recording event references. The inspected producer has no numerical-only mode.
+It does not meet this investigation's approved-field retention policy; filtering
+after recording would not fix that. Do not enable it as a latency workaround.
+The upstream Rust [request-contributor/interceptor API](https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/ext/extension-api/src/model_request.rs)
+is host-registered code, not a documented installable plugin hook; using it would
+require a custom Codex host/build outside this workflow's scope.
 
 Native telemetry could improve transport-attempt and reconnect diagnosis. Exact
 request latency/throughput would require qualification of complete request/stream
 boundaries, TTFT scope and response association for the installed transport. Those
 are not established by the current rollouts or a generic telemetry configuration.
 No collector, background service or launch wrapper is justified for this baseline.
-If a future concrete investigation needs telemetry, first demonstrate the missing
-decision-relevant measurement and correlation; use explicitly enabled local-only
-collection with an allowlist of numerical timing/usage/configuration, discarding
-prompts, tool data, credentials and unrestricted attributes before storage. It must
-consume no resources during ordinary engineering work. Unqualified fields stay
-unsupported; an honest coverage gap is a complete analysis result.
+For a concrete request-latency investigation, the smallest supported next experiment
+is an explicitly started, bounded loopback OTel capture of both logs and traces:
+
+1. Use a numerical/configuration allowlist before storage, discard prompts, tool
+   data, credentials and unrestricted attributes, and pseudonymize only the
+   structural correlation keys needed for joins. Store normalized records beneath
+   `.execution/workflow-analysis/` with the existing retention/size limits. No raw
+   request logging or third-party forwarding is permitted.
+2. Configure `otel.exporter` and `otel.trace_exporter` separately for loopback
+   OTLP HTTP/gRPC endpoints through launch overrides or user configuration; project
+   telemetry configuration is ignored. `otel.log_user_prompt=false` alone does not
+   remove tool-result snippets. Merely enabling an exporter does not provide a
+   local file receiver, and a generic collector's defaults are not this allowlist.
+3. Check one-request, multi-request, tool-separated, retry and interrupted cases.
+   Require a unique structural association between the request operation,
+   completion, usage and configuration; never match by temporal adjacency. Report
+   coverage and unassociated attempts, and keep a separate scope for the native
+   stream-to-first-item delay. Test export completeness and observer overhead.
+4. Extend the existing adapter only for measurements the capture establishes.
+   Stop the capture and remove its launch overrides afterward; ordinary engineering
+   must consume no telemetry-capture resources. Literal generated-token timing,
+   server scheduling and backend compute remain unavailable unless independently
+   reported. An honest coverage gap is a complete analysis result.
 
 ## Timing and execution evidence
 

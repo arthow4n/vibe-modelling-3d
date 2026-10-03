@@ -21,7 +21,7 @@ Do not inspect session history after ordinary commands or generate routine repor
 **Mode A — latency:** a session, response, command or operation felt slow.
 Compare observed model/turn activity, tools, admission, initialization and other
 waiting; investigate the largest measurable contributor first. An engineering
-productivity assessment is unnecessary. Missing request boundaries leave model
+productivity assessment is unnecessary. Missing request boundaries leave request
 latency unavailable: turn time outside tools is unattributed, not inference.
 
 **Mode B — modeling workflow:** assess the work required to reach an established
@@ -82,6 +82,9 @@ implementing an optimization.
    Inspect native telemetry only if rollouts lack decision-relevant measurements;
    qualify its scope/correlation before proposing instrumentation. Do not enable
    export, add a collector or copy unrestricted telemetry for theoretical coverage.
+   Use the workflow's optional-telemetry guidance to distinguish OTel, hooks,
+   app-server and raw rollout tracing; a plugin cannot supply missing lifecycle
+   hooks, and raw tracing has no qualified numerical-only retention mode.
 9. Publish only meaningful reusable findings or a useful measured baseline. Author
    a concise draft from approved aggregate fields using the six sections in the
    publication contract. Reviews preserve evidence, not new standing instructions.
