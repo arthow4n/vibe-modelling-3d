@@ -1,0 +1,127 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_k3_base_5.py",
+  "errors": [],
+  "views": [],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_k3_base_5.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_k3_base_5.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.0016094189995783381,
+    "build": 21.795059567000862,
+    "selection": 0.0008415569973294623,
+    "validation": 0.3377791780003463,
+    "export_step": 0.48071032100051525,
+    "export_stl": 0.2152670700015733,
+    "worker": 22.954884063001373,
+    "total": 53.97850717199981,
+    "slice": 11.300928979999298
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "7290d42b061f83192e31b6be5eca67891f2ca361aff0142cbfb58e7218ca276d",
+    "artifact_identity": "6b0f02d513ffc6deba17e7877c4d01079f6be492b199730d4985e18a641b647c"
+  },
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/cap_k3_base_5.stl",
+    "profiles": {
+      "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json",
+      "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "preserve",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "PETG"
+      ],
+      "filament_settings_id": [
+        "Generic PETG @Qidi Q2C 0.4 nozzle"
+      ],
+      "nozzle_temperature": [
+        "250"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "245"
+      ],
+      "hot_plate_temp": [
+        "80"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "80"
+      ],
+      "print_settings_id": "0.20mm Standard 7% Adaptive Cubic @Qidi Q2C",
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "auto_brim",
+      "brim_width": "5",
+      "brim_object_gap": "0.1",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "0.95"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "7%",
+      "sparse_infill_pattern": "adaptivecubic"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": false,
+      "supported_plates": [],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": false,
+    "reused": false,
+    "identity": "f2271132d4dce178830a6517dad4ab80f6cd70b9fae43cf37f3902fb288addff",
+    "input_sha256": "9d33fa83a87af78c1329c5c8174bff69ff0d2e05fb15b6d9d197dc2bcd303a71"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_upward_grip_section.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "front",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/upward_grip_section/inspect_upward_grip_section_front.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          -1,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013634230017487425,
+    "build": 19.38778042299964,
+    "selection": 0.0008176749979611486,
+    "validation": 0.010327255000447622,
+    "render_front": 0.45377508199817385,
+    "worker": 19.923285775003023,
+    "total": 42.222863721002796
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "be6926ddf3b8881838a9f287f78d375ea2f765f7514faba20e62aaf8f4fce55d",
+    "artifact_identity": "212241b8071591c0daacec1caa500d6342536e629f27cb3cf74a8fd72f612923"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_upward_grip.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/upward_grip_assembled/inspect_upward_grip_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013610930000140797,
+    "build": 19.756077116999222,
+    "selection": 0.001207298002555035,
+    "validation": 0.2608936190008535,
+    "render_isometric": 2.0240052549997927,
+    "worker": 22.176632132999657,
+    "total": 22.294901187000505
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "67b59923a6d352bf26438303f753c6e5e5858382db2127c02d5336e7eee77925",
+    "artifact_identity": "1c14306be2d72bb85fb8b5f056409a315a3678685fc7d43ca25b5b1f05c988a3"
+  }
+}

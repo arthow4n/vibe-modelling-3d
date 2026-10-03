@@ -5,7 +5,7 @@ strongly but visibly tilts seated cards. K does not engage the dome; trying both
 card orientations instead produces back-face pressure. The earlier virtual
 checks did not establish these use relationships. I keys remain accepted.
 
-J2, K2 and a separate single-wall V1 vase-mode hood are now available for trials.
+J3, K3 and a separate single-wall V1 vase-mode hood are now available for trials.
 Preserve all earlier artifacts,
 the successful G hood and the shared I key 3. Exact printed hashes/settings
 remain unconfirmed; PETG and the established .4/.2 setup remain design assumptions.
@@ -16,7 +16,9 @@ downward-facing ramps do not by normal contact alone provide the downward hold
 needed while lifting the hood. The earlier opening-grip claim was unqualified;
 friction or other contact surfaces might still enable opening. See the
 [direction review and proposed options](notes/cap_comparison.md#underside-grip-direction-review).
-Geometry remains unchanged; further modelling waits for discussion.
+The user chose upward-facing grips. J3/K3 add accessible rounded ledges below
+the closed hood, preserving J2/K2 card supports and all hood/key interfaces.
+The user explicitly confirms J2/K2 have not been printed.
 
 ## Requirements to preserve
 
@@ -40,9 +42,44 @@ in the linked object records. The H connector sample has been printed and reject
 for excessive looseness. Its I replacement keys now work in the printed sample;
 the complete matching modules remain unreported.
 
-## Revised J2/K2 bases — retain the accepted G hood and I key 3
+## J3/K3 upward-facing grips — current base trials
 
-**Use J2 for the next J alignment trial:** [STEP](cap_j2_base_5.step),
+**J3:** [STEP](cap_j3_base_5.step), [STL](cap_j3_base_5.stl),
+[source](cap_j3_base_5.py). **K3:** [STEP](cap_k3_base_5.step),
+[STL](cap_k3_base_5.stl), [source](cap_k3_base_5.py).
+Both add two rounded, upward-facing holding ledges: 7 mm extension per side,
+24 mm long and 2.4 mm thick. Overall base width becomes 78 mm; module depth
+and joining pitch remain unchanged. Press down on a ledge while lifting the
+hood. These ledges remain exposed when either the accepted G hood or V1 is
+closed. Their top edge has a .6 mm radius and plan corners a 2 mm radius.
+
+J3 retains J2's broad spring and opposing upright rails; K3 retains K2's
+corrected dome follower and opposing rails. The shared I key 3 and both hoods
+remain compatible, including joining to preserved J/J2/K2 modules.
+Use **ordinary slicing for these bases**, PETG, .4 mm nozzle, .2 mm layers,
+two walls and 7% adaptive cubic, floor down as supplied. Only V1 needs vase mode.
+
+[Closed appearance](renders/upward_grip_assembled/inspect_upward_grip_isometric.png)
+shows actual base/hood geometry; the
+[access section](renders/upward_grip_section/inspect_upward_grip_section_front.png)
+includes an assumed finger envelope for inspection only. Targeted
+[CAD checks](notes/upward_grip_checks.json) confirm upward bearing faces,
+access past the closed hoods and a joined neighbour, unchanged card/key
+geometry, and hood/key travel clear of the additions.
+Both [J3](notes/j3_review.json) and [K3](notes/k3_review.json) paired exports
+and reference slices passed without notices or generated supports.
+
+**Unprinted trials:** start with the accepted G hood. Check that you can hold
+the base down comfortably while lifting it, including when joined. In J3,
+the plain back faces the broad spring; in K3, the domed/engraved face faces the
+shaped follower. Check upright alignment with one, three and five cards,
+entry/removal, actual K3 dome engagement, and grip/recovery after dwell.
+CAD access establishes neither hand comfort nor force, strength or long-term
+PETG response. Keep joined boxes supported; carrying remains unqualified.
+
+## Preserved J2/K2 card-support revisions
+
+**J2 alignment trial:** [STEP](cap_j2_base_5.step),
 [STL](cap_j2_base_5.stl), [source](cap_j2_base_5.py). It preserves J's broad
 spring and adds two opposing datum rails, extending straight support above the
 grip. Print floor down with the existing PETG/.4/.2/two-wall/7% setup and reuse
@@ -80,7 +117,7 @@ Disable spiral smoothing, supports and elephant-foot compensation as in the
 snapshot. Inspect your effective GUI settings; STEP import is a separate path
 from the diagnostic STL slice.
 
-V1 fits the unchanged J2/K2 bases and I key 3. Its maximum X/Y dimensions and
+V1 fits J2/K2 and J3/K3 bases with I key 3. Its maximum X/Y dimensions and
 seated rim height match G. The 5.8 mm outside corner radius is concentric with
 the base foot; a smooth .2 mm inward rim taper over 1.2 mm gives the thin wall
 a wider landing on the foot's rounded top. A .7 mm inward waist on each X side replaces
@@ -117,7 +154,7 @@ collar would omit the tall walls and roof that determine that response.
 
 ### Historical J/K files — preserve the rejected bases
 
-The earlier rejected joined-pair trial used these files; use J2/K2 above for
+The earlier rejected joined-pair trial used these files; use J3/K3 above for
 the revised trial:
 
 - **One J base:** [Centered-panel STEP](cap_j_base_5.step), [STL](cap_j_base_5.stl), [source](cap_j_base_5.py).
@@ -813,10 +850,12 @@ from other unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Base underside-grip feature — shared E/G/H/J/K family | Yes — base reported printed; exact variant/artifacts/settings unknown | Two sloped underside recesses inherited by J2/K2 | User questions direction/purpose and misprint-like appearance. Source confirms intentional shape but normal contact pushes the base upward. Opposing opening grip remains unqualified; no inability-to-open result reported. Geometry revision awaits discussion |
+| Base underside-grip feature — shared E/G/H/J/K family | Yes — base reported printed; exact variant/artifacts/settings unknown | Two sloped underside recesses inherited by J2/K2 | User questions direction/purpose and misprint-like appearance. Normal contact pushes the base upward. No inability-to-open result reported. User chose upward-facing replacement ledges, implemented in J3/K3 |
+| Complete base — J3 upward holding ledges | Unknown — no print report | `cap_j3_base_5.step/.stl`, accepted G hood or experimental V1, I key 3 | J2 card support preserved; upward contact, assumed finger access, hood/key travel and reference slice passed. Actual opening comfort, upright cards, grip and dwell require use |
+| Complete base — K3 upward holding ledges | Unknown — no print report | `cap_k3_base_5.step/.stl`, accepted G hood or experimental V1, I key 3 | K2 dome support preserved; upward contact, assumed finger access, hood/key travel and reference slice passed. Actual dome engagement, upright cards, opening comfort and recovery require use |
 | Complete hood — V1 spiral .42 mm wall | Unknown — new unprinted experiment | `cap_v1_vase_hood_5.step/.stl`, vase-only filled input; `notes/vase_process.json` | CAD and actual single-wall paths cover all four existing catches; primary Orca slice succeeds, support probe inapplicable. Holding force, rim comfort, transparency and recovery need the full-hood trial |
-| Complete base — J2 opposing upright rails | Unknown — new unprinted revision | `cap_j2_base_5.step/.stl`, accepted G hood and I key 3 | Source-card contact/entry checks and reference slice cover the revision; actual upright alignment, entry/removal and dwell require use |
-| Complete base — K2 proper source-card catch | Unknown — new unprinted revision | `cap_k2_base_5.step/.stl`, accepted G hood and I key 3 | Real-face shoulder contact, old-K and wrong-face negative cases, upright datums and sampled rigid entry checked. Printed dome engagement, grip and recovery remain unqualified |
+| Complete base — J2 opposing upright rails | No — user explicitly confirms not printed | `cap_j2_base_5.step/.stl`, accepted G hood and I key 3 | Source-card contact/entry checks and reference slice cover the revision; actual upright alignment, entry/removal and dwell require use |
+| Complete base — K2 proper source-card catch | No — user explicitly confirms not printed | `cap_k2_base_5.step/.stl`, accepted G hood and I key 3 | Real-face shoulder contact, old-K and wrong-face negative cases, upright datums and sampled rigid entry checked. Printed dome engagement, grip and recovery remain unqualified |
 | Test — I replacement keys in printed H blocks | Yes — all three reported printed, 2026-10-03; actual hashes/material/settings unconfirmed | `cap_i_grip_keys.step/.stl`, delivered in `9d05287` | All three work; number 3 feels better, reason unclear. Select 3 without geometry changes. Detailed release/recovery, dwell, calibrated force and full-box use remain unreported |
 | Complete base — K dome shoulders | Yes — user reports printed; exact artifact/settings unconfirmed | `cap_k_base_5.step/.stl` | Rejected: catch does not enter dome; both card orientations tried, back face is pressed instead. Earlier checks used a reflected reference card and cannot qualify actual engagement |
 | Complete base — J centered panels | Yes — user reports printed; exact artifact/settings unconfirmed | `cap_j_base_5.step/.stl` | Strong grip, but visible tilt from the side. Revise opposing support; strong grip is not upright alignment |
@@ -835,7 +874,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | Not accepted — historical J/K use failures; new J2/K2 and V1 unprinted, G hood accepted | J2 or K2 + accepted G hood or experimental V1 + I key 3 | Revised trial bases and separate vase hood available. No complete-box or loaded-row carrying/durability qualification |
+| Final printable object | Not accepted — historical J/K use failures; J2/K2 explicitly unprinted, J3/K3 and V1 without print reports; G hood accepted | J3 or K3 + accepted G hood or experimental V1 + I key 3 | Revised trial bases add upward holding ledges while preserving revised card supports. No complete-box or loaded-row carrying/durability qualification |
 
 ## Attribution
 

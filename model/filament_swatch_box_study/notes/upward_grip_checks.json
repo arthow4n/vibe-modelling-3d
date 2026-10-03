@@ -1,0 +1,105 @@
+{
+  "variants": [
+    {
+      "variant": "J3",
+      "connected_valid_base": true,
+      "preserved_geometry_outside_lower_grip_region": true,
+      "contacts": [
+        {
+          "side": -1,
+          "upward_planar_area_mm2": 144.95005215862807,
+          "contact_normal": [
+            0,
+            0,
+            1
+          ],
+          "finger_force_on_base": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "side": 1,
+          "upward_planar_area_mm2": 144.9500521586281,
+          "contact_normal": [
+            0,
+            0,
+            1
+          ],
+          "finger_force_on_base": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "finger_envelope_access_G_and_V1": true,
+      "joined_access_clear": true,
+      "I_key_clear": true,
+      "scope": "Unchanged card/closure mates proved in CAD; assumed fingertip access and downward contact, not printed comfort/force."
+    },
+    {
+      "variant": "K3",
+      "connected_valid_base": true,
+      "preserved_geometry_outside_lower_grip_region": true,
+      "contacts": [
+        {
+          "side": -1,
+          "upward_planar_area_mm2": 144.95005215862807,
+          "contact_normal": [
+            0,
+            0,
+            1
+          ],
+          "finger_force_on_base": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "side": 1,
+          "upward_planar_area_mm2": 144.9500521586281,
+          "contact_normal": [
+            0,
+            0,
+            1
+          ],
+          "finger_force_on_base": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "finger_envelope_access_G_and_V1": true,
+      "joined_access_clear": true,
+      "I_key_clear": true,
+      "scope": "Unchanged card/closure mates proved in CAD; assumed fingertip access and downward contact, not printed comfort/force."
+    }
+  ],
+  "grip": {
+    "extension_per_X_side_mm": 7.0,
+    "length_Y_mm": 24.0,
+    "height_mm": 2.4,
+    "unchanged_module_pitch": true
+  },
+  "assumed_distal_finger": {
+    "width_mm": 20.0,
+    "thickness_mm": 8.0,
+    "front_extent_from_contact_mm": 4.0,
+    "contact_x_mm": 36.5,
+    "representation": "Rounded bounding block; not an anatomical hand or comfort simulation"
+  },
+  "load_path": "Upward planar contact gives downward base reaction; the ledges have bed-backed bottoms for desk opening. Off-desk strength/effort and human comfort need the print trial; no calibrated load rating.",
+  "sources_sha256": {
+    "cap_j3_base_5.py": "8ded0f42af10f6a65127af9dc677f5aa9cb2d5bf4bec9297140a0e1d226b6d50",
+    "cap_k3_base_5.py": "b21544464682f5ef2fbf6c2d98729255dc8ebcb985cb9dd3a113579385b80b99",
+    "upward_grips.py": "dd0df3e6809e6c0670c41a8f1490d413875b03014196aa704b21dd958ded4ec5",
+    "check_upward_grips.py": "0235771798cfdf21bf1eafe61beabcdda7f891da513655984478f4515efd78db",
+    "cap_j2_base_5.py": "6982fe73dd835dfd89ac494efecc905b2e1940bc31a6b6e25bd1c0703d471299",
+    "cap_k2_base_5.py": "8e41eb9c43ae76bf2d05078b7c08459e57234c9a99ac2e58500be56f199d3eee",
+    "cap_v1_vase_hood_5.py": "d36461de1ede353b708ac52d27dc0fc6525e17e3373319029aefc71268056560"
+  }
+}

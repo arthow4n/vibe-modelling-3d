@@ -1,12 +1,76 @@
 # Cap exploration — authorized autonomous phase
 
+## J3/K3 — upward-facing base holding ledges
+
+Current user direction: implement upward-facing grips on both J2 and K2. The
+user explicitly confirms neither J2 nor K2 has been printed. Preserve those
+files; J3/K3 are new five-card trial bases. Reuse PETG/.4 mm nozzle/.2 mm layers,
+two walls and 7% adaptive cubic. The accepted G hood, separate V1 vase hood and
+I key 3 remain unchanged. The earlier pause for discussion is resolved by this
+choice; no new hood, card spring or connector exploration is included.
+
+The original foot extends only .2 mm beyond the closed G hood. Flipping its
+underside cut cannot create a comfortably exposed top contact there. Instead,
+restore the old cutouts and add two low rounded ledges on the exposed X sides:
+7 mm extension beyond the old foot, 24 mm length along Y, 2.4 mm height, 2 mm
+plan corner radius, .6 mm top round and .6 mm bottom chamfer. The external width
+becomes 78 mm versus 64 mm; depth/module spacing remains 44.8 mm. This local
+projection is a deliberate access tradeoff, communicated during work. The hood
+remains smooth and the ledges do not surround the entire module.
+
+Operation: contact the upward-facing ledges to hold the base downward; lift the
+hood with the other hand. Each exposed planar face has about 144.95 mm² area,
+normal +Z, so a normal finger push produces the required -Z reaction on the
+base. These are base holding contacts, not hood lifting tabs or clip-release
+buttons. On a desk their bed-facing undersides are directly supported. Off-desk
+strength, opening effort and skin contact are uncalibrated; no homogeneous beam
+or solver result is used to claim a load rating for this short thick ledge.
+
+`upward_grips.py` owns the shared object-specific treatment; J3/K3 delegate to
+their preserved parent base and apply the same treatment. Restoration is
+restricted below Z=3.6 and near the old X-side cuts. CAD differences prove no
+change outside those bounded lower side regions: card spring/follower, upright
+rails, slot bottoms, hood seating at Z=5, closure roots and key pockets keep
+their checked geometry. Integration can still change physical response; this
+is not a new print result or a guarantee of unchanged grip forces.
+
+The targeted CAD checks establish one connected valid base for each variant,
+upward bearing area and deliberate downward contact. A rounded bounding volume
+20 mm wide/8 mm thick represents a distal finger, with a 4 mm front extent
+before contact X=36.5 mm; the rest extends outward. This is an access assumption,
+not anatomical or comfort simulation. It is clear of both closed G and nominal
+V1 shells at contact and sampled vertical approach heights, and clear of an
+adjacent joined module. The existing I key's sampled entry/lift path is clear
+of added material. The actual ledge view contains no finger references; the
+section includes the bounding volume solely to explain access and force
+direction. Inspection references are excluded from printable exports.
+
+Final FDM review: bases and ledges print floor down together. The ledges start on
+the bed with a .6 mm bottom chamfer; there is no suspended horizontal shelf to
+support. Twelve .2 mm layers form the nominal 2.4 mm height. Exposed top edges
+are rounded rather than cut into a narrow nail groove. Existing springs keep
+their previous orientation/setup. STEP/STL pairs and final native reference
+reviews are retained separately for J3/K3. Both Orca 2.4.2 PETG slices complete
+without notices or automatically generated supports, preserving print placement.
+Slice success is manufacturing evidence under the diagnostic profile, not STEP
+GUI import, printed comfort or a material/load rating.
+
+The complete five-card bases are the useful trials, rather than a detached grip
+coupon: opening depends on the actual hood, closure effort, surrounding foot
+and joined access. Reuse the already accepted G hood first, press the ledges
+while lifting, and compare reach/comfort with one and several cards. J3 keeps
+the broad-spring option; K3 keeps the corrected dome option. Also check upright
+alignment, actual dome contact for K3, card reinsertion/removal and dwell/recovery.
+Neither prior J2/K2 CAD checks nor these grip checks establish printed card
+performance. V1 remains a separate unprinted transparency trial.
+
 ## Underside grip direction review
 
 Latest user feedback confirms the feature is the two sloped underside recesses,
 not the perimeter bottom-edge chamfer. A base has been printed; its exact
 variant, artifacts and settings are not identified. The user questions the
 recess purpose/direction and says it looks like a misprint. This does not report
-that the hood cannot be opened, nor qualify J2/K2/V1 use. Current instruction:
+that the hood cannot be opened, nor qualify J2/K2/V1 use. Instruction at review:
 review and record lessons autonomously, discuss further modelling before doing
 it. No geometry, exports, print settings or scripts changed in this review.
 
@@ -39,7 +103,8 @@ ledge. An accessible upward-facing base contact can supply downward purchase,
 but simply flipping the recess may put that contact under the closed hood or
 compromise seating. A grip to lift the hood belongs on the hood or at a usable
 separation seam. These are options, not approved geometry changes. Pause further
-modelling for the user's direction.
+modelling for the user's direction. The subsequent J3/K3 section records the
+user's choice and implementation; the original review remains failure evidence.
 
 Shared lesson is added to the handling review and reusable-evidence reference:
 map each hand to its part and required force, then check accessible contact
