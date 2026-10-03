@@ -6,6 +6,10 @@ for comparison; K uses the existing dome shoulder to reduce the intended seated
 spring bend. I keys have a positive physical result. Neither J nor K has a
 complete-box print/use report yet; previous versions remain available.
 
+**Development paused at the user's request after the workflow update.** Further
+variants and analysis are deferred; [remaining ideas](notes/cap_comparison.md#deferred-exploration--paused-at-the-users-request)
+are recorded for a later resumption. J/K print files remain the current trials.
+
 ## Requirements to preserve
 
 - Store the cards with their long dimension vertical and notch at the top; the
@@ -82,6 +86,15 @@ actual spring passed a conditional normal-passage/return screen: about 1.03%
 peak strain against a provisional 1.5% limit. This is uncalibrated solid-PETG
 evidence, rather than a measured force or lifetime rating. Compare against J
 with the same swatches and print setup before choosing a larger repeated row.
+
+Reproduce the local mesh review from saved native evidence with
+`uv run --locked python model/filament_swatch_box_study/analyze_cap_k.py --review-evidence`.
+This uses the shared `QuestionStudy` API, verifies the saved inputs and rewrites
+`notes/cap_k_physics.json` without solving again. It checks force and strain
+sensitivity plus changes in the provisional pass/fail decision; no printed
+validation is added. The CAD entry, seating, hood and mixed-module checks remain
+in `check_dome_study.py` because their geometry and acceptable relationships are
+specific to this box.
 
 ## J — centered, broader card panels
 

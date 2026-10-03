@@ -958,10 +958,11 @@ card/dome/friction path, flexible card, complete-base compliance or creep.
 Require native force balance, penetration below 0.02 mm, final contact freedom,
 elastic return within 0.0001 mm and the supplied motion-space screens. Compare
 0.8 and 0.65 mm meshes on frozen geometry because the first passing strain is
-near the provisional limit. Stop numerical refinement when both pass and force
-changes less than 10%; state the observed strain sensitivity instead of calling
-it converged or treating 1.5% as a measured PETG limit. Revisit geometry if the
-finer result changes the provisional design decision.
+near the provisional limit. The original stop rule required both meshes to pass
+and force to change less than 10%, with strain sensitivity reported. The shared
+study review now explicitly requires both force and strain changes below 10%
+and an unchanged provisional design decision. This leaves the K trial decision
+unchanged; it does not establish convergence or a measured PETG strain limit.
 
 [CAD checks](dome_study_checks.json) cover positive seated preload, carrier/center
 clearance, actual spherical seat contact after 0.25 mm movement, a 1 mm lift
@@ -999,10 +1000,11 @@ checks establish printed success or years of storage.
 [Current local mechanics record](cap_k_physics.json): both 0.8 and 0.65 mm
 meshes passed the current strain and movement screens after identity-checked
 reinterpretation for the final rear gap. Predicted peak normal forces are about
-2.59 and 2.55 N; peak strain is about 1.026% and 1.031%. Force changes 1.47%
-and strain 0.44%; this satisfies the chosen stopping rule, without a claim of
-exact convergence or calibrated material behavior. The largest sampled crown
-Y movement is about 2.26 mm, leaving room in the 2.4 mm stem rear space.
+2.59 and 2.55 N; peak strain is about 1.026% and 1.031%. Force changes 1.49%
+and strain 0.43% relative to the refined result; this satisfies the chosen
+stopping rule, without a claim of exact convergence or calibrated material
+behavior. The largest sampled crown Y movement is about 2.26 mm, leaving room
+in the 2.4 mm stem rear space.
 
 Native archives retain their original former-space question outcomes. Increasing
 only the base rear relief by 0.1 mm does not change the analysed spring, wall,
@@ -1015,11 +1017,64 @@ K is delivered as a printable full-base comparison; physical product acceptance
 remains pending. J sources/exports, the G hood and I keys remain unchanged.
 
 
-Workflow reflection: existing CadQuery booleans, shared beam screens, the
-`SnapFitQuestion` contact/return route, evidence guards and paired evaluator
-exports/slicing answered these questions without a new shared framework. The
-CAD consumer fixture and actual off-center plate belong to this object. The
-transferable lesson is to check the whole spring's motion against its space and
-local nose behavior when a simple beam idealization is insufficient. Existing
-shared displacement observations already support that; a geometry-independent
-helper is only worthwhile if another consumer needs repeated setup or extraction.
+Workflow reflection: K was completed and pushed before this audit. The small-nose
+coarse/fine disagreement changed the contact shape; the final broad-nose meshes
+support the conditional trial. The transferable lesson is to check actual spring
+motion and local contact strain when a uniform beam idealization misses torsion
+or local bending. The shared API already supplies the relevant observations.
+
+| Check family | Existing shared operation | What stays with this object |
+| --- | --- | --- |
+| Spring/preload screen in I/J/K | `rectangular_cantilever`, `elastic_friction_grip` | Dimensions, contact source, assumed material/friction and whether the idealization is adequate |
+| Actual K plate passage and return | `SnapFitQuestion`, selected-region observations, force/penetration/return checks, guarded `read_evidence` | Off-center plate, driver/root fixture, passage travel and rear-space acceptance |
+| Frozen-geometry mesh comparison | `QuestionStudy` | K's decision, metrics, mesh sizes and stopping tolerance |
+| Card seating/funnels, unchanged interfaces and mixed J/K joining | CadQuery intersections, distances and rigid transforms | Which poses matter, intentional preload contacts, masks and accepted relationships |
+| Print-ready pair and reference slice | Shared evaluator and Orca review | Selected printable geometry, agreed profiles and interpretation of notices/supports |
+
+The concrete change from this audit is that `analyze_cap_k.py --review-evidence`
+now delegates the formerly manual mesh comparison/report to `QuestionStudy`.
+It requires the two retained runs and supplies no new run directory: it cannot
+silently solve missing evidence. The report is the shared native `AnalysisResult`
+format, with comparison limits, stopping reason, acceptance changes, input/tool
+identities and current consumer-source hashes. The original archives retain
+their former-space outcomes; current interpretation still uses the existing
+identity guard. Relative change now consistently uses the refined value as
+denominator (the earlier manual summary used the coarse value).
+
+Reading that generated report exposed one small shared reporting gap: study
+results did not retain their numeric relative/absolute tolerance settings.
+`QuestionStudy` now records those settings beside the comparisons, making the
+stopping rule inspectable without reconstructing the caller. This changes
+report metadata only; comparison formulas, solver behavior and acceptance
+interpretation are unchanged.
+
+This removes repeated percentage calculations and confidence bookkeeping without
+adding a dome-specific public question or a generic CAD checker. A consumer
+regression verifies saved-evidence reuse and prevents solver execution; the
+existing shared acceptance-crossing test covers the case where small metric
+changes still reverse a pass/fail decision. No geometry, STEP/STL, print settings
+or print-status claims changed. The current K trial conclusion is unchanged;
+independent increment/contact sensitivity, full dome insertion and physical use
+remain outside this evidence.
+
+## Deferred exploration — paused at the user's request
+
+The user requested stopping after this workflow optimization. No additional
+variant, solve or workflow project is being started. K was completed and pushed
+first; J/K print and use feedback is still pending. These directions remain
+conditional ideas for a later resumption:
+
+- Compare J's centered flat contact with K's shoulder catch in normal use and
+  after seated dwell. Keep J if K adds orientation/handling cost without a useful
+  improvement in alignment, grip or recovery.
+- If K's concept helps but its off-center contact twists or binds, explore a
+  different follower support that reduces that torsion while keeping a centered
+  broad panel and reduced seated bend. Avoid the thin dome center; preserve the
+  existing J-compatible sockets, I key 3 and G hood. No mechanism or dimensions
+  are selected, and zero PETG creep is not a design promise.
+- Consider a larger card row or further joined modules only after the five-card
+  complete boxes work. A ten-card module is not currently requested; joined
+  carrying strength and long-term grip would need evidence before claiming them.
+
+The thin, smooth G hood already addresses the earlier hood exploration direction;
+another hood variant has no current justification without new print feedback.

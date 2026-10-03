@@ -88,7 +88,9 @@ class QuestionStudy:
                 raise ValueError(f'Missing {label} evidence and no new run directory provided')
             return question.run(Path(directory)/label, numerical=True)
         baseline = obtain('baseline', self.question)
-        summary = dict(decision=self.decision, comparisons={}, comparison_limits={}, acceptance_changed={}, runs={
+        summary = dict(decision=self.decision, relative_tolerance=self.relative_tolerance,
+            absolute_tolerances=dict(self.absolute_tolerances),
+            comparisons={}, comparison_limits={}, acceptance_changed={}, runs={
             'baseline':self._run_record(baseline,self.question)}, stopping_reason={})
         confidence = baseline.metrics['question']['numerical_confidence']
         if not baseline.metrics['question']['numerical_evidence_adequate']:

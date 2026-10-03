@@ -149,6 +149,8 @@ baseline stops without refinements. Each level compares decision quantities with
 the preceding level, stopping that axis when its quantities meet the tolerance.
 The answer reports `stable`, `unstable`, `unresolved` or `not_run` and the stopping
 reason; stability is a bounded comparison, not proof of asymptotic convergence.
+The saved study records its relative and absolute metric tolerances alongside
+the comparisons, so the numerical stopping rule remains explicit in evidence.
 `baseline_quality_adequate` preserves the operation checks; requested unstable or
 unresolved studies make overall `numerical_evidence_adequate=False` without
 erasing independently established passage or changing native completion/status.
@@ -168,6 +170,25 @@ intent fails explicitly. Case names and timeouts are not physical inputs.
 Historical backend versions/implementation identities are preserved and exposed;
 interpreting historical evidence does not qualify today's backend. No saved solve
 is rerun merely to add interpretation. Native result status is never promoted.
+
+The [swatch-box K consumer](../model/filament_swatch_box_study/analyze_cap_k.py)
+uses this route for its saved 0.8/0.65 mm meshes:
+
+```bash
+uv run --locked python model/filament_swatch_box_study/analyze_cap_k.py --review-evidence
+```
+
+It supplies every planned evidence entry and no run directory, so missing or
+mismatched evidence fails instead of launching a solve. The native
+[`AnalysisResult` report](../model/filament_swatch_box_study/notes/cap_k_physics.json)
+replaces its manually assembled comparison: input identity, tool identity,
+force/strain sensitivity and acceptance changes use the existing shared study
+contract. Geometry, the current rear-space limit and the provisional material
+assumptions remain in the consumer. Both selected quantities meet its 10%
+comparison threshold; increment/contact sensitivity and printed behavior remain
+unestablished. Relative change uses the refined value as denominator. This
+consumer also exposed missing threshold metadata: studies now retain the chosen
+relative/absolute tolerances, without changing comparison or solver behavior.
 
 The [local rounded-contact fixture](experiments/ipc/fixtures/rounded_snap/README.md),
 [phone stand](../model/analysis_phone_stand/analyze.py) and

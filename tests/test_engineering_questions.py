@@ -18,12 +18,12 @@ ROUNDED = ROOT/'physical_analysis/experiments/ipc/fixtures/rounded_snap'
 MAT = Material('benchmark',1200,.3,'Numerical qualification only',.01)
 
 
-def consumer(folder):
+def consumer(folder,entry='analyze.py'):
     directory = ROOT/'model'/folder
     previous = sys.modules.pop('components', None)
     sys.path.insert(0,str(directory))
     try:
-        spec = importlib.util.spec_from_file_location('consumer_'+folder,directory/'analyze.py')
+        spec = importlib.util.spec_from_file_location('consumer_'+folder,directory/entry)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         return module
@@ -284,3 +284,26 @@ def test_small_metric_change_crossing_provisional_limit_does_not_stop_as_stable(
         ('question.peak_strain',),mesh_levels=1).run(tmp_path/'study')
     assert r.metrics['question']['numerical_confidence']['mesh_sensitivity'] == 'unstable'
     assert r.metrics['question']['study']['acceptance_changed']['mesh_sensitivity_1']
+
+
+def test_k_mesh_study_reuses_bound_evidence_without_solving(monkeypatch):
+    module=consumer('filament_swatch_box_study','analyze_cap_k.py')
+    def no_solve(*args,**kwargs):
+        pytest.fail('Retained K review must not launch a new solve')
+    monkeypatch.setattr(SnapFitQuestion,'run',no_solve)
+    result=module.review_evidence()
+    answer=result.metrics['question']
+    assert result.completed and answer['evidence_method']=='retained_numerical'
+    assert answer['numerical_evidence_adequate'] and answer['design_screen_passes']
+    assert answer['physical_limits']['physically_validated'] is False
+    assert answer['numerical_confidence']==dict(
+        increment_sensitivity='not_run',mesh_sensitivity='stable',
+        contact_parameter_sensitivity='not_run')
+    comparison=answer['study']['comparisons']['mesh_sensitivity_1']
+    assert answer['study']['relative_tolerance']==.1
+    assert answer['study']['absolute_tolerances']=={}
+    assert comparison['question.peak_actuation_force_N']['refined']==pytest.approx(2.55445949)
+    assert comparison['question.peak_strain']['refined']==pytest.approx(.01030824113)
+    assert not answer['study']['acceptance_changed']['mesh_sensitivity_1']
+    assert len(answer['study']['runs'])==2
+    assert all(run['input_sha256'] and run['case_sha256'] for run in answer['study']['runs'].values())
