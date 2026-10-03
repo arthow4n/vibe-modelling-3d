@@ -1,10 +1,10 @@
 # Filament swatch box — thin press-on hood
 
-**Current matching set: centered J bases, thin G hoods and the printed I key 3.**
-J centers and broadens the card panels while retaining the successful joining
-interface and hood fit. This is the next complete five-card-box trial. The I
-keys have a positive physical result; J panels and complete-box use have no
-print report yet. Previous versions remain available.
+**Current matching set: J centered-contact or K dome-catching bases, unchanged
+G thin hoods and the printed I key 3.** J and K can join each other. J is preserved
+for comparison; K uses the existing dome shoulder to reduce the intended seated
+spring bend. I keys have a positive physical result. Neither J nor K has a
+complete-box print/use report yet; previous versions remain available.
 
 ## Requirements to preserve
 
@@ -28,29 +28,60 @@ in the linked object records. The H connector sample has been printed and reject
 for excessive looseness. Its I replacement keys now work in the printed sample;
 the complete matching modules remain unreported.
 
-## Current complete-box print: J bases, G hoods, I key 3
+## Current complete-box print: compare J and K with G hoods and I key 3
 
 For a joined pair, use:
 
-- **Two bases:** [J centered-panel base STEP](cap_j_base_5.step), [STL](cap_j_base_5.stl), [source](cap_j_base_5.py).
+- **One J base:** [Centered-panel STEP](cap_j_base_5.step), [STL](cap_j_base_5.stl), [source](cap_j_base_5.py).
+- **One K base:** [Dome-shoulder STEP](cap_k_base_5.step), [STL](cap_k_base_5.stl), [source](cap_k_base_5.py).
 - **Two hoods:** [Unchanged G thin hood STEP](cap_g_hood_5.step), [STL](cap_g_hood_5.stl).
 - **One I number 3 key:** reuse the one already printed. The [three-key STEP](cap_i_grip_keys.step) and [STL](cap_i_grip_keys.stl) remain available.
 
 Print in PETG with a 0.4 mm nozzle, 0.2 mm layers, two walls and 7% adaptive cubic.
 Bases print floor down, hoods roof down in the supplied poses. Translucent PETG
-may be used for the hood. J changes card holding only: use the existing G hood
-and I key without reprinting them if already available. The old combined H
+may be used for the hood. Both bases change card holding only: reuse the G hood
+and I key if already available. The old combined H
 layout includes the failed rigid key and is not the current matching set.
 
 Hold the bases on a desk with their end faces touching and press I key 3 down
-to the pocket floor. Insert cards long dimension upright, notches above, with
-**the flat back toward the broad spring panel and the engraved face away from it**.
-Close each hood to the rim. Try one, three and five cards per box: check easy
+to the pocket floor. Insert cards long dimension upright, notches above.
+**J: flat back toward its broad spring panel. K: domed/engraved face toward
+its shaped dome follower.** Press down until both bottom-corner seats engage;
+K must locate its follower in the existing bowl. Close each hood to the rim.
+Try one, three and five cards per box: check easy
 entry from every side, firm final seating, upright alignment, deliberate card
 withdrawal and opening either hood while joined. Check thin-shell/edge comfort.
 Leave a card seated for several days and compare grip and alignment, then
 inspect recovery after removal. This checks early relaxation, not years of use.
 Keep the boxes supported while opening; loaded-row carrying remains unqualified.
+
+## K — existing dome shoulder with less seated spring bend
+
+K keeps the 40 mm broad panel centered. Its shaped follower is necessarily
+at the existing off-center dome, rather than at the middle of the card.
+The source dome is a **concave pocket** with a very thin center, so the follower
+uses two rounded noses on the outer shoulder; their backing stays clear of the
+center. The seated spring has positive
+preload; it bends farther while the card passes the follower, then returns
+partway into the pocket. This targets easier long-term storage without promising
+that PETG cannot relax. Withdrawal still deliberately bends the spring.
+
+![K five-card base](renders/cap_k_base/cap_k_base_5_top.png)
+
+The base uses the unchanged G hood and accepted I key 3; it joins J directly.
+[Mixed K/J inspection](renders/dome_mixed/dome_latch_study_isometric_back.png)
+and [local dome section](renders/dome_section/inspect_dome_section_right.png)
+show the changed relationship. Inspection entries include reference cards and
+must not be exported for printing. The supplied K STEP/STL contain only the base.
+[CAD checks](notes/dome_study_checks.json), [local mechanics](notes/cap_k_physics.json),
+[export/reference slice](notes/cap_k_review.json)
+and [design record](notes/cap_comparison.md#k--dome-shoulder-follower-compatible-with-j)
+record evidence and limits. Actual dome fit, entry/removal force, card steadiness,
+material recovery and dwell remain physical trial questions. Two meshes of the
+actual spring passed a conditional normal-passage/return screen: about 1.03%
+peak strain against a provisional 1.5% limit. This is uncalibrated solid-PETG
+evidence, rather than a measured force or lifetime rating. Compare against J
+with the same swatches and print setup before choosing a larger repeated row.
 
 ## J — centered, broader card panels
 
@@ -674,6 +705,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test — I replacement keys in printed H blocks | Yes — all three reported printed, 2026-10-03; actual hashes/material/settings unconfirmed | `cap_i_grip_keys.step/.stl`, delivered in `9d05287` | All three work; number 3 feels better, reason unclear. Select 3 without geometry changes. Detailed release/recovery, dwell, calibrated force and full-box use remain unreported |
+| Complete five-card boxes — K dome shoulders | Unknown — no K/complete-pair print report | `cap_k_base_5.step/.stl`, unchanged G hood, printed I key 3 | CAD, conditional plate/contact screens and reference slice passed; compatible with J. Actual dome capture, all-direction entry, force, steadiness, dwell/recovery and mixed-box use unqualified |
 | Complete five-card boxes — J centered panels | Unknown — no J/complete-pair print report | `cap_j_base_5.step/.stl`, unchanged `cap_g_hood_5.step/.stl`, printed I key 3 | New panels centered/broader; CAD/conditional beam and reference slice checks passed. Check actual grip, all-direction insertion, several-day dwell, recovery, hood use and comfort |
 | Test — H connector without handle | Yes — PETG sample reported printed; exact files/settings unconfirmed | `cap_h_connector_test.step/.stl` | Failed: bow tie falls out, excessive space and no useful grip/join. Rigid CAD/slice passes did not establish retention. No tall wall/hoods represented by sample |
 | Test — H complete five-card module | Unknown — no print report | `cap_h_module_5.step/.stl`, `cap_h_base_5.step/.stl`, `cap_h_key.step/.stl`; unchanged G hood | Original rigid CAD checks passed; H sample joining failed. Complete-module stiffness, comfort and carrying remain unqualified |
@@ -689,7 +721,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | Unknown — J complete five-card boxes have no print/use report | J base + G hood + I key 3 as linked above; earlier variants retained | Printable matching set available; complete-pair use is the next trial. Add identical modules after integration is satisfactory; no loaded-row carrying or durability rating |
+| Final printable object | Unknown — J/K complete five-card boxes have no print/use report | J or K base + G hood + I key 3 as linked above; earlier variants retained | Printable compatible comparison set available; complete-pair use is the next trial. Add identical modules after integration is satisfactory; no loaded-row carrying or durability rating |
 
 ## Attribution
 

@@ -886,3 +886,140 @@ no generated automatic supports. Both matching exports and the top view
 succeeded. G hood and I key exports were unchanged and their prior relevant
 evidence was reused; no ordinary extrusion-path audit was added. J remains an
 unprinted complete-product trial, not a long-term retention qualification.
+
+
+## K — dome-shoulder follower, compatible with J
+
+The user authorized a printable K alongside the preserved J, and requested K
+be committed and pushed before any further exploration. Existing agreement:
+five cards, PETG, 0.4 mm nozzle, 0.2 mm layers, two walls and 7% adaptive cubic;
+no hardware. Keep the G hood, H sockets and accepted I number 3 key unchanged.
+
+Architecture screen: use the swatch's existing spherical **recess**, rather
+than add a new card feature, part or lock. The broad panel remains centered at
+X=0 with 40 mm width. The dome is at X=16 mm, 14 mm above the seated floor, so
+its contact is necessarily off-center. K's detailed/domed card face points
+toward the positive-Y follower; J's broad contact faces the plain back.
+The old centered J contact remains available as the direct comparison.
+
+The SCAD subtracts an 8 mm sphere centered 8 mm from the back of a nominal 2 mm
+card. A central plug would load a theoretically zero-thickness spot: reject it.
+K instead has two rounded 1.8 mm-radius noses, internally tangent to the bowl
+at 4.4 mm radial shoulder positions. The source leaves about 1.32 mm of card
+material at these nominal contact points. A spherical backing stays clear of
+the card center. These supported noses avoid the thin edges of the initial
+annular lip. The follower has 0.25 mm nominal coordinate-Y spring travel when
+seated. This is positive
+preload, not a clearance fit; it cannot promise zero creep. The panel is 0.8 mm
+thick. Passage over the flat face needs 1.23 mm nominal travel, or 1.43 mm for
+a 2.2 mm screening card. Rear flex-space is 2.4 mm; this accommodates amplified
+upper-panel motion rather than just translating the contact by its tip travel.
+The 1.8–2.2 mm interval is an assumed design envelope, not measured printer error.
+
+Development checks caught two consequential defects before handoff: an
+upper-only entry ramp allowed initial upward card travel without increasing
+spring motion; extending the catch over the side shoulders restores the
+geometric lift catch. Moving that ramp downward then left its bottom ahead of
+its carrier; extending the carrier down to the ramp base addresses the hanging
+ledge. The carrier stays clear of the actual spherical card. Neither issue
+was attributed to generic printer tolerance.
+
+Native diagnosis then found local lip strain above the provisional 1.5% screen
+and upper-panel motion greater than the original rear allowance. One run
+completed natively but failed contact quality; the backed run completed with
+acceptable penetration yet exceeded the strain and displacement screens.
+Neither is physical validation or proof of actual PETG failure. Both local
+fixtures are retained as rejected design screens, not passed K evidence.
+Two earlier incomplete solves were deliberately stopped when CAD changed;
+these were investigation stops, not convergence failures. Rounded internal-
+tangent noses replace the lip and the rear relief is increased from 3.9 to
+4.5 mm. The larger noses later required another 0.1 mm rear space
+(final rear Y=4.6 mm),
+keeping 0.8 mm of separator before the next card datum. The gap is room
+for elastic passage, not clearance at the seated card
+or shared key interface. The 0.8 mm-radius round noses passed the coarse strain
+screen (1.40%) but
+failed it on the finer mesh (1.86%); force changed only 0.95%. This changed
+the design decision despite stable overall force. Enlarge the contact spheres
+to 1.8 mm radius and trim their rear at the carrier plane and outer flank
+inside the existing X relief. The contact points stay on the same 4.4 mm
+shoulder and seated travel stays 0.25 mm. The carrier lead increases from
+1.2 to 2.1 mm to support their lower extent. A first untrimmed union was invalid
+CAD and was rejected before either solver started; it is not a solver or
+material failure. The remaining separator thickness is 0.8 mm before
+the next rigid card datum; this suits the agreed two-wall starting setup.
+
+Verification plan and stop rule: the actual off-center plate is pressed by a
+rigid flat face through the 2.2 mm card's worst nominal passage and unloaded,
+using the shared `SnapFitQuestion` Gmsh/CalculiX route. E=1200 MPa, nu=0.38 and
+homogeneous solid PETG are explicit uncalibrated assumptions; the provisional
+short-term strain screen is 1.5%. The fixture does not solve the full vertical
+card/dome/friction path, flexible card, complete-base compliance or creep.
+Require native force balance, penetration below 0.02 mm, final contact freedom,
+elastic return within 0.0001 mm and the supplied motion-space screens. Compare
+0.8 and 0.65 mm meshes on frozen geometry because the first passing strain is
+near the provisional limit. Stop numerical refinement when both pass and force
+changes less than 10%; state the observed strain sensitivity instead of calling
+it converged or treating 1.5% as a measured PETG limit. Revisit geometry if the
+finer result changes the provisional design decision.
+
+[CAD checks](dome_study_checks.json) cover positive seated preload, carrier/center
+clearance, actual spherical seat contact after 0.25 mm movement, a 1 mm lift
+requiring more follower movement, rear passage space, five nominal seated cards,
+88 reflected J rigid funnel poses and mixed K/J mates. The remaining rigid
+interfaces match outside the card-panel regions. The accepted key retains four
+preloaded pads, its entry space and hood-covered escape. Inspection geometry
+includes real-pocket reference cards and only K's changed use relationship;
+printable geometry selects the base alone. The contact spheres grow from their
+shaped backing, the backing/carrier grows from the vertical panel, and inherited
+exterior rounding plus a 0.2 mm panel-top fillet treat handling edges.
+
+[Final K STEP/STL and reference review](cap_k_review.json) completed with
+OrcaSlicer 2.4.2, the agreed PETG .4/.2/two-wall/7%-adaptive-cubic diagnostic
+profiles, preserved placement, no notices and no generated automatic supports.
+This is STL slicing, not a check of Orca GUI STEP import. J, G and I artifacts
+are unchanged and their relevant evidence is reused. Two tiny support-interface
+layers in an earlier lip slice were located by reusing the existing
+sunglasses-case path reader after omitting its relative-coordinate start G-code;
+the current geometry no longer triggers the support probe. The ordinary final
+panel paths were not separately audited; homogeneous material/fill/layer bonding
+remain assumptions, not calibrated facts.
+
+The next physical comparison is one J and one K full five-card base, two unchanged
+G hoods and the already printed I key 3. Full bases preserve panel/root, guide,
+hood and socket surroundings that another small coupon would omit. Try one,
+three and five real swatches; compare four-direction entry, final seating,
+front/back and lateral steadiness, comfortable deliberate withdrawal and hood
+operation while joined. K's dome face points toward its follower; J's plain
+back faces its panel. Compare grip after several days seated and recovery after
+removal. Revise the affected contact if it binds, rocks, visibly damages the dome
+or takes a set. Complete use and dwell remain unreported; none of the virtual
+checks establish printed success or years of storage.
+
+[Current local mechanics record](cap_k_physics.json): both 0.8 and 0.65 mm
+meshes passed the current strain and movement screens after identity-checked
+reinterpretation for the final rear gap. Predicted peak normal forces are about
+2.59 and 2.55 N; peak strain is about 1.026% and 1.031%. Force changes 1.47%
+and strain 0.44%; this satisfies the chosen stopping rule, without a claim of
+exact convergence or calibrated material behavior. The largest sampled crown
+Y movement is about 2.26 mm, leaving room in the 2.4 mm stem rear space.
+
+Native archives retain their original former-space question outcomes. Increasing
+only the base rear relief by 0.1 mm does not change the analysed spring, wall,
+root fixture or loading. The shared evidence guard verified those native inputs
+before interpreting the saved fields against the actual revised space; no
+solver was rerun for that change. The final CAD checks and exports/slice cover
+the revised complete base. This reuse is a concrete workflow saving.
+
+K is delivered as a printable full-base comparison; physical product acceptance
+remains pending. J sources/exports, the G hood and I keys remain unchanged.
+
+
+Workflow reflection: existing CadQuery booleans, shared beam screens, the
+`SnapFitQuestion` contact/return route, evidence guards and paired evaluator
+exports/slicing answered these questions without a new shared framework. The
+CAD consumer fixture and actual off-center plate belong to this object. The
+transferable lesson is to check the whole spring's motion against its space and
+local nose behavior when a simple beam idealization is insufficient. Existing
+shared displacement observations already support that; a geometry-independent
+helper is only worthwhile if another consumer needs repeated setup or extraction.

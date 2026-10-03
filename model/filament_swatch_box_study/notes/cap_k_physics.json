@@ -1,0 +1,61 @@
+{
+  "scope": "Current K actual off-center spring normal flat-face passage and return, through a 2.2 mm screening card. Not full vertical card/dome/friction insertion or creep.",
+  "setup": "PETG .4 mm nozzle/.2 mm layers, two walls, 7% adaptive cubic. Effective homogeneous isotropic E=1200 MPa, nu=.38, provisional 1.5% short-term strain screen; uncalibrated.",
+  "results": [
+    {
+      "mesh_mm": 0.8,
+      "archive": "notes/cap_k_evidence/broad_noses_coarse",
+      "native_status": "completed",
+      "current_question_adequate": true,
+      "current_question_screen": true,
+      "peak_normal_force_N": 2.5926193599996035,
+      "peak_strain": 0.010263422511751759,
+      "peak_strain_location_mm": [
+        19.864540888924545,
+        1.5003981450448922,
+        4.251765033931217
+      ],
+      "max_penetration_mm": 0.005333056,
+      "elastic_return_error_mm": 1.139227e-05,
+      "maximum_observed_crown_y_travel_mm": 2.262271,
+      "case_sha256": "2479c33dbc6fe50d44c43e4d58256c4dcc82723f754578bc080f4b72926e6c61",
+      "input_sha256": "2c2adf415c10849e96c264b6d3fbee4ccfb406d0d05c96032f5a3e96c2963b2a"
+    },
+    {
+      "mesh_mm": 0.65,
+      "archive": "notes/cap_k_evidence/broad_noses_fine",
+      "native_status": "completed",
+      "current_question_adequate": true,
+      "current_question_screen": true,
+      "peak_normal_force_N": 2.5544594899996067,
+      "peak_strain": 0.01030824112943854,
+      "peak_strain_location_mm": [
+        19.85431167922343,
+        1.4994790774651579,
+        3.2625613620033853
+      ],
+      "max_penetration_mm": 0.005405208,
+      "elastic_return_error_mm": 1.162322e-05,
+      "maximum_observed_crown_y_travel_mm": 2.261737,
+      "case_sha256": "ab9173f56f380347556184562319384b2bd9504aaa0194eef96020dd5de8ec94",
+      "input_sha256": "fe69672983aa85c243c1bb1d494ab52ed46d96c17b49302ec08917205091def7"
+    }
+  ],
+  "relative_force_change": 0.014718655036195738,
+  "relative_strain_change": 0.004366829645321868,
+  "current_stem_rear_space_mm": 2.3999999999999995,
+  "clearance_margin_screen_mm": 0.05,
+  "reinterpretation": "Raw native archives retain the former 2.25 mm crown-travel screen. The base rear relief changed from Y=4.5 to 4.6 mm, giving the current 2.35 mm acceptance screen within 2.4 mm rear space. The native spring geometry, selections, loading, mesh and numerical settings are unchanged and read_evidence verified their identities before interpreting saved fields against this new space. No solve was rerun for the base-space change.",
+  "limits": [
+    "No calibrated material/fill/layer properties",
+    "No complete base-compliance solve",
+    "No full dome entry/exit, friction, flexible card or card-damage solve",
+    "No creep, fatigue, measured grip/force, printed recovery or continuous collision guarantee",
+    "Mesh comparison only; independent increment/penalty sensitivity not run"
+  ],
+  "sources_sha256": {
+    "analyze_cap_k.py": "3d752fb8cd787ca1f9ed18f7f4d6b0698254592db8d3f972fa7fcc05934fafa8",
+    "dome_latch_study.py": "567b2982ed81a677a2b2cb1d0e6c48e416fb0c19a71b38a8e123f2aea7e0117b",
+    "cap_k_base_5.py": "5fe218f7b1c8a40422df30f637632a3939d5501466a44178d92f8ac0f133332f"
+  }
+}
