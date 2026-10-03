@@ -1,0 +1,1261 @@
+{
+  "sections": [
+    {
+      "number": 1,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7997310647645008,
+        "uncovered_width_mm": 0.0002689352354992014,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497310647645008,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7999859861637354,
+        "uncovered_width_mm": 1.4013836264648027e-05,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6499859861637354,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 1,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7997310647645008,
+        "uncovered_width_mm": 0.0002689352354992014,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497310647645008,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7999859861637354,
+        "uncovered_width_mm": 1.4013836264648027e-05,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6499859861637354,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7996541364703115,
+        "uncovered_width_mm": 0.0003458635296885726,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6496541364703114,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 2,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7997166560076636,
+        "uncovered_width_mm": 0.0002833439923364267,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076636,
+            0.15
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996525382656772,
+        "uncovered_width_mm": 0.00034746173432287364,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.649654136470304,
+            0.14999840179537313
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7997294665598665,
+        "uncovered_width_mm": 0.00027053344013350245,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497310647644934,
+            0.14999840179537313
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.799643347512609,
+        "uncovered_width_mm": 0.0003566524873910293,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076597,
+            0.14992669150494925
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        -1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7999126776686809,
+        "uncovered_width_mm": 8.732233131913958e-05,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6499859861637316,
+            0.14992669150494925
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996525382656772,
+        "uncovered_width_mm": 0.00034746173432287364,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.649654136470304,
+            0.14999840179537313
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7996525382656772,
+        "uncovered_width_mm": 0.00034746173432287364,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.649654136470304,
+            0.14999840179537313
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.799643347512609,
+        "uncovered_width_mm": 0.0003566524873910293,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076597,
+            0.14992669150494925
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        -1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.799643347512609,
+        "uncovered_width_mm": 0.0003566524873910293,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076597,
+            0.14992669150494925
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996525382656772,
+        "uncovered_width_mm": 0.00034746173432287364,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.649654136470304,
+            0.14999840179537313
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7996525382656772,
+        "uncovered_width_mm": 0.00034746173432287364,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.649654136470304,
+            0.14999840179537313
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.799643347512609,
+        "uncovered_width_mm": 0.0003566524873910293,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076597,
+            0.14992669150494925
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        1,
+        -1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.799643347512609,
+        "uncovered_width_mm": 0.0003566524873910293,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076597,
+            0.14992669150494925
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.7996525382656772,
+        "uncovered_width_mm": 0.00034746173432287364,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.649654136470304,
+            0.14999840179537313
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 0.7,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.7996525382656772,
+        "uncovered_width_mm": 0.00034746173432287364,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.649654136470304,
+            0.14999840179537313
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 1.2,
+      "arm": {
+        "filled_width_mm": 0.799643347512609,
+        "uncovered_width_mm": 0.0003566524873910293,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076597,
+            0.14992669150494925
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "number": 3,
+      "side": [
+        1,
+        1
+      ],
+      "station_mm": 2.5,
+      "z_mm": 2.4,
+      "arm": {
+        "filled_width_mm": 0.799643347512609,
+        "uncovered_width_mm": 0.0003566524873910293,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -0.6497166560076597,
+            0.14992669150494925
+          ]
+        ]
+      },
+      "relief": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.5,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    }
+  ],
+  "profile": {
+    "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+    "process": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json",
+    "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
+  },
+  "slicer_version": "2.4.2",
+  "gcode_sha256": "4a609e26efd7d7438e651dc57ad33c811086a4aebc911a072ff2e353ba56b321",
+  "stl_sha256": "71555da98a0589551e476d92a4364ee16dc1c08abfd474a676e4ef18cf19c407",
+  "scope": "Registered local arm sections, recorded-width capsule approximation; not measured polymer, isotropy, bonding or strength. Gap middle excludes 0.1 mm edge margins."
+}

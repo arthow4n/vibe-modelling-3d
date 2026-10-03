@@ -1,0 +1,207 @@
+{
+  "original_H": {
+    "preload_present": false,
+    "spring_travel_mm": 0.0,
+    "normal_force_N": 0.0,
+    "friction_retention_N": 0.0,
+    "retention_screen_passes": false,
+    "assumptions": "Equal linear elastic contacts; no other retaining force or external normal load. Friction is an assumed Coulomb capacity along a sliding contact, not a full insertion/release force, creep, wear or printed validation."
+  },
+  "variants": [
+    {
+      "number": 1,
+      "pad_projection_mm": 0.3,
+      "seated_seam_gap_mm": 0.0,
+      "nominal_normal_interference_mm": 0.09999999999999998,
+      "grip_screen": {
+        "preload_present": true,
+        "spring_travel_mm": 0.09999999999999998,
+        "normal_force_N": null,
+        "friction_retention_N": null,
+        "retention_screen_passes": null,
+        "assumptions": "Equal linear elastic contacts; no other retaining force or external normal load. Friction is an assumed Coulomb capacity along a sliding contact, not a full insertion/release force, creep, wear or printed validation."
+      },
+      "contacts": [
+        {
+          "side": [
+            -1,
+            -1
+          ],
+          "relaxed_overlap_mm3": 0.1427174639784844
+        },
+        {
+          "side": [
+            -1,
+            1
+          ],
+          "relaxed_overlap_mm3": 0.14271746397848695
+        },
+        {
+          "side": [
+            1,
+            -1
+          ],
+          "relaxed_overlap_mm3": 0.14271746397848703
+        },
+        {
+          "side": [
+            1,
+            1
+          ],
+          "relaxed_overlap_mm3": 0.1427174639784844
+        }
+      ],
+      "single_connected_key": true,
+      "lead_in_clear": true,
+      "solid_core_clear": true,
+      "full_mouth_clear": true,
+      "hood_seating_clear": true,
+      "required_space_envelope_clear": true,
+      "closed_hood_covers_escape": true,
+      "lift_and_withdraw_clear": true,
+      "beam_idealization": {
+        "force_N": 0.6344572462084457,
+        "tip_displacement_mm": 0.09999999999999998,
+        "stiffness_N_mm": 6.344572462084458,
+        "root_strain": 0.006341656757827984,
+        "fixed_free_euler_buckling_N": 22.699177356871928,
+        "small_deflection_applicable": false,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      },
+      "beam_force_not_qualified": true
+    },
+    {
+      "number": 2,
+      "pad_projection_mm": 0.35,
+      "seated_seam_gap_mm": 0.0,
+      "nominal_normal_interference_mm": 0.14999999999999997,
+      "grip_screen": {
+        "preload_present": true,
+        "spring_travel_mm": 0.14999999999999997,
+        "normal_force_N": null,
+        "friction_retention_N": null,
+        "retention_screen_passes": null,
+        "assumptions": "Equal linear elastic contacts; no other retaining force or external normal load. Friction is an assumed Coulomb capacity along a sliding contact, not a full insertion/release force, creep, wear or printed validation."
+      },
+      "contacts": [
+        {
+          "side": [
+            -1,
+            -1
+          ],
+          "relaxed_overlap_mm3": 0.2626290960854576
+        },
+        {
+          "side": [
+            -1,
+            1
+          ],
+          "relaxed_overlap_mm3": 0.2626290960854602
+        },
+        {
+          "side": [
+            1,
+            -1
+          ],
+          "relaxed_overlap_mm3": 0.26262909608546015
+        },
+        {
+          "side": [
+            1,
+            1
+          ],
+          "relaxed_overlap_mm3": 0.2626290960854575
+        }
+      ],
+      "single_connected_key": true,
+      "lead_in_clear": true,
+      "solid_core_clear": true,
+      "full_mouth_clear": true,
+      "hood_seating_clear": true,
+      "required_space_envelope_clear": true,
+      "closed_hood_covers_escape": true,
+      "lift_and_withdraw_clear": true,
+      "beam_idealization": {
+        "force_N": 0.9516858693126685,
+        "tip_displacement_mm": 0.14999999999999997,
+        "stiffness_N_mm": 6.344572462084458,
+        "root_strain": 0.009512485136741975,
+        "fixed_free_euler_buckling_N": 22.699177356871928,
+        "small_deflection_applicable": false,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      },
+      "beam_force_not_qualified": true
+    },
+    {
+      "number": 3,
+      "pad_projection_mm": 0.4,
+      "seated_seam_gap_mm": 0.0,
+      "nominal_normal_interference_mm": 0.2,
+      "grip_screen": {
+        "preload_present": true,
+        "spring_travel_mm": 0.2,
+        "normal_force_N": null,
+        "friction_retention_N": null,
+        "retention_screen_passes": null,
+        "assumptions": "Equal linear elastic contacts; no other retaining force or external normal load. Friction is an assumed Coulomb capacity along a sliding contact, not a full insertion/release force, creep, wear or printed validation."
+      },
+      "contacts": [
+        {
+          "side": [
+            -1,
+            -1
+          ],
+          "relaxed_overlap_mm3": 0.4035511467146191
+        },
+        {
+          "side": [
+            -1,
+            1
+          ],
+          "relaxed_overlap_mm3": 0.4035511467146233
+        },
+        {
+          "side": [
+            1,
+            -1
+          ],
+          "relaxed_overlap_mm3": 0.40355114671462317
+        },
+        {
+          "side": [
+            1,
+            1
+          ],
+          "relaxed_overlap_mm3": 0.4035511467146187
+        }
+      ],
+      "single_connected_key": true,
+      "lead_in_clear": true,
+      "solid_core_clear": true,
+      "full_mouth_clear": true,
+      "hood_seating_clear": true,
+      "required_space_envelope_clear": true,
+      "closed_hood_covers_escape": true,
+      "lift_and_withdraw_clear": true,
+      "beam_idealization": {
+        "force_N": 1.2689144924168918,
+        "tip_displacement_mm": 0.20000000000000004,
+        "stiffness_N_mm": 6.344572462084458,
+        "root_strain": 0.012683313515655973,
+        "fixed_free_euler_buckling_N": 22.699177356871928,
+        "small_deflection_applicable": false,
+        "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+      },
+      "beam_force_not_qualified": true
+    }
+  ],
+  "bases_butt_without_overlap": true,
+  "inputs_sha256": {
+    "cap_i_grip_keys.py": "2b0706fe0011014e0ddfec45706201aa3e309722513847d4dd85ec906b7994a0",
+    "check_cap_i.py": "75f599306d9965eae9bb3a4c51d52ea76de458c92fbfb4b8e66894d3fa37897a",
+    "cap_h_module_5.py": "a73adf2ae5e8ac6e2ae206b7d2515194d7c1eef78b9d7ca8d2c0449dedcb355e",
+    "cap_g_module_5.py": "5dfb2f0b03c2b5b3f545166898a291c742d9fcc8204675a9036de7b2a76ffc91",
+    "cap_e_thin_5.py": "50026143c82f329a000de9bc484a95f9e0c2fb1a9d28ea757bbc5314bb5ed32a"
+  },
+  "scope": "Real H CAD contact and required-space screens. Relaxed overlap is intentional. Space envelope is not a nonlinear contact solution. Actual fit/holding/creep unprinted."
+}

@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_connector_i.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "top",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/cap_i_connector/inspect_connector_i_top.png",
+      "camera": {
+        "from_direction": [
+          0,
+          0,
+          1
+        ],
+        "up_direction": [
+          0,
+          1,
+          0
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "build": 17.59854741000163,
+    "total": 21.081501859007403
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  }
+}

@@ -1,9 +1,10 @@
 # Filament swatch box — thin press-on hood
 
-**New deliverable: H, a broader connector without G's long handle.**
-Previous versions are preserved. The user finds G's projecting arm unnecessary
-for modules that usually remain joined. H changes the pockets and key, retaining
-the compact five-card footprint and the existing G hood. No H print is reported.
+**I replacement-key trial: print three small keys and reuse the printed H blocks.**
+The H connector sample was printed in PETG and rejected: its rigid clearanced
+bow tie falls out and does not grip. I adds deliberate spring preload; CAD,
+local contact calculations and the reference slice passed, but the revised grip
+has not been physically tested. Previous versions remain available.
 
 ## Requirements to preserve
 
@@ -23,16 +24,55 @@ the compact five-card footprint and the existing G hood. No H print is reported.
 Reusable form preferences are maintained in the
 [design preference reference](../../.codex/skills/cadquery-3d-design/references/user-preferences.md).
 Exact dimensions, artifact compatibility and physical results remain here and
-in the linked object records. The user plans to print the latest variant soon;
-this is a plan, with no completed print or result reported.
+in the linked object records. The H connector sample has been printed and rejected
+for excessive looseness; the complete H modules remain unreported.
+
+## I — preloaded replacement keys for H
+
+- [Three numbered keys, STEP](cap_i_grip_keys.step), [matching STL](cap_i_grip_keys.stl), [source](cap_i_grip_keys.py).
+- Reuse the two already printed **H** connector-test blocks. These keys are not for G pockets.
+
+Hold the blocks with their end faces **touching, with no deliberate seam gap**.
+Print the keys flat, numbers up, in PETG with a 0.4 mm nozzle, 0.2 mm layers,
+two walls and 7% adaptive cubic. Start with **1**, then try **2** or **3** if
+needed. Press vertically until the key reaches the pocket floor. Choose the
+lowest number that seats with a firm hand press, takes up play, stays joined
+when gently turned and handled, and can be deliberately lifted at the existing
+nail recesses. Stop if it will not seat, requires tools, cracks or leaves bent
+arms. Only the keys need a new print; wait for this result before printing a
+complete revised module.
+
+![Three replacement keys, numbered from least to most preload](renders/cap_i_keys/cap_i_grip_keys_top.png)
+
+The core has 0.05 mm nominal normal clearance. Four integral 0.8 mm spring arms
+with rounded pads supply seated normal interference of **0.10 / 0.15 / 0.20 mm**
+for keys 1 / 2 / 3. The pads ramp in over 0.8 mm vertically. There is no projecting
+handle and the H pockets and G hood stay unchanged. The zero-gap seam matters:
+closing a 0.3 mm seam would consume about 0.117 mm of normal preload.
+
+![I key seated in touching H base ends](renders/cap_i_connector/inspect_connector_i_top.png)
+
+[CAD checks](notes/cap_i_checks.json) cover four intended contact pads, entry,
+release and hood clearance/escape coverage. [Local contact evidence](notes/cap_i_physics.json)
+models one actual arm under an explicit, uncalibrated effective-solid PETG
+assumption. Its force comparison changed 0.48% with finer mesh; peak strain
+changed 15.4%, so strain is not precisely converged. Both meshes remained below
+the provisional 1.5% screen; this supports a fit trial, not a strength rating.
+[Reference slice](notes/cap_i_review.json) completed with no notices or generated
+supports. [Sampled arm paths](notes/cap_i_paths.json) support the solid-section
+assumption only; they do not establish printed material properties. Actual
+retention force, release effort, recovery, dwell and joined carrying remain
+unqualified. [Design record](notes/cap_comparison.md#i--preloaded-replacement-key-experiment).
 
 ## H — connector without a handle
+
+**Historical failed connector sample. Use the I replacement-key trial above.**
 
 - [Small connector test, STEP](cap_h_connector_test.step), [STL](cap_h_connector_test.stl).
 - [One base, G hood and key, STEP](cap_h_module_5.step), [STL](cap_h_module_5.stl), [source](cap_h_module_5.py).
 - Separate [H base STEP](cap_h_base_5.step), [H key STEP](cap_h_key.step), with matching same-name STLs. The [unchanged G hood](cap_g_hood_5.step) is compatible.
 
-The new key is **16 × 6.7 × 3.4 mm**, with an 8 mm waist. The long arm and its
+The original H key is **16 × 6.7 × 3.4 mm**, with an 8 mm waist. The long arm and its
 foot channel are gone; nothing projects from the side. The deeper head needs a
 straight-sided entry notch in the base wall, visible when the hood is removed.
 The notch is beyond the last card clip relief. Foot depth remains 44.8 mm and
@@ -60,7 +100,8 @@ require the complete pair. Never infer whole-product success from the sample.
 
 [CAD checks](notes/cap_h_checks.json) cover full-base entry, a lifted-base release
 path, hood clearance/coverage and nominal nail-tip access. [Reference slices](notes/cap_h_review.json)
-cover the final layouts; fit, force, nail comfort and strength remain unprinted.
+cover the original layouts. The printed H sample failed retention; nail comfort,
+strength and full-module handling remain unqualified.
 This is a desk-supported storage proof, with no joined carrying rating.
 [Design record](notes/cap_comparison.md#h--wider-connector-without-a-handle).
 
@@ -547,13 +588,23 @@ evidence; they did not qualify hood bulk or hand comfort. Release force, loaded
 retention and durability remain unreported. Exact printed files and settings
 are still unconfirmed; PETG is confirmed for the proposed translucent variant.
 
+The H connector sample was reported printed in PETG on 2026-10-03. The user says
+the bow tie falls out and nothing grips or joins: this is a physical retention
+failure, beyond small wobble. H deliberately used 0.2 mm normal clearance and no
+preloading feature; that CAD fact does not establish the actual printed gap or
+identify a printer/material defect. Exact printed artifacts, dimensions and
+settings are unconfirmed. The full H module is not qualified by earlier rigid
+capture or clean slice checks. Preserve H as failed-fit evidence and test a
+preloaded replacement key before revising dependent full-module deliverables.
+
 The table preserves completed physical trial reports and distinguishes them
 from other unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test — H connector without handle | Unknown — no print report | `cap_h_connector_test.step/.stl` | Larger head and nail recesses; actual insertion, relative-base lift and occasional removal need printing. No tall wall/hoods represented by sample |
-| Test — H complete five-card module | Unknown — no print report | `cap_h_module_5.step/.stl`, `cap_h_base_5.step/.stl`, `cap_h_key.step/.stl`; unchanged G hood | CAD checks passed; new entry notch, whole-base stiffness, comfort and retention remain physical questions. Desk-supported only |
+| Test — I replacement keys in printed H blocks | Unknown — no print report | `cap_i_grip_keys.step/.stl` | CAD, local normal-contact screens and reference slice passed; actual fit, grip, release, recovery and dwell untested. Three keys only; no complete revised module |
+| Test — H connector without handle | Yes — PETG sample reported printed; exact files/settings unconfirmed | `cap_h_connector_test.step/.stl` | Failed: bow tie falls out, excessive space and no useful grip/join. Rigid CAD/slice passes did not establish retention. No tall wall/hoods represented by sample |
+| Test — H complete five-card module | Unknown — no print report | `cap_h_module_5.step/.stl`, `cap_h_base_5.step/.stl`, `cap_h_key.step/.stl`; unchanged G hood | Original rigid CAD checks passed; H sample joining failed. Complete-module stiffness, comfort and carrying remain unqualified |
 | Test — G modular connector | Unknown — no print report | `cap_g_connector_test.step/.stl` | Actual end geometry; vertical fit, planar play and removal await the small trial. No hood restraint or full-module stiffness represented |
 | Test — G compact five-card module | Unknown — no print report | `cap_g_module_5.step/.stl`, `cap_g_base_5.step/.stl`, `cap_g_hood_5.step/.stl`, `cap_g_key.step/.stl` | CAD/reference slices passed; reduced frame, card grip, hood seating/release and joined handling untested. Desk-supported proof only |
 | Test — F flush hood with E five-card base | No — user explicitly has not printed it yet | `cap_f_flat_5.step/.stl`, `cap_f_hood_5.step/.stl`, unchanged `cap_e_base_5.step/.stl` | User prefers appearance and keeps this version; CAD/reference slices passed. Comfort, thin-shell feel, fit/seam contact, optics and retention need the complete trial |

@@ -1,0 +1,68 @@
+{
+  "scope": "Actual single cropped I arm clamped at core, rigid normal flat-wall compression/unloading; no full-key sliding/friction, coupled four-arm body, insertion force or printed holding rating.",
+  "assumptions": {
+    "material": "Effective homogeneous isotropic PETG",
+    "E_MPa": 1200,
+    "poisson": 0.38,
+    "provisional_strain_limit": 0.015,
+    "printed_calibration": false,
+    "manufacturing": "Flat, 0.4 mm nozzle, 0.2 mm layers, 2 walls, 7% adaptive cubic; local arm coverage inspected, not isotropy/bonding validation"
+  },
+  "results": [
+    {
+      "archive": "key_1",
+      "number": 1,
+      "mesh_mm": 0.3,
+      "normal_preload_mm": 0.1,
+      "force_per_modelled_arm_N": 0.5722884990961439,
+      "peak_strain": 0.006675338249668782,
+      "identity_checked": true,
+      "numerical_evidence_adequate": true,
+      "conditional_design_screen_passes": true
+    },
+    {
+      "archive": "key_2",
+      "number": 2,
+      "mesh_mm": 0.3,
+      "normal_preload_mm": 0.15,
+      "force_per_modelled_arm_N": 0.8626585737574394,
+      "peak_strain": 0.009562604324743058,
+      "identity_checked": true,
+      "numerical_evidence_adequate": true,
+      "conditional_design_screen_passes": true
+    },
+    {
+      "archive": "key_3",
+      "number": 3,
+      "mesh_mm": 0.3,
+      "normal_preload_mm": 0.2,
+      "force_per_modelled_arm_N": 1.1543132890013892,
+      "peak_strain": 0.012348601904861738,
+      "identity_checked": true,
+      "numerical_evidence_adequate": true,
+      "conditional_design_screen_passes": true
+    },
+    {
+      "archive": "key_3_fine",
+      "number": 3,
+      "mesh_mm": 0.25,
+      "normal_preload_mm": 0.2,
+      "force_per_modelled_arm_N": 1.1487429913415261,
+      "peak_strain": 0.014251183059753954,
+      "identity_checked": true,
+      "numerical_evidence_adequate": true,
+      "conditional_design_screen_passes": true
+    }
+  ],
+  "mesh_comparison": {
+    "force_relative_change": 0.004825637643556924,
+    "strain_relative_change": 0.15407259619756264,
+    "decision": "Both below provisional strain screen; force stable, local peak strain still mesh sensitive. First physical fit trial only."
+  },
+  "diagnostics": {
+    "sharp_pad_prescribed_diagnostic": "Completed but strain rejected; sharp geometry and prescribed local pad motion differ from final contact fixture. No single-cause attribution.",
+    "spaced_key_fine_rejected": "Earlier 0.3 mm-seam geometry completed but finer-mesh strain exceeded provisional 1.5%; not final I geometry.",
+    "fine_runtime_stop": "180-second execution timeout, not native convergence failure. Extended diagnostic completed separately."
+  },
+  "physical_status": "Unprinted; actual grip, release effort, recovery and dwell unknown."
+}

@@ -1,0 +1,159 @@
+{
+  "name": "I_arm_2",
+  "nonlinear": true,
+  "max_increment": 0.1,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "4ba1b1c094dbd04bb97d117773f806783bc486837739f8ee01f1c0f1f5a2c3b0",
+      "material": {
+        "name": "PETG screening assumption",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus, not measured filament data. Use sensitivity studies and calibrate against the actual print.",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 0.3
+    },
+    {
+      "name": "pocket_wall",
+      "geometry": "part_1.brep",
+      "sha256": "0db109f03a158bc7c3c1f881e6317e897315f834935c5b102a82b85abfc375b2",
+      "material": {
+        "name": "PETG screening assumption",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus, not measured filament data. Use sensitivity studies and calibrate against the actual print.",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 0.3
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -1.2,
+            -0.6,
+            -0.01
+          ],
+          "upper": [
+            -0.55,
+            2.1,
+            3.41
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "pocket_wall",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0.19999999999999996,
+        0
+      ],
+      "name": "drive",
+      "progress": [
+        [
+          0,
+          0
+        ],
+        [
+          0.5,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  ],
+  "loads": [],
+  "contacts": [
+    {
+      "slave": {
+        "part": "part",
+        "region": {
+          "lower": [
+            3.1,
+            -0.6,
+            -0.01
+          ],
+          "upper": [
+            5.35,
+            0.16,
+            3.41
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "pocket_wall",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 5000,
+      "penetration_limit_mm": 0.02,
+      "discretization": "surface_to_surface"
+    }
+  ],
+  "observations": [
+    {
+      "name": "pad",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            4.2299999999999995,
+            -0.36,
+            1.0
+          ],
+          "upper": [
+            4.47,
+            -0.29,
+            3.41
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}

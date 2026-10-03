@@ -3,6 +3,41 @@ import math
 from .case import positive
 
 
+def elastic_friction_grip(*, interference_mm, contact_count=1, stiffness_N_mm=None,
+                          friction_coefficient=None, required_retention_N=None):
+    """Screen a friction-only elastic grip before meshing or printing.
+
+    Interference is signed, in the contact normal direction: negative means a
+    gap; positive requires elastic compression. No external normal load, hook,
+    magnet, gravity restraint or wedge/cam contribution is included. Unknown
+    stiffness/friction stays unknown. Nonzero preload alone is not validation.
+    """
+    if not math.isfinite(interference_mm):
+        raise ValueError('Interference must be finite')
+    if isinstance(contact_count, bool) or not isinstance(contact_count, int) or contact_count <= 0:
+        raise ValueError('Contact count must be a positive integer')
+    for name, value in (('stiffness_N_mm', stiffness_N_mm),
+                        ('required_retention_N', required_retention_N)):
+        if value is not None:
+            positive(value, name)
+    if friction_coefficient is not None and (not math.isfinite(friction_coefficient)
+                                             or friction_coefficient < 0):
+        raise ValueError('Friction coefficient must be finite and nonnegative')
+    travel = max(0., interference_mm)
+    normal = 0. if not travel else (None if stiffness_N_mm is None
+                                    else contact_count * stiffness_N_mm * travel)
+    retention = 0. if not travel or friction_coefficient == 0 else (
+        None if normal is None or friction_coefficient is None else normal * friction_coefficient)
+    passes = False if retention == 0 else (
+        None if retention is None or required_retention_N is None else retention >= required_retention_N)
+    return dict(preload_present=travel > 0, spring_travel_mm=travel,
+                normal_force_N=normal, friction_retention_N=retention,
+                retention_screen_passes=passes,
+                assumptions='Equal linear elastic contacts; no other retaining force or external normal load. '
+                            'Friction is an assumed Coulomb capacity along a sliding contact, not a full '
+                            'insertion/release force, creep, wear or printed validation.')
+
+
 def rectangular_cantilever(*, length_mm, width_mm, thickness_mm, youngs_modulus_MPa,
                            tip_force_N=None, tip_displacement_mm=None):
     """Euler–Bernoulli end-loaded cantilever; not a complete snap-force model."""

@@ -38,6 +38,15 @@ owned by [AGENTS.md](../../../../AGENTS.md). Reuse that source instead of keepin
 a second settings table here. Fully printed is a swatch-box requirement, not a
 repository-wide ban on the user's available hardware.
 
+For joining interfaces, the user expects firm seated connection, rather than a
+loosely captured alignment key. Entry clearance must be justified separately
+from final play and retention. They report that their printer is generally very
+precise; do not assume poor accuracy or add generous generic FDM allowances.
+That report is not a numerical tolerance calibration. Use the actual interface
+role, deliberate contact/preload and measured feedback to choose allowances.
+The printed [H sample failure](../../../../model/filament_swatch_box_study/README.md#physical-history-and-print-status)
+was a loose, unpreloaded connection, not an established printer defect.
+
 ## Updating this record
 
 Record a repeated or explicit preference with its use context and a link to the

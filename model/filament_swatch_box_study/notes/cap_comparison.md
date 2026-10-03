@@ -624,6 +624,13 @@ report exists for G; F is preserved and explicitly not printed yet.
 
 ## H — wider connector without a handle
 
+**Later physical result, 2026-10-03:** the PETG connector sample failed. Its key
+falls out and there is no useful grip/join. The original handoff below records
+rigid geometry and slice evidence, not qualified retention; see the
+[physical history](../README.md#physical-history-and-print-status). The intended
+0.2 mm normal clearance with no preload supplied no designed side friction.
+This was a design omission, not an established printer-accuracy problem.
+
 The user finds G's long arm unnecessary for modules that usually stay joined,
 and suggests exploring a larger bow tie. This is form feedback before any
 reported G print: retain G, but its prior fit/slice checks do not establish that
@@ -690,3 +697,77 @@ These are workflow observations, not new physical validation. The guidance lives
 in [AGENTS.md](../../../AGENTS.md#avoid-repeated-work) and the design skill's
 [component guidance](../../../.codex/skills/cadquery-3d-design/references/parametric-and-edges.md#components-and-shared-parameters).
 No model source, printable artifact or existing verification report was changed.
+
+## I — preloaded replacement-key experiment
+
+Scope: repair the printed H sample's failed retention with three replacement
+keys, reusing H blocks/pockets and G hood. Prior exports remain. Do not produce
+another complete module until the grip trial resolves this local question.
+PETG, 0.4 mm nozzle, 0.2 mm layers, two walls and 7% adaptive cubic remain the
+setup. Reported high printer precision is not a numerical fit calibration.
+
+The original H rigid key had 0.20 mm normal clearance and no spring preload.
+The shared `elastic_friction_grip` screen now rejects this force path before
+export independently of unknown material stiffness or friction. Collision
+capture and a clean slice never established useful retention. I's print entry
+also automatically rejects missing preload and a seam that consumes preload.
+
+One printed bow-tie key still joins a pair without hardware or a projecting
+handle. Core growth of 0.15 mm leaves 0.05 mm normal core clearance. Four diagonal
+arms have 0.8 mm thickness, 0.7 mm relief slots and rounded roots/contact pads.
+Pads ramp from 0.05 mm projection to full projection over 0.8 mm of height.
+Keys 1/2/3 give 0.10/0.15/0.20 mm seated normal interference. The key floor seats
+vertically; spring reactions on the diagonal flanks push the blocks together.
+Friction supplies upward grip while hoods are off; closed hoods obstruct upward
+escape. Existing nail recesses allow deliberate key removal.
+
+**Blocks touch at the seam.** Screening initially assumed the old 0.3 mm seam,
+but closing it would relieve about 0.117 mm of normal compression and remove
+key 1's preload. That issue was caught before delivery; the final outline and
+all affected CAD, contact and slice evidence use a zero-gap seam. No printer
+accuracy explanation is needed.
+
+[CAD checks](cap_i_checks.json) establish four intended preload patches, a clear
+entry nose/core, upper notch clearance, a lifted-base release path and hood
+seating/escape coverage. Short arms fall outside the slender-beam screen, so
+[local native contact evidence](cap_i_physics.json) uses actual rounded
+slot/root/pad geometry, a clamped cropped core and rigid flat-flank normal
+compression/unloading. Effective homogeneous isotropic PETG (E=1200 MPa,
+nu=0.38, provisional 1.5% strain limit) is an explicit uncalibrated assumption.
+The fixture omits whole-key sliding friction, coupled arms and complete insertion.
+
+| Key | Normal preload | Modelled one-arm force | Peak strain |
+| --- | --- | --- | --- |
+| 1, 0.30 mm mesh | 0.10 mm | 0.572 N | 0.668% |
+| 2, 0.30 mm mesh | 0.15 mm | 0.863 N | 0.956% |
+| 3, 0.30 mm mesh | 0.20 mm | 1.154 N | 1.235% |
+| 3, 0.25 mm mesh | 0.20 mm | 1.149 N | 1.425% |
+
+Current native studies passed contact, unloading, numerical recovery, envelope
+and provisional material screens. Finer mesh changed force 0.48% and local
+peak strain 15.4%. Do not claim precise strain convergence or a printed holding
+rating. Both meshes support this first fit trial under the stated assumptions.
+[Retained native evidence](cap_i_evidence/key_3_fine/result.json) is identity-bound
+to the final case; no solve was repeated to archive it.
+
+Earlier diagnostics remain separately labelled: a sharp pad with imposed local
+motion exceeded the strain screen; changes to both geometry and contact fixture
+prevent single-cause attribution. An earlier spaced-seam fine case also exceeded
+the strain screen. A 180-second timeout was an execution stop, not native
+convergence failure. These results do not describe final I.
+
+The [final keys slice](cap_i_review.json) completed with no notices or generated
+supports. [48 sampled arm/relief sections](cap_i_paths.json) had maximum uncovered
+arm width 0.000357 mm and no filled relief middle. This narrowly supports the
+reasonably-solid arm assumption in the calculation; it is not a separate check
+of routine extrusion or a material-property measurement. Reuse it while the
+geometry and relevant print settings are unchanged.
+
+Print the three labelled keys only, numbers up, and reuse the printed H blocks.
+Bring end faces into contact, then try 1, 2 and 3 as needed. Choose the lowest
+number that seats with firm hand pressure, removes loose play, stays joined
+during gentle turning/handling and lifts deliberately at the nail recesses.
+Reject failure to seat, tool-only removal, cracking or permanent bending. Actual
+grip, release, recovery and dwell decide the next revision. Full-product
+strength, long rows and joined carrying remain unqualified; no new print report
+has been received for I.

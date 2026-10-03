@@ -488,6 +488,21 @@ adequate retention. Screen engagement and effort at consequential clearance
 extremes, including guide play and alignment, before refining nominal force.
 Do not apply every tolerance combination when only one could change the decision.
 
+For a joint intended to stay connected, distinguish entry clearance from seated
+play. Name what removes that play and holds the parts together: interference with
+compliance, a wedge, spring preload, a fastener, or a positive catch. A clearance
+key can limit large motion while still rattling or falling out; collision witnesses
+alone cannot qualify it. Before exporting a retention sample, screen whether the
+actual seated contacts can supply force in the accidental-release direction. A
+friction-only fit with a gap and no external normal load has no designed holding
+force and must be revised before printing. Use
+[`elastic_friction_grip`](../../../../physical_analysis/README.md#friction-only-retention-screen)
+for that cheap rejection; positive preload is necessary for this route but does
+not by itself establish useful force. Do not substitute more clearance for a
+working retention feature or blame printer precision without evidence.
+Use the effective preload after the assembly closes, settles or takes up guide
+play; interference in an artificially separated pose can disappear during use.
+
 Trace the load path and user leverage: torque = force × perpendicular moment arm.
 For tangential finger force, F = torque / finger radius. A strong internal detent
 can feel light through a long lever. Inspect retaining contact, required release

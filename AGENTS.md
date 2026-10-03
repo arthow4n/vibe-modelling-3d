@@ -37,6 +37,13 @@ time or finish depends on them. Use the agreed setup to size geometry and screen
 loads before slicing. The reference Orca profile is diagnostic, not a substitute
 for the agreed print setup.
 
+The user reports that this printer is generally precise. Do not assume poor
+accuracy or use generous generic FDM clearances without an interface reason.
+Choose insertion allowance, seated play and retention separately; this report
+does not supply a universal measured tolerance. Apply the design skill's
+[retention screen](.codex/skills/cadquery-3d-design/references/design-decisions.md#actuation-effort-and-cheap-mechanics)
+before offering a friction-retained connection for printing.
+
 The user also has an on-hand screw and nut assortment
 ([Jula assortment 002837](https://www.jula.se/catalog/bygg-och-farg/infastning/sortimentsatser/skruvsatser/skruv-muttersats-002837/))
 that should be preferred whenever screw or bolt fasteners are needed:

@@ -633,6 +633,28 @@ buckling rejection screen before meshing. `physical_analysis.studies.compare_res
 compares named metrics from already completed runs without launching new solves.
 Convergence of force does not imply convergence of a local strain concentration.
 
+### Friction-only retention screen
+
+`physical_analysis.screening.elastic_friction_grip(interference_mm=...,
+contact_count=..., stiffness_N_mm=None, friction_coefficient=None,
+required_retention_N=None)` rejects an elastic friction-only grip with no preload
+before meshing or printing. Signed interference is measured in the contact normal
+direction: a negative value is a gap. With no external normal load or other
+retainer, zero/negative interference gives zero designed friction capacity even
+when material stiffness or friction is unknown. Positive interference reports
+required travel; unknown force remains `None`, never a successful force rating.
+Supplying stiffness and friction gives a conditional Coulomb capacity, not a
+complete wedge/cam release prediction or a measured printed holding force.
+Supply effective interference after assembly closure and settling, not just in
+an initial gapped pose. The I consumer rejects both absent preload and seam
+closure that would consume its weakest key's preload before export.
+
+The [H swatch sample](../model/filament_swatch_box_study/README.md#physical-history-and-print-status)
+was physically rejected after a clearanced rigid key fell out. The new screen
+rejects that design without blaming printer accuracy; the replacement-key check
+uses actual pad/pocket interference. Its purpose is to catch a missing retention
+load path, not replace CAD contacts, a needed nonlinear solve or tactile testing.
+
 For a mechanical assumption that depends on actual sliced solidity or support
 placement, `physical_analysis.manufacturing.orca_linear_paths(path)` yields
 linear deposited segments with Orca's width/role metadata for consequential
