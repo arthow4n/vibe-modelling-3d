@@ -115,3 +115,20 @@ solves and a repeat native regression passed; 41 tests passed across execution,
 CalculiX, FEBio and numerical kernels. Failed earlier concurrent runs are retained
 as diagnosis, not accepted engineering evidence. Result resource provenance is
 preserved when merging successful native answers.
+
+### Measured computational kernels
+
+Physical integration commit `641dc2a` pushed. Batched quadratic-surface traction
+uses the original three-point quadrature, signed shape weights and normalization,
+with bounded 4096-face chunks. Curved/shared-node regression agrees within 1e-12.
+Median 2000-face integration fell from 0.324 s to 0.0166 s (19.5×).
+Reusable Tet4 reference inverses reduce 1000-frame extraction from 0.102 s to
+0.0617 s; strain definition and inversion rejection are unchanged. G-code reading
+now streams. Bounding boxes skip only strictly separated motion booleans;
+exact minimum distances and all possible intersections remain native checks.
+Separated 81-pose screen: ~0.82 s baseline versus ~0.69 s final.
+
+Rejected: SciPy cKDTree mapping measured 0.0229 s against existing VTK 0.0184 s,
+so the established VTK path stays and SciPy was removed. No custom compiled/JIT
+kernel is justified by these measured workloads. Focused execution/evaluator,
+slicing, kernels, motion and manufacturing validation: 59 passed.

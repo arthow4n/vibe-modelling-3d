@@ -79,18 +79,22 @@ def traction_weights(faces, nodes):
     Three-point triangle quadrature, exact for planar quadratic shape functions.
     Curved boundaries use the same isoparametric integration approximation.
     """
-    weights = {}
-    for _,_,ids in faces:
-        points = np.array([nodes[n] for n in ids])
-        for r,s in ((1/6,1/6),(2/3,1/6),(1/6,2/3)):
-            a=1-r-s
-            N=np.array([a*(2*a-1),r*(2*r-1),s*(2*s-1),4*a*r,4*r*s,4*s*a])
-            dr=np.array([1-4*a,4*r-1,0,4*(a-r),4*s,-4*s])
-            ds=np.array([1-4*a,0,4*s-1,-4*r,4*r,4*(a-s)])
-            jac=np.linalg.norm(np.cross(dr@points,ds@points))
-            for n,w in zip(ids,N*jac/6):
-                weights[n]=weights.get(n,0)+float(w)
+    # Batch native quadrature; keep the original three-point rule and node order.
+    quadrature=np.array(((1/6,1/6),(2/3,1/6),(1/6,2/3)))
+    r,s=quadrature.T;a=1-r-s
+    shape=np.stack((a*(2*a-1),r*(2*r-1),s*(2*s-1),4*a*r,4*r*s,4*s*a),axis=1)
+    dr=np.stack((1-4*a,4*r-1,np.zeros(3),4*(a-r),4*s,-4*s),axis=1)
+    ds=np.stack((1-4*a,np.zeros(3),4*s-1,-4*r,4*r,4*(a-s)),axis=1)
+    weights={}
+    for start in range(0,len(faces),4096):
+        ids=np.asarray([face[2] for face in faces[start:start+4096]])
+        points=np.asarray([[nodes[n] for n in face] for face in ids])
+        jac=np.linalg.norm(np.cross(np.einsum('qn,fnd->fqd',dr,points),
+                                   np.einsum('qn,fnd->fqd',ds,points)),axis=2)
+        contributions=np.einsum('qn,fq->fn',shape,jac)/6
+        unique,inverse=np.unique(ids,return_inverse=True)
+        sums=np.bincount(inverse.ravel(),weights=contributions.ravel(),minlength=len(unique))
+        for n,value in zip(unique,sums):weights[int(n)]=weights.get(int(n),0)+float(value)
     area=sum(weights.values())
-    if area <= 0:
-        raise ValueError('Loaded surface has zero area')
+    if area<=0:raise ValueError('Loaded surface has zero area')
     return {n:w/area for n,w in weights.items()},area

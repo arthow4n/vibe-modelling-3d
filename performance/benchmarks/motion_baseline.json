@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "samples_seconds": [
+    0.8351976700000705,
+    0.8239004360002582,
+    0.821723884000221
+  ],
+  "answer": {
+    "ok": true,
+    "pairs": [
+      {
+        "first": "a",
+        "second": "b",
+        "samples_planned": 81,
+        "first_sampled_overlap": null,
+        "minimum_sampled_gap_mm": 25.0
+      }
+    ],
+    "max_relative_step_mm": 0.25,
+    "volume_tolerance_mm3": 1e-07,
+    "scope": "Whole-part translations only; no overlap detected at sampled poses is not continuous-path proof. Static relative pairs and partial-region constraints are excluded. This does not test flexible contact."
+  }
+}

@@ -55,13 +55,19 @@ def section_coverage(paths, *, x_mm, z_mm, span_mm):
 
 def orca_linear_paths(path):
     """Yield (x0,y0,x1,y1,z,width,role) for deposited linear layer moves."""
+    with Path(path).open() as stream:
+        yield from _linear_paths(stream)
+
+
+def _linear_paths(stream):
     x=y=z=0.
     width=.42
     role=''
     started=False
     absolute=True
     relative_e=True
-    for line in Path(path).read_text().splitlines():
+    for line in stream:
+        line=line.rstrip('\r\n')
         if line.startswith(';LAYER_CHANGE'):
             started=True
         if line.startswith(';TYPE:'): role=line[6:]

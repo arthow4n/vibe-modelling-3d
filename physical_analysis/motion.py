@@ -39,6 +39,7 @@ def rigid_driver_clearance(case, *, max_relative_step_mm=.25, volume_tolerance_m
     pairs=[]
     for first,second in combinations(drivers,2):
         a,aa=drivers[first];b,ba=drivers[second]
+        bounds=[a.BoundingBox(),b.BoundingBox()]
         knots=sorted({t for axes in (aa,ba) for _,progress in axes for t,_ in progress})
         times={0.,1.};moving=False
         for t0,t1 in zip(knots,knots[1:]):
@@ -50,8 +51,14 @@ def rigid_driver_clearance(case, *, max_relative_step_mm=.25, volume_tolerance_m
         if not moving: continue
         hit=None;minimum_gap=math.inf
         for t in sorted(times):
-            sa=a.translate(position(aa,t));sb=b.translate(position(ba,t))
-            volume=sa.intersect(sb).Volume()
+            pa,pb=position(aa,t),position(ba,t)
+            sa=a.translate(pa);sb=b.translate(pb)
+            # A strictly separated enclosing box proves zero intersection volume.
+            # Keep exact booleans at contact/overlap and exact distance at every pose.
+            separated=any(getattr(bounds[0],axis+'max')+pa[i]<getattr(bounds[1],axis+'min')+pb[i]-1e-7 or
+                getattr(bounds[1],axis+'max')+pb[i]<getattr(bounds[0],axis+'min')+pa[i]-1e-7
+                for i,axis in enumerate('xyz'))
+            volume=0. if separated else sa.intersect(sb).Volume()
             if volume>volume_tolerance_mm3:
                 hit=dict(time=t,intersection_mm3=volume);break
             minimum_gap=min(minimum_gap,sa.distance(sb))

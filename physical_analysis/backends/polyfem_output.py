@@ -89,15 +89,27 @@ def progress_value(points, t):
     return a[1]+(b[1]-a[1])*(t-a[0])/(b[0]-a[0])
 
 
+class Tet4GreenStrain:
+    """Reference kinematics reused across saved frames; no changed strain measure."""
+    def __init__(self,mesh):
+        self.ids=np.asarray(mesh['tets'])
+        self.reference=np.asarray(mesh['points_mm'])[self.ids]
+        self.inverse=np.linalg.inv(self.edges(self.reference))
+
+    @staticmethod
+    def edges(points):
+        return np.stack((points[:,1]-points[:,0],points[:,2]-points[:,0],points[:,3]-points[:,0]),axis=2)
+
+    def principal(self,displacement):
+        current=self.reference+displacement[self.ids]
+        F=self.edges(current)@self.inverse
+        if np.any(np.linalg.det(F)<=0):raise ValueError('Deformed tetrahedron inverted')
+        green=(np.swapaxes(F,1,2)@F-np.eye(3))*.5
+        return np.linalg.eigvalsh(green)
+
+
 def principal_strain(mesh, displacement):
-    ids=np.asarray(mesh['tets']);reference=np.asarray(mesh['points_mm'])[ids]
-    current=reference+displacement[ids]
-    edges=lambda p:np.stack((p[:,1]-p[:,0],p[:,2]-p[:,0],p[:,3]-p[:,0]),axis=2)
-    F=edges(current)@np.linalg.inv(edges(reference))
-    if np.any(np.linalg.det(F)<=0):
-        raise ValueError('Deformed tetrahedron inverted')
-    green=(np.swapaxes(F,1,2)@F-np.eye(3))*.5
-    return np.linalg.eigvalsh(green)
+    return Tet4GreenStrain(mesh).principal(displacement)
 
 
 def require_final_equilibrium_policy(native, tolerance_N, steps, *, dt=None):
@@ -134,6 +146,7 @@ def extract(directory, case, meshes, selections, scene, result, *, partial=False
     available=[i for i in range(steps+1) if (directory/f'step_{i}.vtu').is_file()]
     if not available or (not partial and available!=list(range(steps+1))):
         raise ValueError('Incomplete native accepted-state deformation history')
+    strain_recovery=Tet4GreenStrain(mesh)
     for i in available:
         time=start+i*dt;points,fields=read_vtu(directory/f'step_{i}.vtu',length_to_mm)
         needed=('solution','elastic_forces','contact_forces','inertia_forces')
@@ -148,7 +161,7 @@ def extract(directory, case, meshes, selections, scene, result, *, partial=False
         max_inertia=max(max_inertia,float(np.abs(inertia).max()))
         residual=-(elastic+contact);free_norm=float(np.linalg.norm(residual[~fixed]))
         max_free_residual=max(max_free_residual,free_norm)
-        principal=principal_strain(mesh,displacement);peak=float(np.abs(principal).max())
+        principal=strain_recovery.principal(displacement);peak=float(np.abs(principal).max())
         if peak>strain_peak:
             strain_peak=peak;where=np.unravel_index(np.abs(principal).argmax(),principal.shape)
             strain_location=dict(part=flexible,element_index=int(where[0]),reference_centroid_mm=reference[tets[where[0]]].mean(axis=0).tolist(),load_fraction=time)
