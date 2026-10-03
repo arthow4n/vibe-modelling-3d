@@ -35,25 +35,48 @@ On 2026-10-04 the user clarified:
 - Reduce the bulky appearance and avoid the exposed gear of the old design.
 - Preserve the purpose of exercising physical analysis in a useful product.
 - Provide a few adjustable viewing angles.
+- Adjustment must be by hand without loosening or tightening a screw/nut.
+  Disengaging a lock, repositioning and reseating is acceptable; retention and
+  release need not be performed by the same feature. Screws may serve assembly
+  and pivot roles. The operating position must remain firm despite adjustability.
+- Stand freely on the table with the phone placed normally, in either orientation
+  and at every offered angle, without external bracing or careful balancing.
 - Accommodate a Pixel 7 Pro with a relatively bulky case. The user wants adaptable
   fit rather than closely matching the bare phone. Case dimensions and compliance
   are unknown; no precise device or case envelope has been assumed.
 - Screws and nuts are acceptable only from the on-hand Jula 002837 assortment
   recorded in AGENTS.md. The user also sees their use as an opportunity to
   exercise fastener-related analysis and testing.
+- The case carries a ring/PopSocket-like accessory, roughly centred across the
+  phone but toward its lower end. Leave a broad, mostly empty area behind the
+  phone rather than a backplate or closely fitted accessory hole. Local edge or
+  corner supports are acceptable. Preserve accessory clearance in both portrait
+  and landscape; landscape rotation shifts the accessory toward a side. Its size,
+  projection and operating pose are unknown; avoid a precisely assumed outline.
 
 Case/charging-connector envelope and print setup remain
 open. Desktop use is established; folding/portability is not yet a
 requirement. Charging clearance must include the plug and cable turn above the
 table, not only a notch in the retaining lip.
 
-A compact inclined cradle with an open centre between its lower supports is a
-candidate, not an accepted architecture. For the requested adjustment, consider a rear
-prop and a few positive seating positions, with the adjustment behind the phone.
-Investigate solid seating faces carrying the service load and any flexible
-retention preventing unintended disengagement separately. First establish the
-benefit and handling of this arrangement; do not add a catch solely to create an
-analysis case. No replacement geometry or numerical qualification exists yet.
+A compact open-frame cradle with separate lower supports and local rear edge
+contacts is a candidate, not an accepted architecture. An opening only for the
+charging cable is insufficient: leave a broad rear opening with clear depth behind
+it. A rear prop, pivot, cross-member or catch must not occupy that ring-clearance
+space. Review both phone orientations with broad accessory envelopes; do not
+assume a centred opening suffices after rotating the phone. Unknown accessory
+dimensions still limit any eventual compatibility claim.
+
+For adjustment, consider a prop with a few positive seating positions outside the
+accessory space. Solid seating faces should carry the service load; separate
+retention may prevent unintended disengagement, with a hand-operated release.
+Supporting the cradle while releasing/repositioning is a candidate interaction,
+not an agreed final procedure. Inspect the whole open-frame stand with the phone
+in both orientations before refining the lock: rear contacts must support each
+pose without obstructing the ring, and tapping must not unseat the angle support.
+First establish the benefit and handling of this arrangement; do not add a catch
+solely to create an analysis case. No replacement geometry or numerical
+qualification exists yet.
 
 ### Proposed analysis scope and limits
 
@@ -64,6 +87,8 @@ requirement. Proposed replacement questions, subject to a useful architecture:
 
 - Loaded stiffness and seated load-bearing contact under phone weight and a
   defined occasional-tap load; distinguish these from global sliding/tipping.
+  Screen global balance at every offered angle and both normal phone orientations,
+  including foreseeable off-centre taps, before detailed local mechanics.
 - Resistance to unintended disengagement of the angle setting versus deliberate
   adjustment/release effort. These are separate force questions in specified
   directions, not one universal safe-retention number. A lift-out phone cradle
