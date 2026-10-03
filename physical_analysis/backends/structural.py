@@ -10,6 +10,8 @@ import subprocess
 import sys
 from ..results import AnalysisResult
 from execution.telemetry import operation, child_environment
+from execution.resources import lease as resource_lease
+from execution.lifecycle import wait as wait_owned, terminate, process_identity
 
 
 def runtime_environment():
@@ -56,20 +58,25 @@ def evidence_files(directory):
 def run_worker(directory, module, environment, timeout_seconds, result, *,
                arguments=(), log_name='worker.log', failure_record='result.json'):
     """One process-group lifecycle for solves and saved-field recovery."""
-    with (directory/log_name).open('w') as log:
+    with resource_lease(int(environment.get('OMP_NUM_THREADS',1))), (directory/log_name).open('w') as log:
+        import psutil
+        environment=child_environment(environment)
+        environment['ENGINEERING_OWNER_PID']=str(os.getpid())
+        environment['ENGINEERING_OWNER_ID']=process_identity()
         process=subprocess.Popen([sys.executable,'-m',module,str(directory),*arguments],
             cwd=directory,env=child_environment(environment),stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
         try:
-            return process.wait(timeout=timeout_seconds)
+            if not hasattr(process,'poll'):return process.wait(timeout=timeout_seconds)
+            code,measurements=wait_owned(process,timeout_seconds)
+            result.provenance['execution_resources']=measurements
+            return code
         except subprocess.TimeoutExpired:
-            os.killpg(process.pid,signal.SIGKILL);process.wait()
+            terminate(process)
             result.status='timeout'
             result.errors.append(f'Analysis exceeded {timeout_seconds:g} seconds; worker and solver stopped')
             return None
         except KeyboardInterrupt:
-            try:os.killpg(process.pid,signal.SIGKILL)
-            except ProcessLookupError:pass
-            process.wait();result.status='interrupted'
+            terminate(process);result.status='interrupted'
             result.errors.append('Caller interrupted analysis; worker and solver stopped')
             metadata=directory/'run_metadata.json'
             if metadata.is_file():result.provenance.update(json.loads(metadata.read_text()))
@@ -169,6 +176,7 @@ class CalculixBackend:
                 result.provenance.update(json.loads((directory/'run_metadata.json').read_text()))
             if code == 0 and answer.exists():
                 payload = json.loads(answer.read_text())
+                payload.setdefault('provenance',{}).update(result.provenance)
                 result = AnalysisResult(**payload)
             elif code is not None:
                 result.status = 'failed'

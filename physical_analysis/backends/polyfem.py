@@ -52,7 +52,9 @@ class PolyfemBackend(CalculixBackend):
 
     def __init__(self, settings=None):
         self.settings = settings or IPCSettings()
-        available=len(os.sched_getaffinity(0)) if hasattr(os,'sched_getaffinity') else os.cpu_count() or 1
+        from execution.resources import inherited_budget,cpu_capacity
+        available=inherited_budget() or cpu_capacity()
+        # Physical solver threads borrow an enclosing execution budget.
         # Measured sliding-prefix preference; no claim of a universal optimum.
         self.threads=self.settings.threads if self.settings.threads is not None else min(8,available)
 

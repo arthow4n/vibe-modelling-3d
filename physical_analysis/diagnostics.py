@@ -5,8 +5,12 @@ from pathlib import Path
 import subprocess
 import sys
 from .backends.structural import runtime_environment
+from execution.telemetry import operation
+from execution.process import run as run_command
+from execution.resources import lease
 
 
+@operation("analysis.contact_diagnostics")
 def contact_frames(directory, fractions=None, *, rigid_parts=()):
     """Locate face-to-face contact at existing saved fractions.
 
@@ -24,8 +28,9 @@ def contact_frames(directory, fractions=None, *, rigid_parts=()):
     code = ('import json,sys; '
             'from physical_analysis.backends.contact_diagnostics import contact_frames; '
             'print(json.dumps(contact_frames(**json.load(sys.stdin)),allow_nan=False))')
-    run = subprocess.run([sys.executable, '-c', code], input=json.dumps(request),
-                         env=runtime_environment(), capture_output=True, text=True)
+    with lease(1):
+        run = run_command([sys.executable, '-c', code], input=json.dumps(request),
+                          env=runtime_environment(), capture_output=True, text=True,timeout=600)
     if run.returncode:
         raise ValueError('Contact diagnostics failed: '+run.stderr.strip())
     return json.loads(run.stdout)

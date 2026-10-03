@@ -3,7 +3,24 @@ import os
 import signal
 import subprocess
 import time
+import contextvars
 from .telemetry import child_environment, span
+
+_cancellation=contextvars.ContextVar('engineering_cancellation',default=lambda:False)
+
+
+def process_identity(pid=None):
+    """PID birth identity unaffected by wall-clock corrections on Linux/WSL."""
+    from pathlib import Path
+    pid=pid or os.getpid()
+    try:
+        # Field 22 is monotonic boot ticks; comm may contain spaces and parentheses.
+        return 'ticks:'+Path(f'/proc/{pid}/stat').read_text().rsplit(')',1)[1].split()[19]
+    except FileNotFoundError:
+        raise ProcessLookupError(pid)
+    except OSError:
+        import psutil
+        return 'time:'+str(psutil.Process(pid).create_time())
 
 
 def terminate(process, descendants=()):
@@ -65,7 +82,7 @@ def wait(process, timeout=None, cancelled=lambda: False, memory_mb=None, sample=
 
 
 def run(command, *, timeout=None, cwd=None, env=None, stdin=None, stdout=None, stderr=None,
-        cancelled=lambda: False, memory_mb=None):
+        cancelled=None, memory_mb=None):
     with span('subprocess', executable=os.path.basename(str(command[0]))):
         import shutil
         environment=child_environment(env)
@@ -75,7 +92,7 @@ def run(command, *, timeout=None, cwd=None, env=None, stdin=None, stdout=None, s
         process=subprocess.Popen(command,cwd=cwd,env=environment,stdin=stdin,
             stdout=stdout,stderr=stderr,start_new_session=(os.name=='posix'))
         try:
-            code, measurements=wait(process,timeout,cancelled,memory_mb)
+            code, measurements=wait(process,timeout,cancelled or _cancellation.get(),memory_mb)
         except BaseException:
             terminate(process)
             raise
@@ -89,17 +106,19 @@ def watch_owner(environment=None):
     env=environment or os.environ
     owner=env.get('ENGINEERING_OWNER_PID')
     if not owner:return
-    expected=env.get('ENGINEERING_OWNER_STARTED')
+    expected=env.get('ENGINEERING_OWNER_ID')
     children={}
     def watchdog():
         while True:
             try:
                 parent=psutil.Process(int(owner))
                 alive=parent.is_running() and parent.status()!=psutil.STATUS_ZOMBIE
-                if expected:alive &= abs(parent.create_time()-float(expected))<1e-3
+                if expected:alive &= process_identity(int(owner))==expected
+            except (psutil.Error,ProcessLookupError):alive=False
+            try:
                 own=psutil.Process()
                 children.update({p.pid:p for p in own.children(recursive=True)})
-            except psutil.Error:alive=False
+            except psutil.Error:pass
             if not alive:
                 for p in children.values():
                     try:p.kill()

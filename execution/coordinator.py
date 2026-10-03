@@ -172,7 +172,8 @@ class Coordinator:
             self.last_request=time.monotonic()
             import psutil
             request["environment"]["ENGINEERING_OWNER_PID"]=str(os.getpid())
-            request["environment"]["ENGINEERING_OWNER_STARTED"]=str(psutil.Process().create_time())
+            from .lifecycle import process_identity
+            request["environment"]["ENGINEERING_OWNER_ID"]=process_identity()
             def cancelled():
                 if self.stopping.is_set():return True
                 if select.select([connection],[],[],0)[0]:

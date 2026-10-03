@@ -6,6 +6,8 @@ import os
 from pathlib import Path
 import re
 import subprocess
+from execution.telemetry import operation
+from execution.process import run as run_command
 import sys
 import xml.etree.ElementTree as ET
 import numpy as np
@@ -237,7 +239,7 @@ def main(directory, *, postprocess_only=False):
         if not postprocess_only:
             (directory/'run_metadata.json').write_text(json.dumps(r.provenance,indent=2)+'\n')
             with (directory/'solver.log').open('w') as log:
-                code=subprocess.run(command,cwd=directory,stdout=log,stderr=subprocess.STDOUT).returncode
+                code=run_command(command,cwd=directory,stdout=log,stderr=subprocess.STDOUT).returncode
         r.provenance['postprocess_only']=postprocess_only
         if postprocess_only:
             r.provenance['original_backend_sha256']=original.get('backend_sha256',{})
@@ -263,6 +265,8 @@ def main(directory, *, postprocess_only=False):
 
 
 if __name__=='__main__':
+    from execution.lifecycle import watch_owner
+    watch_owner()
     if len(sys.argv) not in (2,3) or (len(sys.argv)==3 and sys.argv[2]!='--postprocess-only'):
         raise SystemExit('Usage: febio_worker DIRECTORY [--postprocess-only]')
     main(Path(sys.argv[1]),postprocess_only=len(sys.argv)==3)

@@ -99,3 +99,19 @@ Validation: 38 existing/added execution/evaluator/slicing/telemetry checks passe
 version invalidation passed. Real Orca 2.4.2 primary/probe completed on the fixture.
 Remaining stages: physical integration, measured kernels, dedicated resilience
 qualification, instructions, frozen-source regression and final benchmarks.
+
+### Physical-analysis integration milestone
+
+Scheduling commit `7e6b8ce` pushed. CalculiX, FEBio and IPC now share resource
+leases, trace context, native subprocess ownership and cancellation while
+preserving separate isolated workers, mesh reuse, saved-field recovery and
+backend quality/completion checks. Removed an unused CadQuery import from the
+CalculiX extraction worker; dependency versions come from installed metadata.
+Default IPC CPU selection follows portable shared capacity; explicit settings remain.
+
+A WSL wall-clock correction exposed unsafe PID birth checks based on wall time.
+Linux watchdog identity now uses `/proc/PID/stat` boot ticks. Ten repeated flexure
+solves and a repeat native regression passed; 41 tests passed across execution,
+CalculiX, FEBio and numerical kernels. Failed earlier concurrent runs are retained
+as diagnosis, not accepted engineering evidence. Result resource provenance is
+preserved when merging successful native answers.

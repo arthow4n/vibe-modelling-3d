@@ -6,6 +6,8 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
+from execution.telemetry import operation
+from execution.process import run as run_command
 import sys
 import time
 import resource
@@ -82,6 +84,7 @@ def write_obj(path, mesh, scale):
     path.write_text('\n'.join(lines)+'\n')
 
 
+@operation("analysis.compile_scene")
 def compile_scene(case, directory):
     settings = case['ipc']; flexible = settings['deformable']
     scale = .001 if settings['unit_system']=='SI' else 1.
@@ -235,7 +238,7 @@ def main():
         stage='native_solve'
         before=resource.getrusage(resource.RUSAGE_CHILDREN);started=time.perf_counter()
         with (directory/'solver.log').open('w') as log:
-            native=subprocess.run(command,cwd=directory,stdout=log,stderr=subprocess.STDOUT)
+            native=run_command(command,cwd=directory,stdout=log,stderr=subprocess.STDOUT)
         elapsed=time.perf_counter()-started;after=resource.getrusage(resource.RUSAGE_CHILDREN)
         cpu=after.ru_utime+after.ru_stime-before.ru_utime-before.ru_stime
         r.provenance['native_timing']=dict(wall_seconds=elapsed,cpu_seconds=cpu,cpu_percent=100*cpu/elapsed)
@@ -265,4 +268,6 @@ def implementation_identity():
 
 
 if __name__=='__main__':
+    from execution.lifecycle import watch_owner
+    watch_owner()
     main()

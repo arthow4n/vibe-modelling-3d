@@ -4,9 +4,11 @@ import hashlib
 import json
 from pathlib import Path
 from .results import AnalysisResult
+from execution.telemetry import operation
 from .backends.structural import CalculixBackend,run_worker
 
 
+@operation("analysis.recovery")
 def recover_run(directory, *, timeout_seconds=600):
     """Recheck saved native fields against byte-identical regenerated input.
 

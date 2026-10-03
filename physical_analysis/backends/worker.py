@@ -8,7 +8,9 @@ import re
 import subprocess
 import sys
 import numpy as np
-import cadquery as cq
+from importlib.metadata import version as package_version
+from execution.telemetry import operation
+from execution.process import run as run_command
 from ..results import AnalysisResult
 
 
@@ -48,6 +50,7 @@ def saved_meshes(case, path):
     return meshes
 
 
+@operation("analysis.input")
 def compile_case(case, directory, *, expected_input_sha256=None):
     from .mesh import mesh_part, select_nodes, select_faces, traction_weights
     meshes={}; nodes={}; elements={}; deck=['*HEADING', case['name']]; selections={}
@@ -212,6 +215,7 @@ def tensor(values):
     return np.array([[xx,xy,xz],[xy,yy,yz],[xz,yz,zz]])
 
 
+@operation("analysis.extraction")
 def summarize(case, frames, meshes, nodes, elements, selections):
     history=[]; part_for_element={e:name for name,m in meshes.items() for e in m['elements']}
     peak_strain=(-1,None,None,None); peak_stress=(-1,None,None,None)
@@ -318,7 +322,6 @@ def summarize(case, frames, meshes, nodes, elements, selections):
 
 
 def main(directory, *, postprocess_only=False):
-    import gmsh
     # Snapshot implementation identity before the long native solve. Hashing
     # afterward can incorrectly attribute edits made while the solver runs.
     backend_hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in Path(__file__).parent.glob('*.py')}
@@ -338,7 +341,7 @@ def main(directory, *, postprocess_only=False):
     env=os.environ.copy(); command=[env['CALCULIX_COMMAND'],'-i','analysis']
     (directory/'regions.json').write_text(json.dumps(selections,indent=2)+'\n')
     result.provenance=dict(backend='CalculiX',version='unknown',
-        gmsh=gmsh.__version__,cadquery=cq.__version__,python=sys.version.split()[0],
+        gmsh=package_version("gmsh"),cadquery=package_version("cadquery"),python=sys.version.split()[0],
         input_sha256=hashlib.sha256((directory/'analysis.inp').read_bytes()).hexdigest(),
         case_sha256=hashlib.sha256((directory/'case.json').read_bytes()).hexdigest(),
         backend_sha256=backend_hashes,
@@ -349,7 +352,7 @@ def main(directory, *, postprocess_only=False):
     if not postprocess_only: (directory/'run_metadata.json').write_text(json.dumps(result.provenance,indent=2)+'\n')
     if not postprocess_only:
         with (directory/'solver.log').open('w') as log:
-            run=subprocess.run(command,cwd=directory,env=env,stdout=log,stderr=subprocess.STDOUT)
+            run=run_command(command,cwd=directory,env=env,stdout=log,stderr=subprocess.STDOUT)
         solver_exit=run.returncode
     else:
         solver_exit=0  # completion/errors are checked from the immutable saved log below
@@ -395,6 +398,8 @@ def main(directory, *, postprocess_only=False):
     result.write(directory/'answer.json')
 
 if __name__=='__main__':
+    from execution.lifecycle import watch_owner
+    watch_owner()
     if len(sys.argv) not in (2,3) or (len(sys.argv)==3 and sys.argv[2]!='--postprocess-only'):
         raise SystemExit('Usage: worker DIRECTORY [--postprocess-only]')
     main(Path(sys.argv[1]),postprocess_only=len(sys.argv)==3)

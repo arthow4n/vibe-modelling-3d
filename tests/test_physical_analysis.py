@@ -22,6 +22,8 @@ def beam(mesh=2, nonlinear=False):
 
 def test_interrupt_stops_isolated_worker_and_retains_failure(tmp_path, monkeypatch):
     from physical_analysis.backends import structural
+    from contextlib import nullcontext
+    monkeypatch.setattr(structural,"resource_lease",lambda *a:nullcontext())
     killed=[]
     class InterruptedWorker:
         pid=123456

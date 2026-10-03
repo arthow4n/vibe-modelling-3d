@@ -13,7 +13,7 @@ MAX_MESSAGE=16*1024*1024
 
 
 def socket_path():
-    identity=hashlib.sha256(str(ROOT).encode()).hexdigest()[:16]
+    identity=hashlib.sha256((str(ROOT)+os.environ.get('ENGINEERING_INSTANCE','')).encode()).hexdigest()[:16]
     folder=Path(tempfile.gettempdir())/f'engineering-{os.getuid()}-{identity}'
     folder.mkdir(mode=0o700,exist_ok=True)
     if folder.stat().st_uid!=os.getuid() or folder.stat().st_mode&0o077:

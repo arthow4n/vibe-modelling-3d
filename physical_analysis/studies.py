@@ -4,6 +4,7 @@ import hashlib
 from dataclasses import dataclass, field, replace
 from pathlib import Path
 from .case import positive
+from execution.telemetry import operation
 
 
 def compare_results(coarse, refined, *, metrics, relative_tolerance=.05):
@@ -68,6 +69,7 @@ class QuestionStudy:
                 parameter: getattr(self.question, parameter)*factor**i})) for i in range(1, levels+1)]
         return plan
 
+    @operation("analysis.study")
     def run(self, directory=None, *, evidence=None):
         """Run or identity-check retained inputs, returning the baseline AnalysisResult.
 

@@ -78,7 +78,7 @@ def test_explicit_threads_override_inherited_single_thread_environment(monkeypat
     monkeypatch.setattr(module.os,'sched_getaffinity',lambda _:set(range(16)))
     assert PolyfemBackend().threads==8
     monkeypatch.setattr(module.os,'sched_getaffinity',lambda _:set(range(2)))
-    assert PolyfemBackend().threads==2
+    assert PolyfemBackend().threads==1  # default shared CPU budget is 50%
     for invalid in (0,-1,True,2.5):
         with pytest.raises(ValueError,match='thread count'):IPCSettings(threads=invalid)
 
