@@ -37,9 +37,10 @@ engineering evidence remains owned by its existing tools.
    pushed; native completion and quality requirements unchanged.
 12–13. Agent interface, instructions and focused execution skill: implemented
    and pushed, with reliability refinements in final verification.
-14. Frozen-source integration and regression verification: **144 passed, 3 skipped**
-   in 235.94 s, including native CalculiX/FEBio and coordinator/native death tests.
-15. Final cold/warm, observability and scheduling benchmarks: consolidation follows.
+14. Frozen-source integration and regression verification: **145 passed, 3 skipped**
+   in 237.30 s, including native CalculiX/FEBio and coordinator/native death tests.
+15. Final cold/warm, observability and scheduling benchmarks: complete, retained
+   with matching baseline/final fixtures and core dependency versions. See README.md.
 
 Commit identifiers and benchmark findings will be added at subsequent milestones;
 Git history is the authoritative commit/push record.
@@ -194,3 +195,21 @@ Ownership/import/automatic-mesh milestone `0efef63` and reproducible workflow/po
 harness `1e0bb06` were pushed. Final abandoned-child coverage adds repository/owner
 birth tags: a replacement reaps detached arbitrary subprocesses after supervisor
 SIGKILL without replaying user code. Focused verification: **54 passed**.
+
+Final ownership change `e8777d5` pushed. Final frozen regression: **145 passed,
+3 unavailable native IPC skips** in 237.30 s. Baseline and final fixture/package
+identities match; all benchmark exits succeed. Fresh beam displacement matches
+exactly. Warm default evaluation: 2.866→0.462 s; explicit complete render/export/
+slice workflow: 3.907→0.530 s; physical solve: 8.632→7.221 s. Independent scripts
+3.344→2.291 s; one-core sequential versus four-core concurrent slice pair
+1.954→0.823 s. Measured small-fixture pipeline overlap is 0.524 s.
+
+Retained limitations: isolated tiny-script latency increases with shared execution
+and observability; detailed tracing adds ~0.134 s on the trivial fixture. Cold
+native initialization and changed expensive geometry/solves remain bottlenecks.
+The default four-core allocation captures most measured numerical speedup and
+leaves capacity for other agents; memory defaults stay conservative. Bounded JSON
+history and two representative timelines are committed; raw traces remain local.
+Additional isolated/preinitialized native SIGSEGV smoke checks returned 139 and
+recovered; locked environment and focused skill validation passed. The disposable
+original-source baseline checkout was removed after recording its evidence.

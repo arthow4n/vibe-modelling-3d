@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "label": "baseline-original-qualified",
+  "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+  "cpus": 16,
+  "revision": "f984a0bda405563e4476c666e392b34fddcd9b14",
+  "dirty_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "lock_sha256": "080c709ffc5d2bd336521b1bf2498368e119c017896ea065a30ee96e87724118",
+  "packages": {
+    "cadquery": "2.7.0",
+    "cadquery-ocp": "7.8.1.1.post1",
+    "numpy": "2.5.3",
+    "gmsh": "4.15.2",
+    "vtk": "9.3.1"
+  },
+  "fixtures": {
+    "solve.py": "faf951c3d41c87a70f7f9f728870274298cf13234791ee309bf96d0459542bff",
+    "script_cad.py": "412b66feb7cab300dee158c2d42faaea6c10be290177a14eb200e525c5fd7347",
+    "script.py": "f5d8c916789ec99898d9288c283cd1ae56e5751af628a11a2123c8384b95a720",
+    "cad.py": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764"
+  },
+  "cold_definition": "First command with a new coordinator/preload host and empty controlled cache; OS page cache is not flushed.",
+  "workflows": {
+    "script": {
+      "first_seconds": 0.5028840550003224,
+      "subsequent_median_seconds": 0.14935792750020482,
+      "samples": [
+        {
+          "seconds": 0.5028840550003224,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 0.1562589660006779,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 0.14245688899973175,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": null,
+          "error": null
+        }
+      ]
+    },
+    "script_cad": {
+      "first_seconds": 4.438239225000871,
+      "subsequent_median_seconds": 2.1799876889999723,
+      "samples": [
+        {
+          "seconds": 4.438239225000871,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 2.229147173000456,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 2.1308282049994887,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": null,
+          "error": null
+        }
+      ]
+    },
+    "cad_geometry": {
+      "first_seconds": 2.2911322670006484,
+      "subsequent_median_seconds": 2.231146122499922,
+      "samples": [
+        {
+          "seconds": 2.2911322670006484,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.07597585300027276,
+            "total": 2.221902491999572
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.2296114070013573,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.05034604499996931,
+            "total": 2.171133064000969
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.232680837998487,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.045108500999049284,
+            "total": 2.1713060210004187
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_default": {
+      "first_seconds": 2.982488845998887,
+      "subsequent_median_seconds": 2.865981612500036,
+      "samples": [
+        {
+          "seconds": 2.982488845998887,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.04673843500131625,
+            "total": 2.922929856000337
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.8383713080002053,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.04524497700003849,
+            "total": 2.7768079439993016
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.893591916999867,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.04770472000018344,
+            "total": 2.832077899000069
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_render_export": {
+      "first_seconds": 2.843963260000237,
+      "subsequent_median_seconds": 2.8177694320002047,
+      "samples": [
+        {
+          "seconds": 2.843963260000237,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.04992043799938983,
+            "total": 2.7829710289988725
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.8425231630008057,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.050995353998587234,
+            "total": 2.7866481820001354
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.7930157009996037,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.05002734800109465,
+            "total": 2.734767826999814
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_slice": {
+      "first_seconds": 3.2784092080000846,
+      "subsequent_median_seconds": 3.2610922365001898,
+      "samples": [
+        {
+          "seconds": 3.2784092080000846,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.04601617200023611,
+            "total": 3.2098718759989424,
+            "slice": 0.9762558769998577
+          },
+          "error": null
+        },
+        {
+          "seconds": 3.309291382000083,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.051082374000543496,
+            "total": 3.2524008599993977,
+            "slice": 1.0241298109995114
+          },
+          "error": null
+        },
+        {
+          "seconds": 3.2128930910002964,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.04976981300023908,
+            "total": 3.159533469000962,
+            "slice": 0.979552673001308
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_complete": {
+      "first_seconds": 3.822420268999849,
+      "subsequent_median_seconds": 3.907377643500695,
+      "samples": [
+        {
+          "seconds": 3.822420268999849,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.04757940600029542,
+            "total": 3.765186074000667,
+            "slice": 0.9915066410012514
+          },
+          "error": null
+        },
+        {
+          "seconds": 3.903447832000893,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.04637745000036375,
+            "total": 3.84760045099938,
+            "slice": 0.9742932169992855
+          },
+          "error": null
+        },
+        {
+          "seconds": 3.9113074550004967,
+          "exit_code": 0,
+          "execution": null,
+          "stage_timings": {
+            "build": 0.04908661500121525,
+            "total": 3.859132978001071,
+            "slice": 1.035007135998967
+          },
+          "error": null
+        }
+      ]
+    },
+    "physical_solve": {
+      "first_seconds": 8.652177209000001,
+      "subsequent_median_seconds": 8.631511120500363,
+      "samples": [
+        {
+          "seconds": 8.652177209000001,
+          "exit_code": 0,
+          "displacement_mm": 0.3277944687855075,
+          "error": null
+        },
+        {
+          "seconds": 8.703263786999742,
+          "exit_code": 0,
+          "displacement_mm": 0.3277944687855075,
+          "error": null
+        },
+        {
+          "seconds": 8.559758454000985,
+          "exit_code": 0,
+          "displacement_mm": 0.3277944687855075,
+          "error": null
+        }
+      ]
+    }
+  }
+}

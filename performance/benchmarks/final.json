@@ -1,0 +1,1222 @@
+{
+  "schema_version": 1,
+  "label": "final-qualified",
+  "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+  "cpus": 16,
+  "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+  "dirty_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+  "packages": {
+    "cadquery": "2.7.0",
+    "cadquery-ocp": "7.8.1.1.post1",
+    "numpy": "2.5.3",
+    "gmsh": "4.15.2",
+    "vtk": "9.3.1"
+  },
+  "fixtures": {
+    "solve.py": "faf951c3d41c87a70f7f9f728870274298cf13234791ee309bf96d0459542bff",
+    "script_cad.py": "412b66feb7cab300dee158c2d42faaea6c10be290177a14eb200e525c5fd7347",
+    "script.py": "f5d8c916789ec99898d9288c283cd1ae56e5751af628a11a2123c8384b95a720",
+    "cad.py": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764"
+  },
+  "cold_definition": "First command with a new coordinator/preload host and empty controlled cache; OS page cache is not flushed.",
+  "workflows": {
+    "script": {
+      "first_seconds": 0.645905297000354,
+      "subsequent_median_seconds": 0.5101312124998003,
+      "samples": [
+        {
+          "seconds": 0.645905297000354,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "24b56059f4da4cf2b9733682b4ca99bf",
+            "source": "/home/hevar/git/vibe-modelling-3d/performance/fixtures/script.py",
+            "source_sha256": "f5d8c916789ec99898d9288c283cd1ae56e5751af628a11a2123c8384b95a720",
+            "exit_code": 0,
+            "status": "completed",
+            "resources": {
+              "peak_tree_rss_bytes": 42676224,
+              "sampled_tree_cpu_seconds": 0.39,
+              "measurement": "sampled process tree",
+              "elapsed_seconds": 0.23799809199954325
+            },
+            "startup_dispatch_seconds": 0.00047008699948491994,
+            "worker_seconds": 0.2414613199998712,
+            "execution_strategy": "isolated",
+            "queue_seconds": 1.5685000107623637e-05,
+            "operation": "script.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043421447148938,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "c1aa6a0b6bf7a072835d0ffa6fbd3c4f",
+            "elapsed_seconds": 0.5259791219996259,
+            "observer_cpu_seconds": 0.127861,
+            "observer_max_rss_kib": 28060
+          },
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 0.5436340439991909,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "942d1c0c04224c7fabc93a1dbd3abdc7",
+            "source": "/home/hevar/git/vibe-modelling-3d/performance/fixtures/script.py",
+            "source_sha256": "f5d8c916789ec99898d9288c283cd1ae56e5751af628a11a2123c8384b95a720",
+            "exit_code": 0,
+            "status": "completed",
+            "resources": {
+              "peak_tree_rss_bytes": 42086400,
+              "sampled_tree_cpu_seconds": 0.49,
+              "measurement": "sampled process tree",
+              "elapsed_seconds": 0.26149793900003715
+            },
+            "startup_dispatch_seconds": 0.000597493999521248,
+            "worker_seconds": 0.26482042399948114,
+            "execution_strategy": "isolated",
+            "queue_seconds": 1.6542000594199635e-05,
+            "operation": "script.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043422089214891,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "95c9cb067dec1261e4b47e11d7f54d97",
+            "elapsed_seconds": 0.42069118700055697,
+            "observer_cpu_seconds": 0.151527,
+            "observer_max_rss_kib": 28072
+          },
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 0.4766283810004097,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "ac8637f74cf44e5cb18631dab7391200",
+            "source": "/home/hevar/git/vibe-modelling-3d/performance/fixtures/script.py",
+            "source_sha256": "f5d8c916789ec99898d9288c283cd1ae56e5751af628a11a2123c8384b95a720",
+            "exit_code": 0,
+            "status": "completed",
+            "resources": {
+              "peak_tree_rss_bytes": 44728320,
+              "sampled_tree_cpu_seconds": 0.36,
+              "measurement": "sampled process tree",
+              "elapsed_seconds": 0.21569791299953067
+            },
+            "startup_dispatch_seconds": 0.00045036499977868516,
+            "worker_seconds": 0.21871072499925504,
+            "execution_strategy": "isolated",
+            "queue_seconds": 1.1133000953122973e-05,
+            "operation": "script.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043422640441589,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "30c714a31a3786a505ae5c2c51d9268f",
+            "elapsed_seconds": 0.3594513319985708,
+            "observer_cpu_seconds": 0.13702099999999998,
+            "observer_max_rss_kib": 27952
+          },
+          "stage_timings": null,
+          "error": null
+        }
+      ]
+    },
+    "script_cad": {
+      "first_seconds": 2.327518133999547,
+      "subsequent_median_seconds": 0.3597453005004354,
+      "samples": [
+        {
+          "seconds": 2.327518133999547,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "c130856e96e74751a64e85752f31f801",
+            "source": "/home/hevar/git/vibe-modelling-3d/performance/fixtures/script_cad.py",
+            "source_sha256": "412b66feb7cab300dee158c2d42faaea6c10be290177a14eb200e525c5fd7347",
+            "exit_code": 0,
+            "status": "completed",
+            "resources": {
+              "peak_tree_rss_bytes": 241074176,
+              "sampled_tree_cpu_seconds": 0.23,
+              "measurement": "sampled process tree",
+              "elapsed_seconds": 0.1310312759997032
+            },
+            "startup_dispatch_seconds": 0.006350710000333493,
+            "worker_seconds": 0.14199229299993021,
+            "execution_strategy": "preinitialized",
+            "queue_seconds": 1.852799869084265e-05,
+            "operation": "script.command",
+            "strategy": "preinitialized",
+            "start_unix_ns": 1791043423173349885,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "91f952423b98469f3e307641628421ed",
+            "elapsed_seconds": 2.205463673999475,
+            "observer_cpu_seconds": 0.128665,
+            "observer_max_rss_kib": 27972
+          },
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 0.359950337000555,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "12be9f8c5a8341548c5a9447224876ed",
+            "source": "/home/hevar/git/vibe-modelling-3d/performance/fixtures/script_cad.py",
+            "source_sha256": "412b66feb7cab300dee158c2d42faaea6c10be290177a14eb200e525c5fd7347",
+            "exit_code": 0,
+            "status": "completed",
+            "resources": {
+              "peak_tree_rss_bytes": 239177728,
+              "sampled_tree_cpu_seconds": 0.18000000000000002,
+              "measurement": "sampled process tree",
+              "elapsed_seconds": 0.10891481500038935
+            },
+            "startup_dispatch_seconds": 0.005362514999433188,
+            "worker_seconds": 0.11643998999898031,
+            "execution_strategy": "preinitialized",
+            "queue_seconds": 1.3811999451718293e-05,
+            "operation": "script.command",
+            "strategy": "preinitialized",
+            "start_unix_ns": 1791043425499899329,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "cbfa69193492a65f8b6f3b8205def103",
+            "elapsed_seconds": 0.2447818830005417,
+            "observer_cpu_seconds": 0.127464,
+            "observer_max_rss_kib": 27988
+          },
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 0.3595402640003158,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "0f82573d732f454ab17389296eab9f4c",
+            "source": "/home/hevar/git/vibe-modelling-3d/performance/fixtures/script_cad.py",
+            "source_sha256": "412b66feb7cab300dee158c2d42faaea6c10be290177a14eb200e525c5fd7347",
+            "exit_code": 0,
+            "status": "completed",
+            "resources": {
+              "peak_tree_rss_bytes": 236941312,
+              "sampled_tree_cpu_seconds": 0.23,
+              "measurement": "sampled process tree",
+              "elapsed_seconds": 0.13103023499934352
+            },
+            "startup_dispatch_seconds": 0.005680234999090317,
+            "worker_seconds": 0.139554749999661,
+            "execution_strategy": "preinitialized",
+            "queue_seconds": 1.1010000889655203e-05,
+            "operation": "script.command",
+            "strategy": "preinitialized",
+            "start_unix_ns": 1791043425847281185,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "8ff0a5971a91e9f32ac7976964e38462",
+            "elapsed_seconds": 0.2534129940013372,
+            "observer_cpu_seconds": 0.11268,
+            "observer_max_rss_kib": 28076
+          },
+          "stage_timings": null,
+          "error": null
+        }
+      ]
+    },
+    "cad_geometry": {
+      "first_seconds": 2.435405809999793,
+      "subsequent_median_seconds": 0.4803805219999049,
+      "samples": [
+        {
+          "seconds": 2.435405809999793,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "3de584693a1144fa949dd49214be06d6",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 258932736
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.22197213900108181,
+            "queue_seconds": 1.974199949472677e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043426252125648,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "10e1c61fdb52f6d54775a81497d5a4f3",
+            "elapsed_seconds": 2.3487770699994144,
+            "observer_cpu_seconds": 0.16708499999999998,
+            "observer_max_rss_kib": 30728
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0014030570000613807,
+            "build": 0.06838241600053152,
+            "selection": 0.000625482000032207,
+            "validation": 0.003846692001388874,
+            "worker": 0.14325522400031332,
+            "total": 2.200728757001343
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.4556717060004303,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "68d126276d67439da21681c9af635747",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 258965504
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.22494315299991285,
+            "queue_seconds": 1.5868999980739318e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043428683048814,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "69c262dccc5548b5a4c21757ec3f3f95",
+            "elapsed_seconds": 0.3720911599993997,
+            "observer_cpu_seconds": 0.14347299999999996,
+            "observer_max_rss_kib": 30828
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0012955289985256968,
+            "build": 0.06558013200083224,
+            "selection": 0.0005494020006153733,
+            "validation": 0.0036510459995042766,
+            "worker": 0.1314382389991806,
+            "total": 0.2440732630002458
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.5050893379993795,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "db2def1b255d4a8cb035d2eb71367f28",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 257892352
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.2399083629989036,
+            "queue_seconds": 1.2863998563261703e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043429146465658,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "a8aea572193c3ba6817f6291f8ec0eb1",
+            "elapsed_seconds": 0.4093783159987652,
+            "observer_cpu_seconds": 0.165412,
+            "observer_max_rss_kib": 30788
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0013693670007342007,
+            "build": 0.07393674199920497,
+            "selection": 0.0008207299997593509,
+            "validation": 0.004722523000964429,
+            "worker": 0.1583088970000972,
+            "total": 0.2608280919994286
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_default": {
+      "first_seconds": 2.4823909859987907,
+      "subsequent_median_seconds": 0.462140526499752,
+      "samples": [
+        {
+          "seconds": 2.4823909859987907,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "6809b77aa747421daf952a10a823286e",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 260976640
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.20334703499975149,
+            "queue_seconds": 1.6002000847947784e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043429703052619,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "8de7de0e7bc7e2ca1bcb4ade6d9ad533",
+            "elapsed_seconds": 2.3924288140005956,
+            "observer_cpu_seconds": 0.14427800000000002,
+            "observer_max_rss_kib": 30848
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0013576229994214373,
+            "build": 0.06381058300030418,
+            "selection": 0.0006036649992893217,
+            "validation": 0.003690628000185825,
+            "worker": 0.13009810500079766,
+            "total": 2.2643979170006787
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.4781128880003962,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "0a0402b1ed784804bbf99f11969dadec",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 258367488
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.2192627749991516,
+            "queue_seconds": 1.6189000234589912e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043432191199290,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "9d75662e0c4476619730804396722869",
+            "elapsed_seconds": 0.38991905900002166,
+            "observer_cpu_seconds": 0.165978,
+            "observer_max_rss_kib": 30784
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.001404458000251907,
+            "build": 0.06548517699957301,
+            "selection": 0.0007522050000261515,
+            "validation": 0.003939132000596146,
+            "worker": 0.13948129100026563,
+            "total": 0.24015029299880553
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.44616816499910783,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "788e2cba3fcc4a06b27b3c5e6ec7509b",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 258428928
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.21631666099892755,
+            "queue_seconds": 1.294599860557355e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043432663875092,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "02935a047cdadac4da3a3b6d807dcd27",
+            "elapsed_seconds": 0.36598911300097825,
+            "observer_cpu_seconds": 0.14496900000000001,
+            "observer_max_rss_kib": 30828
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0013085099999443628,
+            "build": 0.07151897200128587,
+            "selection": 0.000700842001606361,
+            "validation": 0.0037728940005763434,
+            "worker": 0.13909479399990232,
+            "total": 0.2375052589995903
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_render_export": {
+      "first_seconds": 2.928970704000676,
+      "subsequent_median_seconds": 0.48364706199845386,
+      "samples": [
+        {
+          "seconds": 2.928970704000676,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "f20ae059fa4d410cafabf44b685c30a6",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 282189824
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.7199219959984475,
+            "queue_seconds": 1.76779994944809e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043433178929118,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "9545cecb98ab6c7fccfe6016e76f494d",
+            "elapsed_seconds": 2.8379560009998386,
+            "observer_cpu_seconds": 0.16373100000000002,
+            "observer_max_rss_kib": 30892
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0017539979999128263,
+            "build": 0.08122360699962883,
+            "selection": 0.0006428130000131205,
+            "validation": 0.004130543000428588,
+            "export_step": 0.011642836001556134,
+            "export_stl": 0.008961006000390626,
+            "render_isometric": 0.4201500239996676,
+            "render_front": 0.031927415999234654,
+            "worker": 0.6350430790007522,
+            "total": 2.691328965000139
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.49761431199840445,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "8cb7f71198da42b2968f207b13164c35",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 259653632
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.22386782900139224,
+            "queue_seconds": 1.772799987520557e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043436107164520,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "748ae04f389f9153aeef352c3e8c1da4",
+            "elapsed_seconds": 0.4016647070002364,
+            "observer_cpu_seconds": 0.17181,
+            "observer_max_rss_kib": 30764
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.001418412999555585,
+            "build": 0.06401738499880594,
+            "selection": 0.0005530029993678909,
+            "validation": 0.003919892000340042,
+            "export_step": 0.0008481639997626189,
+            "export_stl": 0.0004136749994358979,
+            "render_isometric": 0.0002240390003862558,
+            "render_front": 0.0001595009998709429,
+            "worker": 0.14091195599939965,
+            "total": 0.24773489300059737
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.4696798119985033,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "96a8974f5eed4286bb3859d1e5f3de22",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 261046272
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.2270262919992092,
+            "queue_seconds": 1.2487000276450999e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043436606190319,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "6c830f71a438eb22c2f4995bc8e98baa",
+            "elapsed_seconds": 0.37950766699941596,
+            "observer_cpu_seconds": 0.147018,
+            "observer_max_rss_kib": 30792
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0013227480012574233,
+            "build": 0.07511622899983195,
+            "selection": 0.0005681750008079689,
+            "validation": 0.0035158379996573785,
+            "export_step": 0.000707002000126522,
+            "export_stl": 0.00044848899960925337,
+            "render_isometric": 0.00018707999879552517,
+            "render_front": 0.0001996770006371662,
+            "worker": 0.14853811399916594,
+            "total": 0.24836912899991148
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_slice": {
+      "first_seconds": 3.6738863909995416,
+      "subsequent_median_seconds": 0.552774145499825,
+      "samples": [
+        {
+          "seconds": 3.6738863909995416,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "97835f99898942ff9734e11f7dcd8568",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 266551296
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.26083074899906933,
+            "queue_seconds": 2.2975998945184983e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043437141556383,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "9dc950bc6e2973ef4e433a948f7c30ef",
+            "elapsed_seconds": 3.5764071520006837,
+            "observer_cpu_seconds": 0.44423399999999996,
+            "observer_max_rss_kib": 33348
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.00154976899830217,
+            "build": 0.07617977900008555,
+            "selection": 0.0008316419989569113,
+            "validation": 0.004116231000807602,
+            "export_step": 0.012783714000761393,
+            "export_stl": 0.008891120000043884,
+            "worker": 0.17569912900034979,
+            "total": 3.4230318659992918,
+            "slice": 1.1774128299985023
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.54214802199931,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "b146a36ce38c469eb566738b2322c8a4",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 259121152
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.2167558260007354,
+            "queue_seconds": 1.600299947313033e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043440809308737,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "ff6e93cfd1995f510136ba1cf73a8b52",
+            "elapsed_seconds": 0.4451691079993907,
+            "observer_cpu_seconds": 0.161689,
+            "observer_max_rss_kib": 32404
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.001341888999377261,
+            "build": 0.06541393900079129,
+            "selection": 0.000550212000234751,
+            "validation": 0.0037795200005348306,
+            "export_step": 0.000892368001586874,
+            "export_stl": 0.00043552100032684393,
+            "worker": 0.1366559399994003,
+            "total": 0.31243234499925165,
+            "slice": 0.07576647099995171
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.5634002690003399,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "ce8a18b26a65481cb616c685ca17ebb3",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 259796992
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.22861524499967345,
+            "queue_seconds": 1.4201001249602996e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043441349538149,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "9b380436a76fb83aba8e23e6e582d2d2",
+            "elapsed_seconds": 0.47348273699935817,
+            "observer_cpu_seconds": 0.17853799999999997,
+            "observer_max_rss_kib": 32408
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0013965709986223374,
+            "build": 0.06793192099939915,
+            "selection": 0.0005684539992216742,
+            "validation": 0.00374794299932546,
+            "export_step": 0.0009141850005107699,
+            "export_stl": 0.0021141480010555824,
+            "worker": 0.14801054000054137,
+            "total": 0.32473067800128774,
+            "slice": 0.07493281399911211
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_complete": {
+      "first_seconds": 4.126774891999958,
+      "subsequent_median_seconds": 0.53043747349966,
+      "samples": [
+        {
+          "seconds": 4.126774891999958,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "fc05af8048f146d0929ad13c892e2d7c",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 279056384
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.7970014719994651,
+            "queue_seconds": 2.0912000763928518e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043441975885752,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "45228c1081a00d09f61c1c43660ee4d8",
+            "elapsed_seconds": 4.042294824999772,
+            "observer_cpu_seconds": 0.509061,
+            "observer_max_rss_kib": 35332
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0013742910014116205,
+            "build": 0.07353383299960115,
+            "selection": 0.000588495000556577,
+            "validation": 0.004171591999693192,
+            "export_step": 0.011734080999303842,
+            "export_stl": 0.008528988000762183,
+            "render_isometric": 0.43592826799977047,
+            "render_front": 0.03379469299943594,
+            "render_top": 0.031791625000550994,
+            "render_right": 0.038614643999608234,
+            "worker": 0.713096758001484,
+            "total": 3.907671240000127,
+            "slice": 1.6994180780002353
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.5416422880007303,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "72acb04d7ee34b3e9965b2186012e248",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 257540096
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.2355307060006453,
+            "queue_seconds": 1.3647999367094599e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043446104356942,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "0bc9d91fb7f9ddece2687735f311fafb",
+            "elapsed_seconds": 0.4503994700007752,
+            "observer_cpu_seconds": 0.183721,
+            "observer_max_rss_kib": 31868
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0014030570000613807,
+            "build": 0.06969205600034911,
+            "selection": 0.0007164389990066411,
+            "validation": 0.004024481000669766,
+            "export_step": 0.0007925459995021811,
+            "export_stl": 0.0004129389999434352,
+            "render_isometric": 0.0001968180004041642,
+            "render_front": 0.0001621369992790278,
+            "render_top": 0.00023377400066237897,
+            "render_right": 0.00016041500020946842,
+            "worker": 0.14913224399970204,
+            "total": 0.2984505749991513,
+            "slice": 0.07615274900126678
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.5192326589985896,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "d4420b2d73134584a014f8d4e6116923",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 256495616
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.22726484000122582,
+            "queue_seconds": 1.2872000297647901e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043446653626761,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "3db43bf533d6810cb9d7de08300ce495",
+            "elapsed_seconds": 0.42830052899989823,
+            "observer_cpu_seconds": 0.167759,
+            "observer_max_rss_kib": 31788
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0013335019993974129,
+            "build": 0.06841624600019713,
+            "selection": 0.0005440669992822222,
+            "validation": 0.003806598999290145,
+            "export_step": 0.0007220339994091773,
+            "export_stl": 0.000439981999079464,
+            "render_isometric": 0.00018806200023391284,
+            "render_front": 0.00026494799931242596,
+            "render_top": 0.00015627799984940793,
+            "render_right": 0.00014859799921396188,
+            "worker": 0.14130767399910837,
+            "total": 0.29001618000074814,
+            "slice": 0.07632551499955298
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_reuse": {
+      "first_seconds": 2.4365055930011295,
+      "subsequent_median_seconds": 0.3334684195006048,
+      "samples": [
+        {
+          "seconds": 2.4365055930011295,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "9de54008fc3542ca9d00f845a222c8f4",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 259719168
+            },
+            "warm_worker": false,
+            "worker_seconds": 0.22682749100022193,
+            "queue_seconds": 2.5568000637576915e-05,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043447231271507,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "c0a6a5c07691415975ca57ca4d054c4f",
+            "elapsed_seconds": 2.337619736999841,
+            "observer_cpu_seconds": 0.16654999999999998,
+            "observer_max_rss_kib": 30892
+          },
+          "stage_timings": {
+            "dependency_initialization": 0.0014391630011232337,
+            "build": 0.06886199800101167,
+            "selection": 0.0006137230011518113,
+            "validation": 0.003930627999579883,
+            "worker": 0.14459369699943636,
+            "total": 2.187587816000814
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.33243795100133866,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "6853e7a67f464117af67eb6e4ed52d05",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 260620288
+            },
+            "warm_worker": true,
+            "worker_seconds": 0.0723632089993771,
+            "queue_seconds": 0.00020267400032025762,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043449666124660,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "07ba79d1569b6686de7966f8fb6b1e77",
+            "elapsed_seconds": 0.24118525400081126,
+            "observer_cpu_seconds": 0.162501,
+            "observer_max_rss_kib": 30676
+          },
+          "stage_timings": {
+            "dependency_initialization": 6.330900032480713e-05,
+            "build": 0.0,
+            "worker": 0.020264164999389322,
+            "total": 0.0922803940011363
+          },
+          "error": null
+        },
+        {
+          "seconds": 0.33449888799987093,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "250d97486c1e460cb4a58360f2d54aa5",
+            "source": "/home/hevar/engineering-benchmark-l2a83y7l/cad.py",
+            "source_sha256": "2c3783ea7b6345203907494a5a94d788c7d96ae5a9afc9db5ebdabd7de2d0764",
+            "exit_code": 0,
+            "resources": {
+              "peak_worker_rss_bytes": 260620288
+            },
+            "warm_worker": true,
+            "worker_seconds": 0.08024673599902599,
+            "queue_seconds": 0.00019552899902919307,
+            "operation": "cad.command",
+            "strategy": "isolated",
+            "start_unix_ns": 1791043449991917182,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "status": "completed",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "5b94b0dfe5fc37efd10d78022d52ad94",
+            "elapsed_seconds": 0.23455646699949284,
+            "observer_cpu_seconds": 0.14722000000000002,
+            "observer_max_rss_kib": 30668
+          },
+          "stage_timings": {
+            "dependency_initialization": 6.36690001556417e-05,
+            "build": 0.0,
+            "worker": 0.020571420000123908,
+            "total": 0.100014931998885
+          },
+          "error": null
+        }
+      ]
+    },
+    "script_preinitialized": {
+      "first_seconds": 2.3351891160000378,
+      "subsequent_median_seconds": 0.354009077000228,
+      "samples": [
+        {
+          "seconds": 2.3351891160000378,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "242279e3f9c6474f98b07ae3dde43361",
+            "source": "/home/hevar/git/vibe-modelling-3d/performance/fixtures/script.py",
+            "source_sha256": "f5d8c916789ec99898d9288c283cd1ae56e5751af628a11a2123c8384b95a720",
+            "exit_code": 0,
+            "status": "completed",
+            "resources": {
+              "peak_tree_rss_bytes": 225157120,
+              "sampled_tree_cpu_seconds": 0.13,
+              "measurement": "sampled process tree",
+              "elapsed_seconds": 0.11036832299942034
+            },
+            "startup_dispatch_seconds": 0.006536228000186384,
+            "worker_seconds": 0.12191812099990784,
+            "execution_strategy": "preinitialized",
+            "queue_seconds": 1.724199864838738e-05,
+            "operation": "script.command",
+            "strategy": "preinitialized",
+            "start_unix_ns": 1791043450442810306,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "c32708a1b97fa816d6fb085d2feb323c",
+            "elapsed_seconds": 2.20473732299979,
+            "observer_cpu_seconds": 0.128794,
+            "observer_max_rss_kib": 28052
+          },
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 0.3491674319993763,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "c1b50e4dcdb4425186cbc7e46fa5b663",
+            "source": "/home/hevar/git/vibe-modelling-3d/performance/fixtures/script.py",
+            "source_sha256": "f5d8c916789ec99898d9288c283cd1ae56e5751af628a11a2123c8384b95a720",
+            "exit_code": 0,
+            "status": "completed",
+            "resources": {
+              "peak_tree_rss_bytes": 224088064,
+              "sampled_tree_cpu_seconds": 0.08,
+              "measurement": "sampled process tree",
+              "elapsed_seconds": 0.08967545800078369
+            },
+            "startup_dispatch_seconds": 0.007239193000714295,
+            "worker_seconds": 0.09922236599959433,
+            "execution_strategy": "preinitialized",
+            "queue_seconds": 1.7627999113756232e-05,
+            "operation": "script.command",
+            "strategy": "preinitialized",
+            "start_unix_ns": 1791043452773836604,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "3ea9e600db1c30673991cfdf8eefec0b",
+            "elapsed_seconds": 0.23514691799937282,
+            "observer_cpu_seconds": 0.13159699999999996,
+            "observer_max_rss_kib": 28048
+          },
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 0.3588507220010797,
+          "exit_code": 0,
+          "execution": {
+            "schema_version": 1,
+            "run_id": "436c7ea5bcfb427ba45d28dc045afde2",
+            "source": "/home/hevar/git/vibe-modelling-3d/performance/fixtures/script.py",
+            "source_sha256": "f5d8c916789ec99898d9288c283cd1ae56e5751af628a11a2123c8384b95a720",
+            "exit_code": 0,
+            "status": "completed",
+            "resources": {
+              "peak_tree_rss_bytes": 224313344,
+              "sampled_tree_cpu_seconds": 0.14,
+              "measurement": "sampled process tree",
+              "elapsed_seconds": 0.11120911600119143
+            },
+            "startup_dispatch_seconds": 0.006380160000844626,
+            "worker_seconds": 0.12029547699967225,
+            "execution_strategy": "preinitialized",
+            "queue_seconds": 1.209900074172765e-05,
+            "operation": "script.command",
+            "strategy": "preinitialized",
+            "start_unix_ns": 1791043453110931626,
+            "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "python": "3.12.14",
+            "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+            "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+            "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+            "repository_python_sha256": "84a5514e910378f545751184250d8af11e716bc93836bb9cd0257898d499512d",
+            "available_cpus": 16,
+            "trace_id": "cd14a9ca28e809256829d6566edd2b63",
+            "elapsed_seconds": 0.23410038499969232,
+            "observer_cpu_seconds": 0.109944,
+            "observer_max_rss_kib": 27984
+          },
+          "stage_timings": null,
+          "error": null
+        }
+      ]
+    },
+    "physical_solve": {
+      "first_seconds": 7.446191381999597,
+      "subsequent_median_seconds": 7.221079738999833,
+      "samples": [
+        {
+          "seconds": 7.446191381999597,
+          "exit_code": 0,
+          "displacement_mm": 0.3277944687855075,
+          "error": null
+        },
+        {
+          "seconds": 7.216476159999729,
+          "exit_code": 0,
+          "displacement_mm": 0.3277944687855075,
+          "error": null
+        },
+        {
+          "seconds": 7.225683317999938,
+          "exit_code": 0,
+          "displacement_mm": 0.3277944687855075,
+          "error": null
+        }
+      ]
+    }
+  }
+}

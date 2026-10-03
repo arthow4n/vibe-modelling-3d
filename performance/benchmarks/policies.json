@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+  "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+  "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+  "available_cpus": 16,
+  "shared_cpu_capacity": 8,
+  "shared_memory_mb": 2873,
+  "numpy": "2.5.3",
+  "policies": {
+    "tracing_0": {
+      "samples_seconds": [
+        0.28846300299846916,
+        0.28148193699962576,
+        0.30300466399967263,
+        0.2954288180008007,
+        0.2857628649999242
+      ],
+      "median_seconds": 0.28846300299846916
+    },
+    "tracing_1": {
+      "samples_seconds": [
+        0.4174362239991751,
+        0.4222748270003649,
+        0.4300392869990901,
+        0.4423312230010197,
+        0.3978753080009483
+      ],
+      "median_seconds": 0.4222748270003649
+    },
+    "matrix_threads_1": {
+      "samples_seconds": [
+        4.171606182999312,
+        4.155885856998793,
+        4.21719067199956
+      ],
+      "median_seconds": 4.171606182999312
+    },
+    "matrix_threads_2": {
+      "samples_seconds": [
+        2.417486270000154,
+        2.8853404949986725,
+        2.369876951999686
+      ],
+      "median_seconds": 2.417486270000154
+    },
+    "matrix_threads_4": {
+      "samples_seconds": [
+        1.8527108409998618,
+        1.7770510490008746,
+        1.6049578479996853
+      ],
+      "median_seconds": 1.7770510490008746
+    },
+    "matrix_threads_8": {
+      "samples_seconds": [
+        1.6185786639998696,
+        1.5349224599995068,
+        1.5352887520002696
+      ],
+      "median_seconds": 1.5352887520002696
+    },
+    "batch_concurrency_1": {
+      "samples_seconds": [
+        3.3441811829998187,
+        3.05802874300025,
+        4.1304933770006755
+      ],
+      "median_seconds": 3.3441811829998187
+    },
+    "batch_concurrency_2": {
+      "samples_seconds": [
+        2.205719924000732,
+        2.295589261000714,
+        2.2907757760003733
+      ],
+      "median_seconds": 2.2907757760003733
+    },
+    "slice_threads_1": {
+      "samples_seconds": [
+        2.1996709750001173,
+        1.9538130540004204,
+        1.9380564399998548
+      ],
+      "median_seconds": 1.9538130540004204
+    },
+    "slice_threads_4": {
+      "samples_seconds": [
+        0.8283705729991198,
+        0.8226925029994163,
+        0.8072262440000486
+      ],
+      "median_seconds": 0.8226925029994163
+    },
+    "pipeline_memory_2048": {
+      "samples_seconds": [
+        1.9167963889995008,
+        1.977865582000959,
+        1.9182153630008543
+      ],
+      "median_seconds": 1.9182153630008543
+    },
+    "pipeline_memory_512": {
+      "samples_seconds": [
+        1.3650192160002916,
+        1.3593652759991528,
+        1.40176949600027
+      ],
+      "median_seconds": 1.3650192160002916
+    }
+  }
+}

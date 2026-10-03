@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "revision": "e8777d5a7890f43e5b1b3b9dd14f8f0dcdef2307",
+  "regression": {
+    "passed": 145,
+    "skipped": 3,
+    "seconds": 237.3,
+    "skip_reason": "Optional native IPC/PolyFEM solver unavailable"
+  },
+  "native_signal_cases": [
+    {
+      "strategy": "isolated",
+      "signal": "SIGSEGV",
+      "exit_code": 139
+    },
+    {
+      "strategy": "preinitialized",
+      "signal": "SIGSEGV",
+      "exit_code": 139
+    }
+  ],
+  "post_crash_recovery": true,
+  "environment_sync": "uv sync --locked --check: no changes"
+}
