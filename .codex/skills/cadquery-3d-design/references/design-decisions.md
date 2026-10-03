@@ -362,6 +362,15 @@ edge treatment and transitions; asymmetry or an exposed mechanism can be
 appropriate when it serves the intended use. Do not impose symmetry, concealed
 mechanisms or decoration as universal requirements.
 
+For a grip intended to separate parts, identify which part each hand contacts
+and the required force direction on each part. Check the accessible surface
+normals in the closed assembly: an underside scoop can help lift a part while
+providing no downward geometric purchase to hold it against an upward pull.
+If operation relies on friction or wrapping fingers onto another face, state
+that dependency rather than claiming a positive grip from the recess alone.
+A printable ramp and a visible cutout do not establish useful hand-force
+direction. Reversing a ramp also needs an access check with the other part fitted.
+
 The user's default in this repository is to conceal mechanisms in the assembled
 object where practical, leaving understandable, modest controls for operation.
 Prefer covers, internal interfaces or protected recesses over exposing the whole

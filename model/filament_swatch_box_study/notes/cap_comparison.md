@@ -1,5 +1,51 @@
 # Cap exploration — authorized autonomous phase
 
+## Underside grip direction review
+
+Latest user feedback confirms the feature is the two sloped underside recesses,
+not the perimeter bottom-edge chamfer. A base has been printed; its exact
+variant, artifacts and settings are not identified. The user questions the
+recess purpose/direction and says it looks like a misprint. This does not report
+that the hood cannot be opened, nor qualify J2/K2/V1 use. Current instruction:
+review and record lessons autonomously, discuss further modelling before doing
+it. No geometry, exports, print settings or scripts changed in this review.
+
+The feature is intentional CAD, inherited from E through G/H/J/K and the J2/K2
+bases. In `cap_g_module_5.py` and `cap_j_base_5.py`, the cut spans 18 mm along Y,
+from the bed-facing underside. Its nominal straight XZ boundary runs from
+(X=30,Z=1) toward (X=32.5,Z=3.5), with .35 mm cut-edge rounds. Material remains
+above that slope. The exposed face therefore points outward/downward; a
+frictionless finger push against it has an inward/upward component on the base.
+This geometric force-direction conclusion needs no new CAD export or solver.
+The source and retained assembled/underside views establish intentional shape;
+they do not diagnose any actual print-quality defect.
+
+Earlier notes called the recesses purchase for the opposing opening grip while
+lifting the hood. That claim was not adequately established: holding the base
+against hood withdrawal requires a downward reaction, which the underside ramp
+does not provide by normal contact alone. Friction, finger wrap around another
+face, or gripping the remaining vertical band might still hold it, but were
+neither specified nor qualified as the intended interaction. The 45-degree
+return helped printability; it did not establish hand-force direction. Earlier
+clearance/seating/slice checks remain valid for their narrower questions, not
+proof of usable opening grips. There is no tolerance or printer explanation
+for this intentional surface orientation.
+
+Recommendation for discussion: first consider removing these recesses and
+restoring a smooth rounded lower band for side pinch, retaining the successful
+hood, foot seating and key interfaces. That simpler grip would rely on side
+friction and still needs a comfort/effort review; it is not a positive downward
+ledge. An accessible upward-facing base contact can supply downward purchase,
+but simply flipping the recess may put that contact under the closed hood or
+compromise seating. A grip to lift the hood belongs on the hood or at a usable
+separation seam. These are options, not approved geometry changes. Pause further
+modelling for the user's direction.
+
+Shared lesson is added to the handling review and reusable-evidence reference:
+map each hand to its part and required force, then check accessible contact
+normals in the closed assembly. Do not equate a printable recess with useful
+release assistance. Preserve prior artifacts and the reported accepted hood.
+
 ## J/K print feedback and revisions
 
 Current authorized phase: record the printed J/K failures, preserve the accepted

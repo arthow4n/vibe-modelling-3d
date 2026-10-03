@@ -10,6 +10,14 @@ Preserve all earlier artifacts,
 the successful G hood and the shared I key 3. Exact printed hashes/settings
 remain unconfirmed; PETG and the established .4/.2 setup remain design assumptions.
 
+**Latest handling review:** the user has printed a base (exact variant unknown)
+and questions the two underside recesses. They are intentional CAD, but their
+downward-facing ramps do not by normal contact alone provide the downward hold
+needed while lifting the hood. The earlier opening-grip claim was unqualified;
+friction or other contact surfaces might still enable opening. See the
+[direction review and proposed options](notes/cap_comparison.md#underside-grip-direction-review).
+Geometry remains unchanged; further modelling waits for discussion.
+
 ## Requirements to preserve
 
 - Store the cards with their long dimension vertical and notch at the top; the
@@ -805,6 +813,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
+| Base underside-grip feature — shared E/G/H/J/K family | Yes — base reported printed; exact variant/artifacts/settings unknown | Two sloped underside recesses inherited by J2/K2 | User questions direction/purpose and misprint-like appearance. Source confirms intentional shape but normal contact pushes the base upward. Opposing opening grip remains unqualified; no inability-to-open result reported. Geometry revision awaits discussion |
 | Complete hood — V1 spiral .42 mm wall | Unknown — new unprinted experiment | `cap_v1_vase_hood_5.step/.stl`, vase-only filled input; `notes/vase_process.json` | CAD and actual single-wall paths cover all four existing catches; primary Orca slice succeeds, support probe inapplicable. Holding force, rim comfort, transparency and recovery need the full-hood trial |
 | Complete base — J2 opposing upright rails | Unknown — new unprinted revision | `cap_j2_base_5.step/.stl`, accepted G hood and I key 3 | Source-card contact/entry checks and reference slice cover the revision; actual upright alignment, entry/removal and dwell require use |
 | Complete base — K2 proper source-card catch | Unknown — new unprinted revision | `cap_k2_base_5.step/.stl`, accepted G hood and I key 3 | Real-face shoulder contact, old-K and wrong-face negative cases, upright datums and sampled rigid entry checked. Printed dome engagement, grip and recovery remain unqualified |
