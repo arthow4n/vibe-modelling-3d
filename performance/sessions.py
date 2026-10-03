@@ -213,6 +213,7 @@ class Session:
     subagent: bool = False
     response_keys: set = field(default_factory=set, repr=False)
     turn_keys: set = field(default_factory=set, repr=False)
+    source_ids: set = field(default_factory=set, repr=False)
     responses: list[Response] = field(default_factory=list)
     configurations: list[dict] = field(default_factory=list)
 
@@ -253,6 +254,8 @@ def parse(path):
             session.end = max(session.end, t) if session.end is not None else t
         sub = p.get('type')
         if typ == 'session_meta':
+            if isinstance(p.get('id'), str):
+                session.source_ids.add(p['id'])
             metadata_count += 1
             if metadata_count > 1:
                 session.quality['repeated_session_metadata_inherited_history_possible'] += 1
@@ -473,3 +476,132 @@ def parse(path):
                                 if cumulative else 'unavailable')
         session.tokens = {k: cumulative_sums[k] if cumulative_fields[k] else None for k in TOKENS}
     return session
+
+
+def native_capture(paths, sessions=(), explicit_scope=False):
+    """Read only allowlisted local captures; join spans structurally, never by time.
+
+    0.160.0: stream_request is the client.stream operation entry; the receiving
+    child of a completed handle_responses ends when completion reaches the core.
+    This includes client preparation/transport/scheduling, not just backend work.
+    Native log TTFT starts later and must not be subtracted from this interval.
+    """
+    from performance.telemetry import pseudonym
+    issues = Counter(); spans = {}; conflicts = set(); allowed = set(); logs = []
+    total_records = 0
+    for path in paths:
+        if total_records >= MAX_EVENTS:
+            issues['native_record_limit'] += 1; break
+        try:
+            meta = json.loads((path/'capture.json').read_text())
+            if meta.get('schema') != 1 or meta.get('source') != 'codex-native-otel':
+                raise ValueError()
+            key = bytes.fromhex(meta['key'])
+            if len(key) != 32 or (path/'records.jsonl').stat().st_size > 16*1024*1024:
+                raise ValueError()
+            allowed.update(pseudonym(ident, key, 'session') for s in sessions for ident in s.source_ids)
+            if meta.get('active'):
+                issues['capture_snapshot'] += 1
+            issues['capture_limit_reached'] += meta.get('counts', {}).get('limit_reached', 0)
+            issues['capture_rejected_batches'] += meta.get('counts', {}).get('rejected_batches', 0)
+        except (OSError, ValueError, KeyError, TypeError):
+            issues['unreadable_or_unsupported_capture'] += 1
+            continue
+        for n, row in enumerate(records(path/'records.jsonl', issues)):
+            if total_records >= MAX_EVENTS:
+                issues['native_record_limit'] += 1; break
+            total_records += 1
+            if row.get('type') == 'span':
+                ident = (row.get('trace_key'), row.get('span_key'))
+                if not all(isinstance(v, str) and re.fullmatch(r'[0-9a-f]{32}', v) for v in ident):
+                    issues['unkeyed_native_span'] += 1; continue
+                if ident in spans:
+                    issues['duplicate_native_spans'] += 1
+                    if spans[ident] != row:
+                        conflicts.add(ident); issues['conflicting_native_spans'] += 1
+                else:
+                    spans[ident] = row
+            elif row.get('type') == 'log':
+                logs.append(row)
+    for ident in conflicts:
+        spans.pop(ident, None)
+    children = {}
+    for ident, row in spans.items():
+        children.setdefault((ident[0], row.get('parent_key')), []).append(row)
+    def session_keys(row):
+        result = set(); seen = set()
+        for _ in range(64):
+            if not row: break
+            ident = (row.get('trace_key'), row.get('span_key'))
+            if ident in seen:
+                issues['native_ancestor_cycle'] += 1; break
+            seen.add(ident)
+            result.update(r['session_key'] for r in [row]+row.get('events', []) if r.get('session_key'))
+            row = spans.get((ident[0], row.get('parent_key')))
+        return result
+    def eligible(row):
+        keys = session_keys(row) if row.get('type') == 'span' else {row.get('session_key')}
+        return explicit_scope if not sessions else len(keys) == 1 and bool(keys & allowed)
+    requests = []
+    for root in spans.values():
+        if root.get('name') != 'try_run_sampling_request' or not eligible(root): continue
+        versions = {r['version'] for r in [root]+root.get('events', []) if r.get('version')}
+        version = next(iter(versions)) if len(versions) == 1 else 'unknown'
+        direct = children.get((root['trace_key'], root['span_key']), [])
+        starts = [r for r in direct if r.get('name') == 'stream_request']
+        streams = [r for r in direct if r.get('name') == 'receiving_stream']
+        completions = [r for stream in streams for r in children.get((stream['trace_key'], stream['span_key']), [])
+                       if r.get('name') == 'handle_responses' and any(k in r for k in
+                           ('gen_ai.usage.input_tokens','gen_ai.usage.output_tokens','codex.usage.reasoning_output_tokens'))]
+        req = {'label': f'native-request-{len(requests)+1}', 'start': None, 'end': None,
+               'duration_s': None, 'output_tokens_per_s': None, 'tokens': {},
+               'first_observable_delta_delay_s': None,
+               'model': model_name(root.get('model')), 'effort': 'unknown', 'version': version,
+               'outcome': 'failed' if root.get('error_status') else 'incomplete_or_unassociated',
+               'association': 'selected_session_key' if sessions else 'explicit_capture_scope'}
+        # Installed exports omit the non-completion handle_responses event kind.
+        # Do not identify text/reasoning deltas from generic receiving spans.
+        if version != '0.160.0':
+            issues['unsupported_native_version'] += 1
+        elif len(starts) != 1 or len(streams) != 1 or len(completions) != 1:
+            issues['missing_or_ambiguous_native_boundaries'] += 1
+        else:
+            complete = completions[0]
+            receiving = [r for r in children.get((complete['trace_key'], complete['span_key']), []) if r.get('name') == 'receiving']
+            a = nonnegative(starts[0].get('start'))
+            b = nonnegative(receiving[0].get('end')) if len(receiving) == 1 else None
+            root_start = nonnegative(root.get('start')); root_end = nonnegative(root.get('end'))
+            if a is None or b is None or b < a or root_start is None or root_end is None or not (root_start <= a <= b <= root_end):
+                issues['invalid_or_missing_native_timestamps'] += 1
+            else:
+                req.update(start=a, end=b, duration_s=b-a, outcome='completed')
+                req['effort'] = effort_name(complete.get('codex.request.reasoning_effort'))
+                for source, target in [('gen_ai.usage.input_tokens', 'input_tokens'),
+                                       ('gen_ai.usage.cache_read.input_tokens', 'cached_input_tokens'),
+                                       ('gen_ai.usage.output_tokens', 'output_tokens'),
+                                       ('codex.usage.reasoning_output_tokens', 'reasoning_output_tokens')]:
+                    value = nonnegative(complete.get(source))
+                    if value is not None and value.is_integer(): req['tokens'][target] = int(value)
+                req['output_tokens_per_s'] = request_metrics(b-a, None, req['tokens'])['output_tokens_per_s']
+                if b == a: issues['zero_native_duration'] += 1
+        requests.append(req)
+    native_delays = []; completion_logs = 0; seen_logs = set(); attempts = []; errors = 0
+    for row in logs:
+        if not eligible(row): continue
+        # Identical retransmitted log observations are counted once. Equal usage
+        # without timestamp identity remains separate and cannot join to requests.
+        identity = json.dumps(row, sort_keys=True)
+        if identity in seen_logs and row.get('at') is not None:
+            issues['duplicate_native_logs'] += 1; continue
+        seen_logs.add(identity)
+        errors += bool(row.get('has_error') or row.get('success') is False)
+        if row.get('event_name') in ('codex.api_request', 'codex.websocket_request'):
+            attempts.append({'duration_s': (v/1000 if (v := nonnegative(row.get('duration_ms'))) is not None else None),
+                             'attempt': nonnegative(row.get('attempt')), 'failed': bool(row.get('has_error') or row.get('success') is False)})
+        if row.get('event_name') == 'codex.sse_event' and row.get('event_kind') == 'response.completed' and 'output_token_count' in row:
+            completion_logs += 1
+            if row.get('version') == '0.160.0' and (delay := nonnegative(row.get('ttft_ms'))) is not None:
+                native_delays.append(delay/1000)
+    return {'requests': requests, 'quality': dict(issues), 'native_stream_first_item_delays': native_delays,
+            'native_completion_logs': completion_logs, 'transport_attempts': attempts, 'error_notices': errors,
+            'scope': 'selected sessions by structured session key' if sessions else 'explicitly selected capture; not a modeling-task association'}

@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from execution.history import iter_records, iter_spans, perfetto_event
-from performance.sessions import TOKENS, discover, parse, timestamp, session_root
+from performance.sessions import TOKENS, discover, parse, timestamp, session_root, native_capture
 
 STAGES = {'cad.construction', 'cad.selection', 'cad.validation', 'cad.worker', 'cad.render',
           'cad.export', 'cad.artifact_identity', 'worker.initialization', 'worker.preload_qualification',
@@ -135,16 +135,47 @@ def model_latency(sessions, overlapping=False, overlapping_turns=False):
                         key=lambda t:t[2].duration_s if t[2].duration_s is not None else t[2].end-t[2].start, reverse=True)[:5]])
 
 
-def analyze(sessions, records, spans, inventory_count=0):
+def native_latency(data):
+    rows = data['requests']; n = len(rows)
+    groups = defaultdict(list)
+    for r in rows:
+        groups[(r['model'], r['effort'])].append(r)
+    return dict(requests=n, completed=sum(r['outcome']=='completed' for r in rows),
+        duration=measurement([r['duration_s'] for r in rows], n, 'derived'),
+        throughput=measurement([r['output_tokens_per_s'] for r in rows], n, 'derived', 'tokens/s'),
+        first_observable_delta=measurement([r['first_observable_delta_delay_s'] for r in rows],n,'derived'),
+        stream_first_item_delay=measurement(data['native_stream_first_item_delays'], data['native_completion_logs'], 'observed'),
+        scope='client.stream operation entry to structurally associated completion receipt; includes client preparation, transport and scheduling; not backend compute',
+        first_item_scope='stream-mapping start after transport setup to first OutputItemAdded; logs can include warmup completions; not request TTFT; not joined to request intervals',
+        token_scope='native completion evidence, never added to rollout token totals; output includes reasoning',
+        configuration_groups=[dict(model=m,effort=e,scope='configured sampling request; backend unverified',
+            responses=len(v),duration=measurement([r['duration_s'] for r in v],len(v),'derived'),
+            throughput=measurement([r['output_tokens_per_s'] for r in v],len(v),'derived','tokens/s')) for (m,e),v in sorted(groups.items())],
+        tokens={k:sum(r['tokens'][k] for r in rows) if rows and all(k in r['tokens'] for r in rows) else None for k in TOKENS},
+        token_coverage={k:sum(k in r['tokens'] for r in rows) for k in TOKENS},
+        uncached_input_tokens=sum(r['tokens']['input_tokens']-r['tokens']['cached_input_tokens'] for r in rows)
+            if rows and all('input_tokens' in r['tokens'] and 'cached_input_tokens' in r['tokens']
+                and r['tokens']['input_tokens']>=r['tokens']['cached_input_tokens'] for r in rows) else None,
+        transport_attempts=len(data['transport_attempts']),
+        explicit_transport_retries=sum(r['attempt'] is not None and r['attempt']>0 for r in data['transport_attempts']),
+        transport_duration=measurement([r['duration_s'] for r in data['transport_attempts']],len(data['transport_attempts']),'observed'),
+        error_notices=data['error_notices'], quality=data['quality'], association_scope=data['scope'],
+        slowest_requests=[{k:r[k] for k in ('label','duration_s','output_tokens_per_s','tokens','model','effort','version','outcome','association')}
+                          for r in sorted((r for r in rows if r['duration_s'] is not None),key=lambda r:r['duration_s'],reverse=True)[:5]])
+
+
+def analyze(sessions, records, spans, inventory_count=0, native=None):
     wall = [(s.start, s.end) for s in sessions]
     turns = [(e.start, e.end) for s in sessions for e in s.events if e.kind == 'turn']
     tools = [(e.start, e.end) for s in sessions for e in s.events if e.kind == 'tool' or (e.kind == 'item' and e.category in TOOL_ITEMS)]
     model_items = [(e.start, e.end) for s in sessions for e in s.events if e.kind == 'item' and e.category in ('reasoning_item', 'message_item')]
     compactions = [(e.start, e.end) for s in sessions for e in s.events if e.kind == 'item' and e.category == 'compaction']
+    requests = [(r['start'],r['end']) for r in native['requests']] if native else []
     # Disjoint attribution within measured turns, with tools given precedence.
     tool_in_turn = union(intersections(tools, turns))
-    tools_and_items = union(intersections(tools+model_items, turns))
-    all_activity = union(intersections(tools+model_items+compactions, turns))
+    tools_and_requests = union(intersections(tools+requests, turns))
+    tools_and_items = union(intersections(tools+requests+model_items, turns))
+    all_activity = union(intersections(tools+requests+model_items+compactions, turns))
     execution_intervals = [interval(r) for r in records]
     tools_union = union(tools); turn_union = union(turns)
     stages = defaultdict(list); stage_intervals = defaultdict(list); reuse = Counter(); covered_traces = set()
@@ -247,13 +278,13 @@ def analyze(sessions, records, spans, inventory_count=0):
             elif e.kind=='item':
                 item_counts[e.category]+=1
                 item_outcomes[e.outcome]+=1
-    return dict(schema_version=1,sessions=len(sessions),executions=len(records),
+    result = dict(schema_version=1,sessions=len(sessions),executions=len(records),
         model_latency=model_latency(sessions, bool(overlaps), bool(turn_overlaps)),
-        period_start=min((a for a,b in wall+execution_intervals if a is not None),default=None),
-        period_end=max((b for a,b in wall+execution_intervals if b is not None),default=None),
+        period_start=min((a for a,b in wall+execution_intervals+requests if a is not None),default=None),
+        period_end=max((b for a,b in wall+execution_intervals+requests if b is not None),default=None),
         session_wall_union_s=union(wall),active_turn_union_s=turn_union,
         tool_union_s=tools_union,tool_within_turn_union_s=union(intersections(tools,turns)),
-        turn_attribution=dict(tool_s=tool_in_turn, model_items_outside_tools_s=tools_and_items-tool_in_turn,
+        turn_attribution=dict(tool_s=tool_in_turn, model_items_outside_tools_s=tools_and_items-tools_and_requests,
             compaction_outside_tools_and_model_items_s=all_activity-tools_and_items,
             unattributed_s=max(0,turn_union-all_activity)),
         model_item_union_s=union(model_items),compaction_union_s=union(compactions),
@@ -285,6 +316,13 @@ def analyze(sessions, records, spans, inventory_count=0):
         sampled_resources={'cpu_lower_bound_s':sum(r.get('sampled_tree_cpu_seconds',0) for r in resources),
                            'cpu_measured_runs':sum('sampled_tree_cpu_seconds' in r for r in resources),
                            'max_sampled_rss_bytes':max((r.get('peak_tree_rss_bytes',r.get('peak_worker_rss_bytes',0)) for r in resources),default=0)})
+    if native is not None:
+        result['native_model_latency'] = native_latency(native)
+        result['native_request_union_s'] = union(requests)
+        result['turn_attribution']['native_request_outside_tools_s'] = tools_and_requests-tool_in_turn
+        # Keep these client-operation measurements separate from exact provider
+        # request timing and literal generated-token TTFT, which remain unavailable.
+    return result
 
 
 def markdown(summary):
@@ -301,7 +339,7 @@ def markdown(summary):
     for key in ('session_wall_union_s','active_turn_union_s','tool_union_s','execution_union_s','execution_within_turn_union_s','turn_without_observed_tool_s','between_turns_or_missing_s'):
         lines.append(f"| {key} | {s[key]:.3f} |")
     latency=s['model_latency']
-    lines += ['', f"Disjoint measured-turn attribution (tools first, then recorded model items, then compaction): {s['turn_attribution']}. Model item intervals describe item activity, not full requests, inference time or first-token delays. Admission and initialization are nested execution evidence, not additional elapsed time."]
+    lines += ['', f"Disjoint measured-turn attribution (tools first, then qualified native request operations when present, then recorded model items, then compaction): {s['turn_attribution']}. Model item intervals describe item activity, not full requests, inference time or first-token delays. Admission and initialization are nested execution evidence, not additional elapsed time."]
     count=str(latency['response_count']) if latency['response_count'] is not None else 'unavailable (overlapping histories)'
     lines += ['', 'Model latency: '+count+' completed unique response-usage observations. Failed or incomplete requests without usage are outside this count.', '',
               '| Measurement | Quality | Coverage | Median | P90 | Maximum |', '| --- | --- | ---: | ---: | ---: | ---: |']
@@ -315,7 +353,19 @@ def markdown(summary):
               f"Configured turn groups: {latency['configured_turn_groups']}. These are initial turn snapshots associated by turn key, not independently verified request or backend models. Changed/ambiguous snapshots and identified compaction responses retain unknown configuration.", '',
               f"Turn timing by initial configuration (at least ten timed turns; task and context are not controlled): {latency['turn_configuration_groups']}.", '',
               f"Observed turn outcomes: {latency['turn_outcomes']}; surfaced stream-error notices: {latency['observed_stream_error_notices']}; error events: {latency['observed_error_events']}; compactions: {latency['compactions']}. Full retry/backoff history and context occupancy are unavailable.", '',
-              f"Slowest measured turns: {latency['slowest_turns']}. Turn intervals can contain many requests and tools; no slowest-response ranking is supported."]
+              f"Slowest measured turns: {latency['slowest_turns']}. Turn intervals can contain many requests and tools; rollouts alone do not support slowest-response ranking."]
+    if 'native_model_latency' in s:
+        native = s['native_model_latency']
+        lines += ['', f"Native OTel: {native['completed']}/{native['requests']} completed sampling request operations. Scope: {native['scope']}. Association: {native['association_scope']}.", '',
+                  '| Native measurement | Quality | Coverage | Median | P90 | Maximum |', '| --- | --- | ---: | ---: | ---: | ---: |']
+        for label in ('duration','throughput','first_observable_delta','stream_first_item_delay','transport_duration'):
+            m=native[label]
+            fmt=lambda v: f'{v:.3f}' if v is not None else 'unavailable'
+            lines.append(f"| {label} ({m['unit']}) | {m['quality']} | {m['measured']}/{m['eligible']} | {fmt(m['median'])} | {fmt(m['p90'])} | {fmt(m['max'])} |")
+        lines += ['', native['first_item_scope']+'. First observable text/reasoning-delta timing is unavailable: installed exports omit the required event-kind labels. Generation throughput and visible-text speed remain unavailable. '+native['token_scope']+'.', '',
+                  f"Native tokens: {native['tokens']}; coverage {native['token_coverage']}; derived uncached input {native['uncached_input_tokens']}. Configuration groups: {native['configuration_groups']}.", '',
+                  f"Transport attempt observations: {native['transport_attempts']}; explicit retries: {native['explicit_transport_retries']}; error notices: {native['error_notices']}. These are surfaced observations, not a complete retry/backoff ledger.", '',
+                  f"Slowest qualified request operations: {native['slowest_requests']}. Quality: {native['quality']}. No backend-speed or optimization claim follows from enabling telemetry."]
     if investigation['mode']=='modeling':
         lines += ['', f"Milestone: {investigation['milestone']}. Evidence references: {investigation['evidence']}. Outcome and association basis are analyst assertions requiring evidence review, not automated engineering acceptance.", '',
                   'Association basis: '+investigation['association_basis'], '',
@@ -347,14 +397,14 @@ def markdown(summary):
         f"Association strengths: {s['associations']}. Timing-only associations are inferred; ambiguous matches remain ambiguous.",'',
         f"Sampled resources: {s['sampled_resources']}. Sampled CPU is a lower bound; RSS includes shared pages.",'',
         f"Measurement quality: {s['quality']}. Trace coverage: {s['trace_covered_executions']}/{s['executions']} runs. Missing execution fields: {s['missing_execution_fields']}.",'',
-        'Measured observations: compare the interval unions and coverage above; inspect the largest measurable contributor first. Request timing is unavailable, so turn time outside tools cannot distinguish generation, scheduling, network, orchestration or unrecorded waits.', '',
+        'Measured observations: compare the interval unions and coverage above; inspect the largest measurable contributor first. Qualified native request operations, when present, include client preparation, transport and scheduling. Exact provider timing remains unavailable; turn time outside observed intervals cannot distinguish generation, orchestration or unrecorded waits.', '',
         'Plausible interpretations: repeated identities, large token counts and long turns are investigation candidates. Required exploration, stronger checks and physical evidence can justify them. Engineering records must establish the result and necessity of the work.', '',
         'Recommended action: no automatic optimization. A follow-up should name the suspected change, expected benefit, required correctness/validation evidence and a matched measurement that could verify it. Route computation work to engineering execution and transferable lessons to engineering reflection.', '',
         'Limitations: retained history is bounded and may omit early operations. Session boundaries are recorded-file observations, not necessarily launch/exit times. Current files are snapshots. Forked/inherited history can overlap accounting scopes; exclude related forks for cross-session totals. Resumes without an explicit marker cannot be counted reliably. Tool outputs/arguments and prompts are not included. Missing timestamps, usage, incomplete calls and trace gaps remain missing evidence. Recorded reasoning-item intervals do not establish total model-processing latency.']
     return '\n'.join(lines)+'\n'
 
 
-def timeline(sessions, spans):
+def timeline(sessions, spans, native=None):
     events=[]
     for i,s in enumerate(sessions):
         for e in s.events:
@@ -367,6 +417,14 @@ def timeline(sessions, spans):
             events.append(event)
         except (KeyError,ValueError,TypeError):
             continue
+    if native:
+        for r in native['requests']:
+            if r['start'] is not None and r['end'] is not None:
+                span=dict(name='client.request_operation',startTimeUnixNano=int(r['start']*1e9),
+                          endTimeUnixNano=int(r['end']*1e9),attributes=[],traceId='',spanId='')
+                event=perfetto_event({},span); event.pop('args',None)
+                event.update(cat='model',pid='native-model',tid='request')
+                events.append(event)
     return {'traceEvents':events}
 
 
@@ -380,7 +438,7 @@ def local_directory(root, repo):
     return path
 
 
-def save_local(directory, summary, sessions, spans, with_timeline=False):
+def save_local(directory, summary, sessions, spans, with_timeline=False, native=None):
     payload={'summary':summary,'sessions':[s.normalized() for s in sessions]}
     encoded=json.dumps(payload,sort_keys=True)
     if len(encoded.encode())>16*1024*1024:
@@ -394,7 +452,7 @@ def save_local(directory, summary, sessions, spans, with_timeline=False):
                 output.write(content)
             target.chmod(0o600)
     if with_timeline:
-        content=json.dumps(timeline(sessions,spans))
+        content=json.dumps(timeline(sessions,spans,native))
         if len(content)>16*1024*1024:
             raise ValueError('Timeline exceeds 16 MiB bound; narrow scope')
         target=base.with_suffix('.perfetto.json')
@@ -419,6 +477,8 @@ def main(argv=None):
     mode.add_argument('--recent',type=int,default=3,help='At most N repository sessions by recorded creation time (1..20)')
     mode.add_argument('--execution-only',action='store_true')
     parser.add_argument('--agent-only',action='store_true')
+    parser.add_argument('--telemetry',type=Path,action='append',help='Explicit normalized local native capture directory; may repeat')
+    parser.add_argument('--telemetry-only',action='store_true',help='Analyze explicitly selected native captures without rollouts/executions')
     parser.add_argument('--last-runs',type=int,default=500,help='Retained execution bound (1..500)')
     parser.add_argument('--since',help='ISO timestamp with timezone')
     parser.add_argument('--until',help='ISO timestamp with timezone')
@@ -430,6 +490,10 @@ def main(argv=None):
     parser.add_argument('--evidence',type=Path,action='append',help='Existing repository-relative engineering record; may repeat')
     parser.add_argument('--association-basis',help='Why the selected activity belongs to the milestone; reviewed locally')
     args=parser.parse_args(argv)
+    if args.telemetry_only and (not args.telemetry or args.session or args.execution_only or args.mode=='modeling'):
+        parser.error('Telemetry-only requires explicit captures and no session/execution/modeling selection')
+    if args.telemetry and len(args.telemetry)>20:
+        parser.error('Select at most 20 native captures')
     if not 1<=args.recent<=20 or not 1<=args.last_runs<=500 or (args.execution_only and args.agent_only):
         parser.error('Select 1..20 sessions, 1..500 runs, and compatible source modes')
     since=timestamp(args.since);until=timestamp(args.until)
@@ -451,7 +515,7 @@ def main(argv=None):
                              association_basis=args.association_basis,since=since,until=until)
     elif any((args.milestone,args.outcome,args.evidence,args.association_basis)):
         parser.error('Milestone fields require modeling mode')
-    paths=[] if args.execution_only else (args.session or discover(args.repo,args.codex_home/'sessions' if args.codex_home else session_root(),args.recent))
+    paths=[] if args.execution_only or args.telemetry_only else (args.session or discover(args.repo,args.codex_home/'sessions' if args.codex_home else session_root(),args.recent))
     if len(paths)>20:
         parser.error('Explicit session bound is 20')
     paths=list(dict.fromkeys(p.resolve() for p in paths))
@@ -460,7 +524,7 @@ def main(argv=None):
     if not args.session:
         sessions=[s for s in sessions if (since is None or (s.end is not None and s.end>=since)) and (until is None or (s.start is not None and s.start<=until))]
     root=Path(os.environ.get('ENGINEERING_DATA',args.repo/'.execution'))
-    all_records=list(iter_records(root)) if not args.agent_only else []
+    all_records=list(iter_records(root)) if not args.agent_only and not args.telemetry_only else []
     all_records.sort(key=lambda r:r.get('start_unix_ns',0),reverse=True)
     if sessions:
         windows=[(s.start,s.end) for s in sessions if s.start is not None and s.end is not None]
@@ -481,7 +545,12 @@ def main(argv=None):
         identity=(span.get('traceId'),span.get('spanId'))
         if all(isinstance(part,str) for part in identity) and identity not in seen_spans:
             spans.append((resource,span));seen_spans.add(identity)
-    summary=analyze(sessions,selected,spans)
+    captures=args.telemetry or (sorted((p for p in (root/'workflow-analysis').glob('otel-*') if p.is_dir()),key=lambda p:p.stat().st_mtime,reverse=True)[:20] if sessions else [])
+    captures=[p for p in captures if p.is_dir()]
+    native=native_capture(captures,sessions,explicit_scope=args.telemetry_only) if captures else None
+    summary=analyze(sessions,selected,spans,native=native)
+    if args.telemetry and not captures:
+        summary['quality']['no_readable_native_captures']=1
     summary['investigation']=investigation
     if since is not None or until is not None:
         summary['quality']['sessions_extend_time_bounds']=sum((since is not None and s.start is not None and s.start<since) or
@@ -494,7 +563,7 @@ def main(argv=None):
         summary['quality']['no_selected_executions']=1
     summary['quality']['unreadable_execution_records']=max(0,len(list((root/'runs').glob('*.json')))-len(all_records)) if not args.agent_only else 0
     directory=local_directory(root,args.repo)
-    report=save_local(directory,summary,sessions,spans,args.timeline)
+    report=save_local(directory,summary,sessions,spans,args.timeline,native=native)
     print(json.dumps({'local_report':str(report),'summary':summary},indent=2))
     return 0
 
