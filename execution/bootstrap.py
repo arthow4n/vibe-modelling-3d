@@ -16,7 +16,10 @@ def ensure():
         fcntl.flock(lock,fcntl.LOCK_EX)
         marker=state/'environment.identity'
         if not python.exists() or not marker.exists() or marker.read_text()!=identity:
-            subprocess.run(['uv','sync','--locked'],cwd=root,check=True,stdout=sys.stderr)
+            with (state/'environment-sync.log').open('w') as log:
+                result=subprocess.run(['uv','sync','--locked'],cwd=root,stdout=log,stderr=subprocess.STDOUT)
+            if result.returncode:
+                raise RuntimeError('uv sync failed; inspect .execution/environment-sync.log')
             marker.write_text(identity)
     if Path(sys.prefix).resolve()!= (root/'.venv').resolve():
         os.execv(str(python),[str(python),*sys.argv])

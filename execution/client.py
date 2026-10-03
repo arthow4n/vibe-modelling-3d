@@ -43,6 +43,7 @@ def connect():
         connection=attempt()
         if connection:return connection
         log=data_root()/'coordinator.log';log.parent.mkdir(parents=True,exist_ok=True)
+        if log.exists() and log.stat().st_size>2*1024**2:log.replace(log.with_suffix('.previous.log'))
         with log.open('ab') as output:
             subprocess.Popen([sys.executable,'-m','execution.coordinator'],cwd=ROOT,
                 stdin=subprocess.DEVNULL,stdout=output,stderr=output,start_new_session=True,

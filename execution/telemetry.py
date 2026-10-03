@@ -14,7 +14,7 @@ import resource
 import threading
 import time
 import uuid
-from .identity import ROOT, digest, fingerprint
+from .identity import ROOT, digest, fingerprint, python_sources
 
 _active = contextvars.ContextVar('engineering_run', default=None)
 _providers = {}
@@ -52,6 +52,9 @@ def _tracer(run_id):
             try:
                 path = data_root()/'traces'/f'{run_id}-{os.getpid()}.otlp.jsonl'
                 path.parent.mkdir(parents=True, exist_ok=True)
+                if path.exists() and path.stat().st_size>4*1024**2:
+                    path.with_suffix('.truncated').touch()
+                    return SpanExportResult.SUCCESS
                 data = MessageToDict(encode_spans(spans))
                 _hex_ids(data)
                 with _lock, path.open('a') as output:
@@ -87,7 +90,7 @@ def span(name, **attributes):
         parent = None
         if not trace.get_current_span().get_span_context().is_valid:
             parent = extract({'traceparent': os.environ.get('ENGINEERING_TRACEPARENT', '')})
-        manager = tracer.start_as_current_span(name, context=parent, attributes=attributes,
+        manager = tracer.start_as_current_span(name, context=parent, attributes={'thread.id':threading.get_ident(),**attributes},
             record_exception=False, set_status_on_exception=False)
         current = manager.__enter__()
     except Exception:
@@ -96,8 +99,10 @@ def span(name, **attributes):
     try:
         yield current
     except BaseException as exc:
-        current.set_attribute('failure.type', type(exc).__name__)
-        current.set_status(trace.Status(trace.StatusCode.ERROR))
+        try:
+            current.set_attribute('failure.type', type(exc).__name__)
+            current.set_status(trace.Status(trace.StatusCode.ERROR))
+        except Exception:pass
         raise
     finally:
         try:
@@ -143,10 +148,16 @@ def retain(max_runs=500, days=14):
         runs = sorted((data_root()/'runs').glob('*.json'), key=lambda p: p.stat().st_mtime, reverse=True)
         for i, p in enumerate(runs):
             if (i >= max_runs or p.stat().st_mtime < cutoff) and p.stat().st_mtime < time.time()-3600:
-                for directory in ('traces', 'resources', 'profiles'):
+                for directory in ('traces', 'resources', 'profiles','jobs'):
                     for artifact in (data_root()/directory).glob(f'{p.stem}*'):
                         artifact.unlink(missing_ok=True)
                 p.unlink(missing_ok=True)
+        # Also collect abandoned raw groups whose caller never wrote a summary.
+        for directory in ('traces','resources','profiles','jobs'):
+            artifacts=sorted((data_root()/directory).glob('*'),key=lambda p:p.stat().st_mtime,reverse=True)
+            for i,p in enumerate(artifacts):
+                if p.is_file() and (p.stat().st_mtime<cutoff or i>=max_runs*4) and p.stat().st_mtime<time.time()-3600:
+                    p.unlink(missing_ok=True)
     except Exception:
         pass
 
@@ -162,6 +173,10 @@ def run(name, source=None, strategy='isolated', argv=()):
         source=str(source) if source else None, arguments_sha256=fingerprint(argv),
         python=platform.python_version(), platform=" ".join((platform.system(),platform.release(),platform.machine())),
         lock_sha256=digest(ROOT/'uv.lock'), status='running')
+    try:
+        record['repository_python_sha256']=fingerprint({str(p.relative_to(ROOT)):digest(p) for p in python_sources(ROOT)})
+        record['available_cpus']=len(os.sched_getaffinity(0)) if hasattr(os,'sched_getaffinity') else os.cpu_count()
+    except OSError:pass
     try:
         with span(name, strategy=strategy) as current:
             if current:

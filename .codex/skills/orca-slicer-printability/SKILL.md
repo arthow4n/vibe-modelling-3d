@@ -46,7 +46,13 @@ export uses Orca GUI's default STEP-import meshing settings (0.003 mm absolute
 linear deflection, 0.5 rad angular deflection), but reimport and Open Cascade
 version differences can still change the triangles. Use 3MF when it is the
 agreed print file. Reuse a result only while its model, profiles, placement
-and slicer version still match; follow the evidence reuse rules in AGENTS.md.
+and slicer identity still match. The evaluator verifies these identities and reuses
+completed reviews automatically, marking `slice.reused`. Use `--fresh` for newly
+executed slice evidence or `--slice-keep-run` for raw diagnostics. Version discovery
+is cached by tool identity; the primary result can supply its own automatic-support
+probe when its effective settings qualify. Shared resource budgets can overlap
+independent slices without changing their evidence requirements. See
+[shared execution](../../../execution/README.md).
 
 ## Run the review
 

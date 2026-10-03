@@ -41,6 +41,15 @@ Local passes and sunk work never protect a poor concept.
 User product rejection supersedes speculative confidence; follow the
 [physical-failure guidance](references/physical-experiments.md#when-product-use-fails).
 
+Use the shared evaluator with no views by default; select images only for visual
+questions. Verified exports, renders and slices reuse automatically. Declare
+complete deterministic geometry inputs once when safe, rather than deciding
+whether to cache each call. Run ordinary study files through `./execute.py` and
+keep native analysis isolated through shared questions. Follow
+[shared execution guidance](../../../execution/README.md); preserve all validity,
+numerical quality and final print-evidence requirements. Performance records are
+retained automatically and need no routine review.
+
 ## Modelling TODO checklist
 
 Track active design and validation checks in a planning tool or working notes;

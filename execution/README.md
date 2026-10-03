@@ -23,10 +23,10 @@ No arbitrary script executes repeatedly in a shared mutable interpreter.
 Source/dependency/environment changes invalidate compatible infrastructure.
 Worker recycling bounds jobs, lifetime and resident memory.
 
-Geometry reuse is opt-in because existing trusted model scripts may read arbitrary
+Geometry reuse requires a closed-input declaration because trusted model scripts may read arbitrary
 files, clocks or environment and write side effects. `--reuse` declares deterministic
 construction and complete inputs; extra non-Python inputs use `--dependency`.
-All repository Python sources, adjacent Python modules, declared inputs, lockfile,
+All repository Python sources (excluding virtual environments/generated caches), adjacent Python modules, declared inputs, lockfile,
 worker implementation and process environment are content-identified. Unknown
 inputs require fresh execution. Validation results carry their originating identity;
 reused stages are explicitly marked, never represented as fresh computation.
@@ -71,7 +71,7 @@ user script still gets a fresh child. Both preload labels use the same qualified
 import-only host (scientific dependencies are included by CadQuery). Gmsh and
 solvers are never initialized in that host. The host is imported with one native
 thread; jobs apply their explicit `--threads` budget. Ordinary jobs default to
-one thread and 2048 MiB of process-tree RSS. Use larger explicit budgets when
+50% of shared CPU capacity and 2048 MiB of process-tree RSS. Use larger explicit budgets when
 needed; oversize requests fail before execution. This is process isolation,
 not a sandbox.
 
@@ -102,7 +102,26 @@ fresh child of the import-only CAD host; user modules and globals aren't shared.
 reports and exit codes remain compatible. Each report separates dependency load,
 construction, selection, validation, export format and individual view durations.
 
-`--reuse` declares that geometry construction is deterministic, has no required
+Validated actual BREP content (excluding export triangulations), implementation,
+runtime and export/render settings identify controlled artifacts automatically,
+even when construction must run freshly. Dynamic model inputs therefore change
+artifact identities; required model side effects still execute. Complete slice
+reviews also reuse automatically by input/profile bytes, placement and tool identity.
+`--fresh` forces new construction, exports, renders and slices; retained diagnostics
+with `--slice-keep-run` always perform a new slice.
+
+For deterministic models, declare complete inputs once beside the source:
+
+```json
+{"schema_version":1,"deterministic":true,"inputs":["settings.json"]}
+```
+
+Name it `object.execution.json` for `object.py`. Paths are relative to the source;
+files/directories and the declaration itself enter the content identity. Subsequent
+ordinary evaluator calls automatically use compatible geometry. Undeclared inputs,
+randomness, clocks and required construction side effects cannot use this contract.
+
+`--reuse` also declares that geometry construction is deterministic, has no required
 side effects, and depends only on repository/adjacent Python sources and declared
 inputs. Declare *every* external/non-Python input with repeated `--dependency`.
 Do not use it for unknown inputs, clocks, random state or required model-written
@@ -161,9 +180,54 @@ recovery and identity-checked mesh/evidence reuse remain the checkpoint APIs;
 an incomplete native solve cannot become successful evidence through recovery.
 
 Slicing uses immutable input/profile snapshots. Binary/deployment/configuration
-identities cache version discovery and opt-in completed reviews. Primary slices
+identities cache version discovery and completed reviews automatically. Primary slices
 already using the required auto-support policy serve as their own probe. Explicit
 independent probe settings can run alongside the primary, with separate logs and
 verified effective settings; failures preserve the primary evidence and request
 review. For explicit renders plus slicing, slicing starts at STL completion while
 CAD rendering continues. Traces show the actual overlap rather than summed work.
+
+## Analysis and local data schema
+
+```sh
+.venv/bin/python -m execution.history --last 30
+.venv/bin/python -m execution.history --last 200 --stats
+.venv/bin/python -m execution.history --compare RUN_A RUN_B
+.venv/bin/python -m execution.history --incomplete
+.venv/bin/python -m execution.history --run RUN_ID --perfetto /tmp/timeline.json
+```
+
+Load the timeline in Perfetto's trace viewer when investigating overlap. These
+commands inspect retained evidence and never rerun calculations. Compare identity,
+status, cold/warm strategy and tool/environment context before interpreting latency.
+Native computation can dominate cProfile's calling function; external sampling
+such as py-spy or solver facilities is an optional targeted investigation, not a
+normal-run dependency.
+
+| Local directory | Version 1 representation |
+| --- | --- |
+| `runs/` | One atomic JSON summary per run: identity, source and repository-Python hashes, lock hash, strategy, status, actual wall/observer CPU and RSS, worker/resource fields where observed. |
+| `traces/` | OTLP ExportTraceServiceRequest JSONL with hex trace/span IDs, actual timestamps, parent IDs, PID/thread identity and operation attributes. |
+| `resources/` | Schema 1 columns plus bounded samples: Unix nanoseconds, sampled process-tree RSS and live-tree CPU seconds. Short-lived processes can be missed; CPU is a sampled lower bound, not an exact integral. |
+| `profiles/` | Optional cProfile pstats or tracemalloc snapshots. Python allocation profiling does not measure native allocations. |
+| `jobs/` | Durable request hashes and owner birth identity, queued/running/terminal status; unknown side effects are never replayed. |
+| `cache/` | Digest-verified controlled bytes and their complete identity, independent of execution reuse. |
+
+Normal summaries/raw groups retain 500 runs for 14 days, protecting files younger
+than one hour from concurrent cleanup; abandoned groups also expire. A trace file
+is capped at 4 MiB with a `.truncated` marker. Resource sampling is capped at 2000
+samples per script. Controlled caches keep at most 200 entries/256 MiB per
+namespace; coordinator logs rotate at 2 MiB. Raw data stays Git-ignored. Deliberately
+commit only bounded summaries, small representative trace snapshots and benchmark
+history; tools never commit evidence automatically. No arguments, environment
+values, script output or exception messages are stored in normal trace evidence.
+
+Native preload is checked before user dispatch: the import-only host must have
+one thread, and two fresh children must complete matching native Boolean/validity
+checks. An incompatible stack selects clean spawn workers. Dependency/runtime
+content changes replace the coordinator and invalidate compatible worker state.
+Gmsh and solvers remain isolated regardless of the CAD preload check.
+
+The coordinator/watchdog and affinity implementation target Linux (including
+WSL) and local POSIX environments. Native process birth identity on Linux uses
+boot ticks so wall-clock corrections do not falsely terminate live work.

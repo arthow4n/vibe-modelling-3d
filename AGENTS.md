@@ -210,6 +210,38 @@ a reason the planning work or responsible tool's own status cannot answer it.
 Keep a justified check specific to that question; add it to the shared workflow
 only after it has demonstrated recurring value.
 
+## Shared engineering execution
+
+Run ordinary experiments with `./execute.py SCRIPT.py [ARGS...]`; use
+`./evaluate_model.py` for CAD. Both start and manage the shared local coordinator,
+resource admission and performance records automatically. Options precede scripts.
+Use `--threads 50%` (default) or an integer and an adequate `--memory-mb` for
+larger scripts. Shared capacity defaults to 50% of available cores, configurable
+with `ENGINEERING_CPUS`. Concurrent agents share CPU sets and output ownership.
+Keep Gmsh/native solvers isolated through the existing physical-analysis APIs.
+
+Exports, renders and completed slice reviews reuse verified content automatically;
+reused evidence is identified in reports. Ordinary model construction still runs.
+For deterministic models with no required construction side effects, declare
+complete inputs once in `MODEL.execution.json` as described in
+[execution documentation](execution/README.md#cad-iterations-and-incremental-outputs).
+Then ordinary evaluator calls manage geometry reuse and invalidation. Use `--fresh`
+when newly executed evidence is required. Unknown dependencies require fresh
+construction; arbitrary script results are never cached automatically.
+
+Use existing numerical/geometry APIs, batched NumPy operations and appropriate
+spatial indexes before custom kernels. Separate preparation, expensive kernels
+and reporting when useful; keep inexpensive experiments simple. Schedule independent
+script files with `execution.batch`, declaring dependencies and shared outputs,
+rather than building another worker framework. Avoid redundant views, exports,
+slices and solves without reducing required checks or tolerances. Mesh reuse,
+saved-field recovery and `QuestionStudy(evidence=...)` keep their identity guards.
+
+Tracing is automatic; do not add timers or routinely inspect performance records
+in ordinary engineering work. Use the
+[engineering execution skill](.codex/skills/engineering-execution/SKILL.md) for
+performance investigations, profiling, history analysis or coordinator recovery.
+
 ## Object ownership and source of truth
 
 Each logical object or assembly owns one directory. Keep **all** its source
@@ -242,10 +274,10 @@ modelling representation.
 ## CadQuery evaluation and exports
 
 Run `./evaluate_model.py model/object_name/object_name.py` from the repository
-root. Its shebang runs it through `uv run --locked`; `./evaluate_model.py --help`
+root. Its bootstrap verifies the locked uv environment when its identity changes; `./evaluate_model.py --help`
 lists its options and defaults. The command supplies
 `__file__`, the model directory as the worker's working/import directory, and a
-fresh process per evaluation. Ordinary sibling imports therefore see current
+fresh user process per ordinary evaluation, using a qualified import-only CAD host. Ordinary sibling imports therefore see current
 source. `result` explicitly selects the output; otherwise all `show_object()`
 outputs are combined. Do not mix display-only reference geometry into the
 selected printable result.
@@ -311,9 +343,7 @@ views, use
 Use hidden lines or sections for a specific internal-geometry question. Remove
 disposable scratch output before staging; retain historical evidence deliberately.
 
-Use renders only to answer a concrete visual question. Keep the four-view
-default when it is useful; request only the needed views or `--views none` for
-geometry-only checks. Use `--export` for the final pair or `--slice` for the
+Use renders only to answer a concrete visual question. No views is the default; request only the needed views for visual questions. Use `--export` for the final pair or `--slice` for the
 pair plus smoke review. Reuse saved images rather than
 rebuilding merely to open them.
 

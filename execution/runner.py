@@ -69,7 +69,7 @@ def child(request, descriptors):
         if fd>2:os.close(fd)
     # multiprocessing closes stdin separately; restore the actual forwarded stream.
     sys.stdin=os.fdopen(os.dup(0),'r')
-    if request.get('preload')=='cad':
+    if request.get('strategy')=='preinitialized':
         from OCP.OSD import OSD_ThreadPool
         OSD_ThreadPool.DefaultPool_s(request['threads']).Init(request['threads'])
     # Native pools must fit the admitted CPU budget, even when inherited from preload.

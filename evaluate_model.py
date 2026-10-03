@@ -1,4 +1,4 @@
-#!/usr/bin/env -S uv run --locked
+#!/usr/bin/env python3
 """Evaluate CadQuery and run optional OrcaSlicer reviews from one command.
 
 Run from the repository root with `./evaluate_model.py --help`.
@@ -23,6 +23,10 @@ import sys
 import tempfile
 import time
 import traceback
+
+if __name__=='__main__':
+    from execution.bootstrap import ensure
+    ensure()
 
 from execution.telemetry import operation, span, child_environment
 from execution.process import run as run_command
@@ -199,22 +203,39 @@ def evaluate_request(args, cache=None, progress=None):
                 report["timings_seconds"]["validation"]=time.monotonic()-before
                 report["reuse"]={"geometry":False,"identity":identity}
                 if cache is not None and report["geometry"]["valid"]:
+                    cache.clear()
                     cache.update(identity=identity,shape=shape,geometry=report["geometry"].copy(),
                         build_seconds=report["timings_seconds"]["build"])
             if not report["geometry"]["valid"]:
                 raise ValueError("Selected geometry is invalid; exports and views skipped")
+            artifact_identity=None
+            if reused:artifact_identity=cache.get('artifact_identity')
+            if (args['exports'] or args['views']) and artifact_identity is None:
+                # Identify actual geometry, including dynamic script inputs, after validation.
+                # Exclude triangulations added by previous exports from this identity.
+                from OCP.BRepTools import BRepTools
+                from OCP.TopTools import TopTools_FormatVersion
+                import hashlib
+                with span('cad.artifact_identity'):
+                    serialized=io.BytesIO()
+                    BRepTools.Write_s(shape.wrapped,serialized,False,False,TopTools_FormatVersion.TopTools_FormatVersion_VERSION_3)
+                    artifact_identity=fingerprint({'brep':hashlib.sha256(serialized.getvalue()).hexdigest(),
+                        'runtime':args.get('runtime'),'implementation':digest(__file__)})
+                if cache is not None:cache['artifact_identity']=artifact_identity
+            if artifact_identity:
+                report['reuse']['artifact_identity']=artifact_identity
             for item in args["exports"]:
                 try:
                     before=time.monotonic()
-                    key={"identity":identity,"format":item["format"],"linear":STL_LINEAR_TOLERANCE_MM,
+                    key={"identity":artifact_identity,"format":item["format"],"linear":STL_LINEAR_TOLERANCE_MM,
                          "angular":STL_ANGULAR_TOLERANCE_RAD}
-                    data=artifacts.read(key) if cache is not None else None
+                    data=artifacts.read(key) if not args.get('fresh') else None
                     if data is not None:
                         atomic_bytes(Path(item["path"]),data)
                         status={"path":item["path"],"ok":True,"reused":True}
                     else:
                         status={**export(shape,item),"reused":False}
-                        if cache is not None:artifacts.store(key,Path(item["path"]).read_bytes())
+                        if not args.get('fresh'):artifacts.store(key,Path(item["path"]).read_bytes())
                     report["exports"].append(status)
                     report["timings_seconds"]["export_"+item["format"].lower()]=time.monotonic()-before
                 except Exception as exc:
@@ -226,13 +247,13 @@ def evaluate_request(args, cache=None, progress=None):
                 destination = Path(args["output_dir"]) / f'{path.stem}_{view}.png'
                 try:
                     before=time.monotonic()
-                    key={"identity":identity,"view":view,"width":args["width"],"height":args["height"],
+                    key={"identity":artifact_identity,"view":view,"width":args["width"],"height":args["height"],
                          "hidden":args["show_hidden"]}
-                    data=artifacts.read(key) if cache is not None else None
+                    data=artifacts.read(key) if not args.get('fresh') else None
                     reused_view=data is not None
                     if data is None:
                         data = render(shape, view, args["width"], args["height"], args["show_hidden"])
-                        if cache is not None:artifacts.store(key,data)
+                        if not args.get('fresh'):artifacts.store(key,data)
                     report["timings_seconds"]["render_"+view]=time.monotonic()-before
                     atomic_bytes(destination, data)
                     report["views"].append({"view": view, "ok": True, "path": str(destination), "reused":reused_view,
@@ -252,7 +273,14 @@ def evaluate_request(args, cache=None, progress=None):
 
 def worker(request, response):
     args=json.loads(Path(request).read_text())
-    report=evaluate_request(args)
+    from execution.resources import apply_affinity
+    from execution.lifecycle import watch_owner
+    apply_affinity();watch_owner()
+    from threadpoolctl import threadpool_limits
+    from OCP.OSD import OSD_ThreadPool
+    threads=int(os.environ.get('ENGINEERING_THREADS','1'))
+    OSD_ThreadPool.DefaultPool_s(threads).Init(threads)
+    with threadpool_limits(limits=threads):report=evaluate_request(args)
     Path(response).write_text(json.dumps(report,indent=2)+"\n")
     return 0 if report["ok"] else 1
 
@@ -407,7 +435,7 @@ def _review_in_directory(model, profiles, run_dir, placement, threads=None):
     (run_dir / "command.json").write_text(json.dumps(command, indent=2) + "\n")
     from concurrent.futures import ThreadPoolExecutor
     from execution.telemetry import child_environment
-    from execution.resources import thread_environment
+    from execution.resources import thread_environment, partition
     # Loaded support flags are explicit in maintained resolved snapshots. Predict
     # only these flags, and verify the real exported settings before trusting probe.
     process_settings=json.loads(profiles['process'].read_text())
@@ -419,7 +447,7 @@ def _review_in_directory(model, profiles, run_dir, placement, threads=None):
     prepared=None
     executor=ThreadPoolExecutor(1)
     def probe_early():
-        with span("orca.support_probe"):
+        with span("orca.support_probe"),partition(threads//2,threads-threads//2):
             probe_dir=run_dir/'support_probe';probe_dir.mkdir(exist_ok=True)
             cmd=command.copy();cmd[cmd.index('--outputdir')+1]=str(probe_dir)
             cmd[cmd.index('--export-settings')+1]=str(probe_dir/'effective-settings.json')
@@ -430,13 +458,13 @@ def _review_in_directory(model, profiles, run_dir, placement, threads=None):
             with (probe_dir/'slicer.log').open('w') as log:
                 return run_command(cmd,cwd=probe_dir,stdout=log,stderr=subprocess.STDOUT,
                     timeout=SLICE_TIMEOUT_SECONDS,check=False,
-                    env=thread_environment(child_environment(),max(1,threads//2)))
+                    env=thread_environment(child_environment(),threads-threads//2))
     if known and not primary_auto and threads>=2:
         import contextvars
         context=contextvars.copy_context()
         prepared=executor.submit(context.run,probe_early)
     try:
-        with span("orca.primary"), (run_dir / "slicer.log").open("w") as log:
+        with span("orca.primary"),partition(0,threads//2 if prepared else threads), (run_dir / "slicer.log").open("w") as log:
             completed = run_command(command, cwd=run_dir, stdout=log, stderr=subprocess.STDOUT,
                                        timeout=SLICE_TIMEOUT_SECONDS, check=False,
                                        env=thread_environment(child_environment(),max(1,threads//2) if prepared else threads))
@@ -484,7 +512,7 @@ def _review_in_directory(model, profiles, run_dir, placement, threads=None):
 
 @operation("orca.review")
 def review(model, printer=DEFAULTS["printer"], process=DEFAULTS["process"],
-           filament=DEFAULTS["filament"], placement="center", keep_run=False, reuse=False, threads=None):
+           filament=DEFAULTS["filament"], placement="center", keep_run=False, reuse=True, threads=None):
     model = Path(model).expanduser().resolve(strict=True)
     profiles = {key: _resolve_profile(value) for key, value in {
         "printer": printer, "process": process, "filament": filament}.items()}
@@ -554,7 +582,7 @@ def add_slice_review(report, model, args):
                         process=args.slice_process or DEFAULTS["process"],
                         filament=args.slice_filament or DEFAULTS["filament"],
                         placement=args.slice_placement,
-                        keep_run=args.slice_keep_run,reuse=args.reuse,threads=args.threads)
+                        keep_run=args.slice_keep_run,reuse=not args.fresh,threads=args.threads)
         report["slice"] = {"ok": True, **sliced}
     except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as exc:
         report["slice"] = {"ok": False, "message": str(exc)}
@@ -632,9 +660,11 @@ def main(argv=None):
     parser.add_argument("--slice-keep-run", action="store_true",
                         help="Keep Orca diagnostics and G-code for a slice review")
     parser.add_argument("--reuse",action="store_true",help="Declare deterministic construction with closed inputs; reuse unchanged geometry")
+    parser.add_argument("--fresh",action="store_true",help="Recompute controlled artifacts and ignore geometry reuse declarations")
     parser.add_argument("--dependency",type=Path,action="append",default=[],help="Additional input file/directory for --reuse and revision guards")
     parser.add_argument("--isolated",action="store_true",help="Use conventional CAD process instead of warm infrastructure")
     parser.add_argument("--threads",default="50%",help="Native CPU budget: integer or percent of shared capacity")
+    parser.add_argument("--memory-mb",type=int,default=2048,help="CAD worker memory/admission budget (default 2048 MiB)")
     parser.add_argument("--timeout", type=positive_float, default=300,
                         help="Maximum evaluation time in seconds")
     parser.add_argument("--report", type=Path, metavar="JSON",
@@ -646,6 +676,7 @@ def main(argv=None):
     from execution.resources import cores,cpu_capacity
     try:args.threads=cores(args.threads,cpu_capacity())
     except ValueError as exc:parser.error(str(exc))
+    if args.memory_mb<1:parser.error('Memory budget must be positive')
     if args.summary and not args.report:
         parser.error("--summary requires --report so complete evidence is retained")
     if args.report:
@@ -689,6 +720,19 @@ def main(argv=None):
     source = args.file_path.resolve()
     if not source.is_file():
         parser.error(f"Model source does not exist: {source}")
+    declaration=source.with_suffix('.execution.json')
+    if declaration.exists():
+        try:
+            contract=json.loads(declaration.read_text())
+            if contract.get('schema_version')!=1 or not isinstance(contract.get('deterministic'),bool):
+                raise ValueError('Expected schema_version 1 and boolean deterministic')
+            inputs=contract.get('inputs',[])
+            if not isinstance(inputs,list) or any(not isinstance(p,str) for p in inputs):
+                raise ValueError('inputs must be a list of file/directory paths')
+            args.dependency += [declaration,*[source.parent/p for p in inputs]]
+            args.reuse |= contract['deterministic']
+        except (ValueError,OSError) as exc:parser.error(f'Invalid execution declaration: {exc}')
+    if args.fresh:args.reuse=False
     views = [] if args.views == "none" else args.views.split(",")
     if len(views) != len(set(views)) or any(view not in VIEWS for view in views):
         parser.error(f"Views must be distinct names from {', '.join(VIEWS)}, or none")
@@ -708,19 +752,23 @@ def main(argv=None):
         parser.error("Source, view and export paths must be distinct")
     request = {"file_path": str(source), "views": views, "output_dir": str(output_dir),
                "width": args.width, "height": args.height,
-               "show_hidden": args.show_hidden, "exports": exports}
+               "show_hidden": args.show_hidden, "exports": exports,"fresh":args.fresh}
     from execution.identity import cad_identity, digest, runtime_identity
     from execution.cad import execute as execute_cad
     from execution.telemetry import child_environment, _active
     from execution.resources import thread_environment
     execution_environment=thread_environment(child_environment(),args.threads)
     identity=cad_identity(source,args.dependency,execution_environment)
-    request.update(identity=identity,run_id=_active.get())
+    request.update(identity=identity,run_id=_active.get(),runtime=runtime_identity())
     started = time.monotonic()
     from concurrent.futures import ThreadPoolExecutor
     slice_executor=ThreadPoolExecutor(1) if args.slice and views else None
     slice_temporary=tempfile.TemporaryDirectory(prefix='engineering-slice-input-',dir=Path.home()) if slice_executor else None
     slice_future=None
+    import threading
+    from execution.lifecycle import _cancellation
+    slice_cancelled=threading.Event()
+    cancellation_token=_cancellation.set(slice_cancelled.is_set)
     def exports_ready(event):
         nonlocal slice_future
         if not slice_executor or slice_future is not None:return
@@ -739,8 +787,12 @@ def main(argv=None):
         report=execute_cad(dict(source=str(source),source_sha256=digest(source),identity=identity,
             dependencies=[str(p.resolve()) for p in args.dependency],reuse=args.reuse,
             cad=request,run_id=_active.get(),environment=execution_environment,
-            runtime=runtime_identity(),threads=args.threads,memory_mb=2048,timeout=args.timeout),coordinator=not args.isolated,on_event=exports_ready)
+            runtime=runtime_identity(),threads=args.threads,memory_mb=args.memory_mb,timeout=args.timeout),coordinator=not args.isolated,on_event=exports_ready)
     except KeyboardInterrupt:
+        slice_cancelled.set()
+        if slice_executor:slice_executor.shutdown(wait=True,cancel_futures=True)
+        if slice_temporary:slice_temporary.cleanup()
+        _cancellation.reset(cancellation_token)
         raise
     except Exception as exc:
         report={"ok":False,"file_path":str(source),"errors":[{"stage":"timeout" if isinstance(exc,TimeoutError) else "worker","message":str(exc)}]}
@@ -748,6 +800,7 @@ def main(argv=None):
     pair_ready = (len(report.get("exports", [])) == 2
                   and all(item.get("ok") for item in report["exports"]))
     try:
+        if not pair_ready:slice_cancelled.set()
         if args.slice and pair_ready:
             if slice_future:
                 sliced=slice_future.result()
@@ -757,8 +810,10 @@ def main(argv=None):
             else:add_slice_review(report, root / f"{source.stem}.stl", args)
             report["timings_seconds"]["total"] = time.monotonic() - started
     finally:
+        slice_cancelled.set()
         if slice_executor:slice_executor.shutdown(wait=True,cancel_futures=True)
         if slice_temporary:slice_temporary.cleanup()
+        _cancellation.reset(cancellation_token)
     emit_report(report, args)
     if not report["ok"]:
         return 1

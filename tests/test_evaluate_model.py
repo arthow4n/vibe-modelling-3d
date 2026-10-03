@@ -214,3 +214,30 @@ def test_changed_source_during_build_cannot_overwrite_artifacts(tmp_path):
     stdout,stderr=process.communicate(timeout=10)
     assert process.returncode==1 and not json.loads(stdout)['ok']
     assert previous.read_text()=='previous' and not (tmp_path/'slow.stl').exists()
+
+
+def test_automatic_artifacts_preserve_script_side_effects_and_dynamic_inputs(tmp_path):
+    source=tmp_path/'dynamic.py'
+    source.write_text('import cadquery as cq\nfrom pathlib import Path\np=Path("count")\np.write_text(str(int(p.read_text())+1 if p.exists() else 1))\nresult=cq.Workplane("XY").box(int(Path("size").read_text()),4,5)\n')
+    (tmp_path/'size').write_text('3')
+    first=json.loads(call(source,'--export').stdout)
+    second=json.loads(call(source,'--export').stdout)
+    assert first['ok'] and second['ok'] and not second['reuse']['geometry']
+    assert (tmp_path/'count').read_text()=='2'
+    assert all(e['reused'] for e in second['exports'])
+    (tmp_path/'size').write_text('7')
+    third=json.loads(call(source,'--export').stdout)
+    assert third['ok'] and not any(e['reused'] for e in third['exports'])
+    assert third['reuse']['artifact_identity']!=second['reuse']['artifact_identity']
+
+
+def test_declaration_automates_geometry_reuse_and_fresh_overrides(tmp_path):
+    source=tmp_path/'declared.py'
+    source.write_text('import cadquery as cq\nresult=cq.Workplane("XY").box(int(open("size").read()),4,5)\n')
+    (tmp_path/'size').write_text('3')
+    source.with_suffix('.execution.json').write_text(json.dumps(dict(schema_version=1,deterministic=True,inputs=['size'])))
+    assert not json.loads(call(source).stdout)['reuse']['geometry']
+    assert json.loads(call(source).stdout)['reuse']['geometry']
+    assert not json.loads(call(source,'--fresh').stdout)['reuse']['geometry']
+    (tmp_path/'size').write_text('7')
+    assert not json.loads(call(source).stdout)['reuse']['geometry']

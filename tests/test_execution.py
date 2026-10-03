@@ -101,3 +101,48 @@ def test_batch_dependencies_and_failed_dependency(tmp_path):
                  ScriptTask('skip',source,('0',),depends_on=('bad',),threads=1)])
     assert results['good']['exit_code']==results['after']['exit_code']==0
     assert results['bad']['exit_code']==3 and results['skip']['status']=='dependency_failed'
+
+
+def test_dead_coordinator_restarts_without_replaying_script(tmp_path,monkeypatch):
+    from execution import client,protocol
+    import signal,psutil,uuid
+    monkeypatch.setenv('ENGINEERING_INSTANCE',uuid.uuid4().hex)
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'records'))
+    source=tmp_path/'long.py';started=tmp_path/'started'
+    source.write_text(f'import os,time\nopen({str(started)!r},"w").write(str(os.getpid()))\ntime.sleep(60)\n')
+    command=[sys.executable,str(CLI),str(source)]
+    proc=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+    deadline=time.monotonic()+15
+    while not started.exists() and time.monotonic()<deadline:time.sleep(.02)
+    assert started.exists()
+    connection=client.connect();protocol.send(connection,{'kind':'status'});status=protocol.receive(connection);connection.close()
+    os.kill(status['pid'],signal.SIGKILL)
+    out,err=proc.communicate(timeout=10)
+    assert proc.returncode==1 and 'not replayed' in err
+    child_pid=int(started.read_text());deadline=time.monotonic()+5
+    def alive():
+        try:return psutil.Process(child_pid).status()!=psutil.STATUS_ZOMBIE
+        except psutil.NoSuchProcess:return False
+    while alive() and time.monotonic()<deadline:time.sleep(.05)
+    assert not alive()
+    source.write_text('print("new service")\n')
+    restarted=call(source)
+    assert restarted.returncode==0 and restarted.stdout=='new service\n'
+    journal=list((tmp_path/'records/jobs').glob('*.json'))
+    assert any(json.loads(p.read_text())['status']=='running' for p in journal)
+    connection=client.connect();protocol.send(connection,{'kind':'stop'});protocol.receive(connection);connection.close()
+
+
+def test_process_birth_identity_ignores_wall_clock(monkeypatch):
+    from execution.lifecycle import process_identity
+    import psutil
+    identity=process_identity()
+    monkeypatch.setattr(psutil.Process,'create_time',lambda _:0.)
+    assert process_identity()==identity and identity.startswith('ticks:')
+
+
+def test_memory_limit_and_invalid_resource_request(tmp_path):
+    source=tmp_path/'memory.py'
+    source.write_text('import time\ndata=bytearray(80*1024**2)\ntime.sleep(5)\n')
+    assert call(source,'--memory-mb','40').returncode==1
+    assert call(source,'--threads','0').returncode==2

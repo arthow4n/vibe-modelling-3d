@@ -33,6 +33,28 @@ Run `uv run --locked python -m physical_analysis doctor` to check both tools;
 run `uv run --locked pytest -q tests/test_physical_analysis.py` to qualify them.
 Missing tools are failures, not silently skipped benchmarks.
 
+## Shared execution and performance
+
+Run object-owned analysis scripts with `./execute.py SCRIPT.py`; scripts keep normal
+Python semantics. Existing APIs also work when imported directly. All backends use
+the shared resource coordinator, tracing and owned subprocess lifecycle. Gmsh,
+CalculiX, FEBio and IPC retain isolated worker state and existing native-completion,
+strain, quality and provenance checks. Default capacity is 50% of available cores;
+integer/percentage command budgets and explicit IPC settings remain configurable.
+Nested analyses borrow their command's budget. Set adequate memory/timeout budgets
+for substantial studies; independent script studies can use `execution.batch`.
+
+Dependency/solver initialization, input compilation, solve, extraction and recovery
+spans are retained locally without output noise. Do not inspect them routinely;
+[execution documentation](../execution/README.md) describes dedicated profiling and
+history analysis. Existing `mesh_from`, saved-field recovery and question-study
+`evidence` are the computational checkpoints: no unknown solve or script result
+is cached. Recovery never turns an incomplete solve into engineering evidence.
+Surface traction integration is batched with unchanged quadrature; repeated IPC
+strain extraction reuses immutable reference-tetrahedron matrices. G-code paths
+stream from disk. Conservative motion bounds skip only provably empty booleans;
+exact distances and all potentially intersecting poses retain native checks.
+
 ## Use
 
 Prefer `SnapFitQuestion`, `FlexureQuestion` or `StructuralQuestion` for a known

@@ -57,6 +57,12 @@ class CADPool:
                 connection.close();terminate(process)
             self.entries.clear()
 
+    def prune(self):
+        with self.lock:
+            for key,(process,connection,touched,jobs) in list(self.entries.items()):
+                if not process.is_alive() or time.monotonic()-touched>60:
+                    connection.close();terminate(process);del self.entries[key]
+
 
 def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
     """Stage outputs, check final source identity, then publish with exclusive ownership."""
@@ -145,8 +151,24 @@ class Coordinator:
         self.ctx=mp.get_context('forkserver')
         mp.set_forkserver_preload(['execution.preload'])
         self.cad_pool=CADPool(self.ctx)
+        self.qualified=False;self.qualification_lock=threading.Lock()
         self.last_request=time.monotonic();self.stopping=threading.Event()
         self.jobs=set();self.lock=threading.Lock()
+
+    def initialize(self,request,cancelled,deadline):
+        if self.qualified:return
+        with self.qualification_lock:
+            if self.qualified:return
+            from .qualification import qualify
+            # Supervisor identity is propagated before any native test child.
+            from .lifecycle import process_identity
+            with span('worker.initialization'):
+                os.environ['ENGINEERING_OWNER_PID']=str(os.getpid())
+                os.environ['ENGINEERING_OWNER_ID']=process_identity()
+                compatible=qualify(self.ctx,deadline,cancelled)
+                if not compatible:
+                    self.ctx=mp.get_context('spawn');self.cad_pool.ctx=self.ctx
+                self.qualified=True
 
     def handle(self, connection):
         fds=[]
@@ -189,6 +211,8 @@ class Coordinator:
                 with span('coordinator.admission'):
                     with self.admission.acquire(request['threads'],request['memory_mb'],cancelled,deadline) as queued:
                         journal(request,'running')
+                        if request['kind']=='cad' or request['strategy']=='preinitialized':
+                            self.initialize(request,cancelled,deadline)
                         answer=run_cad(request,self.cad_pool,cancelled,deadline,progress=lambda event:protocol.send(connection,event)) if request['kind']=='cad' else self.execute(request,fds,cancelled,deadline)
                         answer['queue_seconds']=queued
                         journal(request,'completed' if answer['exit_code']==0 else 'failed')
@@ -260,6 +284,7 @@ class Coordinator:
             signal.signal(signal.SIGTERM,stop);signal.signal(signal.SIGINT,stop)
             try:
                 while not self.stopping.is_set():
+                    self.cad_pool.prune()
                     if not self.admission.active and time.monotonic()-self.last_request>120:break
                     try:connection,_=server.accept()
                     except socket.timeout:continue

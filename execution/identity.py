@@ -25,8 +25,19 @@ def environment_identity(env=None):
 def runtime_identity():
     files = [ROOT/'pyproject.toml', ROOT/'uv.lock', ROOT/'.venv/pyvenv.cfg']
     files += sorted((ROOT/'execution').glob('*.py'))
+    # Installed metadata detects environment edits outside uv as well as lock changes.
+    import sysconfig
+    files += sorted(Path(sysconfig.get_path('purelib')).glob('*.dist-info/METADATA'))
     return fingerprint(dict(python=sys.version, executable=str(Path(sys.executable).resolve()),prefix=str(Path(sys.prefix).resolve()),
-        files={str(p.relative_to(ROOT)): digest(p) for p in files if p.is_file()}))
+        files={str(p): digest(p) for p in files if p.is_file()}))
+
+
+def python_sources(folder):
+    excluded={'.git','.venv','.execution','__pycache__','.pytest_cache','node_modules','venv','env'}
+    for directory,children,files in os.walk(folder):
+        children[:]=[name for name in children if name not in excluded]
+        for name in files:
+            if name.endswith('.py'):yield Path(directory)/name
 
 
 def cad_identity(source, dependencies=(), environment=None):
@@ -34,10 +45,8 @@ def cad_identity(source, dependencies=(), environment=None):
     source = Path(source).resolve()
     files = set()
     # Avoid virtual environments, caches and generated evidence trees.
-    for folder in ('execution', 'physical_analysis', 'model'):
-        files.update((ROOT/folder).rglob('*.py'))
-    files.update(ROOT.glob('*.py'))
-    files.update(source.parent.rglob('*.py'))
+    files.update(python_sources(ROOT))
+    files.update(python_sources(source.parent))
     files.add(source)
     for dependency in dependencies:
         path = Path(dependency).resolve(strict=True)

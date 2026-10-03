@@ -132,3 +132,23 @@ Rejected: SciPy cKDTree mapping measured 0.0229 s against existing VTK 0.0184 s,
 so the established VTK path stays and SciPy was removed. No custom compiled/JIT
 kernel is justified by these measured workloads. Focused execution/evaluator,
 slicing, kernels, motion and manufacturing validation: 59 passed.
+
+### Automatic reuse and workflow consolidation
+
+Kernel commit `487da7b` pushed. Artifact reuse now derives from validated actual
+BREP bytes, including state-sensitive model output, rather than requiring an
+agent decision. Construction side effects still execute. A versioned per-model
+closed-input declaration enables geometry reuse on ordinary calls; `--fresh`
+overrides all controlled reuse. Slices reuse complete identity-verified evidence
+by default. CPU partitions also split actual affinity for concurrent native slices.
+
+Added CAD memory configuration, quiet locked-environment bootstrap, installed
+metadata/runtime invalidation, pruned complete repository Python identities,
+pre-dispatch native qualification with clean-spawn fallback, bounded traces/raw
+records and grouped history/Perfetto analysis. Updated AGENTS.md, CadQuery/Orca
+skills and physical documentation; added the validated engineering-execution skill.
+Full repository test directory, frozen production source: **129 passed, 3 skipped**
+in 220.89 s. Skips are unavailable optional native IPC execution; CalculiX/FEBio,
+CAD and Orca orchestration were exercised. `pytest` without a test-directory
+restriction imports object-owned modeling experiments, so qualification used
+`pytest tests` and did not treat those CAD scripts as tests.
