@@ -69,11 +69,13 @@ implementing an optimization.
 6. Identify material observations before suspected causes or remedies. Repeated
    identical inputs can be justified verification; high token usage alone is not
    inefficiency. Compare only sufficiently similar contexts. Metadata does not
-   establish intent or explain why work was repeated.
+   establish intent or explain why work was repeated. When this matters, inspect
+   relevant prompts, responses and tool records from the selected sessions under
+   the workflow's [contextual-review policy](../../../performance/WORKFLOW.md#contextual-session-review).
+   Content can support task interpretation, but cannot supply missing timing.
 7. For the largest decision-relevant uncertainty, use existing history/benchmarks
    first. Invoke engineering execution for targeted profiling or matched measurements
    only if they can change a conclusion. Avoid expensive runs to fill report cells.
-   Private content inspection, if necessary, is a separate narrowly scoped inquiry.
 8. Retain the concise local report and useful supporting artifacts beneath the
    ignored execution-data root. Record findings, interpretations, missing evidence
    and any justified next investigation there; preserve the native measurements.
