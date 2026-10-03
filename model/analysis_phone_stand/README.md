@@ -1,15 +1,57 @@
 # Physical-analysis phone stand
 
-A complete four-part, press-to-release phone-stand prototype used to develop and
+**Current status (2026-10-04): rejected as a product before printing.** The user
+confirms that this stand has not been printed and does not want to print the
+existing design. Its useful everyday task and functionality were not adequately
+discussed with them. A new revision is being discussed; preserving the project's
+purpose as a useful exercise of physical analysis is an explicit requirement.
+No replacement architecture or printable revision has been agreed yet.
+
+The retained CAD, exports, slice reviews and local numerical studies are historical
+engineering evidence, not a recommendation to print this product. They establish
+the checked geometry, reference-profile slicing and conditional local mechanics;
+they do not establish whole-product usefulness or physical performance. The exact
+objection to the form and the intended everyday use remain to be clarified; this
+is not evidence of a tolerance, material or print-process failure.
+
+## New-revision discussion
+
+This phase is investigation and requirements discussion, before detailed CAD or
+new solver work. Start from the actual phone-use task rather than retaining the
+gear and catch by default. Establish the phone/case, portrait/landscape use,
+viewing versus touchscreen interaction, useful adjustment, footprint/portability,
+acceptable hardware and the visible form before selecting mechanisms.
+
+The original implementation exercised flexible release, local holding contact and
+arm/cradle bending. Its gear patch translated tangentially; it did not solve the
+complete rotating assembly, and the sharp-tooth pass-over run failed. The user
+also recalls multipart interactions and a further analysis goal whose wording
+needs clarification. These records reconstruct the implemented questions, not
+an independently verified account of the original conversation.
+
+The current [shared question interface](../../physical_analysis/README.md#use)
+supports explicit translated contact, passage/return observations, flexure and
+structural questions with retained studies. Complete rotating joints, friction,
+creep and fatigue remain outside that interface; the optional IPC investigation
+is not qualified for complete snap passage. Reuse analysis patterns and historical
+evidence only within their recorded scope; changed geometry needs its own evidence.
+Choose analysis questions that inform a useful replacement and preserve the
+analysis-exercise objective. Any needed tool extension should follow an actual
+product question. No new print setup has been agreed; the solid PETG settings
+below belong to the rejected revision.
+
+## Historical prototype
+
+A four-part, press-to-release phone-stand prototype used to develop and
 exercise the repository's [physical-analysis API](../../physical_analysis/README.md).
 Designed around a **300 g phone, up to 90 × 180 × 14 mm**, at **45°, 60° or 75°**.
 Hardware is matched to the user's **Jula Hard Head 002837 screw/nut assortment**.
-The source, matching exports and conditional numerical evidence are complete. Physical fit,
+Its source, matching exports and conditional numerical evidence were delivered. Physical fit,
 creep, spring recovery and durability remain untested; this is not a tablet rating.
 
 ![Assembly with display-only phone envelope](renders/assembled/stand_in_use.png)
 
-## Files and printing
+## Historical files and printing
 
 Use [analysis_phone_stand.step](analysis_phone_stand.step) as the primary complete
 print layout, or the matching [STL](analysis_phone_stand.stl). Preserve the supplied
@@ -197,9 +239,11 @@ which also keeps available fixture BREPs for new archives. Historical records
 are unchanged. [summarize_evidence.py](summarize_evidence.py)
 compares completed evidence, and [plot_evidence.py](plot_evidence.py) rebuilds views.
 
-## First physical trial and print status
+## Historical proposed trial and current print status
 
-The complete stand is the trial; no separate coupon is supplied. First check free
+The complete stand was proposed as the trial; no separate coupon was supplied.
+The user has rejected this product before printing, so the following trial plan
+is retained only as historical context. First check free
 pivot motion and repeated unloaded release/return, then use a supported 300 g
 surrogate before putting a phone on it. Report whether the catch fully returns,
 holds each angle, takes a permanent set, or drifts under an hour-long load. Record
@@ -214,8 +258,8 @@ changes both force and strain. Physical feedback is needed before a load claim.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A | None; full stand is the trial | No separate coupon phase |
-| Final printable object(s) | Unknown | `analysis_phone_stand.step/.stl`, `stand_base`, `stand_arm`, `stand_cradle`, `stand_latch` STEP/STL pairs | Jula 002837 revision; no print report. Actual head/nut fit, support removal, jam-nut locking, release, recovery, holding, creep and durability untested |
+| Test piece(s) | N/A | None; full stand was the proposed trial | No separate coupon phase |
+| Final printable object(s) | No | Historical `analysis_phone_stand.step/.stl`, `stand_base`, `stand_arm`, `stand_cradle`, `stand_latch` STEP/STL pairs | 2026-10-04: user confirms unprinted and rejects the product design; replacement requirements under discussion. No physical failure observed. Hardware fit, release, recovery, holding, creep and durability remain untested |
 
 ## Shared flexure question
 
