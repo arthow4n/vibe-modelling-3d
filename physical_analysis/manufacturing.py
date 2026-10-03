@@ -53,13 +53,18 @@ def section_coverage(paths, *, x_mm, z_mm, span_mm):
         internal_gap_mm=sum(b[0]-a[1] for a,b in zip(merged,merged[1:])),intervals_mm=merged)
 
 
-def orca_linear_paths(path):
-    """Yield (x0,y0,x1,y1,z,width,role) for deposited linear layer moves."""
+def orca_linear_paths(path, *, spatial=False):
+    """Yield deposited linear layer moves, rejecting unsupported G-code modes.
+
+    Default records: (x0,y0,x1,y1,z1,width,role). With spatial=True:
+    (x0,y0,z0,x1,y1,z1,width,role), including non-deposited Z travel before
+    each stroke. Spatial records are for rising paths, not section_coverage.
+    """
     with Path(path).open() as stream:
-        yield from _linear_paths(stream)
+        yield from _linear_paths(stream,spatial=spatial)
 
 
-def _linear_paths(stream):
+def _linear_paths(stream, *, spatial=False):
     x=y=z=0.
     width=.42
     role=''
@@ -84,5 +89,5 @@ def _linear_paths(stream):
         args={k:float(v) for k,v in re.findall(r'([XYZE])(-?(?:\d+(?:\.\d*)?|\.\d+))',command)}
         nx,ny,nz=args.get('X',x),args.get('Y',y),args.get('Z',z)
         if started and args.get('E',0)>0 and (nx!=x or ny!=y) and role!='Custom':
-            yield x,y,nx,ny,nz,width,role
+            yield (x,y,z,nx,ny,nz,width,role) if spatial else (x,y,nx,ny,nz,width,role)
         x,y,z=nx,ny,nz

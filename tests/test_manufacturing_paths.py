@@ -9,6 +9,16 @@ def test_layer_segments_keep_position_width_role_and_relative_extrusion(tmp_path
     assert list(orca_linear_paths(p))==[(10,20,12,20,.2,.45,'Inner wall'),(12,22,10,22,.2,.45,'Support interface')]
 
 
+def test_spatial_paths_keep_spiral_start_z_after_non_deposited_height_change(tmp_path):
+    p=tmp_path/'spiral.gcode'
+    p.write_text('G90\nM83\nG0 X1 Y2 Z.2\n;LAYER_CHANGE\n;TYPE:Outer wall\n'
+                 ';WIDTH:.42\nG1 X3 Y4 Z.25 E.1\nG1 Z.3\nG1 X5 Y6 Z.35 E.1\n')
+    assert list(orca_linear_paths(p,spatial=True))==[
+        (1,2,.2,3,4,.25,.42,'Outer wall'),(3,4,.3,5,6,.35,.42,'Outer wall')]
+    assert list(orca_linear_paths(p))==[
+        (1,2,3,4,.25,.42,'Outer wall'),(3,4,5,6,.35,.42,'Outer wall')]
+
+
 @pytest.mark.parametrize('unsupported',['M82','G91','G2 X12 Y20 E1'])
 def test_incompatible_path_modes_fail_instead_of_inventing_paths(tmp_path,unsupported):
     p=tmp_path/'slice.gcode';p.write_text(';LAYER_CHANGE\n'+unsupported+'\n')

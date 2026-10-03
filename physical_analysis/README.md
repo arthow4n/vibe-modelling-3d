@@ -706,6 +706,13 @@ placement, `physical_analysis.manufacturing.orca_linear_paths(path)` yields
 linear deposited segments with Orca's width/role metadata for consequential
 local feature reviews. It requires
 absolute XYZ, relative E and linear layer moves; incompatible modes fail.
+The default record is `(x0,y0,x1,y1,z1,width,role)` for planar section tools.
+Use `orca_linear_paths(path, spatial=True)` for
+`(x0,y0,z0,x1,y1,z1,width,role)` on rising paths. The start Z includes preceding
+non-deposited travel; inferring it from the last deposited endpoint can be wrong.
+Spatial records must not be passed to the planar `section_coverage` API.
+The [V1 swatch hood](../model/filament_swatch_box_study/README.md#v1-single-wall-vase-hood--additional-transparency-trial)
+uses exact segment heights to measure its helical mating wall at each catch.
 Keep geometry registration, section choices, support access and decisions with
 the object. This does not replace Orca's layout acceptance, predict polymer
 properties or justify routine G-code inspection of ordinary walls.

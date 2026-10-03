@@ -80,6 +80,93 @@ wall placement to the base and define retention within a single continuous wall
 before selecting its final CAD boundary and slicer settings. Do not merely
 change G's wall count or promise maximum optical clarity from vase mode alone.
 
+### V1 — smooth single-wall waist on the accepted base interfaces
+
+Architecture choice: retain both revised bases, their four existing closure
+leaves, foot and I key. A flat thin shell cannot reproduce G's hidden pockets
+with a single contour. The cheapest complete alternative is a shallow continuous
+waist near the catches; it adds no parts or thick external band. Outside X/Y,
+rim height and rounded roof stay G's values. At the waist only X moves inward, by
+at most .7 mm, with a cosine transition centered at assembled Z=18.9 mm over
+Z=16.9–20.9 mm. Module pitch stays unchanged. The upper sides are straight.
+For a substantial rim landing, the outside corner radius is 5.8 mm, concentric
+with the actual foot's 6 mm round, and a .2 mm XY/radius inset transitions
+smoothly over the bottom 1.2 mm. The first draft only touched a tiny part of the
+rounded foot's top. Replace that incidental contact with a measured flat
+landing, requiring over 40% of the thin rim's area supported by actual Z=5 mm
+base faces. Both J2/K2 rigid variants are checked, not just shell distance zero.
+The resulting 39.15 mm² contact is about 45.8% of the nominal rim area.
+The user was informed of this visible smooth contour tradeoff during work.
+
+Print setup is deliberately consequential: PETG, .4 nozzle/.2 layers, one
+.42 mm perimeter, no infill/top layers, four solid bottom layers and 30 mm/s
+outer-wall speed. Roof prints down, reusing G's 3 mm outside rounding. Export
+the filled envelope for Orca vase mode; the inspection-only nominal shell has
+an XY .42 mm inset. This avoids confusing an ordinary hollow CAD wall with the
+wall Orca actually generates. The object-owned process snapshot records spiral
+smoothing off and support/elephant-foot compensation off. One hood per vase
+job. Native effective settings confirm these choices.
+
+The geometry screen finds positive seated interference at all four existing
+pads, additional interference during lifting, release by the sampled 2–3 mm
+lift, rim seating and passage clearance against both rigid base variants,
+actual 2.2 mm cards, K2 panel and I key. Peak idealized leaf translation is
+.32 mm. The shared rectangular-cantilever screen uses E=1200 MPa as an explicit
+uncalibrated homogeneous PETG assumption; root strain is about .263% and below
+the provisional 1.5% design screen. It is not a PETG strain guarantee, FEA or
+complete retention-force model. Hood compliance, root shape, layers, friction
+and material relaxation remain outside that beam calculation.
+
+The shared evaluator exports the same roof-down envelope to STEP/STL and
+Orca 2.4.2 accepts the preserved placement in the Q2C PETG profile. Primary
+notices are empty. The automatic-support probe fails solely because Orca rejects
+enable_support=1 with spiral vase mode. Retain native review_required=true and
+the diagnostic log; mark this probe N/A rather than claiming a pass. The
+curved roof/bottom layers reuse the accepted hood's roof form; after the solid
+.8 mm roof, its nominal first perimeter radial increment is about .197 mm
+for a .42 mm line. Maximum waist increment is about .11 mm per .2 mm layer.
+These are geometric overlap screens, not printed overhang-quality results.
+
+Because actual helical paths interpolate whole-layer contours, the ideal
+continuous CAD shell is only an approximation. The object-owned path study uses
+the shared deposited-path reader, checks the native spiral settings,
+single outer-wall role/width and continuity, then interpolates crossings through
+each catch's Y plane. The measured local wall difference reaches .05565 mm,
+within the .11196 mm one-layer/slope phase bound, rather than an assumed printer
+tolerance. It then checks the actual radial boundary against the actual rounded
+pad at that height: all four closed overlaps are .07706–.11629 mm; at .8 mm hood
+lift they grow to .31906–.32465 mm; at 3 mm lift all are clear. .002 mm pad-section
+thickness is explicit. Increasing the phase bound alone could not pass a missing
+contact. This is narrower geometric evidence, not measured friction or opening
+effort. Store the native G-code compressed and effective settings as diagnostic
+evidence, not as a calibrated print job. The slice estimates 10.68 g, 1h16m57s.
+At the four measured rim planes, Orca's final contour is level at assembled
+Z=5 mm and lands over .2 mm onto the actual base foot. Thus vase mode does not
+introduce a one-layer helical gap at those seating locations in this profile.
+
+One small shared extension was justified by this consumer: the old path API
+only returned endpoint Z. Inferring start Z from a previous deposited move
+would miss non-deposited height travel, even with continuous XY. Optional
+`orca_linear_paths(..., spatial=True)` now returns both XYZ endpoints from the
+same parser. The planar default and its callers are unchanged. A focused
+test includes a rising stroke after pure Z travel; all eight manufacturing-path
+tests pass. V1 uses this exact height mode instead of the inferred-height draft;
+no new worker, solver or comparison framework was added. The existing
+CornerFlowTest likewise uses a solid vase envelope; its old planar diagnostic
+slice is not spiral evidence and is not borrowed as qualification for V1.
+
+Full V1 is the next experiment: tall shell/roof compliance makes a cropped
+collar misleading for force and feel. Test seating, accidental separation,
+deliberate opening, rim comfort, recovery and translucency against G with the
+same spool. Preserve G and all older trials. V1 is unprinted and cannot establish
+maximum transparency or long-term holding. The shared beam screen and extended
+path reader answer these object-specific questions.
+The inspected whole-product and relaxed-overlap section images are retained in
+`renders/v1_assembled/` and `renders/v1_contact/` with their native reports.
+Dense technical lines at the waist are the .1 mm CAD loft section seams, not
+extra thickness. The section shows the .42 mm wall and intentional preload;
+no solved bending pose is claimed.
+
 The user authorizes exploration, ordinary design decisions and incremental
 commit/push until approximately 19:00 Europe/Stockholm on 2026-10-02. They regard
 the lower section as broadly acceptable and ask for softer edges. This is concept

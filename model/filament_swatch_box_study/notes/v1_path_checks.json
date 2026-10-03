@@ -1,0 +1,364 @@
+{
+  "ok": true,
+  "question": "Does the single spiral wall actually engage all four existing catches?",
+  "stl_sha256": "5c6c9c37561a967a71a2bedd4197162b98b146de57502441e04e5d1c7ec0e813",
+  "gcode_sha256": "98bdf7b0355fd3904fb3285aba4d5c4623cc5856498cfb31ba03946701107117",
+  "process_sha256": "188d953d251a79411bc2482aa1acedcbfabc578974e5692efdb76177416029f3",
+  "sources_sha256": {
+    "cap_v1_vase_hood_5.py": "d36461de1ede353b708ac52d27dc0fc6525e17e3373319029aefc71268056560",
+    "check_vase_paths.py": "6e03b3411386917eeb33bd4e6b72984b8386dab503119cdee9aa4e39f274b14f",
+    "../../physical_analysis/manufacturing.py": "dc97f544fd7026acffcd33a5a05067ddd603681d9f3fda09ce954b4b2de6727e"
+  },
+  "deposited_roles_above_roof": [
+    "Outer wall"
+  ],
+  "line_width_mm": 0.42,
+  "maximum_contiguous_path_gap_mm": 0,
+  "maximum_spiral_segment_z_step_mm": 0.052000000000000046,
+  "maximum_local_wall_error_mm": 0.05565225906100224,
+  "one_layer_contour_phase_bound_mm": 0.11195574287564276,
+  "contacts": [
+    {
+      "side": -1,
+      "y_mm": -9.2,
+      "phases": [
+        {
+          "hood_lift_mm": 0,
+          "max_radial_overlap_mm": 0.08157334910626801,
+          "samples": [
+            {
+              "base_z_mm": 20.027618877443757,
+              "inner_x_mm": 31.131999999999998,
+              "pad_x_mm": 30.80575524790536,
+              "overlap_mm": -0.3262447520946381
+            },
+            {
+              "base_z_mm": 19.827615904381503,
+              "inner_x_mm": 31.024,
+              "pad_x_mm": 30.975534252230126,
+              "overlap_mm": -0.04846574776987467
+            },
+            {
+              "base_z_mm": 19.627616569575395,
+              "inner_x_mm": 30.915999999999997,
+              "pad_x_mm": 30.997573349106265,
+              "overlap_mm": 0.08157334910626801
+            },
+            {
+              "base_z_mm": 19.42761656957539,
+              "inner_x_mm": 30.817999999999998,
+              "pad_x_mm": 30.853099916778927,
+              "overlap_mm": 0.035099916778928986
+            }
+          ]
+        },
+        {
+          "hood_lift_mm": 0.8,
+          "max_radial_overlap_mm": 0.3235733491062689,
+          "samples": [
+            {
+              "base_z_mm": 20.02761887744376,
+              "inner_x_mm": 30.741,
+              "pad_x_mm": 30.805755247905353,
+              "overlap_mm": 0.06475524790535303
+            },
+            {
+              "base_z_mm": 19.827618877443758,
+              "inner_x_mm": 30.691000000000003,
+              "pad_x_mm": 30.97553230767601,
+              "overlap_mm": 0.284532307676006
+            },
+            {
+              "base_z_mm": 19.627616569575398,
+              "inner_x_mm": 30.674,
+              "pad_x_mm": 30.99757334910627,
+              "overlap_mm": 0.3235733491062689
+            },
+            {
+              "base_z_mm": 19.427618877443752,
+              "inner_x_mm": 30.691000000000003,
+              "pad_x_mm": 30.853101894951806,
+              "overlap_mm": 0.16210189495180316
+            }
+          ]
+        },
+        {
+          "hood_lift_mm": 3,
+          "max_radial_overlap_mm": -0.5514339984469601,
+          "samples": [
+            {
+              "base_z_mm": 20.027839664854795,
+              "inner_x_mm": 31.357,
+              "pad_x_mm": 30.80556600155304,
+              "overlap_mm": -0.5514339984469601
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "side": -1,
+      "y_mm": 9.2,
+      "phases": [
+        {
+          "hood_lift_mm": 0,
+          "max_radial_overlap_mm": 0.07705775982539365,
+          "samples": [
+            {
+              "base_z_mm": 20.009384095618486,
+              "inner_x_mm": 31.131999999999998,
+              "pad_x_mm": 30.821385060898447,
+              "overlap_mm": -0.31061493910155136
+            },
+            {
+              "base_z_mm": 19.809381122556232,
+              "inner_x_mm": 31.024,
+              "pad_x_mm": 30.985722721311618,
+              "overlap_mm": -0.038277278688383376
+            },
+            {
+              "base_z_mm": 19.609383430424586,
+              "inner_x_mm": 30.915999999999997,
+              "pad_x_mm": 30.99305775982539,
+              "overlap_mm": 0.07705775982539365
+            },
+            {
+              "base_z_mm": 19.409383430424597,
+              "inner_x_mm": 30.817999999999998,
+              "pad_x_mm": 30.83747151179253,
+              "overlap_mm": 0.01947151179253126
+            }
+          ]
+        },
+        {
+          "hood_lift_mm": 0.8,
+          "max_radial_overlap_mm": 0.3190577598253945,
+          "samples": [
+            {
+              "base_z_mm": 20.00938409561849,
+              "inner_x_mm": 30.741,
+              "pad_x_mm": 30.821385060898443,
+              "overlap_mm": 0.08038506089844333
+            },
+            {
+              "base_z_mm": 19.809384095618487,
+              "inner_x_mm": 30.691000000000003,
+              "pad_x_mm": 30.985721322178946,
+              "overlap_mm": 0.294721322178944
+            },
+            {
+              "base_z_mm": 19.60938343042459,
+              "inner_x_mm": 30.674,
+              "pad_x_mm": 30.993057759825394,
+              "overlap_mm": 0.3190577598253945
+            },
+            {
+              "base_z_mm": 19.40938409561848,
+              "inner_x_mm": 30.691000000000003,
+              "pad_x_mm": 30.837472081958715,
+              "overlap_mm": 0.14647208195871286
+            }
+          ]
+        },
+        {
+          "hood_lift_mm": 3,
+          "max_radial_overlap_mm": -0.5362778161506299,
+          "samples": [
+            {
+              "base_z_mm": 20.010157452175747,
+              "inner_x_mm": 31.357,
+              "pad_x_mm": 30.82072218384937,
+              "overlap_mm": -0.5362778161506299
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "side": 1,
+      "y_mm": -9.2,
+      "phases": [
+        {
+          "hood_lift_mm": 0,
+          "max_radial_overlap_mm": 0.1038804155624149,
+          "samples": [
+            {
+              "base_z_mm": 20.1094383076597,
+              "inner_x_mm": 31.133352419574486,
+              "pad_x_mm": 30.735624307720258,
+              "overlap_mm": -0.39772811185422796
+            },
+            {
+              "base_z_mm": 19.909440628215208,
+              "inner_x_mm": 31.025352841493664,
+              "pad_x_mm": 30.907050890101257,
+              "overlap_mm": -0.11830195139240729
+            },
+            {
+              "base_z_mm": 19.70944062821522,
+              "inner_x_mm": 30.917352841493674,
+              "pad_x_mm": 31.0,
+              "overlap_mm": 0.08264715850632598
+            },
+            {
+              "base_z_mm": 19.509438307659707,
+              "inner_x_mm": 30.819352419574493,
+              "pad_x_mm": 30.923232835136908,
+              "overlap_mm": 0.1038804155624149
+            }
+          ]
+        },
+        {
+          "hood_lift_mm": 0.8,
+          "max_radial_overlap_mm": 0.3246471585063304,
+          "samples": [
+            {
+              "base_z_mm": 20.109438307659705,
+              "inner_x_mm": 30.74235241957448,
+              "pad_x_mm": 30.735624307720258,
+              "overlap_mm": -0.006728111854222618
+            },
+            {
+              "base_z_mm": 19.90944062821521,
+              "inner_x_mm": 30.692352841493665,
+              "pad_x_mm": 30.907050890101253,
+              "overlap_mm": 0.21469804860758757
+            },
+            {
+              "base_z_mm": 19.70944062821521,
+              "inner_x_mm": 30.67535284149367,
+              "pad_x_mm": 31.0,
+              "overlap_mm": 0.3246471585063304
+            },
+            {
+              "base_z_mm": 19.50944062821522,
+              "inner_x_mm": 30.692352841493665,
+              "pad_x_mm": 30.92323482418449,
+              "overlap_mm": 0.23088198269082483
+            }
+          ]
+        },
+        {
+          "hood_lift_mm": 3,
+          "max_radial_overlap_mm": -0.6233944026075875,
+          "samples": [
+            {
+              "base_z_mm": 20.110215154632925,
+              "inner_x_mm": 31.358352841493662,
+              "pad_x_mm": 30.734958438886075,
+              "overlap_mm": -0.6233944026075875
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "side": 1,
+      "y_mm": 9.2,
+      "phases": [
+        {
+          "hood_lift_mm": 0,
+          "max_radial_overlap_mm": 0.11629021923814165,
+          "samples": [
+            {
+              "base_z_mm": 20.127814363102615,
+              "inner_x_mm": 31.136693520564116,
+              "pad_x_mm": 30.719873403054905,
+              "overlap_mm": -0.4168201175092108
+            },
+            {
+              "base_z_mm": 19.927815015433026,
+              "inner_x_mm": 31.02869363916964,
+              "pad_x_mm": 30.891301415343122,
+              "overlap_mm": -0.1373922238265166
+            },
+            {
+              "base_z_mm": 19.727815015433038,
+              "inner_x_mm": 30.92069363916965,
+              "pad_x_mm": 31.0,
+              "overlap_mm": 0.07930636083035125
+            },
+            {
+              "base_z_mm": 19.52781436310262,
+              "inner_x_mm": 30.822693520564123,
+              "pad_x_mm": 30.938983739802264,
+              "overlap_mm": 0.11629021923814165
+            }
+          ]
+        },
+        {
+          "hood_lift_mm": 0.8,
+          "max_radial_overlap_mm": 0.3213063608303557,
+          "samples": [
+            {
+              "base_z_mm": 20.12781436310262,
+              "inner_x_mm": 30.74569352056411,
+              "pad_x_mm": 30.719873403054905,
+              "overlap_mm": -0.02582011750920543
+            },
+            {
+              "base_z_mm": 19.92781501543303,
+              "inner_x_mm": 30.69569363916964,
+              "pad_x_mm": 30.891301415343122,
+              "overlap_mm": 0.1956077761734818
+            },
+            {
+              "base_z_mm": 19.727815015433027,
+              "inner_x_mm": 30.678693639169644,
+              "pad_x_mm": 31.0,
+              "overlap_mm": 0.3213063608303557
+            },
+            {
+              "base_z_mm": 19.52781501543304,
+              "inner_x_mm": 30.69569363916964,
+              "pad_x_mm": 30.93898429894262,
+              "overlap_mm": 0.24329065977298114
+            }
+          ]
+        },
+        {
+          "hood_lift_mm": 3,
+          "max_radial_overlap_mm": -0.6420074182308539,
+          "samples": [
+            {
+              "base_z_mm": 20.12803274223809,
+              "inner_x_mm": 31.361693639169637,
+              "pad_x_mm": 30.719686220938783,
+              "overlap_mm": -0.6420074182308539
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rim_last_turn_crossings": [
+    {
+      "side": -1,
+      "y_mm": -9.2,
+      "z_mm": 5.0,
+      "inner_x_abs_mm": 31.177
+    },
+    {
+      "side": -1,
+      "y_mm": 9.2,
+      "z_mm": 5.0,
+      "inner_x_abs_mm": 31.177
+    },
+    {
+      "side": 1,
+      "y_mm": -9.2,
+      "z_mm": 5.0,
+      "inner_x_abs_mm": 31.178352560222727
+    },
+    {
+      "side": 1,
+      "y_mm": 9.2,
+      "z_mm": 5.0,
+      "inner_x_abs_mm": 31.181693560101685
+    }
+  ],
+  "rim_flat_base_x_mm": 31.4,
+  "minimum_sampled_rim_landing_mm": 0.21830643989831344,
+  "support_probe": "N/A: Orca rejects enable_support=1 in spiral vase mode; primary slice succeeds.",
+  "limits": "XY radial wall offset; .002 mm pad sections. No as-printed force/compliance/strength or optical validation."
+}

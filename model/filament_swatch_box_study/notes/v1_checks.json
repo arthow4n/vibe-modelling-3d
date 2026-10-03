@@ -1,0 +1,77 @@
+{
+  "scope": "Nominal .42 mm shell CAD; actual Orca wall placement checked separately. No force/optical/creep validation.",
+  "overall_outer_dimensions_match_G": true,
+  "rim_seats_on_existing_base": true,
+  "rim_support": [
+    {
+      "contact_area_mm2": 39.145025853333394,
+      "rim_area_mm2": 85.45587489839329,
+      "supported_fraction": 0.4580729633846319
+    },
+    {
+      "contact_area_mm2": 39.14502585333332,
+      "rim_area_mm2": 85.45587489839329,
+      "supported_fraction": 0.45807296338463105
+    }
+  ],
+  "profile": {
+    "line_width_mm": 0.42,
+    "roof_mm": 0.8,
+    "neck_depth_per_X_side_mm": 0.7,
+    "neck_centre_z_mm": 18.9,
+    "neck_half_span_mm": 2.0,
+    "outside_corner_radius_mm": 5.800000000000001,
+    "rim_inset_mm": 0.2,
+    "rim_taper_height_mm": 1.2
+  },
+  "retention": [
+    {
+      "hood_lift_mm": 0,
+      "relaxed_leaf_interference_mm3": 1.6762613752339686
+    },
+    {
+      "hood_lift_mm": 0.3,
+      "relaxed_leaf_interference_mm3": 5.019239007821714
+    },
+    {
+      "hood_lift_mm": 0.6,
+      "relaxed_leaf_interference_mm3": 7.216256560237298
+    },
+    {
+      "hood_lift_mm": 0.9,
+      "relaxed_leaf_interference_mm3": 7.547961145056677
+    },
+    {
+      "hood_lift_mm": 1.2,
+      "relaxed_leaf_interference_mm3": 5.931984972782086
+    },
+    {
+      "hood_lift_mm": 2,
+      "relaxed_leaf_interference_mm3": 0.0
+    },
+    {
+      "hood_lift_mm": 3,
+      "relaxed_leaf_interference_mm3": 0.0
+    }
+  ],
+  "peak_leaf_translation_screen_mm": 0.3200000000000003,
+  "conditional_leaf_beam": {
+    "force_N": 0.6140603715475889,
+    "tip_displacement_mm": 0.3200000000000003,
+    "stiffness_N_mm": 1.9189386610862136,
+    "root_strain": 0.0026296566837107392,
+    "fixed_free_euler_buckling_N": 23.35830406101498,
+    "small_deflection_applicable": true,
+    "assumptions": "Straight slender homogeneous elastic rectangular cantilever; no notches/contact/layer effects. Euler load is an ideal instability estimate, not a strength rating."
+  },
+  "captures_all_four_existing_contacts": true,
+  "cards_panels_and_rigid_body_clear": true,
+  "I_key_covered": true,
+  "sources_sha256": {
+    "cap_v1_vase_hood_5.py": "d36461de1ede353b708ac52d27dc0fc6525e17e3373319029aefc71268056560",
+    "check_v1.py": "0851f69fdae59a941bb8485f80fcb999436c32e680b2ecd408a81c63476af98d",
+    "cap_j2_base_5.py": "6982fe73dd835dfd89ac494efecc905b2e1940bc31a6b6e25bd1c0703d471299",
+    "cap_k2_base_5.py": "8e41eb9c43ae76bf2d05078b7c08459e57234c9a99ac2e58500be56f199d3eee",
+    "swatch_reference.py": "c27d4fda19465669f8b9c587da33e4393ff0c2ddb027884c177562c14836d2e7"
+  }
+}

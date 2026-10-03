@@ -5,8 +5,8 @@ strongly but visibly tilts seated cards. K does not engage the dome; trying both
 card orientations instead produces back-face pressure. The earlier virtual
 checks did not establish these use relationships. I keys remain accepted.
 
-Work resumed at the user's request: revise J, then K, then develop a separate
-single-wall vase-mode hood for translucent PETG. Preserve all earlier artifacts,
+J2, K2 and a separate single-wall V1 vase-mode hood are now available for trials.
+Preserve all earlier artifacts,
 the successful G hood and the shared I key 3. Exact printed hashes/settings
 remain unconfirmed; PETG and the established .4/.2 setup remain design assumptions.
 
@@ -57,9 +57,60 @@ comfortable. [Actual-bowl section](renders/k2_section/inspect_k2_section_right.p
 cover the correction. These are unprinted complete-base trials; a geometric
 seated-contact check is not a printed grip or creep result.
 
+## V1 single-wall vase hood — additional transparency trial
+
+[Vase-only STEP](cap_v1_vase_hood_5.step), [STL](cap_v1_vase_hood_5.stl),
+[source](cap_v1_vase_hood_5.py), [Orca process snapshot](notes/vase_process.json),
+[assembled view](renders/v1_assembled/inspect_v1_isometric.png),
+[thin-wall catch section](renders/v1_contact/inspect_v1_contact_front.png).
+The export is deliberately a **filled slicer envelope**. Use Orca spiral/vase
+mode to produce its shell; ordinary slicing would produce the wrong object.
+Print **one hood at a time, roof down as supplied**, in PETG with the .4 mm
+nozzle, .2 mm layers, one .42 mm outer perimeter, zero infill, zero top layers,
+four solid bottom layers (.8 mm closed roof), and 30 mm/s outer-wall speed.
+Disable spiral smoothing, supports and elephant-foot compensation as in the
+snapshot. Inspect your effective GUI settings; STEP import is a separate path
+from the diagnostic STL slice.
+
+V1 fits the unchanged J2/K2 bases and I key 3. Its maximum X/Y dimensions and
+seated rim height match G. The 5.8 mm outside corner radius is concentric with
+the base foot; a smooth .2 mm inward rim taper over 1.2 mm gives the thin wall
+a wider landing on the foot's rounded top. A .7 mm inward waist on each X side replaces
+G's hidden retaining pockets; the main side walls above it stay straight, the
+roof retains the 3 mm exterior round, and there is no raised band. This is the
+explicit form tradeoff for using one continuous wall with the existing catches.
+The dense lines at the waist in the technical view are CAD section seams, not
+added wall thickness. The catch section shows intentional relaxed overlap;
+it is not a solved deformed pose.
+The thinner wall has more internal clearance above the waist, without requiring
+an oversized outer hood or a raised seam. The accepted G hood remains available.
+
+[CAD checks](notes/v1_checks.json) cover both bases, actual cards, rim seating,
+four catch contacts, sampled opening and key coverage; about 46% of the nominal
+rim area rests on actual flat base faces. The
+[reference slice](notes/v1_review.json) succeeds without primary notices;
+**its support probe is N/A** because Orca forbids supports with spiral mode.
+The native report deliberately retains that probe failure/review flag. Its
+saved log and the [actual path check](notes/v1_path_checks.json) resolve this
+specific review: one .42 mm continuous outer wall reaches every catch, has
+.077–.117 mm sampled closed overlap, requires more deflection while opening,
+and subsequently clears. This is geometry/manufacturing evidence, not a measured
+holding force. The final contour is level at the rim height and lands over
+.2 mm onto the base at the four measured side sections. The diagnostic slice
+estimates 10.68 g and 1 h 17 min; actual
+calibrated settings can differ.
+
+**Unprinted experiment:** try V1 on one existing compatible base first. Check
+full rim seating, resistance to accidental separation, comfortable deliberate
+opening, wall/rim feel and recovery; compare translucency with the accepted G
+hood using the same filament. The .42 mm wall itself can flex, so retention,
+durability and optical clarity require this complete-hood trial. A cropped
+collar would omit the tall walls and roof that determine that response.
+
 ### Historical J/K files — preserve the rejected bases
 
-For a joined pair, use:
+The earlier rejected joined-pair trial used these files; use J2/K2 above for
+the revised trial:
 
 - **One J base:** [Centered-panel STEP](cap_j_base_5.step), [STL](cap_j_base_5.stl), [source](cap_j_base_5.py).
 - **One K base:** [Dome-shoulder STEP](cap_k_base_5.step), [STL](cap_k_base_5.stl), [source](cap_k_base_5.py).
@@ -77,6 +128,8 @@ to the pocket floor. Insert cards long dimension upright, notches above.
 **J: flat back toward its broad spring panel. K: domed/engraved face toward
 its shaped dome follower.** Press down until both bottom-corner seats engage;
 K must locate its follower in the existing bowl. Close each hood to the rim.
+These historical instructions did not produce correct engagement in K and are
+retained as the prior intent; use the corrected K2 orientation and geometry.
 Try one, three and five cards per box: check easy
 entry from every side, firm final seating, upright alignment, deliberate card
 withdrawal and opening either hood while joined. Check thin-shell/edge comfort.
@@ -752,6 +805,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
+| Complete hood — V1 spiral .42 mm wall | Unknown — new unprinted experiment | `cap_v1_vase_hood_5.step/.stl`, vase-only filled input; `notes/vase_process.json` | CAD and actual single-wall paths cover all four existing catches; primary Orca slice succeeds, support probe inapplicable. Holding force, rim comfort, transparency and recovery need the full-hood trial |
 | Complete base — J2 opposing upright rails | Unknown — new unprinted revision | `cap_j2_base_5.step/.stl`, accepted G hood and I key 3 | Source-card contact/entry checks and reference slice cover the revision; actual upright alignment, entry/removal and dwell require use |
 | Complete base — K2 proper source-card catch | Unknown — new unprinted revision | `cap_k2_base_5.step/.stl`, accepted G hood and I key 3 | Real-face shoulder contact, old-K and wrong-face negative cases, upright datums and sampled rigid entry checked. Printed dome engagement, grip and recovery remain unqualified |
 | Test — I replacement keys in printed H blocks | Yes — all three reported printed, 2026-10-03; actual hashes/material/settings unconfirmed | `cap_i_grip_keys.step/.stl`, delivered in `9d05287` | All three work; number 3 feels better, reason unclear. Select 3 without geometry changes. Detailed release/recovery, dwell, calibrated force and full-box use remain unreported |
@@ -772,7 +826,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | Not accepted — historical J/K use failures; new J2/K2 unprinted, G hood accepted | J2 or K2 + G hood + I key 3 | Revised trial bases available; vase-mode variant follows. No complete-box or loaded-row carrying/durability qualification |
+| Final printable object | Not accepted — historical J/K use failures; new J2/K2 and V1 unprinted, G hood accepted | J2 or K2 + accepted G hood or experimental V1 + I key 3 | Revised trial bases and separate vase hood available. No complete-box or loaded-row carrying/durability qualification |
 
 ## Attribution
 

@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_v1_contact.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "front",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/v1_contact/inspect_v1_contact_front.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          -1,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.001354179999907501,
+    "build": 9.661984436002967,
+    "selection": 0.000829742999485461,
+    "validation": 0.0348750379998819,
+    "render_front": 0.31780875000185915,
+    "worker": 10.09489702800056,
+    "total": 208.7415364490007
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "ce909bf8e094f574ced875c3e9b1cd3254b9b524711f6c917cd02adfdedc4521",
+    "artifact_identity": "4dce246c5b6e366c462d9d1b56595289de0119bddc84189531c162722e2bb47c"
+  }
+}
