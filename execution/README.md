@@ -52,3 +52,37 @@ unrestricted raw diagnostics. Tracing is best effort and cannot fail a calculati
 
 Full command reference, measured policies and limitations are finalized as the
 implementation is qualified. `performance/IMPLEMENTATION.md` records milestones.
+
+## Running scripts
+
+```sh
+./execute.py model/object/experiment.py argument
+./execute.py --cwd model/object --timeout 120 model/object/experiment.py
+./execute.py --strategy preinitialized --preload cad model/object/check.py
+./execute.py --profile cpu model/object/experiment.py
+./execute.py --profile allocations model/object/experiment.py
+./execute.py --isolated model/object/experiment.py
+```
+
+Options precede the script; following tokens are its arguments. Isolated execution
+is default. Preinitialized execution is opt-in: import timing/state of the common
+scientific/CadQuery dependency set differs from a pristine interpreter. Every
+user script still gets a fresh child. Both preload labels use the same qualified
+import-only host (scientific dependencies are included by CadQuery). Gmsh and
+solvers are never initialized in that host. The host is imported with one native
+thread; jobs apply their explicit `--threads` budget. Ordinary jobs default to
+one thread and 2048 MiB of process-tree RSS. Use larger explicit budgets when
+needed; oversize requests fail before execution. This is process isolation,
+not a sandbox.
+
+`--isolated` bypasses the coordinator for compatibility diagnosis, using the same
+traced lifecycle. Coordinator startup failure also falls back *before dispatch*;
+an ambiguous dispatched job is never automatically replayed. Exit codes preserve
+script behavior; timeout is 124, interruption is 130, signals map to 128+signal.
+File descriptors carry actual input/output streams; output isn't stored in traces.
+Profiling artifacts remain local. Environment values and arguments aren't logged.
+
+`ENGINEERING_CPUS`, `ENGINEERING_MEMORY_MB`, `ENGINEERING_JOBS` configure the
+coordinator capacity. `ENGINEERING_TRACE=0` disables detailed spans for overhead
+measurement; compact run summaries remain. `ENGINEERING_DATA` selects local
+performance storage. No normal engineering task needs to inspect these records.

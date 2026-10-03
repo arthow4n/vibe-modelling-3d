@@ -32,7 +32,7 @@ def runtime_identity():
 def cad_identity(source, dependencies=()):
     """Closed-input declaration: repo/sibling Python plus explicitly declared data."""
     source = Path(source).resolve()
-    files = set(ROOT.rglob('*.py')) if False else set()
+    files = set()
     # Avoid virtual environments, caches and generated evidence trees.
     for folder in ('execution', 'physical_analysis', 'model'):
         files.update((ROOT/folder).rglob('*.py'))

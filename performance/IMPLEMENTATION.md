@@ -44,3 +44,20 @@ context, hierarchical controlled-operation spans, summaries, retention and
 Perfetto conversion. Tracing failure tests and evaluator/slicing regression:
 26 passed. Native forkserver compatibility probes are running before lifecycle
 selection. No numerical tolerance or evidence policy changed.
+
+### Shared execution milestone
+
+Tracing commit `a2027a1` pushed. Implemented one private Unix-socket coordinator,
+automatic locked-environment bootstrap, isolated and fresh preinitialized script
+children, real stdio descriptor forwarding, deadlines including queue waits,
+resource admission, tree RSS/CPU samples, cProfile/tracemalloc modes, process-group
+and detached-descendant cleanup, idle shutdown, runtime-content invalidation and
+pre-dispatch fallback. Fresh source imports bypass timestamp-based bytecode.
+
+Compatibility probes: six matching CAD boolean results in each preload mode;
+six matching Gmsh meshes (341 nodes). Import-only CadQuery is single threaded
+with BLAS/OMP limits. Gmsh remains isolated despite passing this narrow probe.
+Focused tests: 18 passed, 3 optional IPC native tests skipped. An earlier full
+suite was run while files were being edited and observed an old in-memory module;
+its 4 import failures are not regression evidence. Full frozen-source regression
+will be rerun at consolidation. No solver quality setting changed.
