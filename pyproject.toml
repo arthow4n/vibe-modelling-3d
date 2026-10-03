@@ -7,6 +7,10 @@ dependencies = [
     "cadquery>=2.7,<2.8",
     "cairosvg>=2.8,<3",
     "gmsh>=4.15,<4.16",
+    "opentelemetry-exporter-otlp-proto-common>=1.40,<2",
+    "opentelemetry-sdk>=1.40,<2",
+    "psutil>=7,<8",
+    "threadpoolctl>=3.6,<4",
 ]
 
 [dependency-groups]
@@ -20,4 +24,4 @@ requires = ["hatchling>=1.27,<2"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["physical_analysis"]
+packages = ["physical_analysis", "execution"]

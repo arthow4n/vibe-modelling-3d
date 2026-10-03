@@ -33,3 +33,14 @@ engineering evidence remains owned by its existing tools.
 
 Commit identifiers and benchmark findings will be added at subsequent milestones;
 Git history is the authoritative commit/push record.
+
+### Baseline and tracing milestone
+
+Baseline commit `d7f8f77`. Corrected benchmark placement to the user's home so
+Flatpak sees the actual STL: three complete slices now pass. Baseline medians:
+geometry 2.186 s, default four views 2.703 s, explicit two views/exports 2.796 s.
+Tracing foundation: SDK + supported OTLP encoder, local JSONL, cross-process
+context, hierarchical controlled-operation spans, summaries, retention and
+Perfetto conversion. Tracing failure tests and evaluator/slicing regression:
+26 passed. Native forkserver compatibility probes are running before lifecycle
+selection. No numerical tolerance or evidence policy changed.

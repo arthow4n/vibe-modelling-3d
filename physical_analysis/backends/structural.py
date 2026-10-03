@@ -9,6 +9,7 @@ import signal
 import subprocess
 import sys
 from ..results import AnalysisResult
+from execution.telemetry import operation, child_environment
 
 
 def runtime_environment():
@@ -51,12 +52,13 @@ def evidence_files(directory):
     return files, replay
 
 
+@operation("analysis.worker")
 def run_worker(directory, module, environment, timeout_seconds, result, *,
                arguments=(), log_name='worker.log', failure_record='result.json'):
     """One process-group lifecycle for solves and saved-field recovery."""
     with (directory/log_name).open('w') as log:
         process=subprocess.Popen([sys.executable,'-m',module,str(directory),*arguments],
-            cwd=directory,env=environment,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+            cwd=directory,env=child_environment(environment),stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
         try:
             return process.wait(timeout=timeout_seconds)
         except subprocess.TimeoutExpired:
@@ -103,6 +105,7 @@ class CalculixBackend:
         request['mesh_reuse']=dict(**identity,input='mesh_source.inp',case='mesh_source_case.json',
                                   mesh=provenance.get('mesh',{}))
 
+    @operation("analysis.prepare")
     def prepare_request(self, case, directory):
         """Canonical physical intent and geometry snapshots, shared with evidence checks."""
         import cadquery as cq

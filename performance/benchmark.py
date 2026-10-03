@@ -26,7 +26,7 @@ def main():
                   revision=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
                   dirty_diff_sha256=hashlib.sha256(subprocess.check_output(['git','diff'],cwd=ROOT)).hexdigest(),
                   lock_sha256=hashlib.sha256((ROOT/'uv.lock').read_bytes()).hexdigest(), workflows={})
-    with tempfile.TemporaryDirectory(prefix='engineering-benchmark-') as folder:
+    with tempfile.TemporaryDirectory(prefix='engineering-benchmark-', dir=Path.home()) as folder:
         temp = Path(folder)
         cad = temp/'cad.py'; shutil.copyfile(ROOT/'performance/fixtures/cad.py', cad)
         python = str(ROOT/'.venv/bin/python')

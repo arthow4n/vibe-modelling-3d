@@ -1,11 +1,13 @@
 """Gmsh geometry adapter. Called only inside the isolated worker."""
 from collections import Counter
 import numpy as np
+from execution.telemetry import operation
 
 # Abaqus/CalculiX C3D10 local face nodes (corners followed by midsides).
 FACES = ((0,1,2,4,5,6), (0,3,1,7,8,4), (1,3,2,8,9,5), (2,3,0,9,7,6))
 
 
+@operation("analysis.mesh")
 def mesh_part(path, size, node_offset, element_offset):
     import gmsh  # Saved-field geometry helpers need no mesher runtime libraries.
     gmsh.initialize()

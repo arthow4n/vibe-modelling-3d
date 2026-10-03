@@ -1,0 +1,64 @@
+{
+  "preload": [
+    "cadquery",
+    "gmsh"
+  ],
+  "gmsh": true,
+  "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+  "trials": [
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "gmsh_nodes": 341,
+      "seconds": 0.12025658200002454,
+      "total_seconds": 1.8309250920000295
+    },
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "gmsh_nodes": 341,
+      "seconds": 0.12157618900005218,
+      "total_seconds": 0.14244624599996314
+    },
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "gmsh_nodes": 341,
+      "seconds": 0.1189166030000024,
+      "total_seconds": 0.13990830699992785
+    },
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "gmsh_nodes": 341,
+      "seconds": 0.12173368200001278,
+      "total_seconds": 0.14228044399999362
+    },
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "gmsh_nodes": 341,
+      "seconds": 0.12169082999992042,
+      "total_seconds": 0.14465734999998858
+    },
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "gmsh_nodes": 341,
+      "seconds": 0.12266985700000532,
+      "total_seconds": 0.14393418600002406
+    }
+  ]
+}

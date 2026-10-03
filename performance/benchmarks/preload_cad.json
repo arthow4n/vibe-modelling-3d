@@ -1,0 +1,57 @@
+{
+  "preload": [
+    "cadquery"
+  ],
+  "gmsh": false,
+  "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+  "trials": [
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "seconds": 0.09318996199999674,
+      "total_seconds": 1.6843632270000626
+    },
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "seconds": 0.09023143299998537,
+      "total_seconds": 0.1100986980000016
+    },
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "seconds": 0.09130518300003132,
+      "total_seconds": 0.1108400339999207
+    },
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "seconds": 0.0880843879999702,
+      "total_seconds": 0.11141004000000976
+    },
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "seconds": 0.09209594499998275,
+      "total_seconds": 0.11456684500001302
+    },
+    {
+      "valid": true,
+      "intersection": 956.5663706143591,
+      "distance": 0.0,
+      "threads": 16,
+      "seconds": 0.09058168600006411,
+      "total_seconds": 0.11093341600007989
+    }
+  ]
+}

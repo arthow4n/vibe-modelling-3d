@@ -24,6 +24,8 @@ import tempfile
 import time
 import traceback
 
+from execution.telemetry import operation, span, child_environment
+
 VIEWS = {
     "isometric": (1, -1, 1), "isometric_back": (-1, 1, 1),
     "front": (0, -1, 0), "back": (0, 1, 0),
@@ -67,6 +69,7 @@ def selected_shape(value):
     return shapes[0] if len(shapes) == 1 else cq.Compound.makeCompound(shapes)
 
 
+@operation("cad.validation")
 def geometry_data(shape):
     return {"valid": shape.isValid()}
 
@@ -83,6 +86,7 @@ def atomic_bytes(path, data):
             temporary.unlink(missing_ok=True)
 
 
+@operation("cad.export")
 def export(shape, item):
     import cadquery as cq
     path = Path(item["path"])
@@ -127,6 +131,7 @@ def view_transform(view):
     return cq.Matrix(transform)
 
 
+@operation("cad.render")
 def render(shape, view, width, height, show_hidden):
     from cadquery.occ_impl.exporters.svg import getSVG
     projected = shape.transformShape(view_transform(view))
@@ -383,6 +388,7 @@ def _review_in_directory(model, profiles, run_dir, placement):
     return report
 
 
+@operation("orca.review")
 def review(model, printer=DEFAULTS["printer"], process=DEFAULTS["process"],
            filament=DEFAULTS["filament"], placement="center", keep_run=False):
     model = Path(model).expanduser().resolve(strict=True)
@@ -468,6 +474,7 @@ def emit_report(report, args):
     print(json.dumps(output, indent=2))
 
 
+@operation("cad.command")
 def main(argv=None):
     parser = argparse.ArgumentParser(
         description=f"{__doc__}\nFor valid evaluations, stdout always contains one JSON object. "
@@ -579,7 +586,7 @@ def main(argv=None):
         request_file, response_file = Path(directory) / "request.json", Path(directory) / "response.json"
         request_file.write_text(json.dumps(request))
         process = subprocess.Popen([sys.executable, __file__, "--worker", str(request_file), str(response_file)],
-                                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, env=child_environment(),
                                    start_new_session=(os.name == "posix"))
         try:
             returncode = process.wait(timeout=args.timeout)

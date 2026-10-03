@@ -5,6 +5,7 @@ import math
 import re
 from typing import Any, Protocol
 from .materials import Material
+from execution.telemetry import operation
 
 
 def positive(value, name):
@@ -193,6 +194,7 @@ class AnalysisCase:
         self.observations[name] = self.select(part, region)
         return self
 
+    @operation("analysis.case")
     def run(self, directory, *, backend: Backend | None = None, mesh_from=None):
         """Run in a NEW directory; optionally reuse a saved unchanged-part mesh.
 
