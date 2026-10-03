@@ -1,6 +1,51 @@
 # Cap exploration — authorized autonomous phase
 
+## J4/K4 print report — 2026-10-04
+
+Both J4 and K4 were printed. Candidate artifacts are the STEP/STL pairs delivered
+in `684ed0e`; actual printed hashes, material, nozzle/layer setup and slicer
+settings were not reconfirmed. The earlier PETG/.4/.2 plan is not evidence of
+the actual settings for this report.
+
+J4 is preferred for substantially firmer card retention and is considered good
+overall. Its upward-facing recesses are good, and its connection key works.
+The user initially questioned J4's key, then explicitly withdrew that concern
+after checking it again. Do not retain a J4 connector failure claim.
+Fully inserted J4 cards still tilt, with reported movement near their bottom.
+The user suspects excessive bottom clearance. That is an unverified explanation;
+there are no measured clearances or confirmed contact/load-path causes.
+
+K4's retention design is considered reasonable, but it is looser/flappier than
+J4. Its upward-facing recesses are also good. Its connection key works on only
+one end; the user reports that the other end has no stopping wall. The user
+also identifies this form problem in K2, which remains unprinted. Record K2 as
+a reported visual/inherited issue, not a second physical print failure. The
+exact end identity and underlying CAD cause have not been diagnosed.
+
+Earlier checks established unchanged parent geometry, intended local contacts,
+assumed finger access and successful reference slicing. They did not establish
+upright alignment in the actual J4 print or useful key capture at both K ends.
+Preserving an inherited interface does not establish that it performs its job.
+Do not blame printer precision, PETG response or clearance without evidence.
+
+Current instruction: record these results and leave all geometry/exports
+unchanged. J4 is the preferred current baseline with an acknowledged alignment
+limitation. Future improvements, not authorized for implementation now:
+
+- Investigate J's fully seated tilt and bottom movement before choosing a
+  correction; check the clearance hypothesis against actual card seats/supports.
+- Restore/qualify key stopping and capture at both K ends before claiming a
+  module can join on either end; verify each non-equivalent port in the complete
+  base rather than only compare it to the inherited parent.
+
+Keep the accepted G hood and I key 3. No further hood exploration, new variant,
+CAD check, slice or physical-analysis run is part of this status update.
+
 ## J4/K4 — recessed upward-facing base grips
+
+The following is the pre-print design rationale and narrower virtual evidence.
+The later print report above supersedes its untested-use statements and any
+implication that preserving K2's sockets establishes two-ended joining.
 
 User-approved direction after J3/K3 form rejection: preserve the original recess
 idea, put its bearing face upward, and keep the original outline. J4 delegates
@@ -1421,14 +1466,14 @@ remain outside this evidence.
 
 ## Deferred exploration after the current revisions
 
-The current authorized correction is J4/K4 recessed grips, retaining G and I
-key 3. V1 was printed and its shell shape/feel rejected; further hood exploration
-is explicitly ended. Broader redesigns and larger rows remain deferred. These directions remain
-conditional possibilities after the current trial:
+J4/K4 have now been printed; the [latest report](#j4k4-print-report--2026-10-04)
+owns the remaining J alignment and K key-stop issues. No correction is authorized
+now: the user requests records only. Retain preferred J4, G and I key 3. V1's
+shell shape/feel was rejected and further hood exploration is ended. Broader
+redesigns and larger rows remain deferred. These are conditional future ideas:
 
-- Compare J's centered flat contact with K's shoulder catch in normal use and
-  after seated dwell. Keep J if K adds orientation/handling cost without a useful
-  improvement in alignment, grip or recovery.
+- J4 is preferred for firmer card retention after the complete-base comparison.
+  Preserve it as the baseline; long-term dwell/recovery remains unreported.
 - If K's concept helps but its off-center contact twists or binds, explore a
   different follower support that reduces that torsion while keeping a centered
   broad panel and reduced seated bend. Avoid the thin dome center; preserve the
@@ -1438,5 +1483,5 @@ conditional possibilities after the current trial:
   complete boxes work. A ten-card module is not currently requested; joined
   carrying strength and long-term grip would need evidence before claiming them.
 
-The current G hood is printed and accepted. Use it for the J4/K4 trials; preserve
+The current G hood is printed and accepted. Retain it with preferred J4; preserve
 V1 as a completed experiment rather than an ongoing exploration.

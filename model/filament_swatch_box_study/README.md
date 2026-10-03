@@ -1,11 +1,19 @@
 # Filament swatch box — thin press-on hood
 
-**Physical feedback: G hood accepted; J and K bases need revision.** J grips
-strongly but visibly tilts seated cards. K does not engage the dome; trying both
-card orientations instead produces back-face pressure. The earlier virtual
-checks did not establish these use relationships. I keys remain accepted.
+**Latest print feedback — 2026-10-04:** J4 and K4 have been printed. J4 is the
+preferred current base: firmer card retention, working connection key and good
+upward-facing recesses. Fully inserted cards still tilt, and the user can move
+them near the bottom. Excess bottom clearance is the user's hypothesis, not an
+established cause. Keep J4 as it is; improvement is deferred at the user's request.
 
-**Latest feedback:** V1 has been printed in PETG vase mode. It holds the base,
+K4 retention is considered reasonable but feels looser/flappier than J4. Its
+upward recesses are good. Only one connection-key end works: the user reports
+the other end lacks a stopping wall. The initial concern about J4's key was
+explicitly withdrawn after rechecking; **J4's key works**. K4's two-ended joining
+claim is therefore not qualified. Exact printed hashes/material/settings are
+unconfirmed. See the [print report and deferred issues](notes/cap_comparison.md#j4k4-print-report--2026-10-04).
+
+**Earlier hood feedback:** V1 has been printed in PETG vase mode. It holds the base,
 but the sides deform easily: pressing one side makes another bulge, accompanied
 by popping/crackling sounds. Shell shape and feel are rejected; no print-process
 or material cause is established. Keep the accepted G hood; the user explicitly
@@ -16,7 +24,8 @@ J2/K2 and J3/K3 are explicitly unprinted. The user declines these grip designs,
 especially J3/K3's outward flaps; this is rejection before printing, not a
 physical card-support result. J4/K4 use upward-facing recessed contacts inside
 the original footprint. Preserve all earlier artifacts and the
-shared I key 3. See the [latest feedback record](notes/cap_comparison.md#v1-print-and-recessed-grip-feedback).
+shared I key 3. The original J/K failures and V1 feedback remain in the history;
+they are not claims about J4/K4 card engagement.
 
 ## Requirements to preserve
 
@@ -38,7 +47,8 @@ Reusable form preferences are maintained in the
 Exact dimensions, artifact compatibility and physical results remain here and
 in the linked object records. The H connector sample has been printed and rejected
 for excessive looseness. Its I replacement keys now work in the printed sample;
-the complete matching modules remain unreported.
+J4's complete-base key now works in the reported print, while K4 has the
+one-ended stopping-wall problem described above.
 
 ## J4/K4 recessed upward-facing grips — current base trials
 
@@ -46,10 +56,12 @@ the complete matching modules remain unreported.
 [source](cap_j4_base_5.py). **K4:** [STEP](cap_k4_base_5.step),
 [STL](cap_k4_base_5.stl), [source](cap_k4_base_5.py).
 Reuse the [accepted G hood](cap_g_hood_5.step) and existing I key 3.
-No new hood is required. Bases retain the original **64 × 44.8 mm footprint**,
-matching joining pitch and all card/closure/key interfaces. J4 preserves J2's
+No new hood is required. Bases retain the original **64 × 44.8 mm footprint**
+and matching joining pitch. J4 preserves J2's
 broad spring and opposing upright rails; K4 preserves K2's corrected dome
-follower and opposing rails.
+follower and opposing rails. Earlier checks preserved each parent's geometry;
+they did not qualify K4's key capture at both ends. Use J4 as the preferred
+current baseline; K4's reported one-ended stop failure remains unresolved.
 
 The two recesses are 18 mm long, 2.2 mm deep from each X side and open above
 a 2 mm floor. Enter from the side through the **3 mm gap below the closed
@@ -79,7 +91,11 @@ geometry and four remaining G rim seats outside the recesses. These do not
 establish actual finger comfort, card performance or calibrated forces.
 [J4 export/slice review](notes/j4_review.json) and
 [K4 export/slice review](notes/k4_review.json) retain the final manufacturing evidence.
-Neither revised complete base has a reported print result.
+Both complete bases are now reported printed. Upward recesses are liked and
+J4's key works. J4's full-seat tilt remains; K4 is less firm and has a failed
+key stop at one end. Further modelling is explicitly deferred. The retained
+CAD/slice reports describe geometry/manufacturing checks, not resolutions of
+these physical issues.
 
 ## J3/K3 upward-facing ledges — rejected before printing
 
@@ -113,8 +129,10 @@ dwell are not established by the [CAD checks](notes/j2_checks.json) or
 [STL](cap_k2_base_5.stl), [source](cap_k2_base_5.py). The catch moves to the
 correct lateral side of the real notch-up swatch, with opposing rails on its
 plain back. The **domed/engraved face points toward the shaped follower**.
-The same G hood and I key 3 fit J2 and K2; the bases can join each other and the
-preserved J. Print settings and orientation match J2. Check that the follower
+The G hood interface and nominal I-key joining pitch are retained. The user
+now reports the same one-ended key-stop problem in K2's form as in printed K4;
+K2 is still unprinted, and two-ended joining is not established. Print settings
+and orientation match J2. Check that the follower
 actually enters the recess, cards stand upright and deliberate removal feels
 comfortable. [Actual-bowl section](renders/k2_section/inspect_k2_section_right.png),
 [source-card checks](notes/k2_checks.json) and [reference review](notes/k2_review.json)
@@ -181,8 +199,8 @@ collar would omit the tall walls and roof that determine that response.
 
 ### Historical J/K files — preserve the rejected bases
 
-The earlier rejected joined-pair trial used these files; use J4/K4 above for
-the revised trial:
+The earlier rejected joined-pair trial used these files; preferred J4 above is
+the current baseline. K4 is retained with its reported key-stop defect:
 
 - **One J base:** [Centered-panel STEP](cap_j_base_5.step), [STL](cap_j_base_5.stl), [source](cap_j_base_5.py).
 - **One K base:** [Dome-shoulder STEP](cap_k_base_5.step), [STL](cap_k_base_5.stl), [source](cap_k_base_5.py).
@@ -877,14 +895,14 @@ from other unreported prototypes. Printed and usable remain separate questions.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Complete base — J4 recessed upward grips | Unknown — new trial, no print report | `cap_j4_base_5.step/.stl`, accepted G hood, I key 3 | Original footprint; J2 card supports preserved. Upward contact/side access, four rim seats and final slice checked. Actual small-recess comfort, upright alignment, grip and dwell remain unqualified |
-| Complete base — K4 recessed upward grips | Unknown — new trial, no print report | `cap_k4_base_5.step/.stl`, accepted G hood, I key 3 | Original footprint; K2 dome support preserved. Upward contact/side access, four rim seats and final slice checked. Actual dome engagement, alignment, grip and opening comfort remain unqualified |
+| Complete base — J4 recessed upward grips | Yes — reported 2026-10-04; exact hash/material/settings unconfirmed | `cap_j4_base_5.step/.stl`, delivered in `684ed0e`; actual printed file hash unconfirmed | Preferred over K4 for firmer card retention; upward recesses good and key works after explicit recheck. Fully seated cards still tilt and can move near the bottom. Excess bottom clearance is user hypothesis only. Keep current geometry; alignment improvement deferred. Dwell/strength unqualified |
+| Complete base — K4 recessed upward grips | Yes — reported 2026-10-04; exact hash/material/settings unconfirmed | `cap_k4_base_5.step/.stl`, delivered in `684ed0e`; actual printed file hash unconfirmed | Retention concept okay but looser/flappier than J4; upward recesses good. Key works at one end only; user reports missing stopping wall at the other. Two-ended joining is defective in reported use; repair deferred. No calibrated force/durability result |
 | Base underside-grip feature — shared E/G/H/J/K family | Yes — base reported printed; exact variant/artifacts/settings unknown | Two sloped underside recesses inherited by J2/K2 | User questions direction/purpose and misprint-like appearance. Normal contact pushes the base upward. No inability-to-open result reported. User chose upward-facing replacement ledges, implemented in J3/K3 |
 | Complete base — J3 upward holding ledges | No — user explicitly confirms not printed | `cap_j3_base_5.step/.stl`, accepted G hood, I key 3 | Rejected before printing for outward flaps. Narrower CAD/access and slice passes remain; card alignment, force and opening comfort were not physically tested |
 | Complete base — K3 upward holding ledges | No — user explicitly confirms not printed | `cap_k3_base_5.step/.stl`, accepted G hood, I key 3 | Rejected before printing for outward flaps; appearance of the card mechanism looked plausible. Dome engagement, alignment and grip remain physically untested |
 | Complete hood — V1 spiral .42 mm wall | Yes — PETG vase print reported; exact artifact/settings/base unknown | `cap_v1_vase_hood_5.step/.stl` candidate; `notes/vase_process.json` is diagnostic, not confirmed actual settings | Holds the base. Shell shape/feel rejected: easy deformation, opposite-side bulging and popping/crackling sounds. No established root cause or calibrated force/durability. Use accepted G hood; further hood exploration ended |
 | Complete base — J2 opposing upright rails | No — user explicitly confirms not printed | `cap_j2_base_5.step/.stl`, accepted G hood and I key 3 | Source-card contact/entry checks and reference slice cover the revision; actual upright alignment, entry/removal and dwell require use |
-| Complete base — K2 proper source-card catch | No — user explicitly confirms not printed | `cap_k2_base_5.step/.stl`, accepted G hood and I key 3 | Real-face shoulder contact, old-K and wrong-face negative cases, upright datums and sampled rigid entry checked. Printed dome engagement, grip and recovery remain unqualified |
+| Complete base — K2 proper source-card catch | No — user explicitly confirms not printed | `cap_k2_base_5.step/.stl`, accepted G hood and I key 3 | Source-face/contact and entry checks retained. User reports the same missing key-stop wall in K2's form as in printed K4; this K2 concern is visual, not a print result. Two-ended joining and physical grip remain unqualified |
 | Test — I replacement keys in printed H blocks | Yes — all three reported printed, 2026-10-03; actual hashes/material/settings unconfirmed | `cap_i_grip_keys.step/.stl`, delivered in `9d05287` | All three work; number 3 feels better, reason unclear. Select 3 without geometry changes. Detailed release/recovery, dwell, calibrated force and full-box use remain unreported |
 | Complete base — K dome shoulders | Yes — user reports printed; exact artifact/settings unconfirmed | `cap_k_base_5.step/.stl` | Rejected: catch does not enter dome; both card orientations tried, back face is pressed instead. Earlier checks used a reflected reference card and cannot qualify actual engagement |
 | Complete base — J centered panels | Yes — user reports printed; exact artifact/settings unconfirmed | `cap_j_base_5.step/.stl` | Strong grip, but visible tilt from the side. Revise opposing support; strong grip is not upright alignment |
@@ -903,7 +921,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | Not accepted — J4/K4 new trials without print reports; J/K physical failures, J2/K2/J3/K3 unprinted; V1 shape/feel rejected; G hood accepted | J4/K4 + accepted G hood + I key 3 | Recessed upward-facing grips delivered within original footprint. No complete-box or loaded-row carrying/durability qualification |
+| Final printable object | Partial — J4 preferred with working recesses/key but seated tilt unresolved; K4 one-ended joining failure; G hood accepted | Preferred baseline J4 + accepted G hood + I key 3; K4 retained experiment | User considers J4 good overall and defers fixes. No fully upright storage, loaded-row carrying or durability qualification. V1 shape/feel rejected; J2/K2/J3/K3 remain unprinted |
 
 ## Attribution
 
