@@ -38,8 +38,11 @@ On 2026-10-04 the user clarified:
 - Accommodate a Pixel 7 Pro with a relatively bulky case. The user wants adaptable
   fit rather than closely matching the bare phone. Case dimensions and compliance
   are unknown; no precise device or case envelope has been assumed.
+- Screws and nuts are acceptable only from the on-hand Jula 002837 assortment
+  recorded in AGENTS.md. The user also sees their use as an opportunity to
+  exercise fastener-related analysis and testing.
 
-Hardware preference, case/charging-connector envelope and print setup remain
+Case/charging-connector envelope and print setup remain
 open. Desktop use is established; folding/portability is not yet a
 requirement. Charging clearance must include the plug and cable turn above the
 table, not only a notch in the retaining lip.
@@ -69,6 +72,21 @@ requirement. Proposed replacement questions, subject to a useful architecture:
   elastic return. The standard question can couple one flexible part to several
   stationary or prescribed-translating rigid mates, including a keeper and
   actuator. That is multipart interaction, not a freely moving assembly solve.
+- A stock-fastener joint: verify assembly/tool access and thread engagement in
+  CAD; screen printed-hole bearing, head/nut support and surrounding section
+  strength. Investigate explicit local contact only if it changes the selected
+  joint or dimensions. Tightening torque, preload, frictional slip, threads,
+  loosening and creep are not provided by a ready-made qualified bolt-joint
+  question. Those require physical evidence or a justified tool extension.
+
+The rejected stand already specified assortment hardware and had nominal-fit and
+simple bearing checks, but it was unprinted. Its arm/cradle structural calculation
+treated the bolted connection as bonded; it did not simulate screw contact,
+clamping, joint play or slip. A replacement should name the real load path rather
+than presenting a bonded approximation as fastener-joint verification. Prefer
+positive seating geometry carrying the load and a screw acting as a pin or
+retainer over relying on an unqualified friction-tightened angle joint. No washers,
+locknuts or additional purchased hardware are assumed available.
 
 These are conditional elastic predictions requiring numerical quality checks
 and explicit material/manufacturing assumptions. Complete rotating hinges,
