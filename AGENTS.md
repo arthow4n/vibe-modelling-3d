@@ -429,8 +429,15 @@ contact or geometry makes those approaches insufficient or materially uncertain.
 For a known snap/contact operation, flexure or loaded structural part, prefer
 the [shared engineering questions](physical_analysis/README.md#use) over manually
 constructing an `AnalysisCase`. Supply the geometry, regions, loads, material and
-manufacturing assumptions explicitly. Use its opt-in decision-driven study plan
-and identity-checked retained evidence when applicable. Keep model-specific
+manufacturing assumptions explicitly. For planned mesh, motion-increment or
+contact-parameter comparisons on a shared question, select
+[`QuestionStudy`](physical_analysis/README.md#standard-question-studies-and-retained-evidence)
+before launching refinements rather than writing comparison/report code in the
+object. Choose only decision-relevant axes, metrics and stopping tolerances;
+this does not require sensitivity studies for every model. Use its `evidence=`
+mapping for identity-checked completed runs instead of rerunning them for a
+study report. If it cannot represent the needed comparison, record the concrete
+API gap before using an object-specific alternative. Keep model-specific
 acceptance and physical observations with the object. `AnalysisCase` remains the
 lower-level escape hatch for genuinely novel fixtures; a wrapper never promotes
 failed contact evidence or numerical recovery to printed validation.
