@@ -10,6 +10,8 @@ from execution.history import iter_records, iter_spans
 from performance.sessions import Event, Session, discover, parse, timestamp
 from performance.workflow import analyze, associate, local_directory, main, save_local, union
 from performance.publication import create_review, validate
+from performance.sessions import request_metrics
+from performance.workflow import measurement, model_latency, markdown
 
 T='2026-10-03T08:00:00Z'
 SECRET='private prompt alice@example.test /home/synthetic-user/private sk-secret123456789'
@@ -304,3 +306,211 @@ def test_native_lease_queue_is_reported_separately_from_run_intervals():
     summary=analyze([], [{'start_unix_ns':0,'elapsed_seconds':5}], [({},span)])
     assert summary['execution_union_s']==5 and summary['lease_queue']['sum_s']==1.5
     assert summary['lease_blocked_reason_work_s']=={'memory':1.5,'jobs':1.5}
+
+
+def context(turn='turn-a', model='gpt-6.1-sol', effort='high', time=T):
+    return row('turn_context',dict(turn_id=turn,model=model,effort=effort,instructions=SECRET),time)
+
+
+def turn_response(n=100, id='r1', turn='turn-a', time=T):
+    r=response(n,id);r['payload']['turn_id']=turn;r['timestamp']=time
+    return r
+
+
+def turn_end(turn='turn-a', duration=10000, delay=2500, sub='task_complete'):
+    return row('event_msg',dict(type=sub,turn_id=turn,started_at=T,
+        completed_at='2026-10-03T08:00:10Z',duration_ms=duration,time_to_first_token_ms=delay),
+        '2026-10-03T08:00:10Z')
+
+
+@pytest.mark.parametrize('request_count',[1,3])
+def test_native_turn_timing_does_not_manufacture_request_timing(tmp_path,request_count):
+    rows=[context(),row('event_msg',dict(type='task_started',turn_id='turn-a',started_at=T))]
+    for i in range(request_count):
+        rows += [turn_response(id=f'r{i}'),row('response_item',dict(type='function_call',call_id=f'c{i}',name='exec_command')),
+                 row('response_item',dict(type='function_call_output',call_id=f'c{i}',output=SECRET),'2026-10-03T08:00:01Z')]
+    rows.append(turn_end())
+    s=parse(write(tmp_path/'synthetic.jsonl',rows));m=model_latency([s])
+    assert m['response_count']==request_count
+    assert m['native_turn_duration']['median']==10
+    assert m['native_turn_first_token_delay']['median']==2.5
+    for key in ('request_duration','request_first_token_delay','end_to_end_output_throughput','approx_generation_throughput'):
+        assert m[key]['eligible']==request_count and m[key]['measured']==0
+        assert m[key]['quality']=='unavailable' and m[key]['median'] is None
+    assert all(r.turn_model=='gpt-6.1-sol' and r.configuration_scope=='initial_turn_snapshot' for r in s.responses)
+    assert SECRET not in json.dumps(s.normalized())
+
+
+def test_configuration_changes_unknown_models_and_compaction(tmp_path):
+    rows=[context(),turn_response(),turn_end(),context('turn-b','gpt-6-astra','medium'),
+          turn_response(id='r2',turn='turn-b'),context('turn-c',SECRET,SECRET),turn_response(id='r3',turn='turn-c'),
+          turn_response(id='compaction',turn='turn-b'),row('compacted',dict(compaction_response_id='compaction',summary=SECRET))]
+    s=parse(write(tmp_path/'synthetic.jsonl',rows))
+    assert [(r.turn_model,r.turn_effort) for r in s.responses]==[('gpt-6.1-sol','high'),('gpt-6-astra','medium'),('unknown','unknown'),('unknown','unknown')]
+    m=model_latency([s]);assert m['configuration_changes']==2
+    assert m['compactions']==1 and m['request_model']=='unavailable'
+    assert SECRET not in json.dumps(s.normalized()) and SECRET not in json.dumps(m)
+
+
+def test_effort_change_and_conflicting_same_turn_snapshots(tmp_path):
+    s=parse(write(tmp_path/'synthetic.jsonl',[context(),turn_response(),context(effort='low'),turn_response(id='r2'),turn_end(),
+        context('next',effort='low'),turn_response(id='r3',turn='next')]))
+    assert [r.turn_model for r in s.responses]==['unknown','unknown','gpt-6.1-sol']
+    assert s.responses[-1].turn_effort=='low'
+    assert s.quality['ambiguous_turn_configuration']==1
+
+
+def test_missing_turn_key_cannot_borrow_configuration(tmp_path):
+    s=parse(write(tmp_path/'synthetic.jsonl',[context(),response(100),turn_response(id='r2',turn='unrelated')]))
+    assert all(r.configuration_scope=='unavailable' for r in s.responses)
+
+
+def test_thread_settings_changed_inside_turn_make_response_configuration_unknown(tmp_path):
+    s=parse(write(tmp_path/'synthetic.jsonl',[row('event_msg',dict(type='task_started',turn_id='turn-a')),context(),
+        row('event_msg',dict(type='thread_settings_applied',thread_settings=dict(model='gpt-6-astra',reasoning_effort='medium',private=SECRET))),
+        turn_response(),turn_end()]))
+    assert s.responses[0].turn_model=='unknown'
+    assert SECRET not in json.dumps(s.normalized())
+
+
+@pytest.mark.parametrize('missing',['started_at','completed_at','duration_ms','time_to_first_token_ms'])
+def test_missing_native_fields_remain_missing(tmp_path,missing):
+    r=turn_end();r['payload'].pop(missing)
+    s=parse(write(tmp_path/'synthetic.jsonl',[r,turn_response()]))
+    m=model_latency([s])
+    assert m['request_duration']['median'] is None
+    if missing=='duration_ms':
+        assert m['native_turn_duration']['measured']==0
+        assert m['timestamp_turn_duration']['median']==10
+    if missing=='time_to_first_token_ms':
+        assert m['native_turn_first_token_delay']['median'] is None
+    # Native duration can exist without a wall-clock boundary; it is its own observation.
+    if missing=='started_at':assert s.events[0].start is None
+
+
+def test_delayed_interrupted_failed_and_incomplete_turns(tmp_path):
+    aborted=turn_end('a',sub='turn_aborted');aborted['payload'].pop('time_to_first_token_ms')
+    failed=turn_end('b',delay=9000);failed['payload']['error']={'message':SECRET}
+    s=parse(write(tmp_path/'synthetic.jsonl',[aborted,failed,row('event_msg',dict(type='task_started',turn_id='c')),
+        row('event_msg',dict(type='error',message=SECRET)),row('event_msg',dict(type='stream_error',message=SECRET))]))
+    m=model_latency([s])
+    assert m['turn_outcomes']==dict(interrupted=1,failed=1,incomplete=1)
+    assert m['native_turn_first_token_delay']['measured']==1 and m['native_turn_first_token_delay']['eligible']==3
+    assert m['observed_stream_error_notices']==1 and m['retries'].startswith('unavailable')
+    assert m['observed_error_events']==1 and SECRET not in json.dumps(s.normalized())
+
+
+@pytest.mark.parametrize('duration,delay,expected,generation',[(10,2,10,12.5),(10,None,10,None),(None,2,None,None),(0,0,None,None),(2,2,50,None),(2,3,50,None),(-1,0,None,None),(float('nan'),0,None,None)])
+def test_qualified_throughput_arithmetic(duration,delay,expected,generation):
+    m=request_metrics(duration,delay,dict(output_tokens=100,reasoning_output_tokens=60))
+    assert m['output_tokens_per_s']==expected
+    assert m['approx_generation_tokens_per_s']==generation
+    assert request_metrics(duration,delay,{})['output_tokens_per_s'] is None
+
+
+def test_duplicate_usage_and_uncached_input_coverage(tmp_path):
+    a=turn_response();b=turn_response(id='r2');b['payload']['usage'].pop('cached_input_tokens')
+    s=parse(write(tmp_path/'synthetic.jsonl',[context(),a,a,b]))
+    m=model_latency([s]);assert m['response_count']==2
+    assert m['tokens']['output_tokens']==20 and m['tokens']['reasoning_output_tokens']==10
+    assert m['tokens']['uncached_input_tokens'] is None
+    assert m['token_measurements']['uncached_input_tokens']['measured']==1
+    single=model_latency([parse(write(tmp_path/'single.jsonl',[a]))])
+    assert single['tokens']['uncached_input_tokens']==50
+    assert single['token_measurements']['uncached_input_tokens']['quality']=='derived'
+
+
+def test_invalid_token_subsets_and_native_timing(tmp_path):
+    r=turn_response();r['payload']['usage']['cached_input_tokens']=200
+    s=parse(write(tmp_path/'synthetic.jsonl',[r,turn_end(delay=11000),turn_end('b',duration=-2,delay=float('inf'))]))
+    assert s.quality['invalid_token_subsets']==1 and s.quality['invalid_native_first_token_delay']==1
+    assert s.quality['invalid_native_timing_fields']==2
+    assert model_latency([s])['tokens']['uncached_input_tokens'] is None
+
+
+def test_replayed_resume_configuration_and_usage_warnings(tmp_path):
+    s=parse(write(tmp_path/'synthetic.jsonl',[row('session_meta',dict(cli_version='0.160.0',forked_from_id=SECRET)),
+        context(),turn_response(),row('compacted',{}),row('session_meta',dict(cli_version='0.160.0')),
+        context(),turn_response()]))
+    assert s.quality['duplicate_response_usage']==1 and s.quality['repeated_session_metadata_inherited_history_possible']==1
+    m=analyze([s,s],[],[])['model_latency']
+    assert m['response_count'] is None and all(v is None for v in m['tokens'].values())
+
+
+def test_unexpected_order_and_unsupported_response_fields(tmp_path):
+    r=turn_response(time='2026-10-03T08:00:01Z')
+    r['payload'].update(request_started_at=T,time_to_first_token_ms=12,duration_ms=1000)
+    s=parse(write(tmp_path/'synthetic.jsonl',[turn_end(),r,context()]))
+    assert s.quality['out_of_order_timestamps']
+    assert s.responses[0].turn_model=='gpt-6.1-sol'  # exact turn key, not record order
+    m=model_latency([s]);assert m['request_duration']['measured']==0
+
+
+def test_small_sample_statistics_and_coverage():
+    m=measurement([None,1,3],80,'derived')
+    assert m['eligible']==80 and m['measured']==2 and m['median']==2 and m['p90'] is None
+    assert measurement(list(range(1,11)),20,'observed')['p90']==9
+    assert measurement([],20,'observed')['quality']=='unavailable'
+
+
+def test_modeling_mode_multiple_sessions_and_reviewed_evidence(tmp_path,monkeypatch,capsys):
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path.parent/(tmp_path.name+'-data')))
+    (tmp_path/'notes.md').write_text('Existing geometry checks; physical testing pending.')
+    paths=[write(tmp_path/f's{i}.jsonl',[context(),turn_response(id=f'r{i}'),turn_end()]) for i in range(2)]
+    args=['--repo',str(tmp_path),'--mode','modeling','--since',T,'--until','2026-10-03T08:00:20Z',
+        '--milestone','Checked geometry','--outcome','CAD checked; physical use remains untested',
+        '--evidence','notes.md','--association-basis','Selected sessions implement the documented geometry change','--agent-only']
+    for p in paths:args += ['--session',str(p)]
+    assert main(args)==0
+    result=json.loads(capsys.readouterr().out);s=result['summary']
+    assert s['sessions']==2 and s['executions']==0 and s['model_latency']['response_count']==2
+    assert s['investigation']['evidence'][0]['path']=='notes.md'
+    assert 'not automated engineering acceptance' in Path(result['local_report']).read_text()
+    with pytest.raises(SystemExit):main(['--mode','modeling'])
+    with pytest.raises(SystemExit):main(args+['--evidence','../escape'])
+
+
+@pytest.mark.parametrize('secret',['resp_private12345','req_private12345','2026-10-03T08:00:01.123Z'])
+def test_publication_excludes_raw_request_identifiers_and_timestamps(secret):
+    assert validate(review()+secret)
+
+
+def test_local_report_states_latency_limits_without_executions(tmp_path):
+    s=parse(write(tmp_path/'synthetic.jsonl',[context(),turn_response(),turn_end()]))
+    report=markdown(analyze([s],[],[]))
+    assert '0/1' in report and 'neither request TTFT nor visible-text streaming speed' in report
+    assert 'P90 uses nearest rank' in report and SECRET not in report
+
+
+def test_disjoint_model_item_tool_compaction_attribution():
+    s=Session(start=0,end=20,events=[Event('turn',0,20,'turn'),Event('tool',0,5,'shell'),
+        Event('item',3,10,'reasoning_item'),Event('item',8,12,'message_item'),Event('item',9,15,'compaction')])
+    a=analyze([s],[],[])['turn_attribution']
+    assert a==dict(tool_s=5,model_items_outside_tools_s=7,compaction_outside_tools_and_model_items_s=3,unattributed_s=5)
+    assert sum(a.values())==20
+
+
+def test_conflicting_response_turn_key_is_not_attributed(tmp_path):
+    s=parse(write(tmp_path/'synthetic.jsonl',[context(),context('turn-b','gpt-6-astra'),turn_response(),turn_response(turn='turn-b')]))
+    assert s.quality['conflicting_response_turn']==1
+    assert s.responses[0].configuration_scope=='unavailable'
+
+
+def test_comparable_turn_groups_preserve_per_metric_coverage():
+    events=[Event('turn',None,None,'turn',duration_s=10+i,native_first_token_delay_s=2 if i<3 else None,
+                  model='gpt-6.1-sol',effort='high') for i in range(10)]
+    m=model_latency([Session(events=events)])
+    group=m['turn_configuration_groups'][0]
+    assert group['native_duration']['measured']==10 and group['native_duration']['p90']==18
+    assert group['native_first_token_delay']['eligible']==10 and group['native_first_token_delay']['measured']==3
+    assert group['native_first_token_delay']['p90'] is None
+    assert not model_latency([Session(events=events[:3])])['turn_configuration_groups']
+
+
+def test_overlapping_turn_history_suppresses_native_distributions(tmp_path):
+    s=parse(write(tmp_path/'synthetic.jsonl',[context(),turn_end()]))
+    summary=analyze([s,s],[],[])
+    assert summary['active_turn_union_s']==10
+    assert summary['quality']['overlapping_session_turn_scopes']==1
+    assert summary['model_latency']['native_turn_duration']['quality']=='unavailable'
+    assert 'turn-a' not in json.dumps(s.normalized())

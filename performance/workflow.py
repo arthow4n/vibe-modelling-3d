@@ -66,10 +66,85 @@ def associate(record, sessions):
     return 'plausible_time' if len(plausible) == 1 else ('ambiguous_time' if plausible or exact else 'unassociated')
 
 
+def measurement(values, eligible, quality, unit='s'):
+    """Coverage-qualified statistics; nearest-rank p90 needs at least ten values."""
+    values = sorted(v for v in values if isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v) and v >= 0)
+    return dict(eligible=eligible, measured=len(values), quality=quality if values else 'unavailable',
+                statistics_quality='derived' if values else 'unavailable',
+                unit=unit, median=statistics.median(values) if values else None,
+                p90=values[math.ceil(.9*len(values))-1] if len(values) >= 10 else None,
+                max=max(values) if values else None,
+                p90_note='nearest rank' if len(values) >= 10 else 'unavailable: fewer than 10 measured observations')
+
+
+def model_latency(sessions, overlapping=False, overlapping_turns=False):
+    responses = [r for s in sessions for r in s.responses]
+    turns = [(i, j, e) for i, s in enumerate(sessions, 1) for j, e in enumerate((e for e in s.events if e.kind == 'turn'), 1)]
+    groups = defaultdict(list)
+    for r in responses:
+        groups[(r.turn_model, r.turn_effort, r.configuration_scope)].append(r)
+    turn_groups = defaultdict(list)
+    for _, _, e in turns:
+        if e.model != 'unknown' and e.effort != 'unknown':
+            turn_groups[(e.model, e.effort)].append(e)
+    def tokens(rows):
+        result = {k: sum(r.tokens[k] for r in rows) if rows and not overlapping and all(k in r.tokens for r in rows) else None for k in TOKENS}
+        uncached = [r.tokens['input_tokens']-r.tokens['cached_input_tokens'] for r in rows
+                    if 'input_tokens' in r.tokens and 'cached_input_tokens' in r.tokens and r.tokens['input_tokens'] >= r.tokens['cached_input_tokens']]
+        result['uncached_input_tokens'] = sum(uncached) if rows and not overlapping and len(uncached) == len(rows) else None
+        return result
+    totals = tokens(responses)
+    native_durations = [] if overlapping_turns else [e.duration_s for _, _, e in turns]
+    elapsed = [] if overlapping_turns else [e.end-e.start for _, _, e in turns if e.duration_s is None and e.start is not None and e.end is not None]
+    # No rollout field qualified as a request start, response duration or request TTFT.
+    # Report absence explicitly; never divide these tokens by turn elapsed time.
+    unavailable = {k: measurement([], len(responses), 'unavailable', unit) for k, unit in
+                   [('request_duration', 's'), ('request_first_token_delay', 's'),
+                    ('end_to_end_output_throughput', 'tokens/s'), ('approx_generation_throughput', 'tokens/s')]}
+    token_measurements = {k: dict(value=totals[k], quality='observed' if totals[k] is not None else 'unavailable',
+                                eligible=len(responses), measured=sum(k in r.tokens for r in responses) if not overlapping else 0) for k in TOKENS}
+    uncached = totals['uncached_input_tokens']
+    token_measurements['uncached_input_tokens'] = dict(value=uncached, quality='derived' if uncached is not None else 'unavailable', eligible=len(responses),
+        measured=sum('input_tokens' in r.tokens and 'cached_input_tokens' in r.tokens and r.tokens['input_tokens'] >= r.tokens['cached_input_tokens'] for r in responses) if not overlapping else 0)
+    return dict(response_count=len(responses) if not overlapping else None,
+                response_usage_observations=len(responses),
+                response_count_scope='completed unique usage records; failed/incomplete requests may be absent; overlapping scopes suppress combined count/tokens',
+                **unavailable, tokens=totals,
+                token_measurements=token_measurements,
+                native_turn_duration=measurement(native_durations, len(turns), 'observed'),
+                timestamp_turn_duration=measurement(elapsed, len(turns), 'derived'),
+                native_turn_first_token_delay=measurement([] if overlapping_turns else [e.native_first_token_delay_s for _, _, e in turns], len(turns), 'observed'),
+                configured_turn_groups=[dict(model=k[0], effort=k[1], scope=k[2], responses=len(v), tokens=tokens(v),
+                    token_coverage={name:dict(eligible=len(v),measured=sum(name in r.tokens for r in v) if not overlapping else 0) for name in TOKENS},
+                    comparable_sample='small sample' if len(v)<10 else 'configuration context only; request timing unavailable') for k,v in sorted(groups.items())],
+                turn_configuration_groups=[dict(model=k[0], effort=k[1], scope='initial_turn_snapshot',
+                    native_duration=measurement([e.duration_s for e in v],len(v),'observed'),
+                    native_first_token_delay=measurement([e.native_first_token_delay_s for e in v],len(v),'observed'))
+                    for k,v in sorted(turn_groups.items()) if not overlapping_turns and sum(e.duration_s is not None or e.native_first_token_delay_s is not None for e in v)>=10],
+                configuration_changes=sum(sum((a['model'], a['effort']) != (b['model'], b['effort']) for a,b in zip(s.configurations, s.configurations[1:])) for s in sessions),
+                request_model='unavailable', backend_implementation='unavailable', context_occupancy='unavailable',
+                retries='unavailable: surfaced stream errors are not a complete retry count', backoff='unavailable',
+                observed_stream_error_notices=sum(s.quality['observed_stream_error_events'] for s in sessions),
+                observed_error_events=sum(s.quality['observed_error_events'] for s in sessions),
+                turn_outcomes=dict(Counter(e.outcome for _, _, e in turns)),
+                compactions=sum(s.quality['compactions'] for s in sessions),
+                slowest_turns=[dict(label=f'selected-{i}-turn-{j}', duration_s=e.duration_s if e.duration_s is not None else e.end-e.start,
+                    duration_quality='observed' if e.duration_s is not None else 'derived',
+                    native_first_token_delay_s=e.native_first_token_delay_s, model=e.model, effort=e.effort, outcome=e.outcome)
+                    for i,j,e in sorted((t for t in turns if t[2].duration_s is not None or (t[2].start is not None and t[2].end is not None)),
+                        key=lambda t:t[2].duration_s if t[2].duration_s is not None else t[2].end-t[2].start, reverse=True)[:5]])
+
+
 def analyze(sessions, records, spans, inventory_count=0):
     wall = [(s.start, s.end) for s in sessions]
     turns = [(e.start, e.end) for s in sessions for e in s.events if e.kind == 'turn']
     tools = [(e.start, e.end) for s in sessions for e in s.events if e.kind == 'tool' or (e.kind == 'item' and e.category in TOOL_ITEMS)]
+    model_items = [(e.start, e.end) for s in sessions for e in s.events if e.kind == 'item' and e.category in ('reasoning_item', 'message_item')]
+    compactions = [(e.start, e.end) for s in sessions for e in s.events if e.kind == 'item' and e.category == 'compaction']
+    # Disjoint attribution within measured turns, with tools given precedence.
+    tool_in_turn = union(intersections(tools, turns))
+    tools_and_items = union(intersections(tools+model_items, turns))
+    all_activity = union(intersections(tools+model_items+compactions, turns))
     execution_intervals = [interval(r) for r in records]
     tools_union = union(tools); turn_union = union(turns)
     stages = defaultdict(list); stage_intervals = defaultdict(list); reuse = Counter(); covered_traces = set()
@@ -148,12 +223,16 @@ def analyze(sessions, records, spans, inventory_count=0):
     quality=Counter()
     for s in sessions:
         quality.update(s.quality)
-    seen_keys=set(); overlaps=0
+    seen_keys=set(); overlaps=0; seen_turns=set(); turn_overlaps=0
     for session in sessions:
         overlaps += len(seen_keys.intersection(session.response_keys))
         seen_keys.update(session.response_keys)
+        turn_overlaps += len(seen_turns.intersection(session.turn_keys))
+        seen_turns.update(session.turn_keys)
     if overlaps:
         quality['overlapping_session_response_scopes'] = overlaps
+    if turn_overlaps:
+        quality['overlapping_session_turn_scopes'] = turn_overlaps
     sums={k:sum(s.tokens[k] for s in sessions) if sessions and not overlaps and all(s.tokens.get(k) is not None for s in sessions) else None for k in TOKENS}
     def stats(values):
         values=[v for v in values if isinstance(v,(int,float)) and v >= 0]
@@ -169,10 +248,15 @@ def analyze(sessions, records, spans, inventory_count=0):
                 item_counts[e.category]+=1
                 item_outcomes[e.outcome]+=1
     return dict(schema_version=1,sessions=len(sessions),executions=len(records),
+        model_latency=model_latency(sessions, bool(overlaps), bool(turn_overlaps)),
         period_start=min((a for a,b in wall+execution_intervals if a is not None),default=None),
         period_end=max((b for a,b in wall+execution_intervals if b is not None),default=None),
         session_wall_union_s=union(wall),active_turn_union_s=turn_union,
         tool_union_s=tools_union,tool_within_turn_union_s=union(intersections(tools,turns)),
+        turn_attribution=dict(tool_s=tool_in_turn, model_items_outside_tools_s=tools_and_items-tool_in_turn,
+            compaction_outside_tools_and_model_items_s=all_activity-tools_and_items,
+            unattributed_s=max(0,turn_union-all_activity)),
+        model_item_union_s=union(model_items),compaction_union_s=union(compactions),
         execution_union_s=union(execution_intervals),execution_within_turn_union_s=union(intersections(execution_intervals,turns)),
         turn_without_observed_tool_s=max(0,turn_union-union(intersections(tools,turns))),
         between_turns_or_missing_s=max(0,union(wall)-turn_union),
@@ -207,12 +291,35 @@ def markdown(summary):
     s=summary
     def time(value):
         return datetime.fromtimestamp(value,timezone.utc).isoformat() if value is not None else 'unavailable'
+    investigation=s.get('investigation', {'mode':'latency', 'question':'Selected activity timing; task outcome has not been established.'})
     lines=['# Local workflow performance analysis','',
+        f"Performance question ({investigation['mode']}): {investigation['question']}", '',
+        f"Engineering result: {investigation.get('outcome', 'not assessed in latency mode')}", '',
         f"Scope: {s['sessions']} sessions; {s['executions']} retained executions. UTC period {time(s['period_start'])} to {time(s['period_end'])}.",
-        '',f"Codex versions: {', '.join(s['versions']) or 'unavailable'}. Models: {', '.join(s['models']) or 'unavailable'}.",
+        '',f"Codex versions: {', '.join(s['versions']) or 'unavailable'}. Configured turn models: {', '.join(s['models']) or 'unavailable'}.",
         '', '| Timing observation | Seconds (interval union) |','| --- | ---: |']
     for key in ('session_wall_union_s','active_turn_union_s','tool_union_s','execution_union_s','execution_within_turn_union_s','turn_without_observed_tool_s','between_turns_or_missing_s'):
         lines.append(f"| {key} | {s[key]:.3f} |")
+    latency=s['model_latency']
+    lines += ['', f"Disjoint measured-turn attribution (tools first, then recorded model items, then compaction): {s['turn_attribution']}. Model item intervals describe item activity, not full requests, inference time or first-token delays. Admission and initialization are nested execution evidence, not additional elapsed time."]
+    count=str(latency['response_count']) if latency['response_count'] is not None else 'unavailable (overlapping histories)'
+    lines += ['', 'Model latency: '+count+' completed unique response-usage observations. Failed or incomplete requests without usage are outside this count.', '',
+              '| Measurement | Quality | Coverage | Median | P90 | Maximum |', '| --- | --- | ---: | ---: | ---: | ---: |']
+    for key in ('request_duration','request_first_token_delay','end_to_end_output_throughput','approx_generation_throughput',
+                'native_turn_duration','timestamp_turn_duration','native_turn_first_token_delay'):
+        m=latency[key]
+        def value(v): return f'{v:.3f}' if v is not None else 'unavailable'
+        lines.append(f"| {key} ({m['unit']}) | {m['quality']} | {m['measured']}/{m['eligible']} | {value(m['median'])} | {value(m['p90'])} | {value(m['max'])} |")
+    lines += ['', 'P90 uses nearest rank with at least ten measured observations; smaller samples retain median and maximum only. Native first-token delay is turn-start to the first recognized model event (including eligible reasoning/tool items); it is neither request TTFT nor visible-text streaming speed.', '',
+              f"Token coverage: {latency['token_measurements']}.", '',
+              f"Configured turn groups: {latency['configured_turn_groups']}. These are initial turn snapshots associated by turn key, not independently verified request or backend models. Changed/ambiguous snapshots and identified compaction responses retain unknown configuration.", '',
+              f"Turn timing by initial configuration (at least ten timed turns; task and context are not controlled): {latency['turn_configuration_groups']}.", '',
+              f"Observed turn outcomes: {latency['turn_outcomes']}; surfaced stream-error notices: {latency['observed_stream_error_notices']}; error events: {latency['observed_error_events']}; compactions: {latency['compactions']}. Full retry/backoff history and context occupancy are unavailable.", '',
+              f"Slowest measured turns: {latency['slowest_turns']}. Turn intervals can contain many requests and tools; no slowest-response ranking is supported."]
+    if investigation['mode']=='modeling':
+        lines += ['', f"Milestone: {investigation['milestone']}. Evidence references: {investigation['evidence']}. Outcome and association basis are analyst assertions requiring evidence review, not automated engineering acceptance.", '',
+                  'Association basis: '+investigation['association_basis'], '',
+                  'Selection includes whole sessions and overlapping retained executions, not a task ledger. Inspect which activity belongs to the milestone; time containment alone cannot establish task ownership. Source edits/tool calls count activity, not geometry revisions or successful design changes.']
     lines+=['','Turn intervals include tools, waits and agent activity. The remainder is **unattributed**, not model reasoning time. Overlapping sessions/runs are unioned; sums in stage/group tables are work totals, not session elapsed time. Open turns/tools are excluded from duration totals.','',
             '| Reported tokens | Count |','| --- | ---: |']
     for k,v in s['tokens'].items():
@@ -240,7 +347,9 @@ def markdown(summary):
         f"Association strengths: {s['associations']}. Timing-only associations are inferred; ambiguous matches remain ambiguous.",'',
         f"Sampled resources: {s['sampled_resources']}. Sampled CPU is a lower bound; RSS includes shared pages.",'',
         f"Measurement quality: {s['quality']}. Trace coverage: {s['trace_covered_executions']}/{s['executions']} runs. Missing execution fields: {s['missing_execution_fields']}.",'',
-        'Interpretation and next investigation: inspect the largest relevant non-parent stage, queue wait, or repeated identity group before targeted profiling. Existing history alone cannot establish why an agent repeated work or the benefit of a cache hit against an unobserved fresh counterfactual. No optimization is claimed.', '',
+        'Measured observations: compare the interval unions and coverage above; inspect the largest measurable contributor first. Request timing is unavailable, so turn time outside tools cannot distinguish generation, scheduling, network, orchestration or unrecorded waits.', '',
+        'Plausible interpretations: repeated identities, large token counts and long turns are investigation candidates. Required exploration, stronger checks and physical evidence can justify them. Engineering records must establish the result and necessity of the work.', '',
+        'Recommended action: no automatic optimization. A follow-up should name the suspected change, expected benefit, required correctness/validation evidence and a matched measurement that could verify it. Route computation work to engineering execution and transferable lessons to engineering reflection.', '',
         'Limitations: retained history is bounded and may omit early operations. Session boundaries are recorded-file observations, not necessarily launch/exit times. Current files are snapshots. Forked/inherited history can overlap accounting scopes; exclude related forks for cross-session totals. Resumes without an explicit marker cannot be counted reliably. Tool outputs/arguments and prompts are not included. Missing timestamps, usage, incomplete calls and trace gaps remain missing evidence. Recorded reasoning-item intervals do not establish total model-processing latency.']
     return '\n'.join(lines)+'\n'
 
@@ -314,12 +423,34 @@ def main(argv=None):
     parser.add_argument('--since',help='ISO timestamp with timezone')
     parser.add_argument('--until',help='ISO timestamp with timezone')
     parser.add_argument('--timeline',action='store_true')
+    parser.add_argument('--mode',choices=('latency','modeling'),default='latency')
+    parser.add_argument('--question',default='Selected activity timing; task outcome has not been established.')
+    parser.add_argument('--milestone',help='Established engineering milestone; modeling mode only')
+    parser.add_argument('--outcome',help='Evidence-backed result, including limitations; analyst assertion')
+    parser.add_argument('--evidence',type=Path,action='append',help='Existing repository-relative engineering record; may repeat')
+    parser.add_argument('--association-basis',help='Why the selected activity belongs to the milestone; reviewed locally')
     args=parser.parse_args(argv)
     if not 1<=args.recent<=20 or not 1<=args.last_runs<=500 or (args.execution_only and args.agent_only):
         parser.error('Select 1..20 sessions, 1..500 runs, and compatible source modes')
     since=timestamp(args.since);until=timestamp(args.until)
     if (args.since and since is None) or (args.until and until is None) or (since is not None and until is not None and since>until):
         parser.error('Time bounds require ordered timezone-aware ISO timestamps')
+    investigation={'mode':args.mode,'question':args.question}
+    if args.mode=='modeling':
+        if not all((args.session, args.since, args.until, args.milestone, args.outcome, args.evidence, args.association_basis)):
+            parser.error('Modeling mode requires explicit sessions, since/until, milestone, outcome, evidence and association-basis')
+        if len(args.evidence)>20:
+            parser.error('Select at most 20 evidence references')
+        evidence=[]
+        for path in args.evidence:
+            target=(args.repo/path).resolve()
+            if path.is_absolute() or not target.is_relative_to(args.repo.resolve()) or not target.is_file() or target.stat().st_size>16*1024*1024:
+                parser.error('Evidence must be an existing repository-relative file of at most 16 MiB')
+            evidence.append({'path':str(target.relative_to(args.repo.resolve())), 'sha256':hashlib.sha256(target.read_bytes()).hexdigest()})
+        investigation.update(milestone=args.milestone,outcome=args.outcome,evidence=evidence,
+                             association_basis=args.association_basis,since=since,until=until)
+    elif any((args.milestone,args.outcome,args.evidence,args.association_basis)):
+        parser.error('Milestone fields require modeling mode')
     paths=[] if args.execution_only else (args.session or discover(args.repo,args.codex_home/'sessions' if args.codex_home else session_root(),args.recent))
     if len(paths)>20:
         parser.error('Explicit session bound is 20')
@@ -351,6 +482,10 @@ def main(argv=None):
         if all(isinstance(part,str) for part in identity) and identity not in seen_spans:
             spans.append((resource,span));seen_spans.add(identity)
     summary=analyze(sessions,selected,spans)
+    summary['investigation']=investigation
+    if since is not None or until is not None:
+        summary['quality']['sessions_extend_time_bounds']=sum((since is not None and s.start is not None and s.start<since) or
+            (until is not None and s.end is not None and s.end>until) for s in sessions)
     if not sessions:
         summary['quality']['no_selected_sessions']=1
     elif not any(s.start is not None for s in sessions):

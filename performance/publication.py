@@ -18,6 +18,8 @@ PATTERNS = (
     r'\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b',
     r'\b(?:rollout-|session_id|response_id|thread_id|call_id|start_unix_ns|traceEvents|response_item|event_msg|token_usage_record)\b',
     r'\b[0-9a-f]{32}\b', r'Traceback \(most recent call last\)',
+    r'\b(?:resp|req)_[A-Za-z0-9_-]{8,}\b',
+    r'\b\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})\b',
     r'"(?:arguments|payload|prompt|aggregated_output|base_instructions)"\s*:',
     r'https?://(?:localhost|127\.0\.0\.1|10\.|192\.168\.|[^/\s]+\.internal)',
 )
