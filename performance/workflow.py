@@ -1,0 +1,342 @@
+#!/usr/bin/env python3
+"""Local metadata-only workflow analysis; no model API or computation reruns."""
+import argparse
+from collections import Counter, defaultdict
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+import math
+from pathlib import Path
+import statistics
+import re
+import subprocess
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from execution.history import iter_records, iter_spans, perfetto_event
+from performance.sessions import TOKENS, discover, parse, timestamp, session_root
+
+STAGES = {'cad.construction', 'cad.selection', 'cad.validation', 'cad.worker', 'cad.render',
+          'cad.export', 'cad.artifact_identity', 'worker.initialization', 'worker.preload_qualification',
+          'worker.lifecycle', 'script.execute', 'orca.primary', 'orca.support_probe', 'orca.review',
+          'coordinator.admission', 'coordinator.request', 'analysis.prepare', 'analysis.case',
+          'analysis.input', 'analysis.worker', 'analysis.mesh', 'analysis.mesh_lookup',
+          'analysis.native_input', 'analysis.extraction', 'analysis.contact_diagnostics',
+          'analysis.recovery', 'analysis.study', 'subprocess', 'cad.command', 'script.command', 'execution.batch'}
+TOOL_ITEMS = {'shell', 'cad', 'script', 'slicing', 'edit', 'mcp', 'image', 'subagent'}
+
+
+def union(intervals):
+    intervals = sorted((a, b) for a, b in intervals if a is not None and b is not None and b >= a)
+    total = 0; right = None
+    for a, b in intervals:
+        total += b - max(a, right) if right is not None and a < right < b else (b-a if right is None or a >= right else 0)
+        right = max(right, b) if right is not None else b
+    return total
+
+
+def intersections(left, right):
+    return [(max(a, c), min(b, d)) for a, b in left for c, d in right
+            if a is not None and b is not None and c is not None and d is not None and max(a,c) < min(b,d)]
+
+
+def safe_label(value, allowed):
+    return value if isinstance(value,str) and value in allowed else 'other'
+
+
+def interval(record):
+    start = record.get('start_unix_ns'); elapsed = record.get('elapsed_seconds')
+    if not isinstance(start, (int, float)) or not isinstance(elapsed, (int, float)) or not math.isfinite(start) or not math.isfinite(elapsed) or elapsed < 0:
+        return None, None
+    return start/1e9, start/1e9 + elapsed
+
+
+def associate(record, sessions):
+    start, end = interval(record)
+    tools = [(i, e) for i, s in enumerate(sessions) for e in s.events if e.kind == 'tool' or (e.kind=='item' and e.category in ('cad','script','shell','slicing'))]
+    exact = [(i, e) for i, e in tools if record.get('run_id') in e.run_refs]
+    if len(exact) == 1:
+        return 'confident_run_id'
+    plausible = [(i, e) for i, e in tools if start is not None and e.start is not None
+                 and e.end is not None and e.start-1 <= start and end <= e.end+1
+                 and e.category in ('orchestration', 'shell', 'poll','cad','script','slicing')]
+    return 'plausible_time' if len(plausible) == 1 else ('ambiguous_time' if plausible or exact else 'unassociated')
+
+
+def analyze(sessions, records, spans, inventory_count=0):
+    wall = [(s.start, s.end) for s in sessions]
+    turns = [(e.start, e.end) for s in sessions for e in s.events if e.kind == 'turn']
+    tools = [(e.start, e.end) for s in sessions for e in s.events if e.kind == 'tool' or (e.kind == 'item' and e.category in TOOL_ITEMS)]
+    execution_intervals = [interval(r) for r in records]
+    tools_union = union(tools); turn_union = union(turns)
+    stages = defaultdict(list); stage_intervals = defaultdict(list); reuse = Counter(); covered_traces = set()
+    for _, span in spans:
+        name = safe_label(span.get('name'), STAGES)
+        try:
+            a = int(span['startTimeUnixNano'])/1e9; b = int(span['endTimeUnixNano'])/1e9
+        except (ValueError, KeyError, TypeError):
+            continue
+        if b < a:
+            continue
+        covered_traces.add(span.get('traceId'))
+        stages[name].append(b-a); stage_intervals[name].append((a,b))
+        attrs = {a.get('key'): a.get('value', {}) for a in span.get('attributes', [])}
+        strategy = attrs.get('strategy', {}).get('stringValue')
+        if strategy in ('reused', 'fresh'):
+            reuse[f'{name}:{strategy}'] += 1
+    recorded_reuse=Counter(); reuse_coverage=0
+    run_groups = defaultdict(list); repeats = defaultdict(list); resources = []; queue=[]; dispatch=[]
+    warm=Counter(); associations=Counter(); statuses=Counter(); missing=Counter()
+    comparisons=defaultdict(lambda: defaultdict(list))
+    for r in records:
+        observed=r.get('artifact_reuse')
+        if isinstance(observed,dict) and observed:
+            reuse_coverage+=1
+            for field in ('geometry','slice'):
+                if observed.get(field) in ('fresh','reused'):
+                    recorded_reuse[f'{field}:{observed[field]}']+=1
+            for field in ('exports','views'):
+                values=observed.get(field)
+                if isinstance(values,dict):
+                    for status in ('fresh','reused'):
+                        count=values.get(status)
+                        if isinstance(count,int) and count>=0:
+                            recorded_reuse[f'{field}:{status}']+=count
+        op=safe_label(r.get('operation'), STAGES)
+        run_groups[op].append(r.get('elapsed_seconds'))
+        statuses[safe_label(r.get('status'), {'completed','failed','interrupted','timeout','running','review_required'})] += 1
+        associations[associate(r,sessions)] += 1
+        warm['warm' if r.get('warm_worker') is True else 'cold' if r.get('warm_worker') is False else 'unreported'] += 1
+        key=tuple(r.get(k) for k in ('operation','strategy','source_sha256','repository_python_sha256','lock_sha256','arguments_sha256'))
+        if all(isinstance(part,str) and part for part in key):
+            repeats[key].append(r)
+            if isinstance(r.get('warm_worker'),bool) and isinstance(r.get('elapsed_seconds'),(int,float)):
+                comparisons[key]['warm' if r['warm_worker'] else 'cold'].append(r['elapsed_seconds'])
+        for key,target in [('queue_seconds',queue),('startup_dispatch_seconds',dispatch)]:
+            if isinstance(r.get(key),(int,float)):
+                target.append(r[key])
+            else:
+                missing[key]+=1
+        res=r.get('resources') or {}
+        if isinstance(res,dict):
+            resources.append({k:res[k] for k in ('peak_tree_rss_bytes','peak_worker_rss_bytes','sampled_tree_cpu_seconds') if isinstance(res.get(k),(int,float))})
+    quality=Counter()
+    for s in sessions:
+        quality.update(s.quality)
+    seen_keys=set(); overlaps=0
+    for session in sessions:
+        overlaps += len(seen_keys.intersection(session.response_keys))
+        seen_keys.update(session.response_keys)
+    if overlaps:
+        quality['overlapping_session_response_scopes'] = overlaps
+    sums={k:sum(s.tokens[k] for s in sessions) if sessions and not overlaps and all(s.tokens.get(k) is not None for s in sessions) else None for k in TOKENS}
+    def stats(values):
+        values=[v for v in values if isinstance(v,(int,float)) and v >= 0]
+        return {'count':len(values),'sum_s':sum(values),'median_s':statistics.median(values) if values else None,'max_s':max(values) if values else None}
+    tool_counts=Counter(); item_counts=Counter(); outcomes=Counter(); item_outcomes=Counter(); activity=defaultdict(list)
+    for s in sessions:
+        for e in s.events:
+            activity[f'{e.kind}:{e.category}'].append((e.start,e.end))
+            if e.kind=='tool':
+                tool_counts[e.category]+=1
+                outcomes[e.outcome]+=1
+            elif e.kind=='item':
+                item_counts[e.category]+=1
+                item_outcomes[e.outcome]+=1
+    return dict(schema_version=1,sessions=len(sessions),executions=len(records),
+        period_start=min((a for a,b in wall+execution_intervals if a is not None),default=None),
+        period_end=max((b for a,b in wall+execution_intervals if b is not None),default=None),
+        session_wall_union_s=union(wall),active_turn_union_s=turn_union,
+        tool_union_s=tools_union,tool_within_turn_union_s=union(intersections(tools,turns)),
+        execution_union_s=union(execution_intervals),execution_within_turn_union_s=union(intersections(execution_intervals,turns)),
+        turn_without_observed_tool_s=max(0,turn_union-union(intersections(tools,turns))),
+        between_turns_or_missing_s=max(0,union(wall)-turn_union),
+        tokens=sums,usage_methods=sorted({s.usage_method for s in sessions}),quality=dict(quality),
+        versions=sorted({s.version for s in sessions}),models=sorted({m for s in sessions for m in s.models}),
+        modes=sorted({m for s in sessions for m in s.modes}),subagent_sessions=sum(s.subagent for s in sessions),
+        tool_calls=dict(tool_counts),completed_items=dict(item_counts),tool_outcomes=dict(outcomes),item_outcomes=dict(item_outcomes),
+        activity_intervals={k:{'count':len(v),'timed':sum(a is not None and b is not None for a,b in v),'union_s':union(v),
+                               'max_s':max((b-a for a,b in v if a is not None and b is not None),default=None)} for k,v in sorted(activity.items())},
+        execution_groups={k:stats(v) for k,v in sorted(run_groups.items())},statuses=dict(statuses),
+        queue=stats(queue),dispatch=stats(dispatch),missing_execution_fields=dict(missing),
+        longest_queues=[{'operation':safe_label(r.get('operation'),STAGES),
+                         **{k:r.get(k) for k in ('elapsed_seconds','queue_seconds','worker_seconds') if isinstance(r.get(k),(int,float))}}
+                        for r in sorted(records,key=lambda r:r.get('queue_seconds',0) if isinstance(r.get('queue_seconds'),(int,float)) else 0,reverse=True)[:5]],
+        warm_worker=dict(warm),reuse=dict(reuse),artifact_reuse=dict(recorded_reuse),reuse_covered_executions=reuse_coverage,associations=dict(associations),
+        trace_covered_executions=sum(r.get('trace_id') in covered_traces for r in records),
+        unreadable_execution_records=max(0,inventory_count-len(records)) if inventory_count else 0,
+        stages={k:{**stats(v),'union_s':union(stage_intervals[k])} for k,v in sorted(stages.items())},
+        repeated_identity_groups=sum(len(v)>1 for v in repeats.values()),
+        repeated_identity_runs=sum(len(v)-1 for v in repeats.values()),
+        matched_cold_warm=[{'operation':safe_label(key[0],STAGES),'cold':stats(v['cold']),'warm':stats(v['warm'])}
+                           for key,v in comparisons.items() if v['cold'] and v['warm']],
+        sampled_resources={'cpu_lower_bound_s':sum(r.get('sampled_tree_cpu_seconds',0) for r in resources),
+                           'cpu_measured_runs':sum('sampled_tree_cpu_seconds' in r for r in resources),
+                           'max_sampled_rss_bytes':max((r.get('peak_tree_rss_bytes',r.get('peak_worker_rss_bytes',0)) for r in resources),default=0)})
+
+
+def markdown(summary):
+    s=summary
+    def time(value):
+        return datetime.fromtimestamp(value,timezone.utc).isoformat() if value is not None else 'unavailable'
+    lines=['# Local workflow performance analysis','',
+        f"Scope: {s['sessions']} sessions; {s['executions']} retained executions. UTC period {time(s['period_start'])} to {time(s['period_end'])}.",
+        '',f"Codex versions: {', '.join(s['versions']) or 'unavailable'}. Models: {', '.join(s['models']) or 'unavailable'}.",
+        '', '| Timing observation | Seconds (interval union) |','| --- | ---: |']
+    for key in ('session_wall_union_s','active_turn_union_s','tool_union_s','execution_union_s','execution_within_turn_union_s','turn_without_observed_tool_s','between_turns_or_missing_s'):
+        lines.append(f"| {key} | {s[key]:.3f} |")
+    lines+=['','Turn intervals include tools, waits and agent activity. The remainder is **unattributed**, not model reasoning time. Overlapping sessions/runs are unioned; sums in stage/group tables are work totals, not session elapsed time. Open turns/tools are excluded from duration totals.','',
+            '| Reported tokens | Count |','| --- | ---: |']
+    for k,v in s['tokens'].items():
+        lines.append(f"| {k} | {v if v is not None else 'unavailable/incomplete'} |")
+    lines+=['','Accounting: '+('; '.join(s['usage_methods']) or 'unavailable')+'. Input includes cached input; reasoning is a reported output subset, not an additional total. No cost inference.','',
+        '| Response tool category | Calls |','| --- | ---: |']
+    lines += [f'| {k} | {v} |' for k,v in sorted(s['tool_calls'].items())]
+    lines+=['','| Recorded agent activity | Events | Timed | Union s | Maximum s |','| --- | ---: | ---: | ---: | ---: |']
+    for k,v in s['activity_intervals'].items():
+        lines.append(f"| {k} | {v['count']} | {v['timed']} | {v['union_s']:.3f} | {v['max_s'] or 0:.3f} |")
+    lines+=['',f"Tool outcomes: {s['tool_outcomes']}. A returned tool output does not establish success.",
+            '',f"Completed item categories (a separate, potentially nested activity layer): {s['completed_items']}.",'',
+            '| Engineering operation | Runs | Work sum s | Median s | Maximum s |','| --- | ---: | ---: | ---: | ---: |']
+    for k,v in s['execution_groups'].items():
+        lines.append(f"| {k} | {v['count']} | {v['sum_s']:.3f} | {v['median_s'] or 0:.3f} | {v['max_s'] or 0:.3f} |")
+    lines+=['','| Recorded stage | Spans | Work sum s | Interval union s |','| --- | ---: | ---: | ---: |']
+    for k,v in sorted(s['stages'].items(),key=lambda x:x[1]['sum_s'],reverse=True):
+        lines.append(f"| {k} | {v['count']} | {v['sum_s']:.3f} | {v['union_s']:.3f} |")
+    lines+=['',f"Longest recorded queues (not summed session time): {s['longest_queues']}.",'',f"Queue: {s['queue']}. Dispatch: {s['dispatch']} (dispatch is not complete initialization).",'',
+        f"Worker warmth: {s['warm_worker']}. Explicit stage reuse: {s['reuse']}.",'',
+        f"Recorded artifact reuse: {s['artifact_reuse']}; coverage {s['reuse_covered_executions']}/{s['executions']}. Absent reuse records are unreported, not fresh.",'',
+        f"Same recorded operation/strategy/source/repository/lock/argument identity: {s['repeated_identity_groups']} repeated groups; {s['repeated_identity_runs']} additional runs. These are candidates for review, not proof of unnecessary verification.",'',
+        f"Matched cold/warm groups: {s['matched_cold_warm']}. Matching identities alone do not control machine load, process settings or output requests.",'',
+        f"Association strengths: {s['associations']}. Timing-only associations are inferred; ambiguous matches remain ambiguous.",'',
+        f"Sampled resources: {s['sampled_resources']}. Sampled CPU is a lower bound; RSS includes shared pages.",'',
+        f"Measurement quality: {s['quality']}. Trace coverage: {s['trace_covered_executions']}/{s['executions']} runs. Missing execution fields: {s['missing_execution_fields']}.",'',
+        'Interpretation and next investigation: inspect the largest relevant non-parent stage, queue wait, or repeated identity group before targeted profiling. Existing history alone cannot establish why an agent repeated work or the benefit of a cache hit against an unobserved fresh counterfactual. No optimization is claimed.', '',
+        'Limitations: retained history is bounded and may omit early operations. Session boundaries are recorded-file observations, not necessarily launch/exit times. Current files are snapshots. Forked/inherited history can overlap accounting scopes; exclude related forks for cross-session totals. Resumes without an explicit marker cannot be counted reliably. Tool outputs/arguments and prompts are not included. Missing timestamps, usage, incomplete calls and trace gaps remain missing evidence. Recorded reasoning-item intervals do not establish total model-processing latency.']
+    return '\n'.join(lines)+'\n'
+
+
+def timeline(sessions, spans):
+    events=[]
+    for i,s in enumerate(sessions):
+        for e in s.events:
+            if e.start is not None and e.end is not None:
+                events.append(dict(name=f'{e.kind}:{e.category}',cat='agent',ph='X',pid=f'agent-{i+1}',tid=e.kind,ts=e.start*1e6,dur=(e.end-e.start)*1e6))
+    for resource,span in spans:
+        try:
+            event=perfetto_event(resource,span)
+            event['name']=safe_label(event['name'],STAGES);event.pop('args',None)
+            events.append(event)
+        except (KeyError,ValueError,TypeError):
+            continue
+    return {'traceEvents':events}
+
+
+def local_directory(root, repo):
+    path=root.resolve()/'workflow-analysis'
+    if path.is_relative_to(repo.resolve()):
+        check=subprocess.run(['git','check-ignore','--quiet',str(path/'probe.json')],cwd=repo,capture_output=True)
+        if check.returncode != 0:
+            raise ValueError('Analysis data root inside repository must be Git-ignored')
+    path.mkdir(parents=True,exist_ok=True,mode=0o700)
+    return path
+
+
+def save_local(directory, summary, sessions, spans, with_timeline=False):
+    payload={'summary':summary,'sessions':[s.normalized() for s in sessions]}
+    encoded=json.dumps(payload,sort_keys=True)
+    if len(encoded.encode())>16*1024*1024:
+        raise ValueError('Normalized output exceeds 16 MiB bound; select fewer sessions')
+    key=hashlib.sha256(encoded.encode()).hexdigest()[:16]
+    base=directory/f'analysis-{key}'
+    for suffix,content in [('.json',encoded),('.md',markdown(summary))]:
+        target=base.with_suffix(suffix)
+        if not target.exists():
+            with target.open('x') as output:
+                output.write(content)
+            target.chmod(0o600)
+    if with_timeline:
+        content=json.dumps(timeline(sessions,spans))
+        if len(content)>16*1024*1024:
+            raise ValueError('Timeline exceeds 16 MiB bound; narrow scope')
+        target=base.with_suffix('.perfetto.json')
+        if not target.exists():
+            with target.open('x') as output:
+                output.write(content)
+            target.chmod(0o600)
+    # Keep at most 20 immutable analyses; only this tool's outputs are pruned.
+    reports=sorted((p for p in directory.glob('analysis-*.md') if re.fullmatch(r'analysis-[0-9a-f]{16}\.md',p.name)),key=lambda p:p.stat().st_mtime,reverse=True)
+    for report in reports[20:]:
+        for suffix in ('.md','.json','.perfetto.json'):
+            report.with_suffix(suffix).unlink(missing_ok=True)
+    return base.with_suffix('.md')
+
+
+def main(argv=None):
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--repo',type=Path,default=ROOT)
+    parser.add_argument('--codex-home',type=Path,help='Read sessions beneath this local Codex home')
+    mode=parser.add_mutually_exclusive_group()
+    mode.add_argument('--session',type=Path,action='append',help='Explicit local rollout; may repeat; ownership override')
+    mode.add_argument('--recent',type=int,default=3,help='At most N repository sessions by recorded creation time (1..20)')
+    mode.add_argument('--execution-only',action='store_true')
+    parser.add_argument('--agent-only',action='store_true')
+    parser.add_argument('--last-runs',type=int,default=500,help='Retained execution bound (1..500)')
+    parser.add_argument('--since',help='ISO timestamp with timezone')
+    parser.add_argument('--until',help='ISO timestamp with timezone')
+    parser.add_argument('--timeline',action='store_true')
+    args=parser.parse_args(argv)
+    if not 1<=args.recent<=20 or not 1<=args.last_runs<=500 or (args.execution_only and args.agent_only):
+        parser.error('Select 1..20 sessions, 1..500 runs, and compatible source modes')
+    since=timestamp(args.since);until=timestamp(args.until)
+    if (args.since and since is None) or (args.until and until is None) or (since is not None and until is not None and since>until):
+        parser.error('Time bounds require ordered timezone-aware ISO timestamps')
+    paths=[] if args.execution_only else (args.session or discover(args.repo,args.codex_home/'sessions' if args.codex_home else session_root(),args.recent))
+    if len(paths)>20:
+        parser.error('Explicit session bound is 20')
+    paths=list(dict.fromkeys(p.resolve() for p in paths))
+    sessions=[parse(p) for p in paths]
+    # Bounds select whole sessions (not partial counters). Explicit sessions stay explicit.
+    if not args.session:
+        sessions=[s for s in sessions if (since is None or (s.end is not None and s.end>=since)) and (until is None or (s.start is not None and s.start<=until))]
+    root=Path(os.environ.get('ENGINEERING_DATA',args.repo/'.execution'))
+    all_records=list(iter_records(root)) if not args.agent_only else []
+    all_records.sort(key=lambda r:r.get('start_unix_ns',0),reverse=True)
+    if sessions:
+        windows=[(s.start,s.end) for s in sessions if s.start is not None and s.end is not None]
+    else:
+        windows=[]
+    selected=[]
+    for r in all_records:
+        a,b=interval(r)
+        if a is None or (since is not None and b<since) or (until is not None and a>until):
+            continue
+        if windows and not any(a<=end and b>=start for start,end in windows):
+            continue
+        selected.append(r)
+        if len(selected)>=args.last_runs:
+            break
+    spans=[]; seen_spans=set()
+    for resource,span in iter_spans(root,trace_ids={r['trace_id'] for r in selected if isinstance(r.get('trace_id'),str)}):
+        identity=(span.get('traceId'),span.get('spanId'))
+        if all(isinstance(part,str) for part in identity) and identity not in seen_spans:
+            spans.append((resource,span));seen_spans.add(identity)
+    summary=analyze(sessions,selected,spans)
+    if not sessions:
+        summary['quality']['no_selected_sessions']=1
+    elif not any(s.start is not None for s in sessions):
+        summary['quality']['no_readable_session_times']=1
+    if not selected:
+        summary['quality']['no_selected_executions']=1
+    summary['quality']['unreadable_execution_records']=max(0,len(list((root/'runs').glob('*.json')))-len(all_records)) if not args.agent_only else 0
+    directory=local_directory(root,args.repo)
+    report=save_local(directory,summary,sessions,spans,args.timeline)
+    print(json.dumps({'local_report':str(report),'summary':summary},indent=2))
+    return 0
+
+
+if __name__=='__main__':
+    raise SystemExit(main())

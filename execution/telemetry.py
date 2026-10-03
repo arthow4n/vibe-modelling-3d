@@ -26,6 +26,27 @@ def data_root():
     return Path(os.environ.get('ENGINEERING_DATA', ROOT/'.execution'))
 
 
+def artifact_reuse_summary(report):
+    """Preserve existing evaluator decisions, without paths or report contents.
+
+    No new measurement or cache decision; missing/failed entries stay unreported.
+    """
+    summary = {}
+    geometry = report.get('reuse', {}).get('geometry')
+    if isinstance(geometry, bool):
+        summary['geometry'] = 'reused' if geometry else 'fresh'
+    for field in ('exports', 'views'):
+        rows = [r for r in report.get(field, []) if isinstance(r, dict)
+                and r.get('ok') and isinstance(r.get('reused'), bool)]
+        if rows:
+            summary[field] = {'reused': sum(r['reused'] for r in rows),
+                              'fresh': sum(not r['reused'] for r in rows)}
+    reused = report.get('reused')
+    if isinstance(reused, bool):
+        summary['slice'] = 'reused' if reused else 'fresh'
+    return summary
+
+
 def _hex_ids(value):
     if isinstance(value, dict):
         for k, v in value.items():
@@ -217,6 +238,8 @@ def operation(name):
                 if isinstance(answer,int):record["exit_code"]=answer
                 if name=='cad.command' and answer==2:record['status']='review_required'
                 if hasattr(answer,'status'):record['operation_status']=answer.status
+                if name == 'orca.review' and isinstance(answer, dict):
+                    record['artifact_reuse'] = artifact_reuse_summary(answer)
                 return answer
         return wrapped
     return decorate

@@ -241,7 +241,10 @@ keep their identity guards.
 Tracing is automatic; do not add timers or routinely inspect performance records
 in ordinary engineering work. Use the
 [engineering execution skill](.codex/skills/engineering-execution/SKILL.md) for
-performance investigations, profiling, history analysis or coordinator recovery.
+performance investigations, profiling, history analysis or coordinator recovery. For requested
+agent-session timing, token and tool-activity investigations alongside execution
+history, use [workflow performance analysis](.codex/skills/workflow-performance-analysis/SKILL.md).
+Ordinary modelling does not require session-history inspection or performance reports.
 
 ## Object ownership and source of truth
 

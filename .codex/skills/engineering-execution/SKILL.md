@@ -7,7 +7,10 @@ description: Investigate computational performance, execute independent engineer
 
 Read [execution/README.md](../../../execution/README.md) for commands, cache
 contracts, resources, recovery and performance schema. Ordinary engineering runs
-need no performance-log review or service administration.
+need no performance-log review or service administration. For combined agent-session
+and computation timing/token investigations, use
+[workflow performance analysis](../workflow-performance-analysis/SKILL.md); this
+skill retains ownership of computational profiling and execution correctness.
 
 - Run ordinary Python files with `./execute.py`; evaluate CAD with the existing
   evaluator. Keep native solvers behind the physical-analysis APIs. Do not create

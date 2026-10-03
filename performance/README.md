@@ -5,6 +5,11 @@ system; [implementation history](IMPLEMENTATION.md) records decisions and commit
 Benchmark summaries are versioned JSON in `benchmarks/`; unrestricted runtime
 evidence stays in ignored `.execution/`.
 
+For requested agent-session and execution investigations, use the
+[local workflow analyzer](WORKFLOW.md). Raw sessions, normalized histories and
+combined timelines stay local; concise privacy-reviewed findings may be preserved
+in flat `reviews/` using the publication contract.
+
 ## Reproduction
 
 Run from the repository root after locked environment synchronization:

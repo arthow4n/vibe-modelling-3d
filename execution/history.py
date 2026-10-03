@@ -6,6 +6,52 @@ from pathlib import Path
 from .telemetry import data_root
 
 
+def iter_records(root=None):
+    """Read retained summaries without changing them; malformed files are skipped.
+
+    Consumers needing completeness counts should compare yielded files with the
+    directory inventory. Records retain unrestricted local source identities.
+    """
+    for path in sorted(((root or data_root())/'runs').glob('*.json')):
+        try:
+            record = json.loads(path.read_text())
+            if isinstance(record, dict):
+                yield record
+        except (OSError, ValueError):
+            continue
+
+
+def iter_spans(root=None, trace_ids=None):
+    """Stream the existing OTLP format, optionally selecting exact trace IDs."""
+    for path in sorted(((root or data_root())/'traces').glob('*.otlp.jsonl')):
+        try:
+            with path.open() as stream:
+                for line in stream:
+                    try:
+                        for resource in json.loads(line).get('resourceSpans', []):
+                            for scope in resource.get('scopeSpans', []):
+                                for span in scope.get('spans', []):
+                                    if trace_ids is None or span.get('traceId') in trace_ids:
+                                        yield resource.get('resource', {}), span
+                    except (ValueError, TypeError, AttributeError):
+                        continue
+        except OSError:
+            continue
+
+
+def perfetto_event(resource, span):
+    """Convert one existing engineering span; callers may redact names/IDs."""
+    attrs = {a['key']: a['value'] for a in resource.get('attributes', [])}
+    attributes = {a['key']: a['value'] for a in span.get('attributes', [])}
+    return dict(name=span['name'], cat='engineering', ph='X',
+                pid=attrs.get('process.pid', {}).get('intValue', 0),
+                tid=attributes.get('thread.id', {}).get('intValue', 0),
+                ts=int(span['startTimeUnixNano'])/1000,
+                dur=(int(span['endTimeUnixNano'])-int(span['startTimeUnixNano']))/1000,
+                args=dict(trace_id=span['traceId'], span_id=span['spanId'],
+                          parent_span_id=span.get('parentSpanId')))
+
+
 def main(argv=None):
     p = argparse.ArgumentParser()
     p.add_argument('--last', type=int, default=20)
@@ -43,21 +89,8 @@ def main(argv=None):
         if args.run:
             summary=data_root()/'runs'/f'{args.run}.json'
             if summary.exists():selected_trace=json.loads(summary.read_text()).get('trace_id')
-        for path in (data_root()/'traces').glob('*.otlp.jsonl'):
-            if args.run and not selected_trace and not path.name.startswith(args.run):continue
-            for line in path.read_text().splitlines():
-                if selected_trace and selected_trace not in line:continue
-                for resource in json.loads(line).get('resourceSpans', []):
-                    attributes = {a['key']: a['value'] for a in resource['resource'].get('attributes', [])}
-                    pid = attributes.get('process.pid', {}).get('intValue', 0)
-                    for scope in resource.get('scopeSpans', []):
-                        for s in scope.get('spans', []):
-                            if selected_trace and s['traceId']!=selected_trace:continue
-                            attributes={a['key']:a['value'] for a in s.get('attributes',[])}
-                            events.append(dict(name=s['name'],cat='engineering',ph='X',pid=pid,tid=attributes.get('thread.id',{}).get('intValue',0),
-                                ts=int(s['startTimeUnixNano'])/1000,
-                                dur=(int(s['endTimeUnixNano'])-int(s['startTimeUnixNano']))/1000,
-                                args=dict(trace_id=s['traceId'],span_id=s['spanId'],parent_span_id=s.get('parentSpanId'))))
+        selected = {selected_trace} if selected_trace else (set() if args.run else None)
+        events = [perfetto_event(resource, s) for resource, s in iter_spans(trace_ids=selected)]
         args.perfetto.write_text(json.dumps({'traceEvents':events}))
         return 0
     files=sorted((data_root()/'runs').glob('*.json'),key=lambda p:p.stat().st_mtime,reverse=True)[:args.last]

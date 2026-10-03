@@ -162,7 +162,9 @@ def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
                     atomic_bytes(target,staged.read_bytes());item['path']=str(target)
             if persistent and report.get('ok'):
                 pool.put(key,process,connection,jobs+1);connection=None
+            from .telemetry import artifact_reuse_summary
             return dict(report=report,exit_code=0 if report['ok'] else 1,resources=resources,
+                artifact_reuse=artifact_reuse_summary(report),
                 warm_worker=warm,worker_seconds=time.monotonic()-started)
         finally:
             if connection is not None:connection.close();terminate(process)

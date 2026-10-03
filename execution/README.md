@@ -233,6 +233,12 @@ commit only bounded summaries, small representative trace snapshots and benchmar
 history; tools never commit evidence automatically. No arguments, environment
 values, script output or exception messages are stored in normal trace evidence.
 
+Run summaries can also retain `artifact_reuse`: existing evaluator decisions for
+geometry, export/view counts and slice status, with no paths or new cache semantics.
+Absence in older records means unreported. `queue_seconds` measures resource wait;
+the `coordinator.admission` span encloses both waiting and admitted execution, so
+its duration must not be interpreted as queue time.
+
 Native preload is checked before user dispatch: the import-only host must have
 one thread, and two fresh children must complete matching native Boolean/validity
 checks. An incompatible stack selects clean spawn workers. Dependency/runtime
@@ -251,3 +257,7 @@ freshly. `ENGINEERING_REUSE_MESH=0` requests fresh meshing for qualification. Ev
 identify automatic mesh reuse and original input hashes. Explicit `mesh_from`
 retains its existing strict failure behavior; completed question-study evidence and
 saved-field recovery retain their separate identity/completion requirements.
+
+Combined coding-agent/execution investigations use the
+[local workflow analyzer](../performance/WORKFLOW.md), which reuses these summaries
+and OTLP spans read-only. Ordinary execution requires no session inspection.

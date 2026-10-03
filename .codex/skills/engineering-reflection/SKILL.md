@@ -29,8 +29,10 @@ Reuse the conversation, current object record, changed source and existing
 evidence. Inspect relevant shared instructions and consumers before proposing
 changes; avoid a repository-wide audit for a local handoff. Do not repeat a
 reflection on unchanged evidence or rerun CAD, slices or solvers just to reflect.
-Apply the [execution skill](../engineering-execution/SKILL.md) only when an actual
-performance investigation or recovery is needed.
+Use [workflow performance analysis](../workflow-performance-analysis/SKILL.md)
+when repeated agent effort, tool usage or time/token consumption needs measurement.
+Use [engineering execution](../engineering-execution/SKILL.md) for computational
+profiling, benchmarks or recovery; reflection still owns lesson placement.
 
 ## Identify what should change
 
