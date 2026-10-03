@@ -4,6 +4,16 @@ import os
 from pathlib import Path
 import threading
 import time
+import math
+
+
+def cores(value, available):
+    """Resolve an integer or percentage without exceeding the declared capacity."""
+    text=str(value)
+    result=max(1,math.floor(available*float(text[:-1])/100)) if text.endswith('%') else int(text)
+    if result<1 or result>available:raise ValueError(f'CPU budget must be between 1 and {available}')
+    if text.endswith('%') and not 0<float(text[:-1])<=100:raise ValueError('CPU percentage must be in (0,100]')
+    return result
 
 
 def cpu_capacity():
@@ -12,7 +22,7 @@ def cpu_capacity():
         quota,period=Path('/sys/fs/cgroup/cpu.max').read_text().split()
         if quota!='max':count=min(count,max(1,int(quota)//int(period)))
     except (OSError,ValueError):pass
-    return max(1,int(os.environ.get('ENGINEERING_CPUS',count)))
+    return cores(os.environ.get('ENGINEERING_CPUS','50%'),count)
 
 
 class Admission:

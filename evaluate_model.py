@@ -143,16 +143,19 @@ def render(shape, view, width, height, show_hidden):
                             background_color="#ffffff")
 
 
-def worker(request, response):
+def evaluate_request(args, cache=None):
+    dependency_started=time.monotonic()
     import cadquery as cq
     import runpy
-
-    args = json.loads(Path(request).read_text())
+    from execution.artifacts import ArtifactCache
+    from execution.identity import digest, fingerprint
+    artifacts=ArtifactCache("cad")
     path = Path(args["file_path"])
     root = path.parent
     report = {"ok": False, "file_path": str(path), "errors": [],
               "views": [], "exports": [], "timings_seconds": {},
               "versions": {"python": sys.version.split()[0], "cadquery": cq.__version__}}
+    report["timings_seconds"]["dependency_initialization"] = time.monotonic()-dependency_started
     log = io.StringIO()
 
     def error(stage, exc, **details):
@@ -163,35 +166,73 @@ def worker(request, response):
                                  "line": getattr(exc, "lineno", None) or (frames[-1].lineno if frames else None),
                                  "traceback": "".join(traceback.format_exception(exc))[-8192:]})
 
+    previous_cwd=Path.cwd();previous_path=sys.path.copy()
     with contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
         try:
             os.chdir(root)
             sys.path.insert(0, str(root))
             sys.dont_write_bytecode = True
-            sys.pycache_prefix = str(Path(response).parent / "pycache")
+            sys.pycache_prefix = str(REPO_ROOT / ".execution/bytecode-disabled" / args.get("run_id","isolated"))
             outputs = []
             def show_object(obj, *unused, **options):
                 outputs.append(obj)
             before = time.monotonic()
-            namespace = runpy.run_path(str(path), init_globals={"show_object": show_object}, run_name="__cqgi__")
-            report["timings_seconds"]["build"] = time.monotonic() - before
-            shape = selected_shape(namespace.get("result") if namespace.get("result") is not None else outputs)
-            report["geometry"] = geometry_data(shape)
+            identity=args.get("identity")
+            reused=cache is not None and cache.get("identity")==identity
+            if reused:
+                shape=cache["shape"]
+                report["geometry"]=cache["geometry"].copy()
+                report["reuse"]={"geometry":True,"identity":identity,
+                    "origin_build_seconds":cache["build_seconds"]}
+                report["timings_seconds"]["build"]=0.0
+            else:
+                with span("cad.construction"):
+                    namespace = runpy.run_path(str(path), init_globals={"show_object": show_object}, run_name="__cqgi__")
+                report["timings_seconds"]["build"] = time.monotonic() - before
+                before=time.monotonic()
+                with span("cad.selection"):
+                    shape = selected_shape(namespace.get("result") if namespace.get("result") is not None else outputs)
+                report["timings_seconds"]["selection"]=time.monotonic()-before
+                before=time.monotonic()
+                report["geometry"] = geometry_data(shape)
+                report["timings_seconds"]["validation"]=time.monotonic()-before
+                report["reuse"]={"geometry":False,"identity":identity}
+                if cache is not None and report["geometry"]["valid"]:
+                    cache.update(identity=identity,shape=shape,geometry=report["geometry"].copy(),
+                        build_seconds=report["timings_seconds"]["build"])
             if not report["geometry"]["valid"]:
                 raise ValueError("Selected geometry is invalid; exports and views skipped")
             for item in args["exports"]:
                 try:
-                    report["exports"].append(export(shape, item))
+                    before=time.monotonic()
+                    key={"identity":identity,"format":item["format"],"linear":STL_LINEAR_TOLERANCE_MM,
+                         "angular":STL_ANGULAR_TOLERANCE_RAD}
+                    data=artifacts.read(key) if cache is not None else None
+                    if data is not None:
+                        atomic_bytes(Path(item["path"]),data)
+                        status={"path":item["path"],"ok":True,"reused":True}
+                    else:
+                        status={**export(shape,item),"reused":False}
+                        if cache is not None:artifacts.store(key,Path(item["path"]).read_bytes())
+                    report["exports"].append(status)
+                    report["timings_seconds"]["export_"+item["format"].lower()]=time.monotonic()-before
                 except Exception as exc:
                     report["exports"].append({"path": item["path"], "ok": False})
                     error("export", exc, path=item["path"])
             for view in args["views"]:
                 destination = Path(args["output_dir"]) / f'{path.stem}_{view}.png'
                 try:
-                    data = render(shape, view, args["width"], args["height"],
-                                  args["show_hidden"])
+                    before=time.monotonic()
+                    key={"identity":identity,"view":view,"width":args["width"],"height":args["height"],
+                         "hidden":args["show_hidden"]}
+                    data=artifacts.read(key) if cache is not None else None
+                    reused_view=data is not None
+                    if data is None:
+                        data = render(shape, view, args["width"], args["height"], args["show_hidden"])
+                        if cache is not None:artifacts.store(key,data)
+                    report["timings_seconds"]["render_"+view]=time.monotonic()-before
                     atomic_bytes(destination, data)
-                    report["views"].append({"view": view, "ok": True, "path": str(destination),
+                    report["views"].append({"view": view, "ok": True, "path": str(destination), "reused":reused_view,
                                             "camera": {"from_direction": VIEWS[view],
                                                        "up_direction": view_up(view)}})
                 except Exception as exc:
@@ -199,10 +240,17 @@ def worker(request, response):
                     error("render", exc, view=view)
         except Exception as exc:
             error("build", exc)
+    os.chdir(previous_cwd);sys.path[:]=previous_path
     if report["errors"] and log.getvalue():
         report["diagnostics"] = log.getvalue()[:16384]
     report["ok"] = not report["errors"]
-    Path(response).write_text(json.dumps(report, indent=2) + "\n")
+    return report
+
+
+def worker(request, response):
+    args=json.loads(Path(request).read_text())
+    report=evaluate_request(args)
+    Path(response).write_text(json.dumps(report,indent=2)+"\n")
     return 0 if report["ok"] else 1
 
 
@@ -483,7 +531,7 @@ def main(argv=None):
                     f"{STL_ANGULAR_TOLERANCE_RAD} rad angular tessellation tolerances.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("file_path", type=Path, nargs="?", help="Trusted CadQuery Python entry point")
-    parser.add_argument("--views", default="isometric,front,top,right",
+    parser.add_argument("--views", default="none",
                         help=f"Comma-separated views from {', '.join(VIEWS)}, or none; "
                              "Z is upright except top/bottom, which use Y upright")
     parser.add_argument("--output-dir", default="renders/scratch",
@@ -510,6 +558,10 @@ def main(argv=None):
                         default="center", help="Orca placement for --slice or --slice-existing")
     parser.add_argument("--slice-keep-run", action="store_true",
                         help="Keep Orca diagnostics and G-code for a slice review")
+    parser.add_argument("--reuse",action="store_true",help="Declare deterministic construction with closed inputs; reuse unchanged geometry")
+    parser.add_argument("--dependency",type=Path,action="append",default=[],help="Additional input file/directory for --reuse and revision guards")
+    parser.add_argument("--isolated",action="store_true",help="Use conventional CAD process instead of warm infrastructure")
+    parser.add_argument("--threads",default="50%",help="Native CPU budget: integer or percent of shared capacity")
     parser.add_argument("--timeout", type=positive_float, default=300,
                         help="Maximum evaluation time in seconds")
     parser.add_argument("--report", type=Path, metavar="JSON",
@@ -535,7 +587,7 @@ def main(argv=None):
             parser.error("Report path must be distinct from model input and slice profiles")
     if args.slice_existing and (args.file_path or args.slice or args.export):
         parser.error("--slice-existing takes an STL or 3MF instead of a CAD source or --slice/--export")
-    if args.slice_existing and (args.views != "isometric,front,top,right"
+    if args.slice_existing and (args.views != "none"
                                 or args.output_dir != "renders/scratch" or args.show_hidden
                                 or args.width != 800 or args.height != 600):
         parser.error("CAD view options cannot be used with --slice-existing")
@@ -581,32 +633,26 @@ def main(argv=None):
     request = {"file_path": str(source), "views": views, "output_dir": str(output_dir),
                "width": args.width, "height": args.height,
                "show_hidden": args.show_hidden, "exports": exports}
+    from execution.identity import cad_identity, digest, runtime_identity
+    from execution.cad import execute as execute_cad
+    from execution.telemetry import child_environment, _active
+    from execution.resources import thread_environment
+    from execution.resources import cores,cpu_capacity
+    try:args.threads=cores(args.threads,cpu_capacity())
+    except ValueError as exc:parser.error(str(exc))
+    execution_environment=thread_environment(child_environment(),args.threads)
+    identity=cad_identity(source,args.dependency,execution_environment)
+    request.update(identity=identity,run_id=_active.get())
     started = time.monotonic()
-    with tempfile.TemporaryDirectory(prefix="cadquery-evaluate-") as directory:
-        request_file, response_file = Path(directory) / "request.json", Path(directory) / "response.json"
-        request_file.write_text(json.dumps(request))
-        process = subprocess.Popen([sys.executable, __file__, "--worker", str(request_file), str(response_file)],
-                                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, env=child_environment(),
-                                   start_new_session=(os.name == "posix"))
-        try:
-            returncode = process.wait(timeout=args.timeout)
-        except subprocess.TimeoutExpired:
-            if os.name == "posix":
-                os.killpg(process.pid, signal.SIGKILL)
-            else:
-                process.kill()
-            process.wait()
-            report = {"ok": False, "file_path": str(source), "errors": [{"stage": "timeout",
-                "message": f"Evaluation exceeded {args.timeout} seconds; model side effects may remain"}]}
-        else:
-            if not response_file.exists():
-                report = {"ok": False, "file_path": str(source), "errors": [{"stage": "worker",
-                    "message": f"Worker exited {returncode} without a report"}]}
-            else:
-                report = json.loads(response_file.read_text())
-                if returncode and report.get("ok"):
-                    report["ok"] = False
-                    report["errors"].append({"stage": "worker", "message": f"Worker exited {returncode}"})
+    try:
+        report=execute_cad(dict(source=str(source),source_sha256=digest(source),identity=identity,
+            dependencies=[str(p.resolve()) for p in args.dependency],reuse=args.reuse,
+            cad=request,run_id=_active.get(),environment=execution_environment,
+            runtime=runtime_identity(),threads=args.threads,memory_mb=2048,timeout=args.timeout),coordinator=not args.isolated)
+    except KeyboardInterrupt:
+        raise
+    except Exception as exc:
+        report={"ok":False,"file_path":str(source),"errors":[{"stage":"timeout" if isinstance(exc,TimeoutError) else "worker","message":str(exc)}]}
     report.setdefault("timings_seconds", {})["total"] = time.monotonic() - started
     pair_ready = (len(report.get("exports", [])) == 2
                   and all(item.get("ok") for item in report["exports"]))

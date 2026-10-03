@@ -29,7 +29,7 @@ def runtime_identity():
         files={str(p.relative_to(ROOT)): digest(p) for p in files if p.is_file()}))
 
 
-def cad_identity(source, dependencies=()):
+def cad_identity(source, dependencies=(), environment=None):
     """Closed-input declaration: repo/sibling Python plus explicitly declared data."""
     source = Path(source).resolve()
     files = set()
@@ -42,5 +42,5 @@ def cad_identity(source, dependencies=()):
     for dependency in dependencies:
         path = Path(dependency).resolve(strict=True)
         files.update(p for p in path.rglob('*') if p.is_file()) if path.is_dir() else files.add(path)
-    return fingerprint(dict(runtime=runtime_identity(), environment=environment_identity(),
+    return fingerprint(dict(runtime=runtime_identity(), environment=environment_identity(environment),
         files={str(p): digest(p) for p in sorted(files) if '__pycache__' not in p.parts}))

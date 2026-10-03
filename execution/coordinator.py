@@ -21,12 +21,122 @@ from .resources import Admission
 from .telemetry import span, write_record, data_root
 
 
+class CADPool:
+    """At most two idle geometry owners; identity changes replace state wholesale."""
+    def __init__(self,ctx):
+        self.ctx=ctx;self.entries={};self.lock=threading.Lock()
+
+    def get(self,request):
+        from .identity import fingerprint
+        key=fingerprint(dict(identity=request['identity'],threads=request['threads'],environment=request['environment'].get('ENGINEERING_THREADS')))
+        with self.lock:
+            now=time.monotonic()
+            for old,(process,connection,touched,jobs) in list(self.entries.items()):
+                if not process.is_alive() or now-touched>60 or jobs>=100:
+                    connection.close();terminate(process);del self.entries[old]
+            if key in self.entries:
+                process,connection,_,jobs=self.entries.pop(key)
+                return key,process,connection,jobs,True
+            if len(self.entries)>=2:
+                old=next(iter(self.entries));process,connection,*_=self.entries.pop(old)
+                connection.close();terminate(process)
+        from .cad import child
+        connection,child_connection=self.ctx.Pipe()
+        process=self.ctx.Process(target=child,args=(child_connection,));process.start();child_connection.close()
+        return key,process,connection,0,False
+
+    def put(self,key,process,connection,jobs):
+        with self.lock:
+            if len(self.entries)>=2:
+                connection.close();terminate(process)
+            else:self.entries[key]=(process,connection,time.monotonic(),jobs)
+
+    def close(self):
+        with self.lock:
+            for process,connection,*_ in self.entries.values():
+                connection.close();terminate(process)
+            self.entries.clear()
+
+
+def run_cad(request,pool,cancelled,deadline,isolated=False):
+    """Stage outputs, check final source identity, then publish with exclusive ownership."""
+    import copy
+    from .artifacts import destinations
+    from .identity import cad_identity
+    from .telemetry import child_environment
+    managed=request['cad']
+    output_paths=[item['path'] for item in managed['exports']]
+    output_paths += [str(Path(managed['output_dir'])/f"{Path(request['source']).stem}_{view}.png") for view in managed['views']]
+    started=time.monotonic()
+    with destinations(output_paths),tempfile.TemporaryDirectory(prefix='engineering-cad-') as directory:
+        original=copy.deepcopy(request);request=copy.deepcopy(request)
+        request['environment']=child_environment(request['environment'])
+        remap={}
+        for i,item in enumerate(request['cad']['exports']):
+            staged=str(Path(directory)/f"export-{i}{Path(item['path']).suffix}")
+            remap[staged]=item['path'];item['path']=staged
+        request['cad']['output_dir']=directory
+        for view in managed['views']:
+            name=f"{Path(request['source']).stem}_{view}.png"
+            remap[str(Path(directory)/name)]=str(Path(managed['output_dir'])/name)
+        if cad_identity(request['source'],request['dependencies'],request['environment'])!=request['identity']:
+            raise RuntimeError('CAD inputs changed while queued; run the current source')
+        persistent=pool is not None and request.get('reuse') and not isolated
+        if isolated:
+            request_path=Path(directory)/'request.json';response=Path(directory)/'response.json'
+            request_path.write_text(json.dumps(request['cad']))
+            process=subprocess.Popen([sys.executable,str(ROOT/'evaluate_model.py'),'--worker',str(request_path),str(response)],
+                cwd=ROOT,env=request['environment'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,start_new_session=True)
+            connection=None;warm=False
+        else:
+            if persistent:key,process,connection,jobs,warm=pool.get(request)
+            else:
+                from .cad import child
+                ctx=pool.ctx if pool else mp.get_context('forkserver')
+                connection,other=ctx.Pipe();process=ctx.Process(target=child,args=(other,));process.start();other.close();warm=False
+            connection.send(request)
+        try:
+            if isolated:
+                code,resources=wait(process,max(.001,deadline-time.monotonic()),cancelled,request['memory_mb'])
+                if not response.is_file():raise RuntimeError(f'CAD worker exited {code} without report')
+                report=json.loads(response.read_text())
+            else:
+                import psutil
+                peak=None
+                while not connection.poll(.02):
+                    if not process.is_alive():raise RuntimeError(f'CAD worker exited {process.exitcode} without report')
+                    if cancelled():raise InterruptedError('CAD request cancelled')
+                    if time.monotonic()>deadline:raise TimeoutError('CAD evaluation exceeded deadline')
+                    try:
+                        rss=psutil.Process(process.pid).memory_info().rss;peak=max(peak or 0,rss)
+                        if rss>request['memory_mb']*1024**2:raise MemoryError('CAD worker memory budget exceeded')
+                    except psutil.Error:pass
+                report=connection.recv();resources=dict(peak_worker_rss_bytes=peak)
+            if cancelled():raise InterruptedError('CAD request cancelled before publication')
+            if cad_identity(request['source'],request['dependencies'],request['environment'])!=request['identity']:
+                raise RuntimeError('CAD inputs changed during execution; managed artifacts were not published')
+            for item in [*report.get('exports',[]),*report.get('views',[])]:
+                if item.get('ok'):
+                    staged=Path(item['path']);target=Path(remap[str(staged)]);target.parent.mkdir(parents=True,exist_ok=True)
+                    # Cross-device atomic publication uses the established writer.
+                    from evaluate_model import atomic_bytes
+                    atomic_bytes(target,staged.read_bytes());item['path']=str(target)
+            if persistent and report.get('ok'):
+                pool.put(key,process,connection,jobs+1);connection=None
+            return dict(report=report,exit_code=0 if report['ok'] else 1,resources=resources,
+                warm_worker=warm,worker_seconds=time.monotonic()-started)
+        finally:
+            if connection is not None:connection.close();terminate(process)
+            if isolated:terminate(process)
+
+
 class Coordinator:
     def __init__(self):
         self.runtime=runtime_identity()
         self.admission=Admission()
         self.ctx=mp.get_context('forkserver')
         mp.set_forkserver_preload(['execution.preload'])
+        self.cad_pool=CADPool(self.ctx)
         self.last_request=time.monotonic();self.stopping=threading.Event()
         self.jobs=set();self.lock=threading.Lock()
 
@@ -40,7 +150,7 @@ class Coordinator:
             if request.get('kind')=='stop':
                 self.stopping.set();protocol.send(connection,dict(stopping=True));return
             if len(fds)!=3:raise ValueError('Expected stdin, stdout and stderr descriptors')
-            if request['kind']!='script':raise ValueError('Unsupported execution operation')
+            if request['kind'] not in ('script','cad'):raise ValueError('Unsupported execution operation')
             self.last_request=time.monotonic()
             def cancelled():
                 if self.stopping.is_set():return True
@@ -56,7 +166,7 @@ class Coordinator:
             try:
                 with span('coordinator.admission'):
                     with self.admission.acquire(request['threads'],request['memory_mb'],cancelled,deadline) as queued:
-                        answer=self.execute(request,fds,cancelled,deadline)
+                        answer=run_cad(request,self.cad_pool,cancelled,deadline) if request['kind']=='cad' else self.execute(request,fds,cancelled,deadline)
                         answer['queue_seconds']=queued
                         write_record(request['run_id'],dict(run_id=request['run_id'],source=request['source'],source_sha256=request['source_sha256'],**answer))
                 protocol.send(connection,answer)
@@ -133,4 +243,5 @@ class Coordinator:
             finally:
                 self.stopping.set();server.close();path.unlink(missing_ok=True)
                 for job in self.jobs:job.join(10)
+                self.cad_pool.close()
 if __name__=='__main__':Coordinator().serve()

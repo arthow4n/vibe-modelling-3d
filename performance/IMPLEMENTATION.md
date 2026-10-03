@@ -61,3 +61,24 @@ Focused tests: 18 passed, 3 optional IPC native tests skipped. An earlier full
 suite was run while files were being edited and observed an old in-memory module;
 its 4 import failures are not regression evidence. Full frozen-source regression
 will be rerun at consolidation. No solver quality setting changed.
+
+### CAD/incremental milestone (in verification)
+
+Shared coordinator commit `4204f15` pushed. Integrated CAD through the same
+coordinator, fresh import-preloaded children by default, no views by default,
+opt-in deterministic geometry owners, digest-verified controlled artifacts,
+source/data/environment invalidation, staged revision-guarded publication and
+cross-process output locks. Separate construction/selection/validation/export/view
+measurements preserve native evidence. Initial warm fresh evaluation ~0.46 s;
+unchanged persistent geometry ~0.16 s worker interval plus command overhead.
+
+User steering: use available multithreading with portable percentage/integer
+budgets. Shared CPU capacity defaults to 50% of affinity/cgroup availability;
+per-job thread allocation defaults to 50% of that capacity. Import-only host stays
+single threaded for safe cloning; CAD OCCT/BLAS pools use the job budget.
+
+CAD milestone validation: 33 evaluator/script/slicing regressions passed, followed
+by 30 evaluator/script tests including declared-data invalidation, tampered-export
+restoration and source-change-during-build prevention. Default builds still run
+validity checks; reused validity is identified as prior evidence for the same
+closed-input geometry. STEP/STL tessellation settings remain unchanged.

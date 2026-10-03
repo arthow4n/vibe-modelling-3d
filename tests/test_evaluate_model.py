@@ -173,3 +173,44 @@ def test_view_frame_preserves_bed_axes_and_source_geometry():
     before = [v.toTuple() for v in shape.Vertices()]
     render(shape, 'isometric', 800, 600, False)
     assert [v.toTuple() for v in shape.Vertices()] == before
+
+
+def test_default_skips_views_and_geometry_reuse_invalidates_inputs(tmp_path):
+    sibling=tmp_path/'dimension.py';sibling.write_text('WIDTH=3\n')
+    data=tmp_path/'data.txt';data.write_text('5')
+    source=tmp_path/'reuse.py'
+    source.write_text('import cadquery as cq\nfrom dimension import WIDTH\n'
+                      'result=cq.Workplane("XY").box(WIDTH,4,int(open("data.txt").read()))\n')
+    first=json.loads(call(source,'--reuse','--dependency',str(data)).stdout)
+    second=json.loads(call(source,'--reuse','--dependency',str(data)).stdout)
+    assert first['ok'] and first['views']==[] and first['exports']==[]
+    assert not first['reuse']['geometry'] and second['reuse']['geometry']
+    sibling.write_text('WIDTH=6\n')
+    changed=json.loads(call(source,'--reuse','--dependency',str(data)).stdout)
+    assert changed['ok'] and not changed['reuse']['geometry']
+    data.write_text('8')
+    changed_data=json.loads(call(source,'--reuse','--dependency',str(data)).stdout)
+    assert changed_data['ok'] and not changed_data['reuse']['geometry']
+
+
+def test_reused_exports_are_identity_bound_and_restore_tampered_output(tmp_path):
+    source=tmp_path/'piece.py';source.write_text('import cadquery as cq\nresult=cq.Workplane("XY").box(3,4,5)\n')
+    first=json.loads(call(source,'--reuse','--export').stdout)
+    step=tmp_path/'piece.step';original=step.read_bytes();step.write_text('tampered')
+    second=json.loads(call(source,'--reuse','--export').stdout)
+    assert first['ok'] and second['ok'] and second['reuse']['geometry']
+    assert all(e['reused'] for e in second['exports']) and step.read_bytes()==original
+
+
+def test_changed_source_during_build_cannot_overwrite_artifacts(tmp_path):
+    source=tmp_path/'slow.py';source.write_text('import cadquery as cq,time\nopen("started","w").write("yes")\ntime.sleep(.7)\nresult=cq.Workplane("XY").box(3,4,5)\n')
+    previous=tmp_path/'slow.step';previous.write_text('previous')
+    process=subprocess.Popen([sys.executable,str(COMMAND),str(source),'--export'],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+    import time
+    deadline=time.monotonic()+15
+    while not (tmp_path/'started').exists() and time.monotonic()<deadline:time.sleep(.02)
+    assert (tmp_path/'started').exists()
+    source.write_text('raise ValueError("new revision")\n')
+    stdout,stderr=process.communicate(timeout=10)
+    assert process.returncode==1 and not json.loads(stdout)['ok']
+    assert previous.read_text()=='previous' and not (tmp_path/'slow.stl').exists()

@@ -21,14 +21,17 @@ def main(argv=None):
     p.add_argument('--strategy',choices=['isolated','preinitialized'],default='isolated')
     p.add_argument('--preload',choices=['scientific','cad'],default='scientific')
     p.add_argument('--timeout',type=positive)
-    p.add_argument('--threads',type=int,default=1)
+    p.add_argument('--threads',default='50%',help='Integer or percent of shared CPU capacity; default 50%')
     p.add_argument('--memory-mb',type=int,default=2048)
     p.add_argument('--profile',choices=['cpu','allocations'])
     p.add_argument('--isolated',action='store_true',help='Bypass coordinator using the same traced lifecycle')
     p.add_argument('script')
     p.add_argument('arguments',nargs=argparse.REMAINDER)
     args=p.parse_args(argv)
-    if args.threads<1 or args.memory_mb<1:p.error('Thread and memory budgets must be positive')
+    from execution.resources import cores,cpu_capacity
+    try:args.threads=cores(args.threads,cpu_capacity())
+    except ValueError as exc:p.error(str(exc))
+    if args.memory_mb<1:p.error('Memory budget must be positive')
     try:
         answer=script(args.script,args.arguments,cwd=args.cwd,strategy=args.strategy,preload=args.preload,
             timeout=args.timeout,threads=args.threads,memory_mb=args.memory_mb,profile=args.profile,coordinator=not args.isolated)

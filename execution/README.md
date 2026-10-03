@@ -86,3 +86,30 @@ Profiling artifacts remain local. Environment values and arguments aren't logged
 coordinator capacity. `ENGINEERING_TRACE=0` disables detailed spans for overhead
 measurement; compact run summaries remain. `ENGINEERING_DATA` selects local
 performance storage. No normal engineering task needs to inspect these records.
+
+## CAD iterations and incremental outputs
+
+```sh
+./evaluate_model.py model/object/object.py
+./evaluate_model.py model/object/object.py --views isometric,front
+./evaluate_model.py model/object/object.py --export --slice
+./evaluate_model.py model/object/object.py --reuse --dependency model/object/input.json
+```
+
+No views, exports or slices are produced by default. Ordinary evaluations use a
+fresh child of the import-only CAD host; user modules and globals aren't shared.
+`--isolated` selects the conventional process. Explicit views, errors, native
+reports and exit codes remain compatible. Each report separates dependency load,
+construction, selection, validation, export format and individual view durations.
+
+`--reuse` declares that geometry construction is deterministic, has no required
+side effects, and depends only on repository/adjacent Python sources and declared
+inputs. Declare *every* external/non-Python input with repeated `--dependency`.
+Do not use it for unknown inputs, clocks, random state or required model-written
+side effects. Two bounded idle workers can retain geometry; they recycle after
+100 jobs, 60 seconds idle or input/environment changes. Unchanged geometry and
+validated artifacts carry explicit reuse flags and content identities. Outputs
+are staged and published atomically only after current-input checks under
+exclusive destination ownership; an old revision cannot replace newer exports.
+Cached artifact bytes are digest-verified, so tampered outputs are restored from
+valid artifacts, never claimed as verified in place. Cache size/count is bounded.
