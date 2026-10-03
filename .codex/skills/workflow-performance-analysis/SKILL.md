@@ -85,6 +85,11 @@ implementing an optimization.
    Use the workflow's optional-telemetry guidance to distinguish OTel, hooks,
    app-server and raw rollout tracing; a plugin cannot supply missing lifecycle
    hooks, and raw tracing has no qualified numerical-only retention mode.
+   Reuse already enabled, filtered native captures for selected session keys.
+   On a new machine or moved checkout, check the workflow's optional setup and
+   discuss machine configuration with the user; cloning does not install it.
+   Client request-operation duration/native first-item delay are scoped observations,
+   not backend compute or literal generated-token TTFT.
 9. Publish only meaningful reusable findings or a useful measured baseline. Author
    a concise draft from approved aggregate fields using the six sections in the
    publication contract. Reviews preserve evidence, not new standing instructions.

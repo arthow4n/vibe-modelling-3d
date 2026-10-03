@@ -22,6 +22,12 @@ are available through the [physical analysis API](physical_analysis/README.md).
 It wraps Gmsh and CalculiX, retains solver evidence, and distinguishes numerical
 completion from design adequacy and physical validation.
 
+Optional [local Codex latency capture](performance/WORKFLOW.md#optional-machine-setup-and-future-clones)
+needs a separate machine setup for native telemetry and its filtered receiver,
+including Remote Control startup. Cloning or moving this repository does not carry
+that setup; future agents should check availability and discuss installation with
+the user. Modeling and existing analysis remain usable without it.
+
 ## Models
 
 | Object | Current use and print instructions | Model provenance | Test piece(s) printed | Final object printed |

@@ -1,7 +1,8 @@
 # Local workflow performance analysis
 
 The analyzer combines local Codex metadata with the existing schema-1 summaries
-and OTLP spans through `execution.history`. It does not collect new execution
+and OTLP spans through `execution.history`, plus optional filtered native Codex
+telemetry. It does not collect new execution
 metrics, alter caches/workers, call a model, or require a Codex launch wrapper.
 The adapter boundary is `performance.sessions.Event` / `Session`; another harness
 can provide those metadata objects when there is a demonstrated consumer.
@@ -16,6 +17,7 @@ Run from the repository root in the locked environment:
 .venv/bin/python performance/workflow.py --session /local/path/to/rollout.jsonl --agent-only
 .venv/bin/python performance/workflow.py --session "$PERF_SESSION_A" --question 'Which observed activity explains the waiting?' --timeline
 .venv/bin/python performance/workflow.py --execution-only --since 2026-10-01T00:00:00Z --until 2026-10-03T12:00:00Z
+.venv/bin/python performance/workflow.py --telemetry-only --telemetry .execution/workflow-analysis/otel-LOCAL-CAPTURE --timeline
 ```
 
 `--session` may repeat (20 files maximum); it deliberately overrides repository
@@ -241,7 +243,9 @@ Native telemetry could improve transport-attempt and reconnect diagnosis. Exact
 request latency/throughput would require qualification of complete request/stream
 boundaries, TTFT scope and response association for the installed transport. Those
 are not established by the current rollouts or a generic telemetry configuration.
-No collector, background service or launch wrapper is justified for this baseline.
+The original rollout baseline did not justify an additional collector. A subsequent
+explicit request authorized machine-wide local native capture for ordinary Codex
+and Remote Control launches; the optional setup below implements that scope.
 For a concrete request-latency investigation, the smallest supported next experiment
 is an explicitly started, bounded loopback OTel capture of both logs and traces:
 
@@ -265,6 +269,108 @@ is an explicitly started, bounded loopback OTel capture of both logs and traces:
    must consume no telemetry-capture resources. Literal generated-token timing,
    server scheduling and backend compute remain unavailable unless independently
    reported. An honest coverage gap is a complete analysis result.
+
+### Optional machine setup and future clones
+
+Native capture is a **machine installation**, not part of a Git clone or ordinary
+CAD evaluation. On a new machine, a moved checkout or a different coding agent,
+check whether the native receiver and supported adapter are available. Explain
+the scope and obtain the user's choice before installing/changing machine defaults.
+Modeling, execution history and rollout-only analysis work without this option.
+For another agent, qualify its supported instrumentation instead of configuring
+Codex or assuming these fields apply.
+
+For an authorized Linux/systemd user setup, after `uv sync --locked`:
+
+```sh
+.venv/bin/python -m performance.telemetry --install
+systemctl --user is-active codex-workflow-telemetry.service
+systemctl --user restart codex-remote-control.service
+```
+
+Installation adds only a managed `[otel]` block in `$CODEX_HOME/config.toml`
+(normally `~/.codex/config.toml`), a local control file beneath the ignored analysis
+directory and a user service pointing at this checkout's locked Python environment.
+Existing unmanaged OTel settings require a deliberate merge rather than overwrite.
+The helper verifies receiver readiness before enabling native export. It installs
+a `Wants`/`After` drop-in when `codex-remote-control.service` exists, but does **not**
+restart that service: doing so disconnects active Remote Control sessions.
+The user should restart it after handoff; ordinary running CLI processes likewise
+need a restart. Rebooting with the user's persistent service manager also loads
+the setup. No special Codex launch flags or per-model activation are needed.
+Project telemetry settings are ignored by Codex; installing only repository files
+cannot enable this. After moving/cloning the checkout, rerun the authorized setup
+to update the service's interpreter, working directory and storage root.
+
+The receiver accepts authenticated OTLP HTTP JSON or protobuf on **127.0.0.1**,
+filters before writing, never forwards/upload events, and records only numerical
+timing/usage, narrowly recognized model/effort/version values, fixed enums and
+pseudonymous structural correlation keys. Prompts, bodies, tool arguments/results,
+errors, accounts, paths and arbitrary attributes are discarded in memory. Turning
+off prompt logging is an additional native setting, not the retention filter.
+The native metrics exporter is disabled in this managed configuration.
+
+The explicitly enabled service remains available for all Codex work on this
+machine, including non-modeling sessions; it does not run analyses or computation.
+Each bundle stops/rotates after eight hours, 16 MiB or 100,000 records; at most
+20 bundles remain. Request bodies are bounded to 4 MiB, connections time out,
+and files are private/Git-ignored. Idle operation performs no repeated disk writes.
+Rotation/export loss can leave incomplete span trees and must retain coverage
+warnings. The service restarts automatically after reboot/login according to the
+user service manager; headless boot requires an already approved persistent user
+manager (`loginctl show-user "$USER" -p Linger`). Do not change that policy silently.
+
+```sh
+# Remove managed Codex defaults and stop/disable the receiver; restart Codex afterward.
+.venv/bin/python -m performance.telemetry --disable
+# Diagnose local receiver startup without printing Codex configuration or source data.
+systemctl --user status codex-workflow-telemetry.service
+journalctl --user -u codex-workflow-telemetry.service -n 20
+```
+
+`performance.telemetry --duration 600` remains a foreground-only alternative for
+a bounded experiment; exporter configuration is then a separate explicit choice.
+There is no launcher wrapper or private model-traffic interception.
+
+### Qualified native observations
+
+Installed 0.160.0 was exercised prospectively with a small multi-request turn
+separated by a shell tool. Both sampling operations exported a `stream_request`
+child and a completion `handle_responses` child under the same sampling/receiving
+tree, with completion usage and request effort. The completion's `receiving`
+child ends when the event reaches Codex core. This supports **derived client
+request-operation duration** from `stream_request.start` to that receipt, plus
+`output_tokens / operation_duration`. It includes client preparation, network and
+scheduling; it is not isolated backend compute or exact wire-send timing.
+The parent sampling/receiving spans can include later tool draining and are not
+used as response-duration substitutes. Output includes reported reasoning tokens.
+
+The installed export did not retain event-kind labels on non-completion
+`handle_responses` spans, despite the source's `otel.name` recording. Individual
+text/reasoning-delta receipt timing is therefore **unsupported**, not inferred from
+generic stream polls. Native log `ttft_ms` retains its stream-mapping-to-first-item scope and is reported separately,
+without joining it to a request or using it as a generation-rate denominator.
+Warmup completions can appear among native completion logs; those logs are not a
+generation-request count. Literal request TTFT, generation-only/visible-text
+throughput, exact wire-send duration and backend compute remain unavailable.
+
+The adapter currently qualifies these boundaries for 0.160.0 only. Unknown versions,
+missing/ambiguous parents, conflicting duplicate spans, missing timestamps and
+unfinished attempts keep missing metrics and warnings. Export order is irrelevant;
+relationships come from span/parent IDs, not adjacency. Model is configured sampling
+identity and backend implementation remains unverified. Missing effort stays unknown.
+
+Ordinary analyzer commands automatically inspect retained native captures for the
+**selected rollout sessions**, using pseudonymized explicit session metadata keys.
+They never add native usage to rollout token totals. Explicit `--telemetry` may
+select up to 20 bundles; `--telemetry-only` permits analysis of those chosen bundles
+without rollouts/executions and declares that broader scope. Aggregate parsing is
+bounded to 100,000 records. Modeling mode still requires milestone evidence and
+selected session associations; a telemetry-only capture is not task acceptance.
+Local reports include native coverage, configuration, tokens, slowest operations
+and transport-attempt observations. Perfetto retains these request intervals
+separately. Measured-turn attribution unions tools first, then native request
+operations, recorded model items and compaction, so overlap is not counted twice.
 
 ## Timing and execution evidence
 

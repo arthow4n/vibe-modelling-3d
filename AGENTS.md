@@ -245,6 +245,9 @@ performance investigations, profiling, history analysis or coordinator recovery.
 agent-session timing, token and tool-activity investigations alongside execution
 history, use [workflow performance analysis](.codex/skills/workflow-performance-analysis/SKILL.md).
 Ordinary modelling does not require session-history inspection or performance reports.
+On a new machine or moved checkout, consult the optional
+[native Codex telemetry setup](performance/WORKFLOW.md#optional-machine-setup-and-future-clones)
+and discuss activation with the user; a Git clone does not install machine defaults.
 
 ## Object ownership and source of truth
 
