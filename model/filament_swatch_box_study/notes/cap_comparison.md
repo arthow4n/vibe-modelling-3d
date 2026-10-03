@@ -1,5 +1,60 @@
 # Cap exploration — authorized autonomous phase
 
+## J/K print feedback and revisions
+
+Current authorized phase: record the printed J/K failures, preserve the accepted
+current G hood and I key 3, deliver J2 then K2 revisions, then a separate vase-mode
+hood. Earlier pause is revoked. Use PETG/.4 mm nozzle/.2 mm layers/two walls/7%
+adaptive cubic for bases. The explicitly requested vase shell instead needs one
+continuous perimeter and no infill; its roof becomes solid bottom layers in the
+roof-down print. Work through geometry, checks/views, exports/slice and commit/push
+for each variant. Exact user-printed artifacts/settings are not reconfirmed.
+
+Observed J: strong bite, but cards visibly tilt in side view. Its rounded grip
+region reaches above the old 14 mm straight-guide height, into the widening
+funnel. The virtual checks imposed an upright card pose and checked access and
+preload; they did not establish opposing support spanning the load region.
+J2 preserves the printed-liked broad panel and adds two front-face datum rails
+outside the dome and text areas. Their straight height is 16 mm from the floor,
+with the last 2 mm remaining as an entry ramp. Contact lies above and below the
+spring's load region; spring, sockets, foot and G hood interfaces stay unchanged.
+The measured relaxed grip overlap spans Z=15.18–17.31 mm, compared with
+opposing support Z=5.9–18.4 mm. The old straight wall ended at Z=16.4 mm.
+The source-card checks cover 15 thickness/slot cases, contact on each rail above
+and below the grip, two tilted-pose obstruction witnesses, 88 corrected funnel
+poses and nine aligned descent poses. Rigid path checks exclude the spring;
+they establish an available guided route, not free-fall insertion or effort.
+The paired J2 export and reference PETG slice completed without notices or
+automatic supports. The complete five-card base is the next physical experiment:
+it preserves spring/root, guide, hood and socket surroundings. Compare sparse
+and full rows, side-view alignment, reinsertion/removal and dwell. A smaller
+coupon would omit the integration responsible for the tilt. J2 is unprinted;
+no new force or lifetime claim follows from preserving the original spring.
+
+Observed K: catch does not clip into the dome, even after trying both card
+orientations; it presses the back instead. The old reference independently put
+the sphere at holder X=+16 and front=+Y after rotating the outline notch-up.
+For the real SCAD item, source X becomes holder Z; if source front +Z faces
+holder +Y, source Y must become holder +X. Its dome at source Y=9 therefore
+belongs at holder X=-16, not +16. The old combination has determinant -1:
+it is a reflection, not a physical rotation. Both the checks and renders used
+this impossible reference, and the flat-face FEA did not address orientation.
+This is a reference/geometry error, not tolerance, material or printer blame.
+
+The replacement reference constructs the source outline, notch, dome, opacity
+steps and face-edge treatments before one -120-degree rotation about (1,1,1).
+Engraved lettering is omitted and contact patches must stay outside its area.
+K2 will preserve the spring dimensions while reversing its lateral placement
+and adding opposing upright datums. Check the real feature, correct face and
+wrong-face/mirrored negative cases before any grip tuning. Earlier K local
+mechanics remain narrow historical evidence, not a passed product result.
+
+Observed hood: printed and good to use, with no reported problem. Preserve G;
+the vase variant is an additional transparency exploration. Match actual inner
+wall placement to the base and define retention within a single continuous wall
+before selecting its final CAD boundary and slicer settings. Do not merely
+change G's wall count or promise maximum optical clarity from vase mode alone.
+
 The user authorizes exploration, ordinary design decisions and incremental
 commit/push until approximately 19:00 Europe/Stockholm on 2026-10-02. They regard
 the lower section as broadly acceptable and ask for softer edges. This is concept

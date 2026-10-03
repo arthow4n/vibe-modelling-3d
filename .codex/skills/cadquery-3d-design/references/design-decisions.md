@@ -442,6 +442,17 @@ separation within the user's assembly constraints; explain any new tradeoff.
 Measure actual geometry in a common coordinate frame where feasible: mating
 sizes, local wall/gap thickness, undercut, interference and clearance. A bounding
 box or nominal parameter alone cannot establish a local gap or retaining contact.
+For an asymmetric held item, derive its reference geometry in its source frame
+and apply one documented physical rotation/translation to the whole item. Check
+front/back, feature location and handedness against that source before tuning a
+mate. Reconstructing a recess beside an independently rotated outline can create
+a reflected item that cannot be inserted in the illustrated pose. Rendering and
+contact assertions using that same invented reference cannot expose the error.
+Include a wrong-face or mirrored-item negative check when that failure would
+change engagement. When alignment relies on a spring pressing onto a rigid
+datum, verify opposing support spans the load region or explain the alternative
+restoring constraint; collision-free placement alone does not establish a stable
+attitude. Keep these checks tied to the relevant item and contact pairs.
 For motion, include the relevant geometry pairs, axis/path, endpoints and intended
 contact or exclusions. A shell-only sweep does not check the removed latch;
 rigidly translating a latch clear does not establish its elastic release behavior.
