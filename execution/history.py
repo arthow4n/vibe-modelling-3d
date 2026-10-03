@@ -39,13 +39,20 @@ def main(argv=None):
         return 0
     if args.perfetto:
         events=[]
-        for path in (data_root()/'traces').glob(f'{args.run or "*"}*.otlp.jsonl'):
+        selected_trace=None
+        if args.run:
+            summary=data_root()/'runs'/f'{args.run}.json'
+            if summary.exists():selected_trace=json.loads(summary.read_text()).get('trace_id')
+        for path in (data_root()/'traces').glob('*.otlp.jsonl'):
+            if args.run and not selected_trace and not path.name.startswith(args.run):continue
             for line in path.read_text().splitlines():
+                if selected_trace and selected_trace not in line:continue
                 for resource in json.loads(line).get('resourceSpans', []):
                     attributes = {a['key']: a['value'] for a in resource['resource'].get('attributes', [])}
                     pid = attributes.get('process.pid', {}).get('intValue', 0)
                     for scope in resource.get('scopeSpans', []):
                         for s in scope.get('spans', []):
+                            if selected_trace and s['traceId']!=selected_trace:continue
                             attributes={a['key']:a['value'] for a in s.get('attributes',[])}
                             events.append(dict(name=s['name'],cat='engineering',ph='X',pid=pid,tid=attributes.get('thread.id',{}).get('intValue',0),
                                 ts=int(s['startTimeUnixNano'])/1000,

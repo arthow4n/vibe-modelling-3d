@@ -23,7 +23,8 @@ def child(connection):
             watch_owner()
         source=Path(request['source']);os.chdir(source.parent)
         sys.path.insert(0,str(source.parent))
-        sys.dont_write_bytecode=True;sys.pycache_prefix=str(data_root()/'bytecode-disabled'/request['run_id'])
+        from .source import install
+        install(source)
         from threadpoolctl import threadpool_limits
         from OCP.OSD import OSD_ThreadPool
         OSD_ThreadPool.DefaultPool_s(request['threads']).Init(request['threads'])

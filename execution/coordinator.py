@@ -63,6 +63,30 @@ class CADPool:
                 if not process.is_alive() or time.monotonic()-touched>60:
                     connection.close();terminate(process);del self.entries[key]
 
+    def resident(self):
+        import psutil
+        with self.lock:
+            total=0
+            for process,*_ in self.entries.values():
+                try:total+=psutil.Process(process.pid).memory_info().rss/1024**2
+                except psutil.Error:pass
+            return total
+
+    def reclaim(self,available):
+        import psutil
+        with self.lock:
+            entries=list(self.entries.items())
+            sizes={}
+            for key,(process,*_) in entries:
+                try:sizes[key]=psutil.Process(process.pid).memory_info().rss/1024**2
+                except psutil.Error:sizes[key]=0
+            total=sum(sizes.values())
+            for key,(process,connection,*_) in entries:
+                if total<=available:break
+                with span('cad.worker_recycling',reason='memory_pressure'):
+                    connection.close();terminate(process);del self.entries[key]
+                total-=sizes[key]
+
 
 def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
     """Stage outputs, check final source identity, then publish with exclusive ownership."""
@@ -75,7 +99,8 @@ def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
     output_paths += [str(Path(managed['output_dir'])/f"{Path(request['source']).stem}_{view}.png") for view in managed['views']]
     if request.get('reuse'):output_paths.append(str(data_root()/'geometry-ownership'/request['identity']))
     started=time.monotonic()
-    with destinations(output_paths,cancelled,deadline),tempfile.TemporaryDirectory(prefix='engineering-cad-',dir=data_root()) as directory:
+    staging=ROOT/'.execution';staging.mkdir(exist_ok=True)
+    with destinations(output_paths,cancelled,deadline),tempfile.TemporaryDirectory(prefix='engineering-cad-',dir=staging) as directory:
         original=copy.deepcopy(request);request=copy.deepcopy(request)
         request['environment']=child_environment(request['environment'])
         request['environment']['ENGINEERING_LEASE_THREADS']=str(request['threads'])
@@ -142,16 +167,24 @@ def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
         finally:
             if connection is not None:connection.close();terminate(process)
             if isolated:terminate(process)
+            from .lifecycle import cleanup_orphans
+            cleanup_orphans(request['run_id'])
 
 
 class Coordinator:
     def __init__(self):
+        from .lifecycle import enable_reaper
+        enable_reaper()
         self.runtime=runtime_identity()
         self.admission=Admission()
         self.ctx=mp.get_context('forkserver')
         mp.set_forkserver_preload(['execution.preload'])
         self.cad_pool=CADPool(self.ctx)
+        self.admission.resident_usage=self.cad_pool.resident
+        self.admission.reclaim_resident=self.cad_pool.reclaim
         self.qualified=False;self.qualification_lock=threading.Lock()
+        self.preload_requested=threading.Event();self.preload_ready=threading.Event()
+        self.preload_error=None
         self.last_request=time.monotonic();self.stopping=threading.Event()
         self.jobs=set();self.lock=threading.Lock()
 
@@ -165,7 +198,13 @@ class Coordinator:
             with span('worker.initialization'):
                 os.environ['ENGINEERING_OWNER_PID']=str(os.getpid())
                 os.environ['ENGINEERING_OWNER_ID']=process_identity()
-                compatible=qualify(self.ctx,deadline,cancelled)
+                # Linux parent-death signals track the creating thread. Start the
+                # import host from the long-lived main thread, not a request thread.
+                self.preload_requested.set()
+                while not self.preload_ready.wait(.02):
+                    if cancelled():raise InterruptedError('Cancelled initializing workers')
+                    if deadline is not None and time.monotonic()>deadline:raise TimeoutError('Worker initialization timed out')
+                compatible=False if self.preload_error else qualify(self.ctx,deadline,cancelled)
                 if not compatible:
                     self.ctx=mp.get_context('spawn');self.cad_pool.ctx=self.ctx
                 self.qualified=True
@@ -205,8 +244,9 @@ class Coordinator:
             # Explicit trace context enters this handler without global environment mutation.
             from opentelemetry.context import attach,detach
             from opentelemetry.propagate import extract
-            from .telemetry import _active
+            from .telemetry import _active,_enabled
             token=_active.set(request['run_id']);parent=attach(extract({'traceparent':request['environment'].get('ENGINEERING_TRACEPARENT','')}))
+            enabled_token=_enabled.set(request['environment'].get('ENGINEERING_TRACE')!='0')
             try:
                 with span('coordinator.admission'):
                     with self.admission.acquire(request['threads'],request['memory_mb'],cancelled,deadline) as queued:
@@ -216,9 +256,10 @@ class Coordinator:
                         answer=run_cad(request,self.cad_pool,cancelled,deadline,progress=lambda event:protocol.send(connection,event)) if request['kind']=='cad' else self.execute(request,fds,cancelled,deadline)
                         answer['queue_seconds']=queued
                         journal(request,'completed' if answer['exit_code']==0 else 'failed')
-                        write_record(request['run_id'],dict(run_id=request['run_id'],source=request['source'],source_sha256=request['source_sha256'],**answer))
+                        write_record(request['run_id'],dict(run_id=request['run_id'],source=request['source'],source_sha256=request['source_sha256'],
+                            **{k:v for k,v in answer.items() if k!='report'}))
                 protocol.send(connection,answer)
-            finally:detach(parent);_active.reset(token)
+            finally:detach(parent);_active.reset(token);_enabled.reset(enabled_token)
         except BaseException as exc:
             if 'request' in locals() and request.get('run_id'):
                 from .journal import update as journal
@@ -259,10 +300,12 @@ class Coordinator:
                     env=env,stdin=fds[0],stdout=fds[1],stderr=fds[2],start_new_session=True)
                 startup=time.monotonic()-before
             try:
-                code,resources=wait(process,remaining,cancelled,request['memory_mb'],sample)
+                code,resources=wait(process,remaining,cancelled,request['memory_mb'],sample,request['run_id'])
             except BaseException:
                 terminate(process);raise
             finally:
+                from .lifecycle import cleanup_orphans
+                cleanup_orphans(request['run_id'])
                 if request['strategy']=='isolated':directory.cleanup()
                 try:
                     folder=data_root()/'resources';folder.mkdir(parents=True,exist_ok=True)
@@ -279,11 +322,17 @@ class Coordinator:
             try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
             except BlockingIOError:return
             path.unlink(missing_ok=True)
-            server=socket.socket(socket.AF_UNIX);server.bind(str(path));path.chmod(0o600);server.listen(32);server.settimeout(.5)
+            server=socket.socket(socket.AF_UNIX);server.bind(str(path));path.chmod(0o600);server.listen(32);server.settimeout(.1)
             def stop(*unused):self.stopping.set()
             signal.signal(signal.SIGTERM,stop);signal.signal(signal.SIGINT,stop)
             try:
                 while not self.stopping.is_set():
+                    if self.preload_requested.is_set() and not self.preload_ready.is_set():
+                        try:
+                            from multiprocessing import forkserver
+                            forkserver.ensure_running()
+                        except Exception as exc:self.preload_error=str(exc)
+                        finally:self.preload_ready.set()
                     self.cad_pool.prune()
                     if not self.admission.active and time.monotonic()-self.last_request>120:break
                     try:connection,_=server.accept()

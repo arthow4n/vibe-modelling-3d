@@ -176,8 +176,8 @@ def evaluate_request(args, cache=None, progress=None):
         try:
             os.chdir(root)
             sys.path.insert(0, str(root))
-            sys.dont_write_bytecode = True
-            sys.pycache_prefix = str(REPO_ROOT / ".execution/bytecode-disabled" / args.get("run_id","isolated"))
+            from execution.source import install
+            install(path)
             outputs = []
             def show_object(obj, *unused, **options):
                 outputs.append(obj)
@@ -529,7 +529,7 @@ def review(model, printer=DEFAULTS["printer"], process=DEFAULTS["process"],
         if identity:
             saved=cache.read(key)
             if saved is not None:
-                report=json.loads(saved);report.update(reused=True,identity=fingerprint(key),model=str(model),
+                report=json.loads(saved);report.update(reused=True,identity=fingerprint(key),input_sha256=key['model'],model=str(model),
                     profiles={k:str(p) for k,p in profiles.items()})
                 return report
         # Flatpak OrcaSlicer can access the user's home, but may not see host /tmp.
@@ -544,7 +544,7 @@ def review(model, printer=DEFAULTS["printer"], process=DEFAULTS["process"],
             with lease(threads) as budget:
                 report = _review_in_directory(snapshot, snapshot_profiles, run_dir, placement,budget)
             report.update(model=str(model),profiles={k:str(p) for k,p in profiles.items()})
-            report.update(reused=False,identity=fingerprint(key))
+            report.update(reused=False,identity=fingerprint(key),input_sha256=key['model'])
             if identity and report["support_probe"]["ok"] and tool_identity(slicer_prefix())==identity:
                 cache.store(key,json.dumps(report).encode())
             if keep_run:
@@ -595,18 +595,28 @@ def emit_report(report, args):
     """Retain native evidence and optionally shorten console output, without rerunning stages."""
     if args.report:
         try:
-            args.report.parent.mkdir(parents=True, exist_ok=True)
-            # A failed write must not truncate an earlier useful report.
-            with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=args.report.parent,
-                                             delete=False) as saved:
-                temporary = Path(saved.name)
-                try:
-                    saved.write(json.dumps(report, indent=2) + "\n")
-                    saved.close()
-                    temporary.replace(args.report)
-                finally:
-                    temporary.unlink(missing_ok=True)
-        except OSError as exc:
+            from execution.artifacts import destinations
+            from execution.identity import cad_identity, digest
+            with destinations([args.report]):
+                publication=getattr(args,'_publication',None)
+                if publication and cad_identity(*publication[:2],environment=publication[2])!=publication[3]:
+                    raise RuntimeError('CAD inputs changed before report publication; previous report preserved')
+                existing=getattr(args,'slice_existing',None)
+                expected=report.get('slice',{}).get('input_sha256')
+                if existing and expected and digest(existing)!=expected:
+                    raise RuntimeError('Slice input changed before report publication; previous report preserved')
+                args.report.parent.mkdir(parents=True, exist_ok=True)
+                # A failed write must not truncate an earlier useful report.
+                with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=args.report.parent,
+                                                 delete=False) as saved:
+                    temporary = Path(saved.name)
+                    try:
+                        saved.write(json.dumps(report, indent=2) + "\n")
+                        saved.close()
+                        temporary.replace(args.report)
+                    finally:
+                        temporary.unlink(missing_ok=True)
+        except (OSError,RuntimeError) as exc:
             report["ok"] = False
             report.setdefault("errors", []).append({"stage": "report", "message": str(exc)})
     output = report
@@ -759,6 +769,7 @@ def main(argv=None):
     from execution.resources import thread_environment
     execution_environment=thread_environment(child_environment(),args.threads)
     identity=cad_identity(source,args.dependency,execution_environment)
+    args._publication=(source,args.dependency,execution_environment,identity)
     request.update(identity=identity,run_id=_active.get(),runtime=runtime_identity())
     started = time.monotonic()
     from concurrent.futures import ThreadPoolExecutor

@@ -8,6 +8,8 @@ from .telemetry import span,child_environment
 def probe(connection,environment):
     os.setsid()
     os.environ.update(environment)
+    from .resources import apply_affinity
+    apply_affinity()
     from .lifecycle import watch_owner
     watch_owner()
     try:

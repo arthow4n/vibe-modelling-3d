@@ -11,6 +11,7 @@ from execution.process import run as run_command
 import sys
 import xml.etree.ElementTree as ET
 import numpy as np
+from importlib.metadata import version as package_version
 from ..results import AnalysisResult
 from .worker import compile_case
 
@@ -21,6 +22,7 @@ def add(parent, tag, value=None, **attributes):
     return child
 
 
+@operation('analysis.native_input')
 def compile_xml(case, directory, meshes, nodes, selections):
     from .mesh import select_faces
     root=ET.Element('febio_spec',version='4.0')
@@ -118,6 +120,7 @@ def read_records(path):
     if time is not None:yield time,rows
 
 
+@operation('analysis.extraction')
 def summarize(directory,case,meshes,selections):
     from .tet10_strain import Tet10GreenStrain,POINTS
     nodes={n:p for m in meshes.values() for n,p in m['nodes'].items()}
@@ -218,9 +221,7 @@ def main(directory, *, postprocess_only=False):
                 if hashlib.sha256((directory/name).read_bytes()).hexdigest()!=original.get(key):
                     raise ValueError('Saved FEBio input/case identity differs from its result')
         meshes,nodes,elements,selections,loads,contacts=compile_case(case,directory,expected_input_sha256=expected)
-        import gmsh
-        import cadquery as cq
-        r.provenance.update(gmsh=gmsh.__version__,cadquery=cq.__version__,python=sys.version.split()[0])
+        r.provenance.update(gmsh=package_version('gmsh'),cadquery=package_version('cadquery'),python=sys.version.split()[0])
         xml=compile_xml(case,directory,meshes,nodes,selections)
         if postprocess_only:
             if xml!=(directory/'analysis.feb').read_bytes():raise ValueError('Regenerated FEBio input differs; cannot reuse native fields')

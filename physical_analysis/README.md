@@ -47,7 +47,10 @@ for substantial studies; independent script studies can use `execution.batch`.
 Dependency/solver initialization, input compilation, solve, extraction and recovery
 spans are retained locally without output noise. Do not inspect them routinely;
 [execution documentation](../execution/README.md) describes dedicated profiling and
-history analysis. Existing `mesh_from`, saved-field recovery and question-study
+history analysis. Unchanged mesh candidates are selected automatically with the existing backend
+identity guards; stale/deleted references remesh. Mesh snapshots are verified after
+copying, and reports identify reuse. Native solves still execute freshly.
+Existing explicit `mesh_from`, saved-field recovery and question-study
 `evidence` are the computational checkpoints: no unknown solve or script result
 is cached. Recovery never turns an incomplete solve into engineering evidence.
 Surface traction integration is batched with unchanged quadrature; repeated IPC
@@ -197,7 +200,7 @@ The [swatch-box K consumer](../model/filament_swatch_box_study/analyze_cap_k.py)
 uses this route for its saved 0.8/0.65 mm meshes:
 
 ```bash
-uv run --locked python model/filament_swatch_box_study/analyze_cap_k.py --review-evidence
+./execute.py model/filament_swatch_box_study/analyze_cap_k.py --review-evidence
 ```
 
 It supplies every planned evidence entry and no run directory, so missing or

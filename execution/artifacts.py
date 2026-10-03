@@ -7,14 +7,15 @@ from pathlib import Path
 import os
 import tempfile
 from .telemetry import data_root
-from .identity import fingerprint, digest
+from .identity import fingerprint, digest, ROOT
 
 
 @contextmanager
 def destinations(paths, cancelled=lambda:False, deadline=None):
     locks=[]
     try:
-        folder=data_root()/'locks';folder.mkdir(parents=True,exist_ok=True)
+        # Ownership belongs to the repository, independent of a client's trace path.
+        folder=ROOT/'.execution/locks';folder.mkdir(parents=True,exist_ok=True)
         for name in sorted({str(Path(p).resolve()) for p in paths}):
             lock=(folder/f'{fingerprint(name)}.lock').open('a')
             import time
@@ -40,11 +41,15 @@ class ArtifactCache:
             folder=self.folder/fingerprint(key)
             record=json.loads((folder/'identity.json').read_text())
             path=folder/'artifact'
-            if record['key']!=key or digest(path)!=record['sha256']:return None
+            if fingerprint(record['key'])!=fingerprint(key) or digest(path)!=record['sha256']:return None
             return path.read_bytes()
         except (OSError,ValueError,KeyError):return None
 
     def store(self,key,data):
+        try:self._store(key,data)
+        except OSError:pass  # Optional cache failures cannot invalidate successful output.
+
+    def _store(self,key,data):
         folder=self.folder/fingerprint(key);folder.mkdir(parents=True,exist_ok=True)
         for name,contents in [('artifact',data),('identity.json',json.dumps(dict(key=key,sha256=hashlib.sha256(data).hexdigest())).encode())]:
             with tempfile.NamedTemporaryFile(dir=folder,delete=False) as f:

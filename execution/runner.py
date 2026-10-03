@@ -21,8 +21,8 @@ def execute(request):
     sys.argv=[str(source),*request.get('arguments',[])]
     sys.path[:]=[str(source.parent),*request.get('pythonpath',[]),*sys.path]
     # Content edits within filesystem timestamp resolution must never load old pyc.
-    sys.dont_write_bytecode=True
-    sys.pycache_prefix=str(data_root()/'bytecode-disabled'/request['run_id'])
+    from .source import install
+    install(source)
     profiler=cProfile.Profile() if request.get('profile')=='cpu' else None
     if request.get('profile')=='allocations':
         import tracemalloc;tracemalloc.start()
@@ -64,6 +64,8 @@ def execute(request):
 
 def child(request, descriptors):
     os.setsid()
+    from .lifecycle import arm_parent_death
+    arm_parent_death()
     for target,descriptor in enumerate(descriptors):
         fd=descriptor.detach();os.dup2(fd,target)
         if fd>2:os.close(fd)
@@ -81,6 +83,14 @@ def child(request, descriptors):
 
 
 def main():
+    if sys.argv[1:2]==['--module']:
+        from .source import install
+        from .resources import apply_affinity
+        from .lifecycle import watch_owner
+        install(None);apply_affinity();watch_owner()
+        sys.argv=sys.argv[2:]
+        runpy.run_module(sys.argv[0],run_name='__main__',alter_sys=True)
+        return
     request=json.loads(Path(sys.argv[1]).read_text())
     raise SystemExit(execute(request))
 if __name__=='__main__':main()

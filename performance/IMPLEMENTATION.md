@@ -28,8 +28,18 @@ engineering evidence remains owned by its existing tools.
    Existing IPC thread benchmarks retained. Host is WSL2, 16 logical CPUs;
    Gmsh requires the documented local runtime library path.
 2. Architecture: above contracts chosen; detailed interface follows in execution/README.md.
-3. Baselines: in progress; optional native tools checked rather than assumed.
-4–15. Pending implementation, regression and final measurements.
+3. Baselines: retained cold/warm subprocess measurements from `f984a0b`; optional
+   native tools checked rather than assumed.
+4–6. Tracing, coordinator and qualified initialization: implemented and pushed.
+7–9. CAD, verified incremental artifacts and resource-aware slicing: implemented
+   and pushed; explicit render/export/slice contracts preserved.
+10–11. Physical backends and measured computational kernels: implemented and
+   pushed; native completion and quality requirements unchanged.
+12–13. Agent interface, instructions and focused execution skill: implemented
+   and pushed, with reliability refinements in final verification.
+14. Frozen-source integration and regression verification: **144 passed, 3 skipped**
+   in 235.94 s, including native CalculiX/FEBio and coordinator/native death tests.
+15. Final cold/warm, observability and scheduling benchmarks: consolidation follows.
 
 Commit identifiers and benchmark findings will be added at subsequent milestones;
 Git history is the authoritative commit/push record.
@@ -152,3 +162,30 @@ in 220.89 s. Skips are unavailable optional native IPC execution; CalculiX/FEBio
 CAD and Orca orchestration were exercised. `pytest` without a test-directory
 restriction imports object-owned modeling experiments, so qualification used
 `pytest tests` and did not treat those CAD scripts as tests.
+
+### Reliability and startup qualification
+
+Workflow commit `b20f35f` pushed. Linux subreaper ownership now catches rapid-exit
+children even when they detach before resource sampling. Tracing/cache storage
+failure preserves calculations; repository output locks stay shared across clients
+with different trace destinations. Run summaries merge source/resource provenance
+without retaining full CAD reports, diagnostics or output. Coordinator configuration
+changes invalidate capacity. Repository test discovery excludes object-owned CAD
+experiments. Full regression: **134 passed, 3 optional native IPC skips**.
+
+A final candidate benchmark exposed excessive recompilation caused by globally
+bypassing dependency bytecode. Replaced it with fresh loaders only for editable
+repository/adjacent source, preserving normal cached bytecode for locked dependencies.
+The import-only host also preloads tracing dependencies without starting threads;
+compatibility qualification remains mandatory. Full repeated regression again:
+**134 passed, 3 skipped**. Candidate benchmark retained to document the rejected
+startup policy; final measurements follow after the verified mesh-index integration.
+
+The final ownership audit additionally tests coordinator SIGKILL while native code
+holds the GIL, both in script workers and external execs. Linux parent-death signals
+must follow the long-lived creating thread: the standard-library forkserver now
+starts lazily from the coordinator main thread. Starting it in a short-lived request
+thread killed persistent geometry owners; relying only on Python watchdogs left
+GIL-blocked work running. Both rejected variants were caught by regression tests.
+Focused corrected verification: **53 passed**. Saved reports now recheck source
+identity after slicing and use the same destination locks as managed artifacts.

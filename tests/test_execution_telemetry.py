@@ -26,3 +26,13 @@ def test_telemetry_failure_does_not_fail_computation(tmp_path, monkeypatch):
     with run('command'):
         with span('work'):
             assert 1+1==2
+
+
+def test_perfetto_includes_nested_runs_in_shared_trace(tmp_path,monkeypatch):
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path))
+    with run('parent') as parent:
+        with run('nested') as nested:
+            with span('work'):pass
+    output=tmp_path/'trace.json'
+    main(['--perfetto',str(output),'--run',parent['run_id']])
+    assert {s['name'] for s in json.loads(output.read_text())['traceEvents']}=={'parent','nested','work'}

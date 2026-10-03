@@ -3,6 +3,7 @@ import csv
 import json
 from pathlib import Path
 import numpy as np
+from execution.telemetry import operation
 from .polyfem_worker import digest, write_json
 from .mesh import contains
 from ..mesh_witness import inspect_mesh_pair
@@ -122,6 +123,7 @@ def require_final_equilibrium_policy(native, tolerance_N, steps, *, dt=None):
         raise ValueError('Effective final native gradient tolerance exceeds the recorded request')
 
 
+@operation('analysis.extraction')
 def extract(directory, case, meshes, selections, scene, result, *, partial=False):
     result.provenance['extractor_sha256']=digest(__file__)
     steps=scene['time']['time_steps'];flexible=case['ipc']['deformable'];mesh=meshes[flexible]

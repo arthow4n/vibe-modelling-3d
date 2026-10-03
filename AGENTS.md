@@ -234,8 +234,9 @@ spatial indexes before custom kernels. Separate preparation, expensive kernels
 and reporting when useful; keep inexpensive experiments simple. Schedule independent
 script files with `execution.batch`, declaring dependencies and shared outputs,
 rather than building another worker framework. Avoid redundant views, exports,
-slices and solves without reducing required checks or tolerances. Mesh reuse,
-saved-field recovery and `QuestionStudy(evidence=...)` keep their identity guards.
+slices and solves without reducing required checks or tolerances. Unchanged mesh candidates reuse automatically through backend identity guards;
+native solves still run. Saved-field recovery and `QuestionStudy(evidence=...)`
+keep their identity guards.
 
 Tracing is automatic; do not add timers or routinely inspect performance records
 in ordinary engineering work. Use the
@@ -613,8 +614,10 @@ and creator attribution intact; consult the root README's licensing section.
 
 ## Python dependencies
 
-Use the root `pyproject.toml` and `uv.lock` for Python tooling. Run commands with
-`uv run --locked` and commit dependency changes to both files, not environments
+Use the root `pyproject.toml` and `uv.lock` for Python tooling. Run ordinary files
+with `./execute.py` and CAD with `./evaluate_model.py`; their bootstrap synchronizes
+the locked environment when its identity changes. Use `uv run --locked` for direct
+package commands, and commit dependency changes to both files, not environments
 or caches. OrcaSlicer is a separate Flatpak CLI for reference slicing. Use the
 repository's [OrcaSlicer printability skill](.codex/skills/orca-slicer-printability/SKILL.md).
 Do not use ad-hoc virtual environments or another environment manager.

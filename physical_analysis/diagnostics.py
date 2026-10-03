@@ -25,7 +25,7 @@ def contact_frames(directory, fractions=None, *, rigid_parts=()):
     """
     request = dict(directory=str(Path(directory).resolve()),
                    fractions=None if fractions is None else list(fractions), rigid_parts=list(rigid_parts))
-    code = ('import json,sys; '
+    code = ('from execution.source import install; install(None); import json,sys; '
             'from physical_analysis.backends.contact_diagnostics import contact_frames; '
             'print(json.dumps(contact_frames(**json.load(sys.stdin)),allow_nan=False))')
     with lease(1):

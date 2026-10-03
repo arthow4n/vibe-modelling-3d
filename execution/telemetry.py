@@ -14,9 +14,10 @@ import resource
 import threading
 import time
 import uuid
-from .identity import ROOT, digest, fingerprint, python_sources
+from .identity import ROOT, digest, fingerprint, python_sources,repository_revision
 
 _active = contextvars.ContextVar('engineering_run', default=None)
+_enabled = contextvars.ContextVar('engineering_trace_enabled',default=True)
 _providers = {}
 _lock = threading.Lock()
 
@@ -76,7 +77,7 @@ def _tracer(run_id):
 
 @contextmanager
 def span(name, **attributes):
-    if os.environ.get('ENGINEERING_TRACE') == '0':
+    if not _enabled.get() or os.environ.get('ENGINEERING_TRACE') == '0':
         yield None
         return
     run_id = _active.get() or os.environ.get('ENGINEERING_RUN_ID')
@@ -134,8 +135,10 @@ def write_record(run_id, record):
     try:
         path = data_root()/'runs'/f'{run_id}.json'
         path.parent.mkdir(parents=True, exist_ok=True)
+        previous=json.loads(path.read_text()) if path.is_file() else {}
         temporary = path.with_suffix(f'.{os.getpid()}.tmp')
-        temporary.write_text(json.dumps({'schema_version': 1, **record}, separators=(',', ':'))+'\n')
+        combined={**previous,**{k:v for k,v in record.items() if v is not None or k not in previous}}
+        temporary.write_text(json.dumps({'schema_version': 1, **combined}, separators=(',', ':'))+'\n')
         temporary.replace(path)
     except Exception:
         pass
@@ -174,6 +177,7 @@ def run(name, source=None, strategy='isolated', argv=()):
         python=platform.python_version(), platform=" ".join((platform.system(),platform.release(),platform.machine())),
         lock_sha256=digest(ROOT/'uv.lock'), status='running')
     try:
+        record['revision']=repository_revision()
         record['repository_python_sha256']=fingerprint({str(p.relative_to(ROOT)):digest(p) for p in python_sources(ROOT)})
         record['available_cpus']=len(os.sched_getaffinity(0)) if hasattr(os,'sched_getaffinity') else os.cpu_count()
     except OSError:pass
@@ -210,6 +214,8 @@ def operation(name):
             with run(name) as record:
                 answer=function(*args, **kwargs)
                 if isinstance(answer,int):record["exit_code"]=answer
+                if name=='cad.command' and answer==2:record['status']='review_required'
+                if hasattr(answer,'status'):record['operation_status']=answer.status
                 return answer
         return wrapped
     return decorate

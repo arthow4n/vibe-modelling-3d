@@ -103,14 +103,17 @@ def test_batch_dependencies_and_failed_dependency(tmp_path):
     assert results['bad']['exit_code']==3 and results['skip']['status']=='dependency_failed'
 
 
-def test_dead_coordinator_restarts_without_replaying_script(tmp_path,monkeypatch):
+@pytest.mark.parametrize('strategy',['isolated','preinitialized'])
+@pytest.mark.parametrize('native_child',[False,True])
+def test_dead_coordinator_restarts_without_replaying_script(tmp_path,monkeypatch,strategy,native_child):
     from execution import client,protocol
     import signal,psutil,uuid
     monkeypatch.setenv('ENGINEERING_INSTANCE',uuid.uuid4().hex)
     monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'records'))
     source=tmp_path/'long.py';started=tmp_path/'started'
-    source.write_text(f'import os,time\nopen({str(started)!r},"w").write(str(os.getpid()))\ntime.sleep(60)\n')
-    command=[sys.executable,str(CLI),str(source)]
+    native=f'import os,ctypes\nopen({str(started)!r},"w").write(str(os.getpid()))\nctypes.PyDLL("libc.so.6").sleep(60)\n'
+    source.write_text(f'import sys\nfrom execution.lifecycle import run\nrun([sys.executable,"-c",{native!r}])\n' if native_child else native)
+    command=[sys.executable,str(CLI),'--strategy',strategy,str(source)]
     proc=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
     deadline=time.monotonic()+15
     while not started.exists() and time.monotonic()<deadline:time.sleep(.02)
@@ -146,3 +149,67 @@ def test_memory_limit_and_invalid_resource_request(tmp_path):
     source.write_text('import time\ndata=bytearray(80*1024**2)\ntime.sleep(5)\n')
     assert call(source,'--memory-mb','40').returncode==1
     assert call(source,'--threads','0').returncode==2
+
+
+@pytest.mark.parametrize('strategy',['isolated','preinitialized'])
+def test_immediate_exit_does_not_abandon_detached_child(tmp_path,strategy):
+    import psutil
+    source=tmp_path/'spawn.py';pidfile=tmp_path/'child'
+    source.write_text(f'import subprocess,sys\np=subprocess.Popen([sys.executable,"-c","import time;time.sleep(30)"],start_new_session=True)\nopen({str(pidfile)!r},"w").write(str(p.pid))\n')
+    assert call(source,'--strategy',strategy).returncode==0
+    pid=int(pidfile.read_text())
+    try:assert psutil.Process(pid).status()==psutil.STATUS_ZOMBIE
+    except psutil.NoSuchProcess:pass
+
+
+def test_unavailable_trace_storage_preserves_execution(tmp_path,monkeypatch):
+    target=tmp_path/'not_directory';target.write_text('occupied')
+    monkeypatch.setenv('ENGINEERING_DATA',str(target))
+    source=tmp_path/'ok.py';source.write_text('print("calculated")\n')
+    assert call(source).stdout=='calculated\n'
+
+
+def test_incompatible_preload_selects_clean_spawn(monkeypatch):
+    from execution import coordinator,qualification
+    monkeypatch.setenv('ENGINEERING_OWNER_PID',str(os.getpid()))
+    monkeypatch.setenv('ENGINEERING_OWNER_ID','')
+    service=coordinator.Coordinator()
+    service.preload_ready.set()  # Native qualification is mocked; no server loop.
+    monkeypatch.setattr(qualification,'qualify',lambda *args:False)
+    service.initialize({},lambda:False,None)
+    assert service.qualified and service.ctx.get_start_method()=='spawn'
+
+
+def test_native_and_watchdog_threads_use_allocated_cpu_set(tmp_path):
+    source=tmp_path/'affinity.py'
+    source.write_text('import os,psutil,numpy as np\na=np.ones((256,256));a@a\nexpected={int(v) for v in os.environ["ENGINEERING_AFFINITY"].split(",")}\nassert all(os.sched_getaffinity(t.id)==expected for t in psutil.Process().threads())\n')
+    assert call(source,'--strategy','preinitialized','--threads','2').returncode==0
+
+
+def test_external_editable_imports_are_fresh_and_trace_disable_is_per_request(tmp_path,monkeypatch):
+    from execution import client,protocol
+    import uuid
+    monkeypatch.setenv('ENGINEERING_INSTANCE',uuid.uuid4().hex)
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'records'))
+    external=tmp_path/'external';external.mkdir()
+    module=external/'outside.py';module.write_text('VALUE=31\n')
+    folder=tmp_path/'scripts';folder.mkdir()
+    source=folder/'work.py';source.write_text(f'import sys\nsys.path.insert(0,{str(external)!r})\nimport outside\nprint(outside.VALUE)\n')
+    assert call(source).stdout=='31\n'
+    module.write_text('VALUE=32\n')
+    monkeypatch.setenv('ENGINEERING_TRACE','0')
+    assert call(source).stdout=='32\n'
+    records=sorted((tmp_path/'records/runs').glob('*.json'),key=lambda p:p.stat().st_mtime)
+    last=json.loads(records[-1].read_text())
+    assert not list((tmp_path/'records/traces').glob(last['run_id']+'*'))
+    c=client.connect();protocol.send(c,{'kind':'stop'});protocol.receive(c);c.close()
+
+
+def test_idle_worker_memory_is_reclaimed_before_admission():
+    from execution.resources import Admission
+    gate=Admission(cpus=1,memory_mb=100,jobs=1);idle=[90];reclaimed=[]
+    gate.resident_usage=lambda:idle[0]
+    def reclaim(available):reclaimed.append(available);idle[0]=0
+    gate.reclaim_resident=reclaim
+    with gate.acquire(1,30):assert gate.used_memory+idle[0]<=100
+    assert reclaimed==[70]

@@ -367,3 +367,21 @@ def test_circular_cam_screen_against_sampled_contact_geometry():
     assert not gap['contact_possible'] and gap['peak_slide_force_N']==0
     with pytest.raises(ValueError):
         circular_cam_detent(stiffness_N_mm=k,radius_sum_mm=r,transverse_spacing_mm=0)
+
+
+def test_automatic_mesh_reuse_is_verified_and_stale_sources_compute_fresh(tmp_path,monkeypatch):
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'performance'))
+    first=beam();first.apply_force('beam',Region.plane('x',40),force_N=(0,0,-.1))
+    original=first.run(tmp_path/'original').require_completed()
+    second=beam();second.apply_force('beam',Region.plane('x',40),force_N=(0,0,-.2))
+    reused=second.run(tmp_path/'reused').require_completed()
+    assert reused.provenance['mesh_reuse']['automatic']
+    assert reused.metrics['max_displacement_mm']==pytest.approx(2*original.metrics['max_displacement_mm'],rel=1e-8)
+    # Invalidating the most recently indexed input prevents automatic reuse.
+    (tmp_path/'reused/analysis.inp').write_text('invalidated')
+    fresh=first.run(tmp_path/'fresh').require_completed()
+    assert not fresh.provenance.get('mesh_reuse')
+    assert fresh.metrics['max_displacement_mm']==pytest.approx(original.metrics['max_displacement_mm'],rel=1e-8)
+    monkeypatch.setenv('ENGINEERING_REUSE_MESH','0')
+    forced=first.run(tmp_path/'forced_fresh').require_completed()
+    assert not forced.provenance.get('mesh_reuse')

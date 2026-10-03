@@ -76,6 +76,8 @@ class PolyfemBackend(CalculixBackend):
             raise ValueError('IPC mesh source geometry, surface selection or mesh settings differ')
         shutil.copyfile(source/'mesh.json',directory/'mesh_source.json')
         shutil.copyfile(source/'case.json',directory/'mesh_source_case.json')
+        if hashlib.sha256((directory/'mesh_source.json').read_bytes()).hexdigest()!=identity['mesh_sha256'] or hashlib.sha256((directory/'mesh_source_case.json').read_bytes()).hexdigest()!=identity['case_sha256']:
+            raise ValueError('IPC mesh source changed during snapshot')
         request['mesh_reuse']=dict(**identity,input='mesh_source.json',case='mesh_source_case.json')
 
     def configure_request(self, request):

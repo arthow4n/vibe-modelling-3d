@@ -81,6 +81,22 @@ def test_saved_report_matches_default_stdout(tmp_path):
     assert json.loads(destination.read_text()) == json.loads(run.stdout)
 
 
+def test_changed_revision_cannot_replace_current_report(tmp_path,capsys):
+    from argparse import Namespace
+    from execution.identity import cad_identity
+    from evaluate_model import emit_report
+    source=tmp_path/'part.py';source.write_text('result = 1\n')
+    identity=cad_identity(source)
+    destination=tmp_path/'review.json';destination.write_text('newer evidence')
+    source.write_text('result = 2\n')
+    report={'ok':True,'errors':[]}
+    emit_report(report,Namespace(report=destination,summary=True,
+        _publication=(source,(),None,identity)))
+    assert destination.read_text()=='newer evidence'
+    assert not report['ok'] and report['errors'][0]['stage']=='report'
+    assert 'report_path' not in json.loads(capsys.readouterr().out)
+
+
 def test_summary_keeps_slice_review_status_and_full_saved_settings(tmp_path, monkeypatch, capsys):
     import evaluate_model
     existing = tmp_path / "piece.stl"
@@ -216,7 +232,8 @@ def test_changed_source_during_build_cannot_overwrite_artifacts(tmp_path):
     assert previous.read_text()=='previous' and not (tmp_path/'slow.stl').exists()
 
 
-def test_automatic_artifacts_preserve_script_side_effects_and_dynamic_inputs(tmp_path):
+def test_automatic_artifacts_preserve_script_side_effects_and_dynamic_inputs(tmp_path,monkeypatch):
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'records'))
     source=tmp_path/'dynamic.py'
     source.write_text('import cadquery as cq\nfrom pathlib import Path\np=Path("count")\np.write_text(str(int(p.read_text())+1 if p.exists() else 1))\nresult=cq.Workplane("XY").box(int(Path("size").read_text()),4,5)\n')
     (tmp_path/'size').write_text('3')
@@ -241,3 +258,20 @@ def test_declaration_automates_geometry_reuse_and_fresh_overrides(tmp_path):
     assert not json.loads(call(source,'--fresh').stdout)['reuse']['geometry']
     (tmp_path/'size').write_text('7')
     assert not json.loads(call(source).stdout)['reuse']['geometry']
+
+
+def test_unavailable_trace_and_cache_storage_preserves_cad(tmp_path,monkeypatch):
+    target=tmp_path/'not_directory';target.write_text('occupied')
+    monkeypatch.setenv('ENGINEERING_DATA',str(target))
+    source=tmp_path/'shape.py';source.write_text('import cadquery as cq\nresult=cq.Workplane("XY").box(3,4,5)\n')
+    report=json.loads(call(source,'--export').stdout)
+    assert report['ok'] and all(e['ok'] for e in report['exports'])
+
+
+def test_custom_environment_inputs_invalidate_geometry(tmp_path,monkeypatch):
+    source=tmp_path/'environment.py';source.write_text('import cadquery as cq,os\nresult=cq.Workplane("XY").box(int(os.environ["ENGINEERING_DIMENSION"]),4,5)\n')
+    monkeypatch.setenv('ENGINEERING_DIMENSION','3')
+    assert not json.loads(call(source,'--reuse').stdout)['reuse']['geometry']
+    assert json.loads(call(source,'--reuse').stdout)['reuse']['geometry']
+    monkeypatch.setenv('ENGINEERING_DIMENSION','7')
+    assert not json.loads(call(source,'--reuse').stdout)['reuse']['geometry']

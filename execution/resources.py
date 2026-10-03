@@ -39,6 +39,8 @@ class Admission:
         self.used_cpus=self.used_memory=self.active=0
         self.free_cores=sorted(os.sched_getaffinity(0))[:self.cpus] if hasattr(os,"sched_getaffinity") else list(range(self.cpus))
         self.condition=threading.Condition()
+        self.resident_usage=lambda:0
+        self.reclaim_resident=lambda available:None
 
     @contextmanager
     def acquire(self, cpus, memory_mb, cancelled=lambda:False, deadline=None):
@@ -46,7 +48,12 @@ class Admission:
             raise ValueError('Requested resources exceed coordinator capacity')
         started=time.monotonic()
         with self.condition:
-            while (self.used_cpus+cpus>self.cpus or self.used_memory+memory_mb>self.memory_mb or self.active>=self.jobs):
+            while True:
+                ready=(self.used_cpus+cpus<=self.cpus and self.used_memory+memory_mb<=self.memory_mb and self.active<self.jobs)
+                if ready:
+                    available=self.memory_mb-self.used_memory-memory_mb
+                    if self.resident_usage()>available:self.reclaim_resident(available)
+                    if self.resident_usage()<=available:break
                 if cancelled():raise InterruptedError('Cancelled while waiting for resources')
                 if deadline and time.monotonic()>deadline:raise TimeoutError('Deadline expired waiting for resources')
                 self.condition.wait(.05)
@@ -121,7 +128,13 @@ def current_affinity():
 def apply_affinity():
     value=current_affinity()
     if value and hasattr(os,'sched_setaffinity'):
-        os.sched_setaffinity(0,{int(x) for x in value.split(',')})
+        assigned={int(x) for x in value.split(',')}
+        os.sched_setaffinity(0,assigned)
+        # Linux affinity belongs to threads. Rebind already initialized native pools
+        # when a persistent worker receives a different disjoint CPU allocation.
+        for thread in Path('/proc/self/task').iterdir():
+            try:os.sched_setaffinity(int(thread.name),assigned)
+            except ProcessLookupError:pass
 
 
 @contextmanager

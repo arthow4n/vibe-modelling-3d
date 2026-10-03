@@ -11,6 +11,7 @@ from execution.process import run as run_command
 import sys
 import time
 import resource
+from importlib.metadata import version as package_version
 from fractions import Fraction
 import numpy as np
 from .mesh import contains
@@ -216,8 +217,7 @@ def main():
             unit_mapping=dict(length_mm_to_native=.001 if case['ipc']['unit_system']=='SI' else 1,
                 stress_MPa_to_native=1e6 if case['ipc']['unit_system']=='SI' else 1,force_N_to_native=1),
             formulation='P1 SaintVenant, time.quasistatic=true',versions=dict(python=sys.version.split()[0]))
-        import gmsh
-        r.provenance['versions']['gmsh'] = gmsh.__version__
+        r.provenance['versions']['gmsh'] = package_version('gmsh')
         from importlib.metadata import version
         r.provenance['versions'].update({name:version(name) for name in ('numpy','vtk','cadquery','cadquery-ocp')})
         write_json(directory/'run_metadata.json',r.provenance)

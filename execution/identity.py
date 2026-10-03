@@ -18,8 +18,12 @@ def fingerprint(value):
 
 def environment_identity(env=None):
     # Values influence compatibility but are never retained in diagnostics.
+    reserved={'ENGINEERING_RUN_ID','ENGINEERING_TRACEPARENT','ENGINEERING_OWNER_PID','ENGINEERING_OWNER_ID',
+        'ENGINEERING_LEASE_THREADS','ENGINEERING_AFFINITY','ENGINEERING_THREADS','ENGINEERING_INSTANCE',
+        'ENGINEERING_DATA','ENGINEERING_TRACE','ENGINEERING_CPUS','ENGINEERING_MEMORY_MB','ENGINEERING_JOBS',
+        'ENGINEERING_REUSE_MESH','ENGINEERING_EXEC_OWNER_PID','ENGINEERING_EXEC_OWNER_ID'}
     return fingerprint({k: v for k, v in (env or os.environ).items()
-        if not k.startswith(('ENGINEERING_', 'OTEL_')) and k not in ('_', 'SHLVL')})
+        if k not in reserved and not k.startswith('OTEL_') and k not in ('_', 'SHLVL')})
 
 
 def runtime_identity():
@@ -29,7 +33,22 @@ def runtime_identity():
     import sysconfig
     files += sorted(Path(sysconfig.get_path('purelib')).glob('*.dist-info/METADATA'))
     return fingerprint(dict(python=sys.version, executable=str(Path(sys.executable).resolve()),prefix=str(Path(sys.prefix).resolve()),
+        coordinator={k:os.environ.get(k) for k in ('ENGINEERING_CPUS','ENGINEERING_MEMORY_MB','ENGINEERING_JOBS','ENGINEERING_DATA')},
         files={str(p): digest(p) for p in files if p.is_file()}))
+
+
+def repository_revision():
+    """Read Git identity without launching a process on each engineering command."""
+    folder=ROOT/'.git'
+    if folder.is_file():folder=(ROOT/folder.read_text().removeprefix('gitdir:').strip()).resolve()
+    head=(folder/'HEAD').read_text().strip()
+    if not head.startswith('ref: '):return head
+    reference=head[5:]
+    if (folder/'commondir').exists():folder=(folder/(folder/'commondir').read_text().strip()).resolve()
+    if (folder/reference).exists():return (folder/reference).read_text().strip()
+    for line in (folder/'packed-refs').read_text().splitlines():
+        if line.endswith(' '+reference):return line.split()[0]
+    return None
 
 
 def python_sources(folder):

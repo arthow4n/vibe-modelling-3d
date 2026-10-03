@@ -25,3 +25,6 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["physical_analysis", "execution"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

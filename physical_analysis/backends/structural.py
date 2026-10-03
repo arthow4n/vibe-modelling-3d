@@ -63,7 +63,7 @@ def run_worker(directory, module, environment, timeout_seconds, result, *,
         environment=child_environment(environment)
         environment['ENGINEERING_OWNER_PID']=str(os.getpid())
         environment['ENGINEERING_OWNER_ID']=process_identity()
-        process=subprocess.Popen([sys.executable,'-m',module,str(directory),*arguments],
+        process=subprocess.Popen([sys.executable,'-m','execution.runner','--module',module,str(directory),*arguments],
             cwd=directory,env=child_environment(environment),stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
         try:
             if not hasattr(process,'poll'):return process.wait(timeout=timeout_seconds)
@@ -109,8 +109,18 @@ class CalculixBackend:
             raise ValueError('Mesh source geometry or mesh settings differ from the new case')
         shutil.copyfile(source/'analysis.inp',directory/'mesh_source.inp')
         shutil.copyfile(source/'case.json',directory/'mesh_source_case.json')
+        if hashlib.sha256((directory/'mesh_source.inp').read_bytes()).hexdigest()!=identity['input_sha256'] or hashlib.sha256((directory/'mesh_source_case.json').read_bytes()).hexdigest()!=identity['case_sha256']:
+            raise ValueError('Mesh source changed during snapshot')
         request['mesh_reuse']=dict(**identity,input='mesh_source.inp',case='mesh_source_case.json',
                                   mesh=provenance.get('mesh',{}))
+
+    def mesh_identity(self,request):
+        from execution.identity import runtime_identity,digest
+        # Reuse the existing backend snapshot/guard rather than storing another mesh format.
+        return dict(backend=self.backend_name,runtime=runtime_identity(),
+            implementation={p.name:digest(p) for p in Path(__file__).parent.glob('*.py')},
+            parts=[(p['name'],p['sha256'],p['mesh_size_mm']) for p in request['parts']],
+            ipc=request.get('ipc'),contacts=request['contacts'] if request.get('ipc') else None)
 
     @operation("analysis.prepare")
     def prepare_request(self, case, directory):
@@ -156,8 +166,21 @@ class CalculixBackend:
         result.provenance = dict(backend=self.backend_name)
         try:
             request = self.prepare_request(case, directory)
+            from execution.artifacts import ArtifactCache
+            from execution.telemetry import span
+            mesh_cache=ArtifactCache('meshes');mesh_key=self.mesh_identity(request)
             if mesh_from is not None:
                 self.reuse_mesh(request,directory,Path(mesh_from).resolve())
+            elif os.environ.get('ENGINEERING_REUSE_MESH')!='0':
+                with span('analysis.mesh_lookup'):
+                    saved=mesh_cache.read(mesh_key)
+                    if saved:
+                        try:
+                            self.reuse_mesh(request,directory,Path(saved.decode()))
+                            request['mesh_reuse']['automatic']=True
+                        except (OSError,ValueError,KeyError):
+                            request.pop('mesh_reuse',None)  # Unknown/stale sources compute freshly.
+                            for leftover in directory.glob('mesh_source*'):leftover.unlink(missing_ok=True)
             (directory/'case.json').write_text(json.dumps(request, indent=2, allow_nan=False)+'\n')
             result.artifacts['case'] = 'case.json'
             from ..motion import rigid_driver_clearance
@@ -189,4 +212,6 @@ class CalculixBackend:
             result.status = 'failed'
             result.errors.append(f'{type(exc).__name__}: {exc}')
         result.write(directory/'result.json')
+        if result.completed and self.mesh_identity(request)==mesh_key:
+            mesh_cache.store(mesh_key,str(directory).encode())
         return result

@@ -50,8 +50,8 @@ append corruption. Retention is bounded by age and count. Committed
 `performance/benchmarks/` contains reproducible bounded benchmark history, not
 unrestricted raw diagnostics. Tracing is best effort and cannot fail a calculation.
 
-Full command reference, measured policies and limitations are finalized as the
-implementation is qualified. `performance/IMPLEMENTATION.md` records milestones.
+See [performance evidence](../performance/README.md) for measured policies and
+limitations; `performance/IMPLEMENTATION.md` records implementation milestones.
 
 ## Running scripts
 
@@ -130,6 +130,8 @@ side effects. Two bounded idle workers can retain geometry; they recycle after
 validated artifacts carry explicit reuse flags and content identities. Outputs
 are staged and published atomically only after current-input checks under
 exclusive destination ownership; an old revision cannot replace newer exports.
+Saved reports also acquire destination ownership and recheck source identity
+after slicing, preserving a newer report when source changes during review.
 Cached artifact bytes are digest-verified, so tampered outputs are restored from
 valid artifacts, never claimed as verified in place. Cache size/count is bounded.
 
@@ -168,7 +170,10 @@ identical declared geometry/artifact jobs serialize around the identity and reus
 completed work. Arbitrary scripts keep responsibility for their own side effects.
 
 A watchdog stops orphan process groups and observed detached descendants after
-abrupt coordinator death. The next command starts a replacement. Digest-verified
+abrupt coordinator death. On Linux, kernel parent-death signals additionally stop
+native jobs that hold the Python GIL; the preload host is created by the long-lived
+coordinator main thread. Owned external tools use an exec shim with the same
+parent-birth guard. The next command starts a replacement. Digest-verified
 artifact caches survive; in-memory geometry is reconstructed. Durable `jobs/`
 metadata records queued/running/terminal states without argument or environment
 values. `python -m execution.history --incomplete` lists recoverable work. A queued
@@ -208,10 +213,14 @@ normal-run dependency.
 | --- | --- |
 | `runs/` | One atomic JSON summary per run: identity, source and repository-Python hashes, lock hash, strategy, status, actual wall/observer CPU and RSS, worker/resource fields where observed. |
 | `traces/` | OTLP ExportTraceServiceRequest JSONL with hex trace/span IDs, actual timestamps, parent IDs, PID/thread identity and operation attributes. |
-| `resources/` | Schema 1 columns plus bounded samples: Unix nanoseconds, sampled process-tree RSS and live-tree CPU seconds. Short-lived processes can be missed; CPU is a sampled lower bound, not an exact integral. |
+| `resources/` | Schema 1 columns plus bounded samples: Unix nanoseconds, sampled process-tree RSS and live-tree CPU seconds. Short-lived processes can be missed; CPU is a sampled lower bound, not an exact integral. Summed RSS includes shared pages; unavailable samples stay null. |
 | `profiles/` | Optional cProfile pstats or tracemalloc snapshots. Python allocation profiling does not measure native allocations. |
 | `jobs/` | Durable request hashes and owner birth identity, queued/running/terminal status; unknown side effects are never replayed. |
 | `cache/` | Digest-verified controlled bytes and their complete identity, independent of execution reuse. |
+
+Repository output locks and staging stay under `.execution/` independently of
+`ENGINEERING_DATA`, so trace-storage failure cannot corrupt computation or split
+concurrent-agent output ownership. Optional cache writes fail safely.
 
 Normal summaries/raw groups retain 500 runs for 14 days, protecting files younger
 than one hour from concurrent cleanup; abandoned groups also expire. A trace file
@@ -231,3 +240,12 @@ Gmsh and solvers remain isolated regardless of the CAD preload check.
 The coordinator/watchdog and affinity implementation target Linux (including
 WSL) and local POSIX environments. Native process birth identity on Linux uses
 boot ticks so wall-clock corrections do not falsely terminate live work.
+
+Physical backends automatically find candidate unchanged meshes through the existing
+backend-specific identity guards. The cache stores references, not a competing mesh
+format. Geometry, mesh settings, backend implementation and dependency identity
+must match; copied input snapshots are rechecked. Stale/deleted references compute
+freshly. `ENGINEERING_REUSE_MESH=0` requests fresh meshing for qualification. Every native solve and its quality/evidence checks still execute. Reports
+identify automatic mesh reuse and original input hashes. Explicit `mesh_from`
+retains its existing strict failure behavior; completed question-study evidence and
+saved-field recovery retain their separate identity/completion requirements.
