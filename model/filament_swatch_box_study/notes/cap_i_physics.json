@@ -64,5 +64,5 @@
     "spaced_key_fine_rejected": "Earlier 0.3 mm-seam geometry completed but finer-mesh strain exceeded provisional 1.5%; not final I geometry.",
     "fine_runtime_stop": "180-second execution timeout, not native convergence failure. Extended diagnostic completed separately."
   },
-  "physical_status": "Unprinted; actual grip, release effort, recovery and dwell unknown."
+  "physical_status": "2026-10-03: user reports keys 1/2/3 printed and all working; number 3 feels better, reason unknown. Actual print hashes/material/settings and detailed release/recovery/dwell checks unconfirmed. Full-box use remains unreported; no force/material calibration."
 }

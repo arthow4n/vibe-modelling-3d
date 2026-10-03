@@ -702,7 +702,8 @@ No model source, printable artifact or existing verification report was changed.
 
 Scope: repair the printed H sample's failed retention with three replacement
 keys, reusing H blocks/pockets and G hood. Prior exports remain. Do not produce
-another complete module until the grip trial resolves this local question.
+another complete module until the grip trial resolves this local question. The
+physical report below now supports testing the unchanged matching complete parts.
 PETG, 0.4 mm nozzle, 0.2 mm layers, two walls and 7% adaptive cubic remain the
 setup. Reported high printer precision is not a numerical fit calibration.
 
@@ -769,5 +770,39 @@ number that seats with firm hand pressure, removes loose play, stays joined
 during gentle turning/handling and lifts deliberately at the nail recesses.
 Reject failure to seat, tool-only removal, cracking or permanent bending. Actual
 grip, release, recovery and dwell decide the next revision. Full-product
-strength, long rows and joined carrying remain unqualified; no new print report
-has been received for I.
+strength, long rows and joined carrying were outside this key trial.
+
+### Physical result and next complete-box trial — 2026-10-03
+
+The user reports printing all three I replacement keys; all work. Number 3 felt
+better, but they could not identify the reason and had not fully read
+the suggested instructions. The report corresponds to the I set delivered in
+`9d05287`; exact printed file hashes, material and settings were not reconfirmed.
+Record this as successful reported sample use and a subjective preference, not
+as measured holding force or confirmation of every proposed test step. The prior
+PETG plan and local simulations are not material calibration from this feedback.
+
+Decision: keep all three geometries unchanged and use number 3 as the preferred
+baseline. Its 0.20 mm nominal normal compression is higher than keys 1/2 at
+0.10/0.15 mm; increased preload is a plausible reason for the feel, not an
+established explanation. No further connector coupon, simulation or slice is
+needed for unchanged parts.
+
+Next deliverable is already available: two `cap_h_base_5.step/.stl` bases and
+two `cap_g_hood_5.step/.stl` hoods, using the printed I number 3 key. Do not use
+the old combined H layout's rigid key. This preserves the successful key and
+its real mating pockets, roof-down hood and floor-down base print poses, and
+the established PETG 0.4 mm / 0.2 mm / two-wall / 7% adaptive-cubic setup.
+Prior component slices and I's full-base/hood geometry checks still apply.
+
+The complete pair tests the remaining integration question: card alignment and
+access with sparse/full occupancy, seated hood grip/opening, comfort of rounded
+edges and thin walls, and opening either module while joined on a desk. Support
+the bases, butt the end faces, seat key 3, insert notch-up cards, close/open each
+hood, and deliberately remove the key with both hoods off. Accept comfortable
+normal storage/access with stable cards and no accidental separation; revise
+the failing interaction if observed. Tall-wall/frame stiffness, hood/card
+interaction and whole-box handling were omitted by the key sample, so another
+coupon cannot answer those questions. The complete small pair is the cheapest
+useful next print using existing exports and keys. Long-row carrying, quantified
+loads and long-term durability remain outside this reported success.
