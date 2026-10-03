@@ -34,27 +34,54 @@ On 2026-10-04 the user clarified:
   tap load or acceptable movement has been agreed yet.
 - Reduce the bulky appearance and avoid the exposed gear of the old design.
 - Preserve the purpose of exercising physical analysis in a useful product.
+- Provide a few adjustable viewing angles.
+- Accommodate a Pixel 7 Pro with a relatively bulky case. The user wants adaptable
+  fit rather than closely matching the bare phone. Case dimensions and compliance
+  are unknown; no precise device or case envelope has been assumed.
 
-The next discussion concerns whether adjustable viewing angles are useful and
-which phone/case and cable to accommodate. Hardware preference, exact analysis
-objectives, including the ambiguous possible snap-action reference, and print
-setup remain open. Desktop use is established; folding/portability is not yet a
+Hardware preference, case/charging-connector envelope and print setup remain
+open. Desktop use is established; folding/portability is not yet a
 requirement. Charging clearance must include the plug and cable turn above the
 table, not only a notch in the retaining lip.
 
 A compact inclined cradle with an open centre between its lower supports is a
-candidate, not an accepted architecture. If adjustment is wanted, consider a rear
+candidate, not an accepted architecture. For the requested adjustment, consider a rear
 prop and a few positive seating positions, with the adjustment behind the phone.
 Investigate solid seating faces carrying the service load and any flexible
 retention preventing unintended disengagement separately. First establish the
 benefit and handling of this arrangement; do not add a catch solely to create an
 analysis case. No replacement geometry or numerical qualification exists yet.
 
+### Proposed analysis scope and limits
+
+The user does not recall the exact original analysis objectives and asks to
+discuss retention force and multipart interaction against current capabilities.
+Do not treat the earlier possible snap-action transcription as a confirmed
+requirement. Proposed replacement questions, subject to a useful architecture:
+
+- Loaded stiffness and seated load-bearing contact under phone weight and a
+  defined occasional-tap load; distinguish these from global sliding/tipping.
+- Resistance to unintended disengagement of the angle setting versus deliberate
+  adjustment/release effort. These are separate force questions in specified
+  directions, not one universal safe-retention number. A lift-out phone cradle
+  is proposed; a phone clamp is not an established requirement.
+- If flexible retention is justified, contact-driven engagement, release and
+  elastic return. The standard question can couple one flexible part to several
+  stationary or prescribed-translating rigid mates, including a keeper and
+  actuator. That is multipart interaction, not a freely moving assembly solve.
+
+These are conditional elastic predictions requiring numerical quality checks
+and explicit material/manufacturing assumptions. Complete rotating hinges,
+frictional grip/sliding, impact, printed creep, wear and fatigue are not established
+by this interface. Check tipping with load/moment calculations; check actual desk
+grip, case compression, adjustment feel and long-term behavior physically. More
+complex couplings would require a separately justified and qualified tool route.
+No numerical force targets or replacement analysis results have been agreed.
+
 The original implementation exercised flexible release, local holding contact and
 arm/cradle bending. Its gear patch translated tangentially; it did not solve the
-complete rotating assembly, and the sharp-tooth pass-over run failed. The user
-also recalls multipart interactions and a further analysis goal whose wording
-needs clarification. These records reconstruct the implemented questions, not
+complete rotating assembly, and the sharp-tooth pass-over run failed.
+These records reconstruct the implemented questions, not
 an independently verified account of the original conversation.
 
 The current [shared question interface](../../physical_analysis/README.md#use)
