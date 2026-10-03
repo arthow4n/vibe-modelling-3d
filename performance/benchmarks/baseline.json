@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "label": "baseline",
+  "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Sep  1 2026, 14:16:52) [Clang 22.1.3 ]",
+  "cpus": 16,
+  "revision": "f984a0bda405563e4476c666e392b34fddcd9b14",
+  "dirty_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "lock_sha256": "080c709ffc5d2bd336521b1bf2498368e119c017896ea065a30ee96e87724118",
+  "workflows": {
+    "script": {
+      "first_seconds": 0.289724595999985,
+      "subsequent_median_seconds": 0.13536137899998835,
+      "samples": [
+        {
+          "seconds": 0.289724595999985,
+          "exit_code": 0,
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 0.13067444699998987,
+          "exit_code": 0,
+          "stage_timings": null,
+          "error": null
+        },
+        {
+          "seconds": 0.14004831099998682,
+          "exit_code": 0,
+          "stage_timings": null,
+          "error": null
+        }
+      ]
+    },
+    "cad_geometry": {
+      "first_seconds": 2.2242144039999516,
+      "subsequent_median_seconds": 2.1745389499999987,
+      "samples": [
+        {
+          "seconds": 2.2242144039999516,
+          "exit_code": 0,
+          "stage_timings": {
+            "build": 0.14129898500004856,
+            "total": 2.170067184000004
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.136374915000033,
+          "exit_code": 0,
+          "stage_timings": {
+            "build": 0.04699703400001454,
+            "total": 2.0712510390000034
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.2127029849999644,
+          "exit_code": 0,
+          "stage_timings": {
+            "build": 0.0482747419999896,
+            "total": 2.1522488240000257
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_default": {
+      "first_seconds": 2.8800853109999593,
+      "subsequent_median_seconds": 2.7470320230000027,
+      "samples": [
+        {
+          "seconds": 2.8800853109999593,
+          "exit_code": 0,
+          "stage_timings": {
+            "build": 0.045321691000026476,
+            "total": 2.8220282689999863
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.678440352999985,
+          "exit_code": 0,
+          "stage_timings": {
+            "build": 0.046958222999990085,
+            "total": 2.621891376999997
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.8156236930000205,
+          "exit_code": 0,
+          "stage_timings": {
+            "build": 0.04824149099999886,
+            "total": 2.756378692999988
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_render_export": {
+      "first_seconds": 2.63468128400001,
+      "subsequent_median_seconds": 2.706041585999998,
+      "samples": [
+        {
+          "seconds": 2.63468128400001,
+          "exit_code": 0,
+          "stage_timings": {
+            "build": 0.0476472670000021,
+            "total": 2.575227132000009
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.6236052149999978,
+          "exit_code": 0,
+          "stage_timings": {
+            "build": 0.044585742999970535,
+            "total": 2.5702657369999997
+          },
+          "error": null
+        },
+        {
+          "seconds": 2.788477956999998,
+          "exit_code": 0,
+          "stage_timings": {
+            "build": 0.047494428999982574,
+            "total": 2.7338934279999876
+          },
+          "error": null
+        }
+      ]
+    },
+    "cad_slice": {
+      "first_seconds": 3.4724843989999954,
+      "subsequent_median_seconds": 2.654329785000016,
+      "samples": [
+        {
+          "seconds": 3.4724843989999954,
+          "exit_code": 1,
+          "stage_timings": {
+            "build": 0.048590302999969026,
+            "total": 3.4160370759999523,
+            "slice": 1.344586171000003
+          },
+          "error": "{\n  \"ok\": false,\n  \"file_path\": \"/tmp/engineering-benchmark-7nxoida4/cad.py\",\n  \"errors\": [\n    {\n      \"stage\": \"slice\",\n      \"message\": \"OrcaSlicer CLI failed; use --slice-keep-run to retain the slicer log\"\n    }\n  ],\n  \"views\": [],\n  \"exports\": [\n    {\n      \"path\": \"/tmp/engineering-benchmark-7nxoida4/cad.step\",\n      \"ok\": true\n    },\n    {\n      \"path\": \"/tmp/engineering-benchmark-7nxoida4/cad.stl\",\n      \"ok\": true\n    }\n  ],\n  \"timings_seconds\": {\n    \"build\": 0.048590302999969026,\n    \"total\": 3.4160370759999523,\n    \"slice\": 1.344586171000003\n  },\n  \"versions\": {\n    \"python\": \"3.12.14\",\n    \"cadquery\": \"2.7.0\"\n  },\n  \"geometry\": {\n    \"valid\": true\n  },\n  \"slice\": {\n    \"ok\": false,\n    \"message\": \"OrcaSlicer CLI failed; use --slice-keep-run to retain the slicer log\"\n  }\n}\n"
+        },
+        {
+          "seconds": 2.694521426000051,
+          "exit_code": 1,
+          "stage_timings": {
+            "build": 0.05735386099996731,
+            "total": 2.639371898000036,
+            "slice": 0.4154037099999641
+          },
+          "error": "{\n  \"ok\": false,\n  \"file_path\": \"/tmp/engineering-benchmark-7nxoida4/cad.py\",\n  \"errors\": [\n    {\n      \"stage\": \"slice\",\n      \"message\": \"OrcaSlicer CLI failed; use --slice-keep-run to retain the slicer log\"\n    }\n  ],\n  \"views\": [],\n  \"exports\": [\n    {\n      \"path\": \"/tmp/engineering-benchmark-7nxoida4/cad.step\",\n      \"ok\": true\n    },\n    {\n      \"path\": \"/tmp/engineering-benchmark-7nxoida4/cad.stl\",\n      \"ok\": true\n    }\n  ],\n  \"timings_seconds\": {\n    \"build\": 0.05735386099996731,\n    \"total\": 2.639371898000036,\n    \"slice\": 0.4154037099999641\n  },\n  \"versions\": {\n    \"python\": \"3.12.14\",\n    \"cadquery\": \"2.7.0\"\n  },\n  \"geometry\": {\n    \"valid\": true\n  },\n  \"slice\": {\n    \"ok\": false,\n    \"message\": \"OrcaSlicer CLI failed; use --slice-keep-run to retain the slicer log\"\n  }\n}\n"
+        },
+        {
+          "seconds": 2.6141381439999805,
+          "exit_code": 1,
+          "stage_timings": {
+            "build": 0.04592725099996642,
+            "total": 2.5518874809999943,
+            "slice": 0.40367540699998017
+          },
+          "error": "{\n  \"ok\": false,\n  \"file_path\": \"/tmp/engineering-benchmark-7nxoida4/cad.py\",\n  \"errors\": [\n    {\n      \"stage\": \"slice\",\n      \"message\": \"OrcaSlicer CLI failed; use --slice-keep-run to retain the slicer log\"\n    }\n  ],\n  \"views\": [],\n  \"exports\": [\n    {\n      \"path\": \"/tmp/engineering-benchmark-7nxoida4/cad.step\",\n      \"ok\": true\n    },\n    {\n      \"path\": \"/tmp/engineering-benchmark-7nxoida4/cad.stl\",\n      \"ok\": true\n    }\n  ],\n  \"timings_seconds\": {\n    \"build\": 0.04592725099996642,\n    \"total\": 2.5518874809999943,\n    \"slice\": 0.40367540699998017\n  },\n  \"versions\": {\n    \"python\": \"3.12.14\",\n    \"cadquery\": \"2.7.0\"\n  },\n  \"geometry\": {\n    \"valid\": true\n  },\n  \"slice\": {\n    \"ok\": false,\n    \"message\": \"OrcaSlicer CLI failed; use --slice-keep-run to retain the slicer log\"\n  }\n}\n"
+        }
+      ]
+    },
+    "physical_solve": {
+      "first_seconds": 8.552378926000017,
+      "subsequent_median_seconds": 8.397372246000003,
+      "samples": [
+        {
+          "seconds": 8.552378926000017,
+          "exit_code": 0,
+          "displacement_mm": 0.3277944687855075,
+          "error": null
+        },
+        {
+          "seconds": 8.441783691000012,
+          "exit_code": 0,
+          "displacement_mm": 0.3277944687855075,
+          "error": null
+        },
+        {
+          "seconds": 8.352960800999995,
+          "exit_code": 0,
+          "displacement_mm": 0.3277944687855075,
+          "error": null
+        }
+      ]
+    }
+  }
+}
