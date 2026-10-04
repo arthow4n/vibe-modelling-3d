@@ -1,0 +1,89 @@
+{
+  "name": "v2_guided_spring",
+  "nonlinear": true,
+  "max_increment": 0.1,
+  "parts": [
+    {
+      "name": "spring",
+      "geometry": "part_0.brep",
+      "sha256": "959ebc64022f5d2d03797607adcd913b027a69d641f5a7f3874fa56032dd9b24",
+      "material": {
+        "name": "PETG conditional solid",
+        "youngs_modulus_MPa": 800,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated isotropic short-term sensitivity assumption; no printed fatigue or strength qualification",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 0.84
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "spring",
+        "region": {
+          "lower": [
+            101.0,
+            191.0,
+            8.0
+          ],
+          "upper": [
+            111.0,
+            201.0,
+            8.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "full_width_mount_pad",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "spring",
+        "region": {
+          "lower": [
+            8,
+            null,
+            null
+          ],
+          "upper": [
+            8,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        -7.0,
+        0
+      ],
+      "name": "guided_end",
+      "progress": null
+    }
+  ],
+  "loads": [],
+  "contacts": [],
+  "observations": [],
+  "mesh_reuse": {
+    "input_sha256": "cb6da9809112f28373cbe05a871bc03a58e3162c0b49797fd042e16462ce3c41",
+    "case_sha256": "2e73fed743a894a792a863adacbee76c04348a852dedcc854539a4b402562aa8",
+    "input": "mesh_source.inp",
+    "case": "mesh_source_case.json",
+    "mesh": {
+      "spring": {
+        "nodes": 22376,
+        "elements": 11937,
+        "min_jacobian": 0.014565538830319802
+      }
+    },
+    "automatic": true
+  }
+}

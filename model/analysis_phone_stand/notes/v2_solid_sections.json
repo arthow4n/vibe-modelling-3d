@@ -1,0 +1,79 @@
+{
+  "scope": "Selected actual local solid sections; no material calibration, ordinary-wall audit or printer-envelope reconstruction",
+  "gcode_sha256": "017b53e6a5457c8d00b9c6ba4f2c0134d20ece967bf008b48c106cf81689eb1c",
+  "slice_input_sha256": "69f8feecf90bc935358e6cc7cbbfc6798745641e5aa0fa9e3ac5d40e34b0d74f",
+  "sections": [
+    {
+      "name": "left spring",
+      "x": 96,
+      "z": 2,
+      "span": [
+        245.4,
+        246.6
+      ],
+      "filled_width_mm": 1.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          245.4,
+          246.6
+        ]
+      ]
+    },
+    {
+      "name": "right spring",
+      "x": 196,
+      "z": 2,
+      "span": [
+        245.4,
+        246.6
+      ],
+      "filled_width_mm": 1.1999999999999886,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          245.4,
+          246.6
+        ]
+      ]
+    },
+    {
+      "name": "cradle ledge",
+      "x": 229,
+      "z": 30,
+      "span": [
+        11,
+        16
+      ],
+      "filled_width_mm": 4.996044402454551,
+      "uncovered_width_mm": 0.003955597545449052,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          11.001487233090865,
+          15.997531635545416
+        ]
+      ]
+    },
+    {
+      "name": "cradle rear pad",
+      "x": 229,
+      "z": 30,
+      "span": [
+        82,
+        90
+      ],
+      "filled_width_mm": 7.994544805262564,
+      "uncovered_width_mm": 0.005455194737436386,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          82.0029936759372,
+          89.99753848119977
+        ]
+      ]
+    }
+  ]
+}

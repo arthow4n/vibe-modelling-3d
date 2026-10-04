@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540">
+<rect width="1200" height="540" fill="#f5f3ed"/>
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#24332e}.title{font-size:24px;font-weight:bold}.body{font-size:16px}.small{font-size:13px}</style>
+<text x="32" y="38" class="title">Raised open easel — support, release, reseat</text>
+<text x="32" y="64" class="body">The V seats carry the load. A separate sliding keeper prevents the rear bar lifting out.</text>
+<text x="35" y="108" class="title">1  Locked</text>
+<line x1="49.75" y1="410.0" x2="332.65" y2="410.0" stroke="#9eaaa3" stroke-width="2" stroke-linecap="round"/>
+<line x1="49.75" y1="405.4" x2="332.65" y2="405.4" stroke="#47786a" stroke-width="8" stroke-linecap="round"/>
+<line x1="138.3" y1="400.8" x2="138.3" y2="346.75" stroke="#47786a" stroke-width="9" stroke-linecap="round"/>
+<polygon points="100.50,318.97 183.12,141.79 169.57,135.47 86.95,312.65" fill="#c4cbd0" stroke="#536572" stroke-width="2"/>
+<line x1="138.3" y1="346.75" x2="176.20885807814074" y2="265.4541915028125" stroke="#47786a" stroke-width="8" stroke-linecap="round"/>
+<line x1="139.96311619165306" y1="332.298908534887" x2="102.44197380833576" y2="314.80251249882207" stroke="#47786a" stroke-width="5" stroke-linecap="round"/>
+<line x1="172.03984225777216" y1="263.5101474988053" x2="134.51869987445485" y2="246.01375146274034" stroke="#47786a" stroke-width="5" stroke-linecap="round"/>
+<line x1="176.20885807814074" y1="265.4541915028125" x2="235.07403798028167" y2="390.26961761308377" stroke="#47786a" stroke-width="6" stroke-linecap="round"/>
+<polyline points="267.05,387.57 276.25,396.77 285.45,387.57" fill="none" stroke="#47786a" stroke-width="4"/>
+<line x1="267.05483061395876" y1="400.8" x2="267.05483061395876" y2="379.45961761308376" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="267.05483061395876" y1="384.0596176130838" x2="275.1048306139588" y2="384.0596176130838" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<polyline points="225.87,387.57 235.07,396.77 244.27,387.57" fill="none" stroke="#47786a" stroke-width="4"/>
+<line x1="225.87403798028166" y1="400.8" x2="225.87403798028166" y2="379.45961761308376" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="225.87403798028166" y1="384.0596176130838" x2="233.92403798028167" y2="384.0596176130838" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<polyline points="198.16,387.57 207.36,396.77 216.56,387.57" fill="none" stroke="#47786a" stroke-width="4"/>
+<line x1="198.15874144967455" y1="400.8" x2="198.15874144967455" y2="379.45961761308376" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="198.15874144967455" y1="384.0596176130838" x2="206.20874144967456" y2="384.0596176130838" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="164.75" y1="398.5" x2="331.5" y2="398.5" stroke="#c08732" stroke-width="4" stroke-linecap="round"/>
+<circle cx="235.07403798028167" cy="390.26961761308377" r="5" fill="#31574b"/>
+<text x="35" y="448" class="small">Phone weight presses the round bar into the V seats.</text>
+<text x="430" y="108" class="title">2  Support + release</text>
+<line x1="444.75" y1="410.0" x2="727.65" y2="410.0" stroke="#9eaaa3" stroke-width="2" stroke-linecap="round"/>
+<line x1="444.75" y1="405.4" x2="727.65" y2="405.4" stroke="#47786a" stroke-width="8" stroke-linecap="round"/>
+<line x1="533.3" y1="400.8" x2="533.3" y2="346.75" stroke="#47786a" stroke-width="9" stroke-linecap="round"/>
+<polygon points="495.50,318.97 578.12,141.79 564.57,135.47 481.95,312.65" fill="#c4cbd0" stroke="#536572" stroke-width="2"/>
+<line x1="533.3" y1="346.75" x2="571.2088580781408" y2="265.4541915028125" stroke="#47786a" stroke-width="8" stroke-linecap="round"/>
+<line x1="534.9631161916531" y1="332.298908534887" x2="497.4419738083358" y2="314.80251249882207" stroke="#47786a" stroke-width="5" stroke-linecap="round"/>
+<line x1="567.0398422577722" y1="263.5101474988053" x2="529.5186998744548" y2="246.01375146274034" stroke="#47786a" stroke-width="5" stroke-linecap="round"/>
+<line x1="571.2088580781408" y1="265.4541915028125" x2="669.1535410690943" y2="362.66961761308374" stroke="#47786a" stroke-width="6" stroke-linecap="round"/>
+<polyline points="662.05,387.57 671.25,396.77 680.45,387.57" fill="none" stroke="#47786a" stroke-width="4"/>
+<line x1="654.0048306139588" y1="400.8" x2="654.0048306139588" y2="379.45961761308376" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="654.0048306139588" y1="384.0596176130838" x2="662.0548306139588" y2="384.0596176130838" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<polyline points="620.87,387.57 630.07,396.77 639.27,387.57" fill="none" stroke="#47786a" stroke-width="4"/>
+<line x1="612.8240379802817" y1="400.8" x2="612.8240379802817" y2="379.45961761308376" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="612.8240379802817" y1="384.0596176130838" x2="620.8740379802816" y2="384.0596176130838" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<polyline points="593.16,387.57 602.36,396.77 611.56,387.57" fill="none" stroke="#47786a" stroke-width="4"/>
+<line x1="585.1087414496745" y1="400.8" x2="585.1087414496745" y2="379.45961761308376" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="585.1087414496745" y1="384.0596176130838" x2="593.1587414496745" y2="384.0596176130838" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="551.7" y1="398.5" x2="718.45" y2="398.5" stroke="#c08732" stroke-width="4" stroke-linecap="round"/>
+<circle cx="669.1535410690943" cy="362.66961761308374" r="5" fill="#31574b"/>
+<line x1="743.75" y1="377.8" x2="717.3" y2="377.8" stroke="#bc5c3d" stroke-width="3" stroke-linecap="round"/>
+<text x="658" y="358" class="small">push 7 mm</text>
+<text x="430" y="448" class="small">Push the rear button; lift the bar above the catches.</text>
+<text x="825" y="108" class="title">3  Reseat + let go</text>
+<line x1="839.75" y1="410.0" x2="1122.65" y2="410.0" stroke="#9eaaa3" stroke-width="2" stroke-linecap="round"/>
+<line x1="839.75" y1="405.4" x2="1122.65" y2="405.4" stroke="#47786a" stroke-width="8" stroke-linecap="round"/>
+<line x1="928.3" y1="400.8" x2="928.3" y2="346.75" stroke="#47786a" stroke-width="9" stroke-linecap="round"/>
+<polygon points="886.25,325.96 936.85,137.12 922.41,133.25 871.81,322.09" fill="#c4cbd0" stroke="#536572" stroke-width="2"/>
+<line x1="928.3" y1="346.75" x2="951.5160683456961" y2="260.1064533818706" stroke="#47786a" stroke-width="8" stroke-linecap="round"/>
+<line x1="927.4284440214851" y1="332.2296559897393" x2="887.4391148131176" y2="321.5145475224949" stroke="#47786a" stroke-width="5" stroke-linecap="round"/>
+<line x1="947.0728095447664" y1="258.91588577439904" x2="907.083480336399" y2="248.20077730715465" stroke="#47786a" stroke-width="5" stroke-linecap="round"/>
+<line x1="951.5160683456961" y1="260.1064533818706" x2="997.3587414496745" y2="390.26961761308377" stroke="#47786a" stroke-width="6" stroke-linecap="round"/>
+<polyline points="1057.05,387.57 1066.25,396.77 1075.45,387.57" fill="none" stroke="#47786a" stroke-width="4"/>
+<line x1="1057.0548306139588" y1="400.8" x2="1057.0548306139588" y2="379.45961761308376" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="1057.0548306139588" y1="384.0596176130838" x2="1065.1048306139587" y2="384.0596176130838" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<polyline points="1015.87,387.57 1025.07,396.77 1034.27,387.57" fill="none" stroke="#47786a" stroke-width="4"/>
+<line x1="1015.8740379802816" y1="400.8" x2="1015.8740379802816" y2="379.45961761308376" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="1015.8740379802816" y1="384.0596176130838" x2="1023.9240379802817" y2="384.0596176130838" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<polyline points="988.16,387.57 997.36,396.77 1006.56,387.57" fill="none" stroke="#47786a" stroke-width="4"/>
+<line x1="988.1587414496745" y1="400.8" x2="988.1587414496745" y2="379.45961761308376" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="988.1587414496745" y1="384.0596176130838" x2="996.2087414496746" y2="384.0596176130838" stroke="#c08732" stroke-width="3" stroke-linecap="round"/>
+<line x1="954.75" y1="398.5" x2="1121.5" y2="398.5" stroke="#c08732" stroke-width="4" stroke-linecap="round"/>
+<circle cx="997.3587414496745" cy="390.26961761308377" r="5" fill="#31574b"/>
+<text x="825" y="448" class="small">Lower into another seat; release and check capture.</text>
+<text x="32" y="487" class="body">Use two hands: one supports the cradle, the other presses the button and lifts/repositions the rear bar.</text>
+<text x="32" y="513" class="small">Simplified side projection of current CAD; bolts stay assembled. Guide caps and the paired outboard struts overlap in this view.</text>
+</svg>

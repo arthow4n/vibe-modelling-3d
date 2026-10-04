@@ -9,13 +9,78 @@ import cadquery as cq
 import pytest
 from physical_analysis import (FlexureQuestion, StructuralQuestion, Support, Motion,
     Region, Material, SurfaceForce, BeamApproximation, QuestionStudy, ManufacturingAssumption,
-    SnapFitQuestion, MatingPart, AnalysisResult)
+    SnapFitQuestion, ContactQuestion, MatingPart, AnalysisResult)
 
 ROOT = Path(__file__).resolve().parents[1]
 from physical_analysis.experiments.ipc.fixtures.rounded_snap.question import question as rounded_question
 
 ROUNDED = ROOT/'physical_analysis/experiments/ipc/fixtures/rounded_snap'
 MAT = Material('benchmark',1200,.3,'Numerical qualification only',.01)
+
+
+def stopped_beam_question():
+    return ContactQuestion(name='force_loaded_stop',
+        part=cq.Workplane('XY').box(40,8,2,centered=False),material=MAT,
+        supports=(Support(Region.plane('x',0)),),
+        forces=(SurfaceForce(Region.plane('x',40),(0,0,.1)),),
+        contact_region=Region.plane('z',2),
+        mating_parts=(MatingPart('stop',cq.Workplane('XY').box(6,12,1,centered=False).translate((36,-2,2.2)),
+                                Motion((0,0,0),name='stop_fixed'),Region.plane('z',2.2)),),
+        penalty_N_mm3=12000,mesh_size_mm=2,max_increment=.1,
+        observations={'tip':Region.plane('x',40)})
+
+
+def test_force_loaded_contact_stop_and_retained_identity(tmp_path):
+    q=stopped_beam_question()
+    r=q.run(tmp_path/'stopped')
+    a=r.metrics['question']
+    assert r.completed and a['numerical_evidence_adequate']
+    assert a['contact_engaged'] and a['penetration_ok'] and a['force_balance_ok']
+    # Free beam predicts 0.333 mm; the explicit unilateral stop limits it to 0.2.
+    assert .19 < a['max_displacement_mm'] < .23
+    assert q.read_evidence(tmp_path/'stopped').metrics['question']['contact_quality_ok']
+    assert any(frame['max_contact_pressure_MPa']>0 for frame in r.history)
+    with pytest.raises(ValueError,match='contact evidence'):
+        q.run(tmp_path/'unused',numerical=False)
+
+
+def test_force_loaded_supported_open_gap_is_explicit(tmp_path):
+    q=replace(stopped_beam_question(),contact_expected=False,
+              forces=(SurfaceForce(Region.plane('x',40),(0,0,.01)),))
+    r=q.run(tmp_path/'open')
+    a=r.metrics['question']
+    assert r.completed and a['numerical_evidence_adequate']
+    assert a['contact_engaged'] is False and a['penetration_ok']
+    assert a['max_displacement_mm']==pytest.approx(.0333,rel=.06)
+    q.contact_expected=None
+    with pytest.raises(ValueError,match='explicit boolean'):q.build_case()
+
+
+@pytest.mark.parametrize('missing',['contact_detected','max_penetration_mm'])
+def test_contact_missing_native_evidence_never_promotes_answer(missing):
+    q=stopped_beam_question()
+    metrics={'max_force_balance_relative':0,'max_strain_by_part':{'part':.001},
+             'contact_detected':True,'max_penetration_mm':.001}
+    metrics.pop(missing)
+    r=AnalysisResult(q.name,'completed',completed=True,metrics=metrics,
+                     history=[{'load_fraction':1}])
+    q._answer(r)
+    assert not r.metrics['question']['numerical_evidence_adequate']
+    assert r.metrics['question']['design_screen_passes'] is None
+
+
+def test_force_transfer_against_two_independent_mates_uses_one_master_union(tmp_path):
+    q=stopped_beam_question()
+    q.mating_parts=tuple(MatingPart(f'stop_{i}',
+        cq.Workplane('XY').box(6,6,1,centered=False).translate((36,-2+6*i,2.2)),
+        Motion((0,0,0),name=f'fixed_{i}'),Region.plane('z',2.2)) for i in range(2))
+    c=q.build_case()
+    assert len(c.contacts)==1 and len(c.contacts[0].master)==2
+    r=q.run(tmp_path/'two_mates')
+    assert r.completed and r.metrics['question']['numerical_evidence_adequate']
+    assert .19<r.metrics['max_displacement_mm']<.23
+    assert r.metrics['max_force_balance_relative']<.01
+    assert q.read_evidence(tmp_path/'two_mates').metrics['question']['contact_engaged']
 
 
 def consumer(folder,entry='analyze.py'):

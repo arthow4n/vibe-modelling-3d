@@ -1,0 +1,264 @@
+{
+  "name": "v2_cradle_service",
+  "nonlinear": true,
+  "max_increment": 0.25,
+  "parts": [
+    {
+      "name": "cradle",
+      "geometry": "part_0.brep",
+      "sha256": "a4214387bf5e9980799adc8ea5ecab2d0e7787f85c8dc7c6780cffd9a740ae44",
+      "material": {
+        "name": "PETG conditional solid",
+        "youngs_modulus_MPa": 800,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated isotropic short-term sensitivity assumption; no printed fatigue or strength qualification",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 2.4
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "cradle",
+        "region": {
+          "lower": [
+            -50,
+            -16.0,
+            -46.0
+          ],
+          "upper": [
+            -38,
+            0.0,
+            -32
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "pin_0_0",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "cradle",
+        "region": {
+          "lower": [
+            -50,
+            62.0,
+            -46.0
+          ],
+          "upper": [
+            -38,
+            78.0,
+            -32
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "pin_0_1",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "cradle",
+        "region": {
+          "lower": [
+            38,
+            -16.0,
+            -46.0
+          ],
+          "upper": [
+            50,
+            0.0,
+            -32
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "pin_1_0",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "cradle",
+        "region": {
+          "lower": [
+            38,
+            62.0,
+            -46.0
+          ],
+          "upper": [
+            50,
+            78.0,
+            -32
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "pin_1_1",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "cradle",
+        "region": {
+          "lower": [
+            -43.0,
+            0,
+            0
+          ],
+          "upper": [
+            -31.0,
+            0,
+            13
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        -1.502979197399435,
+        0.0
+      ]
+    },
+    {
+      "selection": {
+        "part": "cradle",
+        "region": {
+          "lower": [
+            -42.0,
+            66,
+            0
+          ],
+          "upper": [
+            -32.0,
+            74,
+            0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        -3.817109852391774
+      ]
+    },
+    {
+      "selection": {
+        "part": "cradle",
+        "region": {
+          "lower": [
+            -43.0,
+            0,
+            13.8
+          ],
+          "upper": [
+            -31.0,
+            7,
+            13.8
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        1.5559605621867836
+      ]
+    },
+    {
+      "selection": {
+        "part": "cradle",
+        "region": {
+          "lower": [
+            31.0,
+            0,
+            0
+          ],
+          "upper": [
+            43.0,
+            0,
+            13
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        -1.502979197399435,
+        0.0
+      ]
+    },
+    {
+      "selection": {
+        "part": "cradle",
+        "region": {
+          "lower": [
+            32.0,
+            66,
+            0
+          ],
+          "upper": [
+            42.0,
+            74,
+            0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        -3.817109852391774
+      ]
+    },
+    {
+      "selection": {
+        "part": "cradle",
+        "region": {
+          "lower": [
+            31.0,
+            0,
+            13.8
+          ],
+          "upper": [
+            43.0,
+            7,
+            13.8
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        1.5559605621867836
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": []
+}

@@ -1,0 +1,1 @@
+The 512 MiB execution budget was exceeded before a native answer. No force or strain result is claimed. spring_mount_corrected / spring_final provide the completed replacement question and retained native evidence.

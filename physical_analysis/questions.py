@@ -276,24 +276,88 @@ class FlexureQuestion(StructuralQuestion):
 
 
 @dataclass(kw_only=True)
-class SnapFitQuestion(StructuralQuestion):
+class ContactQuestion(StructuralQuestion):
+    """Supported deformable part loaded by forces/motion against rigid mates.
+
+    Contact engagement and penetration qualify the structural answer. This does
+    not establish passage, cyclic recovery, friction or bolt preload.
+    """
+    contact_region: Region
+    mating_parts: tuple[MatingPart, ...]
+    penalty_N_mm3: float
+    penetration_limit_mm: float = .02
+    discretization: str = 'surface_to_surface'
+    contact_expected: bool = True
+    combine_mating_surfaces: bool = True
+
+    def run(self, directory, *, numerical=None, mesh_from=None):
+        if numerical is False:
+            raise ValueError('Contact requires numerical contact evidence')
+        return super().run(directory, numerical=True, mesh_from=mesh_from)
+
+    def build_case(self):
+        if not isinstance(self.contact_expected, bool):
+            raise ValueError('contact_expected must be an explicit boolean')
+        if not (self.forces or self.motion or any(
+                any(v for v in p.motion.displacement_mm if v is not None) for p in self.mating_parts)):
+            raise ValueError('Provide explicit force or motion loading')
+        c = self._fixture_case()
+        if not self.mating_parts:
+            raise ValueError('Provide at least one mating part')
+        for part in self.mating_parts:
+            if any(v is None for v in part.motion.displacement_mm) or part.motion.region != Region():
+                raise ValueError('A rigid mating part needs all three translation components')
+            c.add_part(part.name, part.shape, material=self.material, mesh_size_mm=self.mesh_size_mm)
+            c.prescribe_motion(part.name, part.motion.region, displacement_mm=part.motion.displacement_mm,
+                              name=part.motion.name, progress=part.motion.progress)
+        if self.combine_mating_surfaces and len(self.mating_parts)>1:
+            c.contact(self.part_name, self.contact_region,
+                      tuple(c.select(p.name,p.contact_region) for p in self.mating_parts),
+                      penalty_N_mm3=self.penalty_N_mm3, penetration_limit_mm=self.penetration_limit_mm,
+                      discretization=self.discretization)
+        else:
+            for part in self.mating_parts:
+                c.contact(self.part_name, self.contact_region, part.name, part.contact_region,
+                      penalty_N_mm3=self.penalty_N_mm3, penetration_limit_mm=self.penetration_limit_mm,
+                      discretization=self.discretization)
+        return c
+
+    def _answer(self, r):
+        if not isinstance(self.contact_expected, bool):
+            raise ValueError('contact_expected must be an explicit boolean')
+        super()._answer(r)
+        q, m = r.metrics['question'], r.metrics
+        positive(self.penetration_limit_mm, 'Penetration limit')
+        penetration = m.get('max_penetration_mm')
+        penetration_ok = penetration is not None and math.isfinite(penetration) and 0 <= penetration <= self.penetration_limit_mm
+        detected = m.get('contact_detected')
+        engaged_ok = detected is self.contact_expected
+        quality = q['numerical_evidence_adequate'] and penetration_ok and engaged_ok
+        q.update(numerical_evidence_adequate=bool(quality), contact_quality_ok=bool(quality),
+                 contact_engaged=detected, contact_expected=self.contact_expected,
+                 penetration_ok=penetration_ok, max_penetration_mm=penetration,
+                 contact_scope='Explicit rigid translation-only mates; sampled frictionless contact')
+        q['analytical_numerical_comparison'] = None
+        if not quality:
+            q['design_screen_passes'] = None
+        return r
+
+
+@dataclass(kw_only=True)
+class SnapFitQuestion(ContactQuestion):
     """Explicit contact operation; recovery need not imply reverse driver motion.
 
     Stationary mates are already at their initial pose. A one-way driver may
     remain at its final pose only with explicit final contact-free recovery;
     this interprets supplied evidence, not product value or printed behavior.
     """
-    contact_region: Region
-    mating_parts: tuple[MatingPart, ...]
-    penalty_N_mm3: float  # explicit baseline; never inferred from material
-    penetration_limit_mm: float = .02
+    combine_mating_surfaces: bool = False  # preserve historical case/input identity
     contact_free_at: tuple[float, ...] = ()
     checkpoint_tolerance: float = .01
     return_observation: str | None = None
     require_driver_return: bool = True
     return_tolerance_mm: float = 1e-4
     displacement_limits_mm: dict[str, tuple] = field(default_factory=dict)
-    discretization: str = 'surface_to_surface'
 
     def run(self, directory, *, numerical=None, mesh_from=None):
         if numerical is False:
@@ -304,19 +368,9 @@ class SnapFitQuestion(StructuralQuestion):
         # Base setup supplies root/observations; mating contact supplies loading.
         if self.motion or self.forces:
             raise ValueError('Snap loading belongs on explicit mating-part motions')
-        c = self._fixture_case()
-        if not self.mating_parts:
-            raise ValueError('Provide at least one mating part')
-        for part in self.mating_parts:
-            if any(v is None for v in part.motion.displacement_mm) or part.motion.region != Region():
-                raise ValueError('A rigid mating part needs all three translation components')
-            c.add_part(part.name, part.shape, material=self.material, mesh_size_mm=self.mesh_size_mm)
-            c.prescribe_motion(part.name, part.motion.region, displacement_mm=part.motion.displacement_mm,
-                              name=part.motion.name, progress=part.motion.progress)
-            c.contact(self.part_name, self.contact_region, part.name, part.contact_region,
-                      penalty_N_mm3=self.penalty_N_mm3, penetration_limit_mm=self.penetration_limit_mm,
-                      discretization=self.discretization)
-        return c
+        if not self.contact_expected:
+            raise ValueError('A snap passage requires expected contact engagement')
+        return super().build_case()
 
     def _answer(self, r):
         super()._answer(r)

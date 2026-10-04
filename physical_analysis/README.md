@@ -60,7 +60,7 @@ exact distances and all potentially intersecting poses retain native checks.
 
 ## Use
 
-Prefer `SnapFitQuestion`, `FlexureQuestion` or `StructuralQuestion` for a known
+Prefer `SnapFitQuestion`, `ContactQuestion`, `FlexureQuestion` or `StructuralQuestion` for a known
 physical situation. Identify the geometry and named regions explicitly; supply
 loads, material assumptions and provisional acceptance limits. The shared layer
 constructs the case, restraints, observations and contacts, then checks the
@@ -152,6 +152,45 @@ matters. Explicit registered sections `(x_mm, z_mm, (y0,y1))` use actual Orca
 paths through the existing coverage helper. An uncovered section rejects the
 solid-section provisional screen. Description-only records leave path coverage
 unknown. Neither mode turns walls/infill/orientation into material properties.
+
+### Force-loaded contact questions
+
+`ContactQuestion` extends `StructuralQuestion` with explicit `contact_region`,
+`mating_parts`, `penalty_N_mm3`, `penetration_limit_mm` and `discretization`.
+It accepts ordinary surface `forces` and/or `motion` on the deformable part,
+as well as prescribed translations of rigid mates. Each mate must be one
+connected solid with all three translations specified; stationary mates use
+`Motion((0,0,0), name='unique_support_name')`. Supports remain explicit.
+No freely rotating joints, friction, thread preload or contact-free body dynamics
+are introduced. Analytical-only execution is rejected.
+
+Multiple mates use one combined master surface by default, avoiding overlapping
+slave definitions while preserving separate mate motions/reactions.
+`combine_mating_surfaces=False` retains separate pairs when explicitly needed.
+`SnapFitQuestion` defaults to separate pairs to preserve historical input
+identities; new multi-obstacle fixtures can explicitly select the combined route.
+Native two-stop qualification covers force transfer across independently fixed
+mates. The phone fixture exposed the need for this existing backend facility;
+the earlier overlapping-pair solve timed out and remains unqualified.
+
+The answer requires native completion, equilibrium, finite strain, finite bounded
+penetration and observed contact matching `contact_expected` (default `True`).
+Use `contact_expected=False` only for an explicitly supported open-gap question.
+Missing contact fields and failed solves leave the design screen unqualified.
+`SnapFitQuestion` shares this construction but additionally requires engagement,
+passage checkpoints, displacement envelopes and any requested elastic return.
+It still rejects direct deformable-part loads; its drivers define the operation.
+Existing snap signatures and retained evidence identities are preserved.
+
+The [raised phone-stand consumer](../model/analysis_phone_stand/analyze_v2.py)
+applies a 5 N lifting force to its flexible keeper against two stationary guide
+cages. This resolves the previous force-plus-contact question-layer gap without
+duplicating case/solver plumbing. A native clamped-beam benchmark under 0.1 N
+qualifies gap closure and load transfer: the free 0.333 mm response is limited by
+a stop at 0.2 mm, with equilibrium, penetration and retained-identity checks.
+This qualifies the wrapper's existing frictionless backend route, not printed
+PETG or a general bolted-joint model. `QuestionStudy` and `read_evidence` apply
+unchanged, including explicit unsupported/failure outcomes.
 
 ### Standard question studies and retained evidence
 

@@ -483,7 +483,7 @@ Keep tool benchmarks as independent engineering experiments, not product project
 Use the cheapest adequate evidence: CAD for rigid fit and clearance, simple
 calculations for suitable load screens, and numerical analysis when deformation,
 contact or geometry makes those approaches insufficient or materially uncertain.
-For a known snap/contact operation, flexure or loaded structural part, prefer
+For a known snap/contact operation, force-loaded contact (`ContactQuestion`), flexure or loaded structural part, prefer
 the [shared engineering questions](physical_analysis/README.md#use) over manually
 constructing an `AnalysisCase`. Supply the geometry, regions, loads, material and
 manufacturing assumptions explicitly. For planned mesh, motion-increment or

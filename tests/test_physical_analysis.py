@@ -370,6 +370,8 @@ def test_circular_cam_screen_against_sampled_contact_geometry():
 
 
 def test_automatic_mesh_reuse_is_verified_and_stale_sources_compute_fresh(tmp_path,monkeypatch):
+    # A changed coordinator configuration must not replace live product jobs.
+    monkeypatch.setenv('ENGINEERING_INSTANCE',str(tmp_path))
     monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'performance'))
     first=beam();first.apply_force('beam',Region.plane('x',40),force_N=(0,0,-.1))
     original=first.run(tmp_path/'original').require_completed()

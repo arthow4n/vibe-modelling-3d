@@ -1,0 +1,158 @@
+{
+  "checks": [
+    {
+      "angle_deg": 50.0,
+      "seat_y_mm": 161.96072227300766,
+      "pairs": [
+        {
+          "parts": [
+            "base",
+            "cradle"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "base",
+            "prop"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "base",
+            "keeper"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "cradle",
+            "prop"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "cradle",
+            "keeper"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "prop",
+            "keeper"
+          ],
+          "interference_mm3": 0.0
+        }
+      ],
+      "released_roof_clearance_mm": 4.0
+    },
+    {
+      "angle_deg": 65.0,
+      "seat_y_mm": 126.15133737415798,
+      "pairs": [
+        {
+          "parts": [
+            "base",
+            "cradle"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "base",
+            "prop"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "base",
+            "keeper"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "cradle",
+            "prop"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "cradle",
+            "keeper"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "prop",
+            "keeper"
+          ],
+          "interference_mm3": 0.0
+        }
+      ],
+      "released_roof_clearance_mm": 4.0
+    },
+    {
+      "angle_deg": 75.0,
+      "seat_y_mm": 102.05107952145613,
+      "pairs": [
+        {
+          "parts": [
+            "base",
+            "cradle"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "base",
+            "prop"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "base",
+            "keeper"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "cradle",
+            "prop"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "cradle",
+            "keeper"
+          ],
+          "interference_mm3": 0.0
+        },
+        {
+          "parts": [
+            "prop",
+            "keeper"
+          ],
+          "interference_mm3": 0.0
+        }
+      ],
+      "released_roof_clearance_mm": 4.0
+    }
+  ],
+  "scope": "Nominal rigid CAD; accessory envelope is bounded, not universal",
+  "phone_mm": [
+    85.0,
+    170.0,
+    13.0
+  ],
+  "manual_release_mm": 7.0
+}

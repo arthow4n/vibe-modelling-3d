@@ -1,0 +1,90 @@
+{
+  "cases": [
+    {
+      "angle_deg": 50.0,
+      "landscape": false,
+      "phone_bottom_height_mm": 86.83985993241339,
+      "tap_N": 2.0,
+      "sideways_N": 0.5,
+      "centre_of_pressure_mm": [
+        37.14978862986098,
+        158.20046711169098
+      ],
+      "tipping_margin_mm": 27.85021137013902,
+      "required_friction_coefficient_phone_only": 0.381124346469028
+    },
+    {
+      "angle_deg": 50.0,
+      "landscape": true,
+      "phone_bottom_height_mm": 86.83985993241339,
+      "tap_N": 2.0,
+      "sideways_N": 0.5,
+      "centre_of_pressure_mm": [
+        42.37141928447017,
+        98.98471375264549
+      ],
+      "tipping_margin_mm": 22.62858071552983,
+      "required_friction_coefficient_phone_only": 0.381124346469028
+    },
+    {
+      "angle_deg": 65.0,
+      "landscape": false,
+      "phone_bottom_height_mm": 79.15519276592119,
+      "tap_N": 2.0,
+      "sideways_N": 0.5,
+      "centre_of_pressure_mm": [
+        38.67910748695866,
+        154.8061255001586
+      ],
+      "tipping_margin_mm": 26.320892513041343,
+      "required_friction_coefficient_phone_only": 0.49635563162727353
+    },
+    {
+      "angle_deg": 65.0,
+      "landscape": true,
+      "phone_bottom_height_mm": 79.15519276592119,
+      "tap_N": 2.0,
+      "sideways_N": 0.5,
+      "centre_of_pressure_mm": [
+        37.993952617401334,
+        95.97663207981022
+      ],
+      "tipping_margin_mm": 27.006047382598666,
+      "required_friction_coefficient_phone_only": 0.49635563162727353
+    },
+    {
+      "angle_deg": 75.0,
+      "landscape": false,
+      "phone_bottom_height_mm": 73.08016841441338,
+      "tap_N": 2.0,
+      "sideways_N": 0.5,
+      "centre_of_pressure_mm": [
+        38.98353395231639,
+        152.06753044494116
+      ],
+      "tipping_margin_mm": 26.016466047683608,
+      "required_friction_coefficient_phone_only": 0.5766299753369158
+    },
+    {
+      "angle_deg": 75.0,
+      "landscape": true,
+      "phone_bottom_height_mm": 73.08016841441338,
+      "tap_N": 2.0,
+      "sideways_N": 0.5,
+      "centre_of_pressure_mm": [
+        33.47812475119351,
+        93.58917072087654
+      ],
+      "tipping_margin_mm": 31.521875248806488,
+      "required_friction_coefficient_phone_only": 0.5766299753369158
+    }
+  ],
+  "pins": {
+    "load_per_pin_N": 15,
+    "nominal_bearing_MPa": 0.5,
+    "nominal_steel_single_shear_MPa": 1.1936620731892151,
+    "minimum_jam_nut_thread_projection_mm": 3.8500000000000014,
+    "scope": "Geometric load screen; no stock screw grade, tightening torque, creep or loosening qualification"
+  },
+  "limits": "Static provisional taps only. Stand mass ignored. Actual desk/case friction, impacts and print stiffness unmeasured."
+}

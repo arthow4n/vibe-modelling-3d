@@ -1,0 +1,113 @@
+{
+  "name": "v2_direct_release",
+  "nonlinear": true,
+  "max_increment": 0.1,
+  "parts": [
+    {
+      "name": "keeper",
+      "geometry": "part_0.brep",
+      "sha256": "cef41ad70d9d002e4e97b615ac13646fb015e98f19868683f96d1adc8275ed44",
+      "material": {
+        "name": "PETG conditional solid",
+        "youngs_modulus_MPa": 800,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated isotropic short-term sensitivity assumption; no printed fatigue or strength qualification",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 1.6
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "keeper",
+        "region": {
+          "lower": [
+            -111.0,
+            191.0,
+            8.0
+          ],
+          "upper": [
+            -97.0,
+            201.0,
+            8.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "mount_0",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "keeper",
+        "region": {
+          "lower": [
+            97.0,
+            191.0,
+            8.0
+          ],
+          "upper": [
+            111.0,
+            201.0,
+            8.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "mount_1",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "keeper",
+        "region": {
+          "lower": [
+            null,
+            210.0,
+            null
+          ],
+          "upper": [
+            null,
+            210.0,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        null,
+        -7.0,
+        null
+      ],
+      "name": "thumb",
+      "progress": [
+        [
+          0,
+          0
+        ],
+        [
+          0.5,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  ],
+  "loads": [],
+  "contacts": [],
+  "observations": []
+}

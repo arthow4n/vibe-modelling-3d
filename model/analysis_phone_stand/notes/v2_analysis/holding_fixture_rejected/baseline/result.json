@@ -1,0 +1,76 @@
+{
+  "case": "v2_keeper_holding",
+  "status": "failed",
+  "completed": false,
+  "metrics": {
+    "question": {
+      "operation_completed": false,
+      "solver_completed": false,
+      "evidence_method": "numerical",
+      "numerical_evidence_adequate": false,
+      "peak_actuation_force_N": null,
+      "peak_strain": null,
+      "peak_strain_location_mm": null,
+      "strain_location_kind": "undeformed element centroid of peak integration point",
+      "peak_von_mises_MPa": null,
+      "peak_stress_location_mm": null,
+      "deformation_mm": null,
+      "max_displacement_mm": null,
+      "force_balance_ok": false,
+      "max_force_balance_relative": null,
+      "force_balance_source": "native_summary",
+      "strain_screen_passes": null,
+      "acceptance": {
+        "max_displacement_mm": null
+      },
+      "design_screen_passes": null,
+      "design_screen_scope": "Only the supplied provisional strain and acceptance quantities",
+      "analytical_screen": null,
+      "beam_rationale": null,
+      "analytical_numerical_comparison": null,
+      "manufacturing": {
+        "assumption": "Solid keeper and printed guide caps; guide cage idealized rigid, excluding screw preload and cap compliance.",
+        "local_solid_paths_established": null
+      },
+      "physical_limits": {
+        "material_calibrated": false,
+        "friction_modelled": false,
+        "printed_recovery_established": false,
+        "physically_validated": false
+      },
+      "numerical_confidence": {
+        "increment_sensitivity": "not_run",
+        "mesh_sensitivity": "not_run",
+        "contact_parameter_sensitivity": "not_run"
+      },
+      "contact_quality_ok": false,
+      "contact_engaged": null,
+      "contact_expected": true,
+      "penetration_ok": false,
+      "max_penetration_mm": null,
+      "contact_scope": "Explicit rigid translation-only mates; sampled frictionless contact"
+    }
+  },
+  "history": [],
+  "assumptions": [
+    "mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.",
+    "Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.",
+    "Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.",
+    "Frictionless contact; enforcement and pairing depend on backend/formulation.",
+    "Numerical completion is not physical validation or a load rating."
+  ],
+  "warnings": [],
+  "errors": [
+    "ValueError: guides: provide one valid connected solid per part"
+  ],
+  "provenance": {
+    "backend": "CalculiX",
+    "question_interpreter_sha256": "0be05a1cc4aa7297e64a91794e002ee435ef2e04b07de95b46974af2f9731dfb"
+  },
+  "artifacts": {
+    "fixture_geometry": [
+      "part_0.brep.gz"
+    ],
+    "raw_fields_retained": false
+  }
+}

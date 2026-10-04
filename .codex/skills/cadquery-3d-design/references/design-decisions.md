@@ -276,6 +276,14 @@ guessed loads for the required agreement on an oversized assembly.
 
 ## Structural load paths and joint screens
 
+For force-loaded seated contact against explicit rigid mates, use
+[`ContactQuestion`](../../../../physical_analysis/README.md#force-loaded-contact-questions).
+Use `StructuralQuestion` for contact-free loads and `SnapFitQuestion` for a
+specified passage/return operation. Prefer the existing combined master surface
+for several obstacles sharing a slave region; do not duplicate overlapping pairs
+without a concrete reason. Retain failed contact/mesh outcomes separately from
+simple load screens and physical validation.
+
 For a structurally important part or split assembly, start with a dimensioned
 sketch or parameter table before detailed CAD. Derive service and foreseeable
 handling cases from intended use, including support and grip positions. Estimate

@@ -1,0 +1,1 @@
+Deliberate investigation stop: superseded separate overlapping slave contact pairs with a single combined master surface. Native completion, contact quality and retention were not established. See holding_union for the replacement fixture. No failed output is promoted.

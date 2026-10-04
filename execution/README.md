@@ -164,6 +164,14 @@ valid artifacts, never claimed as verified in place. Cache size/count is bounded
 
 ## Concurrent agents, scheduling and recovery
 
+Tests or investigations that change coordinator configuration, including
+`ENGINEERING_DATA`, must use a unique `ENGINEERING_INSTANCE` before connecting.
+Otherwise compatibility checking can replace the default coordinator and
+interrupt unrelated active jobs. The physical-analysis mesh-cache test uses this
+existing namespace mechanism; its cache assertions still run through real native
+solves. A separate instance has its own admission accounting, so keep such
+qualification workloads small rather than treating it as extra shared capacity.
+
 The default shared CPU capacity is **50%** of affinity/cgroup available cores.
 `ENGINEERING_CPUS=75%` or `ENGINEERING_CPUS=8` changes it; `--threads 50%` (the
 command default) allocates half that shared capacity. Integer thread counts are

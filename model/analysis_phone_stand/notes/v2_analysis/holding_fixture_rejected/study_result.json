@@ -1,0 +1,107 @@
+{
+  "case": "v2_keeper_holding",
+  "status": "failed",
+  "completed": false,
+  "metrics": {
+    "question": {
+      "operation_completed": false,
+      "solver_completed": false,
+      "evidence_method": "numerical",
+      "numerical_evidence_adequate": false,
+      "peak_actuation_force_N": null,
+      "peak_strain": null,
+      "peak_strain_location_mm": null,
+      "strain_location_kind": "undeformed element centroid of peak integration point",
+      "peak_von_mises_MPa": null,
+      "peak_stress_location_mm": null,
+      "deformation_mm": null,
+      "max_displacement_mm": null,
+      "force_balance_ok": false,
+      "max_force_balance_relative": null,
+      "force_balance_source": "native_summary",
+      "strain_screen_passes": null,
+      "acceptance": {
+        "max_displacement_mm": null
+      },
+      "design_screen_passes": null,
+      "design_screen_scope": "Only the supplied provisional strain and acceptance quantities",
+      "analytical_screen": null,
+      "beam_rationale": null,
+      "analytical_numerical_comparison": null,
+      "manufacturing": {
+        "assumption": "Solid keeper and printed guide caps; guide cage idealized rigid, excluding screw preload and cap compliance.",
+        "local_solid_paths_established": null
+      },
+      "physical_limits": {
+        "material_calibrated": false,
+        "friction_modelled": false,
+        "printed_recovery_established": false,
+        "physically_validated": false
+      },
+      "numerical_confidence": {
+        "increment_sensitivity": "not_run",
+        "mesh_sensitivity": "unresolved",
+        "contact_parameter_sensitivity": "unresolved"
+      },
+      "contact_quality_ok": false,
+      "contact_engaged": null,
+      "contact_expected": true,
+      "penetration_ok": false,
+      "max_penetration_mm": null,
+      "contact_scope": "Explicit rigid translation-only mates; sampled frictionless contact",
+      "study": {
+        "decision": "A 20% numerical change must not change the provisional 1.5% strain / 1 mm displacement decision",
+        "relative_tolerance": 0.2,
+        "absolute_tolerances": {},
+        "comparisons": {},
+        "comparison_limits": {},
+        "acceptance_changed": {},
+        "runs": {
+          "baseline": {
+            "status": "failed",
+            "case": "v2_keeper_holding",
+            "input_sha256": null,
+            "case_sha256": null,
+            "backend_identity_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+            "versions": {
+              "backend": "CalculiX",
+              "version": null,
+              "gmsh": null,
+              "cadquery": null,
+              "python": null
+            },
+            "requested_travel_per_increment_mm": {
+              "guide_fixed": 0.0
+            }
+          }
+        },
+        "stopping_reason": {
+          "baseline": "Baseline quality rejected; no refinements launched"
+        }
+      },
+      "selected_metrics_stable": false,
+      "baseline_quality_adequate": false
+    }
+  },
+  "history": [],
+  "assumptions": [
+    "mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.",
+    "Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.",
+    "Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.",
+    "Frictionless contact; enforcement and pairing depend on backend/formulation.",
+    "Numerical completion is not physical validation or a load rating."
+  ],
+  "warnings": [],
+  "errors": [
+    "ValueError: guides: provide one valid connected solid per part"
+  ],
+  "provenance": {
+    "backend": "CalculiX",
+    "question_interpreter_sha256": "0be05a1cc4aa7297e64a91794e002ee435ef2e04b07de95b46974af2f9731dfb",
+    "question_study_sha256": "30ea2f362401db118e03e9eedaa4c5a4d3f358a50706b21cc7e379439d0d8982"
+  },
+  "artifacts": {
+    "directory": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/notes/v2_analysis/holding/baseline",
+    "result": "result.json"
+  }
+}
