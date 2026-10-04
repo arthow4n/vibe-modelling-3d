@@ -149,6 +149,12 @@ def test_missing_solver_timeout_and_no_overwrite(tmp_path,monkeypatch):
     c.timeout_seconds=.01
     r=c.run(tmp_path/'timeout')
     assert r.status=='timeout' and not r.completed
+    resources=r.provenance['execution_resources']
+    assert resources['elapsed_seconds']>=.01
+    assert resources['peak_tree_rss_bytes']>0
+    assert resources['measurement']=='sampled process tree'
+    saved=json.loads((tmp_path/'timeout/result.json').read_text())
+    assert saved['provenance']['execution_resources']==resources
 
 
 def test_validation():

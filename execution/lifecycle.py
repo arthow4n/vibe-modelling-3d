@@ -104,9 +104,15 @@ def terminate(process, descendants=()):
 
 
 def wait(process, timeout=None, cancelled=lambda: False, sample=None,run_id=None):
-    """Observe actual process tree use; unavailable data stays null, never zero."""
+    """Observe process tree use; TimeoutExpired retains execution_resources.
+
+    Unavailable samples stay null. Timeout diagnostics do not qualify completion.
+    """
     import psutil
     started=time.monotonic();seen={};peak=None;cpu=None
+    def measurements():
+        return dict(peak_tree_rss_bytes=peak, sampled_tree_cpu_seconds=cpu,
+                    measurement='sampled process tree', elapsed_seconds=time.monotonic()-started)
     while True:
         done=process.poll() is not None if hasattr(process, 'poll') else not process.is_alive()
         if done:
@@ -117,9 +123,7 @@ def wait(process, timeout=None, cancelled=lambda: False, sample=None,run_id=None
             try:os.killpg(process.pid,signal.SIGKILL)
             except (ProcessLookupError,PermissionError):pass
             cleanup_orphans(run_id)
-            return process.returncode if hasattr(process, 'poll') else process.exitcode, dict(
-                peak_tree_rss_bytes=peak, sampled_tree_cpu_seconds=cpu, measurement='sampled process tree',
-                elapsed_seconds=time.monotonic()-started)
+            return process.returncode if hasattr(process, 'poll') else process.exitcode, measurements()
         try:
             root=psutil.Process(process.pid);children=root.children(recursive=True)
             seen.update({p.pid:p for p in children})
@@ -133,7 +137,10 @@ def wait(process, timeout=None, cancelled=lambda: False, sample=None,run_id=None
         if cancelled():
             terminate(process,seen.values());raise InterruptedError('Execution client disconnected or cancelled')
         if timeout is not None and time.monotonic()-started>timeout:
-            terminate(process,seen.values());raise subprocess.TimeoutExpired('engineering execution',timeout)
+            terminate(process,seen.values())
+            error=subprocess.TimeoutExpired('engineering execution',timeout)
+            error.execution_resources=measurements()
+            raise error
         time.sleep(.02)
 
 

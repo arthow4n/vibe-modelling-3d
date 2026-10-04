@@ -41,8 +41,13 @@ the shared resource coordinator, tracing and owned subprocess lifecycle. Gmsh,
 CalculiX, FEBio and IPC retain isolated worker state and existing native-completion,
 strain, quality and provenance checks. Default capacity is 50% of available cores;
 integer/percentage command budgets and explicit IPC settings remain configurable.
-Nested analyses borrow their command's budget. Set adequate memory/timeout budgets
-for substantial studies; independent script studies can use `execution.batch`.
+Nested analyses borrow their command's budget. The current CalculiX/Gmsh route
+runs one thread: use `./execute.py --threads 1 SCRIPT.py` for sequential studies
+on that route. Larger leases reserve capacity without parallelizing that solver.
+Keep explicit budgets for parallel batches and other backends. Set an outer
+command deadline that covers the planned sequential runs, preparation and queue
+wait, as well as each native run's deadline. Independent script studies can use
+`execution.batch`. RSS is diagnostic; there are no shared memory budgets.
 
 Dependency/solver initialization, input compilation, solve, extraction and recovery
 spans are retained locally without output noise. Do not inspect them routinely;
@@ -228,8 +233,11 @@ Select only axes that can affect the decision (all default to zero). The bounded
 plan halves the motion increment, reduces mesh size by 0.7 or doubles contact
 penalty, one factor at a time. Mesh/contact factors and absolute metric tolerances
 are explicit overrides. Requested travel per increment is reported in mm from
-each progress segment; actual adaptive increments may be smaller. A rejected
-baseline stops without refinements. Each level compares decision quantities with
+each progress segment; actual adaptive increments may be smaller. A baseline
+without adequate numerical quality stops without refinements. A completed design
+screen failure can still be refined to resolve uncertainty near a limit; when
+the failure already settles the design decision, revise the product instead of
+requesting that refinement. Each level compares decision quantities with
 the preceding level, stopping that axis when its quantities meet the tolerance.
 The answer reports `stable`, `unstable`, `unresolved` or `not_run` and the stopping
 reason; stability is a bounded comparison, not proof of asymptotic convergence.
@@ -592,9 +600,15 @@ instead of being accepted as warnings. Other warning messages include context.
 Each new run directory owns `case.json`, geometry BREP snapshots, solver input,
 raw `.dat` results, logs, increment status and `result.json`. Existing directories
 are never overwritten. Hashes, mesh sizes, tool versions and boundary selections
-are retained. Runs have a wall-clock timeout covering meshing and solving; the
+are retained. Runs have a wall-clock timeout covering worker initialization,
+meshing, solving and extraction; the
 worker and solver process group are stopped together. Gmsh's global state is
 isolated per run, so independent callers can run concurrently.
+Timed-out native runs retain the sampled resource summary in
+`provenance.execution_resources` when available. This is partial CPU/RSS and
+elapsed-time evidence, never completion or convergence evidence. A surrounding
+command can expire first and terminate the caller before it writes a native
+result; inspect its separate execution record and partial logs in that case.
 Caller interruption also stops that isolated process group, records an
 `interrupted` result, and re-raises `KeyboardInterrupt`. Retain it as incomplete
 evidence if useful; cancelling a superseded design must not leave its solver

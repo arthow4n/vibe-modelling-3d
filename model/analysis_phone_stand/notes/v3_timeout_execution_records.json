@@ -1,0 +1,194 @@
+[
+  {
+    "schema_version": 1,
+    "execution_inputs_sha256": "ac654b78100d05751bbeb0e10162694f92077b8774233b4f680f197e3e0cb16d",
+    "requested_cpus": 4,
+    "run_id": "5d93a7657327430589c6d6f54a9d4fe7",
+    "operation": "script.command",
+    "strategy": "isolated",
+    "start_unix_ns": 1791130825089432904,
+    "source_sha256": "f2d162cf4fa3cfc4181e0338006ee1f497b98bdd793f0aee3d286aa8b1e3b952",
+    "source": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/check_v3.py",
+    "arguments_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "python": "3.12.14",
+    "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+    "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+    "status": "interrupted",
+    "revision": "db18e351a641f9e2c2efab6bbd7350ebd8fdd677",
+    "repository_python_sha256": "a0a01f0aaf68f04742dbf1367acd3c38ab0edfbd751f92cdcd862d1c2fdd6ed6",
+    "available_cpus": 16,
+    "trace_id": "681c0097d1a384dd9b2e628da11e88a8",
+    "failure_type": "InterruptedError",
+    "elapsed_seconds": 511.97520764300134,
+    "observer_cpu_seconds": 0.13793,
+    "observer_max_rss_kib": 1582208,
+    "admission": {
+      "requested_cpus": 4,
+      "capacity_cpus": 8,
+      "capacity_jobs": 4,
+      "blocked_seconds": {
+        "cpu": 511.85979163299635
+      },
+      "wait_seconds": 511.8598371110056,
+      "status": "not_acquired",
+      "first_blocked": {
+        "used_cpus": 8,
+        "active_jobs": 2
+      }
+    }
+  },
+  {
+    "schema_version": 1,
+    "execution_inputs_sha256": "54d7fd3abde25a33c52b3f88da6b6314d3df96d508f0be0091241070aef43592",
+    "requested_cpus": 1,
+    "run_id": "5b38480580264866aa96955ae484d1d1",
+    "status": "failed",
+    "failure_type": "RuntimeError",
+    "operation": "script.command",
+    "strategy": "isolated",
+    "start_unix_ns": 1791131271180183453,
+    "source_sha256": "96d71ab7d22ee955323d99a598661cbdae322307e1aab79146061d9e181eafeb",
+    "source": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/analyze_v3.py",
+    "arguments_sha256": "0ddda0ce2af2624045c1fd289a233ca692096c38b95e95522de38714d2d21967",
+    "python": "3.12.14",
+    "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+    "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+    "revision": "db18e351a641f9e2c2efab6bbd7350ebd8fdd677",
+    "repository_python_sha256": "063965f66c5912bcf2b0d79375627b5225579784a3483369e5b66c63da499bb9",
+    "available_cpus": 16,
+    "trace_id": "17b9525b68cacc7f0acab42c2987ca89",
+    "exit_code": 1,
+    "error": "RuntimeError: Script changed while queued; request a fresh execution",
+    "elapsed_seconds": 65.9987119389989,
+    "observer_cpu_seconds": 0.15712199999999998,
+    "observer_max_rss_kib": 2783628,
+    "admission": {
+      "requested_cpus": 1,
+      "capacity_cpus": 8,
+      "capacity_jobs": 4,
+      "blocked_seconds": {
+        "cpu": 65.8086478289988
+      },
+      "wait_seconds": 65.8086918869958,
+      "status": "acquired",
+      "first_blocked": {
+        "used_cpus": 8,
+        "active_jobs": 2
+      }
+    }
+  },
+  {
+    "schema_version": 1,
+    "execution_inputs_sha256": "65b891737b29ae22e7036f3bc7a2b34b74ab32e0a4ed5e1677bbb730bae76b57",
+    "requested_cpus": 1,
+    "run_id": "f5ac0b8c815048c7becaf8bb0c34646f",
+    "status": "failed",
+    "failure_type": "RuntimeError",
+    "operation": "script.command",
+    "strategy": "isolated",
+    "start_unix_ns": 1791131271188482480,
+    "source_sha256": "96d71ab7d22ee955323d99a598661cbdae322307e1aab79146061d9e181eafeb",
+    "source": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/analyze_v3.py",
+    "arguments_sha256": "f253fb0cb0a29285feae27f3e6030dd053943331280d87b160cd16e37ef40901",
+    "python": "3.12.14",
+    "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+    "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+    "revision": "db18e351a641f9e2c2efab6bbd7350ebd8fdd677",
+    "repository_python_sha256": "063965f66c5912bcf2b0d79375627b5225579784a3483369e5b66c63da499bb9",
+    "available_cpus": 16,
+    "trace_id": "c4f74c9666a3d8726a9f44e12aeb2005",
+    "exit_code": 1,
+    "error": "RuntimeError: Script changed while queued; request a fresh execution",
+    "elapsed_seconds": 65.99384562799969,
+    "observer_cpu_seconds": 0.14232699999999998,
+    "observer_max_rss_kib": 2783628,
+    "admission": {
+      "requested_cpus": 1,
+      "capacity_cpus": 8,
+      "capacity_jobs": 4,
+      "blocked_seconds": {
+        "cpu": 65.81626285400125
+      },
+      "wait_seconds": 65.81745744699583,
+      "status": "acquired",
+      "first_blocked": {
+        "used_cpus": 8,
+        "active_jobs": 2
+      }
+    }
+  },
+  {
+    "schema_version": 1,
+    "execution_inputs_sha256": "d75b224b17015a86f83e0d08b2c41241e9710fd54b6183792fe42de09e7caf2b",
+    "requested_cpus": 1,
+    "run_id": "9fda71b97e8249fbb472a987509f56cc",
+    "status": "timeout",
+    "failure_type": "TimeoutExpired",
+    "admission": {
+      "requested_cpus": 1,
+      "capacity_cpus": 8,
+      "capacity_jobs": 4,
+      "blocked_seconds": {
+        "jobs": 16.516361687994504
+      },
+      "wait_seconds": 16.516378221000195,
+      "status": "acquired",
+      "first_blocked": {
+        "used_cpus": 4,
+        "active_jobs": 4
+      }
+    },
+    "operation": "script.command",
+    "strategy": "isolated",
+    "start_unix_ns": 1791131899911543727,
+    "source_sha256": "8292bb63c012ee3ac69dc40faf9d1f061601ef855fabd2d5abe8559152055f14",
+    "source": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/analyze_v3.py",
+    "arguments_sha256": "7ba44202c90474bad8afcdf0882b98c030cc035b0fc9c2404d3def9a3c554316",
+    "python": "3.12.14",
+    "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+    "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+    "revision": "db18e351a641f9e2c2efab6bbd7350ebd8fdd677",
+    "repository_python_sha256": "c73827f30011cf450ac3e8ba00a062e0331281bbbedac2eb55d2902a27df6bd8",
+    "available_cpus": 16,
+    "trace_id": "1daee1847fd848523d4fd27b80d4522c",
+    "exit_code": 124,
+    "error": "TimeoutExpired: Command 'engineering execution' timed out after 583.4807221829979 seconds",
+    "elapsed_seconds": 600.3223759199973,
+    "observer_cpu_seconds": 0.17429099999999997,
+    "observer_max_rss_kib": 2783628
+  },
+  {
+    "schema_version": 1,
+    "execution_inputs_sha256": "fb6b60af295fd5f2245b3008dbab51e034097a698d96602f5dc2821c19721aa5",
+    "requested_cpus": 1,
+    "run_id": "7c09b4ac94dc4ba58a70c7f1b49debe0",
+    "status": "timeout",
+    "failure_type": "TimeoutExpired",
+    "admission": {
+      "requested_cpus": 1,
+      "capacity_cpus": 8,
+      "capacity_jobs": 4,
+      "blocked_seconds": {},
+      "wait_seconds": 8.723799692234024e-05,
+      "status": "acquired"
+    },
+    "operation": "script.command",
+    "strategy": "isolated",
+    "start_unix_ns": 1791132501832058211,
+    "source_sha256": "54c54305278bf5f36b07df58cba6cee49eee4531cff3fec8365726f4f9f53921",
+    "source": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/analyze_v3.py",
+    "arguments_sha256": "760d3c9f5cb50f6ba51d1c5f58386c78eff8f7a2e7c3974ec63c21b16b084322",
+    "python": "3.12.14",
+    "platform": "Linux 5.15.167.4-microsoft-standard-WSL2 x86_64",
+    "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+    "revision": "db18e351a641f9e2c2efab6bbd7350ebd8fdd677",
+    "repository_python_sha256": "15252ec0f5ece7b342b8acb84d271806053bc72a23477de6200aaefcc280f817",
+    "available_cpus": 16,
+    "trace_id": "d8abcbf0be519f6ae0cc2d8153bfa3a1",
+    "exit_code": 124,
+    "error": "TimeoutExpired: Command 'engineering execution' timed out after 599.9972593009952 seconds",
+    "elapsed_seconds": 600.3150552259976,
+    "observer_cpu_seconds": 0.162225,
+    "observer_max_rss_kib": 2783628
+  }
+]

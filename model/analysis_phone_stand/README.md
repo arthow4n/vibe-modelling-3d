@@ -192,8 +192,7 @@ raw fields; full native working directories remain locally under
 On 2026-10-04 the user requested a follow-up investigation after the modelling
 work: timeouts should be diagnosed and prevented where practical, rather than
 accepted as the normal analysis workflow. Keep the retained run/input identities.
-Status at the modelling handoff: **recorded, pending investigation**. The
-investigation must distinguish mesh compilation errors, native nonlinear
+The follow-up review distinguishes mesh compilation errors, native nonlinear
 iteration cost, matrix/mesh growth, resource/admission wait, extraction cost,
 and explicit cancellations. Relevant cases include `release`, `release_leaf`,
 `folded_release`, `folded_release_resolved`, `working_leaf`, `reinforced_guide`,
@@ -203,6 +202,59 @@ Do not loosen equilibrium, penetration or design limits to make a run appear
 successful. Diagnose from the saved logs and automatic execution records, then
 qualify any justified solver, fixture or execution improvement separately from
 product acceptance.
+
+The bounded investigation after the modelling handoff found:
+
+| Evidence | Finding and action |
+| --- | --- |
+| `release` and `release_leaf` | Gmsh reports a 1D loop compilation error in under 0.5 s. `folded_release` aborts high-order optimization in about 2.2 s. These are meshing failures, not timeouts. The exact geometric/optimizer cause remains unproved; no permissive mesh-quality workaround was added. |
+| `folded_release_resolved` | Refining the full leaf/root/bore fixture produced 96,526 nodes; only one load increment converged by the 300 s deadline. The final fixture keeps the actual working leaf and replaces the stout root continuation with an explicit restraint; 28,775 nodes and the guided baseline finishes in 68 s. Geometry/constraints changed, so this is not a same-input solver speedup. |
+| Refined guide, cradle and pocket | Node count grows about 2.2–2.4× from each baseline. Their saved increment records show progress when killed: guide 0.4, cradle/pocket 0.5 of the requested interval. Matrix factorization and nonlinear iterations dominate these logs; no deadlock was observed. The symmetry-reduced current guide completes both refinements. The old cradle's 6.6 mm deflection already decisively failed the 1 mm target; refining it was an avoidable expense. Revise such geometry before further solves. |
+| `working_leaf` | The forward/reverse fixture finishes in 282 s with 20 converged increments, 83 logged iterations and four cutbacks. It also fails its design screen. It is slow completed evidence, not a timeout; the final physical guide and 3 mm travel replace the earlier free lateral/5 mm motion assumptions. |
+| Execution run `5d93a765…` | A geometry check waits **511.9 s**, then is explicitly cancelled before admission. Two four-core leases occupy the eight-core capacity, although this native route uses one thread. Final commands use `--threads 1`. No global capacity or solver-thread policy changed. |
+| Runs `9fda71b9…` and `7c09b4ac…` | Outer commands expire at 600 s. The latter study already spends 109 + 202 s on its first two runs, leaving less than its 300 s native refinement limit; the former also waits 16.5 s for admission. Allocate the outer deadline for the whole study, or split independent questions; do not interpret these cancellations as converged results. |
+| Runs `5b384805…` and `f5ac0b8…` | Each waits about 66 s and is then rejected because the script changed while queued. Freeze Python edits during dispatched work; the identity guard correctly prevents stale publication. |
+
+[Selected automatic execution records](notes/v3_timeout_execution_records.json)
+retain the native summaries and identities behind the queue/outer-deadline
+findings. The archived solver logs and increment records retain the native
+failure/progress evidence. This review is observational; different fixtures and
+machine contention prevent a universal timing prediction.
+
+A concrete reporting defect was corrected: `lifecycle.wait` previously discarded
+its sampled resources when it raised `TimeoutExpired`, leaving timed-out native
+results without the CPU/RSS/elapsed summary available for successful runs. It now
+attaches that summary, and the backend preserves it in provenance while keeping
+the timeout status and process-group termination. **Six targeted tests pass**,
+including real timeout persistence, process termination, interrupted-worker
+handling and command recovery. Solver, equilibrium, penetration and material
+limits are unchanged. Historical records retain their original missing fields.
+
+The requested first investigation is complete. Remaining unsupported work is a
+controlled diagnosis of the original Gmsh loop/high-order failures, or qualification
+of a faster native solver route if future decision-relevant fixtures still exceed
+their planned budgets. Neither is needed to relabel the current completed screens;
+the retained failing inputs are available for a separate reproduction. Future
+substantial studies should inspect one baseline's observed cost before committing
+to finer meshes and budget all planned levels explicitly.
+
+For the **current** stand studies, use a 900 s outer deadline and one CPU thread;
+the native limits remain 300 s for release and 240 s for guide/cradle (the optional
+pocket fixture uses 180 s). The measured release baseline/increment pair totals
+197 s and the guide baseline/mesh/penalty study totals 269 s, before caller
+preparation and queue wait. A 900 s outer limit allows the guide's three 240 s
+native allowances plus overhead; it is a bounded recommendation, not a guarantee
+under arbitrary contention. Supply new output directories:
+
+```sh
+./execute.py --threads 1 --timeout 900 model/analysis_phone_stand/analyze_v3.py release model/analysis_phone_stand/notes/.execution/release_new --study
+./execute.py --threads 1 --timeout 900 model/analysis_phone_stand/analyze_v3.py guide model/analysis_phone_stand/notes/.execution/guide_new --study
+```
+
+No blanket native deadline increase is applied. If a necessary refinement is
+progressing and needs more time, increase its explicit limit and the enclosing
+deadline together. Reconsider an oversized fixture or obsolete design first;
+extra time does not repair a meshing error or failed material screen.
 
 ## Rejection before printing and footprint explanation
 

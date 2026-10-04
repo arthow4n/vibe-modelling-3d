@@ -109,6 +109,12 @@ performance storage. No normal engineering task needs to inspect these records.
 When investigating queue waits, inspect CPU/job blocking and initialization.
 Historical memory-policy measurements remain in the performance reviews;
 RAM reservation and limit controls have been removed.
+For sequential scripts on the current single-thread CalculiX/Gmsh route, use
+`--threads 1`; requesting four threads reserves four cores even while that
+native worker uses one. Parallel batches and other backends need their own
+budgets. A command deadline includes admission wait and all sequential study
+levels, while a physical-analysis deadline bounds one isolated worker. Size the
+outer deadline for the whole planned job rather than copying one solve's limit.
 
 ## CAD iterations and incremental outputs
 
@@ -242,6 +248,9 @@ status, cold/warm strategy and tool/environment context before interpreting late
 Native computation can dominate cProfile's calling function; external sampling
 such as py-spy or solver facilities is an optional targeted investigation, not a
 normal-run dependency.
+`lifecycle.wait` attaches its sampled summary as `execution_resources` to
+`TimeoutExpired`. Physical-analysis native results preserve it in provenance;
+the exception and failed status remain unchanged. Missing samples stay null.
 
 | Local directory | Version 1 representation |
 | --- | --- |

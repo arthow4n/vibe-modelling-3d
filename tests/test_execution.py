@@ -64,6 +64,22 @@ def test_descendant_cleanup(tmp_path):
     assert not psutil.pid_exists(pid) or psutil.Process(pid).status()==psutil.STATUS_ZOMBIE
 
 
+def test_timeout_retains_sampled_resources_and_stops_process():
+    from execution.lifecycle import wait,terminate
+    process=subprocess.Popen([sys.executable,'-c','import time;time.sleep(30)'],start_new_session=True)
+    try:
+        with pytest.raises(subprocess.TimeoutExpired) as caught:
+            wait(process,timeout=.15)
+        resources=caught.value.execution_resources
+        assert resources['elapsed_seconds']>=.15
+        assert resources['peak_tree_rss_bytes']>0
+        assert resources['sampled_tree_cpu_seconds']>=0
+        assert resources['measurement']=='sampled process tree'
+        assert process.poll() is not None
+    finally:
+        terminate(process)
+
+
 def test_admission_and_release():
     from execution.resources import Admission
     from concurrent.futures import ThreadPoolExecutor

@@ -70,8 +70,11 @@ def run_worker(directory, module, environment, timeout_seconds, result, *,
             code,measurements=wait_owned(process,timeout_seconds)
             result.provenance['execution_resources']=measurements
             return code
-        except subprocess.TimeoutExpired:
+        except subprocess.TimeoutExpired as exc:
             terminate(process)
+            measurements=getattr(exc,'execution_resources',None)
+            if measurements is not None:
+                result.provenance['execution_resources']=measurements
             result.status='timeout'
             result.errors.append(f'Analysis exceeded {timeout_seconds:g} seconds; worker and solver stopped')
             return None
