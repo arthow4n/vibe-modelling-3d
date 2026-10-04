@@ -1464,6 +1464,115 @@ or print-status claims changed. The current K trial conclusion is unchanged;
 independent increment/contact sensitivity, full dome insertion and physical use
 remain outside this evidence.
 
+## Archive R1 — 15-card compact base
+
+The user now authorizes modelling the archive version. Deliver a complete
+15-card base trial with source and matching STEP/STL, reusing the **exact existing
+G hood** and I key 3, not resized equivalents. Preserve earlier J/K/display
+variants. Agreed starting process remains PETG/.4 mm nozzle/.2 mm layers,
+two walls and 7% adaptive cubic, floor down. A different hood would require
+discussion; do not recommend printing G for R1 until its complete interface
+checks pass. Nominal cards are 50 × 80 × 2 mm in the notch-up pose.
+
+Architecture: one floor supports the whole stack; vertical guides establish
+upright full seating; taller side walls/end corners contain a sparse remainder
+during desk browsing; lower rounded scoops permit grasping selected cards.
+Retain accepted hood closure, recessed base grips and two key ports. Omit
+individual clips and an adjustable follower unless actual geometry shows they
+are needed. This avoids extra parts, pressure-induced tilt and sustained spring
+loading. Plain pocket clearance does not claim friction retention; containment
+is by the walls, with the hood covering the cards when stored.
+
+Initial screen: 30 mm nominal stack within a 30.3 mm pocket, 50 mm width within
+50.4 mm; 36 mm vertical guides plus 4 mm widened entrance give simple full-stack
+lean estimates under one degree. These are total seated allowances, not generic
+printer corrections. A 40 mm rim is about half the card height, with 27 mm scoop
+minima at the Y ends; intact X walls and Y corner support remain. A 42.4 mm base
+height and existing 64 × 44.8 mm foot fit the agreed envelope readily. Seated
+cards reach Z82.4, below G's existing roof. Preserve closure reliefs below
+Z21.7; extend only the key's upper entry through the taller wall, preserving
+its lower capturing pocket/stop. Check actual cards, support and both complete
+joining ends in CAD; then review form and run one final slice. Physical friction,
+comfort and disturbance behaviour remain print questions. No mechanical solve
+is warranted for rigid pocket fit.
+
+#### Closed hood as key keeper — user preference
+
+During archive modelling, the user reports liking the existing top-inserted key
+arrangement after actual use: the closed hood keeps the key from falling out,
+and the outside remains clean without an exposed retaining part. Their earlier
+objection to the insertion direction is superseded by this positive feedback.
+They describe the hood as pressing/holding the key; record observed captivity,
+not a measured continuous clamping force. Preserve the exact G hood and I key 3
+coverage relationship in R1 and verify both complete joining ends. This supports
+a scoped preference for using an existing cover as a joint keeper; it does not
+qualify joined carrying, key force, fatigue or all earlier K socket geometry.
+
+### Final geometry and verification
+
+R1 uses the close-fitting common pocket without a spring. Final side walls and
+end corners are 45 mm above the Z2.4 floor; the 41 mm straight guides and 4 mm
+funnel supersede the initial 40/36 mm screen. Front/back scoop minima remain
+27 mm. The lower key capturing regions and floors match J4 at both ends; the
+upper entry extends through the taller basket so it cannot roof over insertion.
+A tiny bottom-body bevel difference below Z0.2 does not change the key capture
+at Z1.5–5. The targeted comparison separates that bed bevel from the actual
+pocket/stop, rather than requiring unrelated base material to be identical.
+
+[CAD checks](archive_r1_checks.json) use the properly rotated source swatch,
+including its notch, recesses and bottom outline. They verify every nominal card
+reaches actual floor material; eight offset entrance directions, straight descent
+and individual extraction; sparse-card front/back and sideways lean at middle
+and end positions; full-stack one-degree lean meeting the guides; actual G rigid
+seating, roof clearance and lift; inherited catch stems/pads and recessed grips;
+two lower key capturing ends; complete key insertion and four flank contacts
+when joined to J4 in either orientation; and G covering the key's upward escape.
+Sparse lean brackets show the source-card centroid remains inside the pocket at
+first retaining contact. This is quasistatic geometric evidence, not a dynamic
+spill, friction, handling-force or physical validation claim. Engraving is omitted.
+The nominal allowances remain .4 mm total width / .3 mm total stack direction;
+actual use needs the complete 15-card trial, not a detached mechanism coupon.
+
+The [final native review](archive_r1_review.json) confirms valid CAD, both paired
+exports and Orca 2.4.2 completion with no notices or generated supports, using the
+reference Q2C PETG/.4/.2/two-wall/7% adaptive-cubic profiles and preserved placement.
+It covers the delivered STL, not Orca's separate GUI STEP import or actual print
+fit. [Open contents](../renders/archive_r1_open/inspect_archive_r1_isometric.png),
+[empty base](../renders/archive_r1_base/archive_r1_base_15_isometric.png) and
+[closed G](../renders/archive_r1_closed/inspect_archive_r1_closed_isometric.png)
+are visually reviewed: cards are accessible above the lower tray, support remains
+around the scoops, and the closed exterior retains the accepted hood. The two
+inspection entry points never contribute swatches to the printable base export.
+Print/status and instructions are owned by the object's README.
+
+### Support review and reflection
+
+The first taller-wall slice completed but generated support in inherited clip
+reliefs. The [retained preliminary native report](archive_r1_support_review.json)
+and [support locations](archive_r1_support_locations.json) concern that earlier
+STL hash, **not the final export**. The shared
+`physical_analysis.manufacturing.orca_linear_paths` reader located support-interface
+strokes near Z5.6–6.2 and Z21.4–21.6, within the side catch clearances. This was a
+targeted removal/access question after a positive native probe, not a printer-fit
+or generic G-code audit. No GUI display was configured; source-relative contact
+locations plus CAD relief geometry identify the problematic features.
+
+The old display reliefs were open at the top. Extending the walls had placed a
+horizontal ceiling over them, making removal in the narrow rear/side gaps a poor
+choice. R1 now has 45-degree relief ceilings and .6 mm floor chamfers, preserving
+the actual catch stems/pads and opening grips. All affected card/hood/key checks
+were repeated after this change; the final slice's probe generates no supports.
+Final FDM rationale: broad flat foot, vertical multiple-path walls, accessible
+open pocket, flared entrance and rounded scoops; only the existing catches flex.
+The minimum straight X wall behind the relief is 1.4 mm. Relief ceilings grow
+outward gradually; print base floor down. Reference support acceptance still
+cannot establish PETG bonding, force, comfort or surface quality.
+
+The shared path reader already served this location review; no new shared API is
+needed. The transferable lesson is to review the new ceiling when inherited
+open reliefs are enclosed by a taller wall. The user's separate positive feedback
+about the hood as key keeper is saved in the scoped preference reference.
+
 ## Deferred exploration after the current revisions
 
 ### Future compact archival module — recorded 2026-10-04

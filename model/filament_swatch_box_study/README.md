@@ -1,4 +1,47 @@
-# Filament swatch box — thin press-on hood
+# Filament swatch box — display and compact archive
+
+## Archive R1 — 15-card base, current print trial
+
+[STEP](archive_r1_base_15.step) · [STL](archive_r1_base_15.stl) ·
+[Parametric source](archive_r1_base_15.py). Use the **exact existing
+[G hood](cap_g_hood_5.step)** and existing I key 3; no new or resized hood/key.
+The source selects only the new base for printing. Earlier display variants
+are preserved. Complete archive use has not been physically reported.
+
+The foot remains **64 × 44.8 mm**. A **50.4 × 30.3 mm** shared pocket takes
+15 nominal 50 × 80 × 2 mm cards, notch up. Total seated allowance is .4 mm
+across card width and .3 mm across the stack. The floor is flat at Z2.4;
+41 mm straight guides lead into a 4 mm funnel widened 1.2 mm per side.
+Side walls/end corners are 45 mm above the floor, with rounded front/back
+scoops down to 27 mm. Base height is 47.4 mm; closed G appearance is unchanged.
+No spring or adjustable follower is needed for this nominal rigid fit.
+
+Print **base floor down**, PETG, .4 mm nozzle/.2 mm layers, two walls and
+7% adaptive cubic, ordinary slicing. The final reference slice needs no generated
+supports. Hood reliefs have sloped ceilings and chamfered floors to keep support
+out of clip clearances; catch stems/pads and recessed opening grips are preserved.
+Keep the bundle square while lowering it. Browse with the tray on the desk;
+remaining cards may lean, while the full stack is guided upright. The closed hood
+keeps the joining key captive. Open-box carrying/inversion is outside this design.
+
+Try 15 cards, then leave one, three and five while selecting others. Check easy
+insertion, upright full seating, cards not dragging neighbours out, containment,
+hood release and joining to J4 at both ends. Nominal dimensions are accepted by
+the user; actual fit/comfort remain physical checks, not printer-error predictions.
+
+[Empty base](renders/archive_r1_base/archive_r1_base_15_isometric.png) ·
+[Full stack and browsing](renders/archive_r1_open/inspect_archive_r1_isometric.png) ·
+[Closed with unchanged G](renders/archive_r1_closed/inspect_archive_r1_closed_isometric.png).
+[CAD intent checks](notes/archive_r1_checks.json),
+[native export/slice review](notes/archive_r1_review.json) and
+[design record](notes/cap_comparison.md#archive-r1--15-card-compact-base) document
+source-card seating, entry/extraction, sparse lean, actual G seating/lift and
+both complete J4 joining orientations. CAD/slicing do not establish physical use.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | N/A — no detached coupon | None | Complete tray is the useful trial; local geometry is checked in CAD |
+| Final printable object(s) | Unknown — no archive print report | `archive_r1_base_15.step/.stl`; existing G hood and I key 3 | Nominal CAD and reference slice pass; actual insertion, alignment, selective browsing, hood effort and joined use await printing |
 
 **Latest print feedback — 2026-10-04:** J4 and K4 have been printed. J4 is the
 preferred current base: firmer card retention, working connection key and good
@@ -31,7 +74,7 @@ they are not claims about J4/K4 card engagement.
 
 - Store the cards with their long dimension vertical and notch at the top; the
   closed hood fully covers them.
-- Keep seated cards upright and aligned even with only a few occupied positions.
+- For display, keep seated cards upright and aligned even with only a few occupied positions.
   A final downward press is acceptable. The broad clip was liked; the tiny end
   spring gave no useful centering in the earlier PETG print.
 - Guide insertion from left/right and front/back so replacing thin cards does
@@ -40,7 +83,9 @@ they are not claims about J4/K4 card engagement.
   retaining a practical grip and deliberate opening motion.
 - Support adding modules with modest repeated material and part overhead.
   Occasional separation should remain possible; joined carrying is unqualified.
-- Use the five-card trial for this phase; retain earlier unprinted variants.
+- Keep the five-card display variants; the archive trial holds a compact stack
+  of 15. In the archive, a full stack sits upright, while a sparse remainder may
+  lean during desk browsing provided it stays contained.
 
 Reusable form preferences are maintained in the
 [design preference reference](../../.codex/skills/cadquery-3d-design/references/user-preferences.md).
@@ -50,29 +95,11 @@ for excessive looseness. Its I replacement keys now work in the printed sample;
 J4's complete-base key now works in the reported print, while K4 has the
 one-ended stopping-wall problem described above.
 
-**Archive direction, discussion only:** a compact archival module holding cards
-tightly together as one inserted stack, alongside the existing spaced display
-module. Use a J-style base and the shared I key 3 interface to join existing
-J modules, with the accepted G hood/closure as the reuse target. Capacity and
-stack layout remain undecided. See the
-[future archive record](notes/cap_comparison.md#future-compact-archival-module--recorded-2026-10-04).
-The user now requests an
-[SVG concept sketch](renders/concepts/archive_containment.svg)
-([PNG preview](renders/concepts/archive_containment.png)): take out a few cards
-while the remaining cards may lean but must stay inside the open tray. The
-proposal uses higher ends/corners and lowered finger-access scoops. The user
-accepts the concept for browsing mainly on the desk, but explicitly rejects
-panel 1's drawn side construction as a CAD reference. Heights and capacity remain
-undecided: 15 cards is the recommended comfortable target in the existing
-footprint; 17–18 is a tighter possibility needing geometry checks. Detailed
-archival CAD and printable deliverables are not authorized in this discussion
-phase.
-
-Use nominal 2 mm card thickness for planning; the user does not require a stack
-measurement before CAD. The loaded stack must seat upright and enter easily from
-all directions. Leaning is allowed for the remaining cards during partial removal
-for desk browsing, provided they stay contained. Compliance is an option, not a
-selected mechanism; the floor and vertical guides must establish alignment.
+The [earlier archive discussion](notes/cap_comparison.md#future-compact-archival-module--recorded-2026-10-04)
+and [SVG proposal](renders/concepts/archive_containment.svg) are concept history.
+The user rejects panel 1's drawn side construction as a CAD reference; R1's
+actual CAD above supersedes it. Larger capacity and additional mechanisms remain
+undecided. No new hood exploration is authorized or needed for R1.
 
 ## J4/K4 recessed upward-facing grips — current base trials
 

@@ -1,0 +1,219 @@
+{
+  "ok": true,
+  "nominal_capacity": 15,
+  "pocket_mm": [
+    50.4,
+    30.3
+  ],
+  "total_seated_allowance_mm": [
+    0.4,
+    0.3
+  ],
+  "guide_height_mm": 41.0,
+  "wall_height_mm": 45.0,
+  "floor_contacts_proxy_area_mm2": [
+    84.04000000000221,
+    84.04000000000214,
+    84.03999999999986,
+    84.03999999999978,
+    84.03999999999971,
+    84.04000000000006,
+    84.03999999999998,
+    84.0399999999999,
+    84.03999999999984,
+    84.03999999999976,
+    84.03999999999968,
+    84.03999999999961,
+    84.03999999999951,
+    84.03999999999988,
+    84.03999999999982
+  ],
+  "entry_direction_samples": 72,
+  "entry_offset_mm": 1.0,
+  "individual_extraction": true,
+  "desk_lean_witnesses": [
+    {
+      "y_mm": -14.15,
+      "axis": "X",
+      "direction": -1,
+      "first_contact_bracket_deg": [
+        33.310546875,
+        33.3984375
+      ],
+      "centroid_xy_mm": [
+        1.2107448005142523,
+        6.921602543506592
+      ]
+    },
+    {
+      "y_mm": -14.15,
+      "axis": "X",
+      "direction": 1,
+      "first_contact_bracket_deg": [
+        0.0,
+        0.087890625
+      ],
+      "centroid_xy_mm": [
+        1.2107448005142503,
+        -14.247672270141228
+      ]
+    },
+    {
+      "y_mm": -14.15,
+      "axis": "Y",
+      "direction": -1,
+      "first_contact_bracket_deg": [
+        0.0,
+        0.087890625
+      ],
+      "centroid_xy_mm": [
+        1.1519320040952952,
+        -14.188860943943789
+      ]
+    },
+    {
+      "y_mm": -14.15,
+      "axis": "Y",
+      "direction": 1,
+      "first_contact_bracket_deg": [
+        0.0,
+        0.087890625
+      ],
+      "centroid_xy_mm": [
+        1.2695547479337461,
+        -14.188860943943787
+      ]
+    },
+    {
+      "y_mm": 0,
+      "axis": "X",
+      "direction": -1,
+      "first_contact_bracket_deg": [
+        18.896484375,
+        18.984375
+      ],
+      "centroid_xy_mm": [
+        1.2107448005142558,
+        12.435346483410115
+      ]
+    },
+    {
+      "y_mm": 0,
+      "axis": "X",
+      "direction": 1,
+      "first_contact_bracket_deg": [
+        18.80859375,
+        18.896484375
+      ],
+      "centroid_xy_mm": [
+        1.2107448005142618,
+        -12.453233080951541
+      ]
+    },
+    {
+      "y_mm": 0,
+      "axis": "Y",
+      "direction": -1,
+      "first_contact_bracket_deg": [
+        0.263671875,
+        0.3515625
+      ],
+      "centroid_xy_mm": [
+        0.9754779047950821,
+        -0.038860943943785926
+      ]
+    },
+    {
+      "y_mm": 0,
+      "axis": "Y",
+      "direction": 1,
+      "first_contact_bracket_deg": [
+        0.263671875,
+        0.3515625
+      ],
+      "centroid_xy_mm": [
+        1.4459661123759988,
+        -0.03886094394378593
+      ]
+    },
+    {
+      "y_mm": 14.15,
+      "axis": "X",
+      "direction": -1,
+      "first_contact_bracket_deg": [
+        0.0,
+        0.087890625
+      ],
+      "centroid_xy_mm": [
+        1.2107448005142558,
+        14.169950473697218
+      ]
+    },
+    {
+      "y_mm": 14.15,
+      "axis": "X",
+      "direction": 1,
+      "first_contact_bracket_deg": [
+        33.310546875,
+        33.3984375
+      ],
+      "centroid_xy_mm": [
+        1.2107448005142398,
+        -6.986489662277775
+      ]
+    },
+    {
+      "y_mm": 14.15,
+      "axis": "Y",
+      "direction": -1,
+      "first_contact_bracket_deg": [
+        0.263671875,
+        0.3515625
+      ],
+      "centroid_xy_mm": [
+        0.9754779047950802,
+        14.111139056056219
+      ]
+    },
+    {
+      "y_mm": 14.15,
+      "axis": "Y",
+      "direction": 1,
+      "first_contact_bracket_deg": [
+        0.263671875,
+        0.3515625
+      ],
+      "centroid_xy_mm": [
+        1.4459661123759981,
+        14.111139056056215
+      ]
+    }
+  ],
+  "full_stack_one_degree_lean_blocked": true,
+  "exact_G_rigid_seats_lifts_and_covers": true,
+  "hood_leaf_and_grip_geometry_preserved": true,
+  "ports": [
+    {
+      "end": -1,
+      "J4_lower_capture_exactly_preserved": true
+    },
+    {
+      "end": 1,
+      "J4_lower_capture_exactly_preserved": true
+    }
+  ],
+  "I3_complete_join_both_orientations": true,
+  "closed_G_covers_key_escape": true,
+  "source_sha256": {
+    "archive_r1_base_15.py": "6959c2d9da22b6bd43204f824e09393453bf8262214a71517b4fe2202a0049cf",
+    "check_archive_r1.py": "10a7fca37909701a2d64a943b03f18762e07380663d90d29db04aeb844dbb6b3",
+    "swatch_reference.py": "c27d4fda19465669f8b9c587da33e4393ff0c2ddb027884c177562c14836d2e7",
+    "cap_i_grip_keys.py": "2b0706fe0011014e0ddfec45706201aa3e309722513847d4dd85ec906b7994a0",
+    "cap_j4_base_5.py": "a12c9d503a22d8a2e35a782517fd540855466ed87657e799726bc0b8515e7e71",
+    "cap_g_module_5.py": "5dfb2f0b03c2b5b3f545166898a291c742d9fcc8204675a9036de7b2a76ffc91",
+    "cap_h_module_5.py": "a73adf2ae5e8ac6e2ae206b7d2515194d7c1eef78b9d7ca8d2c0449dedcb355e",
+    "cap_e_thin_5.py": "50026143c82f329a000de9bc484a95f9e0c2fb1a9d28ea757bbc5314bb5ed32a",
+    "recessed_grips.py": "6cee8d00e4ab8c39af7f535df26abe64cf3084a85366150c1f5e9424bc6c05b3"
+  },
+  "limits": "Nominal 2 mm rigid cards. Engraving omitted. Sampled hand-guided entry and vertical extraction; lean witnesses are quasistatic geometric contact, not a dynamic escape proof. Actual friction, support response, comfort, printed fit and durability untested. Key preload is inherited geometry, not a new force qualification."
+}
