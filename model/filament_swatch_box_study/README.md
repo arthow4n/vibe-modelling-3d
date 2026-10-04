@@ -50,13 +50,19 @@ for excessive looseness. Its I replacement keys now work in the printed sample;
 J4's complete-base key now works in the reported print, while K4 has the
 one-ended stopping-wall problem described above.
 
-**Future direction, not started:** a compact archival module holding cards
+**Archive direction, discussion only:** a compact archival module holding cards
 tightly together as one inserted stack, alongside the existing spaced display
 module. Use a J-style base and the shared I key 3 interface to join existing
 J modules, with the accepted G hood/closure as the reuse target. Capacity and
 stack layout remain undecided. See the
 [future archive record](notes/cap_comparison.md#future-compact-archival-module--recorded-2026-10-04).
-The user explicitly requests notes only; no archival modelling is authorized now.
+The user now requests an
+[SVG concept sketch](renders/concepts/archive_containment.svg)
+([PNG preview](renders/concepts/archive_containment.png)): take out a few cards
+while the remaining cards may lean but must stay inside the open tray. The
+proposal uses higher ends/corners and lowered finger-access scoops. Heights,
+capacity and containment while tilting remain undecided; detailed archival CAD
+and printable deliverables are not authorized in this discussion phase.
 
 ## J4/K4 recessed upward-facing grips — current base trials
 

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1060" viewBox="0 0 1280 1060" role="img" aria-labelledby="title desc">
+  <title id="title">Compact swatch archive: accessible cards, contained remainder</title>
+  <desc id="desc">Discussion sketch of a common pocket holding a tight upright stack, with higher ends and corners and lowered finger access. A side section shows a few cards removed and the remaining cards leaning inside the walls. A front view explains the proposed height tradeoff. J connector and G hood reuse are targets, not verified interfaces.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8" fill="#1b716e"/></marker>
+    <marker id="dim" markerWidth="7" markerHeight="7" refX="3" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M6 0 L0 3 L6 6" fill="none" stroke="#64748b" stroke-width="1"/></marker>
+    <g id="card-face">
+      <path d="M0 320 V6 Q0 0 6 0 H66 Q100 42 134 0 H194 Q200 0 200 6 V320 Z" fill="currentColor" stroke="#49666c" stroke-width="1.5"/>
+      <circle cx="40" cy="264" r="18" fill="#ffffff" fill-opacity=".18" stroke="#49666c" stroke-width="1"/>
+      <path d="M70 279 H178 M70 290 H178" stroke="#49666c" stroke-opacity=".45" stroke-width="2"/>
+    </g>
+    <style>
+      text { font-family: DejaVu Sans, sans-serif; fill: #203441; }
+      .title { font-size: 32px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #526472; }
+      .heading { font-size: 21px; font-weight: 700; }
+      .label { font-size: 17px; }
+      .small { font-size: 15px; fill: #526472; }
+      .note { font-size: 16px; }
+      .leader { fill: none; stroke: #64748b; stroke-width: 1.5; }
+      .motion { fill: none; stroke: #1b716e; stroke-width: 3; marker-end: url(#arrow); }
+      .wall { fill: #d9e3e8; stroke: #627987; stroke-width: 2; }
+      .outline { fill: none; stroke: #627987; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="1280" height="1060" fill="#f6f8fa"/>
+  <text x="48" y="58" class="title">Archive together. Browse a few. Keep the rest inside.</text>
+  <text x="48" y="90" class="subtitle">One common pocket; cards may lean after removal. Upright alignment is optional for this version.</text>
+  <rect x="48" y="109" width="1184" height="32" rx="8" fill="#e5eeed"/>
+  <text x="64" y="131" class="small">DISCUSSION SKETCH · PETG / fully printed · schematic, not CAD · no fit or spill-resistance validation</text>
+
+  <rect x="48" y="163" width="560" height="495" rx="14" fill="#fff" stroke="#d6dee4"/>
+  <text x="70" y="197" class="heading">1 / Whole stack goes into one pocket</text>
+  <!-- Back and right wall, before contents. The cover is removed for browsing. -->
+  <path d="M245 367 H465 V535 H245 Z" class="wall"/>
+  <path d="M340 610 L465 535 V367 L340 442 Z" fill="#c5d4de" stroke="#627987" stroke-width="2"/>
+  <path d="M120 610 H340 L465 535 H245 Z" fill="#ecf1f3" stroke="#627987" stroke-width="2"/>
+  <!-- Cards are drawn back-to-front. Each is a nominal 80:50 face. -->
+  <g opacity=".94" transform="translate(0 10)">
+    <use href="#card-face" x="235" y="212" color="#a9c6de"/>
+    <use href="#card-face" x="228" y="216" color="#aecbdc"/>
+    <use href="#card-face" x="221" y="220" color="#b3ced8"/>
+    <use href="#card-face" x="214" y="224" color="#b8d0d1"/>
+    <use href="#card-face" x="207" y="228" color="#c2d4cb"/>
+    <use href="#card-face" x="200" y="232" color="#ccd7c6"/>
+    <use href="#card-face" x="193" y="236" color="#d7dac1"/>
+    <use href="#card-face" x="186" y="240" color="#e0d9ba"/>
+    <use href="#card-face" x="179" y="244" color="#e6d5b5"/>
+    <use href="#card-face" x="172" y="248" color="#e9ceb4"/>
+    <use href="#card-face" x="165" y="252" color="#e6c5b5"/>
+    <use href="#card-face" x="158" y="256" color="#ddbec0"/>
+    <use href="#card-face" x="151" y="260" color="#cfbbce"/>
+    <use href="#card-face" x="144" y="264" color="#bdbed8"/>
+    <use href="#card-face" x="137" y="268" color="#a9c6de"/>
+  </g>
+  <!-- Side with scooped finger access; higher corners remain. -->
+  <path d="M120 610 V442 H154 Q165 442 173 458 Q207 518 230 518 Q253 518 287 458 Q295 442 306 442 H340 V610 Z" class="wall"/>
+  <path d="M120 610 L245 535 V367 L220 382 Q211 388 205 410 L172 480 Q161 505 147 475 L136 448 L120 442 Z" fill="#d4e0e6" stroke="#627987" stroke-width="2"/>
+  <path d="M111 610 H340 L474 535 V546 L340 623 H111 Z" fill="#b7cbd4" stroke="#627987" stroke-width="2"/>
+  <text x="73" y="640" class="small">No separate slot or spring for each card. Hood omitted.</text>
+  <path d="M385 279 H522 V317" class="leader"/>
+  <text x="475" y="338" class="small">Tight stack</text>
+  <text x="475" y="360" class="small">notches up</text>
+
+  <rect x="630" y="163" width="602" height="495" rx="14" fill="#fff" stroke="#d6dee4"/>
+  <text x="653" y="197" class="heading">2 / Remove a few; the remainder can lean</text>
+  <text x="653" y="225" class="small">Section along the stack · side wall omitted to see inside</text>
+  <!-- 4px/mm: 80 mm cards, 40 mm pocket, 42 mm wall. -->
+  <path d="M856 415 V596 H1040 V415 H1028 V584 H868 V415 Z" fill="#d9e3e8" stroke="#627987" stroke-width="2"/>
+  <!-- A sparse stack leaning against the right retaining wall. -->
+  <g transform="translate(940 584) rotate(28)">
+    <rect x="-4" y="-320" width="8" height="320" rx="2" fill="#a9c6de" stroke="#49666c" stroke-width="1.5"/>
+    <rect x="-14" y="-320" width="8" height="320" rx="2" fill="#c2d4cb" stroke="#49666c" stroke-width="1.5"/>
+    <rect x="-24" y="-320" width="8" height="320" rx="2" fill="#e6d5b5" stroke="#49666c" stroke-width="1.5"/>
+  </g>
+  <!-- Selected cards lifted vertically from the left part of the pocket. -->
+  <rect x="881" y="263" width="8" height="320" rx="2" fill="#cfbbce" fill-opacity=".28" stroke="#8c779e" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <rect x="872" y="249" width="8" height="320" rx="2" fill="#ddbec0" fill-opacity=".28" stroke="#8c779e" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <path d="M872 374 V293" class="motion"/>
+  <text x="691" y="284" class="label">Lift only the</text>
+  <text x="691" y="308" class="label">cards you want</text>
+  <path d="M822 308 H856" class="leader"/>
+  <circle cx="1028" cy="415" r="6" fill="#1b716e"/>
+  <path d="M1034 415 H1080 V443" class="leader"/>
+  <text x="1057" y="466" class="small">Wall catches</text>
+  <text x="1057" y="488" class="small">the lean</text>
+  <text x="654" y="631" class="small">Containment during upright browsing; inversion is not assumed.</text>
+
+  <rect x="48" y="681" width="1184" height="294" rx="14" fill="#fff" stroke="#d6dee4"/>
+  <text x="70" y="715" class="heading">3 / Low where your fingers enter; higher where cards need support</text>
+  <!-- Front face with the same higher corners and central lowered scoop. -->
+  <path d="M104 766 V928 H284 V766 H253 Q247 766 242 777 Q221 816 194 816 Q167 816 146 777 Q141 766 135 766 Z" fill="#a9c6de" fill-opacity=".7" stroke="#49666c" stroke-width="1.5"/>
+  <path d="M94 937 V844 H115 Q125 844 134 861 Q163 887 194 887 Q225 887 254 861 Q263 844 273 844 H294 V937 Z" class="wall"/>
+  <rect x="88" y="937" width="212" height="10" rx="3" fill="#b7cbd4" stroke="#627987" stroke-width="2"/>
+  <path d="M194 837 V869" class="motion"/>
+  <text x="334" y="770" class="label">Proposed starting heights above the card floor:</text>
+  <text x="334" y="802" class="label">Ends / corners: about 40–45 mm</text>
+  <text x="334" y="832" class="label">Finger-access scoop: about 25–30 mm</text>
+  <text x="334" y="863" class="small">80 mm tall cards still have a substantial exposed grip area.</text>
+  <text x="334" y="891" class="small">Proposed only: check access and tipping in real geometry.</text>
+  <path d="M810 744 V951" stroke="#d6dee4" stroke-width="1.5"/>
+  <text x="839" y="770" class="label">Keep the familiar interfaces</text>
+  <text x="839" y="804" class="small">J-style foot + recessed hood-release grips</text>
+  <text x="839" y="832" class="small">Same I key 3; capture at both joining ends</text>
+  <text x="839" y="860" class="small">Accepted G hood as the reuse target</text>
+  <text x="839" y="901" class="small">No follower or extra moving part selected.</text>
+  <text x="839" y="929" class="small">Capacity and hood clearance still unresolved.</text>
+  <text x="48" y="1006" class="note">A fully flat 80 mm card needs a longer pocket than the current module. This sketch allows leaning, not lying fully flat.</text>
+  <text x="48" y="1035" class="small">Question for the next decision: should the open tray contain cards on the desk only, or also when lifted and tilted?</text>
+</svg>

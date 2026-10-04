@@ -1491,6 +1491,47 @@ matching interfaces when the user resumes modelling. Current J tilt and K key
 stop issues remain deferred; no source, export, render, slice or study is created
 for this future module now.
 
+#### Archive containment discussion sketch — 2026-10-04
+
+The user now authorizes an SVG communication sketch, **not detailed CAD or a
+printable archive model**. New requirement: the archive base should remain low
+enough to take out a few cards for browsing, while the remainder stays contained
+without needing the hood. Remaining cards may lean rather than remain upright;
+spilling out and scattering is unacceptable. Preserve the existing spaced display
+variant and its stronger upright-alignment requirement separately.
+
+[Editable SVG](../renders/concepts/archive_containment.svg) and
+[PNG preview](../renders/concepts/archive_containment.png) show one proposal:
+a common stack pocket with higher end walls/corners and lowered finger-access
+scoops. The walls and floor support the remaining stack; individual card clips
+are omitted. A partly empty pocket is shown with leaning cards and a few selected
+cards lifted out. No spring follower or adjustable end block is selected: their
+earlier discussion was an option, not an agreed requirement. Prefer simple
+containment if it meets the user's actual browsing use.
+
+The drawing proposes 40–45 mm end/corner height and 25–30 mm access height above
+the card floor, leaving the upper portion of each nominal 80 mm card accessible.
+These are illustrative starting heights, **not verified spill prevention or
+accepted dimensions**. A display-height rim may let a sparse stack tip over it;
+future geometry must check sparse occupancy, front/back and sideways lean,
+withdrawal without dragging neighbouring cards, and the remaining support around
+the access scoops. Scope still needs discussion: browsing on a level desk versus
+lifting/tilting the open box. Do not silently interpret "cannot fall off" as
+desk-only containment or claim inversion retention.
+
+The current 64 × 44.8 mm outer footprint cannot contain a fully horizontal
+80 mm card, even along its approximately 78 mm outer diagonal; the usable pocket
+is smaller. The sketch therefore allows leaning, not fully flat lying. A truly
+flat layout would need a different footprint and hood. No change to that layout
+or to the accepted G hood is selected. J-style foot/recesses, two-ended I key 3
+capture and G hood reuse remain targets needing archive-geometry checks.
+
+**Phase evidence/status:** SVG renders successfully and its PNG is visually
+reviewed for communication. This is a schematic concept, not mating geometry,
+CAD validation, slicing evidence or a physical print. Capacity and retention
+under disturbance remain unresolved. Source/export/slice work is outside this
+discussion phase; no shared workflow/API change is justified by this sketch.
+
 ### Other deferred improvements
 
 J4/K4 have now been printed; the [latest report](#j4k4-print-report--2026-10-04)
