@@ -1515,9 +1515,9 @@ These are illustrative starting heights, **not verified spill prevention or
 accepted dimensions**. A display-height rim may let a sparse stack tip over it;
 future geometry must check sparse occupancy, front/back and sideways lean,
 withdrawal without dragging neighbouring cards, and the remaining support around
-the access scoops. Scope still needs discussion: browsing on a level desk versus
-lifting/tilting the open box. Do not silently interpret "cannot fall off" as
-desk-only containment or claim inversion retention.
+the access scoops. The user subsequently confirms browsing mainly on the desk;
+open-box retention during carrying or inversion is not an established requirement.
+The remainder must stay contained during ordinary selection on the desk.
 
 The current 64 × 44.8 mm outer footprint cannot contain a fully horizontal
 80 mm card, even along its approximately 78 mm outer diagonal; the usable pocket
@@ -1528,9 +1528,29 @@ capture and G hood reuse remain targets needing archive-geometry checks.
 
 **Phase evidence/status:** SVG renders successfully and its PNG is visually
 reviewed for communication. This is a schematic concept, not mating geometry,
-CAD validation, slicing evidence or a physical print. Capacity and retention
-under disturbance remain unresolved. Source/export/slice work is outside this
+CAD validation, slicing evidence or a physical print. Capacity and containment
+during ordinary browsing remain unresolved. Source/export/slice work is outside this
 discussion phase; no shared workflow/API change is justified by this sketch.
+
+**User response and capacity screen:** the containment concept is acceptable,
+but panel 1's side looks broken. Do not copy that drawn construction into CAD;
+it is an unreliable illustration, not accepted geometry. Keep the sketch as
+discussion history, with this correction. Heights are still proposals.
+
+Source parameters give nominal 2 mm cards, a 40.4 mm base-body depth and G hood
+inner depths of 41.2 mm at the lower band / 42.8 mm above. The current foot is
+64 × 44.8 mm. An illustrative shared pocket within the body, with 1.2–2.0 mm
+end walls, has roughly 36.4–38.0 mm stack space before detailed edge, entrance
+and closure treatment. These wall sizes are screen assumptions, not selected
+print dimensions or calibrated allowances. Nominal stacks are 30 mm for 15 cards,
+34 mm for 17, 36 mm for 18 and 40 mm for 20. Thus recommend **15 for comfortable
+capacity with the existing G hood**, with **17–18 as a tighter possibility** to
+check against real geometry and a measured stack. Twenty leaves no useful room
+for enclosing end walls within this illustrative body and would likely require
+a slightly longer module and matching hood. Do not claim a qualified maximum,
+actual printed stack thickness, or any new hood authorization. No capacity is
+selected by the user yet; modular expansion remains an alternative to enlarging
+each box. This screen uses existing named dimensions only, without CAD or slicing.
 
 ### Other deferred improvements
 

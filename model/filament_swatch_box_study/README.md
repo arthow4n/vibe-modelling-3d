@@ -60,9 +60,13 @@ The user now requests an
 [SVG concept sketch](renders/concepts/archive_containment.svg)
 ([PNG preview](renders/concepts/archive_containment.png)): take out a few cards
 while the remaining cards may lean but must stay inside the open tray. The
-proposal uses higher ends/corners and lowered finger-access scoops. Heights,
-capacity and containment while tilting remain undecided; detailed archival CAD
-and printable deliverables are not authorized in this discussion phase.
+proposal uses higher ends/corners and lowered finger-access scoops. The user
+accepts the concept for browsing mainly on the desk, but explicitly rejects
+panel 1's drawn side construction as a CAD reference. Heights and capacity remain
+undecided: 15 cards is the recommended comfortable target in the existing
+footprint; 17–18 is a tighter possibility needing geometry checks. Detailed
+archival CAD and printable deliverables are not authorized in this discussion
+phase.
 
 ## J4/K4 recessed upward-facing grips — current base trials
 
