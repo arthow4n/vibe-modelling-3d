@@ -1466,6 +1466,55 @@ remain outside this evidence.
 
 ## Archive R1 — 15-card compact base
 
+### R1 entrance rejection and alternatives
+
+**Latest user review, 2026-10-04: explicitly unprinted, rejected before printing.**
+The user will not print the current entrance design. Two separate objections:
+
+- The deep finger-access scoops add no useful reach because the cards already
+  project well above the tray.
+- Viewed from above, the inward junctions where the scoops meet the top rim
+  look sharp rather than smoothly curved. The user rejects these finger-contact
+  corners and explicitly wants this prevented in future designs.
+
+The existing source has 80 mm cards and 45 mm maximum walls measured from the
+same floor: **35 mm of card is already exposed without any scoop**. Scoops lower
+the centre to 27 mm. The 12 mm circular scoop and .6 mm quarter-rounded face lips
+do not by themselves establish a comfortable junction with the flared pocket
+and top rim. Those combined transitions were missed in the earlier handling
+review. This is a product-design/visual rejection, not an observed PETG failure,
+injury or measured zero-radius edge. No printer/tolerance diagnosis is warranted.
+
+Earlier checks remain narrow: nominal card entry/seating/lean, exact G seating
+and lift, I3/J4 joining at both ends, valid exports and a successful reference
+slice. They do not establish access value or tactile comfort. The earlier view
+review and print recommendation are superseded. R1 is retained as history, with
+its source/STEP/STL unchanged; no replacement print recommendation is made here.
+
+[Two rim proposals and edge detail](../renders/concepts/archive_rim_options.svg)
+([PNG preview](../renders/concepts/archive_rim_options.png)) compare:
+
+| Proposal | Nominal wall above floor / exposed card | Benefit and tradeoff |
+| --- | --- | --- |
+| A — continuous rim at the existing height; recommended | 45 mm / 35 mm | Remove both scoops, retain wall height and a simple silhouette. More containment material remains than in R1; the guide/funnel and comfortable inner/outer rim transitions still need a revised CAD review. |
+| B — uniformly lower continuous rim | 40 mm / 40 mm | More exposed card with no cutout corners, but 5 mm less support around the entire pocket. Sparse-stack tipping/contact behaviour must be reassessed; do not claim containment from the drawing. |
+
+Both proposals target the **exact G hood, I key 3, 15-card pocket and original
+footprint**, with the accepted recessed base grips retained. The sketch omits
+lower mechanisms rather than relocating them. Existing G compatibility remains
+CAD-verified only for unchanged R1; either replacement must be checked after
+its geometry changes. These are schematic alternatives, not new models or
+print-ready exports. User choice of rim height remains open.
+
+Reflection: shared guidance already required whole-object usefulness and exposed
+edge review; it was not applied adequately. Tighten the existing handling review
+to compare access with/without a cutout when the contents are already exposed,
+and the edge guidance to review the final Boolean junction in plan as well as
+the curved cut profile. No shared checker/API can establish this subjective
+benefit or comfort, and no new computation is justified by this record update.
+
+### Original R1 agreement and retained evidence
+
 The user now authorizes modelling the archive version. Deliver a complete
 15-card base trial with source and matching STEP/STL, reusing the **exact existing
 G hood** and I key 3, not resized equivalents. Preserve earlier J/K/display

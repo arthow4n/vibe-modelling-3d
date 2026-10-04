@@ -1,6 +1,16 @@
 # Filament swatch box — display and compact archive
 
-## Archive R1 — 15-card base, current print trial
+## Archive R1 — rejected before printing; entrance proposals
+
+**Current status:** the user has not printed R1 and rejects its deep finger
+cutouts: the cards are already exposed, so the cuts add no useful access, and
+their inward top-rim junctions look sharp. **Do not print R1 as the next trial.**
+Earlier CAD/interface and slice passes remain limited evidence; they did not
+establish a useful cutout or comfortable finger-contact transitions.
+See the [feedback and alternatives](notes/cap_comparison.md#r1-entrance-rejection-and-alternatives)
+and [comparison sketch](renders/concepts/archive_rim_options.svg).
+Only records and schematic proposals have changed; R1's source/exports are
+retained unchanged. No replacement base has been modelled or qualified yet.
 
 [STEP](archive_r1_base_15.step) · [STL](archive_r1_base_15.stl) ·
 [Parametric source](archive_r1_base_15.py). Use the **exact existing
@@ -16,7 +26,7 @@ Side walls/end corners are 45 mm above the floor, with rounded front/back
 scoops down to 27 mm. Base height is 47.4 mm; closed G appearance is unchanged.
 No spring or adjustable follower is needed for this nominal rigid fit.
 
-Print **base floor down**, PETG, .4 mm nozzle/.2 mm layers, two walls and
+Historical R1 print setup: **base floor down**, PETG, .4 mm nozzle/.2 mm layers, two walls and
 7% adaptive cubic, ordinary slicing. The final reference slice needs no generated
 supports. Hood reliefs have sloped ceilings and chamfered floors to keep support
 out of clip clearances; catch stems/pads and recessed opening grips are preserved.
@@ -24,7 +34,8 @@ Keep the bundle square while lowering it. Browse with the tray on the desk;
 remaining cards may lean, while the full stack is guided upright. The closed hood
 keeps the joining key captive. Open-box carrying/inversion is outside this design.
 
-Try 15 cards, then leave one, three and five while selecting others. Check easy
+Deferred physical checks for a revised base: try 15 cards, then leave one, three
+and five while selecting others. Check easy
 insertion, upright full seating, cards not dragging neighbours out, containment,
 hood release and joining to J4 at both ends. Nominal dimensions are accepted by
 the user; actual fit/comfort remain physical checks, not printer-error predictions.
@@ -40,8 +51,8 @@ both complete J4 joining orientations. CAD/slicing do not establish physical use
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A — no detached coupon | None | Complete tray is the useful trial; local geometry is checked in CAD |
-| Final printable object(s) | Unknown — no archive print report | `archive_r1_base_15.step/.stl`; existing G hood and I key 3 | Nominal CAD and reference slice pass; actual insertion, alignment, selective browsing, hood effort and joined use await printing |
+| Test piece(s) | N/A — no detached coupon | None | No physical trial recommended for the rejected entrance design |
+| Final printable object(s) | No — explicitly unprinted; design rejected | Retained `archive_r1_base_15.step/.stl`; existing G hood and I key 3 unchanged | Redundant cutouts and sharp-looking inward rim junctions rejected from visual review. Earlier nominal CAD/interface and slice passes do not establish access value or comfort; revised base undecided |
 
 **Latest print feedback — 2026-10-04:** J4 and K4 have been printed. J4 is the
 preferred current base: firmer card retention, working connection key and good

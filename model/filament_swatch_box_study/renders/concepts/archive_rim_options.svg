@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="890" viewBox="0 0 1100 890" role="img" aria-labelledby="title desc">
+  <title id="title">Archive entrance alternatives: remove the finger scoops</title>
+  <desc id="desc">Two front-view proposals at the same scale. A has a continuous 45 millimetre rim and exposes 35 millimetres of an 80 millimetre card. B has a continuous 40 millimetre rim and exposes 40 millimetres of card, with less sparse-stack support. Neither has a finger cutout. A schematic top-view detail contrasts abrupt cutout junctions with an uninterrupted rim. These are proposals, not checked CAD or print files.</desc>
+  <defs>
+    <style>
+      text { font-family: DejaVu Sans, sans-serif; fill:#243644; }
+      .title { font-size:29px; font-weight:700; }
+      .head { font-size:21px; font-weight:700; }
+      .body { font-size:17px; }
+      .small { font-size:15px; fill:#586b79; }
+      .dim { stroke:#467575; stroke-width:1.5; fill:none; marker-start:url(#dim); marker-end:url(#dim); }
+      .guide { stroke:#a9b8c0; stroke-width:1; stroke-dasharray:4 4; }
+    </style>
+    <marker id="dim" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M7 0 L1 4 L7 8" fill="none" stroke="#467575" stroke-width="1.3"/></marker>
+    <g id="card">
+      <path d="M0 320 V5 Q0 0 5 0 H74 Q100 32 126 0 H195 Q200 0 200 5 V320 Z" fill="#c9dce7" stroke="#688b9e" stroke-width="2"/>
+      <path d="M16 50 H58 M16 64 H88" stroke="#94b2c2" stroke-width="3"/>
+    </g>
+  </defs>
+  <rect width="1100" height="890" fill="#f5f8fa"/>
+  <text x="40" y="49" class="title">Remove the scoops. Keep a comfortable, continuous rim.</text>
+  <text x="40" y="80" class="body">Cards already extend well above the tray; a deep finger cut adds no useful reach.</text>
+  <text x="40" y="108" class="small">SCHEMATIC PROPOSALS · same vertical scale · 80 mm card · heights measured from the card floor</text>
+
+  <rect x="40" y="132" width="490" height="466" rx="14" fill="#fff" stroke="#cfdbdf"/>
+  <text x="62" y="166" class="head">A / Existing height, no scoops</text>
+  <text x="62" y="190" class="small">Recommended: change only what caused the objection.</text>
+  <!-- Four pixels per millimetre; floor 555, card top 235, wall top 375. -->
+  <use href="#card" x="157" y="235"/>
+  <path d="M147 375 H367 Q377 375 377 385 V553 H137 V385 Q137 375 147 375 Z" fill="#dee9e7" stroke="#4e7c77" stroke-width="2"/>
+  <path d="M148 380 H366" stroke="#a5c3bf" stroke-width="3" stroke-linecap="round"/>
+  <rect x="130" y="549" width="254" height="13" rx="5" fill="#c0d4d0" stroke="#4e7c77" stroke-width="2"/>
+  <path d="M361 235 H430 M380 375 H430 M388 555 H430" class="guide"/>
+  <path d="M419 239 V371" class="dim"/>
+  <text x="432" y="300" class="body">35 mm</text>
+  <text x="432" y="321" class="small">exposed</text>
+  <path d="M419 379 V551" class="dim"/>
+  <text x="432" y="462" class="body">45 mm</text>
+  <text x="432" y="483" class="small">wall</text>
+  <text x="62" y="587" class="small">Retain wall support; round inner and outer rim transitions.</text>
+
+  <rect x="570" y="132" width="490" height="466" rx="14" fill="#fff" stroke="#cfdbdf"/>
+  <text x="592" y="166" class="head">B / Lower the entire rim</text>
+  <text x="592" y="190" class="small">More card exposure, with less wall support.</text>
+  <use href="#card" x="687" y="235"/>
+  <path d="M677 395 H897 Q907 395 907 405 V553 H667 V405 Q667 395 677 395 Z" fill="#e5e9ed" stroke="#6e8395" stroke-width="2"/>
+  <path d="M678 400 H896" stroke="#b7c5d0" stroke-width="3" stroke-linecap="round"/>
+  <rect x="660" y="549" width="254" height="13" rx="5" fill="#c9d4dd" stroke="#6e8395" stroke-width="2"/>
+  <path d="M891 235 H960 M910 395 H960 M918 555 H960" class="guide"/>
+  <path d="M949 239 V391" class="dim"/>
+  <text x="962" y="310" class="body">40 mm</text>
+  <text x="962" y="331" class="small">exposed</text>
+  <path d="M949 399 V551" class="dim"/>
+  <text x="962" y="472" class="body">40 mm</text>
+  <text x="962" y="493" class="small">wall</text>
+  <text x="592" y="587" class="small">Recheck sparse-card containment before recommending it.</text>
+
+  <rect x="40" y="620" width="1020" height="178" rx="14" fill="#fff" stroke="#cfdbdf"/>
+  <text x="62" y="651" class="head">Top-rim lesson: review the junctions, not just the curved cut</text>
+  <text x="62" y="676" class="small">Stylised plan details below; these are not measurements of R1's edges.</text>
+  <!-- A schematic interruption in a top-rim strip; red rings flag its ends. -->
+  <path d="M83 764 V722 Q83 710 95 710 H213 V736 L225 724 V764 Z" fill="#f4dce0" stroke="#a86a75" stroke-width="2"/>
+  <path d="M295 764 V724 L307 736 V710 H425 Q437 710 437 722 V764 Z" fill="#f4dce0" stroke="#a86a75" stroke-width="2"/>
+  <circle cx="218" cy="730" r="17" fill="none" stroke="#b33e57" stroke-width="2.5"/>
+  <circle cx="302" cy="730" r="17" fill="none" stroke="#b33e57" stroke-width="2.5"/>
+  <text x="84" y="787" class="small">Rejected concern: abrupt inward cut/rim corners.</text>
+  <!-- A continuous top-rim strip, no cut endpoints. -->
+  <path d="M633 764 V722 Q633 710 645 710 H975 Q987 710 987 722 V764 H977 V726 Q977 720 971 720 H649 Q643 720 643 726 V764 Z" fill="#d9e9e4" stroke="#4e7c77" stroke-width="2"/>
+  <text x="634" y="787" class="small">Preferred direction: uninterrupted rim, softened lips.</text>
+
+  <text x="40" y="829" class="body">Both target the existing G hood, I key 3, 15-card pocket and original footprint.</text>
+  <text x="40" y="854" class="small">Lower grips and connectors omitted in these views, not removed. Revised CAD must recheck hood fit and containment.</text>
+  <text x="40" y="877" class="small">No replacement model or print files yet. R1 remains unprinted and rejected; its earlier fit checks have narrower scope.</text>
+</svg>

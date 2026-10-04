@@ -40,6 +40,14 @@ Keep edge treatment proportional to the feature. Avoid huge radii that change in
 
 For handheld objects, assess broad corners, finger-contact rims and protruding mechanisms together. A tiny edge break can remove mathematical sharpness while leaving an uncomfortable overall shape; judge the scale of the treatment against how the object is gripped and carried, not merely whether fillets exist.
 
+For openings cut through a rim, review the final inner and outer junctions in
+plan and a relevant side/section view. A circular scoop or rounded face lip can
+still terminate in an abrupt inward corner where it meets another surface;
+rounding the cutting profile alone does not qualify those junctions. Remove an
+unnecessary opening before spending effort blending it. For a needed opening,
+make the finger-contact path continuous through the junction, preserving the
+functional lead-in and remaining wall.
+
 Review edge treatment in the chosen print orientation. A fillet on a bottom edge can reduce bed contact and introduce a difficult overhang; use a suitable chamfer or retain the bed-contact edge when appropriate. Recheck thin walls and lead-ins after edge treatment so smoothing does not make them unprintable.
 
 ## Fillet and chamfer failure handling

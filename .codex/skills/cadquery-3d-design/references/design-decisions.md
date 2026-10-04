@@ -361,6 +361,13 @@ proportions, rim/guide transitions, openings, grips and exposed mechanisms. A
 contact shape selected for solver robustness still needs deliberate integration
 into the product; a successful local analysis does not justify its exterior form.
 
+Before adding a finger cutout, compare the normal grasp with and without it,
+including how much of the actual contents already projects above the rim. Remove
+a cut that does not enable a needed reach or motion; extra openings can reduce
+containment and introduce contact corners without improving access. For a useful
+cut, review its final rim junctions through the
+[edge-treatment guidance](parametric-and-edges.md#edge-treatment).
+
 When operation moves substantial weight toward or beyond a freestanding object's
 table support, screen tipping before refining the mechanism. Include relevant
 empty, sparse and full contents distributions and critical opening/withdrawal
