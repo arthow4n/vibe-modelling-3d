@@ -17,8 +17,9 @@ of a tolerance, material or print-process failure.
 ## New-revision discussion
 
 This phase is investigation and requirements discussion, before detailed CAD or
-new solver work. Start from the actual phone-use task rather than retaining the
-gear and catch by default. Establish the phone/case, portrait/landscape use,
+new solver work. The user explicitly requests that modelling not start during
+this pre-start requirements/instruction check. Start from the actual phone-use
+task rather than retaining the gear and catch by default. Establish the phone/case, portrait/landscape use,
 viewing versus touchscreen interaction, useful adjustment, footprint/portability,
 acceptable hardware and the visible form before selecting mechanisms.
 
@@ -162,6 +163,14 @@ extension after inspecting the actual fixture; do not pre-create a bolt framewor
 or another numerical backend. Qualification must include force transfer/equilibrium,
 open-gap/contact onset and rejection of inadequate contact evidence, with useful
 consumer/refinement checks. Reuse applicable existing numerical benchmarks.
+
+The user actively encourages justified extensions for this project and future
+modelling. Once implementation is authorized and the fixture establishes this
+gap's value, carry the extension through implementation, qualification and shared
+documentation under [the extension workflow](../../AGENTS.md#improve-shared-tools-from-concrete-needs).
+Do not stop at this proposal or a permanent object-only workaround; record a
+concrete reason if completing the extension is blocked or unjustified. This
+pre-start instruction update does not implement the extension or start modelling.
 
 This would support future loaded seats, locating pins or brackets within the
 qualified frictionless contact scope. It would not establish bolt preload,

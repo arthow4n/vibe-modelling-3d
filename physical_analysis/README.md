@@ -641,12 +641,13 @@ record.
 
 ## Evidence and extension
 
-This API is an evolving foundation. Agents may improve it autonomously when a
-real modelling task exposes a reusable need, following the repository's
-[shared-tool guidance](../AGENTS.md#improve-shared-tools-from-concrete-needs).
+This API is an evolving foundation. Agents should actively identify reusable gaps
+in real modelling questions and implement justified in-scope extensions, following
+the repository's [shared-tool guidance](../AGENTS.md#improve-shared-tools-from-concrete-needs).
 Use simpler CAD checks or analytical screens when they adequately answer the
-question; neither using nor expanding this API is a goal in itself. Keep
-model-specific fixtures with their object, and bring reusable analysis behavior
+design question. Explicitly agreed analysis exercises may also pursue named tool
+capabilities and qualification criteria; evaluate product usefulness independently.
+Keep model-specific fixtures with their object, and bring reusable analysis behavior
 into this package with an exercised consumer and appropriate numerical evidence.
 
 Acceptance tests cover beam bending/refinement, displacement-controlled flexure,

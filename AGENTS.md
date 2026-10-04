@@ -441,12 +441,14 @@ rules, skills and shared-tool documentation. Choose the source that owns the
 guidance; link to it where needed rather than duplicating the lesson or requiring
 the user to identify the right file.
 
-Agents are welcome to autonomously improve the repository's shared APIs, tools
-and workflow while completing an authorized task. This includes the evolving
-physical-analysis API; its current capabilities are a foundation, not a frozen
-interface or a requirement to use simulation for every model. Routine reusable
-improvements need no separate permission. Keep them within the task's purpose;
-seek a decision if they would materially change the agreed deliverable or scope.
+Actively look for useful extensions to the repository's shared APIs, engineering
+questions and workflow while resolving an authorized task's concrete needs.
+Implement justified reusable improvements within that scope autonomously; do not
+treat noticing or documenting a gap as completing the improvement. This includes
+the evolving physical-analysis API: its current capabilities are a foundation,
+not a frozen interface or a requirement to use simulation for every model.
+Routine reusable improvements need no separate permission. Seek a decision if
+they would materially change the agreed deliverable or scope.
 
 Let an actual consumer drive an extension: repeated manual work, a demonstrated
 failure, or a concrete design question that existing tools cannot answer well.
@@ -457,6 +459,16 @@ the reusable need is already clear. Prefer improving an existing abstraction;
 keep object-specific fixtures, assumptions and experiments in the object directory.
 Do not add speculative frameworks, duplicate established checks, or generalize
 merely because something could someday be useful.
+For a consequential gap, record the missing operation, intended consumer and
+smallest proposed extension in the object's existing decision record, then carry
+it through implementation, qualification and documentation under the requirements
+below. A low-level or object-specific workaround can establish the fixture, but
+revisit whether its reusable behavior belongs in the shared question or study API
+before handoff. If an extension cannot justifiably be completed, record the
+specific blocker, scope boundary or insufficient benefit and the remaining
+unsupported capability; do not silently defer it as a future suggestion. This
+does not require new APIs or an infrastructure audit for ordinary models whose
+questions are already adequately served.
 Record what a new tool actually changed for its consumer: a design/print
 decision, a misleading result caught, or repeated work avoided. Keep experimental
 routes optional until their benefit is demonstrated; ordinary models should not
@@ -486,8 +498,10 @@ API gap before using an object-specific alternative. Keep model-specific
 acceptance and physical observations with the object. `AnalysisCase` remains the
 lower-level escape hatch for genuinely novel fixtures; a wrapper never promotes
 failed contact evidence or numerical recovery to printed validation.
-Do not run analysis merely to demonstrate the API. When extending a shared tool,
-exercise it on the motivating task, validate the new behavior proportionately
+Do not run analysis merely to demonstrate the API. An explicitly agreed analysis
+exercise may include tool-qualification runs with a named capability and acceptance
+criterion; keep their evidence separate from product acceptance. When extending
+a shared tool, exercise it on the motivating task, validate the new behavior proportionately
 (numerical benchmarks for new physical-analysis capabilities), and document its
 contract and limits. Retain explicit unsupported/failure outcomes; solver
 completion must not become a claim of physical validation. Feed useful fixes
