@@ -1,6 +1,13 @@
 # Requirements and functional decisions
 
-Read when interpreting a new object, mechanism or ambiguous physical feedback.
+Read only the sections that govern the pending decision. Entry points:
+
+- Next deliverable or unresolved feedback: [adaptive development](#adaptive-development-and-the-next-deliverable) and [continuation](#feedback-and-autonomous-continuation).
+- New mechanism/multipart product: [architecture gate](#product-architecture-gate) before detailed interfaces or analysis, then [handling](#whole-object-form-and-handling).
+- Consequential fit/load uncertainty or oversized split: [concept screen](#pre-cad-concept-screen) before CAD/joint commitment and [load paths](#structural-load-paths-and-joint-screens).
+- Justified mechanism: [interface/motion checks](#deterministic-motion-and-interface-checks) and [effort/retention](#actuation-effort-and-cheap-mechanics) before offering a retention sample.
+
+A simple, established object need not load the mechanism sections.
 
 ## Requirements clarification
 
@@ -20,11 +27,9 @@ Useful questions establish the intended use, critical interfaces, loads and
 whether required hardware or assembly is acceptable. Explain what to measure
 and why; do not expect the user to specify every printing detail. Do not assume
 access to arbitrary purchased parts merely because the user has a printer, but
-prefer the user's on-hand screw and nut assortment (listed in `AGENTS.md`) when
-fasteners are needed. Discuss during planning whether the user prefers a fully
-printed design or if using this stock hardware is acceptable; if the user
-explicitly requests full autonomous implementation, use best judgment and using
-this stock hardware is permitted.
+use the [on-hand hardware and assembly agreement](user-preferences.md#stock-screws-and-nuts)
+when fasteners are needed, and the [existing-tool preference](user-preferences.md#assembly-tools)
+when designing adjustment/assembly access.
 
 When a mechanism choice needs user input, recommend one feasible approach and
 briefly explain the meaningful tradeoff. When the user has delegated the choice,
@@ -365,9 +370,8 @@ grips outside a continuous inner enclosure where practical. A covered cavity or
 labyrinth seam is dust-resistant geometry, not evidence of airtightness or an
 ingress rating. Verify the actual closure and openings in CAD; physical sealing
 requires suitable tests. Resolve access within that protection requirement,
-rather than treating convenient removal as permission to leave holes. The user's
-default for ordinary storage here is a fully covered cavity that excludes basic
-dust and sheds incidental spills; do not silently substitute an open organizer.
+rather than treating convenient removal as permission to leave holes. Apply the
+user's scoped [protection preference](user-preferences.md#protection-and-mechanism-visibility).
 Do not claim a watertight seal from covered geometry alone.
 
 As soon as rough complete geometry exists, review the assembled object and its
@@ -417,14 +421,9 @@ that dependency rather than claiming a positive grip from the recess alone.
 A printable ramp and a visible cutout do not establish useful hand-force
 direction. Reversing a ramp also needs an access check with the other part fitted.
 
-The user's default in this repository is to conceal mechanisms in the assembled
-object where practical, leaving understandable, modest controls for operation.
-Prefer covers, internal interfaces or protected recesses over exposing the whole
-flexure or catch for convenience during analysis. Inspect both the working
-mechanism and the final covered appearance; an inspection pose is not the
-product's intended appearance. Discuss a consequential visibility/access tradeoff
-when autonomy has not been delegated, and choose/document it when it has. This
-preference does not require hiding a feature whose exposure serves the task.
+Apply the user's [mechanism-visibility preference](user-preferences.md#protection-and-mechanism-visibility).
+Inspect both the working mechanism and final covered appearance; an inspection
+pose is not the product's intended appearance.
 
 Choose the cheapest evidence for the remaining handling question; these are
 available methods, not three mandatory stages:
@@ -626,8 +625,8 @@ when deformation and contact remain consequentially coupled.
 
 Use simulation only when a consequential question exceeds simple mechanics,
 for example interacting or curved/tapered flexures, large deformation or
-contact-dominated release. Full nonlinear FEA is not a routine stage. If future
-reusable tooling is justified, prefer a small question-oriented interface such
-as `evaluate_flexure` or `check_motion` returning assumptions, scope, estimates
-and limitations over a collection of raw solver APIs. No new solver is required
-by this guidance. Physical calibration remains necessary for actual feel and wear.
+contact-dominated release. Full nonlinear FEA is not a routine stage. Use the
+existing [question/study API](../../../../physical_analysis/README.md#use)
+when it fits, rather than creating another wrapper. Extend it only for a demonstrated
+in-scope consumer under the repository shared-tool guidance. Physical calibration
+remains necessary for actual feel and wear.

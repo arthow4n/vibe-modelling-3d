@@ -1,707 +1,156 @@
 # AGENTS.md
 
-This repository contains autonomous, parametric CadQuery modelling projects,
-primarily for single-material FDM printing. Work toward a functional result with
-minimal user intervention; the source and deliverables are the primary output.
+This repository contains autonomous, parametric CadQuery projects, primarily for
+single-material FDM printing. Complete the authorized task with minimal user
+intervention. Functional product value and whole-object usability take precedence
+over locally successful geometry, mechanisms or numerical analysis.
 
-## Design guidance and printer
+## Find the task guidance
 
-For every modelling task, read and apply the repository's
-[CadQuery design skill](.codex/skills/cadquery-3d-design/SKILL.md), including its
-[modelling checklist](.codex/skills/cadquery-3d-design/SKILL.md#modelling-todo-checklist).
-The skill owns functional design, ergonomics, critical dimensions, mechanisms,
-edge treatment, print planning and physical experiments. This file owns
-repository workflow, tools, ownership, attribution and delivery.
+Read only the applicable skill and reference sections. Retrieve early guidance
+before the decision it governs, technical details before the operation, and
+project evidence when its interface or result applies. Do not treat truncated
+output as inspected; read the missing section. User instructions and existing
+authorization override recorded defaults; do not ask again for settled choices.
 
-Use the Qidi Q2C **270 × 270 × 256 mm (X × Y × Z)** build volume as the default
-practical printable envelope
-([Q2C specifications](https://us.qidi3d.com/products/q2c)), unless the user
-specifies another setup. This is the usable design limit, not the printer's
-physical plate dimensions. Allow for likely brims/supports in the rough plan,
-and check each oriented axis independently. Let the final Orca slice decide
-whether its actual print aids fit. For OrcaSlicer reviews, take the
-printable area and height from the selected printer profile; do not maintain a
-separate bed-size override. Use a smaller user-confirmed safe volume by
-providing a printer profile with those limits.
+| Task | Entry point and timing |
+| --- | --- |
+| Every 3D modelling task, including an established-product revision | [CadQuery design](.codex/skills/cadquery-3d-design/SKILL.md). It routes early product decisions, preferences and manufacturing assumptions, then conditional references. |
+| Structural, flexure or contact analysis | [Physical-analysis use](physical_analysis/README.md#use) and its decision-driven [study guidance](physical_analysis/README.md#study-sequence) before solving. Product work also uses the design skill; independent numerical benchmarks do not require product review. |
+| Final smoke slice or slicer-sensitive question | [Print planning](.codex/skills/cadquery-3d-design/references/print-planning.md#final-review-and-reference-smoke-slice), then [Orca inspection](.codex/skills/orca-slicer-printability/SKILL.md). |
+| Physical feedback, modelling-phase handoff, reflection or workflow improvement | [Engineering reflection](.codex/skills/engineering-reflection/SKILL.md). Print feedback first goes to the object's status and root index; a failure routes to the physical-feedback reference. Routine handoffs need only a brief review of new evidence. |
+| Computational profiling, execution studies or interrupted-work recovery | [Engineering execution](.codex/skills/engineering-execution/SKILL.md). Ordinary commands need no performance investigation. |
+| Requested agent latency, tokens or combined workflow investigation | [Workflow performance analysis](.codex/skills/workflow-performance-analysis/SKILL.md). Session inspection is conditional, not routine. |
 
-The user's preferred starting setup is a **0.4 mm nozzle and 0.2 mm layers**.
-They also have a **0.8 mm nozzle** and several **PLA, PETG and TPU** filaments.
-Their experience is that **two walls and 7% adaptive cubic infill** are often
-enough for general prints; these are starting assumptions, not strength or
-printability requirements. For a phase with printable deliverables, discuss the
-proposed nozzle, layer height, material, walls and infill during initial agreement;
-for rough visual studies, state only process assumptions that affect the choice.
-Explain and agree
-on consequential changes, especially when fit, flexibility, strength, print
-time or finish depends on them. Use the agreed setup to size geometry and screen
-loads before slicing. The reference Orca profile is diagnostic, not a substitute
-for the agreed print setup.
-
-The user reports that this printer is generally precise. Do not assume poor
-accuracy or use generous generic FDM clearances without an interface reason.
-Choose insertion allowance, seated play and retention separately; this report
-does not supply a universal measured tolerance. Apply the design skill's
-[retention screen](.codex/skills/cadquery-3d-design/references/design-decisions.md#actuation-effort-and-cheap-mechanics)
-before offering a friction-retained connection for printing.
-
-The user also has an on-hand screw and nut assortment
-([Jula assortment 002837](https://www.jula.se/catalog/bygg-och-farg/infastning/sortimentsatser/skruvsatser/skruv-muttersats-002837/))
-that should be preferred whenever screw or bolt fasteners are needed:
-- **Machine screws (maskinskruvar):**
-  - M3 × 10 mm (60 pcs)
-  - M3 × 12 mm (60 pcs)
-  - M4 × 10 mm (50 pcs)
-  - M4 × 12 mm (35 pcs)
-  - M4 × 25 mm (25 pcs)
-  - M5 × 20 mm (25 pcs)
-  - M5 × 30 mm (20 pcs)
-  - M6 × 12 mm (25 pcs)
-  - M6 × 20 mm (18 pcs)
-  - M6 × 30 mm (12 pcs)
-- **Nuts (muttrar):**
-  - M3 (120 pcs)
-  - M4 (110 pcs)
-  - M5 (45 pcs)
-  - M6 (55 pcs)
-
-During planning, if fasteners are useful, discuss with the user whether they
-prefer a fully printed design or whether using this stock hardware is
-acceptable. If the user explicitly requests full autonomous implementation, use
-best engineering judgment; using these available stock materials is allowed.
-
-Do not reject an object merely because its assembled size exceeds that envelope.
-Plan it as multiple printable parts when no acceptable orientation fits. Before
-committing to the split and joint geometry, establish with the user the required
-joint strength, relevant loads and directions, acceptable hardware/adhesive,
-permanent versus demountable assembly, and any safety consequences. Recommend a
-feasible joint strategy and explain its tradeoffs; do not silently assume that a
-simple alignment or friction joint is structurally adequate. Plan each part for
-the practical envelope; let the final slice check its selected print layout and
-generated print aids. Verify the assembled interfaces and load path separately.
-
-## Co-design geometry and manufacturing
-
-The functional FDM object includes geometry, material, orientation, nozzle/layer
-setup, perimeters, infill or locally solid regions, supports and consequential
-process choices. Agents may recommend or revise any of these within the user's
-authorized scope when that improves function; normal settings are starting
-points. Explain consequential choices and follow existing design-agreement rules.
-Prefer the cheapest adequate change, whether in CAD or manufacture.
-
-Use the skill's [adaptive development guidance](.codex/skills/cadquery-3d-design/references/design-decisions.md#adaptive-development-and-the-next-deliverable)
-to choose the next investment and deliverable. Revisit the product choice as
-evidence changes; completed work never obliges preservation of a poor concept.
-When slicer settings affect an engineering decision, inspect the resulting paths,
-not just requested settings. Do not routinely inspect paths for ordinary walls.
-
-Never derive quantitative modulus, strength, fatigue life or strain limits from
-wall count, infill, orientation or layer height without supporting evidence.
-For homogeneous-solid analysis, make the relevant load-bearing feature reasonably
-solid in the actual slice, document an explicit effective-material assumption,
-or record the mismatch as uncertainty. Solid toolpaths do not establish isotropy,
-layer bonding or bulk material properties. Separate numerical uncertainty,
-material/process uncertainty and observations requiring a physical print.
-
-## Core workflow
-
-1. Inspect the request, references, existing files and user changes. Reuse known
-   preferences. Look for an analogous model in the
-   [reusable design evidence](.codex/skills/cadquery-3d-design/references/reusable-model-lessons.md)
-   and its linked source before starting from zero; carry over only evidence
-   that applies to the new geometry and print setup. Before detailed CAD, make
-   the cheapest useful concept screen:
-   approximate fit and assembly travel, mating engagement, print envelope, and
-   loads, stiffness or force where relevant. Reject a concept that fails even
-   optimistic assumptions. Identify what needs actual modelled geometry and what
-   can only be learned from a physical print; do not make every simple object
-   undergo structural calculations.
-   Keep subsequent reads focused with `rg` and relevant sections. If tool output
-   is truncated, read the missing section rather than repeating the whole batch;
-   do not treat omitted content as inspected.
-2. Choose the development strategy and next useful deliverable through the skill's
-   [adaptive guidance](.codex/skills/cadquery-3d-design/references/design-decisions.md#adaptive-development-and-the-next-deliverable).
-   Use existing agreement and authorization; if needed, establish this phase's
-   deliverable, proposed print setup and consequential assumptions. Complete clear,
-   ordinary tasks directly. Follow the skill's
-   [feedback rules](.codex/skills/cadquery-3d-design/references/design-decisions.md#feedback-and-autonomous-continuation)
-   before unjustified dependent work; otherwise proceed autonomously. A rough-study
-   or sample handoff completes that phase, without automatically authorizing the
-   next one. Oversized objects still require the joint/load agreement above.
-3. For new mechanisms and functional multi-part or moving products, apply the skill's
-   [product-architecture gate](.codex/skills/cadquery-3d-design/references/design-decisions.md#product-architecture-gate)
-   in the existing decision record before detailed mechanisms, tolerance studies,
-   FEA or final slicing. Challenge necessity and total construction/use cost, then
-   review rough complete geometry with realistic contents and normal interaction.
-   Resolve consequential whole-product objections before advancing. Reuse the
-   accepted architecture for an existing product and review only affected
-   relationships. Use the existing record and design agreement.
-4. Confirm `uv` and the repository's shared
-   [CadQuery command](evaluate_model.py) are available. Run `uv sync --locked`
-   from the repository root when the locked environment is not installed.
-5. Create or revise the object's parametric Python source. Evaluate the file
-   through the shared command and inspect validity and errors. Read named
-   dimensions in the source or object notes; use targeted CAD measurements for
-   geometry questions that planning cannot settle. Choose views using the
-   skill's evidence guidance.
-6. Compare the geometry against the intended use and references. Check access,
-   insertion, retention and release as relevant. Apply the skill's
-   [whole-object form and handling review](.codex/skills/cadquery-3d-design/references/design-decisions.md#whole-object-form-and-handling)
-   to rough complete geometry before expensive analysis. Stop or abandon a concept
-   that performs the central task poorly, even when CAD or local checks pass;
-   do not default to repairing its mechanism. Correct the largest functional,
-   structural, ergonomic or printability discrepancies and evaluate again.
-   Repair the smallest underlying cause of a build failure; simplify the approach
-   if it repeatedly fails. Recalculate where measured CAD geometry changes the
-   concept-screen inputs. A valid build alone does not establish function.
-7. For printable deliverables in the agreed phase, apply the skill's CAD/export
-   checks and final generic FDM review, including
-   its final reference-slice smoke check when available. Use the shared
-   evaluator's `--slice` option for ordinary final layouts so paired exports
-   and the smoke check come from one command. Read its automatic-support probe
-   as a request to review support placement, not a rule that supports are
-   forbidden. Continue until the
-   concrete review questions are resolved and further iteration is unlikely to
-   materially improve the result. Distinguish CAD/slicer evidence from physical
-   testing; document any remaining limitation. Rough studies need useful evidence,
-   not print-ready exports or slicing; a sample phase requires only its printable
-   specimens.
-8. Save the agreed outputs, matching print-ready exports where applicable, useful
-   views and one concise record
-   of assumptions, print/use instructions and verification evidence. Include
-   the [standard per-object print-status block](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record)
-   for test piece(s) and the final printable object(s), using N/A when a category
-   is outside the agreed phase. When a user reports a print, update the object
-   block and the root model-index summary together. Product rejection
-   requires immediate correction of readiness/conclusions, identification of the
-   narrower earlier evidence, distinction between rejection before printing and
-   physical use failure, and no unsupported tolerance/process explanation;
-   follow the skill's [failure guidance](.codex/skills/cadquery-3d-design/references/physical-experiments.md#when-product-use-fails). Add a concise entry to the
-   design skill's reusable-evidence reference when a result can inform another
-   model; keep the detailed evidence with its object.
-9. Review, commit and push the completed work using the Git workflow below.
-
-## Trust each stage for the question it answers
-
-These are evidence responsibilities, not compulsory development phases; use only
-the stages needed for the agreed deliverable.
-
-| Stage | Establish here | Trust afterward; do not repeat routinely |
-| --- | --- | --- |
-| Planning | Agree on the print setup and deliverable; screen rough fit, print envelope, assembly travel and relevant loads before detailed CAD. | Do not model or slice merely to discover that the concept fails simple math. |
-| Product architecture | Justify mechanism necessity and total product simplicity; resolve whole-product objections on rough geometry with contents and normal interaction before mechanism refinement. | Local checks cannot establish product value or replace undelegated human judgment. Abandon poor concepts regardless of sunk CAD/analysis work. |
-| CAD | Build valid geometry; use specific assertions or measurements for consequential fit, motion, access and structure questions. Use views for visual questions. | A generic bounds or solid-count report is not a check against design intent. Do not add one without an expected result and decision it could change. |
-| Export | Write STEP and STL from the same selected print geometry and check each export's status. | Trust successful conversion unless a concrete defect suggests otherwise; do not routinely reimport STEP, parse STL triangles or compare exported bounds. |
-| Orca slice | Under the selected effective printer, process, filament and placement, check completion, notices and the automatic-support signal. | Trust Orca's acceptance of that print layout for printer fit, including generated brims/supports. Do not repeat its envelope decision with CAD bounds or a G-code reader. Generated support calls for targeted review, not automatic redesign. |
-| Physical print | Check normal product use as well as actual fit, friction, bridge quality, strength, comfort and material response. | User product rejection supersedes speculative autonomous confidence; local CAD/solver/slice passes do not establish whole-product usefulness. |
-
-Trust applies only to the checked source or artifact, orientation, placement,
-profile and tool version. A diagnostic profile that differs from the agreed
-setup cannot establish printer fit for the agreed setup. Revisit a stage when
-relevant inputs change or a specific failure creates a reason to doubt its
-result. A successful STL smoke slice does not verify Orca's separate GUI STEP
-import. Keep targeted checks for questions outside the earlier stage's scope;
-do not create generic checkers to reprove an upstream tool's successful status.
-
-These omissions are deliberate. The shared evaluator does not report routine
-CAD bounds, size, volume, solid count or per-solid measurements. The workflow
-does not routinely reopen STEP, audit STL triangles or edges, compare STEP/STL
-bounds, or parse G-code motion and deposited footprint. Do not recreate those
-outputs through object scripts, new tests, extra renders or manual calculations
-merely because they are available. An exception needs a concrete suspected
-failure, an expected result, a decision that would change with that result, and
-a reason the planning work or responsible tool's own status cannot answer it.
-Keep a justified check specific to that question; add it to the shared workflow
-only after it has demonstrated recurring value.
-
-## Shared engineering execution
-
-Do not invent wall-clock timeouts for modelling, engineering analysis, slicing,
-diagnostics or recovery. Ordinary computations run without automatic deadlines.
-Add a finite runtime limit only to implement an explicit user-requested deadline;
-do not introduce one as a precaution, infer one from prior run durations, or
-replace an arbitrary limit with a larger arbitrary limit. Diagnose slow work
-from progress and evidence rather than terminating it merely for taking time.
-See [execution documentation](execution/README.md#running-scripts).
-
-Run ordinary experiments with `./execute.py SCRIPT.py [ARGS...]`; use
-`./evaluate_model.py` for CAD. Both start and manage the shared local coordinator,
-resource admission and performance records automatically. Options precede scripts.
-Use `--threads 50%` (default) or an integer. Shared capacity defaults to 50% of
-available cores, configurable with `ENGINEERING_CPUS`. Admission uses CPU threads
-and job slots; RSS measurements are diagnostic only. Concurrent agents share
-CPU sets and output ownership.
-Keep Gmsh/native solvers isolated through the existing physical-analysis APIs.
-
-Exports, renders and completed slice reviews reuse verified content automatically;
-reused evidence is identified in reports. Ordinary model construction still runs.
-For deterministic models with no required construction side effects, declare
-complete inputs once in `MODEL.execution.json` as described in
-[execution documentation](execution/README.md#cad-iterations-and-incremental-outputs).
-Then ordinary evaluator calls manage geometry reuse and invalidation. Use `--fresh`
-when newly executed evidence is required. Unknown dependencies require fresh
-construction; arbitrary script results are never cached automatically.
-
-Use existing numerical/geometry APIs, batched NumPy operations and appropriate
-spatial indexes before custom kernels. Separate preparation, expensive kernels
-and reporting when useful; keep inexpensive experiments simple. Schedule independent
-script files with `execution.batch`, declaring dependencies and shared outputs,
-rather than building another worker framework. Avoid redundant views, exports,
-slices and solves without reducing required checks or tolerances. Unchanged mesh candidates reuse automatically through backend identity guards;
-native solves still run. Saved-field recovery and `QuestionStudy(evidence=...)`
-keep their identity guards.
-
-Tracing is automatic; do not add timers or routinely inspect performance records
-in ordinary engineering work. Use the
-[engineering execution skill](.codex/skills/engineering-execution/SKILL.md) for
-performance investigations, profiling, history analysis or coordinator recovery. For requested
-agent-session timing, token and tool-activity investigations alongside execution
-history, use [workflow performance analysis](.codex/skills/workflow-performance-analysis/SKILL.md).
-Ordinary modelling does not require session-history inspection or performance reports.
-On a new machine or moved checkout, consult the optional
-[native Codex telemetry setup](performance/WORKFLOW.md#optional-machine-setup-and-future-clones)
-and discuss activation with the user; a Git clone does not install machine defaults.
+Skills own task methodology; their references own specialized judgment and user
+preferences. [Execution documentation](execution/README.md) owns command, identity,
+resource and recovery contracts; [physical-analysis documentation](physical_analysis/README.md)
+owns analysis APIs and numerical evidence. Each object owns its requirements and
+results; [reusable evidence](.codex/skills/cadquery-3d-design/references/reusable-model-lessons.md)
+is a bounded discovery index, not a universal rulebook.
 
 ## Object ownership and source of truth
 
-Each logical object or assembly owns one directory. Keep **all** its source
-modules, exports, references, renders, notes and experiments inside it:
+Keep each logical object or assembly in `model/<object_name>/`, including all
+source modules, exports, supplied references, views, notes and experiments.
+Independent objects need separate directories; assembly components may share one.
+Do not create global format-based export/reference directories. Create only useful
+files. The parametric CadQuery Python source is authoritative; meshes are exports.
 
-```text
-model/object_name/
-  object_name.py
-  object_name.step
-  object_name.stl
-  README.md                 # or clearly linked existing project notes
-  references/               # supplied images, drawings and other references
-  renders/                  # useful print/assembled views
-  notes/                    # checks, profiles and experiments when useful
-```
+Keep one concise current decision/evidence record (README or linked existing notes)
+per object. State shared assumptions and print/use instructions once, with only
+consequential variant differences. Keep deliverable links, verification, unique
+physical observations, print status and attribution easy to find. Preserve valid
+historical evidence deliberately; Git history can hold superseded process prose.
+Do not commit a second completed checklist duplicating that record.
 
-Create only useful files. Independent objects need separate directories;
-components of one assembly may share a directory. Do not organize object files
-in global format-based directories such as `exports/` or `references/`.
+## Evidence integrity
 
-The object's CadQuery Python source is authoritative. Keep likely adjustments
-as named parameters with dependent geometry derived from them. Use a clear main
-entry point and component modules when that improves readability; document useful
-component/assembled entry points and verify imports through the shared command. Follow the
-[construction guidance](.codex/skills/cadquery-3d-design/references/parametric-and-edges.md)
-for parameters, components and edges. Prefer understandable CadQuery operations;
-use lower-level OCP only when it materially helps. Do not make a mesh the primary
-modelling representation.
+Use checks that address actual design intent, with an expected result and a
+decision the result can change. CAD validity, numerical convergence, provisional
+material/design screens, slicer acceptance and physical validation are different
+conclusions. Do not present unmeasured printed-material properties, friction,
+tolerances, durability or subjective comfort as calibrated facts. Record unknowns
+as unknowns. User product rejection overrides speculative confidence and requires
+corrected readiness, even when local checks passed.
 
-## CadQuery evaluation and exports
+Trust each tool for the question it answers, under the checked inputs and limits.
+Revisit affected evidence after relevant changes or a concrete reason for doubt;
+do not restart all verification for every revision. Successful existing interfaces
+and retained evidence must be preserved within their scope. Final verification
+must cover the delivered files, placement, settings and tool identities.
 
-Run `./evaluate_model.py model/object_name/object_name.py` from the repository
-root. Its bootstrap verifies the locked uv environment when its identity changes; `./evaluate_model.py --help`
-lists its options and defaults. The command supplies
-`__file__`, the model directory as the worker's working/import directory, and a
-fresh user process per ordinary evaluation, using a qualified import-only CAD host. Ordinary sibling imports therefore see current
-source. `result` explicitly selects the output; otherwise all `show_object()`
-outputs are combined. Do not mix display-only reference geometry into the
-selected printable result.
+Do not routinely recreate deliberately omitted CAD bounds, volume, solid counts,
+STEP reimports, STL topology/bounds audits or G-code footprint checks. An exception
+needs a concrete suspected failure, expected result, changed decision, and a reason
+planning or the responsible tool's status cannot answer it. Successful export
+conversion and Orca layout acceptance should not be independently re-proved by
+generic checkers. An STL slice does not verify Orca's separate GUI STEP import.
 
-The same command evaluates simplified parametric studies without exports or
-slicing. Select only useful `--views` (or `--views none` for geometry checks).
-Keep rough-review reference items and operating poses in inspection-only entry
-points; rough studies need neither STEP/STL pairs nor smoke slices.
+## Shared engineering execution
 
-Keep handling-review hands, held-item envelopes and supporting surfaces in an
-inspection-only entry point when needed, reusing the object's component builders.
-Render it without `--export` or `--slice`; the ordinary print entry point must
-select only the intended printable geometry.
+Run CAD from the repository root with
+`./evaluate_model.py model/<object>/<object>.py`; run ordinary experiments with
+`./execute.py SCRIPT.py [ARGS...]` (options precede the script). Read
+[CAD operation details](execution/README.md#cad-evaluation-and-exports) before using
+exports, views or reports. Both commands bootstrap the locked uv environment and
+manage resource admission, isolation, tracing and controlled artifacts. Use
+`uv sync --locked` if installing the environment manually; use `uv run --locked`
+for direct package commands. Dependencies belong in root `pyproject.toml` and
+`uv.lock`; commit both when changed. Do not use ad-hoc environments or another
+manager. OrcaSlicer is a separate host/Flatpak tool.
 
-`--slice` implies `--export`. Exit status 2 means Orca completed the slice but
-its report requires review; inspect `slice.review_required` and notices in the
-JSON. Exit status 1 means evaluation or slicing failed. A render failure may
-coexist with successful exports and a successful slice, so inspect stage status.
-Use `--slice-existing FILE.stl` (or `.3mf`) to review an existing export without
-rebuilding CAD; the same slice profile and placement options apply.
+Do not invent wall-clock computation deadlines for modelling, analyses, slicing,
+diagnostics, discovery, benchmarks or recovery. A finite runtime limit implements
+only an explicit user-requested deadline, never an expected duration or precaution.
+Diagnose slow work from progress and evidence. Service connection, idle-retirement
+and termination-cleanup allowances have separate lifecycle roles.
 
-Use `--views none` for checks that need no images. Inspect structured error status:
-a failed view can coexist with successful geometry or exports. Saved paths are
-successful outputs only when their corresponding status says so. Build and
-slice timings are reported separately. Model files are trusted Python and may write their
-own artifacts; the command does not roll back those side effects.
-
-For normal printable models, deliver at least `.py`, `.step` and `.stl`.
-This applies to the printable objects agreed for the current phase, including
-samples; it does not require full-size variants when only samples were requested.
-STEP is the primary print-ready interchange file. STL is a matching secondary
-export used for the headless reference slice and compatibility. An STL-based
-slice does not validate Orca's separate GUI STEP import or its tessellation.
-The shared evaluator meshes its STL with Orca GUI's default STEP-import
-settings: 0.003 mm absolute linear deflection and 0.5 rad angular deflection.
-The two paths can still produce different triangles because Orca reopens STEP
-and uses a different Open Cascade version. GUI settings may also be changed.
-Use the shared evaluator for new printable exports. When an object-owned exporter
-is necessary, use the evaluator's absolute STL meshing settings. Older exporters
-and their artifacts are historical pairs; update the script, STEP/STL pair and
-affected slice evidence together when that object is next revised, rather than
-silently changing an exporter without its deliverables.
-Export STEP and STL from the **same geometry and print placement**, with matching
-units, orientation, bed position and relative component positions. The shared
-command's `--export` writes both files named after the source; `--slice` writes
-the same pair and reviews the STL with OrcaSlicer. Supply compatible
-`--slice-printer`, `--slice-process` and `--slice-filament` profiles when the
-agreed setup differs from the diagnostic defaults. Use an object-owned wrapper
-when custom checks, naming or component exports require it.
-For a position-sensitive layout, use `--slice-placement preserve`. Record any
-different arrangement or compound splitting intended in Orca's GUI; the CLI
-smoke slice only covers the placement it actually used.
-Use an explicit `_assembled.step` suffix for an additional inspection pose.
-Respect an explicit user request for a different export arrangement. Add 3MF or
-other formats only when useful.
-
-Retain useful final views under `renders/`; isometric, front, top and right are
-available choices, not a required set. Each additional view should answer a
-distinct visual question or explain the delivered object. For saved intermediate
-views, use
-`renders/scratch/`; retain selected final views in `renders/print/` or
-`renders/assembled/`. Exterior inspection normally uses `show_hidden=false`.
-`--output-dir` is relative to the model's directory: use `renders/assembled`,
-not a repository-prefixed `model/object_name/renders/assembled`, or supply an
-absolute destination. `--report` instead resolves from the command's working
-directory. A path correction does not require fresh geometry; keep a valid
-declared geometry input contract and let verified artifacts reuse normally.
-Use hidden lines or sections for a specific internal-geometry question. Remove
-disposable scratch output before staging; retain historical evidence deliberately.
-
-Use renders only to answer a concrete visual question. No views is the default; request only the needed views for visual questions. Use `--export` for the final pair or `--slice` for the
-pair plus smoke review. Reuse saved images rather than
-rebuilding merely to open them.
-
-The shared renderer uses Z upright for side/isometric views and Y upright for
-top/bottom views; each successful view reports its camera directions. Camera
-orientation changes only the image. Print placement comes from the selected
-source geometry, while an assembled inspection entry point can use a different
-pose. Images made before the camera-up correction may appear tilted or sideways;
-do not infer their print orientation from the screen's vertical direction.
-
-For valid evaluation invocations, stdout is one JSON report. The example below
-is illustrative, not a required summary schema. Read only the report fields
-needed for the current task; inspect diagnostics and tracebacks when a failure
-needs investigation.
-
-When a run needs retained evidence, capture its native stdout directly rather
-than manually rebuilding the report in another JSON schema. The shared command
-can save it and print a compact summary in one run:
-
-```bash
-./evaluate_model.py model/object_name/object_name.py --views none --slice \
-  --report model/object_name/notes/object_name_final_review.json --summary
-```
-
-`--report` paths are relative to the command's working directory; parents are
-created and an existing report is replaced. `--summary` requires `--report`,
-preserves errors, stage statuses, notices and the support probe, and points to
-the full evidence for effective settings and other slice details. Without
-`--summary`, stdout remains the complete native JSON. A report-write error is
-reported separately and returns status 1 without hiding completed stages.
-Inspect exit status 1 or 2 even when a report was saved. Invalid CLI arguments
-may produce no JSON. Record revision/input identity alongside the report when
-needed for reuse; this option does not supply a dependency fingerprint. Keep
-valid historical reports. Report saving remains optional.
-
-For visual inspection, parse the JSON inside the same outer tool call that runs
-the evaluator, then read only a successful view's path. Print a compact summary
-of the geometry/status, output paths, errors, timings, and versions; avoid
-echoing the full report or diagnostics on success. Example `functions.exec`
-workflow (use the needed views/exports and set `workdir` to the repository):
-
-```js
-let run = await tools.exec_command({
-  cmd: "./evaluate_model.py model/object_name/object_name.py --views isometric,front --slice --report model/object_name/notes/object_name_final_review.json --summary 2>/dev/null",
-  workdir: "/absolute/path/to/repository",
-  yield_time_ms: 30000,
-  max_output_tokens: 12000,
-});
-let stdout = run.output;
-while (run.session_id) {
-  run = await tools.write_stdin({
-    session_id: run.session_id,
-    chars: "",
-    yield_time_ms: 30000,
-    max_output_tokens: 12000,
-  });
-  stdout += run.output;
-}
-const report = JSON.parse(stdout);
-text(report);
-
-const view = report.views?.find((item) => item.view === "isometric" && item.ok);
-if (view) {
-  text(`Image path: ${view.path}`); // omit view_image when only the path is needed
-  image((await tools.view_image({ path: view.path })).image_url);
-}
-```
-
-The shell command returns the JSON paths, not image data. `view_image` reads the
-PNG sequentially within the same outer call. Choose the view based on the
-question; if no image is needed, omit image loading and request `--views none`.
-A successful view can still be useful when another stage failed, so select by
-the entry's `ok` status rather than the report's overall `ok` alone. A path or
-status alone is not visual evidence.
-
-## Improve shared tools from concrete needs
-
-Apply the [engineering reflection skill](.codex/skills/engineering-reflection/SKILL.md)
-at modelling-phase handoffs, when new print feedback arrives, and when the user
-asks for reflection or workflow improvement. Keep routine reflection brief and
-limited to new evidence; an explicit request can cover the broader session.
-The skill routes lessons, preferences and repeated work to their owning sources.
-It may conclude that no shared change is useful; it does not require extra CAD,
-slices, analysis, new abstractions or a separate reflection report.
-
-Requests to improve the "workflow" or "instructions" include relevant repository
-rules, skills and shared-tool documentation. Choose the source that owns the
-guidance; link to it where needed rather than duplicating the lesson or requiring
-the user to identify the right file.
-
-Actively look for useful extensions to the repository's shared APIs, engineering
-questions and workflow while resolving an authorized task's concrete needs.
-Implement justified reusable improvements within that scope autonomously; do not
-treat noticing or documenting a gap as completing the improvement. This includes
-the evolving physical-analysis API: its current capabilities are a foundation,
-not a frozen interface or a requirement to use simulation for every model.
-Routine reusable improvements need no separate permission. Seek a decision if
-they would materially change the agreed deliverable or scope.
-
-Let an actual consumer drive an extension: repeated manual work, a demonstrated
-failure, or a concrete design question that existing tools cannot answer well.
-Before adding shared functionality, identify the decision it will inform and
-the operation that can transfer to other models without their specific geometry
-or dimensions. A second consumer is useful evidence, not a prerequisite when
-the reusable need is already clear. Prefer improving an existing abstraction;
-keep object-specific fixtures, assumptions and experiments in the object directory.
-Do not add speculative frameworks, duplicate established checks, or generalize
-merely because something could someday be useful.
-For a consequential gap, record the missing operation, intended consumer and
-smallest proposed extension in the object's existing decision record, then carry
-it through implementation, qualification and documentation under the requirements
-below. A low-level or object-specific workaround can establish the fixture, but
-revisit whether its reusable behavior belongs in the shared question or study API
-before handoff. If an extension cannot justifiably be completed, record the
-specific blocker, scope boundary or insufficient benefit and the remaining
-unsupported capability; do not silently defer it as a future suggestion. This
-does not require new APIs or an infrastructure audit for ordinary models whose
-questions are already adequately served.
-Record what a new tool actually changed for its consumer: a design/print
-decision, a misleading result caught, or repeated work avoided. Keep experimental
-routes optional until their benefit is demonstrated; ordinary models should not
-inherit an investigation's complexity. Review features with no demonstrated
-benefit for simplification or removal. A useful failed experiment can remain as
-evidence without requiring a permanent public feature.
-
-Before detailed mechanisms or analysis, establish a worthwhile product through
-the skill gate above. Simulation answers remaining physical uncertainty; the
-availability of `SnapFitQuestion`, FEA or IPC never justifies inventing a mechanism.
-Keep tool benchmarks as independent engineering experiments, not product projects.
-Use the cheapest adequate evidence: CAD for rigid fit and clearance, simple
-calculations for suitable load screens, and numerical analysis when deformation,
-contact or geometry makes those approaches insufficient or materially uncertain.
-For a known snap/contact operation, force-loaded contact (`ContactQuestion`), flexure or loaded structural part, prefer
-the [shared engineering questions](physical_analysis/README.md#use) over manually
-constructing an `AnalysisCase`. Supply the geometry, regions, loads, material and
-manufacturing assumptions explicitly. For planned mesh, motion-increment or
-contact-parameter comparisons on a shared question, select
-[`QuestionStudy`](physical_analysis/README.md#standard-question-studies-and-retained-evidence)
-before launching refinements rather than writing comparison/report code in the
-object. Choose only decision-relevant axes, metrics and stopping tolerances;
-this does not require sensitivity studies for every model. Use its `evidence=`
-mapping for identity-checked completed runs instead of rerunning them for a
-study report. If it cannot represent the needed comparison, record the concrete
-API gap before using an object-specific alternative. Keep model-specific
-acceptance and physical observations with the object. `AnalysisCase` remains the
-lower-level escape hatch for genuinely novel fixtures; a wrapper never promotes
-failed contact evidence or numerical recovery to printed validation.
-Do not run analysis merely to demonstrate the API. An explicitly agreed analysis
-exercise may include tool-qualification runs with a named capability and acceptance
-criterion; keep their evidence separate from product acceptance. When extending
-a shared tool, exercise it on the motivating task, validate the new behavior proportionately
-(numerical benchmarks for new physical-analysis capabilities), and document its
-contract and limits. Retain explicit unsupported/failure outcomes; solver
-completion must not become a claim of physical validation. Feed useful fixes
-back into the shared tool rather than copying solver plumbing into each model.
-
-Before numerical tuning, choose accuracy and stopping rules against the physical
-decision using the shared [study guidance](physical_analysis/README.md#study-sequence).
-Distinguish tool qualification and failure diagnosis from product acceptance,
-and numerical quality screens from evidence-backed physical limits. More digits
-do not compensate for uncertain material or fixture assumptions. Continue a
-rejected route only to answer a named diagnostic question; record deliberate
-investigation stops separately from native convergence failures. Useful shared
-improvements do not themselves validate the object.
-
-When numerical analysis fails, distinguish invalid fixtures or generated input,
-solver convergence failure, completed solves rejected by quality checks, and
-material/design screens. A failed check does not establish that the object is
-impossible or that the backend cannot solve it. First localize the failure using
-saved logs, histories and fields; verify the actual formulation's documented
-behavior. Before using a different contact formulation/backend on the object,
-qualify known-gap contact onset, compression, separation/return, force signs and
-balance on a simple benchmark. Verify output availability and strain measures;
-missing fields are not zeros and different strain definitions are not silently
-interchangeable. A benchmark does not qualify the object's contact sequence.
-An isolated transition can reduce debugging work; document its initial-state
-dependency before rejoining the complete operation. Use identity-guarded saved-field
-recovery for extraction fixes instead of repeating a valid native solve.
-At finite contact edges, native integration-point gaps may miss overlap between
-samples. When passage remains suspect, compare saved deformed interface samples
-with the mating geometry; keep a geometric witness distinct from the native gap
-and from a proof of no intersection.
-Freeze geometry and vary one consequential numerical setting at a
-time where practical. Express motion resolution as travel near the relevant
-feature, not only normalized time. Separate a demonstrated defect from a
-suspected cause and an unresolved limitation. Automate reusable extraction and
-comparison instead of repeating manual inspection or rerunning a valid solve
-to obtain another diagnostic. At handoff, distinguish delivered CAD/exports
-from unresolved functional confidence and state which decision remains blocked.
+Keep Gmsh/native solvers isolated through the physical-analysis APIs. Use existing
+execution/batch and question/study interfaces instead of another scheduler, trace
+schema or arbitrary-result cache. Geometry reuse requires complete deterministic
+inputs and no required construction side effects; unknown inputs stay fresh.
+Preserve identity guards, output ownership and explicit fresh/reused status. Never
+replay unknown side effects or promote interrupted/failed native work to completion.
+The [execution contract](execution/README.md#architecture-contract-version-1)
+owns the automated safeguards and caller responsibilities, including freezing
+repository Python during CAD publication and budgeting nested work.
 
 ## Avoid repeated work
 
-Interpret "cheap" and "expensive" as total workflow cost, including agent turns,
-manual reasoning, implementation, maintenance and compute. The user's preference
-is to spend reliable, repeatable compute when it reduces agent effort or improves
-the evidence; compute is generally cheaper than repeated coding-agent turns.
-Do not label an automated check expensive merely because it repeats or takes
-time to run. Prefer a straightforward deterministic script or applicable shared
-tool over repeatedly doing the same reasoning manually. Distinguish solver
-runtime from development or review effort when reporting cost. Optimize runtime
-only when an observed resource or turnaround constraint warrants it; preserve
-the necessary checks and the rule against speculative infrastructure.
+Judge cost across agent turns, implementation, maintenance and compute. The user
+prefers reliable repeatable compute when it saves agent effort; invocation counts
+or solver runtime alone do not establish waste. Use the cheapest reliable evidence
+that can change the next decision. Established automatic checks run when applicable
+without a fresh justification each time; reconsider a consistently uninformative
+check itself. Reuse unchanged evidence and batch independent work after its
+prerequisites; keep dependent corrections and adaptive refinements sequential.
+Documentation-only edits need documentation validation, not new CAD or slices.
 
-When creating a check or requesting extra manual inspection, identify the
-credible failure or uncertainty it addresses and what decision its result could
-change. Ask whether existing evidence or the tool's own status already answers
-it. Skip a new check when no plausible result would change the design, print
-plan, delivery or handling of a consequential risk. Do not add an independent
-checker merely to revalidate a toolchain guarantee without a concrete reason
-to doubt it. A reusable check's expected benefit must justify its development
-and maintenance; record the purpose of a non-obvious check with its result,
-without creating a separate justification document.
+## Improve shared tools from concrete needs
 
-Once a useful check is built into a reusable script or the shared workflow, run
-it automatically when applicable. Repeated automatic execution is not repeated
-agent work and needs no new justification each time. Judge its marginal compute
-cost alongside the agent effort it saves, not its invocation count. Reuse valid
-evidence to avoid unnecessary manual reasoning, tool setup or solver reruns when
-relevant inputs and evidence are unchanged. If an established automatic check
-proves consistently uninformative, reconsider the check itself rather than
-skipping it case by case.
+Implement justified reusable improvements within the authorized task; observing a
+gap alone does not complete an authorized improvement. A concrete consumer,
+demonstrated failure or repeated work must drive it. Prefer extending an existing
+API or deleting duplication over speculative frameworks. Keep object geometry,
+assumptions and acceptance thresholds local. Seek a decision if the extension
+materially changes scope. [Reflection](.codex/skills/engineering-reflection/SKILL.md#put-the-result-in-its-owning-source)
+owns extension placement, qualification and documenting a specific blocker when
+completion is not justified or possible. No ordinary task requires an API audit.
 
-Choose the cheapest reliable evidence for the remaining question, following the
-[skill's evidence selection](.codex/skills/cadquery-3d-design/SKILL.md#proportionate-review).
-Build once where possible and batch exports, measurements and needed views.
-Separate cheap build assertions from expensive mechanism sweeps; rerun affected
-sweeps after interface changes, not merely to obtain another view.
+## Delivery and provenance
 
-For a multi-variant object, keep repeated, applicable CAD checks in an object-owned
-function taking the actual builders or geometry and expected interface values.
-Thin variant entry points should add their changed behavior instead of copying
-the entire check script. Preserve each assertion's purpose and applicable scope;
-shared code does not qualify a new variant without running its affected checks.
-Do not build a general test framework for one object's fixtures.
+For the phase's agreed printable objects (including samples), deliver at least
+`.py`, `.step` and matching `.stl`, unless explicitly requested otherwise. STEP is
+the primary print-ready interchange file. Export both from the same selected
+geometry and print placement, with matching units, orientation and component
+positions. Keep display-only references out of printable results. Rough studies
+need useful evidence rather than print-ready exports or slicing. Apply the design
+skill's final FDM review and smoke check only to the agreed printable deliverables.
 
-Resolve available CAD fit, complete assembly-path and form questions before the
-final batch of printable layouts is exported and sliced. This avoids regenerating
-every layout after a local geometry correction. An earlier targeted slice is
-still useful when support placement or actual toolpaths decide the geometry;
-review its result before producing dependent layouts. Documentation-only updates
-need documentation validation rather than new CAD exports or slices.
-Finish Python edits before that batch; the execution system's
-[repository-wide input identity](execution/README.md#architecture-contract-version-1) can reject queued or
-running CAD after even an unrelated check-script edit.
+Use the [standard print-status block](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record)
+for test pieces and final objects, including N/A categories for rough/sample phases.
+On user print feedback, update the object record and root model-index summary
+together. Do not infer a print from a CAD or slicer result.
 
-Schedule toward the next useful design decision. Run available quick checks
-that could reject fit, assembly travel or the concept before occupying shared
-capacity with longer studies. Once their prerequisites pass and source is
-settled, launch independent variants, physical questions and final artifact
-jobs together through the existing execution tools; see
-[dependency and capacity planning](execution/README.md#dependency-and-capacity-planning).
-Keep result-dependent corrections and adaptive refinements sequential. During
-a frozen CAD batch, review completed evidence or draft non-Python documentation;
-do not edit Python to fill the wait. Parallel tool work needs no extra coding
-agents. Judge a batch by elapsed time to usable results, not summed job durations
-or the number of jobs launched.
-
-Reuse evidence only when its relevant inputs are unchanged and recorded:
-
-- CAD: source modules, parameters, placement and tool versions.
-- Exports: actual output files and exporter settings/version.
-- Slicing: the sliced STL, effective profile, command options and slicer
-  version. Do not treat that result as verification of GUI STEP import.
-
-Changed source or output files invalidate affected checks; rerun if dependencies
-are unclear. Final verification must cover the final files.
-Do not introduce a caching framework for a one-off task. Unchanged helpers do not
-need their own regression suites rerun for every model.
-
-Keep one concise current decision/evidence record per object. State shared
-print/use instructions and assumptions once; for multiple variants, use a
-compact comparison and record only their consequential differences and specific
-evidence. Update this structure as variants are added instead of appending
-repeated handoff sections. Keep deliverable links, relevant verification and
-physical results, the standard print-status block, and attribution easy to find.
-Add detailed reports only when they answer a distinct question. Track work in
-the active task checklist, but do not commit a separate completed checklist that repeats
-the object's record. Preserve unique physical observations and attribution;
-recover superseded process narratives from Git history when needed. Return
-compact summaries and inspect full logs only for a failure or unresolved
-question. Documentation-only changes need document validation, not new CAD
-evaluations or slices.
-
-For numerical studies, use generated summaries as the source for tables and keep
-prose focused on the decision and limits; do not hand-maintain the same history in
-several records. Retain successful and informative failed runs with the shared
-[analysis evidence helper](physical_analysis/README.md#retain-analysis-evidence)
-instead of copying archive/solver-file handling into each model. Model-specific
-acceptance conditions and interpretation remain with the object.
-
-## Model provenance and attribution
-
-Record attribution **per model**, in its documentation or clearly linked notes:
-primary language model, reasoning effort, harness/agent environment and provider.
-Use actual runtime information or explicitly attributed user-provided information.
-Record unavailable fields as `unknown` or `not exposed`; do not guess or block
-otherwise completed work solely to obtain unavailable metadata. List material
-contributors after the primary model when known.
-
-Preserve historical attribution when doing documentation-only maintenance.
-For requested session/performance investigations, also attempt
-[per-object effort attribution](performance/WORKFLOW.md#per-object-effort-attribution)
-where reviewed task associations exist. Link privacy-reviewed token/timing
-aggregates from object notes and the index; keep source selections and identifiers
-local. These measurements supplement creator provenance and do not replace it.
-Existing records are linked from the [model index](README.md#models); they are
-historical evidence, not defaults for future models. Keep third-party licence
-and creator attribution intact; consult the root README's licensing section.
-
-## Python dependencies
-
-Use the root `pyproject.toml` and `uv.lock` for Python tooling. Run ordinary files
-with `./execute.py` and CAD with `./evaluate_model.py`; their bootstrap synchronizes
-the locked environment when its identity changes. Use `uv run --locked` for direct
-package commands, and commit dependency changes to both files, not environments
-or caches. OrcaSlicer is a separate Flatpak CLI for reference slicing. Use the
-repository's [OrcaSlicer printability skill](.codex/skills/orca-slicer-printability/SKILL.md).
-Do not use ad-hoc virtual environments or another environment manager.
+Record attribution per model: primary language model, reasoning effort,
+harness/agent environment and provider; list material contributors when known.
+Use runtime information or explicitly attributed user information; unavailable
+fields are `unknown` or `not exposed` and do not block delivery. Preserve historical
+attribution during documentation maintenance. Requested performance investigations
+may supplement it with reviewed aggregates under the performance skill's privacy
+contract. Preserve third-party licensing and attribution; see [licensing](README.md#licensing).
 
 ## Git workflow and handoff
 
-Automatic commit and push are preferred for all completed repository tasks.
-Inspect status and the relevant diff, stage only requested work, and run
-`git diff --cached --check`. `.gitattributes` suppresses exporter-generated STEP
-whitespace noise while preserving text diffs; do not rewrite CAD exports merely
-to remove spaces. Preserve unrelated user changes and omit temporary/generated
-junk. Commit with a concise descriptive message and push the current upstream
-branch; do not change branches merely to complete the task.
+Commit and push completed repository tasks automatically. Inspect status and the
+relevant diff, preserve unrelated/concurrent changes, stage only requested work,
+and run `git diff --cached --check`. Omit scratch/generated junk. `.gitattributes`
+handles exporter STEP whitespace; do not rewrite exports merely to remove spaces.
+Use a concise descriptive commit and push the current upstream branch; do not
+switch branches merely to complete a task.
 
-Track commit/push completion in the active task checklist and report the actual
-result at handoff. Do not pre-mark it complete in committed notes, substitute
-“staged” for “pushed,” or make another commit solely to tick that box.
-
-The final response should concisely state what changed, important assumptions,
-object directory and deliverables, verification and material limitations, and
-the commit/push result. Report a failed push as incomplete delivery rather than
-claiming success.
+Track and report actual commit/push completion; do not pre-mark it in committed
+notes, substitute staged for pushed, or commit again just to tick a box. The
+handoff states changes, deliverables, relevant assumptions, verification and
+material limitations. A failed push is incomplete delivery.

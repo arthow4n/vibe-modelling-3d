@@ -5,6 +5,79 @@ and applicable scope are recorded below. Use them as starting preferences for
 comparable objects within those scopes. They are not universal manufacturing rules or
 proof that a particular design works. The latest user instruction takes priority.
 
+## Printer, manufacturing and available hardware
+
+Read before choosing printable dimensions or a print setup; retrieve the stock
+inventory when fasteners are useful. These are user defaults, not calibrated
+material properties or universal design limits.
+
+Use the Qidi Q2C **270 × 270 × 256 mm (X × Y × Z)** build volume as the default
+practical printable envelope
+([Q2C specifications](https://us.qidi3d.com/products/q2c)), unless the user
+specifies another setup. This is the usable design limit, not the printer's
+physical plate dimensions. Allow for likely brims/supports in the rough plan,
+and check each oriented axis independently. Let the final Orca slice decide
+whether its actual print aids fit. For OrcaSlicer reviews, take the
+printable area and height from the selected printer profile; do not maintain a
+separate bed-size override. Use a smaller user-confirmed safe volume by
+providing a printer profile with those limits.
+
+The user's preferred starting setup is a **0.4 mm nozzle and 0.2 mm layers**.
+They also have a **0.8 mm nozzle** and several **PLA, PETG and TPU** filaments.
+Their experience is that **two walls and 7% adaptive cubic infill** are often
+enough for general prints; these are starting assumptions, not strength or
+printability requirements. For a phase with printable deliverables, discuss the
+proposed nozzle, layer height, material, walls and infill during initial agreement;
+for rough visual studies, state only process assumptions that affect the choice.
+Explain and agree on consequential changes, especially when fit, flexibility, strength, print
+time or finish depends on them. Use the agreed setup to size geometry and screen
+loads before slicing. The reference Orca profile is diagnostic, not a substitute
+for the agreed print setup.
+
+The user reports that this printer is generally precise. Do not assume poor
+accuracy or use generous generic FDM clearances without an interface reason.
+Choose insertion allowance, seated play and retention separately; this report
+does not supply a universal measured tolerance. Apply the design skill's
+[retention screen](design-decisions.md#actuation-effort-and-cheap-mechanics)
+before offering a friction-retained connection for printing.
+
+### Stock screws and nuts
+
+The user also has an on-hand screw and nut assortment
+([Jula assortment 002837](https://www.jula.se/catalog/bygg-och-farg/infastning/sortimentsatser/skruvsatser/skruv-muttersats-002837/))
+that should be preferred whenever screw or bolt fasteners are needed:
+
+- **Machine screws (maskinskruvar):**
+  - M3 × 10 mm (60 pcs)
+  - M3 × 12 mm (60 pcs)
+  - M4 × 10 mm (50 pcs)
+  - M4 × 12 mm (35 pcs)
+  - M4 × 25 mm (25 pcs)
+  - M5 × 20 mm (25 pcs)
+  - M5 × 30 mm (20 pcs)
+  - M6 × 12 mm (25 pcs)
+  - M6 × 20 mm (18 pcs)
+  - M6 × 30 mm (12 pcs)
+- **Nuts (muttrar):**
+  - M3 (120 pcs)
+  - M4 (110 pcs)
+  - M5 (45 pcs)
+  - M6 (55 pcs)
+
+During planning, if fasteners are useful, discuss with the user whether they
+prefer a fully printed design or whether using this stock hardware is
+acceptable. If the user explicitly requests full autonomous implementation, use
+best engineering judgment; using these available stock materials is allowed.
+
+## Assembly tools
+
+Prefer standard tool interfaces and common sizes (for example, hex sockets for
+standard Allen keys). The user owns and prefers an existing tool set: do not
+model or export printable substitutes, including optional drivers or wrenches,
+unless explicitly requested. Specify the standard tool and nominal size, allow
+appropriate printing clearance, and check access and engagement. An all-printed
+object does not imply printed assembly tools.
+
 ## Form and handling
 
 | Preference | Design consequence | Scope and source |
@@ -36,19 +109,31 @@ earlier unprinted variants retained for comparison. This does not make every
 project require coupons or every possible capacity. Use the skill's existing
 development guidance and label current versus historical matching parts clearly.
 
-Printer, nozzle/layer starting settings, materials and available hardware remain
-owned by [AGENTS.md](../../../../AGENTS.md). Reuse that source instead of keeping
-a second settings table here. Fully printed is a swatch-box requirement, not a
+Use the [printer and hardware defaults above](#printer-manufacturing-and-available-hardware)
+without maintaining another settings table. Fully printed is a swatch-box requirement, not a
 repository-wide ban on the user's available hardware.
 
 For joining interfaces, the user expects firm seated connection, rather than a
 loosely captured alignment key. Entry clearance must be justified separately
-from final play and retention. They report that their printer is generally very
-precise; do not assume poor accuracy or add generous generic FDM allowances.
-That report is not a numerical tolerance calibration. Use the actual interface
+from final play and retention. Apply the precision/allowance distinction in the printer defaults above. Use the actual interface
 role, deliberate contact/preload and measured feedback to choose allowances.
 The printed [H sample failure](../../../../model/filament_swatch_box_study/README.md#physical-history-and-print-status)
 was a loose, unpreloaded connection, not an established printer defect.
+
+## Protection and mechanism visibility
+
+For ordinary storage, the user's default is a fully covered cavity
+that excludes basic dust and sheds incidental spills; do not silently substitute
+an open organizer. This is not a watertightness or ingress rating. Ventilation
+or open access may serve a different stated task. See the
+[handling review](design-decisions.md#whole-object-form-and-handling) for closure
+and access checks.
+
+Conceal mechanisms in the assembled object where practical, with understandable,
+modest controls. Prefer covers, internal interfaces or protected recesses over
+exposing the entire flexure for analysis convenience. Discuss a consequential
+visibility/access tradeoff when undelegated, or choose and document it under
+autonomous scope. Exposure is appropriate when it serves the task.
 
 ## Proposal workflow
 

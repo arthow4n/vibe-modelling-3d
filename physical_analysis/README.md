@@ -74,6 +74,9 @@ answer. `AnalysisCase` remains the escape hatch for genuinely novel fixtures,
 such as isolated multi-driver contact-formulation investigations.
 For a product, first establish coherent [physical interaction architecture](../.codex/skills/cadquery-3d-design/references/design-decisions.md#product-architecture-gate);
 these questions answer remaining local physics, not whole-product usefulness.
+On numerical/contact failure, read [saved-result failure diagnosis](#locate-a-contact-quality-failure)
+before changing inputs, switching backend or launching another solve. It separates
+invalid fixtures, native convergence, quality rejection and design screens.
 
 ```python
 import cadquery as cq
@@ -644,6 +647,14 @@ section, a documented conservative effective material, or an appropriate solid
 print. Calibrate against physical tests before claiming real force or strength.
 
 ## Locate a contact-quality failure
+
+First distinguish invalid fixtures/generated input, native convergence failure,
+completed solves rejected by quality checks, and provisional material/design
+screens. None alone proves the product impossible or the backend incapable.
+Localize the failure in saved logs, histories and fields and verify the actual
+formulation's documented behavior before changing geometry, numerical settings
+or backend. Qualify a new backend through the [study sequence](#study-sequence).
+A deliberate investigation stop is distinct from native convergence failure.
 
 Before launching another solve, use the saved result, input and raw fields:
 

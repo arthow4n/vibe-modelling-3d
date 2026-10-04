@@ -30,6 +30,13 @@ parameter configurations separate and avoid mutating shared geometry. Reuse is
 local to that evaluation; it does not need a persistent cache or replace checks
 against the complete assembly when a crop omits an insertion blocker.
 
+For variants of one object, keep repeated applicable CAD checks in an object-owned
+helper taking the actual builders/geometry and expected interface values. Thin
+entry points add their differences rather than copying complete check scripts.
+Preserve each assertion's purpose and scope; sharing code does not qualify a new
+variant without running its affected checks. Do not build a general test framework
+for one object's fixtures.
+
 ## Edge treatment
 
 For everyday objects, sharp CAD edges are not finished geometry by default. Actively decide whether exposed edges should be filleted, chamfered, or intentionally left sharp. Consider edges touched by fingers or hands, insertion openings, cable slots, clips and retaining features, handles and grips, corners likely to catch on clothing or nearby objects, parts that slide against another object, mating and alignment features, exposed corners that may chip or feel unpleasant, and 3D-printed transitions that create unnecessary stress concentrations. Visible and touchable exterior corners should usually receive intentional edge treatment unless a sharp edge is functionally required.

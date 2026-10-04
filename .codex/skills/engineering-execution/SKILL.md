@@ -5,8 +5,17 @@ description: Investigate computational performance, execute independent engineer
 
 # Engineering execution
 
-Read [execution/README.md](../../../execution/README.md) for commands, cache
-contracts, resources, recovery and performance schema. Ordinary engineering runs
+Retrieve the relevant sections of [execution/README.md](../../../execution/README.md):
+
+| Work | Read before the operation |
+| --- | --- |
+| Computational comparison/optimization | [Performance evidence](../../../execution/README.md#performance-evidence) and [analysis/schema](../../../execution/README.md#analysis-and-local-data-schema); inspect identity and cold/warm context before profiling. |
+| Independent script studies/batches | [Dependency/capacity planning](../../../execution/README.md#dependency-and-capacity-planning) and the adjacent batch API example. |
+| Interrupted coordinator/native work | [Scheduling and recovery](../../../execution/README.md#concurrent-agents-scheduling-and-recovery), then the physical-analysis recovery API if needed. |
+| Geometry reuse or publication issue | [Input contract](../../../execution/README.md#architecture-contract-version-1) and [CAD reuse](../../../execution/README.md#cad-iterations-and-incremental-outputs). |
+
+This skill owns computational investigations, not product architecture or ordinary
+model evaluation. Ordinary engineering runs
 need no performance-log review or service administration. For combined agent-session
 and computation timing/token investigations, use
 [workflow performance analysis](../workflow-performance-analysis/SKILL.md); this

@@ -2,17 +2,24 @@
 
 ## Functional process co-design
 
-Apply [AGENTS.md](../../../../AGENTS.md#co-design-geometry-and-manufacturing):
-geometry and manufacturing are joint design variables. Reorienting a flexure,
-adding perimeters or making its load path locally solid can be preferable to
+Geometry, material, orientation, nozzle/layers, perimeters, infill/local solidity
+and supports are joint design variables. Prefer the cheapest adequate change
+in CAD or manufacture within authorized scope; explain and agree consequential
+changes before relying on them. Reorienting a flexure, adding perimeters or making its load path locally solid can be preferable to
 changing its shape. Document why, then inspect actual toolpaths when the analysis
 depends on that choice. Requested infill or wall count alone is not evidence of
-a solid feature. Do not assign quantitative mechanical improvements without
-material/process evidence. A homogeneous-solid solve needs a defensible sliced
+a solid feature. Never derive quantitative modulus, strength, fatigue life or
+strain limits from wall count, infill, orientation or layer height without supporting evidence.
+Separate numerical uncertainty, material/process uncertainty and observations
+requiring a physical print. A homogeneous-solid solve needs a defensible sliced
 section, an explicit effective-material assumption, or a stated discrepancy;
 even solid paths leave anisotropy and bonding uncalibrated.
 
 ## Printability
+
+Read the [printer/setup defaults](user-preferences.md#printer-manufacturing-and-available-hardware)
+before printable dimensions are chosen: the practical envelope is per part, while
+the final slice uses the selected profile for layout and print-aid acceptance.
 
 Consider printability at both planning and review: agree on a feasible nozzle,
 layer height, material and wall/infill approach, and choose an orientation before
@@ -36,8 +43,9 @@ path planning rather than recreating variable-width perimeters, gap fill, bridge
 classification, seams or support-generation algorithms.
 
 Unless the request specifies otherwise, design for FDM/FFF printing in a single
-colour and material. Use the agreed print setup and the preferences in
-`AGENTS.md` when planning feature sizes, structural sections and orientation;
+colour and material. Use the agreed print setup and
+[user defaults](user-preferences.md#printer-manufacturing-and-available-hardware)
+when planning feature sizes, structural sections and orientation;
 the slicer profile does not make those decisions for the model. Explain and
 discuss consequential changes before relying on them. Do not rely on
 multi-material features or colour changes unless explicitly requested.

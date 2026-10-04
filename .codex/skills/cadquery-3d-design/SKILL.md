@@ -1,203 +1,115 @@
 ---
 name: cadquery-3d-design
-description: Design practical parametric CadQuery objects for single-material 3D printing, including fit, mechanisms, ergonomics and economical physical experiments. Use for every 3D modelling task in this repository.
+description: Design or revise practical parametric CadQuery objects for single-material FDM printing. Use for every 3D modelling task in this repository; choose proportionate evidence and retrieve mechanism, manufacturing or experiment guidance only when relevant.
 ---
 
 # CadQuery 3D design
 
-Use this skill for functional, manufacturable models. AGENTS.md owns repository
-workflow, shared CadQuery command, printer setup, attribution, artifacts
-and Git rules. A valid solid or clean slice alone does not establish function.
+[AGENTS.md](../../../AGENTS.md) owns repository execution, ownership, evidence
+integrity, delivery and Git requirements. This skill owns functional design and
+the choice of the next useful investment. A valid solid or clean slice alone does
+not establish product value or physical function.
 
-For form, handling and mechanism choices, read the repository user's
-[design preferences](references/user-preferences.md). Apply relevant preferences
-with their stated scope; the latest request overrides recorded defaults.
+## Decide what to build next
 
-## Choose the next useful investment
+Establish the actual task, contents/held item, critical dimensions, normal
+interaction and foreseeable failure modes. Inspect existing source, user changes
+and current object evidence. Read applicable
+[user preferences](references/user-preferences.md) early: printer/manufacturing
+before sizing printable features; form/protection before choosing an enclosure;
+assembly tools and stock hardware before committing to fasteners. Search the
+[reusable evidence index](references/reusable-model-lessons.md) for an analogous
+interface or problem, then consult only the applicable linked source and limits.
+Project requirements remain with their object; latest user instructions prevail.
 
-Choose development strategy from the consequential uncertainty, using
-[adaptive development](references/design-decisions.md#adaptive-development-and-the-next-deliverable):
+Choose the deliverable from the uncertainty that could change the next decision:
 
-- Clear requirements and a straightforward concept: complete the printable object
-  directly, without compulsory variants, intermediate approvals or coupons.
-- Unresolved appearance or form: compare a few inexpensive rough directions,
-  even when the user has not explicitly requested variants.
-- Unqualified fit or mechanics: establish the whole-product concept, then resolve
-  the critical interface with targeted checks or representative experiments before
-  committing to dependent full-product work.
-- Combined uncertainty: settle useful form and interaction before qualifying the
-  mechanics; finish the product when those decisions are sufficiently established.
-
-These are adaptable levels of investment, not a universal sequence. Choose the
-initial deliverable deliberately; rough geometry or a partial prototype can be
-the complete deliverable for this phase. Stop for a consequential unresolved
-decision when the next investment lacks justification; otherwise continue within
-existing authorization. Follow the reference's
-[feedback rules](references/design-decisions.md#feedback-and-autonomous-continuation),
-without extra forms or repeated approvals.
-Before new mechanisms or functional moving assemblies, apply the
-[product-architecture gate](references/design-decisions.md#product-architecture-gate).
-Local passes and sunk work never protect a poor concept.
-User product rejection supersedes speculative confidence; follow the
-[physical-failure guidance](references/physical-experiments.md#when-product-use-fails).
-
-Use the shared evaluator with no views by default; select images only for visual
-questions. Verified exports, renders and slices reuse automatically. Declare
-complete deterministic geometry inputs once when safe, rather than deciding
-whether to cache each call. Run ordinary study files through `./execute.py` and
-keep native analysis isolated through shared questions. Follow
-[shared execution guidance](../../../execution/README.md); preserve all validity,
-numerical quality and final print-evidence requirements. Performance records are
-retained automatically and need no routine review.
-
-## Modelling TODO checklist
-
-Track active design and validation checks in a planning tool or working notes;
-save decisions and evidence in the object's primary notes without a duplicate
-completed checklist. Track commit/push completion in the active task checklist,
-as described in AGENTS.md.
-Apply relevant items; this is not a requirement to run every evidence method.
-Reopen affected checks after changes; avoid repeating unrelated manual or
-expensive reviews for a small revision. Established automatic checks can run
-with each applicable evaluation.
-
-- [ ] Confirm scope, references, user edits, known preferences and required CAD tool availability; check the reusable-model evidence for an analogous design.
-- [ ] Establish the actual handling task, critical dimensions, assembly/material preferences, operating effort, required retention and failure modes; screen consequential tolerance extremes together.
-- [ ] Screen the concept with rough fit, engagement, assembly-travel and print-envelope calculations as relevant. For structurally important parts and joints, estimate loads, stiffness and force before detailed CAD; reject an infeasible concept early.
-- [ ] Identify the uncertainty that could change the next decision; choose direct completion, rough form exploration, staged interface development or a combination. Recommend the next useful deliverable and relevant print assumptions; use existing agreement or delegated scope without asking again.
-- [ ] Decide which remaining questions require modelled geometry and which require a physical print. For an oversized assembly, resolve segmentation and joint/load requirements with the user before finalizing it.
-- [ ] When visual directions could change the choice, compare two or three meaningful rough alternatives using shared dimensions and references; inspect only views that reveal the differences. Stop exploration when the choice is adequately informed.
-- [ ] For uncertain form, handling or new mechanisms, build and inspect rough complete geometry with contents, major components, openings and relevant operating states. Challenge mechanism necessity and total construction/use cost through the architecture gate. An already established product needs only affected relationships reviewed.
-- [ ] Before substantial refinement, resolve consequential whole-product objections and undelegated subjective choices. Hand off the agreed rough studies if that is the phase; do not complete details while waiting for the decision that justifies them.
-- [ ] For justified mechanisms, name component jobs and support/guide/seat/stop/retain/release contacts. Verify required/forbidden relationships at meaningful states; temporarily remove retention to check independent alignment, guidance, seating and stops.
-- [ ] Co-design geometry, material, orientation, nozzle/layers, perimeters, infill/local solidity and supports; revise either CAD or process using the cheapest adequate evidence. Inspect actual sliced paths when a mechanical assumption depends on them; never infer calibrated material properties from settings. Plan physical experiments for remaining uncertainty.
-- [ ] Before any physical test recommendation, choose a mechanism coupon, partial-product prototype or complete prototype using the [six experiment questions](references/physical-experiments.md#optional-test-prints-for-physical-validation). Preserve representative conditions; a rejected or seriously doubtful concept does not warrant a mechanism coupon.
-- [ ] Develop only the critical details needed to qualify the next investment. Finish understandable parametric geometry when concept and interface evidence justify it; preserve successful interfaces and stop at the agreed staged deliverable.
-- [ ] Evaluate source through the shared CadQuery command; inspect build validity and errors, then select views or targeted geometry checks for unresolved questions.
-- [ ] Revisit affected [whole-object form and handling](references/design-decisions.md#whole-object-form-and-handling) relationships when detailed geometry changes them; preserve the architecture gate ahead of expensive analysis.
-- [ ] Check insertion, load-bearing contact, retention, release effort and user access. For retained covers, consider the suspended full-load case when required or desired; compare holding with weight and deliberate opening through the effort guidance below. Before a retention sample is exported, identify the actual source of holding force and reject a friction-only connection with clearance and no normal load; follow the [effort screen](references/design-decisions.md#actuation-effort-and-cheap-mechanics).
-- [ ] For structurally important parts and joints, update the load and stiffness screen using measured CAD sections before recommending a structural trial.
-- [ ] Use mechanics/simulation only for remaining consequential uncertainty in a worthwhile concept; consider removing the mechanism first if it alone creates extensive analysis work. Tool availability never justifies a mechanism. When contact analysis is needed, use the [decision-driven study guidance](../../../physical_analysis/README.md#plan-a-contact-study).
-- [ ] Prefer [shared engineering questions](../../../physical_analysis/README.md#use) for known snap, flexure and structural situations; supply explicit physical intent and reuse identity-checked evidence. When planning numerical sensitivity comparisons, select `QuestionStudy`. Actively identify consequential question/study API gaps and plan, implement and qualify justified in-scope extensions through [AGENTS.md's shared-tool guidance](../../../AGENTS.md#improve-shared-tools-from-concrete-needs); record a concrete reason if completion must be deferred. Reserve `AnalysisCase` for novel fixtures and revisit reusable question-layer support after a necessary workaround.
-- [ ] Review final generic FDM geometry and resolve significant defects, especially on fit-critical surfaces.
-- [ ] Review exposed edges, corners and grip areas without weakening interfaces.
-- [ ] Export the agreed printable layouts as STEP/STL from the same print-ready geometry and placement; check output status and any specific export concern.
-- [ ] Run/reuse the final reference smoke slice for those layouts when available; investigate detailed paths only for unresolved slicer-sensitive questions.
-- [ ] Save useful final views, assumptions, physical evidence and print instructions.
-- [ ] Record separate print status for test piece(s) and any final printable object in the object's notes; use N/A when a category is outside the agreed phase and do not infer a physical print from CAD or slicer output.
-- [ ] On user product rejection, update conclusions/readiness and the root index immediately; distinguish rejection before printing from physical use failure, identify the narrower scope of earlier passes, and feed recurring failures into shared guidance without an unsupported tolerance/process diagnosis.
-- [ ] Apply [engineering reflection](../engineering-reflection/SKILL.md) to new evidence at this phase's handoff or on print feedback: preserve useful lessons/preferences, simplify repeated work and add shared improvements only when justified. Follow its owning-source guidance rather than duplicate the object record.
-- [ ] Review and commit/push according to AGENTS.md.
-
-Prioritize function, manufacturability, proportions and topology before cosmetic
-detail. Iterate while substantial defects remain. Name dimensions and allowances;
-do not mistake a parameter value for a verified measurement or physical result.
-
-## Read the relevant reference
-
-| Trigger | Reference |
+| Situation | Next useful investment |
 | --- | --- |
-| Form, grip, enclosure feel, mechanism overhead or recording user preferences | [User design preferences](references/user-preferences.md) |
-| Development strategy, next deliverable, visual alternatives, feedback, requirements, whole-object handling, joints or mechanisms | [Design decisions](references/design-decisions.md) |
-| Generic FDM review, final smoke slice, orientation, moving parts or support constraints | [Print planning](references/print-planning.md) |
-| Fit, force, friction or durability needs physical validation | [Physical experiments](references/physical-experiments.md) |
-| Dimensions, shared builders, modular source or edge treatment | [Parametric construction and edges](references/parametric-and-edges.md) |
-| Captive hinge construction | [Opposing conical pivot example](references/print-in-place-hinges.md) |
-| A similar model or a transferable physical result | [Reusable model evidence](references/reusable-model-lessons.md) |
+| Straightforward, clear object | Complete it directly with applicable CAD, FDM and delivery checks; no compulsory variants, coupons or intermediate approvals. |
+| Consequential form or interaction remains open | Compare a few inexpensive rough directions using [form exploration](references/design-decisions.md#inexpensive-visual-and-form-exploration) and the user's SVG-first preference. |
+| New mechanism or functional multipart/moving product | Apply the [architecture gate](references/design-decisions.md#product-architecture-gate) before detailed interfaces, tolerance studies, simulation or final slicing. Review rough complete geometry with actual contents and normal use; local mechanics cannot justify a poor product. |
+| Unqualified interface or coupled physical behavior | After establishing product value, qualify the critical relationship with targeted geometry, simple mechanics or a representative experiment before dependent full-product refinement. |
+| Established-product revision | Preserve accepted architecture, successful interfaces and valid evidence. Review affected relationships, including changed surrounding stiffness or print conditions; do not restart the whole process. |
 
-Read the relevant references during planning, not only after a failed print.
-Do not load every reference for every task.
+Screen rough fit, engagement, assembly travel, print envelope and relevant loads
+before detailed CAD when these can reject a concept. Reject an approach that fails
+even optimistic assumptions. Simple objects do not need structural calculations.
+Use the [concept screen](references/design-decisions.md#pre-cad-concept-screen)
+for consequential fit/load uncertainty. For oversized assemblies, retrieve it
+**before committing to a split or joint**: establish the required loads, assembly
+permanence, allowed hardware/adhesive and failure consequences with the user; bed
+fit or alignment alone does not establish a structural joint.
 
-## Early comparison for aesthetic alternatives
+Use existing agreement and authorization. For printable phases, establish the
+proposed nozzle, layers, material, walls/infill and consequential assumptions
+using the [setup defaults](references/user-preferences.md#printer-manufacturing-and-available-hardware).
+For visual studies, state only process assumptions that affect the choice.
+Choose routine details autonomously. Read
+[adaptive development](references/design-decisions.md#adaptive-development-and-the-next-deliverable)
+and [feedback rules](references/design-decisions.md#feedback-and-autonomous-continuation)
+when the next commitment depends on unresolved concept judgment or an observation.
+Complete the agreed rough/sample phase without assuming it authorizes dependent
+work. Delegated choices need no repeated approval; sunk work never obliges keeping
+a poor concept.
 
-Treat rough geometry and renders as decision tools. The
-[conditional exploration guidance](references/design-decisions.md#inexpensive-visual-and-form-exploration)
-owns variant selection, representation and review. Trigger exploration from an
-unresolved consequential visual choice, not only an explicit request for variants.
-Useful SVG proposals may be retained, committed and pushed as design-phase
-deliverables under that guidance while feedback or concept selection is pending.
-Do not invent automated aesthetic ratings or engineer each direction in full.
+## Retrieve detail before it matters
 
-## Proportionate review
+Read the relevant sections, not every reference. Early retrieval governs choices;
+operation details can wait until the corresponding work is justified.
 
-Ask: **What uncertainty remains, what would the result change, and what is the
-cheapest reliable evidence that can resolve it?** Apply AGENTS.md's check-value,
-reuse and batching rules when choosing new checks or extra manual reviews.
-Apply its total-workflow-cost preference: reliable repeatable compute can save
-agent turns; "cheap" does not mean minimizing computation at their expense.
-Omit new checks when either outcome would lead to the same action. Established
-automatic checks can run routinely without a fresh decision each time. Stop extra review
-once adequate evidence answers the question; reopen it when relevant inputs
-change or a limitation is discovered.
-Use approximate concept calculations before committing to CAD when they can
-reject a weak approach. Use the evaluated model for exact geometry that the
-approximation cannot establish, and physical prints for material or tactile
-behavior. A changed CAD section warrants an updated calculation, not a restart
-of every earlier check.
-
-Choose evidence by question, not as a mandatory sequence or universal ranking:
-
-| Evidence | What it establishes within its assumptions |
+| Trigger and timing | Owner |
 | --- | --- |
-| Deterministic CAD/geometric checks | Intersections, mating dimensions, wall/gap thickness, engagement and motion/clearance within the checked scope |
-| Slicer status and auto-support probe; GUI preview when needed | Completed slice, printer fit for the selected layout and profile, warnings and generated-support signal; preview can answer specific path or placement questions |
-| CAD renders | Proportions, recognition, appearance, finger access, control comprehension, assembly layout and visual diagnosis |
-| Analytical mechanics; selective simulation | Predicted stiffness, force, torque, strain or structural behavior under stated assumptions |
-| Physical prints/tests | Actual fit, friction, effort, spring return, sag, material response, wear and subjective feel under tested conditions |
+| Unresolved handling, access, protection, grips or moving-weight stability; before mechanism refinement/expensive analysis | [Whole-object form and handling](references/design-decisions.md#whole-object-form-and-handling). Revisit affected relationships after integration. |
+| Justified mechanism; before developing mating geometry | [Architecture contacts and states](references/design-decisions.md#product-architecture-gate), [motion/interface checks](references/design-decisions.md#deterministic-motion-and-interface-checks) and [actuation/retention screen](references/design-decisions.md#actuation-effort-and-cheap-mechanics). Name support, guide, seat, stop, retain and release contacts; check required contact and forbidden interference through the complete path. Screen the real holding-force source before exporting a retention sample. |
+| Structurally important part/joint; before detailing and after measured sections change | [Load paths and joint screens](references/design-decisions.md#structural-load-paths-and-joint-screens). |
+| Parametric source, components or edge treatment; during construction | [Parametric construction and edges](references/parametric-and-edges.md). Prioritize functional topology and proportions; treat exposed/grip edges deliberately without weakening interfaces. |
+| Printable geometry; during planning and final review | [Print planning](references/print-planning.md). Co-design CAD and manufacture; inspect actual paths only when a consequential assumption depends on them. |
+| Captive support-free hinge | [Conical pivot example](references/print-in-place-hinges.md), with its applicability and physical limits. |
+| Consequential deformation/contact uncertainty exceeds CAD or analytical screens; before solving | [Shared engineering questions](../../../physical_analysis/README.md#use) and [study guidance](../../../physical_analysis/README.md#study-sequence). Prefer existing questions; select `QuestionStudy` before planned numerical comparisons. Independent solver qualification is separate from product acceptance. |
+| Physical fit, force, friction, texture or durability could change the decision; before recommending a test | [Physical experiments](references/physical-experiments.md#optional-test-prints-for-physical-validation). Choose coupon, partial or complete prototype with representative conditions and explicit omissions; no automatic coupon requirement. |
+| Print/use feedback or rejection | [Physical-feedback guidance](references/physical-experiments.md#when-product-use-fails) and [reflection](../engineering-reflection/SKILL.md). Correct readiness and root index immediately; distinguish visual rejection, print failure and uncertain causes. |
 
-Trust an appropriate deterministic check for the geometric fact it establishes.
-Do not render a series of intermediate poses to re-prove a checked hinge sweep.
-Closed/open views may answer distinct access or layout questions; one collision
-pose may diagnose the cause. If the calculation is suspect, improve or independently
-cross-check it rather than compensate with more views. See
-[design decisions](references/design-decisions.md) for motion scope and mechanics.
-A clean slice does not prove physical function. Once only tactile or material
-uncertainty remains, record the limit and offer a physical comparison if worthwhile;
-more virtual variants or inspections cannot supply the missing observation.
+## Build and review against intent
 
-Use the shared evaluator's `--export` to write STEP/STL together, or `--slice`
-to write the pair and run the reference smoke slice in one command. STEP is the
-primary printable interchange file; the headless review uses the matching STL.
-Confirm successful output status for the final files. Reimport or inspect mesh topology only when a
-specific defect or risk warrants it. Batch meaningful sample variants and their
-checks when useful, keeping each variant tied to a distinct hypothesis.
+Use the shared evaluator to establish valid geometry and inspect errors. Repair
+the smallest underlying cause of a build failure; simplify repeated failing
+construction. Read dimensions from source/notes, then measure actual CAD only
+where planning cannot answer a consequential question. A nominal parameter or
+bounds report does not verify a contact, local gap or intended use.
 
-## Essential working rules
+Ask: **What remains uncertain, what would the result change, and what is the
+cheapest reliable evidence?** Cost includes agent effort as well as computation.
+Choose evidence by question, not as a mandatory sequence:
 
-Use preferences already supplied. Ask targeted questions when missing information
-changes fit, function or manufacturing; choose routine details autonomously.
-Explain physical choices in plain language; use the design-decisions reference
-to distinguish mechanism requirements and translate qualitative effort.
+| Evidence | Establishes within its scope |
+| --- | --- |
+| Targeted CAD checks | Mating dimensions, required contacts, forbidden interference, engagement and clearance on the stated path/poses. Sampled motion is not continuous-path proof. |
+| Useful views/task walkthrough | Proportions, appearance, component relationships, access and understandable use. A view path alone is not visual inspection. |
+| Analytical mechanics or justified simulation | Predicted stiffness, force, strain or structural response under stated fixture/material assumptions; numerical quality is separate from printed validation. |
+| Slice status/support probe; specific paths when needed | Toolpath acceptance and fit for the selected profile/layout, notices and support signal; no guarantee of sag, material behavior or physical fit. |
+| Representative physical print | Actual fit, effort, wear, recovery and handling under tested conditions; no inferred universal tolerance or material calibration. |
 
-Prefer standard tool interfaces and common sizes for assembly and adjustment
-(for example, hex sockets for standard Allen keys). The user already owns a
-tool set and prefers those tools: do not model or export printable substitutes,
-including optional drivers or wrenches, unless explicitly requested. Specify the
-required standard tool and nominal size in the instructions, allow appropriate
-printing clearance, and check access and engagement for the existing tool.
-An all-printed object does not imply that its assembly tools must be printed.
+Trust checked geometry rather than rendering more poses to re-prove it; improve
+suspect checks instead. Once only physical/tactile uncertainty remains, record its
+limit and recommend an informative test when worthwhile. Stop extra review when
+adequate evidence answers the question; reopen affected evidence after relevant
+changes. Continue while material functional, ergonomic or manufacturing defects
+remain, and abandon concepts that perform the central task poorly.
 
-Treat AGENTS.md's practical printer envelope as the default per-part limit, not
-as a maximum allowed assembled-object size. An oversized request is a prompt to
-design and validate a segmented assembly. Joint strength and assembly method are
-functional requirements, not routine implementation details to guess silently;
-use the design-decisions reference to resolve them.
+## Finish the agreed phase
 
-Complete the deliverables agreed for this phase, using the feedback rules above
-when new evidence makes dependent work an unjustified commitment. A sample is
-useful only when its result can change a consequential decision; finish a staged
-sample phase and obtain that observation before dependent refinement.
+For printable deliverables, use the construction/edge and
+[final FDM review and smoke check](references/print-planning.md#final-review-and-reference-smoke-slice).
+Resolve available CAD fit, complete assembly-path and form questions before final
+artifact batches, except when an earlier slice decides geometry. Read
+[evaluator details](../../../execution/README.md#cad-evaluation-and-exports) before
+export/render/report operations, and the [Orca skill](../orca-slicer-printability/SKILL.md)
+for the smoke review. Reuse valid final evidence; exports must cover final geometry.
 
-Preserve successful interfaces during integration; the final smoke slice covers
-the full printable layout. Revisit detailed paths only where changes invalidate
-relevant evidence.
-A change in surrounding stiffness or print height can matter without changing
-nominal fit. Do not claim physical validation beyond actual user feedback.
-
-Use [print planning](references/print-planning.md) for CAD-first FDM review and
-[OrcaSlicer inspection](../orca-slicer-printability/SKILL.md) for the final smoke
-slice or a slicer-sensitive question. An unknown user profile makes repository
-slices reference evidence, not predictions of the user's toolpaths.
-Export final STEP/STL pairs from the same evaluated geometry and check successful
-output status. Apply object-specific geometric and mechanical checks where they
-answer a functional question; this does not replace physical testing.
+Save the phase's deliverables, useful views and concise assumptions/use/evidence
+in the object's existing record, including the
+[print-status block](references/physical-experiments.md#standard-per-object-print-status-record).
+Apply [reflection](../engineering-reflection/SKILL.md) briefly to new evidence at
+handoff, then follow AGENTS.md's review, attribution, commit and push requirements.
+No duplicate completed checklist or extra reflection report is required.

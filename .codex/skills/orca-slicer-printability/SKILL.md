@@ -18,13 +18,9 @@ through the repository's shared evaluator.
 Resolve geometry questions in CAD; inspect Orca's GUI preview when generated
 support or a specific path could change the design.
 
-Choose nozzle, layer height, material, walls and infill during the design
-agreement, before CAD detail; see [AGENTS.md](../../../AGENTS.md). The user's
-preferred starting point is the Qidi Q2C with a 0.4 mm nozzle and 0.2 mm
-layers. A 0.8 mm nozzle and several PLA, PETG and TPU filaments are available.
-Two walls with 7% adaptive cubic infill are the user's general experience for
-ordinary prints, not a strength requirement. Explain and discuss consequential
-changes to this starting approach before relying on them in the design.
+The [design setup agreement](../cadquery-3d-design/references/user-preferences.md#printer-manufacturing-and-available-hardware)
+owns nozzle, layers, material, walls/infill and printer defaults. Reuse the agreed
+setup; inspection does not independently revise it.
 
 The maintained Qidi Q2C 0.4 mm, Generic PETG, 0.20 mm Standard, two-wall,
 7% adaptive cubic profiles are a diagnostic fallback, not the user's fixed
@@ -38,14 +34,11 @@ predict the agreed print. A 0.8 mm or TPU design needs
 an appropriate printer/process/filament profile for setup-specific path claims;
 if none is available, record that evidence gap. Do not substitute the 0.4 mm
 PETG profile silently. Do not translate another slicer's profile into Orca or
-add more reference slicers. STEP is the user's primary print-ready interchange
-file. The installed headless Orca CLI rejects STEP input, so for a final smoke
-review slice the matching exported STL. This result does not verify Orca's GUI
-STEP import; do not describe it as a STEP slice. The shared evaluator's STL
-export uses Orca GUI's default STEP-import meshing settings (0.003 mm absolute
-linear deflection, 0.5 rad angular deflection), but reimport and Open Cascade
-version differences can still change the triangles. Use 3MF when it is the
-agreed print file. Reuse a result only while its model, profiles, placement
+add more reference slicers. For export pairing, absolute STL meshing and GUI
+STEP-import limits, use the
+[evaluator contract](../../../execution/README.md#cad-evaluation-and-exports).
+The headless review uses STL (or agreed 3MF), not STEP.
+Reuse a result only while its model, profiles, placement
 and slicer identity still match. The evaluator verifies these identities and reuses
 completed reviews automatically, marking `slice.reused`. Use `--fresh` for newly
 executed slice evidence or `--slice-keep-run` for raw diagnostics. Version discovery
@@ -71,49 +64,20 @@ single JSON report. Use `--slice-existing` below only when reviewing an already
 exported file without rebuilding the model.
 
 The evaluator also accepts `--slice-placement` and `--slice-keep-run`
-when needed. A completed slice that needs review exits 2 and reports
-`slice.review_required=true`;
-failure exits 1. Read stage status even if a view render failed.
+when needed. Read stage statuses even when a render fails; the
+[result interpretation](#read-the-result) owns review conditions and exit meanings.
 
-For an agreed setup with different profiles, pass them in the same command:
-
-```sh
-./evaluate_model.py model/object_name/object_name.py --views none --slice \
-  --slice-printer model/object_name/notes/printer.json \
-  --slice-process model/object_name/notes/process.json \
-  --slice-filament model/object_name/notes/filament.json
-```
-
-For an existing export, use the same command from the repository root. It
-infers OrcaSlicer, loads profiles, slices the file, reads effective settings
-and prints one JSON report to stdout. It never sends a printer job.
+To review an existing export without rebuilding, use:
 
 ```sh
 ./evaluate_model.py --slice-existing model/object_name/object_name.stl
 ```
 
-The CLI help and this table are the interface contract for slice options:
-
-| Argument | Default | Meaning |
-| --- | --- | --- |
-| `--slice` | Off | Export the CAD result as STEP/STL and review its STL. |
-| `--slice-existing STL_OR_3MF` | Off | Review an existing STL or 3MF without rebuilding CAD. |
-| `--slice-printer PRINTER` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json` | Diagnostic 0.4 mm printer and machine dimensions. |
-| `--slice-process PROCESS` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json` | Diagnostic 0.20 mm, two-wall, 7% adaptive cubic process. |
-| `--slice-filament FILAMENT` | `.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json` | Diagnostic Generic PETG. |
-| `--slice-placement {preserve,center,assembly}` | `center` | Center the layout without rotation or auto-orientation. |
-| `--slice-keep-run` | Off | Retain temporary G-code and diagnostics. |
-
-To use the agreed setup with other Orca profiles, pass all three compatible
-profile files:
-
-```sh
-./evaluate_model.py --slice-existing model/object_name/object_name.stl \
-  --slice-printer model/object_name/notes/printer.json \
-  --slice-process model/object_name/notes/process.json \
-  --slice-filament model/object_name/notes/filament.json \
-  --slice-placement preserve
-```
+Use `--slice-printer`, `--slice-process` and `--slice-filament` with all three
+compatible Orca JSON profiles for a different agreed setup, for either command.
+The maintained defaults live in this skill's `profiles/qidi-q2c-petg/` directory;
+CLI `--help` lists exact paths and options. `--slice-keep-run` retains raw diagnostics.
+This review never sends a printer job.
 
 The printer profile supplies Orca's machine bounds. There is no
 separate bed-size argument; the effective settings report includes

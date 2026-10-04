@@ -11,11 +11,10 @@ reference OrcaSlicer smoke review on the STL. Invoke it directly as
 configuration is needed. CairoSVG in the uv environment produces PNG views;
 OrcaSlicer is installed from Flathub for reference-profile CLI print review.
 
-For retained evidence, add `--report model/<object>/notes/<run>.json --summary`:
-the evaluator saves its complete native JSON and prints compact stage status,
-errors, notices and support-probe results. The report path is relative to the
-current directory; parent directories are created and existing reports replaced.
-Without these options, console output and exit-status behavior stay unchanged.
+[Agent instructions](AGENTS.md) route task methodology and required evidence.
+[CAD operation details](execution/README.md#cad-evaluation-and-exports) cover
+selection, exports, views and retained native reports (`--report ... --summary`);
+[execution contracts](execution/README.md) cover reuse, resources and recovery.
 
 Physical questions such as loaded deflection, flexure reaction force and contact
 are available through the [physical analysis API](physical_analysis/README.md).

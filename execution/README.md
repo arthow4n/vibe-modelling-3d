@@ -131,6 +131,81 @@ budgets. If the user explicitly requests a deadline, an outer command limit
 includes admission wait and all sequential study levels; an optional native
 limit applies to one isolated worker. Neither is enabled by default.
 
+## CAD evaluation and exports
+
+`./evaluate_model.py --help` is the option/default reference. Run from the
+repository root. The model directory becomes the worker's working/import directory;
+`__file__` and ordinary sibling imports are supplied. Explicit `result` selects
+output; otherwise all `show_object()` outputs are combined. Keep display-only
+hands, contents, supports and operating poses in inspection-only entry points,
+reusing component builders without exporting/slicing those reference objects.
+
+No views is the default. Select only views that answer a distinct question;
+`--views none` suffices for geometry checks. Save intermediate views under
+`renders/scratch/`, useful final views under `renders/print/` or `renders/assembled/`.
+Exterior views normally omit hidden lines; sections/hidden lines answer specific
+internal questions. Remove disposable scratch output before staging. Reuse saved
+images instead of rebuilding just to open them. A saved path is not visual evidence:
+inspect a successful image when a visual question requires it.
+
+`--output-dir` resolves relative to the model directory (use `renders/assembled`,
+not `model/<object>/renders/assembled`, or supply an absolute path). Camera Z is
+upright in side/isometric views and Y in top/bottom views; successful views report
+camera directions. Camera orientation changes the image, not print placement.
+Older pre-correction images may look tilted; do not infer placement from screen-up.
+
+`--export` writes STEP and STL beside the source with its stem. `--slice` implies
+that pair and smoke-reviews the STL; for existing STL/3MF use `--slice-existing`
+without rebuilding. The selected geometry/placement is shared by both exports.
+Use `_assembled.step` for an additional inspection pose. Respect explicitly
+requested export arrangements; add 3MF/other formats only when useful. A wrapper
+may handle custom naming/component exports or specific checks without duplicating
+the evaluator's conversion safeguards.
+
+STL meshing uses **0.003 mm absolute linear deflection and 0.5 rad angular
+deflection**, with `relative=False`, matching Orca GUI's default STEP-import
+settings. GUI reimport, Open Cascade versions or changed GUI settings can yield
+different triangles: the STL smoke slice does not qualify GUI STEP import.
+Object-owned exporters must use these absolute settings. Historical exporters
+and their pairs remain historical; when that object is next revised, update its
+exporter, paired artifacts and affected slice evidence together.
+
+For valid evaluation requests, stdout is one JSON report. Inspect geometry validity,
+errors and each requested export/view/slice status: a failed render can coexist
+with successful exports and slice. Paths indicate successful outputs only when
+the corresponding `ok` is true. Exit **1** means an evaluation/report/slice failure;
+**2** means a completed slice needs review (`slice.review_required`, notices or
+support probe); **0** reports no automated review condition. Invalid arguments
+may produce no JSON. Build and slice times are separate. Trusted model-written
+side effects are not rolled back.
+
+Retain native evidence when useful, without rebuilding it into a second schema:
+
+```sh
+./evaluate_model.py model/object/object.py --views none --slice \
+  --report model/object/notes/final_review.json --summary
+```
+
+`--report` resolves from the command's working directory, creates parents and
+atomically replaces an existing report under output ownership/input guards.
+`--summary` requires `--report`, prints compact stage status, errors, notices,
+probe and full-report path; consult the full report for effective settings.
+Report-write failure is a separate error with exit 1 and preserves completed
+stage statuses. Saving is optional and is not a new dependency declaration.
+Retain valid historical reports and record revision/input identity when needed.
+In tool orchestration, parse the returned JSON in the evaluation call, summarize
+needed statuses/paths, and open only a successful view with an image viewer;
+inspect full diagnostics for a failure or unresolved question. No required outer
+tool wrapper or second manually assembled report is needed.
+
+For profile options, placement and support-probe interpretation, read the
+[Orca skill](../.codex/skills/orca-slicer-printability/SKILL.md#run-the-review).
+Use compatible agreed profiles; `--slice-placement preserve` retains an intentional
+layout. Record different GUI arrangement/compound splitting: only actual CLI
+placement is covered. Manufacturing review is owned by
+[print planning](../.codex/skills/cadquery-3d-design/references/print-planning.md),
+not inferred from evaluator validity.
+
 ## CAD iterations and incremental outputs
 
 ```sh

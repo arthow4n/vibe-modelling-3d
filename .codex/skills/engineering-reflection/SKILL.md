@@ -31,15 +31,10 @@ changes; avoid a repository-wide audit for a local handoff. Do not repeat a
 reflection on unchanged evidence or rerun CAD, slices or solvers just to reflect.
 Use [workflow performance analysis](../workflow-performance-analysis/SKILL.md)
 when repeated agent effort, tool usage or time/token consumption needs measurement.
-For a modeling-effort investigation, reflection supplies the established milestone
-and necessary engineering evidence; performance measurements cannot decide that
-revisions or repeated validation were wasteful by their counts alone.
-When that investigation concerns identifiable objects, attempt the performance
-skill's per-object attribution and link useful reviewed effort/timing aggregates
-from their existing records. Preserve construction, mixed shared work and later
-concept/feedback scopes separately; unavailable historical creation or inference
-measurements remain unknown. This does not require a performance report for an
-ordinary handoff with no new measured evidence.
+For modelling-effort investigations, reflection establishes the milestone and
+necessary engineering evidence; activity counts alone cannot decide that work
+was wasteful. The performance skill owns per-object attribution and publication
+requirements. Ordinary handoffs need no performance report.
 Use [engineering execution](../engineering-execution/SKILL.md) for computational
 profiling, benchmarks or recovery; reflection still owns lesson placement.
 
@@ -90,7 +85,7 @@ complete product. Avoid converting a one-off idea into a standing preference.
 | Explicit or repeated user preference | Update [user preferences](../cadquery-3d-design/references/user-preferences.md#updating-this-record) with scope and linked evidence; retain project-specific requirements locally. |
 | Transferable design success/failure | Add or revise a concise [reusable-evidence entry](../cadquery-3d-design/references/reusable-model-lessons.md), linking the detailed object record and naming transfer limits. |
 | Missing design decision or workflow instruction | Edit the responsible skill/reference, or [AGENTS.md](../../../AGENTS.md) for repository workflow. Link the owner rather than repeat its procedure in several places. |
-| Repeated code or a concrete API gap | Improve the existing shared script/API under [shared-tool guidance](../../../AGENTS.md#improve-shared-tools-from-concrete-needs). Share the general operation; retain object-specific geometry, material assumptions and pass/fail thresholds locally. |
+| Repeated code or a concrete API gap | Improve the existing shared script/API under the extension rules below. Share the general operation; retain object-specific geometry, material assumptions and pass/fail thresholds locally. |
 
 Before extracting code, identify its actual caller and current shared API.
 Try the existing API first when it covers the question; failure to use it is
@@ -100,6 +95,22 @@ execution or numerical operations can belong in the existing repository API.
 Prefer deleting duplication or extending a current abstraction over a new
 framework. Do not add a reflection script to manufacture lessons or automate
 engineering judgment.
+
+For a consequential API gap, record the missing operation, motivating consumer,
+decision and smallest reusable extension in the existing decision record. Use the
+current API first when adequate; an object-specific workaround can establish the
+fixture, then revisit whether reusable behavior belongs in the shared question or
+study API before handoff. Implement justified in-scope improvements now. If that
+cannot be completed, name the specific blocker, scope boundary or insufficient
+benefit and the remaining unsupported capability; do not silently defer it.
+One demonstrated consumer is enough; no second consumer or routine API audit is
+required. Seek a decision if the change materially alters the agreed scope.
+
+Qualify an extension on its motivating consumer, with appropriate regression or
+numerical benchmarks, and document its contract and limits beside implementation.
+Record what it changed: a decision, misleading result caught or repeated work
+avoided. Keep experimental routes optional until benefit is demonstrated; useful
+failed experiments can remain evidence without a permanent public feature.
 
 Make worthwhile, authorized changes now. Keep unqualified future explorations
 as brief ideas in the existing object record when useful; do not implement them
