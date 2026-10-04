@@ -1552,6 +1552,26 @@ actual printed stack thickness, or any new hood authorization. No capacity is
 selected by the user yet; modular expansion remains an alternative to enlarging
 each box. This screen uses existing named dimensions only, without CAD or slicing.
 
+**Seating clarification:** the user accepts nominal 2 mm thickness as sufficient
+for starting CAD, citing their printer's precision. A measured stack is optional,
+not a prerequisite; this is not a calibrated universal tolerance. Use 30 mm as
+the nominal 15-card stack. The loaded stack must sit upright after full insertion,
+with easy entrance from left/right and front/back. The earlier allowance for
+leaning concerns cards left behind during partial removal for desk browsing;
+those cards must remain contained.
+
+Treat entrance, guidance, seating and optional preload separately. Plan rounded,
+flared entry leading to vertical guiding faces and a common floor that supports
+the actual card bottom outline. Support must establish the upright position
+before any compliance is added. Avoid a tapered final seat or unsupported spring
+load that pitches the stack, and avoid directing pressure into the thin dome or
+opacity-test regions. The user is open to compliance if useful, but has not
+chosen a spring or follower. Investigate the simplest adequate pocket first;
+if seated play requires preload, it must act against stable opposing support
+with limited deflection and acceptable insertion/removal effort. Sparse occupancy,
+individual extraction and two-ended joining remain affected review questions.
+No mechanism, exact allowance or printable geometry is selected by this note.
+
 ### Other deferred improvements
 
 J4/K4 have now been printed; the [latest report](#j4k4-print-report--2026-10-04)

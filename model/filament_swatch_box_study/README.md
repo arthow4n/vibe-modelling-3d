@@ -68,6 +68,12 @@ footprint; 17–18 is a tighter possibility needing geometry checks. Detailed
 archival CAD and printable deliverables are not authorized in this discussion
 phase.
 
+Use nominal 2 mm card thickness for planning; the user does not require a stack
+measurement before CAD. The loaded stack must seat upright and enter easily from
+all directions. Leaning is allowed for the remaining cards during partial removal
+for desk browsing, provided they stay contained. Compliance is an option, not a
+selected mechanism; the floor and vertical guides must establish alignment.
+
 ## J4/K4 recessed upward-facing grips — current base trials
 
 **J4:** [STEP](cap_j4_base_5.step), [STL](cap_j4_base_5.stl),
