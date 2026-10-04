@@ -1464,6 +1464,96 @@ or print-status claims changed. The current K trial conclusion is unchanged;
 independent increment/contact sensitivity, full dome insertion and physical use
 remain outside this evidence.
 
+## Archive R2 — four retaining forms
+
+The user requested maximum card exposure with either low walls, tall corner
+pillars or continuous guides. This round had already advanced into CAD when
+the user reviewed the development scope. They accept the work and authorize
+finishing all four printable variants; no physical print is reported.
+
+[Four-form SVG comparison](../renders/concepts/archive_structure_options.svg)
+([PNG](../renders/concepts/archive_structure_options.png)) shows the alternatives.
+[Actual CAD comparison](../renders/archive_corner_proposals/inspect_archive_corner_proposals_isometric.png)
+shows A, C and D with three source swatches each, in that order. The SVG is a
+schematic; authoritative geometry is in the shared
+[builder](../archive_corner_proposals.py) and four thin printable entry points.
+Neither comparison includes printable reference cards.
+
+| R2 variant | Raised support / upper nominal opening | Intended comparison |
+| --- | --- | --- |
+| A — walled | Continuous 40 mm wall | Simplest retaining outline and most covered card area |
+| B — slim | Four L corners with 4 × 3 mm returns; 42.4 × 24.3 mm gaps | Most exposed; least guiding area and unmeasured post stiffness |
+| **C — corner; recommended first trial** | **Four L corners with 8 × 6 mm returns; 34.4 × 18.3 mm gaps** | **Balanced exposure and broader guiding surfaces** |
+| D — side guides | Two continuous side cheeks; 8 mm front/back returns and 34.4 mm front/back gap | Most continuous side guidance, less side exposure |
+
+All retain 15 nominal notch-up 50 × 80 × 2 mm cards in the same 50.4 × 30.3 mm
+pocket. The foot is the original 64 × 44.8 mm; the floor is Z2.4. Raised support
+is 40 mm above the floor with a 2 mm entrance widened 1.2 mm per side. Open
+variants retain low walls with a nominal top at Z20.4, 18 mm above the floor,
+matching the J-family body. Card exposure is 40 mm above raised guides and
+62 mm in the open centres. A .6 mm lip round and 2 mm window-root curves treat
+new openings, including their inner and outer junctions. There are no finger
+scoops, outward flaps, individual card springs or extra components.
+
+The source reuses the **exact accepted G hood and I key 3**, plus J4's upward
+recesses and lower joining capture. Taller wall material has sloped hood-relief
+ceilings; complete upward key entry stays open. The existing hood remains the
+key keeper. No resized hood or replacement key is supplied. J4/K4 and rejected
+R1 are retained, with their previously recorded status unchanged.
+
+Process: base floor down, PETG, .4 mm nozzle/.2 mm layers, two walls/7% adaptive
+cubic. Use on a horizontal desk, keep the bundle square while lowering it and
+lift selected cards vertically. Remaining cards may lean; full-stack seating
+is guided upright. Open carrying, inversion, shocks and deliberate lifting of
+an unselected card are outside the agreed task. The complete base is the useful
+trial: a detached pillar coupon would omit pocket constraints and browsing.
+Start with C rather than printing all four unnecessarily. Compare 15 cards
+and one/three/five remaining, neighbour drag, entry and removal, comfortable
+edges, guide flexibility, exact G opening and joining to J4 at both ends.
+
+The final study uses 54 thin-axis/yaw challenges at 0, ±2, ±5, ±8 and
+±10 degrees of yaw with floor-supported actual source cards. Of those, 45
+are clear of an idealized 18 mm low-wall-only baseline while their CG is
+beyond its rim. All four final bases block all 54 sampled poses. The cases
+are selected challenges, not a continuous or global escape search. The ideal
+low-only baseline does not model its rounded lip; the final-base intersections
+include the actual lip geometry. Normal front/back and sideways contact checks
+also assert actual floor contact and no floor penetration: the sideways support
+uses the chamfered flat bottom rather than inventing material at the absent
+corners. The same outline correction prevents the yaw candidate generator
+from excluding feasible diagonal poses.
+
+All four paired exports and OrcaSlicer 2.4.2 reference slices succeeded with
+the Q2C/.4 nozzle/.2 layers/PETG/two walls/7% adaptive cubic profiles,
+preserved placement, no notices and no auto-generated supports. The changed
+window lips were viewed on the final A/C/D comparison; B shares that treatment
+and passes CAD/export/slice checks. Final rigid compatibility retains the exact
+G hood, not just its style. Its known flexible catch-pad intersections are
+excluded from the rigid lift test; actual hood friction remains untested.
+
+Verification and limits are recorded in the [R2 checks](archive_r2_checks.json),
+[sparse-card study](archive_corner_support.json) and per-variant native slice
+reports linked in the object README. CAD contact/clearance is evidence for the
+checked nominal geometry, not actual friction, stiffness, comfort or a global
+spill proof. The slim corners are **not rejected by the sampled rigid cases**;
+C is recommended for broader guide contact rather than a claimed failure of B.
+
+### SVG-first proposal workflow lesson
+
+The user's explicit preference is to discuss **SVG proposals before modelling
+several alternatives**; drawing back-and-forth is usually faster for choosing
+form. Existing guidance allowed rough CAD, but this round advanced further
+than they expected. Record this in the owning user-preference reference and
+route to it from visual exploration guidance. Targeted CAD remains useful for
+an unresolved geometry question that a sketch cannot answer; that exception
+should not cause detailed modelling of every option. The user's current
+approval authorizes finishing this round, rather than discarding accepted work.
+
+Variant builders and their applicable checks share object-owned functions,
+so dimensions, edge treatment, joins and card fixtures are not copied across
+four sources. The footprint/lean fixture is swatch-specific and already uses
+NumPy and CadQuery adequately. No new shared API or generic checker is justified.
+
 ## Archive R1 — 15-card compact base
 
 ### R1 entrance rejection and alternatives

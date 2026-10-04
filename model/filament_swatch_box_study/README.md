@@ -1,6 +1,64 @@
 # Filament swatch box — display and compact archive
 
-## Archive R1 — rejected before printing; entrance proposals
+## Archive R2 — four printable 15-card trials
+
+**Recommended first trial: C, the broader corner guides.** All four share the
+original footprint, 15-card pocket, exact accepted **G hood** and **I key 3**.
+There is no new hood/key to print. Older variants remain available.
+
+| Variant | Form | Source / primary print file / secondary file |
+| --- | --- | --- |
+| A — walled | Continuous 40 mm walls | [Python](archive_r2_walled_15.py) · [STEP](archive_r2_walled_15.step) · [STL](archive_r2_walled_15.stl) |
+| B — slim | Four L corners, 4 × 3 mm returns | [Python](archive_r2_slim_15.py) · [STEP](archive_r2_slim_15.step) · [STL](archive_r2_slim_15.stl) |
+| **C — corner** | **Four L corners, 8 × 6 mm returns** | [Python](archive_r2_corner_15.py) · [STEP](archive_r2_corner_15.step) · [STL](archive_r2_corner_15.stl) |
+| D — side guides | Two side cheeks with 8 mm returns | [Python](archive_r2_side_guides_15.py) · [STEP](archive_r2_side_guides_15.step) · [STL](archive_r2_side_guides_15.stl) |
+
+[Labelled drawing of all four](renders/concepts/archive_structure_options.svg)
+([PNG](renders/concepts/archive_structure_options.png)) ·
+[CAD view of A, C and D with three cards](renders/archive_corner_proposals/inspect_archive_corner_proposals_isometric.png) ·
+[Shared parametric builder](archive_corner_proposals.py) ·
+[Decisions and SVG-first workflow lesson](notes/cap_comparison.md#archive-r2--four-retaining-forms).
+
+The foot is **64 × 44.8 mm**, pocket **50.4 × 30.3 mm**. Raised guides extend
+40 mm above the card floor; open centres retain 18 mm low walls matching the
+nominal J body. A 2 mm entrance widens 1.2 mm per side. Window roots and exposed
+lips are rounded; the accepted upward recessed grips stay within the foot.
+C exposes 62 mm of card across the open centre and 40 mm above the corners.
+Full stacks seat upright; sparse cards may lean. No adjustable follower or
+sustained-preload card spring is added.
+
+Print **floor down, PETG, .4 mm nozzle/.2 mm layers, two walls, 7% adaptive cubic**.
+Each file contains only one base, already placed for printing. Use the existing
+[G hood STEP](cap_g_hood_5.step) and [I keys layout](cap_i_grip_keys.step) (use key 3).
+Browse on a horizontal desk, insert the bundle square and lift cards vertically.
+Open-box carrying/inversion is not qualified. Start with C and try a full stack,
+then one/three/five remaining; check containment while selecting cards, neighbour
+drag, entry, comfort, guide stiffness, hood release and both J4 joining ends.
+
+[Functional CAD checks](notes/archive_r2_checks.json) cover actual cards,
+8-direction bundle entry, extraction, normal sparse contact, complete I3/J4
+joining and G key captivity. The [corner study](notes/archive_corner_support.json)
+adds selected yaw/lean challenges. All four block the sampled rigid cases;
+this does not prove all escape paths or printed stiffness. Physical use remains
+untested. Exact-G rigid seating/lift has CAD evidence; tactile fit is still a
+print check. Reference STL slicing does not verify Orca's GUI STEP import.
+
+All four valid bases exported successfully as matching STEP/STL pairs.
+OrcaSlicer 2.4.2 completed the diagnostic Q2C/PETG/.4/.2/two-wall/7% slices
+with preserved placement, no reported notices and no generated supports in
+the automatic-support probes. This matches the agreed starting setup, but is
+not the user's actual temperature/flow calibration.
+
+Native paired-export/slice reports:
+[A](notes/archive_r2_walled_review.json) · [B](notes/archive_r2_slim_review.json) ·
+[C](notes/archive_r2_corner_review.json) · [D](notes/archive_r2_side_guides_review.json).
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | N/A — complete base is the trial | No detached coupon | Pocket constraints and sparse browsing need the complete geometry |
+| Final printable object(s), A/B/C/D | Unknown — no physical print reported | Four R2 STEP/STL pairs above; existing G and I3 | User accepts completion of this form round. CAD/slice evidence is limited to nominal geometry and diagnostic settings; containment in actual use, stiffness, comfort and fit remain untested |
+
+## Archive R1 — rejected before printing; retained history
 
 **Current status:** the user has not printed R1 and rejects its deep finger
 cutouts: the cards are already exposed, so the cuts add no useful access, and
@@ -9,15 +67,16 @@ Earlier CAD/interface and slice passes remain limited evidence; they did not
 establish a useful cutout or comfortable finger-contact transitions.
 See the [feedback and alternatives](notes/cap_comparison.md#r1-entrance-rejection-and-alternatives)
 and [comparison sketch](renders/concepts/archive_rim_options.svg).
-Only records and schematic proposals have changed; R1's source/exports are
-retained unchanged. No replacement base has been modelled or qualified yet.
+R1's source/exports are retained unchanged. The R2 trials above supersede
+these entrance proposals; R1 remains rejected.
 
 **Wall-height exploration:** a conservative gravity-restoring screen gives about
 35.1 mm of straight retaining height for one nominal 80 × 2 mm card. Including
 a 2 mm entrance and .6 mm transition allowance gives a near-limit 38 mm wall;
 **40 mm with that shorter entrance is the recommended next design candidate**.
 Keeping the existing 4 mm entrance at 40 mm leaves much less margin. These are
-study results, not a physical spill guarantee or new printable base. See the
+study results, not a physical spill guarantee; R2 now applies the shorter
+entrance. See the
 [height study](notes/cap_comparison.md#continuous-rim-wall-height-study),
 [plot](renders/concepts/archive_wall_height_screen.svg) and
 [source](study_archive_wall_height.py).
@@ -62,7 +121,7 @@ both complete J4 joining orientations. CAD/slicing do not establish physical use
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | N/A — no detached coupon | None | No physical trial recommended for the rejected entrance design |
-| Final printable object(s) | No — explicitly unprinted; design rejected | Retained `archive_r1_base_15.step/.stl`; existing G hood and I key 3 unchanged | Redundant cutouts and sharp-looking inward rim junctions rejected from visual review. Earlier nominal CAD/interface and slice passes do not establish access value or comfort; revised base undecided |
+| Final printable object(s) | No — explicitly unprinted; design rejected | Retained `archive_r1_base_15.step/.stl`; existing G hood and I key 3 unchanged | Redundant cutouts and sharp-looking inward rim junctions rejected from visual review. Earlier nominal CAD/interface and slice passes do not establish access value or comfort; R2 replaces this entrance; actual comfort remains untested |
 
 **Latest print feedback — 2026-10-04:** J4 and K4 have been printed. J4 is the
 preferred current base: firmer card retention, working connection key and good

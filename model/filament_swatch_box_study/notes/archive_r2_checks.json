@@ -1,0 +1,706 @@
+{
+  "ok": true,
+  "variants": {
+    "continuous": {
+      "valid_connected": true,
+      "accepted_grips_catches_and_both_lower_ports_preserved": true,
+      "I3_join_to_J4_both_orientations": true,
+      "closed_G_keeps_key_captive": true,
+      "full_stack_seats_on_floor": true,
+      "eight_entry_directions_with_1mm_offset": true,
+      "first_middle_last_individual_extraction": true,
+      "full_stack_one_degree_lean_blocked": true,
+      "sparse_normal_lean_contacts": [
+        {
+          "y_mm": -14.15,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            36.5625,
+            36.650390625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142578,
+            8.704589637430722
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142503,
+            -14.247672270141228
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.1519320040952963,
+            -14.188860943943784
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2695547479337468,
+            -14.188860943943785
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            20.478515625,
+            20.56640625
+          ],
+          "centroid_xy_mm": [
+            1.210744800514253,
+            13.431852981344104
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            20.390625,
+            20.478515625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142627,
+            -13.449563300589496
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            0.9754779047950821,
+            -0.03886094394378589
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            1.4459661123759993,
+            -0.03886094394378599
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142558,
+            14.169950473697218
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            36.5625,
+            36.650390625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142472,
+            -8.766945348138536
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            0.9754779047950805,
+            14.111139056056217
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            1.4459661123759973,
+            14.111139056056214
+          ]
+        }
+      ]
+    },
+    "slim": {
+      "valid_connected": true,
+      "accepted_grips_catches_and_both_lower_ports_preserved": true,
+      "I3_join_to_J4_both_orientations": true,
+      "closed_G_keeps_key_captive": true,
+      "full_stack_seats_on_floor": true,
+      "eight_entry_directions_with_1mm_offset": true,
+      "first_middle_last_individual_extraction": true,
+      "full_stack_one_degree_lean_blocked": true,
+      "sparse_normal_lean_contacts": [
+        {
+          "y_mm": -14.15,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            36.5625,
+            36.650390625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142578,
+            8.704589637430722
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142503,
+            -14.247672270141228
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.1519320040952963,
+            -14.188860943943784
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2695547479337468,
+            -14.188860943943785
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            20.478515625,
+            20.56640625
+          ],
+          "centroid_xy_mm": [
+            1.210744800514253,
+            13.431852981344104
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            20.390625,
+            20.478515625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142627,
+            -13.449563300589496
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.615234375,
+            0.703125
+          ],
+          "centroid_xy_mm": [
+            0.7401742828841404,
+            -0.038860943943786114
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.615234375,
+            0.703125
+          ],
+          "centroid_xy_mm": [
+            1.681132984430882,
+            -0.03886094394378606
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142558,
+            14.169950473697218
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            36.5625,
+            36.650390625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142472,
+            -8.766945348138536
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            0.9754779047950805,
+            14.111139056056217
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            1.4459661123759973,
+            14.111139056056214
+          ]
+        }
+      ]
+    },
+    "corner": {
+      "valid_connected": true,
+      "accepted_grips_catches_and_both_lower_ports_preserved": true,
+      "I3_join_to_J4_both_orientations": true,
+      "closed_G_keeps_key_captive": true,
+      "full_stack_seats_on_floor": true,
+      "eight_entry_directions_with_1mm_offset": true,
+      "first_middle_last_individual_extraction": true,
+      "full_stack_one_degree_lean_blocked": true,
+      "sparse_normal_lean_contacts": [
+        {
+          "y_mm": -14.15,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            36.5625,
+            36.650390625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142578,
+            8.704589637430722
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142503,
+            -14.247672270141228
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.1519320040952963,
+            -14.188860943943784
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2695547479337468,
+            -14.188860943943785
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            20.478515625,
+            20.56640625
+          ],
+          "centroid_xy_mm": [
+            1.210744800514253,
+            13.431852981344104
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            20.390625,
+            20.478515625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142627,
+            -13.449563300589496
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.615234375,
+            0.703125
+          ],
+          "centroid_xy_mm": [
+            0.7401742828841404,
+            -0.038860943943786114
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.615234375,
+            0.703125
+          ],
+          "centroid_xy_mm": [
+            1.681132984430882,
+            -0.03886094394378606
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142558,
+            14.169950473697218
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            36.5625,
+            36.650390625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142472,
+            -8.766945348138536
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            0.9754779047950805,
+            14.111139056056217
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            1.4459661123759973,
+            14.111139056056214
+          ]
+        }
+      ]
+    },
+    "side_guides": {
+      "valid_connected": true,
+      "accepted_grips_catches_and_both_lower_ports_preserved": true,
+      "I3_join_to_J4_both_orientations": true,
+      "closed_G_keeps_key_captive": true,
+      "full_stack_seats_on_floor": true,
+      "eight_entry_directions_with_1mm_offset": true,
+      "first_middle_last_individual_extraction": true,
+      "full_stack_one_degree_lean_blocked": true,
+      "sparse_normal_lean_contacts": [
+        {
+          "y_mm": -14.15,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            36.5625,
+            36.650390625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142578,
+            8.704589637430722
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142503,
+            -14.247672270141228
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.1519320040952963,
+            -14.188860943943784
+          ]
+        },
+        {
+          "y_mm": -14.15,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2695547479337468,
+            -14.188860943943785
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            20.478515625,
+            20.56640625
+          ],
+          "centroid_xy_mm": [
+            1.210744800514253,
+            13.431852981344104
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            20.390625,
+            20.478515625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142627,
+            -13.449563300589496
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            0.9754779047950821,
+            -0.03886094394378589
+          ]
+        },
+        {
+          "y_mm": 0,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            1.4459661123759993,
+            -0.03886094394378599
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "X",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.0,
+            0.087890625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142558,
+            14.169950473697218
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "X",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            36.5625,
+            36.650390625
+          ],
+          "centroid_xy_mm": [
+            1.2107448005142472,
+            -8.766945348138536
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "Y",
+          "direction": -1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            0.9754779047950805,
+            14.111139056056217
+          ]
+        },
+        {
+          "y_mm": 14.15,
+          "axis": "Y",
+          "direction": 1,
+          "first_contact_bracket_deg": [
+            0.263671875,
+            0.3515625
+          ],
+          "centroid_xy_mm": [
+            1.4459661123759973,
+            14.111139056056214
+          ]
+        }
+      ]
+    }
+  },
+  "capacity": 15,
+  "pocket_mm": [
+    50.4,
+    30.3
+  ],
+  "tall_height_above_floor_mm": 40.0,
+  "low_wall_above_floor_mm": 18.0,
+  "entry_height_mm": 2.0,
+  "sparse_yaw_challenges": 54,
+  "low_only_clear_challenges": 45,
+  "exact_G_rigid_fit": "See archive_corner_support.json; only known flexible pad contacts excluded",
+  "source_sha256": {
+    "check_archive_r2.py": "2b6a7cd16f8808345671b12771dd61aecbd91ade4e9fd07aeaff169f5739330b",
+    "archive_corner_proposals.py": "643b65590fcf809c0ca31aa723c56814df5b2a35198cefdb9560090152f801b2",
+    "study_archive_corner_support.py": "b75dc2d959fa4a8d0b08a01108038838af65772f3729c29cccdb9dfe20d54652",
+    "check_corner_seat.py": "3687258fe008b3fb2e117a6b38502bdfc78651af11ff777e0185b13c205936bc",
+    "card_base_corner_seat_5.py": "a0f8f2d89d89fda3e92e7d255387361144454edf1b74a849a9a0ab15ce420cd6",
+    "swatch_reference.py": "c27d4fda19465669f8b9c587da33e4393ff0c2ddb027884c177562c14836d2e7",
+    "study.py": "657f032e40326e6cfc72c9d5ab83dfd573d4dbfde1b1dc00db81826d1ae18eac",
+    "archive_r1_base_15.py": "6959c2d9da22b6bd43204f824e09393453bf8262214a71517b4fe2202a0049cf",
+    "cap_j4_base_5.py": "a12c9d503a22d8a2e35a782517fd540855466ed87657e799726bc0b8515e7e71",
+    "cap_i_grip_keys.py": "2b0706fe0011014e0ddfec45706201aa3e309722513847d4dd85ec906b7994a0",
+    "cap_g_module_5.py": "5dfb2f0b03c2b5b3f545166898a291c742d9fcc8204675a9036de7b2a76ffc91",
+    "cap_h_module_5.py": "a73adf2ae5e8ac6e2ae206b7d2515194d7c1eef78b9d7ca8d2c0449dedcb355e",
+    "cap_e_thin_5.py": "50026143c82f329a000de9bc484a95f9e0c2fb1a9d28ea757bbc5314bb5ed32a",
+    "recessed_grips.py": "6cee8d00e4ab8c39af7f535df26abe64cf3084a85366150c1f5e9424bc6c05b3",
+    "../filament_archive_swatch/filament_archive_swatch.scad": "d1577f4320cbc5597f9c7aa0e9cedf740c287845e0793fa32886ab8358bef67d"
+  },
+  "limits": "Nominal rigid cards, engraving omitted. Sampled hand-guided entry and vertical extraction. Gravity/contact screens do not prove all dynamic escape paths. Printed fit, guide stiffness, comfort, friction and durability are untested. The unchanged I3 preload is inherited, not a newly calibrated force result."
+}

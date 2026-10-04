@@ -141,6 +141,12 @@ only useful comparisons; this does not require sketches for every model or CAD,
 exports or slicing to accompany a drawing. Use direct SVG and existing rendering
 tools when adequate; add a drawing helper only for demonstrated repeated work.
 
+Apply the user's [SVG-first proposal preference](user-preferences.md#proposal-workflow):
+when comparing unresolved forms, hand off the drawings for discussion before
+building several CAD variants. Targeted rough CAD remains appropriate for an
+unresolved consequential geometry question; it need not become detailed CAD for
+every direction. An explicit request to finish modelling takes precedence.
+
 Choose limited views to answer specific questions: proportions and overall form,
 contents in place, hand/tool approach, major component relationships, meaningful
 open/closed/operating states, or understandable normal use. Use comparable scale

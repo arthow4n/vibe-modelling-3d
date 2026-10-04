@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1350" viewBox="0 0 1120 1350" role="img" aria-labelledby="title desc">
+  <title id="title">Archive proposals: continuous walls, slim corners, wider corners and side guides</title>
+  <desc id="desc">Four schematic proposals with the same fifteen-card pocket, original footprint and exact G hood target. Front views show one 80 millimetre card. Plans show the material present above the lower wall. Tall retaining parts are 40 millimetres above the floor. Open versions retain an 18 millimetre lower wall matching the existing J base's nominal body top. Corner posts have L-shaped returns rather than point contacts. Schematic comparison of the R2 printable trials; not physical validation.</desc>
+  <defs>
+    <style>
+      text { font-family: DejaVu Sans, sans-serif; fill:#233845; }
+      .title { font-size:30px; font-weight:700; }
+      .head { font-size:22px; font-weight:700; }
+      .body { font-size:17px; }
+      .small { font-size:14px; fill:#546b79; }
+      .dim { stroke:#536f7d; stroke-width:1.3; fill:none; marker-start:url(#dim); marker-end:url(#dim); }
+      .material { fill:currentColor; stroke:#4f6d78; stroke-width:1.7; }
+      .low { fill:none; stroke:#899ca7; stroke-dasharray:4 4; stroke-width:1.2; }
+    </style>
+    <marker id="dim" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M6 0 L1 3.5 L6 7" stroke="#536f7d" fill="none" stroke-width="1.2"/></marker>
+    <g id="card-front">
+      <path d="M-62.5 200 V3 Q-62.5 0 -59.5 0 H-19 Q0 23 19 0 H59.5 Q62.5 0 62.5 3 V200Z" fill="#c9dce7" stroke="#698ca1" stroke-width="1.7"/>
+      <path d="M-50 30 H-8 M-50 41 H7" stroke="#a1bccb" stroke-width="2.5"/>
+    </g>
+    <g id="foot">
+      <rect x="-80" y="293" width="160" height="12" rx="4" fill="#c8d5db" stroke="#647d89" stroke-width="1.5"/>
+    </g>
+    <g id="front-wall">
+      <rect x="-74.5" y="195" width="149" height="100" rx="3" class="material"/>
+      <path d="M-68 198 H68" stroke="#9abbb7" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g id="front-slim">
+      <path d="M-74.5 295 V198 Q-74.5 195 -71.5 195 H-56 Q-53 195 -53 198 V245 Q-53 250 -48 250 H48 Q53 250 53 245 V198 Q53 195 56 195 H71.5 Q74.5 195 74.5 198 V295Z" class="material"/>
+    </g>
+    <g id="front-corners">
+      <path d="M-74.5 295 V198 Q-74.5 195 -71.5 195 H-46 Q-43 195 -43 198 V245 Q-43 250 -38 250 H38 Q43 250 43 245 V198 Q43 195 46 195 H71.5 Q74.5 195 74.5 198 V295Z" class="material"/>
+    </g>
+    <g id="height-tall">
+      <path d="M91 198 V292" class="dim"/>
+      <text x="102" y="249" class="small">40 mm</text>
+    </g>
+    <g id="height-low">
+      <path d="M-96 252 V292" class="dim"/>
+      <text x="-154" y="277" class="small">18 mm</text>
+    </g>
+    <g id="low-plan">
+      <rect x="-74.5" y="-50.5" width="149" height="101" rx="12.5" class="low"/>
+      <rect x="-63" y="-37.875" width="126" height="75.75" rx="2" class="low"/>
+    </g>
+    <g id="cards-plan">
+      <rect x="-62.5" y="-10.5" width="125" height="5" rx="1" fill="#a6c5d5" stroke="#7297ac"/>
+      <rect x="-62.5" y="-2.5" width="125" height="5" rx="1" fill="#c4d9e4" stroke="#7297ac"/>
+      <rect x="-62.5" y="5.5" width="125" height="5" rx="1" fill="#d7e5ed" stroke="#7297ac"/>
+    </g>
+    <g id="slim-L">
+      <path d="M-74.5 -30.375 V-38 Q-74.5 -50.5 -62 -50.5 H-53 V-37.875 H-61 Q-63 -37.875 -63 -35.875 V-30.375Z" class="material"/>
+    </g>
+    <g id="wide-L">
+      <path d="M-74.5 -22.875 V-38 Q-74.5 -50.5 -62 -50.5 H-43 V-37.875 H-61 Q-63 -37.875 -63 -35.875 V-22.875Z" class="material"/>
+    </g>
+    <g id="cheek">
+      <path d="M-74.5 38 V-38 Q-74.5 -50.5 -62 -50.5 H-43 V-37.875 H-61 Q-63 -37.875 -63 -35.875 V35.875 Q-63 37.875 -61 37.875 H-43 V50.5 H-62 Q-74.5 50.5 -74.5 38Z" class="material"/>
+    </g>
+  </defs>
+  <rect width="1120" height="1350" fill="#f4f7f9"/>
+  <text x="40" y="47" class="title">Archive structure: how much wall do we really need?</text>
+  <text x="40" y="79" class="body">Same footprint and 15-card pocket. Open versions keep a low wall aligned with J.</text>
+  <text x="40" y="108" class="small">SCHEMATIC R2 FORMS · fronts and upper-level plans at comparable scale · card height 80 mm · hood omitted</text>
+
+  <g transform="translate(40 135)">
+    <rect width="500" height="545" rx="14" fill="#fff" stroke="#cbd9df"/>
+    <text x="22" y="34" class="head">A / Continuous 40 mm walls</text>
+    <text x="22" y="61" class="body">Simple containment around the whole pocket.</text>
+    <g transform="translate(245 0)" color="#dbe9e6">
+      <use href="#card-front" y="95"/><use href="#front-wall"/><use href="#foot"/><use href="#height-tall"/>
+    </g>
+    <text x="22" y="332" class="small">40 mm of card remains above the wall.</text>
+    <text x="22" y="365" class="body">Plan above the low-wall level</text>
+    <g transform="translate(245 434)" color="#dbe9e6">
+      <rect x="-74.5" y="-50.5" width="149" height="101" rx="12.5" class="material"/>
+      <rect x="-63" y="-37.875" width="126" height="75.75" rx="2" fill="#fff" stroke="#4f6d78" stroke-width="1.5"/>
+      <use href="#cards-plan"/>
+    </g>
+    <text x="22" y="514" class="small">Most coverage; easiest geometry to qualify.</text>
+    <text x="22" y="535" class="small">2 mm entrance; no finger-access scallops.</text>
+  </g>
+
+  <g transform="translate(580 135)">
+    <rect width="500" height="545" rx="14" fill="#fff" stroke="#cbd9df"/>
+    <text x="22" y="34" class="head">B / Four slim L-shaped corners</text>
+    <text x="22" y="61" class="body">Maximise exposure; smallest guiding areas.</text>
+    <g transform="translate(245 0)" color="#f0dfc6">
+      <use href="#card-front" y="95"/><use href="#front-slim"/><use href="#foot"/><use href="#height-tall"/><use href="#height-low"/>
+    </g>
+    <text x="22" y="332" class="small">Middle face: up to 62 mm exposed above the low wall.</text>
+    <text x="22" y="365" class="body">Corner returns: 4 mm × 3 mm</text>
+    <g transform="translate(245 434)" color="#f0dfc6">
+      <use href="#low-plan"/><use href="#slim-L"/><use href="#slim-L" transform="scale(-1 1)"/>
+      <use href="#slim-L" transform="scale(1 -1)"/><use href="#slim-L" transform="scale(-1 -1)"/><use href="#cards-plan"/>
+    </g>
+    <text x="22" y="514" class="small">Nominal upper gaps: 42.4 mm across / 24.3 mm deep.</text>
+    <text x="22" y="535" class="small">Depends most on corner engagement and post stiffness.</text>
+  </g>
+
+  <g transform="translate(40 710)">
+    <rect width="500" height="545" rx="14" fill="#fff" stroke="#cbd9df"/>
+    <text x="22" y="34" class="head">C / Four broader L-shaped corners</text>
+    <text x="22" y="61" class="body">More guiding area, while keeping the faces open.</text>
+    <g transform="translate(245 0)" color="#d7e7de">
+      <use href="#card-front" y="95"/><use href="#front-corners"/><use href="#foot"/><use href="#height-tall"/><use href="#height-low"/>
+    </g>
+    <text x="22" y="332" class="small">Same 18 mm low wall and 40 mm corner height.</text>
+    <text x="22" y="365" class="body">Corner returns: 8 mm × 6 mm</text>
+    <g transform="translate(245 434)" color="#d7e7de">
+      <use href="#low-plan"/><use href="#wide-L"/><use href="#wide-L" transform="scale(-1 1)"/>
+      <use href="#wide-L" transform="scale(1 -1)"/><use href="#wide-L" transform="scale(-1 -1)"/><use href="#cards-plan"/>
+    </g>
+    <text x="22" y="514" class="small">Nominal upper gaps: 34.4 mm across / 18.3 mm deep.</text>
+    <text x="22" y="535" class="small">Recommended first trial; actual handling untested.</text>
+  </g>
+
+  <g transform="translate(580 710)">
+    <rect width="500" height="545" rx="14" fill="#fff" stroke="#cbd9df"/>
+    <text x="22" y="34" class="head">D / Two continuous side guides</text>
+    <text x="22" y="61" class="body">Open broad faces; keep the card-edge sides tall.</text>
+    <g transform="translate(245 0)" color="#dce5ef">
+      <use href="#card-front" y="95"/><use href="#front-corners"/><use href="#foot"/><use href="#height-tall"/><use href="#height-low"/>
+    </g>
+    <text x="22" y="332" class="small">Front looks like C; the side guides continue between corners.</text>
+    <text x="22" y="365" class="body">Full side guides with 8 mm returns</text>
+    <g transform="translate(245 434)" color="#dce5ef">
+      <use href="#low-plan"/><use href="#cheek"/><use href="#cheek" transform="scale(-1 1)"/><use href="#cards-plan"/>
+    </g>
+    <text x="22" y="514" class="small">Broad-face gap: 34.4 mm; tall side guides have no gap.</text>
+    <text x="22" y="535" class="small">More coverage at card ends; less reliance on separate posts.</text>
+  </g>
+
+  <text x="40" y="1285" class="body">All heights are above the card floor. The 18 mm low wall gives the same Z20.4 body top as J4.</text>
+  <text x="40" y="1312" class="small">Rounded junctions intended throughout; plans are schematic. Lower grips, catches and key ports are omitted here, retained in the CAD models.</text>
+  <text x="40" y="1335" class="small">R2 print files now accompany this sketch. No physical spill rating or measured post stiffness; exact G rigid fit has CAD evidence.</text>
+</svg>

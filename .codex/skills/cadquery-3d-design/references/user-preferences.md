@@ -49,6 +49,18 @@ role, deliberate contact/preload and measured feedback to choose allowances.
 The printed [H sample failure](../../../../model/filament_swatch_box_study/README.md#physical-history-and-print-status)
 was a loose, unpreloaded connection, not an established printer defect.
 
+## Proposal workflow
+
+For an unresolved form comparison, this user prefers **SVG proposals first,
+then a discussion handoff before modelling multiple CAD variants**. Drawings
+make the back-and-forth faster. Use targeted rough CAD when a consequential
+geometry question cannot be answered by the sketch or simple calculations;
+explain that need rather than completing every alternative. Explicit approval
+to finish modelling or autonomous implementation overrides this staging default.
+In the archive corner round, CAD had advanced further than the user expected;
+they accepted that work and authorized completion, while requesting this
+preference for future rounds. [Evidence](../../../../model/filament_swatch_box_study/notes/cap_comparison.md#archive-r2--four-retaining-forms).
+
 ## Updating this record
 
 Record a repeated or explicit preference with its use context and a link to the
