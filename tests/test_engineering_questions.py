@@ -32,6 +32,7 @@ def stopped_beam_question():
 
 def test_force_loaded_contact_stop_and_retained_identity(tmp_path):
     q=stopped_beam_question()
+    assert q.timeout_seconds is None and q.build_case().timeout_seconds is None
     r=q.run(tmp_path/'stopped')
     a=r.metrics['question']
     assert r.completed and a['numerical_evidence_adequate']

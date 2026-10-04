@@ -28,10 +28,9 @@ def qualify(ctx,deadline=None,cancelled=lambda:False):
             process=ctx.Process(target=probe,args=(outgoing,child_environment()))
             try:
                 process.start();outgoing.close()
-                stop=min(deadline or float('inf'),time.monotonic()+20)
                 while not incoming.poll(.02):
                     if cancelled():raise InterruptedError('Cancelled during preload qualification')
-                    if time.monotonic()>stop:raise TimeoutError('Preload qualification exceeded deadline')
+                    if deadline is not None and time.monotonic()>deadline:raise TimeoutError('Preload qualification exceeded requested deadline')
                     if not process.is_alive():return False
                 if not incoming.recv():return False
                 process.join(2)

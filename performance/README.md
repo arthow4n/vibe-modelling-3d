@@ -4,6 +4,9 @@
 system; [implementation history](IMPLEMENTATION.md) records decisions and commits.
 Benchmark summaries are versioned JSON in `benchmarks/`; unrestricted runtime
 evidence stays in ignored `.execution/`.
+Benchmark computations, native compatibility probes and tool discovery use no
+automatic runtime ceilings. Follow the
+[repository deadline rule](../AGENTS.md#shared-engineering-execution).
 
 For requested agent-session and execution investigations, use the
 [local workflow analyzer](WORKFLOW.md). Raw sessions, normalized histories and

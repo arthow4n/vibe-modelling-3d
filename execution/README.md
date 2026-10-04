@@ -75,7 +75,7 @@ limitations; `performance/IMPLEMENTATION.md` records implementation milestones.
 
 ```sh
 ./execute.py model/object/experiment.py argument
-./execute.py --cwd model/object --timeout 120 model/object/experiment.py
+./execute.py --cwd model/object model/object/experiment.py
 ./execute.py --strategy preinitialized --preload cad model/object/check.py
 ./execute.py --profile cpu model/object/experiment.py
 ./execute.py --profile allocations model/object/experiment.py
@@ -93,6 +93,21 @@ thread; jobs apply their explicit `--threads` budget. Ordinary jobs default to
 Admission uses CPU threads and job slots. RSS is sampled for performance records;
 it does not reserve capacity or stop jobs. There are no shared RAM budgets,
 memory-limit options or memory-pressure watchdogs. Process isolation is not a sandbox.
+
+Ordinary scripts, CAD evaluation, slicing, native analyses, diagnostics and
+recovery run **without automatic computation deadlines**. Do not invent a cap
+from expected duration or add one as a precaution; follow the
+[repository deadline rule](../AGENTS.md#shared-engineering-execution).
+Optional timeout arguments implement explicit user-requested deadlines.
+Native compatibility probes, tool discovery and benchmark computation also have
+no agent-selected runtime ceilings.
+
+At the user's request, coordinator connections allow **60 seconds per handshake**,
+replacement allows **30 seconds** for the old socket to disappear, and new
+coordinator startup allows **120 seconds** of retries. These are generous service
+connection allowances, not measured computation limits. After dispatch, the
+connection waits without a timeout. Idle retirement and post-termination cleanup
+waits retain their separate lifecycle roles.
 
 `--isolated` bypasses the coordinator for compatibility diagnosis, using the same
 traced lifecycle. Coordinator startup failure also falls back *before dispatch*;
@@ -112,9 +127,9 @@ RAM reservation and limit controls have been removed.
 For sequential scripts on the current single-thread CalculiX/Gmsh route, use
 `--threads 1`; requesting four threads reserves four cores even while that
 native worker uses one. Parallel batches and other backends need their own
-budgets. A command deadline includes admission wait and all sequential study
-levels, while a physical-analysis deadline bounds one isolated worker. Size the
-outer deadline for the whole planned job rather than copying one solve's limit.
+budgets. If the user explicitly requests a deadline, an outer command limit
+includes admission wait and all sequential study levels; an optional native
+limit applies to one isolated worker. Neither is enabled by default.
 
 ## CAD iterations and incremental outputs
 

@@ -20,7 +20,7 @@ def compression(motion_mm=.02, *, increment=.1, mesh=.8):
 
 def flexible_beam(*, mesh=.8, increment=.05):
     material=Material('benchmark',1200,.3,'Numerical homogeneous elastic benchmark')
-    c=AnalysisCase('ipc_contact_beam',max_increment=increment,timeout_seconds=1200)
+    c=AnalysisCase('ipc_contact_beam',max_increment=increment)
     c.add_part('beam',cq.Workplane('XY').box(40,8,2,centered=False),material=material,mesh_size_mm=mesh)
     c.fix('beam',Region.plane('x',0),name='root')
     c.add_part('pusher',cq.Workplane('XY').box(2,8,2,centered=False).translate((38,0,2.1)),material=material,mesh_size_mm=1)

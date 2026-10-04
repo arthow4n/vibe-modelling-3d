@@ -215,6 +215,14 @@ only after it has demonstrated recurring value.
 
 ## Shared engineering execution
 
+Do not invent wall-clock timeouts for modelling, engineering analysis, slicing,
+diagnostics or recovery. Ordinary computations run without automatic deadlines.
+Add a finite runtime limit only to implement an explicit user-requested deadline;
+do not introduce one as a precaution, infer one from prior run durations, or
+replace an arbitrary limit with a larger arbitrary limit. Diagnose slow work
+from progress and evidence rather than terminating it merely for taking time.
+See [execution documentation](execution/README.md#running-scripts).
+
 Run ordinary experiments with `./execute.py SCRIPT.py [ARGS...]`; use
 `./evaluate_model.py` for CAD. Both start and manage the shared local coordinator,
 resource admission and performance records automatically. Options precede scripts.

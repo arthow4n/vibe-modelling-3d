@@ -37,7 +37,7 @@ def main():
         matrix.write_text('import numpy as np,sys\na=np.ones((2400,2400));b=a.copy()\nfor i in range(3):c=a@b\nopen(sys.argv[1],"w").write(str(float(c[0,0])))\n')
         def command(source,*options,argument=None):
             before=time.perf_counter()
-            result=subprocess.run([str(ROOT/'execute.py'),*options,str(source),*([str(argument)] if argument else [])],capture_output=True,text=True,cwd=ROOT,timeout=120)
+            result=subprocess.run([str(ROOT/'execute.py'),*options,str(source),*([str(argument)] if argument else [])],capture_output=True,text=True,cwd=ROOT)
             if result.returncode:raise RuntimeError(result.stderr+result.stdout)
             return time.perf_counter()-before
         def measure(fn,count=5):
@@ -62,7 +62,7 @@ def main():
                 return time.perf_counter()-before
             record['policies'][f'batch_concurrency_{concurrent}']=measure(batch,3)
         cad=temp/'cad.py';cad.write_bytes((ROOT/'performance/fixtures/cad.py').read_bytes())
-        completed=subprocess.run([str(ROOT/'evaluate_model.py'),str(cad),'--export'],capture_output=True,text=True,cwd=ROOT,timeout=60)
+        completed=subprocess.run([str(ROOT/'evaluate_model.py'),str(cad),'--export'],capture_output=True,text=True,cwd=ROOT)
         assert completed.returncode==0,completed.stdout+completed.stderr
         # --fresh slices: both lanes repeat identical engineering evidence, not cache hits.
         for threads in sorted({1,min(4,capacity.cpus)}):

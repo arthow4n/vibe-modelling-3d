@@ -122,8 +122,9 @@ manufacturer's **270 × 270 × 256 mm** build volume
 ([Q2C specifications](https://us.qidi3d.com/products/q2c)). Use a printer
 profile with smaller dimensions when those are the appropriate usable limits.
 Orca is inferred in this order:
-`ORCASLICER_COMMAND`, host `orca-slicer`, then Flatpak OrcaSlicer. Its CLI
-timeout is fixed at 600 seconds.
+`ORCASLICER_COMMAND`, host `orca-slicer`, then Flatpak OrcaSlicer. Slicing and
+the support probe run without an automatic runtime deadline, following the
+[repository deadline rule](../../../AGENTS.md#shared-engineering-execution).
 
 ### Placement
 

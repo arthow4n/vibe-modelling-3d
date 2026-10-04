@@ -31,7 +31,8 @@ def main():
     trials=[]
     for _ in range(6):
         a,b=ctx.Pipe();started=time.perf_counter();process=ctx.Process(target=trial,args=(b,args.gmsh));process.start();b.close()
-        if not a.poll(30):process.kill();process.join();raise RuntimeError('Native preload timed out')
+        while not a.poll(.02):
+            if not process.is_alive():process.join();raise RuntimeError(f'Native preload exited without an answer ({process.exitcode})')
         answer=a.recv();process.join(5)
         if process.is_alive():process.kill();process.join();raise RuntimeError('Worker failed to exit')
         if process.exitcode:raise RuntimeError(f'Worker exited {process.exitcode}')

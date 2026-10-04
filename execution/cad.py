@@ -51,4 +51,5 @@ def execute(request, *, coordinator=True, on_event=None):
         except CoordinatorUnavailable:pass
     # Conventional process fallback retains the same artifact publication rules.
     from .coordinator import run_cad
-    return run_cad(request,None,lambda:False,time.monotonic()+request['timeout'],isolated=True)['report']
+    deadline=time.monotonic()+request['timeout'] if request.get('timeout') is not None else None
+    return run_cad(request,None,lambda:False,deadline,isolated=True)['report']

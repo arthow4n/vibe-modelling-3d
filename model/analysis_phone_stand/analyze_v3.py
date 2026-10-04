@@ -22,7 +22,7 @@ def release_question(mesh=.5):
         supports=(Support(Region.plane('x',40)),),
         motion=Motion((0,-d.RELEASE,0),region=Region.plane('x',10),name='press'),
         observations={'end':Region.plane('x',10)},mesh_size_mm=mesh,
-        max_increment=.2,timeout_seconds=300,
+        max_increment=.2,
         acceptance={'peak_motion_force_N.press':4},
         manufacturing=ManufacturingAssumption('Actual right working leaf XY flat, solid PETG, .4 nozzle/.2 layers. Stout continuation at x40 restrained and inner end guided; pin/root play and guide friction excluded. Two mirrored leaves double this force.'))
 
@@ -34,7 +34,7 @@ def guide_question(mesh=1.8):
         supports=(Support(Region.plane('y',28)),Support(Region.plane('x',0),(0,None,None),'symmetry')),
         forces=(SurfaceForce(Region((0,20,d.PIVOT_Z+d.LOCK_THICKNESS/2),
                                     (8,23,d.PIVOT_Z+d.LOCK_THICKNESS/2)),(0,0,15)),),
-        mesh_size_mm=mesh,max_increment=.25,timeout_seconds=240,
+        mesh_size_mm=mesh,max_increment=.25,
         contact_region=Region((-14,14,20.5),(14,28,22.5)),
         mating_parts=(MatingPart('housing',case,
             contact_region=Region((-14.5,14,20.5),(14.5,29,23.5)),
@@ -50,7 +50,7 @@ def pocket_question(mesh=.65):
     return StructuralQuestion(name='v3_pocket_web',part=strip,material=material(),
         supports=(Support(Region.plane('y',29)),),
         forces=(SurfaceForce(Region((-2,20,z),(2,23.15,z)),(0,0,7.5)),),
-        mesh_size_mm=mesh,max_increment=.25,timeout_seconds=180,
+        mesh_size_mm=mesh,max_increment=.25,
         acceptance={'max_displacement_mm':.3},
         manufacturing=ManufacturingAssumption('Actual central 4 mm strip of the indexed rotor at 60 degrees. Uniform 30 N full-width flank load gives 7.5 N here; continuation at Y29 fixed. Solid PETG; excludes nonuniform contact, full cradle, pin compliance and layer anisotropy.'))
 
@@ -69,7 +69,7 @@ def cradle_question(mesh=3):
             SurfaceForce(Region((x-6,28,53.8),(x+6,35,53.8)),(0,0,-lower/2))))
     return StructuralQuestion(name='v3_cradle_service',part=d.cradle(),material=material(),
         supports=(Support(Region((-8,-4.15,-4.15),(8,4.15,4.15))),),forces=tuple(forces),
-        mesh_size_mm=mesh,max_increment=.25,timeout_seconds=240,
+        mesh_size_mm=mesh,max_increment=.25,
         acceptance={'max_displacement_mm':1},
         manufacturing=ManufacturingAssumption('Full production cradle, .3 kg portrait phone at 45 degrees plus 2 N upper-screen press. Phone equilibrium distributes load to ledges, upper back pads and front lips. Pivot-bore neighbourhood fixed, excluding hinge play and rotor-pocket compliance. Side-down solid PETG; printed anisotropy uncalibrated.'))
 

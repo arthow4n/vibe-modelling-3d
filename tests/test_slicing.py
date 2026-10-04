@@ -70,6 +70,7 @@ class ReviewTests(unittest.TestCase):
             def fake(command, **kwargs):
                 if command[-1] == "--help":
                     return SimpleNamespace(returncode=0, stdout="OrcaSlicer 2.4.2", stderr="")
+                self.assertIsNone(kwargs.get('timeout'))
                 output = Path(command[command.index("--outputdir") + 1])
                 run_dirs.append(output)
                 is_probe = "--enable-support=1" in command
@@ -219,6 +220,7 @@ def test_independent_probe_overlaps_primary_and_failure_preserves_primary(tmp_pa
     primary=threading.Event();probe=threading.Event()
     def fake(command,**kwargs):
         if command[-1]=='--help':return SimpleNamespace(returncode=0,stdout='OrcaSlicer 2.4.2',stderr='')
+        assert kwargs.get('timeout') is None
         is_probe='--enable-support=1' in command
         (probe if is_probe else primary).set()
         assert (primary if is_probe else probe).wait(2),'Slices did not overlap'

@@ -30,7 +30,7 @@ def contact_frames(directory, fractions=None, *, rigid_parts=()):
             'print(json.dumps(contact_frames(**json.load(sys.stdin)),allow_nan=False))')
     with lease(1):
         run = run_command([sys.executable, '-c', code], input=json.dumps(request),
-                          env=runtime_environment(), capture_output=True, text=True,timeout=600)
+                          env=runtime_environment(), capture_output=True, text=True)
     if run.returncode:
         raise ValueError('Contact diagnostics failed: '+run.stderr.strip())
     return json.loads(run.stdout)

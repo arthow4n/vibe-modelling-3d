@@ -199,7 +199,7 @@ class Capture(HTTPServer):
     def manifest(self, duration, active):
         data = {'schema': 1, 'source': 'codex-native-otel', 'key': self.key.hex(),
                 'port': self.server_port, 'pid': os.getpid(), 'started': self.started,
-                'expires': self.started+duration, 'active': active,
+                'expires': None if duration is None else self.started+duration, 'active': active,
                 'counts': dict(self.counts), 'bytes': self.written}
         path = self.directory/'capture.json'
         temporary = self.directory/'capture.tmp'
@@ -251,7 +251,7 @@ def install(repo, parent, disable=False):
     unit.write_text('[Unit]\nDescription=Local filtered Codex workflow telemetry\n'
                     '[Service]\nType=notify\nTimeoutStartSec=15\n'
                     'WorkingDirectory='+str(repo).replace('\\','\\\\').replace(' ', '\\x20').replace('%','%%')+'\n'
-                    f'ExecStart={quote(repo/".venv/bin/python")} -m performance.telemetry --repo {quote(repo)} --control {quote(control_path)} --duration 28800\n'
+                    f'ExecStart={quote(repo/".venv/bin/python")} -m performance.telemetry --repo {quote(repo)} --control {quote(control_path)}\n'
                     'Restart=always\nRestartSec=3\nUMask=0077\n'
                     'NoNewPrivileges=true\nStandardOutput=null\nStandardError=journal\n'
                     '[Install]\nWantedBy=default.target\n')
@@ -331,15 +331,15 @@ class Handler(BaseHTTPRequestHandler):
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--repo', type=Path, default=Path(__file__).resolve().parents[1])
-    p.add_argument('--duration', type=int, default=7200, help='Foreground capture seconds (1..86400)')
+    p.add_argument('--duration', type=int, help='Explicit capture window in seconds; no automatic expiry by default')
     p.add_argument('--port', type=int, default=0, help='Loopback port; default chooses a free port')
     p.add_argument('--stop', type=Path, help='Request shutdown of this local capture bundle')
     p.add_argument('--install', action='store_true', help='Enable the local user service and native machine defaults')
     p.add_argument('--disable', action='store_true', help='Remove managed defaults and stop/disable the user service')
     p.add_argument('--control', type=Path, help=argparse.SUPPRESS)
     args = p.parse_args(argv)
-    if not 1 <= args.duration <= 86400 or not 0 <= args.port <= 65535:
-        p.error('Select bounded duration and a valid port')
+    if (args.duration is not None and args.duration<=0) or not 0 <= args.port <= 65535:
+        p.error('Select a positive explicit duration and a valid port')
     from performance.workflow import local_directory
     root = args.control.resolve().parents[1] if args.control else Path(os.environ.get('ENGINEERING_DATA', args.repo/'.execution'))
     parent = local_directory(root, args.repo)
@@ -375,9 +375,9 @@ def main(argv=None):
                 notifier.connect(address); notifier.sendall(b'READY=1')
         print(json.dumps({'local_capture': str(directory), 'port': server.server_port,
                           'expires_in_seconds': args.duration}), flush=True)
-        deadline = time.monotonic()+args.duration
+        deadline = None if args.duration is None else time.monotonic()+args.duration
         last_count = -1
-        while not stopping and time.monotonic() < deadline and not server.counts['limit_reached'] and not (directory/'stop').exists():
+        while not stopping and (deadline is None or time.monotonic() < deadline) and not server.counts['limit_reached'] and not (directory/'stop').exists():
             server.handle_request()
             if last_count != server.counts['accepted_batches']+server.counts['rejected_batches']:
                 server.manifest(args.duration, True)

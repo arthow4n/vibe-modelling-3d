@@ -39,7 +39,6 @@ VIEWS = {
 }
 STL_LINEAR_TOLERANCE_MM = 0.003
 STL_ANGULAR_TOLERANCE_RAD = 0.5
-SLICE_TIMEOUT_SECONDS = 600
 REPO_ROOT = Path(__file__).resolve().parent
 PROFILE_DIR = Path(".codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg")
 DEFAULTS = {
@@ -379,7 +378,7 @@ def _auto_support_probe(command, run_dir, effective, primary_result, prepared=Fa
         if not prepared:
             with (probe_dir / "slicer.log").open("w") as log:
                 completed = run_command(probe_command, cwd=probe_dir, stdout=log,
-                                           stderr=subprocess.STDOUT, timeout=SLICE_TIMEOUT_SECONDS,
+                                           stderr=subprocess.STDOUT,
                                            check=False)
         else:
             completed=prepared.result()
@@ -422,7 +421,7 @@ def _review_in_directory(model, profiles, run_dir, placement, threads=None):
     threads=threads or inherited_budget() or cores("50%",cpu_capacity())
     def discover_version():
         help_run = run_command(prefix + ["--help"], cwd=run_dir, capture_output=True,
-                                  text=True, timeout=30, check=False)
+                                  text=True, check=False)
         match = re.search(r"(?i)orcaslicer[^\n]{0,80}?\b(v?\d+\.\d+(?:\.\d+)?(?:[-+][\w.]+)?)",help_run.stdout+help_run.stderr)
         return match.group(1) if match else "unknown"
     slicer_version=version(prefix,run_dir,discover_version)
@@ -457,7 +456,7 @@ def _review_in_directory(model, profiles, run_dir, placement, threads=None):
             (probe_dir/'command.json').write_text(json.dumps(cmd,indent=2)+'\n')
             with (probe_dir/'slicer.log').open('w') as log:
                 return run_command(cmd,cwd=probe_dir,stdout=log,stderr=subprocess.STDOUT,
-                    timeout=SLICE_TIMEOUT_SECONDS,check=False,
+                    check=False,
                     env=thread_environment(child_environment(),threads-threads//2))
     if known and not primary_auto and threads>=2:
         import contextvars
@@ -466,7 +465,7 @@ def _review_in_directory(model, profiles, run_dir, placement, threads=None):
     try:
         with span("orca.primary"),partition(0,threads//2 if prepared else threads), (run_dir / "slicer.log").open("w") as log:
             completed = run_command(command, cwd=run_dir, stdout=log, stderr=subprocess.STDOUT,
-                                       timeout=SLICE_TIMEOUT_SECONDS, check=False,
+                                       check=False,
                                        env=thread_environment(child_environment(),max(1,threads//2) if prepared else threads))
     finally:
         executor.shutdown(wait=True,cancel_futures=True)
@@ -674,8 +673,8 @@ def main(argv=None):
     parser.add_argument("--dependency",type=Path,action="append",default=[],help="Additional input file/directory for --reuse and revision guards")
     parser.add_argument("--isolated",action="store_true",help="Use conventional CAD process instead of warm infrastructure")
     parser.add_argument("--threads",default="50%",help="Native CPU budget: integer or percent of shared capacity")
-    parser.add_argument("--timeout", type=positive_float, default=300,
-                        help="Maximum evaluation time in seconds")
+    parser.add_argument("--timeout", type=positive_float,
+                        help="Optional explicit evaluation limit in seconds; no deadline by default")
     parser.add_argument("--report", type=Path, metavar="JSON",
                         help="Also save the complete native report; path relative to the current directory, "
                              "parent directories created, existing report replaced")

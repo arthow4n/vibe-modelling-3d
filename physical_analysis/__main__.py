@@ -21,7 +21,7 @@ def main():
             ('calculix',[env['CALCULIX_COMMAND'],'-v']),
         ):
             try:
-                r=run_command(command,env=env,capture_output=True,text=True,timeout=15)
+                r=run_command(command,env=env,capture_output=True,text=True)
                 output=(r.stdout+r.stderr).strip()
                 # CalculiX 2.21 returns 201 for its version flag.
                 ok=r.returncode==0 if name=='gmsh' else 'This is Version' in output

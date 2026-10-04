@@ -330,6 +330,9 @@ journalctl --user -u codex-workflow-telemetry.service -n 20
 
 `performance.telemetry --duration 600` remains a foreground-only alternative for
 a bounded experiment; exporter configuration is then a separate explicit choice.
+Capture duration is opt-in: omitting `--duration` gives no automatic time expiry.
+Generated service definitions also omit an implicit capture window. Existing
+machine installations keep their deployed definitions until deliberately updated.
 There is no launcher wrapper or private model-traffic interception.
 
 ### Qualified native observations

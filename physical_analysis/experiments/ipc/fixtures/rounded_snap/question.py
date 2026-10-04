@@ -40,6 +40,6 @@ def question(mesh=1.0, penalty=6000, modulus=PETG_SCREEN.youngs_modulus_MPa, max
         mating_parts=(MatingPart('body_cam',cam().translate((8,0,0)),Motion.round_trip((-8,0,0))),),
         observations={'tip':Region(lower=(ARM_TIP_X-CAM_R-.1,ARM_Y+.3,-.01),
             upper=(ARM_TIP_X+CAM_R+.1,ARM_Y+CAM_R+.1,DEPTH+.01))},
-        mesh_size_mm=mesh,penalty_N_mm3=penalty,max_increment=max_increment,timeout_seconds=1200,
+        mesh_size_mm=mesh,penalty_N_mm3=penalty,max_increment=max_increment,
         contact_free_at=(.5,1),return_observation='tip',return_tolerance_mm=1e-6,
         displacement_limits_mm={'tip':((-.15,.15),(-1.1,.01),(-.01,.01))})

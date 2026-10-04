@@ -54,6 +54,7 @@ def test_beam_refinement_and_force_balance(tmp_path):
     expected=.1*40**3/(3*1200*(8*2**3/12))
     for size in (2,1):
         c=beam(size)
+        assert c.timeout_seconds is None
         c.apply_force('beam',Region.plane('x',40),force_N=(0,0,-.1))
         r=c.run(tmp_path/f'mesh{size}').require_completed()
         assert r.metrics['max_displacement_mm']==pytest.approx(expected,rel=.04)
@@ -160,6 +161,7 @@ def test_missing_solver_timeout_and_no_overwrite(tmp_path,monkeypatch):
 def test_validation():
     for value in (0,-1,math.nan,math.inf):
         with pytest.raises(ValueError): Material('bad',value,.3,'test')
+        with pytest.raises(ValueError): AnalysisCase('bad_timeout',timeout_seconds=value)
     with pytest.raises(ValueError): Region.plane('q',1)
     with pytest.raises(ValueError): AnalysisCase('../escape')
     with pytest.raises(ValueError): beam().fix('absent')

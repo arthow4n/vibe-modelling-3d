@@ -117,7 +117,7 @@ class StructuralQuestion:
     part_name: str = 'part'
     mesh_size_mm: float = 2
     max_increment: float = .1
-    timeout_seconds: float = 180
+    timeout_seconds: float | None = None
     nonlinear: bool = True
     beam: BeamApproximation | None = None
     manufacturing: ManufacturingAssumption | None = None

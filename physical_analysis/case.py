@@ -89,7 +89,7 @@ class AnalysisCase:
     name: str
     nonlinear: bool = True
     max_increment: float = .1
-    timeout_seconds: float = 180
+    timeout_seconds: float | None = None
     parts: dict[str, Part] = field(default_factory=dict, init=False)
     constraints: list[Constraint] = field(default_factory=list, init=False)
     loads: list[Load] = field(default_factory=list, init=False)
@@ -100,7 +100,8 @@ class AnalysisCase:
         if not re.fullmatch(r'[A-Za-z][A-Za-z0-9_]{0,47}', self.name):
             raise ValueError('Case name must be a short identifier')
         positive(self.max_increment, 'Maximum increment')
-        positive(self.timeout_seconds, 'Timeout')
+        if self.timeout_seconds is not None:
+            positive(self.timeout_seconds, 'Timeout')
         if self.max_increment > 1:
             raise ValueError('Maximum increment cannot exceed the unit load interval')
 

@@ -16,24 +16,28 @@ from .resources import thread_environment
 
 class CoordinatorUnavailable(RuntimeError):pass
 
+CONNECTION_TIMEOUT_SECONDS=60
+REPLACEMENT_WAIT_SECONDS=30
+STARTUP_WAIT_SECONDS=120
+
 
 def connect():
     path=protocol.socket_path()
     def attempt():
-        connection=socket.socket(socket.AF_UNIX);connection.settimeout(5)
+        connection=socket.socket(socket.AF_UNIX);connection.settimeout(CONNECTION_TIMEOUT_SECONDS)
         try:
             connection.connect(str(path))
             protocol.send(connection,{'kind':'status'})
             status=protocol.receive(connection)
             if status.get('runtime')!=runtime_identity():
                 connection.close()
-                stopping=socket.socket(socket.AF_UNIX);stopping.connect(str(path))
+                stopping=socket.socket(socket.AF_UNIX);stopping.settimeout(CONNECTION_TIMEOUT_SECONDS);stopping.connect(str(path))
                 protocol.send(stopping,{'kind':'stop'});protocol.receive(stopping);stopping.close()
-                deadline=time.monotonic()+3
+                deadline=time.monotonic()+REPLACEMENT_WAIT_SECONDS
                 while path.exists() and time.monotonic()<deadline:time.sleep(.03)
                 return None
             connection.close()
-            connection=socket.socket(socket.AF_UNIX);connection.settimeout(5);connection.connect(str(path))
+            connection=socket.socket(socket.AF_UNIX);connection.settimeout(CONNECTION_TIMEOUT_SECONDS);connection.connect(str(path))
             return connection
         except (OSError,EOFError):connection.close();return None
     connection=attempt()
@@ -48,7 +52,7 @@ def connect():
             subprocess.Popen([sys.executable,'-m','execution.coordinator'],cwd=ROOT,
                 stdin=subprocess.DEVNULL,stdout=output,stderr=output,start_new_session=True,
                 env=thread_environment(os.environ,1))
-        deadline=time.monotonic()+10
+        deadline=time.monotonic()+STARTUP_WAIT_SECONDS
         while time.monotonic()<deadline:
             connection=attempt()
             if connection:return connection

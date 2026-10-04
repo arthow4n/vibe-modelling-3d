@@ -54,7 +54,7 @@ def main():
             samples=[]
             for i in range(args.repeats):
                 started=time.perf_counter()
-                r=subprocess.run(command,cwd=ROOT,env=env,capture_output=True,text=True,timeout=900)
+                r=subprocess.run(command,cwd=ROOT,env=env,capture_output=True,text=True)
                 elapsed=time.perf_counter()-started
                 summaries=sorted((Path(env['ENGINEERING_DATA'])/'runs').glob('*.json'),key=lambda p:p.stat().st_mtime)
                 summary=json.loads(summaries[-1].read_text()) if summaries else None
@@ -77,7 +77,7 @@ def main():
         for i in range(args.repeats):
             solve=str(ROOT/'performance/fixtures/solve.py')
             command=[str(ROOT/'execute.py'),solve,str(temp/f'solve{i}')] if args.final else [python,solve,str(temp/f'solve{i}')]
-            started=time.perf_counter();r=subprocess.run(command,cwd=ROOT,env=env,capture_output=True,text=True,timeout=120)
+            started=time.perf_counter();r=subprocess.run(command,cwd=ROOT,env=env,capture_output=True,text=True)
             samples.append(dict(seconds=time.perf_counter()-started,exit_code=r.returncode,
                 displacement_mm=float(r.stdout.strip()) if r.returncode==0 else None,
                 error=(r.stdout+r.stderr)[-1500:] if r.returncode else None))
@@ -89,6 +89,6 @@ def main():
 def stop_coordinator(env):
     subprocess.run([str(ROOT/'.venv/bin/python'),'-c',
         "from execution import client,protocol; c=client.connect(); protocol.send(c,{'kind':'stop'}); protocol.receive(c); c.close()"],
-        cwd=ROOT,env=env,capture_output=True,timeout=15)
+        cwd=ROOT,env=env,capture_output=True)
 
 if __name__=='__main__': main()

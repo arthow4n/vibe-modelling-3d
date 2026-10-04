@@ -18,6 +18,9 @@ separately justified computational optimization follows.
 - Run ordinary Python files with `./execute.py`; evaluate CAD with the existing
   evaluator. Keep native solvers behind the physical-analysis APIs. Do not create
   another pool, scheduler, trace format or arbitrary-result cache.
+  Use the uncapped computation defaults and follow the
+  [repository deadline rule](../../../AGENTS.md#shared-engineering-execution);
+  do not invent per-solve or whole-study timeouts.
 - Use automatic controlled-artifact reuse. Declare deterministic geometry's
   complete inputs once; leave unknown/stateful script construction fresh. Preserve
   explicit reused/fresh evidence and use `--fresh` when fresh execution is required.

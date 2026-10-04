@@ -212,7 +212,7 @@ The bounded investigation after the modelling handoff found:
 | Refined guide, cradle and pocket | Node count grows about 2.2–2.4× from each baseline. Their saved increment records show progress when killed: guide 0.4, cradle/pocket 0.5 of the requested interval. Matrix factorization and nonlinear iterations dominate these logs; no deadlock was observed. The symmetry-reduced current guide completes both refinements. The old cradle's 6.6 mm deflection already decisively failed the 1 mm target; refining it was an avoidable expense. Revise such geometry before further solves. |
 | `working_leaf` | The forward/reverse fixture finishes in 282 s with 20 converged increments, 83 logged iterations and four cutbacks. It also fails its design screen. It is slow completed evidence, not a timeout; the final physical guide and 3 mm travel replace the earlier free lateral/5 mm motion assumptions. |
 | Execution run `5d93a765…` | A geometry check waits **511.9 s**, then is explicitly cancelled before admission. Two four-core leases occupy the eight-core capacity, although this native route uses one thread. Final commands use `--threads 1`. No global capacity or solver-thread policy changed. |
-| Runs `9fda71b9…` and `7c09b4ac…` | Outer commands expire at 600 s. The latter study already spends 109 + 202 s on its first two runs, leaving less than its 300 s native refinement limit; the former also waits 16.5 s for admission. Allocate the outer deadline for the whole study, or split independent questions; do not interpret these cancellations as converged results. |
+| Runs `9fda71b9…` and `7c09b4ac…` | Agent-chosen outer caps expire at 600 s. The latter study already spends 109 + 202 s on its first two runs, leaving less than its invented 300 s native cap; the former also waits 16.5 s for admission. These unjustified caps interrupted useful computation and are removed. Historical cancellations remain incomplete evidence. |
 | Runs `5b384805…` and `f5ac0b8…` | Each waits about 66 s and is then rejected because the script changed while queued. Freeze Python edits during dispatched work; the identity guard correctly prevents stale publication. |
 
 [Selected automatic execution records](notes/v3_timeout_execution_records.json)
@@ -230,31 +230,27 @@ including real timeout persistence, process termination, interrupted-worker
 handling and command recovery. Solver, equilibrium, penetration and material
 limits are unchanged. Historical records retain their original missing fields.
 
-The requested first investigation is complete. Remaining unsupported work is a
-controlled diagnosis of the original Gmsh loop/high-order failures, or qualification
-of a faster native solver route if future decision-relevant fixtures still exceed
-their planned budgets. Neither is needed to relabel the current completed screens;
-the retained failing inputs are available for a separate reproduction. Future
-substantial studies should inspect one baseline's observed cost before committing
-to finer meshes and budget all planned levels explicitly.
+The first investigation explains the observed progress and execution failures;
+a controlled diagnosis of the original Gmsh loop/high-order failures remains
+unsupported. The retained failing inputs are available for separate reproduction.
 
-For the **current** stand studies, use a 900 s outer deadline and one CPU thread;
-the native limits remain 300 s for release and 240 s for guide/cradle (the optional
-pocket fixture uses 180 s). The measured release baseline/increment pair totals
-197 s and the guide baseline/mesh/penalty study totals 269 s, before caller
-preparation and queue wait. A 900 s outer limit allows the guide's three 240 s
-native allowances plus overhead; it is a bounded recommendation, not a guarantee
-under arbitrary contention. Supply new output directories:
+The user rejected the agent-invented 180/240/300 s analysis caps and the
+600/900 s outer-cap policy. **All current stand fixtures now run without a
+runtime deadline.** The shared analysis API, CAD evaluation, slicing, diagnostics
+and recovery also use uncapped defaults, so removing an object override cannot
+silently restore another arbitrary cap. The
+[repository workflow](../../AGENTS.md#shared-engineering-execution) prohibits
+inventing these deadlines. Historical timeout records retain their original
+inputs and status; elapsed times are observations, not future limits.
+Use one CPU thread and fresh output directories:
 
 ```sh
-./execute.py --threads 1 --timeout 900 model/analysis_phone_stand/analyze_v3.py release model/analysis_phone_stand/notes/.execution/release_new --study
-./execute.py --threads 1 --timeout 900 model/analysis_phone_stand/analyze_v3.py guide model/analysis_phone_stand/notes/.execution/guide_new --study
+./execute.py --threads 1 model/analysis_phone_stand/analyze_v3.py release model/analysis_phone_stand/notes/.execution/release_new --study
+./execute.py --threads 1 model/analysis_phone_stand/analyze_v3.py guide model/analysis_phone_stand/notes/.execution/guide_new --study
 ```
 
-No blanket native deadline increase is applied. If a necessary refinement is
-progressing and needs more time, increase its explicit limit and the enclosing
-deadline together. Reconsider an oversized fixture or obsolete design first;
-extra time does not repair a meshing error or failed material screen.
+Assess whether computation answers a useful question from its progress and
+evidence. Taking longer than expected alone does not justify terminating it.
 
 ## Rejection before printing and footprint explanation
 

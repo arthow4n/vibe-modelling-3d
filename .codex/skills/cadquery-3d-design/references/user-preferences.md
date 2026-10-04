@@ -62,6 +62,14 @@ In the archive corner round, CAD had advanced further than the user expected;
 they accepted that work and authorized completion, while requesting this
 preference for future rounds. [Evidence](../../../../model/filament_swatch_box_study/notes/cap_comparison.md#archive-r2--four-retaining-forms).
 
+## Engineering computation
+
+For engineering computations, the user explicitly rejects agent-invented
+timeouts and increasing one arbitrary cap to another. Use the
+[owning workflow rule](../../../../AGENTS.md#shared-engineering-execution).
+The [phone-stand record](../../../../model/analysis_phone_stand/README.md#timeout-investigation-requested-by-the-user)
+documents the interrupted useful work and removed limits.
+
 ## Updating this record
 
 Record a repeated or explicit preference with its use context and a link to the

@@ -15,7 +15,7 @@ def tool_identity(prefix):
     if Path(executable).name=='flatpak':
         apps=[p for p in prefix if p.startswith('com.orcaslicer.')]
         if not apps:return None
-        run=run_command([executable,'info','--show-commit',apps[0]],capture_output=True,text=True,timeout=10)
+        run=run_command([executable,'info','--show-commit',apps[0]],capture_output=True,text=True)
         if run.returncode:return None
         identity['deployment_commit']=run.stdout.strip()
     # Local Orca presets may participate in inherited profiles.

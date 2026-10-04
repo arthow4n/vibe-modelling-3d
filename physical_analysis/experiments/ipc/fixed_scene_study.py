@@ -38,7 +38,7 @@ def prepare(source, directory, threads):
     return directory,case,json.loads((directory/'scene.json').read_text()),json.loads((directory/'mesh.json').read_text()),provenance
 
 
-def run(prepared, *, changes, timeout=180, retain=None):
+def run(prepared, *, changes, timeout=None, retain=None):
     directory,case,scene,mesh,old=prepared
     if type(case['ipc']['threads']) is not int or case['ipc']['threads']<1:raise ValueError('Invalid thread count')
     for name,data in (('case.json',case),('scene.json',scene),('mesh.json',mesh)):write_json(directory/name,data)

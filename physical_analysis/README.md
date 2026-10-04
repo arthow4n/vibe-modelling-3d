@@ -44,9 +44,10 @@ integer/percentage command budgets and explicit IPC settings remain configurable
 Nested analyses borrow their command's budget. The current CalculiX/Gmsh route
 runs one thread: use `./execute.py --threads 1 SCRIPT.py` for sequential studies
 on that route. Larger leases reserve capacity without parallelizing that solver.
-Keep explicit budgets for parallel batches and other backends. Set an outer
-command deadline that covers the planned sequential runs, preparation and queue
-wait, as well as each native run's deadline. Independent script studies can use
+Keep explicit CPU budgets for parallel batches and other backends. Computation
+runs without automatic deadlines; do not invent per-run or whole-study caps.
+Follow the [repository deadline rule](../AGENTS.md#shared-engineering-execution).
+Independent script studies can use
 `execution.batch`. RSS is diagnostic; there are no shared memory budgets.
 
 Dependency/solver initialization, input compilation, solve, extraction and recovery
@@ -547,7 +548,7 @@ Keep the original artifacts; this is not an importer for arbitrary solver decks.
 Use the shared wrapper for either backend:
 
 ```sh
-uv run --locked python -m physical_analysis.recovery /tmp/existing_run --timeout 600
+uv run --locked python -m physical_analysis.recovery /tmp/existing_run
 ```
 
 `recover_run(directory)` verifies original input/case identity, uses the same
@@ -600,9 +601,12 @@ instead of being accepted as warnings. Other warning messages include context.
 Each new run directory owns `case.json`, geometry BREP snapshots, solver input,
 raw `.dat` results, logs, increment status and `result.json`. Existing directories
 are never overwritten. Hashes, mesh sizes, tool versions and boundary selections
-are retained. Runs have a wall-clock timeout covering worker initialization,
-meshing, solving and extraction; the
-worker and solver process group are stopped together. Gmsh's global state is
+are retained. `AnalysisCase` and engineering questions default to
+`timeout_seconds=None`: worker initialization, meshing, solving and extraction
+have no automatic wall-clock limit. Recovery and contact diagnostics are also
+uncapped. An explicit user-requested limit can use a positive `timeout_seconds`;
+if it expires, the worker and solver process group are stopped together.
+Gmsh's global state is
 isolated per run, so independent callers can run concurrently.
 Timed-out native runs retain the sampled resource summary in
 `provenance.execution_resources` when available. This is partial CPU/RSS and

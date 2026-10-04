@@ -16,12 +16,13 @@ def call(path, *args):
                           text=True, capture_output=True, timeout=30)
 
 
-def test_sibling_import_exports_and_view(tmp_path):
+@pytest.mark.parametrize('isolation',[(),('--isolated',)])
+def test_sibling_import_exports_and_view(tmp_path,isolation):
     (tmp_path / "dimensions.py").write_text("WIDTH = 13\n")
     source = tmp_path / "piece.py"
     source.write_text("import cadquery as cq\nfrom dimensions import WIDTH\n"
                       "result = cq.Workplane('XY').box(WIDTH, 7, 3)\n")
-    run = call(source, "--views", "front", "--output-dir", "renders", "--export")
+    run = call(source, *isolation, "--views", "front", "--output-dir", "renders", "--export")
     assert run.returncode == 0, run.stderr + run.stdout
     data = json.loads(run.stdout)
     assert data["ok"] and data["geometry"]["valid"]
@@ -30,7 +31,7 @@ def test_sibling_import_exports_and_view(tmp_path):
     assert (tmp_path / "piece.step").stat().st_size > 0
     assert (tmp_path / "piece.stl").stat().st_size > 0
 
-    png = call(source, "--views", "front", "--output-dir", "renders")
+    png = call(source, *isolation, "--views", "front", "--output-dir", "renders")
     assert png.returncode == 0, png.stderr + png.stdout
     image = Image.open(tmp_path / "renders/piece_front.png").convert("RGBA")
     assert image.getpixel((0, 0)) == (255, 255, 255, 255)
@@ -38,7 +39,7 @@ def test_sibling_import_exports_and_view(tmp_path):
 
     # A second worker must read the changed sibling source, not stale bytecode.
     (tmp_path / "dimensions.py").write_text("raise RuntimeError('fresh sibling loaded')\n")
-    rerun = call(source, "--views", "none")
+    rerun = call(source, *isolation, "--views", "none")
     assert rerun.returncode != 0
     assert "fresh sibling loaded" in json.loads(rerun.stdout)["errors"][0]["message"]
 
@@ -54,6 +55,22 @@ def test_build_error_cannot_claim_old_artifacts(tmp_path):
     assert not data["ok"] and data["errors"][0]["stage"] == "build"
     assert data["exports"] == [] and old.read_text() == "old output"
     assert not (tmp_path / "broken.stl").exists()
+
+
+@pytest.mark.parametrize('limit',[None,.123])
+def test_cad_deadline_is_only_explicit(tmp_path,monkeypatch,capsys,limit):
+    import evaluate_model
+    from execution import cad
+    source=tmp_path/'piece.py';source.write_text('result = None\n')
+    requests=[]
+    def dispatched(request,**kwargs):
+        requests.append(request)
+        return {'ok':True,'errors':[],'exports':[],'views':[]}
+    monkeypatch.setattr(cad,'execute',dispatched)
+    arguments=[str(source)] + ([] if limit is None else ['--timeout',str(limit)])
+    assert evaluate_model.main(arguments)==0
+    assert requests[0]['timeout']==limit
+    assert json.loads(capsys.readouterr().out)['ok']
 
 
 @pytest.mark.parametrize("failed", [False, True])

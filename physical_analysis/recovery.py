@@ -9,7 +9,7 @@ from .backends.structural import CalculixBackend,run_worker
 
 
 @operation("analysis.recovery")
-def recover_run(directory, *, timeout_seconds=600):
+def recover_run(directory, *, timeout_seconds=None):
     """Recheck saved native fields against byte-identical regenerated input.
 
     The original result survives failed recovery. This is for repository-owned
@@ -48,6 +48,7 @@ def recover_run(directory, *, timeout_seconds=600):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('directory');p.add_argument('--timeout',type=float,default=600)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('directory');p.add_argument('--timeout',type=float,
+        help='Optional explicit runtime limit; no deadline by default')
     a=p.parse_args();r=recover_run(a.directory,timeout_seconds=a.timeout)
     print(json.dumps(dict(status=r.status,completed=r.completed,errors=r.errors)))

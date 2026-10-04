@@ -216,6 +216,75 @@ def test_incompatible_preload_selects_clean_spawn(monkeypatch):
     assert service.qualified and service.ctx.get_start_method()=='spawn'
 
 
+@pytest.mark.parametrize('replacement',[False,True])
+def test_coordinator_allows_slow_startup_and_replacement(tmp_path,monkeypatch,replacement):
+    from execution import client
+    from types import SimpleNamespace
+    path=tmp_path/'coordinator.sock'
+    if replacement:path.write_text('old coordinator')
+    state={'time':0.,'spawned':False,'ready_at':None,'remove_at':None}
+    class Connection:
+        command=None
+        timeout=None
+        def settimeout(self,value):self.timeout=value
+        def connect(self,address):
+            # An eight-second handshake must fit the new allowance.
+            if self.timeout<8:raise TimeoutError('slow handshake')
+            if path.exists():return
+            if not state['spawned'] or state['time']<state['ready_at']:
+                raise ConnectionRefusedError
+        def close(self):pass
+    def receive(connection):
+        if connection.command=='stop':
+            state['remove_at']=state['time']+15
+            return {'stopping':True}
+        return {'runtime':'old' if path.exists() else 'current'}
+    def sleep(_):
+        state['time']+=1
+        if state['remove_at'] is not None and state['time']>=state['remove_at']:
+            path.unlink(missing_ok=True)
+    def start(*args,**kwargs):
+        assert not path.exists(),'replacement abandoned the old service too early'
+        state.update(spawned=True,ready_at=state['time']+20)
+        return SimpleNamespace()
+    monkeypatch.setattr(client.protocol,'socket_path',lambda:path)
+    monkeypatch.setattr(client.protocol,'send',lambda connection,message,*args:setattr(connection,'command',message['kind']))
+    monkeypatch.setattr(client.protocol,'receive',receive)
+    monkeypatch.setattr(client,'runtime_identity',lambda:'current')
+    monkeypatch.setattr(client,'ROOT',tmp_path)
+    monkeypatch.setattr(client.socket,'socket',lambda *args:Connection())
+    monkeypatch.setattr(client.subprocess,'Popen',start)
+    monkeypatch.setattr(client.time,'monotonic',lambda:state['time'])
+    monkeypatch.setattr(client.time,'sleep',sleep)
+    connection=client.connect()
+    assert connection.timeout==60
+    assert state['time']>=(35 if replacement else 20)
+
+
+def test_native_qualification_accepts_slow_success_without_deadline(monkeypatch):
+    from execution import qualification
+    from types import SimpleNamespace
+    clock=[0.]
+    class Connection:
+        polls=0
+        def poll(self,_):
+            self.polls+=1
+            if self.polls==1:clock[0]+=25;return False
+            return True
+        def recv(self):return True
+        def close(self):pass
+    class Process:
+        pid=123
+        exitcode=0
+        def start(self):pass
+        def is_alive(self):return True
+        def join(self,_):pass
+    context=SimpleNamespace(Pipe=lambda:(Connection(),Connection()),Process=lambda **kwargs:Process())
+    monkeypatch.setattr(qualification.time,'monotonic',lambda:clock[0])
+    monkeypatch.setattr(qualification,'terminate',lambda process:None)
+    assert qualification.qualify(context)
+
+
 def test_native_and_watchdog_threads_use_allocated_cpu_set(tmp_path):
     source=tmp_path/'affinity.py'
     source.write_text('import os,psutil,numpy as np\na=np.ones((256,256));a@a\nexpected={int(v) for v in os.environ["ENGINEERING_AFFINITY"].split(",")}\nassert all(os.sched_getaffinity(t.id)==expected for t in psutil.Process().threads())\n')

@@ -106,7 +106,8 @@ def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
             connection.send(request)
         try:
             if isolated:
-                code,resources=wait(process,max(.001,deadline-time.monotonic()),cancelled)
+                remaining=max(.001,deadline-time.monotonic()) if deadline is not None else None
+                code,resources=wait(process,remaining,cancelled)
                 if not response.is_file():raise RuntimeError(f'CAD worker exited {code} without report')
                 report=json.loads(response.read_text())
             else:
@@ -121,7 +122,7 @@ def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
                         report=message;break
                     if not process.is_alive():raise RuntimeError(f'CAD worker exited {process.exitcode} without report')
                     if cancelled():raise InterruptedError('CAD request cancelled')
-                    if time.monotonic()>deadline:raise TimeoutError('CAD evaluation exceeded deadline')
+                    if deadline is not None and time.monotonic()>deadline:raise TimeoutError('CAD evaluation exceeded deadline')
                     try:
                         rss=psutil.Process(process.pid).memory_info().rss;peak=max(peak or 0,rss)
                     except psutil.Error:pass

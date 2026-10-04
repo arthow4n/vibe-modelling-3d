@@ -168,6 +168,31 @@ def test_capture_size_bound_and_incomplete_response(tmp_path,monkeypatch):
     assert data['requests'][0]['duration_s'] is None
 
 
+@pytest.mark.parametrize('duration',[None,5])
+def test_capture_window_is_opt_in(tmp_path,monkeypatch,capsys,duration):
+    import performance.telemetry as module
+    import signal
+    handled=[]
+    class OneRequestCapture(Capture):
+        def handle_request(self):
+            handled.append(True)
+            self.counts['limit_reached']=1
+    clock=iter((0.,10000.))
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'records'))
+    monkeypatch.setattr(module,'Capture',OneRequestCapture)
+    monkeypatch.setattr(module.time,'monotonic',lambda:next(clock,20000.))
+    monkeypatch.setattr(signal,'signal',lambda *args:None)
+    repo=tmp_path/'repo';repo.mkdir()
+    args=['--repo',str(repo)] + ([] if duration is None else ['--duration',str(duration)])
+    assert module.main(args)==0
+    output=json.loads(capsys.readouterr().out)
+    saved=json.loads((Path(output['local_capture'])/'capture.json').read_text())
+    assert output['expires_in_seconds']==duration
+    assert saved['expires']==(None if duration is None else saved['started']+duration)
+    assert not saved['active']
+    assert len(handled)==(1 if duration is None else 0)
+
+
 def test_native_coverage_percentiles_and_configuration_unknown(tmp_path):
     rows=[]
     for n in range(10):rows+=native_rows(offset=30*n,identity=n+1)
@@ -201,6 +226,7 @@ def test_machine_setup_preserves_config_and_wires_remote_control(tmp_path,monkey
     assert data['otel']['exporter']['otlp-http']['endpoint'].startswith('http://127.0.0.1:')
     unit=(home/'.config/systemd/user/codex-workflow-telemetry.service').read_text()
     assert '\nWorkingDirectory="' not in unit and 'Restart=always' in unit
+    assert '--duration' not in unit
     assert (home/'.config/systemd/user/codex-remote-control.service.d/50-workflow-telemetry.conf').exists()
     assert not any('restart' in c and 'codex-remote-control.service' in c for c in calls)
     install(tmp_path/'repo',parent,disable=True)
