@@ -125,6 +125,11 @@ silhouettes with the phone and cable:
   a connected base, with rear support beside the ring opening. More substantial
   base/pillars, with side-pivot play and lock layout still to resolve.
 
+The user finds retained SVG proposals useful and explicitly supports committing
+and pushing them during design discussion while reviewing the options. These
+drawings use SVG primitives (the raised series assembled with Python) and existing
+CairoSVG for PNG previews. No new shared drawing helper or dependency was needed.
+
 Each uses a provisional **70 mm vertical gap beneath the phone** at an illustrative
 60-degree pose, rather than the previous low placement. This corresponds to assumed
 30 mm plug, 35 mm cable-turn space and 5 mm extra, not measured cable dimensions or

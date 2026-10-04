@@ -130,6 +130,17 @@ Screen rough fit and print feasibility, then stop exploring when the choice is
 adequately informed. Compare before expensive simulation, manufacturing refinement
 and print-ready exports.
 
+Useful SVG proposal sketches are valid design-phase deliverables. Retain their
+editable SVGs in the object's `renders/concepts/` directory, with PNG previews
+when useful, and link them from the existing decision record. Commit and push
+completed proposal work through [the normal Git workflow](../../../../AGENTS.md#git-workflow-and-handoff)
+even while concept selection or user feedback is pending; final CAD or a printable
+object is not required for this handoff. Label schematic assumptions and unresolved
+fit/mechanics, and distinguish superseded sketches from current proposals. Keep
+only useful comparisons; this does not require sketches for every model or CAD,
+exports or slicing to accompany a drawing. Use direct SVG and existing rendering
+tools when adequate; add a drawing helper only for demonstrated repeated work.
+
 Choose limited views to answer specific questions: proportions and overall form,
 contents in place, hand/tool approach, major component relationships, meaningful
 open/closed/operating states, or understandable normal use. Use comparable scale

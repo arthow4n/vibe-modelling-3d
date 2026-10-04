@@ -114,6 +114,8 @@ Treat rough geometry and renders as decision tools. The
 [conditional exploration guidance](references/design-decisions.md#inexpensive-visual-and-form-exploration)
 owns variant selection, representation and review. Trigger exploration from an
 unresolved consequential visual choice, not only an explicit request for variants.
+Useful SVG proposals may be retained, committed and pushed as design-phase
+deliverables under that guidance while feedback or concept selection is pending.
 Do not invent automated aesthetic ratings or engineer each direction in full.
 
 ## Proportionate review
