@@ -1,0 +1,189 @@
+{
+  "name": "v3_cradle_service",
+  "nonlinear": true,
+  "max_increment": 0.25,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "ee4a2c293bab94d5f0d3fff824edffb2457c1f053e3e768976cb233e503e1f40",
+      "material": {
+        "name": "conditional_solid_PETG",
+        "youngs_modulus_MPa": 800,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated isotropic short-term PETG assumption; no fatigue, creep or layer-bond qualification",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 3
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -8,
+            -4.15,
+            -4.15
+          ],
+          "upper": [
+            8,
+            4.15,
+            4.15
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -43,
+            28,
+            40
+          ],
+          "upper": [
+            -31,
+            28,
+            55.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        -1.0405076285160046,
+        0.0
+      ]
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -42,
+            94,
+            40
+          ],
+          "upper": [
+            -32,
+            102,
+            40
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        -3.549187834626577
+      ]
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -43,
+            28,
+            53.8
+          ],
+          "upper": [
+            -31,
+            35,
+            53.8
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        1.5086802061105722
+      ]
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            31,
+            28,
+            40
+          ],
+          "upper": [
+            43,
+            28,
+            55.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        -1.0405076285160046,
+        0.0
+      ]
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            32,
+            94,
+            40
+          ],
+          "upper": [
+            42,
+            102,
+            40
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        -3.549187834626577
+      ]
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            31,
+            28,
+            53.8
+          ],
+          "upper": [
+            43,
+            35,
+            53.8
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        1.5086802061105722
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": []
+}

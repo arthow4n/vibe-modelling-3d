@@ -1,0 +1,200 @@
+{
+  "name": "v3_compliant_lock_guide",
+  "nonlinear": true,
+  "max_increment": 0.25,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "e26ce83f1d9d6654c18d7c8d09a8e4dcb26049bbc9b7167dcae195a70b0cb1f7",
+      "material": {
+        "name": "conditional_solid_PETG",
+        "youngs_modulus_MPa": 800,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated isotropic short-term PETG assumption; no fatigue, creep or layer-bond qualification",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 1.8
+    },
+    {
+      "name": "housing",
+      "geometry": "part_1.brep",
+      "sha256": "45ed4531a88951af86103b7cdba1d2fb5477ef7cbaeb86978a3ceae10249516e",
+      "material": {
+        "name": "conditional_solid_PETG",
+        "youngs_modulus_MPa": 800,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated isotropic short-term PETG assumption; no fatigue, creep or layer-bond qualification",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 1.8
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            null,
+            28,
+            null
+          ],
+          "upper": [
+            null,
+            28,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            0,
+            null,
+            null
+          ],
+          "upper": [
+            0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        null,
+        null
+      ],
+      "name": "symmetry",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "housing",
+        "region": {
+          "lower": [
+            null,
+            null,
+            8
+          ],
+          "upper": [
+            null,
+            null,
+            8
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "housing_root",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "housing",
+        "region": {
+          "lower": [
+            0,
+            null,
+            null
+          ],
+          "upper": [
+            0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        null,
+        null
+      ],
+      "name": "housing_symmetry",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            0,
+            20,
+            27.0
+          ],
+          "upper": [
+            8,
+            23,
+            27.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        15.0
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "slave": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -14,
+            14,
+            20.5
+          ],
+          "upper": [
+            14,
+            28,
+            22.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "housing",
+        "region": {
+          "lower": [
+            -14.5,
+            14,
+            20.5
+          ],
+          "upper": [
+            14.5,
+            29,
+            23.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 4000,
+      "penetration_limit_mm": 0.02,
+      "discretization": "surface_to_surface"
+    }
+  ],
+  "observations": []
+}

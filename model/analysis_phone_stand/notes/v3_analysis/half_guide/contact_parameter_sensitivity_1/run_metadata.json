@@ -1,0 +1,131 @@
+{
+  "backend": "CalculiX",
+  "version": "unknown",
+  "gmsh": "4.15.2",
+  "cadquery": "2.7.0",
+  "python": "3.12.14",
+  "input_sha256": "ccba5c8aaaadd7580bd28aa2cc6b22cfe62e84bc5787d545a2b569fd051ea5fb",
+  "case_sha256": "38fa19baf61661f82deb978970d2b1a46e23bddb2546018e23aa755385b65a3a",
+  "backend_sha256": {
+    "febio_worker.py": "3a3af762b8b3162190cebd399a1ea1332b0bdbb6b641bc5b80c72c55d940353a",
+    "contact_diagnostics.py": "2f708d98921416d255b35d05dbe09d5009b117b0f3c301d84f0ffbd2956c0b36",
+    "febio.py": "ed73e0cefb609408ca21aa1af8acb4ad9c2ddeda97f006b9971d62febcc4e956",
+    "tet10_strain.py": "0eb4b4a1ec129adab94015e73126a650c3e62a281dae143b645b2c1953c1406a",
+    "polyfem_worker.py": "f3253052d89e88155b2663e7c6ffea6352c012d9bbe96385d1c89f5d67b42c57",
+    "febio_diagnostics.py": "b24d83c8b6dbf04396b2c50d69b9403a73dc2f695a240ef73c84c4e415584255",
+    "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+    "polyfem_output.py": "bd3b6e39db25f1c29e1a486f11c88f1d47980f97f544af6c945e02b98d112226",
+    "mesh.py": "501af3308472be10fd0e97bc99c36c5e0091f1db22b9a3d5ed5f9a41bc757740",
+    "polyfem.py": "c5bc4778b1bb37aa61a6c825de3283712791e1ba2edb7cc086cc6c102314582a",
+    "ipc_benchmarks.py": "22f37fa1c230b8ed22bbdf22dca58de9ac088db3e3128cae0962068390b01a93",
+    "structural.py": "7e8c9efd72d836d50f4d64259c81040cc0c643bc50fc8dd25b4697aed404ccdd",
+    "worker.py": "5b3997af367a1a47f942bb095b6792d6d28f0770d6f56544ca684e37712a5d2c",
+    "polyfem_diagnostics.py": "e2bbad2721f8d8aa91990b99ca78f712f616fe9914d03f5d63ab840091069922"
+  },
+  "command": [
+    "/home/hevar/.local/opt/physical-analysis/usr/bin/ccx",
+    "-i",
+    "analysis"
+  ],
+  "postprocess_only": false,
+  "mesh": {
+    "part": {
+      "nodes": 3072,
+      "elements": 1545,
+      "min_jacobian": 0.01195627646602336
+    },
+    "housing": {
+      "nodes": 7294,
+      "elements": 3855,
+      "min_jacobian": 0.409733516086485
+    }
+  },
+  "regions": {
+    "root": {
+      "part": "part",
+      "node_count": 65,
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ]
+    },
+    "symmetry": {
+      "part": "part",
+      "node_count": 194,
+      "displacement_mm": [
+        0,
+        null,
+        null
+      ]
+    },
+    "housing_root": {
+      "part": "housing",
+      "node_count": 587,
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ]
+    },
+    "housing_symmetry": {
+      "part": "housing",
+      "node_count": 262,
+      "displacement_mm": [
+        0,
+        null,
+        null
+      ]
+    }
+  },
+  "loads": [
+    {
+      "part": "part",
+      "area_mm2": 23.568365516945335,
+      "force_N": [
+        0.0,
+        0.0,
+        15.0
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "slave": {
+        "face_count": 155,
+        "parts": [
+          "part"
+        ],
+        "part": "part"
+      },
+      "master": {
+        "face_count": 110,
+        "parts": [
+          "housing"
+        ],
+        "part": "housing"
+      },
+      "discretization": "surface_to_surface",
+      "pairing_update": "once_per_increment"
+    }
+  ],
+  "mesh_reuse": {
+    "input_sha256": "d595abf5b2b5099de45ad46073cd5eacec727e4ae0cc42779d990c9b17d503d5",
+    "case_sha256": "a34163408cde066bfb8d2081b14f71ddfb8f17d8637d60ffd808d16977f22deb",
+    "input": "mesh_source.inp",
+    "case": "mesh_source_case.json",
+    "mesh": {
+      "part": {
+        "nodes": 3072,
+        "elements": 1545,
+        "min_jacobian": 0.01195627646602336
+      },
+      "housing": {
+        "nodes": 7294,
+        "elements": 3855,
+        "min_jacobian": 0.409733516086485
+      }
+    },
+    "automatic": true
+  }
+}

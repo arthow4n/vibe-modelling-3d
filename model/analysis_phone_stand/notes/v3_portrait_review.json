@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/inspect_v3.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/renders/assembled/v3/inspect_v3_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "right",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/renders/assembled/v3/inspect_v3_right.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          0,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013163679977878928,
+    "build": 5.649474174999341,
+    "selection": 0.0008111999995890073,
+    "validation": 0.18110115099989343,
+    "render_isometric": 1.0125221140042413,
+    "render_right": 0.8614735079972888,
+    "worker": 7.80756386500434,
+    "total": 9.963454508993891
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "dde6eedf6409ead970b1ba997d39f153c9b60c6ae4d443af2830ca2f57ff7403",
+    "artifact_identity": "267fa9746cdd7ee5b3de4e2520fa7dcce37a4c06f139cc7944f89ffa66d268e3"
+  }
+}

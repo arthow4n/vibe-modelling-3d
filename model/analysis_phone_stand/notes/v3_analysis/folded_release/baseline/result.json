@@ -1,0 +1,78 @@
+{
+  "case": "v3_return_leaf",
+  "status": "failed",
+  "completed": false,
+  "metrics": {
+    "question": {
+      "operation_completed": false,
+      "solver_completed": false,
+      "evidence_method": "numerical",
+      "numerical_evidence_adequate": false,
+      "peak_actuation_force_N": null,
+      "peak_strain": null,
+      "peak_strain_location_mm": null,
+      "strain_location_kind": "undeformed element centroid of peak integration point",
+      "peak_von_mises_MPa": null,
+      "peak_stress_location_mm": null,
+      "deformation_mm": null,
+      "max_displacement_mm": null,
+      "force_balance_ok": false,
+      "max_force_balance_relative": null,
+      "force_balance_source": "native_summary",
+      "strain_screen_passes": null,
+      "acceptance": {
+        "peak_motion_force_N.press": null
+      },
+      "design_screen_passes": null,
+      "design_screen_scope": "Only the supplied provisional strain and acceptance quantities",
+      "analytical_screen": null,
+      "beam_rationale": null,
+      "analytical_numerical_comparison": null,
+      "manufacturing": {
+        "assumption": "Actual right leaf XY flat, solid PETG, .4 nozzle/.2 layers. Outer root rigidly restrained and inner end guided; pin/root play and guide friction excluded. Two mirrored leaves double this force.",
+        "local_solid_paths_established": null
+      },
+      "physical_limits": {
+        "material_calibrated": false,
+        "friction_modelled": false,
+        "printed_recovery_established": false,
+        "physically_validated": false
+      },
+      "numerical_confidence": {
+        "increment_sensitivity": "not_run",
+        "mesh_sensitivity": "not_run",
+        "contact_parameter_sensitivity": "not_run"
+      }
+    }
+  },
+  "history": [],
+  "assumptions": [
+    "mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.",
+    "Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.",
+    "Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.",
+    "Frictionless contact; enforcement and pairing depend on backend/formulation.",
+    "Numerical completion is not physical validation or a load rating."
+  ],
+  "warnings": [],
+  "errors": [
+    "Analysis worker exited with code -6: terminate called after throwing an instance of 'std::runtime_error'\n  what():  Failed to reach critical value in pass 1 for measure(s): ScaledJac\n"
+  ],
+  "provenance": {
+    "backend": "CalculiX",
+    "execution_resources": {
+      "peak_tree_rss_bytes": 80576512,
+      "sampled_tree_cpu_seconds": 1.59,
+      "measurement": "sampled process tree",
+      "elapsed_seconds": 2.171040676999837
+    },
+    "question_interpreter_sha256": "069d2c628c6e5bd17c9d28a1a8138683c05b7e46ae2386993c67cf6699ef2fce"
+  },
+  "artifacts": {
+    "case": "case.json",
+    "worker_log": "worker.log.gz",
+    "fixture_geometry": [
+      "part_0.brep.gz"
+    ],
+    "raw_fields_retained": false
+  }
+}

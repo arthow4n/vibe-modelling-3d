@@ -168,7 +168,10 @@ class QuestionStudy:
 
     @staticmethod
     def _travel(question):
-        motions = [p.motion for p in question.mating_parts] if hasattr(question,'mating_parts') else ([question.motion] if question.motion else [])
+        motions = ([p.motion for p in question.mating_parts if p.motion is not None]
+                   if hasattr(question,'mating_parts') else [])
+        if question.motion is not None:
+            motions.append(question.motion)
         answer = {}
         for motion in motions:
             distance = math.sqrt(sum((v or 0)**2 for v in motion.displacement_mm))

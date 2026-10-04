@@ -1,0 +1,383 @@
+{
+  "scope": "Nominal rigid fit and sampled motion; solid-density statics conditional on final print. No material/friction/return qualification.",
+  "geometry": [
+    {
+      "angle": 45.0,
+      "interference_mm3": {
+        "base/cradle": 0.0,
+        "base/slider": 0.0,
+        "base/pin": 0.0,
+        "cradle/slider": 0.0,
+        "cradle/pin": 0.0,
+        "slider/pin": 0.0
+      }
+    },
+    {
+      "angle": 60.0,
+      "interference_mm3": {
+        "base/cradle": 0.0,
+        "base/slider": 0.0,
+        "base/pin": 0.0,
+        "cradle/slider": 0.0,
+        "cradle/pin": 0.0,
+        "slider/pin": 0.0
+      }
+    },
+    {
+      "angle": 75.0,
+      "interference_mm3": {
+        "base/cradle": 0.0,
+        "base/slider": 0.0,
+        "base/pin": 0.0,
+        "cradle/slider": 0.0,
+        "cradle/pin": 0.0,
+        "slider/pin": 0.0
+      }
+    }
+  ],
+  "statics": [
+    {
+      "angle": 45.0,
+      "landscape": false,
+      "normal_N": -2.0,
+      "scenario": "diagnostic_outward_pull",
+      "stand_mass_kg": 0.3734164338472984,
+      "stand_cg_mm": [
+        -0.03398381358989254,
+        64.51962385970508,
+        26.277419460616038
+      ],
+      "pressure_centre_mm": [
+        8.676589786737209,
+        3.8638497818567488
+      ],
+      "tipping_margin_mm": 0.8638497818567488,
+      "required_friction": 0.28890591722751713,
+      "phone_bottom_height_mm": 74.08326112068522
+    },
+    {
+      "angle": 45.0,
+      "landscape": false,
+      "normal_N": -0.5,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472984,
+      "stand_cg_mm": [
+        -0.03398381358989254,
+        64.51962385970508,
+        26.277419460616038
+      ],
+      "pressure_centre_mm": [
+        13.566002341187263,
+        59.165740252438496
+      ],
+      "tipping_margin_mm": 38.933997658812736,
+      "required_friction": 0.09793787874524104,
+      "phone_bottom_height_mm": 74.08326112068522
+    },
+    {
+      "angle": 45.0,
+      "landscape": false,
+      "normal_N": 2.0,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472984,
+      "stand_cg_mm": [
+        -0.03398381358989254,
+        64.51962385970508,
+        26.277419460616038
+      ],
+      "pressure_centre_mm": [
+        18.84124775293997,
+        118.83160823092827
+      ],
+      "tipping_margin_mm": 18.168391769071732,
+      "required_friction": 0.18702242005276098,
+      "phone_bottom_height_mm": 74.08326112068522
+    },
+    {
+      "angle": 45.0,
+      "landscape": true,
+      "normal_N": -2.0,
+      "scenario": "diagnostic_outward_pull",
+      "stand_mass_kg": 0.3734164338472984,
+      "stand_cg_mm": [
+        -0.03398381358989254,
+        64.51962385970508,
+        26.277419460616038
+      ],
+      "pressure_centre_mm": [
+        -8.687833534965023,
+        19.572021122385486
+      ],
+      "tipping_margin_mm": 16.572021122385486,
+      "required_friction": 0.28890591722751713,
+      "phone_bottom_height_mm": 74.08326112068522
+    },
+    {
+      "angle": 45.0,
+      "landscape": true,
+      "normal_N": -0.5,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472984,
+      "stand_cg_mm": [
+        -0.03398381358989254,
+        64.51962385970508,
+        26.277419460616038
+      ],
+      "pressure_centre_mm": [
+        6.356583607365463,
+        51.817965863478435
+      ],
+      "tipping_margin_mm": 46.143416392634535,
+      "required_friction": 0.09793787874524104,
+      "phone_bottom_height_mm": 74.08326112068522
+    },
+    {
+      "angle": 45.0,
+      "landscape": true,
+      "normal_N": 2.0,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472984,
+      "stand_cg_mm": [
+        -0.03398381358989254,
+        64.51962385970508,
+        26.277419460616038
+      ],
+      "pressure_centre_mm": [
+        22.58818436078138,
+        86.60849952140474
+      ],
+      "tipping_margin_mm": 29.91181563921862,
+      "required_friction": 0.18702242005276098,
+      "phone_bottom_height_mm": 74.08326112068522
+    },
+    {
+      "angle": 60.0,
+      "landscape": false,
+      "normal_N": -2.0,
+      "scenario": "diagnostic_outward_pull",
+      "stand_mass_kg": 0.3734164338472985,
+      "stand_cg_mm": [
+        -0.03398381358988881,
+        61.32174706511277,
+        28.511951430006146
+      ],
+      "pressure_centre_mm": [
+        12.491831874791687,
+        -13.34237175817851
+      ],
+      "tipping_margin_mm": -16.34237175817851,
+      "required_friction": 0.32156732630838214,
+      "phone_bottom_height_mm": 70.24871130596428
+    },
+    {
+      "angle": 60.0,
+      "landscape": false,
+      "normal_N": -0.5,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472985,
+      "stand_cg_mm": [
+        -0.03398381358988881,
+        61.32174706511277,
+        28.511951430006146
+      ],
+      "pressure_centre_mm": [
+        15.442664320894044,
+        42.39547812961013
+      ],
+      "tipping_margin_mm": 37.057335679105954,
+      "required_friction": 0.10406158465131764,
+      "phone_bottom_height_mm": 70.24871130596428
+    },
+    {
+      "angle": 60.0,
+      "landscape": false,
+      "normal_N": 2.0,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472985,
+      "stand_cg_mm": [
+        -0.03398381358988881,
+        61.32174706511277,
+        28.511951430006146
+      ],
+      "pressure_centre_mm": [
+        19.067551181935265,
+        110.86544496483465
+      ],
+      "tipping_margin_mm": 26.13455503516535,
+      "required_friction": 0.2370134931141344,
+      "phone_bottom_height_mm": 70.24871130596428
+    },
+    {
+      "angle": 60.0,
+      "landscape": true,
+      "normal_N": -2.0,
+      "scenario": "diagnostic_outward_pull",
+      "stand_mass_kg": 0.3734164338472985,
+      "stand_cg_mm": [
+        -0.03398381358988881,
+        61.32174706511277,
+        28.511951430006146
+      ],
+      "pressure_centre_mm": [
+        -1.6542678742701975,
+        5.8258631130949095
+      ],
+      "tipping_margin_mm": 2.8258631130949095,
+      "required_friction": 0.32156732630838214,
+      "phone_bottom_height_mm": 70.24871130596428
+    },
+    {
+      "angle": 60.0,
+      "landscape": true,
+      "normal_N": -0.5,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472985,
+      "stand_cg_mm": [
+        -0.03398381358988881,
+        61.32174706511277,
+        28.511951430006146
+      ],
+      "pressure_centre_mm": [
+        7.9805067241640435,
+        39.242855174140395
+      ],
+      "tipping_margin_mm": 36.242855174140395,
+      "required_friction": 0.10406158465131764,
+      "phone_bottom_height_mm": 70.24871130596428
+    },
+    {
+      "angle": 60.0,
+      "landscape": true,
+      "normal_N": 2.0,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472985,
+      "stand_cg_mm": [
+        -0.03398381358988881,
+        61.32174706511277,
+        28.511951430006146
+      ],
+      "pressure_centre_mm": [
+        19.816139037713068,
+        80.29324270719135
+      ],
+      "tipping_margin_mm": 32.68386096228693,
+      "required_friction": 0.2370134931141344,
+      "phone_bottom_height_mm": 70.24871130596428
+    },
+    {
+      "angle": 75.0,
+      "landscape": false,
+      "normal_N": -2.0,
+      "scenario": "diagnostic_outward_pull",
+      "stand_mass_kg": 0.3734164338472986,
+      "stand_cg_mm": [
+        -0.0339838135898871,
+        57.654495849356906,
+        29.842672150576746
+      ],
+      "pressure_centre_mm": [
+        14.965699222892392,
+        -27.75318830300552
+      ],
+      "tipping_margin_mm": -30.75318830300552,
+      "required_friction": 0.3277461409065447,
+      "phone_bottom_height_mm": 63.39868494019474
+    },
+    {
+      "angle": 75.0,
+      "landscape": false,
+      "normal_N": -0.5,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472986,
+      "stand_cg_mm": [
+        -0.0339838135898871,
+        57.654495849356906,
+        29.842672150576746
+      ],
+      "pressure_centre_mm": [
+        16.316435948338434,
+        25.54443859442433
+      ],
+      "tipping_margin_mm": 22.54443859442433,
+      "required_friction": 0.1073313248124109,
+      "phone_bottom_height_mm": 63.39868494019474
+    },
+    {
+      "angle": 75.0,
+      "landscape": false,
+      "normal_N": 2.0,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472986,
+      "stand_cg_mm": [
+        -0.0339838135898871,
+        57.654495849356906,
+        29.842672150576746
+      ],
+      "pressure_centre_mm": [
+        18.240503438228785,
+        101.46465995938843
+      ],
+      "tipping_margin_mm": 34.259496561771215,
+      "required_friction": 0.28011633182494455,
+      "phone_bottom_height_mm": 63.39868494019474
+    },
+    {
+      "angle": 75.0,
+      "landscape": true,
+      "normal_N": -2.0,
+      "scenario": "diagnostic_outward_pull",
+      "stand_mass_kg": 0.3734164338472986,
+      "stand_cg_mm": [
+        -0.0339838135898871,
+        57.654495849356906,
+        29.842672150576746
+      ],
+      "pressure_centre_mm": [
+        4.610001143050399,
+        -5.148964353510804
+      ],
+      "tipping_margin_mm": -8.148964353510804,
+      "required_friction": 0.3277461409065447,
+      "phone_bottom_height_mm": 63.39868494019474
+    },
+    {
+      "angle": 75.0,
+      "landscape": true,
+      "normal_N": -0.5,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472986,
+      "stand_cg_mm": [
+        -0.0339838135898871,
+        57.654495849356906,
+        29.842672150576746
+      ],
+      "pressure_centre_mm": [
+        9.128980506761888,
+        27.108104599777526
+      ],
+      "tipping_margin_mm": 24.108104599777526,
+      "required_friction": 0.1073313248124109,
+      "phone_bottom_height_mm": 63.39868494019474
+    },
+    {
+      "angle": 75.0,
+      "landscape": true,
+      "normal_N": 2.0,
+      "scenario": "provisional_service",
+      "stand_mass_kg": 0.3734164338472986,
+      "stand_cg_mm": [
+        -0.0339838135898871,
+        57.654495849356906,
+        29.842672150576746
+      ],
+      "pressure_centre_mm": [
+        15.566075995026962,
+        73.05693868635964
+      ],
+      "tipping_margin_mm": 36.933924004973036,
+      "required_friction": 0.28011633182494455,
+      "phone_bottom_height_mm": 63.39868494019474
+    }
+  ],
+  "density_kg_mm3": 1.27e-06
+}

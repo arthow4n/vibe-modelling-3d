@@ -1,0 +1,127 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/phone_stand_v3_feet.py",
+  "errors": [],
+  "views": [],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/phone_stand_v3_feet.step",
+      "ok": true,
+      "reused": true
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/phone_stand_v3_feet.stl",
+      "ok": true,
+      "reused": true
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014994240045780316,
+    "build": 0.9178148610008066,
+    "selection": 0.0008739299955777824,
+    "validation": 0.09155234199715778,
+    "export_step": 0.005499439001141582,
+    "export_stl": 0.004160457996476907,
+    "worker": 1.0968727740037139,
+    "total": 3.4554276170019875,
+    "slice": 0.196708055002091
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "b430bd562b2ceb0091f5b515e528cef583aaad8dceae2cf0a6e00c42251b839c",
+    "artifact_identity": "388cb822c7cc71a311d529b466aa9d52e4e12699f0c2c379e93ff73832fcf0d2"
+  },
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/phone_stand_v3_feet.stl",
+    "profiles": {
+      "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/notes/v3_solid_process.json",
+      "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "center",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "PETG"
+      ],
+      "filament_settings_id": [
+        "Generic PETG @Qidi Q2C 0.4 nozzle"
+      ],
+      "nozzle_temperature": [
+        "250"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "245"
+      ],
+      "hot_plate_temp": [
+        "80"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "80"
+      ],
+      "print_settings_id": "Phone stand v3 solid PETG",
+      "layer_height": "0.2",
+      "wall_loops": "4",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "auto_brim",
+      "brim_width": "3",
+      "brim_object_gap": "0.1",
+      "enable_support": "1",
+      "support_type": "normal(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "0.95"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "100%",
+      "sparse_infill_pattern": "rectilinear"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": false,
+      "supported_plates": [],
+      "effective_support_type": "normal(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": false,
+    "reused": true,
+    "identity": "85c2685cd13bb2fe7aee0565ca2500ada003122308783d38686fc6712222c132",
+    "input_sha256": "48496a79837d1f9fa038680d8f2abdda6bc45690b0902fe4a320970a75c461ae"
+  }
+}

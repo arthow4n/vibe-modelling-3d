@@ -46,10 +46,14 @@ class SurfaceForce:
 
 @dataclass(frozen=True)
 class MatingPart:
+    """Rigid translation when motion is supplied; otherwise an explicit elastic fixture."""
     name: str
     shape: object
-    motion: Motion
+    motion: Motion | None = None
     contact_region: Region = field(default_factory=Region)
+    supports: tuple[Support, ...] = ()
+    forces: tuple[SurfaceForce, ...] = ()
+    material: Material | None = None
 
 
 @dataclass(frozen=True)
@@ -215,9 +219,10 @@ class StructuralQuestion:
             # Applied forces share the case's proportional ramp; free DOFs were
             # already excluded by the native extractor. Missing fields stay missing.
             balances = []
+            forces = self.forces + tuple(f for p in getattr(self, 'mating_parts', ()) for f in p.forces)
             for frame in r.history:
                 reactions = list(frame['reactions_N'].values())
-                applied = [frame['load_fraction']*sum(f.force_N[i] for f in self.forces) for i in range(3)]
+                applied = [frame['load_fraction']*sum(f.force_N[i] for f in forces) for i in range(3)]
                 residual = math.sqrt(sum((sum(v[i] for v in reactions)+applied[i])**2 for i in range(3)))
                 norm = lambda values: math.sqrt(sum(v*v for v in values))
                 balances.append(residual/max(norm(applied), sum(norm(v) for v in reactions), 1))
@@ -277,7 +282,7 @@ class FlexureQuestion(StructuralQuestion):
 
 @dataclass(kw_only=True)
 class ContactQuestion(StructuralQuestion):
-    """Supported deformable part loaded by forces/motion against rigid mates.
+    """Supported deformable part loaded against rigid or supported elastic mates.
 
     Contact engagement and penetration qualify the structural answer. This does
     not establish passage, cyclic recovery, friction or bolt preload.
@@ -299,17 +304,31 @@ class ContactQuestion(StructuralQuestion):
         if not isinstance(self.contact_expected, bool):
             raise ValueError('contact_expected must be an explicit boolean')
         if not (self.forces or self.motion or any(
-                any(v for v in p.motion.displacement_mm if v is not None) for p in self.mating_parts)):
+                bool(p.forces) or (p.motion is not None and any(v for v in p.motion.displacement_mm if v is not None))
+                or any(any(v for v in s.displacement_mm if v is not None) for s in p.supports)
+                for p in self.mating_parts)):
             raise ValueError('Provide explicit force or motion loading')
         c = self._fixture_case()
         if not self.mating_parts:
             raise ValueError('Provide at least one mating part')
         for part in self.mating_parts:
-            if any(v is None for v in part.motion.displacement_mm) or part.motion.region != Region():
-                raise ValueError('A rigid mating part needs all three translation components')
-            c.add_part(part.name, part.shape, material=self.material, mesh_size_mm=self.mesh_size_mm)
-            c.prescribe_motion(part.name, part.motion.region, displacement_mm=part.motion.displacement_mm,
-                              name=part.motion.name, progress=part.motion.progress)
+            if part.motion is not None:
+                if part.supports or part.forces or part.material is not None:
+                    raise ValueError('Choose rigid motion or a supported deformable mate fixture')
+                if any(v is None for v in part.motion.displacement_mm) or part.motion.region != Region():
+                    raise ValueError('A rigid mating part needs all three translation components')
+                c.add_part(part.name, part.shape, material=self.material, mesh_size_mm=self.mesh_size_mm)
+                c.prescribe_motion(part.name, part.motion.region, displacement_mm=part.motion.displacement_mm,
+                                  name=part.motion.name, progress=part.motion.progress)
+            else:
+                if not part.supports:
+                    raise ValueError('A deformable mating part requires explicit supports')
+                c.add_part(part.name, part.shape, material=part.material or self.material, mesh_size_mm=self.mesh_size_mm)
+                for support in part.supports:
+                    c.constrain(part.name, support.region, displacement_mm=support.displacement_mm,
+                                name=f'{part.name}_{support.name}')
+                for force in part.forces:
+                    c.apply_force(part.name, force.region, force_N=force.force_N)
         if self.combine_mating_surfaces and len(self.mating_parts)>1:
             c.contact(self.part_name, self.contact_region,
                       tuple(c.select(p.name,p.contact_region) for p in self.mating_parts),
@@ -332,11 +351,23 @@ class ContactQuestion(StructuralQuestion):
         penetration_ok = penetration is not None and math.isfinite(penetration) and 0 <= penetration <= self.penetration_limit_mm
         detected = m.get('contact_detected')
         engaged_ok = detected is self.contact_expected
-        quality = q['numerical_evidence_adequate'] and penetration_ok and engaged_ok
+        mate_strains = {p.name: m.get('max_strain_by_part', {}).get(p.name)
+                        for p in self.mating_parts if p.motion is None}
+        mate_quality = all(v is not None and math.isfinite(v) for v in mate_strains.values())
+        mate_screens = {p.name: (None if mate_strains[p.name] is None or (p.material or self.material).strain_limit is None
+                                else mate_strains[p.name] <= (p.material or self.material).strain_limit)
+                        for p in self.mating_parts if p.motion is None}
+        quality = q['numerical_evidence_adequate'] and penetration_ok and engaged_ok and mate_quality
         q.update(numerical_evidence_adequate=bool(quality), contact_quality_ok=bool(quality),
                  contact_engaged=detected, contact_expected=self.contact_expected,
                  penetration_ok=penetration_ok, max_penetration_mm=penetration,
-                 contact_scope='Explicit rigid translation-only mates; sampled frictionless contact')
+                 contact_scope='Explicit rigid translations or supported deformable mates; sampled frictionless contact')
+        if mate_strains:
+            q.update(mating_part_strain=mate_strains, mating_part_strain_screens=mate_screens)
+            if any(v is False for v in mate_screens.values()):
+                q['design_screen_passes'] = False
+            elif any(v is None for v in mate_screens.values()) and q['design_screen_passes'] is True:
+                q['design_screen_passes'] = None
         q['analytical_numerical_comparison'] = None
         if not quality:
             q['design_screen_passes'] = None
@@ -370,6 +401,8 @@ class SnapFitQuestion(ContactQuestion):
             raise ValueError('Snap loading belongs on explicit mating-part motions')
         if not self.contact_expected:
             raise ValueError('A snap passage requires expected contact engagement')
+        if any(p.motion is None for p in self.mating_parts):
+            raise ValueError('Snap passage currently requires explicit rigid mating-part motions')
         return super().build_case()
 
     def _answer(self, r):

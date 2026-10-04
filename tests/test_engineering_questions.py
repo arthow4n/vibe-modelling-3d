@@ -372,3 +372,38 @@ def test_k_mesh_study_reuses_bound_evidence_without_solving(monkeypatch):
     assert not answer['study']['acceptance_changed']['mesh_sensitivity_1']
     assert len(answer['study']['runs'])==2
     assert all(run['input_sha256'] and run['case_sha256'] for run in answer['study']['runs'].values())
+
+
+def test_two_deformable_contact_bodies_share_load_and_retained_identity(tmp_path):
+    q=stopped_beam_question()
+    q.mating_parts=(MatingPart('upper',
+        cq.Workplane('XY').box(40,8,2,centered=False).translate((0,0,2.2)),
+        contact_region=Region.plane('z',2.2),
+        supports=(Support(Region.plane('x',0)),)),)
+    assert QuestionStudy._travel(q)=={}
+    r=q.run(tmp_path/'compliant_stop')
+    a=r.metrics['question']
+    assert r.completed and a['numerical_evidence_adequate']
+    # Two equal cantilevers: (0.333 + 0.2)/2 = 0.267 mm lower tip.
+    assert .25<a['max_displacement_mm']<.29
+    assert a['mating_part_strain']['upper']>0
+    assert a['mating_part_strain_screens']['upper']
+    assert a['force_balance_ok'] and a['penetration_ok']
+    assert q.read_evidence(tmp_path/'compliant_stop').metrics['question']['numerical_evidence_adequate']
+    r.metrics['max_strain_by_part'].pop('upper')
+    q._answer(r)
+    assert not r.metrics['question']['numerical_evidence_adequate']
+    assert r.metrics['question']['design_screen_passes'] is None
+
+
+def test_deformable_mate_requires_unambiguous_fixture_and_keeps_its_load():
+    q=stopped_beam_question();p=q.mating_parts[0]
+    q.mating_parts=(replace(p,motion=None),)
+    with pytest.raises(ValueError,match='explicit supports'):q.build_case()
+    q.mating_parts=(replace(p,supports=(Support(Region.plane('x',36)),)),)
+    with pytest.raises(ValueError,match='rigid motion or'):q.build_case()
+    q.mating_parts=(replace(p,motion=None,supports=(Support(Region.plane('x',36)),),
+                           forces=(SurfaceForce(Region.plane('x',42),(0,0,-.01)),)),)
+    case=q.build_case()
+    assert len(case.loads)==2
+    assert case.constraints[-1].name=='stop_root'

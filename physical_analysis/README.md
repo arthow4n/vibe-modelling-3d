@@ -159,8 +159,16 @@ unknown. Neither mode turns walls/infill/orientation into material properties.
 `mating_parts`, `penalty_N_mm3`, `penetration_limit_mm` and `discretization`.
 It accepts ordinary surface `forces` and/or `motion` on the deformable part,
 as well as prescribed translations of rigid mates. Each mate must be one
-connected solid with all three translations specified; stationary mates use
-`Motion((0,0,0), name='unique_support_name')`. Supports remain explicit.
+connected solid. Rigid mates specify all three translations; stationary mates use
+`Motion((0,0,0), name='unique_support_name')`.
+For a deformable mate, omit `motion` and supply explicit `supports`, optional
+`forces` and an optional `material` (otherwise the question's material is used).
+For example, `MatingPart('housing', housing, contact_region=roof,
+supports=(Support(foundation),))` permits the printed housing to share deformation
+and load. Mixing rigid motion with those elastic-fixture fields is rejected.
+Every elastic body's finite strain and supplied material limit enter the answer;
+missing mate strain cannot qualify a result. Constraints use a mate-name prefix,
+so constraint identifiers must still satisfy the existing case naming rules.
 No freely rotating joints, friction, thread preload or contact-free body dynamics
 are introduced. Analytical-only execution is rejected.
 
@@ -180,7 +188,19 @@ Missing contact fields and failed solves leave the design screen unqualified.
 `SnapFitQuestion` shares this construction but additionally requires engagement,
 passage checkpoints, displacement envelopes and any requested elastic return.
 It still rejects direct deformable-part loads; its drivers define the operation.
-Existing snap signatures and retained evidence identities are preserved.
+Snap passage currently requires rigid mate translations. Existing rigid-mate
+signatures and retained case identities are preserved. Studies skip elastic
+mates when reporting prescribed travel and include the main part's own motion.
+
+The [compact fully printed phone stand](../model/analysis_phone_stand/analyze_v3.py)
+uses deformable contact to distinguish nose bending from housing compliance
+under its 30 N local lock-load screen. The initial nose failed the provisional
+strain limit while the housing passed, directing reinforcement to the nose.
+An independent pair of equal cantilevers qualifies shared deformation: a 0.1 N
+load and 0.2 mm gap produce about 0.267 mm loaded-beam displacement, with finite
+mate strain, equilibrium, bounded penetration and retained-identity checks.
+This extends fixture construction above the existing multipart backend; it does
+not qualify printed properties or an unrestricted moving assembly.
 
 The [raised phone-stand consumer](../model/analysis_phone_stand/analyze_v2.py)
 applies a 5 N lifting force to its flexible keeper against two stationary guide

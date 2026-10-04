@@ -1,0 +1,191 @@
+{
+  "scope": "Registered mechanics sections and selected support layers; no material calibration or printer-envelope reconstruction",
+  "gcode_sha256": "9b906287fd43255256b222a37e7f8a6ddb349a989014a320318f9df823716f76",
+  "slice_input_sha256": "982ffbbbc13406290e56c6c112b7293267eb7894a49b3d98a668634fc77e2c12",
+  "sections": [
+    {
+      "name": "right return leg 1",
+      "x": 231,
+      "z": 2,
+      "span": [
+        192.6,
+        193.4
+      ],
+      "filled_width_mm": 0.8000000000000114,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          192.6,
+          193.4
+        ]
+      ]
+    },
+    {
+      "name": "right return leg 2",
+      "x": 231,
+      "z": 2,
+      "span": [
+        198.6,
+        199.4
+      ],
+      "filled_width_mm": 0.8000000000000114,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          198.6,
+          199.4
+        ]
+      ]
+    },
+    {
+      "name": "right return leg 3",
+      "x": 231,
+      "z": 2,
+      "span": [
+        204.6,
+        205.4
+      ],
+      "filled_width_mm": 0.8000000000000114,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          204.6,
+          205.4
+        ]
+      ]
+    },
+    {
+      "name": "left return leg 1",
+      "x": 179,
+      "z": 2,
+      "span": [
+        192.6,
+        193.4
+      ],
+      "filled_width_mm": 0.8000000000000114,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          192.6,
+          193.4
+        ]
+      ]
+    },
+    {
+      "name": "left return leg 2",
+      "x": 179,
+      "z": 2,
+      "span": [
+        198.6,
+        199.4
+      ],
+      "filled_width_mm": 0.8000000000000114,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          198.6,
+          199.4
+        ]
+      ]
+    },
+    {
+      "name": "left return leg 3",
+      "x": 179,
+      "z": 2,
+      "span": [
+        204.6,
+        205.4
+      ],
+      "filled_width_mm": 0.8000000000000114,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          204.6,
+          205.4
+        ]
+      ]
+    },
+    {
+      "name": "nose crossbar",
+      "x": 205,
+      "z": 2,
+      "span": [
+        161,
+        171
+      ],
+      "filled_width_mm": 9.998502143386446,
+      "uncovered_width_mm": 0.0014978566135539495,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          161.00149785661355,
+          171
+        ]
+      ]
+    },
+    {
+      "name": "housing guide bearing",
+      "x": 78,
+      "z": 22.4,
+      "span": [
+        41,
+        49
+      ],
+      "filled_width_mm": 7.993000000000009,
+      "uncovered_width_mm": 0.006999999999990791,
+      "internal_gap_mm": 0.006999999999990791,
+      "intervals_mm": [
+        [
+          41,
+          48.684000000000005
+        ],
+        [
+          48.690999999999995,
+          49
+        ]
+      ]
+    },
+    {
+      "name": "cradle upper standoff",
+      "x": 200,
+      "z": 13,
+      "span": [
+        118,
+        130
+      ],
+      "filled_width_mm": 12,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          118,
+          130
+        ]
+      ]
+    },
+    {
+      "name": "cradle ledge",
+      "x": 225,
+      "z": 13,
+      "span": [
+        47,
+        52
+      ],
+      "filled_width_mm": 5,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          47,
+          52
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+{
+  "case": "v3_compliant_lock_guide",
+  "status": "completed",
+  "completed": true,
+  "metrics": {
+    "max_displacement_mm": 0.2062160175482254,
+    "max_abs_principal_strain": 0.013439433728786029,
+    "max_strain_part": "part",
+    "max_strain_element": 4834,
+    "max_strain_integration_point": 2,
+    "max_strain_element_centroid_mm": [
+      8.129968928792053,
+      19.595226205413738,
+      22.676867091552765
+    ],
+    "max_von_mises_MPa": 11.34196469948321,
+    "max_stress_part": "part",
+    "max_stress_element": 4834,
+    "max_stress_integration_point": 2,
+    "max_stress_element_centroid_mm": [
+      8.129968928792053,
+      19.595226205413738,
+      22.676867091552765
+    ],
+    "max_strain_by_part": {
+      "part": 0.013439433728786029,
+      "housing": 0.0036131894918837782
+    },
+    "force_balance_residual_N": 1.2655782993914132e-06,
+    "force_balance_relative": 7.461177437206851e-08,
+    "max_force_balance_relative": 5.713433765205665e-06,
+    "peak_reaction_force_N": {
+      "root": 11.858967029706276,
+      "symmetry": 1.7720319975100005,
+      "housing_root": 3.276042159254463,
+      "housing_symmetry": 0.05513817519838031
+    },
+    "observations": {},
+    "peak_motion_force_N": {},
+    "strain_limits": {
+      "part": 0.015,
+      "housing": 0.015
+    },
+    "contact_detected": true,
+    "max_penetration_mm": 0.00135006,
+    "question": {
+      "operation_completed": true,
+      "solver_completed": true,
+      "evidence_method": "numerical",
+      "numerical_evidence_adequate": true,
+      "peak_actuation_force_N": null,
+      "peak_strain": 0.013439433728786029,
+      "peak_strain_location_mm": [
+        8.129968928792053,
+        19.595226205413738,
+        22.676867091552765
+      ],
+      "strain_location_kind": "undeformed element centroid of peak integration point",
+      "peak_von_mises_MPa": 11.34196469948321,
+      "peak_stress_location_mm": [
+        8.129968928792053,
+        19.595226205413738,
+        22.676867091552765
+      ],
+      "deformation_mm": {},
+      "max_displacement_mm": 0.2062160175482254,
+      "force_balance_ok": true,
+      "max_force_balance_relative": 5.713433765205665e-06,
+      "force_balance_source": "native_summary",
+      "strain_screen_passes": true,
+      "acceptance": {
+        "max_displacement_mm": true
+      },
+      "design_screen_passes": true,
+      "design_screen_scope": "Only the supplied provisional strain and acceptance quantities",
+      "analytical_screen": null,
+      "beam_rationale": null,
+      "analytical_numerical_comparison": null,
+      "manufacturing": {
+        "assumption": "Symmetric half of actual nose, rails and printed housing, both solid PETG. Housing foundation fixed; truncated rail ends fixed. Half of 30 N bounds the worst .3 kg phone plus 2 N normal tap torque at 18 mm radius. Excludes whole hinge, flank wear, desk friction and printed joint play.",
+        "local_solid_paths_established": null
+      },
+      "physical_limits": {
+        "material_calibrated": false,
+        "friction_modelled": false,
+        "printed_recovery_established": false,
+        "physically_validated": false
+      },
+      "numerical_confidence": {
+        "increment_sensitivity": "not_run",
+        "mesh_sensitivity": "not_run",
+        "contact_parameter_sensitivity": "not_run"
+      },
+      "contact_quality_ok": true,
+      "contact_engaged": true,
+      "contact_expected": true,
+      "penetration_ok": true,
+      "max_penetration_mm": 0.00135006,
+      "contact_scope": "Explicit rigid translations or supported deformable mates; sampled frictionless contact",
+      "mating_part_strain": {
+        "housing": 0.0036131894918837782
+      },
+      "mating_part_strain_screens": {
+        "housing": true
+      }
+    }
+  },
+  "history": [
+    {
+      "load_fraction": 0.25,
+      "max_displacement_mm": 0.08088700461201455,
+      "force_balance_residual_N": 2.4257886066428497e-05,
+      "force_balance_relative": 5.713433765205665e-06,
+      "max_abs_principal_strain": 0.003489178751988043,
+      "reactions_N": {
+        "root": [
+          0.46679722522000006,
+          7.910000001110085e-07,
+          -3.749999992400001
+        ],
+        "symmetry": [
+          -0.46682147020500003,
+          0.0,
+          0.0
+        ],
+        "housing_root": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "housing_symmetry": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "observations": {},
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.5,
+      "max_displacement_mm": 0.14688569533105292,
+      "force_balance_residual_N": 2.1143791675856483e-07,
+      "force_balance_relative": 2.4875900505047033e-08,
+      "max_abs_principal_strain": 0.006941775702325908,
+      "reactions_N": {
+        "root": [
+          0.9349129369,
+          1.5600000086157806e-07,
+          -7.246068879200001
+        ],
+        "symmetry": [
+          -0.934912987609999,
+          0.0,
+          0.0
+        ],
+        "housing_root": [
+          0.005077630662373264,
+          -4.5809799300265686e-09,
+          -0.25393098346280046
+        ],
+        "housing_symmetry": [
+          -0.004681528088654955,
+          0.0,
+          0.0
+        ]
+      },
+      "observations": {},
+      "motion_force_N": {},
+      "contact_points": 98,
+      "max_contact_pressure_MPa": 4.706032,
+      "max_penetration_mm": 0.001176508
+    },
+    {
+      "load_fraction": 0.75,
+      "max_displacement_mm": 0.16188318485726058,
+      "force_balance_residual_N": 3.9035642913014235e-07,
+      "force_balance_relative": 3.0637178591747595e-08,
+      "max_abs_principal_strain": 0.010215687313920429,
+      "reactions_N": {
+        "root": [
+          1.3695715865,
+          0.0021315110000019177,
+          -9.636803189999995
+        ],
+        "symmetry": [
+          -1.3679658211799992,
+          0.0,
+          0.0
+        ],
+        "housing_root": [
+          0.027122596604080198,
+          -0.002131135990099927,
+          -1.6131967695081775
+        ],
+        "housing_symmetry": [
+          -0.026235703635830086,
+          0.0,
+          0.0
+        ]
+      },
+      "observations": {},
+      "motion_force_N": {},
+      "contact_points": 537,
+      "max_contact_pressure_MPa": 4.030456,
+      "max_penetration_mm": 0.001007614
+    },
+    {
+      "load_fraction": 1.0,
+      "max_displacement_mm": 0.2062160175482254,
+      "force_balance_residual_N": 1.2655782993914132e-06,
+      "force_balance_relative": 7.461177437206851e-08,
+      "max_abs_principal_strain": 0.013439433728786029,
+      "reactions_N": {
+        "root": [
+          1.781616133,
+          0.010325498000002209,
+          -11.724369336999995
+        ],
+        "symmetry": [
+          -1.7720319975100005,
+          0.0,
+          0.0
+        ],
+        "housing_root": [
+          0.05087544835427255,
+          -0.010326593013900584,
+          -3.275630821604309
+        ],
+        "housing_symmetry": [
+          -0.05513817519838031,
+          0.0,
+          0.0
+        ]
+      },
+      "observations": {},
+      "motion_force_N": {},
+      "contact_points": 935,
+      "max_contact_pressure_MPa": 5.400242,
+      "max_penetration_mm": 0.00135006
+    }
+  ],
+  "assumptions": [
+    "Units mm, N, MPa. Isotropic homogeneous linear-elastic material; geometric nonlinearity=True",
+    "No printed infill/layer failure, plastic set, creep, fatigue, or friction prediction.",
+    "Strain is maximum absolute principal mechanical strain at integration points, over all saved increments.",
+    "Frictionless contact. Surface-to-surface penalty pairing and Mortar segmentation are fixed within each increment; node-to-surface penalty re-pairs through iteration eight then freezes. Mortar contact-field extraction is unqualified. Completion alone does not prove engagement.",
+    "Loads ramp over normalized time 0..1; translations follow their recorded progress curves or a linear ramp.",
+    "Peak values are sampled at converged increments, not continuous extrema."
+  ],
+  "warnings": [],
+  "errors": [],
+  "provenance": {
+    "backend": "CalculiX",
+    "version": "unknown",
+    "gmsh": "4.15.2",
+    "cadquery": "2.7.0",
+    "python": "3.12.14",
+    "input_sha256": "88a3ad0351a25b45aa6794d7d4ee284bb6b02bbdf491ffbaee62b3d1c25dd22e",
+    "case_sha256": "d6649650dc6194bceceef7bc6b8a8c8600ba54103de7853ad5af07bf329629f0",
+    "backend_sha256": {
+      "febio_worker.py": "3a3af762b8b3162190cebd399a1ea1332b0bdbb6b641bc5b80c72c55d940353a",
+      "contact_diagnostics.py": "2f708d98921416d255b35d05dbe09d5009b117b0f3c301d84f0ffbd2956c0b36",
+      "febio.py": "ed73e0cefb609408ca21aa1af8acb4ad9c2ddeda97f006b9971d62febcc4e956",
+      "tet10_strain.py": "0eb4b4a1ec129adab94015e73126a650c3e62a281dae143b645b2c1953c1406a",
+      "polyfem_worker.py": "f3253052d89e88155b2663e7c6ffea6352c012d9bbe96385d1c89f5d67b42c57",
+      "febio_diagnostics.py": "b24d83c8b6dbf04396b2c50d69b9403a73dc2f695a240ef73c84c4e415584255",
+      "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+      "polyfem_output.py": "bd3b6e39db25f1c29e1a486f11c88f1d47980f97f544af6c945e02b98d112226",
+      "mesh.py": "501af3308472be10fd0e97bc99c36c5e0091f1db22b9a3d5ed5f9a41bc757740",
+      "polyfem.py": "c5bc4778b1bb37aa61a6c825de3283712791e1ba2edb7cc086cc6c102314582a",
+      "ipc_benchmarks.py": "22f37fa1c230b8ed22bbdf22dca58de9ac088db3e3128cae0962068390b01a93",
+      "structural.py": "7e8c9efd72d836d50f4d64259c81040cc0c643bc50fc8dd25b4697aed404ccdd",
+      "worker.py": "5b3997af367a1a47f942bb095b6792d6d28f0770d6f56544ca684e37712a5d2c",
+      "polyfem_diagnostics.py": "e2bbad2721f8d8aa91990b99ca78f712f616fe9914d03f5d63ab840091069922"
+    },
+    "command": [
+      "/home/hevar/.local/opt/physical-analysis/usr/bin/ccx",
+      "-i",
+      "analysis"
+    ],
+    "postprocess_only": false,
+    "mesh": {
+      "part": {
+        "nodes": 6208,
+        "elements": 3392,
+        "min_jacobian": 0.007571107157171922
+      },
+      "housing": {
+        "nodes": 15149,
+        "elements": 8476,
+        "min_jacobian": 0.3009224095338182
+      }
+    },
+    "regions": {
+      "root": {
+        "part": "part",
+        "node_count": 105,
+        "displacement_mm": [
+          0,
+          0,
+          0
+        ]
+      },
+      "symmetry": {
+        "part": "part",
+        "node_count": 364,
+        "displacement_mm": [
+          0,
+          null,
+          null
+        ]
+      },
+      "housing_root": {
+        "part": "housing",
+        "node_count": 1117,
+        "displacement_mm": [
+          0,
+          0,
+          0
+        ]
+      },
+      "housing_symmetry": {
+        "part": "housing",
+        "node_count": 425,
+        "displacement_mm": [
+          0,
+          null,
+          null
+        ]
+      }
+    },
+    "loads": [
+      {
+        "part": "part",
+        "area_mm2": 15.59476664663472,
+        "force_N": [
+          0.0,
+          0.0,
+          15.0
+        ]
+      }
+    ],
+    "contacts": [
+      {
+        "slave": {
+          "face_count": 231,
+          "parts": [
+            "part"
+          ],
+          "part": "part"
+        },
+        "master": {
+          "face_count": 178,
+          "parts": [
+            "housing"
+          ],
+          "part": "housing"
+        },
+        "discretization": "surface_to_surface",
+        "pairing_update": "once_per_increment"
+      }
+    ],
+    "execution_resources": {
+      "peak_tree_rss_bytes": 498069504,
+      "sampled_tree_cpu_seconds": 151.11,
+      "measurement": "sampled process tree",
+      "elapsed_seconds": 179.08203534500353
+    },
+    "question_interpreter_sha256": "4a9fce2330d2aee4a75fe143c08fa5ea00d2f3a64a671e8f6398d87332c29fe3"
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "analysis.inp.gz",
+    "run_metadata": "run_metadata.json",
+    "solver_log": "solver.log.gz",
+    "worker_log": "worker.log.gz",
+    "increments": "analysis.sta",
+    "regions": "regions.json.gz",
+    "fixture_geometry": [
+      "part_0.brep.gz",
+      "part_1.brep.gz"
+    ],
+    "raw_fields_retained": false,
+    "reproduce": "Decompress analysis.inp.gz in a new directory and run ccx -i analysis in the configured native environment to regenerate raw solver fields. Use the model analysis source to rebuild the current case; retained fixtures may be historical."
+  }
+}

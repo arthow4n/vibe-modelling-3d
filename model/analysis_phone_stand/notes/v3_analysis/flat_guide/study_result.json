@@ -1,0 +1,204 @@
+{
+  "case": "v3_compliant_lock_guide",
+  "status": "timeout",
+  "completed": false,
+  "metrics": {
+    "question": {
+      "operation_completed": false,
+      "solver_completed": false,
+      "evidence_method": "numerical",
+      "numerical_evidence_adequate": false,
+      "peak_actuation_force_N": null,
+      "peak_strain": null,
+      "peak_strain_location_mm": null,
+      "strain_location_kind": "undeformed element centroid of peak integration point",
+      "peak_von_mises_MPa": null,
+      "peak_stress_location_mm": null,
+      "deformation_mm": null,
+      "max_displacement_mm": null,
+      "force_balance_ok": false,
+      "max_force_balance_relative": null,
+      "force_balance_source": "native_summary",
+      "strain_screen_passes": null,
+      "acceptance": {
+        "max_displacement_mm": null
+      },
+      "design_screen_passes": null,
+      "design_screen_scope": "Only the supplied provisional strain and acceptance quantities",
+      "analytical_screen": null,
+      "beam_rationale": null,
+      "analytical_numerical_comparison": null,
+      "manufacturing": {
+        "assumption": "Actual local nose, rails and printed housing, both solid PETG. Housing foundation fixed; truncated rail ends fixed. 30 N bounds the worst 0.3 kg phone plus 2 N normal tap torque at 18 mm radius. Excludes whole hinge, flank wear, desk friction and printed joint play.",
+        "local_solid_paths_established": null
+      },
+      "physical_limits": {
+        "material_calibrated": false,
+        "friction_modelled": false,
+        "printed_recovery_established": false,
+        "physically_validated": false
+      },
+      "numerical_confidence": {
+        "increment_sensitivity": "not_run",
+        "mesh_sensitivity": "unresolved",
+        "contact_parameter_sensitivity": "unresolved"
+      },
+      "contact_quality_ok": false,
+      "contact_engaged": null,
+      "contact_expected": true,
+      "penetration_ok": false,
+      "max_penetration_mm": null,
+      "contact_scope": "Explicit rigid translations or supported deformable mates; sampled frictionless contact",
+      "mating_part_strain": {
+        "housing": null
+      },
+      "mating_part_strain_screens": {
+        "housing": null
+      },
+      "study": {
+        "decision": "Resolve the 1.5% provisional strain and 8 N two-leaf release / .75 mm guide-deflection screens",
+        "relative_tolerance": 0.2,
+        "absolute_tolerances": {},
+        "comparisons": {},
+        "comparison_limits": {},
+        "acceptance_changed": {},
+        "runs": {
+          "baseline": {
+            "status": "timeout",
+            "case": "v3_compliant_lock_guide",
+            "input_sha256": "27fa324cad09c73726ec8d1a1053d55c886a534309422a391283f1785f94801d",
+            "case_sha256": "425df208cd9f0aa92384ad3ffa7d17c9687c6eff6e9d49feeb359d9849258a45",
+            "backend_identity_sha256": "6106424a6fc8160441899209a02776ca648419d9623497159499973ed2f48dee",
+            "versions": {
+              "backend": "CalculiX",
+              "version": "unknown",
+              "gmsh": "4.15.2",
+              "cadquery": "2.7.0",
+              "python": "3.12.14"
+            },
+            "requested_travel_per_increment_mm": {}
+          }
+        },
+        "stopping_reason": {
+          "baseline": "Baseline quality rejected; no refinements launched"
+        }
+      },
+      "selected_metrics_stable": false,
+      "baseline_quality_adequate": false
+    }
+  },
+  "history": [],
+  "assumptions": [
+    "mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.",
+    "Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.",
+    "Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.",
+    "Frictionless contact; enforcement and pairing depend on backend/formulation.",
+    "Numerical completion is not physical validation or a load rating."
+  ],
+  "warnings": [],
+  "errors": [
+    "Analysis exceeded 300 seconds; worker and solver stopped"
+  ],
+  "provenance": {
+    "backend": "CalculiX",
+    "version": "unknown",
+    "gmsh": "4.15.2",
+    "cadquery": "2.7.0",
+    "python": "3.12.14",
+    "input_sha256": "27fa324cad09c73726ec8d1a1053d55c886a534309422a391283f1785f94801d",
+    "case_sha256": "425df208cd9f0aa92384ad3ffa7d17c9687c6eff6e9d49feeb359d9849258a45",
+    "backend_sha256": {
+      "febio_worker.py": "3a3af762b8b3162190cebd399a1ea1332b0bdbb6b641bc5b80c72c55d940353a",
+      "contact_diagnostics.py": "2f708d98921416d255b35d05dbe09d5009b117b0f3c301d84f0ffbd2956c0b36",
+      "febio.py": "ed73e0cefb609408ca21aa1af8acb4ad9c2ddeda97f006b9971d62febcc4e956",
+      "tet10_strain.py": "0eb4b4a1ec129adab94015e73126a650c3e62a281dae143b645b2c1953c1406a",
+      "polyfem_worker.py": "f3253052d89e88155b2663e7c6ffea6352c012d9bbe96385d1c89f5d67b42c57",
+      "febio_diagnostics.py": "b24d83c8b6dbf04396b2c50d69b9403a73dc2f695a240ef73c84c4e415584255",
+      "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+      "polyfem_output.py": "bd3b6e39db25f1c29e1a486f11c88f1d47980f97f544af6c945e02b98d112226",
+      "mesh.py": "501af3308472be10fd0e97bc99c36c5e0091f1db22b9a3d5ed5f9a41bc757740",
+      "polyfem.py": "c5bc4778b1bb37aa61a6c825de3283712791e1ba2edb7cc086cc6c102314582a",
+      "ipc_benchmarks.py": "22f37fa1c230b8ed22bbdf22dca58de9ac088db3e3128cae0962068390b01a93",
+      "structural.py": "7e8c9efd72d836d50f4d64259c81040cc0c643bc50fc8dd25b4697aed404ccdd",
+      "worker.py": "5b3997af367a1a47f942bb095b6792d6d28f0770d6f56544ca684e37712a5d2c",
+      "polyfem_diagnostics.py": "e2bbad2721f8d8aa91990b99ca78f712f616fe9914d03f5d63ab840091069922"
+    },
+    "command": [
+      "/home/hevar/.local/opt/physical-analysis/usr/bin/ccx",
+      "-i",
+      "analysis"
+    ],
+    "postprocess_only": false,
+    "mesh": {
+      "part": {
+        "nodes": 7771,
+        "elements": 4159,
+        "min_jacobian": 0.012412863250641532
+      },
+      "housing": {
+        "nodes": 19586,
+        "elements": 10783,
+        "min_jacobian": 0.3309989292475578
+      }
+    },
+    "regions": {
+      "root": {
+        "part": "part",
+        "node_count": 130,
+        "displacement_mm": [
+          0,
+          0,
+          0
+        ]
+      },
+      "housing_root": {
+        "part": "housing",
+        "node_count": 1493,
+        "displacement_mm": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "loads": [
+      {
+        "part": "part",
+        "area_mm2": 47.46210054419413,
+        "force_N": [
+          0.0,
+          0.0,
+          30.0
+        ]
+      }
+    ],
+    "contacts": [
+      {
+        "slave": {
+          "face_count": 357,
+          "parts": [
+            "part"
+          ],
+          "part": "part"
+        },
+        "master": {
+          "face_count": 289,
+          "parts": [
+            "housing"
+          ],
+          "part": "housing"
+        },
+        "discretization": "surface_to_surface",
+        "pairing_update": "once_per_increment"
+      }
+    ],
+    "question_interpreter_sha256": "4a9fce2330d2aee4a75fe143c08fa5ea00d2f3a64a671e8f6398d87332c29fe3",
+    "question_study_sha256": "f76031627848a998dda36e757578972f44295d1907722c2ea6e2aea5836a0f44"
+  },
+  "artifacts": {
+    "directory": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/notes/v3_analysis/flat_guide/baseline",
+    "result": "result.json",
+    "case": "case.json",
+    "worker_log": "worker.log"
+  }
+}

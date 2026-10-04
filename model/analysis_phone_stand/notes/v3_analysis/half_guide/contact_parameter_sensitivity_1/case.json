@@ -1,0 +1,219 @@
+{
+  "name": "v3_compliant_lock_guide",
+  "nonlinear": true,
+  "max_increment": 0.25,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "5039f8882f3703aa913853d00679ccc719baa7b3037d31aaf938a0df954060a2",
+      "material": {
+        "name": "conditional_solid_PETG",
+        "youngs_modulus_MPa": 800,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated isotropic short-term PETG assumption; no fatigue, creep or layer-bond qualification",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 1.8
+    },
+    {
+      "name": "housing",
+      "geometry": "part_1.brep",
+      "sha256": "fab9996e8fb53ae38eb710db2e72c4b3b74f0987912c2556253f91dae8ef431d",
+      "material": {
+        "name": "conditional_solid_PETG",
+        "youngs_modulus_MPa": 800,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated isotropic short-term PETG assumption; no fatigue, creep or layer-bond qualification",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 1.8
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            null,
+            28,
+            null
+          ],
+          "upper": [
+            null,
+            28,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            0,
+            null,
+            null
+          ],
+          "upper": [
+            0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        null,
+        null
+      ],
+      "name": "symmetry",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "housing",
+        "region": {
+          "lower": [
+            null,
+            null,
+            8
+          ],
+          "upper": [
+            null,
+            null,
+            8
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "housing_root",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "housing",
+        "region": {
+          "lower": [
+            0,
+            null,
+            null
+          ],
+          "upper": [
+            0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        null,
+        null
+      ],
+      "name": "housing_symmetry",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            0,
+            20,
+            27.0
+          ],
+          "upper": [
+            8,
+            23,
+            27.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        15.0
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "slave": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -14,
+            14,
+            20.5
+          ],
+          "upper": [
+            14,
+            28,
+            22.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "housing",
+        "region": {
+          "lower": [
+            -14.5,
+            14,
+            20.5
+          ],
+          "upper": [
+            14.5,
+            29,
+            23.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 8000,
+      "penetration_limit_mm": 0.02,
+      "discretization": "surface_to_surface"
+    }
+  ],
+  "observations": [],
+  "mesh_reuse": {
+    "input_sha256": "d595abf5b2b5099de45ad46073cd5eacec727e4ae0cc42779d990c9b17d503d5",
+    "case_sha256": "a34163408cde066bfb8d2081b14f71ddfb8f17d8637d60ffd808d16977f22deb",
+    "input": "mesh_source.inp",
+    "case": "mesh_source_case.json",
+    "mesh": {
+      "part": {
+        "nodes": 3072,
+        "elements": 1545,
+        "min_jacobian": 0.01195627646602336
+      },
+      "housing": {
+        "nodes": 7294,
+        "elements": 3855,
+        "min_jacobian": 0.409733516086485
+      }
+    },
+    "automatic": true
+  }
+}

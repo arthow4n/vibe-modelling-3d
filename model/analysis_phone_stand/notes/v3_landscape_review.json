@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/inspect_v3_landscape.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/renders/assembled/v3/inspect_v3_landscape_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0016655979998176917,
+    "build": 5.768740147002973,
+    "selection": 0.0008175650000339374,
+    "validation": 0.20734553600050276,
+    "render_isometric": 1.0030848470050842,
+    "worker": 7.145334871995146,
+    "total": 10.55694536500232
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "6d5935b4520fa477594be02a05e583ad90cf026ced8d5667dd039eb8b41ba55f",
+    "artifact_identity": "91c98bee5c7571e98b3fb565d361cddbd178b0511395d8107324780dee1be30e"
+  }
+}

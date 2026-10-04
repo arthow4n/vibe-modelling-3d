@@ -1,0 +1,108 @@
+{
+  "name": "v3_return_leaf",
+  "nonlinear": true,
+  "max_increment": 0.1,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "32f535d784e97e8d2d74baafa097c49d4aa7a56fb5c3f9cb112bbb6a86ebded6",
+      "material": {
+        "name": "conditional_solid_PETG",
+        "youngs_modulus_MPa": 800,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated isotropic short-term PETG assumption; no fatigue, creep or layer-bond qualification",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 1
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            48,
+            null,
+            null
+          ],
+          "upper": [
+            48,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            12,
+            null,
+            null
+          ],
+          "upper": [
+            12,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        null,
+        -5.0,
+        0
+      ],
+      "name": "press",
+      "progress": [
+        [
+          0,
+          0
+        ],
+        [
+          0.5,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  ],
+  "loads": [],
+  "contacts": [],
+  "observations": [
+    {
+      "name": "end",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            12,
+            null,
+            null
+          ],
+          "upper": [
+            12,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,492 @@
+{
+  "case": "v3_compliant_lock_guide",
+  "status": "completed",
+  "completed": true,
+  "metrics": {
+    "max_displacement_mm": 0.2038919460085231,
+    "max_abs_principal_strain": 0.012741060401722869,
+    "max_strain_part": "part",
+    "max_strain_element": 2486,
+    "max_strain_integration_point": 1,
+    "max_strain_element_centroid_mm": [
+      8.117029815092877,
+      19.64701724466,
+      22.681753264102195
+    ],
+    "max_von_mises_MPa": 10.458661818291526,
+    "max_stress_part": "part",
+    "max_stress_element": 2486,
+    "max_stress_integration_point": 4,
+    "max_stress_element_centroid_mm": [
+      8.117029815092877,
+      19.64701724466,
+      22.681753264102195
+    ],
+    "max_strain_by_part": {
+      "part": 0.012741060401722869,
+      "housing": 0.003443714017324344
+    },
+    "force_balance_residual_N": 4.6285322758536536e-07,
+    "force_balance_relative": 2.726662934663407e-08,
+    "max_force_balance_relative": 6.192791115361977e-06,
+    "peak_reaction_force_N": {
+      "root": 11.886040813325632,
+      "symmetry": 1.780798629199999,
+      "housing_root": 3.2501074692164247,
+      "housing_symmetry": 0.05813356854849025
+    },
+    "observations": {},
+    "peak_motion_force_N": {},
+    "strain_limits": {
+      "part": 0.015,
+      "housing": 0.015
+    },
+    "contact_detected": true,
+    "max_penetration_mm": 0.00134112,
+    "question": {
+      "operation_completed": true,
+      "solver_completed": true,
+      "evidence_method": "numerical",
+      "numerical_evidence_adequate": true,
+      "peak_actuation_force_N": null,
+      "peak_strain": 0.012741060401722869,
+      "peak_strain_location_mm": [
+        8.117029815092877,
+        19.64701724466,
+        22.681753264102195
+      ],
+      "strain_location_kind": "undeformed element centroid of peak integration point",
+      "peak_von_mises_MPa": 10.458661818291526,
+      "peak_stress_location_mm": [
+        8.117029815092877,
+        19.64701724466,
+        22.681753264102195
+      ],
+      "deformation_mm": {},
+      "max_displacement_mm": 0.2038919460085231,
+      "force_balance_ok": true,
+      "max_force_balance_relative": 6.192791115361977e-06,
+      "force_balance_source": "native_summary",
+      "strain_screen_passes": true,
+      "acceptance": {
+        "max_displacement_mm": true
+      },
+      "design_screen_passes": true,
+      "design_screen_scope": "Only the supplied provisional strain and acceptance quantities",
+      "analytical_screen": null,
+      "beam_rationale": null,
+      "analytical_numerical_comparison": null,
+      "manufacturing": {
+        "assumption": "Symmetric half of actual nose, rails and printed housing, both solid PETG. Housing foundation fixed; truncated rail ends fixed. Half of 30 N bounds the worst .3 kg phone plus 2 N normal tap torque at 18 mm radius. Excludes whole hinge, flank wear, desk friction and printed joint play.",
+        "local_solid_paths_established": null
+      },
+      "physical_limits": {
+        "material_calibrated": false,
+        "friction_modelled": false,
+        "printed_recovery_established": false,
+        "physically_validated": false
+      },
+      "numerical_confidence": {
+        "increment_sensitivity": "not_run",
+        "mesh_sensitivity": "stable",
+        "contact_parameter_sensitivity": "stable"
+      },
+      "contact_quality_ok": true,
+      "contact_engaged": true,
+      "contact_expected": true,
+      "penetration_ok": true,
+      "max_penetration_mm": 0.00134112,
+      "contact_scope": "Explicit rigid translations or supported deformable mates; sampled frictionless contact",
+      "mating_part_strain": {
+        "housing": 0.003443714017324344
+      },
+      "mating_part_strain_screens": {
+        "housing": true
+      },
+      "study": {
+        "decision": "Resolve the 1.5% provisional strain and 8 N two-leaf release / .75 mm guide-deflection screens",
+        "relative_tolerance": 0.2,
+        "absolute_tolerances": {},
+        "comparisons": {
+          "mesh_sensitivity_1": {
+            "question.peak_strain": {
+              "previous": 0.012741060401722869,
+              "refined": 0.013440044360819003,
+              "relative_change": 0.052007563392710406,
+              "passes": true
+            },
+            "max_strain_by_part.housing": {
+              "previous": 0.003443714017324344,
+              "refined": 0.0036125531134139745,
+              "relative_change": 0.04673677888989499,
+              "passes": true
+            },
+            "max_displacement_mm": {
+              "previous": 0.2038919460085231,
+              "refined": 0.20623272800456674,
+              "relative_change": 0.011350196541025327,
+              "passes": true
+            }
+          },
+          "contact_parameter_sensitivity_1": {
+            "question.peak_strain": {
+              "previous": 0.012741060401722869,
+              "refined": 0.012735574314323593,
+              "relative_change": 0.000430768747751398,
+              "passes": true
+            },
+            "max_strain_by_part.housing": {
+              "previous": 0.003443714017324344,
+              "refined": 0.003628389054974826,
+              "relative_change": 0.05089725353384505,
+              "passes": true
+            },
+            "max_displacement_mm": {
+              "previous": 0.2038919460085231,
+              "refined": 0.2037775214779513,
+              "relative_change": 0.0005615169413284061,
+              "passes": true
+            }
+          }
+        },
+        "comparison_limits": {},
+        "acceptance_changed": {
+          "mesh_sensitivity_1": false,
+          "contact_parameter_sensitivity_1": false
+        },
+        "runs": {
+          "baseline": {
+            "status": "completed",
+            "case": "v3_compliant_lock_guide",
+            "input_sha256": "9d304cfadcd7f7a61152dbf9382515646ce66ac5f5755e94f4decb1eb8b58dac",
+            "case_sha256": "9d7868e17fc6bb633fc840d5009574d9e1a2a7c1c0737a23e390dd50c084066d",
+            "backend_identity_sha256": "6106424a6fc8160441899209a02776ca648419d9623497159499973ed2f48dee",
+            "versions": {
+              "backend": "CalculiX",
+              "version": "unknown",
+              "gmsh": "4.15.2",
+              "cadquery": "2.7.0",
+              "python": "3.12.14"
+            },
+            "requested_travel_per_increment_mm": {}
+          },
+          "mesh_sensitivity_1": {
+            "status": "completed",
+            "case": "v3_compliant_lock_guide",
+            "input_sha256": "5ef4cb68561cb1447ffe8e80300d06eafe6d80d84946b103638a1183f1c45cf6",
+            "case_sha256": "6871d75ca0a9edb69ab1f8475641cfd671e141524106de2c9194cea745b42118",
+            "backend_identity_sha256": "6106424a6fc8160441899209a02776ca648419d9623497159499973ed2f48dee",
+            "versions": {
+              "backend": "CalculiX",
+              "version": "unknown",
+              "gmsh": "4.15.2",
+              "cadquery": "2.7.0",
+              "python": "3.12.14"
+            },
+            "requested_travel_per_increment_mm": {}
+          },
+          "contact_parameter_sensitivity_1": {
+            "status": "completed",
+            "case": "v3_compliant_lock_guide",
+            "input_sha256": "f0414e9e1d8ad4d167273d0f57eabedc87038cb726c24af6863e052df512cfb7",
+            "case_sha256": "6630fc6334c77157721ef0e3c244823a259030f85ff376c9e41b722d4da55e2b",
+            "backend_identity_sha256": "6106424a6fc8160441899209a02776ca648419d9623497159499973ed2f48dee",
+            "versions": {
+              "backend": "CalculiX",
+              "version": "unknown",
+              "gmsh": "4.15.2",
+              "cadquery": "2.7.0",
+              "python": "3.12.14"
+            },
+            "requested_travel_per_increment_mm": {}
+          }
+        },
+        "stopping_reason": {
+          "mesh_sensitivity": "Selected quantities within decision tolerance",
+          "contact_parameter_sensitivity": "Selected quantities within decision tolerance"
+        }
+      },
+      "selected_metrics_stable": true,
+      "baseline_quality_adequate": true
+    }
+  },
+  "history": [
+    {
+      "load_fraction": 0.25,
+      "max_displacement_mm": 0.08056990342956599,
+      "force_balance_residual_N": 2.631013811166881e-05,
+      "force_balance_relative": 6.192791115361977e-06,
+      "max_abs_principal_strain": 0.003306359966672021,
+      "reactions_N": {
+        "root": [
+          0.4692401008999998,
+          5.715000003514437e-07,
+          -3.749999960000001
+        ],
+        "symmetry": [
+          -0.46926640479999954,
+          0.0,
+          0.0
+        ],
+        "housing_root": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "housing_symmetry": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "observations": {},
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.5,
+      "max_displacement_mm": 0.14684784774512052,
+      "force_balance_residual_N": 8.64762890557522e-07,
+      "force_balance_relative": 1.016738849323099e-07,
+      "max_abs_principal_strain": 0.0065805985231414624,
+      "reactions_N": {
+        "root": [
+          0.9398051489000001,
+          -7.567000003261271e-07,
+          -7.2560190071999955
+        ],
+        "symmetry": [
+          -0.93980556008,
+          0.0,
+          0.0
+        ],
+        "housing_root": [
+          0.00556856719085406,
+          -3.876829010975632e-09,
+          -0.24398102571709224
+        ],
+        "housing_symmetry": [
+          -0.004782486276665003,
+          0.0,
+          0.0
+        ]
+      },
+      "observations": {},
+      "motion_force_N": {},
+      "contact_points": 22,
+      "max_contact_pressure_MPa": 4.591817,
+      "max_penetration_mm": 0.001147954
+    },
+    {
+      "load_fraction": 0.75,
+      "max_displacement_mm": 0.16012156601038754,
+      "force_balance_residual_N": 2.143813814608109e-06,
+      "force_balance_relative": 1.6814169464846614e-07,
+      "max_abs_principal_strain": 0.00968883243577838,
+      "reactions_N": {
+        "root": [
+          1.3762202462000002,
+          0.0018329379999985074,
+          -9.654310421999998
+        ],
+        "symmetry": [
+          -1.3747381724699983,
+          0.0,
+          0.0
+        ],
+        "housing_root": [
+          0.03092558742629961,
+          -0.001835077280430199,
+          -1.5956894558571895
+        ],
+        "housing_symmetry": [
+          -0.027407270446930004,
+          0.0,
+          0.0
+        ]
+      },
+      "observations": {},
+      "motion_force_N": {},
+      "contact_points": 231,
+      "max_contact_pressure_MPa": 3.823878,
+      "max_penetration_mm": 0.0009559695
+    },
+    {
+      "load_fraction": 1.0,
+      "max_displacement_mm": 0.2038919460085231,
+      "force_balance_residual_N": 4.6285322758536536e-07,
+      "force_balance_relative": 2.726662934663407e-08,
+      "max_abs_principal_strain": 0.012741060401722869,
+      "reactions_N": {
+        "root": [
+          1.790257838,
+          0.010293252000002417,
+          -11.750439869999996
+        ],
+        "symmetry": [
+          -1.780798629199999,
+          0.0,
+          0.0
+        ],
+        "housing_root": [
+          0.05873809146889965,
+          -0.010293560998029267,
+          -3.249560345749708
+        ],
+        "housing_symmetry": [
+          -0.05813356854849025,
+          0.0,
+          0.0
+        ]
+      },
+      "observations": {},
+      "motion_force_N": {},
+      "contact_points": 447,
+      "max_contact_pressure_MPa": 5.364478,
+      "max_penetration_mm": 0.00134112
+    }
+  ],
+  "assumptions": [
+    "Units mm, N, MPa. Isotropic homogeneous linear-elastic material; geometric nonlinearity=True",
+    "No printed infill/layer failure, plastic set, creep, fatigue, or friction prediction.",
+    "Strain is maximum absolute principal mechanical strain at integration points, over all saved increments.",
+    "Frictionless contact. Surface-to-surface penalty pairing and Mortar segmentation are fixed within each increment; node-to-surface penalty re-pairs through iteration eight then freezes. Mortar contact-field extraction is unqualified. Completion alone does not prove engagement.",
+    "Loads ramp over normalized time 0..1; translations follow their recorded progress curves or a linear ramp.",
+    "Peak values are sampled at converged increments, not continuous extrema."
+  ],
+  "warnings": [],
+  "errors": [],
+  "provenance": {
+    "backend": "CalculiX",
+    "version": "unknown",
+    "gmsh": "4.15.2",
+    "cadquery": "2.7.0",
+    "python": "3.12.14",
+    "input_sha256": "9d304cfadcd7f7a61152dbf9382515646ce66ac5f5755e94f4decb1eb8b58dac",
+    "case_sha256": "9d7868e17fc6bb633fc840d5009574d9e1a2a7c1c0737a23e390dd50c084066d",
+    "backend_sha256": {
+      "febio_worker.py": "3a3af762b8b3162190cebd399a1ea1332b0bdbb6b641bc5b80c72c55d940353a",
+      "contact_diagnostics.py": "2f708d98921416d255b35d05dbe09d5009b117b0f3c301d84f0ffbd2956c0b36",
+      "febio.py": "ed73e0cefb609408ca21aa1af8acb4ad9c2ddeda97f006b9971d62febcc4e956",
+      "tet10_strain.py": "0eb4b4a1ec129adab94015e73126a650c3e62a281dae143b645b2c1953c1406a",
+      "polyfem_worker.py": "f3253052d89e88155b2663e7c6ffea6352c012d9bbe96385d1c89f5d67b42c57",
+      "febio_diagnostics.py": "b24d83c8b6dbf04396b2c50d69b9403a73dc2f695a240ef73c84c4e415584255",
+      "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+      "polyfem_output.py": "bd3b6e39db25f1c29e1a486f11c88f1d47980f97f544af6c945e02b98d112226",
+      "mesh.py": "501af3308472be10fd0e97bc99c36c5e0091f1db22b9a3d5ed5f9a41bc757740",
+      "polyfem.py": "c5bc4778b1bb37aa61a6c825de3283712791e1ba2edb7cc086cc6c102314582a",
+      "ipc_benchmarks.py": "22f37fa1c230b8ed22bbdf22dca58de9ac088db3e3128cae0962068390b01a93",
+      "structural.py": "7e8c9efd72d836d50f4d64259c81040cc0c643bc50fc8dd25b4697aed404ccdd",
+      "worker.py": "5b3997af367a1a47f942bb095b6792d6d28f0770d6f56544ca684e37712a5d2c",
+      "polyfem_diagnostics.py": "e2bbad2721f8d8aa91990b99ca78f712f616fe9914d03f5d63ab840091069922"
+    },
+    "command": [
+      "/home/hevar/.local/opt/physical-analysis/usr/bin/ccx",
+      "-i",
+      "analysis"
+    ],
+    "postprocess_only": false,
+    "mesh": {
+      "part": {
+        "nodes": 3289,
+        "elements": 1685,
+        "min_jacobian": 0.013977112011751308
+      },
+      "housing": {
+        "nodes": 7001,
+        "elements": 3637,
+        "min_jacobian": 0.409733516086485
+      }
+    },
+    "regions": {
+      "root": {
+        "part": "part",
+        "node_count": 65,
+        "displacement_mm": [
+          0,
+          0,
+          0
+        ]
+      },
+      "symmetry": {
+        "part": "part",
+        "node_count": 238,
+        "displacement_mm": [
+          0,
+          null,
+          null
+        ]
+      },
+      "housing_root": {
+        "part": "housing",
+        "node_count": 587,
+        "displacement_mm": [
+          0,
+          0,
+          0
+        ]
+      },
+      "housing_symmetry": {
+        "part": "housing",
+        "node_count": 262,
+        "displacement_mm": [
+          0,
+          null,
+          null
+        ]
+      }
+    },
+    "loads": [
+      {
+        "part": "part",
+        "area_mm2": 15.73,
+        "force_N": [
+          0.0,
+          0.0,
+          15.0
+        ]
+      }
+    ],
+    "contacts": [
+      {
+        "slave": {
+          "face_count": 151,
+          "parts": [
+            "part"
+          ],
+          "part": "part"
+        },
+        "master": {
+          "face_count": 93,
+          "parts": [
+            "housing"
+          ],
+          "part": "housing"
+        },
+        "discretization": "surface_to_surface",
+        "pairing_update": "once_per_increment"
+      }
+    ],
+    "execution_resources": {
+      "peak_tree_rss_bytes": 249704448,
+      "sampled_tree_cpu_seconds": 52.459999999999994,
+      "measurement": "sampled process tree",
+      "elapsed_seconds": 64.6638119240015
+    },
+    "question_interpreter_sha256": "4a9fce2330d2aee4a75fe143c08fa5ea00d2f3a64a671e8f6398d87332c29fe3",
+    "question_study_sha256": "f76031627848a998dda36e757578972f44295d1907722c2ea6e2aea5836a0f44"
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "analysis.inp",
+    "solver_log": "solver.log",
+    "raw_results": "analysis.dat",
+    "increments": "analysis.sta",
+    "regions": "regions.json",
+    "directory": "/home/hevar/git/vibe-modelling-3d/model/analysis_phone_stand/notes/v3_analysis/rounded_guide/baseline",
+    "result": "result.json",
+    "worker_log": "worker.log"
+  }
+}

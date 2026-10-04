@@ -1,341 +1,228 @@
-# Raised open-easel phone stand, revision 2
+# Compact fully printed phone stand — revision 3
 
-The current revision implements the user's selected raised open easel, with a
-Pixel 7 Pro in its case as the reference and editable generic phone dimensions.
-Revision 2 is **rejected before printing**: the user finds it too bulky and
-does not want to print it because it occupies too much horizontal desk space,
-including the large rear structure and forward-projecting feet. Its files and
-analysis are retained as development evidence, not a recommended print. The old
-exposed-gear stand was also rejected before printing; its
-[discussion and evidence](HISTORY.md) remain historical.
+Revision 3 implements compact proposal A: a rounded pedestal, open fork cradle
+and concealed positive angle lock. It uses **four printed core parts and one
+pin insertion**, with optional printed TPU feet. It is a full-size prototype;
+printed fit, return, tapping feel and long-term PETG behaviour remain untested.
+V1 and V2 remain rejected before printing.
 
-The user authorized autonomous implementation after selecting proposal 1 on
-2026-10-04. The architecture review used the complete phone/stand relationship:
-raised charging access, broad rear accessory space, positive angle support,
-two-handed adjustment and stability. The rear frame and paired prop supply
-support outside the ring pocket. A separate keeper prevents the prop lifting
-out; springs return the keeper, while solid seats carry ordinary compression.
-There is no friction-tightened angle adjustment.
+The reference phone is a Pixel 7 Pro in a bulky case, with **13 mm** total
+thickness. The editable checking envelope is 85 × 170 mm and 0.30 kg; width,
+height and mass were conservative assumptions rather than user measurements.
+The geometry supports other phones through edge contacts and broad open space,
+without a fitted camera or ring recess. Recheck changed phone/accessory envelopes.
+
+## Files and operation
+
+- [STEP print layout](phone_stand_v3.step) and matching [STL](phone_stand_v3.stl).
+  [Entry point](phone_stand_v3.py) and [parametric components](v3_components.py)
+  are authoritative. Preserve the supplied four-part arrangement in Orca.
+- [Portrait view](renders/assembled/v3/inspect_v3_isometric.png),
+  [side view](renders/assembled/v3/inspect_v3_right.png) and
+  [landscape/accessory view](renders/assembled/v3/inspect_v3_landscape_isometric.png).
+- [Editable adjustment SVG](renders/concepts/v3_adjustment.svg)
+  ([PNG](renders/concepts/v3_adjustment.png)). Reproduce it with
+  `./execute.py model/analysis_phone_stand/draw_v3_mechanism.py`.
+- [Optional TPU feet STEP](phone_stand_v3_feet.step) and [STL](phone_stand_v3_feet.stl).
+  Their PETG diagnostic slice does **not** qualify a TPU profile or pad friction.
+
+The base occupies **105 × 140 mm**, with a 10 mm solid lower plate. The pin ends
+increase assembled width to about 113 mm. The three angles are **45°, 60° and
+75°** from horizontal. They replace the earlier illustrative angle targets;
+15° spacing leaves material between the hidden pockets.
+
+To assemble, remove supports and clean contact surfaces, slide the slider/root
+pads into the base from the rear, place the cradle in the hood, then insert the
+printed pin through the base, both roots, the moving rail slots and cradle. The
+same pin limits slider travel; the head and split tail capture it. Do not force
+a binding fit. For removal, squeeze the split tail and
+withdraw the pin. No stock screw, nut, ballast or glue is needed.
+
+To adjust, support the phone/cradle with one hand, press the rear button forward
+to its **3 mm stop**, tilt, then release into a pocket. Confirm full engagement
+before removing support. Pocket faces bear the angle load; the folded springs
+only return the slider. Adjustment under the phone's full torque can bind the
+dog against its pocket; supporting the phone unloads that contact.
+
+## Agreement and architecture decisions
+
+The user authorized autonomous implementation of compact A with fully printed
+parts and minimal assembly. PETG, a 0.4 mm nozzle and 0.2 mm layers remain the
+basis. Full-size phone loads govern; scaled copies can explore a mechanism but
+cannot qualify full-size load, gap, spring or fit behaviour.
+
+Four separate parts permit useful print orientations, accessible mating surfaces
+and support removal. Print-in-place construction would introduce floating
+bearing surfaces and orientation conflicts. A single pin also captures both
+spring roots, avoiding separate root fasteners. The low enclosure hides the
+index pockets. The open fork reserves accessory space behind the phone.
+
+A fixed stand would omit the requested angles; reseatable proposal C changes the
+selected press-and-tilt interaction. The footprint stays at proposal A's target.
+The later stiffness changes add material behind the fork rather than longer feet.
+This continues the physical-analysis exercise while aiming at a useful product;
+local CAD or numerical passes do not establish product acceptance.
+
+## Fit, cable and ring space
+
+The cradle accommodates portrait and landscape. Split lower ledges leave a
+central cable opening. Nominal CAD checks reserve a **20 mm wide plug envelope
+extending 30 mm below the phone**, including 18 mm in the screen-normal direction.
+The phone bottom is about 63–74 mm above the bare base plane across the angles.
+The user's actual connector and bend radius are unknown: test the real cable.
+
+The rear ring reserve is **33 mm deep**, allowing for the reported 30 mm hanging
+ring and approximately 2 mm mounting base with a small margin. The portrait
+reserve spans 60 mm across and 115 mm vertically; the landscape reserve spans
+170 mm across and 50 mm vertically. This is broad accessory space, not a
+ring-specific fitted aperture. Outboard pads sit outside or above those envelopes.
+The reported camera-case projection is not a calibrated universal camera envelope.
+The Pixel reference's camera region lies beyond these support pads; check future
+phones rather than assuming their cameras fit the same contacts.
+
+The pivot bore is 8.3 mm for an 8 mm pin (0.3 mm diametral allowance). Pocket
+flank clearance is 0.12 mm total; the guide's nominal vertical allowance is
+0.1 mm. These have different jobs: insertion/rotation, angular play and guided
+bearing. They are unprinted interface assumptions, not measured tolerances.
+Gravity seats one flank; reversal can expose joint clearance. A tight, tap-resistant
+feel still needs the first physical test.
+
+## Print setup and remaining physical checks
+
+Use PETG, 0.4 mm nozzle, 0.2 mm layers, **four walls and 100% infill** for the
+core. The solid base provides mass for the compact tipping screen, while the
+mechanism/structure use a conditional solid-material analysis. The user's usual
+2-wall/7% setup would change both assumptions. Solid toolpaths do not establish
+isotropic PETG properties or layer bonding. The retained process profile uses
+Generic PETG temperatures/flow; apply the actual spool's qualified settings.
+The reference slice estimates **436 g including supports and 11 hours**. The
+solid CAD mass used in statics is 373 g. This remains a substantial print despite
+the smaller footprint; lowering infill invalidates that mass/stiffness screen.
+
+The base prints upright, cradle on its side, slider flat in XY and pin on its
+flat lower surface. The side orientation gives the fork a continuous cross-section
+through the supports and prints the cradle bore vertically. The slider's narrow
+folded springs bend in the layer plane. The pin's long split tail provides
+assembly compliance; its main pivot section stays solid.
+
+Supports are generated on the core layout. Review their placement and clear the
+rotor cavity, guide/root channels and outboard cradle pads before assembly.
+The [selected-layer support review](notes/v3_support_review.png) identifies
+guide/root-channel interfaces and supports beneath the projecting cradle pads.
+They have open rear/side removal routes before assembly; the pin bores are
+accessible from their ends. Small guide ceilings, horizontal base bores and pad
+starts need careful cleanup; actual PETG removal quality remains unprinted.
+Do not leave material in the
+moving channels. Optional TPU feet print pad-down and press into four underside
+recesses; actual retention and desk grip are unqualified.
+
+For a first full-size trial, check dry assembly, pin capture, full button stroke
+and spring return before loading the phone. Then test all angles, portrait and
+landscape, the hanging ring, cable insertion and ordinary tapping. Stop if the
+lock does not seat fully, if a spring takes a permanent set, or if the stand slips.
+Desk friction, print tolerances, wobble, wear, sustained-load creep and warm-room
+behaviour require observation. No miniature qualifies those full-size behaviours.
+
+## Analysis and verification
+
+[Geometric and static checks](check_v3.py) cover component interference, sampled
+rotation/release/insertion, bidirectional angle capture, pin capture, cable and
+ring envelopes, and full-product pressure centres. The solid PETG density
+assumption is 1.27 g/cm³; geometry mass is used specifically for tipping.
+
+The provisional service screen combines a **2 N upper-screen press with 0.5 N
+sideways force**, and separately a light **0.5 N outward disturbance**. An
+additional **2 N outward pull is a diagnostic case and can tip this compact
+stand**. It is not promoted into a passing service result. These loads are
+chosen screens, not measured user forces. Desk sliding depends on actual feet
+and friction, which this static calculation does not establish.
+
+[Engineering fixtures](analyze_v3.py) use `FlexureQuestion`, `ContactQuestion`
+and `StructuralQuestion`; planned refinements use `QuestionStudy`. All numerical
+material screens assume uncalibrated isotropic E = 800 MPa, ν = 0.38 and a
+provisional 1.5% strain limit. These are conditional short-term screens, not
+printed strength, fatigue, creep or physical return qualifications.
+
+The new shared API permits **supported deformable mating bodies**. The printed
+housing can share strain and load with the lock nose instead of being fixed as
+an undeformable obstacle. Explicit supports, loads/materials and per-body strain
+screens reuse the existing multipart backend. Rigid-mate identities remain intact.
+The first fixture directed reinforcement to the nose rather than the housing;
+that is a concrete design consequence. An independent equal-cantilever benchmark
+qualifies load sharing, equilibrium, penetration and retained identity. The API
+still excludes free rotating joints, friction and screw/thread preload.
+
+The original thin fork exceeded its 1 mm deflection screen under the chosen
+phone/tap load. Its bridge, neck and side rails were deepened behind the open
+accessory space, and the contact standoffs thickened. The earlier geometry is
+retained as failed development evidence. A broad spring attachment avoids an
+artificial narrow-tip fixture, and the release stop limits actuation strain.
+Pocket depth was reduced to 2 mm while retaining positive engagement and wider
+material between pockets.
+
+Final outcomes, with input identities in the linked native records:
+
+| Question | Result | Qualification limit |
+| --- | --- | --- |
+| Rigid fit, assembly and sampled movement | [CAD checks](notes/v3_checks.json) pass at all three angles, including portrait/landscape accessory reserves and pin/slot capture. | Nominal geometry; printed play and binding unknown. |
+| Compact-footprint tipping | Minimum service pressure-centre margin **18.2 mm**, conditional on 373 g solid stand mass. Required friction reaches about 0.28 in the selected tap cases. | A 2 N outward diagnostic pull tips some poses; desk friction unmeasured. |
+| Guided 3 mm release | [Study](notes/v3_analysis/guided_release/study_result.json): peak strain **0.58%**, two-leaf reaction-norm bound **0.28 N**; motion-increment comparison stable. | Mesh refinement not qualified. Contact friction, root play, fatigue and physical recovery excluded. |
+| Lock nose and deformable housing | [Study](notes/v3_analysis/current_guide/study_result.json): baseline strains **1.16% / 0.35%**, maximum displacement **0.204 mm**; refined nose strain **1.34%**. Mesh and penalty comparisons meet the specified 20% tolerance. | Idealized rail/housing restraints, frictionless contact; all are below the provisional 1.5% strain screen. |
+| Full cradle | [Native result](notes/v3_analysis/stiff_cradle/result.json): maximum deflection **0.904 mm**, peak strain **0.189%**. | Fixed pivot neighbourhood, one baseline; excludes hinge play and rotor-pocket compliance. |
+| Final exports and slice | [Core](notes/v3_final_review.json): valid CAD, paired STEP/STL, completed Orca 2.4.2 slice on Qidi profile. Support signal reviewed above. [Feet](notes/v3_feet_diagnostic_review.json): exports and support-free diagnostic slice. | Feet slice uses PETG, not TPU qualification. Separate GUI STEP import was not checked. |
+| Solid-section assumptions | [Actual toolpath sections](notes/v3_solid_sections.json): sampled leaves, nose, guide, cradle standoff and ledge are filled to within 0.007 mm in the width-based path screen. | Local paths support the solid approximation, not isotropic material properties. |
+
+The earlier pocket-web solve used a 3 mm pocket depth, so it does not qualify
+the final 2 mm depth. A simple 30 N / (16 × 2 mm) nominal flank-bearing screen
+gives 0.94 MPa; an idealized 2 mm long, 16 mm wide web with a conservative 2 mm
+thickness gives about 0.70% strain at E = 800 MPa. These omit edge concentration and
+nonuniform engagement. Pocket wear, printed pin retention and full joint load
+sharing remain physical checks, not completed assembly FEA.
+
+Shared API verification: **46 tests passed** across engineering questions and
+physical analysis; both new deformable-mate fixtures also passed a subsequent
+targeted rerun. Current release, guide and cradle records were read through their
+question identity guards. Failed development screens, interrupted runs and
+timeouts remain distinct from this evidence. Compact archives exclude large
+raw fields; full native working directories remain locally under
+`notes/.execution/v3_analysis_raw/` for the requested investigation.
+
+## Timeout investigation requested by the user
+
+On 2026-10-04 the user requested a follow-up investigation after the modelling
+work: timeouts should be diagnosed and prevented where practical, rather than
+accepted as the normal analysis workflow. Keep the retained run/input identities.
+Status at the modelling handoff: **recorded, pending investigation**. The
+investigation must distinguish mesh compilation errors, native nonlinear
+iteration cost, matrix/mesh growth, resource/admission wait, extraction cost,
+and explicit cancellations. Relevant cases include `release`, `release_leaf`,
+`folded_release`, `folded_release_resolved`, `working_leaf`, `reinforced_guide`,
+`flat_guide` and the pocket/cradle mesh refinements under `notes/v3_analysis/`.
+Failed design strain/deflection screens are a different category from timeouts.
+Do not loosen equilibrium, penetration or design limits to make a run appear
+successful. Diagnose from the saved logs and automatic execution records, then
+qualify any justified solver, fixture or execution improvement separately from
+product acceptance.
 
 ## Rejection before printing and footprint explanation
 
-The user reviewed the implementation and rejects its size. No physical print,
-material failure, fit failure or measured tapping response was reported. Earlier
-CAD, slice and local numerical checks establish their specific geometry/process
-and fixture outcomes; they do not establish a useful desktop product. The
-previous complete-prototype print recommendation is withdrawn.
+V1's exposed gear/form and V2's 224 × 246 mm desk footprint were rejected before
+printing. Neither rejection establishes a material or print-process failure.
+The full [V2 rejection, evidence and proposals](HISTORY_V2.md) and
+[V1 history](HISTORY.md) remain available. Revision 3 supersedes their print
+recommendations; historical exports and evidence remain deliberately retained.
 
-The source chooses a roughly **224 mm wide × 246 mm deep** base. The central
-rails are 130 mm across; the rear spring mounts spread to ±112 mm because the
-keeper uses long transverse flexures. Rear root position 196 mm, rear guide
-position 178 mm and the 120 mm prop package lengthen the rear structure. The
-front rail end at Y = −35 mm lies 77 mm ahead of the front pivot at Y = 42 mm.
-That forward extension was a chosen support/cable-bay arrangement, not a
-calculated minimum for the specified taps.
-
-The static screen tested this chosen footprint with a provisional 0.30 kg phone,
-2 N normal upper-screen tap and 0.5 N sideways component, ignoring stand mass.
-It found pressure centres inside the selected support rectangle. It did not
-optimize the footprint, compare compact architectures, or establish that these
-width/depth/front-extension dimensions are necessary. The tap screen covers its
-specified loading directions; it is not a universal stability requirement.
-Ring and charging clearance informed the raised cradle, but they do not prove
-that the complete base must be this large.
-
-The design gave stability margins and low-strain release flexures too much
-priority relative to desk footprint. Acceptance of the raised-easel proposal
-and permission to extend rear support did not establish acceptance of this final
-size. A replacement should revisit the whole support/adjustment architecture
-and show its actual desk footprint before detailed mechanism investment. The
-Pixel 7 Pro reference, generic case/ring/cable accommodation, hand adjustment,
-ordinary-use stability and physical-analysis exercise remain requirements;
-the rejected keeper and base dimensions are not requirements. No replacement
-geometry is implemented as part of this feedback record.
-
-## Compact replacement discussion — silhouettes only
-
-The latest discussion reconsiders V1's overall visual direction after rejecting
-V2's exposed mechanisms and footprint. This is interest in a revised compact
-form, not acceptance of V1's existing CAD or evidence that either revision works.
-The new requirements still apply: generic Pixel 7 Pro/case fit, portrait/landscape,
-broad ring clearance, generous portrait cable space, a few firm viewing angles,
-hand adjustment without loosening screws, and meaningful physical analysis.
-
-[Editable SVG comparison](renders/concepts/compact_revision_directions.svg)
-([PNG preview](renders/concepts/compact_revision_directions.png)) shows three
-candidate forms at a common side-view scale and their target desk footprints
-against V1's 80 × 125 mm and V2's 224 × 246 mm bases. These are proposals, not
-approved dimensions or printable geometry. The old SVGs remain superseded
-appearance/operating records for the rejected products.
-
-| Direction | Target base W × D | Architecture and hand adjustment | Main decision or risk |
-| --- | --- | --- | --- |
-| A — hooded pedestal | 105 × 140 mm | V1-like single rising support, open fork cradle and low enclosure around a positive angle lock. Support phone, press base release, tilt and let the lock reseat. | Closest visual continuation of V1. Enclosing an indexed lock does not remove its torque, play, tool-access and release-force requirements. No lock geometry is qualified yet. |
-| B — compact side pivots | 115 × 135 mm | Short side pods and an open centre. Support phone and release coordinated side locks to tilt. Stock short pivot screws can be considered; no desk adjustment by tightening screws. | Shorter support paths and outboard mechanisms, at the cost of a wider silhouette and paired-lock coordination. |
-| C — reseatable cradle | 105 × 145 mm | Open fork carrier plugs into one of three keyed angled seats in a smooth low wedge. Release a small lift-retaining clip, lift the carrier, then insert it into another seat. Seats bear use loads. | Avoids a permanent rotary lock, but adjustment requires lifting/reseating. Removing the phone first may be the comfortable procedure; this is not yet agreed. |
-
-The silhouettes share an 85 × 170 × 13 mm phone assumption, 65° displayed angle,
-55 mm illustrative underside clearance and open edge-supported cradle. The
-amber side projection reserves 33 mm rear accessory depth; green contact arms
-crossing that projection represent outboard contacts, not a central backplate.
-Their real lateral positions and the landscape accessory sweep still need
-checking. The illustration's 55 mm height is not an established connector/bend
-clearance, and the actual phone bottom would move with a real pivot.
-
-A [rough rear-tipping screen](notes/compact_proposal_screen.json) shows the
-compactness tradeoff rather than claiming the target footprints stable. For a
-0.30 kg phone, the earlier provisional 2 N normal upper tap, constant illustrated
-phone location, stand CG at mid-depth, pads 8 mm inward and a chosen 5 mm rear
-margin, assumed stand mass would need roughly **185 g for A, 230 g for B and
-150 g for C** across the selected angles/orientations. These are conditional
-mass targets, not predicted print weights or universal minimum masses. No actual
-stand mass/CG, opposite tap directions, sideways stability, desk friction or
-lock strength is established. Lower phone height, a different pivot/load layout,
-more depth or extra base weight could change the result. No purchase of ballast,
-solid-base process or reduction in required tap resistance has been agreed.
-The 2 N assumption itself is not a measured user requirement.
-
-A is the preferred starting direction for discussing the user's return toward
-V1's form; C is the simpler mechanical alternative if lift-and-reseat adjustment
-is acceptable. B trades the central pedestal for side pods. Selection remains
-open. Concealing V1's gear alone is inadequate: its solid backing and central
-arm must also be changed to preserve the new broad rear clearance.
-
-All options can exercise local structural stiffness, seated contact and
-retention/release with existing `StructuralQuestion`, `ContactQuestion`,
-`FlexureQuestion`/`SnapFitQuestion` and `QuestionStudy` where the actual fixture
-fits those contracts. A/B add pivot-region and lock-load questions; C emphasizes
-keyed-seat engagement, clearance, bearing and lift retention. Whole free-joint
-assembly response, real thread preload, friction, creep and fatigue remain
-outside those qualified fixtures. No new API is justified by a silhouette alone;
-concrete gaps should be implemented when a selected product exposes them.
-
-This phase delivers SVG/PNG proposals only. No replacement CAD, exports, slice,
-physical trial or approval of a new mechanism is claimed. Existing rejected
-sources, exports and native analysis stay historical. The drawing and rough
-screen are reproduced by `./execute.py model/analysis_phone_stand/draw_compact_proposals.py`.
-
-## Historical print files and setup
-
-| Plate | Authoritative entry point | Primary export | Secondary export | Process |
-| --- | --- | --- | --- | --- |
-| Base | [phone_stand_v2_base.py](phone_stand_v2_base.py) | [STEP](phone_stand_v2_base.step) | [STL](phone_stand_v2_base.stl) | PETG, 0.4 mm nozzle, 0.2 mm layers, 2 walls, 7% adaptive cubic |
-| Cradle, paired prop, keeper, two guide caps | [phone_stand_v2_mechanism.py](phone_stand_v2_mechanism.py) | [STEP](phone_stand_v2_mechanism.step) | [STL](phone_stand_v2_mechanism.stl) | PETG, 0.4 mm nozzle, 0.2 mm layers, 4 walls, 100% rectilinear |
-| Four optional grip feet | [phone_stand_v2_feet.py](phone_stand_v2_feet.py) | [STEP](phone_stand_v2_feet.step) | [STL](phone_stand_v2_feet.stl) | TPU, calibrated filament preset, 0.4 mm nozzle / 0.2 mm layers, solid |
-
-Use the delivered orientations and relative placement. Base rails face the bed;
-cradle rear plane, prop's flat arm backs and keeper underside face the bed.
-Guide caps and feet lie flat. The keeper's 1.2 mm springs bend in the XY plane.
-The separate solid plate supports the homogeneous-solid analysis idealization;
-it does not establish isotropic PETG properties or layer bonding. The ordinary
-base retains the user's economical settings.
-
-The provided [base process](notes/v2_base_process.json) and
-[solid mechanism process](notes/v2_solid_process.json) enable removable automatic
-normal supports. Review beneath the keeper roofs, projecting retaining lips,
-round prop bar and horizontal nut/pin recesses. These regions are accessible;
-remove support carefully from the keeper's retaining undersides and pin holes.
-The rear nut counterbores are open for insertion and tools; crossbars sit
-above the pivot axes to leave the axial driver approaches clear. The base is roughly
-224 × 246 mm: its wider rear spring mounts buy a longer, lower-strain release
-spring, and its depth resists taps on the raised phone. Each plate fits the
-planned 270 × 270 × 256 mm envelope with likely print aids; actual slice evidence
-is reported below. Use your calibrated filament temperatures and speeds.
-
-The feet are compliant press-in parts, with 0.1 mm interference per neck side
-and a shallow locating/capture recess. Stand weight bears on their broad pads.
-Print these in TPU, not rigid PETG. No calibrated TPU profile is present here;
-their PETG diagnostic slice checks geometry/path generation only. TPU-specific
-flow, temperature, speed, insertion and desk grip remain unqualified. Omit them
-only if the bare base grips the actual table adequately.
-
-## Assembly and adjustment
-
-Hardware comes entirely from the user's Jula assortment. Use an 8 mm nut
-driver or spanner for the M5 nuts, 5.5 mm for the M3 nuts, and a driver matching
-the supplied screw heads:
-
-- Four M5 × 30 mm screws and eight plain M5 nuts: two lower pivots and two
-  prop-to-cradle pivots, each with one captive nut and one inner jam nut.
-- Two M3 × 10 mm screws and two M3 nuts for the keeper's spring roots.
-- Two M3 × 12 mm screws and two M3 nuts for the printed guide caps.
-
-1. Clear support from recesses, holes and retaining faces. Insert the four M3
-   nuts into the underside base recesses; they sit above the table surface.
-2. Lay the keeper on the base with the button at the rear. Tighten its two M3 ×
-   10 mm root screws. Fit the two printed caps over the guide posts using M3 ×
-   12 mm screws. Tighten against the posts, which preserve 0.3 mm slider headroom;
-   the screws must not clamp the moving keeper.
-3. Insert the first M5 nuts into the cradle's inner hex pockets. Install the
-   cradle in the front cheeks and the paired prop at its upper pivots using
-   M5 × 30 mm screws from outside. Leave each pivot free to rotate with small
-   axial play; do not tighten until the printed cheeks grip the cradle. Hold
-   the screw while tightening the second inner nut against the first to lock
-   the thread setting. Verify rotation again. Nominal hole diameter is 5.4 mm,
-   axial gap 0.25 mm, and minimum nominal thread projection beyond both nuts
-   is 3.85 mm. CAD checks include a 12.5 mm outside-diameter nut driver
-   approaching each inner jam nut; verify your actual driver and hardware fit.
-4. Press the four TPU feet into the underside pockets. Confirm each broad pad
-   seats against the base and does not rock.
-5. Support the cradle, press the rear button toward the phone and seat the common
-   prop bar into a pair of V seats. Release the button; check that both ends are
-   seated and the central keeper roof blocks lifting.
-
-The three screen angles are **50°, 65° and 75° above the table**.
-[This operating drawing](renders/concepts/v2_adjustment.svg)
-([PNG](renders/concepts/v2_adjustment.png)) shows the interaction. Use one hand
-to support the cradle. With the other, press the rear button approximately
-7 mm forward, lift the rear bar clear of the catches, reposition, lower into
-the new pair of seats and let go. Screws stay assembled during adjustment.
-Removing the phone first is the easiest initial trial; then check whether loaded
-adjustment is comfortable. Do not rely on the keeper to support an unseated prop.
-
-## Phone, ring and cable space
-
-[v2_components.py](v2_components.py) owns the named dimensions and builders.
-The design envelope is **170 × 85 × 13 mm**; width/height are conservative design
-assumptions rather than measurements of the user's case. Lower ledges and front
-lips retain the phone, with separate rear contacts at ±37 mm. They leave the
-centre port open. The frame's front is 36 mm behind the phone's rear plane.
-
-CAD checks use a broad 33 mm deep accessory envelope: portrait X ±30 mm,
-10–125 mm above the phone bottom; landscape X ±85 mm, 10–60 mm above the bottom.
-These include the reported roughly 30 mm hanging reach and a modest allowance
-around the roughly 2 mm mounting base. Both sideways landscape offsets are
-covered. The unknown ring outline still prevents a universal compatibility claim;
-keep the ring inside these zones or revise the parameters. Camera protrusions
-are left in the open rear area; no Pixel camera bar is used as a locating feature.
-
-The nominal phone bottom is about 73–87 mm above the table across the angles.
-Checks include a 20 mm wide plug extending 30 mm below the phone and a broad
-front cable-turn bay 45 mm high. The actual cable's plug/bend requirements remain
-a physical check. Portrait and landscape reference entry points are inspection
-only and are excluded from print exports.
-
-## Evidence and physical-analysis scope
-
-The [nominal geometry checks](notes/v2_geometry_checks.json) cover forbidden
-interference at all three seats, both phone/accessory orientations, charging
-space, pin/nut access, sampled keeper release and raised-prop repositioning.
-They establish the checked rigid poses, not printed tolerance or continuous
-elastic movement. [Static screens](notes/v2_statics.json) use a provisional 2 N
-normal tap plus 0.5 N sideways at an upper off-centre screen location. They
-ignore stand weight, conservatively, and screen pressure-centre tipping margins
-inside the narrower central support rectangle. Desk sliding is a separate
-friction requirement, which is why TPU feet are included. No arbitrary tapping,
-impact or safety-rated load is claimed.
-
-[analyze_v2.py](analyze_v2.py) exercises three local fixtures, all with explicit
-uncalibrated 800 MPa, Poisson 0.38 homogeneous PETG and a provisional 1.5% strain
-screen. This is a sensitivity assumption, not a measured property or fatigue limit.
-
-- `StructuralQuestion`: cradle loads from phone weight plus a 2 N upper-screen
-  tap, with pivot-boss regions restrained. It includes front-lip reaction for
-  the tall portrait phone; it excludes pivot clearance and complete frame dynamics.
-- `ContactQuestion`: 5 N upward on the active keeper roof against two stationary
-  guide cages. The cages idealize the printed caps and posts as rigid; screw
-  preload, thread friction and cap compliance are outside this fixture.
-- `SnapFitQuestion`: explicit finger contact, forward release and return.
-  This full contact cycle timed out at its 600-second budget; the failed baseline
-  stopped all refinements and establishes neither passage nor elastic return.
-  `FlexureQuestion` separately tests prescribed button travel as a cheaper
-  spring diagnostic; it does not repair that missing contact evidence.
-
-The new shared **ContactQuestion** closes the force-plus-contact question-layer
-gap. It reuses existing case/backend, retained-identity and `QuestionStudy`
-facilities, preserves unsupported outcomes and shares rigid-mate construction
-with `SnapFitQuestion`. Native qualification checks a loaded cantilever closing
-a 0.2 mm stop gap, equilibrium and penetration; missing native contact fields
-cannot promote an answer. This extends reusable loaded-seat/keeper analysis,
-not bolted-joint, rotating-assembly, friction or fatigue simulation. The workflow
-guidance to identify and implement justified extensions was already committed
-before CAD; no further approval or speculative API framework was introduced.
-
-Qualification: 24 engineering-question tests and 20 physical-analysis tests
-passed, including native force/contact fixtures and existing snap consumers.
-The coordinator-cache test was also rerun with its isolated instance after
-correcting test configuration that had interrupted a product study.
-
-The numerical checks changed the spring and exposed a fixture error. The initial
-1.6 mm spring fixture reported 1.80–1.86% strain against the provisional 1.5%
-screen, prompting a thinner leaf. Later review found that the restraint extended
-onto the narrowed transition; those earlier results remain superseded diagnostics,
-not a qualified comparison of the two designs. With the restraint corrected to
-the actual full-width root pad, the current 1.2 mm leaf reaches 1.36% at baseline
-and 1.35% on the finer mesh, with approximately **2.84 N total ideal release force**.
-Mesh and increment comparisons meet the chosen 20% decision tolerance without
-changing acceptance. These are local guided-spring results, excluding guide
-friction, real thumb contact, printed return and fatigue.
-
-The final M5 cradle baseline predicts **0.63 mm** maximum displacement and
-**0.25%** strain under its specified service fixture. No finer study qualifies
-this final geometry. A finer mesh of the earlier M4 cradle failed Gmsh's
-high-order optimization; that historical result cannot qualify the revised part.
-The corrected keeper lifting fixture predicts **1.17 mm** displacement and **0.27%** strain
-under **5 N** upward, with **0.0048 mm** maximum penetration and adequate force
-balance. Its 2 mm provisional displacement allowance applies to accidental
-lift against the keeper, not phone wobble under seated service compression;
-positive capture remains, while the V seats carry ordinary use. Doubling the contact penalty changes displacement
-by 0.13% and strain
-by 0.04%; that comparison is stable. The finer holder mesh timed out at its
-600-second budget, leaving mesh sensitivity and overall numerical adequacy
-unresolved. These outcomes remain in the native records and do not establish
-print validation.
-
-Current native evidence: [guided spring study](notes/v2_analysis/spring_final_m5/study_result.json),
-[final cradle baseline](notes/v2_analysis/structure_m5_2048/result.json),
-[keeper lifting study](notes/v2_analysis/holding_study_recovered/study_result.json).
-The [analysis ledger](notes/v2_analysis/README.md) separates current fixtures,
-superseded attempts and unsupported operations.
-
-All three layouts produced valid CAD and matching STEP/STL pairs. OrcaSlicer
-2.4.2 completed the [base](notes/v2_base_final_review.json),
-[mechanism](notes/v2_mechanism_final_review.json) and
-[feet diagnostic](notes/v2_feet_diagnostic_review.json) with no notices.
-The PETG plates generate support; the feet diagnostic does not. The
-[selected-layer review](notes/v2_support_review.png) confirms accessible support
-in underside foot/nut recesses, through the horizontal pivot openings and beneath
-keeper roofs/cradle lips. Remove these before assembly, preserving the flat
-retaining surfaces. Actual PETG support removal remains untested.
-
-[Actual local path sections](notes/v2_solid_sections.json) fill both 1.2 mm
-spring spans and the selected cradle ledge/rear-pad sections within 0.006 mm
-of their nominal widths. This supports those local solid idealizations only.
-The slice checks the matching STL, not Orca's separate GUI STEP import, and
-the feet's PETG diagnostic does not validate a TPU process. Solver completion,
-refinement, provisional acceptance and physical limits stay separate.
-
-## Withdrawn first-print trial
-
-The following trial plan predates the product rejection and is retained for
-history. It is not a recommendation to print this revision or its keeper coupons.
-
-The original plan was to use the complete stand as the first trial: phone
-placement, ring freedom, charging, two-handed adjustment and tipping/grip depend on its full geometry.
-A small coupon would omit those interactions while preserving much of the keeper
-and guide printing effort. Preserve the delivered orientations and PETG solid
-mechanism settings; use TPU feet and the actual phone/cable.
-
-First check unloaded pivot freedom, full keeper return and all three pairs of
-seats. Place the phone in both orientations, connect the cable in portrait and
-confirm the ring hangs freely. Apply ordinary taps at the centre and corners;
-watch phone play, stand sliding and tipping separately. Check release/reseating
-with the cradle supported, then repeat after a period under phone weight.
-Accept the interface only if it seats both ends, returns without assistance,
-blocks unintended lift and remains comfortable. Binding, failure to return,
-noticeable tapping motion, cracking or growing play calls for a revised part;
-do not compensate by tightly clamping an adjustment pivot. Unknown fatigue and
-creep mean a short successful test does not establish durability.
+## Print status
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A | No separate coupon | Rejected product does not warrant a mechanism coupon |
-| Final printable object(s) | No | `phone_stand_v2_base`, `phone_stand_v2_mechanism`, `phone_stand_v2_feet` STEP/STL pairs | Rejected before printing: excessive horizontal footprint, large rear structure and forward-projecting feet. No physical failure observed; local evidence retained, print recommendation withdrawn |
+| Test piece(s) | N/A | None | No separate coupon: the complete compact prototype represents assembly, ring/cable space and use; miniatures are exploratory only. |
+| Final printable object(s) | Unknown | `phone_stand_v3.step/.stl`, `phone_stand_v3_feet.step/.stl` | V3 has no physical print report. Fit, spring return, engagement, cable/ring use, tap wobble, desk grip and creep remain. V1/V2 were explicitly rejected before printing. |
 
 ## Attribution
 
-Revision 2 and ContactQuestion integration: GPT-6 family, Codex API agent, OpenAI;
-specific runtime variant and reasoning effort are not independently exposed.
-No sub-agents contributed. Historical attribution is preserved in
-[HISTORY.md](HISTORY.md#attribution). Source and analysis integration remain under
-the repository MIT licence; external CalculiX/Gmsh have separate licences.
+Original repository design developed from the user's requirements and feedback.
+No external CAD model was copied. Historic proposals, source and native analysis
+are retained with their owning revisions. The reference Qidi/Generic PETG slice
+is diagnostic evidence for its exact selected profiles, not the user's printer
+calibration.

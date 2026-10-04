@@ -1,0 +1,78 @@
+{
+  "case": "v3_return_leaf",
+  "status": "failed",
+  "completed": false,
+  "metrics": {
+    "question": {
+      "operation_completed": false,
+      "solver_completed": false,
+      "evidence_method": "numerical",
+      "numerical_evidence_adequate": false,
+      "peak_actuation_force_N": null,
+      "peak_strain": null,
+      "peak_strain_location_mm": null,
+      "strain_location_kind": "undeformed element centroid of peak integration point",
+      "peak_von_mises_MPa": null,
+      "peak_stress_location_mm": null,
+      "deformation_mm": null,
+      "max_displacement_mm": null,
+      "force_balance_ok": false,
+      "max_force_balance_relative": null,
+      "force_balance_source": "native_summary",
+      "strain_screen_passes": null,
+      "acceptance": {
+        "peak_motion_force_N.press": null
+      },
+      "design_screen_passes": null,
+      "design_screen_scope": "Only the supplied provisional strain and acceptance quantities",
+      "analytical_screen": null,
+      "beam_rationale": null,
+      "analytical_numerical_comparison": null,
+      "manufacturing": {
+        "assumption": "Actual right leaf XY flat, solid PETG, .4 nozzle/.2 layers. Outer root rigidly restrained and inner end guided; pin/root play and guide friction excluded. Two mirrored leaves double this force.",
+        "local_solid_paths_established": null
+      },
+      "physical_limits": {
+        "material_calibrated": false,
+        "friction_modelled": false,
+        "printed_recovery_established": false,
+        "physically_validated": false
+      },
+      "numerical_confidence": {
+        "increment_sensitivity": "not_run",
+        "mesh_sensitivity": "not_run",
+        "contact_parameter_sensitivity": "not_run"
+      }
+    }
+  },
+  "history": [],
+  "assumptions": [
+    "mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.",
+    "Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.",
+    "Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.",
+    "Frictionless contact; enforcement and pairing depend on backend/formulation.",
+    "Numerical completion is not physical validation or a load rating."
+  ],
+  "warnings": [],
+  "errors": [
+    "Analysis worker exited with code 1: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/hevar/git/vibe-modelling-3d/execution/runner.py\", line 96, in <module>\n    if __name__=='__main__':main()\n                            ^^^^^^\n  File \"/home/hevar/git/vibe-modelling-3d/execution/runner.py\", line 92, in main\n    runpy.run_module(sys.argv[0],run_name='__main__',alter_sys=True)\n  File \"<frozen runpy>\", line 226, in run_module\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/hevar/git/vibe-modelling-3d/physical_analysis/backends/worker.py\", line 405, in <module>\n    main(Path(sys.argv[1]),postprocess_only=len(sys.argv)==3)\n  File \"/home/hevar/git/vibe-modelling-3d/physical_analysis/backends/worker.py\", line 340, in main\n    meshes,nodes,elements,selections,loads,contacts=compile_case(case,directory,expected_input_sha256=expected)\n                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/hevar/git/vibe-modelling-3d/execution/telemetry.py\", line 240, in wrapped\n    return function(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/hevar/git/vibe-modelling-3d/physical_analysis/backends/worker.py\", line 67, in compile_case\n    ns,es,surface,jac = mesh_part(directory/part['geometry'],part['mesh_size_mm'],\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/hevar/git/vibe-modelling-3d/execution/telemetry.py\", line 240, in wrapped\n    return function(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/hevar/git/vibe-modelling-3d/physical_analysis/backends/mesh.py\", line 25, in mesh_part\n    gmsh.model.mesh.generate(3)\n  File \"/home/hevar/git/vibe-modelling-3d/.venv/lib/python3.12/site-packages/gmsh.py\", line 2189, in generate\n    raise Exception(logger.getLastError())\nException: The 1D mesh seems not to be forming a closed loop\n"
+  ],
+  "provenance": {
+    "backend": "CalculiX",
+    "execution_resources": {
+      "peak_tree_rss_bytes": 68247552,
+      "sampled_tree_cpu_seconds": 0.41,
+      "measurement": "sampled process tree",
+      "elapsed_seconds": 0.4382324379985221
+    },
+    "question_interpreter_sha256": "105e181ad2241ae52fed6aa05484cc7f8b63c79ebac5d31cd5f71311c79f5f85"
+  },
+  "artifacts": {
+    "case": "case.json",
+    "worker_log": "worker.log.gz",
+    "fixture_geometry": [
+      "part_0.brep.gz"
+    ],
+    "raw_fields_retained": false
+  }
+}

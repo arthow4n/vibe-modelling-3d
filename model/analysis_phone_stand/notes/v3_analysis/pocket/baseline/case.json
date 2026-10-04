@@ -1,0 +1,74 @@
+{
+  "name": "v3_pocket_web",
+  "nonlinear": true,
+  "max_increment": 0.25,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "790cc63977517ebd81eb67aec67b97b0fe66ffa35ea77d1ededc3be29ca3f1d6",
+      "material": {
+        "name": "conditional_solid_PETG",
+        "youngs_modulus_MPa": 800,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated isotropic short-term PETG assumption; no fatigue, creep or layer-bond qualification",
+        "strain_limit": 0.015
+      },
+      "mesh_size_mm": 0.65
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            null,
+            29,
+            null
+          ],
+          "upper": [
+            null,
+            29,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -2,
+            20,
+            24.94
+          ],
+          "upper": [
+            2,
+            23.15,
+            24.94
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        7.5
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": []
+}
