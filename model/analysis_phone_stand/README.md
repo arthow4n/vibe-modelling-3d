@@ -42,8 +42,10 @@ On 2026-10-04 the user clarified:
 - Stand freely on the table with the phone placed normally, in either orientation
   and at every offered angle, without external bracing or careful balancing.
 - Accommodate a Pixel 7 Pro with a relatively bulky case. The user wants adaptable
-  fit rather than closely matching the bare phone. Case dimensions and compliance
-  are unknown; no precise device or case envelope has been assumed.
+  fit rather than closely matching the bare phone, and prefers a reasonably
+  generic stand for possible future phones rather than Pixel-specific geometry.
+  Phone-plus-case thickness is approximately 13 mm, a conservative rounded-up
+  user estimate. Case compliance and other case dimensions are unknown.
 - Screws and nuts are acceptable only from the on-hand Jula 002837 assortment
   recorded in AGENTS.md. The user also sees their use as an opportunity to
   exercise fastener-related analysis and testing.
@@ -51,11 +53,24 @@ On 2026-10-04 the user clarified:
   phone but toward its lower end. Leave a broad, mostly empty area behind the
   phone rather than a backplate or closely fitted accessory hole. Local edge or
   corner supports are acceptable. Preserve accessory clearance in both portrait
-  and landscape; landscape rotation shifts the accessory toward a side. Its size,
-  projection and operating pose are unknown; avoid a precisely assumed outline.
+  and landscape; landscape rotation shifts the accessory toward a side. With the
+  phone held horizontally, the ring hangs approximately 30 mm away from the back.
+  Its mounting base projects approximately 2 mm, roughly in the lower-centre
+  region. Use broad hanging/swing clearance rather than precisely fitting that
+  accessory; its lateral outline and attachment position remain approximate.
+- Rear camera protection projects approximately 2 mm from the neighbouring rear
+  surface. It is unclear whether this is included in the 13 mm thickness estimate;
+  retain the measurements separately. Camera-area support is acceptable in
+  principle, but generic support and clearance should not rely on the Pixel's
+  exact camera-bar location or shape.
+- PETG is accepted. The proposed starting setup is the repository's 0.4 mm nozzle,
+  0.2 mm layers, two walls and 7% adaptive cubic for ordinary body regions. The user
+  is willing to apply documented slicer changes for required local solidity;
+  identify affected parts/regions and exact settings at the printable handoff.
 
-Case/charging-connector envelope and print setup remain
-open. Desktop use is established; folding/portability is not yet a
+The charging-connector envelope remains unspecified; provide useful plug and cable
+turn clearance rather than a close fit. Desktop use is established;
+folding/portability is not yet a
 requirement. Charging clearance must include the plug and cable turn above the
 table, not only a notch in the retaining lip.
 
@@ -64,8 +79,9 @@ contacts is a candidate, not an accepted architecture. An opening only for the
 charging cable is insufficient: leave a broad rear opening with clear depth behind
 it. A rear prop, pivot, cross-member or catch must not occupy that ring-clearance
 space. Review both phone orientations with broad accessory envelopes; do not
-assume a centred opening suffices after rotating the phone. Unknown accessory
-dimensions still limit any eventual compatibility claim.
+assume a centred opening suffices after rotating the phone. The reported 30 mm
+hanging reach is a clearance input, not a complete ring shape or swing measurement;
+unknown lateral dimensions still limit any eventual compatibility claim.
 
 For adjustment, consider a prop with a few positive seating positions outside the
 accessory space. Solid seating faces should carry the service load; separate
@@ -135,8 +151,9 @@ is not qualified for complete snap passage. Reuse analysis patterns and historic
 evidence only within their recorded scope; changed geometry needs its own evidence.
 Choose analysis questions that inform a useful replacement and preserve the
 analysis-exercise objective. Any needed tool extension should follow an actual
-product question. No new print setup has been agreed; the solid PETG settings
-below belong to the rejected revision.
+product question. The original full-solid PETG settings below belong to the
+rejected revision; use the new proposed body setup and explicitly justified local
+solidity when developing the replacement.
 
 ## Historical prototype
 
