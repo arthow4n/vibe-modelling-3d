@@ -52,6 +52,69 @@ ordinary-use stability and physical-analysis exercise remain requirements;
 the rejected keeper and base dimensions are not requirements. No replacement
 geometry is implemented as part of this feedback record.
 
+## Compact replacement discussion — silhouettes only
+
+The latest discussion reconsiders V1's overall visual direction after rejecting
+V2's exposed mechanisms and footprint. This is interest in a revised compact
+form, not acceptance of V1's existing CAD or evidence that either revision works.
+The new requirements still apply: generic Pixel 7 Pro/case fit, portrait/landscape,
+broad ring clearance, generous portrait cable space, a few firm viewing angles,
+hand adjustment without loosening screws, and meaningful physical analysis.
+
+[Editable SVG comparison](renders/concepts/compact_revision_directions.svg)
+([PNG preview](renders/concepts/compact_revision_directions.png)) shows three
+candidate forms at a common side-view scale and their target desk footprints
+against V1's 80 × 125 mm and V2's 224 × 246 mm bases. These are proposals, not
+approved dimensions or printable geometry. The old SVGs remain superseded
+appearance/operating records for the rejected products.
+
+| Direction | Target base W × D | Architecture and hand adjustment | Main decision or risk |
+| --- | --- | --- | --- |
+| A — hooded pedestal | 105 × 140 mm | V1-like single rising support, open fork cradle and low enclosure around a positive angle lock. Support phone, press base release, tilt and let the lock reseat. | Closest visual continuation of V1. Enclosing an indexed lock does not remove its torque, play, tool-access and release-force requirements. No lock geometry is qualified yet. |
+| B — compact side pivots | 115 × 135 mm | Short side pods and an open centre. Support phone and release coordinated side locks to tilt. Stock short pivot screws can be considered; no desk adjustment by tightening screws. | Shorter support paths and outboard mechanisms, at the cost of a wider silhouette and paired-lock coordination. |
+| C — reseatable cradle | 105 × 145 mm | Open fork carrier plugs into one of three keyed angled seats in a smooth low wedge. Release a small lift-retaining clip, lift the carrier, then insert it into another seat. Seats bear use loads. | Avoids a permanent rotary lock, but adjustment requires lifting/reseating. Removing the phone first may be the comfortable procedure; this is not yet agreed. |
+
+The silhouettes share an 85 × 170 × 13 mm phone assumption, 65° displayed angle,
+55 mm illustrative underside clearance and open edge-supported cradle. The
+amber side projection reserves 33 mm rear accessory depth; green contact arms
+crossing that projection represent outboard contacts, not a central backplate.
+Their real lateral positions and the landscape accessory sweep still need
+checking. The illustration's 55 mm height is not an established connector/bend
+clearance, and the actual phone bottom would move with a real pivot.
+
+A [rough rear-tipping screen](notes/compact_proposal_screen.json) shows the
+compactness tradeoff rather than claiming the target footprints stable. For a
+0.30 kg phone, the earlier provisional 2 N normal upper tap, constant illustrated
+phone location, stand CG at mid-depth, pads 8 mm inward and a chosen 5 mm rear
+margin, assumed stand mass would need roughly **185 g for A, 230 g for B and
+150 g for C** across the selected angles/orientations. These are conditional
+mass targets, not predicted print weights or universal minimum masses. No actual
+stand mass/CG, opposite tap directions, sideways stability, desk friction or
+lock strength is established. Lower phone height, a different pivot/load layout,
+more depth or extra base weight could change the result. No purchase of ballast,
+solid-base process or reduction in required tap resistance has been agreed.
+The 2 N assumption itself is not a measured user requirement.
+
+A is the preferred starting direction for discussing the user's return toward
+V1's form; C is the simpler mechanical alternative if lift-and-reseat adjustment
+is acceptable. B trades the central pedestal for side pods. Selection remains
+open. Concealing V1's gear alone is inadequate: its solid backing and central
+arm must also be changed to preserve the new broad rear clearance.
+
+All options can exercise local structural stiffness, seated contact and
+retention/release with existing `StructuralQuestion`, `ContactQuestion`,
+`FlexureQuestion`/`SnapFitQuestion` and `QuestionStudy` where the actual fixture
+fits those contracts. A/B add pivot-region and lock-load questions; C emphasizes
+keyed-seat engagement, clearance, bearing and lift retention. Whole free-joint
+assembly response, real thread preload, friction, creep and fatigue remain
+outside those qualified fixtures. No new API is justified by a silhouette alone;
+concrete gaps should be implemented when a selected product exposes them.
+
+This phase delivers SVG/PNG proposals only. No replacement CAD, exports, slice,
+physical trial or approval of a new mechanism is claimed. Existing rejected
+sources, exports and native analysis stay historical. The drawing and rough
+screen are reproduced by `./execute.py model/analysis_phone_stand/draw_compact_proposals.py`.
+
 ## Historical print files and setup
 
 | Plate | Authoritative entry point | Primary export | Secondary export | Process |

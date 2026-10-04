@@ -1,0 +1,136 @@
+{
+  "scope": "Illustrative static rear tipping only; not complete contact, sliding, impact or product qualification",
+  "assumptions": {
+    "phone_kg": 0.3,
+    "phone_bottom_y_mm": 20,
+    "phone_bottom_z_mm": 55,
+    "normal_upper_tap_N": 2,
+    "stand_cg_y": "mid-depth",
+    "rear_foot_inset_mm": 8,
+    "rear_margin_mm": 5,
+    "pose_basis": "same illustrative lower phone location at all angles; actual hinge travel changes this"
+  },
+  "limitations": "No actual stand mass/CG, desk friction, lock strength or print process established. Sideways taps and opposite force directions not qualified. No ballast purchase or solid-base process agreed.",
+  "concepts": [
+    {
+      "concept": "A",
+      "target_base_mm": [
+        105,
+        140
+      ],
+      "maximum_assumed_stand_mass_kg": 0.18372839210821176,
+      "cases": [
+        {
+          "angle_deg": 50,
+          "landscape": false,
+          "assumed_stand_mass_for_rear_margin_kg": 0.1751700334364503
+        },
+        {
+          "angle_deg": 50,
+          "landscape": true,
+          "assumed_stand_mass_for_rear_margin_kg": 0
+        },
+        {
+          "angle_deg": 65,
+          "landscape": false,
+          "assumed_stand_mass_for_rear_margin_kg": 0.18372839210821176
+        },
+        {
+          "angle_deg": 65,
+          "landscape": true,
+          "assumed_stand_mass_for_rear_margin_kg": 0
+        },
+        {
+          "angle_deg": 75,
+          "landscape": false,
+          "assumed_stand_mass_for_rear_margin_kg": 0.18282591228692968
+        },
+        {
+          "angle_deg": 75,
+          "landscape": true,
+          "assumed_stand_mass_for_rear_margin_kg": 0
+        }
+      ]
+    },
+    {
+      "concept": "B",
+      "target_base_mm": [
+        115,
+        135
+      ],
+      "maximum_assumed_stand_mass_kg": 0.22758388768726132,
+      "cases": [
+        {
+          "angle_deg": 50,
+          "landscape": false,
+          "assumed_stand_mass_for_rear_margin_kg": 0.22275099120636185
+        },
+        {
+          "angle_deg": 50,
+          "landscape": true,
+          "assumed_stand_mass_for_rear_margin_kg": 0
+        },
+        {
+          "angle_deg": 65,
+          "landscape": false,
+          "assumed_stand_mass_for_rear_margin_kg": 0.22758388768726132
+        },
+        {
+          "angle_deg": 65,
+          "landscape": true,
+          "assumed_stand_mass_for_rear_margin_kg": 0
+        },
+        {
+          "angle_deg": 75,
+          "landscape": false,
+          "assumed_stand_mass_for_rear_margin_kg": 0.22357630918554863
+        },
+        {
+          "angle_deg": 75,
+          "landscape": true,
+          "assumed_stand_mass_for_rear_margin_kg": 0
+        }
+      ]
+    },
+    {
+      "concept": "C",
+      "target_base_mm": [
+        105,
+        145
+      ],
+      "maximum_assumed_stand_mass_kg": 0.14549991848903496,
+      "cases": [
+        {
+          "angle_deg": 50,
+          "landscape": false,
+          "assumed_stand_mass_for_rear_margin_kg": 0.1315874754791364
+        },
+        {
+          "angle_deg": 50,
+          "landscape": true,
+          "assumed_stand_mass_for_rear_margin_kg": 0
+        },
+        {
+          "angle_deg": 65,
+          "landscape": false,
+          "assumed_stand_mass_for_rear_margin_kg": 0.14355823229210768
+        },
+        {
+          "angle_deg": 65,
+          "landscape": true,
+          "assumed_stand_mass_for_rear_margin_kg": 0
+        },
+        {
+          "angle_deg": 75,
+          "landscape": false,
+          "assumed_stand_mass_for_rear_margin_kg": 0.14549991848903496
+        },
+        {
+          "angle_deg": 75,
+          "landscape": true,
+          "assumed_stand_mass_for_rear_margin_kg": 0
+        }
+      ]
+    }
+  ]
+}

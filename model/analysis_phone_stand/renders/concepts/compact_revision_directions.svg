@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1440" viewBox="0 0 1440 1440">
+<rect width="1440" height="1440" fill="#f5f3ed"/>
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#253a35}.title{font-size:32px;font-weight:bold}.head{font-size:25px;font-weight:bold}.body{font-size:17px}.small{font-size:15px}.tiny{font-size:13px}</style>
+<text x="34" y="48" class="title" >Compact phone stand — three directions to discuss</text>
+<text x="34" y="80" class="body" >Keep V1’s compact visual idea; carry forward V2’s case, ring, cable and hand-adjustment requirements.</text>
+<text x="34" y="110" class="body" >Same scale and 85 × 170 × 13 mm phone. Shown at 65°. Candidate angles: 50° / 65° / 75°.</text>
+<text x="34" y="138" class="small" >Footprints are targets. Locks, accessory clearance, assembly and tapping stability remain unqualified.</text>
+<rect x="24" y="166" width="448" height="777" rx="16" fill="#ffffff" stroke="none" />
+<text x="44" y="205" class="head" >A  Hooded pedestal</text>
+<text x="44" y="235" class="small" >Closest to V1: one rising support, a quiet base.</text>
+<path d="M 169.91,552.32 L 245.24,390.77 L 198.88,369.15 L 123.55,530.70 Z" fill="#fff1cb" stroke="#c68b2f" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5"/>
+<path d="M 67.40,630.00 L 321.60,630.00" fill="none" stroke="#adb6af" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 86.00,630.00 L 303.00,630.00 L 303.00,620.70 L 86.00,620.70 Z" fill="#47786a" stroke="#47786a" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 135.60,620.70 L 135.60,599.00 L 151.10,577.30 L 210.00,577.30 L 231.70,595.90 L 231.70,620.70 Z" fill="#47786a" stroke="#47786a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 135.60,603.65 L 127.85,603.65 L 127.85,597.45 L 138.70,597.45 Z" fill="#86a899" stroke="#47786a" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 160.56,590.71 L 228.03,446.02" fill="none" stroke="#47786a" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 170.38,569.64 L 117.00,544.75" fill="none" stroke="#47786a" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 216.24,471.31 L 162.85,446.42" fill="none" stroke="#47786a" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 117.00,544.75 L 228.36,305.94 L 210.10,297.42 L 98.74,536.23 Z" fill="#c4d1d6" stroke="#637d88" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 119.25,550.93 L 92.56,538.48 L 98.45,525.84" fill="none" stroke="#47786a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 90.88,578.75 L 107.92,542.22" fill="none" stroke="#647989" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 90.88,578.75 L 78.88,596.75 L 100.00,624.00" fill="none" stroke="#647989" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<text x="44" y="662" class="body" >Target base: 105 W × 140 D mm</text>
+<text x="44" y="686" class="small" >Side silhouette · same scale in every column</text>
+<text x="44" y="717" class="tiny" >Support phone → press base button → tilt → release.</text>
+<text x="44" y="743" class="tiny" >Enclosed positive angle lock; no exposed teeth.</text>
+<text x="44" y="769" class="tiny" >Risk: lock torque, play and release effort.</text>
+<path d="M 218.80,890.00 L 218.80,781.20 L 273.20,781.20 L 273.20,890.00 Z" fill="#e9eef0" stroke="#99aab2" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 191.60,890.00 L 191.60,835.60 L 300.40,835.60 L 300.40,890.00 Z" fill="none" stroke="#99aab2" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 4"/>
+<path d="M 215.92,834.32 L 215.92,895.76 L 276.08,895.76 L 276.08,834.32" fill="none" stroke="#47786a" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 219.12,845.20 L 225.52,845.20" fill="none" stroke="#47786a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 218.48,890.00 L 226.16,890.00" fill="none" stroke="#47786a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 266.48,845.20 L 272.88,845.20" fill="none" stroke="#47786a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 265.84,890.00 L 273.52,890.00" fill="none" stroke="#47786a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 212.40,925.20 L 279.60,925.20 L 279.60,921.36 L 212.40,921.36 Z" fill="#47786a" stroke="#47786a" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 246.00,895.76 L 246.00,906.64" fill="none" stroke="#47786a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 233.20,921.36 L 258.80,921.36 L 255.60,906.00 L 236.40,906.00 Z" fill="#47786a" stroke="#47786a" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+<text x="44" y="936" class="tiny" >Front form · open fork / split ledges</text>
+<rect x="496" y="166" width="448" height="777" rx="16" fill="#ffffff" stroke="none" />
+<text x="516" y="205" class="head" >B  Compact side pivots</text>
+<text x="516" y="235" class="small" >Two short side pods; a wide open centre.</text>
+<path d="M 641.91,552.32 L 717.24,390.77 L 670.88,369.15 L 595.55,530.70 Z" fill="#fff1cb" stroke="#c68b2f" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5"/>
+<path d="M 539.40,630.00 L 785.85,630.00" fill="none" stroke="#adb6af" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 558.00,630.00 L 767.25,630.00 L 767.25,620.70 L 558.00,620.70 Z" fill="#47786a" stroke="#47786a" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 610.70,620.70 L 613.80,578.85 L 626.20,557.15 L 647.90,554.05 L 668.05,571.10 L 674.25,620.70 Z" fill="#47786a" stroke="#47786a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<circle cx="641.7" cy="577.3" r="12.4" fill="#a8c0b5" stroke="#47786a" stroke-width="2"/>
+<path d="M 632.56,590.71 L 700.03,446.02" fill="none" stroke="#47786a" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 642.38,569.64 L 589.00,544.75" fill="none" stroke="#47786a" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 688.24,471.31 L 634.85,446.42" fill="none" stroke="#47786a" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 589.00,544.75 L 700.36,305.94 L 682.10,297.42 L 570.74,536.23 Z" fill="#c4d1d6" stroke="#637d88" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 591.25,550.93 L 564.56,538.48 L 570.45,525.84" fill="none" stroke="#47786a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 562.88,578.75 L 579.92,542.22" fill="none" stroke="#647989" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 562.88,578.75 L 550.88,596.75 L 572.00,624.00" fill="none" stroke="#647989" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<text x="516" y="662" class="body" >Target base: 115 W × 135 D mm</text>
+<text x="516" y="686" class="small" >Side silhouette · same scale in every column</text>
+<text x="516" y="717" class="tiny" >Support phone → release side lock → tilt → release.</text>
+<text x="516" y="743" class="tiny" >Short load paths; paired locks need coordinated release.</text>
+<text x="516" y="769" class="tiny" >Risk: wider silhouette and two-sided assembly.</text>
+<path d="M 690.80,890.00 L 690.80,781.20 L 745.20,781.20 L 745.20,890.00 Z" fill="#e9eef0" stroke="#99aab2" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 663.60,890.00 L 663.60,835.60 L 772.40,835.60 L 772.40,890.00 Z" fill="none" stroke="#99aab2" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 4"/>
+<path d="M 687.92,834.32 L 687.92,895.76 L 748.08,895.76 L 748.08,834.32" fill="none" stroke="#47786a" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 691.12,845.20 L 697.52,845.20" fill="none" stroke="#47786a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 690.48,890.00 L 698.16,890.00" fill="none" stroke="#47786a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 738.48,845.20 L 744.88,845.20" fill="none" stroke="#47786a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 737.84,890.00 L 745.52,890.00" fill="none" stroke="#47786a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 681.20,925.20 L 754.80,925.20 L 754.80,921.36 L 681.20,921.36 Z" fill="#47786a" stroke="#47786a" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 692.40,921.36 L 684.08,921.36 L 684.08,901.52 L 687.92,895.12 L 692.40,901.52 Z" fill="#47786a" stroke="#47786a" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 743.60,921.36 L 751.92,921.36 L 751.92,901.52 L 748.08,895.12 L 743.60,901.52 Z" fill="#47786a" stroke="#47786a" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+<text x="516" y="936" class="tiny" >Front form · open fork / split ledges</text>
+<rect x="968" y="166" width="448" height="777" rx="16" fill="#ffffff" stroke="none" />
+<text x="988" y="205" class="head" >C  Reseatable cradle</text>
+<text x="988" y="235" class="small" >A smooth low wedge; no permanent rotary hinge.</text>
+<path d="M 1113.91,552.32 L 1189.24,390.77 L 1142.88,369.15 L 1067.55,530.70 Z" fill="#fff1cb" stroke="#c68b2f" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5"/>
+<path d="M 1011.40,630.00 L 1273.35,630.00" fill="none" stroke="#adb6af" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1030.00,630.00 L 1254.75,630.00 L 1254.75,620.70 L 1030.00,620.70 Z" fill="#47786a" stroke="#47786a" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1070.30,620.70 L 1090.45,583.50 L 1191.20,583.50 L 1212.90,620.70 Z" fill="#47786a" stroke="#47786a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1109.05,585.05 L 1116.80,595.90" fill="none" stroke="#d2e1d9" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1141.60,585.05 L 1149.35,595.90" fill="none" stroke="#d2e1d9" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1174.15,585.05 L 1181.90,595.90" fill="none" stroke="#d2e1d9" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1104.56,590.71 L 1172.03,446.02" fill="none" stroke="#47786a" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1114.38,569.64 L 1061.00,544.75" fill="none" stroke="#47786a" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1160.24,471.31 L 1106.85,446.42" fill="none" stroke="#47786a" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1061.00,544.75 L 1172.36,305.94 L 1154.10,297.42 L 1042.74,536.23 Z" fill="#c4d1d6" stroke="#637d88" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1063.25,550.93 L 1036.56,538.48 L 1042.45,525.84" fill="none" stroke="#47786a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1034.88,578.75 L 1051.92,542.22" fill="none" stroke="#647989" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1034.88,578.75 L 1022.88,596.75 L 1044.00,624.00" fill="none" stroke="#647989" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<text x="988" y="662" class="body" >Target base: 105 W × 145 D mm</text>
+<text x="988" y="686" class="small" >Side silhouette · same scale in every column</text>
+<text x="988" y="717" class="tiny" >Release clip → lift carrier → insert in another seat.</text>
+<text x="988" y="743" class="tiny" >Three keyed seats carry load; a small clip blocks lift.</text>
+<text x="988" y="769" class="tiny" >Risk: lifting/reseating is less convenient; seat play.</text>
+<path d="M 1162.80,890.00 L 1162.80,781.20 L 1217.20,781.20 L 1217.20,890.00 Z" fill="#e9eef0" stroke="#99aab2" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1135.60,890.00 L 1135.60,835.60 L 1244.40,835.60 L 1244.40,890.00 Z" fill="none" stroke="#99aab2" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 4"/>
+<path d="M 1159.92,834.32 L 1159.92,895.76 L 1220.08,895.76 L 1220.08,834.32" fill="none" stroke="#47786a" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1163.12,845.20 L 1169.52,845.20" fill="none" stroke="#47786a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1162.48,890.00 L 1170.16,890.00" fill="none" stroke="#47786a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1210.48,845.20 L 1216.88,845.20" fill="none" stroke="#47786a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1209.84,890.00 L 1217.52,890.00" fill="none" stroke="#47786a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1156.40,925.20 L 1223.60,925.20 L 1223.60,921.36 L 1156.40,921.36 Z" fill="#47786a" stroke="#47786a" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1190.00,895.76 L 1190.00,906.64" fill="none" stroke="#47786a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1161.52,921.36 L 1218.48,921.36 L 1215.28,906.00 L 1164.72,906.00 Z" fill="#47786a" stroke="#47786a" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+<text x="988" y="936" class="tiny" >Front form · open fork / split ledges</text>
+<text x="34" y="988" class="head" >Desk footprint comparison</text>
+<text x="34" y="1017" class="small" >All rectangles at 1 px = 1 mm. Height/empty space in perspective must not hide occupied desk area.</text>
+<rect x="48" y="1040" width="224" height="246" rx="7" fill="none" stroke="#b2b9b3" stroke-dasharray="7 5"/>
+<rect x="107.5" y="1146" width="105" height="140" rx="6" fill="#d5e5dc" stroke="#47786a" />
+<rect x="120.0" y="1161" width="80" height="125" rx="5" fill="none" stroke="#778da1" stroke-dasharray="3 3"/>
+<text x="290" y="1070" class="tiny" >V2: 224 × 246</text>
+<text x="290" y="1094" class="tiny" >V1: 80 × 125</text>
+<text x="290" y="1122" class="small" >A: 105 × 140</text>
+<text x="290" y="1146" class="tiny" >candidate target</text>
+<text x="290" y="1185" class="tiny" >Front edges aligned.</text>
+<rect x="520" y="1040" width="224" height="246" rx="7" fill="none" stroke="#b2b9b3" stroke-dasharray="7 5"/>
+<rect x="574.5" y="1151" width="115" height="135" rx="6" fill="#d5e5dc" stroke="#47786a" />
+<rect x="592.0" y="1161" width="80" height="125" rx="5" fill="none" stroke="#778da1" stroke-dasharray="3 3"/>
+<text x="762" y="1070" class="tiny" >V2: 224 × 246</text>
+<text x="762" y="1094" class="tiny" >V1: 80 × 125</text>
+<text x="762" y="1122" class="small" >B: 115 × 135</text>
+<text x="762" y="1146" class="tiny" >candidate target</text>
+<text x="762" y="1185" class="tiny" >Front edges aligned.</text>
+<rect x="992" y="1040" width="224" height="246" rx="7" fill="none" stroke="#b2b9b3" stroke-dasharray="7 5"/>
+<rect x="1051.5" y="1141" width="105" height="145" rx="6" fill="#d5e5dc" stroke="#47786a" />
+<rect x="1064.0" y="1161" width="80" height="125" rx="5" fill="none" stroke="#778da1" stroke-dasharray="3 3"/>
+<text x="1234" y="1070" class="tiny" >V2: 224 × 246</text>
+<text x="1234" y="1094" class="tiny" >V1: 80 × 125</text>
+<text x="1234" y="1122" class="small" >C: 105 × 145</text>
+<text x="1234" y="1146" class="tiny" >candidate target</text>
+<text x="1234" y="1185" class="tiny" >Front edges aligned.</text>
+<text x="34" y="1327" class="small" >Amber = rear accessory allowance; blue-grey = phone/cable; green = proposed structure.</text>
+<text x="34" y="1352" class="small" >55 mm under-phone height is illustrative. Ring width/swing and actual plug/bend space still need checking.</text>
+<text x="34" y="1377" class="small" >Smaller footprints may need more base weight; the earlier 2 N tap assumption is provisional, not measured.</text>
+<text x="34" y="1402" class="small" >Concept sketches only: no print recommendation, calibrated material properties or mechanism qualification.</text>
+</svg>
