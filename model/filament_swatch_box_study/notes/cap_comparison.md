@@ -1466,6 +1466,33 @@ remain outside this evidence.
 
 ## Deferred exploration after the current revisions
 
+### Future compact archival module — recorded 2026-10-04
+
+User-requested future direction, **record only; no modelling now**. The spaced
+five-card setup is liked for display and individual access but uses too much
+space for archiving. Retain it as the display option and add a separate,
+higher-capacity archival variant: existing swatch cards packed tightly face to
+face and inserted into the box together as a stack, rather than assigned to
+widely spaced individual positions.
+
+Base the archive variant on the preferred J-style base and shared connector.
+It must join existing J modules using the same accepted I key 3 interface;
+preserve compatibility at both module ends and do not carry over K4's reported
+missing-stop problem. Target reuse of the accepted G hood and closure as well.
+G is the accepted hood referred to in this request; V1 remains a rejected shell
+experiment. Exact capacity, stack allowance, bundle support/retention and whether
+the unchanged G hood accommodates the eventual archive layout remain undecided.
+No capacity, dimensions, mechanism or print setup change is chosen by this note.
+
+Treat this as a separate storage use case, not simply a larger display row or
+an instruction to redesign the swatch cards. Preserve current display variants.
+The next development phase must establish the compact stack arrangement and
+matching interfaces when the user resumes modelling. Current J tilt and K key
+stop issues remain deferred; no source, export, render, slice or study is created
+for this future module now.
+
+### Other deferred improvements
+
 J4/K4 have now been printed; the [latest report](#j4k4-print-report--2026-10-04)
 owns the remaining J alignment and K key-stop issues. No correction is authorized
 now: the user requests records only. Retain preferred J4, G and I key 3. V1's
