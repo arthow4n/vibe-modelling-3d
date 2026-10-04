@@ -1469,7 +1469,8 @@ remain outside this evidence.
 The user requested maximum card exposure with either low walls, tall corner
 pillars or continuous guides. This round had already advanced into CAD when
 the user reviewed the development scope. They accept the work and authorize
-finishing all four printable variants; no physical print is reported.
+finishing all four printable variants; at that handoff no physical print was
+reported. The later A print report below supersedes the A use/fit uncertainties.
 
 [Four-form SVG comparison](../renders/concepts/archive_structure_options.svg)
 ([PNG](../renders/concepts/archive_structure_options.png)) shows the alternatives.
@@ -1537,6 +1538,37 @@ reports linked in the object README. CAD contact/clearance is evidence for the
 checked nominal geometry, not actual friction, stiffness, comfort or a global
 spill proof. The slim corners are **not rejected by the sampled rigid cases**;
 C is recommended for broader guide contact rather than a claimed failure of B.
+
+### Archive R2 A print report — 2026-10-04
+
+**A (`archive_r2_walled_15.step/.stl`) printed and accepted. B/C/D not printed.**
+The user chose A, the continuous-wall form, as the best design for this archive
+and reports that it works well. The user tested the previously discussed archive
+use concerns, including keeping a single remaining card from falling over/out;
+those tests worked as intended. Exact other tested card counts were not supplied.
+The archive joins successfully to the user's latest J base, clarified as **J4**,
+with the existing connector key, and works correctly with the accepted **G hood**.
+This is complete-product physical evidence for the reported use and integration,
+rather than only the earlier nominal card/contact and mating checks.
+
+Use A as the accepted archive baseline and preserve its existing interfaces.
+The earlier C-first recommendation is superseded by the user's successful A
+choice; it does not establish a failure of B/C/D. The reported success does not
+resolve J4's separately recorded individual display-card tilt.
+
+The intended artifacts are the R2 A pair delivered at modelling revision
+`38d0665`, with unchanged model geometry since that handoff; the actual printed
+file hash was not supplied. The agreed setup was floor-down PETG, .4 mm nozzle,
+.2 mm layers, two walls and 7% adaptive cubic. Actual material/profile/settings
+were not reconfirmed in this report, and the connector key's printed index was
+not reconfirmed. No measured force, open carrying/inversion or long-term
+material/wear result is claimed.
+
+Reflection: preserve the now physically successful simple continuous-wall pocket,
+its shared foot, existing key and G hood instead of adding a follower, per-card
+spring or another hood. Record this successful integrated baseline in reusable
+evidence; keep the user's preference for A local to this archive comparison.
+No new modelling or extra test is needed for this feedback.
 
 ### SVG-first proposal workflow lesson
 

@@ -2,15 +2,17 @@
 
 ## Archive R2 — four printable 15-card trials
 
-**Recommended first trial: C, the broader corner guides.** All four share the
+**Accepted printed archive baseline: A, the continuous-wall version.** The user
+selected A as the best form and reports successful use and integration with J4.
+B/C/D remain unprinted. All four share the
 original footprint, 15-card pocket, exact accepted **G hood** and **I key 3**.
 There is no new hood/key to print. Older variants remain available.
 
 | Variant | Form | Source / primary print file / secondary file |
 | --- | --- | --- |
-| A — walled | Continuous 40 mm walls | [Python](archive_r2_walled_15.py) · [STEP](archive_r2_walled_15.step) · [STL](archive_r2_walled_15.stl) |
+| **A — walled; printed and accepted** | **Continuous 40 mm walls** | [Python](archive_r2_walled_15.py) · [STEP](archive_r2_walled_15.step) · [STL](archive_r2_walled_15.stl) |
 | B — slim | Four L corners, 4 × 3 mm returns | [Python](archive_r2_slim_15.py) · [STEP](archive_r2_slim_15.step) · [STL](archive_r2_slim_15.stl) |
-| **C — corner** | **Four L corners, 8 × 6 mm returns** | [Python](archive_r2_corner_15.py) · [STEP](archive_r2_corner_15.step) · [STL](archive_r2_corner_15.stl) |
+| C — corner | Four L corners, 8 × 6 mm returns | [Python](archive_r2_corner_15.py) · [STEP](archive_r2_corner_15.step) · [STL](archive_r2_corner_15.stl) |
 | D — side guides | Two side cheeks with 8 mm returns | [Python](archive_r2_side_guides_15.py) · [STEP](archive_r2_side_guides_15.step) · [STL](archive_r2_side_guides_15.stl) |
 
 [Labelled drawing of all four](renders/concepts/archive_structure_options.svg)
@@ -31,17 +33,19 @@ Print **floor down, PETG, .4 mm nozzle/.2 mm layers, two walls, 7% adaptive cubi
 Each file contains only one base, already placed for printing. Use the existing
 [G hood STEP](cap_g_hood_5.step) and [I keys layout](cap_i_grip_keys.step) (use key 3).
 Browse on a horizontal desk, insert the bundle square and lift cards vertically.
-Open-box carrying/inversion is not qualified. Start with C and try a full stack,
-then one/three/five remaining; check containment while selecting cards, neighbour
-drag, entry, comfort, guide stiffness, hood release and both J4 joining ends.
+The user has tested A successfully for the previously discussed browsing and
+sparse-card containment concerns, including a single card. Open-box
+carrying/inversion and long-term durability are not qualified. The earlier
+recommendation to start with C is superseded by the user's successful A trial.
 
 [Functional CAD checks](notes/archive_r2_checks.json) cover actual cards,
 8-direction bundle entry, extraction, normal sparse contact, complete I3/J4
 joining and G key captivity. The [corner study](notes/archive_corner_support.json)
 adds selected yaw/lean challenges. All four block the sampled rigid cases;
-this does not prove all escape paths or printed stiffness. Physical use remains
-untested. Exact-G rigid seating/lift has CAD evidence; tactile fit is still a
-print check. Reference STL slicing does not verify Orca's GUI STEP import.
+this does not prove all escape paths or printed stiffness. A now has a successful
+physical-use report: cards remain contained during the reported tests, and the
+existing key, latest J (J4) and exact G hood work together. B/C/D have only CAD
+and slice evidence. Reference STL slicing does not verify Orca's GUI STEP import.
 
 All four valid bases exported successfully as matching STEP/STL pairs.
 OrcaSlicer 2.4.2 completed the diagnostic Q2C/PETG/.4/.2/two-wall/7% slices
@@ -56,7 +60,10 @@ Native paired-export/slice reports:
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | N/A — complete base is the trial | No detached coupon | Pocket constraints and sparse browsing need the complete geometry |
-| Final printable object(s), A/B/C/D | Unknown — no physical print reported | Four R2 STEP/STL pairs above; existing G and I3 | User accepts completion of this form round. CAD/slice evidence is limited to nominal geometry and diagnostic settings; containment in actual use, stiffness, comfort and fit remain untested |
+| Final printable object, A | Yes — printed and accepted, reported 2026-10-04 | `archive_r2_walled_15.step/.stl`; existing G hood, key and J4 base | User chose A; archive use, single-card/sparse-card containment, J4 joining and G hood fit work as intended. Exact printed artifact hash and actual print settings are not supplied; carrying/inversion and durability remain unqualified |
+| Final printable objects, B/C/D | No — user printed only A | Other three R2 STEP/STL pairs above | No physical-use result; retain existing CAD/slice evidence |
+
+[Detailed A print report](notes/cap_comparison.md#archive-r2-a-print-report--2026-10-04).
 
 [Development reflection and measured memory-policy comparison](../../performance/reviews/2026-10-04-152419-archive-reflection-and-memory-policy.md)
 records the workflow improvements and historical memory-policy comparison.
