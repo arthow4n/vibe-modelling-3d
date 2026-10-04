@@ -20,7 +20,7 @@ def environment_identity(env=None):
     # Values influence compatibility but are never retained in diagnostics.
     reserved={'ENGINEERING_RUN_ID','ENGINEERING_TRACEPARENT','ENGINEERING_OWNER_PID','ENGINEERING_OWNER_ID',
         'ENGINEERING_LEASE_THREADS','ENGINEERING_AFFINITY','ENGINEERING_THREADS','ENGINEERING_INSTANCE',
-        'ENGINEERING_DATA','ENGINEERING_TRACE','ENGINEERING_CPUS','ENGINEERING_MEMORY_MB','ENGINEERING_JOBS',
+        'ENGINEERING_DATA','ENGINEERING_TRACE','ENGINEERING_CPUS','ENGINEERING_JOBS',
         'ENGINEERING_REUSE_MESH','ENGINEERING_EXEC_OWNER_PID','ENGINEERING_EXEC_OWNER_ID','ENGINEERING_REPOSITORY'}
     return fingerprint({k: v for k, v in (env or os.environ).items()
         if k not in reserved and not k.startswith('OTEL_') and k not in ('_', 'SHLVL')})
@@ -33,7 +33,7 @@ def runtime_identity():
     import sysconfig
     files += sorted(Path(sysconfig.get_path('purelib')).glob('*.dist-info/METADATA'))
     return fingerprint(dict(python=sys.version, executable=str(Path(sys.executable).resolve()),prefix=str(Path(sys.prefix).resolve()),
-        coordinator={k:os.environ.get(k) for k in ('ENGINEERING_CPUS','ENGINEERING_MEMORY_MB','ENGINEERING_JOBS','ENGINEERING_DATA')},
+        coordinator={k:os.environ.get(k) for k in ('ENGINEERING_CPUS','ENGINEERING_JOBS','ENGINEERING_DATA')},
         files={str(p): digest(p) for p in files if p.is_file()}))
 
 
@@ -46,7 +46,7 @@ def execution_inputs_identity(request):
     cad=request.get('cad')
     return fingerprint(dict(kind=request.get('kind'), source=request.get('source_sha256'),
         runtime=request.get('runtime'), strategy=request.get('strategy'),
-        threads=request.get('threads'), memory_mb=request.get('memory_mb'),
+        threads=request.get('threads'),
         timeout=request.get('timeout'), preload=request.get('preload'),profile=request.get('profile'),
         cwd=request.get('cwd'), arguments=request.get('arguments'),
         environment=environment_identity(request.get('environment')),

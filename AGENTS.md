@@ -218,9 +218,10 @@ only after it has demonstrated recurring value.
 Run ordinary experiments with `./execute.py SCRIPT.py [ARGS...]`; use
 `./evaluate_model.py` for CAD. Both start and manage the shared local coordinator,
 resource admission and performance records automatically. Options precede scripts.
-Use `--threads 50%` (default) or an integer and an adequate `--memory-mb` for
-larger scripts. Shared capacity defaults to 50% of available cores, configurable
-with `ENGINEERING_CPUS`. Concurrent agents share CPU sets and output ownership.
+Use `--threads 50%` (default) or an integer. Shared capacity defaults to 50% of
+available cores, configurable with `ENGINEERING_CPUS`. Admission uses CPU threads
+and job slots; RSS measurements are diagnostic only. Concurrent agents share
+CPU sets and output ownership.
 Keep Gmsh/native solvers isolated through the existing physical-analysis APIs.
 
 Exports, renders and completed slice reviews reuse verified content automatically;

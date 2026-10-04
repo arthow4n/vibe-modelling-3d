@@ -17,7 +17,7 @@ def update(request,status,**details):
         record.update(schema_version=1,run_id=request['run_id'],kind=request['kind'],
             source=request['source'],source_sha256=request['source_sha256'],
             arguments_sha256=fingerprint(request.get('arguments',[])),identity=request.get('identity'),
-            threads=request.get('threads'), memory_mb=request.get('memory_mb'),
+            threads=request.get('threads'),
             owner_pid=os.getpid(),owner_identity=process_identity(),updated_unix_ns=time.time_ns())
         record.update(status=status,**details)
         temporary=path.with_suffix('.tmp');temporary.write_text(json.dumps(record)+'\n');temporary.replace(path)

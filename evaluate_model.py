@@ -30,7 +30,6 @@ if __name__=='__main__':
 
 from execution.telemetry import operation, span, child_environment
 from execution.process import run as run_command
-from execution.resources import DEFAULT_MEMORY_MB
 
 VIEWS = {
     "isometric": (1, -1, 1), "isometric_back": (-1, 1, 1),
@@ -675,7 +674,6 @@ def main(argv=None):
     parser.add_argument("--dependency",type=Path,action="append",default=[],help="Additional input file/directory for --reuse and revision guards")
     parser.add_argument("--isolated",action="store_true",help="Use conventional CAD process instead of warm infrastructure")
     parser.add_argument("--threads",default="50%",help="Native CPU budget: integer or percent of shared capacity")
-    parser.add_argument("--memory-mb",type=int,help=f"CAD worker memory/admission budget (default {DEFAULT_MEMORY_MB} MiB, or declared geometry-only budget)")
     parser.add_argument("--timeout", type=positive_float, default=300,
                         help="Maximum evaluation time in seconds")
     parser.add_argument("--report", type=Path, metavar="JSON",
@@ -687,7 +685,6 @@ def main(argv=None):
     from execution.resources import cores,cpu_capacity
     try:args.threads=cores(args.threads,cpu_capacity())
     except ValueError as exc:parser.error(str(exc))
-    if args.memory_mb is not None and args.memory_mb<1:parser.error('Memory budget must be positive')
     if args.summary and not args.report:
         parser.error("--summary requires --report so complete evidence is retained")
     if args.report:
@@ -732,7 +729,6 @@ def main(argv=None):
     if not source.is_file():
         parser.error(f"Model source does not exist: {source}")
     declaration=source.with_suffix('.execution.json')
-    geometry_memory=None
     if declaration.exists():
         try:
             contract=json.loads(declaration.read_text())
@@ -741,18 +737,11 @@ def main(argv=None):
             inputs=contract.get('inputs',[])
             if not isinstance(inputs,list) or any(not isinstance(p,str) for p in inputs):
                 raise ValueError('inputs must be a list of file/directory paths')
-            resources=contract.get('resources',{})
-            if not isinstance(resources,dict):raise ValueError('resources must be an object')
-            geometry_memory=resources.get('geometry_memory_mb')
-            if geometry_memory is not None and (type(geometry_memory) is not int or geometry_memory<1):
-                raise ValueError('geometry_memory_mb must be a positive integer')
             args.dependency += [declaration,*[source.parent/p for p in inputs]]
             args.reuse |= contract['deterministic']
         except (ValueError,OSError) as exc:parser.error(f'Invalid execution declaration: {exc}')
     if args.fresh:args.reuse=False
     views = [] if args.views == "none" else args.views.split(",")
-    if args.memory_mb is None:
-        args.memory_mb=geometry_memory if geometry_memory and not views and not (args.export or args.slice) else DEFAULT_MEMORY_MB
     if len(views) != len(set(views)) or any(view not in VIEWS for view in views):
         parser.error(f"Views must be distinct names from {', '.join(VIEWS)}, or none")
     root = source.parent
@@ -807,7 +796,7 @@ def main(argv=None):
         report=execute_cad(dict(source=str(source),source_sha256=digest(source),identity=identity,
             dependencies=[str(p.resolve()) for p in args.dependency],reuse=args.reuse,
             cad=request,run_id=_active.get(),environment=execution_environment,
-            runtime=runtime_identity(),threads=args.threads,memory_mb=args.memory_mb,timeout=args.timeout),coordinator=not args.isolated,on_event=exports_ready)
+            runtime=runtime_identity(),threads=args.threads,timeout=args.timeout),coordinator=not args.isolated,on_event=exports_ready)
     except KeyboardInterrupt:
         slice_cancelled.set()
         if slice_executor:slice_executor.shutdown(wait=True,cancel_futures=True)

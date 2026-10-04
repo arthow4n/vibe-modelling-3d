@@ -1557,12 +1557,13 @@ NumPy and CadQuery adequately. No new shared API or generic checker is justified
 ### Reflection and execution follow-up — 2026-10-04
 
 The [session review](../../../performance/reviews/2026-10-04-152419-archive-reflection-and-memory-policy.md)
-owns the measured timing/token scope and memory-policy experiments. Repeated
-2 GB admission delays justified the shared 1 GB default; all four R2 geometry
-entry points and the inspection now have fresh-qualified 512 MiB budgets.
-The complete four-variant check passed at 1 GB, peaking around 551 MiB. Preserve
-that distinction rather than assigning the smaller CAD budget to every script.
-Inspection now declares the actual SCAD dependency for guarded geometry reuse.
+owns the measured timing/token scope and historical memory-policy experiments.
+The smaller RAM defaults and per-model declarations were an intermediate change;
+the user subsequently authorized complete removal of shared RAM reservations,
+limits and their related infrastructure. Admission now uses CPU threads and job
+slots only; the [removal review](../../../performance/reviews/2026-10-04-163751-shared-memory-controls-removed.md)
+records qualification. Inspection retains its actual SCAD dependency for guarded geometry
+reuse. No product geometry or physical-print status changed.
 
 Shared updates address concurrent telemetry merges, benchmark process ownership,
 render-path semantics, source freezing and focused reads. Rim topology diagnosis

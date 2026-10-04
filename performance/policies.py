@@ -28,7 +28,7 @@ def main():
     record={'schema_version':1,'revision':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         'platform':platform.platform(),'python':sys.version,'lock_sha256':digest(ROOT/'uv.lock'),
         'available_cpus':len(os.sched_getaffinity(0)),'shared_cpu_capacity':capacity.cpus,
-        'shared_memory_mb':capacity.memory_mb,'numpy':version('numpy'),'policies':{}}
+        'numpy':version('numpy'),'policies':{}}
     with tempfile.TemporaryDirectory(prefix='engineering-policy-',dir=Path.home()) as folder:
         temp=Path(folder);os.environ['ENGINEERING_DATA']=str(temp/'records')
         os.environ['ENGINEERING_INSTANCE']=uuid.uuid4().hex
@@ -50,10 +50,10 @@ def main():
         os.environ['ENGINEERING_TRACE']='1'
         for threads in (1,2,4,8):
             if threads>capacity.cpus:continue
-            command(matrix,'--threads',str(threads),'--memory-mb','512',argument=temp/'matrix.txt')
-            record['policies'][f'matrix_threads_{threads}']=measure(lambda:command(matrix,'--threads',str(threads),'--memory-mb','512',argument=temp/'matrix.txt'),3)
+            command(matrix,'--threads',str(threads),argument=temp/'matrix.txt')
+            record['policies'][f'matrix_threads_{threads}']=measure(lambda:command(matrix,'--threads',str(threads),argument=temp/'matrix.txt'),3)
             assert (temp/'matrix.txt').read_text()=='2400.0'
-        tasks=[ScriptTask(str(i),matrix,(str(temp/f'{i}.txt'),),outputs=(temp/f'{i}.txt',),threads=min(4,max(1,capacity.cpus//2)),memory_mb=512) for i in range(2)]
+        tasks=[ScriptTask(str(i),matrix,(str(temp/f'{i}.txt'),),outputs=(temp/f'{i}.txt',),threads=min(4,max(1,capacity.cpus//2))) for i in range(2)]
         for concurrent in (1,2):
             def batch():
                 before=time.perf_counter();answers=run(tasks,max_concurrent=concurrent)
@@ -73,22 +73,6 @@ def main():
                     assert result['support_probe']['ok']
                     return time.perf_counter()-before
             record['policies'][f'slice_threads_{threads}']=measure(slice_pair,3)
-        # Measured small fixture RSS (~280 MiB) fits a 512 MiB budget, allowing
-        # slicing to overlap renders under the normal shared memory capacity.
-        for memory in (2048,512):
-            # Evaluator CLI rather than execute.py: same infrastructure, native report.
-            def pipeline_command():
-                before=time.perf_counter()
-                done=subprocess.run([str(ROOT/'evaluate_model.py'),str(cad),'--memory-mb',str(memory),'--fresh','--views','isometric,front,top,right','--slice'],capture_output=True,text=True,cwd=ROOT,timeout=90)
-                assert done.returncode in (0,2),done.stdout+done.stderr
-                if memory==512:
-                    summaries=sorted((temp/'records/runs').glob('*.json'),key=lambda p:p.stat().st_mtime)
-                    latest=json.loads(summaries[-1].read_text())
-                    from execution.history import main as history
-                    snapshot=ROOT/'performance/traces/pipeline.perfetto.json';snapshot.parent.mkdir(exist_ok=True)
-                    history(['--run',latest['run_id'],'--perfetto',str(snapshot)])
-                return time.perf_counter()-before
-            record['policies'][f'pipeline_memory_{memory}']=measure(pipeline_command,3)
         stop_coordinator(os.environ.copy())
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(record,indent=2)+'\n')

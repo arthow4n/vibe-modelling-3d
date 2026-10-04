@@ -11,7 +11,7 @@ Requests are bounded JSON messages over a private local Unix socket, with a
 unique run ID, strategy, absolute source/cwd, argument list, input identity,
 resource budget, deadline and trace context. Output streams travel separately
 from concise result metadata. The coordinator starts on demand, admits independent
-jobs against CPU/memory budgets, observes clients and workers, and idles out.
+jobs against CPU threads/job slots and idles out. RSS sampling is diagnostic.
 Native work runs in owned process groups. Disconnect, deadline and cancellation
 terminate owned descendants; ambiguous dispatch is never retried automatically.
 The fallback starts a conventional isolated process using the same lifecycle.
@@ -21,7 +21,7 @@ Three strategies share this interface: isolated (ordinary scripts), preinitializ
 operations retaining immutable geometry under an explicit closed-input contract).
 No arbitrary script executes repeatedly in a shared mutable interpreter.
 Source/dependency/environment changes invalidate compatible infrastructure.
-Worker recycling bounds jobs, lifetime and resident memory. The coordinator idle
+Worker recycling bounds idle-worker count, jobs and lifetime. The coordinator idle
 timeout starts after the last request completes and does not expire while handlers
 are queued. A long active job does not consume the subsequent idle allowance.
 
@@ -89,15 +89,10 @@ user script still gets a fresh child. Both preload labels use the same qualified
 import-only host (scientific dependencies are included by CadQuery). Gmsh and
 solvers are never initialized in that host. The host is imported with one native
 thread; jobs apply their explicit `--threads` budget. Ordinary jobs default to
-50% of shared CPU capacity and 1024 MiB of process-tree RSS. Use larger explicit budgets when
-needed; oversize requests fail before execution. This is process isolation,
-not a sandbox.
-
-The memory reservation is scheduler bookkeeping, not an allocation of RAM.
-Managed CAD/script jobs also use that budget as their RSS watchdog limit:
-exceeding it stops the job instead of automatically enlarging the budget or
-replaying side effects. A resource lease alone accounts for capacity; it does
-not install a process watchdog around arbitrary caller code. Keep reserved capacity distinct from actual measured use when diagnosing a delay.
+50% of shared CPU capacity. CPU requests exceeding capacity fail before execution.
+Admission uses CPU threads and job slots. RSS is sampled for performance records;
+it does not reserve capacity or stop jobs. There are no shared RAM budgets,
+memory-limit options or memory-pressure watchdogs. Process isolation is not a sandbox.
 
 `--isolated` bypasses the coordinator for compatibility diagnosis, using the same
 traced lifecycle. Coordinator startup failure also falls back *before dispatch*;
@@ -106,23 +101,14 @@ script behavior; timeout is 124, interruption is 130, signals map to 128+signal.
 File descriptors carry actual input/output streams; output isn't stored in traces.
 Profiling artifacts remain local. Environment values and arguments aren't logged.
 
-`ENGINEERING_CPUS`, `ENGINEERING_MEMORY_MB`, `ENGINEERING_JOBS` configure the
-coordinator capacity. `ENGINEERING_TRACE=0` disables detailed spans for overhead
+`ENGINEERING_CPUS` and `ENGINEERING_JOBS` configure coordinator CPU capacity and
+job-count limit. `ENGINEERING_TRACE=0` disables detailed spans for overhead
 measurement; compact run summaries remain. `ENGINEERING_DATA` selects local
 performance storage. No normal engineering task needs to inspect these records.
 
-When a performance investigation finds long waits, compare declared reservations
-with shared capacity before increasing concurrency. Two default 1024 MiB requests
-require at least 2048 MiB of admission capacity (plus retained worker RSS), even if
-their observed use is lower. The previous 2048 MiB default repeatedly serialized
-ordinary jobs on smaller memory capacities; matched CAD/render measurements and
-representative script/artifact qualification support the current default.
-For a stable workload, test an explicit budget with
-headroom above sampled peaks and verify representative cases; use larger budgets
-for changed/unmeasured workloads. Do not lower general defaults or overcommit
-reservations on the strength of one small fixture. Larger scripts and CAD builds
-still need explicit budgets when their measured use approaches the default. See the
-[matched admission follow-up](../performance/README.md#targeted-admission-studies).
+When investigating queue waits, inspect CPU/job blocking and initialization.
+Historical memory-policy measurements remain in the performance reviews;
+RAM reservation and limit controls have been removed.
 
 ## CAD iterations and incremental outputs
 
@@ -158,14 +144,6 @@ files/directories and the declaration itself enter the content identity. Subsequ
 ordinary evaluator calls automatically use compatible geometry. Undeclared inputs,
 randomness, clocks and required construction side effects cannot use this contract.
 
-For a measured workload, an optional `"resources":{"geometry_memory_mb":1024}`
-sets its admission reservation only for geometry-only evaluations (no views,
-exports or slicing). An explicit `--memory-mb` always overrides it; other stages
-and undeclared models use the 1024 MiB default. Validate the reservation with
-representative fresh runs and headroom before declaring it. The reservation also
-sets the CAD worker's enforced RSS budget; it is not a measured requirement or
-a universal estimate for other geometry.
-
 `--reuse` also declares that geometry construction is deterministic, has no required
 side effects, and depends only on repository/adjacent Python sources and declared
 inputs. Declare *every* external/non-Python input with repeated `--dependency`.
@@ -196,8 +174,9 @@ command default) allocates half that shared capacity. Integer thread counts are
 also accepted. Admission gives simultaneous jobs disjoint CPU sets on Linux.
 OCCT and BLAS receive the thread count; external native processes inherit CPU
 binding through `taskset`, so libraries ignoring OMP limits still stay within
-allocated cores. Process-tree memory budgets and a default maximum four jobs
-bound admission. Import-only preload remains single threaded for safe forking.
+allocated cores. CPU threads and a default maximum four jobs bound admission;
+actual memory use is recorded diagnostically. Import-only preload remains single
+threaded for safe forking.
 
 Independent scripts can use `execution.batch.ScriptTask` and `execution.batch.run`:
 
@@ -290,7 +269,8 @@ Run summaries can also retain `artifact_reuse`: existing evaluator decisions for
 geometry, export/view counts and slice status, with no paths or new cache semantics.
 Absence in older records means unreported. Effective request budgets and bounded
 `admission` observations now retain capacity, first blocking occupancy, wait status
-and work seconds attributed to CPU, memory, job slots or idle resident memory.
+and work seconds attributed to CPU/job slots. Older memory/resident-memory
+blocking records describe the removed reservation policy.
 Reasons can overlap and their sums are not elapsed time. Native leases carry a
 `resource.admission` span with the measured queue duration and effective budgets;
 its full span also includes connection/protocol overhead.

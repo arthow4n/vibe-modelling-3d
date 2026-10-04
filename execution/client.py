@@ -11,7 +11,7 @@ import uuid
 from .identity import ROOT, runtime_identity, digest
 from . import protocol
 from .telemetry import run, child_environment, span, data_root
-from .resources import DEFAULT_MEMORY_MB, thread_environment
+from .resources import thread_environment
 
 
 class CoordinatorUnavailable(RuntimeError):pass
@@ -73,13 +73,13 @@ def submit(request, fds=(0,1,2), on_event=None):
 
 
 def script(source, arguments=(), *, cwd=None, strategy='isolated', preload='scientific',
-           timeout=None, threads=1, memory_mb=DEFAULT_MEMORY_MB, profile=None, coordinator=True):
+           timeout=None, threads=1, profile=None, coordinator=True):
     source=Path(source).resolve(strict=True)
     if not source.is_file():raise ValueError('Script source must be a file')
     with run('script.command',source,strategy,arguments) as record:
         request=dict(kind='script',run_id=record['run_id'],source=str(source),
             source_sha256=digest(source),arguments=list(arguments),cwd=str(Path(cwd or os.getcwd()).resolve()),
-            strategy=strategy,preload=preload,timeout=timeout,threads=threads,memory_mb=memory_mb,
+            strategy=strategy,preload=preload,timeout=timeout,threads=threads,
             profile=profile,environment=thread_environment(child_environment(),threads),
             runtime=runtime_identity(),pythonpath=[str(ROOT)])
         from .resources import inherited_budget
@@ -100,8 +100,7 @@ def fallback(request):
         env=child_environment(request['environment']);env['ENGINEERING_LEASE_THREADS']=str(request['threads']);env['PYTHONPATH']=str(ROOT)+os.pathsep+env.get('PYTHONPATH','')
         try:
             code,resources=run_process([sys.executable,'-m','execution.runner',str(path)],
-                cwd=request['cwd'],env=env,timeout=request['timeout'],memory_mb=request['memory_mb'])
+                cwd=request['cwd'],env=env,timeout=request['timeout'])
             return dict(exit_code=code,status='completed' if code==0 else 'failed',resources=resources,
                 execution_strategy='isolated-fallback')
         except subprocess.TimeoutExpired:return dict(exit_code=124,status='timeout',execution_strategy='isolated-fallback')
-        except MemoryError:return dict(exit_code=1,status='memory_limit',execution_strategy='isolated-fallback')

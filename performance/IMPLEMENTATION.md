@@ -16,7 +16,7 @@ engineering evidence remains owned by its existing tools.
   model execution retains fresh user-module semantics.
 - Existing CAD validity, STEP/STL meshing, slice exit 0/1/2, support probe,
   backend identity/recovery/convergence and numerical tolerances are preserved.
-- CPU/memory admission and native thread budgets share the coordinator. Large
+- CPU/job admission and native thread budgets share the coordinator. Large
   native objects stay in their owner; independent external work may overlap.
 - Process-group/descendant cleanup, no automatic replay after uncertain dispatch,
   atomic managed outputs and source identity guards protect result ownership.
@@ -213,3 +213,10 @@ history and two representative timelines are committed; raw traces remain local.
 Additional isolated/preinitialized native SIGSEGV smoke checks returned 139 and
 recovered; locked environment and focused skill validation passed. The disposable
 original-source baseline checkout was removed after recording its evidence.
+
+## RAM-control removal — 2026-10-04
+
+Shared RAM reservations, per-job limits, capacity controls and memory-based idle
+cache reclamation have been removed, including their APIs, CLI options, fixtures
+and dedicated tests. Earlier entries describe historical implementations. CPU/job
+admission, cancellation, timeout, process ownership and passive RSS records remain.

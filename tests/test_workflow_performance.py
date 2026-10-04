@@ -292,20 +292,20 @@ def test_complete_option_identity_does_not_group_changed_cad_requests():
 
 
 def test_admission_reason_overlap_is_labeled_as_work():
-    s=analyze([], [{'admission':{'blocked_seconds':{'memory':2.,'jobs':2.},'status':'acquired'}}],[])
+    s=analyze([], [{'admission':{'blocked_seconds':{'cpu':2.,'jobs':2.},'status':'acquired'}}],[])
     assert s['admission_covered_executions']==1
-    assert s['blocked_reason_work_s']=={'memory':2.,'jobs':2.}
+    assert s['blocked_reason_work_s']=={'cpu':2.,'jobs':2.}
 
 
 def test_native_lease_queue_is_reported_separately_from_run_intervals():
     span={'name':'resource.admission','startTimeUnixNano':str(1_000_000_000),
           'endTimeUnixNano':str(3_000_000_000),'traceId':'a','attributes':[
               {'key':'queue_seconds','value':{'doubleValue':1.5}},
-              {'key':'blocked_memory_seconds','value':{'doubleValue':1.5}},
+              {'key':'blocked_cpu_seconds','value':{'doubleValue':1.5}},
               {'key':'blocked_jobs_seconds','value':{'doubleValue':1.5}}]}
     summary=analyze([], [{'start_unix_ns':0,'elapsed_seconds':5}], [({},span)])
     assert summary['execution_union_s']==5 and summary['lease_queue']['sum_s']==1.5
-    assert summary['lease_blocked_reason_work_s']=={'memory':1.5,'jobs':1.5}
+    assert summary['lease_blocked_reason_work_s']=={'cpu':1.5,'jobs':1.5}
 
 
 def context(turn='turn-a', model='gpt-6.1-sol', effort='high', time=T):

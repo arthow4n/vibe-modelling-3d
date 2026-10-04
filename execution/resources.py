@@ -1,12 +1,10 @@
-"""Admission policy: affinity/cgroup CPU, bounded jobs, declared memory/thread use."""
+"""CPU/job admission and shared thread leases."""
 from contextlib import contextmanager
 import os
 from pathlib import Path
 import threading
 import time
 import math
-
-DEFAULT_MEMORY_MB = 1024
 
 
 def cores(value, available):
@@ -28,30 +26,21 @@ def cpu_capacity():
 
 
 class Admission:
-    def __init__(self, cpus=None, memory_mb=None, jobs=None):
-        import psutil
+    def __init__(self, cpus=None, jobs=None):
         self.cpus=cpus or cpu_capacity()
-        self.memory_mb=memory_mb or int(os.environ.get('ENGINEERING_MEMORY_MB',psutil.virtual_memory().available*.6/1024**2))
-        if memory_mb is None:
-            try:
-                limit=Path('/sys/fs/cgroup/memory.max').read_text().strip()
-                if limit!='max':self.memory_mb=min(self.memory_mb,max(1,int(int(limit)*.6/1024**2)))
-            except (OSError,ValueError):pass
         self.jobs=jobs or int(os.environ.get('ENGINEERING_JOBS',min(4,self.cpus)))
-        self.used_cpus=self.used_memory=self.active=0
+        self.used_cpus=self.active=0
         self.free_cores=sorted(os.sched_getaffinity(0))[:self.cpus] if hasattr(os,"sched_getaffinity") else list(range(self.cpus))
         self.condition=threading.Condition()
-        self.resident_usage=lambda:0
-        self.reclaim_resident=lambda available:None
 
     @contextmanager
-    def acquire(self, cpus, memory_mb, cancelled=lambda:False, deadline=None, observation=None):
-        if cpus<1 or cpus>self.cpus or memory_mb<1 or memory_mb>self.memory_mb:
-            raise ValueError('Requested resources exceed coordinator capacity')
+    def acquire(self, cpus, cancelled=lambda:False, deadline=None, observation=None):
+        if cpus<1 or cpus>self.cpus:
+            raise ValueError('Requested CPU resources exceed coordinator capacity')
         started=time.monotonic()
         if observation is not None:
-            observation.update(requested_cpus=cpus, requested_memory_mb=memory_mb,
-                capacity_cpus=self.cpus, capacity_memory_mb=self.memory_mb, capacity_jobs=self.jobs,
+            observation.update(requested_cpus=cpus,
+                capacity_cpus=self.cpus, capacity_jobs=self.jobs,
                 blocked_seconds={}, wait_seconds=0., status='waiting')
         previous=started; reasons=[]
         def account():
@@ -72,19 +61,13 @@ class Admission:
                     if deadline is not None and time.monotonic()>deadline:raise TimeoutError('Deadline expired waiting for resources')
                     reasons=[]
                     if self.used_cpus+cpus>self.cpus:reasons.append('cpu')
-                    if self.used_memory+memory_mb>self.memory_mb:reasons.append('memory')
                     if self.active>=self.jobs:reasons.append('jobs')
-                    if not reasons:
-                        available=self.memory_mb-self.used_memory-memory_mb
-                        if self.resident_usage()>available:self.reclaim_resident(available)
-                        if self.resident_usage()<=available:break
-                        reasons.append('resident_memory')
+                    if not reasons:break
                     if observation is not None and 'first_blocked' not in observation:
-                        observation['first_blocked']=dict(used_cpus=self.used_cpus,
-                            used_memory_mb=self.used_memory, active_jobs=self.active)
+                        observation['first_blocked']=dict(used_cpus=self.used_cpus,active_jobs=self.active)
                     self.condition.wait(.05)
                 allocated=self.free_cores[:cpus];del self.free_cores[:cpus]
-                self.used_cpus+=cpus;self.used_memory+=memory_mb;self.active+=1
+                self.used_cpus+=cpus;self.active+=1
             if observation is not None:observation['status']='acquired'
         except BaseException:
             if observation is not None:observation['status']='not_acquired'
@@ -97,7 +80,7 @@ class Admission:
             _affinity.reset(token)
             with self.condition:
                 self.free_cores.extend(allocated);self.free_cores.sort()
-                self.used_cpus-=cpus;self.used_memory-=memory_mb;self.active-=1
+                self.used_cpus-=cpus;self.active-=1
                 self.condition.notify_all()
 
 
@@ -120,7 +103,7 @@ def inherited_budget():
 
 
 @contextmanager
-def lease(threads=None,memory_mb=DEFAULT_MEMORY_MB):
+def lease(threads=None):
     from .client import connect,CoordinatorUnavailable
     from . import protocol
     inherited=inherited_budget()
@@ -135,8 +118,8 @@ def lease(threads=None,memory_mb=DEFAULT_MEMORY_MB):
     try:
         try:
             from .telemetry import span
-            with span('resource.admission', requested_cpus=threads, requested_memory_mb=memory_mb) as waiting:
-                connection=connect();protocol.send(connection,dict(kind='lease',threads=threads,memory_mb=memory_mb))
+            with span('resource.admission', requested_cpus=threads) as waiting:
+                connection=connect();protocol.send(connection,dict(kind='lease',threads=threads))
                 import select
                 from .lifecycle import _cancellation
                 while not select.select([connection],[],[],.05)[0]:
@@ -146,7 +129,7 @@ def lease(threads=None,memory_mb=DEFAULT_MEMORY_MB):
                     try:
                         waiting.set_attribute('queue_seconds', response['queue_seconds'])
                         observed=response.get('admission',{})
-                        for key in ('capacity_cpus','capacity_memory_mb','capacity_jobs'):
+                        for key in ('capacity_cpus','capacity_jobs'):
                             if key in observed:waiting.set_attribute(key,observed[key])
                         for reason,seconds in observed.get('blocked_seconds',{}).items():
                             waiting.set_attribute('blocked_'+reason+'_seconds',seconds)

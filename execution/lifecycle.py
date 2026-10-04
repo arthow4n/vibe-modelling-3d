@@ -103,7 +103,7 @@ def terminate(process, descendants=()):
         pass
 
 
-def wait(process, timeout=None, cancelled=lambda: False, memory_mb=None, sample=None,run_id=None):
+def wait(process, timeout=None, cancelled=lambda: False, sample=None,run_id=None):
     """Observe actual process tree use; unavailable data stays null, never zero."""
     import psutil
     started=time.monotonic();seen={};peak=None;cpu=None
@@ -128,8 +128,6 @@ def wait(process, timeout=None, cancelled=lambda: False, memory_mb=None, sample=
             times=[p.cpu_times() for p in processes];now_cpu=sum(t.user+t.system for t in times)
             peak=max(peak or 0,rss);cpu=max(cpu or 0,now_cpu)
             if sample: sample(time.time_ns(),rss,now_cpu)
-            if memory_mb and rss>memory_mb*1024**2:
-                terminate(process,seen.values());raise MemoryError('Execution exceeded its process-tree memory budget')
         except psutil.Error:
             pass
         if cancelled():
@@ -140,7 +138,7 @@ def wait(process, timeout=None, cancelled=lambda: False, memory_mb=None, sample=
 
 
 def run(command, *, timeout=None, cwd=None, env=None, stdin=None, stdout=None, stderr=None,
-        cancelled=None, memory_mb=None):
+        cancelled=None):
     with span('subprocess', executable=os.path.basename(str(command[0]))):
         enable_reaper()
         import shutil
@@ -157,7 +155,7 @@ def run(command, *, timeout=None, cwd=None, env=None, stdin=None, stdout=None, s
         process=subprocess.Popen(command,cwd=cwd,env=environment,stdin=stdin,
             stdout=stdout,stderr=stderr,start_new_session=(os.name=='posix'))
         try:
-            code, measurements=wait(process,timeout,cancelled or _cancellation.get(),memory_mb,run_id=environment.get('ENGINEERING_RUN_ID'))
+            code, measurements=wait(process,timeout,cancelled or _cancellation.get(),run_id=environment.get('ENGINEERING_RUN_ID'))
         except BaseException:
             terminate(process)
             raise

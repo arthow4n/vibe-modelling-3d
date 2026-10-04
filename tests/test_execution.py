@@ -67,16 +67,16 @@ def test_descendant_cleanup(tmp_path):
 def test_admission_and_release():
     from execution.resources import Admission
     from concurrent.futures import ThreadPoolExecutor
-    gate=Admission(cpus=2,memory_mb=100,jobs=2)
+    gate=Admission(cpus=2,jobs=2)
     def task():
-        with gate.acquire(1,40):
+        with gate.acquire(1):
             time.sleep(.05)
             return gate.active
     with ThreadPoolExecutor(2) as pool:
         results=list(pool.map(lambda _:task(),range(2)))
     assert max(results)==2 and gate.active==0
     with pytest.raises(ValueError):
-        with gate.acquire(3,1):pass
+        with gate.acquire(3):pass
 
 
 def test_percent_budgets_and_disjoint_affinity():
@@ -84,9 +84,9 @@ def test_percent_budgets_and_disjoint_affinity():
     from concurrent.futures import ThreadPoolExecutor
     import threading
     assert cores('50%',16)==8 and cores('50%',3)==1 and cores('3',8)==3
-    barrier=threading.Barrier(2);gate=Admission(cpus=4,memory_mb=100,jobs=2)
+    barrier=threading.Barrier(2);gate=Admission(cpus=4,jobs=2)
     def work():
-        with gate.acquire(2,10):
+        with gate.acquire(2):
             assigned=set(current_affinity().split(','));barrier.wait(2);return assigned
     with ThreadPoolExecutor(2) as pool:
         first=pool.submit(work);second=pool.submit(work)
@@ -101,41 +101,6 @@ def test_batch_dependencies_and_failed_dependency(tmp_path):
                  ScriptTask('skip',source,('0',),depends_on=('bad',),threads=1)])
     assert results['good']['exit_code']==results['after']['exit_code']==0
     assert results['bad']['exit_code']==3 and results['skip']['status']=='dependency_failed'
-
-
-def test_script_memory_defaults_and_overrides_reach_admission(tmp_path,monkeypatch):
-    from execution.client import script
-    from execution.batch import ScriptTask,run
-    from execution.history import iter_records
-    import uuid
-    monkeypatch.setenv('ENGINEERING_INSTANCE',uuid.uuid4().hex)
-    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'records'))
-    source=tmp_path/'work.py';source.write_text('print("done")\n')
-    assert call(source,'--threads','1').returncode==0
-    assert call(source,'--threads','1','--memory-mb','1792').returncode==0
-    assert script(source)['exit_code']==0
-    results=run([ScriptTask('default',source,threads=1),
-        ScriptTask('explicit',source,threads=1,memory_mb=1536)])
-    assert all(result['exit_code']==0 for result in results.values())
-    records=[record for record in iter_records(tmp_path/'records') if record['operation']=='script.command']
-    assert sorted(record['admission']['requested_memory_mb'] for record in records)==[1024,1024,1024,1536,1792]
-
-
-def test_memory_overrun_stops_job_without_replaying_and_recovers(tmp_path,monkeypatch):
-    import uuid
-    monkeypatch.setenv('ENGINEERING_INSTANCE',uuid.uuid4().hex)
-    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'records'))
-    marker=tmp_path/'attempts'
-    source=tmp_path/'work.py'
-    source.write_text(f'from pathlib import Path\nimport time\np=Path({str(marker)!r})\n'
-        'p.write_text(p.read_text()+"x" if p.exists() else "x")\n'
-        'allocation=bytearray(256*1024**2)\ntime.sleep(10)\n')
-    failed=call(source,'--threads','1','--memory-mb','128')
-    assert failed.returncode!=0 and 'memory budget' in failed.stderr
-    assert marker.read_text()=='x'
-    source.write_text('print("recovered")\n')
-    recovered=call(source,'--threads','1')
-    assert recovered.returncode==0 and recovered.stdout=='recovered\n'
 
 
 @pytest.mark.parametrize('strategy',['isolated','preinitialized'])
@@ -200,10 +165,9 @@ def test_replacement_reaps_detached_arbitrary_script_children(tmp_path,monkeypat
     c=client.connect();protocol.send(c,{'kind':'stop'});protocol.receive(c);c.close()
 
 
-def test_memory_limit_and_invalid_resource_request(tmp_path):
-    source=tmp_path/'memory.py'
-    source.write_text('import time\ndata=bytearray(80*1024**2)\ntime.sleep(5)\n')
-    assert call(source,'--memory-mb','40').returncode==1
+def test_invalid_cpu_resource_request(tmp_path):
+    source=tmp_path/'work.py'
+    source.write_text('print(42)\n')
     assert call(source,'--threads','0').returncode==2
 
 
@@ -261,58 +225,25 @@ def test_external_editable_imports_are_fresh_and_trace_disable_is_per_request(tm
     c=client.connect();protocol.send(c,{'kind':'stop'});protocol.receive(c);c.close()
 
 
-def test_idle_worker_memory_is_reclaimed_before_admission():
-    from execution.resources import Admission
-    gate=Admission(cpus=1,memory_mb=100,jobs=1);idle=[90];reclaimed=[]
-    gate.resident_usage=lambda:idle[0]
-    def reclaim(available):reclaimed.append(available);idle[0]=0
-    gate.reclaim_resident=reclaim
-    with gate.acquire(1,30):assert gate.used_memory+idle[0]<=100
-    assert reclaimed==[70]
-
-
-def test_admission_records_memory_block_and_releases_safely():
-    from execution.resources import Admission
-    from concurrent.futures import ThreadPoolExecutor
-    import threading
-    gate=Admission(cpus=2,memory_mb=100,jobs=2)
-    attempted=threading.Event();observed={}
-    def waiting():
-        attempted.set()
-        with gate.acquire(1,60,observation=observed):
-            assert gate.used_memory==60
-    with ThreadPoolExecutor(1) as pool:
-        with gate.acquire(1,60):
-            future=pool.submit(waiting)
-            assert attempted.wait(1)
-            deadline=time.monotonic()+1
-            while 'first_blocked' not in observed and time.monotonic()<deadline:time.sleep(.001)
-            assert observed['first_blocked']=={'used_cpus':1,'used_memory_mb':60,'active_jobs':1}
-        future.result(timeout=2)
-    assert observed['status']=='acquired' and observed['blocked_seconds']['memory']>0
-    assert observed['requested_memory_mb']==60 and observed['capacity_memory_mb']==100
-    assert not gate.active and not gate.used_cpus and not gate.used_memory
-
-
 @pytest.mark.parametrize('expired',[True,False])
 def test_admission_does_not_dispatch_expired_or_cancelled_ready_request(expired):
     from execution.resources import Admission
-    gate=Admission(cpus=1,memory_mb=100,jobs=1);observed={}
+    gate=Admission(cpus=1,jobs=1);observed={}
     with pytest.raises(TimeoutError if expired else InterruptedError):
-        with gate.acquire(1,50,cancelled=lambda:not expired,deadline=time.monotonic()-1 if expired else None,observation=observed):
+        with gate.acquire(1,cancelled=lambda:not expired,deadline=time.monotonic()-1 if expired else None,observation=observed):
             pytest.fail('Request must not dispatch')
     assert observed['status']=='not_acquired' and not gate.active
-    with gate.acquire(1,50):pass
+    with gate.acquire(1):pass
 
 
 def test_execution_comparison_identity_covers_options_without_ephemeral_ids():
     from execution.identity import execution_inputs_identity
-    request=dict(kind='cad',source_sha256='source',runtime='runtime',strategy='persistent',threads=2,memory_mb=512,
+    request=dict(kind='cad',source_sha256='source',runtime='runtime',strategy='persistent',threads=2,
         environment={'ENGINEERING_RUN_ID':'a','OMP_NUM_THREADS':'2'},cad=dict(run_id='a',views=['front'],exports=[],fresh=False))
     original=execution_inputs_identity(request)
     changed={**request,'cad':{**request['cad'],'run_id':'b'},'environment':{**request['environment'],'ENGINEERING_RUN_ID':'b'}}
     assert original==execution_inputs_identity(changed)
-    assert original!=execution_inputs_identity({**request,'memory_mb':1024})
+    assert original!=execution_inputs_identity({**request,'threads':1})
     assert original!=execution_inputs_identity({**request,'cad':{**request['cad'],'views':['top']}})
 
 
@@ -338,7 +269,7 @@ def test_completed_lease_starts_idle_timeout_at_completion(monkeypatch):
     @contextmanager
     def acquired(*args,**kwargs):yield 0.
     monkeypatch.setattr(service.admission,'acquire',acquired)
-    monkeypatch.setattr(coordinator.protocol,'receive',lambda *a,**k:({'kind':'lease','threads':1,'memory_mb':10},[]))
+    monkeypatch.setattr(coordinator.protocol,'receive',lambda *a,**k:({'kind':'lease','threads':1},[]))
     monkeypatch.setattr(coordinator.protocol,'send',lambda *a,**k:None)
     monkeypatch.setattr(coordinator.time,'monotonic',lambda:1000.)
     service.handle(Connection())

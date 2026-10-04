@@ -27,16 +27,13 @@ separately justified computational optimization follows.
 - For performance investigations, compare source/tool identities and cold/warm
   command latency before changing kernels. Analyze `execution.history` summaries
   and Perfetto exports; target cProfile or allocation profiling only when needed.
-  Separate queue wait from initialization and kernels. For concurrency, compare
-  declared reservations with capacity and test explicit workload budgets under
-  [resource guidance](../../../execution/README.md#running-scripts); preserve general
-  defaults for unmeasured work. Use complete option/budget comparison identities
+  Separate queue wait from initialization and kernels. Ordinary admission gates
+  CPU threads and job slots. RSS measurements are diagnostic, with no shared
+  memory budgets or watchdogs. Use complete option/budget comparison identities
   when available; legacy CAD argument hashes omit view/export settings.
   Native work may require solver/native sampling rather than Python profiles.
-  Changing `--threads` alone leaves the default memory reservation unchanged;
-  check the recorded blocking reason before expecting more parallel work. Once
-  a workload budget is qualified, retain it in its supported model declaration
-  or object-owned command instructions rather than reasoning about it anew.
+  Challenge an expensive control before optimizing its settings, following the
+  [reflection checkpoint](../engineering-reflection/SKILL.md#identify-what-should-change).
 - Prefer less repeated work, immutable intermediates, batching, NumPy and existing
   spatial indexes. Use compilation only when measured end-to-end savings justify
   startup and maintenance. Keep trivial calculations simple.

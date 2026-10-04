@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor,wait,FIRST_COMPLETED
 import contextvars
 from pathlib import Path
 from .client import script
-from .resources import DEFAULT_MEMORY_MB,cpu_capacity,cores,inherited_budget,_budget,_affinity,current_affinity
+from .resources import cpu_capacity,cores,inherited_budget,_budget,_affinity,current_affinity
 from .artifacts import destinations
 from .telemetry import operation
 
@@ -17,7 +17,6 @@ class ScriptTask:
     depends_on:tuple=()
     outputs:tuple=()
     threads:int|str='50%'
-    memory_mb:int=DEFAULT_MEMORY_MB
     timeout:float|None=None
 
 
@@ -36,7 +35,7 @@ def run(tasks, *, max_concurrent=None):
         affinity_token=_affinity.set(','.join(map(str,allocated))) if parent and affinity else None
         try:
             with destinations(task.outputs):
-                return script(task.source,task.arguments,threads=len(allocated),memory_mb=task.memory_mb,timeout=task.timeout)
+                return script(task.source,task.arguments,threads=len(allocated),timeout=task.timeout)
         finally:
             if token is not None:_budget.reset(token)
             if affinity_token is not None:_affinity.reset(affinity_token)

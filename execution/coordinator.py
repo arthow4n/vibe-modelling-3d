@@ -63,30 +63,6 @@ class CADPool:
                 if not process.is_alive() or time.monotonic()-touched>60:
                     connection.close();terminate(process);del self.entries[key]
 
-    def resident(self):
-        import psutil
-        with self.lock:
-            total=0
-            for process,*_ in self.entries.values():
-                try:total+=psutil.Process(process.pid).memory_info().rss/1024**2
-                except psutil.Error:pass
-            return total
-
-    def reclaim(self,available):
-        import psutil
-        with self.lock:
-            entries=list(self.entries.items())
-            sizes={}
-            for key,(process,*_) in entries:
-                try:sizes[key]=psutil.Process(process.pid).memory_info().rss/1024**2
-                except psutil.Error:sizes[key]=0
-            total=sum(sizes.values())
-            for key,(process,connection,*_) in entries:
-                if total<=available:break
-                with span('cad.worker_recycling',reason='memory_pressure'):
-                    connection.close();terminate(process);del self.entries[key]
-                total-=sizes[key]
-
 
 def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
     """Stage outputs, check final source identity, then publish with exclusive ownership."""
@@ -130,7 +106,7 @@ def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
             connection.send(request)
         try:
             if isolated:
-                code,resources=wait(process,max(.001,deadline-time.monotonic()),cancelled,request['memory_mb'])
+                code,resources=wait(process,max(.001,deadline-time.monotonic()),cancelled)
                 if not response.is_file():raise RuntimeError(f'CAD worker exited {code} without report')
                 report=json.loads(response.read_text())
             else:
@@ -148,7 +124,6 @@ def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
                     if time.monotonic()>deadline:raise TimeoutError('CAD evaluation exceeded deadline')
                     try:
                         rss=psutil.Process(process.pid).memory_info().rss;peak=max(peak or 0,rss)
-                        if rss>request['memory_mb']*1024**2:raise MemoryError('CAD worker memory budget exceeded')
                     except psutil.Error:pass
                 resources=dict(peak_worker_rss_bytes=peak)
             if cancelled():raise InterruptedError('CAD request cancelled before publication')
@@ -183,8 +158,6 @@ class Coordinator:
         self.ctx=mp.get_context('forkserver')
         mp.set_forkserver_preload(['execution.preload'])
         self.cad_pool=CADPool(self.ctx)
-        self.admission.resident_usage=self.cad_pool.resident
-        self.admission.reclaim_resident=self.cad_pool.reclaim
         self.qualified=False;self.qualification_lock=threading.Lock()
         self.preload_requested=threading.Event();self.preload_ready=threading.Event()
         self.preload_error=None
@@ -222,7 +195,7 @@ class Coordinator:
         try:
             request,fds=protocol.receive(connection,descriptors=True)
             if request.get('kind')=='status':
-                protocol.send(connection,dict(cpus=self.admission.cpus,memory_mb=self.admission.memory_mb,
+                protocol.send(connection,dict(cpus=self.admission.cpus,
                     active=self.admission.active,pid=os.getpid(),runtime=self.runtime));return
             if request.get('kind')=='stop':
                 self.stopping.set();protocol.send(connection,dict(stopping=True));return
@@ -230,7 +203,7 @@ class Coordinator:
                 def abandoned():
                     return self.stopping.is_set() or (bool(select.select([connection],[],[],0)[0]) and connection.recv(1,socket.MSG_PEEK)==b'')
                 admission={}
-                with self.admission.acquire(request['threads'],request['memory_mb'],abandoned,observation=admission) as queued:
+                with self.admission.acquire(request['threads'],abandoned,observation=admission) as queued:
                     from .resources import current_affinity
                     protocol.send(connection,dict(acquired=True,queue_seconds=queued,admission=admission,affinity=current_affinity()))
                     while not abandoned():time.sleep(.05)
@@ -245,7 +218,7 @@ class Coordinator:
             from .lifecycle import process_identity
             request["environment"]["ENGINEERING_OWNER_ID"]=process_identity()
             write_record(request['run_id'], dict(execution_inputs_sha256=execution_inputs_identity(request),
-                requested_cpus=request['threads'], requested_memory_mb=request['memory_mb']))
+                requested_cpus=request['threads']))
             admission={}
             def cancelled():
                 if self.stopping.is_set():return True
@@ -261,7 +234,7 @@ class Coordinator:
             enabled_token=_enabled.set(request['environment'].get('ENGINEERING_TRACE')!='0')
             try:
                 with span('coordinator.admission'):
-                    with self.admission.acquire(request['threads'],request['memory_mb'],cancelled,deadline,admission) as queued:
+                    with self.admission.acquire(request['threads'],cancelled,deadline,admission) as queued:
                         journal(request,'running')
                         if request['kind']=='cad' or request['strategy']=='preinitialized':
                             self.initialize(request,cancelled,deadline)
@@ -272,7 +245,8 @@ class Coordinator:
                         write_record(request['run_id'],dict(run_id=request['run_id'],source=request['source'],source_sha256=request['source_sha256'],
                             **{k:v for k,v in answer.items() if k!='report'}))
                 protocol.send(connection,answer)
-            finally:detach(parent);_active.reset(token);_enabled.reset(enabled_token)
+            finally:
+                detach(parent);_active.reset(token);_enabled.reset(enabled_token)
         except BaseException as exc:
             if 'request' in locals() and request.get('run_id'):
                 from .journal import update as journal
@@ -317,7 +291,7 @@ class Coordinator:
                     env=env,stdin=fds[0],stdout=fds[1],stderr=fds[2],start_new_session=True)
                 startup=time.monotonic()-before
             try:
-                code,resources=wait(process,remaining,cancelled,request['memory_mb'],sample,request['run_id'])
+                code,resources=wait(process,remaining,cancelled,sample=sample,run_id=request['run_id'])
             except BaseException:
                 terminate(process);raise
             finally:

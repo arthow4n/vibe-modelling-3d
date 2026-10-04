@@ -60,6 +60,17 @@ For a candidate improvement, establish:
    One demonstrated consumer can justify shared functionality; hypothetical
    future usefulness alone cannot. Removing redundant work is a valid result.
 
+Challenge the mechanism itself before tuning its defaults. If measurements show
+cost without a demonstrated benefit for the consumer, compare removing it with
+keeping it; existing code and hypothetical usefulness are not reasons to retain
+it. State which requirement still needs protection and use the smallest existing
+control that satisfies it. When evidence or user feedback overturns a conclusion,
+revise the recommendation and implement the authorized simplification instead of
+repeating the earlier defense. Keep the limits of the evidence explicit; this
+does not require proving a mechanism is useless in every conceivable workload.
+Do not replace a removed control with a renamed or more complex equivalent
+without a demonstrated consumer requirement and benefit.
+
 An unexplained physical result can still justify a corrected status or bounded
 lesson. It does not justify an invented root cause, material calibration or
 universal tolerance. A working coupon qualifies its tested interface, not the
