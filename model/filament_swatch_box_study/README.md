@@ -34,7 +34,8 @@ Each file contains only one base, already placed for printing. Use the existing
 [G hood STEP](cap_g_hood_5.step) and [I keys layout](cap_i_grip_keys.step) (use key 3).
 Browse on a horizontal desk, insert the bundle square and lift cards vertically.
 The user has tested A successfully for the previously discussed browsing and
-sparse-card containment concerns, including a single card. Open-box
+sparse-card containment concerns, including a single card. With all 15 cards
+loaded and G hood fitted, lifting by the hood kept the base attached. Open-box
 carrying/inversion and long-term durability are not qualified. The earlier
 recommendation to start with C is superseded by the user's successful A trial.
 
@@ -60,7 +61,7 @@ Native paired-export/slice reports:
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | N/A — complete base is the trial | No detached coupon | Pocket constraints and sparse browsing need the complete geometry |
-| Final printable object, A | Yes — printed and accepted, reported 2026-10-04 | `archive_r2_walled_15.step/.stl`; existing G hood, key and J4 base | User chose A; archive use, single-card/sparse-card containment, J4 joining and G hood fit work as intended. Exact printed artifact hash and actual print settings are not supplied; carrying/inversion and durability remain unqualified |
+| Final printable object, A | Yes — printed and accepted, reported 2026-10-04 | `archive_r2_walled_15.step/.stl`; existing G hood, key and J4 base | User chose A; archive use, single-card/sparse-card containment, J4 joining and G hood fit work as intended. Full 15-card load stays attached when lifted by the hood. Exact printed artifact hash and actual print settings are not supplied; carrying/inversion and durability remain unqualified |
 | Final printable objects, B/C/D | No — user printed only A | Other three R2 STEP/STL pairs above | No physical-use result; retain existing CAD/slice evidence |
 
 [Detailed A print report](notes/cap_comparison.md#archive-r2-a-print-report--2026-10-04).

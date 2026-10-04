@@ -1545,7 +1545,8 @@ C is recommended for broader guide contact rather than a claimed failure of B.
 The user chose A, the continuous-wall form, as the best design for this archive
 and reports that it works well. The user tested the previously discussed archive
 use concerns, including keeping a single remaining card from falling over/out;
-those tests worked as intended. Exact other tested card counts were not supplied.
+those tests worked as intended. A subsequent report confirms a full 15-card load;
+other exact sparse counts were not supplied.
 The archive joins successfully to the user's latest J base, clarified as **J4**,
 with the existing connector key, and works correctly with the accepted **G hood**.
 This is complete-product physical evidence for the reported use and integration,
@@ -1563,6 +1564,26 @@ file hash was not supplied. The agreed setup was floor-down PETG, .4 mm nozzle,
 were not reconfirmed in this report, and the connector key's printed index was
 not reconfirmed. No measured force, open carrying/inversion or long-term
 material/wear result is claimed.
+
+**Full-load hood-lift retention confirmed, same report date.** With all **15 cards**
+in archive A and the G hood fitted, the user lifted the hood and the loaded base
+stayed attached rather than falling off. This confirms the tested complete box's
+own-weight retention in that lift. No force, mass, lift acceleration, hold duration
+or repeated/worn-condition measurement was supplied; it does not qualify lifting
+a joined row, shock loads or long-term retention.
+
+Earlier D/E design notes explicitly included loaded own-weight retention and
+physical lift tests, but those concept/beam checks did not establish a numerical
+retention margin for this fully loaded 15-card archive. This physical observation
+now supplies the missing functional evidence for the reported lift.
+
+For future comparable covered boxes, the user wants full-load hood lifting
+considered as a desirable capability when feasible, **not a mandatory condition**.
+Screen the suspended base/contents weight against holding force, keep deliberate
+opening comfortable, and avoid adding a mechanism solely for this uncommon use.
+The shared effort guidance owns the load screen; existing physics APIs suffice
+if uncertain contact/deformation warrants analysis. No new script, simulation or
+CAD revision is needed to record this successful physical result.
 
 Reflection: preserve the now physically successful simple continuous-wall pocket,
 its shared foot, existing key and G hood instead of adding a follower, per-card

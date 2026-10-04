@@ -544,6 +544,24 @@ adequate retention. Screen engagement and effort at consequential clearance
 extremes, including guide play and alignment, before refining nominal force.
 Do not apply every tolerance combination when only one could change the decision.
 
+For a retained removable cover, consider the loaded box hanging from the cover
+when that is intended or a relevant preference. Separate mandatory carrying from
+desirable occasional lifting; the latter need not drive another mechanism.
+Identify the mass actually suspended across the joint: base, maximum intended
+contents and any explicitly included attached modules, not the held cover itself.
+Use measured mass or a documented estimate/range for the actual print; nominal
+solid CAD volume is not printed mass. For a gentle vertical hold, weight is
+`F_weight = m_suspended_kg * 9.81` newtons. Choose and justify any extra allowance
+for lifting acceleration, uncertainty and unequal catch loading rather than
+assuming a universal factor or equal force sharing. Compare the supported holding
+load before unintended release with that demand; spring force or peak opening
+force alone is not a retention rating. Also screen off-centre peel when relevant.
+Keep deliberate opening effort a separate target. Start with this cheap screen;
+use the existing contact/snap questions only if uncertain deformation/contact
+could change the decision. Record a complete loaded lift as physical evidence,
+with load, grip/pose and observed separation, without inferring an unmeasured
+force margin or long-term durability from one successful lift.
+
 For a joint intended to stay connected, distinguish entry clearance from seated
 play. Name what removes that play and holds the parts together: interference with
 compliance, a wedge, spring preload, a fastener, or a positive catch. A clearance
