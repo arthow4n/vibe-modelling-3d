@@ -95,6 +95,36 @@ First establish the benefit and handling of this arrangement; do not add a catch
 solely to create an analysis case. No replacement geometry or numerical
 qualification exists yet.
 
+### Appearance discussion
+
+The user asks about style and visual alternatives before authorizing modelling.
+The functional direction above was considered earlier; no appearance was selected.
+The [two-dimensional sketches](renders/concepts/appearance_directions.svg)
+([PNG](renders/concepts/appearance_directions.png)) now compare:
+
+- **A, slim open easel:** narrow taller edge rails, separate small feet and outboard
+  triangular props. A visibly light frame; rail height/protrusion in landscape and
+  stability of the connected base still need complete geometry review.
+- **B, low side supports:** short rear edge contacts over a low rounded base, with
+  most of the phone back exposed. The tentative visual preference is B for its
+  smaller visible back supports; lower contacts may increase phone/frame rocking
+  under tapping, so this preference does not qualify its mechanics or fit.
+
+Both directions intend softened edges, little decorative material, open charging
+access and hardware/adjustment outside the ring's clearance space. Green denotes
+printed structure only, not an agreed filament colour; amber marks broad clearance
+intent, not a measured accessory envelope. The drawings are schematic and not
+dimensioned CAD, assembly checks or print-ready designs. Portrait outlines explain
+the silhouette; landscape fit has not been established by these sketches.
+
+After modelling is authorized, inspect useful rough complete geometry with the
+phone/case and broad hanging-ring envelopes in both orientations, and review the
+stand alone as well as in use. Resolve silhouette, base bulk, charging access,
+rear-ring space and the adjustment interaction before detailed locks or analysis.
+Keep a low overall profile where it remains stable; change the concept if a
+visually smaller support performs the central task poorly. No style decision is
+inferred from asking about the options, and no CAD or solver work has started.
+
 ### Proposed analysis scope and limits
 
 The user does not recall the exact original analysis objectives and asks to
