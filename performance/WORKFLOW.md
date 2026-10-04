@@ -343,7 +343,11 @@ request-operation duration** from `stream_request.start` to that receipt, plus
 `output_tokens / operation_duration`. It includes client preparation, network and
 scheduling; it is not isolated backend compute or exact wire-send timing.
 The parent sampling/receiving spans can include later tool draining and are not
-used as response-duration substitutes. Output includes reported reasoning tokens.
+used as response-duration substitutes. Total output already includes reasoning
+tokens; their separate field is a subset and must not be added again. The full
+operation duration includes reasoning time, other output generation and waiting.
+Rate distributions summarize per-request ratios, not a session-total ratio; these
+captures cannot split reasoning time from other generation time.
 
 The installed export did not retain event-kind labels on non-completion
 `handle_responses` spans, despite the source's `otel.name` recording. Individual

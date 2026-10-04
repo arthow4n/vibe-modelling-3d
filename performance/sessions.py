@@ -157,7 +157,9 @@ def request_metrics(duration_s, first_token_delay_s, usage):
 
     The rollout adapter currently supplies neither request timing input. Keep
     this calculation separate so unsupported fields cannot accidentally enable it.
-    Output includes reported reasoning; these rates are not visible-text speed.
+    output_tokens already includes reasoning_output_tokens as a subset; never
+    add that subset again. The full request duration includes reasoning time and
+    waiting; these rates are not visible-text speed.
     """
     duration = nonnegative(duration_s); delay = nonnegative(first_token_delay_s)
     output = counters(usage).get('output_tokens')

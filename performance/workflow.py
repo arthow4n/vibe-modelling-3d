@@ -147,7 +147,7 @@ def native_latency(data):
         stream_first_item_delay=measurement(data['native_stream_first_item_delays'], data['native_completion_logs'], 'observed'),
         scope='client.stream operation entry to structurally associated completion receipt; includes client preparation, transport and scheduling; not backend compute',
         first_item_scope='stream-mapping start after transport setup to first OutputItemAdded; logs can include warmup completions; not request TTFT; not joined to request intervals',
-        token_scope='native completion evidence, never added to rollout token totals; output includes reasoning',
+        token_scope='native completion evidence, never added to rollout token totals; output already includes reasoning as a subset, never added twice. Rates use total output tokens / full client-operation seconds, including reasoning time and waiting; medians summarize per-request rates, not session totals',
         configuration_groups=[dict(model=m,effort=e,scope='configured sampling request; backend unverified',
             responses=len(v),duration=measurement([r['duration_s'] for r in v],len(v),'derived'),
             throughput=measurement([r['output_tokens_per_s'] for r in v],len(v),'derived','tokens/s')) for (m,e),v in sorted(groups.items())],
