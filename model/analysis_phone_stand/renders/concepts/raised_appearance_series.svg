@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="850" viewBox="0 0 1500 850"><defs><style>
+text{font-family:sans-serif;fill:#233640}.title{font-size:30px;font-weight:700}.head{font-size:22px;font-weight:700}.body{font-size:17px}.small{font-size:15px;fill:#54656e}.label{font-size:16px;font-weight:600}.frame{fill:#8da9a0;stroke:#45675d;stroke-width:2}.rail{fill:none;stroke:#45675d;stroke-width:12;stroke-linecap:round;stroke-linejoin:round}.heavy{fill:none;stroke:#45675d;stroke-width:19;stroke-linecap:round;stroke-linejoin:round}.phone{fill:#343e48;stroke:#202d36;stroke-width:2}.screen{fill:#526d80}.cable{fill:none;stroke:#ad6a45;stroke-width:5;stroke-linecap:round}.white{fill:none;stroke:white;stroke-width:10;stroke-linecap:round}.desk{stroke:#bdc8c9;stroke-width:2}.pin{fill:#eff2f3;stroke:#61767c;stroke-width:2}.clear{fill:#efb966;fill-opacity:.30;stroke:#c58a3c;stroke-width:1.5;stroke-dasharray:5 5}
+</style><marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6 Z" fill="#586971"/></marker></defs><rect width="1500" height="850" fill="#f4f6f3"/>
+<text x="30" y="43" class="title">Raised phone stand · three visual directions</text>
+<text x="30" y="75" class="body">Same illustrative phone pose and charging height in every option. Compare the complete stand, not its back alone.</text>
+<g transform="translate(20,110)">
+<rect width="460" height="640" rx="22" fill="white"/>
+<text x="20" y="38" class="head">1 · RAISED OPEN EASEL</text>
+<text x="20" y="69" class="small">Taller edge rails with substantial rear struts</text>
+<text x="42" y="163" class="label">FRONT</text>
+<text x="294" y="163" class="label">SIDE</text>
+<rect x="43" y="439" width="168" height="10" rx="5" class="frame"/>
+<path d="M72 435 L80 365 L91 365 L87 438 Z" class="frame"/>
+<path d="M166 365 L177 365 L191 435 L176 438 Z" class="frame"/>
+<rect x="76" y="216" width="15" height="154" rx="6" class="frame"/>
+<rect x="166" y="216" width="15" height="154" rx="6" class="frame"/>
+<path d="M282 439 L282 372" class="rail"/>
+<path d="M282 372 L368.0 223.0" class="rail"/>
+<path d="M353.1 248.9 L424 438" class="rail"/>
+<rect x="244" y="439" width="198" height="10" rx="5" class="frame"/>
+<circle cx="282" cy="372" r="6" class="pin"/>
+<rect x="81" y="210.05324949230996" width="93.50000000000001" height="161.94675050769004" rx="12" class="phone"/>
+<rect x="87" y="222.05324949230996" width="81.50000000000001" height="137.94675050769004" rx="7" class="screen"/>
+<text x="97" y="281" class="label" style="fill:#d5e3e9">PHONE</text>
+<line x1="100" y1="303" x2="154" y2="303" stroke="#94afbd" stroke-width="2"/>
+<line x1="100" y1="311" x2="154" y2="311" stroke="#94afbd" stroke-width="2"/>
+<line x1="100" y1="319" x2="154" y2="319" stroke="#94afbd" stroke-width="2"/>
+<path d="M71 365 L103 365 L103 378 L89 378 L89 384 L71 384 Z" class="frame"/>
+<path d="M152 365 L185 365 L185 384 L168 384 L168 378 L152 378 Z" class="frame"/>
+<circle cx="81" cy="379" r="4" class="pin"/>
+<circle cx="176" cy="379" r="4" class="pin"/>
+<path d="M282.00 372.00 L375.50 210.05 L363.12 202.90 L269.62 364.85 Z" class="phone"/>
+<path d="M293.22 352.57 L342.78 266.73 L371.35 283.23 L321.80 369.07 Z" class="clear"/>
+<path d="M274 364 L287 368 L282 381 L269 377 Z" class="frame"/>
+<rect x="123" y="373" width="10" height="25" rx="2" class="phone"/>
+<path d="M128 400 C128 421 128 440 108 440 L54 440" class="white"/>
+<path d="M128 400 C128 421 128 440 108 440 L54 440" class="cable"/>
+<path d="M272.81 366.43 L278.81 370.43 L263.81 396.43 L257.81 392.43 Z" class="phone"/>
+<path d="M260.81 394.43 C242 415 242 440 220 440" class="white"/>
+<path d="M260.81 394.43 C242 415 242 440 220 440" class="cable"/>
+<line x1="27" y1="449.0" x2="221" y2="449.0" class="desk"/>
+<line x1="229" y1="449.0" x2="450" y2="449.0" class="desk"/>
+<line x1="212" y1="372.0" x2="212" y2="449.0" stroke="#586971" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text x="155" y="418" class="small">70 mm*</text>
+<text x="39" y="481" class="small">Raised shelf leaves a visible charging gap.</text>
+<text x="20" y="533" class="body">Rear struts can extend to improve support.</text>
+<text x="20" y="562" class="body">Keep them beside the ring-clearance opening.</text>
+<text x="20" y="591" class="body">Tradeoff: longer base / more visible frame.</text>
+</g>
+<g transform="translate(520,110)">
+<rect width="460" height="640" rx="22" fill="white"/>
+<text x="20" y="38" class="head">2 · FORK ON A PEDESTAL</text>
+<text x="20" y="69" class="small">Open cradle above a single rear-set column</text>
+<text x="42" y="163" class="label">FRONT</text>
+<text x="294" y="163" class="label">SIDE</text>
+<rect x="43" y="439" width="168" height="10" rx="5" class="frame"/>
+<path d="M116 438 L116 407 Q116 397 126 397 L136 397 Q146 397 146 407 L146 438 Z" class="frame"/>
+<path d="M84 364 Q85 389 126 405" class="heavy"/>
+<path d="M173 364 Q172 389 136 405" class="heavy"/>
+<rect x="75" y="263" width="17" height="106" rx="7" class="frame"/>
+<rect x="165" y="263" width="17" height="106" rx="7" class="frame"/>
+<path d="M330 436 L330 400" class="heavy"/>
+<path d="M282 372 Q284 393 330 400" class="heavy"/>
+<path d="M282 372 L343.7 265.1" class="heavy"/>
+<rect x="244" y="439" width="198" height="10" rx="5" class="frame"/>
+<circle cx="282" cy="372" r="6" class="pin"/>
+<rect x="81" y="210.05324949230996" width="93.50000000000001" height="161.94675050769004" rx="12" class="phone"/>
+<rect x="87" y="222.05324949230996" width="81.50000000000001" height="137.94675050769004" rx="7" class="screen"/>
+<text x="97" y="281" class="label" style="fill:#d5e3e9">PHONE</text>
+<line x1="100" y1="303" x2="154" y2="303" stroke="#94afbd" stroke-width="2"/>
+<line x1="100" y1="311" x2="154" y2="311" stroke="#94afbd" stroke-width="2"/>
+<line x1="100" y1="319" x2="154" y2="319" stroke="#94afbd" stroke-width="2"/>
+<path d="M71 365 L103 365 L103 378 L89 378 L89 384 L71 384 Z" class="frame"/>
+<path d="M152 365 L185 365 L185 384 L168 384 L168 378 L152 378 Z" class="frame"/>
+<circle cx="81" cy="379" r="4" class="pin"/>
+<circle cx="176" cy="379" r="4" class="pin"/>
+<path d="M282.00 372.00 L375.50 210.05 L363.12 202.90 L269.62 364.85 Z" class="phone"/>
+<path d="M293.22 352.57 L342.78 266.73 L371.35 283.23 L321.80 369.07 Z" class="clear"/>
+<path d="M274 364 L287 368 L282 381 L269 377 Z" class="frame"/>
+<rect x="123" y="373" width="10" height="25" rx="2" class="phone"/>
+<path d="M128 400 C128 421 128 440 108 440 L54 440" class="white"/>
+<path d="M128 400 C128 421 128 440 108 440 L54 440" class="cable"/>
+<path d="M272.81 366.43 L278.81 370.43 L263.81 396.43 L257.81 392.43 Z" class="phone"/>
+<path d="M260.81 394.43 C242 415 242 440 220 440" class="white"/>
+<path d="M260.81 394.43 C242 415 242 440 220 440" class="cable"/>
+<line x1="27" y1="449.0" x2="221" y2="449.0" class="desk"/>
+<line x1="229" y1="449.0" x2="450" y2="449.0" class="desk"/>
+<line x1="212" y1="372.0" x2="212" y2="449.0" stroke="#586971" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text x="155" y="418" class="small">70 mm*</text>
+<text x="39" y="481" class="small">Raised shelf leaves a visible charging gap.</text>
+<text x="20" y="533" class="body">Column sits behind the cable route.</text>
+<text x="20" y="562" class="body">Fork arms leave the middle of the back open.</text>
+<text x="20" y="591" class="body">Tradeoff: concentrated bending at the neck.</text>
+</g>
+<g transform="translate(1020,110)">
+<rect width="460" height="640" rx="22" fill="white"/>
+<text x="20" y="38" class="head">3 · TWIN SIDE TOWERS</text>
+<text x="20" y="69" class="small">Two raised supports around an open cable bay</text>
+<text x="42" y="163" class="label">FRONT</text>
+<text x="294" y="163" class="label">SIDE</text>
+<rect x="43" y="439" width="168" height="10" rx="5" class="frame"/>
+<path d="M55 438 L64 383 Q66 372 76 372 L91 372 L91 438 Z" class="frame"/>
+<path d="M166 372 L181 372 Q191 372 193 383 L207 438 Z" class="frame"/>
+<rect x="75" y="241" width="17" height="128" rx="7" class="frame"/>
+<rect x="165" y="241" width="17" height="128" rx="7" class="frame"/>
+<path d="M257 438 L268 397 Q270 385 281 378 L294 378 L309 438 Z" class="frame"/>
+<path d="M282 372 L356.8 242.4" class="heavy"/>
+<path d="M351.2 252.2 Q365 318 389 435" class="rail"/>
+<rect x="244" y="439" width="198" height="10" rx="5" class="frame"/>
+<circle cx="282" cy="372" r="6" class="pin"/>
+<rect x="81" y="210.05324949230996" width="93.50000000000001" height="161.94675050769004" rx="12" class="phone"/>
+<rect x="87" y="222.05324949230996" width="81.50000000000001" height="137.94675050769004" rx="7" class="screen"/>
+<text x="97" y="281" class="label" style="fill:#d5e3e9">PHONE</text>
+<line x1="100" y1="303" x2="154" y2="303" stroke="#94afbd" stroke-width="2"/>
+<line x1="100" y1="311" x2="154" y2="311" stroke="#94afbd" stroke-width="2"/>
+<line x1="100" y1="319" x2="154" y2="319" stroke="#94afbd" stroke-width="2"/>
+<path d="M71 365 L103 365 L103 378 L89 378 L89 384 L71 384 Z" class="frame"/>
+<path d="M152 365 L185 365 L185 384 L168 384 L168 378 L152 378 Z" class="frame"/>
+<circle cx="81" cy="379" r="4" class="pin"/>
+<circle cx="176" cy="379" r="4" class="pin"/>
+<path d="M282.00 372.00 L375.50 210.05 L363.12 202.90 L269.62 364.85 Z" class="phone"/>
+<path d="M293.22 352.57 L342.78 266.73 L371.35 283.23 L321.80 369.07 Z" class="clear"/>
+<path d="M274 364 L287 368 L282 381 L269 377 Z" class="frame"/>
+<rect x="123" y="373" width="10" height="25" rx="2" class="phone"/>
+<path d="M128 400 C128 421 128 440 108 440 L54 440" class="white"/>
+<path d="M128 400 C128 421 128 440 108 440 L54 440" class="cable"/>
+<path d="M272.81 366.43 L278.81 370.43 L263.81 396.43 L257.81 392.43 Z" class="phone"/>
+<path d="M260.81 394.43 C242 415 242 440 220 440" class="white"/>
+<path d="M260.81 394.43 C242 415 242 440 220 440" class="cable"/>
+<line x1="27" y1="449.0" x2="221" y2="449.0" class="desk"/>
+<line x1="229" y1="449.0" x2="450" y2="449.0" class="desk"/>
+<line x1="212" y1="372.0" x2="212" y2="449.0" stroke="#586971" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text x="155" y="418" class="small">70 mm*</text>
+<text x="39" y="481" class="small">Raised shelf leaves a visible charging gap.</text>
+<text x="20" y="533" class="body">Wider pillars and a connected base.</text>
+<text x="20" y="562" class="body">Phone cradle pivots between the side supports.</text>
+<text x="20" y="591" class="body">Tradeoff: more material / joint play to control.</text>
+</g>
+<text x="30" y="785" class="small">*70 mm is provisional: illustrated allowance for about 30 mm of plug plus 35 mm of cable turn and 5 mm extra.</text>
+<text x="30" y="813" class="small">Phone envelope: illustrative 170 × 85 × 13 mm at 60°. Amber: indicative 30 mm rear space, not a measured ring shape.</text>
+<text x="30" y="839" class="small">Appearance study only. Hand locks are not detailed. Landscape clearance, cable fit and tapping stability still need CAD / physical review.</text>
+</svg>

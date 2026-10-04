@@ -30,10 +30,15 @@ On 2026-10-04 the user clarified:
 - Table use, mainly watching videos and reading, with occasional touchscreen taps.
 - Support both portrait and landscape placement.
 - Allow a bottom-connected charging cable while the phone is in portrait.
+  The user found the first appearance drawings too low for the plug and cable
+  turn; show substantial under-phone clearance in further concept comparisons.
 - Resist movement during occasional taps; distinguish cradle/phone wobble,
   whole-stand sliding and tipping when assessing this requirement. No numerical
   tap load or acceptable movement has been agreed yet.
 - Reduce the bulky appearance and avoid the exposed gear of the old design.
+  Rear appearance is less important than adequate support; extending rear
+  supports is acceptable when useful. Do not prioritize a visually sparse back
+  at the expense of stability. Preserve the separate ring-clearance requirement.
 - Preserve the purpose of exercising physical analysis in a useful product.
 - Provide a few adjustable viewing angles.
 - Adjustment must be by hand without loosening or tightening a screw/nut.
@@ -99,29 +104,50 @@ qualification exists yet.
 
 The user asks about style and visual alternatives before authorizing modelling.
 The functional direction above was considered earlier; no appearance was selected.
-The [two-dimensional sketches](renders/concepts/appearance_directions.svg)
-([PNG](renders/concepts/appearance_directions.png)) now compare:
+The [first drawings](renders/concepts/appearance_directions.svg)
+([PNG](renders/concepts/appearance_directions.png)) are superseded: the user found
+them strange/hard to interpret and correctly noted that the phone appeared too
+low for the charging cable. The cable requirement was in the record but not
+meaningfully represented in those drawings. The earlier visual preference for
+short back supports is also superseded by the user's support-first clarification.
 
-- **A, slim open easel:** narrow taller edge rails, separate small feet and outboard
-  triangular props. A visibly light frame; rail height/protrusion in landscape and
-  stability of the connected base still need complete geometry review.
-- **B, low side supports:** short rear edge contacts over a low rounded base, with
-  most of the phone back exposed. The tentative visual preference is B for its
-  smaller visible back supports; lower contacts may increase phone/frame rocking
-  under tapping, so this preference does not qualify its mechanics or fit.
+The current [raised appearance series](renders/concepts/raised_appearance_series.svg)
+([PNG](renders/concepts/raised_appearance_series.png)) compares complete front/side
+silhouettes with the phone and cable:
 
-Both directions intend softened edges, little decorative material, open charging
-access and hardware/adjustment outside the ring's clearance space. Green denotes
-printed structure only, not an agreed filament colour; amber marks broad clearance
-intent, not a measured accessory envelope. The drawings are schematic and not
-dimensioned CAD, assembly checks or print-ready designs. Portrait outlines explain
-the silhouette; landscape fit has not been established by these sketches.
+- **1, raised open easel:** taller edge rails, raised front pivots and outboard
+  rear struts on an extended base. Tentative preferred direction for an ordinary
+  visibly supported arrangement; not a mechanically qualified choice.
+- **2, fork on a pedestal:** an open cradle above a rear-set column, leaving the
+  charging route in front. A different compact outline, with bending concentrated
+  at the column/neck and a local joint that needs evaluation.
+- **3, twin side towers:** an open cradle between two broader raised supports on
+  a connected base, with rear support beside the ring opening. More substantial
+  base/pillars, with side-pivot play and lock layout still to resolve.
+
+Each uses a provisional **70 mm vertical gap beneath the phone** at an illustrative
+60-degree pose, rather than the previous low placement. This corresponds to assumed
+30 mm plug, 35 mm cable-turn space and 5 mm extra, not measured cable dimensions or
+a proved bend radius. Confirm or revise the gap using the actual connector/cable;
+maintain required clearance across the offered angles. The illustrative phone
+envelope is 170 × 85 × 13 mm, not an exact Pixel/case measurement; only the 13 mm
+thickness comes from the user. A raised phone increases tipping leverage, so base
+depth/width and normal/off-centre tap cases must be screened before detailed CAD.
+
+All directions intend softened edges, open charging access and hardware/adjustment
+outside the ring's clearance space. Green denotes printed structure only, not an
+agreed filament colour. Amber is indicative rear space using the reported 30 mm
+reach, not a measured ring outline or swing. Side supports may overlap this region
+in side projection but must sit outside the actual central accessory space.
+These are two-dimensional appearance studies, not CAD/assembly or physical
+qualification. Portrait is illustrated; landscape clearance and contact still
+need complete geometry review.
 
 After modelling is authorized, inspect useful rough complete geometry with the
 phone/case and broad hanging-ring envelopes in both orientations, and review the
 stand alone as well as in use. Resolve silhouette, base bulk, charging access,
 rear-ring space and the adjustment interaction before detailed locks or analysis.
-Keep a low overall profile where it remains stable; change the concept if a
+Provide sufficient charging height and rear support; change the concept if a
 visually smaller support performs the central task poorly. No style decision is
 inferred from asking about the options, and no CAD or solver work has started.
 
