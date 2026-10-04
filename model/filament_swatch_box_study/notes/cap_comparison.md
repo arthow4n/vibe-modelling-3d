@@ -1513,6 +1513,84 @@ and the edge guidance to review the final Boolean junction in plan as well as
 the curved cut profile. No shared checker/API can establish this subjective
 benefit or comfort, and no new computation is justified by this record update.
 
+### Continuous-rim wall-height study
+
+The user requests exploration of the lowest wall that still supports even one
+remaining card during desk browsing. This phase is a calculation/source-geometry
+study, **not a new print-ready base**. Retain the 15-card pocket, floor, exact G
+hood target, I3 connector and accepted base grips; do not restore finger scoops.
+Heights below are measured from the card floor, not from the printer bed.
+
+The [study source](../study_archive_wall_height.py),
+[retained results](archive_wall_height_study.json) and
+[plot](../renders/concepts/archive_wall_height_screen.svg) screen a rigid card's
+restoring gravity moment when its bottom touches the floor and it first reaches
+a straight retaining wall. A card starting at an intermediate pocket position
+can be less stable than one spanning from the opposite end; checking only end
+positions, or finding any wall contact, would miss that relationship.
+
+For lean angle `theta`, CG height `C`, and inward CG offset `b` from the bottom
+outer supporting edge, the CG remains inward of the contact when
+`h >= C*cos(theta) - b*cos(theta)^2/sin(theta)`. This is a sufficient first-contact
+restoring criterion. It is not a dynamic escape analysis or proof that every
+height below it spills. Any retaining assistance from the sloped/rounded entrance
+is deliberately ignored rather than silently counting it as a straight wall.
+
+For a uniform 80 × 2 mm card, `C=40`, `b=1`: the maximum required straight height
+is **35.13 mm**, at roughly **17.2 degrees** of lean. Its bottom outer edge is
+10.89 mm from the wall, so that pose fits the 30.3 mm pocket; it is not a far-end
+lean assumption. The homogeneous source-card CG is 38.34 mm above the floor,
+giving 33.42–33.66 mm in the two thin-axis directions. Neither CG model is a
+measured printed mass distribution; omitted text, voids and actual paths remain
+uncertainty. Use the higher uniform result for this proposal.
+
+CAD verifies an inscribed **42 × 2 mm full-thickness flat bottom** in the actual
+notch-up swatch. Its minimum inward support offset over horizontal directions
+occurs along the thin axis, bounding yaw/diagonal directions within this
+first-contact screen. Thirty-two actual source-card contact witnesses verify
+floor support, wall contact bracketed by .02 mm inward/outward moves, feasible
+bottom placement, and projected CG lever across four guide heights, both front/
+back directions and selected angles. This is a targeted support/CG question;
+no generic CAD-size/export audit, FEA or slicer run is needed for the study.
+
+| Continuous wall | Entry reserved above straight guide | Interpretation |
+| --- | --- | --- |
+| 36 mm | No funnel; .6 mm transition allowance | About 35.4 mm counted guide: passes the uniform gravity screen narrowly, but removes the established entrance guidance. Not the proposed product. |
+| 38 mm | 2 mm funnel + .6 mm transition allowance | About 35.4 mm guide; minimum uniform restoring lever only .084 mm. Lowest rounded candidate in this entry family, too close to the screen limit for a confident print recommendation. |
+| 39 mm | 2 mm funnel + .6 mm transition allowance | 36.4 mm guide; minimum uniform lever .366 mm. Lower trial option, but less margin than 40 mm. |
+| **40 mm** | **2 mm funnel + .6 mm transition allowance** | **37.4 mm guide; minimum uniform lever .610 mm. Recommended next candidate**, exposing 40 mm of card rather than R1's 35 mm. |
+| 40 mm | Existing 4 mm funnel + .6 mm transition allowance | Only 35.4 mm counted guide and .084 mm uniform lever: keeping the old entry while lowering the wall loses most of the margin. |
+
+The .6 mm allowance is a study assumption for smoothing the guide/entry junction,
+not an accepted final radius or manufacturing error allowance. A 2 mm funnel
+would initially retain the existing 1.2 mm expansion per side; its changed ramp
+angle and final contact transitions require actual geometry review for easy
+entry in all directions. No clearances have been enlarged.
+
+CG sensitivity: placing a uniform card's CG at 42 mm raises the straight-wall
+threshold to 37.04 mm, still below the proposed 40 mm wall's 37.4 mm counted guide.
+An assumed 44 mm CG raises it to 38.95 mm and would not pass. These are bounded
+mass-distribution scenarios, not PETG calibration or established shock margins.
+Impacts, deliberately lifting a card, shaking, open-box carrying/inversion,
+neighbour drag, printed feel and friction are not qualified. A low numerical
+lever does not establish robustness when touched. Full-stack and sparse normal
+use still require a representative physical trial of the later revised base.
+
+Recommendation: develop a **40 mm continuous wall with a 2 mm entrance**, keeping
+the comfortable rim and existing product interfaces. This is lower than R1's
+45 mm wall while avoiding a near-zero restoring margin. Absolute lowest possible
+height with a reshaped entrance or additional retainers is not established, and
+no new retainers are justified by this study. The user has authorized exploration;
+no replacement base is modelled, exported or recommended for printing in this
+handoff. Exact G fit remains established only for retained R1 until the new full
+base is checked.
+
+Reflection: the reusable operation here is the familiar gravity-moment screen,
+adequately served by a short object-specific NumPy calculation plus actual CAD
+fixtures. No shared API addition is justified. The transferable lesson is to
+include feasible intermediate content positions and distinguish real retaining
+height from nominal rim height when an entrance removes straight support.
+
 ### Original R1 agreement and retained evidence
 
 The user now authorizes modelling the archive version. Deliver a complete

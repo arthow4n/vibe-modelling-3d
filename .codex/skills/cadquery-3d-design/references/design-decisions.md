@@ -376,6 +376,10 @@ footprint, including operating forces when consequential. CAD centroids can
 screen shape, but solid-volume weights do not predict low-infill printed masses:
 use measured/slicer-estimated component masses or explicit mass sensitivity
 assumptions. Keep the check and remaining physical observations with the object.
+For loose contents, check the CG moment about retaining contact at feasible
+intermediate positions as well as the ends; a wall collision alone does not
+establish containment. Distinguish nominal rim height from the support remaining
+below a flared or rounded entry, unless its actual retaining contact is assessed.
 The [swatch cap comparison](../../../../model/filament_swatch_box_study/notes/cap_comparison.md#comparison-at-handoff)
 illustrates a gravity screen that motivated a rear foot; its printed stability
 remains unqualified.

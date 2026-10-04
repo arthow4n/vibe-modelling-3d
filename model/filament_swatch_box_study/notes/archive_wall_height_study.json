@@ -1,0 +1,375 @@
+{
+  "study": "continuous-rim minimum-height screen",
+  "upright_card_mm": [
+    50.0,
+    80.0,
+    2.0
+  ],
+  "pocket_depth_mm": 30.3,
+  "source_solid_cg_mm": [
+    1.210744800514257,
+    -0.03886094394378612,
+    38.339068812657025
+  ],
+  "uniform_rectangle": {
+    "required_straight_height_mm": 35.12514049203827,
+    "critical_lean_deg": 17.225,
+    "bottom_edge_to_wall_mm": 10.889844383738913
+  },
+  "source_solid_front_back": {
+    "-1": {
+      "required_straight_height_mm": 33.65843182691025,
+      "critical_lean_deg": 17.25,
+      "bottom_edge_to_wall_mm": 10.451220880871666
+    },
+    "1": {
+      "required_straight_height_mm": 33.42307526999999,
+      "critical_lean_deg": 17.725,
+      "bottom_edge_to_wall_mm": 10.682735105922472
+    }
+  },
+  "source_flat_bottom_mm": [
+    42.0,
+    2.0
+  ],
+  "all_fall_direction_source_bound": {
+    "required_straight_height_mm": 33.65843182691025,
+    "critical_lean_deg": 17.25,
+    "bottom_edge_to_wall_mm": 10.451220880871666
+  },
+  "controlling_straight_height_mm": 35.12514049203827,
+  "source_geometry_contact_witnesses": [
+    {
+      "straight_height_mm": 30.0,
+      "direction": -1,
+      "lean_deg": 4.0,
+      "gravity_restoring_lever_mm": 0.3822038809233277,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 30.0,
+      "direction": -1,
+      "lean_deg": 12.0,
+      "gravity_restoring_lever_mm": -0.6543079094643414,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 30.0,
+      "direction": -1,
+      "lean_deg": 17.25,
+      "gravity_restoring_lever_mm": -1.135973276986734,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 30.0,
+      "direction": -1,
+      "lean_deg": 25.0,
+      "gravity_restoring_lever_mm": -1.3424730627834105,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 30.0,
+      "direction": 1,
+      "lean_deg": 4.0,
+      "gravity_restoring_lever_mm": 0.45973644219829524,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 30.0,
+      "direction": 1,
+      "lean_deg": 12.0,
+      "gravity_restoring_lever_mm": -0.5782844313026221,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 30.0,
+      "direction": 1,
+      "lean_deg": 17.725,
+      "gravity_restoring_lever_mm": -1.0940886217572636,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 30.0,
+      "direction": 1,
+      "lean_deg": 25.0,
+      "gravity_restoring_lever_mm": -1.2720331105677172,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 34.0,
+      "direction": -1,
+      "lean_deg": 4.0,
+      "gravity_restoring_lever_mm": 0.6619111286973762,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 34.0,
+      "direction": -1,
+      "lean_deg": 12.0,
+      "gravity_restoring_lever_mm": 0.1959183372157529,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 34.0,
+      "direction": -1,
+      "lean_deg": 17.25,
+      "gravity_restoring_lever_mm": 0.10605973686459258,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 34.0,
+      "direction": -1,
+      "lean_deg": 25.0,
+      "gravity_restoring_lever_mm": 0.5227575698365765,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 34.0,
+      "direction": 1,
+      "lean_deg": 4.0,
+      "gravity_restoring_lever_mm": 0.7394436899723278,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 34.0,
+      "direction": 1,
+      "lean_deg": 12.0,
+      "gravity_restoring_lever_mm": 0.2719418153774775,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 34.0,
+      "direction": 1,
+      "lean_deg": 17.725,
+      "gravity_restoring_lever_mm": 0.18439757613141872,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 34.0,
+      "direction": 1,
+      "lean_deg": 25.0,
+      "gravity_restoring_lever_mm": 0.593197522052284,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 36.0,
+      "direction": -1,
+      "lean_deg": 4.0,
+      "gravity_restoring_lever_mm": 0.8017647525843916,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 36.0,
+      "direction": -1,
+      "lean_deg": 12.0,
+      "gravity_restoring_lever_mm": 0.6210314605557841,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 36.0,
+      "direction": -1,
+      "lean_deg": 17.25,
+      "gravity_restoring_lever_mm": 0.7270762437902523,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 36.0,
+      "direction": -1,
+      "lean_deg": 25.0,
+      "gravity_restoring_lever_mm": 1.4553728861465771,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 36.0,
+      "direction": 1,
+      "lean_deg": 4.0,
+      "gravity_restoring_lever_mm": 0.8792973138593609,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 36.0,
+      "direction": 1,
+      "lean_deg": 12.0,
+      "gravity_restoring_lever_mm": 0.6970549387175193,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 36.0,
+      "direction": 1,
+      "lean_deg": 17.725,
+      "gravity_restoring_lever_mm": 0.8236406750757652,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 36.0,
+      "direction": 1,
+      "lean_deg": 25.0,
+      "gravity_restoring_lever_mm": 1.5258128383622758,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 40.0,
+      "direction": -1,
+      "lean_deg": 4.0,
+      "gravity_restoring_lever_mm": 1.0814720003584366,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 40.0,
+      "direction": -1,
+      "lean_deg": 12.0,
+      "gravity_restoring_lever_mm": 1.4712577072358801,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 40.0,
+      "direction": -1,
+      "lean_deg": 17.25,
+      "gravity_restoring_lever_mm": 1.9691092576415805,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 40.0,
+      "direction": -1,
+      "lean_deg": 25.0,
+      "gravity_restoring_lever_mm": 3.320603518766573,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 40.0,
+      "direction": 1,
+      "lean_deg": 4.0,
+      "gravity_restoring_lever_mm": 1.1590045616333953,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 40.0,
+      "direction": 1,
+      "lean_deg": 12.0,
+      "gravity_restoring_lever_mm": 1.5472811853976012,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 40.0,
+      "direction": 1,
+      "lean_deg": 17.725,
+      "gravity_restoring_lever_mm": 2.10212687296446,
+      "source_card_floor_and_wall_contacts_verified": true
+    },
+    {
+      "straight_height_mm": 40.0,
+      "direction": 1,
+      "lean_deg": 25.0,
+      "gravity_restoring_lever_mm": 3.391043470982275,
+      "source_card_floor_and_wall_contacts_verified": true
+    }
+  ],
+  "mass_distribution_sensitivity": [
+    {
+      "assumed_cg_height_mm": 38.0,
+      "required_straight_height_mm": 33.216464460903815,
+      "critical_lean_deg": 17.55,
+      "bottom_edge_to_wall_mm": 10.504988305571834
+    },
+    {
+      "assumed_cg_height_mm": 40.0,
+      "required_straight_height_mm": 35.12514049203827,
+      "critical_lean_deg": 17.225,
+      "bottom_edge_to_wall_mm": 10.889844383738913
+    },
+    {
+      "assumed_cg_height_mm": 42.0,
+      "required_straight_height_mm": 37.03694527025428,
+      "critical_lean_deg": 16.925,
+      "bottom_edge_to_wall_mm": 11.270338842831627
+    },
+    {
+      "assumed_cg_height_mm": 44.0,
+      "required_straight_height_mm": 38.95162983075123,
+      "critical_lean_deg": 16.650000000000002,
+      "bottom_edge_to_wall_mm": 11.649007420560805
+    }
+  ],
+  "entry_candidates": [
+    {
+      "entry_height_mm": 0.0,
+      "extra_transition_allowance_mm": 0.6,
+      "screened_wall_minimum_mm": 35.72514049203827,
+      "rounded_candidate_mm": 36,
+      "exposed_card_mm": 44.0,
+      "straight_guide_at_candidate_mm": 35.4,
+      "minimum_uniform_gravity_lever_mm": 0.08390779547303939
+    },
+    {
+      "entry_height_mm": 1.0,
+      "extra_transition_allowance_mm": 0.6,
+      "screened_wall_minimum_mm": 36.72514049203827,
+      "rounded_candidate_mm": 37,
+      "exposed_card_mm": 43.0,
+      "straight_guide_at_candidate_mm": 35.4,
+      "minimum_uniform_gravity_lever_mm": 0.08390779547303939
+    },
+    {
+      "entry_height_mm": 2.0,
+      "extra_transition_allowance_mm": 0.6,
+      "screened_wall_minimum_mm": 37.72514049203827,
+      "rounded_candidate_mm": 38,
+      "exposed_card_mm": 42.0,
+      "straight_guide_at_candidate_mm": 35.4,
+      "minimum_uniform_gravity_lever_mm": 0.08390779547303939
+    },
+    {
+      "entry_height_mm": 4.0,
+      "extra_transition_allowance_mm": 0.6,
+      "screened_wall_minimum_mm": 39.72514049203827,
+      "rounded_candidate_mm": 40,
+      "exposed_card_mm": 40.0,
+      "straight_guide_at_candidate_mm": 35.4,
+      "minimum_uniform_gravity_lever_mm": 0.08390779547303939
+    }
+  ],
+  "two_mm_entry_comparison": [
+    {
+      "wall_height_mm": 36.0,
+      "entry_height_mm": 2.0,
+      "guaranteed_straight_mm": 33.4,
+      "uniform_gravity_margin_mm": -0.5846439415715078
+    },
+    {
+      "wall_height_mm": 38.0,
+      "entry_height_mm": 2.0,
+      "guaranteed_straight_mm": 35.4,
+      "uniform_gravity_margin_mm": 0.08390779547303939
+    },
+    {
+      "wall_height_mm": 39.0,
+      "entry_height_mm": 2.0,
+      "guaranteed_straight_mm": 36.4,
+      "uniform_gravity_margin_mm": 0.36628524583795197
+    },
+    {
+      "wall_height_mm": 40.0,
+      "entry_height_mm": 2.0,
+      "guaranteed_straight_mm": 37.4,
+      "uniform_gravity_margin_mm": 0.6100739332601064
+    },
+    {
+      "wall_height_mm": 42.0,
+      "entry_height_mm": 2.0,
+      "guaranteed_straight_mm": 39.4,
+      "uniform_gravity_margin_mm": 0.9543831244634499
+    }
+  ],
+  "interpretation": "Smallest heights passing this sufficient restoring-moment screen; not absolute escape thresholds. Ignoring entry support is conservative. Failing the screen does not prove a card falls out. Contact cases cover thin-axis front/back leaning; an inscribed bottom footprint bounds other horizontal fall directions. Actual curved rim/corner transitions, hood/key interfaces and dynamic behaviour need review before print delivery.",
+  "limits": "Rigid card on a horizontal desk; no friction credited. Uniform-envelope and homogeneous-source CGs are explicit models, not measured printed CG. Near-threshold candidates have little restoring margin. No impacts, shaking, manual lifting, open-box carrying, creep, print calibration or physical validation.",
+  "source_sha256": {
+    "study_archive_wall_height.py": "f0d02e2358d4795e0121cc66c4f24d10e3a863fbe935e1ff533050d2dd48e2bd",
+    "swatch_reference.py": "c27d4fda19465669f8b9c587da33e4393ff0c2ddb027884c177562c14836d2e7",
+    "archive_r1_base_15.py": "6959c2d9da22b6bd43204f824e09393453bf8262214a71517b4fe2202a0049cf",
+    "study.py": "657f032e40326e6cfc72c9d5ab83dfd573d4dbfde1b1dc00db81826d1ae18eac",
+    "card_base_test.py": "aef72e9449777c08e36a5eac4150acd7c8ebfa76fe78ca97eb68221dba6368a2",
+    "cap_g_module_5.py": "5dfb2f0b03c2b5b3f545166898a291c742d9fcc8204675a9036de7b2a76ffc91",
+    "cap_e_thin_5.py": "50026143c82f329a000de9bc484a95f9e0c2fb1a9d28ea757bbc5314bb5ed32a",
+    "../filament_archive_swatch/filament_archive_swatch.scad": "d1577f4320cbc5597f9c7aa0e9cedf740c287845e0793fa32886ab8358bef67d"
+  }
+}

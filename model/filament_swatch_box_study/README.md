@@ -12,6 +12,16 @@ and [comparison sketch](renders/concepts/archive_rim_options.svg).
 Only records and schematic proposals have changed; R1's source/exports are
 retained unchanged. No replacement base has been modelled or qualified yet.
 
+**Wall-height exploration:** a conservative gravity-restoring screen gives about
+35.1 mm of straight retaining height for one nominal 80 × 2 mm card. Including
+a 2 mm entrance and .6 mm transition allowance gives a near-limit 38 mm wall;
+**40 mm with that shorter entrance is the recommended next design candidate**.
+Keeping the existing 4 mm entrance at 40 mm leaves much less margin. These are
+study results, not a physical spill guarantee or new printable base. See the
+[height study](notes/cap_comparison.md#continuous-rim-wall-height-study),
+[plot](renders/concepts/archive_wall_height_screen.svg) and
+[source](study_archive_wall_height.py).
+
 [STEP](archive_r1_base_15.step) · [STL](archive_r1_base_15.stl) ·
 [Parametric source](archive_r1_base_15.py). Use the **exact existing
 [G hood](cap_g_hood_5.step)** and existing I key 3; no new or resized hood/key.
