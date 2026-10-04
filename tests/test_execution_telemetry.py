@@ -3,6 +3,41 @@ from execution.telemetry import run, span, child_environment
 from execution.history import main
 
 
+def _delayed_record_update(root,field,ready):
+    import os
+    from pathlib import Path
+    import time
+    from execution.telemetry import write_record
+    os.environ['ENGINEERING_DATA']=str(root)
+    target=root/'runs'/'shared.json'
+    original=Path.read_text
+    def delayed_read(path,*args,**kwargs):
+        text=original(path,*args,**kwargs)
+        if path==target:time.sleep(.15)
+        return text
+    Path.read_text=delayed_read
+    ready.wait(5);write_record('shared',{field:True})
+
+
+def test_concurrent_process_record_updates_preserve_both_writers(tmp_path,monkeypatch):
+    import multiprocessing
+    from execution.telemetry import write_record
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path))
+    target=tmp_path/'runs'/'shared.json'
+    write_record('shared',{'operation':'command'})
+    context=multiprocessing.get_context('spawn');ready=context.Barrier(2)
+    writers=[context.Process(target=_delayed_record_update,args=(tmp_path,field,ready)) for field in ('caller','coordinator')]
+    for writer in writers:writer.start()
+    try:
+        for writer in writers:
+            writer.join(5)
+            assert writer.exitcode==0
+    finally:
+        for writer in writers:
+            if writer.is_alive():writer.kill();writer.join()
+    assert json.loads(target.read_text())=={'schema_version':1,'operation':'command','caller':True,'coordinator':True}
+
+
 def test_otlp_hierarchy_context_and_perfetto(tmp_path, monkeypatch):
     monkeypatch.setenv('ENGINEERING_DATA', str(tmp_path))
     with run('command') as record:

@@ -33,6 +33,10 @@ separately justified computational optimization follows.
   defaults for unmeasured work. Use complete option/budget comparison identities
   when available; legacy CAD argument hashes omit view/export settings.
   Native work may require solver/native sampling rather than Python profiles.
+  Changing `--threads` alone leaves the default memory reservation unchanged;
+  check the recorded blocking reason before expecting more parallel work. Once
+  a workload budget is qualified, retain it in its supported model declaration
+  or object-owned command instructions rather than reasoning about it anew.
 - Prefer less repeated work, immutable intermediates, batching, NumPy and existing
   spatial indexes. Use compilation only when measured end-to-end savings justify
   startup and maintenance. Keep trivial calculations simple.

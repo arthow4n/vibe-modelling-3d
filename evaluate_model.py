@@ -30,6 +30,7 @@ if __name__=='__main__':
 
 from execution.telemetry import operation, span, child_environment
 from execution.process import run as run_command
+from execution.resources import DEFAULT_MEMORY_MB
 
 VIEWS = {
     "isometric": (1, -1, 1), "isometric_back": (-1, 1, 1),
@@ -674,7 +675,7 @@ def main(argv=None):
     parser.add_argument("--dependency",type=Path,action="append",default=[],help="Additional input file/directory for --reuse and revision guards")
     parser.add_argument("--isolated",action="store_true",help="Use conventional CAD process instead of warm infrastructure")
     parser.add_argument("--threads",default="50%",help="Native CPU budget: integer or percent of shared capacity")
-    parser.add_argument("--memory-mb",type=int,help="CAD worker memory/admission budget (default 2048 MiB, or declared geometry-only budget)")
+    parser.add_argument("--memory-mb",type=int,help=f"CAD worker memory/admission budget (default {DEFAULT_MEMORY_MB} MiB, or declared geometry-only budget)")
     parser.add_argument("--timeout", type=positive_float, default=300,
                         help="Maximum evaluation time in seconds")
     parser.add_argument("--report", type=Path, metavar="JSON",
@@ -751,7 +752,7 @@ def main(argv=None):
     if args.fresh:args.reuse=False
     views = [] if args.views == "none" else args.views.split(",")
     if args.memory_mb is None:
-        args.memory_mb=geometry_memory if geometry_memory and not views and not (args.export or args.slice) else 2048
+        args.memory_mb=geometry_memory if geometry_memory and not views and not (args.export or args.slice) else DEFAULT_MEMORY_MB
     if len(views) != len(set(views)) or any(view not in VIEWS for view in views):
         parser.error(f"Views must be distinct names from {', '.join(VIEWS)}, or none")
     root = source.parent

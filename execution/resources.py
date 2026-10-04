@@ -6,6 +6,8 @@ import threading
 import time
 import math
 
+DEFAULT_MEMORY_MB = 1024
+
 
 def cores(value, available):
     """Resolve an integer or percentage without exceeding the declared capacity."""
@@ -118,7 +120,7 @@ def inherited_budget():
 
 
 @contextmanager
-def lease(threads=None,memory_mb=2048):
+def lease(threads=None,memory_mb=DEFAULT_MEMORY_MB):
     from .client import connect,CoordinatorUnavailable
     from . import protocol
     inherited=inherited_budget()

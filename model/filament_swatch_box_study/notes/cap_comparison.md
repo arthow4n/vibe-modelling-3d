@@ -1554,6 +1554,23 @@ so dimensions, edge treatment, joins and card fixtures are not copied across
 four sources. The footprint/lean fixture is swatch-specific and already uses
 NumPy and CadQuery adequately. No new shared API or generic checker is justified.
 
+### Reflection and execution follow-up — 2026-10-04
+
+The [session review](../../../performance/reviews/2026-10-04-152419-archive-reflection-and-memory-policy.md)
+owns the measured timing/token scope and memory-policy experiments. Repeated
+2 GB admission delays justified the shared 1 GB default; all four R2 geometry
+entry points and the inspection now have fresh-qualified 512 MiB budgets.
+The complete four-variant check passed at 1 GB, peaking around 551 MiB. Preserve
+that distinction rather than assigning the smaller CAD budget to every script.
+Inspection now declares the actual SCAD dependency for guarded geometry reuse.
+
+Shared updates address concurrent telemetry merges, benchmark process ownership,
+render-path semantics, source freezing and focused reads. Rim topology diagnosis
+belongs in the existing edge-treatment reference; variant/card-specific fixtures
+remain local. The existing warm host and bounded CAD pool already provide useful
+reuse, so no additional pre-reserved pool is introduced. This reflection adds no
+product variant, physical result or change to the accepted print geometry.
+
 ## Archive R1 — 15-card compact base
 
 ### R1 entrance rejection and alternatives

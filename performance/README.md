@@ -87,9 +87,14 @@ scheduler, with three repetitions for computational experiments and five for tra
 
 Four cores give most of this numerical fixture's benefit; eight cores improve
 single-job latency modestly while reducing room for concurrent agents. Keep the
-portable 50% default and allow explicit workload budgets. Default CAD memory
-remains 2048 MiB; lower it only for measured small workloads. The smaller fixture
-budget permits simultaneous slicing and rendering without exceeding admission.
+portable 50% default and allow explicit workload budgets. These historical
+measurements used a 2048 MiB CAD default; the current ordinary CAD/script default
+is 1024 MiB after follow-up qualification. Larger workloads still need explicit
+budgets. The smaller fixture budget in this experiment permitted simultaneous
+slicing and rendering without exceeding admission.
+The [archive reflection and memory-policy review](reviews/2026-10-04-152419-archive-reflection-and-memory-policy.md)
+records the current default qualification, smaller workload declarations and
+comparison with bounded unreserved admission.
 [The retained Perfetto timeline](traces/pipeline.perfetto.json) contains **0.524 s**
 of actual render/primary-slice overlap. [The cold complete OTLP snapshot](traces/complete.otlp.jsonl)
 preserves hierarchical command, worker and native stages across processes.
@@ -161,3 +166,23 @@ This needs four available admitted cores and 2560 MiB. Keep its evidence local;
 review any published numerical summary separately. Source/closed-input identity
 must stay unchanged throughout a study. A smaller tested reservation is specific
 to that model and operation; it does not justify lowering the general CAD budget.
+
+Use the study's `--views isometric` option when qualifying a render workload;
+the default remains geometry only. Each concurrent call gets a distinct local
+render destination, and `--fresh` requires both geometry and the selected view
+to execute. The study checks view success as well as geometry validity. Its
+temporary images are diagnostics, not new object deliverables. Do not extend a
+geometry-only reservation to rendering or exports without relevant evidence.
+
+For a policy investigation, `--memory-budgets` selects distinct budgets and
+`--concurrent 4` tests four calls with eight admitted outer CPU threads. The
+outer coordinator-managed job must reserve at least 2560 MiB; its process-tree
+watchdog bounds the complete private experiment. Ordinary two-call studies
+retain the four-thread requirement.
+
+`--coordinator-policy unreserved` is an experimental benchmark fixture. It
+charges one MiB per active job in the private admission ledger, effectively
+removing per-job memory gating, while retaining requested job RSS limits,
+CPU/job admission and the outer aggregate watchdog. This is not automatic
+memory growth or a production coordinator setting. Use it to compare a bounded
+workload, rather than bypassing resource admission in ordinary engineering.

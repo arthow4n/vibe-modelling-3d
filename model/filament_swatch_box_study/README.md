@@ -58,6 +58,13 @@ Native paired-export/slice reports:
 | Test piece(s) | N/A — complete base is the trial | No detached coupon | Pocket constraints and sparse browsing need the complete geometry |
 | Final printable object(s), A/B/C/D | Unknown — no physical print reported | Four R2 STEP/STL pairs above; existing G and I3 | User accepts completion of this form round. CAD/slice evidence is limited to nominal geometry and diagnostic settings; containment in actual use, stiffness, comfort and fit remain untested |
 
+[Development reflection and measured memory-policy comparison](../../performance/reviews/2026-10-04-152419-archive-reflection-and-memory-policy.md)
+records the workflow improvements. R2 sources and the inspection entry point
+now declare qualified 512 MiB geometry-only budgets; artifact stages use the
+shared 1024 MiB default unless explicitly overridden. Inspection geometry can
+reuse its complete-input declaration. Printable geometry and print status are
+unchanged by this reflection.
+
 ## Archive R1 — rejected before printing; retained history
 
 **Current status:** the user has not printed R1 and rejects its deep finger

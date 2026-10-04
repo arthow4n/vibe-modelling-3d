@@ -103,6 +103,41 @@ def test_batch_dependencies_and_failed_dependency(tmp_path):
     assert results['bad']['exit_code']==3 and results['skip']['status']=='dependency_failed'
 
 
+def test_script_memory_defaults_and_overrides_reach_admission(tmp_path,monkeypatch):
+    from execution.client import script
+    from execution.batch import ScriptTask,run
+    from execution.history import iter_records
+    import uuid
+    monkeypatch.setenv('ENGINEERING_INSTANCE',uuid.uuid4().hex)
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'records'))
+    source=tmp_path/'work.py';source.write_text('print("done")\n')
+    assert call(source,'--threads','1').returncode==0
+    assert call(source,'--threads','1','--memory-mb','1792').returncode==0
+    assert script(source)['exit_code']==0
+    results=run([ScriptTask('default',source,threads=1),
+        ScriptTask('explicit',source,threads=1,memory_mb=1536)])
+    assert all(result['exit_code']==0 for result in results.values())
+    records=[record for record in iter_records(tmp_path/'records') if record['operation']=='script.command']
+    assert sorted(record['admission']['requested_memory_mb'] for record in records)==[1024,1024,1024,1536,1792]
+
+
+def test_memory_overrun_stops_job_without_replaying_and_recovers(tmp_path,monkeypatch):
+    import uuid
+    monkeypatch.setenv('ENGINEERING_INSTANCE',uuid.uuid4().hex)
+    monkeypatch.setenv('ENGINEERING_DATA',str(tmp_path/'records'))
+    marker=tmp_path/'attempts'
+    source=tmp_path/'work.py'
+    source.write_text(f'from pathlib import Path\nimport time\np=Path({str(marker)!r})\n'
+        'p.write_text(p.read_text()+"x" if p.exists() else "x")\n'
+        'allocation=bytearray(256*1024**2)\ntime.sleep(10)\n')
+    failed=call(source,'--threads','1','--memory-mb','128')
+    assert failed.returncode!=0 and 'memory budget' in failed.stderr
+    assert marker.read_text()=='x'
+    source.write_text('print("recovered")\n')
+    recovered=call(source,'--threads','1')
+    assert recovered.returncode==0 and recovered.stdout=='recovered\n'
+
+
 @pytest.mark.parametrize('strategy',['isolated','preinitialized'])
 @pytest.mark.parametrize('native_child',[False,True])
 def test_dead_coordinator_restarts_without_replaying_script(tmp_path,monkeypatch,strategy,native_child):

@@ -4,6 +4,7 @@ No SDK/global provider mutation; per-process exporters survive fresh/forked work
 No output, environment values, argument values or exception messages are retained.
 """
 import base64
+import fcntl
 from contextlib import contextmanager
 import contextvars
 import json
@@ -157,11 +158,15 @@ def write_record(run_id, record):
     try:
         path = data_root()/'runs'/f'{run_id}.json'
         path.parent.mkdir(parents=True, exist_ok=True)
-        previous=json.loads(path.read_text()) if path.is_file() else {}
-        temporary = path.with_suffix(f'.{os.getpid()}.tmp')
-        combined={**previous,**{k:v for k,v in record.items() if v is not None or k not in previous}}
-        temporary.write_text(json.dumps({'schema_version': 1, **combined}, separators=(',', ':'))+'\n')
-        temporary.replace(path)
+        # Caller and coordinator both enrich this record. Atomic replacement
+        # protects readers but does not serialize their read/merge/write updates.
+        with (path.parent/'.write.lock').open('a') as lock:
+            fcntl.flock(lock,fcntl.LOCK_EX)
+            previous=json.loads(path.read_text()) if path.is_file() else {}
+            temporary = path.with_suffix(f'.{os.getpid()}.tmp')
+            combined={**previous,**{k:v for k,v in record.items() if v is not None or k not in previous}}
+            temporary.write_text(json.dumps({'schema_version': 1, **combined}, separators=(',', ':'))+'\n')
+            temporary.replace(path)
     except Exception:
         pass
 

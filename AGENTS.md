@@ -115,6 +115,9 @@ material/process uncertainty and observations requiring a physical print.
    optimistic assumptions. Identify what needs actual modelled geometry and what
    can only be learned from a physical print; do not make every simple object
    undergo structural calculations.
+   Keep subsequent reads focused with `rg` and relevant sections. If tool output
+   is truncated, read the missing section rather than repeating the whole batch;
+   do not treat omitted content as inspected.
 2. Choose the development strategy and next useful deliverable through the skill's
    [adaptive guidance](.codex/skills/cadquery-3d-design/references/design-decisions.md#adaptive-development-and-the-next-deliverable).
    Use existing agreement and authorization; if needed, establish this phase's
@@ -347,6 +350,11 @@ distinct visual question or explain the delivered object. For saved intermediate
 views, use
 `renders/scratch/`; retain selected final views in `renders/print/` or
 `renders/assembled/`. Exterior inspection normally uses `show_hidden=false`.
+`--output-dir` is relative to the model's directory: use `renders/assembled`,
+not a repository-prefixed `model/object_name/renders/assembled`, or supply an
+absolute destination. `--report` instead resolves from the command's working
+directory. A path correction does not require fresh geometry; keep a valid
+declared geometry input contract and let verified artifacts reuse normally.
 Use hidden lines or sections for a specific internal-geometry question. Remove
 disposable scratch output before staging; retain historical evidence deliberately.
 

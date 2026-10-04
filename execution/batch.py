@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor,wait,FIRST_COMPLETED
 import contextvars
 from pathlib import Path
 from .client import script
-from .resources import cpu_capacity,cores,inherited_budget,_budget,_affinity,current_affinity
+from .resources import DEFAULT_MEMORY_MB,cpu_capacity,cores,inherited_budget,_budget,_affinity,current_affinity
 from .artifacts import destinations
 from .telemetry import operation
 
@@ -17,7 +17,7 @@ class ScriptTask:
     depends_on:tuple=()
     outputs:tuple=()
     threads:int|str='50%'
-    memory_mb:int=2048
+    memory_mb:int=DEFAULT_MEMORY_MB
     timeout:float|None=None
 
 

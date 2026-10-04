@@ -53,3 +53,11 @@ Review edge treatment in the chosen print orientation. A fillet on a bottom edge
 ## Fillet and chamfer failure handling
 
 If a fillet or chamfer fails because of topology or an excessive radius, do not repeatedly retry arbitrary radii. Identify the problematic edge or radius, reduce the radius or apply the treatment selectively, and preserve the successful main geometry. Do not redesign a sound model solely because a cosmetic fillet fails.
+
+Localize the selection before changing treatment: face boundary selections may
+include tangent seams that need no edge break. Connected rim/window lips may
+also need one combined fillet operation, because an earlier fillet changes the
+topology required by the next. Inspect the selected edge types and adjacency;
+exclude smooth seams and treat the intended sharp junctions together when
+appropriate. The [R2 rim fixture](../../../../model/filament_swatch_box_study/archive_corner_proposals.py)
+uses that approach. This is a diagnosis option, not a guarantee for every fillet.

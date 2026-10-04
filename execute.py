@@ -7,6 +7,7 @@ import json
 import math
 import sys
 from execution.client import script
+from execution.resources import DEFAULT_MEMORY_MB
 
 
 def positive(value):
@@ -23,7 +24,8 @@ def main(argv=None):
     p.add_argument('--preload',choices=['scientific','cad'],default='scientific')
     p.add_argument('--timeout',type=positive)
     p.add_argument('--threads',default='50%',help='Integer or percent of shared CPU capacity; default 50%')
-    p.add_argument('--memory-mb',type=int,default=2048)
+    p.add_argument('--memory-mb',type=int,default=DEFAULT_MEMORY_MB,
+        help=f'Process-tree RSS/admission budget in MiB; default {DEFAULT_MEMORY_MB}')
     p.add_argument('--profile',choices=['cpu','allocations'])
     p.add_argument('--isolated',action='store_true',help='Bypass coordinator using the same traced lifecycle')
     p.add_argument('script')

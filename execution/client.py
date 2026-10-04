@@ -11,7 +11,7 @@ import uuid
 from .identity import ROOT, runtime_identity, digest
 from . import protocol
 from .telemetry import run, child_environment, span, data_root
-from .resources import thread_environment
+from .resources import DEFAULT_MEMORY_MB, thread_environment
 
 
 class CoordinatorUnavailable(RuntimeError):pass
@@ -73,7 +73,7 @@ def submit(request, fds=(0,1,2), on_event=None):
 
 
 def script(source, arguments=(), *, cwd=None, strategy='isolated', preload='scientific',
-           timeout=None, threads=1, memory_mb=2048, profile=None, coordinator=True):
+           timeout=None, threads=1, memory_mb=DEFAULT_MEMORY_MB, profile=None, coordinator=True):
     source=Path(source).resolve(strict=True)
     if not source.is_file():raise ValueError('Script source must be a file')
     with run('script.command',source,strategy,arguments) as record:

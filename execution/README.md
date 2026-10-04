@@ -35,10 +35,17 @@ reused stages are explicitly marked, never represented as fresh computation.
 Managed outputs are staged, identity-checked and atomically published with destination
 ownership. Model-written side effects are outside that transaction.
 
-Finish Python model/check edits before launching a final CAD batch. The current
+The same contract applies to deterministic inspection entry points with reference
+contents, not only printable outputs. Declare their complete inputs too when
+they have no required side effects; choosing a different render destination
+does not require constructing the same inspection geometry again.
+
+Finish repository Python edits before launching any CAD batch, including
+inspection or benchmark qualification. Even a benchmark docstring changes the
+current conservative identity. The current
 input identity conservatively includes all repository Python, so even editing an
 unrelated check while CAD is queued or running can invalidate publication. Work
-on documentation or review completed evidence during that batch instead. If the
+on non-Python documentation or review completed evidence during that batch instead. If the
 guard rejects a job, freeze Python edits and rerun that affected request; retained
 content-verified exports/renders can still be reused. The J4/K4 grip revision hit
 this guard when its check script was edited during final evaluation; freezing
@@ -82,9 +89,15 @@ user script still gets a fresh child. Both preload labels use the same qualified
 import-only host (scientific dependencies are included by CadQuery). Gmsh and
 solvers are never initialized in that host. The host is imported with one native
 thread; jobs apply their explicit `--threads` budget. Ordinary jobs default to
-50% of shared CPU capacity and 2048 MiB of process-tree RSS. Use larger explicit budgets when
+50% of shared CPU capacity and 1024 MiB of process-tree RSS. Use larger explicit budgets when
 needed; oversize requests fail before execution. This is process isolation,
 not a sandbox.
+
+The memory reservation is scheduler bookkeeping, not an allocation of RAM.
+Managed CAD/script jobs also use that budget as their RSS watchdog limit:
+exceeding it stops the job instead of automatically enlarging the budget or
+replaying side effects. A resource lease alone accounts for capacity; it does
+not install a process watchdog around arbitrary caller code. Keep reserved capacity distinct from actual measured use when diagnosing a delay.
 
 `--isolated` bypasses the coordinator for compatibility diagnosis, using the same
 traced lifecycle. Coordinator startup failure also falls back *before dispatch*;
@@ -99,12 +112,16 @@ measurement; compact run summaries remain. `ENGINEERING_DATA` selects local
 performance storage. No normal engineering task needs to inspect these records.
 
 When a performance investigation finds long waits, compare declared reservations
-with shared capacity before increasing concurrency. Two default 2048 MiB requests
-require at least 4096 MiB of admission capacity (plus retained worker RSS), even if
-their observed use is lower. For a stable workload, test an explicit budget with
+with shared capacity before increasing concurrency. Two default 1024 MiB requests
+require at least 2048 MiB of admission capacity (plus retained worker RSS), even if
+their observed use is lower. The previous 2048 MiB default repeatedly serialized
+ordinary jobs on smaller memory capacities; matched CAD/render measurements and
+representative script/artifact qualification support the current default.
+For a stable workload, test an explicit budget with
 headroom above sampled peaks and verify representative cases; use larger budgets
 for changed/unmeasured workloads. Do not lower general defaults or overcommit
-reservations on the strength of one small fixture. See the
+reservations on the strength of one small fixture. Larger scripts and CAD builds
+still need explicit budgets when their measured use approaches the default. See the
 [matched admission follow-up](../performance/README.md#targeted-admission-studies).
 
 ## CAD iterations and incremental outputs
@@ -144,9 +161,10 @@ randomness, clocks and required construction side effects cannot use this contra
 For a measured workload, an optional `"resources":{"geometry_memory_mb":1024}`
 sets its admission reservation only for geometry-only evaluations (no views,
 exports or slicing). An explicit `--memory-mb` always overrides it; other stages
-and undeclared models retain the 2048 MiB default. Validate the reservation with
-representative fresh runs and headroom before declaring it. It is a scheduling
-budget, not an enforced RSS limit or a universal estimate for other geometry.
+and undeclared models use the 1024 MiB default. Validate the reservation with
+representative fresh runs and headroom before declaring it. The reservation also
+sets the CAD worker's enforced RSS budget; it is not a measured requirement or
+a universal estimate for other geometry.
 
 `--reuse` also declares that geometry construction is deterministic, has no required
 side effects, and depends only on repository/adjacent Python sources and declared
