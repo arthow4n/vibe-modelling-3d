@@ -40,9 +40,9 @@ clean stainless-steel or silicone tool.
 CAD checks establish one valid solid, bed contact, overall bounds, and the
 nominal blade/mouth clearance. They do not establish actual scraping force,
 release feel, residue cleanup, material compatibility, or fit on the unknown
-large source container. The first physical use should check that the nose does
-not scratch the source container and that the flat blade releases cleanly into
-the small jar.
+large source container. The user now reports that the printed tool works well
+and does its job; specific observations about scratching, release and cleanup
+were not reported separately.
 
 CadQuery 2.8.0 evaluation found one valid solid with a 30 × 141 × 7 mm
 bounding box. STEP and STL were exported from that evaluation. The current final
@@ -57,8 +57,13 @@ the user's actual print.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A | None | The complete tool is the first proposed print; edge flexibility and release remain untested. |
-| Final printable object(s) | Unknown | `vaseline_transfer_spatula.stl`, `vaseline_transfer_spatula.step` | No user print report yet. Check source-container access, blade release, and cleanup in the first use. |
+| Test piece(s) | N/A | None | No separate specimen; the complete tool was the trial print. |
+| Final printable object(s) | Yes | Existing `vaseline_transfer_spatula` model; exact file used for the print was not reported. Available exports: `vaseline_transfer_spatula.stl`, `vaseline_transfer_spatula.step` | User reports the existing print works well and does its job; the handle size feels right. The storage footprint motivates exploring a more compact revision. Release feel, cleanup, long-term wear and print settings were not reported separately. |
+
+The user reported this physical print on **2026-10-04**. This is positive use
+feedback for the existing design, not a rejection: no functional problem was
+reported. Material, printer, slicer settings and the exact exported file used
+remain unknown. The original model source and attribution below are unchanged.
 
 ## Attribution
 

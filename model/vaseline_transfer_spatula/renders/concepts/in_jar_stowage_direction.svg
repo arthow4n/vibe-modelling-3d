@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Vaseline transfer spatula concept C: compact storage inside the jar</title>
+  <desc id="desc">A higher-complexity concept that folds the paddle and collapses the handle, with the tight jar-mouth fit and cleaning tradeoffs called out.</desc>
+  <metadata><dc:creator>GPT-6 Luna</dc:creator><dc:date>2026-10-04</dc:date></metadata>
+  <defs>
+    <style>
+      .bg{fill:#f7f5ef}.card{fill:#fff;stroke:#d9dedf;stroke-width:2}.blade{fill:#f2d9aa;stroke:#9a7440;stroke-width:4}.shaft{fill:#435967;stroke:#26343d;stroke-width:3}.jar{fill:#e8f0f4;stroke:#5a7888;stroke-width:4}.joint{fill:#fff;stroke:#c3543e;stroke-width:4}.warn{fill:#fff4ed;stroke:#e7b9a8;stroke-width:2}.dash{stroke:#c3543e;stroke-width:3;stroke-dasharray:7 6;fill:none}
+      text{font-family:Inter,Arial,sans-serif}.title{font-size:34px;font-weight:700;fill:#26343d}.subtitle{font-size:18px;fill:#5a6870}.head{font-size:21px;font-weight:700;fill:#26343d}.body{font-size:16px;fill:#26343d}.small{font-size:14px;fill:#5a6870}.tag{font-size:13px;font-weight:700;letter-spacing:1px;fill:#9a7440}.red{font-size:15px;font-weight:700;fill:#b04b39}
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="760"/>
+  <text class="title" x="48" y="58">C — If it must stow inside the jar</text>
+  <text class="subtitle" x="48" y="92">This is the only direction here that changes both the paddle and handle. It carries the most fit and cleaning risk.</text>
+
+  <rect class="card" x="40" y="125" width="350" height="425" rx="18"/>
+  <rect class="card" x="425" y="125" width="350" height="425" rx="18"/>
+  <rect class="card" x="810" y="125" width="350" height="425" rx="18"/>
+  <text class="tag" x="64" y="164">CURRENT PADDLE</text>
+  <text class="tag" x="449" y="164">FOLD THE BLADE</text>
+  <text class="tag" x="834" y="164">COLLAPSE THE HANDLE</text>
+
+  <!-- Existing paddle outline over a 38 mm circular opening, at 4 px/mm. -->
+  <circle cx="214" cy="310" r="76" fill="#f4f8fa" stroke="#5a7888" stroke-width="4"/>
+  <path class="blade" d="M154 224 H274 V334 Q274 371 214 396 Q154 371 154 334 Z"/>
+  <path class="dash" d="M154 224 L214 396"/>
+  <text class="body" x="64" y="448">38 mm mouth</text>
+  <text class="body" x="64" y="475">30 × 43 mm head</text>
+  <text class="small" x="64" y="502">Approx. 45.5 mm greatest paddle span.</text>
+  <text class="red" x="64" y="526">Too large to lie flat through mouth.</text>
+
+  <!-- Hypothetical transverse fold at half the paddle length: 30 × 21.5 mm. -->
+  <circle cx="599" cy="310" r="76" fill="#f4f8fa" stroke="#5a7888" stroke-width="4"/>
+  <rect class="blade" x="539" y="267" width="120" height="86" rx="10"/>
+  <path d="M539 310 H659" stroke="#c3543e" stroke-width="5" stroke-dasharray="8 6"/>
+  <circle class="joint" cx="599" cy="310" r="10"/>
+  <text class="body" x="449" y="448">Two 21.5 mm leaves</text>
+  <text class="body" x="449" y="475">30 × 21.5 mm when folded</text>
+  <text class="small" x="449" y="502">Diagonal ≈36.9 mm vs Ø38 mm.</text>
+  <text class="red" x="449" y="526">≈1.1 mm total before hinge or clearance.</text>
+
+  <!-- Top view: folded head nearly fills the 38 mm opening; handle stack is schematic. -->
+  <circle cx="985" cy="310" r="76" fill="#f4f8fa" stroke="#5a7888" stroke-width="4"/>
+  <rect class="blade" x="925" y="267" width="120" height="86" rx="10"/>
+  <path d="M925 310 H1045" stroke="#c3543e" stroke-width="4" stroke-dasharray="7 5"/>
+  <circle class="joint" cx="985" cy="310" r="8"/>
+  <rect class="shaft" x="973" y="277" width="24" height="66" rx="10"/>
+  <text class="small" x="834" y="448">Head almost fills the Ø38 mm opening.</text>
+  <text class="small" x="834" y="471">Handle pieces would stack in the jar depth.</text>
+  <text class="small" x="834" y="494">Cavity depth: 22.75 mm.</text>
+  <text class="red" x="834" y="523">Packing and insertion are unverified.</text>
+
+  <rect class="warn" x="40" y="575" width="1120" height="128" rx="18"/>
+  <text class="head" x="68" y="612">High complexity; do this only if inside-jar storage matters</text>
+  <text class="body" x="68" y="643">A blade hinge interrupts the smooth wiping face and can trap sticky Vaseline. A collapsing handle adds joints and may change grip feel.</text>
+  <text class="body" x="68" y="672">The 36.9 mm head diagonal leaves very little room for hinge material or clearance. This is a feasibility sketch, not a recommendation.</text>
+  <text class="small" x="1150" y="738" text-anchor="end">Concept drawing by GPT-6 Luna · 2026-10-04</text>
+</svg>

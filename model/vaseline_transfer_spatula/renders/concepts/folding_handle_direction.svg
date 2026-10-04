@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Vaseline transfer spatula concept A: folding handle</title>
+  <desc id="desc">Schematic comparison of the current full length spatula and the same spatula with its handle folded at the midpoint.</desc>
+  <metadata><dc:creator>GPT-6 Luna</dc:creator><dc:date>2026-10-04</dc:date></metadata>
+  <defs>
+    <style>
+      .bg{fill:#f7f5ef}.card{fill:#fff;stroke:#d9dedf;stroke-width:2}.ink{fill:#26343d}.muted{fill:#5a6870}.blade{fill:#f2d9aa;stroke:#9a7440;stroke-width:4}.shaft{fill:#435967;stroke:#26343d;stroke-width:3}.joint{fill:#fff;stroke:#c3543e;stroke-width:5}.guide{stroke:#73828a;stroke-width:2;stroke-dasharray:7 7;fill:none}.arrow{stroke:#c3543e;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      text{font-family:Inter,Arial,sans-serif}.title{font-size:34px;font-weight:700;fill:#26343d}.subtitle{font-size:18px;fill:#5a6870}.head{font-size:22px;font-weight:700;fill:#26343d}.body{font-size:17px;fill:#26343d}.small{font-size:15px;fill:#5a6870}.tag{font-size:14px;font-weight:700;letter-spacing:1px;fill:#9a7440}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#c3543e"/></marker>
+  </defs>
+  <rect class="bg" width="1200" height="760"/>
+  <text class="title" x="48" y="58">A — Keep the full handle; fold it midway</text>
+  <text class="subtitle" x="48" y="92">Preserves the current 100 mm handle in use. Adds a joint that must lock firmly during scraping.</text>
+
+  <rect class="card" x="40" y="125" width="540" height="400" rx="18"/>
+  <rect class="card" x="600" y="125" width="560" height="400" rx="18"/>
+  <text class="tag" x="68" y="164">IN USE · CURRENT REACH</text>
+  <text class="tag" x="628" y="164">STOWED · HANDLE FOLDED</text>
+
+  <!-- In-use paddle: 30 × 43 mm, shown proportionally; 100 mm handle split into two halves. -->
+  <rect class="shaft" x="83" y="273" width="300" height="42" rx="20"/>
+  <rect class="shaft" x="83" y="273" width="58" height="42" rx="20" fill="#314653"/>
+  <path class="blade" d="M383 249 H466 Q511 249 511 294 Q511 339 466 339 H383 Z"/>
+  <circle class="joint" cx="233" cy="294" r="11"/>
+  <text class="small" x="97" y="344">50 mm</text>
+  <text class="small" x="286" y="344">50 mm</text>
+  <text class="small" x="408" y="367">43 mm paddle</text>
+  <path class="guide" d="M83 388 H511"/>
+  <text class="body" x="82" y="420">About 141 mm overall</text>
+  <text class="small" x="82" y="449">Grip section and paddle remain unchanged.</text>
+
+  <!-- Folded state: distal 50 mm section overlaps the proximal section. -->
+  <path class="blade" d="M931 249 H1014 Q1059 249 1059 294 Q1059 339 1014 339 H931 Z"/>
+  <rect class="shaft" x="781" y="274" width="150" height="39" rx="19"/>
+  <rect class="shaft" x="781" y="285" width="150" height="24" rx="12" fill="#738691" stroke="#435967"/>
+  <rect class="shaft" x="781" y="274" width="48" height="39" rx="19" fill="#314653"/>
+  <circle class="joint" cx="781" cy="294" r="11"/>
+  <path class="arrow" d="M694 242 C727 201 773 203 790 247"/>
+  <text class="small" x="671" y="344">overlapping 50 mm sections</text>
+  <text class="small" x="940" y="367">paddle stays rigid</text>
+  <path class="guide" d="M781 388 H1059"/>
+  <text class="body" x="642" y="420">About 93 mm packed length</text>
+  <text class="small" x="642" y="449">Approx. 50 mm handle section + 43 mm paddle.</text>
+
+  <rect x="40" y="548" width="1120" height="145" rx="18" fill="#fff4ed" stroke="#e7b9a8" stroke-width="2"/>
+  <text class="head" x="68" y="586">What this solves — and what it does not</text>
+  <text class="body" x="68" y="619">It keeps the full working reach and shortens the stored length, but adds a load-bearing lock and a joint to clean.</text>
+  <text class="body" x="68" y="649">The 30 × 43 mm paddle remains unchanged; this concept does not establish that the whole tool fits inside the jar.</text>
+  <text class="small" x="68" y="676">Concept only · dimensions from the current source · hinge, retention and physical use are unqualified.</text>
+  <text class="small" x="1150" y="728" text-anchor="end">Concept drawing by GPT-6 Luna · 2026-10-04</text>
+</svg>
