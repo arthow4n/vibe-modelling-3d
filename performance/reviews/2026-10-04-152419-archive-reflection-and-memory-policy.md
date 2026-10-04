@@ -1,5 +1,7 @@
 Superseded recommendation: [complete shared RAM-control removal](2026-10-04-163751-shared-memory-controls-removed.md). Measurements and the original decision below are retained as history.
 
+[Token-rate and model-request timing supplement](2026-10-04-165521-archive-token-speed-and-request-timing.md) reports the captured output rate and explains why actual inference time remains unavailable.
+
 Scope: Reflection on the filament display/archive work, with timing and usage measurements bounded to 2026-10-04, 09:25–12:18 UTC. The milestone is four checked R2 15-card archive bases delivered at revision 38d0665; physical archive use remains untested. Broader design lessons come from the conversation and the object's existing decision record. Measurements use one active Codex session snapshot, related retained execution history and separate matched qualification runs. Relevant software: Codex CLI 0.160.0, Python 3.12.14, CadQuery 2.7.0 and OrcaSlicer 2.4.2 on Linux/WSL. The configured model is GPT-6.1 Sol with high reasoning effort where configuration is qualified; backend identity is not independently verified. Qualification includes the working-tree benchmark/default changes described below.
 
 Measurements: The 173-minute archive window contains 138.07 minutes of active-turn interval union, 22.18 minutes of observed tool interval union and 78.98 minutes of qualified native client-request-operation union. These layers overlap and must not be added. Client operations include transport and scheduling; they are not isolated backend computation.

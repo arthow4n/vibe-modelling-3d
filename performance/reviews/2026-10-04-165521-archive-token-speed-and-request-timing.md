@@ -1,0 +1,20 @@
+Scope: Token rate and model-request timing in the retained filament-box/archive session analysis, supplementing the [archive reflection report](2026-10-04-152419-archive-reflection-and-memory-policy.md). This reuses the original saved analysis and timeline rather than rerunning modelling or sampling a new workload. Qualified native request intervals span 2026-10-04, 10:44:40–12:18:22 UTC. The configured sampling model is GPT-6.1 Sol with high reasoning effort for the measured requests; backend implementation is unverified. The qualified adapter covers Codex CLI 0.160.0.
+
+Measurements: The retained native sample has 81 candidate request operations, of which 80 have structurally associated completion, usage and valid timing boundaries. For each measured request, the rate is its output-token count divided by its own client-observed operation duration. Output includes reasoning tokens.
+
+| Captured client-operation metric | Median | 90th percentile | Maximum |
+| --- | ---: | ---: | ---: |
+| Output-token rate, tokens/second | 20.78 | 26.42 | 32.41 |
+| Request-operation duration, seconds | 27.59 | 147.14 | 398.88 |
+
+The duration runs from the client request-operation entry to receipt of its associated completion. It includes client preparation, network/transport, scheduling and model response time. These are per-request statistics, not aggregate session tokens divided by session time, and not a ranking of the model's speed.
+
+The original 09:25–12:18 UTC archive window is 173 minutes. Within that window, the interval unions were 138.07 minutes of active turns, 22.18 minutes of observed tool activity and 78.98 minutes of qualified native request-operation time. They overlap and must not be added. The slightly wider retained native sample above has 79.14 minutes of request-operation union. The rates describe that captured subset; they are not throughput for every response in the full archive session. The original report's 181,972 output tokens, including 100,405 reasoning output, describe a different persisted-usage scope and are not used as this rate's numerator.
+
+Findings: A useful observed output rate was available locally but omitted from the published reflection. The public report already contained native request-operation time, although its terminology made the distinction from inference less accessible. No isolated server inference time, literal request-to-first-token timing or visible-text streaming speed can be established from these captures.
+
+Implications: For this captured sample, the typical end-to-end output rate was about 21 tokens/second. This includes reasoning output and waiting, so it should not be presented as the speed at which visible text appeared. About 79 minutes of response-operation time were observed in the bounded archive window; that does not mean the server spent 79 minutes computing. Missing time cannot be assigned to reasoning or inference by subtraction.
+
+Changes or recommendations: Publish this supplementary measurement and link it from the original reflection and performance index. Keep the existing qualified measurement API: no new instrumentation, model benchmark, rate estimator or shared workflow requirement is needed for this question.
+
+Verification and limitations: Checked the saved numeric summary against the retained timeline's 80 completed native intervals, configuration group, metric counts and scope. The derived rates use associated per-request completion usage and durations. Exact text/reasoning-delta timing is unavailable because the installed exports omit required event-kind labels. One candidate lacks qualified boundaries; captures were snapshots with record/retention limits, so the candidate count is not a complete request census. No claim about pure generation speed, total backend inference time, exhaustive task attribution or current service performance follows. Raw captures, identifiers and detailed local evidence remain ignored; no CAD, slice or simulation was rerun.

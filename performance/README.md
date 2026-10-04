@@ -148,6 +148,11 @@ model iterations. Raw records retain 500 runs/14 days, with per-file/sample/cach
 bounds documented in the execution reference. No tool creates Git commits.
 
 
+The [archive token-rate and request-timing supplement](reviews/2026-10-04-165521-archive-token-speed-and-request-timing.md)
+adds the retained sample's median 20.78 output tokens/second (including reasoning)
+and separates client-observed response time from unavailable backend inference
+time. It reuses the prior snapshot rather than benchmarking current service speed.
+
 ## Historical memory-policy studies
 
 Performance reviews retain measurements of the former RAM admission policy.
