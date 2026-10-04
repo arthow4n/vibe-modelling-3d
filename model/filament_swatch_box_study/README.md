@@ -1082,3 +1082,7 @@ model and effort are explicitly user-provided, refining the earlier family-only
 shared repository workspace. Provider: **OpenAI**. No subagents. Swatch dimensions and reference
 outline derive from the existing user-provided SCAD source; its historical
 Gemini attribution remains with that object.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

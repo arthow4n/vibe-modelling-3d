@@ -89,3 +89,7 @@ See the [production review](production_e_review/report.md),
 Current renders are in `renders/print/`, `renders/closed/` and `renders/verified/`.
 Historical trial sources and artifacts remain in this directory; the closure
 history identifies their superseded results.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

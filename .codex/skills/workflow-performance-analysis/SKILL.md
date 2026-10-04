@@ -34,6 +34,23 @@ basis locally. One task can span sessions; one session can include several tasks
 The analyzer records the analyst's evidence-backed assertion, not acceptance.
 Do not attribute all selected activity to the milestone merely by time overlap.
 
+When the investigation covers existing objects or the effort to build them, use
+the workflow's [per-object effort attribution](../../../performance/WORKFLOW.md#per-object-effort-attribution).
+Attempt an evidence-backed object/milestone association for the selected work and
+retain useful reviewed aggregates in object-owned notes linked from the model
+index. Select explicit whole turns when a session mixes tasks; separate direct
+model work, inseparable shared work, later feedback/concepts and imported-design
+integration. Leave ambiguous/unmapped work unassigned instead of splitting by
+elapsed time, file mentions or token proportions. Preserve rejected revisions as
+effort toward the documented outcome, without implying they were accepted.
+Report input, cached/uncached input, output and reasoning coverage alongside the
+selected scope. Attach qualified client-operation time and per-request token-rate
+statistics only for the captured object-associated sample, with its count and
+configuration. Missing capture is unavailable, not zero. Reuse earlier qualified
+reports with their original scope; never extrapolate lifetime inference time or
+speed from total tokens and turn time. This is a requested-analysis practice,
+not routine session inspection at every modelling handoff.
+
 For either mode, distinguish measured observations, plausible interpretations,
 actions and unknowns. Tokens, turns, edits, revisions, failed operations,
 equivalent calculations, reuse and validation activity describe effort; none is

@@ -49,3 +49,7 @@ Status reviewed 2026-09-12.
 ## Attribution
 
 Primary language model: **GPT-6 Astra**. Reasoning effort: **low** (user-provided attribution, interpreting “recently effort load” as “reasoning effort low”). Harness: **Codex**. Provider: **OpenAI**.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

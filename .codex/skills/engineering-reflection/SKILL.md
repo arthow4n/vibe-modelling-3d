@@ -34,6 +34,12 @@ when repeated agent effort, tool usage or time/token consumption needs measureme
 For a modeling-effort investigation, reflection supplies the established milestone
 and necessary engineering evidence; performance measurements cannot decide that
 revisions or repeated validation were wasteful by their counts alone.
+When that investigation concerns identifiable objects, attempt the performance
+skill's per-object attribution and link useful reviewed effort/timing aggregates
+from their existing records. Preserve construction, mixed shared work and later
+concept/feedback scopes separately; unavailable historical creation or inference
+measurements remain unknown. This does not require a performance report for an
+ordinary handoff with no new measured evidence.
 Use [engineering execution](../engineering-execution/SKILL.md) for computational
 profiling, benchmarks or recovery; reflection still owns lesson placement.
 

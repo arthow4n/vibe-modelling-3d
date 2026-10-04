@@ -178,3 +178,7 @@ edge radius, controlled by `PARTITION_CORNER_RADIUS` and `PARTITION_EDGE_RADIUS`
 The broad corner curves start above the nominal brush/head envelope; the lower
 protective barrier and storage interfaces remain intact. Updated CAD fit/lid
 checks and the no-support diagnostic slice passed. Physical testing is pending.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

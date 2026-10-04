@@ -668,6 +668,11 @@ otherwise completed work solely to obtain unavailable metadata. List material
 contributors after the primary model when known.
 
 Preserve historical attribution when doing documentation-only maintenance.
+For requested session/performance investigations, also attempt
+[per-object effort attribution](performance/WORKFLOW.md#per-object-effort-attribution)
+where reviewed task associations exist. Link privacy-reviewed token/timing
+aggregates from object notes and the index; keep source selections and identifiers
+local. These measurements supplement creator provenance and do not replace it.
 Existing records are linked from the [model index](README.md#models); they are
 historical evidence, not defaults for future models. Keep third-party licence
 and creator attribution intact; consult the root README's licensing section.

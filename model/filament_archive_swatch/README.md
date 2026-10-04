@@ -78,3 +78,7 @@ Primary language model: **Gemini 3.1 Pro**, as reported by the user. Harness or
 agent environment: **Gemini chat**, as reported by the user. Reasoning effort:
 **not exposed**. Provider: **user-provided / not separately recorded**. The
 repository entry preserves the supplied SCAD source without modifying it.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

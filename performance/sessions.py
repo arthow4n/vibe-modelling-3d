@@ -189,6 +189,7 @@ class Event:
     native_first_token_delay_s: float | None = None
     model: str = 'unknown'
     effort: str = 'unknown'
+    turn_key: str | None = field(default=None, repr=False)
 
 
 @dataclass
@@ -199,6 +200,8 @@ class Response:
     turn_model: str = 'unknown'
     turn_effort: str = 'unknown'
     configuration_scope: str = 'unavailable'
+    turn_key: str | None = field(default=None, repr=False)
+    usage_key: tuple | None = field(default=None, repr=False)
 
 
 @dataclass
@@ -218,13 +221,21 @@ class Session:
     source_ids: set = field(default_factory=set, repr=False)
     responses: list[Response] = field(default_factory=list)
     configurations: list[dict] = field(default_factory=list)
+    turn_order: list[str] = field(default_factory=list, repr=False)
 
     def normalized(self):
-        return dict(events=[asdict(e) for e in self.events], tokens=self.tokens,
+        indices = {key: i for i, key in enumerate(self.turn_order, 1)}
+        def local_labels(item):
+            value = asdict(item)
+            key = value.pop('turn_key', None)
+            value.pop('usage_key', None)
+            value['turn_index'] = indices.get(key)
+            return value
+        return dict(events=[local_labels(e) for e in self.events], tokens=self.tokens,
                     quality=dict(self.quality), start=self.start, end=self.end,
                     usage_method=self.usage_method, version=self.version,
                     models=sorted(self.models), modes=sorted(self.modes), subagent=self.subagent,
-                    responses=[asdict(r) for r in self.responses], configurations=self.configurations)
+                    responses=[local_labels(r) for r in self.responses], configurations=self.configurations)
 
 
 def parse(path):
@@ -237,6 +248,7 @@ def parse(path):
     response_owners = {}; ambiguous_response_keys = set()
     previous_t = None
     metadata_count = 0
+    ordered_turns = set()
     for record in records(path, session.quality):
         if max(len(session.events), len(seen_responses), len(session.configurations), len(turns)) >= MAX_EVENTS:
             session.quality['event_limit_reached'] += 1
@@ -255,6 +267,10 @@ def parse(path):
             session.start = min(session.start, t) if session.start is not None else t
             session.end = max(session.end, t) if session.end is not None else t
         sub = p.get('type')
+        turn_key = p.get('turn_id')
+        if (typ == 'turn_context' or (typ == 'event_msg' and sub == 'task_started')) and isinstance(turn_key, str) and turn_key not in ordered_turns:
+            ordered_turns.add(turn_key)
+            session.turn_order.append(turn_key)
         if typ == 'session_meta':
             if isinstance(p.get('id'), str):
                 session.source_ids.add(p['id'])
@@ -299,7 +315,7 @@ def parse(path):
                 continue
             seen_responses[key] = usage
             response_owners[key] = p.get('turn_id')
-            session.responses.append(Response(t, usage))
+            session.responses.append(Response(t, usage, turn_key=turn_key if isinstance(turn_key, str) else None, usage_key=key))
             response_turns.append((key, p.get('turn_id')))
             response_sums.update(usage); fields_seen.update(usage.keys())
             final_thread[key[0]] = counters(p.get('thread_token_usage'))
@@ -389,7 +405,7 @@ def parse(path):
                 turns.pop(key, None)
                 end = timestamp(p.get('completed_at')) or t
                 event = Event('turn', start, end, 'turn',
-                              'interrupted' if sub == 'turn_aborted' else 'failed' if p.get('error') is not None else 'completed')
+                              'interrupted' if sub == 'turn_aborted' else 'failed' if p.get('error') is not None else 'completed', turn_key=key)
                 duration = nonnegative(p.get('duration_ms'))
                 delay = nonnegative(p.get('time_to_first_token_ms'))
                 for name, value in (('duration_ms', duration), ('time_to_first_token_ms', delay)):
@@ -432,13 +448,15 @@ def parse(path):
             session.quality['unknown_record_types'] += 1
     session.events.extend(pending.values())
     session.quality['incomplete_tools'] += len(pending)
-    for start in turns.values():
-        session.events.append(Event('turn', start, None, 'turn', 'incomplete'))
+    for key, start in turns.items():
+        session.events.append(Event('turn', start, None, 'turn', 'incomplete', turn_key=key))
     session.quality['incomplete_turns'] += len(turns)
     session.turn_keys = completed_turns | set(turns)
     # Never correlate by a preceding tool return or token-record timestamp.
     # TurnContext is an initial configuration snapshot, not backend identity.
     for response, (key, turn_id) in zip(session.responses, response_turns):
+        if key in ambiguous_response_keys:
+            response.turn_key = None
         configs = contexts.get(turn_id, set()) if isinstance(turn_id, str) else set()
         if len(configs) == 1 and key[1] not in compaction_responses and key not in ambiguous_response_keys:
             response.turn_model, response.turn_effort = next(iter(configs))

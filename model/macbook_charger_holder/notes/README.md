@@ -125,3 +125,7 @@ repository's root licence.
 
 Downloaded originals and temporary reference inspection files are held only in
 `../references/`, excluded by the object's `.gitignore`. They are not committed.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

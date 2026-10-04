@@ -13,6 +13,15 @@ For requested agent-session and execution investigations, use the
 combined timelines stay local; concise privacy-reviewed findings may be preserved
 in flat `reviews/` using the publication contract.
 
+The [per-model effort review](reviews/2026-10-04-234833-per-model-token-and-timing-attribution.md)
+attributes selected token usage to all 14 current model directories across 19
+source sessions. Object-owned notes separate construction, mixed shared work,
+integration and later feedback/concepts. Qualified request-operation samples are
+available for phone-stand, archive and later spatula-concept work; older timing
+remains unavailable. The [model index](../README.md#models) links every record.
+Use the [reviewed-turn attribution contract](WORKFLOW.md#per-object-effort-attribution)
+for future requested investigations.
+
 ## Independent variant batching
 
 The [dependency-ordering review](reviews/2026-10-04-212902-dependency-ordering-and-key-batches.md)

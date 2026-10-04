@@ -47,3 +47,7 @@ main physical uncertainty.
 ## Attribution
 
 Primary language model: GPT-6 Astra; reasoning effort: low (both explicitly supplied by the user). Harness: Codex coding agent/API environment. Provider: OpenAI. Corner-facet revision: GPT-6-based Codex agent, provider OpenAI; exact runtime model variant and reasoning effort not exposed. No subagents used. User supplied the reference photograph; original photograph creator and licence are unknown. The photograph is retained as design reference, with no claim of authorship or relicensing.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

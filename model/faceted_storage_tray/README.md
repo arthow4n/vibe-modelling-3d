@@ -102,3 +102,7 @@ The coupons were built and exported together through CadQuery MCP using [build_c
 ## Attribution
 
 Primary model: GPT-6-based Codex agent; exact runtime variant and reasoning effort not exposed. Harness: Codex/API coding environment. Provider: OpenAI. No subagents. Exterior coupon addition: Codex based on GPT-5; exact runtime variant and reasoning effort not exposed; provider OpenAI; no subagents. Derived from the approved tray whose primary model was GPT-6 Astra, low reasoning effort (user-supplied attribution), and the subsequent decorative variant. The user supplied the original reference photograph; its creator/licence are unknown and no photograph authorship or relicensing is claimed.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

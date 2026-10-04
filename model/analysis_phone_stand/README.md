@@ -274,3 +274,7 @@ No external CAD model was copied. Historic proposals, source and native analysis
 are retained with their owning revisions. The reference Qidi/Generic PETG slice
 is diagnostic evidence for its exact selected profiles, not the user's printer
 calibration.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

@@ -139,3 +139,7 @@ Primary language model: GPT-6 Astra (user-reported); reasoning effort: low (user
 Engineering-question migration contributor: GPT-6 family (specific runtime variant
 and reasoning effort not exposed); Codex shared-workspace API agent; provider not
 separately exposed. No sub-agents. Historical model attribution above is preserved.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

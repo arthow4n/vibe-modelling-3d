@@ -166,3 +166,7 @@ one complete insert before printing a collection.
 Attribution: **GPT-6 Astra, low reasoning effort**, confirmed by the user;
 harness **Codex**; provider **user-provided / not separately recorded**. This
 attribution covers the five-finger redesign as well as the previous iteration.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

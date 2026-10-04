@@ -59,3 +59,7 @@ object is itself the calibration trial.
 
 Primary model: **GPT-5**, reasoning effort **not exposed**; harness **Codex**;
 provider **OpenAI**. No other material model contributors are recorded.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

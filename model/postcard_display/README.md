@@ -294,3 +294,7 @@ Reproduce exports/review from repository root:
 Primary model: **GPT-6 Astra, reasoning effort low**, as explicitly supplied by
 the user on 2026-09-28. Harness: Codex agent environment. Provider: OpenAI.
 No sub-agents or third-party model geometry used. Repository MIT licence applies.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.

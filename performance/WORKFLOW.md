@@ -77,6 +77,107 @@ verification and physical evidence. Fewer tokens/calls/revisions or shorter time
 cannot establish better engineering. Record a concrete improvement only when its
 expected benefit and correctness-preserving verification are testable.
 
+## Per-object effort attribution
+
+For a requested model-cost or multi-object investigation, reuse the qualified
+session and native adapters through `performance.attribution`. Establish the
+object's milestone and outcome from its records, then review the relevant source
+conversation under the contextual-review policy. File mentions, elapsed overlap
+or a session's main topic alone do not establish exclusive task ownership.
+Keep the reviewed selection manifest beneath the ignored workflow-analysis root.
+The analyzer writes local evidence only; publication remains a separate review.
+
+```sh
+.venv/bin/python -m performance.attribution .execution/workflow-analysis/model-attribution-manifest.json
+```
+
+The schema-1 JSON manifest has `entries`, each with an existing model-directory
+name in `object`, `scope`, `milestone`, `outcome`, repository-relative `evidence`
+files and `selections`. Each selection supplies a local rollout path in `session`,
+`turns` as distinct 1-based indices or `"all"`, and a reviewed `basis`. Optionally
+record `source_sha256_at_selection`; a mismatch requires renewed ownership review.
+Indices are the order of first unique turn-context/start observations in
+`parse(path).turn_order`, including starts without context. They are also exposed
+as generalized `turn_index` labels in normalized responses and turn events. Do
+not substitute the index of a prompt, completed turn or context-only list.
+Stable source hashes are retained and mutation during analysis is rejected.
+
+Example entry, with source location and engineering assertions replaced after
+review:
+
+```json
+{
+  "schema": 1,
+  "entries": [{
+    "object": "storage_tray",
+    "scope": "direct",
+    "milestone": "Original reference tray and corner corrections",
+    "outcome": "Digital checks retained; physical print unreported",
+    "evidence": ["model/storage_tray/README.md"],
+    "selections": [{
+      "session": "/local/path/to/source.jsonl",
+      "turns": [1, 2, 3],
+      "basis": "Reviewed original-tray turns before the decorative-variant request"
+    }]
+  }]
+}
+```
+
+Keep `direct` model construction/checks/revisions, `mixed` inseparable model and
+shared-tool work, `follow_up` print feedback or later concepts, and `integration`
+of an externally created design separate. These are accounting scopes, not value
+scores. Inline reusable changes within a construction turn may be inseparable;
+state that limitation. Never allocate mixed work by an invented percentage.
+Rejected revisions still consumed effort; preserve their rejected outcome.
+Integration tokens do not measure original creation in another harness.
+
+Explicit response-to-turn keys assign usage, even if its persistence timestamp
+falls outside the turn. Duplicate response usage remains deduplicated. Conflicting
+turn owners stay unassigned. A source turn cannot be charged to multiple entries;
+shared response/turn histories across selected sources are rejected. Fork/subagent
+histories require separate ownership review and are excluded by this command.
+Partial legacy-session tokens remain unavailable; `"all"` can retain the existing
+incomplete cumulative-difference accounting for an exclusively reviewed session,
+with response-level coverage/counts left unavailable.
+Unselected/unmapped response counts and usage remain in the local source ledger.
+
+For native timing, the manifest can additionally supply `telemetry`, a mapping
+from each absolute selected source path to an explicit list of normalized capture
+directories (an empty list means no selected capture). Otherwise recent retained
+bundles are used. Native parsing remains bounded to 100,000 records per source;
+unrelated recent bundles can consume that bound before older relevant evidence.
+Review/select bounded relevant bundles or reuse an earlier qualified report,
+preserving its sample scope. Do not infer that an empty timing table proves that
+no request occurred. Selection criteria and capture limits belong in the record.
+
+Native operations first require the adapter's structural session/boundary join.
+Assign a measured operation only if its complete interval is contained by exactly
+one recorded turn and that turn is selected. Cross-boundary/ambiguous operations
+remain unassigned. This time containment supports the reviewed task association;
+it is not an explicit native request-to-turn key. Capture candidate counts,
+selected measured counts and source quality are retained. Native completion usage
+is a separate sample and is never added to rollout totals. Each rate uses its own
+operation's output tokens and duration. Publish interval union, median/P90 rates,
+count and configured sampling identity only for that sample. Pure backend
+inference time, visible-text speed and lifetime request time remain unavailable.
+Never estimate them by dividing model tokens by turn/session time or sample rate.
+
+Input is accumulated request context, including carried conversation and reused
+code/instructions, not newly authored model text. Cached input is an input subset;
+uncached input is their valid difference. Reasoning output is an output subset.
+Publish all available categories with their coverage, without adding subsets
+twice. Digital outcomes, print observations and creator provenance remain owned
+by the existing model records; token counts cannot establish engineering quality.
+
+The command accepts at most 100 entries/sources for catalog investigations, with
+1 MiB manifests and 16 MiB local reports, and retains at most 20 immutable-content
+identities. It uses `ENGINEERING_DATA` when configured. Source paths/fingerprints,
+selection bases and detailed evidence stay local; normalized session output strips
+raw response/turn keys. Deliberately review concise aggregate notes before linking
+them from each object's existing documentation and the root model index. Apply
+the same publication/privacy contract to object notes as to performance reviews.
+Keep ordinary modelling handoffs free of routine session-history analysis.
+
 ## Verified formats and accounting
 
 On 2026-10-03, installed `codex-cli 0.160.0` advertised `codex exec --json` in its

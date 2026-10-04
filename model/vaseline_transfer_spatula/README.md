@@ -69,3 +69,7 @@ remain unknown. The original model source and attribution below are unchanged.
 
 Primary language model: **GPT-5.6 Luna**. Reasoning effort: **Extra High**.
 Harness: **Codex**. Provider: **OpenAI**. Material contributors: none known.
+
+Measured agent effort for the selected historical work is recorded in
+[the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
+its task and capture limits are explicit.
