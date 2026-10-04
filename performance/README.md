@@ -13,6 +13,26 @@ For requested agent-session and execution investigations, use the
 combined timelines stay local; concise privacy-reviewed findings may be preserved
 in flat `reviews/` using the publication contract.
 
+## Independent variant batching
+
+The [dependency-ordering review](reviews/2026-10-04-212902-dependency-ordering-and-key-batches.md)
+records the swatch-key consumer's switch to existing `execution.batch` scheduling
+and the workflow guidance for quick prerequisite checks, settled source and
+independent outputs. The [matched coarse fixture](benchmarks/key_batch.json)
+completed three paired trials at the same three-CPU budget: median batch time
+45.625 s serially versus 32.277 s in parallel, a 29.3% reduction. All 18 native
+solves completed; forces, strains and quality decisions matched exactly. This
+does not establish default-resolution or whole-session speedup.
+
+For a fresh comparison, run the existing
+`model/filament_swatch_box_study/analyze_cap_i.py` through `./execute.py` with
+three threads, diagnostic mesh 0.8 mm and a fresh directory per trial. Compare
+`--serial` with the default batch mode, alternate their order and retain complete
+batch intervals and numerical results. The retained probe used an enclosing
+three-CPU lease, allowed verified mesh reuse in both modes and did not flush OS
+caches; its first pair includes warmup. Preserve that scope when comparing its
+numbers. Raw numerical files and the local probe remain ignored.
+
 ## Reproduction
 
 Run from the repository root after locked environment synchronization:

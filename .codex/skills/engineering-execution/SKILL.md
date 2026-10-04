@@ -27,6 +27,10 @@ separately justified computational optimization follows.
 - Express CPU budgets as a percentage or integer. Independent files use
   `execution.batch.ScriptTask` dependencies and output declarations. Native
   children share/divide the admitted budget; never launch unbounded nested pools.
+  Apply [dependency and capacity planning](../../../execution/README.md#dependency-and-capacity-planning):
+  run decision-blocking checks before long dependent work, then batch independent
+  jobs with distinct outputs and appropriate budgets. Retain result-dependent
+  refinement order and freeze Python during CAD publication.
 - For performance investigations, compare source/tool identities and cold/warm
   command latency before changing kernels. Analyze `execution.history` summaries
   and Perfetto exports; target cProfile or allocation profiling only when needed.

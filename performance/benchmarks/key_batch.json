@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "revision_before_change": "2a1474ad0c07b118a5d0f15c6e66326d48befd8e",
+  "source_sha256": "7ac2fc6acde6121c6d4678fc556034094c557dbe63052f475da858f58f100c33",
+  "lock_sha256": "d879f5e2be5153cca56584d1b639847c0e997bf30b290b5d6e874e120ef2d4db",
+  "platform": "Linux/WSL2",
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0",
+    "gmsh": "4.15.2",
+    "calculix": "2.21 (solver log)"
+  },
+  "fixture": "Three independent existing I-key arm contact cycles; coarse scheduling diagnostic",
+  "mesh_mm": 0.8,
+  "total_cpu_budget": 3,
+  "parallel_child_cpu_budget": 1,
+  "order": [
+    "serial-parallel",
+    "parallel-serial",
+    "serial-parallel"
+  ],
+  "samples_seconds": {
+    "serial": [
+      52.89805463398807,
+      45.624957673004246,
+      45.61968032000004
+    ],
+    "parallel": [
+      32.277270700011286,
+      31.68468223400123,
+      33.743496155002504
+    ]
+  },
+  "medians_seconds": {
+    "serial": 45.624957673004246,
+    "parallel": 32.277270700011286
+  },
+  "median_elapsed_reduction_percent": 29.255231464884467,
+  "verification": {
+    "native_solves": 18,
+    "all_completed": true,
+    "equivalent_case_configuration_excluding_mesh_reuse_metadata": true,
+    "native_decks_equal_except_integer_float_penalty_spelling": true,
+    "exact_force_strain_and_quality_decision_match": true,
+    "all_numerical_quality_checks_passed": true,
+    "results_by_variant": [
+      {
+        "number": 1,
+        "status": "completed",
+        "force_N": 0.5977169524999555,
+        "strain": 0.005636857006733196,
+        "adequate": true,
+        "screen": true
+      },
+      {
+        "number": 2,
+        "status": "completed",
+        "force_N": 0.9026788417000021,
+        "strain": 0.008529113130806617,
+        "adequate": true,
+        "screen": true
+      },
+      {
+        "number": 3,
+        "status": "completed",
+        "force_N": 1.2104811973999263,
+        "strain": 0.011422848582693133,
+        "adequate": true,
+        "screen": true
+      }
+    ]
+  },
+  "limits": [
+    "Three pairs, first pair includes initial warmup; OS page cache not flushed",
+    "Same three-CPU budget in both modes; inherited lease, no independent startup/coordinator comparison",
+    "Fresh native solves; verified mesh reuse allowed in both modes",
+    "Diagnostic 0.8 mm mesh only; default 0.3 mm production-study speedup and full-session benefit unmeasured",
+    "No physical product qualification or changed numerical acceptance tolerances"
+  ]
+}

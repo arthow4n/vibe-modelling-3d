@@ -613,6 +613,18 @@ Finish Python edits before that batch; the execution system's
 [repository-wide input identity](execution/README.md#architecture-contract-version-1) can reject queued or
 running CAD after even an unrelated check-script edit.
 
+Schedule toward the next useful design decision. Run available quick checks
+that could reject fit, assembly travel or the concept before occupying shared
+capacity with longer studies. Once their prerequisites pass and source is
+settled, launch independent variants, physical questions and final artifact
+jobs together through the existing execution tools; see
+[dependency and capacity planning](execution/README.md#dependency-and-capacity-planning).
+Keep result-dependent corrections and adaptive refinements sequential. During
+a frozen CAD batch, review completed evidence or draft non-Python documentation;
+do not edit Python to fill the wait. Parallel tool work needs no extra coding
+agents. Judge a batch by elapsed time to usable results, not summed job durations
+or the number of jobs launched.
+
 Reuse evidence only when its relevant inputs are unchanged and recorded:
 
 - CAD: source modules, parameters, placement and tool versions.

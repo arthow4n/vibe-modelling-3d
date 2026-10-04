@@ -222,6 +222,30 @@ Managed CAD destinations have cross-process ownership locks and staged publicati
 identical declared geometry/artifact jobs serialize around the identity and reuse
 completed work. Arbitrary scripts keep responsibility for their own side effects.
 
+### Dependency and capacity planning
+
+Run the available checks that can reject a candidate before its longer dependent
+studies. A quick check queued behind resource-heavy work delays the design
+decision even when the computations overlap. When a check becomes ready during
+independent work, leave room in the declared CPU/job plan for it if that advances
+the decision; this is caller planning, not a scheduler priority or reserved lane.
+
+Batch independent variants or physical questions after their shared prerequisites
+pass. Give each task distinct outputs and a budget suited to the operation. Use
+the existing batch API for scripts and concurrent tool calls for independent CAD
+entry points. A one-thread native solver need not occupy half the shared CPU
+capacity merely because that is the command default. Measure representative
+work before changing a workload's budget; do not assume every solver is single
+threaded. Compare complete batch elapsed time at equal total capacity and
+preserve numerical results and quality checks.
+
+Do not batch a correction with the check that decides it, or speculate past a
+study's adaptive stopping rule. Finish Python edits before CAD launch under the
+[input identity contract](#architecture-contract-version-1); review existing
+evidence or write non-Python documentation while jobs run. Final exports and
+slice reviews wait for settled geometry, except when an earlier targeted slice
+answers a manufacturing question needed to settle it.
+
 A watchdog stops orphan process groups and observed detached descendants after
 abrupt coordinator death. On Linux, kernel parent-death signals additionally stop
 native jobs that hold the Python GIL; the preload host is created by the long-lived

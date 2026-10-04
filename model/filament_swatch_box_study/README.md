@@ -486,6 +486,12 @@ retention force, separately verified release/recovery, dwell and joined carrying
 remain unqualified. The user's positive result establishes reported sample use,
 not calibrated material properties or a holding-force rating. [Design record](notes/cap_comparison.md#i--preloaded-replacement-key-experiment).
 
+The [local arm-analysis script](analyze_cap_i.py) now batches independently
+selected key numbers through `execution.batch`, with one CPU and a separate
+directory per child. Use `./execute.py` and its CPU budget; `--serial` retains
+sequential execution for comparison or limited capacity. Numerical fixtures and
+screens are unchanged, and solves have no deadline unless explicitly requested.
+
 ## H — connector without a handle
 
 **Historical failed connector sample. Use the I replacement-key trial above.**
