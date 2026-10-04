@@ -1,15 +1,15 @@
 # User design preferences
 
-These preferences belong to this repository's user. They were established during
-the filament swatch box discussion and explicitly requested as reusable guidance.
-Use them as starting preferences for comparable handled enclosures and storage
-objects, with their scope below. They are not universal manufacturing rules or
+These preferences belong to this repository's user. Their source discussions
+and applicable scope are recorded below. Use them as starting preferences for
+comparable objects within those scopes. They are not universal manufacturing rules or
 proof that a particular design works. The latest user instruction takes priority.
 
 ## Form and handling
 
 | Preference | Design consequence | Scope and source |
 | --- | --- | --- |
+| Compact desk footprint for phone supports | Treat forward feet, rear supports and release mechanisms as part of the occupied desk space. Stability and accessory clearance must be balanced with compactness; extra support is not automatically worth its footprint. No numerical maximum has been supplied. | Desktop phone stands. User rejects raised easel v2 before printing as too large horizontally, specifically its rear structure and forward feet. [Rejection record](../../../../model/analysis_phone_stand/README.md#rejection-before-printing-and-footprint-explanation). |
 | Smooth, continuous exterior | Prefer flush side profiles without raised reinforcement bands or shoulders. Consider internal or local reinforcement when needed. Here, “flat” means a smooth side outline; retain rounded edges and corners. | Handled enclosures. The E band was rejected before a reported print; F's appearance was preferred while explicitly unprinted. [F record](../../../../model/filament_swatch_box_study/notes/cap_comparison.md#f--flush-exterior-reinforcement-inside). |
 | Comfortable top and bottom edges | Review roof-to-side transitions, the lower rim, base foot, underside grip edges and newly exposed cuts, including inward corners where a cut meets a rim. A curved cut profile or tiny edge break does not make all adjoining transitions comfortable. Preserve functional seats and fit surfaces. | Everyday handled objects. D fit was reported okay, but edge comfort and hood bulk were rejected. [Physical history](../../../../model/filament_swatch_box_study/README.md#physical-history-and-print-status). R1's sharp-looking inward scoop/rim junctions were [rejected before printing](../../../../model/filament_swatch_box_study/notes/cap_comparison.md#r1-entrance-rejection-and-alternatives). |
 | A thin-feeling hood | Start with an economical shell and reinforce only where function needs it. Review the complete exterior and grip, including opaque material use. The 0.8 mm trial shell is a model dimension, not a default wall thickness for other objects. | Swatch hood; a useful starting direction for similar covers. Translucent PETG is intended, but printed optics and thin-shell behavior remain unqualified. [Thin-hood reasoning](../../../../model/filament_swatch_box_study/notes/cap_comparison.md#e--thin-hood-with-base-mounted-detents). |

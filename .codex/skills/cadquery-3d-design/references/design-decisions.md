@@ -179,6 +179,16 @@ mechanism can still make a poor product. Prefer an ordinary arrangement that wor
 when added mechanics provide no compelling benefit. Having `SnapFitQuestion`,
 FEA, IPC or other tools available is never a reason to invent a mechanism.
 
+For desktop supports, include the occupied width/depth and front/rear projections
+in the whole-product comparison, at a stated scale relative to the supported item.
+Identify space consumed by adjustment or release hardware separately from space
+required by the contents and load path. A stability screen of a chosen footprint
+does not establish its minimum necessary size. If long flexures, prop travel or
+support extensions dominate the footprint, challenge that architecture before
+refining it. The [phone stand v2 rejection](../../../../model/analysis_phone_stand/README.md#rejection-before-printing-and-footprint-explanation)
+shows why permitted rear support and a passing tap screen do not establish
+acceptance of the complete object's size.
+
 Distinguish routine operation from occasional assembly or separation. A permanent
 handle or projection for a rare operation needs a benefit worth its effect on
 normal grip, appearance and material use. Check simpler release motions before

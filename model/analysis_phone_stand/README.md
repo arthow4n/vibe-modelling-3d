@@ -2,9 +2,12 @@
 
 The current revision implements the user's selected raised open easel, with a
 Pixel 7 Pro in its case as the reference and editable generic phone dimensions.
-It is a first-print prototype, not physically validated. The old exposed-gear
-stand was rejected before printing; its [discussion and evidence](HISTORY.md)
-remain historical and are not the recommended print.
+Revision 2 is **rejected before printing**: the user finds it too bulky and
+does not want to print it because it occupies too much horizontal desk space,
+including the large rear structure and forward-projecting feet. Its files and
+analysis are retained as development evidence, not a recommended print. The old
+exposed-gear stand was also rejected before printing; its
+[discussion and evidence](HISTORY.md) remain historical.
 
 The user authorized autonomous implementation after selecting proposal 1 on
 2026-10-04. The architecture review used the complete phone/stand relationship:
@@ -14,7 +17,42 @@ support outside the ring pocket. A separate keeper prevents the prop lifting
 out; springs return the keeper, while solid seats carry ordinary compression.
 There is no friction-tightened angle adjustment.
 
-## Print files and setup
+## Rejection before printing and footprint explanation
+
+The user reviewed the implementation and rejects its size. No physical print,
+material failure, fit failure or measured tapping response was reported. Earlier
+CAD, slice and local numerical checks establish their specific geometry/process
+and fixture outcomes; they do not establish a useful desktop product. The
+previous complete-prototype print recommendation is withdrawn.
+
+The source chooses a roughly **224 mm wide × 246 mm deep** base. The central
+rails are 130 mm across; the rear spring mounts spread to ±112 mm because the
+keeper uses long transverse flexures. Rear root position 196 mm, rear guide
+position 178 mm and the 120 mm prop package lengthen the rear structure. The
+front rail end at Y = −35 mm lies 77 mm ahead of the front pivot at Y = 42 mm.
+That forward extension was a chosen support/cable-bay arrangement, not a
+calculated minimum for the specified taps.
+
+The static screen tested this chosen footprint with a provisional 0.30 kg phone,
+2 N normal upper-screen tap and 0.5 N sideways component, ignoring stand mass.
+It found pressure centres inside the selected support rectangle. It did not
+optimize the footprint, compare compact architectures, or establish that these
+width/depth/front-extension dimensions are necessary. The tap screen covers its
+specified loading directions; it is not a universal stability requirement.
+Ring and charging clearance informed the raised cradle, but they do not prove
+that the complete base must be this large.
+
+The design gave stability margins and low-strain release flexures too much
+priority relative to desk footprint. Acceptance of the raised-easel proposal
+and permission to extend rear support did not establish acceptance of this final
+size. A replacement should revisit the whole support/adjustment architecture
+and show its actual desk footprint before detailed mechanism investment. The
+Pixel 7 Pro reference, generic case/ring/cable accommodation, hand adjustment,
+ordinary-use stability and physical-analysis exercise remain requirements;
+the rejected keeper and base dimensions are not requirements. No replacement
+geometry is implemented as part of this feedback record.
+
+## Historical print files and setup
 
 | Plate | Authoritative entry point | Primary export | Secondary export | Process |
 | --- | --- | --- | --- | --- |
@@ -204,10 +242,13 @@ The slice checks the matching STL, not Orca's separate GUI STEP import, and
 the feet's PETG diagnostic does not validate a TPU process. Solver completion,
 refinement, provisional acceptance and physical limits stay separate.
 
-## First-print trial
+## Withdrawn first-print trial
 
-Use the complete stand as the first trial: phone placement, ring freedom,
-charging, two-handed adjustment and tipping/grip depend on its full geometry.
+The following trial plan predates the product rejection and is retained for
+history. It is not a recommendation to print this revision or its keeper coupons.
+
+The original plan was to use the complete stand as the first trial: phone
+placement, ring freedom, charging, two-handed adjustment and tipping/grip depend on its full geometry.
 A small coupon would omit those interactions while preserving much of the keeper
 and guide printing effort. Preserve the delivered orientations and PETG solid
 mechanism settings; use TPU feet and the actual phone/cable.
@@ -225,8 +266,8 @@ creep mean a short successful test does not establish durability.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A | No separate coupon | Complete prototype is the informative trial |
-| Final printable object(s) | No | `phone_stand_v2_base`, `phone_stand_v2_mechanism`, `phone_stand_v2_feet` STEP/STL pairs | Newly generated, unprinted revision; fit, grip, ring/cable compatibility, release/return, joint play, loaded stability and durability untested |
+| Test piece(s) | N/A | No separate coupon | Rejected product does not warrant a mechanism coupon |
+| Final printable object(s) | No | `phone_stand_v2_base`, `phone_stand_v2_mechanism`, `phone_stand_v2_feet` STEP/STL pairs | Rejected before printing: excessive horizontal footprint, large rear structure and forward-projecting feet. No physical failure observed; local evidence retained, print recommendation withdrawn |
 
 ## Attribution
 
