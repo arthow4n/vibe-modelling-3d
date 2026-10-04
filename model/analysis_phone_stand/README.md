@@ -137,6 +137,40 @@ grip, case compression, adjustment feel and long-term behavior physically. More
 complex couplings would require a separately justified and qualified tool route.
 No numerical force targets or replacement analysis results have been agreed.
 
+### Candidate API work for this revision
+
+The user asks what the revision will exercise and whether it can develop new
+physical-analysis capabilities. Proposed mapping before implementation:
+
+| Product question | Existing route | Decision informed |
+| --- | --- | --- |
+| Open-frame stiffness under phone weight and specified tapping loads | `StructuralQuestion`, explicit supports/forces/observations | Frame section, support layout and process assumptions |
+| Hand-operated flexible release, if justified by the selected architecture | `SnapFitQuestion` with explicit fixed/translating `MatingPart` objects; isolated `FlexureQuestion` only for a useful diagnostic | Release travel/effort, catch geometry and nearby clearance |
+| Locked-seat or screw-hole bearing contact under an applied service force | `AnalysisCase` with explicit forces and frictionless contact initially | Seating geometry, joint dimensions and deformation without pretending the contact is bonded |
+| Precision of consequential force/deformation predictions | `QuestionStudy` on selected mesh/motion/contact axes | Whether evidence is adequate to choose geometry; unresolved quantities remain unresolved |
+| Local solidity required by an analysis idealization | `ManufacturingAssumption` with selected actual sliced sections | Required local process settings; does not calibrate PETG properties |
+
+A concrete candidate extension is force-loaded contact in the shared question
+layer. `StructuralQuestion` currently represents one supported part without
+explicit mating contacts; `SnapFitQuestion` supplies rigid translating mates but
+rejects external `forces` or `motion` on the flexible part. The lower-level case
+already represents force-plus-contact. If the selected stand has a consequential
+seated or pin-bearing interface, first exercise that fixture through existing
+case facilities, then extend the owning question abstraction for explicit mating
+contact, observations and retained/study evidence. Choose the smallest applicable
+extension after inspecting the actual fixture; do not pre-create a bolt framework
+or another numerical backend. Qualification must include force transfer/equilibrium,
+open-gap/contact onset and rejection of inadequate contact evidence, with useful
+consumer/refinement checks. Reuse applicable existing numerical benchmarks.
+
+This would support future loaded seats, locating pins or brackets within the
+qualified frictionless contact scope. It would not establish bolt preload,
+thread contact, friction, free hinge rotation or fatigue. Existing API use and
+a physically tested product are worthwhile outcomes even if no extension is
+ultimately justified; no new API is implemented or guaranteed at this stage.
+Physical stand observations should separately exercise assembled fit, locked
+stability, release/reseating and dwell response against their stated predictions.
+
 The original implementation exercised flexible release, local holding contact and
 arm/cradle bending. Its gear patch translated tangentially; it did not solve the
 complete rotating assembly, and the sharp-tooth pass-over run failed.
