@@ -97,6 +97,13 @@ forcing flexible contact masks into a generic all-pairs checker would obscure
 the product's intent. The remaining physical uncertainties belong to the existing
 full-box trial, not a code revision.
 
+The trial now informs the design skill's recommended assembly representation,
+with an explicit opt-out. The shared API record owns the
+[remaining gaps and extension decisions](../../assembly_geometry/README.md#remaining-gaps-and-extension-decisions),
+including local proxy/coverage responsibilities, rigid-motion limits, report
+verbosity and the failed comparison method. No additional geometry or API
+implementation revision is needed for this trial.
+
 Assembly-code attribution: GPT-6-based Codex, exact active model variant/reasoning
 effort not exposed; Codex shared repository environment, OpenAI, no subagents.
 Historical geometry attribution below is preserved.

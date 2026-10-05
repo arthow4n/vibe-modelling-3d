@@ -37,15 +37,33 @@ Preserve each assertion's purpose and scope; sharing code does not qualify a new
 variant without running its affected checks. Do not build a general test framework
 for one object's fixtures.
 
-When several consumers need named parts and shared configurations, use native
-`cq.Assembly` and the optional [assembly geometry capability](../../../../assembly_geometry/README.md).
-It captures positioned geometry, qualifies a bounded set of native constraint
-solves and evaluates explicit pair/path intent. Keep geometry and operating
-relationships in the object's builders; deterministic placements need no solve.
-Ordinary shapes/direct Python functions remain preferable for simple one-off
-checks. Use positioned component shapes with existing physical questions, with
-explicit supports, loads and contact assumptions. The implementation documentation
-owns API contracts and qualification limits.
+### Assembly representation
+
+For new or substantially revised multipart engineering, recommend native
+`cq.Assembly` with the [assembly geometry API](../../../../assembly_geometry/README.md)
+when checks, inspection or print layouts share named components/poses, or when
+explicit pair/path diagnostics materially help the investigation. Choose this
+representation before organizing placements and checks. Keep authoritative
+geometry builders and operating relationships in the object; an object-owned
+factory can share them across configurations and variants. Deterministic
+placements need no constraint solve.
+
+Opt out when an existing local check already gives adequate evidence, a simple
+one-off needs only shapes/functions, or the API cannot represent the required
+behavior without obscuring it. For an otherwise applicable multipart task,
+briefly state the reason and retained evidence in the existing object record;
+no separate checklist or permission is needed. This recommendation does not
+require migrating unchanged models. `check_pair()` can provide explicit criteria
+without an assembly snapshot.
+
+The API captures positioned geometry, qualifies a bounded set of native constraint
+solves and evaluates declared pair/path intent. The object still chooses actual
+references, required contacts, exclusions, thresholds and path coverage. Keep
+analysis masks/envelopes distinct from physical components; a useful negative
+case can expose a check that accepts a missing support or retaining feature.
+Use positioned component shapes with existing physical questions, with explicit
+supports, loads and contact assumptions. The implementation documentation owns
+[contracts and remaining gaps](../../../../assembly_geometry/README.md#remaining-gaps-and-extension-decisions).
 
 ## Edge treatment
 

@@ -60,6 +60,7 @@ operation details can wait until the corresponding work is justified.
 
 | Trigger and timing | Owner |
 | --- | --- |
+| Multipart components/poses shared by checks, inspection or print layouts, or consequential pair/path diagnostics; before organizing placements and checks | Recommend native `cq.Assembly` with the [assembly geometry API](references/parametric-and-edges.md#assembly-representation). Keep geometry and operating relationships object-owned; explicit opt-out allows adequate local checks and unsupported cases. |
 | Unresolved handling, access, protection, grips or moving-weight stability; before mechanism refinement/expensive analysis | [Whole-object form and handling](references/design-decisions.md#whole-object-form-and-handling). Revisit affected relationships after integration. |
 | Justified mechanism; before developing mating geometry | [Architecture contacts and states](references/design-decisions.md#product-architecture-gate), [motion/interface checks](references/design-decisions.md#deterministic-motion-and-interface-checks) and [actuation/retention screen](references/design-decisions.md#actuation-effort-and-cheap-mechanics). Name support, guide, seat, stop, retain and release contacts; check required contact and forbidden interference through the complete path. Screen the real holding-force source before exporting a retention sample. |
 | Structurally important part/joint; before detailing and after measured sections change | [Load paths and joint screens](references/design-decisions.md#structural-load-paths-and-joint-screens). |

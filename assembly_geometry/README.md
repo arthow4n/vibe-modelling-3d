@@ -1,14 +1,16 @@
 # Assembly geometry
 
-Optional native CadQuery assemblies, stable configurations, explicit geometric
+Native CadQuery assemblies, stable configurations, explicit geometric
 requirements and sampled rigid movement. Units are mm, mm³ and degrees. Geometry
 builders remain in each object. There is no second component tree, constraint
 solver, scheduler, persistent result cache or export pipeline.
 
-Use this package when several scripts need the same named parts/operating poses,
-or when pair/path diagnostics materially improve a multipart investigation.
-Ordinary shapes and direct Python functions remain simpler for one-off geometry.
-`check_pair()` also accepts Shapes/Workplanes without an assembly.
+This is the recommended representation for applicable new or substantially
+revised multipart engineering, with an explicit opt-out. The design skill owns
+[when to use it and when to opt out](../.codex/skills/cadquery-3d-design/references/parametric-and-edges.md#assembly-representation).
+Ordinary shapes/direct functions remain appropriate for simple one-off geometry;
+`check_pair()` also accepts Shapes/Workplanes without an assembly. Recommendation
+does not imply complete engineering coverage or physical qualification.
 
 ## Public interface
 
@@ -179,10 +181,13 @@ Executable inspection/verification entry points:
 ./execute.py --threads 1 assembly_geometry/experiments/native_probe.py
 ```
 
-These new entry points leave production sources and accepted exports untouched.
-They reuse authoritative builders, original placement functions and original
-engineering thresholds. They print diagnostics without writing product evidence
-or exports; evaluator entry uses native `result = configuration.assembly()`.
+The first three product inspection entries leave production checkers and accepted
+exports untouched and print diagnostics without writing product evidence. The
+quiet-swatch migration updates its engineering checker/inspection code and saves
+native evidence in the object's existing reports. All four reuse authoritative
+builders, original placements and object-owned thresholds; accepted print exports
+remain unchanged. Evaluator entry uses native
+`result = configuration.assembly()`.
 
 | Consumer | Demonstrated improvement |
 | --- | --- |
@@ -224,6 +229,40 @@ retain existing identity/publication/reuse safeguards. Do not mutate Python duri
 CAD publication. This implementation claims diagnostic consistency and preserved
 placements, **not** a measured runtime improvement. Snapshot copies add work; the
 reliable baseline is direct CadQuery for simple scripts.
+
+## Remaining gaps and extension decisions
+
+Assessment, 2026-10-06: **keep the API and recommend it within the scope above**.
+The [Q1/Q1F trial](../model/filament_swatch_box_study/README.md#named-assembly-engineering-2026-10-06)
+demonstrates useful shared component/pose identity, explicit required contact and
+obstruction, and diagnostic failures while preserving accepted print geometry.
+It does not demonstrate an implementation defect requiring an API redesign.
+The justified change now is earlier skill routing and a clear opt-out. The
+following distinctions keep future improvements tied to actual engineering needs.
+
+| Observed issue or unsupported question | Current route and smallest justified next direction |
+| --- | --- |
+| **Coverage and reference choice remain manual.** Q1/Q1F needed actual base material for its floor witness and valid local bead-mask Booleans. Native measurements cannot detect an omitted requirement or correct a reflected source item. | Keep requirements, actual references and meaningful negative cases object-owned. Do not add an automatic all-pairs checker: intentional retention overlap makes it misleading. A future requirement-group/report helper would need to preserve declared intent and exclusions; it would not prove completeness. No missing shared operation was demonstrated here. |
+| **Analysis subsets and elastic proxies need local code.** Q1/Q1F uses a bead-free insert and separately expanded TPU access envelopes; representing these as physical parts would misstate the assembly. | Its small object-owned `fixture()` handles this adequately. Keep proxy provenance and omissions in the requirement/object record. The rigid API cannot establish TPU installation strain, force, friction, recovery, wear or quietness; use physical questions or representative prints for those decisions. A generic flexible-component layer is not justified by this trial. |
+| **One moving body against one fixed obstacle.** `sample_motion()` applies a world-frame delta. The earlier glove checker has two moving frames; Q1/Q1F does not require that capability. | Keep the glove's explicit local coupling. If sharing that operation becomes useful, consider a configuration-sequence query taking an object-owned pose factory plus named pair requirements, retaining both bodies' poses at each sample. Qualify on that consumer before adding it; do not introduce a joint solver. Adaptive/continuous coverage would be a separate contract. |
+| **Constraint resolution is narrow and version-sensitive.** Supported flat rigid networks are qualified; arbitrary nested constraints, free DOFs and solution branches are not. Native private copy/query/solver details are tied to CadQuery 2.7.0. | Use explicit configurations for prescribed poses. Extend solving only for a concrete network with determinacy, residual and branch evidence; retain failure statuses. Requalify the existing fixtures on dependency changes. Broadening selectors or solve acceptance without that evidence would weaken the API. |
+| **Verbose retained reports.** Q1/Q1F reports contain 16,835/18,885 lines (563,841/629,308 bytes), including per-sample results/poses and qualification evidence. `MotionResult.to_dict()` retains the full trace; `require_passed()` raises that dictionary on failure. | The consumer already prints a compact console summary and keeps the full evidence once. If a diagnostic reader needs bounded output, consider additive `MotionResult.to_summary_dict()` containing completion/status, sample count/range, first unsuccessful result, sampled extrema and limits, while leaving `to_dict()` unchanged. Do not drop inconclusive samples or imply continuous success. No implementation change now: the current summary is adequate and deleting trace data would lose evidence. |
+| **Invalid Boolean identity comparisons got in the way of migration qualification.** Whole-scene subtraction and coincident-card subtraction failed in the local Q1/Q1F regression method, outside the pair-query API. | Reject invalid calculations. Compare the intended component set and individual parts; for rigid source-card placement, native locations and transformed source datums answered the question. This is a kernel/comparison-method limit, not a demonstrated API bug or a general geometry-equality proof. A universal Boolean equivalence helper would repeat the failure; no such extension is proposed. |
+
+The API organizes declared evidence; it does not select good product architecture,
+discover assembly order, infer physical supports, or replace independent source
+references. Snapshot copies also add work, without a measured speed benefit.
+Existing physical-analysis, evaluator and execution contracts continue to own
+their respective questions and publication boundaries.
+
+No API format or implementation change is needed for the demonstrated swatch
+questions. The additive summary and configuration-sequence interfaces above are
+proposals, not implemented capabilities or promises. Revisit them when the named
+consumer has a decision or repeated work they would improve. If a future consumer
+requires mostly unsupported behavior and gains little identity/diagnostic value,
+opt out rather than expand the abstraction to fit it. Removing the package would
+require a separate decision and preservation of its useful engineering checks;
+the present evidence supports keeping it.
 
 ## Qualification and limitations
 

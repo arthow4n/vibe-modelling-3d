@@ -518,8 +518,9 @@ geometry pair, and any detected collision or sampled minimum clearance/pose.
 Use “none detected at sampled poses,” not continuous-motion proof, for a plain
 coarse sweep. Zero intersection volume alone does not establish positive clearance.
 
-For reusable component/configuration identity and diagnostic results, the optional
-[assembly geometry API](../../../../assembly_geometry/README.md#pair-intent-and-sampled-paths)
+For multipart identity and diagnostic results, follow the recommended
+[assembly representation and opt-out guidance](parametric-and-edges.md#assembly-representation).
+The [assembly geometry API](../../../../assembly_geometry/README.md#pair-intent-and-sampled-paths)
 supports explicit pair criteria and world-frame rigid sampled paths. Product code
 states required contact/obstruction versus forbidden overlap. Solver placement,
 geometric acceptance and physical validity remain separate; retain a simpler
