@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1140" viewBox="0 0 1536 1140" role="img" aria-labelledby="title desc">
+  <title id="title">Three TPU contact designs for a quieter filament swatch box</title>
+  <desc id="desc">Schematic front views, upper plans and contact details compare Q1 a continuous TPU jacket with raised runners, Q2 an open guide cage, and Q3 a short docking collar with a separate upper bumper. Every option retains a translucent PETG hood and rigid PETG card support. Q1 is recommended for coverage; Q2 uses less TPU; Q3 limits sliding distance but has the most exposed rigid wall. Quietness, friction, retention and fit are untested. Archive A supplies the illustrated proportions; the same contact strategies can be adapted to the lower display base.</desc>
+  <defs>
+    <style>
+      text {font-family:DejaVu Sans,sans-serif;fill:#223c46}
+      .title {font-size:34px;font-weight:700}
+      .head {font-size:24px;font-weight:700}
+      .body {font-size:18px}
+      .small {font-size:15px;fill:#536e76}
+      .label {font-size:16px;font-weight:700}
+      .hood {fill:#cfe6f0;fill-opacity:.24;stroke:#6c9eb2;stroke-width:2}
+      .core {fill:#d2d6d3;stroke:#788b89;stroke-width:1.5}
+      .soft {fill:#b5d8c6;stroke:#438269;stroke-width:1.8}
+      .runner {fill:#438269;stroke:#2e6652;stroke-width:1.3}
+      .line {fill:none;stroke:#536e76;stroke-width:1.4}
+      .ghost {fill:none;stroke:#8ca9b2;stroke-dasharray:5 5;stroke-width:1.4}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L7 4 L0 8" fill="none" stroke="#536e76" stroke-width="1.2"/></marker>
+    <g id="card">
+      <path d="M-62.5 210 V16 Q-62.5 10 -57 10 H-19 Q0 30 19 10 H57 Q62.5 10 62.5 16 V210Z" fill="#e6c7a2" stroke="#b5936b" stroke-width="1.6"/>
+      <path d="M-47 46 H10 M-47 57 H-4" stroke="#c3a17a" stroke-width="2"/>
+    </g>
+    <g id="front-core">
+      <rect x="-74.5" y="110" width="149" height="100" rx="4" class="core"/>
+      <rect x="-80" y="210" width="160" height="12" rx="4" class="core"/>
+      <path d="M-80 218 H-67 V222 M80 218 H67 V222" fill="none" stroke="#788b89" stroke-width="2"/>
+    </g>
+    <g id="front-hood">
+      <path d="M-82 207 V10 Q-82 0 -72 0 H72 Q82 0 82 10 V207" class="hood"/>
+      <path d="M-79 207 H79" stroke="#6c9eb2" stroke-width="2"/>
+    </g>
+    <g id="plan-core">
+      <rect x="-74.5" y="-50.5" width="149" height="101" rx="12" class="core"/>
+      <rect x="-63" y="-37.875" width="126" height="75.75" rx="2" fill="#fff" stroke="#788b89" stroke-width="1.4"/>
+      <rect x="-62.5" y="-9" width="125" height="5" rx="1" fill="#e6c7a2"/>
+      <rect x="-62.5" y="-2.5" width="125" height="5" rx="1" fill="#eed8bd"/>
+      <rect x="-62.5" y="4" width="125" height="5" rx="1" fill="#e6c7a2"/>
+    </g>
+    <g id="plan-hood">
+      <rect x="-88" y="-64" width="176" height="128" rx="18" class="ghost"/>
+    </g>
+    <g id="corner-pad">
+      <path d="M-81 -27 V-40 Q-81 -57 -64 -57 H-47 V-49 H-64 Q-73 -49 -73 -40 V-27Z" class="soft"/>
+    </g>
+  </defs>
+  <rect width="1536" height="1140" fill="#f4f3ee"/>
+  <text x="38" y="52" class="title">Same swatch box. Softer contacts.</text>
+  <text x="38" y="86" class="body">Keep the translucent PETG hood and rigid card support; add separately printed, replaceable TPU.</text>
+  <g transform="translate(38 115)">
+    <rect width="20" height="15" class="hood"/><text x="29" y="13" class="small">Translucent PETG hood</text>
+    <rect x="250" width="20" height="15" class="core"/><text x="279" y="13" class="small">Rigid PETG base</text>
+    <rect x="474" width="20" height="15" class="soft"/><text x="503" y="13" class="small">TPU coverage</text>
+    <rect x="686" width="20" height="15" class="runner"/><text x="715" y="13" class="small">Raised TPU contact</text>
+  </g>
+  <text x="38" y="160" class="small">CONCEPTS ONLY · comparable archive-A proportions · details exaggerated · revised hood/base allowed · no measured noise reduction</text>
+
+  <g transform="translate(38 182)">
+    <rect width="470" height="854" rx="18" fill="#fff" stroke="#438269" stroke-width="2"/>
+    <rect x="22" y="20" width="149" height="26" rx="13" fill="#e0eee5"/>
+    <text x="35" y="38" class="small" style="fill:#2e6652;font-weight:700">RECOMMENDED</text>
+    <text x="22" y="79" class="head">Q1 / TPU jacket + runners</text>
+    <text x="22" y="108" class="body">Cover the base; control where it rubs.</text>
+    <text x="22" y="137" class="small">Closed front · hood shown transparent</text>
+    <g transform="translate(214 161)">
+      <use href="#card"/><use href="#front-core"/>
+      <rect x="-79" y="106" width="158" height="104" rx="6" class="soft"/>
+      <path d="M-74 106 H74" stroke="#438269" stroke-width="4" stroke-linecap="round"/>
+      <rect x="-72" y="110" width="10" height="96" rx="5" class="runner"/>
+      <rect x="62" y="110" width="10" height="96" rx="5" class="runner"/>
+      <path d="M-79 204 H79 V211 H-79Z" class="soft"/>
+      <use href="#front-hood"/>
+      <path d="M82 111 H119" class="line"/>
+      <text x="123" y="108" class="small">Soft top</text><text x="123" y="128" class="small">edge</text>
+      <path d="M70 166 H119" class="line"/>
+      <text x="123" y="164" class="small">Narrow</text><text x="123" y="184" class="small">runners</text>
+    </g>
+    <text x="22" y="417" class="label">Upper plan / one continuous sleeve</text>
+    <g transform="translate(214 495)">
+      <rect x="-81" y="-57" width="162" height="114" rx="17" class="soft"/>
+      <use href="#plan-core"/>
+      <rect x="-69" y="-61" width="12" height="8" rx="4" class="runner"/>
+      <rect x="57" y="-61" width="12" height="8" rx="4" class="runner"/>
+      <rect x="-69" y="53" width="12" height="8" rx="4" class="runner"/>
+      <rect x="57" y="53" width="12" height="8" rx="4" class="runner"/>
+      <rect x="-85" y="-27" width="8" height="12" rx="4" class="runner"/>
+      <rect x="77" y="15" width="8" height="12" rx="4" class="runner"/>
+      <use href="#plan-hood"/>
+    </g>
+    <text x="22" y="589" class="small">Broad TPU panels sit behind raised runners.</text>
+    <text x="22" y="610" class="small">They cushion a bump without a tight full-wall fit.</text>
+    <path d="M22 633 H448" stroke="#e1e7e2"/>
+    <text x="22" y="663" class="label">Contact and assembly</text>
+    <text x="22" y="691" class="body">Soft rim → runners → soft seat.</text>
+    <text x="22" y="721" class="small">One TPU jacket pulls over the rigid base.</text>
+    <text x="22" y="744" class="small">Anchors hold it down during hood withdrawal.</text>
+    <text x="22" y="767" class="small">Local TPU beads replace exposed PETG catches.</text>
+    <text x="22" y="803" class="label">Tradeoff</text>
+    <text x="22" y="828" class="small">Most coverage; most TPU and lower colour tint.</text>
+  </g>
+
+  <g transform="translate(533 182)">
+    <rect width="470" height="854" rx="18" fill="#fff" stroke="#c9d4ce"/>
+    <text x="22" y="79" class="head">Q2 / Open TPU guide cage</text>
+    <text x="22" y="108" class="body">Use soft rails instead of a full jacket.</text>
+    <text x="22" y="137" class="small">Closed front · hood shown transparent</text>
+    <g transform="translate(214 161)">
+      <use href="#card"/><use href="#front-core"/>
+      <rect x="-82" y="106" width="14" height="103" rx="6" class="soft"/>
+      <rect x="68" y="106" width="14" height="103" rx="6" class="soft"/>
+      <rect x="-6" y="107" width="12" height="99" rx="5" class="soft"/>
+      <path d="M-79 204 H79 V211 H-79Z" class="soft"/>
+      <use href="#front-hood"/>
+      <path d="M81 135 H119" class="line"/>
+      <text x="123" y="133" class="small">Soft</text><text x="123" y="153" class="small">corners</text>
+      <path d="M6 180 H119" class="line"/>
+      <text x="123" y="180" class="small">Face rail</text>
+    </g>
+    <text x="22" y="417" class="label">Upper plan / open between rails</text>
+    <g transform="translate(214 495)">
+      <use href="#plan-core"/>
+      <use href="#corner-pad"/><use href="#corner-pad" transform="scale(-1 1)"/>
+      <use href="#corner-pad" transform="scale(1 -1)"/><use href="#corner-pad" transform="scale(-1 -1)"/>
+      <rect x="-6" y="-58" width="12" height="9" rx="4" class="soft"/>
+      <rect x="-6" y="49" width="12" height="9" rx="4" class="soft"/>
+      <use href="#plan-hood"/>
+    </g>
+    <text x="22" y="589" class="small">Corner rails + broad-face rails protect likely</text>
+    <text x="22" y="610" class="small">contact; exposed wall spans remain a risk.</text>
+    <path d="M22 633 H448" stroke="#e1e7e2"/>
+    <text x="22" y="663" class="label">Contact and assembly</text>
+    <text x="22" y="691" class="body">Rail crowns → rails → soft seat.</text>
+    <text x="22" y="721" class="small">All rails join to one TPU seating ring below.</text>
+    <text x="22" y="744" class="small">Rigid base grooves hold the rails in place.</text>
+    <text x="22" y="767" class="small">Local soft beads provide intended retention.</text>
+    <text x="22" y="803" class="label">Tradeoff</text>
+    <text x="22" y="828" class="small">Less TPU; a bowed hood could hit bare PETG.</text>
+  </g>
+
+  <g transform="translate(1028 182)">
+    <rect width="470" height="854" rx="18" fill="#fff" stroke="#c9d4ce"/>
+    <text x="22" y="79" class="head">Q3 / Short soft docking collar</text>
+    <text x="22" y="108" class="body">Limit rubbing to the end of closing.</text>
+    <text x="22" y="137" class="small">Closed front · hood shown transparent</text>
+    <g transform="translate(214 161)">
+      <use href="#card"/><use href="#front-core"/>
+      <rect x="-79" y="104" width="158" height="9" rx="4" class="soft"/>
+      <path d="M-84 188 H84 V211 H-84Z" class="soft"/>
+      <use href="#front-hood"/>
+      <path d="M79 109 H119" class="line"/>
+      <text x="123" y="106" class="small">Separate</text><text x="123" y="126" class="small">rim bumper</text>
+      <path d="M82 197 H119" class="line"/>
+      <text x="123" y="194" class="small">Short</text><text x="123" y="214" class="small">soft dock</text>
+    </g>
+    <text x="22" y="417" class="label">Upper plan / generous rigid clearance</text>
+    <g transform="translate(214 495)">
+      <rect x="-79" y="-55" width="158" height="110" rx="16" class="soft"/>
+      <use href="#plan-core"/>
+      <rect x="-93" y="-69" width="186" height="138" rx="20" class="ghost"/>
+    </g>
+    <text x="22" y="589" class="small">The top bumper protects initial entry; the wider</text>
+    <text x="22" y="610" class="small">hood should clear bare walls until the low dock.</text>
+    <path d="M22 633 H448" stroke="#e1e7e2"/>
+    <text x="22" y="663" class="label">Contact and assembly</text>
+    <text x="22" y="691" class="body">Entry bumper → clear travel → dock.</text>
+    <text x="22" y="721" class="small">Two TPU pieces: top ring and lower collar.</text>
+    <text x="22" y="744" class="small">Lower collar seats and retains the hood.</text>
+    <text x="22" y="767" class="small">Remove old PETG catches from the travel path.</text>
+    <text x="22" y="803" class="label">Tradeoff</text>
+    <text x="22" y="828" class="small">Shortest rub; more play and off-angle risk.</text>
+  </g>
+  <text x="38" y="1073" class="body">All three: keep cards on rigid seats, keep recessed grips reachable, and leave joining keys on rigid mating faces.</text>
+  <text x="38" y="1101" class="small">TPU must stay attached to the base when the hood lifts. Avoid large tight rubbing faces; softness alone does not establish quiet operation.</text>
+  <text x="38" y="1126" class="small">Baseline reference: 64 × 44.8 mm foot, 80 mm upright cards, 40 mm archive walls. Proposed footprints and fits are deliberately unresolved.</text>
+</svg>

@@ -1,9 +1,93 @@
 # Filament swatch box — display and compact archive
 
+## Quiet TPU revision — SVG proposals, 2026-10-05
+
+**Current phase: three visual concepts; no new printable geometry.** The user
+reports that the accepted PETG base/hood fit works, but contact during closing
+makes excessive scraping and collision sound. This is a physical handling
+problem, not a reported fit failure. The specific printed base, artifact hashes,
+actual print settings and sound-producing surfaces are not confirmed for this
+report. Earlier archive A/J4/G successes remain valid within their reported scope;
+the rigid closure's acoustic comfort is now unresolved.
+
+Keep the storage/display function, fully covering **translucent PETG hood**,
+rigid card support, recessed opening grips and modular joining behavior.
+A revised base and hood are allowed; backwards compatibility is not required.
+Print the TPU insert separately and mechanically attach it to the rigid base;
+no multi-material print, glue or hardware is assumed. The illustrated proportions
+use archive A, with the same contact strategies applicable to the low display
+base. This phase does not address the previously deferred J4/K4 card issues.
+
+[Three-option SVG](renders/concepts/quiet_tpu_options.svg)
+([PNG preview](renders/concepts/quiet_tpu_options.png)) ·
+[Contact-path SVG](renders/concepts/quiet_tpu_contact_path.svg)
+([PNG preview](renders/concepts/quiet_tpu_contact_path.png)).
+
+| Concept | Contact arrangement | Consequential tradeoff |
+| --- | --- | --- |
+| **Q1 — TPU jacket + runners; recommended** | One sleeve covers the exterior walls and outer top edge, with raised rounded runners, a soft seating ledge and local TPU retention beads | Broad protection from incidental bumps; more TPU and visible colour through the lower hood. Recess the broad panels behind the runners to avoid a tight full-wall rubbing fit |
+| Q2 — open TPU guide cage | Corner and broad-face rails join to one lower seating ring; rails cover their upper entry edges and incorporate local retention beads | Less TPU and less covered area; exposed wall spans could still contact a tilted/bowed hood. Rigid grooves restrain the rails |
+| Q3 — short soft docking collar | Separate top bumper ring protects entry; wider hood clears the rigid walls until engaging a low seating/retention collar | Shortest intended sliding contact, but least guidance during travel and greatest off-angle contact risk; two TPU pieces |
+
+The source suggests three contact opportunities: wall/rim brushing on approach,
+PETG catches riding against the hood, and the hood rim landing on the base foot.
+These are **hypotheses from the contact geometry**, not isolated acoustic causes.
+A bottom gasket alone addresses landing, leaving the other contacts unresolved.
+Q1 is the best starting direction for the user's request to cover the base:
+soft initial contact, guided travel on narrow runners and soft final seating.
+Replace the exposed rigid catches with local soft beads engaging blind hood
+pockets; do not leave a hard snap in the travel path and call the closure quiet.
+The hood stays smooth outside, and any rigid backup stop remains clear during
+normal seating. Card seats and joining load paths stay rigid.
+
+The existing nominal 0.4 mm side allowance is not a qualified space for a TPU
+retrofit. Design the revised envelope around the insert and needed travel,
+rather than squeezing TPU into the old gap or weakening the card-retaining walls.
+Keep insert material out of card entry, the recessed finger-bearing floors and
+key access. If the footprint/joining pitch changes, check both ends and the
+complete joined opening path; old matching-interface evidence does not transfer
+automatically. Anchor the insert against lift-off and twisting during opening.
+
+TPU flexibility and wear resistance make a replaceable contact insert plausible
+([manufacturer's 95A example](https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/flexible-filaments/ultrafuse-tpu-95a/)),
+but the user's grade/hardness is **unknown**. No noise reduction, friction,
+compression, force, fit or durability is measured. Avoid unsupported TPU bridges
+and trapped supports during later print planning
+([Prusa flexible-material guidance](https://help.prusa3d.com/article/flexible-materials_2057)).
+These sources describe material families/products, not the user's spool or a
+qualified Q2C profile. Large/preloaded TPU rubbing areas could drag or squeak;
+the narrow-contact strategy is a design hypothesis requiring printed comparison.
+
+After selecting a concept, qualify its full closing/opening path, guide pressure,
+bead release and insert anchors with the intended empty/full box and an off-centre
+approach; compare the same handling against the accepted rigid pair. Check repeat
+use and closed dwell for changed effort, settling and insert movement. The earlier
+15-card hood-lift result does not establish retention for a new soft closure.
+Only dimensional/contact questions warrant CAD checks; acoustic comfort needs
+the actual print. No quantitative acoustic target has been supplied.
+
+Verification for this phase: both editable SVGs rendered successfully in the
+locked repository environment, and both PNGs were visually inspected for readable
+labels and consistent contact/material explanations. No CAD, solver or slice
+is applicable to these schematic deliverables. Reflection: preserve successful
+storage and joining evidence while adding acoustic comfort to the affected closure
+requirements; fit success does not settle contact sound throughout movement.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | N/A — visual concepts only | Two SVG/PNG pairs above | No TPU sample designed or printed in this phase |
+| Final printable object(s) | N/A — visual concepts only | No new PY/STEP/STL | TPU concepts unqualified; existing rigid pair reported to fit but noisy during closing |
+
+Proposal attribution: **GPT-6 family** (exact model variant and reasoning effort
+not exposed), **Codex** shared repository agent environment, **OpenAI**; no
+subagents. This applies to the new TPU sketches and notes only; historical
+modelling attribution below is preserved.
+
 ## Archive R2 — four printable 15-card trials
 
-**Accepted printed archive baseline: A, the continuous-wall version.** The user
-selected A as the best form and reports successful use and integration with J4.
+**Accepted printed archive storage baseline: A, the continuous-wall version.**
+Rigid-closure sound is unresolved as recorded in the TPU proposal section above.
+The user selected A as the best form and reports successful use and integration with J4.
 B/C/D remain unprinted. All four share the
 original footprint, 15-card pocket, exact accepted **G hood** and **I key 3**.
 There is no new hood/key to print. Older variants remain available.
@@ -173,7 +257,8 @@ they are not claims about J4/K4 card engagement.
   spring gave no useful centering in the earlier PETG print.
 - Guide insertion from left/right and front/back so replacing thin cards does
   not require precise alignment with a narrow slot.
-- Use printed parts throughout. Seat the hood's lower rim against the base while
+- Use printed parts throughout. Seat the hood's lower rim against the base
+  (through a TPU seat in the proposed quiet revision) while
   retaining a practical grip and deliberate opening motion.
 - Support adding modules with modest repeated material and part overhead.
   Occasional separation should remain possible; joined carrying is unqualified.
@@ -1075,6 +1160,10 @@ from other unreported prototypes. Printed and usable remain separate questions.
 | Final printable object | Partial — J4 preferred with working recesses/key but seated tilt unresolved; K4 one-ended joining failure; G hood accepted | Preferred baseline J4 + accepted G hood + I key 3; K4 retained experiment | User considers J4 good overall and defers fixes. No fully upright storage, loaded-row carrying or durability qualification. V1 shape/feel rejected; J2/K2/J3/K3 remain unprinted |
 
 ## Attribution
+
+The [quiet TPU proposal phase](#quiet-tpu-revision--svg-proposals-2026-10-05)
+records its separate attribution above. The following attribution belongs to the
+historical CAD work.
 
 Primary language model: **GPT-6.1 Sol**. Reasoning effort: **high**. The exact
 model and effort are explicitly user-provided, refining the earlier family-only

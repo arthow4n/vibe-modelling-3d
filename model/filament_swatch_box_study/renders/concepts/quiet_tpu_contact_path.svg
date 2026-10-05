@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="880" viewBox="0 0 1536 880" role="img" aria-labelledby="title desc">
+  <title id="title">Why a bottom gasket alone is insufficient, and how a TPU jacket would guide closing</title>
+  <desc id="desc">A contact map identifies rigid wall rubbing, catch contact and rim impact in the current hood/base pair. Three enlarged schematic side sections show Q1's initial soft lead-in, lightly contacting runner above recessed TPU coverage, and final seating on a TPU ledge with a local bead in a blind PETG hood pocket. The jacket anchors mechanically to the rigid base. Dimensions and compression are unqualified, and section shapes are conceptual rather than CAD.</desc>
+  <defs>
+    <style>
+      text {font-family:DejaVu Sans,sans-serif;fill:#223c46}
+      .title {font-size:33px;font-weight:700}
+      .head {font-size:23px;font-weight:700}
+      .body {font-size:18px}
+      .small {font-size:16px;fill:#536e76}
+      .label {font-size:17px;font-weight:700}
+      .core {fill:#d2d6d3;stroke:#788b89;stroke-width:2}
+      .hood {fill:#d2e7ef;stroke:#6c9eb2;stroke-width:2}
+      .soft {fill:#b5d8c6;stroke:#438269;stroke-width:2}
+      .line {stroke:#536e76;stroke-width:1.5;fill:none}
+      .hit {fill:#ba7954}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L7 4 L0 8" fill="none" stroke="#536e76" stroke-width="1.2"/></marker>
+  </defs>
+  <rect width="1536" height="880" fill="#f4f3ee"/>
+  <text x="38" y="53" class="title">Quiet closing needs soft contacts along the path.</text>
+  <text x="38" y="88" class="body">A bottom gasket cushions landing, but does not address wall scraping or a rigid catch riding across the hood.</text>
+  <text x="38" y="117" class="small">SOURCE-BASED CONTACT HYPOTHESES · exact sound-producing surfaces have not been measured · enlarged schematic sections</text>
+  <g transform="translate(38 146)">
+    <rect width="1460" height="199" rx="16" fill="#fff" stroke="#d6dfd8"/>
+    <text x="24" y="35" class="head">What your report changes</text>
+    <text x="24" y="68" class="body">The fit works. The repeated contact sound is uncomfortable.</text>
+    <text x="24" y="99" class="small">Keep the card support, cover, opening grip and modular function.</text>
+    <text x="24" y="126" class="small">Change the contact material and contact path, rather than simply tightening the fit.</text>
+    <text x="24" y="160" class="small">A translucent rigid hood remains; the insert and revised mating parts print separately.</text>
+    <g transform="translate(822 24)">
+      <path d="M0 19 H103 V130 H0Z" class="core"/>
+      <path d="M0 130 H178 V154 H0Z" class="core"/>
+      <path d="M145 0 H164 V130 H145 V95 H130 L145 82Z" class="hood"/>
+      <path d="M103 66 L128 77 L103 91Z" class="core"/>
+      <circle cx="105" cy="21" r="5" class="hit"/>
+      <circle cx="123" cy="77" r="5" class="hit"/>
+      <circle cx="154" cy="130" r="5" class="hit"/>
+      <path d="M111 21 H212 M130 77 H212 M161 130 H212" class="line"/>
+      <text x="225" y="26" class="small">Wall / rim brushing</text>
+      <text x="225" y="82" class="small">Hard catch contact</text>
+      <text x="225" y="135" class="small">Rim landing on foot</text>
+    </g>
+  </g>
+
+  <g transform="translate(38 367)">
+    <rect width="470" height="381" rx="16" fill="#fff" stroke="#d6dfd8"/>
+    <text x="22" y="35" class="head">1 / First touch is soft</text>
+    <text x="22" y="63" class="small">TPU rolls over the base's outer top edge.</text>
+    <g transform="translate(42 96)">
+      <path d="M0 36 H100 V194 H0Z" class="core"/>
+      <path d="M72 36 V22 H111 Q125 22 125 40 V194 H105 V41Z" class="soft"/>
+      <path d="M150 -8 H170 V37 H139 L150 26Z" class="hood"/>
+      <path d="M160 51 V102" class="line" marker-end="url(#arrow)"/>
+      <path d="M125 27 H213" class="line"/>
+      <text x="224" y="28" class="small">Rounded</text><text x="224" y="50" class="small">lead-in</text>
+      <text x="224" y="105" class="small">Hood lowers</text>
+      <text x="224" y="156" class="small">Pocket stays</text><text x="224" y="178" class="small">rigid inside</text>
+    </g>
+    <text x="22" y="322" class="small">Do not intrude into card entry or the key ports.</text>
+    <text x="22" y="349" class="small">Off-centre entry should meet TPU first.</text>
+  </g>
+  <g transform="translate(533 367)">
+    <rect width="470" height="381" rx="16" fill="#fff" stroke="#d6dfd8"/>
+    <text x="22" y="35" class="head">2 / Guide without a broad rub</text>
+    <text x="22" y="63" class="small">Raised, rounded runners set the contact.</text>
+    <g transform="translate(42 96)">
+      <rect x="0" y="0" width="100" height="194" class="core"/>
+      <rect x="103" y="0" width="19" height="194" class="soft"/>
+      <path d="M122 38 Q144 37 144 50 V75 Q144 88 122 87Z" class="soft"/>
+      <path d="M146 0 H168 V194 H146Z" class="hood"/>
+      <path d="M153 199 V209" class="line" marker-end="url(#arrow)"/>
+      <path d="M144 60 H211" class="line"/>
+      <text x="223" y="59" class="small">Light local</text><text x="223" y="81" class="small">contact</text>
+      <path d="M134 140 H211" class="line"/>
+      <text x="223" y="139" class="small">Clearance to</text><text x="223" y="161" class="small">broad panel</text>
+    </g>
+    <text x="22" y="322" class="small">No tight rubber sleeve acting as a long brake.</text>
+    <text x="22" y="349" class="small">Drag and possible squeak still need a print.</text>
+  </g>
+  <g transform="translate(1028 367)">
+    <rect width="470" height="381" rx="16" fill="#fff" stroke="#438269" stroke-width="2"/>
+    <text x="22" y="35" class="head">3 / Seat and retain softly</text>
+    <text x="22" y="63" class="small">A local bead enters a blind hood pocket.</text>
+    <g transform="translate(42 96)">
+      <path d="M0 0 H100 V174 H181 V195 H0Z" class="core"/>
+      <path d="M103 0 H122 V73 Q149 77 149 89 Q149 103 122 107 V157 H178 V173 H86 V157 H103Z" class="soft"/>
+      <path d="M146 0 H168 V156 H146 V110 Q160 92 146 69Z" class="hood"/>
+      <path d="M89 173 V190 H68 V173" class="soft"/>
+      <path d="M159 91 H211" class="line"/>
+      <text x="222" y="86" class="small">Blind pocket:</text><text x="222" y="108" class="small">no wall hole</text>
+      <path d="M176 164 H211" class="line"/>
+      <text x="222" y="163" class="small">Soft landing</text>
+      <path d="M79 184 L210 190" class="line"/>
+      <text x="222" y="195" class="small">Base anchor</text>
+    </g>
+    <text x="22" y="322" class="small">Pull hood up; TPU bead yields and stays on base.</text>
+    <text x="22" y="349" class="small">Rigid backup stop must not touch in normal use.</text>
+  </g>
+  <text x="38" y="786" class="label">What still needs qualification after choosing a concept</text>
+  <text x="38" y="816" class="body">Your TPU hardness • light guide pressure • opening effort • insert anchoring • hood bowing • settling after closed dwell</text>
+  <text x="38" y="847" class="small">Test the complete closing path with the intended empty/full box. The current full-load hood-lift success does not transfer to a new TPU closure.</text>
+  <text x="38" y="870" class="small">This is a contact strategy, not a finished cross-section. No selected interference, force prediction, acoustic rating or print-ready geometry.</text>
+</svg>
