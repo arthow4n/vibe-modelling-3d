@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/inspect_quiet_q1.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/quiet_q1/inspect_quiet_q1_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "top",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/renders/quiet_q1/inspect_quiet_q1_top.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          0,
+          1
+        ],
+        "up_direction": [
+          0,
+          1,
+          0
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013045659998169867,
+    "build": 4.447129467000195,
+    "selection": 0.0007454079996023211,
+    "validation": 0.3829232910002247,
+    "render_isometric": 2.3390726030002043,
+    "render_top": 5.410866141000042,
+    "worker": 12.716830665000089,
+    "total": 12.839010030000281
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "f6ccc2d7b1760ba33ded38f1b99d5f83f6fd51473fc97a32d7722b700ad554cf",
+    "artifact_identity": "98cb5823de42784b99ea987e967e8476d97a72e8fa0613eeff35ac90a2851eb0"
+  }
+}

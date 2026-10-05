@@ -1,87 +1,146 @@
 # Filament swatch box — display and compact archive
 
-## Quiet TPU revision — SVG proposals, 2026-10-05
+<a id="quiet-tpu-revision--svg-proposals-2026-10-05"></a>
 
-**Current phase: three visual concepts; no new printable geometry.** The user
-reports that the accepted PETG base/hood fit works, but contact during closing
-makes excessive scraping and collision sound. This is a physical handling
-problem, not a reported fit failure. The specific printed base, artifact hashes,
-actual print settings and sound-producing surfaces are not confirmed for this
-report. Earlier archive A/J4/G successes remain valid within their reported scope;
-the rigid closure's acoustic comfort is now unresolved.
+## Quiet TPU revision — Q1 prototype, 2026-10-05
 
-Keep the storage/display function, fully covering **translucent PETG hood**,
-rigid card support, recessed opening grips and modular joining behavior.
-A revised base and hood are allowed; backwards compatibility is not required.
-Print the TPU insert separately and mechanically attach it to the rigid base;
-no multi-material print, glue or hardware is assumed. The illustrated proportions
-use archive A, with the same contact strategies applicable to the low display
-base. This phase does not address the previously deferred J4/K4 card issues.
+**Q1 is now a complete, unprinted 15-card archive prototype.** Print the PETG
+base, TPU jacket and translucent PETG hood as **three separate single-material
+jobs**, then assemble. The user confirms ordinary **TPU 95A**, brand unknown.
+Compatibility is optional; this revision prioritises quieter closing and
+preserves the accepted archive A card pocket, full cover and recessed grips.
+The earlier J4/K4 card-support issues remain outside this revision.
 
-[Three-option SVG](renders/concepts/quiet_tpu_options.svg)
-([PNG preview](renders/concepts/quiet_tpu_options.png)) ·
-[Contact-path SVG](renders/concepts/quiet_tpu_contact_path.svg)
-([PNG preview](renders/concepts/quiet_tpu_contact_path.png)).
+| Part | Primary print file | Matching source / secondary mesh | Print orientation |
+| --- | --- | --- | --- |
+| PETG archive base | [STEP](quiet_q1_base_15.step) | [Python](quiet_q1_base_15.py) · [STL](quiet_q1_base_15.stl) | Floor down |
+| TPU 95A jacket | [STEP](quiet_q1_jacket_95a.step) | [Python](quiet_q1_jacket_95a.py) · [STL](quiet_q1_jacket_95a.stl) | Wide seating ring down |
+| Translucent PETG hood | [STEP](quiet_q1_hood.step) | [Python](quiet_q1_hood.py) · [STL](quiet_q1_hood.stl) | Roof down, ordinary slicing |
 
-| Concept | Contact arrangement | Consequential tradeoff |
-| --- | --- | --- |
-| **Q1 — TPU jacket + runners; recommended** | One sleeve covers the exterior walls and outer top edge, with raised rounded runners, a soft seating ledge and local TPU retention beads | Broad protection from incidental bumps; more TPU and visible colour through the lower hood. Recess the broad panels behind the runners to avoid a tight full-wall rubbing fit |
-| Q2 — open TPU guide cage | Corner and broad-face rails join to one lower seating ring; rails cover their upper entry edges and incorporate local retention beads | Less TPU and less covered area; exposed wall spans could still contact a tilted/bowed hood. Rigid grooves restrain the rails |
-| Q3 — short soft docking collar | Separate top bumper ring protects entry; wider hood clears the rigid walls until engaging a low seating/retention collar | Shortest intended sliding contact, but least guidance during travel and greatest off-angle contact risk; two TPU pieces |
+[Shared parametric builder](quiet_q1.py) owns all new mating geometry. Each
+print file contains one component at the same nominal units/pose as its matching
+mesh; no reference cards or mixed-material combined print file are included.
 
-The source suggests three contact opportunities: wall/rim brushing on approach,
-PETG catches riding against the hood, and the hood rim landing on the base foot.
-These are **hypotheses from the contact geometry**, not isolated acoustic causes.
-A bottom gasket alone addresses landing, leaving the other contacts unresolved.
-Q1 is the best starting direction for the user's request to cover the base:
-soft initial contact, guided travel on narrow runners and soft final seating.
-Replace the exposed rigid catches with local soft beads engaging blind hood
-pockets; do not leave a hard snap in the travel path and call the closure quiet.
-The hood stays smooth outside, and any rigid backup stop remains clear during
-normal seating. Card seats and joining load paths stay rigid.
+![Q1: closed box, open jacketed box with three cards, detached TPU jacket](renders/quiet_q1/inspect_quiet_q1_isometric.png)
 
-The existing nominal 0.4 mm side allowance is not a qualified space for a TPU
-retrofit. Design the revised envelope around the insert and needed travel,
-rather than squeezing TPU into the old gap or weakening the card-retaining walls.
-Keep insert material out of card entry, the recessed finger-bearing floors and
-key access. If the footprint/joining pitch changes, check both ends and the
-complete joined opening path; old matching-interface evidence does not transfer
-automatically. Anchor the insert against lift-off and twisting during opening.
+Left: complete closed box. Middle: base and fitted jacket with actual reference
+cards. Right: detached jacket. The monochrome CAD view does not indicate material.
+[Top view](renders/quiet_q1/inspect_quiet_q1_top.png) shows the open pocket and
+key-port clearances. Both final views were visually inspected.
 
-TPU flexibility and wear resistance make a replaceable contact insert plausible
-([manufacturer's 95A example](https://forward-am.com/material-portfolio/ultrafuse-filaments-for-fused-filaments-fabrication-fff/flexible-filaments/ultrafuse-tpu-95a/)),
-but the user's grade/hardness is **unknown**. No noise reduction, friction,
-compression, force, fit or durability is measured. Avoid unsupported TPU bridges
-and trapped supports during later print planning
-([Prusa flexible-material guidance](https://help.prusa3d.com/article/flexible-materials_2057)).
-These sources describe material families/products, not the user's spool or a
-qualified Q2C profile. Large/preloaded TPU rubbing areas could drag or squeak;
-the narrow-contact strategy is a design hypothesis requiring printed comparison.
+The new foot is **67.7 × 52 mm**, versus the accepted **64 × 44.8 mm**; closed
+height remains **87.6 mm**. Archive pocket **50.4 × 30.3 mm**, card floor,
+40 mm retaining height and two-millimetre flared entrance are unchanged.
+The increased footprint gives the TPU room and keeps joining-key access outside
+the jacket; it does not thin the accepted card-retaining walls globally.
 
-After selecting a concept, qualify its full closing/opening path, guide pressure,
-bead release and insert anchors with the intended empty/full box and an off-centre
-approach; compare the same handling against the accepted rigid pair. Check repeat
-use and closed dwell for changed effort, settling and insert movement. The earlier
-15-card hood-lift result does not establish retention for a new soft closure.
-Only dimensional/contact questions warrant CAD checks; acoustic comfort needs
-the actual print. No quantitative acoustic target has been supplied.
+The jacket covers the outer base walls and rolls over their upper edge. Its
+**1.2 mm wall** has **0.4 mm raised runners**, with **0.25 mm nominal per-side
+hood clearance at the runners**. Broad panels sit farther back; normal centred
+travel has no intended continuous rubbing preload. Four local soft beads enter
+blind hood pockets, replacing the rigid PETG catches. Their nominal centred
+release overlap is **0.25 mm**, with **0.8 mm recessed backing space** in the
+rigid base for the TPU diaphragm to move. The hood lands on a **0.8 mm TPU seat**,
+while its rim remains clear of the PETG foot. Upper hood walls/roof remain
+0.8 mm, with 1.6 mm lower walls and a smooth rounded exterior.
 
-Verification for this phase: both editable SVGs rendered successfully in the
-locked repository environment, and both PNGs were visually inspected for readable
-labels and consistent contact/material explanations. No CAD, solver or slice
-is applicable to these schematic deliverables. Reflection: preserve successful
-storage and joining evidence while adding acoustic comfort to the affected closure
-requirements; fit success does not settle contact sound throughout movement.
+The sleeve's circumferential inward bead engages a sloped groove in the PETG
+base, giving **0.55 mm nominal radial capture**. The rectangular wrap locates
+rotation. This identifies the anchor load path, but does not prove that anchor
+release force exceeds hood release force in the actual print. No glue, fusion,
+hardware or multi-material extrusion is needed.
+
+Assemble with the cards removed: gently spread the sleeve's lower anchor over
+the base's rounded top, lower it progressively, and seat its wide ring on the
+foot until the anchor engages the groove. Align the two seat notches with the
+joining ports. Load the cards and lower the hood squarely. For opening, hold
+the base down through the upward-facing recesses and pull near the hood's lower
+walls. The jacket should remain seated on the base. Installation needs a print:
+the checked 3.5% pre-expanded rigid envelope is an access screen, not a measured
+95A stretch requirement or an elastic feasibility guarantee.
+
+**Compatibility outcome:** existing swatch cards and I3 joining key are retained.
+CAD checks cover new-to-new, new-to-archive-A and new-to-J4 joining at **both
+ends**, with butted feet, key insertion/capture and individual hood opening.
+Different foot widths leave a stepped side outline. Printed joining has not been
+tested. The new base/jacket/hood are a matched set; the old G hood and old bases
+are not qualified substitutes. K4's previously failed port is not rehabilitated.
+
+Use the established **0.4 mm nozzle, 0.2 mm layers, two walls and 7% adaptive
+cubic** starting setup. PETG and TPU use separate material profiles. The
+[TPU diagnostic process](notes/quiet_q1_profiles/tpu_020_2walls_7percent.json)
+limits wall/infill speeds to 30 mm/s and the first layer to 20 mm/s. Its
+[generic Q2C 95A filament snapshot](notes/quiet_q1_profiles/generic_tpu_95a_q2c.json)
+is resolved from Orca's bundled Qidi profiles, not calibrated for the unknown
+brand. Diagnostic temperatures were PETG 245/250 °C first/other layers and
+80 °C bed; TPU 230 °C and 35 °C bed. Use actual spool/previous successful-print
+settings for printing; these numbers establish only the recorded smoke setup.
+
+Final FDM review: each part fits comfortably on Q2C's 270 × 270 × 256 mm
+profile, already centred at X/Y135. The base floor, sleeve seating ring and
+hood roof provide stable bed contact. Anchor shoulders, diaphragm ceilings and
+hood transitions slope progressively; the jacket's small inward top return is
+supported by preceding layers. No enclosed support-removal route is assumed.
+Thin sleeve/hood walls and runners are intentional; seven-percent infill is not
+a measured TPU compliance or strength model. STEP and STL export from the same
+selected geometry and print placement. No joined lifting or fatigue rating is
+claimed from this manufacturing review.
+
+[Functional check source](check_quiet_q1.py) and [results](notes/quiet_q1_checks.json)
+cover actual-card floor contact, eight-direction bundle entry, extraction,
+closed fit, sampled full vertical hood travel and small rigid-clearance offsets,
+soft-bead-only contact during centred travel, diaphragm clearance, sleeve lift
+and twist capture, recessed grip access, real soft seating and joining above.
+The key test caught a TPU seating ledge across the upward key route; both port
+notches now clear it. Sampled paths are not continuous-motion proofs. No solver
+or unmeasured material modulus is used.
+
+All three valid components exported successfully. **OrcaSlicer 2.4.2** completed
+their matching STL slices with **preserved placement**, the intended PETG/TPU
+profile identities, .4/.2/two walls/7%, no reported notices and no generated
+support in the automatic-support probes. Reports:
+[base](notes/quiet_q1_base_review.json) · [jacket](notes/quiet_q1_jacket_review.json) ·
+[hood](notes/quiet_q1_hood_review.json) · [views](notes/quiet_q1_views.json).
+This verifies reference toolpath acceptance, not Orca's separate GUI STEP import,
+actual bridging, printed fit, force or quietness.
+
+First trial: compare empty and full-box closing against the accepted rigid pair,
+including a slightly off-centre hand-guided approach. Check insertion/removal,
+hood seating and resistance to accidental removal; observe whether the jacket
+stays anchored. Repeat and recheck after an overnight closed dwell. Accept the
+direction if closing is appreciably quieter with comfortable opening, no binding
+and no insert migration. Adjust guide gap, bead engagement or anchor geometry
+if those observations fail; persistent TPU squeak/drag would reopen the contact
+arrangement. The complete box is the trial because thin-shell bowing, incidental
+contact and sound depend on the whole object. No cheaper CAD or local coupon
+can establish those outcomes. Loaded hood lifting remains desirable but unqualified;
+the earlier archive A/G full-load lift does not transfer to this closure.
+
+Physical feedback motivating this revision: the user reports that the accepted
+PETG pair fits correctly, but scraping/collision sound while closing is excessive.
+Exact printed base, artifact hashes/settings and acoustic source locations were
+not confirmed. Wall brushing, catch contact and rim landing are source-based
+hypotheses, not isolated measured causes. No noise reduction, friction, force,
+recovery, creep, durability or ingress rating is measured for Q1.
+
+The [original three-option SVG](renders/concepts/quiet_tpu_options.svg)
+([PNG](renders/concepts/quiet_tpu_options.png)) and
+[contact-path SVG](renders/concepts/quiet_tpu_contact_path.svg)
+([PNG](renders/concepts/quiet_tpu_contact_path.png)) remain concept history.
+Q2 is the open guide cage; Q3 is the short dock/top bumper. Neither has CAD or
+print files. The current Q1 builder, rather than schematic dimensions, is authoritative.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A — visual concepts only | Two SVG/PNG pairs above | No TPU sample designed or printed in this phase |
-| Final printable object(s) | N/A — visual concepts only | No new PY/STEP/STL | TPU concepts unqualified; existing rigid pair reported to fit but noisy during closing |
+| Test piece(s) | N/A — complete box is the trial | No detached coupon | Full-shell contact, sound and integrated grip need the whole geometry |
+| Final printable object(s), Q1 prototype | No — newly delivered, unprinted | Three Q1 STEP/STL pairs above | CAD and PETG/95A reference slices pass; installation, quietness, force, insert anchoring, dwell response and loaded lift remain untested |
 
-Proposal attribution: **GPT-6 family** (exact model variant and reasoning effort
-not exposed), **Codex** shared repository agent environment, **OpenAI**; no
-subagents. This applies to the new TPU sketches and notes only; historical
-modelling attribution below is preserved.
+Q1 CAD/sketch attribution: **GPT-6 family** (exact model variant and reasoning
+effort not exposed), **Codex** shared repository agent environment, **OpenAI**;
+no subagents. Historical modelling attribution below is preserved. The profile
+snapshots retain separate [Orca/Qidi source attribution and changes](notes/quiet_q1_profiles/ATTRIBUTION.md)
+and [upstream AGPL licence](notes/quiet_q1_profiles/LICENSE.txt); model geometry
+retains the repository's default licence.
 
 ## Archive R2 — four printable 15-card trials
 
@@ -90,7 +149,8 @@ Rigid-closure sound is unresolved as recorded in the TPU proposal section above.
 The user selected A as the best form and reports successful use and integration with J4.
 B/C/D remain unprinted. All four share the
 original footprint, 15-card pocket, exact accepted **G hood** and **I key 3**.
-There is no new hood/key to print. Older variants remain available.
+These retained R2 bases use the existing hood/key; Q1 above has its own matched
+hood. Older variants remain available.
 
 | Variant | Form | Source / primary print file / secondary file |
 | --- | --- | --- |

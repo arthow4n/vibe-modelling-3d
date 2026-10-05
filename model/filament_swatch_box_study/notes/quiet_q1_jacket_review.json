@@ -1,0 +1,127 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/quiet_q1_jacket_95a.py",
+  "errors": [],
+  "views": [],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/quiet_q1_jacket_95a.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/quiet_q1_jacket_95a.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.0012917019994347356,
+    "build": 2.078155240000342,
+    "selection": 0.0008673840002302313,
+    "validation": 0.07567399000072328,
+    "export_step": 0.142923695000718,
+    "export_stl": 0.05086720300005254,
+    "worker": 2.428386743000374,
+    "total": 13.845152459000019,
+    "slice": 9.079739879000044
+  },
+  "versions": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "f6ccc2d7b1760ba33ded38f1b99d5f83f6fd51473fc97a32d7722b700ad554cf",
+    "artifact_identity": "75a0a3fe8f28b8f8bc5352e8102e2aac5ed499bf568b49d3c77bca2e55721195"
+  },
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/quiet_q1_jacket_95a.stl",
+    "profiles": {
+      "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/notes/quiet_q1_profiles/tpu_020_2walls_7percent.json",
+      "filament": "/home/hevar/git/vibe-modelling-3d/model/filament_swatch_box_study/notes/quiet_q1_profiles/generic_tpu_95a_q2c.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "preserve",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "TPU"
+      ],
+      "filament_settings_id": [
+        "Generic TPU 95A Q2C 0.4 - Q1 diagnostic"
+      ],
+      "nozzle_temperature": [
+        "230"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "230"
+      ],
+      "hot_plate_temp": [
+        "35"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "35"
+      ],
+      "print_settings_id": "Q1 TPU 95A 0.20 - 2 walls - 7 percent - 30 mm per second",
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "auto_brim",
+      "brim_width": "5",
+      "brim_object_gap": "0.1",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "1"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "7%",
+      "sparse_infill_pattern": "adaptivecubic"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": false,
+      "supported_plates": [],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": false,
+    "reused": false,
+    "identity": "f2398cb8651f8407b6f5efd590dd329547277060fa02cb9722b5be45d9aa0b9d",
+    "input_sha256": "fb5bb66662537f0987b519d6b336c76d8948e577c597f48392fa6010c62813b2"
+  }
+}

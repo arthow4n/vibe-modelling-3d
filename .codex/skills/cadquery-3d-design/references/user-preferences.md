@@ -24,6 +24,9 @@ providing a printer profile with those limits.
 
 The user's preferred starting setup is a **0.4 mm nozzle and 0.2 mm layers**.
 They also have a **0.8 mm nozzle** and several **PLA, PETG and TPU** filaments.
+For the quiet swatch-box revision, the user confirms **ordinary TPU 95A**;
+brand is unknown. This is available stock, not calibrated printed-material
+behavior ([Q1 record](../../../../model/filament_swatch_box_study/README.md#quiet-tpu-revision--q1-prototype-2026-10-05)).
 Their experience is that **two walls and 7% adaptive cubic infill** are often
 enough for general prints; these are starting assumptions, not strength or
 printability requirements. For a phase with printable deliverables, discuss the
