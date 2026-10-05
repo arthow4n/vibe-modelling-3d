@@ -71,6 +71,12 @@ warnings. These checks do not certify physical print quality.
 
 ## Source and verification
 
+[Assembly inspection/checks](../assembly_checks.py) add named configurations and
+explicit hinge, retention and prescribed-release diagnostics using the existing
+geometry/placement functions. [Shared API qualification](../../../assembly_geometry/README.md)
+preserves the accepted geometry, exports and physical observations; it does not
+extend elastic or durability qualification.
+
 `sunglasses_case.py` is the main entry point and defaults to the print pose.
 Change `INNER_LENGTH`, `INNER_WIDTH` and `INNER_HEIGHT` to adjust the cavity;
 do not scale the exported mesh to change case size. `e_closure.py` contains

@@ -46,6 +46,11 @@ Status reviewed 2026-09-12.
 | Test piece(s) | N/A | None; `vaseline_container.stl` is the full-pair trial | No separate thread coupon was used or needed. |
 | Final printable object(s) | Yes | `vaseline_container.stl` (base and lid) | User report recorded 2026-09-12: the full pair was printed and was good. Print date, material, printer and profile are unknown. |
 
+Optional [assembly inspection/checks](assembly_checks.py) reuse the original jar
+pair and print placement, reporting named helical-withdrawal and axial-retention
+queries. [Shared API qualification](../../assembly_geometry/README.md) adds
+infrastructure evidence without changing the design or delivered files.
+
 ## Attribution
 
 Primary language model: **GPT-6 Astra**. Reasoning effort: **low** (user-provided attribution, interpreting “recently effort load” as “reasoning effort low”). Harness: **Codex**. Provider: **OpenAI**.

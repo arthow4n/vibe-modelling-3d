@@ -132,6 +132,12 @@ This discrepancy limits whole-section beam idealization; it does not revise the
 existing joint equations or establish assembled load capacity. The prior successful
 physical print report remains intact; neither solve validates load capacity or creep.
 
+Optional [assembly inspection/checks](assembly_checks.py) provide named halves
+and four screw instances, separate print-job snapshots and a qualified native
+placement solve. [Shared API and qualification](../../assembly_geometry/README.md)
+describe the infrastructure evidence; original geometry, exports, physical
+results and historical numerical fixtures are preserved.
+
 ## Attribution
 
 Primary language model: GPT-6 Astra (user-reported); reasoning effort: low (user-reported). Harness: Codex API agent; provider: OpenAI. No other agents contributed. This final plate builds on the repository's earlier joint work; historical provenance remains in Git. User print feedback drove the head-up screw and recess revisions.

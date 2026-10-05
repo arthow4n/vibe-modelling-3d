@@ -321,6 +321,14 @@ region. Empty selections fail. Partition a CAD face when a small load patch
 needs exact boundaries; a box cutting through triangles approximates that patch.
 Total force is integrated over the selected surface, not multiplied by node count.
 
+The optional [assembly geometry API](../assembly_geometry/README.md#existing-consumers-and-integration)
+provides authoritative positioned Shapes through `configuration.shape(name)`.
+Pass these directly to existing questions or `AnalysisCase.add_part`; regions
+use that same assembly frame. Native CAD constraints do not imply physical
+supports, loads or contact pairs. `QuestionStudy` remains the numerical-study
+interface; ordinary Python geometry studies can reuse the same configurations
+and geometric requirements before any solve.
+
 `fix(part, region)` fixes all three displacement components.
 `constrain(..., displacement_mm=(0, None, None))` fixes only x.
 `prescribe_motion(..., displacement_mm=(None, None, 1))` ramps z to 1 mm while

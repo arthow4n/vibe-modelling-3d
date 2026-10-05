@@ -140,6 +140,11 @@ output; otherwise all `show_object()` outputs are combined. Keep display-only
 hands, contents, supports and operating poses in inspection-only entry points,
 reusing component builders without exporting/slicing those reference objects.
 
+Native `cq.Assembly` results retain established compound selection/export
+semantics. [Assembly geometry snapshots](../assembly_geometry/README.md) expose
+`configuration.assembly()` for this boundary; inspect named component shapes and
+run geometric questions upstream, before compound selection removes identities.
+
 No views is the default. Select only views that answer a distinct question;
 `--views none` suffices for geometry checks. Save intermediate views under
 `renders/scratch/`, useful final views under `renders/print/` or `renders/assembled/`.

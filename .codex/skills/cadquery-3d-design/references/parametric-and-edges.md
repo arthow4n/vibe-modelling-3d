@@ -37,6 +37,16 @@ Preserve each assertion's purpose and scope; sharing code does not qualify a new
 variant without running its affected checks. Do not build a general test framework
 for one object's fixtures.
 
+When several consumers need named parts and shared configurations, use native
+`cq.Assembly` and the optional [assembly geometry capability](../../../../assembly_geometry/README.md).
+It captures positioned geometry, qualifies a bounded set of native constraint
+solves and evaluates explicit pair/path intent. Keep geometry and operating
+relationships in the object's builders; deterministic placements need no solve.
+Ordinary shapes/direct Python functions remain preferable for simple one-off
+checks. Use positioned component shapes with existing physical questions, with
+explicit supports, loads and contact assumptions. The implementation documentation
+owns API contracts and qualification limits.
+
 ## Edge treatment
 
 For everyday objects, sharp CAD edges are not finished geometry by default. Actively decide whether exposed edges should be filleted, chamfered, or intentionally left sharp. Consider edges touched by fingers or hands, insertion openings, cable slots, clips and retaining features, handles and grips, corners likely to catch on clothing or nearby objects, parts that slide against another object, mating and alignment features, exposed corners that may chip or feel unpleasant, and 3D-printed transitions that create unnecessary stress concentrations. Visible and touchable exterior corners should usually receive intentional edge treatment unless a sharp edge is functionally required.

@@ -21,6 +21,12 @@ are available through the [physical analysis API](physical_analysis/README.md).
 It wraps Gmsh and CalculiX, retains solver evidence, and distinguishes numerical
 completion from design adequacy and physical validation.
 
+Optional [assembly geometry](assembly_geometry/README.md) keeps native named
+CadQuery components in stable operating/print configurations and evaluates
+explicit contact, clearance, obstruction and sampled rigid-path requirements.
+Its qualified native constraint solves retain independent residuals; positioned
+component shapes feed the existing evaluator and physical questions directly.
+
 Optional [local Codex latency capture](performance/WORKFLOW.md#optional-machine-setup-and-future-clones)
 needs a separate machine setup for native telemetry and its filtered receiver,
 including Remote Control startup. Cloning or moving this repository does not carry
