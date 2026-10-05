@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700">
+  <rect width="1100" height="700" fill="#f8fafc"/>
+  <style>text{font-family:Arial,sans-serif;fill:#163043;font-size:17px}.title{font-size:29px;font-weight:bold}.heading{font-size:21px;font-weight:bold}.small{font-size:15px}.outline{stroke:#163043;stroke-width:2;fill:none}</style>
+  <text x="40" y="48" class="title">Q1F — quiet contacts inside the existing exterior</text>
+  <text x="40" y="78">New PETG base + separate 0.8 mm TPU 95A insert + exact existing G hood</text>
+  <text x="40" y="123" class="heading">A mixed row keeps the same outline</text>
+  <rect x="65" y="155" width="175" height="305" rx="15" fill="#d7e6ee" stroke="#163043" stroke-width="2"/>
+  <rect x="242" y="155" width="175" height="305" rx="15" fill="#d7e6ee" stroke="#163043" stroke-width="2"/>
+  <rect x="64" y="444" width="177" height="18" rx="4" fill="#91afc1" stroke="#163043" stroke-width="2"/>
+  <rect x="242" y="444" width="175" height="4" fill="#55ba91"/>
+  <rect x="241" y="448" width="177" height="14" rx="4" fill="#91afc1" stroke="#163043" stroke-width="2"/>
+  <path d="M47 155H431 M47 462H431" stroke="#7a8b97" stroke-dasharray="5 5"/>
+  <text x="111" y="492">Accepted A</text><text x="291" y="492">Q1F</text>
+  <text x="59" y="522" class="small">44.8 mm module pitch · 87.6 mm closed height</text>
+  <text x="59" y="547" class="small">Same hood, top datum and desk plane; no width step.</text>
+  <text x="59" y="572" class="small">TPU seating ring is recessed, rather than stacked on top.</text>
+  <text x="520" y="123" class="heading">Where the TPU thickness comes from</text>
+  <text x="520" y="154" class="small">Representative straight X-side section at a guide; scale ×40</text>
+  <text x="520" y="188" class="small">Card pocket edge</text><text x="875" y="188" class="small">Hood exterior</text>
+  <path d="M560 200V462 M824 200V462" stroke="#7a8b97" stroke-dasharray="5 5"/>
+  <text x="520" y="224">Old</text>
+  <rect x="560" y="240" width="184" height="60" fill="#91afc1"/>
+  <rect x="744" y="240" width="16" height="60" fill="#fff"/>
+  <rect x="760" y="240" width="64" height="60" fill="#d7e6ee"/>
+  <rect x="560" y="240" width="264" height="60" class="outline"/>
+  <text x="584" y="276">PETG 4.6</text><text x="835" y="263" class="small">0.4 gap</text>
+  <text x="835" y="287" class="small">1.6 hood</text>
+  <text x="520" y="344">Q1F</text>
+  <rect x="560" y="360" width="140" height="60" fill="#91afc1"/>
+  <rect x="700" y="360" width="4" height="60" fill="#fff"/>
+  <rect x="704" y="360" width="32" height="60" fill="#55ba91"/>
+  <rect x="736" y="360" width="8" height="60" fill="#29936c"/>
+  <rect x="744" y="360" width="16" height="60" fill="#fff"/>
+  <rect x="760" y="360" width="64" height="60" fill="#d7e6ee"/>
+  <rect x="560" y="360" width="264" height="60" class="outline"/>
+  <text x="579" y="396">PETG 3.5</text><text x="835" y="381" class="small">0.1 insert fit + 0.8 TPU</text>
+  <text x="835" y="405" class="small">0.2 guide + 0.4 hood gap</text>
+  <text x="520" y="465" class="small">A 1.1 mm reduction per side pays for the soft insert.</text>
+  <text x="520" y="495" class="small">Four soft beads use the old hood's existing grooves.</text>
+  <text x="520" y="522" class="small">The 0.8 mm ring lands in a matching foot recess.</text>
+  <text x="520" y="549" class="small">Small bands connect the insert around both key ports.</text>
+  <text x="520" y="576" class="small">This is a new base; the insert does not fit the old base.</text>
+  <path d="M40 602H1060" stroke="#ccd5dd"/>
+  <text x="40" y="630">Unchanged: 64 × 44.8 mm foot · 63.6 × 44.4 mm hood · 50.4 × 30.3 mm pocket · 15 cards</text>
+  <text x="40" y="661" class="small">Packaging and sampled paths checked in CAD. Unprinted: quietness, insert installation and retention need a full-box trial.</text>
+</svg>

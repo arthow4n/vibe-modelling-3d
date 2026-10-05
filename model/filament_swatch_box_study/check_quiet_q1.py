@@ -6,6 +6,7 @@ This is not a TPU force, noise, durability or elastic installation solve.
 """
 import hashlib
 import json
+import math
 from pathlib import Path
 import cadquery as cq
 import quiet_q1 as q
@@ -22,7 +23,7 @@ def clear(a,b,reason):
     assert overlap<EPS,f'{reason}: {overlap:.8g} mm3'
 
 
-def main():
+def main(q=q, output_name='quiet_q1_checks.json'):
     base,jacket,hood=q.base().val(),q.jacket().val(),q.hood().val()
     guides=q.jacket(include_beads=False).val()
     clear(base,jacket,'Jacket does not fit the actual rigid base')
@@ -61,7 +62,8 @@ def main():
     bead_envelope=cq.Compound.makeCompound(bead_masks)
     peak_overlap=0.
     contact_lifts=[]
-    lifts=sorted(set([i*.25 for i in range(49)]+[16.,24.,36.,48.,64.,84.]))
+    fine_end=max(12,math.ceil(q.BEAD_TOP-q.SEAT_TOP+2))
+    lifts=sorted(set([i*.25 for i in range(fine_end*4+1)]+[16.,24.,36.,48.,64.,84.]))
     for lift in lifts:
         moved=hood.translate((0,0,lift))
         clear(moved,base,'Rigid hood/base collision on vertical path')
@@ -86,9 +88,13 @@ def main():
     assert jacket.rotate((0,0,0),(0,0,1),3.).intersect(base).Volume()>EPS,'Insert has no twist location'
     # A pre-expanded rigid envelope answers geometric access, not elastic feasibility.
     expansion=1.035
-    expanded=jacket.scale(expansion).translate((0,0,-q.FOOT_TOP*(expansion-1)))
-    for lift in (0,1,5,10,20,40,45):
-        clear(expanded.translate((0,0,lift)),base,'Expanded sleeve installation blocked')
+    if hasattr(q,'installation_envelopes'):
+        install=q.installation_envelopes(jacket,expansion)
+    else:
+        install=[('uniformly expanded sleeve',jacket.scale(expansion).translate((0,0,-q.FOOT_TOP*(expansion-1))))]
+    for label,envelope in install:
+        for lift in (0,1,5,10,20,40,45):
+            clear(envelope.translate((0,0,lift)),base,f'{label}: installation access blocked')
     print('Hood path, diaphragm room and insert capture checks passed',flush=True)
     # Soft landing has real area under the hood; it is not a bounding-box claim.
     seat=q.block(-40,40,-30,30,q.FOOT_TOP,q.SEAT_TOP).val()
@@ -134,12 +140,13 @@ def main():
         bead_contact_lifts_mm=contact_lifts,peak_rigid_bead_overlap_mm3=peak_overlap,
         diaphragm_inward_room_screen_mm=.5,insert_lift_capture_at_mm=1.,insert_twist_block_at_deg=3.,
         installation_envelope_uniform_scale=expansion,soft_seat_witness=True,recessed_grip_access=True,
+        installation_access_envelopes=[label for label,_ in install],
         existing_I3_key_and_joined_opening_both_ends=list(neighbours),
-        source_sha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'quiet_q1.py',Path(__file__))},
-        limits='Nominal CAD and sampled hand-guided paths. Rigidly pre-expanded sleeve is an access screen, '
+        source_sha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(q.__file__),Path(__file__))},
+        limits='Nominal CAD and sampled hand-guided paths. Pre-expanded/independent rigid envelopes are access screens, '
             'not a deformation/contact solve or strain qualification. No printed noise, force, friction, '
             'creep, durability or suspended-load rating. Existing joining-key force is not recalibrated.')
-    output=ROOT/'notes/quiet_q1_checks.json'
+    output=ROOT/'notes'/output_name
     output.write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(dict(ok=True,report=str(output),bead_contact_lifts_mm=contact_lifts,
                           joining=list(neighbours))),flush=True)

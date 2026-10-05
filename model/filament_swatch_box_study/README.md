@@ -1,5 +1,139 @@
 # Filament swatch box — display and compact archive
 
+## Quiet TPU revision — Q1F with the accepted exterior, 2026-10-05
+
+**Q1F fits the TPU inside the accepted module's exterior and reuses the exact G
+hood geometry.** It is a complete **unprinted prototype**, with a new PETG base
+and one separately printed TPU 95A insert. This is the compact option to trial;
+the larger, thicker-wall Q1 below remains available. The accepted A/G print and
+its valid evidence are retained; quieter closing is still unmeasured.
+
+| Dimension | Accepted A / G | Q1F |
+| --- | --- | --- |
+| Foot width × row length | 64 × 44.8 mm | 64 × 44.8 mm |
+| Hood width × row length | 63.6 × 44.4 mm | Same G hood |
+| Closed height / hood rim height | 87.6 / 5 mm | 87.6 / 5 mm |
+| Card pocket / floor / wall height above floor | 50.4 × 30.3 / 2.4 / 40 mm | Unchanged |
+
+Butted modules keep the same centre spacing, side widths, desk plane and hood
+top. The hood gap stays 0.4 mm in old/new and new/new rows. The foot's soft-seat
+recess changes its local detail; matching exterior dimensions does not mean every
+base surface is identical. The new insert **does not fit the old A base**, and
+Q1F parts are not substitutes for the larger Q1 parts. Existing I3 keys remain
+the joining parts. K4's reported bad port and J4's card tilt remain deferred.
+
+| Part | Primary print file | Matching source / mesh | Orientation |
+| --- | --- | --- | --- |
+| New PETG base | [STEP](quiet_q1_flush_base_15.step) | [Python](quiet_q1_flush_base_15.py) · [STL](quiet_q1_flush_base_15.stl) | Floor down |
+| New TPU 95A insert | [STEP](quiet_q1_flush_jacket_95a.step) | [Python](quiet_q1_flush_jacket_95a.py) · [STL](quiet_q1_flush_jacket_95a.stl) | Seating ring down |
+| Existing translucent PETG G hood | [Retained STEP](cap_g_hood_5.step) | [Python](cap_g_hood_5.py) · [STL](cap_g_hood_5.stl) | Existing roof-down file, or reuse the printed hood |
+
+Print PETG and TPU separately, then assemble; no fused materials, glue or hardware.
+The new print files each select one component, centred at X/Y135. The
+[Q1F parametric builder](quiet_q1_flush.py) owns the revised dimensions and reuses
+the existing builders without mutating their parameters.
+
+![Q1F dimensions and material-section explanation](renders/concepts/quiet_q1_flush.png)
+
+[Editable SVG](renders/concepts/quiet_q1_flush.svg). The section shows how thinner
+rigid walls pay for the TPU; the row drawing is schematic. The CAD view below
+shows accepted A and Q1F joined on the left, open Q1F with three actual cards in
+the middle, and the detached insert on the right. Monochrome does not identify
+materials. [Top view](renders/quiet_q1_flush/inspect_quiet_q1_flush_top.png).
+
+![Mixed A/Q1F row, open Q1F and detached insert](renders/quiet_q1_flush/inspect_quiet_q1_flush_isometric.png)
+
+The rigid body's outer dimensions shrink by **1.1 mm per side**, to 57.4 × 38.2
+mm. This makes room for **0.1 mm per-side insert allowance, 0.8 mm TPU walls and
+0.2 mm raised guides**. Guide tips retain the old body's travel envelope and
+0.4 mm nominal per-side clearance to the lower hood; broad panels have 0.6 mm.
+Centred travel has no designed rubbing preload. Four soft beads use the G hood's
+existing blind grooves, with 0.3 mm nominal release overlap and 0.8 mm recessed
+rigid backing space. They replace the rigid closure catches.
+
+The **0.8 mm soft seating ring is recessed into the foot**, from Z4.2 to Z5,
+so the old hood retains its original rim and roof height. Port notches leave the
+key routes open. Small inward bands connect the ring around those notches;
+matching channels in the rigid end walls let the bands descend to their seats.
+This corrects a rough-CAD defect where the two ports severed the insert into two
+pieces. The final connectivity check specifically guards that observed defect.
+The sleeve's inward anchor bead has 0.55 mm nominal capture in the sloped base
+groove; the rectangular wrap locates rotation.
+
+**Thickness trade-off:** ordinary straight rigid walls are 3.5 mm on X sides and
+3.95 mm on Y ends, versus 4.6 and 5.05 mm previously. The accepted two-millimetre
+entry flare remains. Its straight side walls narrow to 2.3/2.75 mm before edge
+rounding. Local end-access channels leave 1.45 mm at the flare and about 0.85 mm
+at the crest after inner rounding and the new 0.2 mm access-lip chamfer.
+A conservative rounded-corner geometric screen leaves
+about 0.84 mm at the thinnest entrance crest; the rim radius is 0.4 mm. Anchor
+grooves and diaphragm recesses also remove local material. This is feasible
+packaging, **not a stiffness or printed-strength qualification**.
+
+With cards removed, align the insert's port notches, gently spread the lower
+anchor over the rounded base top, and lower it progressively until the ring
+seats in its recess and the anchor engages. The inward bands follow their end
+channels. Load cards, then close with the existing G hood. Hold the base down
+through the retained upward-facing grip recesses while opening. The insert
+should stay on the base. Assembly effort and the relative insert/hood release
+forces require the actual 95A print. Independent rigid access screens check a
+3.5% pre-expanded upper sleeve and an unexpanded seating ring; **these are not a
+connected elastic installation pose or a measured strain requirement**.
+
+The [Q1F checks](check_quiet_q1_flush.py) reuse the
+[object-owned closure/card/key checks](check_quiet_q1.py), with fine hood-travel
+sampling extended to cover these higher beads. They cover actual-card support,
+eight-direction entry, extraction, closed fit, bead-only centred contact,
+small-offset rigid clearance, diaphragm room, sleeve capture, soft landing and
+grip access. Joining checks use the actual I3 key, new/new, archive A and J4
+neighbours at both ends: insertion, all four head-flank captures, closed-hood
+key captivity and individual opening. Sampled motion is not continuous-path
+proof. [Results](notes/quiet_q1_flush_checks.json).
+
+Use the established **0.4 mm nozzle, 0.2 mm layers, two walls and 7% adaptive
+cubic**, PETG for the base and ordinary TPU 95A for the insert. Shared material
+profiles and their limitations are recorded in the Q1 print section below.
+FDM review: both parts fit the Q2C bed, with stable floor/ring contact. The
+0.8 mm sleeve wall and roughly 1.1 mm-wide port bands are intentional thin
+features; the bands start on the bed. Sloped anchor shoulders, backing-recess
+ceilings and the small upper return build progressively. No trapped support
+removal is assumed. New STEP/STL pairs share the selected print geometry and pose.
+
+Both valid new components exported successfully. **OrcaSlicer 2.4.2** completed
+the matching PETG/TPU reference STL reviews with preserved placement, effective
+.4/.2/two-wall/7% settings, no reported notices and no generated supports in the
+automatic-support probes. The final unchanged insert export/slice was reused by
+native identity checks after the base access-lip change. Reports:
+[base](notes/quiet_q1_flush_base_review.json),
+[insert](notes/quiet_q1_flush_jacket_review.json) and
+[views](notes/quiet_q1_flush_views.json). Both final CAD views and the SVG preview
+were visually inspected. This is reference toolpath acceptance, not printed
+fit/strength or Orca's separate GUI STEP-import verification. G hood source and
+exports are retained, rather than redelivered as a modified hood. The unchanged
+larger Q1 also passed the shared-check regression.
+
+First print trial: use the complete new base and insert with the existing G hood,
+empty and with all 15 cards. Compare closing sound against the accepted pair,
+including a slightly off-centre approach. Check installation, seating, opening,
+card access, insert migration and mixed-row alignment. Repeat after an overnight
+closed dwell. Accept if it is appreciably quieter with comfortable opening and
+no binding or insert movement; revise the guide/bead/anchor fit if those fail.
+Inspect thin entrance and port regions for deformation. Persistent squeak/drag
+would reopen the contact design. A full box represents shell bowing and sound
+better than a local coupon; nothing is omitted from this trial. No measured
+force, noise reduction, creep, durability, ingress or loaded-lift rating exists.
+The accepted A/G loaded-lift result does not transfer to this new closure.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | N/A — complete box is the trial | No coupon | Whole-shell sound and handling need the full assembly |
+| Final printable object(s), Q1F prototype | No — newly delivered, unprinted | Two new STEP/STL pairs above; retained G hood | CAD closure/assembly checks and both reference material slices pass; installation, quietness, retention, thin-region stiffness, dwell response and printed joining remain untested |
+
+Q1F CAD/SVG attribution: **GPT-6 family**, exact variant and reasoning effort
+**not exposed**; **Codex** shared repository environment, **OpenAI**, no subagents.
+Historical attribution and the separately licensed Orca profile sources below
+remain unchanged.
+
 <a id="quiet-tpu-revision--svg-proposals-2026-10-05"></a>
 
 ## Quiet TPU revision — Q1 prototype, 2026-10-05
@@ -10,6 +144,7 @@ jobs**, then assemble. The user confirms ordinary **TPU 95A**, brand unknown.
 Compatibility is optional; this revision prioritises quieter closing and
 preserves the accepted archive A card pocket, full cover and recessed grips.
 The earlier J4/K4 card-support issues remain outside this revision.
+For the newer version matching the old exterior and G hood, use Q1F above.
 
 | Part | Primary print file | Matching source / secondary mesh | Print orientation |
 | --- | --- | --- | --- |

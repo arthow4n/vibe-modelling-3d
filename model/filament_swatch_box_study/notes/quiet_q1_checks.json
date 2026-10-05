@@ -97,6 +97,9 @@
   "installation_envelope_uniform_scale": 1.035,
   "soft_seat_witness": true,
   "recessed_grip_access": true,
+  "installation_access_envelopes": [
+    "uniformly expanded sleeve"
+  ],
   "existing_I3_key_and_joined_opening_both_ends": [
     "new",
     "archive_A",
@@ -104,7 +107,7 @@
   ],
   "source_sha256": {
     "quiet_q1.py": "3f40d9b9e9dc452cc4165358269be0335713db404109cab2f54bb2f5875be235",
-    "check_quiet_q1.py": "26d1d7b1ed85479027275a0b49eef28c2898b464e05c9b9ecf76aa4620cfc068"
+    "check_quiet_q1.py": "0495da1477be26337afb721cd8762aa8e811d5eed32205740b547c34006b808e"
   },
-  "limits": "Nominal CAD and sampled hand-guided paths. Rigidly pre-expanded sleeve is an access screen, not a deformation/contact solve or strain qualification. No printed noise, force, friction, creep, durability or suspended-load rating. Existing joining-key force is not recalibrated."
+  "limits": "Nominal CAD and sampled hand-guided paths. Pre-expanded/independent rigid envelopes are access screens, not a deformation/contact solve or strain qualification. No printed noise, force, friction, creep, durability or suspended-load rating. Existing joining-key force is not recalibrated."
 }
