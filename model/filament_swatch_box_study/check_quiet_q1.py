@@ -10,47 +10,63 @@ import math
 from pathlib import Path
 import cadquery as cq
 import quiet_q1 as q
-import archive_corner_proposals as old_archive
-import cap_j4_base_5 as old_display
+from assembly_geometry import PairRequirement, check_pair, sample_motion
+from quiet_assembly import QuietAssembly, fixture
 from check_corner_seat import card_envelope
 
 ROOT=Path(__file__).parent
 EPS=1e-6
 
 
-def clear(a,b,reason):
-    overlap=a.intersect(b).Volume()
-    assert overlap<EPS,f'{reason}: {overlap:.8g} mm3'
+def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
+    model = model or QuietAssembly(q)
+    assert model.model is q, 'Assembly and checks must use the same candidate builders'
+    closed=model.operating(include_cards=True)
+    base,jacket,hood=(closed.shape(name) for name in ('base','insert','hood'))
+    guides=model.guides
+    evidence=[]
 
+    def pair(a,b,reason,first,second,**criteria):
+        answer=check_pair(a,b,PairRequirement(reason,**criteria),first=first,
+                          second=second,configuration=q.__name__).require_passed()
+        evidence.append(answer.to_dict())
+        return answer
 
-def main(q=q, output_name='quiet_q1_checks.json'):
-    base,jacket,hood=q.base().val(),q.jacket().val(),q.hood().val()
-    guides=q.jacket(include_beads=False).val()
-    clear(base,jacket,'Jacket does not fit the actual rigid base')
-    clear(base,hood,'Closed rigid hood touches base')
-    clear(jacket,hood,'Closed TPU beads do not fit their pockets')
+    def clear(a,b,reason,first,second):
+        return pair(a,b,reason,first,second,max_overlap_mm3=EPS)
+
+    for first,second,intent in (('base','insert','Insert fits the actual rigid base'),
+            ('hood','base','Closed rigid hood clears the base'),
+            ('hood','insert','Closed TPU beads fit the hood pockets')):
+        evidence.append(closed.check(first,second,PairRequirement(intent,
+            max_overlap_mm3=EPS)).require_passed().to_dict())
     print('Nominal assembled contact checks passed',flush=True)
-    cards=[card.val() for card in q.cards()]
-    floor=q.block(-q.archive.r1.POCKET_WIDTH/2,q.archive.r1.POCKET_WIDTH/2,
+    cards=[closed.shape(f'cards/card_{i:02d}') for i in range(len(model.cards))]
+    floor_region=q.block(-q.archive.r1.POCKET_WIDTH/2,q.archive.r1.POCKET_WIDTH/2,
                   -q.archive.r1.POCKET_DEPTH/2,q.archive.r1.POCKET_DEPTH/2,
                   0,q.archive.FLOOR).val()
-    for card in cards:
+    floor=base.intersect(floor_region)
+    assert floor.isValid() and floor.Solids(), 'Actual base has no valid floor-support region'
+    for i,card in enumerate(cards):
         for item,label in ((base,'base'),(jacket,'jacket'),(hood,'hood')):
-            clear(card,item,f'Actual card touches {label}')
-        assert card.distance(floor)<1e-7,'Card floats above its intended floor'
-        assert card.translate((0,0,-.02)).intersect(floor).Volume()>1e-4,'No card floor support'
+            clear(card,item,f'Actual card clears {label}',f'cards/card_{i:02d}',label)
+        pair(card,floor,'Card seats on the actual floor without penetration',
+             f'cards/card_{i:02d}','floor_reference',max_gap_mm=1e-7,max_overlap_mm3=EPS)
+        pair(card.translate((0,0,-.02)),floor,'Attempted downward card motion meets its floor',
+             f'cards/card_{i:02d}_down_0_02_mm','floor_reference',min_overlap_mm3=1e-4)
     envelope=card_envelope(q.ref.HEIGHT,30.,4).translate((0,15.,0)).val()
     for sx,sy in ((-1,0),(1,0),(0,-1),(0,1),(-1,-1),(-1,1),(1,-1),(1,1)):
         for step in range(9):
             f=step/8
             pose=envelope.translate((sx*(1-f),sy*(1-f),q.CORE_TOP-q.archive.ENTRY_HEIGHT*f+.01))
-            clear(pose,base,'Accepted bundle entry altered')
-            clear(pose,jacket,'TPU top cuff obstructs bundle entry')
-    for card in cards[::7]:
+            clear(pose,base,'Accepted bundle entry clears rigid body',f'bundle_entry_{sx}_{sy}_{step}','base')
+            clear(pose,jacket,'TPU top cuff clears bundle entry',f'bundle_entry_{sx}_{sy}_{step}','insert')
+    for i in range(0,len(cards),7):
+        card=cards[i]
         for lift in (0,2,10,40,82):
             moved=card.translate((0,0,lift))
-            clear(moved,base,'Card extraction obstructed by revised base')
-            clear(moved,jacket,'Card extraction obstructed by TPU')
+            clear(moved,base,'Card extraction clears revised base',f'card_{i:02d}_lift_{lift}','base')
+            clear(moved,jacket,'Card extraction clears TPU',f'card_{i:02d}_lift_{lift}','insert')
     print('Card support, entry and extraction checks passed',flush=True)
     # Sample the entire hand-guided vertical path; do not call it continuous proof.
     bead_masks=[]
@@ -64,28 +80,48 @@ def main(q=q, output_name='quiet_q1_checks.json'):
     contact_lifts=[]
     fine_end=max(12,math.ceil(q.BEAD_TOP-q.SEAT_TOP+2))
     lifts=sorted(set([i*.25 for i in range(fine_end*4+1)]+[16.,24.,36.,48.,64.,84.]))
+    free=PairRequirement('Sampled centred hood withdrawal clears rigid base',max_overlap_mm3=EPS)
+    path=sample_motion(closed,'hood','base',free,samples=lifts,
+        transform=lambda lift:cq.Location((0,0,lift)),parameter='hood_lift',units='mm').require_passed()
+    evidence.append(path.to_dict())
+    guide_fixture=fixture('hood_and_insert_without_retention_beads',{'hood':hood,'guides_reference':guides})
+    path=sample_motion(guide_fixture,'hood','guides_reference',PairRequirement(
+        'Hood clears non-retention TPU at sampled lifts; bead exclusion is explicit',max_overlap_mm3=EPS),
+        samples=lifts,transform=lambda lift:cq.Location((0,0,lift)),parameter='hood_lift',units='mm').require_passed()
+    evidence.append(path.to_dict())
     for lift in lifts:
         moved=hood.translate((0,0,lift))
-        clear(moved,base,'Rigid hood/base collision on vertical path')
-        clear(moved,guides,'Hood rubs non-retention TPU during vertical travel')
+        # Full insert contact is intentional; its location needs this local mask,
+        # not a generic all-pairs prohibition or an elastic-motion claim.
         contact=moved.intersect(jacket)
+        assert contact.isValid(), f'Invalid full insert contact at hood lift {lift} mm'
         if contact.Volume()>EPS:
-            assert contact.cut(bead_envelope).Volume()<EPS,'Contact outside intended soft beads'
+            outside_beads=contact.cut(bead_envelope)
+            assert outside_beads.isValid(), f'Invalid bead-region exclusion at hood lift {lift} mm'
+            assert outside_beads.Volume()<EPS,'Contact outside intended soft beads'
             peak_overlap=max(peak_overlap,contact.Volume())
             contact_lifts.append(lift)
     assert peak_overlap>EPS,'No geometric retention source; hood is only loose clearance'
     for sx,sy in ((-.2,0),(.2,0),(0,-.2),(0,.2)):
-        for lift in (0,4,10,20,40,84):
-            clear(hood.translate((sx,sy,lift)),base,'Small hand-guided offset hits PETG')
+        offset=model.operating(offset_xy=(sx,sy))
+        evidence.append(sample_motion(offset,'hood','base',PairRequirement(
+            'Small hand-guided offset clears PETG at sampled lifts',max_overlap_mm3=EPS),
+            samples=(0,4,10,20,40,84),transform=lambda lift:cq.Location((0,0,lift)),
+            parameter='hood_lift',units='mm').require_passed().to_dict())
     for y in q.BEAD_Y:
         for side in (-1,1):
             patch=q.g.mirrored(q.block(q.CORE_X/2-.1,q.BEAD_TIP_X+.1,
                 y-q.BEAD_WIDTH/2+.2,y+q.BEAD_WIDTH/2-.2,
                 q.BEAD_BOTTOM-.1,q.BEAD_TOP+.1),side).val()
             diaphragm=jacket.intersect(patch).translate((-side*.5,0,0))
-            clear(diaphragm,base,'Insufficient backing space for TPU diaphragm travel')
-    assert jacket.translate((0,0,1.)).intersect(base).Volume()>EPS,'Insert has no upward geometric capture'
-    assert jacket.rotate((0,0,0),(0,0,1),3.).intersect(base).Volume()>EPS,'Insert has no twist location'
+            clear(diaphragm,base,'Prescribed inward diaphragm subset has backing space',
+                  f'diaphragm_reference_{y}_{side}_inward_0_5_mm','base')
+    for name,samples,transform,units in (
+            ('insert_lift',(1.,),lambda t:cq.Location((0,0,t)),'mm'),
+            ('insert_twist',(3.,),lambda t:cq.Location((0,0,0),(0,0,t)),'deg')):
+        evidence.append(sample_motion(closed,'insert','base',PairRequirement(
+            'Attempted rigid insert movement meets capture geometry; release force unqualified',min_overlap_mm3=EPS),
+            samples=samples,transform=transform,parameter=name,units=units).require_passed().to_dict())
     # A pre-expanded rigid envelope answers geometric access, not elastic feasibility.
     expansion=1.035
     if hasattr(q,'installation_envelopes'):
@@ -93,46 +129,57 @@ def main(q=q, output_name='quiet_q1_checks.json'):
     else:
         install=[('uniformly expanded sleeve',jacket.scale(expansion).translate((0,0,-q.FOOT_TOP*(expansion-1))))]
     for label,envelope in install:
-        for lift in (0,1,5,10,20,40,45):
-            clear(envelope.translate((0,0,lift)),base,f'{label}: installation access blocked')
+        access=fixture(label,{'access_reference':envelope,'base':base})
+        evidence.append(sample_motion(access,'access_reference','base',PairRequirement(
+            f'{label}: independent rigid access screen, not connected elastic installation',max_overlap_mm3=EPS),
+            samples=(0,1,5,10,20,40,45),transform=lambda lift:cq.Location((0,0,lift)),
+            parameter='access_envelope_lift',units='mm').require_passed().to_dict())
     print('Hood path, diaphragm room and insert capture checks passed',flush=True)
     # Soft landing has real area under the hood; it is not a bounding-box claim.
     seat=q.block(-40,40,-30,30,q.FOOT_TOP,q.SEAT_TOP).val()
-    assert hood.translate((0,0,-.02)).intersect(jacket).intersect(seat).Volume()>1e-4,'No TPU landing under rim'
+    pair(hood.translate((0,0,-.02)),jacket.intersect(seat),'Downward hood rim meets TPU seating region',
+         'hood_down_0_02_mm','insert_seat_reference',min_overlap_mm3=1e-4)
     for side in (-1,1):
-        clear(q.finger(side).val(),hood,'Closed hood blocks recessed opening grip')
-        clear(q.finger(side).val(),jacket,'TPU skirt blocks recessed opening grip')
+        clear(q.finger(side).val(),hood,'Closed hood clears recessed opening grip',f'finger_reference_{side}','hood')
+        clear(q.finger(side).val(),jacket,'TPU skirt clears recessed opening grip',f'finger_reference_{side}','insert')
     key=q.keys.seated_key(3).val()
     keyspace=q.keys.seated_key(3,projection=q.h.KEY_FIT_GAP).val()
     keycore=(q.keys.key_outline().offset2D(q.keys.CORE_GROWTH)
              .extrude(q.keys.KEY_HEIGHT).translate((0,0,q.h.KEY_FLOOR_Z)).val())
-    neighbours={'new':(base,q.FOOT_Y,hood),'archive_A':(old_archive.base('continuous').val(),q.g.FOOT_DEPTH,q.g.cap().val()),
-                'display_J4':(old_display.base().val(),q.g.FOOT_DEPTH,q.g.cap().val())}
-    for name,(other,depth,otherhood) in neighbours.items():
+    neighbours=('new','archive_A','display_J4')
+    for name in neighbours:
         for end in (-1,1):
-            # Butted feet, preserving I3's accepted KEY_SEAM_GAP=0 setup.
-            newshift=-end*q.FOOT_Y/2
-            oldshift=end*depth/2
-            pair=cq.Compound.makeCompound([base.translate((0,newshift,0)),other.translate((0,oldshift,0))])
-            covers=[hood.translate((0,newshift,0)),otherhood.translate((0,oldshift,0))]
-            sleeve=jacket.translate((0,newshift,0))
-            clear(keycore,pair,f'{name}: joining key core hits a rigid stop')
-            for lift in (0,.2,1,2,4,8,20,45):
-                clear(keyspace.translate((0,0,lift)),pair,f'{name}: rigid key entry blocked')
-                clear(keyspace.translate((0,0,lift)),sleeve,f'{name}: TPU blocks key entry')
-            for cover in covers:
-                clear(key,cover,f'{name}: key clashes with closed hood')
-                assert key.translate((0,0,1.1)).intersect(cover).Volume()>EPS,f'{name}: hood does not keep key captive'
-            clear(covers[0],covers[1],f'{name}: adjacent closed hoods overlap')
-            for lift in (0,4,20,84):
-                clear(covers[0].translate((0,0,lift)),other.translate((0,oldshift,0)),f'{name}: neighbouring base blocks opening')
-                clear(covers[0].translate((0,0,lift)),covers[1],f'{name}: neighbouring hood blocks opening')
+            joined=model.joined(name,end=end)
+            joined_bases=cq.Compound.makeCompound([joined.shape(n) for n in ('new/base','neighbour/base')])
+            sleeve=joined.shape('new/insert')
+            clear(keycore,joined_bases,f'{name}/{end}: joining key core clears rigid stop','key_core_reference','joined_bases')
+            entry=fixture(joined.name+'_key_entry',{'key_clearance_reference':keyspace,
+                'joined_bases':joined_bases,'insert':sleeve})
+            for obstacle in ('joined_bases','insert'):
+                evidence.append(sample_motion(entry,'key_clearance_reference',obstacle,PairRequirement(
+                    'Actual I3 clearance envelope has a sampled insertion route',max_overlap_mm3=EPS),
+                    samples=(0,.2,1,2,4,8,20,45),transform=lambda t:cq.Location((0,0,t)),
+                    parameter='key_lift',units='mm').require_passed().to_dict())
+            for cover in ('new/hood','neighbour/hood'):
+                evidence.append(joined.check('key',cover,PairRequirement(
+                    'Seated I3 key clears closed hood',max_overlap_mm3=EPS)).require_passed().to_dict())
+                evidence.append(sample_motion(joined,'key',cover,PairRequirement(
+                    'Attempted key lift meets closed hood and remains captive',min_overlap_mm3=EPS),
+                    samples=(1.1,),transform=lambda t:cq.Location((0,0,t)),parameter='key_lift',units='mm').require_passed().to_dict())
+            evidence.append(joined.check('new/hood','neighbour/hood',PairRequirement(
+                'Adjacent closed hoods do not overlap',max_overlap_mm3=EPS)).require_passed().to_dict())
+            for obstacle in ('neighbour/base','neighbour/hood'):
+                evidence.append(sample_motion(joined,'new/hood',obstacle,PairRequirement(
+                    'Individual opening clears adjacent module',max_overlap_mm3=EPS),
+                    samples=(0,4,20,84),transform=lambda t:cq.Location((0,0,t)),
+                    parameter='hood_lift',units='mm').require_passed().to_dict())
             # Both flanks of both heads must meet capture material, not merely clear.
             for xs in (-1,1):
                 for ys in (-1,1):
                     xl,xh=sorted((xs*3,xs*9));yl,yh=sorted((ys*.01,ys*4))
                     patch=q.block(xl,xh,yl,yh,q.h.KEY_FLOOR_Z,q.h.KEY_TOP_Z+.1).val()
-                    assert key.intersect(pair).intersect(patch).Volume()>1e-5,f'{name}: missing head-flank capture'
+                    pair(key,joined_bases.intersect(patch),f'{name}/{end}: required I3 head-flank capture',
+                         'key',f'joined_capture_reference_{xs}_{ys}',min_overlap_mm3=1e-5)
     report=dict(ok=True,capacity=15,material_assumption='User reports TPU 95A; brand and printed behavior unknown',
         accepted_card_pocket_and_entry_preserved=True,actual_cards_on_floor=True,
         nominal_three_part_clearance=True,hood_vertical_sample_lifts_mm=lifts,
@@ -142,14 +189,20 @@ def main(q=q, output_name='quiet_q1_checks.json'):
         installation_envelope_uniform_scale=expansion,soft_seat_witness=True,recessed_grip_access=True,
         installation_access_envelopes=[label for label,_ in install],
         existing_I3_key_and_joined_opening_both_ends=list(neighbours),
-        source_sha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(q.__file__),Path(__file__))},
+        assembly_api_evidence=evidence,
+        source_sha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in
+            (Path(q.__file__),Path(__file__),ROOT/'quiet_assembly.py')},
         limits='Nominal CAD and sampled hand-guided paths. Pre-expanded/independent rigid envelopes are access screens, '
             'not a deformation/contact solve or strain qualification. No printed noise, force, friction, '
             'creep, durability or suspended-load rating. Existing joining-key force is not recalibrated.')
-    output=ROOT/'notes'/output_name
-    output.write_text(json.dumps(report,indent=2)+'\n')
-    print(json.dumps(dict(ok=True,report=str(output),bead_contact_lifts_mm=contact_lifts,
+    if extra:
+        report.update(extra)
+    output=ROOT/'notes'/output_name if output_name else None
+    if output:
+        output.write_text(json.dumps(report,indent=2)+'\n')
+    print(json.dumps(dict(ok=True,report=str(output) if output else None,bead_contact_lifts_mm=contact_lifts,
                           joining=list(neighbours))),flush=True)
+    return report
 
 
 if __name__=='__main__':

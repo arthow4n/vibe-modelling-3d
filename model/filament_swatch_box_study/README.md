@@ -1,5 +1,106 @@
 # Filament swatch box — display and compact archive
 
+## Named assembly engineering, 2026-10-06
+
+Q1 is the first quiet prototype; Q1F is its flush-exterior option. These physical
+designs remain available. The assembly-API work is an engineering-code revision,
+not a new geometry variant or a new printable box.
+
+[QuietAssembly](quiet_assembly.py) builds the actual components once per candidate
+from the existing Q1/Q1F builders and captures native `cq.Assembly` configurations:
+closed/loaded, prescribed hood lift/offset, three separate single-component print
+jobs, and new/new or accepted A/J4 rows at both ends. Named `base`, `insert`, `hood`,
+`cards/card_00` and `new/base` paths keep component identities through placements.
+The [inspection entry](inspect_quiet_q1_flush.py) and
+[shared engineering checks](check_quiet_q1.py) now consume that same object-owned
+configuration layer. Geometry dimensions remain in the existing builders.
+
+Pair requirements distinguish forbidden overlap, required floor/seat contact and
+required obstruction for insert retention, key captivity and key-head capture.
+Native sampled paths retain the component pair, parameter, requested poses,
+measurements and first unsuccessful pose. A failed Boolean/distance calculation
+is inconclusive rather than accepted as zero interference. Prescribed placements
+need no constraint solve; the configuration API does not discover how to assemble
+the parts or establish a fully constrained physical mechanism.
+
+| Engineering state/question | Actual parts or explicit reference | Requirement retained |
+| --- | --- | --- |
+| Closed assembly and hood withdrawal | Hood/base; hood/insert; hood/insert-without-beads reference | Forbidden overlap, sampled full lift and small-offset paths; full insert contact restricted to bead masks |
+| Loaded storage | Actual cards, base/insert/hood and actual floor region | No penetration, floor gap at most 1e-7 mm, and downward support witness |
+| Insert stays located | Insert/base | Required rigid obstruction at 1 mm lift and 3° twist; release force unknown |
+| Soft landing and grip | Actual hood/insert seating region and grip references | Required seating witness; finger envelope clears hood/insert |
+| Joining and independent opening | Named new/adjacent modules and actual I3 key | Key entry, four flank captures, closed-hood captivity, adjacent clearance and opening at both ends |
+| TPU installation access | Independent expanded upper sleeve and seating-ring references | Sampled rigid access only; no connected elastic assembly or strain claim |
+
+The original numerical volume thresholds remain local: 1e-6 mm³ for forbidden
+overlap/retention obstruction, 1e-4 mm³ for floor/soft-seat witnesses and 1e-5 mm³
+for key-flank witnesses. API criteria are inclusive at their limits. These are
+engineering screens, not measured kernel accuracy or physical tolerances.
+No detected overlap does not establish positive clearance; required contact and
+obstruction therefore have their own criteria.
+
+The non-retention insert, diaphragm subset, seating patch, card-entry envelope
+and independent expanded installation envelopes remain explicitly named analysis
+references. They are not added to physical part configurations or print jobs.
+The local mask check still establishes that intentional hood/insert overlap occurs
+only at the soft beads; rigid overlap screens cannot establish elastic release.
+Connectivity and the thin Q1F crest screens also remain object-specific.
+
+[API qualification entry](check_quiet_assembly.py) exercises the full checks for
+both variants, compares the retained legacy outcomes and independently checks
+native placements against previous print/inspection arrangements. Deliberate
+wrong hood placement, missing retention beads and a floating card must fail the
+appropriate requirements. STEP/STL files, print sources and historical reports
+are retained. Existing material slices continue to describe those same print
+files; no new print or physical observation is implied.
+
+The trial exposed a regression-method limit: both whole-scene subtraction and
+coincident source-card subtraction returned invalid Booleans. Those calculations
+were rejected, never interpreted as zero difference. Inspection qualification
+now checks the exact component set and each positioned part. Cards use the native
+placement plus transformed source vertex datums (1e-7 mm arithmetic comparison),
+not a Boolean identity claim. The API's stable geometry-copy qualification and
+unchanged card builders retain their own scope.
+
+The migration also strengthened two local requirements. Floor witnesses now crop
+the actual base with the floor-region mask, so an auxiliary full block cannot
+stand in for missing support material. Bead-contact and outside-bead mask Booleans
+must be valid before their volumes can qualify retention/contact location.
+
+Verification: the final [Q1 report](notes/quiet_q1_assembly_checks.json) contains
+354 pair/path records and matches 20 retained legacy outcomes;
+[Q1F](notes/quiet_q1f_assembly_checks.json) contains 355 records and matches 26.
+Motion records contain their individual sampled measurements. Both variants pass
+the placement/print-selection regressions and reject all three deliberate bad
+states. Final source and original STEP/STL fingerprints match their reports.
+The unchanged API's 27 regression tests pass. No geometry, material profile or
+print artifact changed, so the existing slice evidence was not repeated.
+The native assembly also passed the existing CAD evaluator; its
+[isometric](renders/quiet_assembly/inspect_quiet_q1_flush_isometric.png) and
+[top](renders/quiet_assembly/inspect_quiet_q1_flush_top.png) views were inspected.
+[Evaluation report](notes/quiet_assembly_views.json), Python 3.12.14/CadQuery 2.7.0.
+
+Run from the repository root:
+
+```sh
+./execute.py --threads 2 model/filament_swatch_box_study/check_quiet_assembly.py --variant q1f
+./execute.py --threads 2 model/filament_swatch_box_study/check_quiet_assembly.py --variant q1
+```
+
+Assessment: named configurations and explicit contact/obstruction requirements
+are useful for this multipart product. The former shared checker was one long
+procedure with repeated inline placements and mostly Boolean assertions; sharing
+the checks between variants was already useful, but component identity and
+failure diagnostics were weaker. Native snapshots now organize that evidence
+without a second assembly tree. Splitting every check into another module or
+forcing flexible contact masks into a generic all-pairs checker would obscure
+the product's intent. The remaining physical uncertainties belong to the existing
+full-box trial, not a code revision.
+
+Assembly-code attribution: GPT-6-based Codex, exact active model variant/reasoning
+effort not exposed; Codex shared repository environment, OpenAI, no subagents.
+Historical geometry attribution below is preserved.
+
 ## Quiet TPU revision — Q1F with the accepted exterior, 2026-10-05
 
 **Q1F fits the TPU inside the accepted module's exterior and reuses the exact G

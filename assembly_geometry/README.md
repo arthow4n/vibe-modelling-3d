@@ -173,6 +173,7 @@ Executable inspection/verification entry points:
 ./execute.py --threads 1 model/sunglasses_case/assembly_checks.py
 ./execute.py --threads 1 model/book_reading_plate/assembly_checks.py
 ./execute.py --threads 1 model/vaseline_container/assembly_checks.py
+./execute.py --threads 2 model/filament_swatch_box_study/check_quiet_assembly.py --variant q1f
 ./evaluate_model.py model/book_reading_plate/assembly_checks.py
 ./execute.py --threads 2 assembly_geometry/experiments/qualify.py
 ./execute.py --threads 1 assembly_geometry/experiments/native_probe.py
@@ -188,9 +189,11 @@ or exports; evaluator entry uses native `result = configuration.assembly()`.
 | Sunglasses case | Named body/lid/keeper; original hinge transform; closed and print configurations; 37 shell-only hinge poses; explicit rotational retention obstruction and prescribed released-loop lift. Reports clarify that shell motion excludes elastic loop behavior. |
 | Book plate | One screw definition/four instances at original stations; assembled vs three print jobs; required contact on four selected seating-ring patches alongside forbidden solid overlap. Optional native resolution starts screws displaced, checks mm/degree residuals and reproduces original poses. A width/height candidate uses the same checks. |
 | Vaseline jar | Named closed/opened/print pair; 37 poses of coupled helical withdrawal; separate required axial obstruction. Same interface transfers without a thread/joint class. |
+| [Quiet swatch Q1/Q1F](../model/filament_swatch_box_study/README.md#named-assembly-engineering-2026-10-06) | Shared actual parts for checks and inspection; closed/loaded/opened, separate print jobs and mixed rows at both ends. Required floor contact uses a crop of the actual base. Wrong hood placement, absent retention beads and a floating card are rejected. Local bead masks and independent TPU access envelopes retain their explicit scope. |
 
-The phone stand, glove insert and swatch storage checkers informed scope without
-migration: they use selected rigid pairs, two moving frames, prescribed elastic
+At initial qualification, the phone stand, glove insert and original swatch
+storage checkers informed scope without migration: they use selected rigid pairs,
+two moving frames, prescribed elastic
 release approximations and local source-card seating checks. A general all-pairs
 checker would incorrectly flag deliberate retention overlaps. Glove coupling can
 remain in its object-owned function; elastic interfaces belong to explicit
