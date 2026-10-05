@@ -15,6 +15,24 @@ import re
 TOKENS = ('input_tokens', 'output_tokens', 'cached_input_tokens', 'reasoning_output_tokens')
 MAX_LINE = 16 * 1024 * 1024
 MAX_EVENTS = 100_000
+NATIVE_SOURCE_QUALIFIED_VERSIONS = frozenset({'0.160.0', '0.160.1'})
+NATIVE_COMPATIBLE_FAMILIES = frozenset(
+    tuple(map(int, version.split('.')[:2])) for version in NATIVE_SOURCE_QUALIFIED_VERSIONS)
+
+
+def native_version_compatibility(version):
+    """Allow structurally checked patches, retaining their qualification scope.
+
+    A patch update must still pass every native boundary/usage check. Different
+    major/minor producers need qualification rather than guessed timing semantics.
+    """
+    if not isinstance(version,str) or not re.fullmatch(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)',version):
+        return None
+    if version in NATIVE_SOURCE_QUALIFIED_VERSIONS:
+        return 'source_checked'
+    if tuple(map(int,version.split('.')[:2])) in NATIVE_COMPATIBLE_FAMILIES:
+        return 'compatible_patch_structure'
+    return None
 
 
 def timestamp(value):
@@ -501,7 +519,7 @@ def parse(path):
 def native_capture(paths, sessions=(), explicit_scope=False):
     """Read only allowlisted local captures; join spans structurally, never by time.
 
-    0.160.0: stream_request is the client.stream operation entry; the receiving
+    Qualified producer family: stream_request is the client.stream entry; the receiving
     child of a completed handle_responses ends when completion reaches the core.
     This includes client preparation/transport/scheduling, not just backend work.
     Native log TTFT starts later and must not be subtracted from this interval.
@@ -567,6 +585,7 @@ def native_capture(paths, sessions=(), explicit_scope=False):
         if root.get('name') != 'try_run_sampling_request' or not eligible(root): continue
         versions = {r['version'] for r in [root]+root.get('events', []) if r.get('version')}
         version = next(iter(versions)) if len(versions) == 1 else 'unknown'
+        version_support = native_version_compatibility(version)
         direct = children.get((root['trace_key'], root['span_key']), [])
         starts = [r for r in direct if r.get('name') == 'stream_request']
         streams = [r for r in direct if r.get('name') == 'receiving_stream']
@@ -577,11 +596,12 @@ def native_capture(paths, sessions=(), explicit_scope=False):
                'duration_s': None, 'output_tokens_per_s': None, 'tokens': {},
                'first_observable_delta_delay_s': None,
                'model': model_name(root.get('model')), 'effort': 'unknown', 'version': version,
+               'version_qualification': version_support or 'unsupported',
                'outcome': 'failed' if root.get('error_status') else 'incomplete_or_unassociated',
                'association': 'selected_session_key' if sessions else 'explicit_capture_scope'}
         # Installed exports omit the non-completion handle_responses event kind.
         # Do not identify text/reasoning deltas from generic receiving spans.
-        if version != '0.160.0':
+        if version_support is None:
             issues['unsupported_native_version'] += 1
         elif len(starts) != 1 or len(streams) != 1 or len(completions) != 1:
             issues['missing_or_ambiguous_native_boundaries'] += 1
@@ -603,6 +623,8 @@ def native_capture(paths, sessions=(), explicit_scope=False):
                     value = nonnegative(complete.get(source))
                     if value is not None and value.is_integer(): req['tokens'][target] = int(value)
                 req['output_tokens_per_s'] = request_metrics(b-a, None, req['tokens'])['output_tokens_per_s']
+                if version_support == 'compatible_patch_structure':
+                    issues['patch_compatible_native_requests'] += 1
                 if b == a: issues['zero_native_duration'] += 1
         requests.append(req)
     native_delays = []; completion_logs = 0; seen_logs = set(); attempts = []; errors = 0
@@ -620,8 +642,11 @@ def native_capture(paths, sessions=(), explicit_scope=False):
                              'attempt': nonnegative(row.get('attempt')), 'failed': bool(row.get('has_error') or row.get('success') is False)})
         if row.get('event_name') == 'codex.sse_event' and row.get('event_kind') == 'response.completed' and 'output_token_count' in row:
             completion_logs += 1
-            if row.get('version') == '0.160.0' and (delay := nonnegative(row.get('ttft_ms'))) is not None:
+            support = native_version_compatibility(row.get('version'))
+            if support is not None and (delay := nonnegative(row.get('ttft_ms'))) is not None:
                 native_delays.append(delay/1000)
+                if support == 'compatible_patch_structure':
+                    issues['patch_compatible_native_first_item_logs'] += 1
     return {'requests': requests, 'quality': dict(issues), 'native_stream_first_item_delays': native_delays,
             'native_completion_logs': completion_logs, 'transport_attempts': attempts, 'error_notices': errors,
             'scope': 'selected sessions by structured session key' if sessions else 'explicitly selected capture; not a modeling-task association'}

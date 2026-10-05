@@ -129,10 +129,24 @@ The accepted A/G loaded-lift result does not transfer to this new closure.
 | Test piece(s) | N/A — complete box is the trial | No coupon | Whole-shell sound and handling need the full assembly |
 | Final printable object(s), Q1F prototype | No — newly delivered, unprinted | Two new STEP/STL pairs above; retained G hood | CAD closure/assembly checks and both reference material slices pass; installation, quietness, retention, thin-region stiffness, dwell response and printed joining remain untested |
 
-Q1F CAD/SVG attribution: **GPT-6 family**, exact variant and reasoning effort
-**not exposed**; **Codex** shared repository environment, **OpenAI**, no subagents.
+Q1F CAD/SVG attribution: reviewed local records report configured
+**GPT-6.1 Sol, high reasoning effort**; backend implementation is unverified.
+**Codex** shared repository environment, **OpenAI**, no subagents.
 Historical attribution and the separately licensed Orca profile sources below
 remain unchanged.
+
+Reflection, 2026-10-06: matching the exterior was possible by budgeting the rigid
+wall, insert, guide and clearance together, rather than adding every layer outside
+the old body. Keeping the pocket unchanged still required reviewing thinner local
+entrance and port walls. Both key routes severed the first compact sleeve; checking
+the complete insert exposed a separate connectivity requirement that local fit
+checks missed. The independent installation envelopes establish access only, not
+elastic assembly. Quieter sound still needs the physical whole-box comparison.
+One full sweep was duplicated while adding a targeted connectivity assertion;
+the unchanged sweep should have been awaited and the new assertion run separately.
+The existing sequential-refinement guidance already covers this, so no new
+scheduler or additional routine verification rule is justified. Reviewed effort
+and request-rate measurements are appended to [the effort record](notes/agent_effort.md).
 
 <a id="quiet-tpu-revision--svg-proposals-2026-10-05"></a>
 
@@ -270,8 +284,9 @@ print files. The current Q1 builder, rather than schematic dimensions, is author
 | Test piece(s) | N/A — complete box is the trial | No detached coupon | Full-shell contact, sound and integrated grip need the whole geometry |
 | Final printable object(s), Q1 prototype | No — newly delivered, unprinted | Three Q1 STEP/STL pairs above | CAD and PETG/95A reference slices pass; installation, quietness, force, insert anchoring, dwell response and loaded lift remain untested |
 
-Q1 CAD/sketch attribution: **GPT-6 family** (exact model variant and reasoning
-effort not exposed), **Codex** shared repository agent environment, **OpenAI**;
+Q1 CAD/sketch attribution: reviewed local records report configured
+**GPT-6.1 Sol, high reasoning effort** (backend implementation unverified),
+**Codex** shared repository agent environment, **OpenAI**;
 no subagents. Historical modelling attribution below is preserved. The profile
 snapshots retain separate [Orca/Qidi source attribution and changes](notes/quiet_q1_profiles/ATTRIBUTION.md)
 and [upstream AGPL licence](notes/quiet_q1_profiles/LICENSE.txt); model geometry

@@ -160,6 +160,7 @@ def native_latency(data):
         explicit_transport_retries=sum(r['attempt'] is not None and r['attempt']>0 for r in data['transport_attempts']),
         transport_duration=measurement([r['duration_s'] for r in data['transport_attempts']],len(data['transport_attempts']),'observed'),
         error_notices=data['error_notices'], quality=data['quality'], association_scope=data['scope'],
+        producer_qualification=dict(Counter(r.get('version_qualification','unavailable') for r in rows)),
         slowest_requests=[{k:r[k] for k in ('label','duration_s','output_tokens_per_s','tokens','model','effort','version','outcome','association')}
                           for r in sorted((r for r in rows if r['duration_s'] is not None),key=lambda r:r['duration_s'],reverse=True)[:5]])
 

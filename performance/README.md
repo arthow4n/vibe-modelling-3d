@@ -185,6 +185,13 @@ adds the retained sample's median 20.78 output tokens/second (including reasonin
 and separates client-observed response time from unavailable backend inference
 time. It reuses the prior snapshot rather than benchmarking current service speed.
 
+The [quiet swatch prototype reflection](reviews/2026-10-06-001521-quiet-swatch-prototypes-and-token-speed.md)
+adds reviewed Q1/Q1F effort, a Q1F sample median of 32.71 output tokens/second,
+computational-stage evidence and the duplicate-sweep lesson. It also qualifies
+Codex 0.160.1 and documents checked patch-version compatibility in the analyzer.
+The [object effort record](../model/filament_swatch_box_study/notes/agent_effort.md)
+preserves the historical and new selections separately.
+
 ## Historical memory-policy studies
 
 Performance reviews retain measurements of the former RAM admission policy.

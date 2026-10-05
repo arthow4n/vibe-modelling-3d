@@ -24,11 +24,11 @@ def bundle(tmp_path, rows):
     return p
 
 
-def native_rows(offset=0, model='gpt-6.1-sol', effort='high', identity=1):
+def native_rows(offset=0, model='gpt-6.1-sol', effort='high', identity=1,version='0.160.0'):
     def s(n,parent,name,a,b,**kwargs):
         return dict(type='span',trace_key='a'*32,span_key=f'{identity*10+n:032x}',
                     parent_key=f'{identity*10+parent:032x}',name=name,start=a+offset,end=b+offset,**kwargs)
-    return [s(0,9,'try_run_sampling_request',0,20,model=model,version='0.160.0',
+    return [s(0,9,'try_run_sampling_request',0,20,model=model,version=version,
               session_key=pseudonym(SECRET,KEY,'session')),
             s(1,0,'stream_request',1,2),s(2,0,'receiving_stream',2,20),
             s(3,2,'handle_responses',5,6.9,**{
@@ -51,8 +51,9 @@ def test_native_structural_boundary_and_throughput(tmp_path):
 
 
 @pytest.mark.parametrize('change', ['missing_start','missing_end','zero','negative','missing_usage','unknown_version','ambiguous'])
-def test_native_missing_and_invalid_observations(tmp_path,change):
-    rows=native_rows()
+@pytest.mark.parametrize('version', ['0.160.0','0.160.1','0.160.99'])
+def test_native_missing_and_invalid_observations(tmp_path,change,version):
+    rows=native_rows(version=version)
     if change=='missing_start':rows[1].pop('start')
     if change=='missing_end':rows[4].pop('end')
     if change=='zero':rows[4]['end']=1
@@ -64,6 +65,26 @@ def test_native_missing_and_invalid_observations(tmp_path,change):
     assert s['requests']==1 and s['throughput']['median'] is None
     if change in ('missing_usage','zero'):assert s['duration']['measured']==1
     else:assert s['duration']['measured']==0
+
+
+@pytest.mark.parametrize('version,qualification', [('0.160.0','source_checked'),
+    ('0.160.1','source_checked'),('0.160.2','compatible_patch_structure'),
+    ('0.160.99','compatible_patch_structure'),('0.161.0',None),('unknown',None),
+    ('1.160.0',None),(None,None)])
+def test_native_patch_compatibility_preserves_quality_and_scope(tmp_path,version,qualification):
+    rows=native_rows(version=version)
+    rows.append(dict(type='log',event_name='codex.sse_event',event_kind='response.completed',
+        version=version,at=6,ttft_ms=3000,output_token_count=100))
+    data=native_capture([bundle(tmp_path,rows)],explicit_scope=True)
+    request=data['requests'][0]
+    assert request['version_qualification']==(qualification or 'unsupported')
+    measured=native_latency(data)
+    assert measured['producer_qualification']=={qualification or 'unsupported':1}
+    assert measured['duration']['measured']==(1 if qualification else 0)
+    assert measured['throughput']['median']==(20 if qualification else None)
+    assert measured['stream_first_item_delay']['measured']==(1 if qualification else 0)
+    assert data['quality'].get('patch_compatible_native_requests',0)==(1 if qualification=='compatible_patch_structure' else 0)
+    assert request['first_observable_delta_delay_s'] is None
 
 
 def test_native_scope_duplicate_conflict_and_overlap(tmp_path):

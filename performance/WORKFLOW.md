@@ -462,9 +462,23 @@ Warmup completions can appear among native completion logs; those logs are not a
 generation-request count. Literal request TTFT, generation-only/visible-text
 throughput, exact wire-send duration and backend compute remain unavailable.
 
-The adapter currently qualifies these boundaries for 0.160.0 only. Unknown versions,
-missing/ambiguous parents, conflicting duplicate spans, missing timestamps and
-unfinished attempts keep missing metrics and warnings. Export order is irrelevant;
+The adapter source-qualifies these boundaries for **0.160.0 and 0.160.1**. The
+version-pinned [sampling implementation](https://github.com/openai/codex/blob/rust-v0.160.1/codex-rs/core/src/session/turn.rs),
+[client timing](https://github.com/openai/codex/blob/rust-v0.160.1/codex-rs/core/src/client.rs)
+and [telemetry producer](https://github.com/openai/codex/blob/rust-v0.160.1/codex-rs/otel/src/events/session_telemetry.rs)
+are byte-identical between these tags. Retained 0.160.1 captures reproduce the
+structural completion/usage join; synthetic regressions cover both versions.
+
+Compatible **patch updates within the qualified major/minor family** are also
+accepted when every required boundary, usage and timestamp check passes. Such
+requests retain `version_qualification=compatible_patch_structure` and explicit
+quality counts; source-checked versions retain `source_checked`. Native summaries
+report producer-qualification counts. This removes exact patch-version fragility
+without treating a version number as sufficient evidence. A different major/minor
+producer, malformed/missing/conflicting version, missing/ambiguous parents,
+conflicting duplicate spans, missing timestamps and unfinished attempts keep
+missing metrics and warnings. A new producer family needs boundary qualification,
+not merely an expanded version list. Export order is irrelevant;
 relationships come from span/parent IDs, not adjacency. Model is configured sampling
 identity and backend implementation remains unverified. Missing effort stays unknown.
 
