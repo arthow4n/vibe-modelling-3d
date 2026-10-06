@@ -49,7 +49,7 @@ DIRECTIVES=(Directive('swatch.stop',
     S(RECORD+'#tpu-damping-discontinued-2026-10-06','User ended damping work')),)
 
 
-def make_plan(variant='q1f'):
+def make_plan(variant):
     protect_recorded_intent(ROOT,REQUIREMENTS)
     if variant not in ('q1f','q1','q1f-tpu-hood','replacement-fixture'):
         raise ValueError(variant)

@@ -1,5 +1,6 @@
 """Adopted products must follow one shared command contract, including new ones."""
 import ast
+import inspect
 import json
 from pathlib import Path
 import runpy
@@ -11,6 +12,14 @@ import product_verification as pv
 ROOT = Path(__file__).resolve().parents[1]
 ENTRYPOINTS = tuple(sorted((ROOT / 'model').glob('*/verification.py')))
 assert ENTRYPOINTS, 'No adopted product entry points found'
+
+
+@pytest.mark.parametrize('entrypoint', ENTRYPOINTS, ids=lambda p: p.parent.name)
+def test_plan_factory_requires_explicit_variant(entrypoint):
+    make_plan = runpy.run_path(str(entrypoint))['make_plan']
+    assert inspect.signature(make_plan).parameters['variant'].default is inspect.Parameter.empty
+    with pytest.raises(TypeError, match='variant'):
+        make_plan()
 
 
 @pytest.mark.parametrize('entrypoint', ENTRYPOINTS, ids=lambda p: p.parent.name)

@@ -152,6 +152,11 @@ they do not inherit engineering checks from a common verifier. A justified comma
 change belongs in the shared helper, documentation and conformance tests together.
 Simple products retaining adequate local checks are outside this adoption contract.
 
+Plan factories must define `make_plan(variant)` with no default or implicit
+selection. Direct Python callers also name the design explicitly, for example
+`make_plan('accepted-e').evaluate()`. Omitting the variant raises `TypeError`
+before plan construction; the CLI already requires `--variant`.
+
 From the repository root:
 
 ```sh
@@ -246,8 +251,9 @@ envelope, explicit choice communication, binary exit codes, mixed evidence,
 argument/runtime errors, interruptions and invalid serialization without CAD work.
 [Entry-point conformance tests](../tests/test_product_verification_entrypoints.py)
 cover every `model/*/verification.py`, including newly added products. They require
-direct delegation to the shared helper and exercise the common command behavior
-with a lightweight substituted plan, without building geometry or changing the
+direct delegation to the shared helper, reject implicit plan-factory defaults,
+and exercise the common command behavior with a lightweight substituted plan,
+without building geometry or changing the
 product's engineering checks.
 
 Coverage is only as complete as the declared catalog and truthful scopes. A nominal

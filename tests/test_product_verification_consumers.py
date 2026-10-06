@@ -136,7 +136,7 @@ def test_all_tpu_history_remains_failed_noise_unknown_appearance_and_discontinue
     'wrong-screen-container','wrong-input-container','inconsistent-margin','inconsistent-minimum'])
 def test_plate_retained_evidence_missing_stale_invalid_and_failure_are_distinct(defect,tmp_path,monkeypatch):
     with product('book_reading_plate') as m:
-        original=m.make_plan().evaluate(['plate.analytical'])
+        original=m.make_plan('accepted-plate').evaluate(['plate.analytical'])
         assert statuses(original,'plate.joint')['screen']=='PASS'
         fake=tmp_path/'plate';(fake/'notes').mkdir(parents=True)
         for name in ('components.py','measure_structure.py','load_checks.py','notes/sections.json','notes/verification_sources.json'):
@@ -171,7 +171,7 @@ def test_plate_retained_evidence_missing_stale_invalid_and_failure_are_distinct(
         if defect!='missing':
             (fake/'notes/load_checks.json').write_text(json.dumps(record))
         monkeypatch.setattr(m,'ROOT',fake)
-        report=m.make_plan().evaluate(['plate.analytical'])
+        report=m.make_plan('accepted-plate').evaluate(['plate.analytical'])
         expected={'missing':'UNKNOWN','stale':'UNKNOWN','criterion-failed':'FAIL'}.get(defect,'INCONCLUSIVE')
         assert statuses(report,'plate.joint')['screen']==expected
         assert statuses(report,'plate.use')['finish']==('UNKNOWN' if defect=='stale' else 'PASS')
@@ -209,7 +209,7 @@ def test_broken_plate_coverage_configuration_fails_clearly(monkeypatch):
             return text
         monkeypatch.setattr(Path,'read_text',invalid_config)
         with pytest.raises(ValueError,match='Invalid configured analytical coverage contract'):
-            m.make_plan().evaluate(['plate.analytical'])
+            m.make_plan('accepted-plate').evaluate(['plate.analytical'])
 
 
 def test_quiet_composed_check_isolates_hood_failure_from_insert_capture(monkeypatch):
@@ -267,7 +267,7 @@ def test_sunglasses_rotation_alone_cannot_qualify_the_original_axial_retention(m
         assert keeper.intersect(rotation).val().Volume()>.01
         assert keeper.intersect(axial).val().Volume()==0
         monkeypatch.setattr(a,'load',lambda **kwargs:{**data,'keeper':keeper})
-        report=m.make_plan().evaluate(['e.retention'])
+        report=m.make_plan('accepted-e').evaluate(['e.retention'])
         assert statuses(report,'case.operation')['retention']=='FAIL'
         assert 'axial lift' in next(e['summary'] for e in report['evidence'] if e['id']=='e.retention')
 
@@ -283,7 +283,7 @@ def test_plate_crop_kernel_failure_is_inconclusive_without_suppressing_retained_
         config=SimpleNamespace(check=lambda *args:answer,shape=lambda name:BadCrop(),name='test')
         monkeypatch.setattr(a,'build',lambda:None)
         monkeypatch.setattr(a,'configuration',lambda parts:config)
-        report=m.make_plan().evaluate()
+        report=m.make_plan('accepted-plate').evaluate()
         assert statuses(report,'plate.use')['assembly']=='INCONCLUSIVE'
         assert statuses(report,'plate.joint')['screen']=='PASS'
         assert statuses(report,'plate.use')['finish']=='PASS'
@@ -321,7 +321,7 @@ def test_sunglasses_closed_fit_keeps_strict_production_limits(index,limit,monkey
                 to_dict=lambda:{'overlap_mm3':value,'status':'passed'}))
         monkeypatch.setattr(a,'load',lambda **kwargs:{})
         monkeypatch.setattr(a,'configuration',lambda data:SimpleNamespace(check=check))
-        report=m.make_plan().evaluate(['e.closed'])
+        report=m.make_plan('accepted-e').evaluate(['e.closed'])
         assert statuses(report,'case.operation')['closed']=='FAIL'
 
 

@@ -31,7 +31,7 @@ REQUIREMENTS=(
 )
 
 
-def make_plan(variant='accepted-e'):
+def make_plan(variant):
     protect_recorded_intent(ROOT,REQUIREMENTS)
     if variant not in ('accepted-e','replacement-fixture','tpu-fixture'):
         raise ValueError(variant)

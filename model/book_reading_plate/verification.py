@@ -22,7 +22,7 @@ REQUIREMENTS=(
 )
 
 
-def make_plan(variant='accepted-plate'):
+def make_plan(variant):
     protect_recorded_intent(ROOT,REQUIREMENTS)
     if variant not in ('accepted-plate','replacement-fixture'):
         raise ValueError(variant)
