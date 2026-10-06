@@ -58,3 +58,30 @@ Primary language model: **GPT-6 Astra**. Reasoning effort: **low** (user-provide
 Measured agent effort for the selected historical work is recorded in
 [the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
 its task and capture limits are explicit.
+
+## Product verification
+
+[verification.py](verification.py) adopts the existing helical-withdrawal and
+axial-retention checks, requested nominal envelope and scoped successful print
+report. Run `./execute.py --threads 1 model/vaseline_container/verification.py`;
+use `--json` or `--check thread.retention` during iteration.
+[Shared contract](../../product_verification/README.md).
+
+`jar.envelope` retains the requested 50 × 25 mm envelope; `jar.use` retains
+satisfactory jar operation. Thread pitch, scallops and the screw strategy are
+current choices, not immutable user requirements. Printed success does not
+qualify wear (`jar.wear` remains UNKNOWN), another architecture or material.
+The [reviewed intent/source inventory](notes/verification_sources.json) guards
+silent user-intent changes and stale physical transfer. Actual print material,
+settings and hash remain unknown. Nominal dimensions are checked from declared
+parameters, not a new generic bounds audit. Geometry/export/slice behavior and
+historical evidence remain unchanged; no leak-tightness claim is introduced.
+
+Verification infrastructure contributor: GPT-6-based Codex; exact model variant/reasoning
+effort not exposed; Codex shared-workspace API agent; OpenAI; no subagents. Historical
+product attribution above is preserved.
+
+The positive user observation is a good full-pair print. The summary preserves
+that scope separately from specific opening effort/retention observations, which
+were not supplied and remain UNKNOWN; it does not infer a calibrated thread fit
+or torque result from print quality.

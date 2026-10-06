@@ -167,6 +167,11 @@ Rigid overlap does not establish force, friction, fatigue, recoverability or
 printed fit. Transform callback/declaration errors raise instead of pretending
 the requested movement was checked.
 
+The [product verification layer](../product_verification/README.md) now consumes
+these operations to retain user provenance, variant applicability and missing
+coverage. This package remains independent of that reporting layer; it still
+does not discover omitted product intent or qualify physical behavior.
+
 ## Existing consumers and integration
 
 Executable inspection/verification entry points:

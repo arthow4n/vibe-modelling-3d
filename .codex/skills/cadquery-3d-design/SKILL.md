@@ -71,6 +71,14 @@ operation details can wait until the corresponding work is justified.
 | Physical fit, force, friction, texture or durability could change the decision; before recommending a test | [Physical experiments](references/physical-experiments.md#optional-test-prints-for-physical-validation). Choose coupon, partial or complete prototype with representative conditions and explicit omissions; no automatic coupon requirement. |
 | Print/use feedback or rejection | [Physical-feedback guidance](references/physical-experiments.md#when-product-use-fails) and [reflection](../engineering-reflection/SKILL.md). Correct readiness and root index immediately; distinguish visual rejection, print failure and uncertain causes. |
 
+For consequential requirements shared across variants or mixed evidence sources,
+use the [product verification convention](../../../product_verification/README.md).
+Preserve user provenance and visible UNKNOWN coverage; compose existing checks
+and retire architecture-specific derivations when appropriate. Agent choices are
+challengeable, while historical physical evidence retains its scope. Simple
+products can keep adequate local checks. The object record still owns nuanced
+intent, hypotheses and project-state decisions.
+
 ## Build and review against intent
 
 Use the shared evaluator to establish valid geometry and inspect errors. Repair

@@ -73,3 +73,8 @@ Harness: **Codex**. Provider: **OpenAI**. Material contributors: none known.
 Measured agent effort for the selected historical work is recorded in
 [the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
 its task and capture limits are explicit.
+
+Product verification opt-out: this one-piece object retains its adequate local
+checks and scoped human evidence. No coupled mechanism or demonstrated variant
+coverage gap currently justifies a separate plan; see the
+[adoption convention](../../product_verification/README.md#migrated-consumers-and-deliberate-exclusions).

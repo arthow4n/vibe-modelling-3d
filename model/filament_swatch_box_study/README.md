@@ -1656,3 +1656,51 @@ Gemini attribution remains with that object.
 Measured agent effort for the selected historical work is recorded in
 [the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
 its task and capture limits are explicit.
+
+## Product verification
+
+[verification.py](verification.py) composes the existing shared closed/card/hood/
+insert/landing/joining groups and Q1F-local insert screens. Run `./execute.py --threads 2
+model/filament_swatch_box_study/verification.py --variant q1f` (or `q1`).
+`--json` provides a compact structured report; `--check quiet.hood` focuses a group
+while leaving other obligations visible. See the [shared contract](../../product_verification/README.md).
+
+Stable user-intent IDs: `swatch.storage`, `swatch.open`, `swatch.join`,
+`swatch.quiet`, `swatch.appearance`, `swatch.upper-fit`. Their provenance links to
+the acceptance/feedback sections here. `swatch.insert-connected` is Q1F-only;
+`swatch.insert-anchored` follows the separate-jacket architecture;
+`swatch.landing-access` follows the prototype soft-seat/grip choice; durability
+remains physical UNKNOWN. The reviewed [intent/source inventory](notes/verification_sources.json)
+guards silent reclassification/criterion removal and conservative source transfer.
+Four beads, a TPU jacket and G hood reuse remain historical design choices.
+
+Q1F CAD PASS, reported joining PASS and noise/coverage/fit FAIL coexist. Q1 is not
+inferred printed. `--variant q1f-tpu-hood` surfaces the separate material trial:
+noise FAIL; distorted but usable shell observation without inventing appearance
+acceptance/rejection. The layer-line cause stays an open hypothesis. Accepted
+A/G/I3 loaded-storage evidence is retained within that separate baseline scope.
+`replacement-fixture` demonstrates uncovered user requirements and N/A obsolete
+insert obligations; it is not a proposed variant. All reports retain the damping
+stop directive; none reopens development. Physical settings/hashes remain unknown.
+
+Migration qualification reuses legacy outcomes and existing placement/negative
+checks, including wrong hood placement, missing beads and floating card. Geometry,
+print exports, historical computational/physical records and slicing are preserved.
+
+Verification infrastructure contributor: GPT-6-based Codex; exact model variant/reasoning
+effort not exposed; Codex shared-workspace API agent; OpenAI; no subagents. Historical
+product attribution above is preserved.
+
+The protected seating question explicitly names the required 15-card fixture.
+A smaller source-card population now makes the attempted storage check
+INCONCLUSIVE before geometry traversal: a partial fixture cannot qualify the
+full collection. This is a verification-input defect, not an inferred physical
+capacity failure. Both unchanged source populations satisfy that guard.
+
+The composed `quiet.hood` check shares one actual candidate and returns independent
+hood-path, insert-capture/access and landing/grip answers. A failed hood path cannot
+falsely mark insert capture FAIL or stop it being checked; a missing landing seat
+cannot falsely fail joining. Joined opening belongs to the
+joining question, avoiding a redundant cross-target failure claim. The existing
+`main()` still composes the same operations into its established report. Historical
+reports retain their earlier checker identities and have not been overwritten.

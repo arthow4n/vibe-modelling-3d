@@ -149,3 +149,36 @@ separately exposed. No sub-agents. Historical model attribution above is preserv
 Measured agent effort for the selected historical work is recorded in
 [the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
 its task and capture limits are explicit.
+
+## Product verification
+
+[verification.py](verification.py) composes existing seating/clearance checks,
+input-bound retained analytical screens and the reported complete print result.
+Run `./execute.py --threads 1 model/book_reading_plate/verification.py`; `--json`
+and `--check plate.analytical` are available. [Shared contract](../../product_verification/README.md).
+
+`plate.use` records user acceptance; `plate.joint` derives the need for a working
+load path. Four screws, current dimensions and provisional load/material/preload
+assumptions are challengeable implementation choices/assumptions, not a user load
+rating. Geometry and conditional analytical PASS can coexist with satisfactory
+print finish while specific physical load and creep stay UNKNOWN. The adapter
+checks the existing analytical source hashes (including the recorded basename
+`sections.json` in `notes/`) and never launches a solver. Missing/stale results
+stay UNKNOWN; malformed attempted interpretation is INCONCLUSIVE.
+
+The [reviewed intent/source inventory](notes/verification_sources.json) keeps
+physical association conservative; actual printed files/settings remain unknown.
+Geometry, exports, original numerical reports and print history are unchanged.
+
+Verification infrastructure contributor: GPT-6-based Codex; exact model variant/reasoning
+effort not exposed; Codex shared-workspace API agent; OpenAI; no subagents. Historical
+product attribution above is preserved.
+
+Retained analytical transfer review: the recorded `components.py` hash predates a
+shared-command docstring edit; `measure_structure.py` predates an entry-point
+guard. The reviewed `653b9d4..5479f3f` diffs leave the builder, measurement body,
+retained sections and arithmetic unchanged. Exact old/current source pairs and
+reasons are in the inventory; this narrow association preserves the historical
+screen without new measurement or solver work. Any later unmatched edit invalidates
+it. Numerical quality, physical acceptance and the original whole-L cross-check
+limitation remain distinct.

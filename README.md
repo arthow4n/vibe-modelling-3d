@@ -33,6 +33,11 @@ including Remote Control startup. Cloning or moving this repository does not car
 that setup; future agents should check availability and discuss installation with
 the user. Modeling and existing analysis remain usable without it.
 
+[Product verification](product_verification/README.md) links declared user intent,
+variant checks and scoped physical evidence without a product score. Q1/Q1F,
+the sunglasses case, book plate and Vaseline jar are initial consumers; simple
+objects can retain local checks. It does not change their print status.
+
 ## Models
 
 | Object | Current use and print instructions | Model provenance | Test piece(s) printed | Final object printed | Agent effort |

@@ -1,0 +1,134 @@
+{
+  "scope": "Source association reviewed during verification migration at 5479f3f; NOT actual printed file identity. Physical printer/material/profile/hash remain unknown where recorded. New geometry inputs require revisiting this inventory, not requalifying a print by editing hashes.",
+  "source_sha256": {
+    "archive_corner_proposals.py": "643b65590fcf809c0ca31aa723c56814df5b2a35198cefdb9560090152f801b2",
+    "archive_r1_base_15.py": "6959c2d9da22b6bd43204f824e09393453bf8262214a71517b4fe2202a0049cf",
+    "cap_common.py": "b4e1056f6e3361264f9ecaec0d82e08f08c59b965538036183d8d200225f2015",
+    "cap_e_thin_5.py": "50026143c82f329a000de9bc484a95f9e0c2fb1a9d28ea757bbc5314bb5ed32a",
+    "cap_g_module_5.py": "5dfb2f0b03c2b5b3f545166898a291c742d9fcc8204675a9036de7b2a76ffc91",
+    "cap_h_module_5.py": "a73adf2ae5e8ac6e2ae206b7d2515194d7c1eef78b9d7ca8d2c0449dedcb355e",
+    "cap_i_grip_keys.py": "2b0706fe0011014e0ddfec45706201aa3e309722513847d4dd85ec906b7994a0",
+    "card_base_corner_seat_5.py": "a0f8f2d89d89fda3e92e7d255387361144454edf1b74a849a9a0ab15ce420cd6",
+    "card_base_petg_5.py": "1082fcb7b2163f80d76efa7216fc0fea07fb80690fadfc26111e0da3d45385ea",
+    "card_base_test.py": "aef72e9449777c08e36a5eac4150acd7c8ebfa76fe78ca97eb68221dba6368a2",
+    "quiet_q1.py": "3f40d9b9e9dc452cc4165358269be0335713db404109cab2f54bb2f5875be235",
+    "quiet_q1_flush.py": "e3655972b3d1e04c7b20ac705441d5b551bb8cd45d5579d22b25ab8535aa7c41",
+    "recessed_grips.py": "6cee8d00e4ab8c39af7f535df26abe64cf3084a85366150c1f5e9424bc6c05b3",
+    "study.py": "657f032e40326e6cfc72c9d5ab83dfd573d4dbfde1b1dc00db81826d1ae18eac",
+    "swatch_reference.py": "c27d4fda19465669f8b9c587da33e4393ff0c2ddb027884c177562c14836d2e7",
+    "upward_grips.py": "dd0df3e6809e6c0670c41a8f1490d413875b03014196aa704b21dd958ded4ec5",
+    "../filament_archive_swatch/filament_archive_swatch.scad": "d1577f4320cbc5597f9c7aa0e9cedf740c287845e0793fa32886ab8358bef67d"
+  },
+  "user_requirements": [
+    {
+      "id": "swatch.storage",
+      "text": "Store and access the accepted 15-card collection",
+      "source": {
+        "reference": "README.md#quiet-tpu-revision--q1f-with-the-accepted-exterior-2026-10-05",
+        "statement": "Accepted archive A capacity/pocket retained for this storage trial"
+      },
+      "questions": [
+        {
+          "id": "seating",
+          "criterion": "Required 15-card fixture clears enclosure and seats on actual floor; existing entry/extraction paths clear",
+          "mode": "CAD"
+        },
+        {
+          "id": "use",
+          "criterion": "Loaded collection stays stored during reported cover handling",
+          "mode": "physical"
+        }
+      ]
+    },
+    {
+      "id": "swatch.open",
+      "text": "Closed cover remains retained and can be deliberately opened",
+      "source": {
+        "reference": "README.md#quiet-tpu-revision--q1f-with-the-accepted-exterior-2026-10-05",
+        "statement": "Established archive closure/opening task"
+      },
+      "questions": [
+        {
+          "id": "closed",
+          "criterion": "Nominal assembly clears forbidden overlaps",
+          "mode": "CAD"
+        },
+        {
+          "id": "path-retention",
+          "criterion": "Existing sampled opening paths clear rigid parts and meet declared retention material",
+          "mode": "CAD"
+        },
+        {
+          "id": "effort",
+          "criterion": "Comfortable deliberate opening and no unintended removal in actual use",
+          "mode": "physical"
+        }
+      ]
+    },
+    {
+      "id": "swatch.join",
+      "text": "Join modules and open each independently",
+      "source": {
+        "reference": "README.md#damped-prototype-print-feedback-and-svg-exploration-2026-10-06",
+        "statement": "User reports successful Q1F module connections; preserve working joining"
+      },
+      "questions": [
+        {
+          "id": "geometry",
+          "criterion": "Declared joining/capture and independent opening work at both ends against named neighbours",
+          "mode": "CAD"
+        },
+        {
+          "id": "use",
+          "criterion": "Module connections work in reported use",
+          "mode": "physical"
+        }
+      ]
+    },
+    {
+      "id": "swatch.quiet",
+      "text": "Closing/sliding sound is acceptable to the user",
+      "source": {
+        "reference": "README.md#tpu-damping-discontinued-2026-10-06",
+        "statement": "User says remaining sound exceeds acceptable level"
+      },
+      "questions": [
+        {
+          "id": "sound",
+          "criterion": "User finds sound acceptable",
+          "mode": "subjective"
+        }
+      ]
+    },
+    {
+      "id": "swatch.appearance",
+      "text": "Contrasting coverage and whole-shell appearance are acceptable",
+      "source": {
+        "reference": "README.md#damped-prototype-print-feedback-and-svg-exploration-2026-10-06",
+        "statement": "User rejects exposed white base and disconnected-looking black bands"
+      },
+      "questions": [
+        {
+          "id": "appearance",
+          "criterion": "User accepts contrasting coverage and shell appearance",
+          "mode": "subjective"
+        }
+      ]
+    },
+    {
+      "id": "swatch.upper-fit",
+      "text": "Upper jacket feels positively located",
+      "source": {
+        "reference": "README.md#damped-prototype-print-feedback-and-svg-exploration-2026-10-06",
+        "statement": "User rejects loose/floating upper regions"
+      },
+      "questions": [
+        {
+          "id": "feel",
+          "criterion": "Upper jacket is satisfactory in actual use",
+          "mode": "physical"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "scope": "Source association reviewed during verification migration at 5479f3f; NOT actual printed file identity. Physical printer/material/profile/hash remain unknown where recorded. New geometry inputs require revisiting this inventory, not requalifying a print by editing hashes.",
+  "source_sha256": {
+    "e_closure.py": "1b0c1a608499716515ce870fc706aef6646cc5c62575d9490b74da7a649cd6e9",
+    "sunglasses_case.py": "c27998b46fb38316ae5a7ce6904b872ecb8a05d213cd6fbc47f1f5ef2509d98d"
+  },
+  "user_requirements": [
+    {
+      "id": "case.cavity",
+      "text": "Provide the user-confirmed 158 \u00d7 78 \u00d7 63 mm rounded interior",
+      "source": {
+        "reference": "notes/printing_and_design.md#confirmed-dimensions-and-physical-feedback",
+        "statement": "User explicitly confirmed reduced interior, superseding earlier approximate measurements"
+      },
+      "questions": [
+        {
+          "id": "dimensions",
+          "criterion": "Nominal interior is 158 \u00d7 78 \u00d7 63 mm; rounded corners are part of its definition",
+          "mode": "CAD"
+        },
+        {
+          "id": "empty",
+          "criterion": "Enclosure and mechanism leave the requested rounded cavity empty",
+          "mode": "CAD"
+        }
+      ]
+    },
+    {
+      "id": "case.operation",
+      "text": "Case closes, retains and deliberately opens satisfactorily",
+      "source": {
+        "reference": "notes/printing_and_design.md#physical-print-status",
+        "statement": "D/E samples satisfactory; user printed current reduced integrated case and reports it works really well"
+      },
+      "questions": [
+        {
+          "id": "closed",
+          "criterion": "Closed components satisfy their declared clearance/contact roles",
+          "mode": "CAD"
+        },
+        {
+          "id": "path",
+          "criterion": "Declared opening path clears the enclosure; proxy exclusions remain explicit",
+          "mode": "CAD"
+        },
+        {
+          "id": "retention",
+          "criterion": "Declared retention geometry obstructs unintended opening; holding force remains physical",
+          "mode": "CAD"
+        },
+        {
+          "id": "release",
+          "criterion": "Declared intentional release path clears; actuation force remains physical",
+          "mode": "CAD"
+        },
+        {
+          "id": "use",
+          "criterion": "Integrated case works satisfactorily in reported use",
+          "mode": "physical"
+        }
+      ]
+    }
+  ]
+}

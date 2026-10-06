@@ -1,0 +1,45 @@
+{
+  "scope": "Source association reviewed during verification migration at 5479f3f; NOT actual printed file identity. Physical printer/material/profile/hash remain unknown where recorded. New geometry inputs require revisiting this inventory, not requalifying a print by editing hashes.",
+  "source_sha256": {
+    "components.py": "13258f2991cd46c185020b20a22426e3cfc7987574ce5564162bd7c94d35785b"
+  },
+  "user_requirements": [
+    {
+      "id": "plate.use",
+      "text": "Complete reading plate is satisfactory for its intended use",
+      "source": {
+        "reference": "README.md#physical-status",
+        "statement": "User reports complete revised plate printed with a really nice result"
+      },
+      "questions": [
+        {
+          "id": "assembly",
+          "criterion": "Declared assembled components satisfy clearance and required seating/support roles",
+          "mode": "CAD"
+        },
+        {
+          "id": "finish",
+          "criterion": "Complete print result is satisfactory in reported use",
+          "mode": "subjective"
+        },
+        {
+          "id": "load",
+          "criterion": "Actual intended-load use is satisfactory; specific physical loads were not reported",
+          "mode": "physical"
+        }
+      ]
+    }
+  ],
+  "retained_analytical_source_associations": {
+    "components.py": {
+      "recorded": "d885e768ba49be4f45d6676ad651b14e02a77fefd4d5d890496be6ba468aa65c",
+      "reviewed_current": "13258f2991cd46c185020b20a22426e3cfc7987574ce5564162bd7c94d35785b",
+      "reason": "Reviewed git diff 653b9d4..5479f3f: docstring-only MCP-to-shared-command wording; geometry unchanged"
+    },
+    "measure_structure.py": {
+      "recorded": "b571ae3b298ca7434ecfabc55c4c46b3cecb6a1ccc1a54bd2586cb2316d4c9e5",
+      "reviewed_current": "1e2af1a4bd16d26008ca713ffd4f89548535b90c3f77791a5bda710d9c3706af",
+      "reason": "Reviewed git diff 653b9d4..5479f3f: add __main__/__cqgi__ entry guard only; measurement function and retained sections unchanged"
+    }
+  }
+}

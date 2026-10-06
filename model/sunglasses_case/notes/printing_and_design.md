@@ -99,3 +99,29 @@ history identifies their superseded results.
 Measured agent effort for the selected historical work is recorded in
 [the token and timing notes](agent_effort.md). This supplements creator provenance;
 its task and capture limits are explicit.
+
+## Product verification
+
+[verification.py](../verification.py) runs the existing case checks as independent
+callable groups: component validity, requested cavity, closed fit, shell-only
+hinge path, retention, prescribed release and keeper capture. Run
+`./execute.py --threads 1 model/sunglasses_case/verification.py`; add `--json` or
+`--check e.retention` for a compact/focused report. [Shared semantics](../../../product_verification/README.md).
+
+User-intent IDs `case.cavity` and `case.operation` distinguish the explicitly
+confirmed interior from satisfactory use. E is a challengeable implementation
+choice. `case.keeper` is derived only for the inserted-keeper architecture;
+`case.durability` remains physically UNKNOWN. D/E sample evidence stays scoped
+to samples alongside the separate successful full-case report. Exact full-print
+material/settings/hash remain unknown; intended PETG is not a measured property.
+The [reviewed inventory](verification_sources.json) protects user intent and
+invalidates physical transfer on source changes. A replacement or TPU fixture
+cannot inherit full-case physical PASS merely by reusing geometry.
+
+Default source validation/export behavior and geometry are retained. No new
+export/slice/solver work or physical result is implied. The retention strategy's
+thresholds/path belong to its checker, not permanent user requirements.
+
+Verification infrastructure contributor: GPT-6-based Codex; exact model variant/reasoning
+effort not exposed; Codex shared-workspace API agent; OpenAI; no subagents. Historical
+product attribution above is preserved.

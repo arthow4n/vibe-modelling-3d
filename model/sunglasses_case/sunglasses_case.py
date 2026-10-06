@@ -8,6 +8,7 @@ from pathlib import Path
 import importlib.util
 import json
 import cadquery as cq
+from assembly_geometry import PairRequirement, check_pair
 
 INNER_LENGTH = globals().get('INNER_LENGTH',158.0)
 INNER_WIDTH = globals().get('INNER_WIDTH',78.0)
@@ -104,28 +105,45 @@ opened=compound(body,close(open_lid,70),keeper)
 result={'print':print_layout,'closed':closed,'open':opened,'section':
     cq.Workplane(obj=closed).intersect(block(0,-OD/2,SEAM,1,25,45))}[LAYOUT]
 
-for part in (body,open_lid,keeper):
-    assert len(part.solids().vals())==1 and part.val().isValid(), 'invalid/disconnected part'
-assert body.intersect(open_lid).val().Volume()<0.001, 'print collision'
-assert body.intersect(lid).val().Volume()<0.001, 'closed shell collision'
-assert keeper.intersect(lid).val().Volume()<0.001, 'closed latch collision'
 fit_interference=body.intersect(keeper).val().Volume()
-assert fit_interference<1, ('excessive wedge interference',fit_interference)
-# Rounded empty cavity, not a claim that the originally estimated glasses fit.
-cavity=rounded(INNER_LENGTH,INNER_WIDTH,INNER_HEIGHT,FLOOR,CORNER-WALL)
-for part in (body,lid,keeper):
-    assert part.intersect(cavity).val().Volume()<0.001, 'intrusion into requested cavity'
-for angle in range(0,181,5):
-    assert body.intersect(close(lid_shell,angle)).val().Volume()<0.001, ('hinge/shell sweep',angle)
-assert keeper.intersect(close(loop,179)).val().Volume()>0.01, 'no rotational retention'
-assert keeper.intersect(close(loop).translate((0,0,0.4))).val().Volume()>0.01
-released=close(loop).translate((0,-closure.RELEASE_TRAVEL-0.3,0))
-for lift in (0,0.4,2,5,9):
-    assert body.union(keeper).intersect(released.translate((0,0,lift))).val().Volume()<0.001, ('release',lift)
-assert body.intersect(keeper.translate((0,0,0.4))).val().Volume()>1
-assert body.intersect(keeper.translate((0,-0.4,0))).val().Volume()>1
 bb=print_layout.BoundingBox()
-assert bb.xlen<260 and bb.ylen<260 and bb.zlen<250
+
+def verify_cavity():
+    # Rounded empty cavity, not a claim that the originally estimated glasses fit.
+    cavity=rounded(INNER_LENGTH,INNER_WIDTH,INNER_HEIGHT,FLOOR,CORNER-WALL)
+    for part in (body,lid,keeper):
+        answer=check_pair(part,cavity,PairRequirement('Requested rounded cavity stays empty',max_overlap_mm3=.001)).require_passed()
+        assert answer.overlap_mm3<.001, 'intrusion into requested cavity'
+
+def verify_keeper_capture():
+    for delta in ((0,0,.4),(0,-.4,0)):
+        answer=check_pair(body,keeper.translate(delta),PairRequirement(
+            'Keeper is captured against prescribed vertical/outward pull',min_overlap_mm3=1)).require_passed()
+        assert answer.overlap_mm3>1, 'Keeper not captured'
+
+def verify_parts():
+    for part in (body,open_lid,keeper):
+        assert len(part.solids().vals())==1 and part.val().isValid(), 'invalid/disconnected part'
+
+def verify_product():
+    verify_parts()
+    assert body.intersect(open_lid).val().Volume()<0.001, 'print collision'
+    assert body.intersect(lid).val().Volume()<0.001, 'closed shell collision'
+    assert keeper.intersect(lid).val().Volume()<0.001, 'closed latch collision'
+    assert fit_interference<1, ('excessive wedge interference',fit_interference)
+    verify_cavity()
+    for angle in range(0,181,5):
+        assert body.intersect(close(lid_shell,angle)).val().Volume()<0.001, ('hinge/shell sweep',angle)
+    assert keeper.intersect(close(loop,179)).val().Volume()>0.01, 'no rotational retention'
+    assert keeper.intersect(close(loop).translate((0,0,0.4))).val().Volume()>0.01
+    released=close(loop).translate((0,-closure.RELEASE_TRAVEL-0.3,0))
+    for lift in (0,0.4,2,5,9):
+        assert body.union(keeper).intersect(released.translate((0,0,lift))).val().Volume()<0.001, ('release',lift)
+    verify_keeper_capture()
+    assert bb.xlen<260 and bb.ylen<260 and bb.zlen<250
+
+if globals().get('VERIFY', True):
+    verify_product()
 if EXPORT:
     cq.exporters.export(print_layout,str(ROOT/'sunglasses_case.step'))
     cq.exporters.export(print_layout,str(ROOT/'sunglasses_case.stl'),tolerance=0.025,angularTolerance=0.1)

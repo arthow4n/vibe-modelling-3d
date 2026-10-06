@@ -1,0 +1,53 @@
+{
+  "scope": "Source association reviewed during verification migration at 5479f3f; NOT actual printed file identity. Physical printer/material/profile/hash remain unknown where recorded. New geometry inputs require revisiting this inventory, not requalifying a print by editing hashes.",
+  "source_sha256": {
+    "vaseline_container.py": "1c424bbf237b2841182d69610e8080301477fda65714e0486a74c07bfea55dc8"
+  },
+  "user_requirements": [
+    {
+      "id": "jar.envelope",
+      "text": "Container fits the requested 50 mm diameter \u00d7 25 mm assembled height",
+      "source": {
+        "reference": "README.md#decisions-and-evidence",
+        "statement": "Requested 25 mm is assembled height; 50 mm diameter envelope"
+      },
+      "questions": [
+        {
+          "id": "dimensions",
+          "criterion": "Declared diameter/closed height remain 50/25 mm; scallops are cut inward",
+          "mode": "CAD"
+        }
+      ]
+    },
+    {
+      "id": "jar.use",
+      "text": "Two-piece jar opens/closes and works in reported use",
+      "source": {
+        "reference": "README.md#physical-print-status",
+        "statement": "User printed delivered full pair and reports it was good"
+      },
+      "questions": [
+        {
+          "id": "path",
+          "criterion": "Declared opening path clears forbidden solid obstruction (sampled CAD only)",
+          "mode": "CAD"
+        },
+        {
+          "id": "retention",
+          "criterion": "Declared retention geometry obstructs unintended removal; holding force remains physical",
+          "mode": "CAD"
+        },
+        {
+          "id": "print-use",
+          "criterion": "Delivered full pair has a satisfactory reported print result",
+          "mode": "physical"
+        },
+        {
+          "id": "handling",
+          "criterion": "Actual opening/closing effort and retention need specific use observations",
+          "mode": "physical"
+        }
+      ]
+    }
+  ]
+}

@@ -7,25 +7,30 @@ This is not a TPU force, noise, durability or elastic installation solve.
 import hashlib
 import json
 import math
+import sys
 from pathlib import Path
 import cadquery as cq
 import quiet_q1 as q
 from assembly_geometry import PairRequirement, check_pair, sample_motion
 from quiet_assembly import QuietAssembly, fixture
 from check_corner_seat import card_envelope
+from product_verification import CalculationInconclusive
 
 ROOT=Path(__file__).parent
 EPS=1e-6
 
 
-def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
-    model = model or QuietAssembly(q)
-    assert model.model is q, 'Assembly and checks must use the same candidate builders'
-    closed=model.operating(include_cards=True)
-    base,jacket,hood=(closed.shape(name) for name in ('base','insert','hood'))
-    guides=model.guides
-    evidence=[]
+def valid_boolean(operation, intent):
+    try:
+        result=operation()
+    except (ValueError, RuntimeError) as exc:
+        raise CalculationInconclusive(f'{intent}: {exc}') from exc
+    if not result.isValid():
+        raise CalculationInconclusive(f'{intent}: invalid Boolean result')
+    return result
 
+
+def pair_helpers(q, evidence):
     def pair(a,b,reason,first,second,**criteria):
         answer=check_pair(a,b,PairRequirement(reason,**criteria),first=first,
                           second=second,configuration=q.__name__).require_passed()
@@ -35,18 +40,40 @@ def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
     def clear(a,b,reason,first,second):
         return pair(a,b,reason,first,second,max_overlap_mm3=EPS)
 
+    return pair, clear
+
+
+def closed_checks(model, evidence):
+    q=model.model
+    closed=model.operating(include_cards=False)
+    base,jacket,hood=(closed.shape(name) for name in ('base','insert','hood'))
+    pair,clear=pair_helpers(q,evidence)
     for first,second,intent in (('base','insert','Insert fits the actual rigid base'),
             ('hood','base','Closed rigid hood clears the base'),
             ('hood','insert','Closed TPU beads fit the hood pockets')):
         evidence.append(closed.check(first,second,PairRequirement(intent,
             max_overlap_mm3=EPS)).require_passed().to_dict())
-    print('Nominal assembled contact checks passed',flush=True)
+    print('Nominal assembled contact checks passed',flush=True,file=sys.stderr)
+    return {}
+
+
+def require_card_fixture(model):
+    if len(model.cards)<15:
+        raise CalculationInconclusive('Required 15-card collection is under-represented; partial fixture cannot qualify storage')
+
+
+def card_checks(model, evidence):
+    require_card_fixture(model)
+    q=model.model
+    closed=model.operating(include_cards=True)
+    base,jacket,hood=(closed.shape(name) for name in ('base','insert','hood'))
+    pair,clear=pair_helpers(q,evidence)
     cards=[closed.shape(f'cards/card_{i:02d}') for i in range(len(model.cards))]
     floor_region=q.block(-q.archive.r1.POCKET_WIDTH/2,q.archive.r1.POCKET_WIDTH/2,
                   -q.archive.r1.POCKET_DEPTH/2,q.archive.r1.POCKET_DEPTH/2,
                   0,q.archive.FLOOR).val()
-    floor=base.intersect(floor_region)
-    assert floor.isValid() and floor.Solids(), 'Actual base has no valid floor-support region'
+    floor=valid_boolean(lambda:base.intersect(floor_region),'Actual floor-support crop')
+    assert floor.Solids(), 'Actual base has no floor-support region'
     for i,card in enumerate(cards):
         for item,label in ((base,'base'),(jacket,'jacket'),(hood,'hood')):
             clear(card,item,f'Actual card clears {label}',f'cards/card_{i:02d}',label)
@@ -67,7 +94,16 @@ def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
             moved=card.translate((0,0,lift))
             clear(moved,base,'Card extraction clears revised base',f'card_{i:02d}_lift_{lift}','base')
             clear(moved,jacket,'Card extraction clears TPU',f'card_{i:02d}_lift_{lift}','insert')
-    print('Card support, entry and extraction checks passed',flush=True)
+    print('Card support, entry and extraction checks passed',flush=True,file=sys.stderr)
+    return {}
+
+
+def hood_checks(model, evidence):
+    q=model.model
+    closed=model.operating(include_cards=True)
+    base,jacket,hood=(closed.shape(name) for name in ('base','insert','hood'))
+    guides=model.guides
+    pair,clear=pair_helpers(q,evidence)
     # Sample the entire hand-guided vertical path; do not call it continuous proof.
     bead_masks=[]
     for y in q.BEAD_Y:
@@ -93,11 +129,9 @@ def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
         moved=hood.translate((0,0,lift))
         # Full insert contact is intentional; its location needs this local mask,
         # not a generic all-pairs prohibition or an elastic-motion claim.
-        contact=moved.intersect(jacket)
-        assert contact.isValid(), f'Invalid full insert contact at hood lift {lift} mm'
+        contact=valid_boolean(lambda:moved.intersect(jacket),f'Full insert contact at lift {lift}')
         if contact.Volume()>EPS:
-            outside_beads=contact.cut(bead_envelope)
-            assert outside_beads.isValid(), f'Invalid bead-region exclusion at hood lift {lift} mm'
+            outside_beads=valid_boolean(lambda:contact.cut(bead_envelope),f'Bead exclusion at lift {lift}')
             assert outside_beads.Volume()<EPS,'Contact outside intended soft beads'
             peak_overlap=max(peak_overlap,contact.Volume())
             contact_lifts.append(lift)
@@ -116,6 +150,15 @@ def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
             diaphragm=jacket.intersect(patch).translate((-side*.5,0,0))
             clear(diaphragm,base,'Prescribed inward diaphragm subset has backing space',
                   f'diaphragm_reference_{y}_{side}_inward_0_5_mm','base')
+    print('Hood path and diaphragm room checks passed',flush=True,file=sys.stderr)
+    return dict(hood_vertical_sample_lifts_mm=lifts,bead_contact_lifts_mm=contact_lifts,
+        peak_rigid_bead_overlap_mm3=peak_overlap)
+
+
+def insert_checks(model, evidence):
+    q=model.model
+    closed=model.operating()
+    base,jacket=(closed.shape(name) for name in ('base','insert'))
     for name,samples,transform,units in (
             ('insert_lift',(1.,),lambda t:cq.Location((0,0,t)),'mm'),
             ('insert_twist',(3.,),lambda t:cq.Location((0,0,0),(0,0,t)),'deg')):
@@ -134,7 +177,15 @@ def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
             f'{label}: independent rigid access screen, not connected elastic installation',max_overlap_mm3=EPS),
             samples=(0,1,5,10,20,40,45),transform=lambda lift:cq.Location((0,0,lift)),
             parameter='access_envelope_lift',units='mm').require_passed().to_dict())
-    print('Hood path, diaphragm room and insert capture checks passed',flush=True)
+    return dict(installation_envelope_uniform_scale=expansion,
+        installation_access_envelopes=[label for label,_ in install])
+
+
+def landing_checks(model, evidence):
+    q=model.model
+    closed=model.operating(include_cards=False)
+    base,jacket,hood=(closed.shape(name) for name in ('base','insert','hood'))
+    pair,clear=pair_helpers(q,evidence)
     # Soft landing has real area under the hood; it is not a bounding-box claim.
     seat=q.block(-40,40,-30,30,q.FOOT_TOP,q.SEAT_TOP).val()
     pair(hood.translate((0,0,-.02)),jacket.intersect(seat),'Downward hood rim meets TPU seating region',
@@ -142,6 +193,12 @@ def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
     for side in (-1,1):
         clear(q.finger(side).val(),hood,'Closed hood clears recessed opening grip',f'finger_reference_{side}','hood')
         clear(q.finger(side).val(),jacket,'TPU skirt clears recessed opening grip',f'finger_reference_{side}','insert')
+    return {}
+
+
+def joining_checks(model, evidence):
+    q=model.model
+    pair,clear=pair_helpers(q,evidence)
     key=q.keys.seated_key(3).val()
     keyspace=q.keys.seated_key(3,projection=q.h.KEY_FIT_GAP).val()
     keycore=(q.keys.key_outline().offset2D(q.keys.CORE_GROWTH)
@@ -180,6 +237,24 @@ def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
                     patch=q.block(xl,xh,yl,yh,q.h.KEY_FLOOR_Z,q.h.KEY_TOP_Z+.1).val()
                     pair(key,joined_bases.intersect(patch),f'{name}/{end}: required I3 head-flank capture',
                          'key',f'joined_capture_reference_{xs}_{ys}',min_overlap_mm3=1e-5)
+    return {}
+
+
+def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
+    model = model or QuietAssembly(q)
+    assert model.model is q, 'Assembly and checks must use the same candidate builders'
+    evidence=[]
+    closed_checks(model,evidence)
+    card_checks(model,evidence)
+    travel=hood_checks(model,evidence)
+    travel.update(insert_checks(model,evidence))
+    landing_checks(model,evidence)
+    joining_checks(model,evidence)
+    lifts=travel['hood_vertical_sample_lifts_mm']
+    contact_lifts=travel['bead_contact_lifts_mm']
+    peak_overlap=travel['peak_rigid_bead_overlap_mm3']
+    expansion=travel['installation_envelope_uniform_scale']
+    neighbours=('new','archive_A','display_J4')
     report=dict(ok=True,capacity=15,material_assumption='User reports TPU 95A; brand and printed behavior unknown',
         accepted_card_pocket_and_entry_preserved=True,actual_cards_on_floor=True,
         nominal_three_part_clearance=True,hood_vertical_sample_lifts_mm=lifts,
@@ -187,7 +262,7 @@ def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
         bead_contact_lifts_mm=contact_lifts,peak_rigid_bead_overlap_mm3=peak_overlap,
         diaphragm_inward_room_screen_mm=.5,insert_lift_capture_at_mm=1.,insert_twist_block_at_deg=3.,
         installation_envelope_uniform_scale=expansion,soft_seat_witness=True,recessed_grip_access=True,
-        installation_access_envelopes=[label for label,_ in install],
+        installation_access_envelopes=travel['installation_access_envelopes'],
         existing_I3_key_and_joined_opening_both_ends=list(neighbours),
         assembly_api_evidence=evidence,
         source_sha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in
