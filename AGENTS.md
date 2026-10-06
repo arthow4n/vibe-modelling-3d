@@ -81,6 +81,10 @@ authoritative for nuanced intent/history; preserve recorded user intent before
 changing a verification plan. No product score or automatic promotion gate.
 Read the CLI's JSON outcomes and declared choices; exit codes only signal coarse
 success/failure. Select the variant explicitly rather than relying on defaults.
+Every adopted product must expose `model/<object>/verification.py` through the
+shared `product_verification.cli` helper. Its arguments and JSON/exit semantics
+are mandatory; do not add object-specific parsers, flags or output formats.
+Change the shared contract and its conformance tests when a justified need arises.
 
 ## Shared engineering execution
 

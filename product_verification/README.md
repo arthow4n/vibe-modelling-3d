@@ -136,6 +136,22 @@ slice and physical records remain unchanged.
 
 ## Running during iteration
 
+Every product adopting this layer **must** expose `model/<object>/verification.py`
+and delegate its command entry point directly to `product_verification.cli`:
+
+```python
+if __name__ == '__main__':
+    raise SystemExit(cli(make_plan, ('declared-variant',)))
+```
+
+This is a repository command contract, not an optional convenience. The shared
+helper owns argument parsing, JSON output and binary exit semantics. Do not add
+object-specific parsers, flags, argument defaults or output formats. Products own
+the declared variant/check names and the plan's requirements, checks and evidence;
+they do not inherit engineering checks from a common verifier. A justified command
+change belongs in the shared helper, documentation and conformance tests together.
+Simple products retaining adequate local checks are outside this adoption contract.
+
 From the repository root:
 
 ```sh
@@ -228,6 +244,11 @@ Existing assembly regressions remain applicable.
 [CLI tests](../tests/test_product_verification_cli.py) qualify the uniform JSON
 envelope, explicit choice communication, binary exit codes, mixed evidence,
 argument/runtime errors, interruptions and invalid serialization without CAD work.
+[Entry-point conformance tests](../tests/test_product_verification_entrypoints.py)
+cover every `model/*/verification.py`, including newly added products. They require
+direct delegation to the shared helper and exercise the common command behavior
+with a lightweight substituted plan, without building geometry or changing the
+product's engineering checks.
 
 Coverage is only as complete as the declared catalog and truthful scopes. A nominal
 parameter check is not an independent geometric dimension audit; sampled motion

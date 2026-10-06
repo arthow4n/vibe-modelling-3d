@@ -80,6 +80,8 @@ products can keep adequate local checks. The object record still owns nuanced
 intent, hypotheses and project-state decisions.
 Select a declared variant explicitly and inspect JSON outcomes, not exit-code
 categories; the convention documents the minimal CLI and how to retrieve choices.
+Adopted products must use its shared command helper and contract; product-local
+argument parsers, extra flags and output formats are prohibited.
 
 ## Build and review against intent
 

@@ -318,7 +318,9 @@ class _JSONArgumentParser(argparse.ArgumentParser):
 
 
 def cli(make_plan, variants, *, argv=None):
-    """One JSON envelope on stdout; 0/1 are coarse command signals only.
+    """Mandatory command adapter for object-owned verification.py entry points.
+
+    One JSON envelope on stdout; 0/1 are coarse command signals only.
 
     Fatal runner errors remain errors, never synthetic requirement outcomes.
     Python progress/debug prints go to stderr. Variant selection is explicit;
