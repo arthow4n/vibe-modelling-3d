@@ -15,6 +15,13 @@ requiring a physical print. A homogeneous-solid solve needs a defensible sliced
 section, an explicit effective-material assumption, or a stated discrepancy;
 even solid paths leave anisotropy and bonding uncalibrated.
 
+When changing a thin enclosure's material or wall construction, review whole-shell
+shape stability and handling alongside fit. Reusing an accepted mesh preserves
+nominal surfaces, not the printed object's behavior: a cover can still close while
+its walls bulge or move. The [TPU G and PETG vase hood reports](../../../../model/filament_swatch_box_study/README.md#tpu-damping-discontinued-2026-10-06)
+illustrate that distinction without establishing a common cause or universal
+wall thickness. Record physical uncertainty when it affects the intended use.
+
 ## Printability
 
 Read the [printer/setup defaults](user-preferences.md#printer-manufacturing-and-available-hardware)

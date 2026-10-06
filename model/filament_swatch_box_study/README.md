@@ -1,6 +1,59 @@
 # Filament swatch box — display and compact archive
 
+## TPU damping discontinued, 2026-10-06
+
+**The user has ended this damping project.** Q1/Q1F and the follow-up SVG
+directions are retained experiment history, with no further development or print
+recommendation planned unless the user reopens the work. The accepted
+[archive A / PETG G hood / I3 key baseline](#archive-r2--four-printable-15-card-trials)
+remains available; its reported rigid-contact noise remains unresolved. This
+decision does not change the separate deferred J4/K4 issues.
+
+The user printed the **G hood geometry unchanged, fully in TPU**, and tried it
+against the jacketed base from the Q1F trial. TPU-on-TPU rubbing still produced
+clearly audible sound. It was somewhat quieter by the user's judgment, but
+still above the acceptable level: the damping goal was not met. This adds a
+physical all-TPU hood result to the earlier PETG-hood/TPU-jacket report; it is
+not a print of the proposed two-piece hood collar or terminal-dock designs.
+
+The upper TPU hood also showed local shape distortion: some regions looked
+expanded, others shrunken, and the shell could be moved around rather than
+holding the nominal STL shape rigidly. **It remained usable and still did its
+job.** The user likens this to the earlier
+[PETG vase-mode hood](#v1-single-wall-vase-hood--additional-transparency-trial).
+These are separate material/construction trials with similar reported shape
+instability; a common cause has not been established. Whether the TPU shape
+change occurred during printing, assembly, handling or dwell is unknown.
+
+| Lesson to retain | Observation, consequence and scope |
+| --- | --- |
+| Soft-on-soft contact does not ensure quiet sliding | In this printed TPU hood/jacket pair, rubbing remained unacceptable despite some subjective reduction. Separate impact cushioning from frictional sliding sound; substituting TPU alone did not solve this product's problem. This is not evidence that every TPU application is noisy or unsuitable. |
+| A material substitution needs its own whole-shell shape/feel assessment | The unchanged G geometry in TPU remained usable but deformed visibly. Earlier successful PETG fit, CAD geometry and export validity do not qualify a TPU shell's shape stability. Check the intended material/construction and handling when those can change function; do not infer that a usable fit means the shape is satisfactory. |
+| Keep suspected layer-line effects separate from the result | The user suspects printed lines/roughness cause the rubbing sound. Contact locations, surface measurements and acoustic mechanism are not isolated. No roughness diagnosis, process defect, calibrated material property or guaranteed smoothing remedy is established. |
+
+The reported material is TPU; the known available stock is ordinary 95A, brand
+unknown. Exact hood/base/insert file hashes, actual TPU hood grade and print
+settings/orientation are not separately confirmed. The user's description
+identifies the G design; it does not identify byte-for-byte printed artifacts.
+No new CAD, material-qualified slice, sound measurement or mechanical analysis
+was performed for this report. Successful Q1F joining remains valid within its
+reported use even though the damping direction is discontinued.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Test piece(s) | N/A — complete hood/box trial | No separate coupon reported | Feedback concerns complete-shell sound and deformation |
+| Final printable object(s), Q1F damping experiment | Yes — Q1F confirmed in earlier report | Existing Q1F base/insert exports below; actual printed hashes unknown | Joining succeeds in reported use; coverage, upper fit and sliding sound were unsatisfactory. Damping development discontinued |
+| Complete experimental G hood in TPU | Yes — reported 2026-10-06 | User reports unchanged [G source](cap_g_hood_5.py) / [STEP](cap_g_hood_5.step) / [STL](cap_g_hood_5.stl) design; actual printed file unknown | TPU-on-TPU rubbing slightly quieter but unacceptable; upper shape distorted/movable, still usable. No durability, shape-recovery or acoustic rating |
+| Follow-up SVG directions | N/A — visual concepts, no printable deliverables | Existing comparison/detail SVGs and PNGs below | Superseded by the decision to stop; not accepted or physically tested |
+
+Feedback is attributed to the user. Record/reflection attribution: GPT-6-based
+Codex (active variant and reasoning effort not exposed), Codex shared repository
+environment, OpenAI; no subagents. Historical modelling attribution is preserved.
+
 ## Damped prototype print feedback and SVG exploration, 2026-10-06
+
+**Historical first report and proposal phase; superseded by the discontinuation
+above.** The following records preserve what was known and proposed at that stage.
 
 **Q1F has now been printed: module connections work, but appearance,
 upper-jacket fit and remaining closing noise are unsatisfactory.** The user
@@ -22,7 +75,7 @@ The previous CAD checks and reference slices remain evidence for their declared
 geometry and profiles. They did not qualify perceived sound, contrasting-material
 appearance or upper-jacket feel. Keep the existing sources and exports as the
 tested baseline, with revised readiness: **printed family, partial functional
-success; further design exploration required**. Materials remain PETG
+success; the exploration was subsequently discontinued as recorded above**. Materials remain PETG
 and the user's ordinary TPU 95A (brand unknown); reported colours are white base
 and black insert. The hood is PETG; actual printed files and parameters are
 unconfirmed. No print is newly reported for the larger Q1.
@@ -33,7 +86,9 @@ unconfirmed. No print is newly reported for the larger Q1.
 | Final printable object(s), Q1F damped prototype | Yes — Q1F confirmed, reported 2026-10-06 | Existing Q1F deliverables below; actual printed file hashes unconfirmed | Joining succeeds in reported use; contrasting coverage, upper fit and sliding noise require revision. No force, acoustics, creep or durability rating |
 | New SVG concepts | N/A — rough visual phase | SVG/PNG proposals; no new print files | Concepts for discussion, not dimensioned or qualified replacements |
 
-### Three directions for discussion
+<a id="three-directions-for-discussion"></a>
+
+### Three directions for discussion — retained concept history
 
 ![Three possible damped-box revisions](renders/concepts/damped_revision_options.png)
 
@@ -90,21 +145,15 @@ These options therefore use separately printed, mechanically captured parts on
 the existing single-material printer. They require neither glue nor a material
 swap during one print, and do not claim that PETG and TPU can never bond.
 
-My recommendation is **A for the simplest coverage/attachment repair, C for the
-stronger change to sliding contact, and B as the hybrid-hood comparison**. None
-is acoustically qualified. Before committing to another full print, a useful
-comparison on the existing Q1F is to repeat empty-box sliding with the upper
-jacket held in place, then with light finger support on the hood's broad panel
-away from its contact edge, keeping approach as similar as practical. Note whether
-noise changes through the travel or only at a catch. These observations could
-separate attachment/skin movement from shell response, but finger pressure also
-changes clearance and friction, so they would not prove a single cause. No new
-test or measurement is reported here.
+The historical comparison favoured A for coverage/attachment repair, C for
+changing sliding contact, and B for the hybrid-hood idea. **That recommendation
+is superseded by discontinuation.** None was acoustically qualified. Suggested
+hand-restraint diagnostics were not reported performed; no result is inferred.
 
 This phase delivers SVG proposals and PNG previews, both rendered and visually
 reviewed. It makes no CAD, STEP/STL or slicer claim for A/B/C. Existing printable
-files remain the reported baseline. Discussion precedes detailed variant CAD;
-there is no need to change the assembly API for this rough visual phase.
+files remain experiment history. No detailed variant CAD followed this proposal
+phase; the user subsequently ended the project. The assembly API was unchanged.
 
 Print feedback is attributed to the user. New drawing/reflection attribution:
 GPT-6-based Codex (active model variant and reasoning effort not exposed), Codex
@@ -223,10 +272,10 @@ Historical geometry attribution below is preserved.
 
 **Q1F fits the TPU inside the accepted module's exterior and reuses the exact G
 hood geometry.** It is a complete **printed prototype**, with a new PETG base
-and one separately printed TPU 95A insert. It is the baseline for the next exploration;
-the larger, thicker-wall Q1 below remains available. The accepted A/G print and
-its valid evidence are retained. The latest report above confirms successful
-joining but requires revised appearance, upper fit and sliding-noise performance.
+and one separately printed TPU 95A insert. **Damping development is discontinued**;
+the files and instructions below are retained experiment history. The larger Q1
+also remains historical. Accepted A/G evidence is retained. Q1F joining worked,
+but appearance, upper fit and sliding-noise goals were not met.
 
 | Dimension | Accepted A / G | Q1F |
 | --- | --- | --- |
@@ -347,7 +396,7 @@ The accepted A/G loaded-lift result does not transfer to this new closure.
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | N/A — complete box is the trial | No coupon | Whole-shell sound and handling need the full assembly |
-| Final printable object(s), Q1F prototype | Yes — Q1F confirmed, reported 2026-10-06 | Two new STEP/STL pairs above; retained G hood; actual printed hashes unknown | Joining works in reported use, but appearance, upper-jacket fit and sliding noise require revision. Installation force, retention margin, thin-region stiffness and dwell are not established |
+| Final printable object(s), Q1F prototype | Yes — Q1F confirmed, reported 2026-10-06 | Two new STEP/STL pairs above; retained G hood; actual printed hashes unknown | Joining works in reported use; appearance, upper fit and sliding sound unsatisfactory. Damping project discontinued; retained as evidence, not a new print recommendation. Force, stiffness and dwell unqualified |
 
 Q1F CAD/SVG attribution: reviewed local records report configured
 **GPT-6.1 Sol, high reasoning effort**; backend implementation is unverified.
@@ -373,13 +422,14 @@ and request-rate measurements are appended to [the effort record](notes/agent_ef
 ## Quiet TPU revision — Q1 prototype, 2026-10-05
 
 **Q1 is a complete 15-card archive prototype; no Q1 print is reported by the
-latest feedback, which concerns Q1F.** Print the PETG
-base, TPU jacket and translucent PETG hood as **three separate single-material
-jobs**, then assemble. The user confirms ordinary **TPU 95A**, brand unknown.
+latest feedback, which concerns Q1F. Damping development is discontinued.** It was
+designed as **three separate single-material print jobs**: PETG base, TPU jacket
+and translucent PETG hood, followed by assembly. The user confirms ordinary
+**TPU 95A**, brand unknown.
 Compatibility is optional; this revision prioritises quieter closing and
 preserves the accepted archive A card pocket, full cover and recessed grips.
 The earlier J4/K4 card-support issues remain outside this revision.
-For the newer version matching the old exterior and G hood, use Q1F above.
+Q1F above retains the later matching-exterior experiment. Both are discontinued.
 
 | Part | Primary print file | Matching source / secondary mesh | Print orientation |
 | --- | --- | --- | --- |
@@ -503,7 +553,7 @@ print files. The current Q1 builder, rather than schematic dimensions, is author
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | N/A — complete box is the trial | No detached coupon | Full-shell contact, sound and integrated grip need the whole geometry |
-| Final printable object(s), Q1 prototype | Unknown — no Q1 print reported | Three Q1 STEP/STL pairs above | Retained larger prototype; Q1F feedback does not qualify Q1. Q1 installation, quietness, force, insert anchoring, dwell response and loaded lift remain untested |
+| Final printable object(s), Q1 prototype | Unknown — no Q1 print reported | Three Q1 STEP/STL pairs above | Discontinued larger experiment; Q1F feedback does not qualify Q1. Installation, quietness, force, anchoring, dwell and loaded lift remain untested |
 
 Q1 CAD/sketch attribution: reviewed local records report configured
 **GPT-6.1 Sol, high reasoning effort** (backend implementation unverified),
@@ -516,7 +566,7 @@ retains the repository's default licence.
 ## Archive R2 — four printable 15-card trials
 
 **Accepted printed archive storage baseline: A, the continuous-wall version.**
-Rigid-closure sound is unresolved as recorded in the TPU proposal section above.
+Rigid-closure sound remains unresolved; the TPU damping project above is discontinued.
 The user selected A as the best form and reports successful use and integration with J4.
 B/C/D remain unprinted. All four share the
 original footprint, 15-card pocket, exact accepted **G hood** and **I key 3**.
@@ -1588,7 +1638,7 @@ from other unreported prototypes. Printed and usable remain separate questions.
 | Test — five-card PETG spring seat | Yes | `card_base_petg_5.step/.stl`, `cfa8988`; printed hash unconfirmed | Broad clip grips nicely; tiny end spring ineffective; actual forces/setup unknown |
 | Test — five-card free-clearance base | Yes | `card_base_test_5.step/.stl`, `ff71602`; printed hash unconfirmed | Generally works, but rocking and sideways variation unacceptable; PETG, settings unknown |
 | Test — fifteen-card first base | Unknown | `card_base_test.step/.stl` | No report; earlier clearance interface remains provisional |
-| Final printable object | Partial — Q1F printed: joining works, but appearance, upper jacket and sliding noise need revision; J4 tilt and K4 one-ended joining remain unresolved | Existing Q1F exports and J4/G/I3 baseline retained; new damped alternatives are SVG-only | Latest Q1F report and concepts are at the top of this record. User considers J4 good overall and defers its fixes. No fully upright storage, loaded-row carrying or durability qualification. V1 shape/feel rejected; J2/K2/J3/K3 remain unprinted |
+| Final printable object | Accepted archive A/G baseline retained; TPU damping discontinued. Display remains Partial: J4 tilt and K4 one-ended joining unresolved | Archive A/G/I3 and J4 baseline; Q1F/Q1 exports and SVGs retained as history; G design also tried in TPU | Latest TPU rubbing/hood deformation report is at the top of this record. Q1F joining worked, but noise remained unacceptable. User defers J4/K4 fixes. No new fully upright storage, loaded-row carrying or durability qualification |
 
 ## Attribution
 
