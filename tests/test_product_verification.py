@@ -70,6 +70,23 @@ def test_derived_parent_and_explicit_architecture_non_applicability():
         Plan('x',(REQ,),SCOPE,non_applicable={REQ.id:''}).evaluate()
 
 
+def test_variant_non_applicability_cannot_hide_protected_user_intent_or_its_failure():
+    # The catalog is unchanged, so the intent audit alone cannot catch this.
+    protect_user_requirements((REQ,),(REQ,))
+    with pytest.raises(ValueError,match='cannot exclude user intent'):
+        Plan('replacement',(REQ,),SCOPE,retained=(ev('physical-failure',T.FAIL),),
+             non_applicable={REQ.id:'New architecture abandons the cover'}).evaluate()
+
+
+def test_derivations_cannot_circularly_supply_each_others_provenance():
+    a=D('a','A',('b',),'Claimed consequence',(Q('check','works'),))
+    b=D('b','B',('a',),'Claimed consequence',(Q('check','works'),))
+    with pytest.raises(ValueError,match='circular requirement derivation'):
+        Plan('x',(a,b),SCOPE).evaluate()
+    # A normal chain remains rooted in user intent without a new graph API.
+    Plan('x',(REQ,replace(a,parents=(REQ.id,)),b),SCOPE).evaluate()
+
+
 def test_one_traversal_many_targets_and_multiple_sources_no_overwrite():
     other=U('fixture.access','Access contents',S('README.md','User asks access'),(Q('path','clear path'),))
     targets=TARGET+(('fixture.access','path'),)

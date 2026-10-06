@@ -131,7 +131,9 @@ def test_all_tpu_history_remains_failed_noise_unknown_appearance_and_discontinue
         assert len(report['evidence'])==7
 
 
-@pytest.mark.parametrize('defect',['missing','stale','invalid','nonfinite','criterion-failed'])
+@pytest.mark.parametrize('defect',['missing','stale','invalid','nonfinite','criterion-failed',
+    'partial-checks','partial-inputs','wrong-container','wrong-record-container',
+    'wrong-screen-container','wrong-input-container','inconsistent-margin','inconsistent-minimum'])
 def test_plate_retained_evidence_missing_stale_invalid_and_failure_are_distinct(defect,tmp_path,monkeypatch):
     with product('book_reading_plate') as m:
         original=m.make_plan().evaluate(['plate.analytical'])
@@ -150,13 +152,29 @@ def test_plate_retained_evidence_missing_stale_invalid_and_failure_are_distinct(
             item=next(iter(record['checks'].values()))
             item['stress_MPa']=2*item['allowable_MPa'];item['margin']=.5;item['passes']=False
             record['minimum_margin']=.5
+        elif defect=='partial-checks':
+            record['checks']={'rear_net_section_bending':record['checks']['rear_net_section_bending']}
+        elif defect=='partial-inputs':
+            record['source_sha256']={'load_checks.py':record['source_sha256']['load_checks.py']}
+        elif defect=='wrong-container':
+            record['checks']=[]
+        elif defect=='wrong-record-container':
+            record=[]
+        elif defect=='wrong-screen-container':
+            record['checks']['rear_net_section_bending']=[]
+        elif defect=='wrong-input-container':
+            record['source_sha256']=[]
+        elif defect=='inconsistent-margin':
+            record['checks']['rear_net_section_bending']['margin']=2
+        elif defect=='inconsistent-minimum':
+            record['minimum_margin']=2
         if defect!='missing':
             (fake/'notes/load_checks.json').write_text(json.dumps(record))
         monkeypatch.setattr(m,'ROOT',fake)
         report=m.make_plan().evaluate(['plate.analytical'])
-        expected={'missing':'UNKNOWN','stale':'UNKNOWN','invalid':'INCONCLUSIVE',
-                  'nonfinite':'INCONCLUSIVE','criterion-failed':'FAIL'}[defect]
+        expected={'missing':'UNKNOWN','stale':'UNKNOWN','criterion-failed':'FAIL'}.get(defect,'INCONCLUSIVE')
         assert statuses(report,'plate.joint')['screen']==expected
+        assert statuses(report,'plate.use')['finish']==('UNKNOWN' if defect=='stale' else 'PASS')
 
 
 @pytest.mark.parametrize('variant',['q1','q1f'])
@@ -176,6 +194,22 @@ def test_actual_swatch_fixture_cannot_shrink_and_silently_qualify_fifteen_cards(
             lambda:card_checks(incomplete,[]),'check_quiet_q1.py',{'design':variant}).run()[0]
         assert evidence.status is Status.INCONCLUSIVE
         assert '15-card' in evidence.summary
+
+
+def test_broken_plate_coverage_configuration_fails_clearly(monkeypatch):
+    with product('book_reading_plate') as m:
+        inventory=m.ROOT/'notes/verification_sources.json'
+        original=Path.read_text
+        def invalid_config(path,*args,**kwargs):
+            text=original(path,*args,**kwargs)
+            if path==inventory:
+                record=json.loads(text)
+                record['analytical_coverage']['inputs']=[]
+                return json.dumps(record)
+            return text
+        monkeypatch.setattr(Path,'read_text',invalid_config)
+        with pytest.raises(ValueError,match='Invalid configured analytical coverage contract'):
+            m.make_plan().evaluate(['plate.analytical'])
 
 
 def test_quiet_composed_check_isolates_hood_failure_from_insert_capture(monkeypatch):
@@ -218,3 +252,96 @@ def test_quiet_landing_defect_cannot_falsely_fail_joining(monkeypatch):
         assert statuses(report,'swatch.landing-access')['roles']=='FAIL'
         assert statuses(report,'swatch.join')['geometry']=='PASS'
         assert statuses(report,'swatch.open')['path-retention']=='PASS'
+
+
+def test_sunglasses_rotation_alone_cannot_qualify_the_original_axial_retention(monkeypatch):
+    with product('sunglasses_case') as m:
+        import assembly_checks as a
+        data=a.load(verify=False)
+        # Real geometry preserving the rotational obstruction while removing
+        # its axial witness. A passing rotation must not hide that regression.
+        rotation=data['close'](data['loop'],179)
+        axial=data['close'](data['loop']).translate((0,0,.4))
+        keeper=data['keeper'].intersect(rotation).cut(axial)
+        assert keeper.val().isValid()
+        assert keeper.intersect(rotation).val().Volume()>.01
+        assert keeper.intersect(axial).val().Volume()==0
+        monkeypatch.setattr(a,'load',lambda **kwargs:{**data,'keeper':keeper})
+        report=m.make_plan().evaluate(['e.retention'])
+        assert statuses(report,'case.operation')['retention']=='FAIL'
+        assert 'axial lift' in next(e['summary'] for e in report['evidence'] if e['id']=='e.retention')
+
+
+def test_plate_crop_kernel_failure_is_inconclusive_without_suppressing_retained_answers(monkeypatch):
+    from types import SimpleNamespace
+    with product('book_reading_plate') as m:
+        import assembly_checks as a
+        class BadCrop:
+            def intersect(self,patch):
+                raise RuntimeError('kernel crop failed')
+        answer=SimpleNamespace(require_passed=lambda:SimpleNamespace(to_dict=lambda:{}))
+        config=SimpleNamespace(check=lambda *args:answer,shape=lambda name:BadCrop(),name='test')
+        monkeypatch.setattr(a,'build',lambda:None)
+        monkeypatch.setattr(a,'configuration',lambda parts:config)
+        report=m.make_plan().evaluate()
+        assert statuses(report,'plate.use')['assembly']=='INCONCLUSIVE'
+        assert statuses(report,'plate.joint')['screen']=='PASS'
+        assert statuses(report,'plate.use')['finish']=='PASS'
+
+
+def test_quiet_landing_crop_kernel_failure_does_not_abort_independent_joining(monkeypatch):
+    from types import SimpleNamespace
+    with product('filament_swatch_box_study') as m:
+        import check_quiet_q1 as shared
+        import quiet_assembly
+        import quiet_q1_flush as q
+        class BadCrop:
+            def intersect(self,patch):
+                raise ValueError('kernel crop failed')
+        candidate=SimpleNamespace(model=q,operating=lambda **kwargs:
+            SimpleNamespace(shape=lambda name:BadCrop()))
+        monkeypatch.setattr(quiet_assembly,'QuietAssembly',lambda model:candidate)
+        for fn in ('hood_checks','insert_checks','joining_checks'):
+            monkeypatch.setattr(shared,fn,lambda model,evidence:None)
+        report=m.make_plan('q1f').evaluate(['quiet.hood','quiet.join'])
+        assert statuses(report,'swatch.landing-access')['roles']=='INCONCLUSIVE'
+        assert statuses(report,'swatch.join')['geometry']=='PASS'
+
+
+@pytest.mark.parametrize('index,limit',[(0,.001),(1,.001),(2,1)])
+def test_sunglasses_closed_fit_keeps_strict_production_limits(index,limit,monkeypatch):
+    from types import SimpleNamespace
+    with product('sunglasses_case') as m:
+        import assembly_checks as a
+        calls=[]
+        def check(*args):
+            value=limit if len(calls)==index else 0
+            calls.append(value)
+            return SimpleNamespace(require_passed=lambda:SimpleNamespace(
+                to_dict=lambda:{'overlap_mm3':value,'status':'passed'}))
+        monkeypatch.setattr(a,'load',lambda **kwargs:{})
+        monkeypatch.setattr(a,'configuration',lambda data:SimpleNamespace(check=check))
+        report=m.make_plan().evaluate(['e.closed'])
+        assert statuses(report,'case.operation')['closed']=='FAIL'
+
+
+def test_quiet_installation_envelope_kernel_failure_isolates_its_obligation(monkeypatch):
+    from types import SimpleNamespace
+    with product('filament_swatch_box_study') as m:
+        import check_quiet_q1 as shared
+        import quiet_assembly
+        import quiet_q1_flush as q
+        candidate=SimpleNamespace(model=q,operating=lambda **kwargs:
+            SimpleNamespace(shape=lambda name:object()))
+        monkeypatch.setattr(quiet_assembly,'QuietAssembly',lambda model:candidate)
+        monkeypatch.setattr(shared,'sample_motion',lambda *args,**kwargs:
+            SimpleNamespace(require_passed=lambda:SimpleNamespace(to_dict=lambda:{})))
+        def invalid_envelopes(*args):
+            raise RuntimeError('installation crop failed')
+        monkeypatch.setattr(q,'installation_envelopes',invalid_envelopes)
+        for fn in ('hood_checks','landing_checks','joining_checks'):
+            monkeypatch.setattr(shared,fn,lambda model,evidence:None)
+        report=m.make_plan('q1f').evaluate(['quiet.hood','quiet.join'])
+        assert statuses(report,'swatch.insert-anchored')['capture']=='INCONCLUSIVE'
+        assert statuses(report,'swatch.open')['path-retention']=='PASS'
+        assert statuses(report,'swatch.join')['geometry']=='PASS'

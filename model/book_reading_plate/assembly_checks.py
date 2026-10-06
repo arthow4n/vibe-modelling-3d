@@ -4,6 +4,7 @@ from dataclasses import asdict
 import cadquery as cq
 import components as c
 from assembly_geometry import Configuration, PairRequirement, solve, rigid_location, check_pair
+from product_verification import CalculationInconclusive
 
 
 def build(p=c.P):
@@ -51,6 +52,19 @@ def print_jobs(parts, p=c.P):
     return jobs
 
 
+def seating_crop(shape, patch, label):
+    try:
+        cropped=shape.intersect(patch)
+        valid=cropped.isValid()
+        present=bool(cropped.Solids())
+    except (ValueError,RuntimeError) as exc:
+        raise CalculationInconclusive(f'{label}: {exc}') from exc
+    if not valid:
+        raise CalculationInconclusive(f'{label}: invalid seating crop')
+    assert present, f'{label}: required seating material absent'
+    return cropped
+
+
 def verify(config, p=c.P):
     free = PairRequirement('Assembled plate parts clear solids; seating contact allowed', max_overlap_mm3=1e-5)
     results = [config.check('left', 'right', free).require_passed().to_dict()]
@@ -62,7 +76,8 @@ def verify(config, p=c.P):
     for i, (x, y, z, lip) in enumerate(c.stations(p)):
         point = (x+10.8, p.split+p.lap_gap/2, z) if lip else (x+10.8, y, p.split+p.lap_gap/2)
         patch = cq.Workplane().box(.2, .2, .2).translate(point).val()
-        results.append(check_pair(left.intersect(patch), right.intersect(patch), contact,
+        results.append(check_pair(seating_crop(left,patch,f'left seat {i}'),
+            seating_crop(right,patch,f'right seat {i}'), contact,
             first=f'left/seat_{i}', second=f'right/seat_{i}', configuration=config.name).require_passed().to_dict())
     for screw in (n for n in config.names if n.startswith('screw_')):
         results.extend(config.check(screw, half, free).require_passed().to_dict() for half in ('left', 'right'))

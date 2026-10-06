@@ -42,12 +42,23 @@ def make_plan(variant='accepted-plate'):
             if not path.is_file():
                 return (Evidence('plate.analytical',(('plate.joint','screen'),),Status.UNKNOWN,
                     'Retained analytical record missing; no new solve launched','notes/load_checks.json',scope),)
+            inventory=json.loads((ROOT/'notes/verification_sources.json').read_text())
+            expected=inventory['analytical_coverage']
+            if any(not isinstance(expected[key],list) or not expected[key] or
+                   any(not isinstance(x,str) or not x for x in expected[key]) or
+                   len(set(expected[key]))!=len(expected[key]) for key in ('inputs','checks')):
+                raise ValueError('Invalid configured analytical coverage contract')
             try:
                 record=json.loads(path.read_text())
+                if not isinstance(record,dict):
+                    raise ValueError('Analytical record must be a mapping')
                 hashes=record['source_sha256']
+                if (not isinstance(hashes,dict) or set(hashes)!=set(expected['inputs']) or
+                        any(not isinstance(h,str) or len(h)!=64 or
+                            any(c not in '0123456789abcdef' for c in h) for h in hashes.values())):
+                    raise ValueError('Missing/invalid analytical input inventory')
                 inputs={n:ROOT/('notes/sections.json' if n=='sections.json' else n) for n in hashes}
-                reviewed=json.loads((ROOT/'notes/verification_sources.json').read_text()).get(
-                    'retained_analytical_source_associations',{})
+                reviewed=inventory.get('retained_analytical_source_associations',{})
                 def applicable(name,recorded):
                     if not inputs[name].is_file():
                         return False
@@ -61,15 +72,22 @@ def make_plan(variant='accepted-plate'):
                     status=Status.UNKNOWN
                     message='Retained analytical inputs changed; rerun existing measurement/arithmetic route when useful'
                 else:
-                    passes=[c['passes'] for c in record['checks'].values()]
-                    if (not passes or any(type(x) is not bool for x in passes) or
-                            not math.isfinite(record['minimum_margin'])):
-                        raise ValueError('Missing/invalid screening answers')
-                    for c in record['checks'].values():
-                        if (not all(math.isfinite(c[k]) for k in ('stress_MPa','allowable_MPa','margin')) or
-                                c['passes'] != (c['stress_MPa']<=c['allowable_MPa'])):
+                    screens=record['checks']
+                    if not isinstance(screens,dict) or set(screens)!=set(expected['checks']):
+                        raise ValueError('Incomplete analytical screen coverage')
+                    for c in screens.values():
+                        if (not isinstance(c,dict) or type(c['passes']) is not bool or
+                                any(type(c[k]) not in (int,float) or not math.isfinite(c[k])
+                                    for k in ('stress_MPa','allowable_MPa','margin')) or
+                                c['stress_MPa']<=0 or c['allowable_MPa']<=0 or c['margin']<=0 or
+                                c['passes'] != (c['stress_MPa']<=c['allowable_MPa']) or
+                                not math.isclose(c['margin'],c['allowable_MPa']/c['stress_MPa'])):
                             raise ValueError('Invalid or inconsistent analytical quantities')
-                    status=Status.PASS if all(passes) else Status.FAIL
+                    minimum=record['minimum_margin']
+                    if (type(minimum) not in (int,float) or not math.isfinite(minimum) or
+                            not math.isclose(minimum,min(c['margin'] for c in screens.values()))):
+                        raise ValueError('Invalid or inconsistent minimum margin')
+                    status=Status.PASS if all(c['passes'] for c in screens.values()) else Status.FAIL
                     message=f"Retained conditional screen; minimum margin {record['minimum_margin']:.3f}; no physical load qualification"
             except (KeyError, ValueError, TypeError) as exc:
                 status=Status.INCONCLUSIVE

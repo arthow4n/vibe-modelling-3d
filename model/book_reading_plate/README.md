@@ -170,7 +170,7 @@ The [reviewed intent/source inventory](notes/verification_sources.json) keeps
 physical association conservative; actual printed files/settings remain unknown.
 Geometry, exports, original numerical reports and print history are unchanged.
 
-Verification infrastructure contributor: GPT-6-based Codex; exact model variant/reasoning
+Initial verification infrastructure contributor: GPT-6-based Codex; exact model variant/reasoning
 effort not exposed; Codex shared-workspace API agent; OpenAI; no subagents. Historical
 product attribution above is preserved.
 
@@ -182,3 +182,11 @@ reasons are in the inventory; this narrow association preserves the historical
 screen without new measurement or solver work. Any later unmatched edit invalidates
 it. Numerical quality, physical acceptance and the original whole-L cross-check
 limitation remain distinct.
+
+The inventory also declares the existing four analytical input files and 23
+screen IDs. Partial records cannot silently weaken that set; malformed containers,
+inconsistent margins or missing screens report INCONCLUSIVE. Update this local
+coverage contract only when intentionally revising the producer's engineering
+questions. Known seating-crop kernel failures are INCONCLUSIVE; a successfully
+computed but absent required seating region is FAIL. Independent retained print
+and analytical evidence remain visible.

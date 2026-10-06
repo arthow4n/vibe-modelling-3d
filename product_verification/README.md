@@ -29,7 +29,7 @@ construction/program invariants can remain assertions without permanent IDs.
 - `UserRequirement`: user instruction or acceptance, with `UserSource(reference,
   statement)`. Do not manufacture user provenance from an agent's design rationale.
 - `DerivedRequirement`: declared parent requirement/evidence IDs and derivation.
-  Revise or retire it when that derivation/architecture changes. Decisions,
+  Circular parent chains are rejected. Revise or retire it when that derivation/architecture changes. Decisions,
   hypotheses and directives cannot be parents pretending to be engineering facts.
 - `DesignDecision`: challengeable implementation choice; separate from requirements.
 - `Hypothesis`: open assumption/possible cause, never physical evidence.
@@ -61,8 +61,10 @@ Do not update snapshots simply to make a failing candidate pass.
 `Plan` receives the complete product catalog, candidate scope, ordinary `Check`
 callables and retained `Evidence`. Every catalog obligation is reported even
 when no check is implemented or selected. Variant-specific derived requirements
-use `non_applicable={id: reason}`; N/A has no passing status. User intent must not
-be declared N/A just because a candidate cannot satisfy it.
+use `non_applicable={id: reason}`; N/A has no passing status. `Plan` rejects user
+requirements in that mapping: a candidate's architecture cannot exclude user
+intent. An explicit later user instruction may supersede/remove that intent
+through the provenance guard; preserve the earlier instruction in the object record.
 
 A callable may return several evidence records and cover multiple obligations.
 Several callables/sources can address one obligation. A declared check that returns
@@ -122,7 +124,11 @@ Conservative source invalidation may also trigger after harmless refactors: revi
 and explain evidence transfer rather than fabricate another physical test.
 
 The plate's adapter reads `notes/load_checks.json`, checks its existing input
-hashes and interprets its stored screens. Missing/stale evidence is UNKNOWN;
+hashes and interprets its stored screens. Its object-owned reviewed inventory
+names the complete expected input and screen sets; a received result cannot
+redefine its own coverage by omitting failed or missing screens. Malformed
+containers, inconsistent margins and partial records are INCONCLUSIVE. A broken
+configured coverage contract raises clearly. Missing/stale evidence is UNKNOWN;
 malformed attempted interpretation is INCONCLUSIVE. It launches no solver or
 arithmetic job. A conditional numerical screen does not establish physical load
 capacity, creep, print properties or a certified rating. Original numerical,
@@ -161,7 +167,7 @@ so JSON stdout remains parseable. Optional summary files are not result caches.
 | --- | --- |
 | Q1 / Q1F | Existing closed/card/hood/insert/landing/join groups extracted from `check_quiet_q1.py`; original `main()` still composes those groups and writes the established report. Q1F additionally calls its existing local connectivity/rim screens. A composed hood/insert/landing check returns independent evidence for separate requirements while sharing candidate geometry; joining includes independent opening in its own composite criterion. Physical Q1F joining PASS coexists with noise/coverage/fit FAIL; Q1 has no inferred print result. |
 | All-TPU G hood on Q1F | Retained noise FAIL and distorted-but-usable observation; appearance acceptance UNKNOWN, not invented rejection. No new material-qualified CAD/print/solver work. Layer-line explanation remains OPEN; damping stop remains INFO. |
-| Accepted sunglasses E full case | Existing closed, shell path, rotational obstruction and released-loop checks split into callable groups. Existing source cavity, component validity and keeper-capture assertions are callable; default model evaluation/export behavior is retained. D/E coupon PASS records stay scoped to samples; separate full-case PASS does not answer fatigue. |
+| Accepted sunglasses E full case | Existing closed, shell path, rotational/axial obstruction and released-loop checks split into callable groups. Production and product verification share both original retention witnesses. Existing source cavity, component validity, print-placement and keeper-capture assertions are callable; default model evaluation/export behavior is retained. D/E coupon PASS records stay scoped to samples; separate full-case PASS does not answer fatigue. |
 | Accepted threaded Vaseline pair | Existing helical path and axial obstruction functions; nominal requested envelope check; retained successful print report and wear UNKNOWN. No universal retention mechanism. |
 | Accepted book plate | Existing seating/clearance group, retained analytical input-bound screens and scoped user print result. Specific physical load and long-term creep remain UNKNOWN. |
 | Replacement fixtures | No candidate geometry or verifier; user obligations stay UNKNOWN. Obsolete keeper/insert requirements are explicitly N/A. These are qualification fixtures, not proposed product directions. |
@@ -195,9 +201,17 @@ printed fit. Missing/stale physical evidence remains missing. This structure
 protects intent and claims while leaving architecture, dimensions not explicitly
 required, mechanism choices and provisional assumptions open to challenge.
 
-Infrastructure attribution: GPT-6-based Codex; exact model variant and reasoning
+Initial infrastructure attribution: GPT-6-based Codex; exact model variant and reasoning
 effort not exposed; Codex shared-workspace API agent; OpenAI; no subagents.
 Historical product attribution is preserved in the owning records.
+
+Post-implementation corrections also include an independent Codex subagent code
+review, started with a fresh context containing the original objectives and
+preservation constraints without the implementer's conclusions. Primary correction
+author and reviewer: GPT-6-based Codex; exact model variant/reasoning effort not
+exposed; Codex shared-workspace API agents; OpenAI. Review covered code correctness
+and future maintenance; the corrective diff received follow-up review and focused
+regression qualification. This does not add product or physical qualification.
 
 Qualification found one pre-existing plate inventory mismatch: a builder docstring
 and measurement entry guard had changed since its analytical report. The object's

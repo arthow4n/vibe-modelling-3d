@@ -2,7 +2,7 @@
   "scope": "Source association reviewed during verification migration at 5479f3f; NOT actual printed file identity. Physical printer/material/profile/hash remain unknown where recorded. New geometry inputs require revisiting this inventory, not requalifying a print by editing hashes.",
   "source_sha256": {
     "e_closure.py": "1b0c1a608499716515ce870fc706aef6646cc5c62575d9490b74da7a649cd6e9",
-    "sunglasses_case.py": "c27998b46fb38316ae5a7ce6904b872ecb8a05d213cd6fbc47f1f5ef2509d98d"
+    "sunglasses_case.py": "a7ee35aede2c4c76910d9d6c9aca09aafdaef5167b5b8fbc8d2bda2f87688b4a"
   },
   "user_requirements": [
     {
@@ -60,5 +60,9 @@
         }
       ]
     }
-  ]
+  ],
+  "source_association_review": {
+    "previous_sunglasses_case_sha256": "c27998b46fb38316ae5a7ce6904b872ecb8a05d213cd6fbc47f1f5ef2509d98d",
+    "reason": "Post-review assertion extraction only: geometry builders and placements unchanged. Both original retention witnesses and print-placement checks are shared with the product runner; this source association does not add physical qualification."
+  }
 }

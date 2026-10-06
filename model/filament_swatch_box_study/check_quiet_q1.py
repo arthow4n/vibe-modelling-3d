@@ -20,13 +20,16 @@ ROOT=Path(__file__).parent
 EPS=1e-6
 
 
-def valid_boolean(operation, intent):
+def valid_boolean(operation, intent, *, require_solid=False):
     try:
         result=operation()
+        valid=result.isValid()
+        present=bool(result.Solids()) if require_solid else True
     except (ValueError, RuntimeError) as exc:
         raise CalculationInconclusive(f'{intent}: {exc}') from exc
-    if not result.isValid():
+    if not valid:
         raise CalculationInconclusive(f'{intent}: invalid Boolean result')
+    assert present, f'{intent}: required material region absent'
     return result
 
 
@@ -147,7 +150,8 @@ def hood_checks(model, evidence):
             patch=q.g.mirrored(q.block(q.CORE_X/2-.1,q.BEAD_TIP_X+.1,
                 y-q.BEAD_WIDTH/2+.2,y+q.BEAD_WIDTH/2-.2,
                 q.BEAD_BOTTOM-.1,q.BEAD_TOP+.1),side).val()
-            diaphragm=jacket.intersect(patch).translate((-side*.5,0,0))
+            diaphragm=valid_boolean(lambda:jacket.intersect(patch),
+                f'Diaphragm crop {y}/{side}',require_solid=True).translate((-side*.5,0,0))
             clear(diaphragm,base,'Prescribed inward diaphragm subset has backing space',
                   f'diaphragm_reference_{y}_{side}_inward_0_5_mm','base')
     print('Hood path and diaphragm room checks passed',flush=True,file=sys.stderr)
@@ -167,10 +171,13 @@ def insert_checks(model, evidence):
             samples=samples,transform=transform,parameter=name,units=units).require_passed().to_dict())
     # A pre-expanded rigid envelope answers geometric access, not elastic feasibility.
     expansion=1.035
-    if hasattr(q,'installation_envelopes'):
-        install=q.installation_envelopes(jacket,expansion)
-    else:
-        install=[('uniformly expanded sleeve',jacket.scale(expansion).translate((0,0,-q.FOOT_TOP*(expansion-1))))]
+    try:
+        if hasattr(q,'installation_envelopes'):
+            install=q.installation_envelopes(jacket,expansion)
+        else:
+            install=[('uniformly expanded sleeve',jacket.scale(expansion).translate((0,0,-q.FOOT_TOP*(expansion-1))))]
+    except (ValueError,RuntimeError) as exc:
+        raise CalculationInconclusive(f'Installation-envelope construction: {exc}') from exc
     for label,envelope in install:
         access=fixture(label,{'access_reference':envelope,'base':base})
         evidence.append(sample_motion(access,'access_reference','base',PairRequirement(
@@ -188,7 +195,8 @@ def landing_checks(model, evidence):
     pair,clear=pair_helpers(q,evidence)
     # Soft landing has real area under the hood; it is not a bounding-box claim.
     seat=q.block(-40,40,-30,30,q.FOOT_TOP,q.SEAT_TOP).val()
-    pair(hood.translate((0,0,-.02)),jacket.intersect(seat),'Downward hood rim meets TPU seating region',
+    seat_material=valid_boolean(lambda:jacket.intersect(seat),'TPU landing-seat crop',require_solid=True)
+    pair(hood.translate((0,0,-.02)),seat_material,'Downward hood rim meets TPU seating region',
          'hood_down_0_02_mm','insert_seat_reference',min_overlap_mm3=1e-4)
     for side in (-1,1):
         clear(q.finger(side).val(),hood,'Closed hood clears recessed opening grip',f'finger_reference_{side}','hood')
@@ -235,7 +243,9 @@ def joining_checks(model, evidence):
                 for ys in (-1,1):
                     xl,xh=sorted((xs*3,xs*9));yl,yh=sorted((ys*.01,ys*4))
                     patch=q.block(xl,xh,yl,yh,q.h.KEY_FLOOR_Z,q.h.KEY_TOP_Z+.1).val()
-                    pair(key,joined_bases.intersect(patch),f'{name}/{end}: required I3 head-flank capture',
+                    capture=valid_boolean(lambda:joined_bases.intersect(patch),
+                        f'{name}/{end}: I3 head-flank crop {xs}/{ys}',require_solid=True)
+                    pair(key,capture,f'{name}/{end}: required I3 head-flank capture',
                          'key',f'joined_capture_reference_{xs}_{ys}',min_overlap_mm3=1e-5)
     return {}
 

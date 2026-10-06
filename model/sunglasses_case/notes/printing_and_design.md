@@ -122,6 +122,14 @@ Default source validation/export behavior and geometry are retained. No new
 export/slice/solver work or physical result is implied. The retention strategy's
 thresholds/path belong to its checker, not permanent user requirements.
 
-Verification infrastructure contributor: GPT-6-based Codex; exact model variant/reasoning
+Initial verification infrastructure contributor: GPT-6-based Codex; exact model variant/reasoning
 effort not exposed; Codex shared-workspace API agent; OpenAI; no subagents. Historical
 product attribution above is preserved.
+
+Post-implementation review restored the original axial-lift retention witness
+alongside rotational obstruction in one shared production/product callable, and
+kept local print collision/envelope checks executable. A real keeper mutation
+that preserves rotational overlap but removes axial overlap now fails retention.
+This changes verification coverage only; builders, component placement and exports
+are unchanged. The inventory records the reviewed assertion-only source transfer;
+no new physical qualification is inferred.

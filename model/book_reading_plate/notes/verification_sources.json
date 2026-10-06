@@ -41,5 +41,39 @@
       "reviewed_current": "1e2af1a4bd16d26008ca713ffd4f89548535b90c3f77791a5bda710d9c3706af",
       "reason": "Reviewed git diff 653b9d4..5479f3f: add __main__/__cqgi__ entry guard only; measurement function and retained sections unchanged"
     }
+  },
+  "analytical_coverage": {
+    "inputs": [
+      "components.py",
+      "measure_structure.py",
+      "sections.json",
+      "load_checks.py"
+    ],
+    "checks": [
+      "rear_net_section_bending",
+      "front_net_section_bending",
+      "rear_lap_root_notch_screen",
+      "front_lap_root_notch_screen",
+      "rear_shoulder_bearing",
+      "front_shoulder_bearing",
+      "screw_combined_von_mises",
+      "screw_shear",
+      "conical_head_strip_bending",
+      "head_neck_net_axial",
+      "countersink_splitting_screen",
+      "head_annulus_bearing",
+      "male_thread_strip",
+      "female_thread_strip",
+      "rear_edge_tearout",
+      "front_edge_tearout",
+      "whole_plate_L_bending",
+      "whole_L_torsion",
+      "lap_L_torsion",
+      "rear_net_section_bending_with_torsion",
+      "rear_lap_root_notch_screen_with_torsion",
+      "front_net_section_bending_with_torsion",
+      "front_lap_root_notch_screen_with_torsion"
+    ],
+    "scope": "Reviewed complete conditional screen contract from the existing load_checks.py producer; compare against this inventory, never infer required coverage from a received result. Update only after reviewing intentional calculation-contract changes."
   }
 }

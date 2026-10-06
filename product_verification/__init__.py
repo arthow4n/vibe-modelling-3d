@@ -188,9 +188,27 @@ class Plan:
                     raise ValueError(f'{r.id}: derivation needs declared parents and rationale')
                 if any(isinstance(x, (DesignDecision, Hypothesis, Directive)) and x.id in r.parents for x in records):
                     raise ValueError('A decision, hypothesis or directive is not a requirement/evidence parent')
+        visiting, checked = set(), set()
+        def visit(rid):
+            if rid in visiting:
+                raise ValueError(f'{rid}: circular requirement derivation')
+            if rid in checked:
+                return
+            visiting.add(rid)
+            requirement=reqs[rid]
+            if isinstance(requirement,DerivedRequirement):
+                for parent in requirement.parents:
+                    if parent in reqs:
+                        visit(parent)
+            visiting.remove(rid)
+            checked.add(rid)
+        for rid in reqs:
+            visit(rid)
         for rid, reason in (self.non_applicable or {}).items():
             if rid not in reqs or not reason:
                 raise ValueError('Non-applicability needs a declared requirement and a reason')
+            if isinstance(reqs[rid], UserRequirement):
+                raise ValueError(f'{rid}: variant non-applicability cannot exclude user intent; explicit user supersession required')
         check_ids = [c.id for c in self.checks]
         if any(not id for id in check_ids) or len(set(check_ids)) != len(check_ids):
             raise ValueError('Duplicate check IDs')

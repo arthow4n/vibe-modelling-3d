@@ -21,7 +21,7 @@ REQUIREMENTS=(
        Q('use','Integrated case works satisfactorily in reported use','physical'))),
     D('case.geometry','Enclosure components are valid connected printable parts',('case.operation',),
       'Current separate physical components must be constructible before interpreting their interaction checks',
-      (Q('validity','Existing production component validity/connectivity assertions hold'),)),
+      (Q('validity','Existing production component validity/connectivity and local print-placement assertions hold'),)),
     D('case.keeper','Separate keeper remains geometrically captured',('case.operation',),
       'Only applies to separate inserted-keeper architecture; replace when architecture changes',
       (Q('capture','Original vertical/outward 0.4 mm keeper pulls meet body with >1 mm³ overlap'),)),
@@ -53,8 +53,12 @@ def make_plan(variant='accepted-e'):
         def dimensions():
             m=candidate()
             assert (m['INNER_LENGTH'],m['INNER_WIDTH'],m['INNER_HEIGHT'])==(158,78,63), 'User-confirmed dimensions changed'
+        def construction():
+            m=candidate()
+            m['verify_parts']()
+            m['verify_print_layout']()
         for id,targets,run,reference in (
-            ('case.validity',(('case.geometry','validity'),),lambda:candidate()['verify_parts'](),'sunglasses_case.py#verify_parts'),
+            ('case.validity',(('case.geometry','validity'),),construction,'sunglasses_case.py#verify_parts'),
             ('case.dimensions',(('case.cavity','dimensions'),),dimensions,'sunglasses_case.py'),
             ('case.cavity',(('case.cavity','empty'),),lambda:candidate()['verify_cavity'](),'sunglasses_case.py#verify_cavity'),
             ('e.closed',(('case.operation','closed'),),lambda:a.closed_checks(candidate()),'assembly_checks.py#closed_checks'),

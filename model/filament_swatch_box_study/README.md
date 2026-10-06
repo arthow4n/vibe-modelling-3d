@@ -1687,7 +1687,7 @@ Migration qualification reuses legacy outcomes and existing placement/negative
 checks, including wrong hood placement, missing beads and floating card. Geometry,
 print exports, historical computational/physical records and slicing are preserved.
 
-Verification infrastructure contributor: GPT-6-based Codex; exact model variant/reasoning
+Initial verification infrastructure contributor: GPT-6-based Codex; exact model variant/reasoning
 effort not exposed; Codex shared-workspace API agent; OpenAI; no subagents. Historical
 product attribution above is preserved.
 
@@ -1704,3 +1704,8 @@ cannot falsely fail joining. Joined opening belongs to the
 joining question, avoiding a redundant cross-target failure claim. The existing
 `main()` still composes the same operations into its established report. Historical
 reports retain their earlier checker identities and have not been overwritten.
+
+All consequential pre-pair crops now translate known Boolean kernel failures to
+INCONCLUSIVE instead of aborting independent requirements. Successfully computed
+but absent required diaphragm/landing/key-capture material is FAIL. Neither
+outcome changes the historical physical evidence or authorizes renewed development.

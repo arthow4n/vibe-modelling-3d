@@ -125,22 +125,37 @@ def verify_parts():
     for part in (body,open_lid,keeper):
         assert len(part.solids().vals())==1 and part.val().isValid(), 'invalid/disconnected part'
 
+def verify_print_layout():
+    answer=check_pair(body,open_lid,PairRequirement('Print components do not collide',max_overlap_mm3=.001)).require_passed()
+    assert answer.overlap_mm3<.001, 'print collision'
+    assert bb.xlen<260 and bb.ylen<260 and bb.zlen<250
+
+def verify_retention(loop_shape,keeper_shape):
+    checks=[]
+    for label,position in (
+            ('rotation before release',close(loop_shape,179)),
+            ('axial lift before release',close(loop_shape).translate((0,0,.4)))):
+        answer=check_pair(keeper_shape,position,PairRequirement(
+            'Keeper obstructs '+label,min_overlap_mm3=.01),
+            first='keeper',second='loop',configuration=label).require_passed()
+        assert answer.overlap_mm3>.01, label+' lacks required retention'
+        checks.append(answer.to_dict())
+    return checks
+
 def verify_product():
     verify_parts()
-    assert body.intersect(open_lid).val().Volume()<0.001, 'print collision'
+    verify_print_layout()
     assert body.intersect(lid).val().Volume()<0.001, 'closed shell collision'
     assert keeper.intersect(lid).val().Volume()<0.001, 'closed latch collision'
     assert fit_interference<1, ('excessive wedge interference',fit_interference)
     verify_cavity()
     for angle in range(0,181,5):
         assert body.intersect(close(lid_shell,angle)).val().Volume()<0.001, ('hinge/shell sweep',angle)
-    assert keeper.intersect(close(loop,179)).val().Volume()>0.01, 'no rotational retention'
-    assert keeper.intersect(close(loop).translate((0,0,0.4))).val().Volume()>0.01
+    verify_retention(loop,keeper)
     released=close(loop).translate((0,-closure.RELEASE_TRAVEL-0.3,0))
     for lift in (0,0.4,2,5,9):
         assert body.union(keeper).intersect(released.translate((0,0,lift))).val().Volume()<0.001, ('release',lift)
     verify_keeper_capture()
-    assert bb.xlen<260 and bb.ylen<260 and bb.zlen<250
 
 if globals().get('VERIFY', True):
     verify_product()

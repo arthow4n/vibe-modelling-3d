@@ -35,6 +35,8 @@ def closed_checks(m):
     # Intentional tapered keeper interference: accepted original upper bound.
     checks.append(closed.check('body', 'keeper', PairRequirement(
         'Accepted seated wedge interference stays below original bound', max_overlap_mm3=1)).require_passed().to_dict())
+    for answer,limit in zip(checks,(.001,.001,1)):
+        assert answer['overlap_mm3']<limit, ('Original strict closed-fit limit violated',answer)
     return checks
 
 
@@ -51,11 +53,7 @@ def hinge_checks(m):
 
 
 def retention_checks(m):
-    latch = Configuration.explicit(cq.Assembly(name='latch').add(m['loop'], name='loop',
-        loc=hinge_location(m, 179)).add(m['keeper'], name='keeper'), name='retained_at_179_deg')
-    answer=latch.check('loop', 'keeper', PairRequirement(
-        'Keeper must obstruct attempted rigid rotation before release', min_overlap_mm3=.01)).require_passed().to_dict()
-    return answer
+    return m['verify_retention'](m['loop'],m['keeper'])
 
 
 def release_checks(m):
@@ -70,7 +68,7 @@ def release_checks(m):
 
 
 def verify(m):
-    return dict(checks=closed_checks(m)+[retention_checks(m)],
+    return dict(checks=closed_checks(m)+retention_checks(m),
                 hinge=hinge_checks(m), release=release_checks(m))
 
 
