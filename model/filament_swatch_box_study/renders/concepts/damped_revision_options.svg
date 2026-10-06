@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1120" viewBox="0 0 1440 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Damped swatch box: three directions after the print report</title>
+  <desc id="desc">Three schematic concepts: reuse the existing G hood with a more complete captured base jacket; a new translucent PETG hood with a separately printed TPU lower collar; or a new clearance hood that engages soft pads only near its final dock. All retain a continuously covered base and mechanically located upper jacket. Quietness and fit are untested.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#b76a16"/></marker>
+    <pattern id="petg" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#fff"/><path d="M-2 2L2-2M0 10L10 0M8 12L12 8" stroke="#d1d8de" stroke-width="1"/></pattern>
+    <style>
+      text{font-family:DejaVu Sans,Arial,sans-serif;fill:#223341;font-size:17px}
+      .title{font-size:31px;font-weight:bold}.heading{font-size:23px;font-weight:bold}
+      .small{font-size:15px}.tiny{font-size:14px}.bold{font-weight:bold}
+      .muted{fill:#526571}.leader{fill:none;stroke:#657784;stroke-width:1.6}
+      .core{fill:url(#petg);stroke:#8b9ca7;stroke-width:2}
+      .soft{fill:#30343b;stroke:#202830;stroke-width:1.5}
+      .clear{fill:#dceef6;stroke:#5c91ae;stroke-width:2}
+      .contact{fill:#efa944;stroke:#a76518;stroke-width:1.2}
+    </style>
+  </defs>
+  <rect width="1440" height="1120" fill="#f3f6f8"/>
+  <text x="32" y="48" class="title">Damped swatch box — what should change next?</text>
+  <text x="32" y="80">Keep the working module connections. Improve coverage and upper fit; explore the remaining noise separately.</text>
+  <text x="32" y="108" class="small muted">Same drawing scale for the silhouettes • sections exaggerated • concepts only, no proven fit or acoustic result</text>
+
+  <!-- A: existing hood, more complete and better located base jacket -->
+  <g transform="translate(32 130)">
+    <rect width="448" height="912" rx="18" fill="#fff" stroke="#ccd6dd"/>
+    <circle cx="35" cy="36" r="17" fill="#287574"/><text x="29" y="42" style="fill:white;font-weight:bold">A</text>
+    <text x="64" y="44" class="heading">Keep the existing hood</text>
+    <text x="24" y="79" class="small">New base + full wall jacket; exact G hood.</text>
+    <text x="24" y="101" class="small muted">Lowest replacement cost / cosmetic and fit repair</text>
+    <rect x="136" y="131" width="178" height="260" rx="20" class="clear"/>
+    <rect x="158" y="270" width="134" height="111" rx="9" fill="#4b555e"/>
+    <rect x="190" y="176" width="18" height="194" rx="3" fill="#edcfc1" opacity=".62"/>
+    <rect x="211" y="181" width="18" height="189" rx="3" fill="#c4d6ce" opacity=".62"/>
+    <rect x="232" y="173" width="18" height="197" rx="3" fill="#e2d7bd" opacity=".62"/>
+    <path d="M154 278H294M154 370H294" stroke="#29333c" stroke-width="5"/>
+    <rect x="128" y="391" width="194" height="18" rx="5" class="core"/>
+    <text x="225" y="439" text-anchor="middle" class="small">Mostly translucent, existing silhouette</text>
+    <text x="24" y="478" class="bold">Wall section / intended contacts</text>
+    <path d="M98 523H146V546H138V560H146V703H98Z" class="core"/>
+    <path d="M130 509H164V703H151V552H139V549H151V520H130Z" class="soft"/>
+    <path d="M194 491H206V713H194V662H201V647H194Z" class="clear"/>
+    <path d="M164 650L198 653V658L164 662Z" class="contact"/>
+    <rect x="98" y="703" width="109" height="11" class="soft"/>
+    <rect x="89" y="714" width="126" height="19" rx="3" class="core"/>
+    <path d="M159 515H215" class="leader"/>
+    <text x="223" y="516" class="tiny">Capture the upper edge</text>
+    <text x="223" y="536" class="tiny muted">outside the card opening</text>
+    <path d="M177 582H215" class="leader"/>
+    <text x="223" y="583" class="tiny">Recess broad TPU panels</text>
+    <text x="223" y="603" class="tiny muted">avoid tall rubbing runners</text>
+    <path d="M184 655H215" class="leader"/>
+    <text x="223" y="656" class="tiny">Keep the G groove catch</text>
+    <text x="223" y="676" class="tiny muted">local diaphragm stays free</text>
+    <path d="M202 709H215" class="leader"/>
+    <text x="223" y="714" class="tiny">Soft final seat</text>
+    <text x="24" y="782" class="bold">What it changes</text>
+    <text x="24" y="811" class="small">Continuous black coverage; top + bottom location.</text>
+    <text x="24" y="834" class="small">Only base and jacket need replacing.</text>
+    <text x="24" y="868" class="small bold">Risk: old hood geometry limits contact changes.</text>
+    <text x="24" y="890" class="small muted">Quieter motion is a hypothesis, not a promise.</text>
+  </g>
+
+  <!-- B: assembled PETG / TPU hood, never a bonded multimaterial print -->
+  <g transform="translate(496 130)">
+    <rect width="448" height="912" rx="18" fill="#fff" stroke="#ccd6dd"/>
+    <circle cx="35" cy="36" r="17" fill="#287574"/><text x="29" y="42" style="fill:white;font-weight:bold">B</text>
+    <text x="64" y="44" class="heading">A two-piece soft-rim hood</text>
+    <text x="24" y="79" class="small">New PETG upper hood + separate TPU collar.</text>
+    <text x="24" y="101" class="small muted">Your hybrid-hood idea / assembled mechanically</text>
+    <rect x="136" y="131" width="178" height="260" rx="20" class="clear"/>
+    <rect x="158" y="270" width="134" height="111" rx="9" fill="#4b555e"/>
+    <rect x="190" y="176" width="18" height="194" rx="3" fill="#edcfc1" opacity=".62"/>
+    <rect x="211" y="181" width="18" height="189" rx="3" fill="#c4d6ce" opacity=".62"/>
+    <rect x="232" y="173" width="18" height="197" rx="3" fill="#e2d7bd" opacity=".62"/>
+    <path d="M136 344H314V381Q314 391 302 391H148Q136 391 136 381Z" class="soft"/>
+    <path d="M143 344H307" stroke="#68747e" stroke-width="2"/>
+    <rect x="128" y="391" width="194" height="18" rx="5" class="core"/>
+    <text x="225" y="439" text-anchor="middle" class="small">Short opaque collar; keep most of the window</text>
+    <text x="24" y="478" class="bold">Wall section / intended contacts</text>
+    <path d="M98 523H146V546H138V560H146V703H98Z" class="core"/>
+    <path d="M130 509H164V703H151V552H139V549H151V520H130Z" class="soft"/>
+    <path d="M193 491H205V636H209V645H187V636H193Z" class="clear"/>
+    <path d="M182 629H189V648H209V629H216V710H193V660H182Z" class="soft"/>
+    <path d="M164 694L192 697V704H164Z" class="contact"/>
+    <rect x="98" y="704" width="119" height="10" class="soft"/>
+    <rect x="89" y="714" width="135" height="19" rx="3" class="core"/>
+    <path d="M205 531H225" class="leader"/>
+    <text x="233" y="532" class="tiny">Translucent PETG upper</text>
+    <text x="233" y="552" class="tiny muted">still a rigid shell</text>
+    <path d="M212 642H225" class="leader"/>
+    <text x="233" y="641" class="tiny">TPU hooks over a ledge</text>
+    <text x="233" y="661" class="tiny muted">no adhesive / no fusion</text>
+    <path d="M213 699H225" class="leader"/>
+    <text x="233" y="703" class="tiny">Short terminal contacts</text>
+    <text x="233" y="723" class="tiny muted">leave clearance in travel</text>
+    <text x="24" y="782" class="bold">What it changes</text>
+    <text x="24" y="811" class="small">One more part; soft grip and landing rim.</text>
+    <text x="24" y="834" class="small">Captive collar may alter the hood's vibration.</text>
+    <text x="24" y="868" class="small bold">Risk: soft-on-soft rubbing can still be noisy.</text>
+    <text x="24" y="890" class="small muted">Collar retention and key captivity need checking.</text>
+  </g>
+
+  <!-- C: change contact architecture, rather than only the sliding material -->
+  <g transform="translate(960 130)">
+    <rect width="448" height="912" rx="18" fill="#fff" stroke="#ccd6dd"/>
+    <circle cx="35" cy="36" r="17" fill="#287574"/><text x="29" y="42" style="fill:white;font-weight:bold">C</text>
+    <text x="64" y="44" class="heading">Clear travel, short soft dock</text>
+    <text x="24" y="79" class="small">New PETG hood + captured full wall jacket.</text>
+    <text x="24" y="101" class="small muted">Change where contact happens / strongest noise idea</text>
+    <rect x="136" y="131" width="178" height="260" rx="20" class="clear"/>
+    <rect x="158" y="270" width="134" height="111" rx="9" fill="#4b555e"/>
+    <rect x="190" y="176" width="18" height="194" rx="3" fill="#edcfc1" opacity=".62"/>
+    <rect x="211" y="181" width="18" height="189" rx="3" fill="#c4d6ce" opacity=".62"/>
+    <rect x="232" y="173" width="18" height="197" rx="3" fill="#e2d7bd" opacity=".62"/>
+    <rect x="133" y="383" width="184" height="8" rx="3" class="soft"/>
+    <rect x="128" y="391" width="194" height="18" rx="5" class="core"/>
+    <text x="225" y="439" text-anchor="middle" class="small">Mostly translucent; small deliberate dark seam</text>
+    <text x="24" y="478" class="bold">Wall section / intended contacts</text>
+    <path d="M98 523H146V546H138V560H146V703H98Z" class="core"/>
+    <path d="M130 509H164V703H151V552H139V549H151V520H130Z" class="soft"/>
+    <path d="M194 491H206V713H189V703L194 690Z" class="clear"/>
+    <path d="M164 690L193 697L190 704H164Z" class="contact"/>
+    <rect x="98" y="704" width="109" height="10" class="soft"/>
+    <rect x="89" y="714" width="126" height="19" rx="3" class="core"/>
+    <path d="M177 560H215" class="leader"/>
+    <text x="223" y="563" class="tiny">Clearance over the walls</text>
+    <text x="223" y="583" class="tiny muted">hand guides initial approach</text>
+    <path d="M183 697H215" class="leader"/>
+    <text x="223" y="688" class="tiny">Short tapered soft pads</text>
+    <text x="223" y="708" class="tiny muted">locate + retain near the seat</text>
+    <text x="24" y="782" class="bold">What it changes</text>
+    <text x="24" y="811" class="small">Remove tall guides; confine contacts to the dock.</text>
+    <text x="24" y="834" class="small">Separate final alignment, retention and soft landing.</text>
+    <text x="24" y="868" class="small bold">Risk: more freedom before docking; edge knocks.</text>
+    <text x="24" y="890" class="small muted">New hood; loaded lifting is not yet qualified.</text>
+  </g>
+  <rect x="32" y="1061" width="20" height="16" fill="#dceef6" stroke="#5c91ae"/><text x="61" y="1075" class="small">PETG hood</text>
+  <rect x="212" y="1061" width="20" height="16" fill="url(#petg)" stroke="#8b9ca7"/><text x="241" y="1075" class="small">PETG core / foot</text>
+  <rect x="426" y="1061" width="20" height="16" fill="#30343b"/><text x="455" y="1075" class="small">TPU 95A</text>
+  <rect x="585" y="1061" width="20" height="16" class="contact"/><text x="614" y="1075" class="small">Intended local soft contact</text>
+  <text x="32" y="1104" class="small muted">All TPU/PETG parts printed separately. Existing module envelope and I3 key routes are targets, not qualified outcomes.</text>
+</svg>

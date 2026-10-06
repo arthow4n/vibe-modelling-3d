@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Continuous jacket coverage and mechanical attachment details</title>
+  <desc id="desc">End-wall sketches contrast the reported exposed PETG and thin connecting band with a continuous TPU skin around an open joining-key route. Enlarged sections show proposed upper and lower jacket capture outside the card pocket and a separate TPU collar mechanically attached to a new PETG hood. All details are schematic and unqualified.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#b76a16"/></marker>
+    <pattern id="petg" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#fff"/><path d="M0 10L10 0" stroke="#d1d8de"/></pattern>
+    <style>
+      text{font-family:DejaVu Sans,Arial,sans-serif;fill:#223341;font-size:17px}
+      .title{font-size:31px;font-weight:bold}.heading{font-size:23px;font-weight:bold}
+      .small{font-size:15px}.tiny{font-size:14px}.bold{font-weight:bold}.muted{fill:#526571}
+      .leader{fill:none;stroke:#657784;stroke-width:1.6}
+      .core{fill:url(#petg);stroke:#8b9ca7;stroke-width:2}.soft{fill:#30343b;stroke:#202830;stroke-width:1.5}
+      .clear{fill:#dceef6;stroke:#5c91ae;stroke-width:2}
+      .route{fill:none;stroke:#b76a16;stroke-width:2.5;stroke-dasharray:7 5}
+    </style>
+  </defs>
+  <rect width="1440" height="1000" fill="#f3f6f8"/>
+  <text x="32" y="48" class="title">Connect the jacket into the walls — and locate its upper edge</text>
+  <text x="32" y="80">Colour contrast is deliberate here: white PETG core, black TPU. Required access stays open.</text>
+  <text x="32" y="108" class="small muted">End-wall views and enlarged sections are schematic, not manufacturing drawings. No clearances are assigned yet.</text>
+
+  <g transform="translate(32 132)">
+    <rect width="680" height="346" rx="16" fill="#fff" stroke="#ccd6dd"/>
+    <text x="24" y="39" class="heading">Reported appearance / current compromise</text>
+    <rect x="70" y="92" width="360" height="172" rx="18" class="core"/>
+    <path d="M70 110Q70 92 89 92H175V247H70ZM325 92H411Q430 92 430 110V247H325Z" class="soft"/>
+    <rect x="151" y="243" width="198" height="12" rx="3" class="soft"/>
+    <rect x="217" y="90" width="66" height="102" fill="#fff" stroke="#8b9ca7" stroke-width="2"/>
+    <path d="M226 70V165" class="route" marker-end="url(#arrow)"/>
+    <path d="M284 150H444" class="leader"/><text x="453" y="153" class="small">Key opening</text>
+    <path d="M346 219H444" class="leader"/><text x="453" y="219" class="small">Exposed white zones</text>
+    <path d="M348 249H444" class="leader"/><text x="453" y="251" class="small">Narrow connecting band</text>
+    <text x="24" y="301" class="small">One connected TPU solid can still look like separate panels.</text>
+    <text x="24" y="324" class="small muted">Abstracts the Q1F report; exact printed dimensions are unmeasured.</text>
+  </g>
+
+  <g transform="translate(728 132)">
+    <rect width="680" height="346" rx="16" fill="#fff" stroke="#ccd6dd"/>
+    <text x="24" y="39" class="heading">Proposed: one continuous exterior skin</text>
+    <path d="M70 110Q70 92 89 92H211V198H289V92H411Q430 92 430 110V264H70Z" class="soft"/>
+    <path d="M84 250H415" stroke="#606a74" stroke-width="2"/>
+    <path d="M226 70V170" class="route" marker-end="url(#arrow)"/>
+    <path d="M294 136H443" class="leader"/><text x="452" y="130" class="small">Open key route</text>
+    <text x="452" y="150" class="small muted">skin wraps its edges</text>
+    <path d="M388 215H443" class="leader"/><text x="452" y="211" class="small">Walls join the lower</text>
+    <text x="452" y="231" class="small">return / seat directly</text>
+    <text x="24" y="301" class="small">Keep rigid key stops under the skin; no bridge across entry.</text>
+    <text x="24" y="324" class="small muted">Grip recesses also stay usable. Avoid random exposed PETG patches.</text>
+  </g>
+
+  <g transform="translate(32 496)">
+    <rect width="680" height="440" rx="16" fill="#fff" stroke="#ccd6dd"/>
+    <text x="24" y="39" class="heading">A / B / C: locate the jacket at two heights</text>
+    <text x="24" y="65" class="small muted">Section through a wall, away from the key opening</text>
+    <path d="M118 126H248V145H234V163H248V333H118Z" class="core"/>
+    <path d="M224 108H281V333H264V142H240V160H233V143H263V121H224Z" class="soft"/>
+    <rect x="312" y="92" width="14" height="245" rx="3" class="clear"/>
+    <path d="M235 281H248V300H235" fill="#fff" stroke="#8b9ca7" stroke-width="2"/>
+    <path d="M263 283H243V296H263Z" class="soft"/>
+    <rect x="118" y="333" width="211" height="13" class="soft"/>
+    <rect x="107" y="346" width="232" height="21" rx="4" class="core"/>
+    <path d="M73 206H111" class="leader"/>
+    <text x="24" y="188" class="tiny">Card pocket</text>
+    <text x="24" y="225" class="tiny muted">leave clear</text>
+    <path d="M275 117H355" class="leader"/>
+    <text x="365" y="118" class="small">Upper return captures a ledge</text>
+    <text x="365" y="141" class="small muted">peel/stretch to install or remove</text>
+    <path d="M291 198H355" class="leader"/>
+    <text x="365" y="199" class="small">Hood clearance is separate</text>
+    <text x="365" y="222" class="small muted">from jacket-to-base tightness</text>
+    <path d="M270 290H355" class="leader"/>
+    <text x="365" y="289" class="small">Retain the lower anchor</text>
+    <text x="365" y="312" class="small muted">do not clamp flexible catch zones</text>
+    <text x="24" y="401" class="small">Upper capture is interrupted at access openings, not over the cards.</text>
+    <text x="24" y="423" class="small muted">Wall budget, installation effort and creep still need qualification.</text>
+  </g>
+
+  <g transform="translate(728 496)">
+    <rect width="680" height="440" rx="16" fill="#fff" stroke="#ccd6dd"/>
+    <text x="24" y="39" class="heading">B: a separate collar hooks onto a new hood</text>
+    <text x="24" y="65" class="small muted">Enlarged section of the proposed PETG / TPU joint</text>
+    <path d="M201 96H226V215H235V229H193V215H201Z" class="clear"/>
+    <path d="M182 207H194V232H235V207H248V347H225V249H204V347H182Z" class="soft"/>
+    <path d="M231 138H355" class="leader"/>
+    <text x="365" y="136" class="small">Translucent PETG shell</text>
+    <text x="365" y="159" class="small muted">new retaining ledge at the rim</text>
+    <path d="M245 230H355" class="leader"/>
+    <text x="365" y="230" class="small">TPU returns behind the ledge</text>
+    <text x="365" y="253" class="small muted">mechanical capture, not bonding</text>
+    <path d="M244 317H355" class="leader"/>
+    <text x="365" y="317" class="small">Opaque collar, separately printed</text>
+    <text x="365" y="340" class="small muted">start short; no need for half a hood</text>
+    <path d="M152 280V237" stroke="#b76a16" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="24" y="304" class="tiny">Stretch over rim</text>
+    <text x="24" y="327" class="tiny muted">then seat behind ledge</text>
+    <text x="24" y="401" class="small">Collar must resist peeling off during opening and keep the key captive.</text>
+    <text x="24" y="423" class="small muted">No retrofit of the unmodified G hood is claimed for this joint.</text>
+  </g>
+  <text x="32" y="969" class="small muted">Sketches show intent, not validated contact profiles. Print TPU and PETG separately; no glue, fused print or extra hardware assumed.</text>
+</svg>
