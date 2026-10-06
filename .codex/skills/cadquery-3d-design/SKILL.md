@@ -78,6 +78,8 @@ and retire architecture-specific derivations when appropriate. Agent choices are
 challengeable, while historical physical evidence retains its scope. Simple
 products can keep adequate local checks. The object record still owns nuanced
 intent, hypotheses and project-state decisions.
+Select a declared variant explicitly and inspect JSON outcomes, not exit-code
+categories; the convention documents the minimal CLI and how to retrieve choices.
 
 ## Build and review against intent
 

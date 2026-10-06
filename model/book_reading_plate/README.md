@@ -154,8 +154,9 @@ its task and capture limits are explicit.
 
 [verification.py](verification.py) composes existing seating/clearance checks,
 input-bound retained analytical screens and the reported complete print result.
-Run `./execute.py --threads 1 model/book_reading_plate/verification.py`; `--json`
-and `--check plate.analytical` are available. [Shared contract](../../product_verification/README.md).
+Run `./execute.py --threads 1 model/book_reading_plate/verification.py --variant accepted-plate`;
+stdout is JSON; `--check plate.analytical` focuses retained screens.
+[Shared contract](../../product_verification/README.md).
 
 `plate.use` records user acceptance; `plate.joint` derives the need for a working
 load path. Four screws, current dimensions and provisional load/material/preload

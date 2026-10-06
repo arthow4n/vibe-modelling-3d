@@ -3,10 +3,13 @@
 No discovery, execution scheduling, identity/cache, geometry or promotion gates.
 """
 from dataclasses import asdict, dataclass
+from contextlib import redirect_stdout
 from enum import StrEnum
 import argparse
 import json
 from pathlib import Path
+import sys
+import traceback
 from typing import Callable, Iterable
 
 
@@ -304,23 +307,88 @@ def human_report(report):
     return '\n'.join(lines)
 
 
-def cli(make_plan, variants):
-    parser = argparse.ArgumentParser(description='Declared product verification; no global product score')
-    parser.add_argument('--variant', choices=variants, default=variants[0])
-    parser.add_argument('--check', action='append', help='Focus a check ID; all requirements remain visible')
-    parser.add_argument('--json', action='store_true', help='Print machine-readable summary')
-    parser.add_argument('--output', type=Path, help='Optional summary file; no underlying traces copied')
-    args = parser.parse_args()
-    report = make_plan(args.variant).evaluate(args.check)
-    encoded = json.dumps(report, indent=2)+'\n'
-    if args.output:
-        args.output.write_text(encoded)
-    print(encoded if args.json else human_report(report))
-    # Mixed/unknown evidence is normal exploration. Codes are report triage,
-    # not promotion gates: 1 criterion failure, 2 unresolved, 0 all obligations
-    # answered. Directives remain authoritative scope information, never scored.
-    statuses = {q['status'] for r in report['requirements'] for q in r['questions'] if q['status']}
-    return 1 if 'FAIL' in statuses else 2 if statuses & {'UNKNOWN', 'INCONCLUSIVE'} else 0
+class _CLIArgumentError(ValueError):
+    pass
+
+
+class _JSONArgumentParser(argparse.ArgumentParser):
+    def error(self, message):
+        # argparse's normal error/help exits would bypass the JSON protocol.
+        raise _CLIArgumentError(message)
+
+
+def cli(make_plan, variants, *, argv=None):
+    """One JSON envelope on stdout; 0/1 are coarse command signals only.
+
+    Fatal runner errors remain errors, never synthetic requirement outcomes.
+    Python progress/debug prints go to stderr. Variant selection is explicit;
+    help lists declared choices without executing their checks.
+    """
+    args = argparse.Namespace(variant=None, check=None, help=False)
+    result = dict(schema_version=1, variant=args.variant, selected_checks=None,
+                  available_variants=[], available_checks=None,
+                  exit_reason=None, error=None, report=None, help=None)
+    stage = 'arguments'
+    try:
+        variants = tuple(variants)
+        if not variants or any(not isinstance(v,str) or not v for v in variants):
+            raise ValueError('Declared variant names must be nonempty strings')
+        result['available_variants'] = list(variants)
+        parser = _JSONArgumentParser(add_help=False, allow_abbrev=False,
+            usage='%(prog)s --variant VARIANT [--check ID] | --help',
+            description='Declared product verification; JSON stdout, no global product score')
+        parser.add_argument('--variant', metavar='{' + ','.join(variants) + '}',
+                            help='Required candidate variant; listed in available_variants')
+        parser.add_argument('--check', action='append', help='Focus a check ID; all requirements remain visible')
+        parser.add_argument('-h', '--help', action='store_true', help='Return usage in the JSON help field')
+        with redirect_stdout(sys.stderr):
+            parser.parse_args(argv, namespace=args)
+            plan = None
+            if args.variant is not None:
+                if args.variant not in variants:
+                    raise _CLIArgumentError(f'Unknown variant {args.variant!r}; choose from {variants}')
+                stage = 'planning'
+                plan = make_plan(args.variant)
+                checks = [c.id for c in plan.checks]
+                if any(not isinstance(id,str) or not id for id in checks):
+                    raise ValueError('Declared check IDs must be nonempty strings')
+                result['available_checks'] = checks
+            if args.help:
+                if plan is not None:
+                    plan.validate()
+                result['help'] = parser.format_help()
+                result['exit_reason'] = 'help_requested'
+            else:
+                if plan is None:
+                    raise _CLIArgumentError('--variant is required; choose from available_variants')
+                stage = 'selection'
+                unknown = set(args.check or ()) - set(result['available_checks'])
+                if unknown:
+                    raise _CLIArgumentError(f'Unknown check IDs {sorted(unknown)}; choose from available_checks')
+                stage = 'verification'
+                report = plan.evaluate(args.check)
+                statuses = {q['status'] for r in report['requirements'] for q in r['questions'] if q['status']}
+                result['report'] = report
+                result['exit_reason'] = ('criterion_failed' if 'FAIL' in statuses else
+                    'unresolved_evidence' if statuses & {'UNKNOWN', 'INCONCLUSIVE'} else 'verification_complete')
+    except (Exception, KeyboardInterrupt, SystemExit) as exc:
+        result['exit_reason'] = ('argument_error' if isinstance(exc, _CLIArgumentError) else
+                                'interrupted' if isinstance(exc, KeyboardInterrupt) else 'execution_error')
+        result['error'] = dict(type=type(exc).__name__, message=str(exc), stage=stage)
+        if not isinstance(exc, (_CLIArgumentError, KeyboardInterrupt)):
+            traceback.print_exc(file=sys.stderr)
+    result['variant'], result['selected_checks'] = args.variant, args.check
+    try:
+        encoded = json.dumps(result, indent=2, allow_nan=False)+'\n'
+    except (TypeError, ValueError, RecursionError) as exc:
+        # An invalid report cannot be represented as trustworthy JSON evidence.
+        result.update(exit_reason='report_error', report=None,
+                      error=dict(type=type(exc).__name__, message=str(exc), stage='serialization'))
+        encoded = json.dumps(result, indent=2, allow_nan=False)+'\n'
+    print(encoded, end='')
+    # Inspect exit_reason/error/report for distinctions. This is command triage,
+    # not product readiness: unresolved evidence and criterion failures both use 1.
+    return 0 if result['exit_reason'] in ('verification_complete', 'help_requested') else 1
 
 
 def recorded_design_scope(root, inventory='notes/verification_sources.json'):

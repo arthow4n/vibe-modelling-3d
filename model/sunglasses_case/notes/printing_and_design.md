@@ -105,8 +105,9 @@ its task and capture limits are explicit.
 [verification.py](../verification.py) runs the existing case checks as independent
 callable groups: component validity, requested cavity, closed fit, shell-only
 hinge path, retention, prescribed release and keeper capture. Run
-`./execute.py --threads 1 model/sunglasses_case/verification.py`; add `--json` or
-`--check e.retention` for a compact/focused report. [Shared semantics](../../../product_verification/README.md).
+`./execute.py --threads 1 model/sunglasses_case/verification.py --variant accepted-e`;
+stdout is JSON; `--check e.retention` focuses retention.
+[Shared semantics](../../../product_verification/README.md).
 
 User-intent IDs `case.cavity` and `case.operation` distinguish the explicitly
 confirmed interior from satisfactory use. E is a challengeable implementation

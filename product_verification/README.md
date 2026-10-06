@@ -141,25 +141,57 @@ From the repository root:
 ```sh
 ./execute.py --threads 2 model/filament_swatch_box_study/verification.py --variant q1f
 ./execute.py --threads 2 model/filament_swatch_box_study/verification.py --variant q1
-./execute.py --threads 1 model/sunglasses_case/verification.py
-./execute.py --threads 1 model/vaseline_container/verification.py
-./execute.py --threads 1 model/book_reading_plate/verification.py
-./execute.py --threads 1 model/sunglasses_case/verification.py --check e.retention --json
-./execute.py model/sunglasses_case/verification.py --variant replacement-fixture --json
+./execute.py --threads 1 model/sunglasses_case/verification.py --variant accepted-e
+./execute.py --threads 1 model/vaseline_container/verification.py --variant accepted-thread
+./execute.py --threads 1 model/book_reading_plate/verification.py --variant accepted-plate
+./execute.py model/sunglasses_case/verification.py --help
+./execute.py model/sunglasses_case/verification.py --variant accepted-e --help
+./execute.py --threads 1 model/sunglasses_case/verification.py --variant accepted-e --check e.retention
+./execute.py model/sunglasses_case/verification.py --variant replacement-fixture > /tmp/case-verification.json
 ```
 
-Each prints a compact human report; `--json` prints the same structured information.
-`--output PATH` optionally saves the summary (parent directory must exist).
-Focused `--check ID` is repeatable; omitted computation remains visible as UNKNOWN,
-not inferred from old successes. Run each variant to compare the same stable IDs.
-Exit codes are triage: **1** any applicable FAIL, **2** unresolved evidence, **0**
-all declared obligations answered. These are not readiness gates. A historical
-Q1F run properly exits 1; a successfully printed case still exits 2 for durability.
+The verification CLI has only required `--variant`, optional repeatable `--check`
+for focused iteration, and `--help`. There is no implicit variant selection and
+no output/format flags. Generic help returns `available_variants`; variant help
+also returns the plan's declared `available_checks` without running them. Use those
+names, rather than guessing arguments. Omitted checks remain visibly UNKNOWN.
+The shared execution wrapper's own options are unchanged.
+
+Stdout is one JSON envelope for results, help, invalid arguments, interrupted
+checks and fatal runner errors. Progress and exception diagnostics go to stderr.
+Redirect stdout to save a receipt. The envelope always contains `schema_version`,
+`variant`, `selected_checks`, `available_variants`, `available_checks`, `exit_reason`,
+`error`, `report` and `help`. `report` contains the unchanged detailed verification
+record, or null when no trustworthy report was produced. `error` contains exception
+type, message and stage, or null; fatal program/configuration errors are not
+manufactured requirement FAIL/INCONCLUSIVE results. Invalid/nonfinite JSON data
+produces `report_error` with a null report. Direct Python APIs still raise program
+errors; translation happens only at the CLI boundary. Interpreter startup failure
+or external termination before that boundary cannot produce a CLI receipt.
+
+Shell codes are **0** or **1** only. Read `exit_reason` and the per-question results
+to distinguish outcomes; never infer failure type from the code:
+
+| `exit_reason` | Meaning |
+| --- | --- |
+| `verification_complete` | All declared applicable obligations answered; exit 0 |
+| `criterion_failed` | Applicable evidence includes FAIL; exit 1 |
+| `unresolved_evidence` | UNKNOWN/INCONCLUSIVE remain without FAIL; exit 1 |
+| `argument_error` | Missing/invalid variant or check selection; exit 1 |
+| `execution_error` | Fatal programming/configuration error or unexpected checker exit; exit 1 |
+| `report_error` | Report could not be encoded as valid JSON; exit 1 |
+| `interrupted` | Verification interrupted; exit 1 |
+| `help_requested` | Usage/declared choices returned without checks; exit 0 |
+
+These are command outcomes, not product readiness or a qualification score.
+Q1F's physical failures and the accepted case's unknown durability both exit 1;
+their JSON preserves the difference. `human_report(envelope['report'])` remains
+available as a Python formatter for a completed report.
 Exploratory geometry is allowed under any outcome. Directives remain authoritative:
 these commands do not authorize reopening damping work or recommending a print.
 No detailed MotionResult/solver trace is duplicated by default; linked existing
-checks/native records own their diagnostics. The Q1 groups send progress to stderr,
-so JSON stdout remains parseable. Optional summary files are not result caches.
+checks/native records own their diagnostics. Python checker/factory output is
+redirected to stderr, preserving JSON stdout. Saved receipts are not result caches.
 
 ## Migrated consumers and deliberate exclusions
 
@@ -193,6 +225,9 @@ compare Q1/Q1F retained legacy outcomes, reuse their placement/print-selection
 qualification and preserve the wrong-hood, missing-bead and floating-card mutations.
 Accepted STEP/STL bytes are fingerprinted; no exports, slices or solvers are rerun.
 Existing assembly regressions remain applicable.
+[CLI tests](../tests/test_product_verification_cli.py) qualify the uniform JSON
+envelope, explicit choice communication, binary exit codes, mixed evidence,
+argument/runtime errors, interruptions and invalid serialization without CAD work.
 
 Coverage is only as complete as the declared catalog and truthful scopes. A nominal
 parameter check is not an independent geometric dimension audit; sampled motion

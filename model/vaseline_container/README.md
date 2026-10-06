@@ -63,8 +63,8 @@ its task and capture limits are explicit.
 
 [verification.py](verification.py) adopts the existing helical-withdrawal and
 axial-retention checks, requested nominal envelope and scoped successful print
-report. Run `./execute.py --threads 1 model/vaseline_container/verification.py`;
-use `--json` or `--check thread.retention` during iteration.
+report. Run `./execute.py --threads 1 model/vaseline_container/verification.py --variant accepted-thread`;
+stdout is JSON; `--check thread.retention` focuses retention during iteration.
 [Shared contract](../../product_verification/README.md).
 
 `jar.envelope` retains the requested 50 × 25 mm envelope; `jar.use` retains

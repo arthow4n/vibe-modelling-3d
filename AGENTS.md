@@ -79,6 +79,8 @@ evidence, not automatically a permanent user constraint. Simple objects may keep
 adequate local checks without framework ceremony. Human object records remain
 authoritative for nuanced intent/history; preserve recorded user intent before
 changing a verification plan. No product score or automatic promotion gate.
+Read the CLI's JSON outcomes and declared choices; exit codes only signal coarse
+success/failure. Select the variant explicitly rather than relying on defaults.
 
 ## Shared engineering execution
 

@@ -1662,7 +1662,7 @@ its task and capture limits are explicit.
 [verification.py](verification.py) composes the existing shared closed/card/hood/
 insert/landing/joining groups and Q1F-local insert screens. Run `./execute.py --threads 2
 model/filament_swatch_box_study/verification.py --variant q1f` (or `q1`).
-`--json` provides a compact structured report; `--check quiet.hood` focuses a group
+Stdout is always JSON; `--check quiet.hood` focuses a group
 while leaving other obligations visible. See the [shared contract](../../product_verification/README.md).
 
 Stable user-intent IDs: `swatch.storage`, `swatch.open`, `swatch.join`,
