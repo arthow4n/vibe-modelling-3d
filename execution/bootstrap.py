@@ -3,8 +3,19 @@ import fcntl
 import hashlib
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
+
+
+def _uv_binary():
+    candidate = shutil.which('uv')
+    if candidate:
+        return candidate
+    for extra in (Path.home()/'.local/bin/uv', Path.home()/'.cargo/bin/uv'):
+        if extra.is_file() and os.access(extra, os.X_OK):
+            return str(extra)
+    return 'uv'
 
 
 def ensure():
@@ -17,7 +28,7 @@ def ensure():
         marker=state/'environment.identity'
         if not python.exists() or not marker.exists() or marker.read_text()!=identity:
             with (state/'environment-sync.log').open('w') as log:
-                result=subprocess.run(['uv','sync','--locked'],cwd=root,stdout=log,stderr=subprocess.STDOUT)
+                result=subprocess.run([_uv_binary(),'sync','--locked'],cwd=root,stdout=log,stderr=subprocess.STDOUT)
             if result.returncode:
                 raise RuntimeError('uv sync failed; inspect .execution/environment-sync.log')
             marker.write_text(identity)
