@@ -6,7 +6,7 @@
     {
       "name": "part",
       "geometry": "part_0.brep",
-      "sha256": "8b2d9fd386c89224d92d0cef3da8025b0081a9b0ff3fcda535de7f4ddf2d043e",
+      "sha256": "cb4d024a49aec99061e885a190e6c78b15b901e053d24b1f9304e9d2bbfef6e5",
       "material": {
         "name": "PETG screening assumption",
         "youngs_modulus_MPa": 1200,

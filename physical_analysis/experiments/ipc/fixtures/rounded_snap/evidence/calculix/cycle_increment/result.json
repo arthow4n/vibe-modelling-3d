@@ -3590,10 +3590,10 @@
     "backend": "CalculiX",
     "version": "unknown",
     "gmsh": "4.15.2",
-    "cadquery": "2.7.0",
+    "cadquery": "2.8.0",
     "python": "3.12.14",
     "input_sha256": "3cc5933bb9cd1496681b18cfed4d3bf2de5ef5fc3bfd5b68773a3369ed33ac5c",
-    "case_sha256": "b5ca502e649eb1238b789daba336ea69a2b6eb22b6138d7e6d3d817cfede1bad",
+    "case_sha256": "b1fda100f39f50c31e17a36f0f7954ffc6e7d63a0cc1c969d7098896a7b05957",
     "backend_sha256": {
       "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
       "mesh.py": "76e5dce0426281d886e2f060ac91c0fdcc0301e45c824e21f67cb1da7627402e",

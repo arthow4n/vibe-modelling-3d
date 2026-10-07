@@ -6,7 +6,7 @@
     {
       "name": "arm",
       "geometry": "part_0.brep",
-      "sha256": "7093f5b9cfde23f1da5c3a05af5f9e780498d8b77d6f88e1c32ee11b53e8e21d",
+      "sha256": "287e50b01a3e8978317e6c91540898f8e957aa73f74fdd44cca101ed852328b4",
       "material": {
         "name": "uncalibrated solid PETG",
         "youngs_modulus_MPa": 1200,

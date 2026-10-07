@@ -607,10 +607,10 @@
     "backend": "CalculiX",
     "version": "unknown",
     "gmsh": "4.15.2",
-    "cadquery": "2.7.0",
+    "cadquery": "2.8.0",
     "python": "3.12.14",
     "input_sha256": "fe69672983aa85c243c1bb1d494ab52ed46d96c17b49302ec08917205091def7",
-    "case_sha256": "ab9173f56f380347556184562319384b2bd9504aaa0194eef96020dd5de8ec94",
+    "case_sha256": "9ef6dd56af23219cc81c1b203dc13a78e75fbe075044b000c1298edf07081e11",
     "backend_sha256": {
       "febio_worker.py": "e21170224b7292f877ae7bfba4040cc260d5ec1b003682fdce1e9293ca4c0de6",
       "contact_diagnostics.py": "2f708d98921416d255b35d05dbe09d5009b117b0f3c301d84f0ffbd2956c0b36",

@@ -1830,10 +1830,10 @@
     "backend": "CalculiX",
     "version": "unknown",
     "gmsh": "4.15.2",
-    "cadquery": "2.7.0",
+    "cadquery": "2.8.0",
     "python": "3.12.14",
     "input_sha256": "d2cf52ba368f029fe3d52329b2173b3e4bd40aa30543867e336c9381b4818aae",
-    "case_sha256": "808af7417e0375deada59f5c816ae4f89b1cb6f6dcd012a1ac27e0539fc50041",
+    "case_sha256": "626682072e72c8e046e93586bfc48ce441a0459cedfc8b1539c760027b58a3a9",
     "backend_sha256": {
       "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
       "mesh.py": "4619ca7aa33caec0cac5efcc48fdd9fdc991c97f783b33145c6c5ec4aa3db13c",

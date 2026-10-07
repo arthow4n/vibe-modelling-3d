@@ -6,7 +6,7 @@
     {
       "name": "structure",
       "geometry": "part_0.brep",
-      "sha256": "543dacceffd5e76a295ee2bf6b12a41cfcd4a825d03482333dbebbf39c4aa804",
+      "sha256": "35245e1b99800e595bc4616bc28c55756879a67267c27f9459946b9a77ed2c28",
       "material": {
         "name": "PETG solid assumption",
         "youngs_modulus_MPa": 800.0,
