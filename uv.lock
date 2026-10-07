@@ -925,18 +925,18 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "cadquery", specifier = ">=2.7,<2.8" },
-    { name = "cairosvg", specifier = ">=2.8,<3" },
+    { name = "cairosvg", specifier = ">=2.9,<3" },
     { name = "gmsh", specifier = ">=4.15,<4.16" },
-    { name = "opentelemetry-exporter-otlp-proto-common", specifier = ">=1.40,<2" },
-    { name = "opentelemetry-sdk", specifier = ">=1.40,<2" },
-    { name = "psutil", specifier = ">=7,<8" },
-    { name = "threadpoolctl", specifier = ">=3.6,<4" },
+    { name = "opentelemetry-exporter-otlp-proto-common", specifier = ">=1.45,<2" },
+    { name = "opentelemetry-sdk", specifier = ">=1.45,<2" },
+    { name = "psutil", specifier = ">=7.2,<8" },
+    { name = "threadpoolctl", specifier = ">=3.7,<4" },
 ]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "matplotlib", specifier = ">=3.10,<4" },
-    { name = "pytest", specifier = ">=9,<10" },
+    { name = "matplotlib", specifier = ">=3.11,<4" },
+    { name = "pytest", specifier = ">=9.1,<10" },
 ]
 
 [[package]]

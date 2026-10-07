@@ -5,22 +5,22 @@ description = "Repository tools for parametric 3D modelling"
 requires-python = ">=3.13,<3.14"
 dependencies = [
     "cadquery>=2.7,<2.8",
-    "cairosvg>=2.8,<3",
+    "cairosvg>=2.9,<3",
     "gmsh>=4.15,<4.16",
-    "opentelemetry-exporter-otlp-proto-common>=1.40,<2",
-    "opentelemetry-sdk>=1.40,<2",
-    "psutil>=7,<8",
-    "threadpoolctl>=3.6,<4",
+    "opentelemetry-exporter-otlp-proto-common>=1.45,<2",
+    "opentelemetry-sdk>=1.45,<2",
+    "psutil>=7.2,<8",
+    "threadpoolctl>=3.7,<4",
 ]
 
 [dependency-groups]
 dev = [
-    "matplotlib>=3.10,<4",
-    "pytest>=9,<10",
+    "matplotlib>=3.11,<4",
+    "pytest>=9.1,<10",
 ]
 
 [build-system]
-requires = ["hatchling>=1.27,<2"]
+requires = ["hatchling>=1.32,<2"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
