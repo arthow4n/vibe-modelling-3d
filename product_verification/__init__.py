@@ -32,9 +32,12 @@ class UserSource:
 
 @dataclass(frozen=True)
 class Question:
+    """Challengeable engineering obligation supporting one declared requirement."""
     id: str
+    requirement_id: str
     criterion: str
     mode: str
+    rationale: str = ''
 
     def __post_init__(self):
         if not isinstance(self.mode, str) or not self.mode.strip():
@@ -43,23 +46,27 @@ class Question:
 
 @dataclass(frozen=True)
 class UserRequirement:
+    """Protected externally established intent, independent of how it is verified."""
     id: str
     text: str
     source: UserSource
-    questions: tuple[Question, ...]
+    acceptance_criteria: tuple[str, ...] = ()
 
     def __post_init__(self):
         if not isinstance(self.source, UserSource):
             raise TypeError('UserRequirement needs explicit UserSource; decisions are not provenance')
+        if (not isinstance(self.acceptance_criteria, tuple) or
+                any(not isinstance(c, str) or not c.strip() for c in self.acceptance_criteria)):
+            raise ValueError('User acceptance criteria must be explicit nonempty strings')
 
 
 @dataclass(frozen=True)
 class DerivedRequirement:
+    """Engineering consequence that may retire with its originating architecture."""
     id: str
     text: str
     parents: tuple[str, ...]
     rationale: str
-    questions: tuple[Question, ...]
 
 
 @dataclass(frozen=True)
@@ -140,10 +147,11 @@ def engineering_evidence(id, targets, answer, reference, scope):
 
 
 def protect_user_requirements(previous, current, *, changes=None):
-    """Review-time comparison: IDs, provenance and criteria cannot silently drift.
+    """Review-time comparison: user IDs, meaning, provenance and criteria are protected.
 
-    Explicit later user instructions authorize supersession/removal. Wording may
-    improve freely. This is an audit helper, not security against editing Python.
+    Explicit later user instructions authorize supersession/removal. Text is the
+    protected meaning; engineering questions are outside this audit. This is an
+    audit helper, not security against editing Python.
     """
     changes = changes or {}
     now = {r.id: r for r in current}
@@ -152,7 +160,8 @@ def protect_user_requirements(previous, current, *, changes=None):
             continue
         new = now.get(old.id)
         if (not isinstance(new, UserRequirement) or
-                new.source != old.source or new.questions != old.questions):
+                new.source != old.source or new.text != old.text or
+                new.acceptance_criteria != old.acceptance_criteria):
             if not isinstance(changes.get(old.id), UserSource):
                 raise ValueError(f'{old.id}: user instruction required to change/remove/reclassify intent')
 
@@ -168,6 +177,7 @@ class Plan:
     decisions: tuple[DesignDecision, ...] = ()
     hypotheses: tuple[Hypothesis, ...] = ()
     directives: tuple[Directive, ...] = ()
+    questions: tuple[Question, ...] = ()
 
     def validate(self):
         if not self.variant or not self.scope:
@@ -187,14 +197,17 @@ class Plan:
         for r in self.requirements:
             if type(r) not in (UserRequirement, DerivedRequirement):
                 raise TypeError('Requirements must carry user or derived provenance')
-            if (not r.questions or any(not q.id or not q.criterion or not q.mode for q in r.questions) or
-                    len({q.id for q in r.questions}) != len(r.questions)):
-                raise ValueError(f'{r.id}: nonempty unique questions required')
             if isinstance(r, DerivedRequirement):
                 if not r.parents or r.id in r.parents or not r.rationale or any(p not in {*ids, *(e.id for e in self.retained)} for p in r.parents):
                     raise ValueError(f'{r.id}: derivation needs declared parents and rationale')
                 if any(isinstance(x, (DesignDecision, Hypothesis, Directive)) and x.id in r.parents for x in records):
                     raise ValueError('A decision, hypothesis or directive is not a requirement/evidence parent')
+        targets = [(q.requirement_id, q.id) for q in self.questions]
+        if len(set(targets)) != len(targets):
+            raise ValueError('Question IDs must be unique within their parent requirement')
+        for q in self.questions:
+            if not q.id or not q.criterion or q.requirement_id not in reqs:
+                raise ValueError('Question needs a nonempty ID, criterion and declared parent requirement')
         visiting, checked = set(), set()
         def visit(rid):
             if rid in visiting:
@@ -225,7 +238,7 @@ class Plan:
             self.validate_evidence(e)
 
     def validate_targets(self, targets):
-        known = {(r.id, q.id) for r in self.requirements for q in r.questions}
+        known = {(q.requirement_id, q.id) for q in self.questions}
         if not targets or any(t not in known for t in targets):
             raise ValueError(f'Undeclared/empty evidence targets: {targets}')
 
@@ -254,7 +267,9 @@ class Plan:
         for r in self.requirements:
             reason = (self.non_applicable or {}).get(r.id)
             questions = []
-            for q in r.questions:
+            for q in self.questions:
+                if q.requirement_id != r.id:
+                    continue
                 target = (r.id, q.id)
                 related = [e for e in evidence if target in e.targets]
                 applicable = [e for e in related if all(k in self.scope and self.scope[k] == v for k, v in e.scope.items())]
@@ -263,7 +278,7 @@ class Plan:
                 # coexist. Contradiction/failure cannot be overwritten by PASS.
                 status = next((s for s in (Status.FAIL, Status.INCONCLUSIVE, Status.UNKNOWN, Status.PASS)
                                if s in statuses), Status.UNKNOWN)
-                questions.append(dict(id=q.id, criterion=q.criterion, mode=q.mode,
+                questions.append(dict(id=q.id, criterion=q.criterion, mode=q.mode, rationale=q.rationale,
                     status=None if reason else status.value,
                     coverage=('non_applicable' if reason else 'evidence' if applicable else 'uncovered'),
                     strategies=[c.id for c in self.checks if target in c.targets],
@@ -273,7 +288,10 @@ class Plan:
                 kind='user' if isinstance(r, UserRequirement) else 'derived',
                 provenance=asdict(r.source) if isinstance(r, UserRequirement) else
                     dict(parents=r.parents, rationale=r.rationale),
-                non_applicable=reason, questions=questions))
+                non_applicable=reason, questions=questions,
+                acceptance_criteria=r.acceptance_criteria if isinstance(r, UserRequirement) else (),
+                coverage=('non_applicable' if reason else 'evidence' if questions and
+                          all(q['coverage'] == 'evidence' for q in questions) else 'uncovered')))
         return dict(variant=self.variant, scope=self.scope, focused=selected is not None,
                     requirements=rows, evidence=[asdict(e) for e in evidence],
                     decisions=[asdict(x) for x in self.decisions],
@@ -294,6 +312,8 @@ def human_report(report):
             if r['non_applicable']:
                 lines.append(f"  N/A {r['id']}: {r['non_applicable']}")
             else:
+                if not r['questions']:
+                    lines.append(f"  UNKNOWN {r['id']} [uncovered]: no engineering obligations declared")
                 for q in r['questions']:
                     lines.append(f"  {q['status']} {r['id']}/{q['id']} [{q['mode']}, {q['coverage']}]: {q['criterion']}")
                     if q['out_of_scope']:
@@ -374,6 +394,8 @@ def cli(make_plan, variants, *, argv=None):
                 stage = 'verification'
                 report = plan.evaluate(args.check)
                 statuses = {q['status'] for r in report['requirements'] for q in r['questions'] if q['status']}
+                if any(not r['non_applicable'] and not r['questions'] for r in report['requirements']):
+                    statuses.add('UNKNOWN')
                 result['report'] = report
                 result['exit_reason'] = ('criterion_failed' if 'FAIL' in statuses else
                     'unresolved_evidence' if statuses & {'UNKNOWN', 'INCONCLUSIVE'} else 'verification_complete')
@@ -419,5 +441,5 @@ def protect_recorded_intent(root, current, *, changes=None):
     """
     record = json.loads((root/'notes/verification_sources.json').read_text())
     previous = tuple(UserRequirement(x['id'], x['text'], UserSource(**x['source']),
-        tuple(Question(**q) for q in x['questions'])) for x in record['user_requirements'])
+        tuple(x['acceptance_criteria'])) for x in record['user_requirements'])
     protect_user_requirements(previous,current,changes=changes)

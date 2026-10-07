@@ -10,24 +10,30 @@ RECORD='notes/printing_and_design.md'
 REQUIREMENTS=(
     U('case.cavity','Provide the user-confirmed 158 × 78 × 63 mm rounded interior',
       S(RECORD+'#confirmed-dimensions-and-physical-feedback','User explicitly confirmed reduced interior, superseding earlier approximate measurements'),
-      (Q('dimensions','Nominal interior is 158 × 78 × 63 mm; rounded corners are part of its definition', mode='CAD'),
-       Q('empty','Enclosure and mechanism leave the requested rounded cavity empty', mode='CAD'),)),
+      acceptance_criteria=('Nominal interior is 158 × 78 × 63 mm.',)),
     U('case.operation','Case closes, retains and deliberately opens satisfactorily',
-      S(RECORD+'#physical-print-status','D/E samples satisfactory; user printed current reduced integrated case and reports it works really well'),
-      (Q('closed','Closed components satisfy their declared clearance/contact roles', mode='CAD'),
-       Q('path','Declared opening path clears the enclosure; proxy exclusions remain explicit', mode='CAD'),
-       Q('retention','Declared retention geometry obstructs unintended opening; holding force remains physical', mode='CAD'),
-       Q('release','Declared intentional release path clears; actuation force remains physical', mode='CAD'),
-       Q('use','Integrated case works satisfactorily in reported use','physical'))),
+      S(RECORD+'#physical-print-status','D/E samples satisfactory; user printed current reduced integrated case and reports it works really well')),
     D('case.geometry','Enclosure components are valid connected printable parts',('case.operation',),
-      'Current separate physical components must be constructible before interpreting their interaction checks',
-      (Q('validity','Existing production component validity/connectivity and local print-placement assertions hold', mode='CAD'),)),
+      'Current separate physical components must be constructible before interpreting their interaction checks'),
     D('case.keeper','Separate keeper remains geometrically captured',('case.operation',),
-      'Only applies to separate inserted-keeper architecture; replace when architecture changes',
-      (Q('capture','Original vertical/outward 0.4 mm keeper pulls meet body with >1 mm³ overlap', mode='CAD'),)),
+      'Only applies to separate inserted-keeper architecture; replace when architecture changes'),
     D('case.durability','Operation remains satisfactory after fatigue/backpack use',('case.operation',),
-      'Repeated use can change closure/hinge function; no quantified lifespan was specified',
-      (Q('life','Long-term fatigue and backpack durability require a defined physical trial','physical'),)),
+      'Repeated use can change closure/hinge function; no quantified lifespan was specified'),
+)
+
+
+# Current engineering decomposition; replace as the architecture changes.
+QUESTIONS=(
+    Q('dimensions', 'case.cavity', 'Nominal interior is 158 × 78 × 63 mm; rounded corners are part of its definition', mode='CAD'),
+    Q('empty', 'case.cavity', 'Enclosure and mechanism leave the requested rounded cavity empty', mode='CAD'),
+    Q('closed', 'case.operation', 'Closed components satisfy their declared clearance/contact roles', mode='CAD'),
+    Q('path', 'case.operation', 'Declared opening path clears the enclosure; proxy exclusions remain explicit', mode='CAD'),
+    Q('retention', 'case.operation', 'Declared retention geometry obstructs unintended opening; holding force remains physical', mode='CAD'),
+    Q('release', 'case.operation', 'Declared intentional release path clears; actuation force remains physical', mode='CAD'),
+    Q('use', 'case.operation', 'Integrated case works satisfactorily in reported use', 'physical'),
+    Q('validity', 'case.geometry', 'Existing production component validity/connectivity and local print-placement assertions hold', mode='CAD'),
+    Q('capture', 'case.keeper', 'Original vertical/outward 0.4 mm keeper pulls meet body with >1 mm³ overlap', mode='CAD'),
+    Q('life', 'case.durability', 'Long-term fatigue and backpack durability require a defined physical trial', 'physical'),
 )
 
 
@@ -69,6 +75,7 @@ def make_plan(variant):
             checks.append(assertion_check(id,targets,run,reference,scope))
     return Plan(variant,REQUIREMENTS,scope,tuple(checks),retained,
         {'case.keeper':'Replacement declares no separate keeper'} if variant=='replacement-fixture' else {},
+        questions=QUESTIONS,
         decisions=(DesignDecision('case.e-choice','E mechanism is preferred tested implementation, not a permanent user requirement; alternatives leave behind its physical qualification',RECORD+'#e-mechanism-integration'),),
         hypotheses=(Hypothesis('case.process','PETG and saved profile are intended printing assumptions; actual full-print settings are not calibrated evidence',RECORD+'#printing-and-assembly'),))
 

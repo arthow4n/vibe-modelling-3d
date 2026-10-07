@@ -345,3 +345,41 @@ def test_quiet_installation_envelope_kernel_failure_isolates_its_obligation(monk
         assert statuses(report,'swatch.insert-anchored')['capture']=='INCONCLUSIVE'
         assert statuses(report,'swatch.open')['path-retention']=='PASS'
         assert statuses(report,'swatch.join')['geometry']=='PASS'
+
+
+@pytest.mark.parametrize('name,rid',[
+    ('sunglasses_case','case.operation'),
+    ('vaseline_container','jar.use'),
+    ('book_reading_plate','plate.use'),
+    ('filament_swatch_box_study','swatch.open')])
+def test_real_consumer_intent_audit_allows_new_decomposition_and_exposes_no_coverage(name,rid):
+    from dataclasses import replace
+    from product_verification import Question, protect_recorded_intent
+    with product(name) as m:
+        plan=m.make_plan('replacement-fixture')
+        changed=replace(plan,questions=(Question('new-strategy',rid,
+            'Replacement architecture needs its own evidence','CAD'),),
+            checks=(),retained=())
+        protect_recorded_intent(m.ROOT,changed.requirements)
+        report=changed.evaluate()
+        assert statuses(report,rid)=={'new-strategy':'UNKNOWN'}
+        empty=replace(changed,questions=()).evaluate()
+        assert all(r['coverage']=='uncovered' for r in empty['requirements'] if r['kind']=='user')
+        inventory=json.loads((m.ROOT/'notes/verification_sources.json').read_text())
+        assert all('questions' not in r for r in inventory['user_requirements'])
+
+
+@pytest.mark.parametrize('name,rid',[
+    ('sunglasses_case','case.cavity'),
+    ('vaseline_container','jar.envelope'),
+    ('filament_swatch_box_study','swatch.storage')])
+def test_real_user_numerical_intent_cannot_be_removed_from_audit(name,rid):
+    from dataclasses import replace
+    from product_verification import protect_recorded_intent
+    with product(name) as m:
+        requirement=next(r for r in m.REQUIREMENTS if r.id==rid)
+        assert requirement.acceptance_criteria
+        current=tuple(replace(r,acceptance_criteria=()) if r.id==rid else r
+                      for r in m.REQUIREMENTS)
+        with pytest.raises(ValueError,match='user instruction'):
+            protect_recorded_intent(m.ROOT,current)

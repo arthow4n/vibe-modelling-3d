@@ -1691,7 +1691,8 @@ Initial verification infrastructure contributor: GPT-6-based Codex; exact model 
 effort not exposed; Codex shared-workspace API agent; OpenAI; no subagents. Historical
 product attribution above is preserved.
 
-The protected seating question explicitly names the required 15-card fixture.
+Protected storage intent names the 15-card collection; its current engineering
+seating question requires that full fixture.
 A smaller source-card population now makes the attempted storage check
 INCONCLUSIVE before geometry traversal: a partial fixture cannot qualify the
 full collection. This is a verification-input defect, not an inferred physical

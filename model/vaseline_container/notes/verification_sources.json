@@ -11,12 +11,8 @@
         "reference": "README.md#decisions-and-evidence",
         "statement": "Requested 25 mm is assembled height; 50 mm diameter envelope"
       },
-      "questions": [
-        {
-          "id": "dimensions",
-          "criterion": "Declared diameter/closed height remain 50/25 mm; scallops are cut inward",
-          "mode": "CAD"
-        }
+      "acceptance_criteria": [
+        "50 mm diameter envelope \u00d7 25 mm assembled height."
       ]
     },
     {
@@ -26,28 +22,7 @@
         "reference": "README.md#physical-print-status",
         "statement": "User printed delivered full pair and reports it was good"
       },
-      "questions": [
-        {
-          "id": "path",
-          "criterion": "Declared opening path clears forbidden solid obstruction (sampled CAD only)",
-          "mode": "CAD"
-        },
-        {
-          "id": "retention",
-          "criterion": "Declared retention geometry obstructs unintended removal; holding force remains physical",
-          "mode": "CAD"
-        },
-        {
-          "id": "print-use",
-          "criterion": "Delivered full pair has a satisfactory reported print result",
-          "mode": "physical"
-        },
-        {
-          "id": "handling",
-          "criterion": "Actual opening/closing effort and retention need specific use observations",
-          "mode": "physical"
-        }
-      ]
+      "acceptance_criteria": []
     }
   ]
 }

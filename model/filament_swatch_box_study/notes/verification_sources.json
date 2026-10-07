@@ -27,17 +27,8 @@
         "reference": "README.md#quiet-tpu-revision--q1f-with-the-accepted-exterior-2026-10-05",
         "statement": "Accepted archive A capacity/pocket retained for this storage trial"
       },
-      "questions": [
-        {
-          "id": "seating",
-          "criterion": "Required 15-card fixture clears enclosure and seats on actual floor; existing entry/extraction paths clear",
-          "mode": "CAD"
-        },
-        {
-          "id": "use",
-          "criterion": "Loaded collection stays stored during reported cover handling",
-          "mode": "physical"
-        }
+      "acceptance_criteria": [
+        "Store the accepted 15-card collection."
       ]
     },
     {
@@ -47,23 +38,7 @@
         "reference": "README.md#quiet-tpu-revision--q1f-with-the-accepted-exterior-2026-10-05",
         "statement": "Established archive closure/opening task"
       },
-      "questions": [
-        {
-          "id": "closed",
-          "criterion": "Nominal assembly clears forbidden overlaps",
-          "mode": "CAD"
-        },
-        {
-          "id": "path-retention",
-          "criterion": "Existing sampled opening paths clear rigid parts and meet declared retention material",
-          "mode": "CAD"
-        },
-        {
-          "id": "effort",
-          "criterion": "Comfortable deliberate opening and no unintended removal in actual use",
-          "mode": "physical"
-        }
-      ]
+      "acceptance_criteria": []
     },
     {
       "id": "swatch.join",
@@ -72,18 +47,7 @@
         "reference": "README.md#damped-prototype-print-feedback-and-svg-exploration-2026-10-06",
         "statement": "User reports successful Q1F module connections; preserve working joining"
       },
-      "questions": [
-        {
-          "id": "geometry",
-          "criterion": "Declared joining/capture and independent opening work at both ends against named neighbours",
-          "mode": "CAD"
-        },
-        {
-          "id": "use",
-          "criterion": "Module connections work in reported use",
-          "mode": "physical"
-        }
-      ]
+      "acceptance_criteria": []
     },
     {
       "id": "swatch.quiet",
@@ -92,13 +56,7 @@
         "reference": "README.md#tpu-damping-discontinued-2026-10-06",
         "statement": "User says remaining sound exceeds acceptable level"
       },
-      "questions": [
-        {
-          "id": "sound",
-          "criterion": "User finds sound acceptable",
-          "mode": "subjective"
-        }
-      ]
+      "acceptance_criteria": []
     },
     {
       "id": "swatch.appearance",
@@ -107,13 +65,7 @@
         "reference": "README.md#damped-prototype-print-feedback-and-svg-exploration-2026-10-06",
         "statement": "User rejects exposed white base and disconnected-looking black bands"
       },
-      "questions": [
-        {
-          "id": "appearance",
-          "criterion": "User accepts contrasting coverage and shell appearance",
-          "mode": "subjective"
-        }
-      ]
+      "acceptance_criteria": []
     },
     {
       "id": "swatch.upper-fit",
@@ -122,13 +74,7 @@
         "reference": "README.md#damped-prototype-print-feedback-and-svg-exploration-2026-10-06",
         "statement": "User rejects loose/floating upper regions"
       },
-      "questions": [
-        {
-          "id": "feel",
-          "criterion": "Upper jacket is satisfactory in actual use",
-          "mode": "physical"
-        }
-      ]
+      "acceptance_criteria": []
     }
   ]
 }

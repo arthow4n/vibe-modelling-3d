@@ -27,7 +27,9 @@ construction/program invariants can remain assertions without permanent IDs.
 ## Records and provenance
 
 - `UserRequirement`: user instruction or acceptance, with `UserSource(reference,
-  statement)`. Do not manufacture user provenance from an agent's design rationale.
+  statement)`, protected `text` meaning and optional `acceptance_criteria` for
+  explicit user thresholds/dimensions. Do not manufacture user provenance from an
+  agent's design rationale.
 - `DerivedRequirement`: declared parent requirement/evidence IDs and derivation.
   Circular parent chains are rejected. Revise or retire it when that derivation/architecture changes. Decisions,
   hypotheses and directives cannot be parents pretending to be engineering facts.
@@ -37,31 +39,46 @@ construction/program invariants can remain assertions without permanent IDs.
 - `Evidence`: result for one or more `(requirement ID, question ID)` obligations,
   with summary, source reference and explicit applicability scope.
 
-A question is an evidence obligation, not a test implementation. For example
-`case.operation/retention` is architecture neutral; E's rotational witness is
-one current strategy. A threaded/other replacement may supply a different
-callable for that same obligation. Check-specific numerical thresholds, path
-samples and proxies stay in the local checker, not in user intent. A CAD retention
-obstruction does not answer physical effort or durability.
+`Question(id, requirement_id, criterion, mode)` is a challengeable engineering
+obligation supporting a user or derived requirement. `Plan(..., questions=...)`
+owns the current decomposition; requirements do not own questions. Checks and
+retained evidence keep their many-to-many `(requirement ID, question ID)` targets.
+
+For example, stable `case.operation` intent can be decomposed into closed fit,
+opening path, retention, release and physical use for E, then into thread
+engagement, helical opening and axial obstruction for a future architecture.
+Adding, replacing or retiring those questions and strategies needs no later user
+instruction. The replacement must still meaningfully cover the active intent.
+Sampling angles, axial witnesses and overlap thresholds chosen by the agent are
+engineering screens; a user explicitly adopting a threshold makes it protected
+acceptance intent. CAD obstruction does not answer physical effort or durability.
 
 Each migrated object has one [reviewed inventory](../model/sunglasses_case/notes/verification_sources.json)
-containing its initial user-intent snapshot and conservative source association.
-`protect_recorded_intent()` compares current declarations before each run:
-removal, reclassification, provenance or acceptance-criterion changes require an
-explicit later `UserSource` in `changes={requirement_id: later_instruction}`.
-Improving requirement wording (`text`) is free. Preserve the prior snapshot and
-explain supersession in the object's human record. Newly established requirements
-need real user provenance; adding them is not automatic proof of that provenance.
+containing protected user intent and conservative source/evidence associations,
+without duplicated engineering questions. `protect_recorded_intent()` compares
+stable user IDs, `UserSource`, `text` and `acceptance_criteria` before each run.
+Removal, reclassification or changes to these fields require an explicit later
+`UserSource` in `changes={requirement_id: later_instruction}`. Text is compared
+exactly because this audit cannot distinguish harmless rewording from weakened
+meaning; use other human prose for editorial explanations. Preserve the prior
+instruction and explain authorized supersession in the object's human record.
+Newly established requirements need real user provenance; adding them is not
+automatic proof of that provenance. Do not promote an old engineering question
+into acceptance intent merely because it was in the previous snapshot.
 This protects accidental/silent edits during normal use, **not** deliberate editing
 of both audit baseline and guard. Git review and truthful agent records still matter.
 Do not update snapshots simply to make a failing candidate pass.
 
 ## Composition and outcomes
 
-`Plan` receives the complete product catalog, candidate scope, ordinary `Check`
-callables and retained `Evidence`. Every catalog obligation is reported even
-when no check is implemented or selected. Variant-specific derived requirements
-use `non_applicable={id: reason}`; N/A has no passing status. `Plan` rejects user
+`Plan` receives requirements, current questions, candidate scope, ordinary `Check`
+callables and retained `Evidence`. Every declared question is reported even when
+no check is implemented or selected. Every active requirement is also reported:
+zero questions yields `questions=[]`, `coverage="uncovered"`, UNKNOWN in the human
+report and `unresolved_evidence` in the CLI. Partial/missing applicable evidence
+also leaves uncovered questions visible. Passing the remaining checks cannot
+hide a requirement whose decomposition was removed. Variant-specific derived
+requirements use `non_applicable={id: reason}`; N/A has no passing status. `Plan` rejects user
 requirements in that mapping: a candidate's architecture cannot exclude user
 intent. An explicit later user instruction may supersede/remove that intent
 through the provenance guard; preserve the earlier instruction in the object record.
@@ -79,7 +96,7 @@ omission cannot silently categorize a physical question as CAD.
 | --- | --- |
 | PASS | Applicable evidence satisfies the stated criterion, within its limits |
 | FAIL | Applicable evidence contradicts the criterion |
-| UNKNOWN | Known applicable question has no applicable evidence, or evidence explicitly leaves it unanswered |
+| UNKNOWN | Active requirement has no decomposition, question has no applicable evidence, or evidence leaves it unanswered |
 | INCONCLUSIVE | Attempted verification cannot support a conclusion |
 | N/A | Explicit variant exclusion/reason; never a PASS |
 
@@ -185,9 +202,10 @@ Stdout is one JSON envelope for results, help, invalid arguments, interrupted
 checks and fatal runner errors. Progress and exception diagnostics go to stderr.
 Redirect stdout to save a receipt. The envelope always contains `schema_version`,
 `variant`, `selected_checks`, `available_variants`, `available_checks`, `exit_reason`,
-`error`, `report` and `help`. `report` contains the unchanged detailed verification
-record, or null when no trustworthy report was produced. `error` contains exception
-type, message and stage, or null; fatal program/configuration errors are not
+`error`, `report` and `help`. `report` contains the detailed verification
+record (including requirement coverage and user acceptance criteria), or null
+when no trustworthy report was produced. `error` contains exception type, message
+and stage, or null; fatal program/configuration errors are not
 manufactured requirement FAIL/INCONCLUSIVE results. Invalid/nonfinite JSON data
 produces `report_error` with a null report. Direct Python APIs still raise program
 errors; translation happens only at the CLI boundary. Interpreter startup failure
@@ -198,7 +216,7 @@ to distinguish outcomes; never infer failure type from the code:
 
 | `exit_reason` | Meaning |
 | --- | --- |
-| `verification_complete` | All declared applicable obligations answered; exit 0 |
+| `verification_complete` | All active requirements have questions and all applicable obligations are answered; exit 0 |
 | `criterion_failed` | Applicable evidence includes FAIL; exit 1 |
 | `unresolved_evidence` | UNKNOWN/INCONCLUSIVE remain without FAIL; exit 1 |
 | `argument_error` | Missing/invalid variant or check selection; exit 1 |
@@ -301,3 +319,11 @@ The required count is in protected intent. Tests use both actual source-card
 populations and deliberately remove one card. Other geometry criteria are unchanged.
 The jar similarly distinguishes the reported good print from unreported specific
 opening/retention handling; print quality does not qualify those physical questions.
+
+Intent/decomposition correction contributor: GPT-6-based Codex; exact model variant
+and reasoning effort not exposed; Codex shared-workspace API agent; OpenAI; no
+subagents. All four consumers now keep questions in their plan declarations;
+protected numerical intent comes from the existing case/jar dimension records
+and swatch capacity record. Plate analytical coverage remains an engineering
+contract alongside its unchanged source associations. No geometry, exports,
+physical observations or readiness conclusions changed.

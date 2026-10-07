@@ -11,14 +11,19 @@ ROOT=Path(__file__).resolve().parent
 RECORD='README.md'
 REQUIREMENTS=(
     U('plate.use','Complete reading plate is satisfactory for its intended use',
-      S(RECORD+'#physical-status','User reports complete revised plate printed with a really nice result'),
-      (Q('assembly','Declared assembled components satisfy clearance and required seating/support roles', mode='CAD'),
-       Q('finish','Complete print result is satisfactory in reported use','subjective'),
-       Q('load','Actual intended-load use is satisfactory; specific physical loads were not reported','physical'))),
+      S(RECORD+'#physical-status','User reports complete revised plate printed with a really nice result')),
     D('plate.joint','Joined halves carry the intended book/handling load',('plate.use',),
-      'A multipart reading plate needs a working load path; assumed numerical load envelope is challengeable',
-      (Q('screen','Retained analytical strength screens meet their provisional allowances under recorded assumptions','analytical'),
-       Q('creep','Long-term creep/loosening remains acceptable; trial/criterion still unspecified','physical'))),
+      'A multipart reading plate needs a working load path; assumed numerical load envelope is challengeable'),
+)
+
+
+# Current engineering decomposition; replace as the architecture changes.
+QUESTIONS=(
+    Q('assembly', 'plate.use', 'Declared assembled components satisfy clearance and required seating/support roles', mode='CAD'),
+    Q('finish', 'plate.use', 'Complete print result is satisfactory in reported use', 'subjective'),
+    Q('load', 'plate.use', 'Actual intended-load use is satisfactory; specific physical loads were not reported', 'physical'),
+    Q('screen', 'plate.joint', 'Retained analytical strength screens meet their provisional allowances under recorded assumptions', 'analytical'),
+    Q('creep', 'plate.joint', 'Long-term creep/loosening remains acceptable; trial/criterion still unspecified', 'physical'),
 )
 
 
@@ -98,6 +103,7 @@ def make_plan(variant):
         'Complete revised plate printed; user says really nice. Exact printed hash/material/settings and specific load observations unknown',
         RECORD+'#physical-status',{'design':'accepted-plate','sources':'migration-reviewed','material':'reported-print-process-unknown'}),)
     return Plan(variant,REQUIREMENTS,scope,tuple(checks),retained,
+        questions=QUESTIONS,
         decisions=(DesignDecision('plate.four-screws','Four printed screws, custom thread, conical seats and current dimensions are implementation choices, not immutable user requirements',RECORD+'#what-changed-after-the-successful-l-sample'),),
         hypotheses=(Hypothesis('plate.screen-assumptions','3 kg book, 2× handling, 800 MPa effective modulus, solid PETG and preload ≤40 N are provisional analytical assumptions, not user load rating or calibrated properties',RECORD+'#mechanical-review'),))
 

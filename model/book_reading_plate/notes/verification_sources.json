@@ -11,23 +11,7 @@
         "reference": "README.md#physical-status",
         "statement": "User reports complete revised plate printed with a really nice result"
       },
-      "questions": [
-        {
-          "id": "assembly",
-          "criterion": "Declared assembled components satisfy clearance and required seating/support roles",
-          "mode": "CAD"
-        },
-        {
-          "id": "finish",
-          "criterion": "Complete print result is satisfactory in reported use",
-          "mode": "subjective"
-        },
-        {
-          "id": "load",
-          "criterion": "Actual intended-load use is satisfactory; specific physical loads were not reported",
-          "mode": "physical"
-        }
-      ]
+      "acceptance_criteria": []
     }
   ],
   "retained_analytical_source_associations": {

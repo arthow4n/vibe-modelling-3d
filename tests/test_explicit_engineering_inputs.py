@@ -13,11 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_evidence_category_is_required_even_for_a_plausible_physical_question():
     with pytest.raises(TypeError, match='mode'):
-        Question('feel', 'Comfortable opening')
-    assert Question('feel', 'Comfortable opening', 'physical').mode == 'physical'
+        Question('feel', 'fixture.use', 'Comfortable opening')
+    assert Question('feel', 'fixture.use', 'Comfortable opening', 'physical').mode == 'physical'
     for mode in (None, True, 12, ''):
         with pytest.raises(ValueError, match='evidence category'):
-            Question('feel', 'Comfortable opening', mode)
+            Question('feel', 'fixture.use', 'Comfortable opening', mode)
 
 
 def test_comparison_requires_and_retains_the_actual_acceptance_threshold():

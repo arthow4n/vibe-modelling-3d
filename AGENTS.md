@@ -72,8 +72,11 @@ generic checkers. An STL slice does not verify Orca's separate GUI STEP import.
 
 For substantive products whose intent or coverage could disappear across variants,
 use the small [product verification convention](product_verification/README.md).
-Keep user requirements/provenance separate from derived obligations, challengeable
-agent design decisions, open hypotheses, scoped evidence and user directives.
+Protect user requirement IDs, provenance, meaning and explicit user criteria;
+keep plan-owned engineering questions/decomposition challengeable as architecture
+changes. Replacing strategies needs no new user provenance; removing coverage of
+active intent stays UNKNOWN. Keep derived requirements, agent design decisions,
+open hypotheses, scoped evidence and user directives separate.
 Compose applicable existing checks; a new architecture without a strategy stays
 UNKNOWN. Physical/subjective questions stay physical; successful old geometry is
 evidence, not automatically a permanent user constraint. Simple objects may keep

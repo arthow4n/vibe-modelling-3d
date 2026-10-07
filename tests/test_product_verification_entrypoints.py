@@ -80,13 +80,13 @@ def assert_common_protocol(entrypoint, invocation, reason, code, monkeypatch, ca
         def lightweight_plan(selected):
             builds.append(selected)
             requirement = pv.UserRequirement('contract.use', 'Contract fixture',
-                pv.UserSource(__file__, 'Synthetic conformance fixture; not product intent'),
-                (pv.Question('check', 'Fixture check succeeds', 'CAD'),))
+                pv.UserSource(__file__, 'Synthetic conformance fixture; not product intent'))
             scope = {'design': selected}
             evidence = pv.Evidence('contract.check', (('contract.use', 'check'),),
                 pv.Status.PASS, 'Fixture result', __file__, scope)
             return pv.Plan(selected, (requirement,), scope,
-                (pv.Check('contract.check', evidence.targets, lambda: (evidence,)),))
+                (pv.Check('contract.check', evidence.targets, lambda: (evidence,)),),
+                questions=(pv.Question('check', requirement.id, 'Fixture check succeeds', 'CAD'),))
 
         return shared_cli(lightweight_plan, declared_variants)
 

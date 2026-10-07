@@ -12,17 +12,8 @@
         "reference": "notes/printing_and_design.md#confirmed-dimensions-and-physical-feedback",
         "statement": "User explicitly confirmed reduced interior, superseding earlier approximate measurements"
       },
-      "questions": [
-        {
-          "id": "dimensions",
-          "criterion": "Nominal interior is 158 \u00d7 78 \u00d7 63 mm; rounded corners are part of its definition",
-          "mode": "CAD"
-        },
-        {
-          "id": "empty",
-          "criterion": "Enclosure and mechanism leave the requested rounded cavity empty",
-          "mode": "CAD"
-        }
+      "acceptance_criteria": [
+        "Nominal interior is 158 \u00d7 78 \u00d7 63 mm."
       ]
     },
     {
@@ -32,33 +23,7 @@
         "reference": "notes/printing_and_design.md#physical-print-status",
         "statement": "D/E samples satisfactory; user printed current reduced integrated case and reports it works really well"
       },
-      "questions": [
-        {
-          "id": "closed",
-          "criterion": "Closed components satisfy their declared clearance/contact roles",
-          "mode": "CAD"
-        },
-        {
-          "id": "path",
-          "criterion": "Declared opening path clears the enclosure; proxy exclusions remain explicit",
-          "mode": "CAD"
-        },
-        {
-          "id": "retention",
-          "criterion": "Declared retention geometry obstructs unintended opening; holding force remains physical",
-          "mode": "CAD"
-        },
-        {
-          "id": "release",
-          "criterion": "Declared intentional release path clears; actuation force remains physical",
-          "mode": "CAD"
-        },
-        {
-          "id": "use",
-          "criterion": "Integrated case works satisfactorily in reported use",
-          "mode": "physical"
-        }
-      ]
+      "acceptance_criteria": []
     }
   ],
   "source_association_review": {

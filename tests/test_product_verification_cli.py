@@ -5,8 +5,8 @@ import pytest
 from product_verification import (Question, UserRequirement, UserSource, Evidence,
     Check, Plan, Status, cli)
 
-REQ=UserRequirement('fixture.use','Usable product',UserSource('README.md','User asks usable product'),
-                    (Question('geometry','Geometry works', mode='CAD'),))
+REQ=UserRequirement('fixture.use','Usable product',UserSource('README.md','User asks usable product'))
+QUESTIONS=(Question('geometry',REQ.id,'Geometry works', mode='CAD'),)
 SCOPE={'design':'candidate'}
 TARGET=(('fixture.use','geometry'),)
 ARGS=['--variant','candidate']
@@ -14,7 +14,7 @@ ARGS=['--variant','candidate']
 
 def plan(status=Status.PASS):
     evidence=Evidence('fixture.check',TARGET,status,'Checked criterion','fixture.py',SCOPE)
-    return Plan('candidate',(REQ,),SCOPE,(Check('fixture.check',TARGET,lambda:(evidence,)),))
+    return Plan('candidate',(REQ,),SCOPE,(Check('fixture.check',TARGET,lambda:(evidence,)),), questions=QUESTIONS)
 
 
 def read(capsys):
@@ -48,7 +48,7 @@ def test_progress_never_pollutes_json_stdout(capsys):
         def run():
             print('check progress')
             return candidate.checks[0].run()
-        return Plan('candidate',(REQ,),SCOPE,(Check('fixture.check',TARGET,run),))
+        return Plan('candidate',(REQ,),SCOPE,(Check('fixture.check',TARGET,run),), questions=QUESTIONS)
     assert cli(factory,('candidate',),argv=ARGS)==0
     result,stderr=read(capsys)
     assert result['exit_reason']=='verification_complete'
@@ -120,7 +120,7 @@ def test_excessively_nested_report_still_emits_a_json_error(capsys):
 
 @pytest.mark.parametrize('extra',[[],['--help']])
 def test_invalid_check_metadata_cannot_poison_the_error_envelope(extra,capsys):
-    candidate=Plan('candidate',(REQ,),SCOPE,(Check(object(),TARGET,lambda:()),))
+    candidate=Plan('candidate',(REQ,),SCOPE,(Check(object(),TARGET,lambda:()),), questions=QUESTIONS)
     assert cli(lambda variant:candidate,('candidate',),argv=ARGS+extra)==1
     result,_=read(capsys)
     assert result['exit_reason']=='execution_error' and result['report'] is None
@@ -147,7 +147,7 @@ def test_help_is_a_successful_json_response_without_running_verification(capsys)
 
 def test_variant_help_lists_actual_checks_without_computation(capsys):
     candidate=Plan('candidate',(REQ,),SCOPE,(Check('named.check',TARGET,
-        lambda:pytest.fail('Help must not execute checks')),))
+        lambda:pytest.fail('Help must not execute checks')),), questions=QUESTIONS)
     assert cli(lambda variant:candidate,('candidate',),argv=ARGS+['--help'])==0
     result,_=read(capsys)
     assert result['variant']=='candidate' and result['available_checks']==['named.check']
@@ -155,7 +155,7 @@ def test_variant_help_lists_actual_checks_without_computation(capsys):
 
 
 def test_variant_help_still_exposes_programming_configuration_errors(capsys):
-    candidate=Plan('candidate',(REQ,),SCOPE,(Check('bad.check',(('absent','id'),),lambda:()),))
+    candidate=Plan('candidate',(REQ,),SCOPE,(Check('bad.check',(('absent','id'),),lambda:()),), questions=QUESTIONS)
     assert cli(lambda variant:candidate,('candidate',),argv=ARGS+['--help'])==1
     result,_=read(capsys)
     assert result['exit_reason']=='execution_error' and result['error']['type']=='ValueError'
@@ -163,12 +163,25 @@ def test_variant_help_still_exposes_programming_configuration_errors(capsys):
 
 
 def test_mixed_evidence_survives_the_command_reason(capsys):
-    questions=(Question('geometry','Geometry works', mode='CAD'),Question('use','User accepts use','physical'),
-               Question('life','Durability is known','physical'))
-    requirement=UserRequirement(REQ.id,REQ.text,REQ.source,questions)
+    questions=(Question('geometry',REQ.id,'Geometry works', mode='CAD'),Question('use',REQ.id,'User accepts use','physical'),
+               Question('life',REQ.id,'Durability is known','physical'))
+    requirement=UserRequirement(REQ.id,REQ.text,REQ.source)
     retained=(Evidence('physical',((REQ.id,'use'),),Status.FAIL,'User rejected use','README.md',SCOPE),)
-    candidate=Plan('candidate',(requirement,),SCOPE,plan().checks,retained)
+    candidate=Plan('candidate',(requirement,),SCOPE,plan().checks,retained,questions=questions)
     assert cli(lambda variant:candidate,('candidate',),argv=ARGS)==1
     result,_=read(capsys)
     assert result['exit_reason']=='criterion_failed'
     assert [q['status'] for q in result['report']['requirements'][0]['questions']]==['PASS','FAIL','UNKNOWN']
+
+
+def test_no_questions_is_unresolved_json_even_when_other_checks_pass(capsys):
+    uncovered=UserRequirement('fixture.retention','Cover remains retained',
+        UserSource('user instruction','User requires retained cover'))
+    candidate=plan()
+    from dataclasses import replace
+    candidate=replace(candidate,requirements=candidate.requirements+(uncovered,))
+    assert cli(lambda variant:candidate,('candidate',),argv=ARGS)==1
+    result,_=read(capsys)
+    assert result['exit_reason']=='unresolved_evidence'
+    assert result['report']['requirements'][1]['coverage']=='uncovered'
+    assert result['report']['requirements'][1]['questions']==[]
