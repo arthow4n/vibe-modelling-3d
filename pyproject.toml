@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Repository tools for parametric 3D modelling"
 requires-python = ">=3.12,<3.13"
 dependencies = [
-    "cadquery>=2.7,<2.8",
+    "cadquery>=2.8,<2.9",
     "cairosvg>=2.8,<3",
     "gmsh>=4.15,<4.16",
     "opentelemetry-exporter-otlp-proto-common>=1.40,<2",
