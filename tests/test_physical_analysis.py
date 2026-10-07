@@ -110,7 +110,7 @@ def contact_case(motion=.02, penalty=120000):
     c.add_part('floor',cq.Workplane('XY').box(4,4,1,centered=False).translate((-1,-1,-1)),material=m,mesh_size_mm=1)
     c.fix('floor').constrain('block',displacement_mm=(0,0,None))
     c.prescribe_motion('block',Region.plane('z',4.01),displacement_mm=(None,None,-motion))
-    c.contact('block',Region.plane('z',.01),'floor',Region.plane('z',0),penalty_N_mm3=penalty)
+    c.contact('block',Region.plane('z',.01),'floor',Region.plane('z',0),penalty_N_mm3=penalty, penetration_limit_mm=.05)
     return c
 
 
@@ -222,7 +222,7 @@ def test_observations_and_scalar_screens(tmp_path):
     r=c.run(tmp_path/'observe').require_completed()
     assert r.metrics['observations']['tip']['mean_mm'][2]==pytest.approx(1)
     assert r.metrics['peak_motion_force_N']['tip']==pytest.approx(.3,rel=.06)
-    assert compare_results(r,r,metrics=['peak_motion_force_N.tip'])['peak_motion_force_N.tip']['passes']
+    assert compare_results(r,r,metrics=['peak_motion_force_N.tip'], relative_tolerance=.05)['peak_motion_force_N.tip']['passes']
     s=rectangular_cantilever(length_mm=40,width_mm=8,thickness_mm=2,youngs_modulus_MPa=1200,tip_force_N=.1)
     assert s['tip_displacement_mm']==pytest.approx(1/3)
     assert s['root_strain']==pytest.approx(.000625)
@@ -244,7 +244,7 @@ def test_contact_drives_flexure_and_penetration_guard(tmp_path):
     c.add_part('pusher',cq.Workplane('XY').box(2,8,2,centered=False).translate((38,0,2.1)),material=MATERIAL,mesh_size_mm=1.5)
     c.prescribe_motion('pusher',displacement_mm=(0,0,-1.1),name='push')
     c.contact('beam',Region(lower=(38,0,2),upper=(40,8,2)),
-              'pusher',Region.plane('z',2.1),penalty_N_mm3=60000)
+              'pusher',Region.plane('z',2.1),penalty_N_mm3=60000, penetration_limit_mm=.05)
     r=c.run(tmp_path/'contact_flexure').require_completed()
     assert r.metrics['contact_detected']
     assert r.metrics['peak_motion_force_N']['push']==pytest.approx(.34,rel=.2)
@@ -297,7 +297,7 @@ def test_surface_contact_compression_and_gap(tmp_path):
         else:
             assert r.metrics['peak_motion_force_N']['BC2']<1e-5
     with pytest.raises(ValueError, match='discretization'):
-        c.contact('block',Region(),'floor',Region(),penalty_N_mm3=1,discretization='unknown')
+        c.contact('block',Region(),'floor',Region(),penalty_N_mm3=1,discretization='unknown', penetration_limit_mm=.05)
 
 
 def test_motion_cycle_preserves_contact_then_unloads(tmp_path):

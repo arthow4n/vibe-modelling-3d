@@ -6,7 +6,6 @@ into the body after printing. No hardware or hinge assembly; supports off.
 """
 from pathlib import Path
 import importlib.util
-import json
 import cadquery as cq
 from assembly_geometry import PairRequirement, check_pair
 
@@ -26,7 +25,6 @@ PIVOT_ROOT = 4.5
 EAR_OUTER_OFFSET = 10.0
 BEARING_EDGE_INSET = 52.0
 LAYOUT = globals().get('LAYOUT', 'print')  # print / closed / open / section
-EXPORT = globals().get('EXPORT', True)
 ROOT=Path(globals().get('__file__','/home/hevar/git/vibe-modelling-3d/model/sunglasses_case/sunglasses_case.py')).resolve().parent
 spec=importlib.util.spec_from_file_location('e_closure',ROOT/'e_closure.py')
 closure=importlib.util.module_from_spec(spec)
@@ -159,14 +157,13 @@ def verify_product():
 
 if globals().get('VERIFY', True):
     verify_product()
-if EXPORT:
-    cq.exporters.export(print_layout,str(ROOT/'sunglasses_case.step'))
-    cq.exporters.export(print_layout,str(ROOT/'sunglasses_case.stl'),tolerance=0.025,angularTolerance=0.1)
-    (ROOT/'notes'/'production_e_metrics.json').write_text(json.dumps({
+def production_metrics():
+    """Return diagnostics without publishing artifacts or rewriting evidence."""
+    return {
         'interior_mm':[INNER_LENGTH,INNER_WIDTH,INNER_HEIGHT],
         'shell_exterior_mm':[OW,OD,HEIGHT], 'print_bounds_mm':[bb.xlen,bb.ylen,bb.zlen],
         'volume_mm3':print_layout.Volume(),'bearing_centers_mm':BEARING_CENTERS,
         'cone_radial_clearance_mm':CONE_CLEARANCE,'ear_axial_clearance_mm':END_CLEARANCE,
         'loop_thickness_mm':closure.LOOP_THICKNESS,'seated_latch_gap_mm':closure.SEATED_GAP,
         'release_travel_mm':closure.RELEASE_TRAVEL,'intentional_key_interference_mm3':fit_interference
-    },indent=2)+'\n')
+    }

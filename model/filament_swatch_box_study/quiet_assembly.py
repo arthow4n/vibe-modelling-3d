@@ -6,7 +6,7 @@ No native constraint solve is needed for these prescribed rigid placements.
 """
 import cadquery as cq
 from assembly_geometry import Configuration
-import quiet_q1_flush as default_model
+import quiet_q1_flush as q1f_model
 import archive_corner_proposals as old_archive
 import cap_j4_base_5 as old_display
 
@@ -25,7 +25,7 @@ class QuietAssembly:
     Keep distinct candidate builders in distinct instances. This is local geometry
     reuse, not a persistent cache or a second component/constraint representation.
     """
-    def __init__(self, model=default_model):
+    def __init__(self, model):
         self.model = model
         self.base = model.base().val()
         self.insert = model.jacket().val()
@@ -73,7 +73,7 @@ class QuietAssembly:
         elif component == 'hood':
             # Q1F uses the retained G hood job; Q1 has its own print-centre rule.
             centre = ((q.g.PRINT_ANCHOR[0]+q.g.HOOD_SHIFT, q.g.PRINT_ANCHOR[1], 0)
-                      if q is default_model else q.PRINT_CENTRE)
+                      if q is q1f_model else q.PRINT_CENTRE)
             shape, location = q.g.hood_print(cq.Workplane().newObject([self.hood])).val(), cq.Location(centre)
         else:
             raise ValueError(f'Unknown printable component: {component}')
@@ -94,7 +94,7 @@ class QuietAssembly:
             self._neighbours[name] = base, q.g.FOOT_DEPTH, q.g.cap().val()
         return self._neighbours[name]
 
-    def joined(self, neighbour='archive_A', *, end=1):
+    def joined(self, neighbour, *, end=1):
         """Butted feet on a Y seam at zero; actual I3 key remains at the seam.
 
         Explicit hierarchy preserves new/old identities, including both hoods.

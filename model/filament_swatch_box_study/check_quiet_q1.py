@@ -250,7 +250,7 @@ def joining_checks(model, evidence):
     return {}
 
 
-def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
+def main(q, output_name, *, model=None, extra=None):
     model = model or QuietAssembly(q)
     assert model.model is q, 'Assembly and checks must use the same candidate builders'
     evidence=[]
@@ -291,4 +291,4 @@ def main(q=q, output_name='quiet_q1_checks.json', *, model=None, extra=None):
 
 
 if __name__=='__main__':
-    main()
+    main(q, 'quiet_q1_checks.json')

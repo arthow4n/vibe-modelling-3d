@@ -36,7 +36,7 @@ def guide_question(mesh=1.8):
                                     (8,23,d.PIVOT_Z+d.LOCK_THICKNESS/2)),(0,0,15)),),
         mesh_size_mm=mesh,max_increment=.25,
         contact_region=Region((-14,14,20.5),(14,28,22.5)),
-        mating_parts=(MatingPart('housing',case,
+        mating_parts=(MatingPart('housing',case,material=material(),
             contact_region=Region((-14.5,14,20.5),(14.5,29,23.5)),
             supports=(Support(Region.plane('z',8)),Support(Region.plane('x',0),(0,None,None),'symmetry'))),),
         penalty_N_mm3=4000,penetration_limit_mm=.02,

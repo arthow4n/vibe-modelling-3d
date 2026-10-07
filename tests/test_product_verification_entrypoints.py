@@ -81,7 +81,7 @@ def assert_common_protocol(entrypoint, invocation, reason, code, monkeypatch, ca
             builds.append(selected)
             requirement = pv.UserRequirement('contract.use', 'Contract fixture',
                 pv.UserSource(__file__, 'Synthetic conformance fixture; not product intent'),
-                (pv.Question('check', 'Fixture check succeeds'),))
+                (pv.Question('check', 'Fixture check succeeds', 'CAD'),))
             scope = {'design': selected}
             evidence = pv.Evidence('contract.check', (('contract.use', 'check'),),
                 pv.Status.PASS, 'Fixture result', __file__, scope)

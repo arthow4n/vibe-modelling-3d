@@ -158,7 +158,7 @@ class AnalysisCase:
         self.loads.append(Load(self.select(part, region), values))
         return self
 
-    def contact(self, slave, slave_region, master, master_region=None, *, penalty_N_mm3, penetration_limit_mm=.05, discretization="node_to_surface"):
+    def contact(self, slave, slave_region, master, master_region=None, *, penalty_N_mm3, penetration_limit_mm, discretization="node_to_surface"):
         """Frictionless contact against one part or a union of selected obstacles.
 
         A tuple of ``case.select(...)`` values combines independently moving

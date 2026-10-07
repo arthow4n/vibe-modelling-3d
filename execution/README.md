@@ -153,6 +153,13 @@ internal questions. Remove disposable scratch output before staging. Reuse saved
 images instead of rebuilding just to open them. A saved path is not visual evidence:
 inspect a successful image when a visual question requires it.
 
+Slice profile overrides must supply printer, process and filament together.
+With none supplied, the JSON `slice.setup_selection` labels the reference profiles
+as diagnostic and identifies the default centering policy. Neither establishes
+an agreed production setup or printed performance. Direct Python `review()` calls
+require all three profiles and an explicit `placement`; follow the
+[Orca review guidance](../.codex/skills/orca-slicer-printability/SKILL.md).
+
 `--output-dir` resolves relative to the model directory (use `renders/assembled`,
 not `model/<object>/renders/assembled`, or supply an absolute path). Camera Z is
 upright in side/isometric views and Y in top/bottom views; successful views report

@@ -119,8 +119,11 @@ The [reviewed inventory](verification_sources.json) protects user intent and
 invalidates physical transfer on source changes. A replacement or TPU fixture
 cannot inherit full-case physical PASS merely by reusing geometry.
 
-Default source validation/export behavior and geometry are retained. No new
-export/slice/solver work or physical result is implied. The retention strategy's
+Source validation and geometry are retained. Construction and inspection now
+have no export or notes-writing side effects. Publish the selected print layout
+explicitly with `./evaluate_model.py model/sunglasses_case/sunglasses_case.py --export`.
+`production_metrics()` returns the previous diagnostics without rewriting the
+retained record. No new export/slice/solver work or physical result is implied. The retention strategy's
 thresholds/path belong to its checker, not permanent user requirements.
 
 Initial verification infrastructure contributor: GPT-6-based Codex; exact model variant/reasoning

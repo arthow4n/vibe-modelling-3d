@@ -42,10 +42,14 @@ def fingerprints(name):
     return {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for ext in ('*.step', '*.stl') for p in directory.glob(ext)}
 
 
-def test_sunglasses_production_configs_motion_retention_and_layout():
+def test_sunglasses_production_configs_motion_retention_and_layout(monkeypatch):
+    def forbidden_write(*args, **kwargs):
+        pytest.fail('Geometry loading/inspection must not publish exports or rewrite evidence')
+    monkeypatch.setattr(cq.exporters, 'export', forbidden_write)
+    monkeypatch.setattr(Path, 'write_text', forbidden_write)
     before = fingerprints('sunglasses_case')
     with consumer('sunglasses_case') as m:
-        data = m.load()  # includes original production assertions, exports disabled
+        data = m.load()  # includes original production assertions without publishing
         config = m.configuration(data)
         assert config.names == ('body', 'lid', 'keeper')
         assert difference(config.shape('lid'), data['lid']) < .001
@@ -58,6 +62,18 @@ def test_sunglasses_production_configs_motion_retention_and_layout():
         assert report['hinge']['status'] == report['release']['status'] == 'passed'
         assert report['checks'][-1]['overlap_mm3'] > .01
     assert fingerprints('sunglasses_case') == before
+
+
+def test_sunglasses_loader_rejects_unsupported_overrides_before_building(monkeypatch):
+    with consumer('sunglasses_case') as m:
+        calls = []
+        monkeypatch.setattr(m.runpy, 'run_path', lambda path, **kw: calls.append(kw) or kw)
+        for dimensions in ({'INNER_HEIGTH': 70}, {'WALL': 4}, {'VERIFY': False}):
+            with pytest.raises(TypeError, match='unexpected keyword'):
+                m.load(**dimensions)
+        assert not calls
+        m.load(verify=False, INNER_HEIGHT=70)
+        assert calls == [{'init_globals': {'VERIFY': False, 'INNER_HEIGHT': 70}}]
 
 
 def test_book_repeated_screws_native_placement_print_jobs_and_parameters():

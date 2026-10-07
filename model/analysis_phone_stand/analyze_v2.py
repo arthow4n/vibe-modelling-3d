@@ -20,7 +20,7 @@ def release_question(mesh=1.6,modulus=800,penalty=12000):
     # Broad finger proxy moves forward and back; guide friction is outside this fixture.
     finger=d.box(-18,d.ROOT_Y+14+.3,6,36,5,12)
     return SnapFitQuestion(name='v2_keeper_release',part=d.keeper(),part_name='keeper',
-        material=material(modulus),supports=mounts(),mesh_size_mm=mesh,max_increment=.1,timeout_seconds=600,
+        material=material(modulus),supports=mounts(),mesh_size_mm=mesh,max_increment=.1,
         contact_region=Region.plane('y',d.ROOT_Y+14),
         mating_parts=(MatingPart('finger',finger,Motion.round_trip((0,-d.RELEASE_TRAVEL-.3,0),name='thumb')) ,),
         penalty_N_mm3=penalty,penetration_limit_mm=.02,
@@ -34,7 +34,7 @@ def holding_question(mesh=1.6,modulus=800,penalty=12000):
     # Active 65-degree hook: accidental 5 N rear-foot lift; seats carry service compression.
     y=d.SEAT_YS[1]
     return ContactQuestion(name='v2_keeper_holding',part=d.keeper(),part_name='keeper',
-        material=material(modulus),supports=mounts(),mesh_size_mm=mesh,max_increment=.1,timeout_seconds=600,
+        material=material(modulus),supports=mounts(),mesh_size_mm=mesh,max_increment=.1,
         forces=(SurfaceForce(Region((-9,y-6,d.HOOK_UNDERSIDE),(9,y-1,d.HOOK_UNDERSIDE)),(0,0,5)),),
         contact_region=Region.plane('z',d.LEAF_Z+d.LEAF_THICKNESS),
         mating_parts=tuple(MatingPart(f'guide_{i}',d.guide_cage(y),Motion((0,0,0),name=f'guide_fixed_{i}'),
@@ -48,7 +48,7 @@ def holding_question(mesh=1.6,modulus=800,penalty=12000):
 
 def direct_release_question(mesh=1.6,modulus=800):
     return FlexureQuestion(name='v2_direct_release',part=d.keeper(),part_name='keeper',
-        material=material(modulus),supports=mounts(),mesh_size_mm=mesh,max_increment=.1,timeout_seconds=300,
+        material=material(modulus),supports=mounts(),mesh_size_mm=mesh,max_increment=.1,
         motion=Motion.round_trip((None,-d.RELEASE_TRAVEL,None),name='thumb',region=Region.plane('y',d.ROOT_Y+14)),
         acceptance={'peak_motion_force_N.thumb':8},
         manufacturing=ManufacturingAssumption('Solid flat keeper; ideal prescribed button translation excludes finger/guide friction and physical return.'))
@@ -72,7 +72,7 @@ def structure_question(mesh=2.4,modulus=800):
         ))
     return StructuralQuestion(name='v2_cradle_service',part=d.cradle(),part_name='cradle',
         material=material(modulus),supports=tuple(supports),forces=tuple(forces),mesh_size_mm=mesh,
-        max_increment=.25,timeout_seconds=600,acceptance={'max_displacement_mm':1},
+        max_increment=.25,acceptance={'max_displacement_mm':1},
         manufacturing=ManufacturingAssumption('Cradle rear plane on bed; solid PETG plate; pivot-boss regions idealized restrained, excluding joint play.'))
 
 if __name__=='__main__':

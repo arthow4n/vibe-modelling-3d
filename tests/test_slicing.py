@@ -193,7 +193,7 @@ class ReviewTests(unittest.TestCase):
         return files
 
     def _review(self, files, **kwargs):
-        return review(files["model"], files["printer"], files["process"], files["filament"], **kwargs)
+        return review(files["model"], files["printer"], files["process"], files["filament"], placement='center', **kwargs)
 
 
 if __name__ == "__main__":
@@ -231,5 +231,5 @@ def test_independent_probe_overlaps_primary_and_failure_preserves_primary(tmp_pa
         return SimpleNamespace(returncode=0)
     monkeypatch.setattr(evaluate_model,'slicer_prefix',lambda:['fake'])
     monkeypatch.setattr(evaluate_model,'run_command',fake)
-    result=review(files['model'],files['printer'],files['process'],files['filament'],threads=2)
+    result=review(files['model'],files['printer'],files['process'],files['filament'],placement='center',threads=2)
     assert result['sliced_plates']==[1] and not result['support_probe']['ok'] and result['review_required']

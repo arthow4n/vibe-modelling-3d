@@ -7,7 +7,7 @@ from .case import positive
 from execution.telemetry import operation
 
 
-def compare_results(coarse, refined, *, metrics, relative_tolerance=.05):
+def compare_results(coarse, refined, *, metrics, relative_tolerance):
     """Compare explicitly chosen metric paths; convergence is not physical validation.
 
     Example metrics=['max_displacement_mm','peak_motion_force_N.thumb'].
@@ -24,7 +24,8 @@ def compare_results(coarse, refined, *, metrics, relative_tolerance=.05):
         if not isinstance(a,(int,float)) or not isinstance(b,(int,float)) or not math.isfinite(a+b):
             raise ValueError(f'{path} is not a finite scalar metric')
         change=abs(a-b)/max(abs(b),1e-12)
-        answer[path]=dict(coarse=a,refined=b,relative_change=change,passes=change<=relative_tolerance)
+        answer[path]=dict(coarse=a,refined=b,relative_change=change,
+                          relative_tolerance=relative_tolerance,passes=change<=relative_tolerance)
     return answer
 
 
@@ -40,7 +41,7 @@ class QuestionStudy:
     question: object
     decision: str
     metrics: tuple[str, ...]
-    relative_tolerance: float = .05
+    relative_tolerance: float
     motion_levels: int = 0
     mesh_levels: int = 0
     contact_levels: int = 0

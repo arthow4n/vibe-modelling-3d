@@ -15,6 +15,7 @@ authorization override recorded defaults; do not ask again for settled choices.
 
 | Task | Entry point and timing |
 | --- | --- |
+| Repository Python implementation, interface changes or code review | [Coding conventions](.codex/skills/coding-conventions/SKILL.md) before interface decisions and during review. It owns explicit choices, command boundaries and evidence-backed convention maintenance. |
 | Every 3D modelling task, including an established-product revision | [CadQuery design](.codex/skills/cadquery-3d-design/SKILL.md). It routes early product decisions, preferences and manufacturing assumptions, then conditional references. |
 | Structural, flexure or contact analysis | [Physical-analysis use](physical_analysis/README.md#use) and its decision-driven [study guidance](physical_analysis/README.md#study-sequence) before solving. Product work also uses the design skill; independent numerical benchmarks do not require product review. |
 | Final smoke slice or slicer-sensitive question | [Print planning](.codex/skills/cadquery-3d-design/references/print-planning.md#final-review-and-reference-smoke-slice), then [Orca inspection](.codex/skills/orca-slicer-printability/SKILL.md). |

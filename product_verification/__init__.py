@@ -34,7 +34,11 @@ class UserSource:
 class Question:
     id: str
     criterion: str
-    mode: str = 'CAD'
+    mode: str
+
+    def __post_init__(self):
+        if not isinstance(self.mode, str) or not self.mode.strip():
+            raise ValueError('Question needs an explicit nonempty evidence category')
 
 
 @dataclass(frozen=True)

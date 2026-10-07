@@ -12,7 +12,7 @@ RECORD='README.md'
 REQUIREMENTS=(
     U('plate.use','Complete reading plate is satisfactory for its intended use',
       S(RECORD+'#physical-status','User reports complete revised plate printed with a really nice result'),
-      (Q('assembly','Declared assembled components satisfy clearance and required seating/support roles'),
+      (Q('assembly','Declared assembled components satisfy clearance and required seating/support roles', mode='CAD'),
        Q('finish','Complete print result is satisfactory in reported use','subjective'),
        Q('load','Actual intended-load use is satisfactory; specific physical loads were not reported','physical'))),
     D('plate.joint','Joined halves carry the intended book/handling load',('plate.use',),

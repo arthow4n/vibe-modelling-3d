@@ -58,8 +58,11 @@ For a normal final model, run this from the repository root:
 It exports the STEP/STL pair, reviews the STL with OrcaSlicer, and probes
 automatic supports in the same call. Optional
 `--slice-printer`, `--slice-process`
-and `--slice-filament` accept compatible Orca JSON profiles; otherwise the
-diagnostic defaults below apply. The evaluator returns the slice result in its
+and `--slice-filament` accept compatible Orca JSON profiles as a complete triplet;
+partial setups are rejected. Otherwise the diagnostic defaults below apply.
+The JSON `slice.setup_selection` identifies supplied versus diagnostic profiles
+and explicit versus default placement. Diagnostic acceptance does not establish
+agreement on production settings. The evaluator returns the slice result in its
 single JSON report. Use `--slice-existing` below only when reviewing an already
 exported file without rebuilding the model.
 
@@ -99,6 +102,8 @@ placement is intentional, or `assembly` when grouping the objects on one plate
 is acceptable. Record any different placement or compound splitting intended
 when importing STEP in Orca's GUI. Do not silently rotate, scale, repair, split
 or union the input.
+Direct Python `evaluate_model.review()` calls must supply printer, process,
+filament and keyword-only `placement` explicitly.
 
 ## Read the result
 

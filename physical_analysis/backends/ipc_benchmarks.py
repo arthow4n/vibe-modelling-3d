@@ -13,7 +13,7 @@ def compression(motion_mm=.02, *, increment=.1, mesh=.8):
     c.add_part('floor',cq.Workplane('XY').box(4,4,1,centered=False).translate((-1,-1,-1)),material=material,mesh_size_mm=1)
     c.prescribe_motion('block',Region.plane('z',4.01),displacement_mm=(0,0,-motion_mm),name='push')
     c.fix('floor',name='floor')
-    c.contact('block',Region.plane('z',.01),'floor',Region.plane('z',0),penalty_N_mm3=120000)
+    c.contact('block',Region.plane('z',.01),'floor',Region.plane('z',0),penalty_N_mm3=120000, penetration_limit_mm=.05)
     c.observe('block',Region.plane('z',.01),name='bottom')
     return c
 
@@ -26,6 +26,6 @@ def flexible_beam(*, mesh=.8, increment=.05):
     c.add_part('pusher',cq.Workplane('XY').box(2,8,2,centered=False).translate((38,0,2.1)),material=material,mesh_size_mm=1)
     c.prescribe_motion('pusher',displacement_mm=(0,0,-1.1),name='push',progress=((0,0),(.5,1),(1,0)))
     c.contact('beam',Region(lower=(38,0,2),upper=(40,8,2)),'pusher',Region.plane('z',2.1),
-              penalty_N_mm3=60000,discretization='surface_to_surface')
+              penalty_N_mm3=60000,discretization='surface_to_surface', penetration_limit_mm=.05)
     c.observe('beam',Region.plane('x',40),name='tip')
     return c

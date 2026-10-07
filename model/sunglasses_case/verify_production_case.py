@@ -11,7 +11,7 @@ from OCP.Bnd import Bnd_Box
 from OCP.BRepBndLib import BRepBndLib
 
 ROOT=Path(globals().get('__file__','/home/hevar/git/vibe-modelling-3d/model/sunglasses_case/verify_production_case.py')).resolve().parent
-model=runpy.run_path(str(ROOT/'sunglasses_case.py'),init_globals={'EXPORT':False})
+model=runpy.run_path(str(ROOT/'sunglasses_case.py'))
 # Load the historical E definitions without executing its export/build loop.
 # This is a verification-only reference, not the production geometry dependency.
 old_file=ROOT/'keeper_latch_trials.py'
@@ -39,7 +39,7 @@ for i,(a,b) in enumerate(zip(new_hinge,old_hinge)):
     differences['hinge_'+str(i)]=difference
 # Exercise a likely size change without changing source or final exports.
 alternate=runpy.run_path(str(ROOT/'sunglasses_case.py'),init_globals={
-    'EXPORT':False,'INNER_LENGTH':168.0,'INNER_WIDTH':88.0,'INNER_HEIGHT':68.0})
+    'INNER_LENGTH':168.0,'INNER_WIDTH':88.0,'INNER_HEIGHT':68.0})
 assert alternate['INNER_LENGTH']==168 and len(alternate['print_layout'].Solids())==3
 
 step=cq.importers.importStep(str(ROOT/'sunglasses_case.step'))

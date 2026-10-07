@@ -11,9 +11,12 @@ from assembly_geometry import Configuration, PairRequirement, sample_motion, rig
 ROOT = Path(__file__).resolve().parent
 
 
-def load(*, verify=True, **dimensions):
+def load(*, verify=True, INNER_LENGTH=None, INNER_WIDTH=None, INNER_HEIGHT=None):
+    dimensions = {name: value for name, value in {
+        'INNER_LENGTH': INNER_LENGTH, 'INNER_WIDTH': INNER_WIDTH,
+        'INNER_HEIGHT': INNER_HEIGHT}.items() if value is not None}
     return runpy.run_path(str(ROOT/'sunglasses_case.py'),
-                         init_globals={'EXPORT': False, 'VERIFY': verify, **dimensions})
+                         init_globals={'VERIFY': verify, **dimensions})
 
 
 def hinge_location(m, angle):

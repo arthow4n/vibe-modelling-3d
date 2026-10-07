@@ -86,7 +86,7 @@ def test_febio_bending_contact_recovery_and_strain_screen(tmp_path):
     c.add_part('pusher',cq.Workplane('XY').box(2,8,2,centered=False).translate((38,0,2.1)),material=MATERIAL,mesh_size_mm=1.5)
     c.prescribe_motion('pusher',displacement_mm=(0,0,-1.1),name='push',progress=((0,0),(.5,1),(1,0)))
     c.contact('beam',Region(lower=(38,0,2),upper=(40,8,2)),'pusher',Region.plane('z',2.1),
-              penalty_N_mm3=60000,discretization='surface_to_surface')
+              penalty_N_mm3=60000,discretization='surface_to_surface', penetration_limit_mm=.05)
     c.observe('beam',Region.plane('x',40),name='tip')
     r=c.run(tmp_path/'flexure',backend=FebioBackend()).require_completed()
     assert r.metrics['peak_motion_force_N']['push']==pytest.approx(.34,rel=.2)
@@ -115,7 +115,7 @@ def test_union_master_keeps_independent_obstacle_motion(tmp_path,backend):
     c.contacts=[]
     c.contact('block',Region.plane('z',.01),
               (c.select('floor',Region.plane('z',0)),c.select('right',Region.plane('z',0))),
-              penalty_N_mm3=120000,discretization='surface_to_surface')
+              penalty_N_mm3=120000,discretization='surface_to_surface', penetration_limit_mm=.05)
     c.observe('right',Region(),name='right_pose')
     r=c.run(tmp_path/'union',backend=backend).require_completed()
     assert r.metrics['contact_detected']

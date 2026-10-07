@@ -510,8 +510,7 @@ def _review_in_directory(model, profiles, run_dir, placement, threads=None):
 
 
 @operation("orca.review")
-def review(model, printer=DEFAULTS["printer"], process=DEFAULTS["process"],
-           filament=DEFAULTS["filament"], placement="center", keep_run=False, reuse=True, threads=None):
+def review(model, printer, process, filament, *, placement, keep_run=False, reuse=True, threads=None):
     model = Path(model).expanduser().resolve(strict=True)
     profiles = {key: _resolve_profile(value) for key, value in {
         "printer": printer, "process": process, "filament": filament}.items()}
@@ -580,9 +579,13 @@ def add_slice_review(report, model, args):
                         printer=args.slice_printer or DEFAULTS["printer"],
                         process=args.slice_process or DEFAULTS["process"],
                         filament=args.slice_filament or DEFAULTS["filament"],
-                        placement=args.slice_placement,
+                        placement=args.slice_placement or 'center',
                         keep_run=args.slice_keep_run,reuse=not args.fresh,threads=args.threads)
-        report["slice"] = {"ok": True, **sliced}
+        report["slice"] = {"ok": True, **sliced,
+            "setup_selection": {
+                "profiles": "supplied" if args.slice_printer else "diagnostic_reference",
+                "placement": "explicit" if args.slice_placement else "default_center",
+                "scope": "Selected-profile slice acceptance only; production setup agreement and physical print behavior are not established"}}
     except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as exc:
         report["slice"] = {"ok": False, "message": str(exc)}
         report["errors"].append({"stage": "slice", "message": str(exc)})
@@ -625,7 +628,7 @@ def emit_report(report, args):
                    "timings_seconds", "versions", "diagnostics", "reuse") if key in report}
         if "slice" in report:
             output["slice"] = {key: report["slice"][key] for key in
-                               ("ok", "message", "review_required", "support_probe", "log_notices", "reused", "identity")
+                               ("ok", "message", "review_required", "support_probe", "log_notices", "reused", "identity", "setup_selection")
                                if key in report["slice"]}
         if not any(error.get("stage") == "report" for error in report.get("errors", [])):
             output["report_path"] = str(args.report)
@@ -665,7 +668,7 @@ def main(argv=None):
     parser.add_argument("--slice-filament", type=Path,
                         help=f"Orca filament profile (default: {DEFAULTS['filament']})")
     parser.add_argument("--slice-placement", choices=("preserve", "center", "assembly"),
-                        default="center", help="Orca placement for --slice or --slice-existing")
+                        help="Orca placement for --slice or --slice-existing (diagnostic default: center)")
     parser.add_argument("--slice-keep-run", action="store_true",
                         help="Keep Orca diagnostics and G-code for a slice review")
     parser.add_argument("--reuse",action="store_true",help="Declare deterministic construction with closed inputs; reuse unchanged geometry")
@@ -681,6 +684,9 @@ def main(argv=None):
     parser.add_argument("--summary", action="store_true",
                         help="With --report, print a compact stage summary instead of the complete report")
     args = parser.parse_args(argv)
+    profile_choices = (args.slice_printer, args.slice_process, args.slice_filament)
+    if any(profile_choices) and not all(profile_choices):
+        parser.error('Supply printer, process and filament profiles together; partial setups cannot inherit diagnostic settings')
     from execution.resources import cores,cpu_capacity
     try:args.threads=cores(args.threads,cpu_capacity())
     except ValueError as exc:parser.error(str(exc))
@@ -709,7 +715,7 @@ def main(argv=None):
         parser.error("Provide a CadQuery source or --slice-existing STL_OR_3MF")
     if not (args.slice or args.slice_existing) and any((args.slice_printer, args.slice_process,
                                                        args.slice_filament, args.slice_keep_run,
-                                                       args.slice_placement != "center")):
+                                                       args.slice_placement is not None)):
         parser.error("Slice settings require --slice or --slice-existing")
     if args.slice_existing:
         existing = args.slice_existing.resolve()

@@ -11,7 +11,7 @@ from product_verification import (Status as T, Question as Q, UserRequirement as
     recorded_design_scope, human_report)
 
 REQ=U('fixture.retain','Cover stays retained',S('README.md#intent','User requests retained cover'),
-      (Q('obstruction','Attempted removal meets retaining material'),Q('feel','Comfortable opening','physical')))
+      (Q('obstruction','Attempted removal meets retaining material', mode='CAD'),Q('feel','Comfortable opening','physical')))
 SCOPE={'design':'beads','material':'PETG','sources':'reviewed'}
 TARGET=(('fixture.retain','obstruction'),)
 
@@ -40,7 +40,7 @@ def test_uncovered_requirement_and_physical_unknown_despite_all_implemented_chec
 def test_distinct_provenance_no_decision_promotion_no_user_demotion():
     decision=DesignDecision('fixture.retain','Use four beads','agent notes')
     with pytest.raises(TypeError):
-        U('fake','Use four beads',decision,(Q('x','works'),))
+        U('fake','Use four beads',decision,(Q('x','works', mode='CAD'),))
     with pytest.raises(TypeError):
         Plan('x',(decision,),SCOPE).evaluate()
     with pytest.raises(ValueError,match='decision'):
@@ -50,14 +50,14 @@ def test_distinct_provenance_no_decision_promotion_no_user_demotion():
     with pytest.raises(ValueError):
         protect_user_requirements((REQ,),())
     with pytest.raises(ValueError):
-        protect_user_requirements((REQ,),(replace(REQ,questions=(Q('obstruction','Loose cover acceptable'),)),))
+        protect_user_requirements((REQ,),(replace(REQ,questions=(Q('obstruction','Loose cover acceptable', mode='CAD'),)),))
     protect_user_requirements((REQ,),(replace(REQ,text='Improve human wording'),))
     protect_user_requirements((REQ,),(),changes={REQ.id:S('later user message','User cancels cover requirement')})
 
 
 def test_derived_parent_and_explicit_architecture_non_applicability():
     insert=D('fixture.insert','Insert connected',(REQ.id,),'Separate insert architecture',
-             (Q('connected','one solid'),))
+             (Q('connected','one solid', mode='CAD'),))
     report=Plan('thread',(REQ,insert),SCOPE,non_applicable={insert.id:'Thread architecture has no insert'}).evaluate()
     r=next(x for x in report['requirements'] if x['id']==insert.id)
     assert r['provenance']['parents']==(REQ.id,)
@@ -79,8 +79,8 @@ def test_variant_non_applicability_cannot_hide_protected_user_intent_or_its_fail
 
 
 def test_derivations_cannot_circularly_supply_each_others_provenance():
-    a=D('a','A',('b',),'Claimed consequence',(Q('check','works'),))
-    b=D('b','B',('a',),'Claimed consequence',(Q('check','works'),))
+    a=D('a','A',('b',),'Claimed consequence',(Q('check','works', mode='CAD'),))
+    b=D('b','B',('a',),'Claimed consequence',(Q('check','works', mode='CAD'),))
     with pytest.raises(ValueError,match='circular requirement derivation'):
         Plan('x',(a,b),SCOPE).evaluate()
     # A normal chain remains rooted in user intent without a new graph API.
@@ -88,7 +88,7 @@ def test_derivations_cannot_circularly_supply_each_others_provenance():
 
 
 def test_one_traversal_many_targets_and_multiple_sources_no_overwrite():
-    other=U('fixture.access','Access contents',S('README.md','User asks access'),(Q('path','clear path'),))
+    other=U('fixture.access','Access contents',S('README.md','User asks access'),(Q('path','clear path', mode='CAD'),))
     targets=TARGET+(('fixture.access','path'),)
     calls=[]
     def traverse():
@@ -202,7 +202,7 @@ def test_records_cannot_be_relabelled_by_putting_them_in_the_wrong_category():
     with pytest.raises(TypeError):
         Plan('x',(REQ,),SCOPE,decisions=(REQ,)).evaluate()
     with pytest.raises(ValueError):
-        Plan('x',(replace(REQ,questions=(Q('',''),)),),SCOPE).evaluate()
+        Plan('x',(replace(REQ,questions=(Q('','', mode='CAD'),)),),SCOPE).evaluate()
     with pytest.raises(ValueError):
         Plan('x',(REQ,),{}).evaluate()
 

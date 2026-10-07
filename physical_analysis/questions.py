@@ -85,21 +85,24 @@ class ManufacturingAssumption:
     description: str
     gcode: Path | None = None
     sections: tuple = ()
-    maximum_uncovered_mm: float = .05
+    maximum_uncovered_mm: float | None = None
 
     def review(self):
         if not self.description:
             raise ValueError('Describe material/orientation/process assumptions')
-        positive(self.maximum_uncovered_mm, 'Uncovered width limit')
+        if self.maximum_uncovered_mm is not None:
+            positive(self.maximum_uncovered_mm, 'Uncovered width limit')
         answer = dict(assumption=self.description, local_solid_paths_established=None)
         if self.sections:
+            if self.maximum_uncovered_mm is None:
+                raise ValueError('Section review requires an explicit uncovered width limit')
             if self.gcode is None:
                 raise ValueError('Actual G-code is required for a local path review')
             from .manufacturing import orca_linear_paths, section_coverage
             paths = list(orca_linear_paths(self.gcode))
             reviews = [section_coverage(paths, x_mm=x, z_mm=z, span_mm=span)
                        for x, z, span in self.sections]
-            answer.update(sections=reviews,
+            answer.update(sections=reviews, maximum_uncovered_mm=self.maximum_uncovered_mm,
                 gcode_sha256=hashlib.sha256(Path(self.gcode).read_bytes()).hexdigest(),
                 local_solid_paths_established=all(r['uncovered_width_mm'] <= self.maximum_uncovered_mm for r in reviews))
         return answer
@@ -290,7 +293,7 @@ class ContactQuestion(StructuralQuestion):
     contact_region: Region
     mating_parts: tuple[MatingPart, ...]
     penalty_N_mm3: float
-    penetration_limit_mm: float = .02
+    penetration_limit_mm: float
     discretization: str = 'surface_to_surface'
     contact_expected: bool = True
     combine_mating_surfaces: bool = True
@@ -323,7 +326,9 @@ class ContactQuestion(StructuralQuestion):
             else:
                 if not part.supports:
                     raise ValueError('A deformable mating part requires explicit supports')
-                c.add_part(part.name, part.shape, material=part.material or self.material, mesh_size_mm=self.mesh_size_mm)
+                if not isinstance(part.material, Material):
+                    raise ValueError('A deformable mating part requires an explicit material')
+                c.add_part(part.name, part.shape, material=part.material, mesh_size_mm=self.mesh_size_mm)
                 for support in part.supports:
                     c.constrain(part.name, support.region, displacement_mm=support.displacement_mm,
                                 name=f'{part.name}_{support.name}')

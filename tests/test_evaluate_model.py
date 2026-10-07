@@ -132,6 +132,44 @@ def test_summary_keeps_slice_review_status_and_full_saved_settings(tmp_path, mon
     assert summary["slice"]["log_notices"] == ["Review support placement"]
     assert "effective_settings" not in summary["slice"]
     assert native["slice"]["effective_settings"] == {"wall_loops": "2"}
+    assert summary['slice']['setup_selection'] == native['slice']['setup_selection']
+
+
+@pytest.mark.parametrize('supplied', [False, True])
+def test_slice_setup_is_complete_and_its_origin_is_visible(tmp_path, monkeypatch, capsys, supplied):
+    import evaluate_model
+    existing = tmp_path/'piece.stl'
+    existing.write_text('mock slice input')
+    calls = []
+    def reviewed(model, printer, process, filament, *, placement, **kwargs):
+        calls.append((printer, process, filament, placement))
+        return {'review_required': False}
+    monkeypatch.setattr(evaluate_model, 'review', reviewed)
+    arguments = ['--slice-existing', str(existing)]
+    if supplied:
+        arguments += ['--slice-printer', 'printer.json', '--slice-process', 'process.json',
+                      '--slice-filament', 'filament.json', '--slice-placement', 'preserve']
+    assert evaluate_model.main(arguments) == 0
+    selection = json.loads(capsys.readouterr().out)['slice']['setup_selection']
+    assert selection['profiles'] == ('supplied' if supplied else 'diagnostic_reference')
+    assert selection['placement'] == ('explicit' if supplied else 'default_center')
+    expected = (Path('printer.json'), Path('process.json'), Path('filament.json'), 'preserve') if supplied else (
+        evaluate_model.DEFAULTS['printer'], evaluate_model.DEFAULTS['process'],
+        evaluate_model.DEFAULTS['filament'], 'center')
+    assert calls == [expected]
+
+
+@pytest.mark.parametrize('provided', [('printer',), ('process',), ('filament',),
+                                     ('printer', 'process'), ('printer', 'filament'), ('process', 'filament')])
+def test_partial_slice_setup_is_rejected_before_computation(tmp_path, monkeypatch, provided):
+    import evaluate_model
+    monkeypatch.setattr(evaluate_model, 'review', lambda *a, **k: pytest.fail('partial setup reached slicer'))
+    arguments = ['--slice-existing', str(tmp_path/'piece.stl')]
+    for name in provided:
+        arguments += ['--slice-'+name, str(tmp_path/(name+'.json'))]
+    with pytest.raises(SystemExit) as error:
+        evaluate_model.main(arguments)
+    assert error.value.code == 2
 
 
 def test_report_write_failure_preserves_completed_stage_status(tmp_path, capsys, monkeypatch):

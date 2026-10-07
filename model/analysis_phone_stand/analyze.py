@@ -19,7 +19,7 @@ def material(modulus):
 def release_case(mesh=1.6,modulus=1200):
     # Thumb presses the forward tab. X/Y remain free, matching a frictionless fingertip.
     return FlexureQuestion(name='latch_release',part=latch(),part_name='latch',
-        material=material(modulus),mesh_size_mm=mesh,timeout_seconds=360,
+        material=material(modulus),mesh_size_mm=mesh,
         supports=(Support(Region(lower=(-100,LATCH_ROOT_Y,LATCH_TOP-LATCH_THICKNESS-.01),
             upper=(100,100,LATCH_TOP-LATCH_THICKNESS+.01)),name='mount'),),
         motion=Motion((None,None,-RELEASE_TRAVEL),Region(lower=(-8,PIVOT_Y-16,LATCH_TOP-.01),
@@ -52,7 +52,7 @@ def structure_case(mesh=3,modulus=1200,mass=PHONE_MASS_KG):
 
 
 def contact_case(mesh=2.5,modulus=1200,penalty=60000,travel=5.8):
-    c=AnalysisCase('tooth_holding' if travel<0 else 'tooth_pass_over',max_increment=.1,timeout_seconds=480)
+    c=AnalysisCase('tooth_holding' if travel<0 else 'tooth_pass_over',max_increment=.1)
     c.add_part('latch',latch(),material=material(modulus),mesh_size_mm=mesh)
     c.fix('latch',Region(lower=(-100,LATCH_ROOT_Y,LATCH_TOP-LATCH_THICKNESS-.01),
                          upper=(100,100,LATCH_TOP-LATCH_THICKNESS+.01)),name='mount')
@@ -62,7 +62,7 @@ def contact_case(mesh=2.5,modulus=1200,penalty=60000,travel=5.8):
     c.add_part('gear_patch',gear,material=material(modulus),mesh_size_mm=mesh)
     c.prescribe_motion('gear_patch',displacement_mm=(0,travel,0),name='drive')
     c.contact('latch',Region(lower=(-100,PIVOT_Y-3,LATCH_TOP+.1),upper=(100,PIVOT_Y+3,30)),
-              'gear_patch',Region(upper=(100,100,PIVOT_Z-GEAR_ROOT+.5)),penalty_N_mm3=penalty)
+              'gear_patch',Region(upper=(100,100,PIVOT_Z-GEAR_ROOT+.5)),penalty_N_mm3=penalty, penetration_limit_mm=.05)
     c.observe('latch',Region(lower=(-6,PIVOT_Y-1,LATCH_TOP+LATCH_TOOTH_HEIGHT-.01),upper=(6,PIVOT_Y+1,LATCH_TOP+LATCH_TOOTH_HEIGHT+.01)),name='tooth')
     return c
 

@@ -69,7 +69,7 @@ def main():
             def slice_pair():
                 with observed('benchmark.slice',source=cad.with_suffix('.stl')):
                     before=time.perf_counter()
-                    result=review(cad.with_suffix('.stl'),**DEFAULTS,threads=threads,reuse=False)
+                    result=review(cad.with_suffix('.stl'),**DEFAULTS,placement='center',threads=threads,reuse=False)
                     assert result['support_probe']['ok']
                     return time.perf_counter()-before
             record['policies'][f'slice_threads_{threads}']=measure(slice_pair,3)

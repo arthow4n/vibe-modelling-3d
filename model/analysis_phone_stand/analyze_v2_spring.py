@@ -10,7 +10,7 @@ def question(mesh=1.2):
     return FlexureQuestion(name='v2_guided_spring',part=d.leaf(1),part_name='spring',
         material=material(),supports=(Support(Region((d.ROOT_X-3,d.ROOT_Y-5,d.LEAF_Z),
             (d.ROOT_X+7,d.ROOT_Y+5,d.LEAF_Z)),name='full_width_mount_pad'),),
-        mesh_size_mm=mesh,max_increment=.1,timeout_seconds=180,
+        mesh_size_mm=mesh,max_increment=.1,
         motion=Motion((0,-d.RELEASE_TRAVEL,0),Region.plane('x',8),name='guided_end'),
         acceptance={'peak_motion_force_N.guided_end':4},
         manufacturing=ManufacturingAssumption('Exact production leaf flat on XY, solid PETG; moving pad idealized guided translation. Force is per leaf; two leaves act in parallel.'))

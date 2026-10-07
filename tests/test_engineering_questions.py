@@ -27,7 +27,7 @@ def stopped_beam_question():
         mating_parts=(MatingPart('stop',cq.Workplane('XY').box(6,12,1,centered=False).translate((36,-2,2.2)),
                                 Motion((0,0,0),name='stop_fixed'),Region.plane('z',2.2)),),
         penalty_N_mm3=12000,mesh_size_mm=2,max_increment=.1,
-        observations={'tip':Region.plane('x',40)})
+        observations={'tip':Region.plane('x',40)}, penetration_limit_mm=.02)
 
 
 def test_force_loaded_contact_stop_and_retained_identity(tmp_path):
@@ -176,7 +176,7 @@ def recovery_contract(*, one_way=False):
         mating_parts=(MatingPart('driver',cq.Workplane('XY').box(1,1,1),motion),),
         observations={'tip':Region.plane('x',4)},penalty_N_mm3=1000,
         return_observation='tip',require_driver_return=not one_way,contact_free_at=(1,),
-        displacement_limits_mm={'tip':((-.2,.2),)*3})
+        displacement_limits_mm={'tip':((-.2,.2),)*3}, penetration_limit_mm=.02)
     def frame(time, pressure, displacement):
         return dict(load_fraction=time,max_contact_pressure_MPa=pressure,
             observations={'tip':{'min_mm':[0,0,displacement],'max_mm':[0,0,displacement]}})
@@ -238,6 +238,7 @@ def test_one_way_recovery_does_not_promote_failed_or_missing_evidence(failure):
 
 def test_phone_release_preserves_force_and_exposes_approximation():
     q = consumer('analysis_phone_stand').release_case(mesh=1.1)
+    assert q.timeout_seconds is None and q.build_case().timeout_seconds is None
     r = q.read_evidence(ROOT/'model/analysis_phone_stand/notes/analysis/release')
     a = r.metrics['question']
     assert a['numerical_evidence_adequate'] and a['force_balance_ok']
@@ -261,7 +262,7 @@ def test_rejected_quality_baseline_does_not_run_refinements(tmp_path,monkeypatch
         return r
     monkeypatch.setattr(SnapFitQuestion,'run',rejected_response)
     r = QuestionStudy(q,'Passage must be qualified before force refinement',
-        ('max_abs_principal_strain',),motion_levels=1).run(tmp_path/'study')
+        ('max_abs_principal_strain',),motion_levels=1, relative_tolerance=.05).run(tmp_path/'study')
     a = r.metrics['question']
     assert r.status == 'quality_failed' and not r.completed
     assert a['solver_completed'] and not a['numerical_evidence_adequate']
@@ -308,9 +309,9 @@ def test_stale_geometry_motion_material_settings_and_archive_are_rejected(tmp_pa
 def test_manufacturing_reviews_actual_paths_without_material_inference(tmp_path):
     path = tmp_path/'section.gcode'
     path.write_text('G90\nM83\n;LAYER_CHANGE\n;TYPE:Internal solid infill\n;WIDTH:1\nG1 X-1 Y0 Z0.2\nG1 X1 Y0 E1\n')
-    review = ManufacturingAssumption('Registered benchmark section',path,((0,.2,(-.5,.5)),)).review()
+    review = ManufacturingAssumption('Registered benchmark section',path,((0,.2,(-.5,.5)),), maximum_uncovered_mm=.05).review()
     assert review['local_solid_paths_established']
-    gap = ManufacturingAssumption('Registered benchmark section',path,((0,.2,(-1,1)),)).review()
+    gap = ManufacturingAssumption('Registered benchmark section',path,((0,.2,(-1,1)),), maximum_uncovered_mm=.05).review()
     assert not gap['local_solid_paths_established']
     assert 'youngs_modulus_MPa' not in review
 
@@ -327,13 +328,13 @@ def test_book_plate_cross_check_runs_known_structural_question(tmp_path):
 
 def test_study_plan_is_opt_in_bounded_and_keeps_one_factor_changes():
     q = beam_question()
-    study = QuestionStudy(q,'Force refinement',('peak_motion_force_N.drive',),motion_levels=2)
+    study = QuestionStudy(q,'Force refinement',('peak_motion_force_N.drive',),motion_levels=2, relative_tolerance=.05)
     plan = study.plan()
     assert not plan['mesh_sensitivity'] and not plan['contact_parameter_sensitivity']
     assert [r.max_increment for _,r in plan['increment_sensitivity']] == [.05,.025]
     assert all(r.mesh_size_mm == q.mesh_size_mm for _,r in plan['increment_sensitivity'])
     with pytest.raises(ValueError,match='unsupported'):
-        QuestionStudy(q,'Contact check',('max_displacement_mm',),contact_levels=1).plan()
+        QuestionStudy(q,'Contact check',('max_displacement_mm',),contact_levels=1, relative_tolerance=.05).plan()
 
 
 def test_small_metric_change_crossing_provisional_limit_does_not_stop_as_stable(tmp_path,monkeypatch):
@@ -347,13 +348,14 @@ def test_small_metric_change_crossing_provisional_limit_does_not_stop_as_stable(
         return question._answer(r)
     monkeypatch.setattr(FlexureQuestion,'run',recorded_response)
     r = QuestionStudy(q,'Remain below the supplied strain screen',
-        ('question.peak_strain',),mesh_levels=1).run(tmp_path/'study')
+        ('question.peak_strain',),mesh_levels=1, relative_tolerance=.05).run(tmp_path/'study')
     assert r.metrics['question']['numerical_confidence']['mesh_sensitivity'] == 'unstable'
     assert r.metrics['question']['study']['acceptance_changed']['mesh_sensitivity_1']
 
 
 def test_k_mesh_study_reuses_bound_evidence_without_solving(monkeypatch):
     module=consumer('filament_swatch_box_study','analyze_cap_k.py')
+    assert module.question(mesh=.8).timeout_seconds is None
     def no_solve(*args,**kwargs):
         pytest.fail('Retained K review must not launch a new solve')
     monkeypatch.setattr(SnapFitQuestion,'run',no_solve)
@@ -378,7 +380,7 @@ def test_k_mesh_study_reuses_bound_evidence_without_solving(monkeypatch):
 def test_two_deformable_contact_bodies_share_load_and_retained_identity(tmp_path):
     q=stopped_beam_question()
     q.mating_parts=(MatingPart('upper',
-        cq.Workplane('XY').box(40,8,2,centered=False).translate((0,0,2.2)),
+        cq.Workplane('XY').box(40,8,2,centered=False).translate((0,0,2.2)),material=q.material,
         contact_region=Region.plane('z',2.2),
         supports=(Support(Region.plane('x',0)),)),)
     assert QuestionStudy._travel(q)=={}
@@ -405,6 +407,8 @@ def test_deformable_mate_requires_unambiguous_fixture_and_keeps_its_load():
     with pytest.raises(ValueError,match='rigid motion or'):q.build_case()
     q.mating_parts=(replace(p,motion=None,supports=(Support(Region.plane('x',36)),),
                            forces=(SurfaceForce(Region.plane('x',42),(0,0,-.01)),)),)
+    with pytest.raises(ValueError,match='explicit material'):q.build_case()
+    q.mating_parts=(replace(q.mating_parts[0],material=q.material),)
     case=q.build_case()
     assert len(case.loads)==2
     assert case.constraints[-1].name=='stop_root'

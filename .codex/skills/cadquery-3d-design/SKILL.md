@@ -9,6 +9,8 @@ description: Design or revise practical parametric CadQuery objects for single-m
 integrity, delivery and Git requirements. This skill owns functional design and
 the choice of the next useful investment. A valid solid or clean slice alone does
 not establish product value or physical function.
+For Python interfaces, check helpers and code review, also apply
+[coding conventions](../coding-conventions/SKILL.md); product design choices remain here.
 
 ## Decide what to build next
 

@@ -35,7 +35,7 @@ hardware=dict(scope='Conservative projected-area screens, 2x local load allowanc
 summary=dict(
     engineering_question=QuestionStudy(release_case(mesh=1.5),
         'Release force and local-strain precision at five percent; tooth clearance remains object-owned',
-        ('peak_motion_force_N.thumb','max_abs_principal_strain'),mesh_levels=1,mesh_factor=1.1/1.5).run(
+        ('peak_motion_force_N.thumb','max_abs_principal_strain'),mesh_levels=1,mesh_factor=1.1/1.5, relative_tolerance=.05).run(
             evidence={'baseline':ROOT/'notes/analysis/release_coarse',
                       'mesh_sensitivity_1':ROOT/'notes/analysis/release'}).metrics['question'],
     conditions=dict(phone_kg=PHONE_MASS_KG,moving_mass_allowance_kg=.1,
@@ -54,7 +54,7 @@ summary=dict(
         peak_strain=structure.metrics['max_abs_principal_strain'],
         evidence='notes/analysis/jula_structure; current fixture identity checked',
         scope='E=800 MPa, 300 g phone + conservative 100 g moving-part allowance. Bonded arm/cradle; fixed sector cut; excludes hinge and latch rotation.'),
-    holding_mesh_and_penalty_sensitivity=compare_results(hc,holding,metrics=['peak_motion_force_N.drive','max_abs_principal_strain']),
+    holding_mesh_and_penalty_sensitivity=compare_results(hc,holding,metrics=['peak_motion_force_N.drive','max_abs_principal_strain'], relative_tolerance=.05),
     hardware=hardware,
     evidence_reuse=dict(release='Current latch fixture identity checked against retained release cases; latch geometry, mounting faces, travel and PETG assumptions unchanged.',
         holding='Retained local latch/tooth-patch results; hardware reliefs are outside the unchanged gear patch. This excludes the revised pivot support.',

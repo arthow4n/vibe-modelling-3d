@@ -71,6 +71,9 @@ Several callables/sources can address one obligation. A declared check that retu
 nothing leaves its obligation UNKNOWN. Use separate question IDs when evidence
 answers independent obligations (CAD obstruction, physical effort, wear), rather
 than letting one substitute for another.
+Each `Question` requires an explicit `mode` label (for example CAD, physical,
+subjective or analytical);
+omission cannot silently categorize a physical question as CAD.
 
 | Result | Meaning |
 | --- | --- |
@@ -220,7 +223,7 @@ redirected to stderr, preserving JSON stdout. Saved receipts are not result cach
 | --- | --- |
 | Q1 / Q1F | Existing closed/card/hood/insert/landing/join groups extracted from `check_quiet_q1.py`; original `main()` still composes those groups and writes the established report. Q1F additionally calls its existing local connectivity/rim screens. A composed hood/insert/landing check returns independent evidence for separate requirements while sharing candidate geometry; joining includes independent opening in its own composite criterion. Physical Q1F joining PASS coexists with noise/coverage/fit FAIL; Q1 has no inferred print result. |
 | All-TPU G hood on Q1F | Retained noise FAIL and distorted-but-usable observation; appearance acceptance UNKNOWN, not invented rejection. No new material-qualified CAD/print/solver work. Layer-line explanation remains OPEN; damping stop remains INFO. |
-| Accepted sunglasses E full case | Existing closed, shell path, rotational/axial obstruction and released-loop checks split into callable groups. Production and product verification share both original retention witnesses. Existing source cavity, component validity, print-placement and keeper-capture assertions are callable; default model evaluation/export behavior is retained. D/E coupon PASS records stay scoped to samples; separate full-case PASS does not answer fatigue. |
+| Accepted sunglasses E full case | Existing closed, shell path, rotational/axial obstruction and released-loop checks split into callable groups. Production and product verification share both original retention witnesses. Existing source cavity, component validity, print-placement and keeper-capture assertions are callable; source validation is retained; exports use the explicit evaluator boundary. D/E coupon PASS records stay scoped to samples; separate full-case PASS does not answer fatigue. |
 | Accepted threaded Vaseline pair | Existing helical path and axial obstruction functions; nominal requested envelope check; retained successful print report and wear UNKNOWN. No universal retention mechanism. |
 | Accepted book plate | Existing seating/clearance group, retained analytical input-bound screens and scoped user print result. Specific physical load and long-term creep remain UNKNOWN. |
 | Replacement fixtures | No candidate geometry or verifier; user obligations stay UNKNOWN. Obsolete keeper/insert requirements are explicitly N/A. These are qualification fixtures, not proposed product directions. |

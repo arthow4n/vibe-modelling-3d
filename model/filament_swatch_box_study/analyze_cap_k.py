@@ -16,7 +16,7 @@ import dome_latch_study as k
 from physical_analysis import SnapFitQuestion,MatingPart,Motion,Support,Region,PETG_SCREEN,ManufacturingAssumption,QuestionStudy
 
 
-def question(mesh=.65,timeout=600):
+def question(mesh=.65,timeout=None):
     target=k.travel_screen(2.2)['pass_flat_face_travel_y_mm']
     deepest=k.free_nose_y()
     low=k.DOME_Z-k.NOSE_RADIUS

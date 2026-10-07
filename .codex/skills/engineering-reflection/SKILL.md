@@ -85,6 +85,7 @@ complete product. Avoid converting a one-off idea into a standing preference.
 | Explicit or repeated user preference | Update [user preferences](../cadquery-3d-design/references/user-preferences.md#updating-this-record) with scope and linked evidence; retain project-specific requirements locally. |
 | Transferable design success/failure | Add or revise a concise [reusable-evidence entry](../cadquery-3d-design/references/reusable-model-lessons.md), linking the detailed object record and naming transfer limits. |
 | Missing design decision or workflow instruction | Edit the responsible skill/reference, or [AGENTS.md](../../../AGENTS.md) for repository workflow. Link the owner rather than repeat its procedure in several places. |
+| Coding/interface failure or review gap | Improve [coding conventions](../coding-conventions/SKILL.md#improve-this-convention-autonomously) using the observed trigger and consequence; keep product facts and tool contracts with their owners. |
 | Repeated code or a concrete API gap | Improve the existing shared script/API under the extension rules below. Share the general operation; retain object-specific geometry, material assumptions and pass/fail thresholds locally. |
 
 Before extracting code, identify its actual caller and current shared API.

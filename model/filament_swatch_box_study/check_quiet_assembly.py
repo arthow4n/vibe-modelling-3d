@@ -138,8 +138,10 @@ def qualify(model, report):
             for path in [ROOT/(stem+suffix) for suffix in ('.step','.stl')]})
 
 
-def run(variant='q1f'):
-    q=quiet_q1_flush if variant=='q1f' else quiet_q1
+def run(variant):
+    if variant not in ('q1f', 'q1'):
+        raise ValueError(f'Unknown assembly variant: {variant!r}')
+    q={'q1f': quiet_q1_flush, 'q1': quiet_q1}[variant]
     model=QuietAssembly(q)
     extra=local_checks(model) if q is quiet_q1_flush else None
     name=f'quiet_{variant}_assembly_checks.json'
@@ -162,5 +164,5 @@ def run(variant='q1f'):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--variant',choices=('q1f','q1'),default='q1f')
+    parser.add_argument('--variant',choices=('q1f','q1'),required=True)
     run(parser.parse_args().variant)

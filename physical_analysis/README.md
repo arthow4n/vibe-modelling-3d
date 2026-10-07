@@ -156,10 +156,12 @@ the peak integration points; missing historical stress locations stay unknown.
 Elastic numerical return does **not** establish printed recovery. The layer
 does not infer calibration, friction, fatigue, plasticity or creep.
 
-Associate `ManufacturingAssumption(description, gcode, sections)` when solidity
+Associate `ManufacturingAssumption(description, gcode, sections,
+maximum_uncovered_mm=...)` when solidity
 matters. Explicit registered sections `(x_mm, z_mm, (y0,y1))` use actual Orca
 paths through the existing coverage helper. An uncovered section rejects the
-solid-section provisional screen. Description-only records leave path coverage
+solid-section provisional screen. Section acceptance requires an explicit uncovered
+width limit, recorded beside the result. Description-only records leave path coverage
 unknown. Neither mode turns walls/infill/orientation into material properties.
 
 ### Force-loaded contact questions
@@ -171,9 +173,9 @@ as well as prescribed translations of rigid mates. Each mate must be one
 connected solid. Rigid mates specify all three translations; stationary mates use
 `Motion((0,0,0), name='unique_support_name')`.
 For a deformable mate, omit `motion` and supply explicit `supports`, optional
-`forces` and an optional `material` (otherwise the question's material is used).
+`forces` and an explicit `material`, even when it matches the question's material.
 For example, `MatingPart('housing', housing, contact_region=roof,
-supports=(Support(foundation),))` permits the printed housing to share deformation
+supports=(Support(foundation),), material=housing_material)` permits the printed housing to share deformation
 and load. Mixing rigid motion with those elastic-fixture fields is rejected.
 Every elastic body's finite strain and supplied material limit enter the answer;
 missing mate strain cannot qualify a result. Constraints use a mate-name prefix,
@@ -247,6 +249,9 @@ The answer reports `stable`, `unstable`, `unresolved` or `not_run` and the stopp
 reason; stability is a bounded comparison, not proof of asymptotic convergence.
 The saved study records its relative and absolute metric tolerances alongside
 the comparisons, so the numerical stopping rule remains explicit in evidence.
+Both `QuestionStudy` and `compare_results` require `relative_tolerance`; omission
+cannot choose an acceptance rule. Existing callers retain their previous limits
+explicitly rather than retuning the numerical question.
 `baseline_quality_adequate` preserves the operation checks; requested unstable or
 unresolved studies make overall `numerical_evidence_adequate=False` without
 erasing independently established passage or changing native completion/status.
@@ -339,7 +344,8 @@ free face unless that is the actual loading fixture.
 
 ```python
 case.contact('spring', Region.plane('z', 2),
-             'obstacle', Region.plane('z', 2.1), penalty_N_mm3=60000)
+             'obstacle', Region.plane('z', 2.1), penalty_N_mm3=60000,
+             penetration_limit_mm=.05)
 ```
 
 Contact uses frictionless penalty contact. The default
@@ -604,7 +610,7 @@ an engineering block is not a model of skin or grip. Conversely, include real
 cap edges that cross the snap during motion. Keep these fixture choices and
 their omitted physical behavior with the object.
 
-Contact penetration above the explicit `penetration_limit_mm` (default 0.05 mm)
+Contact penetration above the explicit, required `penetration_limit_mm`
 rejects the result with `status='quality_failed'`, retaining diagnostic metrics.
 Choose a tighter limit when fit requires it. Unknown solver parameters fail
 instead of being accepted as warnings. Other warning messages include context.

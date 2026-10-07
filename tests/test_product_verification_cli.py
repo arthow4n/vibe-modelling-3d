@@ -6,7 +6,7 @@ from product_verification import (Question, UserRequirement, UserSource, Evidenc
     Check, Plan, Status, cli)
 
 REQ=UserRequirement('fixture.use','Usable product',UserSource('README.md','User asks usable product'),
-                    (Question('geometry','Geometry works'),))
+                    (Question('geometry','Geometry works', mode='CAD'),))
 SCOPE={'design':'candidate'}
 TARGET=(('fixture.use','geometry'),)
 ARGS=['--variant','candidate']
@@ -163,7 +163,7 @@ def test_variant_help_still_exposes_programming_configuration_errors(capsys):
 
 
 def test_mixed_evidence_survives_the_command_reason(capsys):
-    questions=(Question('geometry','Geometry works'),Question('use','User accepts use','physical'),
+    questions=(Question('geometry','Geometry works', mode='CAD'),Question('use','User accepts use','physical'),
                Question('life','Durability is known','physical'))
     requirement=UserRequirement(REQ.id,REQ.text,REQ.source,questions)
     retained=(Evidence('physical',((REQ.id,'use'),),Status.FAIL,'User rejected use','README.md',SCOPE),)
