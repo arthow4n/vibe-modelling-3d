@@ -17,8 +17,9 @@ authorization override recorded defaults; do not ask again for settled choices.
 | --- | --- |
 | Repository Python implementation, interface changes or code review | [Coding conventions](.codex/skills/coding-conventions/SKILL.md) before interface decisions and during review. It owns explicit choices, command boundaries and evidence-backed convention maintenance. |
 | Every 3D modelling task, including an established-product revision | [CadQuery design](.codex/skills/cadquery-3d-design/SKILL.md). It routes early product decisions, preferences and manufacturing assumptions, then conditional references. |
+| Consequential or uncertain physical representation, method or solver choice; or a meaningful limitation of the current approach | [Engineering method selection](.codex/skills/engineering-method-selection/SKILL.md). Preferred starting routes are challengeable; clear, adequate methods proceed directly to specialist guidance. |
 | Articulated hand/arm reach, contact or access path | [Articulated human interaction](.codex/skills/articulated-human-interaction/SKILL.md); begin with a consequential product question and explicit anatomy/setup/collision assumptions. |
-| Structural, flexure or contact analysis | [Physical-analysis use](physical_analysis/README.md#use) and its decision-driven [study guidance](physical_analysis/README.md#study-sequence) before solving. Product work also uses the design skill; independent numerical benchmarks do not require product review. |
+| Local structural, flexure or continuum-contact analysis using the physical-analysis layer | [Physical-analysis use](physical_analysis/README.md#use) and its decision-driven [study guidance](physical_analysis/README.md#study-sequence) before solving. Product work also uses the design skill; independent numerical benchmarks do not require product review. |
 | Final smoke slice or slicer-sensitive question | [Print planning](.codex/skills/cadquery-3d-design/references/print-planning.md#final-review-and-reference-smoke-slice), then [Orca inspection](.codex/skills/orca-slicer-printability/SKILL.md). |
 | Physical feedback, modelling-phase handoff, reflection or workflow improvement | [Engineering reflection](.codex/skills/engineering-reflection/SKILL.md). Print feedback first goes to the object's status and root index; a failure routes to the physical-feedback reference. Routine handoffs need only a brief review of new evidence. |
 | Computational profiling, execution studies or interrupted-work recovery | [Engineering execution](.codex/skills/engineering-execution/SKILL.md). Ordinary commands need no performance investigation. |
@@ -112,8 +113,10 @@ only an explicit user-requested deadline, never an expected duration or precauti
 Diagnose slow work from progress and evidence. Service connection, idle-retirement
 and termination-cleanup allowances have separate lifecycle roles.
 
-Keep Gmsh/native solvers isolated through the physical-analysis APIs. Use existing
-execution/batch and question/study interfaces instead of another scheduler, trace
+Keep Gmsh/native solvers isolated through the physical-analysis APIs where they
+cover the method; justified local integrations retain the established execution
+lifecycle and isolation contracts. Use existing execution/batch and applicable
+question/study interfaces instead of another scheduler, trace
 schema or arbitrary-result cache. Geometry reuse requires complete deterministic
 inputs and no required construction side effects; unknown inputs stay fresh.
 Preserve identity guards, output ownership and explicit fresh/reused status. Never

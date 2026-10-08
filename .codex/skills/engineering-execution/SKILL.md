@@ -25,7 +25,9 @@ Use a measured, decision-relevant hypothesis and preserve validation when a
 separately justified computational optimization follows.
 
 - Run ordinary Python files with `./execute.py`; evaluate CAD with the existing
-  evaluator. Keep native solvers behind the physical-analysis APIs. Do not create
+  evaluator. Keep native solvers behind the physical-analysis APIs where they
+  cover the method; justified local integrations retain the established execution
+  lifecycle and isolation contracts. Do not create
   another pool, scheduler, trace format or arbitrary-result cache.
   Use the uncapped computation defaults and follow the
   [repository deadline rule](../../../AGENTS.md#shared-engineering-execution);

@@ -66,6 +66,13 @@ exact distances and all potentially intersecting poses retain native checks.
 
 ## Use
 
+For consequential or uncertain representation/solver choices, or a meaningful
+limitation of this structural route, consult
+[engineering method selection](../.codex/skills/engineering-method-selection/SKILL.md).
+Clear, suitable analyses can use this guidance directly. This document owns the
+integrated APIs and numerical qualification, not the full capabilities of the
+underlying solvers or an obligatory route for all contact/dynamics/material physics.
+
 Prefer `SnapFitQuestion`, `ContactQuestion`, `FlexureQuestion` or `StructuralQuestion` for a known
 physical situation. Identify the geometry and named regions explicitly; supply
 loads, material assumptions and provisional acceptance limits. The shared layer
@@ -768,9 +775,11 @@ reported as `max(0, -CDIS_normal)` and tested against pressure/penalty.
 
 Add a backend by implementing `run(case, directory) -> AnalysisResult`. Reject
 unsupported case features explicitly. Add a numerical benchmark before exposing
-a new analysis type; keep solver keywords out of object scripts. Future joint
-networks and material laws should extend the case contract only when a concrete
-model needs them. The [local numerical fixture](experiments/ipc/fixtures/rounded_snap/README.md)
+a new analysis type through this API; keep its solver keywords inside the backend.
+Suitable capabilities outside the case contract may use a justified local native
+integration under the [method-selection guidance](../.codex/skills/engineering-method-selection/SKILL.md#distinguish-capability-from-evidence).
+When reusable joint networks or material laws warrant shared support, extend the
+case contract for a concrete model need. The [local numerical fixture](experiments/ipc/fixtures/rounded_snap/README.md)
 exercises rounded contact-driven pass-over and reopening with mesh/contact/increment sensitivity;
 its numerical result is conditional on frictionless elastic solids and a locally
 clamped root. Sharp-tooth pass-over remains unqualified: the phone-stand

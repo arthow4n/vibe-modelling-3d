@@ -60,6 +60,11 @@ a poor concept.
 Read the relevant sections, not every reference. Early retrieval governs choices;
 operation details can wait until the corresponding work is justified.
 
+When the identified engineering question makes representation/method choice
+consequential or uncertain, or the current approach meets a meaningful limitation,
+consult [engineering method selection](../engineering-method-selection/SKILL.md).
+Clear, adequate methods proceed directly to the relevant guidance below.
+
 | Trigger and timing | Owner |
 | --- | --- |
 | Multipart components/poses shared by checks, inspection or print layouts, or consequential pair/path diagnostics; before organizing placements and checks | Recommend native `cq.Assembly` with the [assembly geometry API](references/parametric-and-edges.md#assembly-representation). Keep geometry and operating relationships object-owned; explicit opt-out allows adequate local checks and unsupported cases. |
@@ -70,7 +75,7 @@ operation details can wait until the corresponding work is justified.
 | Parametric source, components or edge treatment; during construction | [Parametric construction and edges](references/parametric-and-edges.md). Prioritize functional topology and proportions; treat exposed/grip edges deliberately without weakening interfaces. |
 | Printable geometry; during planning and final review | [Print planning](references/print-planning.md). Co-design CAD and manufacture; inspect actual paths only when a consequential assumption depends on them. |
 | Captive support-free hinge | [Conical pivot example](references/print-in-place-hinges.md), with its applicability and physical limits. |
-| Consequential deformation/contact uncertainty exceeds CAD or analytical screens; before solving | [Shared engineering questions](../../../physical_analysis/README.md#use) and [study guidance](../../../physical_analysis/README.md#study-sequence). Prefer existing questions; select `QuestionStudy` before planned numerical comparisons. Independent solver qualification is separate from product acceptance. |
+| Local structural deformation/continuum-contact uncertainty suited to the physical-analysis layer exceeds CAD or analytical screens; before solving | [Shared engineering questions](../../../physical_analysis/README.md#use) and [study guidance](../../../physical_analysis/README.md#study-sequence). Prefer existing questions; select `QuestionStudy` before planned numerical comparisons. Independent solver qualification is separate from product acceptance. |
 | Physical fit, force, friction, texture or durability could change the decision; before recommending a test | [Physical experiments](references/physical-experiments.md#optional-test-prints-for-physical-validation). Choose coupon, partial or complete prototype with representative conditions and explicit omissions; no automatic coupon requirement. |
 | Print/use feedback or rejection | [Physical-feedback guidance](references/physical-experiments.md#when-product-use-fails) and [reflection](../engineering-reflection/SKILL.md). Correct readiness and root index immediately; distinguish visual rejection, print failure and uncertain causes. |
 

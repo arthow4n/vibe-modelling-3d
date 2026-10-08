@@ -17,6 +17,12 @@ setup, obstructions and decision the result could change. Ordinary dimensional
 clearance may need only CAD; effort, friction, comfort and fatigue need other
 qualified analysis or physical evidence.
 
+When anatomy coverage, collision proxies, deformable contact, detailed material
+behavior or physiological forces limit the question, consult
+[engineering method selection](../engineering-method-selection/SKILL.md) for a
+different representation or combination. Retain established anatomy when suitable;
+neither imported muscles nor kinematic success qualifies force or tissue analysis.
+
 ## Import and inspect anatomy
 
 Inspect the installed `myo-sim` distribution and maintained source before choosing
@@ -112,7 +118,9 @@ No new scheduler, cache, score or evidence database is needed.
 
 Future agents may improve this skill when real engineering work establishes a
 reusable lesson, confirmed failure mode or qualified capability. Link its consumer
-and applicability limits. Do not add speculative methods or universal human design
-thresholds. Extract shared code only when concrete consumers or demonstrated
+and applicability limits. Cross-method preference lessons belong in
+[engineering method selection](../engineering-method-selection/SKILL.md#improve-recommendations-from-actual-work);
+keep human-model operational lessons here. Do not add speculative methods or
+universal human design thresholds. Extract shared code only when concrete consumers or demonstrated
 correctness needs justify it; additional contacts, measured profiles and force
 analysis still need their own qualification.

@@ -12,6 +12,11 @@ Ordinary shapes/direct functions remain appropriate for simple one-off geometry;
 `check_pair()` also accepts Shapes/Workplanes without an assembly. Recommendation
 does not imply complete engineering coverage or physical qualification.
 
+When the question moves beyond placement/clearance to forces, dynamics or
+compliance and the appropriate representation is uncertain, use
+[engineering method selection](../.codex/skills/engineering-method-selection/SKILL.md).
+Geometric constraints remain geometric evidence, not physical joints or supports.
+
 ## Public interface
 
 Build a **native `cq.Assembly`** with explicit names and locations:
