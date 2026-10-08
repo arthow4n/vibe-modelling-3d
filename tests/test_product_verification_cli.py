@@ -114,7 +114,7 @@ def test_invalid_json_evidence_cannot_emit_nonstandard_json_or_claim_a_result(va
 
 def test_excessively_nested_report_still_emits_a_json_error(capsys):
     nested={}
-    for _ in range(12000):
+    for _ in range(60):
         nested={'child':nested}
     report=plan().evaluate()
     report['invalid_detail']=nested

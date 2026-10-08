@@ -341,6 +341,17 @@ class _JSONArgumentParser(argparse.ArgumentParser):
         raise _CLIArgumentError(message)
 
 
+def _check_depth(obj, depth=0, max_depth=50):
+    if depth > max_depth:
+        raise RecursionError(f'Report exceeds maximum allowed nesting depth of {max_depth}')
+    if isinstance(obj, dict):
+        for v in obj.values():
+            _check_depth(v, depth + 1, max_depth)
+    elif isinstance(obj, (list, tuple)):
+        for v in obj:
+            _check_depth(v, depth + 1, max_depth)
+
+
 def cli(make_plan, variants, *, argv=None):
     """Mandatory command adapter for object-owned verification.py entry points.
 
@@ -408,6 +419,7 @@ def cli(make_plan, variants, *, argv=None):
             traceback.print_exc(file=sys.stderr)
     result['variant'], result['selected_checks'] = args.variant, args.check
     try:
+        _check_depth(result)
         encoded = json.dumps(result, indent=2, allow_nan=False)+'\n'
     except (TypeError, ValueError, RecursionError) as exc:
         # An invalid report cannot be represented as trustworthy JSON evidence.
