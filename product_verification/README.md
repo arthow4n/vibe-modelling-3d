@@ -212,23 +212,26 @@ errors; translation happens only at the CLI boundary. Interpreter startup failur
 or external termination before that boundary cannot produce a CLI receipt.
 
 Shell codes are **0** or **1** only. Read `exit_reason` and the per-question results
-to distinguish outcomes; never infer failure type from the code:
+to distinguish engineering outcomes. Exit 0 means verification produced a valid
+report or help; exit 1 means the command failed, not that the product failed:
 
 | `exit_reason` | Meaning |
 | --- | --- |
 | `verification_complete` | All active requirements have questions and all applicable obligations are answered; exit 0 |
-| `criterion_failed` | Applicable evidence includes FAIL; exit 1 |
-| `unresolved_evidence` | UNKNOWN/INCONCLUSIVE remain without FAIL; exit 1 |
+| `criterion_failed` | Applicable evidence includes FAIL; exit 0 |
+| `unresolved_evidence` | UNKNOWN/INCONCLUSIVE remain without FAIL; exit 0 |
 | `argument_error` | Missing/invalid variant or check selection; exit 1 |
 | `execution_error` | Fatal programming/configuration error or unexpected checker exit; exit 1 |
 | `report_error` | Report could not be encoded as valid JSON; exit 1 |
 | `interrupted` | Verification interrupted; exit 1 |
 | `help_requested` | Usage/declared choices returned without checks; exit 0 |
 
-These are command outcomes, not product readiness or a qualification score.
-Q1F's physical failures and the accepted case's unknown durability both exit 1;
-their JSON preserves the difference. `human_report(envelope['report'])` remains
-available as a Python formatter for a completed report.
+Successful execution does not establish product readiness or a qualification score.
+Q1F's physical failures and the accepted case's unknown durability both exit 0;
+their JSON preserves the engineering outcomes. Focused checks also exit 0 when
+they complete, with omitted obligations still visibly UNKNOWN.
+`human_report(envelope['report'])` remains available as a Python formatter for a
+completed report.
 Exploratory geometry is allowed under any outcome. Directives remain authoritative:
 these commands do not authorize reopening damping work or recommending a print.
 No detailed MotionResult/solver trace is duplicated by default; linked existing
@@ -271,7 +274,8 @@ qualification and preserve the wrong-hood, missing-bead and floating-card mutati
 Accepted STEP/STL bytes are fingerprinted; no exports, slices or solvers are rerun.
 Existing assembly regressions remain applicable.
 [CLI tests](../tests/test_product_verification_cli.py) qualify the uniform JSON
-envelope, explicit choice communication, binary exit codes, mixed evidence,
+envelope, explicit choice communication, command success despite FAIL/UNKNOWN/
+INCONCLUSIVE or focused unresolved coverage, mixed evidence,
 argument/runtime errors, interruptions and invalid serialization without CAD work.
 [Entry-point conformance tests](../tests/test_product_verification_entrypoints.py)
 cover every `model/*/verification.py`, including newly added products. They require

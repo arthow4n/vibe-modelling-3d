@@ -428,9 +428,10 @@ From the repository root:
 uv run --locked pytest -q tests/test_human_interaction.py
 ```
 
-Both verification variants exit 1: nominal has access INCONCLUSIVE plus physical
-UNKNOWN; the smaller hypothesis still has physical UNKNOWN. Read JSON, not the
-exit code. Use `--help` for the shared CLI choices. The explicit study does not
+Both verification variants exit 0 when their reports complete: nominal has access
+INCONCLUSIVE plus physical UNKNOWN; the smaller hypothesis still has physical
+UNKNOWN. Shell success does not qualify the product; read the JSON outcomes.
+Use `--help` for the shared CLI choices. The explicit study does not
 implicitly rerun from verification; no extra cache, scheduler or evidence database
 was added. [Semantic regressions](../../tests/test_human_interaction.py) preserve
 static/path differences, held contact, signed distances with disabled contacts,

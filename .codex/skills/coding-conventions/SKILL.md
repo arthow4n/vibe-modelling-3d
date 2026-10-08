@@ -55,7 +55,9 @@ Use the existing common adapter rather than inventing per-product flags, output
 formats, schedulers or caches. Every adopted product verification entry point
 must follow [the shared command contract](../../../product_verification/README.md#running-during-iteration):
 explicit variant selection, declared check IDs, JSON stdout for results and handled
-errors, stderr diagnostics, and coarse 0/1 exit codes. Read JSON for failure reasons.
+errors, stderr diagnostics, and 0/1 command exit codes. Completed reports exit 0
+even with FAIL, UNKNOWN or INCONCLUSIVE evidence; command failures exit 1. Read
+JSON for engineering outcomes and failure reasons.
 Other established tools retain their owning execution contracts; changing one is
 an explicit compatibility change, not a local workaround.
 

@@ -344,7 +344,8 @@ class _JSONArgumentParser(argparse.ArgumentParser):
 def cli(make_plan, variants, *, argv=None):
     """Mandatory command adapter for object-owned verification.py entry points.
 
-    One JSON envelope on stdout; 0/1 are coarse command signals only.
+    One JSON envelope on stdout; exit 0 for completed reports or help,
+    exit 1 for command failures. Engineering outcomes remain in the JSON.
 
     Fatal runner errors remain errors, never synthetic requirement outcomes.
     Python progress/debug prints go to stderr. Variant selection is explicit;
@@ -414,9 +415,10 @@ def cli(make_plan, variants, *, argv=None):
                       error=dict(type=type(exc).__name__, message=str(exc), stage='serialization'))
         encoded = json.dumps(result, indent=2, allow_nan=False)+'\n'
     print(encoded, end='')
-    # Inspect exit_reason/error/report for distinctions. This is command triage,
-    # not product readiness: unresolved evidence and criterion failures both use 1.
-    return 0 if result['exit_reason'] in ('verification_complete', 'help_requested') else 1
+    # A completed, serializable report is command success, regardless of its
+    # engineering outcomes. Inspect the JSON for product evidence and coverage.
+    return 0 if result['exit_reason'] in ('verification_complete', 'criterion_failed',
+        'unresolved_evidence', 'help_requested') else 1
 
 
 def recorded_design_scope(root, inventory='notes/verification_sources.json'):

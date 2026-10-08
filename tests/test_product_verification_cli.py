@@ -28,10 +28,10 @@ def read(capsys):
 
 @pytest.mark.parametrize('status,reason,code',[
     (Status.PASS,'verification_complete',0),
-    (Status.FAIL,'criterion_failed',1),
-    (Status.UNKNOWN,'unresolved_evidence',1),
-    (Status.INCONCLUSIVE,'unresolved_evidence',1)])
-def test_normal_outcomes_share_json_shape_and_only_binary_exit_codes(status,reason,code,capsys):
+    (Status.FAIL,'criterion_failed',0),
+    (Status.UNKNOWN,'unresolved_evidence',0),
+    (Status.INCONCLUSIVE,'unresolved_evidence',0)])
+def test_completed_reports_exit_zero_and_preserve_engineering_outcomes(status,reason,code,capsys):
     assert cli(lambda variant:plan(status),('candidate',),argv=ARGS)==code
     result,stderr=read(capsys)
     assert result['variant']=='candidate'
@@ -56,9 +56,16 @@ def test_progress_never_pollutes_json_stdout(capsys):
 
 
 def test_focused_selection_is_structured_and_uncovered_questions_stay_visible(capsys):
-    assert cli(lambda variant:plan(),('candidate',),argv=ARGS+['--check','fixture.check'])==0
+    candidate=plan()
+    omitted=Check('fixture.omitted',((REQ.id,'other'),),
+                  lambda:pytest.fail('Focused selection must not run omitted checks'))
+    candidate=Plan('candidate',(REQ,),SCOPE,candidate.checks+(omitted,),
+                   questions=QUESTIONS+(Question('other',REQ.id,'Other obligation','CAD'),))
+    assert cli(lambda variant:candidate,('candidate',),argv=ARGS+['--check','fixture.check'])==0
     result,_=read(capsys)
     assert result['selected_checks']==['fixture.check'] and result['report']['focused']
+    assert result['exit_reason']=='unresolved_evidence' and result['error'] is None
+    assert [q['status'] for q in result['report']['requirements'][0]['questions']]==['PASS','UNKNOWN']
 
 
 @pytest.mark.parametrize('argv',[[],['--bogus'],['--check'],['--variant','absent'],
@@ -168,7 +175,7 @@ def test_mixed_evidence_survives_the_command_reason(capsys):
     requirement=UserRequirement(REQ.id,REQ.text,REQ.source)
     retained=(Evidence('physical',((REQ.id,'use'),),Status.FAIL,'User rejected use','README.md',SCOPE),)
     candidate=Plan('candidate',(requirement,),SCOPE,plan().checks,retained,questions=questions)
-    assert cli(lambda variant:candidate,('candidate',),argv=ARGS)==1
+    assert cli(lambda variant:candidate,('candidate',),argv=ARGS)==0
     result,_=read(capsys)
     assert result['exit_reason']=='criterion_failed'
     assert [q['status'] for q in result['report']['requirements'][0]['questions']]==['PASS','FAIL','UNKNOWN']
@@ -180,8 +187,39 @@ def test_no_questions_is_unresolved_json_even_when_other_checks_pass(capsys):
     candidate=plan()
     from dataclasses import replace
     candidate=replace(candidate,requirements=candidate.requirements+(uncovered,))
-    assert cli(lambda variant:candidate,('candidate',),argv=ARGS)==1
+    assert cli(lambda variant:candidate,('candidate',),argv=ARGS)==0
     result,_=read(capsys)
     assert result['exit_reason']=='unresolved_evidence'
     assert result['report']['requirements'][1]['coverage']=='uncovered'
     assert result['report']['requirements'][1]['questions']==[]
+
+
+def test_unknown_physical_question_is_successful_execution(capsys):
+    candidate=Plan('candidate',(REQ,),SCOPE,(), questions=(
+        Question('use',REQ.id,'User accepts operation','physical'),))
+    assert cli(lambda variant:candidate,('candidate',),argv=ARGS)==0
+    result,stderr=read(capsys)
+    assert result['exit_reason']=='unresolved_evidence' and result['error'] is None
+    question=result['report']['requirements'][0]['questions'][0]
+    assert question['mode']=='physical' and question['status']=='UNKNOWN'
+    assert not stderr
+
+
+def test_fatal_checker_error_remains_a_command_failure_with_traceback(capsys):
+    def broken():
+        raise RuntimeError('checker bug')
+    candidate=Plan('candidate',(REQ,),SCOPE,(Check('fixture.check',TARGET,broken),),
+                   questions=QUESTIONS)
+    assert cli(lambda variant:candidate,('candidate',),argv=ARGS)==1
+    result,stderr=read(capsys)
+    assert result['exit_reason']=='execution_error' and result['report'] is None
+    assert result['error']['stage']=='verification'
+    assert 'Traceback' in stderr and 'RuntimeError: checker bug' in stderr
+
+
+def test_malformed_report_remains_a_command_failure(capsys):
+    assert cli(lambda variant:SimpleNamespace(checks=(),evaluate=lambda selected:{}),
+               ('candidate',),argv=ARGS)==1
+    result,stderr=read(capsys)
+    assert result['exit_reason']=='execution_error' and result['report'] is None
+    assert result['error']['type']=='KeyError' and 'Traceback' in stderr

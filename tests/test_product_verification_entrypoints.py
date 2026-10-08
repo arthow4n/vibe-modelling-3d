@@ -66,6 +66,7 @@ def assert_common_protocol(entrypoint, invocation, reason, code, monkeypatch, ca
     base = ['--variant', variants[0]]
     argv = {'help': ['--help'], 'variant-help': base + ['--help'],
             'missing-variant': [], 'complete': base,
+            'failed': base, 'physical-unknown': base, 'inconclusive': base,
             'focused': base + ['--check', 'contract.check'],
             'unknown-check': base + ['--check', 'nonexistent'],
             'extra-option': base + ['--product-specific-option']}[invocation]
@@ -83,10 +84,17 @@ def assert_common_protocol(entrypoint, invocation, reason, code, monkeypatch, ca
                 pv.UserSource(__file__, 'Synthetic conformance fixture; not product intent'))
             scope = {'design': selected}
             evidence = pv.Evidence('contract.check', (('contract.use', 'check'),),
-                pv.Status.PASS, 'Fixture result', __file__, scope)
-            return pv.Plan(selected, (requirement,), scope,
-                (pv.Check('contract.check', evidence.targets, lambda: (evidence,)),),
-                questions=(pv.Question('check', requirement.id, 'Fixture check succeeds', 'CAD'),))
+                {'failed': pv.Status.FAIL, 'inconclusive': pv.Status.INCONCLUSIVE}.get(
+                    invocation, pv.Status.PASS), 'Fixture result', __file__, scope)
+            questions = (pv.Question('check', requirement.id, 'Fixture check succeeds', 'CAD'),)
+            checks = (pv.Check('contract.check', evidence.targets, lambda: (evidence,)),)
+            if invocation == 'physical-unknown':
+                questions += (pv.Question('use', requirement.id, 'Physical use accepted', 'physical'),)
+            if invocation == 'focused':
+                questions += (pv.Question('other', requirement.id, 'Other obligation', 'CAD'),)
+                checks += (pv.Check('contract.omitted', ((requirement.id, 'other'),),
+                    lambda: pytest.fail('Focused selection must not run omitted checks')),)
+            return pv.Plan(selected, (requirement,), scope, checks, questions=questions)
 
         return shared_cli(lightweight_plan, declared_variants)
 
@@ -105,8 +113,14 @@ def assert_common_protocol(entrypoint, invocation, reason, code, monkeypatch, ca
         else ['nonexistent'] if invocation == 'unknown-check' else None)
     if invocation in ('variant-help', 'unknown-check'):
         assert result['available_checks'] == ['contract.check']
-    if invocation in ('complete', 'focused'):
+    if invocation in ('complete', 'focused', 'failed', 'physical-unknown', 'inconclusive'):
         assert result['report']['variant'] == calls[0][1][0]
+        assert result['error'] is None
+        expected = {'complete': ['PASS'], 'focused': ['PASS', 'UNKNOWN'],
+                    'failed': ['FAIL'], 'physical-unknown': ['PASS', 'UNKNOWN'],
+                    'inconclusive': ['INCONCLUSIVE']}[invocation]
+        assert [q['status'] for q in result['report']['requirements'][0]['questions']] == expected
+        assert result['report']['focused'] == (invocation == 'focused')
 
 
 @pytest.mark.parametrize('entrypoint', ENTRYPOINTS, ids=lambda p: p.parent.name)
@@ -115,7 +129,10 @@ def assert_common_protocol(entrypoint, invocation, reason, code, monkeypatch, ca
     ('variant-help', 'help_requested', 0),
     ('missing-variant', 'argument_error', 1),
     ('complete', 'verification_complete', 0),
-    ('focused', 'verification_complete', 0),
+    ('focused', 'unresolved_evidence', 0),
+    ('failed', 'criterion_failed', 0),
+    ('physical-unknown', 'unresolved_evidence', 0),
+    ('inconclusive', 'unresolved_evidence', 0),
     ('unknown-check', 'argument_error', 1),
     ('extra-option', 'argument_error', 1),
 ])

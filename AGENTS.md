@@ -84,8 +84,9 @@ evidence, not automatically a permanent user constraint. Simple objects may keep
 adequate local checks without framework ceremony. Human object records remain
 authoritative for nuanced intent/history; preserve recorded user intent before
 changing a verification plan. No product score or automatic promotion gate.
-Read the CLI's JSON outcomes and declared choices; exit codes only signal coarse
-success/failure. Select the variant explicitly in CLI and Python calls;
+Read the CLI's JSON outcomes and declared choices; exit codes only signal command
+success/failure. Completed FAIL, UNKNOWN and INCONCLUSIVE reports exit 0.
+Select the variant explicitly in CLI and Python calls;
 `make_plan(variant)` must require the argument without a default or fallback.
 Every adopted product must expose `model/<object>/verification.py` through the
 shared `product_verification.cli` helper. Its arguments and JSON/exit semantics
