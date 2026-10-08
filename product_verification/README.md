@@ -244,13 +244,16 @@ redirected to stderr, preserving JSON stdout. Saved receipts are not result cach
 | Accepted sunglasses E full case | Existing closed, shell path, rotational/axial obstruction and released-loop checks split into callable groups. Production and product verification share both original retention witnesses. Existing source cavity, component validity, print-placement and keeper-capture assertions are callable; source validation is retained; exports use the explicit evaluator boundary. D/E coupon PASS records stay scoped to samples; separate full-case PASS does not answer fatigue. |
 | Accepted threaded Vaseline pair | Existing helical path and axial obstruction functions; nominal requested envelope check; retained successful print report and wear UNKNOWN. No universal retention mechanism. |
 | Accepted book plate | Existing seating/clearance group, retained analytical input-bound screens and scoped user print result. Specific physical load and long-term creep remain UNKNOWN. |
+| V3 phone stand rear release | Product-local articulated kinematic endpoint/access questions replay saved joint states and sampled transitions against current CAD envelopes. Source/tool mismatches leave UNKNOWN; no complete witness is INCONCLUSIVE. Physical integrated operation stays UNKNOWN; other V3 engineering records retain their existing scope. |
 | Replacement fixtures | No candidate geometry or verifier; user obligations stay UNKNOWN. Obsolete keeper/insert requirements are explicitly N/A. These are qualification fixtures, not proposed product directions. |
 
 The one-piece rounded storage tray and printed Vaseline transfer spatula deliberately
 retain their current local checks and human evidence: no coupled mechanisms or
-variant verification gap justifies a plan yet. Phone stand, glove insert, older
-swatch mechanisms and other historical scripts remain on their existing local
-checks/questions; this task does not mechanically migrate every assertion.
+variant verification gap justifies a plan yet. Phone stand retains its existing
+local CAD/physical engineering checks alongside the narrow human-interaction
+adoption. Glove insert, older swatch mechanisms and other historical scripts
+remain on their existing local checks/questions; this task does not mechanically
+migrate every assertion.
 Adopt the convention when consequential intent can disappear across variants or
 multiple independent evidence sources need preservation, regardless of solid count.
 A substantive one-piece variant family can benefit; a multipart object with adequate

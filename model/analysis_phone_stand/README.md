@@ -278,3 +278,183 @@ calibration.
 Measured agent effort for the selected historical work is recorded in
 [the token and timing notes](notes/agent_effort.md). This supplements creator provenance;
 its task and capture limits are explicit.
+
+## Articulated release access
+
+The [product-local kinematic study](human_interaction.py) asks whether an assumed
+arm/palm/index model can contact the **rear centre of the release button**, approach
+from 40 mm behind it, maintain contact through its prescribed 3 mm stroke, and
+withdraw while released. This is a useful pre-print question because clear solved
+endpoints can hide a colliding hand transition. V3 was selected over the already
+successful jar/case and the discontinued swatch damping direction: it has an
+unprinted, consequential press-and-tilt interaction. No product was redesigned.
+This investigates only the button hand, not the other hand supporting/tilting the
+phone or the complete two-hand operation.
+
+[Retained receipt](notes/v3_human_interaction.json) contains replayable independent
+joint states, per-start contact/normal errors, individual joint margins, palm/elbow
+positions, named clearance violations and penetrations, press transitions and
+first invalid path witnesses. It is an explicit output, not a search-result cache.
+[Diagnostic side projection](notes/v3_human_interaction.png) omits X separation;
+the native pair distances, not apparent overlaps in that image, decide collision.
+
+The stack is **MuJoCo 3.15.0 + NumPy 2.5.3 + SciPy 1.18.1**, using the current
+Python 3.13 locked environment. MuJoCo supplies forward kinematics and
+[signed primitive distances](https://mujoco.readthedocs.io/en/stable/APIreference/APIfunctions.html#mj-geomdistance).
+Bounded SciPy least-squares supplies local IK with collision penalties; returned
+states are independently checked. [Mink](https://kevinzakka.github.io/mink/api/limits.html)
+provides useful differential IK/linearized limits, but another IK/QP/Clarabel stack
+was unnecessary for this small fixed-contact question. [MyoArm](https://github.com/MyoHub/myo_sim/blob/main/myo_sim/models/arm/README.md)
+has detailed anatomy and muscles; that asset/model complexity has not earned its
+place in this initial geometric screen. No imported anatomical data or external
+model assets are used. This does not qualify physiological feasibility, muscle
+forces or any anatomical accuracy. The assumptions below are repository-owned,
+not an anatomical model copied from those projects.
+
+### Setup and collision scope
+
+World axes match `v3_components.py`: X across, Y rearward, Z up, millimetres in
+CAD/reports and metres in MuJoCo. The stand is at 60°, with the assumed portrait
+phone envelope present, desk plane at Z=0 and a fixed shoulder at **(80,500,330) mm**.
+No calibrated user/torso setup, thumb, actual ring, cable or support hand is modeled.
+Upper arm/forearm lengths are 280/250 mm with capsule radii 35/28 mm. The palm is
+76 × 80 × 28 mm; index segments are 45/25/18 mm with 9/8/7 mm radii and a 7 mm
+spherical pad. Other fingers are a fixed curled envelope; their independent
+articulation and soft tissue are excluded. These are explicit engineering
+hypotheses, not measured user dimensions or population percentiles.
+
+Eleven declared hinge coordinates represent three shoulder rotations, elbow,
+forearm rotation, wrist flexion/deviation and index abduction/MCP/PIP/DIP. The ten
+independent coordinates determine DIP = 0.65 × PIP. Declared axis-coordinate ranges
+are shoulder X/Z ±100°, shoulder Y ±90°, elbow 0–145°, forearm ±80°, wrist flexion
+±70° and deviation ±25°, index abduction ±15°, MCP −10–85°, PIP 0–100°, DIP 0–70°.
+These Euler/hinge ranges and coupling are **assumptions, not clinical restrictions**.
+All returned joints, including the coupled DIP, are checked against them.
+
+The collision fixture calls the authoritative builders for base, placed cradle,
+slider, pin and phone. It partitions current CAD at object-local clipping planes
+and boxes every portion, preserving whole-component coverage while avoiding a
+single hull filling all access space. Bounds here deliberately construct collision
+proxies, not another export audit. Holes, recesses and rounded edges are filled;
+these conservative boxes can reject real free space. The centre of the button's
+actual rear flat face is derived from its CAD portion. The button translates by
+the declared stroke; the front slider uses a fixed ±3 mm swept Y reserve instead
+of translating its anchored roots. Spring-deformed surfaces are not generated;
+this swept reserve is an explicit analysis assumption, not a deformable solve.
+CAD source and human-script/lock digests, tool versions, setup, boxes and targets
+are retained with each study. Geometry changes require rebuilding/rechecking the
+fixture; the regression moves the authoritative slider builder and observes the
+corresponding target change.
+
+Eight human proxies are queried against eleven product boxes and the desk
+(**96 explicit obstacle pairs**), plus **18 explicit nonadjacent self pairs**.
+Queries use native signed distances independently of automatic contact masks;
+zero MuJoCo contacts is not the criterion. Same-body/composite and directly
+adjacent joint neighbours are excluded because their proxy overlaps are
+intentional. Thumb, soft tissue, other-finger articulation, torso and these
+exclusions prevent a claim of complete anatomical self-nonpenetration.
+The requested spherical pad/rear-centre patch is the sole allowed contact,
+with at most 0.05 mm penetration; side/back/button contact is not generally
+licensed. Other pairs must retain 0.2 mm clearance. Contact-centre tolerance is
+0.25 mm and distal-axis normal tolerance 10°. These are local numerical/geometry
+screens, not comfort or ergonomic limits. A declared 0.1 mm optimization buffer
+helps avoid penalty solutions just below the unchanged acceptance clearance.
+
+### Qualification and interpretation
+
+Six seeded initializations (7301) each receive at most 180 least-squares function
+evaluations per solve. Optimizer termination is neither necessary nor sufficient
+for state acceptance. Uniformly scaling human geometry while keeping the shoulder
+fixed is a **model sensitivity study**, not physiological personalization.
+
+| Human geometry hypothesis | Accepted endpoints / 6 | Complete sampled interactions / 6 | Distinct endpoint clusters | Interpretation |
+| --- | --- | --- | --- | --- |
+| 0.9 scale | 2 | 2 | 1 | Declared model finds approach, held press and withdrawal. |
+| 1.0 scale | 2 | 0 | 1 | Endpoints found; tested approach/withdrawal cross desk. Full access INCONCLUSIVE. |
+| 1.1 scale | 2 | 0 | 1 | Endpoint found; tested approach/withdrawal cross desk. Full access INCONCLUSIVE. |
+
+The nominal candidate's pre-contact and contact poses both pass, yet its sampled
+interpolated palm penetrates the desk by about **0.45 mm**. Withdrawal also fails.
+A second nominal candidate has accepted initial/0.5 mm press poses but an interior
+held-contact state penetrates the button beyond the 0.05 mm allowance. These are
+modeled counterexamples to endpoint-only reasoning, **not physical product
+failure or impossibility**. Alternative paths, shoulder placement and richer
+anatomy were not exhaustively searched. The scale-dependent outcome warns against
+transferring one witness to an assumed human population.
+
+Accepted nominal endpoint contact error is about 0.004 mm with 1.10° normal error;
+several shoulder, forearm, wrist and index coordinates approach their declared
+limits. The smaller model also has near-limit joints. Reported tiny margins are
+numerical descriptors, not a claim of easy or comfortable use. A greedy diversity
+rule separates representatives by >=30 mm elbow displacement OR >=20° maximum
+independent-joint difference; only one cluster was found per hypothesis. That
+neither establishes a unique solution nor supplies a population claim.
+
+Approach/withdrawal interpolate joints between independently solved states.
+Held press is solved at 0.5 mm stroke increments, then the **nonlinear forward
+kinematics between states** is checked. Samples limit independent-joint increments
+to 2° and stroke increments to 0.5 mm; contact remains checked during actuation.
+These are sampled paths, not continuous-path guarantees. Optimizer trial iterates
+may collide and are never interpreted as physical movement; only the declared
+transitions receive path evidence. The 40 mm pre-contact
+state is a local start, not a path from an arbitrary resting posture. Withdrawal
+prescribes the slider held released; spring-driven return is excluded.
+A denser 41-point desk-gap plot illustrates the same witness without upgrading
+sampling into a proof. There are no dynamics, force, friction, soft contact,
+fatigue, comfort, safety or physical-accessibility conclusions.
+
+### Evidence integration and reproduction
+
+[verification.py](verification.py) adopts only the existing recorded adjustment
+intent, with its [protected inventory](notes/verification_sources.json), because
+kinematic access and physical operation now need separate questions. Other V3 CAD,
+mechanical, statics and slice evidence above stays with its existing checks and
+records; this is not a mechanical migration of all stand studies. The shared
+`product_verification` CLI reports endpoint PASS independently of access
+INCONCLUSIVE, while actual integrated operation stays physical UNKNOWN.
+The adapter replays retained joint states and sampled paths on **current CAD**;
+stored acceptance flags/counts cannot supply PASS. Missing/stale receipt or native
+identity mismatch gives UNKNOWN; malformed attempted evidence gives INCONCLUSIVE.
+A finite search with no complete witness gives INCONCLUSIVE, not physical FAIL.
+Later user rejection cannot be overwritten by these computational questions.
+
+From the repository root:
+
+```sh
+./execute.py --threads 1 model/analysis_phone_stand/human_interaction.py --output model/analysis_phone_stand/notes/v3_human_interaction.json
+./execute.py --threads 1 model/analysis_phone_stand/view_human_interaction.py
+./execute.py --threads 1 model/analysis_phone_stand/verification.py --variant v3-60-nominal
+./execute.py --threads 1 model/analysis_phone_stand/verification.py --variant v3-60-scale-0.9
+uv run --locked pytest -q tests/test_human_interaction.py
+```
+
+Both verification variants exit 1: nominal has access INCONCLUSIVE plus physical
+UNKNOWN; the smaller hypothesis still has physical UNKNOWN. Read JSON, not the
+exit code. Use `--help` for the shared CLI choices. The explicit study does not
+implicitly rerun from verification; no extra cache, scheduler or evidence database
+was added. [Semantic regressions](../../tests/test_human_interaction.py) preserve
+static/path differences, held contact, signed distances with disabled contacts,
+coupling/limits, constant maximum stroke, authoritative target changes and stale,
+malformed or forged acceptance receipts. Product-local code retains geometry,
+setup, criteria, solver and replay choices; one consumer has not justified a shared
+package. The [living skill](../../.codex/skills/articulated-human-interaction/SKILL.md)
+teaches this qualified workflow and permits improvements supported by real work.
+
+Qualification also ran the product-verification core/CLI/entrypoint, assembly-geometry
+and execution regressions together with the human tests: **178 passed**. The reusable skill validator and
+locked dependency check passed. The accidental Python 3.14 working-tree change
+was corrected to the committed Python 3.13 contract; final receipts and checks
+use that environment, without an environment migration or JSON-contract change.
+
+No CadQuery product source, STEP/STL, print placement or manufacturing settings
+changed. V3 remains unprinted/unqualified for actual operation. The most useful
+next extensions would compare justified approach waypoints/setup placement and
+include the supporting hand or actual accessories. Detailed anatomy, additional
+finger contacts or force predictions need an actual consumer and separate
+qualification; they are not implemented here.
+
+Capability contribution: GPT-6-based Codex (exact runtime variant and reasoning
+effort not exposed), Codex shared-workspace API agent, OpenAI. Independent skill
+and implementation review used a Codex subagent under skill-creator forward-testing
+guidance, with no model/effort override; historical attribution
+above remains unchanged.

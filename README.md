@@ -38,11 +38,16 @@ variant checks and scoped physical evidence without a product score. Q1/Q1F,
 the sunglasses case, book plate and Vaseline jar are initial consumers; simple
 objects can retain local checks. It does not change their print status.
 
+Optional [articulated human-interaction guidance](.codex/skills/articulated-human-interaction/SKILL.md)
+starts product-local with [V3 rear-button reach and sampled access](model/analysis_phone_stand/README.md#articulated-release-access).
+MuJoCo/SciPy kinematic evidence keeps assumed human geometry, endpoint/path outcomes
+and physical UNKNOWN distinct; it adds no ergonomic score or print qualification.
+
 ## Models
 
 | Object | Current use and print instructions | Model provenance | Test piece(s) printed | Final object printed | Agent effort |
 | --- | --- | --- | --- | --- | --- |
-| Physical-analysis phone stand | [V3: compact fully printed pedestal, concealed three-angle lock](model/analysis_phone_stand/README.md) | [Record](model/analysis_phone_stand/README.md#attribution) | N/A — complete prototype; miniatures are exploratory | Unknown — V3 CAD, conditional mechanics and reference slice checked; fit, ring/cable use, tapping, grip and PETG recovery unprinted. 105 × 140 mm base; four solid core parts. V1/V2 rejected before printing | [Selected token/timing record](model/analysis_phone_stand/notes/agent_effort.md) |
+| Physical-analysis phone stand | [V3: compact fully printed pedestal, concealed three-angle lock](model/analysis_phone_stand/README.md) | [Record](model/analysis_phone_stand/README.md#attribution) | N/A — complete prototype; miniatures are exploratory | Unknown — V3 CAD, conditional mechanics and reference slice checked; fit, ring/cable use, tapping, grip and PETG recovery unprinted. Articulated release screen: endpoint witnesses; sampled access depends on assumed human scale. 105 × 140 mm base; four solid core parts. V1/V2 rejected before printing | [Selected token/timing record](model/analysis_phone_stand/notes/agent_effort.md) |
 | Postcard displays | [Seven postcard displays: original through Orbit, Bolt and Pebble](model/postcard_display/README.md) | [Record](model/postcard_display/README.md#attribution) | N/A — full holder is the trial | Partial — Wave printed and works well; six other variants unreported | [Selected token/timing record](model/postcard_display/notes/agent_effort.md) |
 | Book reading plate | [Final PETG plate and head-up screws](model/book_reading_plate/README.md) | [Record](model/book_reading_plate/README.md#attribution) | Yes — prior L sample worked; head/socket issue revised; no new coupon | Yes — user reports the complete plate printed with a really nice result | [Selected token/timing record](model/book_reading_plate/notes/agent_effort.md) |
 | Decorative faceted tray | [Eight texture samples and retained tray exports](model/faceted_storage_tray/README.md) | [Record](model/faceted_storage_tray/README.md#attribution) | Unknown — eight coupons, no user report | Partial — variant H printed; user reports it works well; other variants unreported | [Selected token/timing record](model/faceted_storage_tray/notes/agent_effort.md) |

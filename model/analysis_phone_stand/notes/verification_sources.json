@@ -1,0 +1,17 @@
+{
+  "scope": "Initial adjustment-intent inventory from the existing V3 agreement record. No physical result or new numerical user threshold is introduced.",
+  "source_sha256": {
+    "v3_components.py": "40bd2e0878269fa06b6d8941170793bbc7341b12baba9d5388a96ff92e7bd096"
+  },
+  "user_requirements": [
+    {
+      "id": "stand.adjustment",
+      "text": "Stand provides selectable angles through the selected press-and-tilt interaction",
+      "source": {
+        "reference": "README.md#agreement-and-architecture-decisions",
+        "statement": "User authorized compact proposal A; angles are requested and press-and-tilt is the selected interaction"
+      },
+      "acceptance_criteria": []
+    }
+  ]
+}
