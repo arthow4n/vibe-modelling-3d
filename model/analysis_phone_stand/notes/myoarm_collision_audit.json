@@ -1,0 +1,52 @@
+{
+  "anatomy": {
+    "model": "myoarm_r",
+    "version": "0.2.3",
+    "file_count": 159,
+    "package_sha256": "f984749367797856176f5785ffe12a8629f0acd64ed54f21f41360815f7e4c72"
+  },
+  "tools": {
+    "python": "3.13.15",
+    "mujoco": "3.15.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "myo_sim": "0.2.3"
+  },
+  "audit_source_sha256": "000550c5ce6846edfc476da853e2c4e5500b540c94235f414e7c9469e18779b6",
+  "old_setup": {
+    "shoulder_mm": [
+      80.0,
+      500.0,
+      330.0
+    ],
+    "fixed_proxy_desk_distances_mm": {
+      "geom#22": -132.9999999989373,
+      "thorax_coll1": -131.12323038541035,
+      "thorax_coll2": 107.00000000094028,
+      "thorax_coll3": 227.00000000084236,
+      "hat_cervical_coll": 317.7973493169919,
+      "hat_jaw_coll2": 399.73884447881017,
+      "hat_skull_coll": 432.0000000008619
+    },
+    "meaning": "Historical shoulder height causes fixed imported torso/desk-plane overlap; not a physical seated-user conclusion"
+  },
+  "joints": [
+    "mcp3_flexion_r",
+    "mcp3_abduction_r",
+    "mcp4_flexion_r",
+    "mcp4_abduction_r"
+  ],
+  "samples_per_joint": 7,
+  "fixed_coordinates": "Imported qpos0 for every other coordinate",
+  "states": 2401,
+  "min_distance_mm": -15.317546881485859,
+  "max_distance_mm": -0.5871215547706994,
+  "best_q_rad": [
+    0.2618,
+    0.17453266666666667,
+    1.5708,
+    -0.261799
+  ],
+  "meaning": "Imported proxy overlap in every sampled MCP state; not proof over unsampled anatomy",
+  "action": "Explicit supplemental self-collision exclusion; retain unchanged geoms and incomplete-coverage limitation"
+}

@@ -8,6 +8,7 @@ dependencies = [
     "cairosvg>=2.9,<3",
     "gmsh>=4.15,<4.16",
     "mujoco>=3.6,<4",
+    "myo-sim==0.2.3",
     "opentelemetry-exporter-otlp-proto-common>=1.45,<2",
     "opentelemetry-sdk>=1.45,<2",
     "psutil>=7.2,<8",

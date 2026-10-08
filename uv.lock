@@ -572,6 +572,19 @@ wheels = [
 ]
 
 [[package]]
+name = "myo-sim"
+version = "0.2.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mujoco" },
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/45/1a/34fa58eb53317a2568aa544fa7d532ff89548a16ad28f709e963faa34783/myo_sim-0.2.3.tar.gz", hash = "sha256:be70eb57521fb912940fd39801ea7e5a06355e0c4501432bc24983e910e5962b", size = 15676229, upload-time = "2026-09-16T02:58:32.442Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/60/85/2bd153a69ccb65d1f47b3d4a5bd636ece428519111a8f8aeb7140417cfe8/myo_sim-0.2.3-py3-none-any.whl", hash = "sha256:259eb2bb9bbd7a484b18de3be4951562789b90a568713ff2ac19b100392c6ce3", size = 15717280, upload-time = "2026-09-16T02:58:29.174Z" },
+]
+
+[[package]]
 name = "nlopt"
 version = "2.11.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1032,6 +1045,7 @@ dependencies = [
     { name = "cairosvg" },
     { name = "gmsh" },
     { name = "mujoco" },
+    { name = "myo-sim" },
     { name = "opentelemetry-exporter-otlp-proto-common" },
     { name = "opentelemetry-sdk" },
     { name = "psutil" },
@@ -1051,6 +1065,7 @@ requires-dist = [
     { name = "cairosvg", specifier = ">=2.9,<3" },
     { name = "gmsh", specifier = ">=4.15,<4.16" },
     { name = "mujoco", specifier = ">=3.6,<4" },
+    { name = "myo-sim", specifier = "==0.2.3" },
     { name = "opentelemetry-exporter-otlp-proto-common", specifier = ">=1.45,<2" },
     { name = "opentelemetry-sdk", specifier = ">=1.45,<2" },
     { name = "psutil", specifier = ">=7.2,<8" },

@@ -12,7 +12,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.spatial import ConvexHull
 
-import human_interaction as h
+import synthetic_human_interaction as h
+from execution.identity import digest
 
 
 def projection(model,geom):
@@ -37,8 +38,8 @@ def projection(model,geom):
 
 def main():
     receipt=json.loads((h.ROOT/'notes/v3_human_interaction.json').read_text())
-    if receipt['sources']!=h.sources():
-        raise ValueError('Stale source association; regenerate study before drawing')
+    if receipt['schema_version']!=1 or receipt['sources']['model/analysis_phone_stand/v3_components.py']!=digest(h.ROOT/'v3_components.py'):
+        raise ValueError('Historical CAD source association changed; do not transfer this figure')
     fig,axes=plt.subplots(2,2,figsize=(12,8),gridspec_kw={'width_ratios':[2,1]})
     for row,scale in enumerate((.9,1.)):
         run=next(r for r in receipt['runs'] if r['setup']['scale']==scale)
@@ -75,9 +76,9 @@ def main():
                  title='Nonlinear native distance along the transition')
         plot.grid(alpha=.2)
         plot.legend(fontsize=8)
-    fig.suptitle('V3 rear-button kinematic study: valid endpoints can hide an invalid approach',fontsize=13)
+    fig.suptitle('Historical synthetic V3 study: valid endpoints can hide an invalid approach',fontsize=13)
     fig.tight_layout()
-    output=h.ROOT/'notes/v3_human_interaction.png'
+    output=h.ROOT/'notes/v3_synthetic_interaction_replay.png'
     fig.savefig(output,dpi=160)
     print(json.dumps({'diagnostic_figure':str(output)}))
 

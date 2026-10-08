@@ -281,7 +281,176 @@ its task and capture limits are explicit.
 
 ## Articulated release access
 
-The [product-local kinematic study](human_interaction.py) asks whether an assumed
+The current foundation is **MyoSim MyoArm**, loaded from the locked standalone
+`myo-sim==0.2.3` distribution as `myoarm_r`. The right arm and hand are appropriate
+because rear-release access depends on whole-arm placement and other digits, not
+just an isolated index. The library includes a passive torso scaffold, shoulder
+girdle, humerus, ulna/radius, wrist/carpals, metacarpals, thumb and four fingers.
+The [maintained source](https://github.com/MyoHub/myo_sim) and
+[model notes](https://github.com/MyoHub/myo_sim/blob/main/myo_sim/models/arm/README.md)
+own anatomy. It is Apache-2.0 licensed; assets are dependencies, not copied into
+this product. MyoSim/MyoSuite attribution: Caggiano, Wang, Durandau, Sartori and Kumar,
+[MyoSuite, 2022](https://arxiv.org/abs/2205.13600). Imported anatomy is a model,
+not a measurement of this user or a guarantee of anatomical accuracy.
+
+[human_interaction.py](human_interaction.py) owns the product question, scene,
+solver and interpretation. MuJoCo 3.15.0 supplies FK and signed distances; bounded
+SciPy 1.18.1 least squares remains suitable for this kinematic contact search.
+NumPy is 2.5.3 and Python remains 3.13.15. No Mink/QP, MyoSuite task framework,
+muscle-force optimizer, shared model registry or new scheduler was needed.
+
+### Imported constraints and setup
+
+All **38 imported hinge coordinates**, ranges, axes and collision sizes are
+preserved. Eleven active affine joint equalities couple shoulder-girdle motion;
+the solver eliminates them exactly, leaving **27 independent coordinates**.
+Master ranges are intersected with dependent ranges, and every submitted state
+is independently checked. Both index interphalangeal joints are independent;
+the historical invented DIP/PIP coupling is gone. The other digits participate
+in the solve, rather than becoming a guessed curled envelope. Imported 63 muscle
+actuators and 67 tendons remain in the model; none of those tendons has an active
+length limit. Actuation is disabled; dynamics, passive/muscle forces and physiology
+are not used or qualified.
+
+CAD/report axes are X across, Y rearward, Z up in mm; MuJoCo uses metres. The entire
+unchanged reference anatomy rotates +90° about world Z, then translates its
+neutral humerus origin to **(80,500,550) mm**. This is an unmeasured setup reference,
+not a fixed humerus during shoulder motion; imported girdle relationships remain
+active. The passive torso moves with that scene transform. A local sensitivity
+uses shoulder Y=450 and 550 mm, with identical anatomy. No anthropometric scaling
+or percentile claim is made. The former shoulder Z=330 mm belongs to the synthetic
+history below. At that height the imported passive torso's fixed skin proxies
+intersect the infinite desk plane by about 133 mm, before any arm search; the
+collision audit retains this setup mismatch. Z=550 avoids that fixed overlap and
+provides a reference scene for reach qualification; it is not a typical seated
+user claim. Actual torso/desk-edge placement needs separate setup qualification.
+Supporting hand, actual ring/cable and soft tissue remain absent.
+
+### Contact and collision qualification
+
+Current CadQuery builders still own every product component and selected 60°
+assembly. The previous partitioned conservative boxes, phone envelope, desk plane,
+rear button face, prescribed 3 mm stroke and front-slider swept reserve are reused.
+Holes/rounding are filled; these boxes can reject real free space. There is no
+independent simulator product design or spring-deformed geometry.
+
+Contact uses the **+local-Z surface pole of the imported index skin ellipsoid**
+`distph2_coll_2_r`, with its outward normal toward the button. The imported `IFtip_r`
+marker is not on this contact skin and is reported separately. Only that pad/patch
+may touch the button: 0.25 mm patch error, 10° normal error, at most 0.05 mm native
+penetration. All other checked pairs require 0.2 mm clearance. A 0.1 mm optimizer
+buffer does not change acceptance. These are numerical screens, not user criteria,
+comfort dimensions or anatomical limits.
+
+The receipt audits **36 imported anatomical collision geoms**, **432 human/product
+and desk pairs**, and **264 self pairs**, including all four imported torso/arm pairs.
+Visual meshes and muscle wrap geoms are not treated as skin. Upstream anatomical
+masks use `contype=1`, `conaffinity=0`; no contacts does not imply nonpenetration.
+Native signed queries explicitly check selected cross-digit phalanges, nonadjacent
+same-digit segments and finger/arm pairs. All 366 excluded pairs are listed.
+Same-body, adjacent/composite, palm/wrist composites and hand/torso coverage are
+incomplete; the metacarpal capsules do not form complete palm skin.
+
+The imported radius/metacarpal capsules overlap by roughly 1–7 mm at neutral wrist.
+A proximal middle/ring proxy pair also overlaps despite disabled automatic contact.
+[audit_myoarm_collision.py](audit_myoarm_collision.py) samples 2,401 combinations
+of those fingers' imported MCP ranges; [its receipt](notes/myoarm_collision_audit.json)
+finds −15.32 to −0.587 mm signed distance. This is finite representation evidence,
+not proof over every pose or physiological validation. Those composite pairs are
+explicitly excluded from supplemental self checks without resizing skin. Digit
+self-nonpenetration remains a limitation; exclusions are not anatomical PASSes.
+
+### Results and sensitivity
+
+[The new schema-2 receipt](notes/v3_myoarm_interaction.json) records package/source
+and asset digests, versions, anatomy audit, setup, collision fixture, screens,
+search settings, failed candidates and replayable joint states. Each setup uses
+six initializations: imported reference qpos plus five seeded (7301) starts within
+all independent ranges. Each solve permits 180 function evaluations. Optimizer
+termination never substitutes for independent acceptance.
+
+| Shoulder Y (mm), Z=550 | Accepted endpoints / 6 | Complete interactions / 6 | Interpretation |
+| --- | --- | --- | --- |
+| 450, nearer | 1 | 1 | Found sampled 40 mm approach, maintained 3 mm press and withdrawal. |
+| 500, nominal | 1 | 0 | Approach and press found; withdrawal violates clearance. Access INCONCLUSIVE. |
+| 550, farther | 0 | 0 | No accepted endpoint found under this search; INCONCLUSIVE. |
+
+Only one descriptive endpoint cluster was found per successful setup; this is not
+uniqueness or exhaustive coverage. The nominal endpoint has 0.166 mm contact error
+and 1.44° normal error; its index PIP range margin is about 0.0044°. The nearer
+endpoint has 0.0064 mm error, 0.067° normal error and wrist deviation near its
+imported lower range. Such margins describe this model, not comfort or easy use.
+Position diagnostics use body references: `palm_mm` is the lunate/wrist frame and
+`elbow_mm` is the radius origin, not measured surface landmarks.
+Setup position materially changes the finite screen; importing anatomy does not
+remove placement uncertainty. These outcomes neither reproduce nor invalidate
+the old uniform-scale study: they concern different anatomy and setups.
+
+Approach/withdrawal interpolate independent joints; press is solved at 0.5 mm
+increments with held contact checked between states. FK/collisions/limits are
+sampled at <=2° independent-joint and <=0.5 mm mechanism increments. This is not
+continuous-path proof or a route from an arbitrary resting posture. The withdrawal
+holds the slider released; spring return and supporting-hand tilt are excluded.
+[An additional retained withdrawal counterexample](notes/myoarm_withdrawal_counterexample.json)
+was found during solver qualification and independently revalidated after range
+correction: both endpoints pass, but an interior middle-finger pad penetrates the
+stand floor (minimum sampled distance about −0.237 mm). It remains a regression
+rather than a substitute search result. The final nominal run's failure is a
+clearance-screen violation, distinct from that penetration witness.
+
+### Evidence integration and reproduction
+
+[verification.py](verification.py) preserves the existing `stand.adjustment` intent
+and physical-operation question. Current variants are `v3-60-nominal`,
+`v3-60-shoulder-near`, and `v3-60-shoulder-far`. It replays joint states and sampled
+transitions against current CAD/anatomy; stored acceptance flags/counts cannot
+supply PASS. Source/asset/tool mismatch or a historical synthetic receipt gives
+UNKNOWN; malformed attempted metadata gives INCONCLUSIVE. Finite unsuccessful
+search is INCONCLUSIVE. **Integrated physical operation remains UNKNOWN** for
+all variants. A complete computational witness does not establish effort, grip,
+friction, binding/return, comfort, fatigue, safety or actual user/population access.
+The shared CLI still exits 0 for trustworthy reports regardless of these outcomes.
+
+```sh
+./execute.py --threads 1 model/analysis_phone_stand/human_interaction.py --output model/analysis_phone_stand/notes/v3_myoarm_interaction.json
+./execute.py --threads 1 model/analysis_phone_stand/audit_myoarm_collision.py
+./execute.py --threads 1 model/analysis_phone_stand/verification.py --variant v3-60-nominal
+./execute.py --threads 1 model/analysis_phone_stand/verification.py --variant v3-60-shoulder-near
+uv run --locked pytest -q tests/test_human_interaction.py tests/test_synthetic_human_interaction.py tests/test_product_verification.py tests/test_product_verification_cli.py tests/test_product_verification_entrypoints.py
+```
+
+The [living skill](../../.codex/skills/articulated-human-interaction/SKILL.md) now
+requires looking for applicable established MyoSim anatomy, auditing imported
+constraints and collision coverage, and keeping synthetic fixtures out of default
+product evidence. It can improve through demonstrated product lessons. The whole
+implementation remains product-local; no second consumer justifies shared plumbing.
+No product CAD, STEP/STL, manufacturing placement or historical evidence was changed.
+V3 remains unprinted and physically unqualified. Useful next work would measure
+setup, qualify remaining self-collision coverage, and test physical two-hand operation;
+additional contacts or force analysis need separate questions and qualification.
+
+Qualification passed a **208-test** broader run covering human/synthetic, product
+verification/CLI/entrypoints, assembly geometry and execution, plus the final
+**16 human regressions** and focused imported-constraint check. The explicit
+MyoArm study, 2,401-state audit, nominal/near CLI replay, historical-view smoke
+command, dependency check and skill validator completed. Independent skill
+forward-testing replayed all three setup outcomes. No CAD exports or slices were
+rerun for this analysis correction.
+
+Correction attribution: GPT-6-based Codex (exact runtime variant/effort not exposed),
+Codex shared-workspace API agent, OpenAI; independent skill forward-test by a Codex
+subagent without model/effort override. Earlier attribution remains historical.
+
+## Historical synthetic release access
+
+**Historical evidence from e0b4009, before the MyoSim correction.** The invented
+anatomy, scale sensitivity, results and figure below remain scoped to that model.
+They are not the current anatomical foundation and do not transfer to MyoArm.
+The current adapter/CLI uses the MyoArm receipt described above. The original full
+study source remains in Git; [synthetic_human_interaction.py](synthetic_human_interaction.py)
+is retained only for numerical regression/replay of these counterexamples.
+
+The [original product-local study](https://github.com/arthow4n/vibe-modelling-3d/blob/e0b4009/model/analysis_phone_stand/human_interaction.py) asked whether an assumed
 arm/palm/index model can contact the **rear centre of the release button**, approach
 from 40 mm behind it, maintain contact through its prescribed 3 mm stroke, and
 withdraw while released. This is a useful pre-print question because clear solved
@@ -418,25 +587,19 @@ identity mismatch gives UNKNOWN; malformed attempted evidence gives INCONCLUSIVE
 A finite search with no complete witness gives INCONCLUSIVE, not physical FAIL.
 Later user rejection cannot be overwritten by these computational questions.
 
-From the repository root:
+The historical diagnostic figure can still be replayed against unchanged V3 CAD:
 
 ```sh
-./execute.py --threads 1 model/analysis_phone_stand/human_interaction.py --output model/analysis_phone_stand/notes/v3_human_interaction.json
 ./execute.py --threads 1 model/analysis_phone_stand/view_human_interaction.py
-./execute.py --threads 1 model/analysis_phone_stand/verification.py --variant v3-60-nominal
-./execute.py --threads 1 model/analysis_phone_stand/verification.py --variant v3-60-scale-0.9
-uv run --locked pytest -q tests/test_human_interaction.py
+uv run --locked pytest -q tests/test_synthetic_human_interaction.py
 ```
 
-Both verification variants exit 0 when their reports complete: nominal has access
-INCONCLUSIVE plus physical UNKNOWN; the smaller hypothesis still has physical
-UNKNOWN. Shell success does not qualify the product; read the JSON outcomes.
-Use `--help` for the shared CLI choices. The explicit study does not
-implicitly rerun from verification; no extra cache, scheduler or evidence database
-was added. [Semantic regressions](../../tests/test_human_interaction.py) preserve
+The former scale variants and their verification outcomes above describe the old
+adapter. They are no longer selectable current product evidence. The preserved
+schema-1 receipt is explicitly rejected by the MyoArm adapter. No new scheduler,
+cache or evidence database was added. [Historical synthetic regressions](../../tests/test_synthetic_human_interaction.py) preserve
 static/path differences, held contact, signed distances with disabled contacts,
-coupling/limits, constant maximum stroke, authoritative target changes and stale,
-malformed or forged acceptance receipts. Product-local code retains geometry,
+the former coupling/limits, constant maximum stroke and authoritative target changes. Product-local code retains geometry,
 setup, criteria, solver and replay choices; one consumer has not justified a shared
 package. The [living skill](../../.codex/skills/articulated-human-interaction/SKILL.md)
 teaches this qualified workflow and permits improvements supported by real work.
