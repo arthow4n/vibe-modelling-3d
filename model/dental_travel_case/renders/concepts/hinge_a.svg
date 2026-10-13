@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="1185" viewBox="0 0 460 1185"><rect width="460" height="1185" fill="#fafbfc"/><style>
+text{font-family:DejaVu Sans,Arial,sans-serif;fill:#24343f}
+.title{font-size:30px;font-weight:700}.h{font-size:23px;font-weight:700}
+.label{font-size:17px}.small{font-size:15px}.caps{font-size:14px;letter-spacing:1px;font-weight:700;fill:#60727d}
+.shell{fill:#edf0f2;stroke:#536775;stroke-width:2.5;stroke-linejoin:round}
+.hardware{fill:#b8e2d9;stroke:#197b70;stroke-width:2.5}
+.hidden{fill:none;stroke:#197b70;stroke-width:2;stroke-dasharray:6 4}
+.guide{fill:none;stroke:#9ca9b0;stroke-width:1.5;stroke-dasharray:5 5}
+.motion{fill:none;stroke:#cb833d;stroke-width:2.5;marker-end:url(#arrow)}
+</style>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#cb833d" stroke-width="1.5"/></marker>
+<pattern id="pocket" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M-2 2L2 -2M0 8L8 0M6 10L10 6" stroke="#bfd7d1" stroke-width="1"/></pattern></defs><g transform="translate(5 5)"><rect x="5" y="5" width="440" height="1110" rx="18" fill="#fff" stroke="#d2dce1" stroke-width="2"/><text x="25" y="44" class="h">A  Smooth covered spine</text><text x="25" y="75" class="small">Least mechanism change</text><text x="25" y="110" class="label">Cover the exposed ears with a smooth</text><text x="25" y="135" class="label">rear spine, split along the lid seam.</text><text x="25" y="176" class="caps">CLOSED • REAR VIEW</text><g transform="translate(5 188)"><rect class="shell" x="30" y="16" width="370" height="86" rx="18"/><path d="M30 59H400" fill="none" stroke="#83949e" stroke-width="2"/><rect x="30" y="35" width="370" height="48" rx="20" fill="#d8e7e6" stroke="#536775" stroke-width="2.5"/><path d="M32 59H398" stroke="#536775" stroke-width="2"/><rect class="hidden" x="105" y="42" width="28" height="34" rx="8"/><rect class="hidden" x="295" y="42" width="28" height="34" rx="8"/></g><text x="25" y="326" class="caps">CLOSED • SECTION THROUGH HINGE</text><g transform="translate(10 339)"><path class="shell" d="M30 20H290V130H280V30H30Z"/>
+<path class="shell" d="M30 240H290V130H280V230H30Z"/>
+<path class="guide" d="M280 10V250"/>
+<path class="guide" d="M270 130H370"/>
+<path class="shell" d="M289 88H325A42 42 0 0 1 367 130H359A34 34 0 0 0 325 96H289Z"/>
+<path class="shell" d="M289 183Q355 183 355 132H347Q347 171 289 171Z"/>
+<path class="hardware" d="M282 111L325 107V153L282 149Z"/>
+<circle class="hardware" cx="325" cy="130" r="22"/>
+<circle cx="325" cy="130" r="5" fill="#197b70"/>
+<text x="35" y="277" class="small">Axis stays outside the cavity.</text><text x="35" y="298" class="small">Nested cover radii must clear rotation.</text><text x="32" y="59" class="small">lid</text><text x="32" y="209" class="small">base</text></g><text x="25" y="682" class="caps">OPENING IDEA • DIFFERENT SCALE</text><g transform="translate(10 705)"><path class="shell" d="M30 152H172V107H162V142H30Z"/>
+<path class="shell" d="M369 152H207V107H217V142H369Z"/>
+<circle class="hardware" cx="190" cy="106" r="13"/>
+<path class="motion" d="M141 88Q190 33 242 88"/>
+<text x="30" y="186" class="small">Keep a 180° opening as the design goal.</text><text x="30" y="208" class="small">Cover clearance and support need checking.</text></g><text x="25" y="941" class="caps">TRADEOFFS</text><text x="25" y="972" class="small">Less visible hardware and less snagging.</text><text x="25" y="995" class="small">Keeps the existing hinge principle.</text><text x="25" y="1018" class="small">Still a thicker rear silhouette.</text><text x="25" y="1060" class="small">Needs CAD: Cover sweep and printable undersides.</text></g><text x="20" y="1155" class="small">Schematic only • no CAD / physical validation</text></svg>

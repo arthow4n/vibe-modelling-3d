@@ -202,6 +202,38 @@ retained instead of introducing another geometry-check abstraction.
 | Test piece(s) | No — new revision | `handle_clip`, `handle_test`, `hinge_test`, `latch_test`, `test_pieces` STEP/STL | No reported print; grip/release, socket retention, hinge freedom and latch effort pending. |
 | Final printable object(s) | No — new revision | `dental_travel_case`, `accessories` STEP/STL | No reported print; actual fit, button/head clearance, integrated handling and durability pending. |
 
+## Concealed hinge proposals — SVG exploration
+
+[Comparison SVG](../renders/concepts/hinge_options.svg) / [PNG preview](../renders/concepts/hinge_options.png).
+These are schematic proposals requested by the user, not implemented variants.
+Current model source, paired exports and print-status entries are unchanged.
+
+| Proposal | Closed appearance and normal use | Consequential tradeoff / next CAD question |
+| --- | --- | --- |
+| [A — smooth covered spine](../renders/concepts/hinge_a.svg) | Conceal the existing external hinge stations under a continuous rounded rear cover, split at the lid seam. Retain 180° opening as a goal. | Retains the external axis and a thicker rear silhouette; adds material. Cover halves must clear the full sweep and print without trapped support. Existing hinge evidence does not qualify changed roots/shrouds automatically. |
+| [B — internal recessed pivot](../renders/concepts/hinge_b.svg) | Two local hinge pockets behind an overlapping rear edge; no exposed barrels when closed. Target roughly 110–120° opening for loading. | Preferred first direction for a clean silhouette. Local pockets consume toothpaste space or require a wider shell. Inset axes conflict with an unchanged flat 180° shell layout: print shells separately and assemble the hinge with printed pins/captures. Actual stop angle, rim clearance, pin insertion/retention and cavity protection need CAD review. |
+| [C — concealed folding link](../renders/concepts/hinge_c.svg) | Two pivots joined by a short link, folded inside when closed and extended as the lid opens. Aim for flat opening without external closed barrels. | Only worth pursuing if flat opening is important enough to justify extra links/pins, assembly, play and binding risk. Requires coordinated motion, positive stops, pocket space and relieved rear edges covered when shut. |
+
+All proposals retain the single-material PETG intent; none assumes a TPU living
+hinge or purchased hardware. A prioritizes minimal mechanism change, B prioritizes
+concealment, and C prioritizes concealment plus flat opening. Diagrams show pivot
+locations and opening ideas, not verified tolerances, continuous motion, support
+strategy or physical function. A hidden pivot alone cannot establish a protected
+cavity: rear-edge overlap and any link slots must be reviewed with contents loaded.
+The current barrel projects approximately 14 mm beyond the basic rear wall,
+calculated from `HY + HINGE_RADIUS - OD/2`; it is not a new CAD bounds audit.
+For A, the moving cover needs a larger radius than the fixed cover: equal-radius
+half covers would collide as the lid opens. The section therefore sketches nested
+cover radii, increasing rear bulk; their attachments still need a sweep check.
+
+Recommendation: explore B first if the smaller opening is acceptable, with A as
+the simpler covered-hinge alternative. Current clip/socket test files remain the
+measured revision's files; this exploration changes no grip geometry or print status.
+No CAD regeneration or smoke slice was needed for these drawing-only proposals.
+SVG syntax, PNG rendering and local links were checked; the comparison was
+visually inspected. Attribution remains the user-identified GPT-6.1/medium Codex
+session recorded in [provenance](provenance.md).
+
 ## Regeneration and history
 
 From the repository root:
