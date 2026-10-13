@@ -1,224 +1,226 @@
-# Dental travel case — first printable version
+# Dental travel case — measured two-lane revision
 
-Parametric PETG case for a Philips-style electric brush **with its head attached**,
-a full-size toothpaste tube and a floss dispenser. Charger excluded. No purchased
-parts, glue, TPU or separate hinge pin required. Items are assumed dry before packing.
+A single-material PETG travel case for the electric toothbrush **with its head
+attached**, plus a roomy toothpaste side. Floss can occupy spare space if it fits;
+there is no dedicated floss slot, divider or guaranteed capacity. No TPU, glue,
+separate hinge pin or purchased hardware is needed. Pack dry items; charger excluded.
 
-![Open case](../renders/open/presentation_isometric.png)
+![Open case](../renders/assembled/export_and_check_isometric.png)
 
-## Next revision direction and measurements — 2026-10-13
+## Measured items and user intent
 
-The user requests **no modelling or model-code changes yet**. Preferred next
-direction: retain a toothbrush side and a toothpaste side; omit a dedicated
-floss bay/slot. Floss is optional cargo wherever it fits, with movement acceptable
-and tissue packing an acceptable user workaround. Do not enlarge or complicate
-the case to guarantee floss fit. This is a recorded direction, not an implemented
-revision: existing source, divider, exports and checks still describe the original
-three-item arrangement. No new print result was reported.
+User measurements dictated 2026-10-13 are approximate, not caliper-qualified:
 
-Measure the actual brush in millimetres, with its usual head attached:
-
-- Overall length from handle butt to the furthest head tip.
-- Handle width and front-to-back thickness at both prospective clip locations,
-  roughly 25 and 85 mm from the butt in the current layout. Measure across each
-  8 mm-wide contact region if tapered; report ovality rather than one diameter.
-- Butt-to-shoulder distance where the broad handle narrows into the neck, plus
-  neck width/thickness at that transition for the shoulder stop.
-- Head length, width and thickness including bristles, and the largest overall
-  thickness when lying button-up (including protruding buttons/head).
-- Button/grip locations measured from the butt, so clips avoid controls.
-
-A side and front photo beside a ruler can clarify the transition, head offset
-and proposed clip regions. A ruler suffices for lengths; calipers are preferable
-for clip cross-sections. For toothpaste, measure maximum length, width and
-thickness of a full tube including cap and crimp, lying as it will be packed.
-No floss measurements are required for the proposed direction.
-
-**Next useful step: measurements, not a mandatory print.** If the measured handle
-is close to the assumed round 26 mm profile, the existing `handle_clip.stl` is an
-optional cheapest fit/effort test. Use PETG, the intended 0.4 mm nozzle/0.2 mm
-layers and supplied feet-down orientation. Try both contact locations: it should
-hold without loose rocking and release comfortably without scratching, cracking
-or whitening. A mismatch calls for a later clip/profile revision, not forceful
-insertion. This test omits socket retention, shoulder-stop fit, lid clearance and
-whole-case handling; it avoids spending material on a known dimensional mismatch.
-The full handle test follows only if useful. Existing hinge/latch tests can answer
-mechanism questions separately if those mechanisms are retained; no full case or
-floss divider print is needed to settle these measurements/direction.
-
-## What to print
-
-| File | Purpose |
+| Item/feature | Reported measurement |
 | --- | --- |
-| `dental_travel_case.stl` | Main case: both captive shells, printed together open and flat. |
-| `accessories.stl` | Two removable handle clips and one flat-printed storage divider. |
-| `test_pieces.stl` | All three mechanism/fit tests on one plate; optional first print. |
-| `handle_test.stl` | Clip, raised production socket on a small base, and a separate shoulder-stop gauge. |
-| `hinge_test.stl` | One complete captive hinge with representative wall/root sections. |
-| `latch_test.stl` | Two wall samples carrying the actual latch and keeper. |
-| `handle_clip.stl`, `storage_divider.stl` | Individual replacement accessories. |
+| Complete brush | 250–255 mm long; use 255 mm for design |
+| Handle | Approximately 30 mm diameter; mostly cylindrical, narrowing near head |
+| Handle bottom to shoulder | 165 mm |
+| Shoulder to head tip, including neck | 90 mm |
+| Head width | 10–15 mm |
+| Head thickness, including bristles | Up to 25 mm |
+| Button | 10–20 mm long; approximately 115 mm from butt is **tentative** |
+| New toothpaste tube | Approximately 160 × 55 × 40 mm, cap approximately 30 mm diameter |
 
-Every listed STL has a matching STEP in the same print pose and millimetres.
-`dental_travel_case_assembled.step` is a **separate closed inspection assembly**;
-it is not the primary print export. Inspection Python files are not print layouts.
-Print either the combined accessories plate or two individual clips and one divider,
-not both. Likewise, the combined test plate contains the individual tests.
+The first spoken brush length in millimetres was corrected by the user to
+centimetres. The 90 mm dimension includes neck and head; it is not bristle-block
+length. Actual neck transition geometry and precise head offset remain unknown. A
+provisional 28 mm head block and 62 mm neck represent the measured combined
+90 mm span; these separate lengths are agent assumptions.
+The inspection uses simplified envelopes, not exact product replicas.
+
+The user explicitly prefers a toothbrush side and toothpaste side, room for other
+tube versions, compliant printed features preferably without a separate TPU print,
+and small easy/quick fit tests delivered alongside the full model. Floss fit and
+movement do not matter; user-supplied tissue packing is acceptable. The earlier
+instruction to make no code changes was superseded by explicit authorization to
+model both the complete case and test pieces. No physical print result was reported.
+
+## Design and size
+
+- Shell closed: **263.8 × 112.2 × 54.8 mm**, excluding external hinge/latch.
+- Flat main print placement: **263.8 × 248.44 mm**, with maximum height 51.8 mm.
+  The long brush nearly fills the Qidi Q2C's 270 mm bed axis: use **at most a
+  3 mm brim and no skirt**, center the complete layout, and preserve both shells'
+  relative positions. Larger brush lengths require revisiting placement/design.
+- Brush lane: 41 mm wide, 259 mm internal length, nominal 2 mm end clearance.
+  Long rounded separator protects the brush from the toothpaste side.
+- Toothpaste design envelope: **200 × 60 × 44 mm**, deliberately larger than the
+  measured tube. Storage lane is 64 mm wide and 50 mm high; no tightly shaped
+  tube pocket or tube clamp. Alternative tubes remain subject to actual fit.
+- Two identical removable clips sit 25 and 85 mm from the handle butt. The
+  tentative 105–125 mm button band is clear of both 8 mm-wide clips.
+- PETG clips have 1.2 mm curved arms, 30.3 mm bore and 28.4 mm entry throat.
+  The throat geometrically captures a nominal 30 mm handle; the bore is relieved
+  rather than friction-clamping it continuously. Modest seated movement is expected.
+- Dovetail feet stop upward/sideways escape; a socket back wall stops forward
+  sliding. Sloping ribs provide 0.15 mm nominal local interference relative to
+  the channel (0.35 mm bump minus 0.20 mm side allowance). Actual holding force
+  and easy sliding removal remain unmeasured.
+- Removed the old shoulder stop because the neck is unmeasured; axial travel is
+  limited by the case's end space instead. Inspect actual head/bristle clearance
+  and button contact in the complete case before relying on it for travel.
+
+Retained the established captive conical hinge and spring latch, translated to
+the new shell dimensions. A hinge keeps the lid attached in travel; the latch
+provides deliberate closure/release. A separate lid would add a loose part.
+Removing the floss divider eliminates a part, cleaning obstruction and fit task.
+No tube retention mechanism is necessary for this roomy closed compartment.
+
+## Deliverables
+
+STEP is the primary interchange format. Each printable STEP has a matching STL
+in millimetres, generated from the same geometry and placement.
+
+| STEP / matching STL | Purpose |
+| --- | --- |
+| [handle_clip.step](../handle_clip.step) / [STL](../handle_clip.stl) | **Smallest first test:** one exact production clip, feet down. Reusable if successful. |
+| [handle_test.step](../handle_test.step) / [STL](../handle_test.stl) | One clip plus raised production socket on a small base; no shoulder gauge. |
+| [dental_travel_case.step](../dental_travel_case.step) / [STL](../dental_travel_case.stl) | Full captive case, both shells open and panels down on one plate. |
+| [accessories.step](../accessories.step) / [STL](../accessories.stl) | Two production clips. Omit a copy if reusing a successful test clip. |
+| [hinge_test.step](../hinge_test.step) / [STL](../hinge_test.stl) | Exact local hinge with representative walls/webs. |
+| [latch_test.step](../latch_test.step) / [STL](../latch_test.stl) | Exact latch/keeper and supporting wall crops. |
+| [test_pieces.step](../test_pieces.step) / [STL](../test_pieces.stl) | Optional combined hinge, latch and handle tests; do not also print their individual duplicates. |
+
+Useful views: [small socket/clip test](../renders/tests/handle_test_isometric.png),
+[loaded envelope layout](../renders/fit/fit_preview_top.png), and
+[main print placement](../renders/print/dental_travel_case_top.png).
+
+[dental_travel_case_assembled.step](../dental_travel_case_assembled.step) is a
+closed **inspection-only** assembly, not the print placement. Inspection Python
+entry points likewise include operating poses or display-only content proxies.
+Source: [parameters.py](../parameters.py), [design.py](../design.py),
+[components.py](../components.py), [mechanisms.py](../mechanisms.py),
+[samples.py](../samples.py), primary [entry point](../dental_travel_case.py).
+
+## First print and test procedure
+
+**Print the clip first**, not the full case. Use PETG, 0.4 mm nozzle and 0.2 mm
+layers, in the supplied feet-down pose. The diagnostic slice uses two walls and
+7% adaptive cubic infill; thin clip arms are defined by their local CAD section,
+not strengthened by an infill percentage. Match the final clip settings. PLA can
+check gross space but cannot qualify PETG spring, hinge or friction behavior.
+
+1. Gently press the actual handle into the clip at 25 and 85 mm from its butt,
+   button upward. It should hold without the handle falling through the throat
+   and release with comfortable hand effort. Some bore play is deliberate.
+   Stop if it scratches, cracks, whitens, requires excessive force or touches a
+   button. Record which location is tight/loose; revise diameter/profile/throat
+   before printing the case if either location fails. No useful diameter range
+   beyond the nominal handle is physically qualified.
+2. If the clip fits, the **handle test** adds socket behavior. Slide the foot from
+   the open end to its back stop. It should resist accidental sliding, yet be
+   removable back toward the entry with the brush removed. Report binding,
+   rocking or a foot that slips out; adjust bump/side clearance independently
+   from brush fit. Its raised support matches production locally but omits the
+   case panels, second clip, lid, axial end stops and integrated handling.
+3. Optional **hinge test:** keep both halves together, remove brim/strings, gently
+   free and rotate through 180 degrees. Accept freedom without cracking or
+   excessive play; revise mating gaps if fused or loose. Do not split the halves.
+4. Optional **latch test:** turn the spring-bearing piece over, bring the two top
+   rims together with spring outside the keeper, press shut, and pull the spring
+   outward before opening. It should resist light unintended lifting while
+   allowing deliberate release without whitening/cracking. This retains the
+   entire spring/root but omits large-panel flex and cannot rate bag retention.
+
+These tests are cheaper than discovering poor fit in the full shell. Each uses
+production interface geometry/orientation; only the clip is needed for initial
+brush-fit uncertainty. A successful sample qualifies its local tested behavior,
+not full-case button clearance, head protection, fatigue, crush resistance or drying.
+Record material, nozzle/layers, relevant slicer settings, tested file/revision and
+observations; a photo of the seated handle helps identify contact locations.
+
+## Printing, assembly and use
+
+Print PETG, 0.4 mm nozzle, 0.2 mm layers. Starting process: two walls, 7% adaptive
+cubic, 3 mm brim, no skirt/supports; use your validated PETG temperatures/speeds.
+The supplied diagnostic profiles/G-code are not a validated printer job.
+
+Exterior shell panels sit flat on the bed. Sloping hinge webs/conical roofs grow
+from attached walls; supports would risk fusing the captive gaps. Clip feet sit
+flat; the lower ring's tapered pedestal supports widening layers and leaves upper
+arms free. Sloping socket lips/ribs avoid flat unsupported roofs. Rounded panel
+corners/rims and separator edges soften handling; bed edges retain chamfers for
+adhesion. Large panels depend on reliable adhesion. The clips' curved arms span
+layers in the feet-down pose: layer bonding and repeated flex need physical tests.
+
+If reusing one successful sample clip, print one additional `handle_clip` instead
+of the two-clip accessories plate.
+
+Keep shell placement fixed when importing STEP; use the matching STL if GUI
+compound arrangement is uncertain. Do not scale the model or separate/auto-arrange
+hinge halves. Slide two clips into sockets toward the butt end until stopped;
+remove toward the head with the brush removed. Place brush head toward vents,
+button upward. Place toothpaste in the other lane; optional floss only where it
+fits without pressing the brush or preventing closure. Press shut and pull latch
+outward to release. Open fully onto a surface for loading. Remove clips for cleaning.
+Vents are not a waterproof seal or guaranteed drying in a bag; open after travel.
+
+## Verification and remaining uncertainty
+
+[CAD receipt](cad_review.json) records CadQuery 2.8.0 valid construction. [Product report](verification.json) is produced by the shared
+`product_verification.cli`; its variant is explicitly `measured-two-lane`.
+Independent CAD checks cover brush/tube clearance, nominal clip bore, unobstructed
+button band, sampled loaded lid rotation at 10 degree intervals, socket capture
+and backstop with bounded intentional rib overlap, and latch obstruction/released
+lift. Hinge samples check rotation at 15 degree intervals and ±1 mm axial capture.
+Sampled motion does not prove every intermediate pose; close-range spring deflection
+is represented by the separate released-latch witness, not a rigid full-motion solve.
+
+The clip's free arc is about 17.3 mm; each arm needs about 0.8 mm lateral spread
+for a 30 mm handle. A straight-beam analogy predicts roughly **0.5% root strain**,
+below an agent-selected 1% provisional design screen. Curvature, printed bonding,
+root concentration, contact and large motion limit this analogy. It is not a
+calibrated material allowable, measured force or durability guarantee. Socket
+friction has designed positive local preload, but its useful holding force is
+unknown. No physical solver or material calibration was needed for this revision.
+
+All seven printable layouts completed **OrcaSlicer 2.4.2** smoke reviews with no
+reported notices and no generated support in the automatic-support probe.
+Native receipts are in [slicer_review](slicer_review/), named after each layout.
+The complete supplied triplet uses the maintained Qidi Q2C 0.4 mm printer and
+Generic PETG profiles with [the local diagnostic 3 mm brim process](slicer_review/process_3mm_brim.json),
+based on the maintained 0.20 mm/two-wall/7% profile. Placement was `center` without
+rotation; the report records effective settings and identities. This establishes
+selected-profile STL layout/toolpath acceptance, not GUI STEP-import success,
+physical clearance, spring effort, sag or machine-specific settings.
+
+Product CAD/provisional screen questions pass; physical fit, alternative tubes,
+comfortable effort, actual retention, fatigue and integrated use remain **UNKNOWN**.
+The shared verification entry-point suite passed **75 tests**. Three focused
+negative checks also rejected an unknown variant, absent brush clips and a throat
+without geometric capture; these were read-only checks, not physical qualification.
+Neither the receipt
+nor those tests promote the case to physical readiness. Native `cq.Assembly`
+provides named assembled parts; adequate existing local pair/sweep checks were
+retained instead of introducing another geometry-check abstraction.
 
 ## Physical print status
 
-Status reviewed 2026-09-12. The verification record reports that this revision
-has not yet been printed.
-
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | No | `test_pieces.stl`; `handle_test.stl`; `hinge_test.stl`; `latch_test.stl`; `handle_clip.stl` | Verification record reports no print; handle, hinge and latch checks remain pending. |
-| Final printable object(s) | No | `dental_travel_case.stl`; `accessories.stl` | Verification record reports no print; physical fit, spring force, hinge freedom and crush resistance remain pending. |
+| Test piece(s) | No — new revision | `handle_clip`, `handle_test`, `hinge_test`, `latch_test`, `test_pieces` STEP/STL | No reported print; grip/release, socket retention, hinge freedom and latch effort pending. |
+| Final printable object(s) | No — new revision | `dental_travel_case`, `accessories` STEP/STL | No reported print; actual fit, button/head clearance, integrated handling and durability pending. |
 
-## Size and provisional fit
+## Regeneration and history
 
-- Main shell: **249.8 × 106.2 × 64.8 mm closed**.
-- Including external hinge/latch: approximately **249.8 × 125.7 × 64.8 mm**.
-- Main print layout: **249.8 × 236.44 × 61.8 mm**. With a 3 mm brim on each side,
-  its bounding footprint stays inside the Qidi Q2C's 270 × 270 × 256 mm build
-  volume. Center the object, disable skirts, preserve relative shell placement.
-- Provisional brush: 238 mm overall, 26 mm round handle, 169 mm shoulder-to-butt.
-  Its approximate head envelope is 28 × 18 × 22 mm. These are not measurements
-  of the user's brush. Handle button is assumed to face up between the clips.
-- Toothpaste envelope: **200 × 55 × 40 mm** including its cap, lying flat.
-- Floss envelope: **30 mm along case length × 60 mm across × 55 mm tall**.
-  The dispenser stands on its narrow edge to fit beside a full-size tube.
-- The divider's other two positions enlarge the floss bay by 7 or 14 mm while
-  reducing available toothpaste length by the same amount. They do not enlarge
-  the case. Nominal 200 mm toothpaste was checked in the first position only.
+From the repository root:
 
-The 238 mm reference length was informed by the Philips HX4031-family manual:
-https://www.documents.philips.com/assets/20251106/4f8c701e7f254900834db38d008c6d44.pdf
-Its stated complete-brush dimensions are approximately 238 × 25 × 26 mm.
-The 169 mm shoulder location, circular handle, toothpaste and floss envelopes are
-working assumptions. The generated reference image is inspiration, not dimensional
-or manufacturing evidence. `renders/fit/fit_preview_top.png` shows the checked
-approximate envelopes, not exact product replicas.
+```sh
+./evaluate_model.py model/dental_travel_case/export_and_check.py --views none
+./execute.py model/dental_travel_case/verification.py --variant measured-two-lane
+```
 
-## Small tests, in a useful order
+Only `export_and_check.py` explicitly publishes all named paired artifacts; shared
+STL settings are 0.003 mm absolute linear and 0.5 rad angular deflection. Geometry
+imports do not export/write notes. For a new slice use `evaluate_model.py
+--slice-existing` with the complete printer/process/filament triplet above.
+Do not uniformly scale exports: it would scale spring sections and hinge gaps.
 
-Use **PETG and the intended final layer settings**. PLA tests can check rough
-space but cannot establish PETG hinge, spring or interference-fit behavior.
-The complete test plate is about 38 g in the diagnostic profile, versus roughly
-370 g for the case plus accessories. Actual slicer estimates vary with your profile.
-
-For the cheapest initial check, print `handle_clip.stl` alone (about 3 g before
-brim) and try it on the handle. If that fits, continue with the full socket test.
-
-1. **Handle test.** Slide the loose clip's broad foot into the socket from
-   the open end until it reaches the back stop. Small sloping ribs provide friction;
-   it should resist accidental sliding yet be removable toward the entry end.
-   Snap the actual handle into the clip, at both proposed holding locations. It
-   should release without excessive force, scratching or whitening the PETG.
-   Use the separate notched gauge against the handle/neck transition: the neck
-   passes through, while the wider handle shoulder stops against it. Check that
-   this corresponds to a 169 mm shoulder-to-butt distance before a full print.
-   Do not force a mismatched brush into the gauge.
-2. **Hinge test.** Keep both printed halves together. Remove only the brim and
-   incidental strings, then gently free the joint and rotate through 180 degrees.
-   It must remain captive without cracking or excessive play. The two shells of
-   the full case also print together; do not split or auto-arrange them separately.
-3. **Latch test.** Turn the spring-bearing sample over so its exterior floor faces
-   up. Bring the plain top rims together, with the spring outside the keeper wall.
-   Press shut; the tooth should catch beneath the keeper. Pull the spring outward
-   at the grip before lifting. Check deliberate release and resistance to light
-   pulling. Short samples preserve the full spring/root, but not large-panel flex.
-
-The sample clip can be reused in the full case if successful. Print only the tests
-that remain uncertain. No large dummy toothbrush or tube is needed: use your items.
-These samples do **not** validate full-case crush resistance, long-term fatigue,
-real-world button clearance, drying performance or universal brand compatibility.
-
-## Assembly and use
-
-Slide each clip into its socket **toward the handle-butt end**; slide it back toward
-the head to remove it, with the brush removed first. The dovetail prevents vertical
-and sideways escape; longitudinal retention relies on the tested friction ribs.
-Drop the divider into a matching pair of grooves. Its near-roof height keeps it
-from lifting out when closed. A finger scoop helps remove it when open.
-
-Load the brush head toward the vented end, button upward, then gently press the
-handle into the clips. Raised supports put the handle roughly 8 mm above the front
-rim for retrieval. The shoulder stop limits motion toward the bristles; the shell
-limits motion in the opposite direction. The continuous internal partition keeps
-the tube out of the brush lane even when the case is inverted. Small movements of
-consumables inside their compartment are expected; this is not a snug moulded tray.
-
-Put floss upright in the short bay and toothpaste in the long bay. Open fully onto
-a surface when loading. Pull the latch outward to release it. Remove the divider
-and clips for cleaning; the shell corners and accessible rims are rounded. Side
-vents are not a waterproof seal or a guarantee of drying in a packed bag. Open the
-case for drying after travel.
-
-## Print approach
-
-PETG, 0.4 mm nozzle, 0.2 mm layers are the intended starting point. The diagnostic
-slice used 4 perimeters, 8 top and bottom layers, 25% gyroid, 3 mm brim, no skirts,
-and no supports. Use your own printer's PETG temperature and motion settings;
-the saved diagnostic INI/G-code is not a validated machine job.
-
-Keep the provided orientations: case exterior panels down, clip feet down,
-divider broad face down, coupons exactly as exported. Do not enable automatic
-supports in captive hinge gaps. Large flat panels depend on reliable bed adhesion;
-keep the brim within the stated margin. Long-term spring force and hinge movement
-remain physical test questions.
-
-## Parametric changes and regeneration
-
-Edit **`../parameters.py`**, then evaluate **`../export_and_check.py` with the [shared command](../../../evaluate_model.py)** (`./evaluate_model.py model/dental_travel_case/export_and_check.py --views none` from the repository root). That rebuilds the complete case and tests, checks nominal
-contents and lid movement, and exports all paired STEP/STL artifacts. Install the locked Python environment with `uv sync --locked` first. Source modules live entirely
-inside this object directory. Dependency imports are refreshed between command runs.
-
-| Feedback | Parameters to revisit |
-| --- | --- |
-| Brush too long or shoulder in wrong place | `BRUSH_LENGTH`, `HANDLE_LENGTH`, `BRUSH_END_CLEARANCE` |
-| Handle too thick, thin, oval or clip too firm | `HANDLE_DIAMETER`, `CLIP_CLEARANCE`, `CLIP_THROAT`, `CLIP_WALL`; an oval may require changing the profile |
-| Clip foot too tight/loose | `GRIP_BUMP` for interference, then `SOCKET_CLEARANCE`; small incremental changes |
-| Hard to lift brush | `CRADLE_LIFT`; recheck lid clearance after changing |
-| Larger consumables | `PASTE_*`, `FLOSS_*`; derived case dimensions must still fit the printer |
-| Divider binds | `SLOT_CLEARANCE` |
-| Hinge binds or has too much play | `CONE_CLEARANCE` and `END_CLEARANCE`, separately |
-| Latch too stiff | `LATCH_THICKNESS`; test before relying on it in a bag |
-
-Cone clearance is radial at fixed X; the shortest 45-degree mating gap is that
-value divided by sqrt(2). Divider clearance is per side. Clip bore clearance is
-radial. The clip throat is deliberately narrower than the nominal handle.
-
-This is an adjustable design, not an arbitrarily scalable one. Current build-volume
-assertions reserve 3 mm around the model. Large changes, a different neck shape or
-moving the button under a clip require renewed design review and tests. Do not
-uniformly scale the STL: that would also scale every hinge and fit allowance.
-
-## Verification status
-
-CadQuery MCP builds passed for main case, assembled inspection, nominal loaded
-inspection and all test pieces. Export checks confirm valid solids, paired mesh
-edges and matching STEP/STL bounds within 0.03 mm. Nominal item/body/lid/divider
-intersections are zero. Loaded lid clearance was checked every 10 degrees; the
-shoulder stop blocks a 1 mm rearward shift of the nominal handle. Tiny intentional
-clip-rib/socket interference is reported separately in `verification.json`.
-
-A variant with 27 mm handle, 165 mm handle length, 25 mm throat, 190 mm paste and
-55 × 50 mm floss width/height also built through MCP (249.8 × 226.44 × 56.8 mm open
-print bounds). Final defaults were restored and re-evaluated/exported. This proves
-one useful variation builds, not every combination or physical fit.
-
-See `slicer_review/report.md` for final slicer evidence. **No physical prints have
-been tested yet.** Preserve the source revision and PETG/profile settings when
-reporting test results so the next adjustment can be small and traceable.
-
-## Rounded middle separator revision
-
-The long fixed separator now has 14 mm upper profile corners and a 0.8 mm
-edge radius, controlled by `PARTITION_CORNER_RADIUS` and `PARTITION_EDGE_RADIUS`.
-The broad corner curves start above the nominal brush/head envelope; the lower
-protective barrier and storage interfaces remain intact. Updated CAD fit/lid
-checks and the no-support diagnostic slice passed. Physical testing is pending.
-
-Measured agent effort for the selected historical work is recorded in
-[the token and timing notes](agent_effort.md). This supplements creator provenance;
-its task and capture limits are explicit.
+The earlier three-item case, divider, 238/26/169 mm provisional brush and shoulder
+gauge are superseded. Its full notes and exports remain available in Git at
+`d901b13`. The retained [historical PrusaSlicer report](slicer_review/report.md)
+and layer images describe that earlier geometry/profile and do not qualify this
+revision. [Historical effort notes](agent_effort.md) likewise remain scoped to the
+old work. [Provenance](provenance.md) preserves original attribution and records
+the user-identified GPT-6.1/medium modelling session separately.

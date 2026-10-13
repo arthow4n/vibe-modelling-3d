@@ -1,0 +1,40 @@
+{
+  "user_requirements": [
+    {
+      "id": "brush.fit",
+      "text": "Carry the measured electric toothbrush with its head attached",
+      "source": {
+        "reference": "notes/README.md#measured-items-and-user-intent",
+        "statement": "User measured 250–255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "paste.fit",
+      "text": "Carry toothpaste on its own side with room for tube variation",
+      "source": {
+        "reference": "notes/README.md#measured-items-and-user-intent",
+        "statement": "User measured a new tube about 160 x 55 x 40 mm with 30 mm cap and requested margins for other versions"
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "print.material",
+      "text": "Use a compliant printed design without a separate TPU print",
+      "source": {
+        "reference": "notes/README.md#measured-items-and-user-intent",
+        "statement": "User requested compliance and preferably no separately printed TPU part"
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "test.fit",
+      "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+      "source": {
+        "reference": "notes/README.md#first-print-and-test-procedure",
+        "statement": "User authorized both the small fit test and complete model in one phase"
+      },
+      "acceptance_criteria": []
+    }
+  ]
+}

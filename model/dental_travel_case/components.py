@@ -1,4 +1,4 @@
-"""Removable PETG cradles and divider, plus shared production sockets."""
+"""Removable compliant PETG cradles and shared production sockets."""
 import math
 import cadquery as cq
 from parameters import *
@@ -54,32 +54,3 @@ def socket():
     upper=shell.cut(channel).edges('|Z').fillet(0.25).translate((0,0,CRADLE_LIFT))
     plinth=block(0,0,CRADLE_LIFT/2,length,BRUSH_LANE-0.4,CRADLE_LIFT).edges('|Z').fillet(0.5)
     return plinth.union(upper)
-
-def divider():
-    # Installed coordinates local X=0, Y=0, Z=0 on floor; exports rotate flat.
-    width=STORAGE_LANE-0.6
-    h=IH-0.5
-    p=block(0,0,h/2,DIVIDER_THICKNESS,width,h).edges('|X').fillet(0.7)
-    # Finger scoop too narrow for the nominal floss box to pass through.
-    scoop=cq.Workplane('YZ',origin=(-3,0,h+3)).circle(12).extrude(6)
-    return p.cut(scoop)
-
-def divider_flat():
-    return divider().rotate((0,0,0),(0,1,0),90).translate((0,0,DIVIDER_THICKNESS/2))
-
-def divider_guides(x):
-    out=[]
-    for side in (-1,1):
-        y=STORAGE_Y+side*(STORAGE_LANE/2-1.4)
-        for sx in (-1,1):
-            out.append(block(x+sx*(DIVIDER_THICKNESS/2+SLOT_CLEARANCE+0.7),y,
-                             FLOOR+13,1.4,3.0,26).edges('|Z').fillet(0.3))
-    return compound(*out)
-
-
-def shoulder_stop():
-    # Open notch admits neck but stops the wider handle sliding toward the head.
-    center=CLIP_Z+CRADLE_LIFT
-    fence=block(0,0,(center+2)/2,WALL,BRUSH_LANE-0.4,center+2)
-    opening=block(0,0,center-7+25,WALL+2,14,50)
-    return fence.cut(opening).edges('|X').fillet(0.5)

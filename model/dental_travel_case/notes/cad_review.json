@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/export_and_check.py",
+  "errors": [],
+  "views": [],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013954429887235165,
+    "build": 9.320323274005204,
+    "selection": 0.0006867049960419536,
+    "validation": 0.094501763000153,
+    "worker": 9.485123679973185,
+    "total": 9.585305507003795
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "7c5be992e93cb1daee3783a89e264f47eb350227104504dfa29306c35efa2f8b"
+  }
+}
