@@ -1,5 +1,12 @@
 # Dental travel case — measured two-lane revision
 
+**Form revision requested:** the user finds the current shell too rectangular,
+including side/end perspectives, and requests SVG proposals for a more rounded
+whole shape. Existing printable files remain the measured fit-development
+baseline; their CAD/slicer passes do not establish acceptance of the current form.
+The user is interested in concealed hinge C as an exploration direction, not an
+approved or verified mechanism. Model source, exports and print status are unchanged.
+
 A single-material PETG travel case for the electric toothbrush **with its head
 attached**, plus a roomy toothpaste side. Floss can occupy spare space if it fits;
 there is no dedicated floss slot, divider or guaranteed capacity. No TPU, glue,
@@ -226,13 +233,66 @@ For A, the moving cover needs a larger radius than the fixed cover: equal-radius
 half covers would collide as the lid opens. The section therefore sketches nested
 cover radii, increasing rear bulk; their attachments still need a sweep check.
 
-Recommendation: explore B first if the smaller opening is acceptable, with A as
-the simpler covered-hinge alternative. Current clip/socket test files remain the
+The initial hinge-comparison recommendation was B, with A as the simpler covered
+alternative. The user's subsequent form exploration instead takes an interest in
+C as its shared hinge direction. Current clip/socket test files remain the
 measured revision's files; this exploration changes no grip geometry or print status.
 No CAD regeneration or smoke slice was needed for these drawing-only proposals.
 SVG syntax, PNG rendering and local links were checked; the comparison was
 visually inspected. Attribution remains the user-identified GPT-6.1/medium Codex
 session recorded in [provenance](provenance.md).
+
+## Rounded shell proposals — C hinge direction
+
+[Comparison SVG](../renders/concepts/rounded_forms.svg) /
+[PNG preview](../renders/concepts/rounded_forms.png).
+The user finds the current overall form too rectangular, especially in views
+other than the top, and is interested in hinge C. This round explores shell form
+with C as shared intent; neither the hinge nor a final shell has been selected.
+All three show closed perspective, top, long side and end views at comparable
+scale. Roof-to-side and side-to-underside curvature change, rather than only
+increasing the four plan-view corner radii.
+
+| Direction | Intended difference | Main tradeoff |
+| --- | --- | --- |
+| [R1 — soft shell](../renders/concepts/r1_form.svg) | Broad rolled transitions around useful flat panels; approximate envelope aim 264 × 112 × 58 mm. Closest to the existing storage arrangement. | Still fairly straight in top view. Rounded underside needs print/support review. |
+| [R2 — lens shell](../renders/concepts/r2_form.svg) | Continuously curved end section, curved side profile and softer roof/base; approximate aim 264 × 120 × 60 mm. Preferred first direction for overall roundness with storage room. | About 8 mm wider and 5 mm taller than the current basic shell. Smaller flat bed patch; removable supports may be needed. |
+| [R3 — sculpted pebble](../renders/concepts/r3_form.svg) | Asymmetric taper beside the shorter tube while retaining the long brush side; approximate aim 264 × 124 × 60 mm. Most organic outline. | About 12 mm wider than the current shell despite taper. Less spare volume at the storage ends; large tube versions and C hinge packaging are more sensitive. |
+
+Envelope values are **design aims in schematic drawings**, not measured CAD or
+accepted dimensions. The blue guides represent the measured 255 mm brush with
+30 mm handle and approximate 160 × 55 mm full tube footprint. Orange shows an
+agent-proposed 180 × 60 mm footprint allowance for tube variation, not a user
+threshold or proof of internal fit. Wall thickness, height variation, exact tube
+shape, opening/retrieval and mechanism clearance remain to be checked in CAD.
+The old 200 × 60 × 44 mm rectangular capacity was an agent decision; changing that
+derived envelope must still preserve the user's actual full tube and meaningful
+room for variations.
+
+A true semicircular-ended capsule at the current length/width would crowd the
+off-centre long brush: the end width shrinks where its full-diameter butt must sit.
+These proposals retain a generous brush-end outline and gain roundness mainly
+through the height section; R3 tapers the shorter storage side instead. This is a
+cheap spatial screen, not verification of the illustrated interiors. C pockets
+are deliberately not positioned in these form drawings. Their two stations need
+common pivot-axis directions, space outside the contents, covered rear openings,
+positive stops and an assembly/removal path. Extra shell width may be needed.
+The wider base shell can partly replace space occupied by today's external hinge,
+but final occupied width including the closure is unknown.
+
+Retain single-material PETG intent and a stable local underside bed patch; broad
+curved undersides may require accessible removable supports. Separate shell prints
+and assembly remain the working C assumption. The long brush still keeps the
+case close to the 270 mm bed axis; placement and print aids need renewed review
+after shape selection. No support-free, print-in-place or 180°-motion claim is made.
+
+Next decision is the desired shell form: R2 for broad curvature, R3 for stronger
+asymmetry, or R1 for a gentler change. All drawing files and PNG rendering were
+checked and the comparison visually reviewed. This is SVG-only work: no model
+code, exports, geometry checks or slices were changed/run, and print status remains
+unchanged. Current clip/socket samples stay available as the measured baseline;
+their fit result would not automatically qualify changed shell/hinge integration.
+Attribution remains the session recorded in [provenance](provenance.md).
 
 ## Regeneration and history
 
