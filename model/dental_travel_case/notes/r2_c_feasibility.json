@@ -1,0 +1,362 @@
+{
+  "scope": "2D sampled shell/contents/table section; no production CAD or print qualification",
+  "geometry_mm": {
+    "width": 132.0,
+    "height": 60.0,
+    "horizontal_wall": 3.2,
+    "floor": 2.4,
+    "flat_base_width": 100.0,
+    "shoulder_power": 1.5,
+    "total_rim_gap": 0.6,
+    "body_pivot": [
+      49.5,
+      8.0
+    ],
+    "lid_closed_pivot": [
+      49.5,
+      52.0
+    ],
+    "link_axis_spacing": 44.0,
+    "open_rear_rim_gap": 11.0
+  },
+  "underside_screen": {
+    "layer_mm": 0.2,
+    "maximum_side_growth_mm_per_mm": 0.8,
+    "maximum_side_growth_per_layer_mm": 0.16000000000000003,
+    "proposed_axial_growth_mm_per_mm": 0.5,
+    "combined_corner_growth_bound_mm_per_mm": 0.9433981132056605,
+    "sketched_lens_flat_width_mm": 31.46998570066406,
+    "sketched_lens_initial_growth_mm_per_mm": 7.359393239098704,
+    "sketched_lens_initial_growth_per_layer_mm": 1.471878647819741,
+    "interpretation": "Geometric overhang screen only; actual deposited paths/material behavior unknown"
+  },
+  "motion_screen": {
+    "angles_step_degrees": 3,
+    "tested_poses": 1891,
+    "legal_poses": 1032,
+    "closed_legal": true,
+    "reachable_poses_from_closed": 663,
+    "maximum_reachable_lid_degrees": 180,
+    "flat_open_legal": true,
+    "connected_route_found": true,
+    "route": [
+      {
+        "lid_degrees": 0,
+        "link_degrees": 90
+      },
+      {
+        "lid_degrees": 0,
+        "link_degrees": 87
+      },
+      {
+        "lid_degrees": 0,
+        "link_degrees": 84
+      },
+      {
+        "lid_degrees": 3,
+        "link_degrees": 84
+      },
+      {
+        "lid_degrees": 6,
+        "link_degrees": 81
+      },
+      {
+        "lid_degrees": 9,
+        "link_degrees": 81
+      },
+      {
+        "lid_degrees": 12,
+        "link_degrees": 78
+      },
+      {
+        "lid_degrees": 15,
+        "link_degrees": 78
+      },
+      {
+        "lid_degrees": 18,
+        "link_degrees": 75
+      },
+      {
+        "lid_degrees": 21,
+        "link_degrees": 75
+      },
+      {
+        "lid_degrees": 24,
+        "link_degrees": 72
+      },
+      {
+        "lid_degrees": 27,
+        "link_degrees": 72
+      },
+      {
+        "lid_degrees": 30,
+        "link_degrees": 69
+      },
+      {
+        "lid_degrees": 33,
+        "link_degrees": 69
+      },
+      {
+        "lid_degrees": 36,
+        "link_degrees": 66
+      },
+      {
+        "lid_degrees": 39,
+        "link_degrees": 63
+      },
+      {
+        "lid_degrees": 42,
+        "link_degrees": 63
+      },
+      {
+        "lid_degrees": 45,
+        "link_degrees": 60
+      },
+      {
+        "lid_degrees": 48,
+        "link_degrees": 60
+      },
+      {
+        "lid_degrees": 51,
+        "link_degrees": 57
+      },
+      {
+        "lid_degrees": 54,
+        "link_degrees": 57
+      },
+      {
+        "lid_degrees": 57,
+        "link_degrees": 54
+      },
+      {
+        "lid_degrees": 60,
+        "link_degrees": 51
+      },
+      {
+        "lid_degrees": 63,
+        "link_degrees": 51
+      },
+      {
+        "lid_degrees": 66,
+        "link_degrees": 48
+      },
+      {
+        "lid_degrees": 69,
+        "link_degrees": 48
+      },
+      {
+        "lid_degrees": 72,
+        "link_degrees": 45
+      },
+      {
+        "lid_degrees": 75,
+        "link_degrees": 42
+      },
+      {
+        "lid_degrees": 78,
+        "link_degrees": 42
+      },
+      {
+        "lid_degrees": 81,
+        "link_degrees": 39
+      },
+      {
+        "lid_degrees": 84,
+        "link_degrees": 39
+      },
+      {
+        "lid_degrees": 87,
+        "link_degrees": 36
+      },
+      {
+        "lid_degrees": 90,
+        "link_degrees": 36
+      },
+      {
+        "lid_degrees": 93,
+        "link_degrees": 33
+      },
+      {
+        "lid_degrees": 96,
+        "link_degrees": 33
+      },
+      {
+        "lid_degrees": 99,
+        "link_degrees": 30
+      },
+      {
+        "lid_degrees": 102,
+        "link_degrees": 30
+      },
+      {
+        "lid_degrees": 105,
+        "link_degrees": 27
+      },
+      {
+        "lid_degrees": 108,
+        "link_degrees": 27
+      },
+      {
+        "lid_degrees": 111,
+        "link_degrees": 24
+      },
+      {
+        "lid_degrees": 114,
+        "link_degrees": 24
+      },
+      {
+        "lid_degrees": 117,
+        "link_degrees": 21
+      },
+      {
+        "lid_degrees": 120,
+        "link_degrees": 21
+      },
+      {
+        "lid_degrees": 123,
+        "link_degrees": 18
+      },
+      {
+        "lid_degrees": 126,
+        "link_degrees": 18
+      },
+      {
+        "lid_degrees": 129,
+        "link_degrees": 18
+      },
+      {
+        "lid_degrees": 132,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 135,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 138,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 141,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 144,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 147,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 150,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 153,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 156,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 159,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 162,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 165,
+        "link_degrees": 15
+      },
+      {
+        "lid_degrees": 168,
+        "link_degrees": 12
+      },
+      {
+        "lid_degrees": 171,
+        "link_degrees": 9
+      },
+      {
+        "lid_degrees": 174,
+        "link_degrees": 6
+      },
+      {
+        "lid_degrees": 177,
+        "link_degrees": 3
+      },
+      {
+        "lid_degrees": 180,
+        "link_degrees": 0
+      }
+    ],
+    "inter_pose_collision_not_excluded": true,
+    "edge_refinement_subdivisions": 15,
+    "route_edges_refined": true,
+    "edge_refinement_collisions": [],
+    "transition_edges_checked": 664,
+    "rejected_transition_edges": 2,
+    "first_rejected_intermediate_pose": {
+      "lid_degrees": 2.0,
+      "link_degrees": 85.0
+    },
+    "short_link_14mm_negative_witness_collides": true,
+    "zero_rim_gap_start_motion_collision_witnesses": [
+      {
+        "lid_degrees": 0,
+        "link_degrees": 87,
+        "shell_collision": true
+      },
+      {
+        "lid_degrees": 3,
+        "link_degrees": 90,
+        "shell_collision": true
+      },
+      {
+        "lid_degrees": 3,
+        "link_degrees": 87,
+        "shell_collision": true
+      }
+    ],
+    "section_height_nodes": 57,
+    "qualification": "Shell walls, nominal separator, item sections and table only; no latch, hinge mounts, links or rear-slot covers"
+  },
+  "packaging_assumptions": {
+    "brush_centre_yz_mm": [
+      -36,
+      33
+    ],
+    "brush_diameter_mm": 30,
+    "brush_polygon_sides": 64,
+    "brush_proxy": "circumscribed polygon, not rectangular handle corners",
+    "head_section_yz_mm": [
+      -43.5,
+      21.5,
+      -28.5,
+      46.5
+    ],
+    "tube_section_yz_mm": [
+      -12,
+      4.4,
+      48,
+      48.4
+    ],
+    "tube_length_allowance_mm": 180,
+    "hinge_stations_x_mm": [
+      -104,
+      104
+    ],
+    "provisional_each_station_axial_half_span_mm": 10,
+    "station_to_180mm_tube_end_gap_mm": 4
+  },
+  "open_questions": [
+    "3D corners, axial ends and actual clip/socket placement",
+    "Hinge-bearing and link interference including covered rear slots",
+    "Positive pin capture, actuation/stops and hand-guided path usability",
+    "Support-probed slicing of actual shells, hinge mounts and links",
+    "Actual tube/brush fit and printed bearing/strength behavior"
+  ]
+}

@@ -294,6 +294,82 @@ unchanged. Current clip/socket samples stay available as the measured baseline;
 their fit result would not automatically qualify changed shell/hinge integration.
 Attribution remains the session recorded in [provenance](provenance.md).
 
+## R2/C without supports — section feasibility study
+
+[SVG explanation](../renders/concepts/r2_c_support_free_study.svg) /
+[PNG preview](../renders/concepts/r2_c_support_free_study.png),
+[reproducible study](../studies/support_free_r2_c.py) and
+[numerical receipt](r2_c_feasibility.json).
+
+**Conclusion: a modified R2 shell with C-style assembled links is geometrically
+plausible; the complete product is not yet qualified for printing without supports.**
+The exact earlier oval and tiny-link sketch are not established printable designs.
+The user asked to explore feasibility, not to replace the production CAD yet.
+
+The R2-S trial uses a 132 × 60 mm closed end section, with a 100 mm flat landing
+and continuously curved shoulders. Compared with the R2 drawing's 120 × 60 mm
+section and approximately 31 mm landing, this is wider and has broader flat faces.
+That visible form compromise is intentional, not a claim to preserve the exact
+oval. Target length remains approximately 264 mm, but axial geometry is not built
+in this section study. For each 30 mm half, the outer half-width is
+`66 - 16*(1 - z/30)**1.5` mm. Its maximum sideways growth is 0.8 mm per mm of
+height, or at most 0.16 mm per 0.2 mm layer. The sketched ellipse's initial
+tangent predicts approximately 1.47 mm per layer. These are geometric screens,
+not universal deposition limits. An axial growth target of 0.5 mm/mm gives a
+combined coordinate-growth bound of approximately 0.943 mm/mm; actual 3D corners
+must obey that construction rule. Shallow end transitions must finish below the
+255 mm brush rather than consume its needed length.
+
+Print concept: two shell halves separately, flat exterior panels down and mouths
+up, plus two flat link plates and four short upright printed pins, all PETG.
+Use open/sloping roofs at horizontal bearing holes and floor-connected or sloped
+mounts; no floating bosses or trapped-support pockets. Pin retention needs positive
+capture. This trades print-in-place manufacture for assembly. Actual bearing,
+cover and latch geometry and their unsupported starts are still unbuilt/unverified.
+
+The final section trial places body/lid pivots at `(Y,Z)=(49.5,8)` and
+`(49.5,52)` mm when closed: 44 mm link spacing. A 0.6 mm total rim gap is an
+agent-selected witness condition, not a calibrated tolerance; protective overlap
+and rear-slot covers are **excluded** and must later be designed without blocking
+motion. A 14 mm link trial collides in the flat-open pose in this layout. Zero-gap
+trials collide in the tested initial moves even though endpoint poses can fit.
+Thus hiding pivots and checking only closed/open positions is inadequate.
+
+The study uses piecewise polygon sections with 57 height nodes and convex-part
+SAT intersections (1e-6 mm projected contact allowance). It checks both shells,
+the fixed full-height separator, a conservative polygon around the measured
+30 mm round handle, a 15 × 25 mm head proxy, a 60 × 44 mm tube proxy and the table.
+The tube is raised 2 mm above the 2.4 mm floor. Brush centre/height and separator
+position are changed engineering assumptions, not qualification of the existing
+clip/socket integration. The 255 mm brush length is not independently proved by
+this transverse section. A proposed 180 mm tube allowance leaves end pockets near
+X=±104 mm for the hinge stations; a provisional 20 mm station width leaves 4 mm
+from the nominal tube end. Those axial pockets/pins are not constructed in 3D.
+
+Across 1,891 coarse angle pairs, a connected opening route reaches 180° with no
+detected shell/contents/table collision at its selected samples. Every accepted
+transition is refined to steps of at most 0.2° per joint. Refinement rejected a
+coarse candidate near 2° lid / 85° link, and the final route avoids it. This is a
+manually guided two-joint path, not a synchronized mechanism or a continuous-path
+proof. Green links in the SVG illustrate axes only: solid link/mount interference,
+rear covers, pin capture, stops, latch release, gravity and comfortable handling
+remain **UNKNOWN**. SAT overlap/touch/separation guards and negative short-link /
+zero-gap witnesses run with the study.
+
+Next useful engineering is a representative rear-edge/link CAD study including
+covered slots, mounts and pin insertion, followed by an Orca support probe of
+those real features and a shell section. A broad flat underside alone cannot
+qualify the entire hinge, and a successful hinge sample would not qualify the
+full shell or integrated use. No new printable specimen or STEP/STL was produced
+here. Production source, existing exports and print-status records are unchanged.
+Attribution remains the user-identified GPT-6.1/medium session in [provenance](provenance.md).
+
+To reproduce this exploration from the repository root:
+
+```sh
+./execute.py model/dental_travel_case/studies/support_free_r2_c.py model/dental_travel_case/notes/r2_c_feasibility.json
+```
+
 ## Regeneration and history
 
 From the repository root:
