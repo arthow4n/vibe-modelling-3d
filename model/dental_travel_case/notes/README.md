@@ -6,6 +6,46 @@ parts, glue, TPU or separate hinge pin required. Items are assumed dry before pa
 
 ![Open case](../renders/open/presentation_isometric.png)
 
+## Next revision direction and measurements — 2026-10-13
+
+The user requests **no modelling or model-code changes yet**. Preferred next
+direction: retain a toothbrush side and a toothpaste side; omit a dedicated
+floss bay/slot. Floss is optional cargo wherever it fits, with movement acceptable
+and tissue packing an acceptable user workaround. Do not enlarge or complicate
+the case to guarantee floss fit. This is a recorded direction, not an implemented
+revision: existing source, divider, exports and checks still describe the original
+three-item arrangement. No new print result was reported.
+
+Measure the actual brush in millimetres, with its usual head attached:
+
+- Overall length from handle butt to the furthest head tip.
+- Handle width and front-to-back thickness at both prospective clip locations,
+  roughly 25 and 85 mm from the butt in the current layout. Measure across each
+  8 mm-wide contact region if tapered; report ovality rather than one diameter.
+- Butt-to-shoulder distance where the broad handle narrows into the neck, plus
+  neck width/thickness at that transition for the shoulder stop.
+- Head length, width and thickness including bristles, and the largest overall
+  thickness when lying button-up (including protruding buttons/head).
+- Button/grip locations measured from the butt, so clips avoid controls.
+
+A side and front photo beside a ruler can clarify the transition, head offset
+and proposed clip regions. A ruler suffices for lengths; calipers are preferable
+for clip cross-sections. For toothpaste, measure maximum length, width and
+thickness of a full tube including cap and crimp, lying as it will be packed.
+No floss measurements are required for the proposed direction.
+
+**Next useful step: measurements, not a mandatory print.** If the measured handle
+is close to the assumed round 26 mm profile, the existing `handle_clip.stl` is an
+optional cheapest fit/effort test. Use PETG, the intended 0.4 mm nozzle/0.2 mm
+layers and supplied feet-down orientation. Try both contact locations: it should
+hold without loose rocking and release comfortably without scratching, cracking
+or whitening. A mismatch calls for a later clip/profile revision, not forceful
+insertion. This test omits socket retention, shoulder-stop fit, lid clearance and
+whole-case handling; it avoids spending material on a known dimensional mismatch.
+The full handle test follows only if useful. Existing hinge/latch tests can answer
+mechanism questions separately if those mechanisms are retained; no full case or
+floss divider print is needed to settle these measurements/direction.
+
 ## What to print
 
 | File | Purpose |
