@@ -15,8 +15,11 @@ bridge quality, physical clearance, strength or tactile behavior.
 
 This skill covers final-mesh smoke reviews and a narrow automatic-support probe
 through the repository's shared evaluator.
-Resolve geometry questions in CAD; inspect Orca's GUI preview when generated
-support or a specific path could change the design.
+Resolve geometry questions in CAD. Follow the design skill's
+[headless operation requirement](../cadquery-3d-design/SKILL.md#headless-operation):
+use headless visual dumps or relevant actual toolpath inspection whenever they
+can answer the question. A support flag does not authorize opening the user's
+desktop viewer.
 
 The [design setup agreement](../cadquery-3d-design/references/user-preferences.md#printer-manufacturing-and-available-hardware)
 owns nozzle, layers, material, walls/infill and printer defaults. Reuse the agreed
@@ -121,11 +124,14 @@ physical print quality.
 
 `support_probe.generated=true` requests review, not redesign. Orca may propose
 unnecessary support, or omit support that the physical print needs. Inspect the
-support's location and removal path in Orca's GUI when generated; inspect a
-specific suspect bridge there even when the probe finds none. A probe failure
-is reported as `support_probe.ok=false` and also requests review. Open the
-sliced layout in Orca's GUI when acceptance is ambiguous or print-aid location
-affects removal or use. A completed slice covers routine bed-fit acceptance
+support's location and removal path when generated, using a headless visual dump
+or the relevant actual toolpaths together with CAD. Inspect a specific suspect
+bridge even when the probe finds none. A probe failure is reported as
+`support_probe.ok=false` and also requests review. Use a GUI only if headless
+evidence cannot resolve the consequential question, and respect the linked
+headless rule's requirement for explicit authorization on the user's desktop.
+Record an inspection limitation instead of presenting a probe alone as resolved.
+A completed slice covers routine bed-fit acceptance
 under the selected profile.
 
 The notice list combines structured plate warnings with keyword-filtered log

@@ -12,6 +12,15 @@ not establish product value or physical function.
 For Python interfaces, check helpers and code review, also apply
 [coding conventions](../coding-conventions/SKILL.md); product design choices remain here.
 
+## Headless operation
+
+When evaluation, slicing, rendering, visual dumps or diagnostic inspection can
+answer the question headlessly, **do it headlessly**. Inspect saved images, SVGs,
+reports or relevant actual toolpaths without opening a desktop application.
+A visual review requirement does not imply a GUI requirement. Use a GUI only
+when the needed evidence cannot be obtained headlessly; do not open or manipulate
+the user's active desktop unless they explicitly request or authorize it.
+
 ## Decide what to build next
 
 Establish the actual task, contents/held item, critical dimensions, normal
