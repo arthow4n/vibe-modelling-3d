@@ -43,3 +43,13 @@ Slim SVG exploration after bulk feedback, 2026-10-14:
 - Direct editable SVGs and headless PNG previews; no CAD geometry changes.
 - Reuses the user's approximate item measurements and historical dimensions
   for comparison. No external model or stock image assets used.
+
+Selected slim M1 modelling, 2026-10-14:
+
+- Primary language model: GPT-6.1; reasoning effort: medium, explicitly provided
+  by the user in this session; exact runtime model/effort are not exposed.
+- Harness: Codex shared-workspace API agent; provider: OpenAI; no subagents.
+- New object-owned two-cup/lap/catch geometry, native CadQuery assemblies,
+  direct SVG diagrams and headless Orca toolpath previews. Research references
+  are linked in [M1](m1.md); no third-party model geometry was imported.
+- Earlier clip/socket print evidence is preserved but does not qualify M1.

@@ -1,0 +1,564 @@
+{
+  "schema_version": 1,
+  "variant": "slim-m1",
+  "selected_checks": null,
+  "available_variants": [
+    "measured-two-lane",
+    "rounded-c",
+    "plain-cylinder",
+    "slim-m1"
+  ],
+  "available_checks": [
+    "case.construction",
+    "contents.fit",
+    "cap.retention",
+    "cap.release",
+    "cap.admission",
+    "flexure.screen",
+    "form.size",
+    "print.slice"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "slim-m1",
+    "scope": {
+      "design": "slim-m1",
+      "material": "intended PETG",
+      "process": "0.4 mm nozzle / 0.2 mm layers",
+      "revision": "2026-10-14 unprinted M1"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "brush.fit",
+        "text": "Carry the measured electric toothbrush with its head attached",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured 250\u2013255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "envelope",
+            "criterion": "Measured 255/30 mm brush and full 160 x 55 x 40 tube clear; continuous rigid axial extraction envelopes pass the complete mouth with >=0.8 mm clearance",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "contents.fit"
+            ],
+            "evidence": [
+              "contents.fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual attached brush fits, is accessible and avoids button activation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "paste.fit",
+        "text": "Carry toothpaste on its own side with room for tube variation",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured a new tube about 160 x 55 x 40 mm with 30 mm cap and requested margins for other versions"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "envelope",
+            "criterion": "Measured 255/30 mm brush and full 160 x 55 x 40 tube clear; continuous rigid axial extraction envelopes pass the complete mouth with >=0.8 mm clearance",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "contents.fit"
+            ],
+            "evidence": [
+              "contents.fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "variation",
+            "criterion": "Actual current and desired alternative full tubes fit without unwanted squeeze",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.material",
+        "text": "Use a compliant printed design without a separate TPU print",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User requested compliance and preferably no separately printed TPU part"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "construction",
+            "criterion": "Two connected cups; full-rim test is cropped from production in matching print orientation",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "case.construction"
+            ],
+            "evidence": [
+              "case.construction"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "compliance",
+            "criterion": "Point-loaded rectangular-beam analogy at body contact, shortened root and +0.3 mm tip-travel allowance stays below provisional uncalibrated 1% strain and 5 N per-leaf squeeze screens",
+            "mode": "analytical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "flexure.screen"
+            ],
+            "evidence": [
+              "flexure.screen"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "effort-life",
+            "criterion": "Printed leaves operate, recover and withstand repeated use without cracks or creep",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "test.fit",
+        "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#first-print-and-test-procedure",
+          "statement": "User authorized both the small fit test and complete model in one phase"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "representative",
+            "criterion": "Two connected cups; full-rim test is cropped from production in matching print orientation",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "case.construction"
+            ],
+            "evidence": [
+              "case.construction"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "trial",
+            "criterion": "User reports useful fit/closure observations from the new joint pair",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.minimal",
+        "text": "Make M1 minimal in design and occupied size",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User rejected earlier bulky designs and requested the most slim minimal suggestions; then selected M1"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "envelope",
+            "criterion": "Agent-selected <=100 x 52 x 264 mm construction envelope and two printed parts, smaller cross-section than old R2; not proof of absolute minimum",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "form.size"
+            ],
+            "evidence": [
+              "form.size"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "judgment",
+            "criterion": "User accepts complete size, proportions and handling as minimal",
+            "mode": "subjective",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.secure",
+        "text": "Separate cap with no exterior hinge and a rounded joint that resists opening when struck in a backpack",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#user-instruction-and-architecture",
+          "statement": "User selected M1, accepted a separate cap, requested no exterior hinge, rounded overlap and resistance to popping open when hit in a backpack; authorized modelling"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "capture",
+            "criterion": "Hard rim seats; both catches independently obstruct axial pull including +/-0.4 mm guide play; removing catches removes obstruction",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "cap.retention"
+            ],
+            "evidence": [
+              "cap.retention"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "release",
+            "criterion": "Five point-loaded fixed-root squeeze poses clear channels/contents; conservative continuous cap sweep and 16 actual cap poses clear; transverse guide-play release checked",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "cap.release"
+            ],
+            "evidence": [
+              "cap.release"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "admission",
+            "criterion": "Ten sampled precompressed squeeze-and-push poses clear; lap independently limits translation and twist; passive snap-on force not established",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "cap.admission"
+            ],
+            "evidence": [
+              "cap.admission"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "backpack",
+            "criterion": "Actual loaded cap resists accidental bump, peel and pulling during backpack use while deliberate release remains comfortable",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "travel.protection",
+        "text": "Protect the attached toothbrush and full toothpaste tube from outside backpack contents and pressure",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User said floss can travel elsewhere and the case mainly protects toothpaste and toothbrush from contact and crashes"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Actual loaded case protects items from external pressure and contact; no crush/drop rating assumed",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.supportfree",
+        "text": "Make the selected architecture support-free",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User asked for a support-free rounded R2/C combination"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "slice",
+            "criterion": "Delivered matching STLs accepted by Orca under named PETG diagnostic profiles, with support-probe review explicit; not physical print or GUI STEP qualification",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "print.slice"
+            ],
+            "evidence": [
+              "print.slice"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual ledges, bridges and vertical PETG leaf roots print successfully without supports",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "case.construction",
+        "targets": [
+          [
+            "print.material",
+            "construction"
+          ],
+          [
+            "test.fit",
+            "representative"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#construction",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted M1"
+        }
+      },
+      {
+        "id": "contents.fit",
+        "targets": [
+          [
+            "brush.fit",
+            "envelope"
+          ],
+          [
+            "paste.fit",
+            "envelope"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#fit",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted M1"
+        }
+      },
+      {
+        "id": "cap.retention",
+        "targets": [
+          [
+            "closure.secure",
+            "capture"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#closure",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted M1"
+        }
+      },
+      {
+        "id": "cap.release",
+        "targets": [
+          [
+            "closure.secure",
+            "release"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#release_path",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted M1"
+        }
+      },
+      {
+        "id": "cap.admission",
+        "targets": [
+          [
+            "closure.secure",
+            "admission"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#assembly_path",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted M1"
+        }
+      },
+      {
+        "id": "flexure.screen",
+        "targets": [
+          [
+            "print.material",
+            "compliance"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#compliance",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted M1"
+        }
+      },
+      {
+        "id": "form.size",
+        "targets": [
+          [
+            "form.minimal",
+            "envelope"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_design.py#Dimensions",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted M1"
+        }
+      },
+      {
+        "id": "print.slice",
+        "targets": [
+          [
+            "print.supportfree",
+            "slice"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/slicer_review",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted M1"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "m1.two-cups",
+        "text": "Plain shared cavity; 12 mm guided lap; two integral opposed recessed body catches",
+        "reference": "notes/m1.md"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "m1.physical",
+        "text": "Vertical PETG leaves, shell flex and approximate item shape remain uncalibrated; small test cannot qualify full-shell impact protection",
+        "reference": "notes/m1.md"
+      }
+    ],
+    "directives": [
+      {
+        "id": "floss.optional",
+        "text": "No required floss volume or dedicated pocket",
+        "source": {
+          "reference": "notes/m1.md#user-instruction-and-architecture",
+          "statement": "User selected M1, accepted a separate cap, requested no exterior hinge, rounded overlap and resistance to popping open when hit in a backpack; authorized modelling"
+        }
+      }
+    ]
+  },
+  "help": null
+}

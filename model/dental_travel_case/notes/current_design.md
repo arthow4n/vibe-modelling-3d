@@ -1,7 +1,8 @@
 # Earlier implemented alternatives — 2026-10-14
 
 **Form reconsideration:** after viewing these implementations, the user finds them
-bulky and is unsure about printing them. [Slim SVG exploration](slim_exploration.md) now takes priority.
+bulky and is unsure about printing them. The [slim SVG exploration](slim_exploration.md)
+led to the newly selected [M1](m1.md), which now takes priority.
 The earlier CAD/slice results remain scoped evidence, not approval of their bulk.
 Floss can be carried elsewhere and contributes no required storage volume.
 

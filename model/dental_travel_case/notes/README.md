@@ -1,13 +1,18 @@
-# Dental travel containers — rounded case and plain cylinder
+# Dental travel containers — slim M1 with a separate cap
 
-The current phase is [slim SVG exploration](slim_exploration.md), after the user
-questioned the previous designs' bulk. Earlier test layouts, assembly instructions
-and evidence are in [the implemented alternatives](current_design.md). The cylinder has a plain interior:
+The user selected M1 from the [slim SVG exploration](slim_exploration.md) and
+authorized a rounded, positive-retention separate cap. The current printable
+design, small joint test, opening explanation and checks are in [M1](m1.md).
+Its size is 264 × 99.2 × 51.2 mm, two cups with hidden hooks and recessed body
+squeeze points. M1 physical fit, holding and backpack protection are unqualified.
+Earlier test layouts, assembly instructions and evidence remain in
+[the implemented alternatives](current_design.md). The cylinder has a plain interior:
 **no separators or clips**. The R2/C hinged case has positive closed brush
 retention and a smaller revised grip, preserving the reported working socket.
-New objects and samples remain physically unprinted.
+No new M1 print report is available; the earlier printed clip/socket observation
+does not qualify its closure.
 
-![Plain cylinder](../renders/assembled/cylinder_assembled_view_isometric.png)
+![Closed M1](../renders/assembled/m1/m1_closed_isometric.png)
 
 The sections below preserve measurements, physical feedback and historical
 measured-case/SVG evidence. The old `dental_travel_case` and associated test exports

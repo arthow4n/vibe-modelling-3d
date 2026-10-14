@@ -188,6 +188,80 @@
         },
         "acceptance_criteria": []
       }
+    ],
+    "slim-m1": [
+      {
+        "id": "brush.fit",
+        "text": "Carry the measured electric toothbrush with its head attached",
+        "source": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured 250–255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "paste.fit",
+        "text": "Carry toothpaste on its own side with room for tube variation",
+        "source": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured a new tube about 160 x 55 x 40 mm with 30 mm cap and requested margins for other versions"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "print.material",
+        "text": "Use a compliant printed design without a separate TPU print",
+        "source": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User requested compliance and preferably no separately printed TPU part"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "test.fit",
+        "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+        "source": {
+          "reference": "notes/README.md#first-print-and-test-procedure",
+          "statement": "User authorized both the small fit test and complete model in one phase"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "form.minimal",
+        "text": "Make M1 minimal in design and occupied size",
+        "source": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User rejected earlier bulky designs and requested the most slim minimal suggestions; then selected M1"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "closure.secure",
+        "text": "Separate cap with no exterior hinge and a rounded joint that resists opening when struck in a backpack",
+        "source": {
+          "reference": "notes/m1.md#user-instruction-and-architecture",
+          "statement": "User selected M1, accepted a separate cap, requested no exterior hinge, rounded overlap and resistance to popping open when hit in a backpack; authorized modelling"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "travel.protection",
+        "text": "Protect the attached toothbrush and full toothpaste tube from outside backpack contents and pressure",
+        "source": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User said floss can travel elsewhere and the case mainly protects toothpaste and toothbrush from contact and crashes"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "print.supportfree",
+        "text": "Make the selected architecture support-free",
+        "source": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User asked for a support-free rounded R2/C combination"
+        },
+        "acceptance_criteria": []
+      }
     ]
   }
 }

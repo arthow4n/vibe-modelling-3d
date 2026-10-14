@@ -1,5 +1,9 @@
 # Slim dental travel cases — SVG exploration
 
+**Subsequent selection:** the user chose M1 and authorized a rounded,
+backpack-resistant separate-cap joint. The resulting printable model and test are
+in [M1](m1.md). This record preserves the earlier comparative sketches and targets.
+
 After viewing the implemented R2/C case and cylinder, the user finds the designs
 bulky and is unsure about printing them. The new goal is minimal design **and**
 minimal occupied size while protecting the attached toothbrush and full toothpaste
@@ -104,7 +108,8 @@ merely because it occupies less space.
 
 **Recommendation:** M2 for one case; M3 for the most compact individual pieces
 if carrying them separately is acceptable. M1 is the simplest shared baseline.
-The next choice is architecture/form, before refining closures or making new CAD.
+At this study's handoff the next choice was architecture/form; the user subsequently
+selected M1, authorizing its closure development.
 
 ## Physical print status for this phase
 
