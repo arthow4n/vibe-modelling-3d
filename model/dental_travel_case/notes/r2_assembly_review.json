@@ -1,0 +1,79 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/r2_case_assembled.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/r2_case_assembled_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "isometric_back",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/r2_case_assembled_isometric_back.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          -1,
+          1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/r2_case_assembled.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/r2_case_assembled.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.001437600003555417,
+    "build": 24.505674943997292,
+    "selection": 0.0011834469914902002,
+    "validation": 0.44942234401241876,
+    "export_step": 0.7584751300164498,
+    "export_stl": 6.09916688100202,
+    "render_isometric": 1.9317950019903947,
+    "render_isometric_back": 2.0471539749996737,
+    "worker": 36.03533665998839,
+    "total": 64.13925649397424
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "913c9f15a1015ca3ea56e8231abb94002925106083def83df5f22fa75b211ea3",
+    "artifact_identity": "5833bc9624689ccf2ec658f170f63721e0cd6b8894b6631756517ccdab48fe84"
+  }
+}

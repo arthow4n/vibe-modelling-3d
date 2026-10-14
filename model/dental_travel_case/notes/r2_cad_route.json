@@ -1,0 +1,268 @@
+{
+  "scope": "CAD tessellated sections only; native CAD route confirmation required",
+  "legal": 902,
+  "reachable": 532,
+  "route": [
+    {
+      "lid_degrees": 0,
+      "link_degrees": 101.30993247402021
+    },
+    {
+      "lid_degrees": 0,
+      "link_degrees": 99
+    },
+    {
+      "lid_degrees": 3,
+      "link_degrees": 96
+    },
+    {
+      "lid_degrees": 6,
+      "link_degrees": 93
+    },
+    {
+      "lid_degrees": 9,
+      "link_degrees": 90
+    },
+    {
+      "lid_degrees": 9,
+      "link_degrees": 87
+    },
+    {
+      "lid_degrees": 9,
+      "link_degrees": 84
+    },
+    {
+      "lid_degrees": 12,
+      "link_degrees": 81
+    },
+    {
+      "lid_degrees": 15,
+      "link_degrees": 78
+    },
+    {
+      "lid_degrees": 18,
+      "link_degrees": 75
+    },
+    {
+      "lid_degrees": 21,
+      "link_degrees": 72
+    },
+    {
+      "lid_degrees": 24,
+      "link_degrees": 69
+    },
+    {
+      "lid_degrees": 27,
+      "link_degrees": 66
+    },
+    {
+      "lid_degrees": 30,
+      "link_degrees": 63
+    },
+    {
+      "lid_degrees": 33,
+      "link_degrees": 60
+    },
+    {
+      "lid_degrees": 36,
+      "link_degrees": 57
+    },
+    {
+      "lid_degrees": 39,
+      "link_degrees": 54
+    },
+    {
+      "lid_degrees": 42,
+      "link_degrees": 54
+    },
+    {
+      "lid_degrees": 45,
+      "link_degrees": 51
+    },
+    {
+      "lid_degrees": 48,
+      "link_degrees": 51
+    },
+    {
+      "lid_degrees": 51,
+      "link_degrees": 51
+    },
+    {
+      "lid_degrees": 54,
+      "link_degrees": 48
+    },
+    {
+      "lid_degrees": 57,
+      "link_degrees": 48
+    },
+    {
+      "lid_degrees": 60,
+      "link_degrees": 45
+    },
+    {
+      "lid_degrees": 63,
+      "link_degrees": 45
+    },
+    {
+      "lid_degrees": 66,
+      "link_degrees": 45
+    },
+    {
+      "lid_degrees": 69,
+      "link_degrees": 42
+    },
+    {
+      "lid_degrees": 72,
+      "link_degrees": 42
+    },
+    {
+      "lid_degrees": 75,
+      "link_degrees": 39
+    },
+    {
+      "lid_degrees": 78,
+      "link_degrees": 36
+    },
+    {
+      "lid_degrees": 81,
+      "link_degrees": 36
+    },
+    {
+      "lid_degrees": 84,
+      "link_degrees": 36
+    },
+    {
+      "lid_degrees": 87,
+      "link_degrees": 33
+    },
+    {
+      "lid_degrees": 90,
+      "link_degrees": 33
+    },
+    {
+      "lid_degrees": 93,
+      "link_degrees": 30
+    },
+    {
+      "lid_degrees": 96,
+      "link_degrees": 27
+    },
+    {
+      "lid_degrees": 99,
+      "link_degrees": 27
+    },
+    {
+      "lid_degrees": 102,
+      "link_degrees": 24
+    },
+    {
+      "lid_degrees": 105,
+      "link_degrees": 24
+    },
+    {
+      "lid_degrees": 108,
+      "link_degrees": 21
+    },
+    {
+      "lid_degrees": 111,
+      "link_degrees": 18
+    },
+    {
+      "lid_degrees": 114,
+      "link_degrees": 18
+    },
+    {
+      "lid_degrees": 117,
+      "link_degrees": 15
+    },
+    {
+      "lid_degrees": 120,
+      "link_degrees": 15
+    },
+    {
+      "lid_degrees": 123,
+      "link_degrees": 15
+    },
+    {
+      "lid_degrees": 126,
+      "link_degrees": 12
+    },
+    {
+      "lid_degrees": 129,
+      "link_degrees": 12
+    },
+    {
+      "lid_degrees": 132,
+      "link_degrees": 9
+    },
+    {
+      "lid_degrees": 135,
+      "link_degrees": 9
+    },
+    {
+      "lid_degrees": 138,
+      "link_degrees": 9
+    },
+    {
+      "lid_degrees": 141,
+      "link_degrees": 9
+    },
+    {
+      "lid_degrees": 144,
+      "link_degrees": 9
+    },
+    {
+      "lid_degrees": 147,
+      "link_degrees": 6
+    },
+    {
+      "lid_degrees": 150,
+      "link_degrees": 6
+    },
+    {
+      "lid_degrees": 153,
+      "link_degrees": 6
+    },
+    {
+      "lid_degrees": 156,
+      "link_degrees": 6
+    },
+    {
+      "lid_degrees": 159,
+      "link_degrees": 9
+    },
+    {
+      "lid_degrees": 162,
+      "link_degrees": 9
+    },
+    {
+      "lid_degrees": 165,
+      "link_degrees": 9
+    },
+    {
+      "lid_degrees": 168,
+      "link_degrees": 12
+    },
+    {
+      "lid_degrees": 171,
+      "link_degrees": 12
+    },
+    {
+      "lid_degrees": 174,
+      "link_degrees": 9
+    },
+    {
+      "lid_degrees": 177,
+      "link_degrees": 6
+    },
+    {
+      "lid_degrees": 180,
+      "link_degrees": 3
+    },
+    {
+      "lid_degrees": 180,
+      "link_degrees": 0
+    }
+  ],
+  "max_phi": 180
+}

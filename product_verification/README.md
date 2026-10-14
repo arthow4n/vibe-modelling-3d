@@ -334,3 +334,8 @@ protected numerical intent comes from the existing case/jar dimension records
 and swatch capacity record. Plate analytical coverage remains an engineering
 contract alongside its unchanged source associations. No geometry, exports,
 physical observations or readiness conclusions changed.
+
+An assertion without a message still produces FAIL evidence with its check ID,
+so other checks can continue. This was qualified after the dental travel case
+correction check exposed an empty evidence summary; programming exceptions
+still fail the command. See `test_empty_assertion_is_failed_evidence_and_allows_continuation`.

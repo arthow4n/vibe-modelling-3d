@@ -299,3 +299,13 @@ def test_question_parent_and_local_id_validation():
         Plan('x',(REQ,),SCOPE,questions=(Q('x','absent','Works','CAD'),)).validate()
     with pytest.raises(ValueError,match='unique'):
         Plan('x',(REQ,),SCOPE,questions=QUESTIONS+QUESTIONS).validate()
+
+
+def test_empty_assertion_is_failed_evidence_and_allows_continuation():
+    def fail():
+        raise AssertionError()
+    checks=(assertion_check('empty',TARGET,fail,'fixture.py',SCOPE),
+            assertion_check('independent',TARGET,lambda:None,'fixture.py',SCOPE))
+    report=Plan('x',(REQ,),SCOPE,checks,questions=QUESTIONS).evaluate()
+    assert [e['status'] for e in report['evidence']]==[T.FAIL,T.PASS]
+    assert report['evidence'][0]['summary']=='empty: assertion failed without a diagnostic message'

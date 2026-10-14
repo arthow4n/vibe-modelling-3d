@@ -58,5 +58,5 @@ No changed cylinder geometry followed those paired exports and slices.
 
 See [measurements and user intent](README.md#measured-items-and-user-intent) and
 [attribution](provenance.md). Earlier clip/socket physical feedback belongs to the
-hinged case, and does not qualify the cylinder. The rounded R2/C variant continues
-in development separately.
+hinged case, and does not qualify the cylinder. The rounded R2/C alternative and
+its separate tests are in [the comparison and case instructions](current_design.md).

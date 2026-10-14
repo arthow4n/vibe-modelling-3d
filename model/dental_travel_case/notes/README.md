@@ -1,8 +1,8 @@
 # Dental travel containers — rounded case and plain cylinder
 
-The current models, test layouts, assembly instructions and evidence are in
-[Plain cylinder model and tests](cylinder.md). The cylinder has a plain interior:
-**no separators or clips**. The R2/C hinged case remains in development with positive closed brush
+The current alternatives, test layouts, assembly instructions and evidence are in
+[Current alternatives](current_design.md). The cylinder has a plain interior:
+**no separators or clips**. The R2/C hinged case has positive closed brush
 retention and a smaller revised grip, preserving the reported working socket.
 New objects and samples remain physically unprinted.
 

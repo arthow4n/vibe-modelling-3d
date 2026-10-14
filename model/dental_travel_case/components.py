@@ -8,26 +8,35 @@ def compound(*parts):
     return cq.Compound.makeCompound([p.val() if isinstance(p,cq.Workplane) else p for p in parts])
 
 def clip():
+    return sized_clip(diameter=HANDLE_DIAMETER, throat=CLIP_THROAT)
+
+
+def sized_clip(*, diameter, throat):
+    """Same tested foot/socket interface, independently specified round grip."""
+    radius=diameter/2+CLIP_CLEARANCE
+    centre_z=FOOT_HEIGHT+radius+CLIP_WALL
+    if not 0 < throat < diameter:
+        raise ValueError('Throat must capture the selected nominal diameter')
     # Flat bed-facing dovetail foot. Slide into socket from negative X.
     foot=(cq.Workplane('YZ',origin=(-FOOT_LENGTH/2,0,0))
           .polyline([(-FOOT_WIDTH/2,0),(FOOT_WIDTH/2,0),
                      (FOOT_WIDTH/2-FOOT_HEIGHT,FOOT_HEIGHT),
                      (-FOOT_WIDTH/2+FOOT_HEIGHT,FOOT_HEIGHT)]).close().extrude(FOOT_LENGTH))
-    ring=(cq.Workplane('YZ',origin=(-CLIP_WIDTH/2,0,CLIP_Z))
-          .circle(CLIP_RADIUS+CLIP_WALL).circle(CLIP_RADIUS).extrude(CLIP_WIDTH))
-    mouth_z=CLIP_Z+math.sqrt(CLIP_RADIUS**2-(CLIP_THROAT/2)**2)
+    ring=(cq.Workplane('YZ',origin=(-CLIP_WIDTH/2,0,centre_z))
+          .circle(radius+CLIP_WALL).circle(radius).extrude(CLIP_WIDTH))
+    mouth_z=centre_z+math.sqrt(radius**2-(throat/2)**2)
     ring=ring.cut(block(0,0,mouth_z+20,CLIP_WIDTH+2,60,40))
     ring=ring.edges('|X').fillet(0.35)
     # Buttress the lower circular underside: otherwise its first widening
     # layers grow too quickly from the foot and trigger loose extrusions.
-    top_z=CLIP_Z-(CLIP_RADIUS+CLIP_WALL)/math.sqrt(2)
-    top_y=(CLIP_RADIUS+CLIP_WALL)/math.sqrt(2)
+    top_z=centre_z-(radius+CLIP_WALL)/math.sqrt(2)
+    top_y=(radius+CLIP_WALL)/math.sqrt(2)
     pedestal=(cq.Workplane('YZ',origin=(-CLIP_WIDTH/2,0,0))
               .polyline([(-FOOT_WIDTH/2+FOOT_HEIGHT,FOOT_HEIGHT),
                          (FOOT_WIDTH/2-FOOT_HEIGHT,FOOT_HEIGHT),
                          (top_y,top_z),(-top_y,top_z)]).close().extrude(CLIP_WIDTH))
-    bore=(cq.Workplane('YZ',origin=(-CLIP_WIDTH/2-1,0,CLIP_Z))
-          .circle(CLIP_RADIUS).extrude(CLIP_WIDTH+2))
+    bore=(cq.Workplane('YZ',origin=(-CLIP_WIDTH/2-1,0,centre_z))
+          .circle(radius).extrude(CLIP_WIDTH+2))
     part=foot.union(ring).union(pedestal.cut(bore))
     # Sloping ribs start on the bed: printable contact bumps, tuned by sample.
     for x in (-5,5):

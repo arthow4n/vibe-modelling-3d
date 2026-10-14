@@ -133,6 +133,8 @@ def assertion_check(id, targets, run, reference, scope):
             message = (str({k: native[k] for k in ('status', 'requirement', 'first', 'second', 'configuration',
                             'overlap_mm3', 'gap_mm', 'parameter', 'units', 'first_failure', 'error') if k in native})
                        if isinstance(native, dict) else str(exc))
+            if not message:
+                message = f'{id}: assertion failed without a diagnostic message'
         return (Evidence(id, targets, status, message, reference, scope),)
     return Check(id, targets, evaluate)
 

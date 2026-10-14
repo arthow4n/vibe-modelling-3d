@@ -35,7 +35,7 @@ QUESTIONS = (
 
 
 def make_plan(variant):
-    if variant in ('plain-cylinder',):
+    if variant in ('rounded-c', 'plain-cylinder'):
         from current_verification import make_current_plan
         return make_current_plan(variant, REQUIREMENTS)
     if variant != 'measured-two-lane':
@@ -75,4 +75,4 @@ def make_plan(variant):
 
 
 if __name__ == '__main__':
-    raise SystemExit(cli(make_plan, ('measured-two-lane', 'plain-cylinder')))
+    raise SystemExit(cli(make_plan, ('measured-two-lane', 'rounded-c', 'plain-cylinder')))

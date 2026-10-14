@@ -1,0 +1,668 @@
+{
+  "schema_version": 1,
+  "variant": "rounded-c",
+  "selected_checks": null,
+  "available_variants": [
+    "measured-two-lane",
+    "rounded-c",
+    "plain-cylinder"
+  ],
+  "available_checks": [
+    "case.construction",
+    "contents.fit",
+    "brush.capture",
+    "case.closure",
+    "hinge.capture",
+    "hinge.admission",
+    "flexure.screen",
+    "hinge.path",
+    "clip.correction",
+    "print.slice"
+  ],
+  "exit_reason": "criterion_failed",
+  "error": null,
+  "report": {
+    "variant": "rounded-c",
+    "scope": {
+      "design": "rounded-c",
+      "material": "intended PETG",
+      "process": "0.4 mm nozzle / 0.2 mm layers",
+      "revision": "2026-10-14 unprinted"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "brush.fit",
+        "text": "Carry the measured electric toothbrush with its head attached",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured 250\u2013255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "envelope",
+            "criterion": "30 mm brush shell envelope; complete mounts accommodate inferred 27 mm grip target; 180 x 60 x 44 mm tube",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "contents.fit"
+            ],
+            "evidence": [
+              "contents.fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "path",
+            "criterion": "Native complete loaded CAD clears coupled route, table and hardware at <=1 degree joint steps; sampled proof only",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "hinge.path"
+            ],
+            "evidence": [
+              "hinge.path"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual brush fits without unintended button pressure",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "paste.fit",
+        "text": "Carry toothpaste on its own side with room for tube variation",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured a new tube about 160 x 55 x 40 mm with 30 mm cap and requested margins for other versions"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "envelope",
+            "criterion": "30 mm brush shell envelope; complete mounts accommodate inferred 27 mm grip target; 180 x 60 x 44 mm tube",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "contents.fit"
+            ],
+            "evidence": [
+              "contents.fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "path",
+            "criterion": "Native complete loaded CAD clears coupled route, table and hardware at <=1 degree joint steps; sampled proof only",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "hinge.path"
+            ],
+            "evidence": [
+              "hinge.path"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual desired tubes fit without unwanted squeeze",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.material",
+        "text": "Use a compliant printed design without a separate TPU print",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User requested compliance and preferably no separately printed TPU part"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "construction",
+            "criterion": "Connected parts; cropped seven-part test retains production local interfaces",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "case.construction"
+            ],
+            "evidence": [
+              "case.construction"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "assembly",
+            "criterion": "Sampled admission of compressed free-arm proxy clears empty bearing ports; no elastic insertion force claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "hinge.admission"
+            ],
+            "evidence": [
+              "hinge.admission"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "compliance",
+            "criterion": "Straight-beam analogies below agent-selected uncalibrated 1% strain screen",
+            "mode": "analytical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "flexure.screen"
+            ],
+            "evidence": [
+              "flexure.screen"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Printed effort, recovery and life are satisfactory",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "test.fit",
+        "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#first-print-and-test-procedure",
+          "statement": "User authorized both the small fit test and complete model in one phase"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "representative",
+            "criterion": "Connected parts; cropped seven-part test retains production local interfaces",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "case.construction"
+            ],
+            "evidence": [
+              "case.construction"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "New sample gives useful physical fit observations",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.rounded",
+        "text": "Make the enclosure rounded overall and the hinge recessed where used",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "User finds the complete enclosure suitably rounded",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "travel.protection",
+        "text": "Protect the contents during backpack use; retain the brush in the hinged case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "capture",
+            "criterion": "Foot gates and closed keeper caps obstruct brush escape geometrically",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "brush.capture"
+            ],
+            "evidence": [
+              "brush.capture"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "closure",
+            "criterion": "Closed latch obstructs lift; free leaf release proxy clears while its root remains fixed",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "case.closure"
+            ],
+            "evidence": [
+              "case.closure"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "hinge",
+            "criterion": "Pin heads and opposed tip barbs capture both joints",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "hinge.capture"
+            ],
+            "evidence": [
+              "hinge.capture"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual backpack pressure and handling remain satisfactory",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.supportfree",
+        "text": "Make the selected architecture support-free",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User asked for a support-free rounded R2/C combination"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "slice",
+            "criterion": "Matching delivered STL receipts accepted under named PETG profiles with no generated supports; physical print and GUI STEP import unqualified",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "FAIL",
+            "coverage": "evidence",
+            "strategies": [
+              "print.slice"
+            ],
+            "evidence": [
+              "print.slice"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual bridges, overhangs and layer adhesion print successfully without supports",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "clip.revision",
+        "text": "Reduce both clip bore and entry mouth by 3 mm while preserving the working socket interface",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#clip-feedback--2026-10-14",
+          "statement": "User reported printed clip and socket fit and requested both openings 3 mm smaller"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "capture",
+            "criterion": "Foot gates and closed keeper caps obstruct brush escape geometrically",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "brush.capture"
+            ],
+            "evidence": [
+              "brush.capture"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "dimensions",
+            "criterion": "Both measured old bore and mouth reduce by exactly 3 mm",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "clip.correction"
+            ],
+            "evidence": [
+              "clip.correction"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Revised bore/mouth grip and release the actual brush comfortably",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [
+          "Bore reduction 3 mm",
+          "Mouth reduction 3 mm"
+        ],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "case.construction",
+        "targets": [
+          [
+            "print.material",
+            "construction"
+          ],
+          [
+            "test.fit",
+            "representative"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "r2_checks.py#construction",
+        "scope": {
+          "design": "rounded-c",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "contents.fit",
+        "targets": [
+          [
+            "brush.fit",
+            "envelope"
+          ],
+          [
+            "paste.fit",
+            "envelope"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "r2_checks.py#fit",
+        "scope": {
+          "design": "rounded-c",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "brush.capture",
+        "targets": [
+          [
+            "travel.protection",
+            "capture"
+          ],
+          [
+            "clip.revision",
+            "capture"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "r2_checks.py#brush_capture",
+        "scope": {
+          "design": "rounded-c",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "case.closure",
+        "targets": [
+          [
+            "travel.protection",
+            "closure"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "r2_checks.py#closure",
+        "scope": {
+          "design": "rounded-c",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "hinge.capture",
+        "targets": [
+          [
+            "travel.protection",
+            "hinge"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "r2_checks.py#pin_capture",
+        "scope": {
+          "design": "rounded-c",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "hinge.admission",
+        "targets": [
+          [
+            "print.material",
+            "assembly"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "r2_checks.py#admission",
+        "scope": {
+          "design": "rounded-c",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "flexure.screen",
+        "targets": [
+          [
+            "print.material",
+            "compliance"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "r2_checks.py#compliance",
+        "scope": {
+          "design": "rounded-c",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "hinge.path",
+        "targets": [
+          [
+            "brush.fit",
+            "path"
+          ],
+          [
+            "paste.fit",
+            "path"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "r2_checks.py#path",
+        "scope": {
+          "design": "rounded-c",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "clip.correction",
+        "targets": [
+          [
+            "clip.revision",
+            "dimensions"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "components.py#sized_clip",
+        "scope": {
+          "design": "rounded-c",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "print.slice",
+        "targets": [
+          [
+            "print.supportfree",
+            "slice"
+          ]
+        ],
+        "status": "FAIL",
+        "summary": "r2_body automatic support probe needs review",
+        "reference": "notes/slicer_review",
+        "scope": {
+          "design": "rounded-c",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      }
+    ],
+    "decisions": [],
+    "hypotheses": [],
+    "directives": [
+      {
+        "id": "floss.optional",
+        "text": "No dedicated floss bay",
+        "source": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        }
+      },
+      {
+        "id": "interior.choice",
+        "text": "Cylinder has no separators or clips; hinged case retains positive brush capture",
+        "source": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        }
+      }
+    ]
+  },
+  "help": null
+}
