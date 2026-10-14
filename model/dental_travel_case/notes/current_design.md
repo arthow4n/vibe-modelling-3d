@@ -1,4 +1,10 @@
-# Current alternatives — 2026-10-14
+# Earlier implemented alternatives — 2026-10-14
+
+**Form reconsideration:** after viewing these implementations, the user finds them
+bulky and is unsure about printing them. [Slim SVG exploration](slim_exploration.md) now takes priority.
+The earlier CAD/slice results remain scoped evidence, not approval of their bulk.
+Floss can be carried elsewhere and contributes no required storage volume.
+
 
 The cylinder has a plain shared cavity, with **no separators, clips or organizers**.
 The R2/C case instead keeps two brush grips and positive closed retention. Both

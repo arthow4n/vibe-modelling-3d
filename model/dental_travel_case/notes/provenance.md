@@ -33,3 +33,13 @@ Rounded R2/C and simple threaded-cylinder development, 2026-10-14:
   PETG fit success. Cylinder thread/grip construction draws on the repository's
   Vaseline container (historical GPT-6 Astra/low attribution above its own record);
   its reported good print does not qualify the larger new thread.
+
+
+Slim SVG exploration after bulk feedback, 2026-10-14:
+
+- Primary language model: GPT-6.1; reasoning effort: medium, explicitly attributed
+  by the user earlier in this session; exact runtime model/effort are not exposed.
+- Harness: Codex shared-workspace API agent; provider: OpenAI; no subagents.
+- Direct editable SVGs and headless PNG previews; no CAD geometry changes.
+- Reuses the user's approximate item measurements and historical dimensions
+  for comparison. No external model or stock image assets used.
