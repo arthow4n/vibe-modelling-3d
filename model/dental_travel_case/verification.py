@@ -35,6 +35,9 @@ QUESTIONS = (
 
 
 def make_plan(variant):
+    if variant in ('plain-cylinder',):
+        from current_verification import make_current_plan
+        return make_current_plan(variant, REQUIREMENTS)
     if variant != 'measured-two-lane':
         raise ValueError('Unknown variant: '+variant)
     protect_recorded_intent(Path(__file__).resolve().parent, REQUIREMENTS)
@@ -72,4 +75,4 @@ def make_plan(variant):
 
 
 if __name__ == '__main__':
-    raise SystemExit(cli(make_plan, ('measured-two-lane',)))
+    raise SystemExit(cli(make_plan, ('measured-two-lane', 'plain-cylinder')))

@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "variant": "plain-cylinder",
+  "selected_checks": null,
+  "available_variants": [
+    "measured-two-lane",
+    "rounded-c",
+    "plain-cylinder"
+  ],
+  "available_checks": [
+    "case.construction",
+    "contents.fit",
+    "thread.path",
+    "print.slice"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "plain-cylinder",
+    "scope": {
+      "design": "plain-cylinder",
+      "material": "intended PETG",
+      "process": "0.4 mm nozzle / 0.2 mm layers",
+      "revision": "2026-10-14 unprinted"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "brush.fit",
+        "text": "Carry the measured electric toothbrush with its head attached",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured 250\u2013255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "envelope",
+            "criterion": "255 mm brush with original 30 mm handle and 60 x 44 mm tube fit the plain cavity with separation",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "contents.fit"
+            ],
+            "evidence": [
+              "contents.fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual brush fits without unintended button pressure",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "paste.fit",
+        "text": "Carry toothpaste with variation room in a plain shared cavity",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "envelope",
+            "criterion": "255 mm brush with original 30 mm handle and 60 x 44 mm tube fit the plain cavity with separation",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "contents.fit"
+            ],
+            "evidence": [
+              "contents.fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual desired tubes fit without unwanted squeeze",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.material",
+        "text": "Use a compliant printed design without a separate TPU print",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User requested compliance and preferably no separately printed TPU part"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "construction",
+            "criterion": "Two connected cups and short joint test preserve full mating geometry and print orientation",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "case.construction"
+            ],
+            "evidence": [
+              "case.construction"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Printed effort, recovery and life are satisfactory",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "test.fit",
+        "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#first-print-and-test-procedure",
+          "statement": "User authorized both the small fit test and complete model in one phase"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "representative",
+            "criterion": "Two connected cups and short joint test preserve full mating geometry and print orientation",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "case.construction"
+            ],
+            "evidence": [
+              "case.construction"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "New sample gives useful physical fit observations",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.rounded",
+        "text": "Make the enclosure rounded overall and the hinge recessed where used",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "User finds the complete enclosure suitably rounded",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "travel.protection",
+        "text": "Protect the contents during backpack use; retain the brush in the hinged case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "capture",
+            "criterion": "61 helical poses at 30 degree steps and subsequent loaded straight lift clear; unturned axial pull meets flanks",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "thread.path"
+            ],
+            "evidence": [
+              "thread.path"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual backpack pressure and handling remain satisfactory",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.supportfree",
+        "text": "Make the selected architecture support-free",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User asked for a support-free rounded R2/C combination"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "slice",
+            "criterion": "Matching delivered STL receipts accepted under named PETG profiles with no generated supports; physical print and GUI STEP import unqualified",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "print.slice"
+            ],
+            "evidence": [
+              "print.slice"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual bridges, overhangs and layer adhesion print successfully without supports",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "cylinder.simple",
+        "text": "Provide a middle threaded joint, grippable exterior and plain interior",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "plain",
+            "criterion": "255 mm brush with original 30 mm handle and 60 x 44 mm tube fit the plain cavity with separation",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "contents.fit"
+            ],
+            "evidence": [
+              "contents.fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "joint",
+            "criterion": "61 helical poses at 30 degree steps and subsequent loaded straight lift clear; unturned axial pull meets flanks",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "thread.path"
+            ],
+            "evidence": [
+              "thread.path"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "wet-grip",
+            "criterion": "Fluted exterior grips comfortably with wet hands",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "case.construction",
+        "targets": [
+          [
+            "print.material",
+            "construction"
+          ],
+          [
+            "test.fit",
+            "representative"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "cylinder_checks.py#construction",
+        "scope": {
+          "design": "plain-cylinder",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "contents.fit",
+        "targets": [
+          [
+            "brush.fit",
+            "envelope"
+          ],
+          [
+            "paste.fit",
+            "envelope"
+          ],
+          [
+            "cylinder.simple",
+            "plain"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "cylinder_checks.py#packing",
+        "scope": {
+          "design": "plain-cylinder",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "thread.path",
+        "targets": [
+          [
+            "cylinder.simple",
+            "joint"
+          ],
+          [
+            "travel.protection",
+            "capture"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "cylinder_checks.py#thread_motion",
+        "scope": {
+          "design": "plain-cylinder",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      },
+      {
+        "id": "print.slice",
+        "targets": [
+          [
+            "print.supportfree",
+            "slice"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/slicer_review",
+        "scope": {
+          "design": "plain-cylinder",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-14 unprinted"
+        }
+      }
+    ],
+    "decisions": [],
+    "hypotheses": [],
+    "directives": [
+      {
+        "id": "floss.optional",
+        "text": "No dedicated floss bay",
+        "source": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        }
+      },
+      {
+        "id": "interior.choice",
+        "text": "Cylinder has no separators or clips; hinged case retains positive brush capture",
+        "source": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        }
+      }
+    ]
+  },
+  "help": null
+}

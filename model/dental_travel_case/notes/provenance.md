@@ -23,3 +23,13 @@ Measured two-lane modelling revision, 2026-10-13:
 - Material contributors: no subagents. Existing conical hinge/latch builders are
   retained from this object's historical work, adapted from repository sunglasses
   case geometry; historical attribution above and repository licensing preserved.
+
+Rounded R2/C and simple threaded-cylinder development, 2026-10-14:
+
+- Primary language model: GPT-6.1; reasoning effort: medium, both explicitly
+  user-provided session attribution; exact runtime variant is not exposed.
+- Harness: Codex shared-workspace API agent; provider: OpenAI; no subagents.
+- Reuses the measured revision's clip foot/socket geometry after user-reported
+  PETG fit success. Cylinder thread/grip construction draws on the repository's
+  Vaseline container (historical GPT-6 Astra/low attribution above its own record);
+  its reported good print does not qualify the larger new thread.

@@ -36,5 +36,81 @@
       },
       "acceptance_criteria": []
     }
-  ]
+  ],
+  "variants": {
+    "plain-cylinder": [
+      {
+        "id": "brush.fit",
+        "text": "Carry the measured electric toothbrush with its head attached",
+        "source": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured 250–255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "paste.fit",
+        "text": "Carry toothpaste with variation room in a plain shared cavity",
+        "source": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "print.material",
+        "text": "Use a compliant printed design without a separate TPU print",
+        "source": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User requested compliance and preferably no separately printed TPU part"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "test.fit",
+        "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+        "source": {
+          "reference": "notes/README.md#first-print-and-test-procedure",
+          "statement": "User authorized both the small fit test and complete model in one phase"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "form.rounded",
+        "text": "Make the enclosure rounded overall and the hinge recessed where used",
+        "source": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "travel.protection",
+        "text": "Protect the contents during backpack use; retain the brush in the hinged case",
+        "source": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "print.supportfree",
+        "text": "Make the selected architecture support-free",
+        "source": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User asked for a support-free rounded R2/C combination"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "cylinder.simple",
+        "text": "Provide a middle threaded joint, grippable exterior and plain interior",
+        "source": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User authorized rounded R2/C and a grippable threaded cylinder; cylinder explicitly needs no clips or separators"
+        },
+        "acceptance_criteria": []
+      }
+    ]
+  }
 }

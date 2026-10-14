@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/cylinder_case_assembled.py",
+  "errors": [],
+  "views": [],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/cylinder_case_assembled.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/cylinder_case_assembled.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.001456571015296504,
+    "build": 20.443993453023722,
+    "selection": 0.001076381013263017,
+    "validation": 0.18684438700438477,
+    "export_step": 0.36248988800798543,
+    "export_stl": 2.2099842059833463,
+    "worker": 23.351377159007825,
+    "total": 109.8458952549845
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "71fff33748f445057adb4b15bf057f0f3ecfe7c0d9e2a54f33619c76e5b13c78",
+    "artifact_identity": "da87dcaa5f7868ef9fdf520a7136a4ac98a1db8c6fd1cd3d784c2071295a9635"
+  }
+}

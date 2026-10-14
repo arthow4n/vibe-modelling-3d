@@ -1,18 +1,16 @@
-# Dental travel case — measured two-lane revision
+# Dental travel containers — rounded case and plain cylinder
 
-**Form revision requested:** the user finds the current shell too rectangular,
-including side/end perspectives, and requests SVG proposals for a more rounded
-whole shape. Existing printable files remain the measured fit-development
-baseline; their CAD/slicer passes do not establish acceptance of the current form.
-The user is interested in concealed hinge C as an exploration direction, not an
-approved or verified mechanism. Model source, exports and print status are unchanged.
+The current models, test layouts, assembly instructions and evidence are in
+[Plain cylinder model and tests](cylinder.md). The cylinder has a plain interior:
+**no separators or clips**. The R2/C hinged case remains in development with positive closed brush
+retention and a smaller revised grip, preserving the reported working socket.
+New objects and samples remain physically unprinted.
 
-A single-material PETG travel case for the electric toothbrush **with its head
-attached**, plus a roomy toothpaste side. Floss can occupy spare space if it fits;
-there is no dedicated floss slot, divider or guaranteed capacity. No TPU, glue,
-separate hinge pin or purchased hardware is needed. Pack dry items; charger excluded.
+![Plain cylinder](../renders/assembled/cylinder_assembled_view_isometric.png)
 
-![Open case](../renders/assembled/export_and_check_isometric.png)
+The sections below preserve measurements, physical feedback and historical
+measured-case/SVG evidence. The old `dental_travel_case` and associated test exports
+are the earlier baseline, not the current rounded or cylinder models.
 
 ## Measured items and user intent
 
@@ -41,9 +39,9 @@ tube versions, compliant printed features preferably without a separate TPU prin
 and small easy/quick fit tests delivered alongside the full model. Floss fit and
 movement do not matter; user-supplied tissue packing is acceptable. The earlier
 instruction to make no code changes was superseded by explicit authorization to
-model both the complete case and test pieces. No physical print result was reported.
+model both the complete case and test pieces. The user reported printing the handle clip on 2026-10-14; see the scoped feedback below.
 
-## Design and size
+## Historical measured-case design and size
 
 - Shell closed: **263.8 × 112.2 × 54.8 mm**, excluding external hinge/latch.
 - Flat main print placement: **263.8 × 248.44 mm**, with maximum height 51.8 mm.
@@ -74,7 +72,7 @@ provides deliberate closure/release. A separate lid would add a loose part.
 Removing the floss divider eliminates a part, cleaning obstruction and fit task.
 No tube retention mechanism is necessary for this roomy closed compartment.
 
-## Deliverables
+## Historical measured-case deliverables
 
 STEP is the primary interchange format. Each printable STEP has a matching STL
 in millimetres, generated from the same geometry and placement.
@@ -137,7 +135,7 @@ not full-case button clearance, head protection, fatigue, crush resistance or dr
 Record material, nozzle/layers, relevant slicer settings, tested file/revision and
 observations; a photo of the seated handle helps identify contact locations.
 
-## Printing, assembly and use
+## Historical measured-case printing, assembly and use
 
 Print PETG, 0.4 mm nozzle, 0.2 mm layers. Starting process: two walls, 7% adaptive
 cubic, 3 mm brim, no skirt/supports; use your validated PETG temperatures/speeds.
@@ -163,7 +161,7 @@ fits without pressing the brush or preventing closure. Press shut and pull latch
 outward to release. Open fully onto a surface for loading. Remove clips for cleaning.
 Vents are not a waterproof seal or guaranteed drying in a bag; open after travel.
 
-## Verification and remaining uncertainty
+## Historical measured-case verification and remaining uncertainty
 
 [CAD receipt](cad_review.json) records CadQuery 2.8.0 valid construction. [Product report](verification.json) is produced by the shared
 `product_verification.cli`; its variant is explicitly `measured-two-lane`.
@@ -202,12 +200,46 @@ nor those tests promote the case to physical readiness. Native `cq.Assembly`
 provides named assembled parts; adequate existing local pair/sweep checks were
 retained instead of introducing another geometry-check abstraction.
 
-## Physical print status
+## Historical baseline print status
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | No — new revision | `handle_clip`, `handle_test`, `hinge_test`, `latch_test`, `test_pieces` STEP/STL | No reported print; grip/release, socket retention, hinge freedom and latch effort pending. |
+| Test piece(s) | Partial — clip and socket reported printed 2026-10-14 | Baseline clip/socket geometry; exact exported file unconfirmed | User reports clip and socket worked in PETG, 0.4 mm nozzle / 0.2 mm layers. Both grip bore and throat should shrink 3 mm. New grip and hinge/latch remain unprinted. |
 | Final printable object(s) | No — new revision | `dental_travel_case`, `accessories` STEP/STL | No reported print; actual fit, button/head clearance, integrated handling and durability pending. |
+
+## Backpack retention and cylinder direction — 2026-10-14
+
+The user requires the hinged case to keep the brush held when a backpack rotates
+through arbitrary orientations; an open-looking holder without meaningful
+retention is inadequate. The revised grip uses the clarified 27.3 mm bore and
+25.4 mm throat. Development adds closed-lid lift guards and removable foot gates,
+so closed retention does not depend only on friction. Printed holding force,
+closed-case shake behavior and durability remain physical questions.
+
+The user also delegates exploration/implementation of a simpler cylindrical
+alternative with a threaded joint near its lengthwise midpoint and an exterior
+that is easy to grip with wet hands, inspired by the existing Vaseline jar.
+The user explicitly exempts this cylinder from brush clips, separators and fitted
+pockets: keep the interior plain and reasonably snug; its primary role is protection
+from outside pressure. This exception does not cancel the hinged-case retention
+request. No numerical crush load or wet-grip acceptance threshold was supplied.
+
+## Clip feedback — 2026-10-14
+
+The user printed the clip **and its socket**, in PETG with a 0.4 mm nozzle and
+0.2 mm layers. The clip fitted into the socket without problems, and the handle
+holder worked. The user clarifies that **both** the holding bore and snap-in
+opening should be 3 mm smaller. The new trial therefore targets a 27.3 mm bore
+and 25.4 mm throat, while preserving the tested foot/socket mating geometry.
+The original approximate 30 mm handle measurement remains historical input;
+27 mm is the nominal grip target inferred from this later fit correction, not a
+new caliper measurement. Whole-case clearance still reserves the 30 mm handle.
+
+The presumed artifacts are the baseline `handle_test` clip/socket geometry
+(introduced in `47b5862`, unchanged through `07ed104`); exact printed file identity
+and other slicer settings are unconfirmed. This qualifies the reported local
+socket insertion and useful baseline holder behavior, not the smaller grip,
+full-case fit/handling, new hinge/latch, fatigue or retention in a bag.
 
 ## Concealed hinge proposals — SVG exploration
 

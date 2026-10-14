@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/cylinder_assembled_view.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/cylinder_assembled_view_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.001393021986586973,
+    "build": 19.43726432500989,
+    "selection": 0.0011790530115831643,
+    "validation": 0.18199431800167076,
+    "render_isometric": 10.600981767987832,
+    "worker": 30.361222699983045,
+    "total": 34.88750393301598
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "dd44bc338cbb2c9747eb210369de0976f1c5c276bf1dcdb4b5b309d6a3c9d554",
+    "artifact_identity": "f9c14768af44301437b0527010a236f3d5abc73e2f0257bfb0030ddb2b29cf92"
+  }
+}
