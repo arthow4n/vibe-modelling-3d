@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/tpu_damping_box.py",
+  "errors": [],
+  "views": [],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/tpu_damping_box.step",
+      "ok": true,
+      "reused": true
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/tpu_damping_box.stl",
+      "ok": true,
+      "reused": true
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.0017969159998756368,
+    "build": 0.33853160299986484,
+    "selection": 0.0010095820007336442,
+    "validation": 0.01976813500004937,
+    "export_step": 0.0028267549996598973,
+    "export_stl": 0.002259423999930732,
+    "worker": 0.4696780600006605,
+    "total": 0.582238721000067
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "efbb78b71cd82066fc94c921147f2d3c3dc3a49d55ce6adfb6aeca70498d1ae1",
+    "artifact_identity": "eaaa7c9bd959c2e2b7d1be54483dc99360b5c06bac70f199a61539e875e5deae"
+  }
+}

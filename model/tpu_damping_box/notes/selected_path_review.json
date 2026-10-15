@@ -1,0 +1,361 @@
+{
+  "scope": "Selected A/E/H/I; Orca toolpath metadata only, not printed material or acoustic evidence",
+  "registration": "2-column source layout translated (+94,+53) mm; no component rotation",
+  "primary_support_segments": 0,
+  "probe_support_z_range_mm": [
+    1.2,
+    3.4
+  ],
+  "roof_layers": [
+    {
+      "variant": "E",
+      "part": "cup",
+      "first_roof_z_mm": 3.4000000000000004,
+      "roles": {
+        "Bridge": 871
+      },
+      "transverse_segments": 871,
+      "longitudinal_segments": 0
+    },
+    {
+      "variant": "E",
+      "part": "pad",
+      "first_roof_z_mm": 3.6000000000000005,
+      "roles": {
+        "Bridge": 67
+      },
+      "transverse_segments": 67,
+      "longitudinal_segments": 0
+    },
+    {
+      "variant": "H",
+      "part": "cup",
+      "first_roof_z_mm": 3.6,
+      "roles": {
+        "Bridge": 67
+      },
+      "transverse_segments": 67,
+      "longitudinal_segments": 0
+    },
+    {
+      "variant": "H",
+      "part": "pad",
+      "first_roof_z_mm": 3.8000000000000003,
+      "roles": {
+        "Bridge": 67
+      },
+      "transverse_segments": 67,
+      "longitudinal_segments": 0
+    },
+    {
+      "variant": "I",
+      "part": "cup",
+      "first_roof_z_mm": 3.6,
+      "roles": {
+        "Bridge": 134
+      },
+      "transverse_segments": 134,
+      "longitudinal_segments": 0
+    },
+    {
+      "variant": "I",
+      "part": "pad",
+      "first_roof_z_mm": 3.8000000000000003,
+      "roles": {
+        "Bridge": 67
+      },
+      "transverse_segments": 67,
+      "longitudinal_segments": 0
+    }
+  ],
+  "thin_core_witnesses": [
+    {
+      "variant": "H",
+      "part": "cup-floor-core",
+      "z_mm": 1.2,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            151,
+            163
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "H",
+      "part": "cup-floor-core",
+      "z_mm": 1.8,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            151,
+            163
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "H",
+      "part": "cup-floor-core",
+      "z_mm": 2.6,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            151,
+            163
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "H",
+      "part": "pad-core",
+      "z_mm": 1.4,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            192,
+            204
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "H",
+      "part": "pad-core",
+      "z_mm": 2.0,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            192,
+            204
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "H",
+      "part": "pad-core",
+      "z_mm": 2.8,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            192,
+            204
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "H",
+      "part": "cup-side-core",
+      "depth_mm": 0.4,
+      "coverage": {
+        "filled_width_mm": 0.19999999999998863,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            155.40207006182845,
+            155.60207006182844
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "H",
+      "part": "cup-side-core",
+      "depth_mm": 1.3,
+      "coverage": {
+        "filled_width_mm": 0.19999999999998863,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            155.75,
+            155.95
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "H",
+      "part": "cup-side-core",
+      "depth_mm": 2.2,
+      "coverage": {
+        "filled_width_mm": 0.19999999999998863,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            155.40207006182845,
+            155.60207006182844
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I",
+      "part": "cup-floor-core",
+      "z_mm": 1.2,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            151,
+            163
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I",
+      "part": "cup-floor-core",
+      "z_mm": 1.8,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            151,
+            163
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I",
+      "part": "cup-floor-core",
+      "z_mm": 2.6,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            151,
+            163
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I",
+      "part": "pad-core",
+      "z_mm": 1.4,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            192,
+            204
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I",
+      "part": "pad-core",
+      "z_mm": 2.0,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            192,
+            204
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I",
+      "part": "pad-core",
+      "z_mm": 2.8,
+      "coverage": {
+        "filled_width_mm": 12,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            192,
+            204
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I",
+      "part": "cup-side-core",
+      "depth_mm": 0.4,
+      "coverage": {
+        "filled_width_mm": 0.19999999999998863,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            154.90769230769232,
+            155.1076923076923
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I",
+      "part": "cup-side-core",
+      "depth_mm": 1.3,
+      "coverage": {
+        "filled_width_mm": 0.19999999999998863,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            155.6,
+            155.79999999999998
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I",
+      "part": "cup-side-core",
+      "depth_mm": 2.2,
+      "coverage": {
+        "filled_width_mm": 0.19999999999998863,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            154.90769230769232,
+            155.1076923076923
+          ]
+        ]
+      }
+    }
+  ]
+}

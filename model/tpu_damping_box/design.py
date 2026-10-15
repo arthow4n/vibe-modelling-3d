@@ -1,6 +1,6 @@
 """Six-face nut impact study; mm. Builders have no publication side effects."""
 from dataclasses import dataclass
-from math import sqrt
+from math import sqrt, sin, cos, pi
 import cadquery as cq
 
 # Primary experimental dimensions; all variants share the impact envelope.
@@ -37,6 +37,9 @@ VARIANTS = {
     'D': Variant('D', 'inclined', 0.8),
     'E': Variant('E', 'chevron', 0.8),
     'F': Variant('F', 'straight', 0.8, skin=0.6),
+    'G': Variant('G', 'inclined', 0.6, skin=0.6),
+    'H': Variant('H', 'bowed', 0.6, skin=0.6),
+    'I': Variant('I', 'chevron', 0.6, skin=0.6),
 }
 
 
@@ -91,6 +94,24 @@ def web_segment(x0, z0, x1, z1, thickness, length):
     return cq.Workplane('XZ').polyline(points).close().extrude(length).translate((0,length/2,0))
 
 
+BOW_AMPLITUDE = 0.65
+BOW_SEGMENTS = 32
+
+
+def bowed_profile(v):
+    """Graph-normal 0.6 mm nominal strip; polygon error checked by refinement."""
+    h = ZONE - BACKING - v.skin
+    left, right = [], []
+    for i in range(BOW_SEGMENTS+1):
+        z = h*i/BOW_SEGMENTS
+        x = BOW_AMPLITUDE*sin(pi*z/h)
+        slope = BOW_AMPLITUDE*pi/h*cos(pi*z/h)
+        half = v.rib_wall*sqrt(1+slope*slope)/2
+        left.append((x-half,z))
+        right.append((x+half,z))
+    return left + list(reversed(right))
+
+
 def face_core(v, length):
     """CAD webs spanning two flat skins; canonical depth axis is Z."""
     h = ZONE - BACKING - v.skin
@@ -101,6 +122,8 @@ def face_core(v, length):
     elif v.core == 'chevron':
         rib = web_segment(-0.5,0,0.5,h/2,v.rib_wall,length).union(
               web_segment(0.5,h/2,-0.5,h,v.rib_wall,length))
+    elif v.core == 'bowed':
+        rib = cq.Workplane('XZ').polyline(bowed_profile(v)).close().extrude(length).translate((0,length/2,0))
     else:
         raise ValueError(f'No cellular core for {v.core!r}')
     return cq.Compound.makeCompound([rib.translate((x,0,0)).val() for x in RIB_CENTRES])
@@ -161,16 +184,29 @@ def petg_layout():
     return cq.Assembly(name='petg').add(body(), name='body', loc=cq.Location((28,28,0))).add(lid_print(), name='lid', loc=cq.Location((80,28,0)))
 
 
-def liner_layout(names):
+def liner_placements(names, *, columns):
+    """Named print parts and poses, shared by the layout and selection checks."""
+    if not isinstance(columns,int) or isinstance(columns,bool) or columns < 1:
+        raise ValueError('columns must be a positive integer')
     if not names or len(set(names)) != len(names):
         raise ValueError('Supply distinct explicit liner names')
-    a = cq.Assembly(name='tpu')
-    for i, name in enumerate(names):
+    for name in names:
         variant_named(name)
-        x = 20 + (i % 3) * 42
-        y = (i // 3) * 84
-        a.add(cup(name), name=f'cup_{name}', loc=cq.Location((x,20+y,0)))
-        a.add(pad_print(name), name=f'pad_{name}', loc=cq.Location((x,61+y,0)))
+    placements=[]
+    for i,name in enumerate(names):
+        x=20+(i%columns)*42
+        y=(i//columns)*84
+        placements.extend(((f'cup_{name}','cup',name,(x,20+y,0)),
+                           (f'pad_{name}','pad',name,(x,61+y,0))))
+    return tuple(placements)
+
+
+def liner_layout(names, *, columns):
+    placements=liner_placements(names,columns=columns)
+    builders={'cup':cup,'pad':pad_print}
+    a=cq.Assembly(name='tpu')
+    for part,kind,name,position in placements:
+        a.add(builders[kind](name),name=part,loc=cq.Location(position))
     return a
 
 

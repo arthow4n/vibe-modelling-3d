@@ -81,7 +81,7 @@ def label_checks(name,parts):
     # Just above the recess must remain connected backing.
     contained(glyph.translate((0,0,0.35)),cup)
     contained(glyph.translate((0,0,0.35)),d.pad_print(name))
-    assert set(d.VARIANTS)==set('ABCDEF'), 'Batch variant coverage changed'
+    assert name in d.VARIANTS, 'Unknown labeled variant'
 
 
 def closure_checks(body):
@@ -95,3 +95,12 @@ def closure_checks(body):
         shaft=cq.Workplane('XY').center(x,y).circle(1.5).extrude(12).translate((0,0,d.BODY_HEIGHT-8.8))
         no_overlap(shaft,body)
         no_overlap(shaft,d.lid_closed())
+
+
+def selection_checks():
+    from selection import SELECTED_NAMES
+    assert SELECTED_NAMES == ('A','E','H','I'), 'Recommended print selection changed'
+    placements=d.liner_placements(SELECTED_NAMES,columns=2)
+    expected={f'{part}_{name}' for name in SELECTED_NAMES for part in ('cup','pad')}
+    assert {r[0] for r in placements} == expected, 'Missing or unwanted selected component'
+    assert len(placements)==8, 'Selected batch must contain four matching pairs'

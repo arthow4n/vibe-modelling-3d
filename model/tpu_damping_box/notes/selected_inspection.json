@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/selected_inspection.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "front",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/renders/assembled/selected_inspection_front.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          -1,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/renders/assembled/selected_inspection_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.002038531999460247,
+    "build": 25.116385367000476,
+    "selection": 0.0010772449995783973,
+    "validation": 2.06768463500066,
+    "render_front": 7.356592297000134,
+    "render_isometric": 1.8438665610001408,
+    "worker": 36.78151278099995,
+    "total": 44.88383083499957
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "efbb78b71cd82066fc94c921147f2d3c3dc3a49d55ce6adfb6aeca70498d1ae1",
+    "artifact_identity": "a8d3afa77f8e909952f227381f621e3366ce887353c5b6ff3f55371e59023afd"
+  }
+}

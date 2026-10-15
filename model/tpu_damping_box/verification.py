@@ -2,7 +2,7 @@
 from functools import cache
 from pathlib import Path
 from product_verification import (UserRequirement as U, UserSource as S, Question as Q,
-    Plan, DesignDecision, Hypothesis, assertion_check, cli, protect_recorded_intent)
+    Plan, DesignDecision, Hypothesis, assertion_check, cli, protect_recorded_intent, Check, Evidence, Status)
 
 ROOT = Path(__file__).resolve().parent
 SOURCE = 'README.md#user-intent'
@@ -17,6 +17,8 @@ REQUIREMENTS = (
       S(SOURCE,'User asks for labeled variants, explicit CAD structures rather than infill, and a batch print; additional variants are welcome.')),
     U('study.research','Use research to inform a reusable damping experiment and compare variants by shaking the same metal nut.',
       S(SOURCE,'User requests research on effective damping structures and plans to report which liner performs best.')),
+    U('study.quiet_priority','Prioritize maximum quietness in a thin liner and recommend a focused print batch with a solid control and the most promising candidates.',
+      S(SOURCE,'User follow-up: maximize quietness while keeping it thin; provide a STEP set focused on more confident candidates and retain control A.')),
 )
 QUESTIONS = (
     Q('fit','study.enclosure','Cup and pad fit the actual shell and each other; one 12 mm proxy can travel 14 mm on each axis inside the 26 mm clear cavity.', 'CAD'),
@@ -25,18 +27,41 @@ QUESTIONS = (
     Q('six-skins','study.coverage','Continuous minimum 0.6 mm TPU witnesses cover every face of the shaking cavity.', 'CAD'),
     Q('flat-faces','study.flat','The full 26 mm cubic shaking space is free of protrusions, with planar TPU at all six boundaries.', 'CAD'),
     Q('cores','study.variants','Structured variants retain explicit air channels behind floor, ceiling and four side skins; control A is intentionally solid.', 'CAD'),
-    Q('labels','study.variants','A 6 mm exterior recessed letter is present on both cup and pad, and the batch names all six pairs.', 'CAD'),
+    Q('labels','study.variants','A 6 mm exterior recessed letter is present on both cup and pad, and the selected batch names each matching cup/pad pair.', 'CAD'),
     Q('printed-labels','study.variants','Letters remain readable and flat skins/hidden bridges print intact.', 'physical'),
+    Q('selected-layout','study.quiet_priority','Recommended plate contains exactly A, E, H and I, one cup/pad pair each, excluding lower-priority designs.', 'CAD'),
+    Q('compliance','study.quiet_priority','An input-associated linear web screen characterizes H/I relative to E, including lateral-end sensitivity, without acoustic promotion.', 'analytical'),
+    Q('quiet-winner','study.quiet_priority','A user shake comparison establishes acceptable quietness; predicted compliance is not acoustic evidence.', 'physical'),
     Q('noise','study.research','User compares repeated directional nut shaking and identifies quieter usable configurations.', 'physical'),
 )
 
 
+def compliance_evidence(scope):
+    import json
+    from execution.identity import digest
+    path=ROOT/'notes/compliance_screen.json'
+    status=Status.UNKNOWN
+    message='Missing or stale compliance screen; quietness remains physical.'
+    if path.exists():
+        r=json.loads(path.read_text())
+        expected=('design.py','compliance_screen.py')
+        if set(r['source_sha256'])==set(expected) and all(digest(ROOT/n)==r['source_sha256'][n] for n in expected):
+            rows=r['results']
+            valid=(r['category']=='analytical-initial-compliance-screen' and
+              r['relative_refinement_limit']==.005 and
+              all(rows[n]['relative_to_E'] > 0 and rows[n]['relative_64_128_change'] < .005 for n in ('H','I')) and
+              0 < rows['I']['relative_to_E'] < 1 and 0 < rows['I']['tangential_free_relative_to_E'] < 1)
+            status=Status.PASS if valid else Status.FAIL
+            message='Input-associated isolated-web linear screen: I below E; H approximately E; lateral-restraint sensitivity retained. Omits skins, corners, nonlinear TPU, impact and acoustics.'
+    return (Evidence('compliance',(('study.quiet_priority','compliance'),),status,message,'notes/compliance_screen.json',scope),)
+
+
 def make_plan(variant):
-    if variant not in tuple("ABCDEF"):
+    if variant not in tuple("ABCDEFGHI"):
         raise ValueError(variant)
     import checks as c
     protect_recorded_intent(ROOT,REQUIREMENTS)
-    scope={'revision':'flat-sandwich-r1','variant':variant,'material':'PETG-shell-TPU95A-liner-unprinted'}
+    scope={'revision':'quiet-selection-r2','variant':variant,'material':'PETG-shell-TPU95A-liner-unprinted'}
     @cache
     def parts():
         return c.candidate(variant)
@@ -46,12 +71,14 @@ def make_plan(variant):
         ('skins',(('study.coverage','six-skins'),('study.flat','flat-faces')),lambda:c.skin_checks(parts())),
         ('cores',(('study.variants','cores'),),lambda:c.core_checks(variant,parts())),
         ('labels',(('study.variants','labels'),),lambda:c.label_checks(variant,parts())),
+        ('selected-layout',(('study.quiet_priority','selected-layout'),),c.selection_checks),
     )
-    checks=tuple(assertion_check(id,targets,run,'verification.py / design.py',scope) for id,targets,run in groups)
+    checks=tuple(assertion_check(id,targets,run,'checks.py / design.py / selection.py',scope) for id,targets,run in groups)
+    checks += (Check('compliance', (('study.quiet_priority','compliance'),), lambda: compliance_evidence(scope)),)
     return Plan(variant,REQUIREMENTS,scope,checks,(),questions=QUESTIONS,
-      decisions=(DesignDecision('core-scale','4 mm liner sandwich with 0.8 mm outer backing; 0.8 mm inner skin except F at 0.6 mm. Same 26 mm cavity.', 'README.md'),),
+      decisions=(DesignDecision('core-scale','4 mm liner sandwich with 0.8 mm outer backing; 0.8 mm inner skin except F/G/H/I at 0.6 mm. Same 26 mm cavity.', 'README.md'),),
       hypotheses=(Hypothesis('quietness','Thinner or bending-biased webs may reduce impact transmission, but small nut impacts may not activate buckling; skins, corners and printing may dominate.', 'README.md#research'),))
 
 
 if __name__=='__main__':
-    raise SystemExit(cli(make_plan,('A','B','C','D','E','F')))
+    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I')))

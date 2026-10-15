@@ -1,0 +1,92 @@
+{
+  "category": "analytical-initial-compliance-screen",
+  "versions": {
+    "numpy": "2.5.3",
+    "python": "3.14.7"
+  },
+  "source_sha256": {
+    "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+    "compliance_screen.py": "2c5e16c4c14cce2c8e10d4f74970301212630267bd53aa5e7ea42ef6aeb90488"
+  },
+  "relative_refinement_limit": 0.005,
+  "bow_chord_check": {
+    "sampled_max_x_error_mm": {
+      "16": 0.00397781862931218,
+      "32": 0.0010031364298318524
+    },
+    "limit_mm": 0.003,
+    "scope": "quarter/midpoint samples of source boundary chords; not exact normal-thickness qualification"
+  },
+  "assumptions": {
+    "E": "normalized 1 N/mm\u00b2; no calibrated TPU modulus",
+    "width_mm": 1,
+    "nu": 0.49,
+    "shear_factor": 0.8333333333333334,
+    "boundary": "base fixed; top rotation fixed and normal displacement prescribed; tangential fixed/free sensitivity",
+    "omissions": "skins, corners, edge frames, nonlinear deformation, viscoelasticity, air, inertia, acoustics, printed anisotropy"
+  },
+  "results": {
+    "C": {
+      "k_over_E_per_1mm_width": 0.3333333333334423,
+      "relative_64_128_change": 3.304023721283386e-13,
+      "tangential_free_stiffness": 0.3333333333334423,
+      "nu_0.3_stiffness": 0.3333333333334423,
+      "centreline_length_mm": 2.4000000000000004,
+      "relative_to_D": 1.3743675309448835,
+      "relative_to_E": 4.7098899770287295,
+      "tangential_free_relative_to_E": 4.709889977028493
+    },
+    "D": {
+      "k_over_E_per_1mm_width": 0.24253580343554404,
+      "relative_64_128_change": 4.3944608941970064e-13,
+      "tangential_free_stiffness": 0.07918368134472686,
+      "nu_0.3_stiffness": 0.24266342904054738,
+      "centreline_length_mm": 2.683281572999748,
+      "relative_to_D": 1.0,
+      "relative_to_E": 3.426950849013917,
+      "tangential_free_relative_to_E": 1.1188392813288757
+    },
+    "E": {
+      "k_over_E_per_1mm_width": 0.07077306157026797,
+      "relative_64_128_change": 1.3051654626683302e-12,
+      "tangential_free_stiffness": 0.07077306157027152,
+      "nu_0.3_stiffness": 0.07462764694804846,
+      "centreline_length_mm": 3.1240998703626617,
+      "relative_to_D": 0.2918045936631229,
+      "relative_to_E": 1.0,
+      "tangential_free_relative_to_E": 1.0
+    },
+    "G": {
+      "k_over_E_per_1mm_width": 0.17412994444219265,
+      "relative_64_128_change": 1.5301993391406287e-13,
+      "tangential_free_stiffness": 0.038428987873565745,
+      "nu_0.3_stiffness": 0.1741545284353947,
+      "centreline_length_mm": 2.8635642126552705,
+      "relative_to_D": 0.7179556254195235,
+      "relative_to_E": 2.460398640085754,
+      "tangential_free_relative_to_E": 0.542988914438993
+    },
+    "H": {
+      "k_over_E_per_1mm_width": 0.0689786565062036,
+      "relative_64_128_change": 0.00017896067207300807,
+      "tangential_free_stiffness": 0.06897865650618584,
+      "nu_0.3_stiffness": 0.07147460812590722,
+      "centreline_length_mm": 2.963563807369024,
+      "relative_to_D": 0.28440607749088587,
+      "relative_to_E": 0.9746456487221092,
+      "tangential_free_relative_to_E": 0.9746456487218094
+    },
+    "I": {
+      "k_over_E_per_1mm_width": 0.038626786016294545,
+      "relative_64_128_change": 4.1388925156387894e-13,
+      "tangential_free_stiffness": 0.038626786016305203,
+      "nu_0.3_stiffness": 0.04006087620815535,
+      "centreline_length_mm": 3.2802438933713454,
+      "relative_to_D": 0.15926220157660123,
+      "relative_to_E": 0.5457837369087591,
+      "tangential_free_relative_to_E": 0.5457837369088824
+    }
+  },
+  "skin_bending_ratio_0.6_to_0.8": 0.42187499999999983,
+  "conclusion": "I isolated webs have lower initial stiffness than E; H is approximately E. Lateral-end sensitivity does not predict acoustics; actual quietness UNKNOWN."
+}

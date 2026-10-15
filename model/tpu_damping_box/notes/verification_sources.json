@@ -46,6 +46,15 @@
         "statement": "User requests research on effective damping structures and plans to report which liner performs best."
       },
       "acceptance_criteria": []
+    },
+    {
+      "id": "study.quiet_priority",
+      "text": "Prioritize maximum quietness in a thin liner and recommend a focused print batch with a solid control and the most promising candidates.",
+      "source": {
+        "reference": "README.md#user-intent",
+        "statement": "User follow-up: maximize quietness while keeping it thin; provide a STEP set focused on more confident candidates and retain control A."
+      },
+      "acceptance_criteria": []
     }
   ]
 }
