@@ -321,6 +321,13 @@ meets them. Compare those demands with plausible joint dimensions and print
 layer direction; vary uncertain loads, properties and load sharing. Reject a
 concept that fails even an optimistic bound before spending time modelling it.
 
+For an overlapping case seam exposed to lateral knocks, choose the bearing span
+from the complete halves' leverage, joint rocking and wall/root load path, rather
+than just the length needed to guide insertion or package catches. A short lap
+can align rigid CAD yet feel unstable in the full print. Longer overlap is a
+candidate to assess with its wall sections and loading access, not an automatic
+strength cure or universal length ratio. See the [M1 physical result](../../../../model/dental_travel_case/notes/m1.md#full-box-print-feedback--2026-10-15).
+
 At the same stage, calculate the full-size insertion travel and swept space for
 the proposed assembly sequence. Check whether the parts can be aligned, held,
 fastened and released with available hand and tool access. A short fit coupon or
@@ -565,6 +572,15 @@ it. Easy opening and positive geometric obstruction alone do not establish
 adequate retention. Screen engagement and effort at consequential clearance
 extremes, including guide play and alignment, before refining nominal force.
 Do not apply every tolerance combination when only one could change the decision.
+
+For a snap-retained enclosure, also challenge opening **without operating the
+release** through receiver spreading, shell bending, off-center peeling and
+rocking. Identify the least constrained escape route of the complete cups, not
+only the prescribed cantilever release. Rigid catch obstruction and a local leaf
+force screen leave these elastic routes unresolved. The [full M1 print](../../../../model/dental_travel_case/notes/m1.md#full-box-print-feedback--2026-10-15)
+pulled apart despite better-feeling small samples. When complete-wall compliance
+or leverage governs, preserve it in the chosen assessment or physical trial;
+a deeper tooth alone does not establish secure retention.
 
 For a retained removable cover, consider the loaded box hanging from the cover
 when that is intended or a relevant preference. Separate mandatory carrying from

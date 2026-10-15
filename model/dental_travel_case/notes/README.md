@@ -3,12 +3,13 @@
 The user selected M1 from the [slim SVG exploration](slim_exploration.md) and
 authorized a rounded, positive-retention separate cap. The current printable
 design, small joint test, opening explanation and checks are in [M1](m1.md).
-The first printed joint was too wide and had inadequate far-end holding. A
-264 × 74.2 × 51.2 mm revision with widthwise end catches and R4 end blends is
-available. Its digital checks and headless support probes pass. The user confirms
-the actual items fit together diagonally; revised printed holding, end comfort
-and complete-case use remain untested. See
-[the print feedback](m1.md#printed-joint-feedback--2026-10-15).
+The full **264 × 74.2 × 51.2 mm** slim box is now printed and usable, but its
+joint feels too short/unstable and the halves pull apart without pressing the
+release controls. Secure retention is not accepted. The brush and toothpaste fit
+with effort (toothpaste tail down, cap up), plus one floss case. The user requests
+**no further revision or print**. See the [full-box feedback and lessons](m1.md#full-box-print-feedback--2026-10-15).
+Digital/slice passes remain scoped evidence and do not override this physical
+result. Geometry and exports are retained unchanged.
 Earlier test layouts, assembly instructions and evidence remain in
 [the implemented alternatives](current_design.md). The cylinder has a plain interior:
 **no separators or clips**. The R2/C hinged case has positive closed brush

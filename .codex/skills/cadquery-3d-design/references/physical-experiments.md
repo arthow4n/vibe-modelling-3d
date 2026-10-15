@@ -107,7 +107,13 @@ attachment stiffness, movement constraints and print orientation. Do not
 shorten spring arms or scale a mechanism to reduce material.
 
 A skeletal fixture may test seating but underrepresent enclosure stiffness;
-say so. Estimate material or print time only when it changes the sample choice;
+say so. For snap-retained cups, check whether cropping changes the ability to
+spread the receiver, rock the overlap or peel the cap off without pressing the
+release. Preserving local tooth geometry alone does not preserve those escape
+routes. The [M1 full-box report](../../../../model/dental_travel_case/notes/m1.md#full-box-print-feedback--2026-10-15)
+shows why a better-feeling short sample cannot qualify complete-shell retention.
+
+Estimate material or print time only when it changes the sample choice;
 use a slicer's existing estimate when available, without adding G-code analysis
 solely to obtain a precise number. Compare with a less simplified fixture when
 the savings/validity tradeoff is uncertain. A complete prototype is justified

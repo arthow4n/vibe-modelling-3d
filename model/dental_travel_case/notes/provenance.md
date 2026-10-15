@@ -64,3 +64,9 @@ M1 print-feedback revision, 2026-10-15:
 - User supplied the original joint's inadequate retention/bulk observations and
   confirmed real-item diagonal packing. Exact printed M1 artifact and settings
   remain unknown; earlier handle-clip PETG settings are not transferred to it.
+
+Full-box feedback documentation, 2026-10-15: same user-attributed GPT-6.1 / medium
+session, Codex shared-workspace agent, OpenAI; exact runtime variant/effort not
+exposed, no subagents. User supplied the physical use and retention observations.
+Only records and reusable design guidance changed; no model/export revision,
+new simulation, slice or print was performed.
