@@ -7,7 +7,7 @@
       "view": "isometric",
       "ok": true,
       "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/m1/m1_closed_isometric.png",
-      "reused": false,
+      "reused": true,
       "camera": {
         "from_direction": [
           1,
@@ -25,7 +25,7 @@
       "view": "front",
       "ok": true,
       "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/m1/m1_closed_front.png",
-      "reused": false,
+      "reused": true,
       "camera": {
         "from_direction": [
           0,
@@ -42,14 +42,14 @@
   ],
   "exports": [],
   "timings_seconds": {
-    "dependency_initialization": 0.0014550189989677165,
-    "build": 1.8057189110004401,
-    "selection": 0.0007447089992638212,
-    "validation": 0.08514202200058207,
-    "render_isometric": 0.5754458279989194,
-    "render_front": 0.8950863609989028,
-    "worker": 3.4546711450002476,
-    "total": 7.984546839999894
+    "dependency_initialization": 0.0019158409995725378,
+    "build": 2.49794752598973,
+    "selection": 0.001164025001344271,
+    "validation": 0.10019076000025962,
+    "render_isometric": 0.0012848509941250086,
+    "render_front": 0.0007291329966392368,
+    "worker": 2.7257315349997953,
+    "total": 17.33399651000218
   },
   "versions": {
     "python": "3.14.7",
@@ -60,7 +60,7 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "7f0af5e9c3b3289d3cf329e49ca8d2ddd9d04529916340053e1191992802d4fc",
-    "artifact_identity": "0b2e727ee98d5bdad7be5a5616174fbbe00b2a57351dcae421e6e3397d9f82fd"
+    "identity": "468664a97f2830128e1a496f085fa16b1d87a55a0a934b1ce8b9a8c254093ec1",
+    "artifact_identity": "323d582a65e37fac1533557b14f1bbf5635e740c9dd63464ed61d89db838d3ba"
   }
 }

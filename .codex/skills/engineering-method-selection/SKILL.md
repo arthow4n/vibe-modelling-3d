@@ -118,6 +118,17 @@ follow [reflection](../engineering-reflection/SKILL.md#put-the-result-in-its-own
 
 ## Refine, switch, combine or remain inconclusive
 
+For compact multi-item packing, a safe bounding box is not evidence of minimum
+container size. Explore permitted rotations and longitudinal staggering before
+growing the shell. Maximum width and thickness may occur at different sections;
+use measured item profiles when that distinction changes the design. An invented
+thinner or tapered proxy cannot qualify fit. Preserve the unknown and use a
+representative aperture/packing trial when actual shape is unavailable. Check
+loading and withdrawal as well as the closed pose. The [M1 printed feedback](../../../model/dental_travel_case/notes/m1.md#printed-joint-feedback--2026-10-15)
+exposes this limitation: the user rejects the oversized box-proxy layout and
+confirms a real-item diagonal fit. That physical trial supplies packing evidence;
+the revised unprinted enclosure retains its own clearance/handling unknowns.
+
 Reconsider a default when decisive physics or anatomical structure is missing;
 geometry proxies change the result; contact/friction or material assumptions are
 inappropriate; numerical formulation/convergence is unsuitable; a more direct

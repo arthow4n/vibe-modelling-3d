@@ -23,7 +23,7 @@ def construction(parts):
     assert coupon.toCompound().isValid(), 'Joint test invalid'
     # Crop consumes production shapes and leaves the whole circumference,
     # root/ramp/liner, both controls, sleeve and windows, in the same orientation.
-    assert d.beam_root-12 < d.beam_root-8
+    assert d.beam_root-12 < d.beam_root-10
     assert d.seam+30 > d.hook_bottom+11 > d.seam+d.lap
 
 
@@ -36,15 +36,42 @@ def fit(parts):
                      max_overlap_mm3=OVERLAP, min_gap_mm=.8)).require_passed()
         for shell in ('body', 'cap'):
             clear(reference, parts[shell], name+' clears '+shell, gap=.8)
-    clear(refs['brush'], refs['paste'], 'Separated nominal rigid contents', gap=2.9)
     # Actual tube and attached handle must traverse the minimum mouth, not just
     # fit below it. Cross-section extrusion gives continuous axial path coverage.
     d = parts['dimensions']
-    brush_sweep = cq.Workplane('XY', origin=(d.brush_x, 0, 4.5)).circle(15).extrude(255+190)
-    paste_sweep = box(d.paste_x, 0, (3+353)/2, 55, 40, 353-3)
+    brush_sweep = cq.Workplane('XY', origin=(d.brush_x, d.brush_y, 4.5)).circle(15).extrude(255+190)
     clear(brush_sweep, parts['body'], 'Brush handle extraction through complete mouth', gap=.8)
-    clear(paste_sweep, parts['body'], 'Full tube extraction through complete mouth', gap=.8)
     # Measured head is smaller than the handle circle; no promised unmeasured offset.
+
+
+def tube_aperture(parts):
+    # Passage with the brush removed is not simultaneous loaded packing.
+    sweep = box(0, 0, (3+353)/2, 55, 40, 353-3)
+    clear(sweep, parts['body'], '55x40 tube envelope individually passes the mouth', gap=.8)
+
+
+def end_rounds(parts):
+    """Check actual R4 end surfaces on every broad side, not just a parameter."""
+    from OCP.BRepAdaptor import BRepAdaptor_Surface
+    from OCP.GeomAbs import GeomAbs_Cylinder
+    d = parts['dimensions']
+    for name,top in (('body',False),('cap',True)):
+        directions = set()
+        for face in parts[name].val().Faces():
+            surface = BRepAdaptor_Surface(face.wrapped)
+            if surface.GetType() != GeomAbs_Cylinder:
+                continue
+            cylinder = surface.Cylinder()
+            if abs(cylinder.Radius()-d.end_radius)>1e-5 or abs(cylinder.Axis().Direction().Z())>1e-6:
+                continue
+            p = face.Center()
+            if (top and p.z<d.length-d.end_radius-.1) or (not top and p.z>d.end_radius+.1):
+                continue
+            if abs(p.x)>d.width/4:
+                directions.add('left' if p.x<0 else 'right')
+            if abs(p.y)>d.depth/4:
+                directions.add('front' if p.y<0 else 'back')
+        assert directions == {'left','right','front','back'}, name+' lacks a large end round on a handled side'
 
 
 def closure(parts):
@@ -59,23 +86,29 @@ def closure(parts):
         # Each hook alone retains against an axial pull, including adverse
         # lateral guide play. This is obstruction, not force/drop qualification.
         leaf = mirrored(tongue(d), sign)
-        for y in (-d.lap_clearance, 0, d.lap_clearance):
-            shoulder = leaf.intersect(box(d.catch_x, 0, d.hook_bottom+.2, 6, 60, .4))
-            check_pair(shoulder, parts['cap'].translate((0, y, .9)),
+        shoulder = leaf.intersect(box(0, d.catch_y, d.hook_bottom+.2,
+                                      d.width+4, d.hook_width, .4))
+        assert shoulder.val().Center().x*sign < -d.width*.4, 'Catch does not cover its widthwise end'
+        for x in (-d.lap_clearance, 0, d.lap_clearance):
+            check_pair(shoulder, parts['cap'].translate((x, 0, .9)),
                        PairRequirement('Independent positive pull-off catch', min_overlap_mm3=.5)).require_passed()
     # Removing catch geometry must remove its obstruction; checks cannot pass
     # solely because an unrelated shell interferes.
     clear(parts['fixed'], parts['cap'].translate((0, 0, .9)), 'Missing-catches negative control')
     # Rounded seam is flush; all buttons stay below the protected outer surface.
-    assert d.beam_outer+d.hook_projection <= d.depth/2-.7
+    assert d.beam_outer+d.hook_projection <= d.width/2-.8
+    assert d.hook_projection > 1.6 and d.hook_width > 6, 'Printed teeth not deepened/widened'
+    clear(parts['body'], parts['cap'].translate((0,0,.1)), 'Small axial seat play remains clear')
+    check_pair(parts['body'], parts['cap'].translate((0,0,.25)),
+               PairRequirement('Tighter axial capture begins before 0.25 mm pull', min_overlap_mm3=.5)).require_passed()
 
 
 def release_path(parts):
     d = parts['dimensions']
     free_bottom, free_top = d.beam_root+2, d.beam_tip+1.6
-    free_span = box(d.catch_x, 0, (free_bottom+free_top)/2,
-                    d.beam_width+8, d.depth+8, free_top-free_bottom)
-    for delta in (0, .5, 1, 1.5, d.release):
+    free_span = box(0, d.catch_y, (free_bottom+free_top)/2,
+                    d.width+8, d.beam_width+8, free_top-free_bottom)
+    for delta in (0, d.release*.25, d.release*.5, d.release*.75, d.release):
         for sign in (-1, 1):
             leaf = mirrored(tongue(d, delta), sign)
             clear(leaf.intersect(free_span), parts['fixed'],
@@ -90,8 +123,8 @@ def release_path(parts):
     # edge rounds. Its void ends at the lowest cap ceiling. This superset must
     # clear the fixed body, depressed leaves and contents for the entire lift.
     swept = prism(d.width, d.depth, d.corner, d.seam, d.length-d.seam+106)
-    swept = swept.cut(prism(d.width-2*d.wall, d.depth-2*d.wall,
-                            d.corner-d.wall, d.seam-1,
+    swept = swept.cut(prism(d.width-2*d.receiver_wall, d.depth-2*d.receiver_wall,
+                            d.corner-d.receiver_wall, d.seam-1,
                             d.length-d.floor-d.seam+1))
     for name, shape in [('fixed body', parts['fixed'])] + [
             ('depressed leaf', leaf) for leaf in leaves] + list(parts['references'].items()):
@@ -105,7 +138,7 @@ def release_path(parts):
             clear(cap, ref, 'Cap withdrawal clears '+name, gap=.8)
     # Worst transverse guide play must still admit the deliberately pressed tip.
     for sign, leaf in zip((-1, 1), leaves, strict=True):
-        clear(leaf, parts['cap'].translate((0, -sign*d.lap_clearance, 2)),
+        clear(leaf, parts['cap'].translate((sign*d.lap_clearance, 0, 2)),
               'Release survives transverse guide play')
 
 

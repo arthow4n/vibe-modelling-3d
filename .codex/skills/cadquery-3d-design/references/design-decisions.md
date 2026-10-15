@@ -271,6 +271,11 @@ benchmark. A coupon or solver pass cannot settle whole-product value.
 
 ## Pre-CAD concept screen
 
+For a minimal multi-item container, screen permitted rotations and staggering
+before adopting an aligned box layout as the size baseline. If maxima at different
+item sections dominate the result, apply the [packing representation guidance](../../engineering-method-selection/SKILL.md#refine-switch-combine-or-remain-inconclusive)
+before treating the envelope as a necessary container size.
+
 Use rough, stated assumptions to answer consequential questions before detailed
 geometry. As relevant, calculate a fit stack, mating-surface engagement,
 clearance or release travel, full-size assembly path, oriented part envelope,

@@ -3,14 +3,18 @@
 The user selected M1 from the [slim SVG exploration](slim_exploration.md) and
 authorized a rounded, positive-retention separate cap. The current printable
 design, small joint test, opening explanation and checks are in [M1](m1.md).
-Its size is 264 × 99.2 × 51.2 mm, two cups with hidden hooks and recessed body
-squeeze points. M1 physical fit, holding and backpack protection are unqualified.
+The first printed joint was too wide and had inadequate far-end holding. A
+264 × 74.2 × 51.2 mm revision with widthwise end catches and R4 end blends is
+available. Its digital checks and headless support probes pass. The user confirms
+the actual items fit together diagonally; revised printed holding, end comfort
+and complete-case use remain untested. See
+[the print feedback](m1.md#printed-joint-feedback--2026-10-15).
 Earlier test layouts, assembly instructions and evidence remain in
 [the implemented alternatives](current_design.md). The cylinder has a plain interior:
 **no separators or clips**. The R2/C hinged case has positive closed brush
 retention and a smaller revised grip, preserving the reported working socket.
-No new M1 print report is available; the earlier printed clip/socket observation
-does not qualify its closure.
+The original M1 test closure partly worked; that does not qualify the revised
+closure or a complete case. The earlier clip/socket success retains its own scope.
 
 ![Closed M1](../renders/assembled/m1/m1_closed_isometric.png)
 

@@ -261,7 +261,54 @@
           "statement": "User asked for a support-free rounded R2/C combination"
         },
         "acceptance_criteria": []
+      },
+      {
+        "id": "form.width-revision",
+        "text": "Reduce the previous M1 exterior width by 25 mm",
+        "source": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        },
+        "acceptance_criteria": [
+          "25 mm reduction from the previous 99.2 mm exterior width"
+        ]
+      },
+      {
+        "id": "closure.end-retention",
+        "text": "Use deeper/longer teeth and tight holding at both widthwise ends of the case",
+        "source": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        },
+        "acceptance_criteria": []
+      },
+      {
+        "id": "form.end-rounds",
+        "text": "Use substantially larger fillets at both top and bottom ends of the case",
+        "source": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User additionally requests much larger fillets at both top and bottom ends of the case and asks that this be learned for future handled designs"
+        },
+        "acceptance_criteria": []
       }
     ]
+  },
+  "artifact_sources": {
+    "slim-m1": {
+      "inputs": {
+        "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+        "m1_case.py": "42947f8128e536b0727380acdd605824aee2f04c165b9a18b2a4e21016e31cfa",
+        "m1_joint_test.py": "78547749951d3af3d0ed0829cbd580a12fd0a011d4cf6b7bef28c7cdd0efa793",
+        "../../uv.lock": "decadf8943fd324455151518a1b14eef612e6df01d3faf4d57b5b7d754de1ec8",
+        "../../evaluate_model.py": "3fdbcc1739e0f8a8779f101e834b9bfc4d3b8eacc8301d4907a79ce283e16159"
+      },
+      "outputs": {
+        "m1_case.step": "6b17365baf77832c7ad4145de2ddd4ca6f10971d5dda5a5554d81415d9d557ce",
+        "m1_case.stl": "201d4134696d302446865137842df4ee9b78d47d6f4fb1e4b3153e92972ee111",
+        "m1_joint_test.step": "47f1cdb1eea0fb03929bc6a892a29a716bfdf499939677577383a0939a8f06ae",
+        "m1_joint_test.stl": "e0a17bca83e137cee6a2e798dedeaeb2c34c595fbce1348c37bf721bd7815002"
+      },
+      "publication_identity": "468664a97f2830128e1a496f085fa16b1d87a55a0a934b1ce8b9a8c254093ec1"
+    }
   }
 }

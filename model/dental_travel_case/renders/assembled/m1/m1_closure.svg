@@ -1,49 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
-<rect width="1200" height="650" fill="#faf9f6"/>
-<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#263b48"/></marker></defs>
-<style>text{font-family:DejaVu Sans,sans-serif;fill:#263b48}.title{font-size:28px;font-weight:700}.label{font-size:18px}.small{font-size:15px}.body{fill:#a8c9bb;stroke:#386e5a;stroke-width:2}.cap{fill:#b9d3e9;stroke:#46769c;stroke-width:2}.leaf{fill:#efbe75;stroke:#996429;stroke-width:2}.line{fill:none;stroke:#263b48;stroke-width:2;marker-end:url(#arrow)}</style>
-<text x="40" y="50" class="title">M1 — rounded lap, hidden hooks, two recessed squeeze points</text>
-<text x="40" y="82" class="label">Hold and pinch the body below the seam; pull the separate cap with the other hand.</text>
-<rect x="55" y="124" width="149" height="396" rx="9" class="body"/><path d="M64 124H195Q204 124 204 133V259H55V133Q55 124 64 124Z" class="cap"/>
-<path d="M77 260H87L92 265V271L87 276H77L72 271V265Z" fill="#fff" stroke="#386e5a" stroke-width="2"/>
-<text x="45" y="555" class="small">264 × 99.2 × 51.2 mm</text>
-<text x="45" y="582" class="small">Two PETG cups; no hinge</text>
-<path d="M217 258H320" class="line"/>
-<text x="222" y="242" class="small">Flush seam</text>
-<path d="M215 290L91 269" class="line"/>
-<text x="222" y="315" class="small">Body squeeze point</text>
-<text x="222" y="337" class="small">Other one is opposite</text>
-<text x="460" y="127" class="label">CLOSED</text>
-<polygon points="493.00,555.00 505.00,555.00 505.00,165.00 493.00,165.00" class="body" />
-<polygon points="513.00,555.00 571.00,555.00 571.00,535.00 531.00,535.00 531.00,525.00 513.00,525.00" class="body" />
-<polygon points="553.00,535.00 571.00,535.00 571.00,405.00 553.00,405.00" class="body" />
-<polygon points="553.00,295.00 571.00,295.00 571.00,285.00 553.00,285.00" class="body" />
-<polygon points="551.00,285.00 571.00,285.00 571.00,135.00 565.00,135.00 565.00,249.00 551.00,249.00" class="cap" />
-<polygon points="531.00,535.00 531.00,495.00 531.00,455.00 531.00,415.00 531.00,375.00 531.00,345.00 531.00,295.00 531.00,245.00 531.00,201.00 547.00,201.00 547.00,245.00 547.00,295.00 547.00,345.00 547.00,375.00 547.00,415.00 547.00,455.00 547.00,495.00 547.00,535.00" class="leaf" />
-<polygon points="544.00,245.00 563.00,245.00 563.00,237.00 547.00,201.00 544.00,201.00" class="leaf" />
-<path d="M637.0 345H529.0" class="line"/>
-<text x="465" y="603" class="small">Inner liner  /  body  /  catch  /  cap</text>
-<path d="M595 274L561 247" class="line"/>
-<text x="600" y="235" class="small">Flat shoulder</text>
-<text x="600" y="258" class="small">blocks pull-off</text>
-<text x="820" y="127" class="label">RELEASED</text>
-<polygon points="853.00,555.00 865.00,555.00 865.00,165.00 853.00,165.00" class="body" />
-<polygon points="873.00,555.00 931.00,555.00 931.00,535.00 891.00,535.00 891.00,525.00 873.00,525.00" class="body" />
-<polygon points="913.00,535.00 931.00,535.00 931.00,405.00 913.00,405.00" class="body" />
-<polygon points="913.00,295.00 931.00,295.00 931.00,285.00 913.00,285.00" class="body" />
-<polygon points="911.00,235.00 931.00,235.00 931.00,85.00 925.00,85.00 925.00,199.00 911.00,199.00" class="cap" />
-<polygon points="891.00,535.00 890.39,495.00 888.75,455.00 886.36,415.00 883.48,375.00 881.17,345.00 877.29,295.00 873.41,245.00 870.00,201.00 886.00,201.00 889.41,245.00 893.29,295.00 897.17,345.00 899.48,375.00 902.36,415.00 904.75,455.00 906.39,495.00 907.00,535.00" class="leaf" />
-<polygon points="886.41,245.00 905.41,245.00 904.79,237.00 886.00,201.00 883.00,201.00" class="leaf" />
-<path d="M997.0 345H889.0" class="line"/>
-<text x="825" y="603" class="small">Inner liner  /  body  /  catch  /  cap</text>
-<path d="M963.0 159V97" class="line"/>
-<text x="962" y="253" class="small">Pull</text>
-<text x="962" y="275" class="small">lengthwise</text>
-<text x="345" y="635" class="small">Section schematic, one of two catches. Printed holding force, fit and durability require the joint test.</text>
-<polygon points="320.00,258.00 311.00,254.00 311.00,262.00" fill="#263b48"/>
-<polygon points="91.00,269.00 99.21,274.45 100.54,266.56" fill="#263b48"/>
-<polygon points="529.00,345.00 538.00,349.00 538.00,341.00" fill="#263b48"/>
-<polygon points="561.00,247.00 569.24,252.39 570.53,244.50" fill="#263b48"/>
-<polygon points="889.00,345.00 898.00,349.00 898.00,341.00" fill="#263b48"/>
-<polygon points="963.00,97.00 959.00,106.00 967.00,106.00" fill="#263b48"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="670" viewBox="0 0 1200 670">
+<rect width="1200" height="670" fill="#faf9f6"/>
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#263b48}.title{font-size:27px;font-weight:700}.label{font-size:18px}.small{font-size:15px}.body{fill:#a8c9bb;stroke:#386e5a;stroke-width:2}.cap{fill:#b9d3e9;stroke:#46769c;stroke-width:2}.leaf{fill:#efbe75;stroke:#996429;stroke-width:2}</style>
+<text x="35" y="43" class="title">M1 revision — 25 mm narrower, catches at BOTH widthwise ends</text>
+<text x="35" y="78" class="label">Pinch the two end-wall contacts with one hand; pull the separate cap with the other.</text>
+<rect x="90" y="140" width="103.88" height="369.59999999999997" rx="9" class="body"/>
+<path d="M99 140H184.88Q193.88 140 193.88 149V266.0H90V149Q90 140 99 140Z" class="cap"/>
+<path d="M35 277.2L95 277.2" fill="none" stroke="#263b48" stroke-width="2"/>
+<polygon points="95.00,277.20 86.00,273.20 86.00,281.20" fill="#263b48"/>
+<path d="M248.88 277.2L188.88 277.2" fill="none" stroke="#263b48" stroke-width="2"/>
+<polygon points="188.88,277.20 197.88,281.20 197.88,273.20" fill="#263b48"/>
+<text x="38" y="551" class="small">264 × 74.2 × 51.2 mm</text>
+<text x="38" y="579" class="small">Two cups; no internal item insert</text>
+<text x="38" y="605" class="small">End controls shown schematically</text>
+<text x="435" y="133" class="label">CLOSED</text>
+<polygon points="458.50,581.80 470.50,581.80 470.50,195.40 458.50,195.40" class="body"/>
+<polygon points="482.50,581.80 546.00,581.80 546.00,565.00 482.50,565.00" class="body"/>
+<polygon points="526.00,565.00 546.00,565.00 546.00,472.60 526.00,472.60" class="body"/>
+<polygon points="526.00,304.60 546.00,304.60 546.00,296.20 526.00,296.20" class="body"/>
+<polygon points="519.00,296.20 546.00,296.20 546.00,170.20 538.00,170.20 538.00,263.86 519.00,263.86" class="cap"/>
+<polygon points="500.50,565.00 500.50,556.60 500.50,506.96 500.50,457.31 500.50,407.67 500.50,358.02 500.50,308.38 500.50,258.74 500.50,225.64 516.50,225.64 516.50,258.74 516.50,308.38 516.50,358.02 516.50,407.67 516.50,457.31 516.50,506.96 516.50,556.60 516.50,565.00" class="leaf"/>
+<polygon points="513.50,262.60 536.50,262.60 536.50,252.52 516.50,225.64 513.50,225.64" class="leaf"/>
+<polygon points="514.50,383.56 516.50,383.56 528.50,371.80 528.50,355.00 516.50,343.24 514.50,343.24" class="leaf"/>
+<path d="M593.5 363.4L531.5 363.4" fill="none" stroke="#263b48" stroke-width="2"/>
+<polygon points="531.50,363.40 540.50,367.40 540.50,359.40" fill="#263b48"/>
+<text x="430" y="610" class="small">Section through one end catch</text>
+<text x="815" y="133" class="label">RELEASED</text>
+<polygon points="838.50,581.80 850.50,581.80 850.50,195.40 838.50,195.40" class="body"/>
+<polygon points="862.50,581.80 926.00,581.80 926.00,565.00 862.50,565.00" class="body"/>
+<polygon points="906.00,565.00 926.00,565.00 926.00,472.60 906.00,472.60" class="body"/>
+<polygon points="906.00,304.60 926.00,304.60 926.00,296.20 906.00,296.20" class="body"/>
+<polygon points="899.00,245.80 926.00,245.80 926.00,119.80 918.00,119.80 918.00,213.46 899.00,213.46" class="cap"/>
+<polygon points="880.50,565.00 880.50,556.60 879.32,506.96 876.22,457.31 871.86,407.67 866.91,358.02 861.88,308.38 856.85,258.74 853.50,225.64 869.50,225.64 872.85,258.74 877.88,308.38 882.91,358.02 887.86,407.67 892.22,457.31 895.32,506.96 896.50,556.60 896.50,565.00" class="leaf"/>
+<polygon points="870.24,262.60 893.24,262.60 892.22,252.52 869.50,225.64 866.50,225.64" class="leaf"/>
+<polygon points="883.49,383.56 885.49,383.56 896.30,371.80 894.60,355.00 881.41,343.24 879.41,343.24" class="leaf"/>
+<path d="M960.453781512605 363.4L898.453781512605 363.4" fill="none" stroke="#263b48" stroke-width="2"/>
+<polygon points="898.45,363.40 907.45,367.40 907.45,359.40" fill="#263b48"/>
+<path d="M951.0 189.79999999999995L951.0 124.79999999999995" fill="none" stroke="#263b48" stroke-width="2"/>
+<polygon points="951.00,124.80 947.00,133.80 955.00,133.80" fill="#263b48"/>
+<text x="810" y="610" class="small">Section through one end catch</text>
+<text x="642" y="240" class="small">Deeper / wider bite</text>
+<text x="642" y="265" class="small">Hidden pocket</text>
+<path d="M642 280L538 265" fill="none" stroke="#263b48" stroke-width="2"/>
+<polygon points="538.00,265.00 546.34,270.24 547.48,262.33" fill="#263b48"/>
+<text x="35" y="649" class="small">Diagonal packing is user-confirmed. Revised holding and end comfort still need the new print; no force rating.</text>
 </svg>

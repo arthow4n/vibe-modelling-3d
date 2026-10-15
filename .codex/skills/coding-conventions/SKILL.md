@@ -68,6 +68,13 @@ Diagnostic slice profiles must be identified as diagnostic. Supplied printer,
 process and filament profiles form one explicit setup; do not fill a partial setup
 with unrelated reference defaults. A slice receipt is not print qualification.
 
+A mesh hash matching its slice receipt only associates those two artifacts.
+Before reporting manufacturing evidence for a revised candidate, also establish
+that its paired exports came from the current builders using the owning native
+publication/source-association guards. Otherwise an unchanged old mesh and old
+receipt can falsely pass after a model edit. The [M1 revision](../../../model/dental_travel_case/notes/m1.md#verification)
+uses a conservative association in its existing verification inventory.
+
 Geometry construction and inspection must not implicitly export, overwrite notes
 or publish artifacts. Use the explicit evaluator/export boundary. Obtain paths
 from supplied source context or an explicit argument; do not guess another checkout

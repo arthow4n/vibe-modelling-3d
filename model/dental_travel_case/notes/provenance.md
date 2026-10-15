@@ -53,3 +53,14 @@ Selected slim M1 modelling, 2026-10-14:
   direct SVG diagrams and headless Orca toolpath previews. Research references
   are linked in [M1](m1.md); no third-party model geometry was imported.
 - Earlier clip/socket print evidence is preserved but does not qualify M1.
+
+M1 print-feedback revision, 2026-10-15:
+
+- Primary language model: GPT-6.1; reasoning effort: medium, both user-provided
+  session attribution; exact runtime model/effort are not independently exposed.
+- Harness: Codex shared-workspace API agent; provider: OpenAI; no subagents.
+- Revises the existing M1 geometry and object-owned checks; all evaluation,
+  rendering and Orca inspection were headless. No external model assets imported.
+- User supplied the original joint's inadequate retention/bulk observations and
+  confirmed real-item diagonal packing. Exact printed M1 artifact and settings
+  remain unknown; earlier handle-clip PETG settings are not transferred to it.
