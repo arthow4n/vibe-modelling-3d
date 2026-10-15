@@ -1,0 +1,118 @@
+{
+  "petg_final": {
+    "primary_support_segments": 0,
+    "probe_support_z_range_mm": [
+      0.2,
+      33.6
+    ]
+  },
+  "tpu_final": {
+    "primary_support_segments": 0,
+    "probe_support_z_range_mm": [
+      1.2,
+      3.4
+    ],
+    "roof_layers": [
+      {
+        "variant": "B",
+        "part": "cup",
+        "first_roof_layer_z_mm": 3.4,
+        "roles": {
+          "Bridge": 67
+        },
+        "transverse_segments": 67,
+        "longitudinal_segments": 0
+      },
+      {
+        "variant": "B",
+        "part": "pad",
+        "first_roof_layer_z_mm": 3.6,
+        "roles": {
+          "Bridge": 67
+        },
+        "transverse_segments": 67,
+        "longitudinal_segments": 0
+      },
+      {
+        "variant": "C",
+        "part": "cup",
+        "first_roof_layer_z_mm": 3.4,
+        "roles": {
+          "Bridge": 67
+        },
+        "transverse_segments": 67,
+        "longitudinal_segments": 0
+      },
+      {
+        "variant": "C",
+        "part": "pad",
+        "first_roof_layer_z_mm": 3.6,
+        "roles": {
+          "Bridge": 67
+        },
+        "transverse_segments": 67,
+        "longitudinal_segments": 0
+      },
+      {
+        "variant": "D",
+        "part": "cup",
+        "first_roof_layer_z_mm": 3.4,
+        "roles": {
+          "Bridge": 67
+        },
+        "transverse_segments": 67,
+        "longitudinal_segments": 0
+      },
+      {
+        "variant": "D",
+        "part": "pad",
+        "first_roof_layer_z_mm": 3.6,
+        "roles": {
+          "Bridge": 67
+        },
+        "transverse_segments": 67,
+        "longitudinal_segments": 0
+      },
+      {
+        "variant": "E",
+        "part": "cup",
+        "first_roof_layer_z_mm": 3.4,
+        "roles": {
+          "Bridge": 871
+        },
+        "transverse_segments": 871,
+        "longitudinal_segments": 0
+      },
+      {
+        "variant": "E",
+        "part": "pad",
+        "first_roof_layer_z_mm": 3.6,
+        "roles": {
+          "Bridge": 67
+        },
+        "transverse_segments": 67,
+        "longitudinal_segments": 0
+      },
+      {
+        "variant": "F",
+        "part": "cup",
+        "first_roof_layer_z_mm": 3.6,
+        "roles": {
+          "Bridge": 67
+        },
+        "transverse_segments": 67,
+        "longitudinal_segments": 0
+      },
+      {
+        "variant": "F",
+        "part": "pad",
+        "first_roof_layer_z_mm": 3.8,
+        "roles": {
+          "Bridge": 67
+        },
+        "transverse_segments": 67,
+        "longitudinal_segments": 0
+      }
+    ]
+  }
+}

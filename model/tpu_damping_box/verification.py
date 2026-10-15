@@ -1,0 +1,57 @@
+"""Explicit variant coverage; physical quietness intentionally stays UNKNOWN."""
+from functools import cache
+from pathlib import Path
+from product_verification import (UserRequirement as U, UserSource as S, Question as Q,
+    Plan, DesignDecision, Hypothesis, assertion_check, cli, protect_recorded_intent)
+
+ROOT = Path(__file__).resolve().parent
+SOURCE = 'README.md#user-intent'
+REQUIREMENTS = (
+    U('study.enclosure','One small closable PETG enclosure accepts interchangeable separately printed TPU liners and a loose metal nut.',
+      S(SOURCE,'User requests one small PETG exterior, closable, with TPU inserts and space to shake a stock metal nut.')),
+    U('study.coverage','The floor, ceiling and all four interior walls have TPU damping coverage.',
+      S(SOURCE,'User explicitly requires damping on the bottom, top, and all four walls.')),
+    U('study.flat','All object-contact interior faces are flat; damping structures are inside the liner.',
+      S(SOURCE,'User clarification: the interior needs to be flat for the objects, while the liner may have structures inside.')),
+    U('study.variants','Several permanently labeled CAD-defined internal damping configurations can be printed together.',
+      S(SOURCE,'User asks for labeled variants, explicit CAD structures rather than infill, and a batch print; additional variants are welcome.')),
+    U('study.research','Use research to inform a reusable damping experiment and compare variants by shaking the same metal nut.',
+      S(SOURCE,'User requests research on effective damping structures and plans to report which liner performs best.')),
+)
+QUESTIONS = (
+    Q('fit','study.enclosure','Cup and pad fit the actual shell and each other; one 12 mm proxy can travel 14 mm on each axis inside the 26 mm clear cavity.', 'CAD'),
+    Q('closure','study.enclosure','Two M3 nut installation paths clear and nuts bear under solid pocket roofs; screw bores clear a 3 mm shaft.', 'CAD'),
+    Q('handling','study.enclosure','Printed cup/pad can be swapped and the screw closure stays tight during shaking.', 'physical'),
+    Q('six-skins','study.coverage','Continuous minimum 0.6 mm TPU witnesses cover every face of the shaking cavity.', 'CAD'),
+    Q('flat-faces','study.flat','The full 26 mm cubic shaking space is free of protrusions, with planar TPU at all six boundaries.', 'CAD'),
+    Q('cores','study.variants','Structured variants retain explicit air channels behind floor, ceiling and four side skins; control A is intentionally solid.', 'CAD'),
+    Q('labels','study.variants','A 6 mm exterior recessed letter is present on both cup and pad, and the batch names all six pairs.', 'CAD'),
+    Q('printed-labels','study.variants','Letters remain readable and flat skins/hidden bridges print intact.', 'physical'),
+    Q('noise','study.research','User compares repeated directional nut shaking and identifies quieter usable configurations.', 'physical'),
+)
+
+
+def make_plan(variant):
+    if variant not in tuple("ABCDEF"):
+        raise ValueError(variant)
+    import checks as c
+    protect_recorded_intent(ROOT,REQUIREMENTS)
+    scope={'revision':'flat-sandwich-r1','variant':variant,'material':'PETG-shell-TPU95A-liner-unprinted'}
+    @cache
+    def parts():
+        return c.candidate(variant)
+    groups=(
+        ('fit',(('study.enclosure','fit'),),lambda:c.fit_checks(parts())),
+        ('closure',(('study.enclosure','closure'),),lambda:c.closure_checks(parts()[0])),
+        ('skins',(('study.coverage','six-skins'),('study.flat','flat-faces')),lambda:c.skin_checks(parts())),
+        ('cores',(('study.variants','cores'),),lambda:c.core_checks(variant,parts())),
+        ('labels',(('study.variants','labels'),),lambda:c.label_checks(variant,parts())),
+    )
+    checks=tuple(assertion_check(id,targets,run,'verification.py / design.py',scope) for id,targets,run in groups)
+    return Plan(variant,REQUIREMENTS,scope,checks,(),questions=QUESTIONS,
+      decisions=(DesignDecision('core-scale','4 mm liner sandwich with 0.8 mm outer backing; 0.8 mm inner skin except F at 0.6 mm. Same 26 mm cavity.', 'README.md'),),
+      hypotheses=(Hypothesis('quietness','Thinner or bending-biased webs may reduce impact transmission, but small nut impacts may not activate buckling; skins, corners and printing may dominate.', 'README.md#research'),))
+
+
+if __name__=='__main__':
+    raise SystemExit(cli(make_plan,('A','B','C','D','E','F')))

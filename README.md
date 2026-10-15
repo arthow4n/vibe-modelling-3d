@@ -47,6 +47,7 @@ and physical UNKNOWN distinct; it adds no ergonomic score or print qualification
 
 | Object | Current use and print instructions | Model provenance | Test piece(s) printed | Final object printed | Agent effort |
 | --- | --- | --- | --- | --- | --- |
+| TPU damping box research | [One PETG enclosure + six labeled flat-faced TPU liner sets](model/tpu_damping_box/README.md) | [Record](model/tpu_damping_box/README.md#attribution) | Unknown — complete research batch; CAD checked, physical comparison pending | N/A — samples only; no winning core selected | N/A — no performance study requested |
 | Physical-analysis phone stand | [V3: compact fully printed pedestal, concealed three-angle lock](model/analysis_phone_stand/README.md) | [Record](model/analysis_phone_stand/README.md#attribution) | N/A — complete prototype; miniatures are exploratory | Unknown — V3 CAD, conditional mechanics and reference slice checked; fit, ring/cable use, tapping, grip and PETG recovery unprinted. Articulated release screen: endpoint witnesses; sampled access depends on assumed human scale. 105 × 140 mm base; four solid core parts. V1/V2 rejected before printing | [Selected token/timing record](model/analysis_phone_stand/notes/agent_effort.md) |
 | Postcard displays | [Seven postcard displays: original through Orbit, Bolt and Pebble](model/postcard_display/README.md) | [Record](model/postcard_display/README.md#attribution) | N/A — full holder is the trial | Partial — Wave printed and works well; six other variants unreported | [Selected token/timing record](model/postcard_display/notes/agent_effort.md) |
 | Book reading plate | [Final PETG plate and head-up screws](model/book_reading_plate/README.md) | [Record](model/book_reading_plate/README.md#attribution) | Yes — prior L sample worked; head/socket issue revised; no new coupon | Yes — user reports the complete plate printed with a really nice result | [Selected token/timing record](model/book_reading_plate/notes/agent_effort.md) |
@@ -95,6 +96,7 @@ take precedence for their stated files.
 | Object | Licence | Attribution |
 | --- | --- | --- |
 | [Integrated MacBook charger holder](model/macbook_charger_holder/) | [CC BY-NC-SA 4.0](model/macbook_charger_holder/LICENSE) | [Original model and modifications](model/macbook_charger_holder/ATTRIBUTION.md) |
+| [TPU damping-box Orca snapshots](model/tpu_damping_box/profiles/) — profile JSONs only | [AGPL-3.0](model/tpu_damping_box/profiles/LICENSE.txt) | [Orca/Qidi sources and changes](model/tpu_damping_box/profiles/ATTRIBUTION.md); model geometry retains the default licence |
 | [Swatch Q1 Orca profile snapshots](model/filament_swatch_box_study/notes/quiet_q1_profiles/) — profile JSONs only | [AGPL-3.0](model/filament_swatch_box_study/notes/quiet_q1_profiles/LICENSE.txt) | [Orca/Qidi source and snapshot changes](model/filament_swatch_box_study/notes/quiet_q1_profiles/ATTRIBUTION.md); Q1 model geometry retains the default licence |
 
 Remixing is welcome under each object's applicable terms. For the charger

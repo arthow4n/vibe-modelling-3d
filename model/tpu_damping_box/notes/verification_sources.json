@@ -1,0 +1,51 @@
+{
+  "scope": "Intent recorded from user instructions on 2026-10-15, including flat interior and research/batch clarifications. No physical evidence exists.",
+  "source_sha256": {},
+  "user_requirements": [
+    {
+      "id": "study.enclosure",
+      "text": "One small closable PETG enclosure accepts interchangeable separately printed TPU liners and a loose metal nut.",
+      "source": {
+        "reference": "README.md#user-intent",
+        "statement": "User requests one small PETG exterior, closable, with TPU inserts and space to shake a stock metal nut."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "study.coverage",
+      "text": "The floor, ceiling and all four interior walls have TPU damping coverage.",
+      "source": {
+        "reference": "README.md#user-intent",
+        "statement": "User explicitly requires damping on the bottom, top, and all four walls."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "study.flat",
+      "text": "All object-contact interior faces are flat; damping structures are inside the liner.",
+      "source": {
+        "reference": "README.md#user-intent",
+        "statement": "User clarification: the interior needs to be flat for the objects, while the liner may have structures inside."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "study.variants",
+      "text": "Several permanently labeled CAD-defined internal damping configurations can be printed together.",
+      "source": {
+        "reference": "README.md#user-intent",
+        "statement": "User asks for labeled variants, explicit CAD structures rather than infill, and a batch print; additional variants are welcome."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "study.research",
+      "text": "Use research to inform a reusable damping experiment and compare variants by shaking the same metal nut.",
+      "source": {
+        "reference": "README.md#user-intent",
+        "statement": "User requests research on effective damping structures and plans to report which liner performs best."
+      },
+      "acceptance_criteria": []
+    }
+  ]
+}

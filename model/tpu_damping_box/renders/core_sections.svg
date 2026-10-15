@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1020" height="570" viewBox="0 0 1020 570">
+<rect width="1020" height="570" fill="#f4f6f8"/>
+<g font-family="sans-serif" fill="#182d3c"><text x="30" y="33" font-size="22" font-weight="bold">TPU liner cores — flat contact faces in every version</text><text x="30" y="57" font-size="14">Schematic section of each 4 mm sandwich. White = CAD air channels; green = continuous inner skin.</text>
+<rect x="25" y="82" width="320" height="220" rx="12" fill="white"/>
+<text x="41" y="111" font-size="18" font-weight="bold">A · Solid control</text>
+<rect x="53" y="140" width="264" height="16.0" fill="#479c87"/>
+<rect x="53" y="204" width="264" height="16" fill="#6f90ac"/>
+<rect x="53" y="156.0" width="264" height="48.00000000000001" fill="#6f90ac"/>
+<rect x="53" y="140" width="264" height="80" fill="none" stroke="#244454" stroke-width="1"/>
+<text x="53" y="251" font-size="14">Solid 4 mm TPU baseline</text>
+<text x="53" y="272" font-size="12" fill="#526572">Same pattern behind all six flat faces</text>
+<rect x="360" y="82" width="320" height="220" rx="12" fill="white"/>
+<text x="376" y="111" font-size="18" font-weight="bold">B · Thick straight webs</text>
+<rect x="388" y="140" width="264" height="16.0" fill="#479c87"/>
+<rect x="388" y="204" width="264" height="16" fill="#6f90ac"/>
+<polygon points="400.00,204.00 424.00,204.00 424.00,156.00 400.00,156.00" fill="#6f90ac"/>
+<polygon points="472.00,204.00 496.00,204.00 496.00,156.00 472.00,156.00" fill="#6f90ac"/>
+<polygon points="544.00,204.00 568.00,204.00 568.00,156.00 544.00,156.00" fill="#6f90ac"/>
+<polygon points="616.00,204.00 640.00,204.00 640.00,156.00 616.00,156.00" fill="#6f90ac"/>
+<rect x="388" y="140" width="264" height="80" fill="none" stroke="#244454" stroke-width="1"/>
+<text x="388" y="251" font-size="14">Web 1.2 mm · inner skin 0.8 mm</text>
+<text x="388" y="272" font-size="12" fill="#526572">Same pattern behind all six flat faces</text>
+<rect x="695" y="82" width="320" height="220" rx="12" fill="white"/>
+<text x="711" y="111" font-size="18" font-weight="bold">C · Thin straight webs</text>
+<rect x="723" y="140" width="264" height="16.0" fill="#479c87"/>
+<rect x="723" y="204" width="264" height="16" fill="#6f90ac"/>
+<polygon points="739.00,204.00 755.00,204.00 755.00,156.00 739.00,156.00" fill="#6f90ac"/>
+<polygon points="811.00,204.00 827.00,204.00 827.00,156.00 811.00,156.00" fill="#6f90ac"/>
+<polygon points="883.00,204.00 899.00,204.00 899.00,156.00 883.00,156.00" fill="#6f90ac"/>
+<polygon points="955.00,204.00 971.00,204.00 971.00,156.00 955.00,156.00" fill="#6f90ac"/>
+<rect x="723" y="140" width="264" height="80" fill="none" stroke="#244454" stroke-width="1"/>
+<text x="723" y="251" font-size="14">Web 0.8 mm · inner skin 0.8 mm</text>
+<text x="723" y="272" font-size="12" fill="#526572">Same pattern behind all six flat faces</text>
+<rect x="25" y="317" width="320" height="220" rx="12" fill="white"/>
+<text x="41" y="346" font-size="18" font-weight="bold">D · Inclined webs</text>
+<rect x="53" y="375" width="264" height="16.0" fill="#479c87"/>
+<rect x="53" y="439" width="264" height="16" fill="#6f90ac"/>
+<polygon points="56.06,439.00 73.94,439.00 97.94,391.00 80.06,391.00" fill="#6f90ac"/>
+<polygon points="128.06,439.00 145.94,439.00 169.94,391.00 152.06,391.00" fill="#6f90ac"/>
+<polygon points="200.06,439.00 217.94,439.00 241.94,391.00 224.06,391.00" fill="#6f90ac"/>
+<polygon points="272.06,439.00 289.94,439.00 313.94,391.00 296.06,391.00" fill="#6f90ac"/>
+<rect x="53" y="375" width="264" height="80" fill="none" stroke="#244454" stroke-width="1"/>
+<text x="53" y="486" font-size="14">Web 0.8 mm · inner skin 0.8 mm</text>
+<text x="53" y="507" font-size="12" fill="#526572">Same pattern behind all six flat faces</text>
+<rect x="360" y="317" width="320" height="220" rx="12" fill="white"/>
+<text x="376" y="346" font-size="18" font-weight="bold">E · Chevron webs</text>
+<rect x="388" y="375" width="264" height="16.0" fill="#479c87"/>
+<rect x="388" y="439" width="264" height="16" fill="#6f90ac"/>
+<polygon points="391.59,439.00 412.41,439.00 432.41,415.00 411.59,415.00" fill="#6f90ac"/>
+<polygon points="411.59,415.00 432.41,415.00 412.41,391.00 391.59,391.00" fill="#6f90ac"/>
+<polygon points="463.59,439.00 484.41,439.00 504.41,415.00 483.59,415.00" fill="#6f90ac"/>
+<polygon points="483.59,415.00 504.41,415.00 484.41,391.00 463.59,391.00" fill="#6f90ac"/>
+<polygon points="535.59,439.00 556.41,439.00 576.41,415.00 555.59,415.00" fill="#6f90ac"/>
+<polygon points="555.59,415.00 576.41,415.00 556.41,391.00 535.59,391.00" fill="#6f90ac"/>
+<polygon points="607.59,439.00 628.41,439.00 648.41,415.00 627.59,415.00" fill="#6f90ac"/>
+<polygon points="627.59,415.00 648.41,415.00 628.41,391.00 607.59,391.00" fill="#6f90ac"/>
+<rect x="388" y="375" width="264" height="80" fill="none" stroke="#244454" stroke-width="1"/>
+<text x="388" y="486" font-size="14">Web 0.8 mm · inner skin 0.8 mm</text>
+<text x="388" y="507" font-size="12" fill="#526572">Same pattern behind all six flat faces</text>
+<rect x="695" y="317" width="320" height="220" rx="12" fill="white"/>
+<text x="711" y="346" font-size="18" font-weight="bold">F · Thin contact skin</text>
+<rect x="723" y="375" width="264" height="12.0" fill="#479c87"/>
+<rect x="723" y="439" width="264" height="16" fill="#6f90ac"/>
+<polygon points="739.00,439.00 755.00,439.00 755.00,387.00 739.00,387.00" fill="#6f90ac"/>
+<polygon points="811.00,439.00 827.00,439.00 827.00,387.00 811.00,387.00" fill="#6f90ac"/>
+<polygon points="883.00,439.00 899.00,439.00 899.00,387.00 883.00,387.00" fill="#6f90ac"/>
+<polygon points="955.00,439.00 971.00,439.00 971.00,387.00 955.00,387.00" fill="#6f90ac"/>
+<rect x="723" y="375" width="264" height="80" fill="none" stroke="#244454" stroke-width="1"/>
+<text x="723" y="486" font-size="14">Web 0.8 mm · inner skin 0.6 mm</text>
+<text x="723" y="507" font-size="12" fill="#526572">Same pattern behind all six flat faces</text>
+</g>
+</svg>

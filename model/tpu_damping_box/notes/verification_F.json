@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "variant": "F",
+  "selected_checks": null,
+  "available_variants": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "available_checks": [
+    "fit",
+    "closure",
+    "skins",
+    "cores",
+    "labels"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "F",
+    "scope": {
+      "revision": "flat-sandwich-r1",
+      "variant": "F",
+      "material": "PETG-shell-TPU95A-liner-unprinted"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "study.enclosure",
+        "text": "One small closable PETG enclosure accepts interchangeable separately printed TPU liners and a loose metal nut.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User requests one small PETG exterior, closable, with TPU inserts and space to shake a stock metal nut."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "fit",
+            "criterion": "Cup and pad fit the actual shell and each other; one 12 mm proxy can travel 14 mm on each axis inside the 26 mm clear cavity.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "fit"
+            ],
+            "evidence": [
+              "fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "closure",
+            "criterion": "Two M3 nut installation paths clear and nuts bear under solid pocket roofs; screw bores clear a 3 mm shaft.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "closure"
+            ],
+            "evidence": [
+              "closure"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "handling",
+            "criterion": "Printed cup/pad can be swapped and the screw closure stays tight during shaking.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.coverage",
+        "text": "The floor, ceiling and all four interior walls have TPU damping coverage.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User explicitly requires damping on the bottom, top, and all four walls."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "six-skins",
+            "criterion": "Continuous minimum 0.6 mm TPU witnesses cover every face of the shaking cavity.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "skins"
+            ],
+            "evidence": [
+              "skins"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.flat",
+        "text": "All object-contact interior faces are flat; damping structures are inside the liner.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User clarification: the interior needs to be flat for the objects, while the liner may have structures inside."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "flat-faces",
+            "criterion": "The full 26 mm cubic shaking space is free of protrusions, with planar TPU at all six boundaries.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "skins"
+            ],
+            "evidence": [
+              "skins"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.variants",
+        "text": "Several permanently labeled CAD-defined internal damping configurations can be printed together.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User asks for labeled variants, explicit CAD structures rather than infill, and a batch print; additional variants are welcome."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "cores",
+            "criterion": "Structured variants retain explicit air channels behind floor, ceiling and four side skins; control A is intentionally solid.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "cores"
+            ],
+            "evidence": [
+              "cores"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "labels",
+            "criterion": "A 6 mm exterior recessed letter is present on both cup and pad, and the batch names all six pairs.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "labels"
+            ],
+            "evidence": [
+              "labels"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "printed-labels",
+            "criterion": "Letters remain readable and flat skins/hidden bridges print intact.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.research",
+        "text": "Use research to inform a reusable damping experiment and compare variants by shaking the same metal nut.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User requests research on effective damping structures and plans to report which liner performs best."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "noise",
+            "criterion": "User compares repeated directional nut shaking and identifies quieter usable configurations.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fit",
+        "targets": [
+          [
+            "study.enclosure",
+            "fit"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "verification.py / design.py",
+        "scope": {
+          "revision": "flat-sandwich-r1",
+          "variant": "F",
+          "material": "PETG-shell-TPU95A-liner-unprinted"
+        }
+      },
+      {
+        "id": "closure",
+        "targets": [
+          [
+            "study.enclosure",
+            "closure"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "verification.py / design.py",
+        "scope": {
+          "revision": "flat-sandwich-r1",
+          "variant": "F",
+          "material": "PETG-shell-TPU95A-liner-unprinted"
+        }
+      },
+      {
+        "id": "skins",
+        "targets": [
+          [
+            "study.coverage",
+            "six-skins"
+          ],
+          [
+            "study.flat",
+            "flat-faces"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "verification.py / design.py",
+        "scope": {
+          "revision": "flat-sandwich-r1",
+          "variant": "F",
+          "material": "PETG-shell-TPU95A-liner-unprinted"
+        }
+      },
+      {
+        "id": "cores",
+        "targets": [
+          [
+            "study.variants",
+            "cores"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "verification.py / design.py",
+        "scope": {
+          "revision": "flat-sandwich-r1",
+          "variant": "F",
+          "material": "PETG-shell-TPU95A-liner-unprinted"
+        }
+      },
+      {
+        "id": "labels",
+        "targets": [
+          [
+            "study.variants",
+            "labels"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "verification.py / design.py",
+        "scope": {
+          "revision": "flat-sandwich-r1",
+          "variant": "F",
+          "material": "PETG-shell-TPU95A-liner-unprinted"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "core-scale",
+        "text": "4 mm liner sandwich with 0.8 mm outer backing; 0.8 mm inner skin except F at 0.6 mm. Same 26 mm cavity.",
+        "reference": "README.md"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "quietness",
+        "text": "Thinner or bending-biased webs may reduce impact transmission, but small nut impacts may not activate buckling; skins, corners and printing may dominate.",
+        "reference": "README.md#research"
+      }
+    ],
+    "directives": []
+  },
+  "help": null
+}
