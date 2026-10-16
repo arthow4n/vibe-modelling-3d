@@ -42,8 +42,13 @@ automatically thin webs or skins. Prefer substantial local features suitable for
 their normal 0.4 mm nozzle; do not recommend marginal single-path replacements
 merely because a diagnostic slice retains them. Their [I24/I20 rejection before
 printing](../../../../model/tpu_damping_box/README.md#thin-feature-rejection-and-prevention)
-does not establish a universal extrusion-width limit. I30 seemed printable to
-the user but has no physical print qualification.
+does not establish a universal extrusion-width limit. A later
+[physical comparison](../../../../model/tpu_damping_box/README.md#i22--i30--i10-print-feedback--latest-report)
+accepts I22 quietness with little perceived difference from I30, but rejects
+I10's broken shell-side regions. **Both continuous skins are required for this
+liner follow-up.** The user allows slicer changes to explore thinner closed-skin
+variants. I22's near-joining lines remain an unresolved observation, not a
+calibrated minimum gap or proof of a specific process cause.
 
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.

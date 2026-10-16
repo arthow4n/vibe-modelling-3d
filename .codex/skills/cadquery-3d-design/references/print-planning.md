@@ -15,6 +15,19 @@ requiring a physical print. A homogeneous-solid solve needs a defensible sliced
 section, an explicit effective-material assumption, or a stated discrepancy;
 even solid paths leave anisotropy and bonding uncalibrated.
 
+For thin sandwich liners, verify the voids as well as the material: continuous
+skins, separated support paths, remaining channel width and bridge extrusion
+height at representative layers. Check whether the planned bridge extrusion
+height fits the gap budget, not just its direction; inspect effective settings
+and recorded extrusion heights before relying on a shallow gap. Choose any
+finer layers or thin-bridge settings for the specific gap and verify their actual paths, rather than treating them as
+universal TPU presets. Printed sag, spreading and clamping can still close gaps.
+The [I10 print report](../../../../model/tpu_damping_box/README.md#i22--i30--i10-print-feedback--latest-report)
+found broken shell-side regions despite valid CAD, multiple retained paths and
+no proposed support. That user now requires both skins. The precise failure
+cause remains unisolated; removing a backing skin needs a new physical integrity
+check, not promotion from a support-probe result.
+
 When changing a thin enclosure's material or wall construction, review whole-shell
 shape stability and handling alongside fit. Reusing an accepted mesh preserves
 nominal surfaces, not the printed object's behavior: a cover can still close while

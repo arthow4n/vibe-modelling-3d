@@ -123,6 +123,13 @@ printer, filament/hardness, profile, orientation and nut remain unreported.
 | I30 | Little perceived difference from I22 | Retain physical reference; no reprint needed. |
 | I10 | Regions near the shell are broken; some apparent damping, I22 better | Reject for use and retire open-backed architecture. Absence of outer skin is the user's suspected cause, not an isolated diagnosis. |
 
+The reusable lesson is recorded in the design skill's print-planning and
+user-preference references: preserve required skins, check open space as well as
+material paths, and inspect bridge height in shallow cores. I10's earlier local
+path checks and support probe were insufficient evidence of printed integrity.
+S16/S12 add closed-skin and open-gap checks; their physical outcome remains a
+new experiment rather than a correction claimed to be proven by slicing.
+
 Latest request: one or two meaningfully thinner candidates than I22, with both
 continuous skins for print stability, improved separation and slicer changes if
 needed. Exact minimum thickness is not supplied by the user. Printed acceptance
