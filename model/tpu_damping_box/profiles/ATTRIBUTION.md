@@ -7,8 +7,11 @@ CAD, drawings and experiment notes retain the repository's default MIT licence.
 
 `tpu95a.json` resolves the installed Qidi filament chain:
 `filament/Q2/fdm_filament_q_common.json`, `Generic TPU 95A @Q2C.json`,
-`Generic TPU 95A @Qidi Q2C 0.4 nozzle.json`. Only inheritance flattening and
-name/user-instantiation metadata changed. This is Generic TPU 95A, not HF/Aero.
+`Generic TPU 95A @Qidi Q2C 0.4 nozzle.json`. Initially only inheritance flattening
+and name/user-instantiation metadata changed. On 2026-10-16 the user requested
+changing `filament_max_volumetric_speed` from 4 to **9 mm³/s**; all other filament
+fields remain unchanged. This is Generic TPU 95A, not HF/Aero. The requested flow
+limit is not a measured spool calibration.
 
 `tpu-solid-process.json` derives from the repository's resolved Q2C 0.20 mm
 process snapshot. Changes: 100% rectilinear fill, nominal wall/solid/infill speeds

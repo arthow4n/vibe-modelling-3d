@@ -437,7 +437,10 @@ regions can use a single variable-width extrusion rather than two ordinary paths
 This is a deliberate sample feature, not a strength qualification. Nominal
 wall/solid/fill speeds are 25 mm/s; first-layer/bridge speeds 15 mm/s. Generic TPU
 95A resolves to 230°C nozzle, selected cool plate 30°C (hot-plate setting 35°C),
-flow ratio 1 and a 4 mm³/s filament limit. These are diagnostic settings, not spool
+flow ratio 1 and a **9 mm³/s filament limit**, updated from 4 at the user's request
+on 2026-10-16. The 25 mm/s ordinary process speeds remain separate caps. Existing
+slice receipts/estimates retain their original 4 mm³/s setup; this default change
+does not recompute them. These are diagnostic settings, not spool
 calibration; actual temperatures and bed preparation must suit the TPU and plate.
 
 **Supports OFF.** Hidden-core supports would be trapped and would alter compliance.

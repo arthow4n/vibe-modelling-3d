@@ -46,6 +46,12 @@ preserve old 0.1 mm slicer receipts as diagnostic evidence only. A separate firs
 layer override and other unreported settings remain unknown. See the
 [owning correction](../../../../model/tpu_damping_box/README.md#actual-liner-layer-height-correction--2026-10-16).
 
+**TPU flow default, 2026-10-16:** the user requests **9 mm³/s maximum volumetric
+flow**, replacing 4 mm³/s in the shared
+[TPU 95A preset](../../../../model/tpu_damping_box/profiles/tpu95a.json).
+This is the requested preset limit, not a measured spool calibration or a report
+of past print settings. Wall/infill speed limits remain separate choices.
+
 For thin TPU impact liners, the user means a thin **overall sandwich**, not
 automatically thin webs or skins. Prefer substantial local features suitable for
 their normal 0.4 mm nozzle; do not recommend marginal single-path replacements

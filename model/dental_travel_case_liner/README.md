@@ -131,6 +131,10 @@ The [final native receipt](notes/final_review.json) confirms valid geometry and
 matching STEP/STL exports. OrcaSlicer **2.4.2**, supplied 0.2 mm TPU triplet,
 centred without rotation: primary slice completed with **no keyword notices**.
 Estimated pair: **80.50 g / 21 h 58 min 37 s**, not measured.
+That retained estimate used the then-current **4 mm³/s** filament limit. The
+shared TPU preset now defaults to **9 mm³/s**, as requested by the user on
+2026-10-16; wall/infill speeds remain capped at 25 mm/s. The saved slice has not
+been rerun for this settings-only change.
 
 The [actual path review](notes/path_review.json) and
 [headless preview](renders/path_review.png) cover **56 wall/core regions**, including
