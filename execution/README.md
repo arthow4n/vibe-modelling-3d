@@ -5,71 +5,20 @@ script stdout/stderr and exit codes. `evaluate_model.py` remains the CAD interfa
 Both use the same execution, scheduling and trace facilities. No HTTP service,
 cloud collector, serialized user functions or arbitrary-script output cache.
 
-## Architecture contract (version 1)
+## Choose an operation
 
-Requests are bounded JSON messages over a private local Unix socket, with a
-unique run ID, strategy, absolute source/cwd, argument list, input identity,
-resource budget, deadline and trace context. Output streams travel separately
-from concise result metadata. The coordinator starts on demand, admits independent
-jobs against CPU threads/job slots and idles out. RSS sampling is diagnostic.
-Native work runs in owned process groups. Disconnect, deadline and cancellation
-terminate owned descendants; ambiguous dispatch is never retried automatically.
-The fallback starts a conventional isolated process using the same lifecycle.
+For ordinary use, start with the operation below. Detailed identity, scheduling
+and trace contracts follow the command guidance; they remain binding when those
+features are used.
 
-Three strategies share this interface: isolated (ordinary scripts), preinitialized
-(fresh child of a compatibility-tested preload host), persistent (repository CAD
-operations retaining immutable geometry under an explicit closed-input contract).
-No arbitrary script executes repeatedly in a shared mutable interpreter.
-Source/dependency/environment changes invalidate compatible infrastructure.
-Worker recycling bounds idle-worker count, jobs and lifetime. The coordinator idle
-timeout starts after the last request completes and does not expire while handlers
-are queued. A long active job does not consume the subsequent idle allowance.
-
-Geometry reuse requires a closed-input declaration because trusted model scripts may read arbitrary
-files, clocks or environment and write side effects. `--reuse` declares deterministic
-construction and complete inputs; extra non-Python inputs use `--dependency`.
-All repository Python sources (excluding virtual environments/generated caches), adjacent Python modules, declared inputs, lockfile,
-worker implementation and process environment are content-identified. Unknown
-inputs require fresh execution. Validation results carry their originating identity;
-reused stages are explicitly marked, never represented as fresh computation.
-Managed outputs are staged, identity-checked and atomically published with destination
-ownership. Model-written side effects are outside that transaction.
-
-The same contract applies to deterministic inspection entry points with reference
-contents, not only printable outputs. Declare their complete inputs too when
-they have no required side effects; choosing a different render destination
-does not require constructing the same inspection geometry again.
-
-Finish repository Python edits before launching any CAD batch, including
-inspection or benchmark qualification. Even a benchmark docstring changes the
-current conservative identity. The current
-input identity conservatively includes all repository Python, so even editing an
-unrelated check while CAD is queued or running can invalidate publication. Work
-on non-Python documentation or review completed evidence during that batch instead. If the
-guard rejects a job, freeze Python edits and rerun that affected request; retained
-content-verified exports/renders can still be reused. The J4/K4 grip revision hit
-this guard when its check script was edited during final evaluation; freezing
-edits recovered the affected outputs without changing the geometry.
-
-Resource leases cover external tasks and script budgets; nested operations inherit
-and divide their parent's budget rather than creating uncontrolled parallelism.
-Solver-specific thread/evidence settings remain explicit. Independent tasks may
-use the common scheduler; dependent study levels retain their stopping rules.
-
-## Performance evidence
-
-Automatic lightweight records live under ignored `.execution/`: compact run
-summaries, OTLP JSONL traces, resource samples and optional profiles. Version 1
-uses the OpenTelemetry SDK and protobuf OTLP trace encoder, serialized as standard
-JSON messages, one ExportTraceServiceRequest per line. Trace context propagates
-through the shared process environment. No environment values or script output
-are stored in traces; arguments are fingerprinted. Per-run files avoid concurrent
-append corruption. Retention is bounded by age and count. Committed
-`performance/benchmarks/` contains reproducible bounded benchmark history, not
-unrestricted raw diagnostics. Tracing is best effort and cannot fail a calculation.
-
-See [performance evidence](../performance/README.md) for measured policies and
-limitations; `performance/IMPLEMENTATION.md` records implementation milestones.
+| Need | Read |
+| --- | --- |
+| Run an experiment/check script | [Running scripts](#running-scripts): options, budgets and exit behavior |
+| Build, view, export or smoke-slice CAD | [CAD evaluation and exports](#cad-evaluation-and-exports): selection, placement, paired files and JSON status |
+| Reuse deterministic geometry or artifacts | [CAD iterations](#cad-iterations-and-incremental-outputs): complete inputs, fresh/reused distinction |
+| Batch work or recover interruptions | [Scheduling and recovery](#concurrent-agents-scheduling-and-recovery) |
+| Understand publication/isolation guarantees | [Architecture contract](#architecture-contract-version-1) |
+| Investigate execution cost | [Evidence](#performance-evidence) and [local data schema](#analysis-and-local-data-schema) |
 
 ## Running scripts
 
@@ -357,6 +306,72 @@ independent probe settings can run alongside the primary, with separate logs and
 verified effective settings; failures preserve the primary evidence and request
 review. For explicit renders plus slicing, slicing starts at STL completion while
 CAD rendering continues. Traces show the actual overlap rather than summed work.
+
+## Architecture contract (version 1)
+
+Requests are bounded JSON messages over a private local Unix socket, with a
+unique run ID, strategy, absolute source/cwd, argument list, input identity,
+resource budget, deadline and trace context. Output streams travel separately
+from concise result metadata. The coordinator starts on demand, admits independent
+jobs against CPU threads/job slots and idles out. RSS sampling is diagnostic.
+Native work runs in owned process groups. Disconnect, deadline and cancellation
+terminate owned descendants; ambiguous dispatch is never retried automatically.
+The fallback starts a conventional isolated process using the same lifecycle.
+
+Three strategies share this interface: isolated (ordinary scripts), preinitialized
+(fresh child of a compatibility-tested preload host), persistent (repository CAD
+operations retaining immutable geometry under an explicit closed-input contract).
+No arbitrary script executes repeatedly in a shared mutable interpreter.
+Source/dependency/environment changes invalidate compatible infrastructure.
+Worker recycling bounds idle-worker count, jobs and lifetime. The coordinator idle
+timeout starts after the last request completes and does not expire while handlers
+are queued. A long active job does not consume the subsequent idle allowance.
+
+Geometry reuse requires a closed-input declaration because trusted model scripts may read arbitrary
+files, clocks or environment and write side effects. `--reuse` declares deterministic
+construction and complete inputs; extra non-Python inputs use `--dependency`.
+All repository Python sources (excluding virtual environments/generated caches), adjacent Python modules, declared inputs, lockfile,
+worker implementation and process environment are content-identified. Unknown
+inputs require fresh execution. Validation results carry their originating identity;
+reused stages are explicitly marked, never represented as fresh computation.
+Managed outputs are staged, identity-checked and atomically published with destination
+ownership. Model-written side effects are outside that transaction.
+
+The same contract applies to deterministic inspection entry points with reference
+contents, not only printable outputs. Declare their complete inputs too when
+they have no required side effects; choosing a different render destination
+does not require constructing the same inspection geometry again.
+
+Finish repository Python edits before launching any CAD batch, including
+inspection or benchmark qualification. Even a benchmark docstring changes the
+current conservative identity. The current
+input identity conservatively includes all repository Python, so even editing an
+unrelated check while CAD is queued or running can invalidate publication. Work
+on non-Python documentation or review completed evidence during that batch instead. If the
+guard rejects a job, freeze Python edits and rerun that affected request; retained
+content-verified exports/renders can still be reused. The J4/K4 grip revision hit
+this guard when its check script was edited during final evaluation; freezing
+edits recovered the affected outputs without changing the geometry.
+
+Resource leases cover external tasks and script budgets; nested operations inherit
+and divide their parent's budget rather than creating uncontrolled parallelism.
+Solver-specific thread/evidence settings remain explicit. Independent tasks may
+use the common scheduler; dependent study levels retain their stopping rules.
+
+## Performance evidence
+
+Automatic lightweight records live under ignored `.execution/`: compact run
+summaries, OTLP JSONL traces, resource samples and optional profiles. Version 1
+uses the OpenTelemetry SDK and protobuf OTLP trace encoder, serialized as standard
+JSON messages, one ExportTraceServiceRequest per line. Trace context propagates
+through the shared process environment. No environment values or script output
+are stored in traces; arguments are fingerprinted. Per-run files avoid concurrent
+append corruption. Retention is bounded by age and count. Committed
+`performance/benchmarks/` contains reproducible bounded benchmark history, not
+unrestricted raw diagnostics. Tracing is best effort and cannot fail a calculation.
+
+See [performance evidence](../performance/README.md) for measured policies and
+limitations; `performance/IMPLEMENTATION.md` records implementation milestones.
 
 ## Analysis and local data schema
 

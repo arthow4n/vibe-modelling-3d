@@ -9,6 +9,23 @@ one for each half of the already printed [accepted E case](../sunglasses_case/no
 
 ![Retained solid corner left; current revised corner right](renders/corner_study/corner_study_top.png)
 
+## Current status and next step
+
+**The revised full liner has no print report.** The user held off after finding
+solid corners; the correction adds air cores/ribs around all four bends while
+preserving the installed envelope. CAD and sliced coverage checks support the
+correction, but fit, tape adhesion, quietness and wear remain physical unknowns.
+See the [corner investigation](#corner-coverage-investigation--2026-10-16) for
+what failed in the earlier design and what was checked afterward.
+
+A separate small ironing sample was printed: 50% ironing flow is preferred for
+that setup. It does not qualify the full liner or prove a cause. Read the
+[sample report](#ironing-flow-print-feedback--2026-10-16) before transferring the
+setting. The next application check, if the user prints the corrected cups, is
+[installation and actual use](#installation), using the [print setup](#printing-and-manufacturing-review).
+No further geometry revision is requested by this record. The rigid E case
+remains accepted and unchanged; [print status](#print-status) keeps the two scopes separate.
+
 ## Intent
 
 User instructions, 2026-10-16: S16 and S12 were both printed and work; S16 is

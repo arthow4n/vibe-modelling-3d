@@ -6,6 +6,19 @@ Print **[postcard_display.step](postcard_display.step)**, or the matching
 the long feet run behind the card. Lower the card onto both feet, centre it,
 and lean it against the two rear ribs. Lift it out to change orientation.
 
+## Current choices and physical evidence
+
+Seven complete holders are retained. **Wave is the only reported printed variant**:
+the user says it works well. [Wave STEP](postcard_wave.step) · [STL](postcard_wave.stl).
+The original, Outline, Prism, Orbit, Bolt and Pebble have no print reports; their
+CAD/reference-slice evidence does not establish the same physical result.
+
+Read [Outline/Wave/Prism](#three-aesthetic-alternatives) for the first silhouette
+comparison, [Orbit/Bolt/Pebble](#three-further-sculptural-alternatives) for the
+later families, [printing](#printing) for setup and [status](#print-status) for
+variant-specific limits. No further design change is requested; a new variant's
+first use would need its own card seating, stability and finish observations.
+
 ## Three further sculptural alternatives
 
 **Orbit, Bolt and Pebble** explore different silhouette families, rather than

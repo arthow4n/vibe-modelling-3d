@@ -7,6 +7,24 @@ pairs. The backend owns meshing, solver input, execution and result extraction.
 It supports any number of named parts/pairs; it is **not** a general mechanism,
 joint/dynamics, plasticity or printed-material simulator.
 
+## What this can establish
+
+Use this layer to ask a local question that could change a design: how far a
+loaded part bends, what reaction a flexure develops, or how supported parts share
+contact load. Geometry, material assumptions, restraints and acceptance limits
+must be explicit. Numerical completion, numerical quality, a provisional design
+screen and physical validation are separate conclusions.
+
+| Need | Read |
+| --- | --- |
+| Install/check native tools | [Setup](#setup) |
+| Formulate a known local question | [Use](#use), including force-loaded contact and retained question studies |
+| Choose study resolution and tolerances | [Study sequence](#study-sequence); [method selection](../.codex/skills/engineering-method-selection/SKILL.md) when representation is consequential |
+| Interpret a native result | [Result contract](#result-contract) |
+| Understand a failed solve/quality check | [Failure diagnosis](#locate-a-contact-quality-failure) before another solve |
+| Preserve/reproduce evidence | [Retention](#retain-analysis-evidence) and [qualification/extension limits](#evidence-and-extension) |
+| Manage resources/reuse | [Shared execution](#shared-execution-and-performance) |
+
 ## Setup
 
 An [optional external PolyFEM/IPC investigation](backends/polyfem.md) targets
@@ -20,7 +38,7 @@ Install CalculiX and Gmsh's native library dependencies on the host, for example
 on Ubuntu 24.04: `sudo apt install calculix-ccx libxft2 libglu1-mesa`.
 `CALCULIX_COMMAND` can name an alternative executable (a path, not shell syntax).
 
-This development environment has no passwordless sudo. Ubuntu packages were
+In the original development environment there was no passwordless sudo. Ubuntu packages were
 instead downloaded with `apt-get download` and extracted with `dpkg-deb -x`
 under `~/.local/opt/physical-analysis`. The backend recognizes that prefix, or
 `PHYSICAL_ANALYSIS_RUNTIME`, and adds its `usr/lib/x86_64-linux-gnu`, `blas` and
@@ -32,37 +50,6 @@ runtime dependencies, plus libxft2. A system installation is simpler elsewhere.
 Run `uv run --locked python -m physical_analysis doctor` to check both tools;
 run `uv run --locked pytest -q tests/test_physical_analysis.py` to qualify them.
 Missing tools are failures, not silently skipped benchmarks.
-
-## Shared execution and performance
-
-Run object-owned analysis scripts with `./execute.py SCRIPT.py`; scripts keep normal
-Python semantics. Existing APIs also work when imported directly. All backends use
-the shared resource coordinator, tracing and owned subprocess lifecycle. Gmsh,
-CalculiX, FEBio and IPC retain isolated worker state and existing native-completion,
-strain, quality and provenance checks. Default capacity is 50% of available cores;
-integer/percentage command budgets and explicit IPC settings remain configurable.
-Nested analyses borrow their command's budget. The current CalculiX/Gmsh route
-runs one thread: use `./execute.py --threads 1 SCRIPT.py` for sequential studies
-on that route. Larger leases reserve capacity without parallelizing that solver.
-Keep explicit CPU budgets for parallel batches and other backends. Computation
-runs without automatic deadlines; do not invent per-run or whole-study caps.
-Follow the [repository deadline rule](../AGENTS.md#shared-engineering-execution).
-Independent script studies can use
-`execution.batch`. RSS is diagnostic; there are no shared memory budgets.
-
-Dependency/solver initialization, input compilation, solve, extraction and recovery
-spans are retained locally without output noise. Do not inspect them routinely;
-[execution documentation](../execution/README.md) describes dedicated profiling and
-history analysis. Unchanged mesh candidates are selected automatically with the existing backend
-identity guards; stale/deleted references remesh. Mesh snapshots are verified after
-copying, and reports identify reuse. Native solves still execute freshly.
-Existing explicit `mesh_from`, saved-field recovery and question-study
-`evidence` are the computational checkpoints: no unknown solve or script result
-is cached. Recovery never turns an incomplete solve into engineering evidence.
-Surface traction integration is batched with unchanged quadrature; repeated IPC
-strain extraction reuses immutable reference-tetrahedron matrices. G-code paths
-stream from disk. Conservative motion bounds skip only provably empty booleans;
-exact distances and all potentially intersecting poses retain native checks.
 
 ## Use
 
@@ -847,3 +834,34 @@ It omits head rotation, spring-axis shortening, guide compliance and friction; s
 and printed material properties require separate assumptions/evidence. An
 independent sampled-angle projection qualifies the analytical maximum. It does
 not replace nonlinear contact analysis when those interactions matter.
+
+## Shared execution and performance
+
+Run object-owned analysis scripts with `./execute.py SCRIPT.py`; scripts keep normal
+Python semantics. Existing APIs also work when imported directly. All backends use
+the shared resource coordinator, tracing and owned subprocess lifecycle. Gmsh,
+CalculiX, FEBio and IPC retain isolated worker state and existing native-completion,
+strain, quality and provenance checks. Default capacity is 50% of available cores;
+integer/percentage command budgets and explicit IPC settings remain configurable.
+Nested analyses borrow their command's budget. The current CalculiX/Gmsh route
+runs one thread: use `./execute.py --threads 1 SCRIPT.py` for sequential studies
+on that route. Larger leases reserve capacity without parallelizing that solver.
+Keep explicit CPU budgets for parallel batches and other backends. Computation
+runs without automatic deadlines; do not invent per-run or whole-study caps.
+Follow the [repository deadline rule](../AGENTS.md#shared-engineering-execution).
+Independent script studies can use
+`execution.batch`. RSS is diagnostic; there are no shared memory budgets.
+
+Dependency/solver initialization, input compilation, solve, extraction and recovery
+spans are retained locally without output noise. Do not inspect them routinely;
+[execution documentation](../execution/README.md) describes dedicated profiling and
+history analysis. Unchanged mesh candidates are selected automatically with the existing backend
+identity guards; stale/deleted references remesh. Mesh snapshots are verified after
+copying, and reports identify reuse. Native solves still execute freshly.
+Existing explicit `mesh_from`, saved-field recovery and question-study
+`evidence` are the computational checkpoints: no unknown solve or script result
+is cached. Recovery never turns an incomplete solve into engineering evidence.
+Surface traction integration is batched with unchanged quadrature; repeated IPC
+strain extraction reuses immutable reference-tetrahedron matrices. G-code paths
+stream from disk. Conservative motion bounds skip only provably empty booleans;
+exact distances and all potentially intersecting poses retain native checks.

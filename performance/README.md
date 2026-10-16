@@ -14,13 +14,31 @@ combined timelines stay local; concise privacy-reviewed findings may be preserve
 in flat `reviews/` using the publication contract.
 
 The [per-model effort review](reviews/2026-10-04-234833-per-model-token-and-timing-attribution.md)
-attributes selected token usage to all 14 current model directories across 19
+attributes selected token usage to the 14 model directories covered by that review across 19
 source sessions. Object-owned notes separate construction, mixed shared work,
 integration and later feedback/concepts. Qualified request-operation samples are
 available for phone-stand, archive and later spatula-concept work; older timing
 remains unavailable. The [model index](../README.md#models) links every record.
 Use the [reviewed-turn attribution contract](WORKFLOW.md#per-object-effort-attribution)
 for future requested investigations.
+
+## Which record answers your question?
+
+- For current command behavior, use [execution](../execution/README.md), not an
+  older benchmark's settings or machine description.
+- For measured compute changes, read [latency](#final-command-latency),
+  [policies](#resource-and-observability-policies) or [kernel comparisons](#qualified-kernels-and-rejected-approaches)
+  with their fixture/version limits. “Final” means final for that benchmark milestone.
+- For agent/session waiting or token attribution, use [the workflow guide](WORKFLOW.md).
+  These are different measurements from solver or CLI duration.
+- For how the system evolved, read [implementation history](IMPLEMENTATION.md).
+  Removed RAM controls are historical, not runtime requirements.
+
+The results below preserve their original environments. Current Python/dependency
+requirements come from [pyproject.toml](../pyproject.toml) and [uv.lock](../uv.lock).
+Reproducing an old comparison requires its matched environment; running the same
+command under a newer lock is a new observation, not that original benchmark.
+No performance study is required for ordinary modelling or documentation edits.
 
 ## Independent variant batching
 
@@ -192,6 +210,8 @@ Codex 0.160.1 and documents checked patch-version compatibility in the analyzer.
 The [object effort record](../model/filament_swatch_box_study/notes/agent_effort.md)
 preserves the historical and new selections separately.
 
+<a id="targeted-admission-studies"></a>
+
 ## Historical memory-policy studies
 
 Performance reviews retain measurements of the former RAM admission policy.
@@ -199,3 +219,9 @@ Shared execution now admits by CPU threads and job slots only. RAM reservation,
 per-job limits, pressure watchdogs and their benchmark fixtures have been removed.
 RSS remains a passive measurement for requested investigations. The
 [removal review](reviews/2026-10-04-163751-shared-memory-controls-removed.md) records the decision and qualification.
+
+The earlier [admission/idle-retirement study](reviews/2026-10-03-224500-cad-admission-and-idle-retirement.md)
+retains the original two-budget comparison and source/revision identity.
+Its old reproduction link lands here because the RAM-budget controls and
+benchmark route were subsequently removed. Consult the historical revision for
+that interface; do not apply its reservation recommendation to current commands.

@@ -1,12 +1,23 @@
 # Engineering execution implementation
 
-Working branch: `execution-performance`. Baseline revision: `f984a0bda405563e4476c666e392b34fddcd9b14` (full identity
+Historical implementation branch: `execution-performance`. Baseline revision: `f984a0bda405563e4476c666e392b34fddcd9b14` (full identity
 recorded by the benchmark). This record tracks the ordered implementation; native
 engineering evidence remains owned by its existing tools.
 
+## How to read this history
+
+This is a milestone record, not the current runtime/setup guide. Present command,
+identity and resource contracts are in [execution](../execution/README.md);
+current Python/dependencies are in [pyproject.toml](../pyproject.toml) and
+[uv.lock](../uv.lock). Earlier branch names, “in verification” labels, pending
+milestone statements, Python 3.12 and RAM-policy experiments below describe their
+recorded stage. The [RAM-control removal](#ram-control-removal--2026-10-04)
+supersedes the earlier memory-admission controls. Benchmark conclusions retain
+their recorded fixture/environment scope.
+
 ## Decisions and contracts
 
-- CPython 3.12 and locked uv environment remain authoritative.
+- At this implementation milestone, CPython 3.12 and the locked uv environment were authoritative.
 - One standard-library local coordinator, one filesystem-oriented command,
   process isolation as the arbitrary-script baseline. No arbitrary result cache.
 - OpenTelemetry SDK spans, local versioned OTLP JSONL, bounded ignored raw data,

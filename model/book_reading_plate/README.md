@@ -4,6 +4,14 @@ Two PETG plate halves, joined by four printed screws. **Print one left half, one
 
 The usable dimensions remain **400 mm wide × 250 mm inner back height × 40 mm inner lip**, with **10 mm walls extending outward**. Overall assembled envelope: 400 × 260 × 50 mm. The 70 mm-wide overlap continues through the back and around the lip. Two screws fasten the lip; two fasten the back near its upper end. Exterior faces align, and both ends of every seated screw are nominally **0.2 mm recessed**.
 
+**Current outcome:** the user reports the complete revised plate printed with a
+really nice result. The earlier L sample's thread fit was retained; the poor
+head/socket print led to an upward-facing, deeper socket and revised seating.
+[What changed and why](#what-changed-after-the-successful-l-sample) gives the
+interface details. Specific physical load capacity and long-term creep remain
+unknown; no further revision is requested. [Physical status](#physical-status)
+records the report's exact scope and unknown print settings.
+
 ![Book-facing side](renders/final/book_reading_plate_isometric.png)
 
 ![Outside faces and recessed screw heads](renders/final/rear_view_isometric.png)

@@ -7,6 +7,26 @@ metrics, alter caches/workers, call a model, or require a Codex launch wrapper.
 The adapter boundary is `performance.sessions.Event` / `Session`; another harness
 can provide those metadata objects when there is a demonstrated consumer.
 
+## Choose the investigation
+
+Use this guide only for a requested performance investigation or an authorized
+reflection investigation. It combines local observations; it cannot infer product
+value from time, tokens or tool counts.
+
+| Question | Route |
+| --- | --- |
+| Where did observed waiting occur? | Start with the latency commands below, then [timing evidence](#timing-and-execution-evidence). |
+| What engineering milestone did the effort achieve? | [Milestone investigations](#engineering-milestone-investigations); first establish the outcome from object evidence. |
+| Which object/session owns selected token usage? | [Per-object attribution](#per-object-effort-attribution), with reviewed turn associations. |
+| Which timing fields actually mean model duration? | [Verified formats](#verified-formats-and-accounting) and [qualified Codex 0.160.0 observations](#model-timing-qualification-codex-01600). |
+| Is optional native capture configured on this machine? | [Machine setup/future clones](#optional-machine-setup-and-future-clones); repository cloning does not install it. |
+| What can be committed/shared? | [Storage and publication](#storage-and-publication); inspect privacy and evidence support before publishing. |
+
+Version-specific captures below are historical qualifications, not a requirement
+to install that Codex release or reproduce its environment for ordinary work.
+Current tooling requirements remain with the locked project and available local
+telemetry. Missing observations stay unavailable rather than being inferred.
+
 Run from the repository root in the locked environment:
 
 ```sh

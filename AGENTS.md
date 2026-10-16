@@ -15,6 +15,7 @@ authorization override recorded defaults; do not ask again for settled choices.
 
 | Task | Entry point and timing |
 | --- | --- |
+| Substantial documentation writing or restructuring | [Documentation writing](.codex/skills/documentation-writing/SKILL.md) for human explanation, current/history boundaries and preservation checks within the affected scope. Reflection still owns lesson placement; ordinary updates require no repository audit or extra report. |
 | Repository Python implementation, interface changes or code review | [Coding conventions](.codex/skills/coding-conventions/SKILL.md) before interface decisions and during review. It owns explicit choices, command boundaries and evidence-backed convention maintenance. |
 | Every 3D modelling task, including an established-product revision | [CadQuery design](.codex/skills/cadquery-3d-design/SKILL.md). It routes early product decisions, preferences and manufacturing assumptions, then conditional references. |
 | Consequential or uncertain physical representation, method or solver choice; or a meaningful limitation of the current approach | [Engineering method selection](.codex/skills/engineering-method-selection/SKILL.md). Preferred starting routes are challengeable; clear, adequate methods proceed directly to specialist guidance. |
@@ -46,6 +47,11 @@ consequential variant differences. Keep deliverable links, verification, unique
 physical observations, print status and attribution easy to find. Preserve valid
 historical evidence deliberately; Git history can hold superseded process prose.
 Do not commit a second completed checklist duplicating that record.
+
+Keep the current state readable without reconstructing the investigation history.
+Detailed engineering records, including failed attempts and unresolved work, are
+encouraged whenever useful and have no arbitrary length limit. Link them from the
+current record; distinguish historical recommendations from authorized next work.
 
 ## Evidence integrity
 

@@ -1,4 +1,433 @@
-# Cap exploration — authorized autonomous phase
+# Swatch cap and base decisions — comparisons, failures and print reports
+
+<a id="cap-exploration--authorized-autonomous-phase"></a>
+
+[Current designs, files and authorized scope](../README.md) ·
+[Prototype specifications and other engineering investigations](development_record.md)
+
+This is the detailed decision history for the display and archive branches.
+It preserves user instructions at the phase where they applied, including
+superseded proposals. **An old “next phase”, “current direction” or print
+recommendation below is historical unless the current README still recommends it.**
+Archive R2 A is accepted; display J4/K4 repairs are deferred; hood exploration and
+TPU damping are ended. Damping observations and later assembly-API work are in
+the separate development record, rather than this cap comparison.
+
+## Find the decision or evidence
+
+| Reader's question | Start here |
+| --- | --- |
+| Why is archive A the accepted design? | [R2 comparison](#archive-r2--four-retaining-forms), then [A's print report](#archive-r2-a-print-report--2026-10-04). A supersedes the earlier C-first recommendation. |
+| Why did R1 change? | [Rejected entrance](#r1-entrance-rejection-and-alternatives) and [retaining-height calculation](#continuous-rim-wall-height-study). |
+| What still fails in the display? | [Latest J4/K4 print report](#j4k4-print-report--2026-10-04); it corrects the earlier inherited-interface claims. |
+| Why did the grip change? | [Underside force direction](#underside-grip-direction-review), [rejected outward ledges](#j3k3--upward-facing-base-holding-ledges), then [recessed grips](#j4k4--recessed-upward-facing-base-grips). |
+| Why keep G and key 3? | [G module/assembly path](#g--compact-five-card-modules-and-drop-in-connector-proof), [failed H retention](#h--wider-connector-without-a-handle), [I replacement keys and print result](#i--preloaded-replacement-key-experiment). |
+| What happened to earlier closures? | [A/B/C comparison](#comparison-at-handoff), [D](#d--selected-press-on--pull-off-direction), [E](#e--thin-hood-with-base-mounted-detents), [F](#f--flush-exterior-reinforcement-inside), [V1 rejection](#v1-print-and-recessed-grip-feedback). |
+| Which ideas remain merely historical? | [Earlier archive discussion and deferred ideas](#deferred-exploration-after-the-current-revisions). The compact archive idea was subsequently implemented as R1/R2; remaining larger rows/fixes were not authorized. |
+
+The records below retain original measurements, assumptions and reproduction
+links. Use a later physical report to interpret an earlier “untested” statement;
+keep CAD, slicer, measured use, preference and hypotheses distinct.
+
+## Archive R2 — four retaining forms
+
+The user requested maximum card exposure with either low walls, tall corner
+pillars or continuous guides. This round had already advanced into CAD when
+the user reviewed the development scope. They accept the work and authorize
+finishing all four printable variants; at that handoff no physical print was
+reported. The later A print report below supersedes the A use/fit uncertainties.
+
+[Four-form SVG comparison](../renders/concepts/archive_structure_options.svg)
+([PNG](../renders/concepts/archive_structure_options.png)) shows the alternatives.
+[Actual CAD comparison](../renders/archive_corner_proposals/inspect_archive_corner_proposals_isometric.png)
+shows A, C and D with three source swatches each, in that order. The SVG is a
+schematic; authoritative geometry is in the shared
+[builder](../archive_corner_proposals.py) and four thin printable entry points.
+Neither comparison includes printable reference cards.
+
+| R2 variant | Raised support / upper nominal opening | Intended comparison |
+| --- | --- | --- |
+| A — walled | Continuous 40 mm wall | Simplest retaining outline and most covered card area |
+| B — slim | Four L corners with 4 × 3 mm returns; 42.4 × 24.3 mm gaps | Most exposed; least guiding area and unmeasured post stiffness |
+| **C — corner; recommended first trial** | **Four L corners with 8 × 6 mm returns; 34.4 × 18.3 mm gaps** | **Balanced exposure and broader guiding surfaces** |
+| D — side guides | Two continuous side cheeks; 8 mm front/back returns and 34.4 mm front/back gap | Most continuous side guidance, less side exposure |
+
+All retain 15 nominal notch-up 50 × 80 × 2 mm cards in the same 50.4 × 30.3 mm
+pocket. The foot is the original 64 × 44.8 mm; the floor is Z2.4. Raised support
+is 40 mm above the floor with a 2 mm entrance widened 1.2 mm per side. Open
+variants retain low walls with a nominal top at Z20.4, 18 mm above the floor,
+matching the J-family body. Card exposure is 40 mm above raised guides and
+62 mm in the open centres. A .6 mm lip round and 2 mm window-root curves treat
+new openings, including their inner and outer junctions. There are no finger
+scoops, outward flaps, individual card springs or extra components.
+
+The source reuses the **exact accepted G hood and I key 3**, plus J4's upward
+recesses and lower joining capture. Taller wall material has sloped hood-relief
+ceilings; complete upward key entry stays open. The existing hood remains the
+key keeper. No resized hood or replacement key is supplied. J4/K4 and rejected
+R1 are retained, with their previously recorded status unchanged.
+
+Process: base floor down, PETG, .4 mm nozzle/.2 mm layers, two walls/7% adaptive
+cubic. Use on a horizontal desk, keep the bundle square while lowering it and
+lift selected cards vertically. Remaining cards may lean; full-stack seating
+is guided upright. Open carrying, inversion, shocks and deliberate lifting of
+an unselected card are outside the agreed task. The complete base is the useful
+trial: a detached pillar coupon would omit pocket constraints and browsing.
+Start with C rather than printing all four unnecessarily. Compare 15 cards
+and one/three/five remaining, neighbour drag, entry and removal, comfortable
+edges, guide flexibility, exact G opening and joining to J4 at both ends.
+
+The final study uses 54 thin-axis/yaw challenges at 0, ±2, ±5, ±8 and
+±10 degrees of yaw with floor-supported actual source cards. Of those, 45
+are clear of an idealized 18 mm low-wall-only baseline while their CG is
+beyond its rim. All four final bases block all 54 sampled poses. The cases
+are selected challenges, not a continuous or global escape search. The ideal
+low-only baseline does not model its rounded lip; the final-base intersections
+include the actual lip geometry. Normal front/back and sideways contact checks
+also assert actual floor contact and no floor penetration: the sideways support
+uses the chamfered flat bottom rather than inventing material at the absent
+corners. The same outline correction prevents the yaw candidate generator
+from excluding feasible diagonal poses.
+
+All four paired exports and OrcaSlicer 2.4.2 reference slices succeeded with
+the Q2C/.4 nozzle/.2 layers/PETG/two walls/7% adaptive cubic profiles,
+preserved placement, no notices and no auto-generated supports. The changed
+window lips were viewed on the final A/C/D comparison; B shares that treatment
+and passes CAD/export/slice checks. Final rigid compatibility retains the exact
+G hood, not just its style. Its known flexible catch-pad intersections are
+excluded from the rigid lift test; actual hood friction remains untested.
+
+Verification and limits are recorded in the [R2 checks](archive_r2_checks.json),
+[sparse-card study](archive_corner_support.json) and per-variant native slice
+reports linked in the object README. CAD contact/clearance is evidence for the
+checked nominal geometry, not actual friction, stiffness, comfort or a global
+spill proof. The slim corners are **not rejected by the sampled rigid cases**;
+C is recommended for broader guide contact rather than a claimed failure of B.
+
+### Archive R2 A print report — 2026-10-04
+
+**A (`archive_r2_walled_15.step/.stl`) printed and accepted. B/C/D not printed.**
+The user chose A, the continuous-wall form, as the best design for this archive
+and reports that it works well. The user tested the previously discussed archive
+use concerns, including keeping a single remaining card from falling over/out;
+those tests worked as intended. A subsequent report confirms a full 15-card load;
+other exact sparse counts were not supplied.
+The archive joins successfully to the user's latest J base, clarified as **J4**,
+with the existing connector key, and works correctly with the accepted **G hood**.
+This is complete-product physical evidence for the reported use and integration,
+rather than only the earlier nominal card/contact and mating checks.
+
+Use A as the accepted archive baseline and preserve its existing interfaces.
+The earlier C-first recommendation is superseded by the user's successful A
+choice; it does not establish a failure of B/C/D. The reported success does not
+resolve J4's separately recorded individual display-card tilt.
+
+The intended artifacts are the R2 A pair delivered at modelling revision
+`38d0665`, with unchanged model geometry since that handoff; the actual printed
+file hash was not supplied. The agreed setup was floor-down PETG, .4 mm nozzle,
+.2 mm layers, two walls and 7% adaptive cubic. Actual material/profile/settings
+were not reconfirmed in this report, and the connector key's printed index was
+not reconfirmed. No measured force, open carrying/inversion or long-term
+material/wear result is claimed.
+
+**Full-load hood-lift retention confirmed, same report date.** With all **15 cards**
+in archive A and the G hood fitted, the user lifted the hood and the loaded base
+stayed attached rather than falling off. This confirms the tested complete box's
+own-weight retention in that lift. No force, mass, lift acceleration, hold duration
+or repeated/worn-condition measurement was supplied; it does not qualify lifting
+a joined row, shock loads or long-term retention.
+
+Earlier D/E design notes explicitly included loaded own-weight retention and
+physical lift tests, but those concept/beam checks did not establish a numerical
+retention margin for this fully loaded 15-card archive. This physical observation
+now supplies the missing functional evidence for the reported lift.
+
+For future comparable covered boxes, the user wants full-load hood lifting
+considered as a desirable capability when feasible, **not a mandatory condition**.
+Screen the suspended base/contents weight against holding force, keep deliberate
+opening comfortable, and avoid adding a mechanism solely for this uncommon use.
+The shared effort guidance owns the load screen; existing physics APIs suffice
+if uncertain contact/deformation warrants analysis. No new script, simulation or
+CAD revision is needed to record this successful physical result.
+
+Reflection: preserve the now physically successful simple continuous-wall pocket,
+its shared foot, existing key and G hood instead of adding a follower, per-card
+spring or another hood. Record this successful integrated baseline in reusable
+evidence; keep the user's preference for A local to this archive comparison.
+No new modelling or extra test is needed for this feedback.
+
+### SVG-first proposal workflow lesson
+
+The user's explicit preference is to discuss **SVG proposals before modelling
+several alternatives**; drawing back-and-forth is usually faster for choosing
+form. Existing guidance allowed rough CAD, but this round advanced further
+than they expected. Record this in the owning user-preference reference and
+route to it from visual exploration guidance. Targeted CAD remains useful for
+an unresolved geometry question that a sketch cannot answer; that exception
+should not cause detailed modelling of every option. The user's current
+approval authorizes finishing this round, rather than discarding accepted work.
+
+Variant builders and their applicable checks share object-owned functions,
+so dimensions, edge treatment, joins and card fixtures are not copied across
+four sources. The footprint/lean fixture is swatch-specific and already uses
+NumPy and CadQuery adequately. No new shared API or generic checker is justified.
+
+### Reflection and execution follow-up — 2026-10-04
+
+The [session review](../../../performance/reviews/2026-10-04-152419-archive-reflection-and-memory-policy.md)
+owns the measured timing/token scope and historical memory-policy experiments.
+The smaller RAM defaults and per-model declarations were an intermediate change;
+the user subsequently authorized complete removal of shared RAM reservations,
+limits and their related infrastructure. Admission now uses CPU threads and job
+slots only; the [removal review](../../../performance/reviews/2026-10-04-163751-shared-memory-controls-removed.md)
+records qualification. Inspection retains its actual SCAD dependency for guarded geometry
+reuse. No product geometry or physical-print status changed.
+
+Shared updates address concurrent telemetry merges, benchmark process ownership,
+render-path semantics, source freezing and focused reads. Rim topology diagnosis
+belongs in the existing edge-treatment reference; variant/card-specific fixtures
+remain local. The existing warm host and bounded CAD pool already provide useful
+reuse, so no additional pre-reserved pool is introduced. This reflection adds no
+product variant, physical result or change to the accepted print geometry.
+
+## Archive R1 — 15-card compact base
+
+**Historical rejected design:** R2 replaces this entrance. Original agreements,
+height calculations and later rejection are retained below; do not print R1.
+
+### R1 entrance rejection and alternatives
+
+**Latest user review, 2026-10-04: explicitly unprinted, rejected before printing.**
+The user will not print the current entrance design. Two separate objections:
+
+- The deep finger-access scoops add no useful reach because the cards already
+  project well above the tray.
+- Viewed from above, the inward junctions where the scoops meet the top rim
+  look sharp rather than smoothly curved. The user rejects these finger-contact
+  corners and explicitly wants this prevented in future designs.
+
+The existing source has 80 mm cards and 45 mm maximum walls measured from the
+same floor: **35 mm of card is already exposed without any scoop**. Scoops lower
+the centre to 27 mm. The 12 mm circular scoop and .6 mm quarter-rounded face lips
+do not by themselves establish a comfortable junction with the flared pocket
+and top rim. Those combined transitions were missed in the earlier handling
+review. This is a product-design/visual rejection, not an observed PETG failure,
+injury or measured zero-radius edge. No printer/tolerance diagnosis is warranted.
+
+Earlier checks remain narrow: nominal card entry/seating/lean, exact G seating
+and lift, I3/J4 joining at both ends, valid exports and a successful reference
+slice. They do not establish access value or tactile comfort. The earlier view
+review and print recommendation are superseded. R1 is retained as history, with
+its source/STEP/STL unchanged; no replacement print recommendation is made here.
+
+[Two rim proposals and edge detail](../renders/concepts/archive_rim_options.svg)
+([PNG preview](../renders/concepts/archive_rim_options.png)) compare:
+
+| Proposal | Nominal wall above floor / exposed card | Benefit and tradeoff |
+| --- | --- | --- |
+| A — continuous rim at the existing height; recommended | 45 mm / 35 mm | Remove both scoops, retain wall height and a simple silhouette. More containment material remains than in R1; the guide/funnel and comfortable inner/outer rim transitions still need a revised CAD review. |
+| B — uniformly lower continuous rim | 40 mm / 40 mm | More exposed card with no cutout corners, but 5 mm less support around the entire pocket. Sparse-stack tipping/contact behaviour must be reassessed; do not claim containment from the drawing. |
+
+Both proposals target the **exact G hood, I key 3, 15-card pocket and original
+footprint**, with the accepted recessed base grips retained. The sketch omits
+lower mechanisms rather than relocating them. Existing G compatibility remains
+CAD-verified only for unchanged R1; either replacement must be checked after
+its geometry changes. These are schematic alternatives, not new models or
+print-ready exports. User choice of rim height remains open.
+
+Reflection: shared guidance already required whole-object usefulness and exposed
+edge review; it was not applied adequately. Tighten the existing handling review
+to compare access with/without a cutout when the contents are already exposed,
+and the edge guidance to review the final Boolean junction in plan as well as
+the curved cut profile. No shared checker/API can establish this subjective
+benefit or comfort, and no new computation is justified by this record update.
+
+### Continuous-rim wall-height study
+
+The user requests exploration of the lowest wall that still supports even one
+remaining card during desk browsing. This phase is a calculation/source-geometry
+study, **not a new print-ready base**. Retain the 15-card pocket, floor, exact G
+hood target, I3 connector and accepted base grips; do not restore finger scoops.
+Heights below are measured from the card floor, not from the printer bed.
+
+The [study source](../study_archive_wall_height.py),
+[retained results](archive_wall_height_study.json) and
+[plot](../renders/concepts/archive_wall_height_screen.svg) screen a rigid card's
+restoring gravity moment when its bottom touches the floor and it first reaches
+a straight retaining wall. A card starting at an intermediate pocket position
+can be less stable than one spanning from the opposite end; checking only end
+positions, or finding any wall contact, would miss that relationship.
+
+For lean angle `theta`, CG height `C`, and inward CG offset `b` from the bottom
+outer supporting edge, the CG remains inward of the contact when
+`h >= C*cos(theta) - b*cos(theta)^2/sin(theta)`. This is a sufficient first-contact
+restoring criterion. It is not a dynamic escape analysis or proof that every
+height below it spills. Any retaining assistance from the sloped/rounded entrance
+is deliberately ignored rather than silently counting it as a straight wall.
+
+For a uniform 80 × 2 mm card, `C=40`, `b=1`: the maximum required straight height
+is **35.13 mm**, at roughly **17.2 degrees** of lean. Its bottom outer edge is
+10.89 mm from the wall, so that pose fits the 30.3 mm pocket; it is not a far-end
+lean assumption. The homogeneous source-card CG is 38.34 mm above the floor,
+giving 33.42–33.66 mm in the two thin-axis directions. Neither CG model is a
+measured printed mass distribution; omitted text, voids and actual paths remain
+uncertainty. Use the higher uniform result for this proposal.
+
+CAD verifies an inscribed **42 × 2 mm full-thickness flat bottom** in the actual
+notch-up swatch. Its minimum inward support offset over horizontal directions
+occurs along the thin axis, bounding yaw/diagonal directions within this
+first-contact screen. Thirty-two actual source-card contact witnesses verify
+floor support, wall contact bracketed by .02 mm inward/outward moves, feasible
+bottom placement, and projected CG lever across four guide heights, both front/
+back directions and selected angles. This is a targeted support/CG question;
+no generic CAD-size/export audit, FEA or slicer run is needed for the study.
+
+| Continuous wall | Entry reserved above straight guide | Interpretation |
+| --- | --- | --- |
+| 36 mm | No funnel; .6 mm transition allowance | About 35.4 mm counted guide: passes the uniform gravity screen narrowly, but removes the established entrance guidance. Not the proposed product. |
+| 38 mm | 2 mm funnel + .6 mm transition allowance | About 35.4 mm guide; minimum uniform restoring lever only .084 mm. Lowest rounded candidate in this entry family, too close to the screen limit for a confident print recommendation. |
+| 39 mm | 2 mm funnel + .6 mm transition allowance | 36.4 mm guide; minimum uniform lever .366 mm. Lower trial option, but less margin than 40 mm. |
+| **40 mm** | **2 mm funnel + .6 mm transition allowance** | **37.4 mm guide; minimum uniform lever .610 mm. Recommended next candidate**, exposing 40 mm of card rather than R1's 35 mm. |
+| 40 mm | Existing 4 mm funnel + .6 mm transition allowance | Only 35.4 mm counted guide and .084 mm uniform lever: keeping the old entry while lowering the wall loses most of the margin. |
+
+The .6 mm allowance is a study assumption for smoothing the guide/entry junction,
+not an accepted final radius or manufacturing error allowance. A 2 mm funnel
+would initially retain the existing 1.2 mm expansion per side; its changed ramp
+angle and final contact transitions require actual geometry review for easy
+entry in all directions. No clearances have been enlarged.
+
+CG sensitivity: placing a uniform card's CG at 42 mm raises the straight-wall
+threshold to 37.04 mm, still below the proposed 40 mm wall's 37.4 mm counted guide.
+An assumed 44 mm CG raises it to 38.95 mm and would not pass. These are bounded
+mass-distribution scenarios, not PETG calibration or established shock margins.
+Impacts, deliberately lifting a card, shaking, open-box carrying/inversion,
+neighbour drag, printed feel and friction are not qualified. A low numerical
+lever does not establish robustness when touched. Full-stack and sparse normal
+use still require a representative physical trial of the later revised base.
+
+Recommendation: develop a **40 mm continuous wall with a 2 mm entrance**, keeping
+the comfortable rim and existing product interfaces. This is lower than R1's
+45 mm wall while avoiding a near-zero restoring margin. Absolute lowest possible
+height with a reshaped entrance or additional retainers is not established, and
+no new retainers are justified by this study. The user has authorized exploration;
+no replacement base is modelled, exported or recommended for printing in this
+handoff. Exact G fit remains established only for retained R1 until the new full
+base is checked.
+
+Reflection: the reusable operation here is the familiar gravity-moment screen,
+adequately served by a short object-specific NumPy calculation plus actual CAD
+fixtures. No shared API addition is justified. The transferable lesson is to
+include feasible intermediate content positions and distinguish real retaining
+height from nominal rim height when an entrance removes straight support.
+
+### Original R1 agreement and retained evidence
+
+The user now authorizes modelling the archive version. Deliver a complete
+15-card base trial with source and matching STEP/STL, reusing the **exact existing
+G hood** and I key 3, not resized equivalents. Preserve earlier J/K/display
+variants. Agreed starting process remains PETG/.4 mm nozzle/.2 mm layers,
+two walls and 7% adaptive cubic, floor down. A different hood would require
+discussion; do not recommend printing G for R1 until its complete interface
+checks pass. Nominal cards are 50 × 80 × 2 mm in the notch-up pose.
+
+Architecture: one floor supports the whole stack; vertical guides establish
+upright full seating; taller side walls/end corners contain a sparse remainder
+during desk browsing; lower rounded scoops permit grasping selected cards.
+Retain accepted hood closure, recessed base grips and two key ports. Omit
+individual clips and an adjustable follower unless actual geometry shows they
+are needed. This avoids extra parts, pressure-induced tilt and sustained spring
+loading. Plain pocket clearance does not claim friction retention; containment
+is by the walls, with the hood covering the cards when stored.
+
+Initial screen: 30 mm nominal stack within a 30.3 mm pocket, 50 mm width within
+50.4 mm; 36 mm vertical guides plus 4 mm widened entrance give simple full-stack
+lean estimates under one degree. These are total seated allowances, not generic
+printer corrections. A 40 mm rim is about half the card height, with 27 mm scoop
+minima at the Y ends; intact X walls and Y corner support remain. A 42.4 mm base
+height and existing 64 × 44.8 mm foot fit the agreed envelope readily. Seated
+cards reach Z82.4, below G's existing roof. Preserve closure reliefs below
+Z21.7; extend only the key's upper entry through the taller wall, preserving
+its lower capturing pocket/stop. Check actual cards, support and both complete
+joining ends in CAD; then review form and run one final slice. Physical friction,
+comfort and disturbance behaviour remain print questions. No mechanical solve
+is warranted for rigid pocket fit.
+
+#### Closed hood as key keeper — user preference
+
+During archive modelling, the user reports liking the existing top-inserted key
+arrangement after actual use: the closed hood keeps the key from falling out,
+and the outside remains clean without an exposed retaining part. Their earlier
+objection to the insertion direction is superseded by this positive feedback.
+They describe the hood as pressing/holding the key; record observed captivity,
+not a measured continuous clamping force. Preserve the exact G hood and I key 3
+coverage relationship in R1 and verify both complete joining ends. This supports
+a scoped preference for using an existing cover as a joint keeper; it does not
+qualify joined carrying, key force, fatigue or all earlier K socket geometry.
+
+### Final geometry and verification
+
+R1 uses the close-fitting common pocket without a spring. Final side walls and
+end corners are 45 mm above the Z2.4 floor; the 41 mm straight guides and 4 mm
+funnel supersede the initial 40/36 mm screen. Front/back scoop minima remain
+27 mm. The lower key capturing regions and floors match J4 at both ends; the
+upper entry extends through the taller basket so it cannot roof over insertion.
+A tiny bottom-body bevel difference below Z0.2 does not change the key capture
+at Z1.5–5. The targeted comparison separates that bed bevel from the actual
+pocket/stop, rather than requiring unrelated base material to be identical.
+
+[CAD checks](archive_r1_checks.json) use the properly rotated source swatch,
+including its notch, recesses and bottom outline. They verify every nominal card
+reaches actual floor material; eight offset entrance directions, straight descent
+and individual extraction; sparse-card front/back and sideways lean at middle
+and end positions; full-stack one-degree lean meeting the guides; actual G rigid
+seating, roof clearance and lift; inherited catch stems/pads and recessed grips;
+two lower key capturing ends; complete key insertion and four flank contacts
+when joined to J4 in either orientation; and G covering the key's upward escape.
+Sparse lean brackets show the source-card centroid remains inside the pocket at
+first retaining contact. This is quasistatic geometric evidence, not a dynamic
+spill, friction, handling-force or physical validation claim. Engraving is omitted.
+The nominal allowances remain .4 mm total width / .3 mm total stack direction;
+actual use needs the complete 15-card trial, not a detached mechanism coupon.
+
+The [final native review](archive_r1_review.json) confirms valid CAD, both paired
+exports and Orca 2.4.2 completion with no notices or generated supports, using the
+reference Q2C PETG/.4/.2/two-wall/7% adaptive-cubic profiles and preserved placement.
+It covers the delivered STL, not Orca's separate GUI STEP import or actual print
+fit. [Open contents](../renders/archive_r1_open/inspect_archive_r1_isometric.png),
+[empty base](../renders/archive_r1_base/archive_r1_base_15_isometric.png) and
+[closed G](../renders/archive_r1_closed/inspect_archive_r1_closed_isometric.png)
+are visually reviewed: cards are accessible above the lower tray, support remains
+around the scoops, and the closed exterior retains the accepted hood. The two
+inspection entry points never contribute swatches to the printable base export.
+Print/status and instructions are owned by the object's README.
+
+### Support review and reflection
+
+The first taller-wall slice completed but generated support in inherited clip
+reliefs. The [retained preliminary native report](archive_r1_support_review.json)
+and [support locations](archive_r1_support_locations.json) concern that earlier
+STL hash, **not the final export**. The shared
+`physical_analysis.manufacturing.orca_linear_paths` reader located support-interface
+strokes near Z5.6–6.2 and Z21.4–21.6, within the side catch clearances. This was a
+targeted removal/access question after a positive native probe, not a printer-fit
+or generic G-code audit. No GUI display was configured; source-relative contact
+locations plus CAD relief geometry identify the problematic features.
+
+The old display reliefs were open at the top. Extending the walls had placed a
+horizontal ceiling over them, making removal in the narrow rear/side gaps a poor
+choice. R1 now has 45-degree relief ceilings and .6 mm floor chamfers, preserving
+the actual catch stems/pads and opening grips. All affected card/hood/key checks
+were repeated after this change; the final slice's probe generates no supports.
+Final FDM rationale: broad flat foot, vertical multiple-path walls, accessible
+open pocket, flared entrance and rounded scoops; only the existing catches flex.
+The minimum straight X wall behind the relief is 1.4 mm. Relief ceilings grow
+outward gradually; print base floor down. Reference support acceptance still
+cannot establish PETG bonding, force, comfort or surface quality.
+
+The shared path reader already served this location review; no new shared API is
+needed. The transferable lesson is to review the new ceiling when inherited
+open reliefs are enclosed by a taller wall. The user's separate positive feedback
+about the hood as key keeper is saved in the scoped preference reference.
 
 ## J4/K4 print report — 2026-10-04
 
@@ -575,6 +1004,9 @@ overnight dwell; use those observations to choose reach or stiffness adjustments
 Actual twenty-row loaded retention and transport remain outside this trial.
 
 ## Future ideas — translucent PETG and joined modules
+
+**Historical proposal stage:** later G/I joining and V1 trials below supersede
+this open exploration. G is retained; further hood exploration is ended.
 
 Initial user update, 2026-10-02: the latest prototype was printing; the translucent
 spools are PETG. The user requested ideas and theoretical screens only, with
@@ -1464,404 +1896,11 @@ or print-status claims changed. The current K trial conclusion is unchanged;
 independent increment/contact sensitivity, full dome insertion and physical use
 remain outside this evidence.
 
-## Archive R2 — four retaining forms
-
-The user requested maximum card exposure with either low walls, tall corner
-pillars or continuous guides. This round had already advanced into CAD when
-the user reviewed the development scope. They accept the work and authorize
-finishing all four printable variants; at that handoff no physical print was
-reported. The later A print report below supersedes the A use/fit uncertainties.
-
-[Four-form SVG comparison](../renders/concepts/archive_structure_options.svg)
-([PNG](../renders/concepts/archive_structure_options.png)) shows the alternatives.
-[Actual CAD comparison](../renders/archive_corner_proposals/inspect_archive_corner_proposals_isometric.png)
-shows A, C and D with three source swatches each, in that order. The SVG is a
-schematic; authoritative geometry is in the shared
-[builder](../archive_corner_proposals.py) and four thin printable entry points.
-Neither comparison includes printable reference cards.
-
-| R2 variant | Raised support / upper nominal opening | Intended comparison |
-| --- | --- | --- |
-| A — walled | Continuous 40 mm wall | Simplest retaining outline and most covered card area |
-| B — slim | Four L corners with 4 × 3 mm returns; 42.4 × 24.3 mm gaps | Most exposed; least guiding area and unmeasured post stiffness |
-| **C — corner; recommended first trial** | **Four L corners with 8 × 6 mm returns; 34.4 × 18.3 mm gaps** | **Balanced exposure and broader guiding surfaces** |
-| D — side guides | Two continuous side cheeks; 8 mm front/back returns and 34.4 mm front/back gap | Most continuous side guidance, less side exposure |
-
-All retain 15 nominal notch-up 50 × 80 × 2 mm cards in the same 50.4 × 30.3 mm
-pocket. The foot is the original 64 × 44.8 mm; the floor is Z2.4. Raised support
-is 40 mm above the floor with a 2 mm entrance widened 1.2 mm per side. Open
-variants retain low walls with a nominal top at Z20.4, 18 mm above the floor,
-matching the J-family body. Card exposure is 40 mm above raised guides and
-62 mm in the open centres. A .6 mm lip round and 2 mm window-root curves treat
-new openings, including their inner and outer junctions. There are no finger
-scoops, outward flaps, individual card springs or extra components.
-
-The source reuses the **exact accepted G hood and I key 3**, plus J4's upward
-recesses and lower joining capture. Taller wall material has sloped hood-relief
-ceilings; complete upward key entry stays open. The existing hood remains the
-key keeper. No resized hood or replacement key is supplied. J4/K4 and rejected
-R1 are retained, with their previously recorded status unchanged.
-
-Process: base floor down, PETG, .4 mm nozzle/.2 mm layers, two walls/7% adaptive
-cubic. Use on a horizontal desk, keep the bundle square while lowering it and
-lift selected cards vertically. Remaining cards may lean; full-stack seating
-is guided upright. Open carrying, inversion, shocks and deliberate lifting of
-an unselected card are outside the agreed task. The complete base is the useful
-trial: a detached pillar coupon would omit pocket constraints and browsing.
-Start with C rather than printing all four unnecessarily. Compare 15 cards
-and one/three/five remaining, neighbour drag, entry and removal, comfortable
-edges, guide flexibility, exact G opening and joining to J4 at both ends.
-
-The final study uses 54 thin-axis/yaw challenges at 0, ±2, ±5, ±8 and
-±10 degrees of yaw with floor-supported actual source cards. Of those, 45
-are clear of an idealized 18 mm low-wall-only baseline while their CG is
-beyond its rim. All four final bases block all 54 sampled poses. The cases
-are selected challenges, not a continuous or global escape search. The ideal
-low-only baseline does not model its rounded lip; the final-base intersections
-include the actual lip geometry. Normal front/back and sideways contact checks
-also assert actual floor contact and no floor penetration: the sideways support
-uses the chamfered flat bottom rather than inventing material at the absent
-corners. The same outline correction prevents the yaw candidate generator
-from excluding feasible diagonal poses.
-
-All four paired exports and OrcaSlicer 2.4.2 reference slices succeeded with
-the Q2C/.4 nozzle/.2 layers/PETG/two walls/7% adaptive cubic profiles,
-preserved placement, no notices and no auto-generated supports. The changed
-window lips were viewed on the final A/C/D comparison; B shares that treatment
-and passes CAD/export/slice checks. Final rigid compatibility retains the exact
-G hood, not just its style. Its known flexible catch-pad intersections are
-excluded from the rigid lift test; actual hood friction remains untested.
-
-Verification and limits are recorded in the [R2 checks](archive_r2_checks.json),
-[sparse-card study](archive_corner_support.json) and per-variant native slice
-reports linked in the object README. CAD contact/clearance is evidence for the
-checked nominal geometry, not actual friction, stiffness, comfort or a global
-spill proof. The slim corners are **not rejected by the sampled rigid cases**;
-C is recommended for broader guide contact rather than a claimed failure of B.
-
-### Archive R2 A print report — 2026-10-04
-
-**A (`archive_r2_walled_15.step/.stl`) printed and accepted. B/C/D not printed.**
-The user chose A, the continuous-wall form, as the best design for this archive
-and reports that it works well. The user tested the previously discussed archive
-use concerns, including keeping a single remaining card from falling over/out;
-those tests worked as intended. A subsequent report confirms a full 15-card load;
-other exact sparse counts were not supplied.
-The archive joins successfully to the user's latest J base, clarified as **J4**,
-with the existing connector key, and works correctly with the accepted **G hood**.
-This is complete-product physical evidence for the reported use and integration,
-rather than only the earlier nominal card/contact and mating checks.
-
-Use A as the accepted archive baseline and preserve its existing interfaces.
-The earlier C-first recommendation is superseded by the user's successful A
-choice; it does not establish a failure of B/C/D. The reported success does not
-resolve J4's separately recorded individual display-card tilt.
-
-The intended artifacts are the R2 A pair delivered at modelling revision
-`38d0665`, with unchanged model geometry since that handoff; the actual printed
-file hash was not supplied. The agreed setup was floor-down PETG, .4 mm nozzle,
-.2 mm layers, two walls and 7% adaptive cubic. Actual material/profile/settings
-were not reconfirmed in this report, and the connector key's printed index was
-not reconfirmed. No measured force, open carrying/inversion or long-term
-material/wear result is claimed.
-
-**Full-load hood-lift retention confirmed, same report date.** With all **15 cards**
-in archive A and the G hood fitted, the user lifted the hood and the loaded base
-stayed attached rather than falling off. This confirms the tested complete box's
-own-weight retention in that lift. No force, mass, lift acceleration, hold duration
-or repeated/worn-condition measurement was supplied; it does not qualify lifting
-a joined row, shock loads or long-term retention.
-
-Earlier D/E design notes explicitly included loaded own-weight retention and
-physical lift tests, but those concept/beam checks did not establish a numerical
-retention margin for this fully loaded 15-card archive. This physical observation
-now supplies the missing functional evidence for the reported lift.
-
-For future comparable covered boxes, the user wants full-load hood lifting
-considered as a desirable capability when feasible, **not a mandatory condition**.
-Screen the suspended base/contents weight against holding force, keep deliberate
-opening comfortable, and avoid adding a mechanism solely for this uncommon use.
-The shared effort guidance owns the load screen; existing physics APIs suffice
-if uncertain contact/deformation warrants analysis. No new script, simulation or
-CAD revision is needed to record this successful physical result.
-
-Reflection: preserve the now physically successful simple continuous-wall pocket,
-its shared foot, existing key and G hood instead of adding a follower, per-card
-spring or another hood. Record this successful integrated baseline in reusable
-evidence; keep the user's preference for A local to this archive comparison.
-No new modelling or extra test is needed for this feedback.
-
-### SVG-first proposal workflow lesson
-
-The user's explicit preference is to discuss **SVG proposals before modelling
-several alternatives**; drawing back-and-forth is usually faster for choosing
-form. Existing guidance allowed rough CAD, but this round advanced further
-than they expected. Record this in the owning user-preference reference and
-route to it from visual exploration guidance. Targeted CAD remains useful for
-an unresolved geometry question that a sketch cannot answer; that exception
-should not cause detailed modelling of every option. The user's current
-approval authorizes finishing this round, rather than discarding accepted work.
-
-Variant builders and their applicable checks share object-owned functions,
-so dimensions, edge treatment, joins and card fixtures are not copied across
-four sources. The footprint/lean fixture is swatch-specific and already uses
-NumPy and CadQuery adequately. No new shared API or generic checker is justified.
-
-### Reflection and execution follow-up — 2026-10-04
-
-The [session review](../../../performance/reviews/2026-10-04-152419-archive-reflection-and-memory-policy.md)
-owns the measured timing/token scope and historical memory-policy experiments.
-The smaller RAM defaults and per-model declarations were an intermediate change;
-the user subsequently authorized complete removal of shared RAM reservations,
-limits and their related infrastructure. Admission now uses CPU threads and job
-slots only; the [removal review](../../../performance/reviews/2026-10-04-163751-shared-memory-controls-removed.md)
-records qualification. Inspection retains its actual SCAD dependency for guarded geometry
-reuse. No product geometry or physical-print status changed.
-
-Shared updates address concurrent telemetry merges, benchmark process ownership,
-render-path semantics, source freezing and focused reads. Rim topology diagnosis
-belongs in the existing edge-treatment reference; variant/card-specific fixtures
-remain local. The existing warm host and bounded CAD pool already provide useful
-reuse, so no additional pre-reserved pool is introduced. This reflection adds no
-product variant, physical result or change to the accepted print geometry.
-
-## Archive R1 — 15-card compact base
-
-### R1 entrance rejection and alternatives
-
-**Latest user review, 2026-10-04: explicitly unprinted, rejected before printing.**
-The user will not print the current entrance design. Two separate objections:
-
-- The deep finger-access scoops add no useful reach because the cards already
-  project well above the tray.
-- Viewed from above, the inward junctions where the scoops meet the top rim
-  look sharp rather than smoothly curved. The user rejects these finger-contact
-  corners and explicitly wants this prevented in future designs.
-
-The existing source has 80 mm cards and 45 mm maximum walls measured from the
-same floor: **35 mm of card is already exposed without any scoop**. Scoops lower
-the centre to 27 mm. The 12 mm circular scoop and .6 mm quarter-rounded face lips
-do not by themselves establish a comfortable junction with the flared pocket
-and top rim. Those combined transitions were missed in the earlier handling
-review. This is a product-design/visual rejection, not an observed PETG failure,
-injury or measured zero-radius edge. No printer/tolerance diagnosis is warranted.
-
-Earlier checks remain narrow: nominal card entry/seating/lean, exact G seating
-and lift, I3/J4 joining at both ends, valid exports and a successful reference
-slice. They do not establish access value or tactile comfort. The earlier view
-review and print recommendation are superseded. R1 is retained as history, with
-its source/STEP/STL unchanged; no replacement print recommendation is made here.
-
-[Two rim proposals and edge detail](../renders/concepts/archive_rim_options.svg)
-([PNG preview](../renders/concepts/archive_rim_options.png)) compare:
-
-| Proposal | Nominal wall above floor / exposed card | Benefit and tradeoff |
-| --- | --- | --- |
-| A — continuous rim at the existing height; recommended | 45 mm / 35 mm | Remove both scoops, retain wall height and a simple silhouette. More containment material remains than in R1; the guide/funnel and comfortable inner/outer rim transitions still need a revised CAD review. |
-| B — uniformly lower continuous rim | 40 mm / 40 mm | More exposed card with no cutout corners, but 5 mm less support around the entire pocket. Sparse-stack tipping/contact behaviour must be reassessed; do not claim containment from the drawing. |
-
-Both proposals target the **exact G hood, I key 3, 15-card pocket and original
-footprint**, with the accepted recessed base grips retained. The sketch omits
-lower mechanisms rather than relocating them. Existing G compatibility remains
-CAD-verified only for unchanged R1; either replacement must be checked after
-its geometry changes. These are schematic alternatives, not new models or
-print-ready exports. User choice of rim height remains open.
-
-Reflection: shared guidance already required whole-object usefulness and exposed
-edge review; it was not applied adequately. Tighten the existing handling review
-to compare access with/without a cutout when the contents are already exposed,
-and the edge guidance to review the final Boolean junction in plan as well as
-the curved cut profile. No shared checker/API can establish this subjective
-benefit or comfort, and no new computation is justified by this record update.
-
-### Continuous-rim wall-height study
-
-The user requests exploration of the lowest wall that still supports even one
-remaining card during desk browsing. This phase is a calculation/source-geometry
-study, **not a new print-ready base**. Retain the 15-card pocket, floor, exact G
-hood target, I3 connector and accepted base grips; do not restore finger scoops.
-Heights below are measured from the card floor, not from the printer bed.
-
-The [study source](../study_archive_wall_height.py),
-[retained results](archive_wall_height_study.json) and
-[plot](../renders/concepts/archive_wall_height_screen.svg) screen a rigid card's
-restoring gravity moment when its bottom touches the floor and it first reaches
-a straight retaining wall. A card starting at an intermediate pocket position
-can be less stable than one spanning from the opposite end; checking only end
-positions, or finding any wall contact, would miss that relationship.
-
-For lean angle `theta`, CG height `C`, and inward CG offset `b` from the bottom
-outer supporting edge, the CG remains inward of the contact when
-`h >= C*cos(theta) - b*cos(theta)^2/sin(theta)`. This is a sufficient first-contact
-restoring criterion. It is not a dynamic escape analysis or proof that every
-height below it spills. Any retaining assistance from the sloped/rounded entrance
-is deliberately ignored rather than silently counting it as a straight wall.
-
-For a uniform 80 × 2 mm card, `C=40`, `b=1`: the maximum required straight height
-is **35.13 mm**, at roughly **17.2 degrees** of lean. Its bottom outer edge is
-10.89 mm from the wall, so that pose fits the 30.3 mm pocket; it is not a far-end
-lean assumption. The homogeneous source-card CG is 38.34 mm above the floor,
-giving 33.42–33.66 mm in the two thin-axis directions. Neither CG model is a
-measured printed mass distribution; omitted text, voids and actual paths remain
-uncertainty. Use the higher uniform result for this proposal.
-
-CAD verifies an inscribed **42 × 2 mm full-thickness flat bottom** in the actual
-notch-up swatch. Its minimum inward support offset over horizontal directions
-occurs along the thin axis, bounding yaw/diagonal directions within this
-first-contact screen. Thirty-two actual source-card contact witnesses verify
-floor support, wall contact bracketed by .02 mm inward/outward moves, feasible
-bottom placement, and projected CG lever across four guide heights, both front/
-back directions and selected angles. This is a targeted support/CG question;
-no generic CAD-size/export audit, FEA or slicer run is needed for the study.
-
-| Continuous wall | Entry reserved above straight guide | Interpretation |
-| --- | --- | --- |
-| 36 mm | No funnel; .6 mm transition allowance | About 35.4 mm counted guide: passes the uniform gravity screen narrowly, but removes the established entrance guidance. Not the proposed product. |
-| 38 mm | 2 mm funnel + .6 mm transition allowance | About 35.4 mm guide; minimum uniform restoring lever only .084 mm. Lowest rounded candidate in this entry family, too close to the screen limit for a confident print recommendation. |
-| 39 mm | 2 mm funnel + .6 mm transition allowance | 36.4 mm guide; minimum uniform lever .366 mm. Lower trial option, but less margin than 40 mm. |
-| **40 mm** | **2 mm funnel + .6 mm transition allowance** | **37.4 mm guide; minimum uniform lever .610 mm. Recommended next candidate**, exposing 40 mm of card rather than R1's 35 mm. |
-| 40 mm | Existing 4 mm funnel + .6 mm transition allowance | Only 35.4 mm counted guide and .084 mm uniform lever: keeping the old entry while lowering the wall loses most of the margin. |
-
-The .6 mm allowance is a study assumption for smoothing the guide/entry junction,
-not an accepted final radius or manufacturing error allowance. A 2 mm funnel
-would initially retain the existing 1.2 mm expansion per side; its changed ramp
-angle and final contact transitions require actual geometry review for easy
-entry in all directions. No clearances have been enlarged.
-
-CG sensitivity: placing a uniform card's CG at 42 mm raises the straight-wall
-threshold to 37.04 mm, still below the proposed 40 mm wall's 37.4 mm counted guide.
-An assumed 44 mm CG raises it to 38.95 mm and would not pass. These are bounded
-mass-distribution scenarios, not PETG calibration or established shock margins.
-Impacts, deliberately lifting a card, shaking, open-box carrying/inversion,
-neighbour drag, printed feel and friction are not qualified. A low numerical
-lever does not establish robustness when touched. Full-stack and sparse normal
-use still require a representative physical trial of the later revised base.
-
-Recommendation: develop a **40 mm continuous wall with a 2 mm entrance**, keeping
-the comfortable rim and existing product interfaces. This is lower than R1's
-45 mm wall while avoiding a near-zero restoring margin. Absolute lowest possible
-height with a reshaped entrance or additional retainers is not established, and
-no new retainers are justified by this study. The user has authorized exploration;
-no replacement base is modelled, exported or recommended for printing in this
-handoff. Exact G fit remains established only for retained R1 until the new full
-base is checked.
-
-Reflection: the reusable operation here is the familiar gravity-moment screen,
-adequately served by a short object-specific NumPy calculation plus actual CAD
-fixtures. No shared API addition is justified. The transferable lesson is to
-include feasible intermediate content positions and distinguish real retaining
-height from nominal rim height when an entrance removes straight support.
-
-### Original R1 agreement and retained evidence
-
-The user now authorizes modelling the archive version. Deliver a complete
-15-card base trial with source and matching STEP/STL, reusing the **exact existing
-G hood** and I key 3, not resized equivalents. Preserve earlier J/K/display
-variants. Agreed starting process remains PETG/.4 mm nozzle/.2 mm layers,
-two walls and 7% adaptive cubic, floor down. A different hood would require
-discussion; do not recommend printing G for R1 until its complete interface
-checks pass. Nominal cards are 50 × 80 × 2 mm in the notch-up pose.
-
-Architecture: one floor supports the whole stack; vertical guides establish
-upright full seating; taller side walls/end corners contain a sparse remainder
-during desk browsing; lower rounded scoops permit grasping selected cards.
-Retain accepted hood closure, recessed base grips and two key ports. Omit
-individual clips and an adjustable follower unless actual geometry shows they
-are needed. This avoids extra parts, pressure-induced tilt and sustained spring
-loading. Plain pocket clearance does not claim friction retention; containment
-is by the walls, with the hood covering the cards when stored.
-
-Initial screen: 30 mm nominal stack within a 30.3 mm pocket, 50 mm width within
-50.4 mm; 36 mm vertical guides plus 4 mm widened entrance give simple full-stack
-lean estimates under one degree. These are total seated allowances, not generic
-printer corrections. A 40 mm rim is about half the card height, with 27 mm scoop
-minima at the Y ends; intact X walls and Y corner support remain. A 42.4 mm base
-height and existing 64 × 44.8 mm foot fit the agreed envelope readily. Seated
-cards reach Z82.4, below G's existing roof. Preserve closure reliefs below
-Z21.7; extend only the key's upper entry through the taller wall, preserving
-its lower capturing pocket/stop. Check actual cards, support and both complete
-joining ends in CAD; then review form and run one final slice. Physical friction,
-comfort and disturbance behaviour remain print questions. No mechanical solve
-is warranted for rigid pocket fit.
-
-#### Closed hood as key keeper — user preference
-
-During archive modelling, the user reports liking the existing top-inserted key
-arrangement after actual use: the closed hood keeps the key from falling out,
-and the outside remains clean without an exposed retaining part. Their earlier
-objection to the insertion direction is superseded by this positive feedback.
-They describe the hood as pressing/holding the key; record observed captivity,
-not a measured continuous clamping force. Preserve the exact G hood and I key 3
-coverage relationship in R1 and verify both complete joining ends. This supports
-a scoped preference for using an existing cover as a joint keeper; it does not
-qualify joined carrying, key force, fatigue or all earlier K socket geometry.
-
-### Final geometry and verification
-
-R1 uses the close-fitting common pocket without a spring. Final side walls and
-end corners are 45 mm above the Z2.4 floor; the 41 mm straight guides and 4 mm
-funnel supersede the initial 40/36 mm screen. Front/back scoop minima remain
-27 mm. The lower key capturing regions and floors match J4 at both ends; the
-upper entry extends through the taller basket so it cannot roof over insertion.
-A tiny bottom-body bevel difference below Z0.2 does not change the key capture
-at Z1.5–5. The targeted comparison separates that bed bevel from the actual
-pocket/stop, rather than requiring unrelated base material to be identical.
-
-[CAD checks](archive_r1_checks.json) use the properly rotated source swatch,
-including its notch, recesses and bottom outline. They verify every nominal card
-reaches actual floor material; eight offset entrance directions, straight descent
-and individual extraction; sparse-card front/back and sideways lean at middle
-and end positions; full-stack one-degree lean meeting the guides; actual G rigid
-seating, roof clearance and lift; inherited catch stems/pads and recessed grips;
-two lower key capturing ends; complete key insertion and four flank contacts
-when joined to J4 in either orientation; and G covering the key's upward escape.
-Sparse lean brackets show the source-card centroid remains inside the pocket at
-first retaining contact. This is quasistatic geometric evidence, not a dynamic
-spill, friction, handling-force or physical validation claim. Engraving is omitted.
-The nominal allowances remain .4 mm total width / .3 mm total stack direction;
-actual use needs the complete 15-card trial, not a detached mechanism coupon.
-
-The [final native review](archive_r1_review.json) confirms valid CAD, both paired
-exports and Orca 2.4.2 completion with no notices or generated supports, using the
-reference Q2C PETG/.4/.2/two-wall/7% adaptive-cubic profiles and preserved placement.
-It covers the delivered STL, not Orca's separate GUI STEP import or actual print
-fit. [Open contents](../renders/archive_r1_open/inspect_archive_r1_isometric.png),
-[empty base](../renders/archive_r1_base/archive_r1_base_15_isometric.png) and
-[closed G](../renders/archive_r1_closed/inspect_archive_r1_closed_isometric.png)
-are visually reviewed: cards are accessible above the lower tray, support remains
-around the scoops, and the closed exterior retains the accepted hood. The two
-inspection entry points never contribute swatches to the printable base export.
-Print/status and instructions are owned by the object's README.
-
-### Support review and reflection
-
-The first taller-wall slice completed but generated support in inherited clip
-reliefs. The [retained preliminary native report](archive_r1_support_review.json)
-and [support locations](archive_r1_support_locations.json) concern that earlier
-STL hash, **not the final export**. The shared
-`physical_analysis.manufacturing.orca_linear_paths` reader located support-interface
-strokes near Z5.6–6.2 and Z21.4–21.6, within the side catch clearances. This was a
-targeted removal/access question after a positive native probe, not a printer-fit
-or generic G-code audit. No GUI display was configured; source-relative contact
-locations plus CAD relief geometry identify the problematic features.
-
-The old display reliefs were open at the top. Extending the walls had placed a
-horizontal ceiling over them, making removal in the narrow rear/side gaps a poor
-choice. R1 now has 45-degree relief ceilings and .6 mm floor chamfers, preserving
-the actual catch stems/pads and opening grips. All affected card/hood/key checks
-were repeated after this change; the final slice's probe generates no supports.
-Final FDM rationale: broad flat foot, vertical multiple-path walls, accessible
-open pocket, flared entrance and rounded scoops; only the existing catches flex.
-The minimum straight X wall behind the relief is 1.4 mm. Relief ceilings grow
-outward gradually; print base floor down. Reference support acceptance still
-cannot establish PETG bonding, force, comfort or surface quality.
-
-The shared path reader already served this location review; no new shared API is
-needed. The transferable lesson is to review the new ceiling when inherited
-open reliefs are enclosed by a taller wall. The user's separate positive feedback
-about the hood as key keeper is saved in the scoped preference reference.
-
 ## Deferred exploration after the current revisions
+
+**Historical discussion:** the compact archive proposed here was later realized
+as R1/R2, with A accepted. Read this section for requirement provenance, not an
+active request to begin another archive. J4/K4 corrections remain deferred.
 
 ### Future compact archival module — recorded 2026-10-04
 

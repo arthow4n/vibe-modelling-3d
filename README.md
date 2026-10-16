@@ -1,9 +1,216 @@
 # vibe-modelling-3d
-Experiment field for random vibe-modelled 3D objects. Mainly for 3D printing.
+
+Parametric objects and engineering experiments, mainly for single-material FDM
+printing. Each object owns its source, printable files, current decisions and
+supporting evidence. **A model being available does not mean it has been printed
+or physically validated.**
+
+## Start here
+
+- To choose an object or find its print files, use [models](#models). Each linked
+  current record explains setup, evidence, limitations and any deferred work.
+- To build/export or inspect a model, use [modelling tools](#modelling-tools) and
+  the [execution guide](execution/README.md#running-scripts).
+- To understand an engineering result, start at its object record, then follow
+  its investigation/native report links. [Reusable lessons](.codex/skills/cadquery-3d-design/references/reusable-model-lessons.md)
+  index transferable findings with limits.
+- For agent task routing and repository ownership, read [AGENTS.md](AGENTS.md).
+  [Documentation writing](.codex/skills/documentation-writing/SKILL.md) explains
+  how current state, detailed investigations and reproducible evidence fit together.
+
+## Models
+
+The grouped entries below distinguish successful prints, unreported prototypes
+and research. Each retains separate sample/final status, attribution and any
+selected effort record. **Unknown** means no user print report; **N/A** means the
+category does not apply to that phase. Neither means a failed print. Detailed
+[status conventions](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record)
+remain with the engineering workflow.
+
+### Reported working objects and accepted baselines
+
+#### Book reading plate
+
+[Final PETG plate and head-up screws](model/book_reading_plate/README.md)
+
+- Test pieces: Yes — prior L sample worked; head/socket issue revised; no new coupon
+- Final object: Yes — user reports the complete plate printed with a really nice result
+- Provenance: [Record](model/book_reading_plate/README.md#attribution) · Agent effort: [Selected token/timing record](model/book_reading_plate/notes/agent_effort.md)
+
+#### MacBook charger holder
+
+[Instructions](model/macbook_charger_holder/notes/README.md)
+
+- Test pieces: No — optional coupon not used
+- Final object: Yes — user reports good print
+- Provenance: [Record](model/macbook_charger_holder/notes/provenance.md) · Agent effort: [Selected token/timing record](model/macbook_charger_holder/notes/agent_effort.md)
+
+#### Sunglasses case
+
+[Accepted E production design](model/sunglasses_case/notes/printing_and_design.md)
+
+- Test pieces: Yes — D/E accepted
+- Final object: Yes — user reports it works really well
+- Provenance: [Record](model/sunglasses_case/notes/provenance.md) · Agent effort: [Selected token/timing record](model/sunglasses_case/notes/agent_effort.md)
+
+#### Vaseline container
+
+[Screw-top jar](model/vaseline_container/README.md)
+
+- Test pieces: N/A — full pair is the trial
+- Final object: Yes — user reports good print
+- Provenance: [Record](model/vaseline_container/README.md#attribution) · Agent effort: [Selected token/timing record](model/vaseline_container/notes/agent_effort.md)
+
+#### Vaseline transfer spatula
+
+[Flat scrape-and-fill tool](model/vaseline_transfer_spatula/README.md)
+
+- Test pieces: N/A — complete tool is the trial
+- Final object: Yes — user reports the existing print works well, does its job and has the right handle size; storage bulk motivates a compact revision
+- Provenance: [Record](model/vaseline_transfer_spatula/README.md#attribution) · Agent effort: [Selected token/timing record](model/vaseline_transfer_spatula/notes/agent_effort.md)
+
+#### Filament archive swatch
+
+[SCAD instructions](model/filament_archive_swatch/README.md)
+
+- Test pieces: N/A — full swatch is the trial
+- Final object: Yes — user reports previous print works as intended
+- Provenance: [Record](model/filament_archive_swatch/README.md#attribution) · Agent effort: [Selected token/timing record](model/filament_archive_swatch/notes/agent_effort.md)
+
+#### Swatch display / archive box
+
+[Current designs, deliverables and decisions](model/filament_swatch_box_study/README.md).
+**Archive R2 A is printed and accepted**, with J4 joining, G hood fit and full
+15-card retention on hood lift. B/C/D were not printed; R1 was rejected before
+printing. Archive trials use complete boxes, so separate samples are N/A.
+
+**Display is partial:** J4/K4 were printed; J4 is preferred but cards still tilt.
+K4 lacks a working key stop at one end. G hood and I3 remain selected; V1 shell
+was rejected. J4 alignment and K4 joining fixes are deferred by the user.
+
+**TPU damping is discontinued (2026-10-06).** Q1F was printed: joining works,
+but contrasting coverage, upper fit and sliding noise are unsatisfactory. Unchanged
+G geometry printed fully in TPU was somewhat quieter but still unacceptable;
+the movable/distorted upper shell remains usable. Layer-line causation is the
+user's hypothesis; printed files/settings are unknown. Q1 has no print report;
+follow-up SVGs are superseded history. Complete damping trials have no separate
+coupon (N/A).
+
+[Provenance](model/filament_swatch_box_study/README.md#attribution) ·
+[Named assembly investigation](model/filament_swatch_box_study/notes/development_record.md#named-assembly-engineering-2026-10-06) ·
+[Selected effort record](model/filament_swatch_box_study/notes/agent_effort.md)
+
+### Partial results and stopped development
+
+#### Postcard displays
+
+[Seven postcard displays: original through Orbit, Bolt and Pebble](model/postcard_display/README.md)
+
+- Test pieces: N/A — full holder is the trial
+- Final object: Partial — Wave printed and works well; six other variants unreported
+- Provenance: [Record](model/postcard_display/README.md#attribution) · Agent effort: [Selected token/timing record](model/postcard_display/notes/agent_effort.md)
+
+#### Decorative faceted tray
+
+[Eight texture samples and retained tray exports](model/faceted_storage_tray/README.md)
+
+- Test pieces: Unknown — eight coupons, no user report
+- Final object: Partial — variant H printed; user reports it works well; other variants unreported
+- Provenance: [Record](model/faceted_storage_tray/README.md#attribution) · Agent effort: [Selected token/timing record](model/faceted_storage_tray/notes/agent_effort.md)
+
+#### Dental travel containers — slim M1; development stopped
+
+[Full-box feedback and retained files](model/dental_travel_case/notes/m1.md)
+
+- Test pieces: Yes — small samples seemed to hold; exact revisions unknown
+- Final object: Yes — usable, brush/tube fit with effort plus floss; joint too short/unstable, pulls apart without release. No further revision requested
+- Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
+
+### Samples and application research
+
+#### TPU damping box research
+
+[Preferred printed S16 profile](model/tpu_damping_box/README.md)
+
+- Test pieces: Yes — S16/S12 both work; S16 preferred over S12/I22, good compared with I30/original I. Exact settings unknown; I10 rejected
+- Final object: N/A — samples; S16 approved starting profile for rigid-shell/TPU damping; application fit/quietness require review
+- Provenance: [Record](model/tpu_damping_box/README.md#attribution) · Agent effort: N/A — no performance study requested
+
+#### One-sided dental latch research
+
+[A: original upright catch; B: flat lower-travel PLA concept](model/dental_latch_study/README.md)
+
+- Test pieces: No — new A/B samples; CAD/path checks and diagnostic slices complete; A support reviewed; PLA behavior untested
+- Final object: N/A — samples only; dental case unchanged
+- Provenance: [Record](model/dental_latch_study/README.md#attribution) · Agent effort: N/A — no performance study requested
+
+#### Sunglasses-case S16 liner
+
+[Two-cup retrofit and setup](model/sunglasses_case_liner/README.md)
+
+- Test pieces: Yes — ironing sample: 50% flow preferred (“perfect”); 10%/30% leave surface line gaps, 100% raises/bumps the top. Exact print/settings unknown; S16 damping samples approved separately
+- Final object: No — revised after user held off for solid corners: all four bends now have curved air cores/ribs; CAD fit/motion/corner checks and TPU paths pass; primary supports off, floor support probe reviewed; actual fit, adhesion and quietness untested
+- Provenance: [Record](model/sunglasses_case_liner/README.md#attribution) · Agent effort: N/A — no performance study requested
+
+### Unreported prototypes and calibration objects
+
+#### Physical-analysis phone stand
+
+[V3: compact fully printed pedestal, concealed three-angle lock](model/analysis_phone_stand/README.md)
+
+- Test pieces: N/A — complete prototype; miniatures are exploratory
+- Final object: Unknown — V3 is an unprinted 105 × 140 mm, four-core-part prototype. CAD, conditional mechanics and reference slice checked; fit, ring/cable use, tapping, desk grip and PETG recovery remain physical unknowns. Current MyoArm sampled access depends on assumed shoulder placement and incomplete collision coverage; integrated operation is UNKNOWN. V1/V2 rejected before printing.
+- Provenance: [Record](model/analysis_phone_stand/README.md#attribution) · Agent effort: [Selected token/timing record](model/analysis_phone_stand/notes/agent_effort.md)
+
+#### Rounded storage tray
+
+[220 mm interior tray](model/storage_tray/README.md)
+
+- Test pieces: N/A — full tray is the trial
+- Final object: Unknown — no user report
+- Provenance: [Record](model/storage_tray/README.md#attribution) · Agent effort: [Selected token/timing record](model/storage_tray/notes/agent_effort.md)
+
+#### CornerFlowTest
+
+[Orca vase-mode calibration](model/corner_flow_test/README.md)
+
+- Test pieces: N/A — full object is the trial
+- Final object: Unknown — no user report
+- Provenance: [Record](model/corner_flow_test/README.md#attribution) · Agent effort: [Selected token/timing record](model/corner_flow_test/notes/agent_effort.md)
+
+#### Glove drying insert
+
+[Five-finger design](model/glove_drying_insert/README.md)
+
+- Test pieces: Unknown — no user report
+- Final object: Unknown — no user report
+- Provenance: [Record](model/glove_drying_insert/README.md#attribution) · Agent effort: [Selected token/timing record](model/glove_drying_insert/notes/agent_effort.md)
+
+### How to interpret the records
+
+Agent-effort links give selected historical token categories and qualified timing
+samples, with shared/import/follow-up scopes kept explicit. They supplement creator
+provenance; coverage is partial and token counts do not establish product quality.
+For a new design, the design skill's
+[reusable model evidence](.codex/skills/cadquery-3d-design/references/reusable-model-lessons.md)
+points to tested interfaces and their transfer limits.
+
+The three former swatch-storage concepts were removed after authoritative user
+feedback: the sliding box was physically printed and rejected as an incoherent
+product; the lift-off and upright concepts were also rejected visually and
+functionally. This was a product-architecture failure, not an established tolerance
+or print-process defect. Git history (through `d37763c`) preserves the designs.
+The successful archive swatch remains supported. A minimal
+[local numerical contact fixture](physical_analysis/experiments/ipc/fixtures/rounded_snap/README.md)
+preserves useful solver regressions without serving as a product precedent.
+The [architecture gate](.codex/skills/cadquery-3d-design/references/design-decisions.md#product-architecture-gate)
+now precedes mechanism refinement.
 
 ## Modelling tools
 
-The repository is a uv Python project. Run `uv sync --locked` once, then use the
+The repository is a uv Python project. Current runtime requirements are in
+[pyproject.toml](pyproject.toml) and [uv.lock](uv.lock); older version lists in
+model and performance records identify historical runs. Run `uv sync --locked` once, then use the
 shared [CadQuery evaluation command](evaluate_model.py) to build, inspect,
 render and export matching STEP/STL files with `--export`; `--slice` also runs a
 reference OrcaSlicer smoke review on the STL. Invoke it directly as
@@ -42,52 +249,6 @@ Optional [articulated human-interaction guidance](.codex/skills/articulated-huma
 starts product-local with [V3 rear-button reach and sampled access](model/analysis_phone_stand/README.md#articulated-release-access).
 MuJoCo/SciPy kinematic evidence keeps assumed human geometry, endpoint/path outcomes
 and physical UNKNOWN distinct; it adds no ergonomic score or print qualification.
-
-## Models
-
-| Object | Current use and print instructions | Model provenance | Test piece(s) printed | Final object printed | Agent effort |
-| --- | --- | --- | --- | --- | --- |
-| TPU damping box research | [Preferred printed S16 profile](model/tpu_damping_box/README.md) | [Record](model/tpu_damping_box/README.md#attribution) | Yes — S16/S12 both work; S16 preferred over S12/I22, good compared with I30/original I. Exact settings unknown; I10 rejected | N/A — samples; S16 approved starting profile for rigid-shell/TPU damping; application fit/quietness require review | N/A — no performance study requested |
-| Physical-analysis phone stand | [V3: compact fully printed pedestal, concealed three-angle lock](model/analysis_phone_stand/README.md) | [Record](model/analysis_phone_stand/README.md#attribution) | N/A — complete prototype; miniatures are exploratory | Unknown — V3 CAD, conditional mechanics and reference slice checked; fit, ring/cable use, tapping, grip and PETG recovery unprinted. Articulated release screen: endpoint witnesses; sampled access depends on assumed human scale. 105 × 140 mm base; four solid core parts. V1/V2 rejected before printing | [Selected token/timing record](model/analysis_phone_stand/notes/agent_effort.md) |
-| Postcard displays | [Seven postcard displays: original through Orbit, Bolt and Pebble](model/postcard_display/README.md) | [Record](model/postcard_display/README.md#attribution) | N/A — full holder is the trial | Partial — Wave printed and works well; six other variants unreported | [Selected token/timing record](model/postcard_display/notes/agent_effort.md) |
-| Book reading plate | [Final PETG plate and head-up screws](model/book_reading_plate/README.md) | [Record](model/book_reading_plate/README.md#attribution) | Yes — prior L sample worked; head/socket issue revised; no new coupon | Yes — user reports the complete plate printed with a really nice result | [Selected token/timing record](model/book_reading_plate/notes/agent_effort.md) |
-| Decorative faceted tray | [Eight texture samples and retained tray exports](model/faceted_storage_tray/README.md) | [Record](model/faceted_storage_tray/README.md#attribution) | Unknown — eight coupons, no user report | Partial — variant H printed; user reports it works well; other variants unreported | [Selected token/timing record](model/faceted_storage_tray/notes/agent_effort.md) |
-| Rounded storage tray | [220 mm interior tray](model/storage_tray/README.md) | [Record](model/storage_tray/README.md#attribution) | N/A — full tray is the trial | Unknown — no user report | [Selected token/timing record](model/storage_tray/notes/agent_effort.md) |
-| CornerFlowTest | [Orca vase-mode calibration](model/corner_flow_test/README.md) | [Record](model/corner_flow_test/README.md#attribution) | N/A — full object is the trial | Unknown — no user report | [Selected token/timing record](model/corner_flow_test/notes/agent_effort.md) |
-| Dental travel containers — slim M1; development stopped | [Full-box feedback and retained files](model/dental_travel_case/notes/m1.md) | [Record](model/dental_travel_case/notes/provenance.md) | Yes — small samples seemed to hold; exact revisions unknown | Yes — usable, brush/tube fit with effort plus floss; joint too short/unstable, pulls apart without release. No further revision requested | [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md) |
-| One-sided dental latch research | [A: original upright catch; B: flat lower-travel PLA concept](model/dental_latch_study/README.md) | [Record](model/dental_latch_study/README.md#attribution) | No — new A/B samples; CAD/path checks and diagnostic slices complete; A support reviewed; PLA behavior untested | N/A — samples only; dental case unchanged | N/A — no performance study requested |
-| MacBook charger holder | [Instructions](model/macbook_charger_holder/notes/README.md) | [Record](model/macbook_charger_holder/notes/provenance.md) | No — optional coupon not used | Yes — user reports good print | [Selected token/timing record](model/macbook_charger_holder/notes/agent_effort.md) |
-| Sunglasses-case S16 liner | [Two-cup retrofit and setup](model/sunglasses_case_liner/README.md) | [Record](model/sunglasses_case_liner/README.md#attribution) | Yes — ironing sample: 50% flow preferred (“perfect”); 10%/30% leave surface line gaps, 100% raises/bumps the top. Exact print/settings unknown; S16 damping samples approved separately | No — revised after user held off for solid corners: all four bends now have curved air cores/ribs; CAD fit/motion/corner checks and TPU paths pass; primary supports off, floor support probe reviewed; actual fit, adhesion and quietness untested | N/A — no performance study requested |
-| Sunglasses case | [Accepted E production design](model/sunglasses_case/notes/printing_and_design.md) | [Record](model/sunglasses_case/notes/provenance.md) | Yes — D/E accepted | Yes — user reports it works really well | [Selected token/timing record](model/sunglasses_case/notes/agent_effort.md) |
-| Glove drying insert | [Five-finger design](model/glove_drying_insert/README.md) | [Record](model/glove_drying_insert/README.md#attribution) | Unknown — no user report | Unknown — no user report | [Selected token/timing record](model/glove_drying_insert/notes/agent_effort.md) |
-| Vaseline container | [Screw-top jar](model/vaseline_container/README.md) | [Record](model/vaseline_container/README.md#attribution) | N/A — full pair is the trial | Yes — user reports good print | [Selected token/timing record](model/vaseline_container/notes/agent_effort.md) |
-| Vaseline transfer spatula | [Flat scrape-and-fill tool](model/vaseline_transfer_spatula/README.md) | [Record](model/vaseline_transfer_spatula/README.md#attribution) | N/A — complete tool is the trial | Yes — user reports the existing print works well, does its job and has the right handle size; storage bulk motivates a compact revision | [Selected token/timing record](model/vaseline_transfer_spatula/notes/agent_effort.md) |
-| Filament archive swatch | [SCAD instructions](model/filament_archive_swatch/README.md) | [Record](model/filament_archive_swatch/README.md#attribution) | N/A — full swatch is the trial | Yes — user reports previous print works as intended | [Selected token/timing record](model/filament_archive_swatch/notes/agent_effort.md) |
-| Swatch display / archive box | [Accepted A/G baseline; TPU damping discontinued with retained lessons](model/filament_swatch_box_study/README.md) | [Record](model/filament_swatch_box_study/README.md#attribution) | Archive and Q1F: N/A — complete box is the trial. R1 rejected before printing. Display J4/K4 printed; J4 preferred, K4 missing key stop at one end. G hood and I3 key retained; V1 shell rejected | TPU damping discontinued by user, 2026-10-06. Q1F printed: joining works, contrasting coverage/upper fit/sliding noise unsatisfactory. Unchanged G hood printed fully in TPU: TPU-on-TPU rubbing somewhat quieter but unacceptable; upper shell locally distorted/movable, still usable. Layer-line cause is user hypothesis; files/settings unknown. Q1 has no print report; follow-up SVGs are superseded history. Archive R2 A: Yes — accepted storage, J4 joining/G hood fit, full 15-card load retained on hood lift; rigid-contact sound unresolved. B/C/D: No — only A printed. J4 tilt and K4 two-ended joining fixes remain deferred | [Named assembly engineering](model/filament_swatch_box_study/README.md#named-assembly-engineering-2026-10-06) · [Selected token/timing record](model/filament_swatch_box_study/notes/agent_effort.md) |
-
-These links identify current instructions; retained experiments are historical
-unless the current instructions recommend them. The two print-status columns use
-the [standard per-object status block](.codex/skills/cadquery-3d-design/references/physical-experiments.md#standard-per-object-print-status-record):
-**Unknown** means no user print report is recorded, while **N/A** means no
-printable item exists in that category for the current phase. Detailed results
-and remaining physical checks are documented with each object.
-Agent-effort links give selected historical token categories and qualified timing
-samples, with shared/import/follow-up scopes kept explicit. They supplement creator
-provenance; coverage is partial and token counts do not establish product quality.
-For a new design, the design skill's
-[reusable model evidence](.codex/skills/cadquery-3d-design/references/reusable-model-lessons.md)
-points to tested interfaces and their transfer limits.
-
-The three former swatch-storage concepts were removed after authoritative user
-feedback: the sliding box was physically printed and rejected as an incoherent
-product; the lift-off and upright concepts were also rejected visually and
-functionally. This was a product-architecture failure, not an established tolerance
-or print-process defect. Git history (through `d37763c`) preserves the designs.
-The successful archive swatch remains supported. A minimal
-[local numerical contact fixture](physical_analysis/experiments/ipc/fixtures/rounded_snap/README.md)
-preserves useful solver regressions without serving as a product precedent.
-The [architecture gate](.codex/skills/cadquery-3d-design/references/design-decisions.md#product-architecture-gate)
-now precedes mechanism refinement.
 
 ## Licensing
 

@@ -6,6 +6,25 @@ S12 and I22, and good even compared with I30 and the original 4 mm I. The user
 selects S16 for reuse in rigid-shell/TPU damping, starting with the already
 printed sunglasses case.
 
+## Current result and reading routes
+
+This is a comparative liner fixture, not a finished storage product. **No S16
+reprint is needed**: both S16/S12 work and S16 is the approved starting profile.
+The next application is the separate [sunglasses-case liner](../sunglasses_case_liner/README.md),
+whose fit and quietness are not established by these samples.
+
+- For the current geometry/files/setup, read [closed-skin follow-up](#closed-skin-follow-up)
+  and [setup](#setup-and-assembly).
+- For what the preference actually establishes, read the [S16/S12 report](#s16--s12-print-feedback--2026-10-16).
+- For why open-backed I10 was retired, read the [I22/I30/I10 feedback](#i22--i30--i10-print-feedback--latest-report).
+- For earlier comparisons and manufacturing evidence, read [retained baseline](#retained-baseline-why-these-four),
+  [path review](#printing-and-manufacturing-review) and [physical status](#verification-and-physical-status).
+
+Older batch/test instructions below describe those experiments; they do not
+replace the current closed-skin choice. Quietness preferences are subjective
+reported observations; exact settings, acoustic mechanism and durability remain
+unknown. Detailed negative results remain useful for judging future transfers.
+
 ## S16 / S12 print feedback — 2026-10-16
 
 Associated designs: `skin_design.py`, `liners_closed.step/.stl` at the pre-report
