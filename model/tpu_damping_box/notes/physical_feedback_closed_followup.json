@@ -1,0 +1,22 @@
+{
+  "associated_source_revision": "3758cb6",
+  "source_sha256": {
+    "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+    "thin_design.py": "476c069f61b6592b640ab56f5e74dcfa9e9b9a5adbb662f75b5bf92f8c8379c5"
+  },
+  "association": "User identified I22/I30/I10, exact printed artifact hashes unknown.",
+  "shell_material": "PLA understood from continuing setup, not reconfirmed",
+  "liner_material": "TPU, hardness/brand unknown",
+  "actual_printer_settings_orientation_nut": "unknown",
+  "observations": {
+    "I22": "Good enough; little perceived difference from I30. Internal lines very close/almost joining.",
+    "I30": "Little perceived difference from I22.",
+    "I10": "Shell-side regions broken in print; some damping, I22 better. User suspects absent outer skin."
+  },
+  "accepted_noise_reference": "I22",
+  "rejected_for_use": [
+    "I10"
+  ],
+  "new_directive": "Retain continuous inner and outer skins; develop one or two significantly thinner variants with separation and stable printing; slicer changes allowed.",
+  "reference": "README.md#i22--i30--i10-print-feedback--latest-report"
+}

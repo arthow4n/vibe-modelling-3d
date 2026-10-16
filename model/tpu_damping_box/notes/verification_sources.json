@@ -1,5 +1,5 @@
 {
-  "scope": "Original 2026-10-15 intent preserved; 2026-10-16 approves I in PLA shell and requests thinner I derivatives. Physical feedback retained separately. Later preprint I24/I20 rejection and robust replacements are recorded in README; local-feature thickness must not be conflated with total liner thickness. Latest user directive replaces unprinted I26 with an extreme sample beyond I22; I10 dimensions/topology are agent decisions, not user acceptance thresholds.",
+  "scope": "Original 2026-10-15 intent preserved; 2026-10-16 approves I in PLA shell and requests thinner I derivatives. Physical feedback retained separately. Later preprint I24/I20 rejection and robust replacements are recorded in README; local-feature thickness must not be conflated with total liner thickness. Latest user directive replaces unprinted I26 with an extreme sample beyond I22; I10 dimensions/topology are agent decisions, not user acceptance thresholds. Latest print feedback accepts I22 quietness, rejects broken I10, and explicitly requires both skins in thinner follow-ups.",
   "source_sha256": {},
   "user_requirements": [
     {
@@ -53,6 +53,15 @@
       "source": {
         "reference": "README.md#user-intent",
         "statement": "User follow-up: maximize quietness while keeping it thin; provide a STEP set focused on more confident candidates and retain control A."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "study.two_skins",
+      "text": "Thinner follow-up liners retain both continuous inner and outer TPU skins for stable printing.",
+      "source": {
+        "reference": "README.md#i22--i30--i10-print-feedback--latest-report",
+        "statement": "User reports I10 shell-side print damage, says both walls are needed, and requests one or two significantly thinner stable variants; slicer changes are allowed."
       },
       "acceptance_criteria": []
     }

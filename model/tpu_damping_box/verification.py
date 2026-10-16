@@ -19,6 +19,8 @@ REQUIREMENTS = (
       S(SOURCE,'User requests research on effective damping structures and plans to report which liner performs best.')),
     U('study.quiet_priority','Prioritize maximum quietness in a thin liner and recommend a focused print batch with a solid control and the most promising candidates.',
       S(SOURCE,'User follow-up: maximize quietness while keeping it thin; provide a STEP set focused on more confident candidates and retain control A.')),
+    U('study.two_skins','Thinner follow-up liners retain both continuous inner and outer TPU skins for stable printing.',
+      S('README.md#i22--i30--i10-print-feedback--latest-report','User reports I10 shell-side print damage, says both walls are needed, and requests one or two significantly thinner stable variants; slicer changes are allowed.')),
 )
 QUESTIONS = (
     Q('fit','study.enclosure','Cup and pad fit the actual shell and each other; one 12 mm proxy can travel 14 mm on each axis inside the 26 mm clear cavity.', 'CAD'),
@@ -80,7 +82,7 @@ def thin_plan(variant):
     import thin_design as d
     d.variant_named(variant)
     protect_recorded_intent(ROOT,REQUIREMENTS)
-    scope={'revision':'thin-I-r6-open-rib-limit','variant':variant,'shell':'PLA-reused','liner':'TPU95A-assumed-unprinted'}
+    scope={'revision':'thin-I-r6-open-rib-limit','variant':variant,'shell':'PLA-understood','liner':'TPU-hardness-unknown'}
     @cache
     def parts():
         return c.candidate(variant)
@@ -95,6 +97,10 @@ def thin_plan(variant):
         Q('thin-selection','study.quiet_priority','One batch contains exactly three I-derived pairs at 3.0, 2.2 and 1.0 mm, 25/45/75 percent thinner than approved I.','CAD'),
         Q('quiet-winner','study.quiet_priority','User compares against approved 4 mm I and finds an acceptable thickness/quietness tradeoff.','physical'),
         Q('noise','study.research','Same-shell/nut comparison includes shake intensity and axis; larger cavity is acknowledged.','physical'),
+        Q('integrity','study.coverage','Printed liner remains intact, including shell-side features.','physical'),
+        Q('reported-comparison','study.research','User reports relative quietness of I22/I30/I10.','physical'),
+        Q('printed-channel-separation','study.variants','Printed core channels remain separated and open.','physical'),
+        Q('architecture','study.two_skins','Declared CAD architecture retains a continuous outer backing and inner skin.','CAD'),
     )
     groups=(
         ('fit',(('study.enclosure','fit'),),lambda:c.fit(variant,parts())),
@@ -104,13 +110,76 @@ def thin_plan(variant):
         ('thin-selection',(('study.quiet_priority','thin-selection'),),c.selection),
     )
     checks=tuple(assertion_check(id,targets,run,'thin_checks.py / thin_design.py',scope) for id,targets,run in groups)
-    return Plan(variant,REQUIREMENTS,scope,checks,(),questions=questions,
+    v=d.variant_named(variant)
+    checks+=(Check('two-skin-architecture',(('study.two_skins','architecture'),),lambda:(Evidence(
+        'two-skin-architecture',(('study.two_skins','architecture'),),
+        Status.PASS if v.backing>d.LABEL_DEPTH and v.skin>0 else Status.FAIL,
+        'Source-reviewed closed backing and skin.' if v.backing>0 else 'Open-backed I10 lacks the now-required outer skin.',
+        'thin_design.py',scope),)),)
+    return Plan(variant,REQUIREMENTS,scope,checks,followup_feedback(variant,scope),questions=questions,
         decisions=(DesignDecision('thickness-ladder','Reuse outer 34 mm cup and existing shell; expand cavity instead of adding rigid fillers. I22 retains 0.9 mm chevrons; I10 uses a 0.6 mm contact skin over 0.4 mm open gap with 1.2 mm support ribs, bed frames and local label panels.','README.md#thinner-i-experiment'),),
         hypotheses=(Hypothesis('thin-quietness','Reduced core stroke may cause bottoming; shorter webs can stiffen despite thinner sections. Original I approval does not transfer.','README.md#thinner-i-experiment'),),
         directives=(Directive('approved-I-thinning','Preserve approved I; deliver three much thinner derivatives for printing.',S('README.md#user-print-feedback--2026-10-16','User reports I much more damping, explicitly approves it, and requests two or three much thinner I variants.')),))
 
 
+def followup_feedback(variant,scope):
+    import json
+    from execution.identity import digest
+    r=json.loads((ROOT/'notes/physical_feedback_closed_followup.json').read_text())
+    if variant not in r['observations'] or not all(digest(ROOT/n)==r['source_sha256'][n] for n in ('design.py','thin_design.py')):
+        return ()
+    evidence=[Evidence('reported-comparison',(('study.research','reported-comparison'),),Status.PASS,
+        r['observations'][variant]+' Exact print settings/artifacts unknown.',r['reference'],scope)]
+    if variant=='I22':
+        evidence.extend((Evidence('acceptable-quietness',(('study.quiet_priority','quiet-winner'),),Status.PASS,
+            'User says I22 is good enough, little perceived difference from I30.',r['reference'],scope),
+            Evidence('uncertain-separation',(('study.variants','printed-channel-separation'),),Status.INCONCLUSIVE,
+            'Internal lines look almost joined; feature location, actual gap and process cause unresolved.',r['reference'],scope)))
+    if variant=='I10':
+        evidence.append(Evidence('broken-shell-side',(('study.coverage','integrity'),),Status.FAIL,
+            'User reports broken shell-side regions; I10 is rejected for use. Absent outer skin is a suspected cause.',r['reference'],scope))
+    return tuple(evidence)
+
+
+def closed_plan(variant):
+    import skin_checks as c
+    import skin_design as d
+    d.variant_named(variant)
+    protect_recorded_intent(ROOT,REQUIREMENTS)
+    scope={'revision':'closed-skin-r7','variant':variant,'shell':'PLA-existing','liner':'TPU95A-assumed-unprinted','process':'0.10mm-Arachne-thin-bridges'}
+    @cache
+    def parts():
+        return c.candidate(variant)
+    questions=(
+        Q('fit','study.enclosure','Cup/pad and moving 12 mm proxy clear the shell/cavity; insertion paths clear.','CAD'),
+        Q('handling','study.enclosure','Printed pair swaps, clamps and remains stable during shaking.','physical'),
+        Q('both-skins','study.coverage','Both continuous skins remain on floor, roof and four walls; inner skins 0.4 mm, backing 0.4 mm except 0.3 mm below exterior labels.','CAD'),
+        Q('dual-skin-coverage','study.two_skins','Full backing and contact-skin material witnesses cover floor, roof and four walls.','CAD'),
+        Q('flat-faces','study.flat','The expanded cubic cavity has six planar contact skins and no protrusions.','CAD'),
+        Q('channels','study.variants','3.3 mm-wide full-depth channel witnesses remain between substantial straight supports on all six faces.','CAD'),
+        Q('labels','study.variants','Matching large S16/S12 recessed labels retain backing.','CAD'),
+        Q('printed-integrity','study.coverage','Both skins and core channels print intact, without broken outer regions or fused gaps.','physical'),
+        Q('selection','study.quiet_priority','Exactly two closed-skin pairs at 1.6 and 1.2 mm retain 0.9 mm supports and nominal 3.5 mm channels.','CAD'),
+        Q('quietness','study.quiet_priority','User finds acceptable quietness versus printed I22.','physical'),
+        Q('comparison','study.research','User compares the same nut/shell, direction and strength; larger cavity is acknowledged.','physical'),
+    )
+    groups=(
+        ('fit',(('study.enclosure','fit'),),lambda:c.fit(variant,parts())),
+        ('skins',(('study.coverage','both-skins'),('study.flat','flat-faces'),('study.two_skins','dual-skin-coverage')),lambda:c.skins(variant,parts())),
+        ('channels',(('study.variants','channels'),),lambda:c.cores(variant,parts())),
+        ('labels',(('study.variants','labels'),),lambda:c.labels(variant,parts())),
+        ('selection',(('study.quiet_priority','selection'),),c.selection),
+    )
+    checks=tuple(assertion_check(id,targets,run,'skin_checks.py / skin_design.py',scope) for id,targets,run in groups)
+    return Plan(variant,REQUIREMENTS,scope,checks,(),questions=questions,
+        decisions=(DesignDecision('closed-sparse-supports','Two continuous 0.4 mm skins, 0.9 mm straight ribs at 4.4 mm pitch; 0.1 mm layers and thin internal bridges.','README.md#closed-skin-follow-up'),),
+        hypotheses=(Hypothesis('thinner-quietness','Wider membrane spans and fewer supports may cushion impacts, but small stroke, bottoming and printed fusion can defeat it.','README.md#closed-skin-follow-up'),),
+        directives=(Directive('both-walls','Retain both walls and challenge I22 with one or two significantly thinner candidates.',S('README.md#i22--i30--i10-print-feedback--latest-report','User reports I22 good enough, I10 broken near shell, and requests thinner stable designs with both walls; slicer changes are allowed.')),))
+
+
 def make_plan(variant):
+    if variant in ('S16','S12'):
+        return closed_plan(variant)
     if variant in ('I30','I22','I10'):
         return thin_plan(variant)
     if variant not in tuple("ABCDEFGHI"):
@@ -137,4 +206,4 @@ def make_plan(variant):
 
 
 if __name__=='__main__':
-    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10')))
+    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10','S16','S12')))

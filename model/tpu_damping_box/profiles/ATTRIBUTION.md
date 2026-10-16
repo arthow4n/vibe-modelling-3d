@@ -1,6 +1,6 @@
 # Diagnostic Orca profile attribution
 
-These two JSON snapshots derive from OrcaSlicer 2.4.2's bundled Qidi profiles,
+These JSON snapshots derive from OrcaSlicer 2.4.2's bundled Qidi profiles,
 licensed under [AGPL-3.0](LICENSE.txt), preserved here. Upstream:
 [OrcaSlicer](https://github.com/OrcaSlicer/OrcaSlicer). The independently authored
 CAD, drawings and experiment notes retain the repository's default MIT licence.
@@ -34,3 +34,11 @@ material-solid fill, layer height and nominal speed limits remain the same.
 Its licence is also AGPL-3.0. The selected native receipt/path review owns its
 actual settings and evidence; the older batch receipt is not reused for this
 new process or new plate.
+
+`tpu-closed-process.json` derives from `tpu-selected-process.json` for S16/S12.
+Changes: 0.10 mm layer/initial-layer heights, nominal 0.4 mm wall/material widths,
+four bottom/top shell layers, 0.4 mm top-shell thickness, and thick external and
+internal bridges explicitly off. Existing Arachne, bridge direction, speed limits,
+supports-off and material-fill settings remain. It retains AGPL-3.0. This profile
+qualifies only the documented diagnostic paths, not a particular TPU spool or
+printed gap/strength/noise performance.

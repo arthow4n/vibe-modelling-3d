@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "variant": "S16",
+  "selected_checks": null,
+  "available_variants": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "I30",
+    "I22",
+    "I10",
+    "S16",
+    "S12"
+  ],
+  "available_checks": [
+    "fit",
+    "skins",
+    "channels",
+    "labels",
+    "selection"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "S16",
+    "scope": {
+      "revision": "closed-skin-r7",
+      "variant": "S16",
+      "shell": "PLA-existing",
+      "liner": "TPU95A-assumed-unprinted",
+      "process": "0.10mm-Arachne-thin-bridges"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "study.enclosure",
+        "text": "One small closable PETG enclosure accepts interchangeable separately printed TPU liners and a loose metal nut.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User requests one small PETG exterior, closable, with TPU inserts and space to shake a stock metal nut."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "fit",
+            "criterion": "Cup/pad and moving 12 mm proxy clear the shell/cavity; insertion paths clear.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "fit"
+            ],
+            "evidence": [
+              "fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "handling",
+            "criterion": "Printed pair swaps, clamps and remains stable during shaking.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.coverage",
+        "text": "The floor, ceiling and all four interior walls have TPU damping coverage.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User explicitly requires damping on the bottom, top, and all four walls."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "both-skins",
+            "criterion": "Both continuous skins remain on floor, roof and four walls; inner skins 0.4 mm, backing 0.4 mm except 0.3 mm below exterior labels.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "skins"
+            ],
+            "evidence": [
+              "skins"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "printed-integrity",
+            "criterion": "Both skins and core channels print intact, without broken outer regions or fused gaps.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.flat",
+        "text": "All object-contact interior faces are flat; damping structures are inside the liner.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User clarification: the interior needs to be flat for the objects, while the liner may have structures inside."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "flat-faces",
+            "criterion": "The expanded cubic cavity has six planar contact skins and no protrusions.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "skins"
+            ],
+            "evidence": [
+              "skins"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.variants",
+        "text": "Several permanently labeled CAD-defined internal damping configurations can be printed together.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User asks for labeled variants, explicit CAD structures rather than infill, and a batch print; additional variants are welcome."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "channels",
+            "criterion": "3.3 mm-wide full-depth channel witnesses remain between substantial straight supports on all six faces.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "channels"
+            ],
+            "evidence": [
+              "channels"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "labels",
+            "criterion": "Matching large S16/S12 recessed labels retain backing.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "labels"
+            ],
+            "evidence": [
+              "labels"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.research",
+        "text": "Use research to inform a reusable damping experiment and compare variants by shaking the same metal nut.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User requests research on effective damping structures and plans to report which liner performs best."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "comparison",
+            "criterion": "User compares the same nut/shell, direction and strength; larger cavity is acknowledged.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.quiet_priority",
+        "text": "Prioritize maximum quietness in a thin liner and recommend a focused print batch with a solid control and the most promising candidates.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User follow-up: maximize quietness while keeping it thin; provide a STEP set focused on more confident candidates and retain control A."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "selection",
+            "criterion": "Exactly two closed-skin pairs at 1.6 and 1.2 mm retain 0.9 mm supports and nominal 3.5 mm channels.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "selection"
+            ],
+            "evidence": [
+              "selection"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "quietness",
+            "criterion": "User finds acceptable quietness versus printed I22.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.two_skins",
+        "text": "Thinner follow-up liners retain both continuous inner and outer TPU skins for stable printing.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#i22--i30--i10-print-feedback--latest-report",
+          "statement": "User reports I10 shell-side print damage, says both walls are needed, and requests one or two significantly thinner stable variants; slicer changes are allowed."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "dual-skin-coverage",
+            "criterion": "Full backing and contact-skin material witnesses cover floor, roof and four walls.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "skins"
+            ],
+            "evidence": [
+              "skins"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fit",
+        "targets": [
+          [
+            "study.enclosure",
+            "fit"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "skin_checks.py / skin_design.py",
+        "scope": {
+          "revision": "closed-skin-r7",
+          "variant": "S16",
+          "shell": "PLA-existing",
+          "liner": "TPU95A-assumed-unprinted",
+          "process": "0.10mm-Arachne-thin-bridges"
+        }
+      },
+      {
+        "id": "skins",
+        "targets": [
+          [
+            "study.coverage",
+            "both-skins"
+          ],
+          [
+            "study.flat",
+            "flat-faces"
+          ],
+          [
+            "study.two_skins",
+            "dual-skin-coverage"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "skin_checks.py / skin_design.py",
+        "scope": {
+          "revision": "closed-skin-r7",
+          "variant": "S16",
+          "shell": "PLA-existing",
+          "liner": "TPU95A-assumed-unprinted",
+          "process": "0.10mm-Arachne-thin-bridges"
+        }
+      },
+      {
+        "id": "channels",
+        "targets": [
+          [
+            "study.variants",
+            "channels"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "skin_checks.py / skin_design.py",
+        "scope": {
+          "revision": "closed-skin-r7",
+          "variant": "S16",
+          "shell": "PLA-existing",
+          "liner": "TPU95A-assumed-unprinted",
+          "process": "0.10mm-Arachne-thin-bridges"
+        }
+      },
+      {
+        "id": "labels",
+        "targets": [
+          [
+            "study.variants",
+            "labels"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "skin_checks.py / skin_design.py",
+        "scope": {
+          "revision": "closed-skin-r7",
+          "variant": "S16",
+          "shell": "PLA-existing",
+          "liner": "TPU95A-assumed-unprinted",
+          "process": "0.10mm-Arachne-thin-bridges"
+        }
+      },
+      {
+        "id": "selection",
+        "targets": [
+          [
+            "study.quiet_priority",
+            "selection"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "skin_checks.py / skin_design.py",
+        "scope": {
+          "revision": "closed-skin-r7",
+          "variant": "S16",
+          "shell": "PLA-existing",
+          "liner": "TPU95A-assumed-unprinted",
+          "process": "0.10mm-Arachne-thin-bridges"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "closed-sparse-supports",
+        "text": "Two continuous 0.4 mm skins, 0.9 mm straight ribs at 4.4 mm pitch; 0.1 mm layers and thin internal bridges.",
+        "reference": "README.md#closed-skin-follow-up"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "thinner-quietness",
+        "text": "Wider membrane spans and fewer supports may cushion impacts, but small stroke, bottoming and printed fusion can defeat it.",
+        "reference": "README.md#closed-skin-follow-up"
+      }
+    ],
+    "directives": [
+      {
+        "id": "both-walls",
+        "text": "Retain both walls and challenge I22 with one or two significantly thinner candidates.",
+        "source": {
+          "reference": "README.md#i22--i30--i10-print-feedback--latest-report",
+          "statement": "User reports I22 good enough, I10 broken near shell, and requests thinner stable designs with both walls; slicer changes are allowed."
+        }
+      }
+    ]
+  },
+  "help": null
+}
