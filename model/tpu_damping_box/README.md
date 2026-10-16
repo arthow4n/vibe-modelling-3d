@@ -38,7 +38,10 @@ shell allowance. Pads widen to 32.4 / 32.8 / 32.8 mm to retain 0.2 mm per-side
 clearance in their own pockets. Each pad retains the original **0.2 mm axial
 preload**: printed pad thickness is nominal lining plus 0.2 mm. Match cup and pad
 IDs; do not mix thicknesses. The upper pocket is deeper for I30 than I20.
-Recessed 6 mm labels are 0.2 mm deep, on exterior backing only. I24/I20 cup labels
+The labels now use **12 mm DejaVu Sans Mono Bold**, double the former nominal
+font size, with a barred I and broad strokes. Actual capital height is at least
+8 mm (font size is not glyph height). They remain 0.2 mm recessed, on exterior
+backing only. I24/I20 cup labels
 leave 0.2 mm backing locally; label integrity is an intentional print challenge.
 
 **Comparison:** use the same shell and nut, first empty, then gentle and firmer
@@ -59,7 +62,9 @@ explicit **180° external/internal bridge direction**, unrotated components.
 Hidden air channels remain CAD voids regardless of infill. The 0.4/0.5 mm webs
 are intentional single-bead features, so path retention must be inspected.
 Contact skins are three layers on I30/I24 and two on I20. Backings are three or
-two layers except the recessed cup labels' one-layer local floor.
+two layers except the recessed cup labels' one-layer local floor. The larger
+letter recesses introduce wider short bridges in that backing; their finish and
+integrity remain part of the print trial.
 
 Print backing down, cups open upward, pads contact-skin upward. The compound is
 118 × 74.4 mm, 34 mm tall, with broad bed contact and separated components.
@@ -74,8 +79,8 @@ Do not add trapped supports merely because an automatic probe proposes them.
 
 [Native final receipt](notes/thin_final.json): geometry valid, matching STEP/STL
 published from the same selection and print placement; Orca **2.4.2** completed
-one centered plate using the supplied TPU triplet. Estimate: **26.90 g / 4 h
-20 min 43 s** (not measured). STL review does not verify GUI STEP import.
+one centered plate using the supplied TPU triplet. Estimate: **26.82 g / 4 h
+21 min 59 s** (not measured). STL review does not verify GUI STEP import.
 The receipt retains `review_required`: Orca reports a **floating cantilever** and
 the automatic-support probe generates supports. The [headless path view](renders/thin_path_review.png)
 locates these proposals inside the shallow floor/pad channels, Z 0.8–2.4 mm.
@@ -93,8 +98,18 @@ CAD receipts for [I30](notes/thin_verification_I30.json),
 report PASS for fit/travel, six flat skins, core air/material, labels and the
 three-pair selection. Existing closure geometry and its retained checks are
 unchanged. Thin-variant quietness, printed integrity and handling remain UNKNOWN.
+Those three full CAD receipts are from R3. R4 changes only the exterior recessed
+labels; mating outlines, core geometry, skins, fit allowances and orientations
+are unchanged, so their fit/skin/core evidence is retained within that scope.
+Fresh large-label checks: [I30](notes/large_labels_I30.json),
+[I24](notes/large_labels_I24.json), [I20](notes/large_labels_I20.json).
+These check actual capital height ≥8 mm, label width ≤28 mm, recessed glyph voids
+and material remaining above the lettering. [First-layer paths](renders/thin_label_paths.png)
+show all six larger labels from their exterior reading side; path visibility is
+not printed readability qualification.
 The [original-I feedback receipt](notes/reported_I.json) separately retains user
-approval in the reported PLA scope; the detailed directional protocol remains
+approval in the reported PLA scope and records old label readability as FAIL;
+the detailed directional protocol remains
 UNKNOWN. Original builders and A/E/H/I exports are unchanged. The common CLI
 conformance suite passes **87 tests**.
 
@@ -317,7 +332,8 @@ selection. The source-associated analytical screen is separately labeled. A fres
 source-boundary chord refinement check; its omitted CAD checks remain UNKNOWN
 there and are covered by the full receipts above.
 These historical receipts predate the feedback below. Detailed physical handling
-and print quality remain UNKNOWN; subjective quietness has user evidence;
+and skin quality remain UNKNOWN; old labels are physically rejected as too small;
+subjective quietness has user evidence;
 `unresolved_evidence` is expected. Original A–F receipts remain historical R1 evidence.
 
 Negative CAD controls reject missing floor/ceiling skins, filled channels, a shifted
@@ -342,8 +358,8 @@ orientation and component positions. STL slicing does not verify Orca GUI STEP i
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | Yes — A/E/H/I and shell reported 2026-10-16 | `tpu_damping_box.step/.stl`; `liners_selected.step/.stl`, named designs at `41e1e04`; exact printed files unknown | PLA shell. I approved, much quieter than E/H; E/H damp somewhat; A noisy. Detailed settings, fit and damage unknown. |
-| New thin test piece(s) | Unknown | `liners_thin.step/.stl` | I30/I24/I20 are new experiments; quietness and printed integrity unreported. |
+| Test piece(s) | Yes — A/E/H/I and shell reported 2026-10-16 | `tpu_damping_box.step/.stl`; `liners_selected.step/.stl`, named designs at `41e1e04`; exact printed files unknown | PLA shell. I approved, much quieter than E/H; E/H damp somewhat; A noisy. Previous labels too small to read. Detailed settings, fit and damage unknown. |
+| New thin test piece(s) | No — user reports before printing | `liners_thin.step/.stl` | I30/I24/I20 are new experiments; quietness and printed integrity unreported. |
 | Final printable object(s) | N/A | None — research samples only | I approved in this trial; no final application qualified. |
 
 ## Shake experiment and feedback
@@ -370,6 +386,11 @@ not a quietness result.
 | E | Some damping effect | Retain reference. |
 | H | Some damping effect | Retain reference. |
 | I | Much more damping than the others; explicitly approved | Preserve 4 mm design; make three much thinner derivatives. |
+
+**Additional label feedback, 2026-10-16:** the previous batch's 6 mm font-size
+labels were too small to read. The user requests much larger and/or bolder labels
+before printing the thin batch. This is a physical labeling failure; I's damping
+approval remains valid. New label readability remains untested until printed.
 
 Associated repository design: `41e1e04`, focused A/E/H/I set. The user identified
 letters, not artifact hashes. The box was printed in PLA instead of PETG. Liner
@@ -425,5 +446,5 @@ geometry, linear frame screen and core diagrams; cited research informs hypothes
 not physical qualification. Orca/Qidi JSON profiles have separate
 [AGPL-3.0 attribution](profiles/ATTRIBUTION.md). No published specimen meshes or
 figures were copied. Research/model dates: 2026-10-15 (baseline), 2026-10-16
-(thin derivatives and user feedback).
+(thin derivatives, enlarged labels and user feedback).
 Thin revision: same user-supplied model/effort attribution; runtime identifier not exposed.

@@ -68,7 +68,11 @@ def cores(name,parts):
 def labels(name,parts):
     _,cup,_=parts
     pad=t.pad_print(name)
-    glyph=b.label_cut(name,.1)
+    glyph=t.label_cut(name,.1)
+    # A local glyph measurement addresses the reported too-small print labels.
+    bounds=glyph.val().BoundingBox()
+    assert bounds.ylen>=8, 'Actual capital height too small'
+    assert bounds.xlen<=28, 'Label crowds backing edge'
     for part in (cup,pad):
         no_overlap(glyph,part)
         contained(glyph.translate((0,0,.21)),part)

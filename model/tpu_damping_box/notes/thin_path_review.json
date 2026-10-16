@@ -2,7 +2,7 @@
   "scope": "Orca 2.4.2 TPU profile, thin I batch; local paths only, not material/quietness qualification",
   "registration": "source compound translated (+73,+94.8) mm, unrotated",
   "primary_support_segments": 0,
-  "probe_support_segments": 41375,
+  "probe_support_segments": 41372,
   "probe_support_z_range_mm": [
     0.8,
     2.4
@@ -29,7 +29,7 @@
     {
       "variant": "I24",
       "part": "cup",
-      "segments": 5671,
+      "segments": 5667,
       "z_range_mm": [
         0.8,
         1.6
@@ -47,7 +47,7 @@
     {
       "variant": "I20",
       "part": "cup",
-      "segments": 2980,
+      "segments": 2981,
       "z_range_mm": [
         1.0,
         1.4

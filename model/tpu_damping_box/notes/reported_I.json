@@ -27,7 +27,7 @@
     "selected-layout",
     "compliance"
   ],
-  "exit_reason": "unresolved_evidence",
+  "exit_reason": "criterion_failed",
   "error": null,
   "report": {
     "variant": "I",
@@ -185,10 +185,12 @@
             "criterion": "Letters remain readable and flat skins/hidden bridges print intact.",
             "mode": "physical",
             "rationale": "",
-            "status": "UNKNOWN",
-            "coverage": "uncovered",
+            "status": "FAIL",
+            "coverage": "evidence",
             "strategies": [],
-            "evidence": [],
+            "evidence": [
+              "user-label-rejection"
+            ],
             "out_of_scope": []
           }
         ],
@@ -318,6 +320,24 @@
         ],
         "status": "PASS",
         "summary": "I explicitly approved, much quieter than E/H in the reported PLA shell.",
+        "reference": "README.md#user-print-feedback--2026-10-16",
+        "scope": {
+          "revision": "quiet-selection-r2",
+          "variant": "I",
+          "shell": "PLA",
+          "liner": "TPU-hardness-unknown"
+        }
+      },
+      {
+        "id": "user-label-rejection",
+        "targets": [
+          [
+            "study.variants",
+            "printed-labels"
+          ]
+        ],
+        "status": "FAIL",
+        "summary": "Previous-batch labels were too small to read; user requests much larger/bolder labels before printing thin derivatives. Damping approval of I remains valid.",
         "reference": "README.md#user-print-feedback--2026-10-16",
         "scope": {
           "revision": "quiet-selection-r2",

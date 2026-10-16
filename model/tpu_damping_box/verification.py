@@ -70,6 +70,8 @@ def physical_feedback(variant):
     if variant=='I':
         evidence.append(Evidence('user-approval',(('study.quiet_priority','quiet-winner'),),Status.PASS,
             'I explicitly approved, much quieter than E/H in the reported PLA shell.',r['reference'],scope))
+    evidence.append(Evidence('user-label-rejection',(('study.variants','printed-labels'),),Status.FAIL,
+        r['label_feedback'],r['reference'],scope))
     return tuple(evidence)
 
 
@@ -78,7 +80,7 @@ def thin_plan(variant):
     import thin_design as d
     d.variant_named(variant)
     protect_recorded_intent(ROOT,REQUIREMENTS)
-    scope={'revision':'thin-I-r3','variant':variant,'shell':'PLA-reused','liner':'TPU95A-assumed-unprinted'}
+    scope={'revision':'thin-I-r4-large-labels','variant':variant,'shell':'PLA-reused','liner':'TPU95A-assumed-unprinted'}
     @cache
     def parts():
         return c.candidate(variant)
@@ -88,7 +90,7 @@ def thin_plan(variant):
         Q('six-skins','study.coverage','Six continuous flat skins retain the declared 0.4 or 0.6 mm thickness.','CAD'),
         Q('flat-faces','study.flat','The expanded cubic shaking cavity is free of protrusions.','CAD'),
         Q('cores','study.variants','Air channels and chevron material remain behind all six faces.','CAD'),
-        Q('labels','study.variants','Both parts bear matching recessed I30/I24/I20 labels with material above the recess.','CAD'),
+        Q('labels','study.variants','Both parts bear matching large bold recessed I30/I24/I20 labels, at least 8 mm actual capital height, with material above the recess.','CAD'),
         Q('printed-labels','study.variants','Labels remain readable, thin skins and web bridges print intact.','physical'),
         Q('thin-selection','study.quiet_priority','One batch contains exactly three I-derived pairs at 3.0, 2.4 and 2.0 mm, 25/40/50 percent thinner than approved I.','CAD'),
         Q('quiet-winner','study.quiet_priority','User compares against approved 4 mm I and finds an acceptable thickness/quietness tradeoff.','physical'),

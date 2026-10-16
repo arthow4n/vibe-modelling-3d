@@ -63,6 +63,28 @@ def main():
     ax.autoscale();ax.set_aspect('equal');ax.set_xlabel('Bed X (mm)');ax.set_ylabel('Bed Y (mm)')
     ax.set_title('Thin I: support-probe paths cyan; first contact-skin paths purple')
     fig.tight_layout();fig.savefig(ROOT/'renders/thin_path_review.png',dpi=150)
+    # View the actual first-layer paths from below, where the recess is read.
+    labels_fig,axes=plt.subplots(2,3,figsize=(10,7))
+    for i,name in enumerate(t.SELECTED_NAMES):
+        x=93+42*i
+        for row,kind,cy in ((0,'cup',114.8),(1,'pad',155.8)):
+            label_ax=axes[row,i]
+            label_ax.set_xlim(18,-18);label_ax.set_ylim(-18,18)
+            label_ax.set_aspect('equal');label_ax.set_title(f'{name} {kind}: underside')
+            label_ax.set_xlabel('mm');label_ax.set_ylabel('mm')
+    labels_fig.tight_layout();labels_fig.canvas.draw()
+    for i,name in enumerate(t.SELECTED_NAMES):
+        x=93+42*i
+        for row,kind,cy in ((0,'cup',114.8),(1,'pad',155.8)):
+            label_ax=axes[row,i]
+            local=[p for p in paths if abs(p[4]-.2)<1e-5 and
+                abs((p[0]+p[2])/2-x)<17.1 and abs((p[1]+p[3])/2-cy)<17.1]
+            assert local, f'{name} {kind}: missing first-layer paths'
+            points_per_mm=label_ax.get_window_extent().width/labels_fig.dpi*72/36
+            label_ax.add_collection(LineCollection([[(p[0]-x,p[1]-cy),(p[2]-x,p[3]-cy)] for p in local],
+                linewidths=[p[5]*points_per_mm for p in local],colors='#3d6679'))
+    labels_fig.suptitle('Large labels: first-layer extrusion-width metadata, viewed from below',y=1.01)
+    labels_fig.savefig(ROOT/'renders/thin_label_paths.png',dpi=160,bbox_inches='tight')
     result={'scope':'Orca 2.4.2 TPU profile, thin I batch; local paths only, not material/quietness qualification',
         'registration':'source compound translated (+73,+94.8) mm, unrotated',
         'primary_support_segments':0,'probe_support_segments':len(support),

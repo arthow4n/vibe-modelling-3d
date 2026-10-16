@@ -37,12 +37,22 @@ VARIANTS = {
 }
 SELECTED_NAMES = ('I30', 'I24', 'I20')
 LABEL_DEPTH = .2
+LABEL_SIZE = 12.0  # font em size; actual capital height is font-dependent
+LABEL_FONT = 'DejaVu Sans Mono'
 
 
 def variant_named(name):
     if name not in VARIANTS:
         raise ValueError(f'Unknown thin liner {name!r}; choose {tuple(VARIANTS)}')
     return VARIANTS[name]
+
+
+def label_cut(name, depth):
+    variant_named(name)
+    # Wide bold strokes and a barred I distinguish the common prefix from 1.
+    # Read from exterior underside; preserve the thin backing above the recess.
+    return cq.Workplane('XY').text(name,LABEL_SIZE,depth,font=LABEL_FONT,
+        kind='bold',combine=True).mirror('YZ')
 
 
 def shift(v, depth):
@@ -75,7 +85,7 @@ def cup(name):
     wall = wall.intersect(mask)
     for angle in (0,90,180,270):
         p = p.union(wall.rotate((0,0,0),(0,0,1),angle))
-    return p.cut(base.label_cut(name,LABEL_DEPTH)).clean()
+    return p.cut(label_cut(name,LABEL_DEPTH)).clean()
 
 
 def pad_print(name):
@@ -84,7 +94,7 @@ def pad_print(name):
     void_size = v.pad_size - 2*v.backing
     p = p.cut(base.block(void_size,void_size,v.core,v.backing+base.PAD_PRELOAD))
     core = cq.Workplane(obj=face_core(v,void_size)).translate((0,0,v.backing+base.PAD_PRELOAD))
-    return p.union(core).cut(base.label_cut(name,LABEL_DEPTH)).clean()
+    return p.union(core).cut(label_cut(name,LABEL_DEPTH)).clean()
 
 
 def pad_closed(name):
