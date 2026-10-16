@@ -56,8 +56,10 @@ allowance. This is available geometry, not a measured glasses envelope.
 
 ## Rib-bounded bottom-panel sample — ironing comparison
 
-User-requested test piece: [bottom_sample.step](bottom_sample.step) ·
-[matching STL](bottom_sample.stl) · [source](bottom_sample.py).
+Use the explicitly named [bottom_sample_18p5mm.step](bottom_sample_18p5mm.step) ·
+[matching STL](bottom_sample_18p5mm.stl) · [source](bottom_sample.py).
+The [named export entry](bottom_sample_18p5mm.py) uses the same authoritative crop;
+the earlier `bottom_sample.step/.stl` names remain compatible aliases.
 This is a **18.5 × 18.5 × 1.6 mm** crop from the centre of the actual liner bottom,
 with the same **0.4 mm backing / 0.8 mm ribbed air core / 0.4 mm contact skin**.
 It includes the full bottom-panel sandwich, rather than just the first print
@@ -109,6 +111,24 @@ edges terminate on full ribs. Trapped support would defeat the air
 channels. Printed sag and ironing quality remain unknown. STL slicing does not
 verify GUI STEP import. The full liner's existing geometry and exports are
 unchanged by this added sample.
+
+### Reported STEP/STL mismatch
+
+The user reported that the STEP still looked unchanged while the STL looked
+correct. A targeted [file inspection](notes/sample_export_inspection.json),
+[reproducible checker](inspect_sample_exports.py), re-imported the actual STEP:
+**18.5 × 18.5 × 1.6 mm**, with zero symmetric material difference from the current
+CAD. The delivered STL has matching dimensions within float32 representation;
+the preceding STEP at `14ecd3c` was **20 × 20 × 1.6 mm**. This exceptional STEP
+re-import/mesh-coordinate check addresses the specific reported mismatch and
+is not a new routine audit. The inspected local files were synchronized; which
+file/state the user's viewer displayed remains unknown.
+
+To distinguish the revision clearly, the same geometry is republished under the
+`bottom_sample_18p5mm` name. [Native export receipt](notes/bottom_sample_18p5mm_export.json)
+owns that publication. The matching STL bytes are checked against the previously
+sliced current sample, so the existing reference slice is reused without another
+slice. No geometry or process settings changed to address this report.
 
 ## Installation
 
@@ -230,7 +250,7 @@ and the [reusable evidence index](../../.codex/skills/cadquery-3d-design/referen
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | Unknown — no bottom-sample print report | `bottom_sample.step/.stl`; 18.5 × 18.5 × 1.6 mm | Requested ironing off/on surface comparison; no result yet. Original approved S16 samples remain scoped to the damping-box fixture. |
+| Test piece(s) | Unknown — no bottom-sample print report | `bottom_sample_18p5mm.step/.stl`; 18.5 × 18.5 × 1.6 mm | Requested ironing off/on surface comparison; no result yet. Original approved S16 samples remain scoped to the damping-box fixture. |
 | Final printable object(s) | No — user reported holding off before correction | Revised `sunglasses_case_liner.step/.stl` | Curved-core correction requested; actual fit, adhesion, quietness, skin integrity and wear remain untested. Existing rigid case is printed and accepted. |
 
 ## Attribution

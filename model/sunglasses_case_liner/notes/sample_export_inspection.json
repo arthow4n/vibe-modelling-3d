@@ -1,0 +1,23 @@
+{
+  "reason": "User reports delivered STEP looks unchanged while STL looks correct",
+  "current_step_mm": [
+    18.5,
+    18.5,
+    1.6
+  ],
+  "current_stl_mm": [
+    18.5,
+    18.5,
+    1.600000023841858
+  ],
+  "preceding_step_mm": [
+    20.0,
+    20.0,
+    1.6
+  ],
+  "step_vs_current_source_difference_mm3": [
+    0.0,
+    0.0
+  ],
+  "conclusion": "Delivered local STEP matches current source and STL dimensions; predecessor STEP was 20 mm"
+}

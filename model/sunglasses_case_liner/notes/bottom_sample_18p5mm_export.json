@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case_liner/bottom_sample_18p5mm.py",
+  "errors": [],
+  "views": [],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case_liner/bottom_sample_18p5mm.step",
+      "ok": true,
+      "reused": true
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case_liner/bottom_sample_18p5mm.stl",
+      "ok": true,
+      "reused": true
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013527780101867393,
+    "build": 4.331324446000508,
+    "selection": 0.0009444800089113414,
+    "validation": 0.007556413998827338,
+    "export_step": 0.0019949010020354763,
+    "export_stl": 0.0010302730079274625,
+    "worker": 4.408253207002417,
+    "total": 6.7595397000113735
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "2265257a53ab6fb3d74f86368b76ada8d7764fd33ebcfee7513ef8e1a5bcf34c",
+    "artifact_identity": "d12c7d586270ffd01eb76b3d292bd7e14fce2f4a4cb614ad60f6dc5d54c05c4a"
+  }
+}
