@@ -126,13 +126,21 @@ coupon (N/A).
 - Final object: Yes — usable, brush/tube fit with effort plus floss; joint too short/unstable, pulls apart without release. No further revision requested
 - Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
 
+#### Slim dental box S16 liner
+
+[Full two-cup TPU retrofit](model/dental_travel_case_liner/README.md)
+
+- Test pieces: N/A — uses the preferred printed S16 starting profile
+- Final object: No print reported — user confirms room for full coverage; flexible installation, attachment, contents fit and quietness remain untested
+- Provenance: [Record](model/dental_travel_case_liner/README.md#attribution) · Agent effort: N/A — no performance study requested
+
 ### Samples and application research
 
 #### TPU damping box research
 
 [Preferred printed S16 profile](model/tpu_damping_box/README.md)
 
-- Test pieces: Yes — S16/S12 both work; S16 preferred over S12/I22, good compared with I30/original I. Exact settings unknown; I10 rejected
+- Test pieces: Yes — all liner prints used 0.2 mm layers, confirmed 2026-10-16; S16/S12 both work, S16 preferred; I10 rejected. Other exact settings unknown
 - Final object: N/A — samples; S16 approved starting profile for rigid-shell/TPU damping; application fit/quietness require review
 - Provenance: [Record](model/tpu_damping_box/README.md#attribution) · Agent effort: N/A — no performance study requested
 
@@ -148,8 +156,8 @@ coupon (N/A).
 
 [Two-cup retrofit and setup](model/sunglasses_case_liner/README.md)
 
-- Test pieces: Yes — ironing sample: 50% flow preferred (“perfect”); 10%/30% leave surface line gaps, 100% raises/bumps the top. Exact print/settings unknown; S16 damping samples approved separately
-- Final object: No — revised after user held off for solid corners: all four bends now have curved air cores/ribs; CAD fit/motion/corner checks and TPU paths pass; primary supports off, floor support probe reviewed; actual fit, adhesion and quietness untested
+- Test pieces: Yes — ironing sample printed at 0.2 mm layers; 50% flow preferred (“perfect”), 10%/30% leave gaps, 100% raises/bumps the top. Other exact settings unknown; S16 damping samples approved separately
+- Final object: No — all four bends have curved cores/ribs; CAD checks pass, retained 0.1 mm paths are diagnostic history; future setup is 0.2 mm. Actual fit, adhesion and quietness untested
 - Provenance: [Record](model/sunglasses_case_liner/README.md#attribution) · Agent effort: N/A — no performance study requested
 
 ### Unreported prototypes and calibration objects
@@ -260,6 +268,7 @@ take precedence for their stated files.
 | --- | --- | --- |
 | [Integrated MacBook charger holder](model/macbook_charger_holder/) | [CC BY-NC-SA 4.0](model/macbook_charger_holder/LICENSE) | [Original model and modifications](model/macbook_charger_holder/ATTRIBUTION.md) |
 | [TPU damping-box Orca snapshots](model/tpu_damping_box/profiles/) — profile JSONs only | [AGPL-3.0](model/tpu_damping_box/profiles/LICENSE.txt) | [Orca/Qidi sources and changes](model/tpu_damping_box/profiles/ATTRIBUTION.md); model geometry retains the default licence |
+| [Dental S16 Orca process](model/dental_travel_case_liner/profiles/) — profile JSON only | [AGPL-3.0](model/dental_travel_case_liner/profiles/LICENSE.txt) | [Source and layer-height changes](model/dental_travel_case_liner/profiles/ATTRIBUTION.md); liner geometry retains the default licence |
 | [Swatch Q1 Orca profile snapshots](model/filament_swatch_box_study/notes/quiet_q1_profiles/) — profile JSONs only | [AGPL-3.0](model/filament_swatch_box_study/notes/quiet_q1_profiles/LICENSE.txt) | [Orca/Qidi source and snapshot changes](model/filament_swatch_box_study/notes/quiet_q1_profiles/ATTRIBUTION.md); Q1 model geometry retains the default licence |
 
 Remixing is welcome under each object's applicable terms. For the charger

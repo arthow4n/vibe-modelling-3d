@@ -8,6 +8,8 @@
   },
   "shell_material": "PLA",
   "liner_material": "TPU, actual hardness and brand unknown",
+  "actual_layer_height_mm": 0.2,
+  "layer_height_correction": "2026-10-16: user confirms every liner print so far used 0.2 mm, even when instructions requested 0.1 mm; README.md#actual-liner-layer-height-correction--2026-10-16. Separate first-layer override remains unknown.",
   "actual_printer_profile_orientation_nut": "unknown",
   "observations": {
     "A": "Still makes a lot of sound.",

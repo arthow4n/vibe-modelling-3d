@@ -20,13 +20,21 @@ rules. Follow the linked object for current status and reproducible detail.
 
 ## TPU skins, damping and shell stability
 
+**Actual layer-height correction, 2026-10-16:** the user confirms all liner
+prints so far used **0.2 mm**, including the research and ironing trials that
+requested 0.1 mm. All physical results in the liner entries below have that
+reported layer height; remaining settings retain their stated unknowns.
+Historical 0.1 mm path evidence is diagnostic only. See the
+[owning correction](../../../../model/tpu_damping_box/README.md#actual-liner-layer-height-correction--2026-10-16)
+and the [future liner default](user-preferences.md#printer-manufacturing-and-available-hardware).
+
 ### Backing skin and printed integrity versus retained paths
 
 Preserve both skins for this follow-up; path presence alone did not establish printed integrity.
 
 **Evidence:** [I22/I30/I10 physical report](../../../../model/tpu_damping_box/README.md#i22--i30--i10-print-feedback--latest-report): I22 quietness is accepted, similar to I30; open-backed I10 has broken shell-side regions despite earlier CAD/path checks and no proposed support.
 
-**Scope and limits:** Actual print/use feedback, settings and precise cause unknown. Both skins are now required for this follow-up; later S16/S12 both work; S16 is preferred (entry below). [Print planning](print-planning.md#functional-process-co-design) owns skin/channel/bridge-height review. No universal rule that all exposed TPU ribs fail follows.
+**Scope and limits:** Actual print/use feedback at user-confirmed 0.2 mm layers; other settings and precise cause unknown. Both skins are now required for this follow-up; later S16/S12 both work; S16 is preferred (entry below). [Print planning](print-planning.md#functional-process-co-design) owns skin/channel/bridge-height review. No universal rule that all exposed TPU ribs fail follows.
 
 ### Overall thinness versus printable local features
 
@@ -42,7 +50,7 @@ Start a comparable ironing trial at 50% flow; check finish and skin/channel inte
 
 **Evidence:** [S16 liner sample print report](../../../../model/sunglasses_case_liner/README.md#ironing-flow-print-feedback--2026-10-16): user tried 10%, 30%, 50% and 100% ironing flow; 10/30 leave surface line gaps, 50 is described as perfect, 100 raises/bumps the top.
 
-**Scope and limits:** For future comparable S16 adaptations, start an ironing trial at 50% and check finish plus skin/channel integrity. This is the preferred tested value for the reported setup, not a universal TPU preset. The user suspects TPU combined with a bridged skin; causation is unisolated. Exact spool/process, ironing speed/spacing and printed file remain unknown. No ironing-off control, channel-integrity, damping or full-panel finish result follows; distinguish ironing flow from normal extrusion flow.
+**Scope and limits:** The sample was printed at user-confirmed 0.2 mm layers. For future comparable S16 adaptations, start an ironing trial at 50% and check finish plus skin/channel integrity. This is the preferred tested value for the reported setup, not a universal TPU preset. The user suspects TPU combined with a bridged skin; causation is unisolated. Exact spool/other process settings, ironing speed/spacing and printed file remain unknown. No ironing-off control, channel-integrity, damping or full-panel finish result follows; distinguish ironing flow from normal extrusion flow.
 
 ### Damping-core coverage around rounded bends
 
@@ -58,7 +66,7 @@ Use the approved S16 starting profile while qualifying each new application.
 
 **Evidence:** [Printed S16/S12 comparison](../../../../model/tpu_damping_box/README.md#s16--s12-print-feedback--2026-10-16): both work; user prefers S16 over S12/I22, good compared with I30/original 4 mm I. S16: 0.4 mm backing + 0.8 mm air core + 0.4 mm contact skin; 0.9 mm straight ribs at 4.4 mm pitch.
 
-**Scope and limits:** Approved starting profile for rigid-shell/TPU impact liners, including the requested sunglasses-case adaptation. Preserve both skins and local rib dimensions; review new coverage, corners, installation, contents and printing. Consult the linked S16 adaptation ironing lesson when choosing the contact-skin finish. Subjective single-setup evidence; exact settings, cause, dB, wear and application performance unknown. No universal optimum or material calibration.
+**Scope and limits:** Approved starting profile for rigid-shell/TPU impact liners, including the requested sunglasses-case adaptation. Preserve both skins and local rib dimensions; review new coverage, corners, installation, contents and printing. Consult the linked S16 adaptation ironing lesson when choosing the contact-skin finish. Subjective single-setup evidence at user-confirmed 0.2 mm layers; other exact settings, cause, dB, wear and application performance unknown. No universal optimum or material calibration.
 
 ### Flat-faced folded-web TPU impact liner
 
@@ -66,7 +74,7 @@ Preserve the accepted folded-web baseline before thinning it.
 
 **Evidence:** [Damping-box physical comparison](../../../../model/tpu_damping_box/README.md#user-print-feedback--2026-10-16): user approved 4 mm I, clearly quieter than E/H; solid A remained noisy in the PLA shell.
 
-**Scope and limits:** Subjective single reported setup, exact print/settings unknown. I uses 0.6 mm chevron webs and contact skin, 2.6 mm core, 0.8 mm backing. Preserve the baseline before thinning; this does not calibrate TPU, prove a cause or qualify PETG shells or thinner derivatives.
+**Scope and limits:** Subjective single reported setup at user-confirmed 0.2 mm layers; exact printed files and other settings unknown. I uses 0.6 mm chevron webs and contact skin, 2.6 mm core, 0.8 mm backing. Preserve the baseline before thinning; this does not calibrate TPU, prove a cause or qualify PETG shells or thinner derivatives.
 
 ### Flat contact skin over CAD air channels
 

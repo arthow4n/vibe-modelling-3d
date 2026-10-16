@@ -22,14 +22,33 @@ whose fit and quietness are not established by these samples.
 
 Older batch/test instructions below describe those experiments; they do not
 replace the current closed-skin choice. Quietness preferences are subjective
-reported observations; exact settings, acoustic mechanism and durability remain
-unknown. Detailed negative results remain useful for judging future transfers.
+reported observations at user-confirmed 0.2 mm layers. Other exact settings,
+acoustic mechanism and durability remain unknown. Detailed negative results
+remain useful for judging future transfers.
+
+## Actual liner layer-height correction — 2026-10-16
+
+The user explicitly confirms: **every liner they have printed so far used
+0.2 mm layers**, including the S16/S12 experiments and ironing sample whose
+instructions/reference slices requested 0.1 mm. Attribute the reported quietness,
+failures and surface finish to **0.2 mm actual layer height**. The 0.1 mm receipts
+below describe diagnostic toolpaths, not the user's physical print settings.
+A separate first-layer override, exact profile, nozzle, temperatures, speeds,
+brand/hardness and artifact hashes remain unknown where not separately reported.
+
+Future liner instructions and the current `tpu-closed-process.json` use 0.2 mm.
+The exact old 0.1 mm preset is retained as
+[`tpu-closed-0p1-historical-process.json`](profiles/tpu-closed-0p1-historical-process.json)
+for historical receipts/readers. No geometry, acceptance of S16, rejection of
+I10, or old diagnostic report is rewritten by this correction. No new print
+or complete research re-slice is requested.
 
 ## S16 / S12 print feedback — 2026-10-16
 
 Associated designs: `skin_design.py`, `liners_closed.step/.stl` at the pre-report
-revision. User identified IDs; exact printed hashes, printer/profile, TPU
-hardness/brand, orientation and measured sound levels are unknown. Continuing
+revision. User identified IDs; **actual layer height is now confirmed as 0.2 mm**.
+Exact printed hashes, printer/profile, TPU hardness/brand, orientation and measured
+sound levels are unknown. Continuing
 fixture is understood as the existing PLA shell with TPU liners. Both work;
 detailed skin/channel integrity and durability were not reported. The reason
 for the preference is unknown: this is subjective physical approval, not
@@ -52,7 +71,8 @@ pockets, the user's [printed ironing-flow lesson](../sunglasses_case_liner/READM
 suggests **50% ironing flow as an initial trial value** when ironing is used.
 Verify finish and skin/channel integrity in the new application. The user
 suspects the TPU/bridged-skin combination; the cause is unconfirmed. This later
-surface-finish trial does not establish the original damping samples' settings.
+surface-finish trial does not establish the original damping samples' other
+settings; the later user correction establishes 0.2 mm layers for all liner prints.
 
 I22 remains a historical accepted reference. I10 remains rejected for broken
 shell-side regions; the open-backed architecture is retired. I22's nearly joined
@@ -90,20 +110,22 @@ feature or guaranteed damping thickness is established.
 
 ### Setup and assembly
 
-Use a **0.4 mm nozzle, 0.10 mm layers including the first layer, Arachne**, and
+Use a **0.4 mm nozzle, 0.20 mm layers including the first layer, Arachne**, and
 the supplied [tpu-closed-process.json](profiles/tpu-closed-process.json). Both
 `thick_bridges` and `thick_internal_bridges` are **off**. Line widths are nominally
 0.4 mm, with two requested wall loops; each thin vertical skin uses one bead,
-while the 0.9 mm internal ribs retain multiple paths. Horizontal skins have four
-0.1 mm layers. This is an intentional boundary experiment with two physical
+while the 0.9 mm internal ribs retain multiple paths. Each horizontal skin has
+two 0.2 mm layers. This is an intentional boundary experiment with two physical
 skins, not an instruction to make every skin two extrusion paths thick.
 
 Keep **supports off**, 180° external/internal bridge direction and the supplied
 unrotated layout. CAD channels remain empty regardless of the 100% material-fill
 setting. Use the same TPU as I22 if available. Filament temperature/flow in the
 reference triplet assume Generic TPU 95A; actual spool settings are unknown and
-not calibrated by this review. Changing layer height, bridge thickness, layout or
-perimeter generation leaves this specific gap evidence behind.
+not calibrated by this review. The retained gap/path receipts below used 0.1 mm;
+they are historical setup-specific evidence, not 0.2 mm toolpath validation.
+The actual 0.2 mm prints have subjective approval, with detailed channel integrity
+still unmeasured. Bridge thickness, layout and perimeter changes need their own review.
 
 The older reference profile had thick internal bridges enabled. It is unknown
 whether the user used that profile or whether it affected the observed joining.
@@ -126,7 +148,8 @@ on ribs/frames at both ends. There are no exposed shell-side rib feet as in I10.
 
 ### Verification and print trial
 
-[Native export/slice receipt](notes/closed_final.json): valid CAD and matching
+**Historical 0.1 mm diagnostic evidence:** the
+[native export/slice receipt](notes/closed_final.json) records valid CAD and matching
 STEP/STL placement; Orca **2.4.2**, supplied TPU triplet, centered compound,
 0.10 mm layers. No keyword notices. The support probe proposes trapped interface
 support in S16's shallow cores, Z 0.8–1.1 mm; none on S12. Primary supports stay
@@ -149,13 +172,15 @@ Stringing, material spreading, clamping and sag can still close a printed gap.
 Compare each pair against printed I22 using the same shell, nut, TPU and grip.
 Shake empty first; then gentle and firmer X/Y/Z shaking and tumbling. Record
 quietness, sharp ticks/bottoming, outer/inner skin integrity and whether channels
-remain visibly distinct. Larger cavity travel and the finer process are confounds;
-this is a practical thin-liner trial, not a pure one-parameter material study.
+remain visibly distinct. Larger cavity travel and changed core architecture are
+confounds; the user used the same 0.2 mm layer height throughout. The planned
+finer layer change was not used in the physical comparison.
 
-Reproduce from the repository root:
+Reproduce the **historical 0.1 mm diagnostic**, not the current printing setup,
+from the repository root (the path reader below targets these old 0.1 mm layers):
 
 ```sh
-./evaluate_model.py model/tpu_damping_box/liners_closed.py --views none --slice --slice-keep-run --slice-printer .codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json --slice-process model/tpu_damping_box/profiles/tpu-closed-process.json --slice-filament model/tpu_damping_box/profiles/tpu95a.json --report model/tpu_damping_box/notes/closed_final.json
+./evaluate_model.py model/tpu_damping_box/liners_closed.py --views none --slice --slice-keep-run --slice-printer .codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json --slice-process model/tpu_damping_box/profiles/tpu-closed-0p1-historical-process.json --slice-filament model/tpu_damping_box/profiles/tpu95a.json --report model/tpu_damping_box/notes/closed_final.json
 ./execute.py model/tpu_damping_box/review_closed_paths.py
 ./execute.py model/tpu_damping_box/verification.py --variant S12
 ```
@@ -167,6 +192,7 @@ Historical report; superseded for preference by S16 above.
 Associated source: `3758cb6`; user identified IDs, not artifact hashes. The
 continuing setup is understood as the existing PLA shell and TPU liners; actual
 printer, filament/hardness, profile, orientation and nut remain unreported.
+The later correction confirms **0.2 mm layers** for these prints too.
 
 | ID | User observation | Current decision |
 | --- | --- | --- |
@@ -487,9 +513,9 @@ orientation and component positions. STL slicing does not verify Orca GUI STEP i
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | Yes — A/E/H/I and shell reported 2026-10-16 | `tpu_damping_box.step/.stl`; `liners_selected.step/.stl`, named designs at `41e1e04`; exact printed files unknown | PLA shell. I approved, much quieter than E/H; E/H damp somewhat; A noisy. Previous labels too small to read. Detailed settings, fit and damage unknown. |
-| Thin test piece(s) | Yes — latest report | `liners_thin.step/.stl`, associated with `3758cb6`; exact printed artifacts unknown | I22 good enough, little difference from I30. I10 shell-side features broken and rejected. I22 lines appear nearly joined; cause/settings unknown. |
-| Closed-skin follow-up | Yes — S16/S12, 2026-10-16 | `liners_closed.step/.stl`; exact hashes/settings unknown | Both work; S16 preferred over S12/I22, good compared with I30/original I. Detailed skin integrity/durability unreported. |
+| Test piece(s) | Yes — A/E/H/I and shell reported 2026-10-16 | `tpu_damping_box.step/.stl`; `liners_selected.step/.stl`, named designs at `41e1e04`; exact printed files unknown | Liner layers 0.2 mm. PLA shell. I approved, much quieter than E/H; E/H damp somewhat; A noisy. Previous labels too small to read. Other detailed settings, fit and damage unknown. |
+| Thin test piece(s) | Yes — latest report | `liners_thin.step/.stl`, associated with `3758cb6`; exact printed artifacts unknown | Layers 0.2 mm. I22 good enough, little difference from I30. I10 shell-side features broken and rejected. I22 lines appear nearly joined; cause/other settings unknown. |
+| Closed-skin follow-up | Yes — S16/S12, 2026-10-16 | `liners_closed.step/.stl`; 0.2 mm layers confirmed; exact hashes/other settings unknown | Both work; S16 preferred over S12/I22, good compared with I30/original I. Detailed skin integrity/durability unreported. |
 | Final printable object(s) | N/A | None — research samples only | S16 is preferred; I10 rejected, no final application qualified. |
 
 ## Shake experiment and feedback
@@ -524,7 +550,8 @@ approval remains valid. New label readability remains untested until printed.
 
 Associated repository design: `41e1e04`, focused A/E/H/I set. The user identified
 letters, not artifact hashes. The box was printed in PLA instead of PETG. Liner
-material is understood as TPU; hardness, brand, actual printer/profile,
+material is understood as TPU; actual liner layers are **0.2 mm**. Hardness,
+brand, actual printer/profile,
 orientation, test nut, shake protocol, decibels, skin integrity and wear are
 unknown. Supplied TPU 95A profiles are planning assumptions, not actual settings.
 This is a subjective physical comparison, not material calibration.

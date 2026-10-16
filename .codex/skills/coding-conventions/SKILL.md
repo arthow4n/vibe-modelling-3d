@@ -97,6 +97,13 @@ association when a harmless refactor changes a fingerprint. Never update hashes
 alone to make an unrelated design inherit physical success. Run affected checks;
 do not launch slices or solvers just for an instruction or interface refactor.
 
+Qualify output readers against actual producer output, including valid numeric
+shorthand. The [dental liner review](../../../model/dental_travel_case_liner/README.md#toolpath-reader-correction)
+encountered Orca extrusion tokens such as `E.89832`; a leading-digit-only reader
+silently collected no bridge heights. Prefer the owning parser where it covers
+the field, and distinguish missing parsed evidence from a failed engineering
+criterion. Do not diagnose excessive bridge height from an empty collection.
+
 ## Review from code and intent
 
 Inspect the diff, current code, callers and original user intent. Passing tests or

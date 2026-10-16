@@ -37,6 +37,15 @@ time or finish depends on them. Use the agreed setup to size geometry and screen
 loads before slicing. The reference Orca profile is diagnostic, not a substitute
 for the agreed print setup.
 
+**Liner layer-height correction, 2026-10-16:** the user explicitly confirms that
+**all liner prints so far used 0.2 mm layers**, including experiments/instructions
+that requested 0.1 mm. Use 0.2 mm for future liner instructions and reference
+setups unless the user explicitly agrees to another experiment. Attribute prior
+liner quietness, failures and ironing feedback to the reported 0.2 mm setting;
+preserve old 0.1 mm slicer receipts as diagnostic evidence only. A separate first
+layer override and other unreported settings remain unknown. See the
+[owning correction](../../../../model/tpu_damping_box/README.md#actual-liner-layer-height-correction--2026-10-16).
+
 For thin TPU impact liners, the user means a thin **overall sandwich**, not
 automatically thin webs or skins. Prefer substantial local features suitable for
 their normal 0.4 mm nozzle; do not recommend marginal single-path replacements

@@ -1,0 +1,23 @@
+{
+  "scope": "Slicer metadata, not measured deposited TPU or acoustic approval",
+  "core_gap_minimum_criterion_mm": 0.5,
+  "minimum_sampled_gap_mm": 0.5766938610636825,
+  "skin_core_regions": {
+    "body:10.0": 8,
+    "body:150.0": 16,
+    "body:180.0": 16,
+    "cap:190.0": 8,
+    "cap:220.0": 8
+  },
+  "rib_track_minimum": 2,
+  "floor_air_samples": 6,
+  "bridge_heights_mm": [
+    0.199997,
+    0.2
+  ],
+  "support_probe_segments": 1358,
+  "support_probe_z_range_mm": [
+    1.0,
+    1.0
+  ]
+}

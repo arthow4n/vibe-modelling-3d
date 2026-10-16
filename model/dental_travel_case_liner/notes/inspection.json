@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case_liner/inspection.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case_liner/renders/assembled/inspection_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.002119075012160465,
+    "build": 32.29491733800387,
+    "selection": 0.001025919002131559,
+    "validation": 5.011675552988891,
+    "render_isometric": 1.0281718710029963,
+    "worker": 38.492909248991054,
+    "total": 76.45867375799571
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "e7d56d981534ce4451c8a466259d805376a90c815ca5c87db2131b68cc715f27",
+    "artifact_identity": "02599596acdfebb60fe4d7732c4bedf9f8a0aaba9cfa64a9bb0bda7d7491bdf1"
+  }
+}

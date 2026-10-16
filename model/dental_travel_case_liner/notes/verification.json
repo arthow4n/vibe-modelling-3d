@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "variant": "slim-m1-s16",
+  "selected_checks": null,
+  "available_variants": [
+    "slim-m1-s16"
+  ],
+  "available_checks": [
+    "fit",
+    "profile",
+    "corners"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "slim-m1-s16",
+    "scope": {
+      "design": "slim-m1-s16",
+      "rigid_case": "narrow-m1-74.2mm",
+      "material": "TPU95A-assumed",
+      "print": "unreported"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "liner.retrofit",
+        "text": "Line the existing printed slim dental travel box",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#intent",
+          "statement": "User requests a sound damping liner for the recently printed slim dental box"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "fit",
+            "criterion": "Installed liners clear the complete rigid cups, moving catches and sampled cap withdrawal",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "fit"
+            ],
+            "evidence": [
+              "fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "installation",
+            "criterion": "Flexible insertion, retention, access and actual contents fit work in the printed box",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "liner.full",
+        "text": "Use full S16 coverage",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#intent",
+          "statement": "User confirms there is room and selects the full S16 liner"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "profile",
+            "criterion": "Preserve S16 flat profile and continuous end skins in two connected cups",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "profile"
+            ],
+            "evidence": [
+              "profile"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "corners",
+            "criterion": "Ordinary wall bends and guard-region perimeters retain air cores",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "corners"
+            ],
+            "evidence": [
+              "corners"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "liner.quiet",
+        "text": "Reduce contents impact noise",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#intent",
+          "statement": "User requests sound damping"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "noise",
+            "criterion": "User finds the lined box sufficiently quieter",
+            "mode": "subjective",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fit",
+        "targets": [
+          [
+            "liner.retrofit",
+            "fit"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py#check_fit",
+        "scope": {
+          "design": "slim-m1-s16",
+          "rigid_case": "narrow-m1-74.2mm",
+          "material": "TPU95A-assumed",
+          "print": "unreported"
+        }
+      },
+      {
+        "id": "profile",
+        "targets": [
+          [
+            "liner.full",
+            "profile"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py#check_profile",
+        "scope": {
+          "design": "slim-m1-s16",
+          "rigid_case": "narrow-m1-74.2mm",
+          "material": "TPU95A-assumed",
+          "print": "unreported"
+        }
+      },
+      {
+        "id": "corners",
+        "targets": [
+          [
+            "liner.full",
+            "corners"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py#check_perimeters",
+        "scope": {
+          "design": "slim-m1-s16",
+          "rigid_case": "narrow-m1-74.2mm",
+          "material": "TPU95A-assumed",
+          "print": "unreported"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "attachment",
+        "text": "Two conformal cups; flexible installation and thin removable tape remain physical checks",
+        "reference": "README.md#installation"
+      }
+    ],
+    "hypotheses": [],
+    "directives": []
+  },
+  "help": null
+}

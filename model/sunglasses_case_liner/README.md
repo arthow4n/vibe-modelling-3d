@@ -19,7 +19,11 @@ See the [corner investigation](#corner-coverage-investigation--2026-10-16) for
 what failed in the earlier design and what was checked afterward.
 
 A separate small ironing sample was printed: 50% ironing flow is preferred for
-that setup. It does not qualify the full liner or prove a cause. Read the
+that setup, at **0.2 mm actual layer height** (user clarification, 2026-10-16).
+All prior liner prints used 0.2 mm despite the old 0.1 mm instructions. This
+sample does not qualify the full liner or prove a cause. See the
+[shared layer-height correction](../tpu_damping_box/README.md#actual-liner-layer-height-correction--2026-10-16)
+for that report's scope and the
 [sample report](#ironing-flow-print-feedback--2026-10-16) before transferring the
 setting. The next application check, if the user prints the corrected cups, is
 [installation and actual use](#installation), using the [print setup](#printing-and-manufacturing-review).
@@ -115,7 +119,8 @@ skin. The sample deliberately keeps the cut edges sharp in CAD to preserve the
 exact crop; it lies flat on its full backing, and its only short unsupported
 features are the intended channel roofs bridging between complete ribs.
 
-Baseline review: valid CAD and paired STEP/STL exports; OrcaSlicer **2.4.2**,
+Historical **0.1 mm diagnostic** baseline review: valid CAD and paired STEP/STL
+exports; OrcaSlicer **2.4.2**,
 supplied TPU triplet, centred without rotation, **no keyword notices**, ironing
 off. Estimated **0.48 g / 9 min 9 s** per sample, not measured. The local path
 check passed **12 open-channel samples**, **9 interior rib sections** and
@@ -146,7 +151,9 @@ and 100%. These percentages refer to **ironing flow**, not normal extrusion flow
 Associated design: the supplied rib-bounded S16 bottom-panel sample at `de98e8f`,
 nominally 18.5 × 18.5 × 1.6 mm. The user identified the ironing sample and flow
 levels, not an exact printed filename/hash or measured dimensions. TPU is the
-intended material; actual spool/hardness, printer, nozzle/layers, ironing speed,
+intended material; the user now confirms **0.2 mm layers for this and all liner
+prints so far**. Actual spool/hardness, printer, nozzle, separate first-layer
+override, ironing speed,
 spacing, temperature, orientation and whether other settings were held identical
 remain unreported. The supplied diagnostic profiles are not evidence of the
 actual settings used. This is subjective physical surface-finish feedback, not
@@ -206,19 +213,22 @@ slice. No geometry or process settings changed to address this report.
 
 ## Printing and manufacturing review
 
-Use TPU (Generic 95A is the reference assumption), **0.4 mm nozzle, 0.10 mm layers
+Use TPU (Generic 95A is the reference assumption), **0.4 mm nozzle, 0.20 mm layers
 including first layer, Arachne, two requested walls**, 100% material fill.
 The channels are CAD voids. Reuse the S16 reference
 [process](../tpu_damping_box/profiles/tpu-closed-process.json),
 [filament](../tpu_damping_box/profiles/tpu95a.json) and
 [Q2C printer](../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json).
-The successful sample's actual settings and TPU brand/hardness were not reported;
-these profiles are diagnostic references, not recovered settings or calibration.
+The successful sample's layer height is user-confirmed as **0.2 mm**; other actual
+settings and TPU brand/hardness remain unreported. These profiles are diagnostic
+references, not a recovered full profile or calibration. The retained 0.1 mm
+receipts below are historical diagnostic evidence and do not establish current
+0.2 mm full-liner toolpaths. No full-liner print has been reported.
 
 Keep **supports off**, both thick bridge options **off**, bridge directions
 **180°**, and the supplied unrotated layout. Each 0.4 mm vertical skin is
 intentionally one bead; the ribs need multiple substantial paths. Horizontal
-skins have four 0.1 mm layers. The floor roofs span at most 3.5 mm between ribs;
+skins have two 0.2 mm layers. The floor roofs span at most 3.5 mm between ribs;
 wall and curved-corner cap regions bridge the narrow 0.8 mm core with support
 from adjacent ribs/skins. Trapped support would be inaccessible. The primary
 unsupported slice and automatic probe are reviewed separately; physical sag,
@@ -248,7 +258,7 @@ solid-corner baseline is a negative control. [Corner comparison](corner_study.py
 now uses these same production builders; [native view receipt](notes/corner_view.json).
 No duplicated experimental corner builder selects the printable geometry.
 
-[Final evaluator receipt](notes/final_review.json) owns final source association,
+[Retained export and 0.1 mm diagnostic receipt](notes/final_review.json) owns its source association,
 paired exports, tool identities, profile selection, placement and slice status.
 [Path receipt](notes/path_review.json), [floor/support preview](renders/path_review.png)
 and [corner paths](renders/corner_paths.png) cover straight and radial sections,
@@ -256,11 +266,12 @@ multiple rib tracks, first corner caps, floor bridges and bridge extrusion heigh
 These are slicer metadata, not measured deposited polymer. STL slicing does not
 verify Orca GUI STEP import or physical damping.
 
-Current checks: profile, corner coverage (including the solid-corner negative
+Current CAD checks: profile, corner coverage (including the solid-corner negative
 control), nominal fit and sampled motion all **PASS**. Physical use and quietness
-remain **UNKNOWN**. The final native evaluator reports valid geometry and
+remain **UNKNOWN**. The retained native evaluator reports valid geometry and
 successful matching STEP/STL exports. OrcaSlicer **2.4.2**, supplied TPU triplet,
-centred compound without rotation: slice completed with **no keyword notices**.
+centred compound without rotation, **0.1 mm diagnostic layers**: slice completed
+with **no keyword notices**.
 Diagnostic batch estimate: **63.95 g / 28 h 10 min 4 s**, not measured.
 
 The revised slice retains **72 corner air-gap sections**, minimum **0.782 mm**,
@@ -279,11 +290,16 @@ gaps, and the new cap paths close the narrow curved core. The native
 being relabeled as unconditional print qualification. Actual bridging needs a
 print report.
 
-Reproduce from the repository root:
+Reproduce the **historical 0.1 mm diagnostic** from the repository root. The
+path reader below targets that old setup; future printing uses the current
+0.2 mm process linked above, with fresh setup-specific evidence when needed.
+The historical reader now accepts compact Orca extrusion tokens (`E.89832`) as
+well as leading-zero values and reports missing samples separately from an
+excessive bridge height. Its 0.1 mm criterion still belongs to the old setup.
 
 ```sh
 ./execute.py --threads 1 model/sunglasses_case_liner/verification.py --variant s16-retrofit
-./evaluate_model.py model/sunglasses_case_liner/sunglasses_case_liner.py --views none --slice --slice-keep-run --slice-printer .codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json --slice-process model/tpu_damping_box/profiles/tpu-closed-process.json --slice-filament model/tpu_damping_box/profiles/tpu95a.json --report model/sunglasses_case_liner/notes/final_review.json
+./evaluate_model.py model/sunglasses_case_liner/sunglasses_case_liner.py --views none --slice --slice-keep-run --slice-printer .codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json --slice-process model/tpu_damping_box/profiles/tpu-closed-0p1-historical-process.json --slice-filament model/tpu_damping_box/profiles/tpu95a.json --report model/sunglasses_case_liner/notes/final_review.json
 ./execute.py model/sunglasses_case_liner/review_paths.py
 ```
 
@@ -309,7 +325,7 @@ and the [reusable evidence index](../../.codex/skills/cadquery-3d-design/referen
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | Yes — ironing sample, reported 2026-10-16 | Associated `bottom_sample_18p5mm.step/.stl`; exact printed file/settings unknown | 10%/30% ironing flow leave line gaps; 50% described as perfect and preferred; 100% produces raised/bumpy top. No ironing-off control or full-liner finish result reported. Original S16 damping approval remains scoped to its fixture. |
+| Test piece(s) | Yes — ironing sample, reported 2026-10-16 | Associated `bottom_sample_18p5mm.step/.stl`; 0.2 mm layers confirmed; exact printed file/other settings unknown | 10%/30% ironing flow leave line gaps; 50% described as perfect and preferred; 100% produces raised/bumpy top. No ironing-off control or full-liner finish result reported. Original S16 damping approval remains scoped to its fixture. |
 | Final printable object(s) | No — user reported holding off before correction | Revised `sunglasses_case_liner.step/.stl` | Curved-core correction requested; actual fit, adhesion, quietness, skin integrity and wear remain untested. Existing rigid case is printed and accepted. |
 
 ## Attribution

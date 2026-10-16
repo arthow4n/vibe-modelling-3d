@@ -66,9 +66,10 @@ def physical_feedback(variant):
     r=json.loads((ROOT/'notes/physical_feedback_2026_10_16.json').read_text())
     if variant not in r['observations'] or not all(digest(ROOT/n)==r['source_sha256'][n] for n in ('design.py','selection.py')):
         return ()
-    scope={'revision':'quiet-selection-r2','variant':variant,'shell':'PLA','liner':'TPU-hardness-unknown'}
+    scope={'revision':'quiet-selection-r2','variant':variant,'shell':'PLA','liner':'TPU-hardness-unknown',
+           'reported_print_layer_mm':str(r['actual_layer_height_mm'])}
     evidence=[Evidence('user-comparison',(('study.research','reported-comparison'),),Status.PASS,
-        r['observations'][variant]+' Subjective user comparison; exact files/settings unknown.',r['reference'],scope)]
+        r['observations'][variant]+' Subjective user comparison at user-confirmed 0.2 mm layers; exact files and other settings unknown.',r['reference'],scope)]
     if variant=='I':
         evidence.append(Evidence('user-approval',(('study.quiet_priority','quiet-winner'),),Status.PASS,
             'I explicitly approved, much quieter than E/H in the reported PLA shell.',r['reference'],scope))
@@ -128,8 +129,9 @@ def followup_feedback(variant,scope):
     r=json.loads((ROOT/'notes/physical_feedback_closed_followup.json').read_text())
     if variant not in r['observations'] or not all(digest(ROOT/n)==r['source_sha256'][n] for n in ('design.py','thin_design.py')):
         return ()
+    scope={**scope,'reported_print_layer_mm':str(r['actual_layer_height_mm'])}
     evidence=[Evidence('reported-comparison',(('study.research','reported-comparison'),),Status.PASS,
-        r['observations'][variant]+' Exact print settings/artifacts unknown.',r['reference'],scope)]
+        r['observations'][variant]+' User-confirmed 0.2 mm layers; other exact print settings/artifacts unknown.',r['reference'],scope)]
     if variant=='I22':
         evidence.extend((Evidence('acceptable-quietness',(('study.quiet_priority','quiet-winner'),),Status.PASS,
             'User says I22 is good enough, little perceived difference from I30.',r['reference'],scope),
@@ -146,7 +148,8 @@ def closed_plan(variant):
     import skin_design as d
     d.variant_named(variant)
     protect_recorded_intent(ROOT,REQUIREMENTS)
-    scope={'revision':'closed-skin-r7','variant':variant,'shell':'PLA-existing','liner':'TPU95A-assumed-unprinted','process':'0.10mm-Arachne-thin-bridges'}
+    scope={'revision':'closed-skin-r7','variant':variant,'shell':'PLA-existing','liner':'TPU-hardness-unknown',
+           'reported_print_layer_mm':'0.2','process':'0.20mm-reference-Arachne-thin-bridges'}
     @cache
     def parts():
         return c.candidate(variant)
@@ -172,7 +175,7 @@ def closed_plan(variant):
     )
     checks=tuple(assertion_check(id,targets,run,'skin_checks.py / skin_design.py',scope) for id,targets,run in groups)
     return Plan(variant,REQUIREMENTS,scope,checks,(),questions=questions,
-        decisions=(DesignDecision('closed-sparse-supports','Two continuous 0.4 mm skins, 0.9 mm straight ribs at 4.4 mm pitch; 0.1 mm layers and thin internal bridges.','README.md#closed-skin-follow-up'),),
+        decisions=(DesignDecision('closed-sparse-supports','Two continuous 0.4 mm skins, 0.9 mm straight ribs at 4.4 mm pitch; current reference uses 0.2 mm layers and thin internal bridges. User confirms all actual liner prints used 0.2 mm; older 0.1 mm receipts remain diagnostic history.','README.md#actual-liner-layer-height-correction--2026-10-16'),),
         hypotheses=(Hypothesis('thinner-quietness','Wider membrane spans and fewer supports may cushion impacts, but small stroke, bottoming and printed fusion can defeat it.','README.md#closed-skin-follow-up'),),
         directives=(Directive('both-walls','Retain both walls and challenge I22 with one or two significantly thinner candidates.',S('README.md#i22--i30--i10-print-feedback--latest-report','User reports I22 good enough, I10 broken near shell, and requests thinner stable designs with both walls; slicer changes are allowed.')),))
 

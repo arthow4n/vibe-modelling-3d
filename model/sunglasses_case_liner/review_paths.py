@@ -125,10 +125,12 @@ def main():
     for line in (run/'plate_1.gcode').open():
         if line.startswith(';TYPE:'):role=line[6:].strip()
         if line.startswith(';HEIGHT:'):extrusion_height=float(line[8:])
-        if line.startswith('G1 ') and 'bridge' in role.lower() and re.search(r' E[0-9]',line):
+        if (line.startswith('G1 ') and ('X' in line or 'Y' in line)
+                and 'bridge' in role.lower() and re.search(r' E(?:[0-9]|\.)',line)):
             assert extrusion_height is not None
             bridge_heights.add(extrusion_height)
-    assert bridge_heights and max(bridge_heights)<=.10001, 'Thick bridges intrude into core'
+    assert bridge_heights, 'No bridge extrusion-height metadata captured'
+    assert max(bridge_heights)<=.10001, 'Thick bridges intrude into core'
     fig,ax=plt.subplots(figsize=(9,8))
     for segments,color in ((support,'#168b88'),(layers[1.3],'#a75a9b')):
         ax.add_collection(LineCollection([[(p[0],p[1]),(p[2],p[3])] for p in segments],colors=color,linewidths=.4))

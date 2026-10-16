@@ -36,9 +36,16 @@ actual settings and evidence; the older batch receipt is not reused for this
 new process or new plate.
 
 `tpu-closed-process.json` derives from `tpu-selected-process.json` for S16/S12.
-Changes: 0.10 mm layer/initial-layer heights, nominal 0.4 mm wall/material widths,
+Initial changes: 0.10 mm layer/initial-layer heights, nominal 0.4 mm wall/material widths,
 four bottom/top shell layers, 0.4 mm top-shell thickness, and thick external and
 internal bridges explicitly off. Existing Arachne, bridge direction, speed limits,
 supports-off and material-fill settings remain. It retains AGPL-3.0. This profile
 qualifies only the documented diagnostic paths, not a particular TPU spool or
 printed gap/strength/noise performance.
+
+Layer-height correction, 2026-10-16: the user confirms all actual liner prints
+used 0.2 mm layers. The current `tpu-closed-process.json` now uses 0.20 mm layer
+and initial-layer heights, with a matching name/ID. Other settings are retained;
+this is still a diagnostic reference, not the user's recovered full profile.
+`tpu-closed-0p1-historical-process.json` preserves the exact earlier preset for
+historical 0.1 mm receipts/readers. It is not the future printing recommendation.
