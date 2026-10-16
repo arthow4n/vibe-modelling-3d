@@ -8,6 +8,7 @@
   "available_checks": [
     "liner.profile",
     "liner.fit",
+    "liner.corners",
     "liner.motion"
   ],
   "exit_reason": "unresolved_evidence",
@@ -101,6 +102,21 @@
               "liner.profile"
             ],
             "out_of_scope": []
+          },
+          {
+            "id": "corners",
+            "criterion": "Air-core coverage extends around all four rounded corners between ribs; straight-wall witnesses alone are insufficient",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "liner.corners"
+            ],
+            "evidence": [
+              "liner.corners"
+            ],
+            "out_of_scope": []
           }
         ],
         "acceptance_criteria": [],
@@ -162,6 +178,24 @@
         "status": "PASS",
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "checks.py#check_fit",
+        "scope": {
+          "design": "s16-retrofit",
+          "shell": "accepted-e-158x78x63",
+          "liner": "TPU",
+          "physical": "unreported"
+        }
+      },
+      {
+        "id": "liner.corners",
+        "targets": [
+          [
+            "liner.profile",
+            "corners"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py#check_corner_coverage",
         "scope": {
           "design": "s16-retrofit",
           "shell": "accepted-e-158x78x63",

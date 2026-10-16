@@ -18,7 +18,9 @@ even solid paths leave anisotropy and bonding uncalibrated.
 For thin sandwich liners, map air-core coverage through corners, pattern ends
 and floor/wall junctions before accepting straight-section witnesses as whole-liner
 coverage. The [sunglasses liner corner review](../../../../model/sunglasses_case_liner/README.md#corner-coverage-investigation--2026-10-16)
-found deliberately solid bends after straight-wall path checks passed.
+found deliberately solid bends after straight-wall path checks passed. Require
+explicit CAD and sliced skin/core/rib witnesses at each distinct corner/contact
+region when transferring a successful damping profile to a new outline.
 Verify the voids as well as the material: continuous
 skins, separated support paths, remaining channel width and bridge extrusion
 height at representative layers. Check whether the planned bridge extrusion

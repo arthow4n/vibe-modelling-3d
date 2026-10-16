@@ -3,6 +3,7 @@ from collections import defaultdict, Counter
 from pathlib import Path
 import json
 import re
+from math import cos, sin, radians
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -13,26 +14,39 @@ import design as d
 ROOT = Path(__file__).resolve().parent
 
 
-def multiple_tracks(paths, x, y, z, axis):
-    # Axis-aligned section normal to the rib's deposited tracks.
-    hits = []
-    for ax,ay,bx,by,pz,width,role in paths:
-        if abs(pz-z) > 1e-5:
+def crossing_tracks(paths, start, end, z):
+    """Distinct substantial extrusion crossings of a local rib section."""
+    ax,ay=start
+    dx,dy=end[0]-ax,end[1]-ay
+    hits=[]
+    for x,y,nx,ny,pz,width,role in paths:
+        if abs(pz-z)>1e-5:
             continue
-        if axis == 'x':
-            ax,ay,bx,by = ay,ax,by,bx
-            fixed,centre = y,x
-        else:
-            fixed,centre = x,y
-        if abs(bx-ax)<1e-9:
+        ex,ey=nx-x,ny-y
+        det=dx*ey-dy*ex
+        if abs(det)<1e-9:
             continue
-        t = (fixed-ax)/(bx-ax)
-        cross = ay+t*(by-ay)
-        if 0<=t<=1 and abs(cross-centre)<.7 and .38<=width<=.65:
-            if not any(abs(cross-c)<.02 for c in hits):
-                hits.append(cross)
-    assert len(hits)>=2, f'Rib at {x,y,z}: fewer than two substantial tracks: {hits}'
+        t=((x-ax)*ey-(y-ay)*ex)/det
+        u=((x-ax)*dy-(y-ay)*dx)/det
+        if 0<=t<=1 and 0<=u<=1 and .38<=width<=.65:
+            if not any(abs(t-h)<.02 for h in hits):
+                hits.append(t)
+    assert len(hits)>=2, f'Rib at {start,end,z}: fewer than two substantial tracks: {hits}'
     return len(hits)
+
+
+def multiple_tracks(paths, x, y, z, axis):
+    if axis not in ('x','y'):
+        raise ValueError(axis)
+    dx,dy=(.7,0) if axis=='x' else (0,.7)
+    return crossing_tracks(paths,(x-dx,y-dy),(x+dx,y+dy),z)
+
+
+def radial_paths(paths, cx, cy, ex, ey):
+    # Tangent coordinate is section X; radius is section Y.
+    return [(-ey*(ax-cx)+ex*(ay-cy),ex*(ax-cx)+ey*(ay-cy),
+             -ey*(bx-cx)+ex*(by-cy),ex*(bx-cx)+ey*(by-cy),z,width,role)
+            for ax,ay,bx,by,z,width,role in paths]
 
 
 def main():
@@ -50,7 +64,7 @@ def main():
     assert not any(p[-1].startswith('Support') for p in paths)
     support = [p for p in orca_linear_paths(run/'support_probe/plate_1.gcode') if p[-1].startswith('Support')]
     # Source compound centred without rotation on the documented 270 mm bed.
-    length,width,height,_ = d.dimensions()
+    length,width,height,radius = d.dimensions()
     x = 135.
     ys = (135-(width+d.LAYOUT_GAP)/2,135+(width+d.LAYOUT_GAP)/2)
     gaps=[];tracks=[];roofs=[];channels=[]
@@ -80,6 +94,33 @@ def main():
                         gaps.append(coverage['internal_gap_mm'])
                 tracks.append(multiple_tracks(layers[z],x,cy+side*(width/2-.8),z,'x'))
                 tracks.append(multiple_tracks(layers[z],x+side*(length/2-.8),cy,z,'y'))
+    corner_gaps=[];corner_tracks=[];corner_caps=[]
+    cap_z=round(height-d.SKIN+.1,3)
+    for cy in ys:
+        for sx,sy,local_x,local_y in d.corner_locations():
+            cx,centre_y=x+local_x,cy+local_y
+            for z in (5.,15.,29.):
+                for angle in (15,45,75):
+                    ex,ey=sx*cos(radians(angle)),sy*sin(radians(angle))
+                    lp=radial_paths(layers[z],cx,centre_y,ex,ey)
+                    coverage=section_coverage(lp,x_mm=0,z_mm=z,span_mm=(radius-d.THICKNESS,radius))
+                    assert len(coverage['intervals_mm'])==2, 'Corner skins missing or fused'
+                    assert coverage['internal_gap_mm']>=.7, 'Corner air core lost in slicing'
+                    assert all(b-a>=.36 for a,b in coverage['intervals_mm']), 'Corner skin path too thin'
+                    corner_gaps.append(coverage['internal_gap_mm'])
+                for angle in (30,60):
+                    ex,ey=sx*cos(radians(angle)),sy*sin(radians(angle))
+                    r=radius-d.BACKING-d.CORE/2
+                    px,py=cx+r*ex,centre_y+r*ey
+                    corner_tracks.append(crossing_tracks(layers[z],
+                        (px+.7*ey,py-.7*ex),(px-.7*ey,py+.7*ex),z))
+            for angle in (15,45,75):
+                ex,ey=sx*cos(radians(angle)),sy*sin(radians(angle))
+                lp=radial_paths(layers[cap_z],cx,centre_y,ex,ey)
+                cap=section_coverage(lp,x_mm=0,z_mm=cap_z,
+                    span_mm=(radius-d.BACKING-d.CORE+.1,radius-d.BACKING-.1))
+                assert cap['uncovered_width_mm']<.01, 'Corner cap path missing'
+                corner_caps.append(cap)
     bridge_heights=set();role='';extrusion_height=None
     for line in (run/'plate_1.gcode').open():
         if line.startswith(';TYPE:'):role=line[6:].strip()
@@ -95,12 +136,25 @@ def main():
     ax.set_title('S16 liner: first contact-skin layer purple; probe support teal')
     fig.tight_layout();(ROOT/'renders').mkdir(exist_ok=True)
     fig.savefig(ROOT/'renders/path_review.png',dpi=140)
+    cf,axes=plt.subplots(2,2,figsize=(8,8))
+    for ax,(sx,sy,lx,ly) in zip(axes.flat,d.corner_locations()):
+        cx,cy=x+lx,ys[0]+ly
+        local=[p for p in layers[15.] if abs((p[0]+p[2])/2-cx)<8 and abs((p[1]+p[3])/2-cy)<8]
+        caps=[p for p in layers[cap_z] if abs((p[0]+p[2])/2-cx)<8 and abs((p[1]+p[3])/2-cy)<8]
+        ax.add_collection(LineCollection([[(p[0]-cx,p[1]-cy),(p[2]-cx,p[3]-cy)] for p in caps],colors='#d6a6ce',linewidths=.8))
+        ax.add_collection(LineCollection([[(p[0]-cx,p[1]-cy),(p[2]-cx,p[3]-cy)] for p in local],colors='#246d88',linewidths=1.1))
+        ax.set_xlim(-8,8);ax.set_ylim(-8,8);ax.set_aspect('equal');ax.set_title(f'Corner ({sx:+d}, {sy:+d})')
+    cf.suptitle('Revised corner paths: middle wall blue; first cap layer pink')
+    cf.tight_layout();cf.savefig(ROOT/'renders/corner_paths.png',dpi=140)
     report=dict(scope='Slicer metadata only, not deposited-polymer measurements or physical approval',
         criteria=dict(core_gap_min_mm=.7,skin_width_min_mm=.36,rib_tracks_min=2,
                       track_width_range_mm=[.38,.65],bridge_height_max_mm=.1),
         floor_channel_samples=len(channels),wall_gap_samples=len(gaps),
         minimum_wall_gap_mm=min(gaps),rib_sections=len(tracks),minimum_rib_tracks=min(tracks),
         first_skin_layers=roofs,bridge_heights_mm=sorted(bridge_heights),
+        corner_gap_samples=len(corner_gaps),minimum_corner_gap_mm=min(corner_gaps),
+        corner_rib_sections=len(corner_tracks),minimum_corner_rib_tracks=min(corner_tracks),
+        corner_cap_samples=len(corner_caps),first_corner_cap_z_mm=cap_z,
         support_probe=dict(segments=len(support),z_range_mm=[min(p[4] for p in support),max(p[4] for p in support)] if support else None))
     (ROOT/'notes/path_review.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2))

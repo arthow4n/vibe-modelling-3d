@@ -63,17 +63,34 @@ def check_motion():
     assert check_pair(bad,m['body'],FREE).status=='failed', 'Missing collision sensitivity'
 
 
-def check_corner_coverage():
-    """Required air-core locations around bends; original solid corners fail."""
+def require_corner_coverage(part):
+    """Sample air, both skins and radial ribs at every bend and three heights."""
     from math import cos, sin, radians
-    length,width,_,radius = d.dimensions()
+    _,_,height,radius = d.dimensions()
     core_radius = radius-d.BACKING-d.CORE/2
-    for sx in (-1,1):
-        for sy in (-1,1):
-            cx,cy = sx*(length/2-radius),sy*(width/2-radius)
+    for sx,sy,cx,cy in d.corner_locations():
+        for z in (2.,15.,height-.6):
             for angle in (15,45,75):
-                air = (cq.Workplane('XY').sphere(.1).translate((
+                co,si=cos(radians(angle)),sin(radians(angle))
+                air = cq.Workplane('XY').sphere(.1).translate((
+                    cx+sx*core_radius*co,cy+sy*core_radius*si,z))
+                assert air.intersect(part).val().Volume()<1e-6, (
+                    'Required corner air core is solid',sx,sy,angle,z)
+                for r in (radius-d.BACKING/2,radius-d.THICKNESS+d.SKIN/2):
+                    skin=cq.Workplane('XY').sphere(.1).translate((cx+sx*r*co,cy+sy*r*si,z))
+                    assert skin.cut(part).val().Volume()<1e-6, 'Corner skin missing'
+            for angle in (30,60):
+                rib=cq.Workplane('XY').sphere(.1).translate((
                     cx+sx*core_radius*cos(radians(angle)),
-                    cy+sy*core_radius*sin(radians(angle)),15.)))
-                assert air.intersect(d.cup()).val().Volume()<1e-6, (
-                    'Required corner air core is solid',sx,sy,angle)
+                    cy+sy*core_radius*sin(radians(angle)),z))
+                assert rib.cut(part).val().Volume()<1e-6, 'Corner rib missing'
+
+
+def check_corner_coverage():
+    require_corner_coverage(d.cup())
+    try:
+        require_corner_coverage(d.solid_corner_cup())
+    except AssertionError as exc:
+        assert 'Required corner air core is solid' in str(exc), 'Wrong negative-control failure'
+    else:
+        raise AssertionError('Original solid corner must fail coverage')

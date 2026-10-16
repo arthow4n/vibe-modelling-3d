@@ -1,195 +1,148 @@
 # S16 damping liner for the printed sunglasses case
 
-**Print on hold — corner coverage review, 2026-10-16.** The user has not printed
-this liner and questions the solid rounded corners. Existing files are retained
-for investigation; their slice acceptance does not qualify corner damping.
-
-Previously delivered [sunglasses_case_liner.step](sunglasses_case_liner.step), or its matching
+The **revised curved-corner liner** uses three air pockets around each rounded
+bend, in addition to the straight-wall channels. Print
+[sunglasses_case_liner.step](sunglasses_case_liner.step), or its matching
 [STL](sunglasses_case_liner.stl). The plate contains **two identical TPU cups**,
-one for each half of the existing [accepted E case](../sunglasses_case/notes/printing_and_design.md).
-Source: [print entry](sunglasses_case_liner.py), [parametric builder](design.py).
+one for each half of the already printed [accepted E case](../sunglasses_case/notes/printing_and_design.md).
+[Print entry](sunglasses_case_liner.py) · [Parametric builder](design.py).
 
-![Two cups, backing down](renders/print/sunglasses_case_liner_isometric.png)
+![Retained solid corner left; current revised corner right](renders/corner_study/corner_study_top.png)
 
 ## Intent
 
-User instruction, 2026-10-16: S16 and S12 have both been printed and work;
-S16 is preferred over S12/I22 and feels good compared with I30/original 4 mm I.
-Record that preference and a reusable lesson first, then adapt S16 into a liner
-for the already printed sunglasses box. The user confirms enough interior room.
-The [original physical report](../tpu_damping_box/README.md#s16--s12-print-feedback--2026-10-16)
-qualifies the sample profile, not this new accessory's quietness or fit.
-The original case and its accepted source/exports are preserved.
+User instructions, 2026-10-16: S16 and S12 were both printed and work; S16 is
+preferred over S12/I22 and feels good compared with I30/original 4 mm I. Record
+that preference and a reusable lesson, then adapt S16 to the already printed
+sunglasses case, which the user confirms has enough interior room. The
+[original physical report](../tpu_damping_box/README.md#s16--s12-print-feedback--2026-10-16)
+qualifies the sample profile, not this new accessory's fit or quietness.
 
-## Corner coverage investigation — 2026-10-16
-
-**Current printable files remain on hold.** The user reports no liner print and
-questions whether the solid sides/corners defeat the damping purpose. Inspection
-confirms that the straight side walls contain vertical ribs and a 0.8 mm air core;
-the original slice's 48 wall-gap witnesses apply to those straight regions only.
-The **four rounded bends are solid through the full 1.6 mm wall thickness**.
-The top 0.4 mm is also intentionally solid to close the wall channels, and floor/
-wall junctions and pattern remainders remain solid. A top-layer view alone does
-not reveal the hollow middle of a straight wall. The user's actual slicer setup
-has not been supplied; its paths are not inferred from the reference receipt.
-
-Solid corners remove the air-core deflection space at diagonal contacts. This
-is a real coverage limitation, not a slicer infill setting. It does not establish
-zero damping in solid TPU, nor does the absence/presence of air quantify noise.
-The earlier local checks were insufficient to qualify damping coverage around
-the perimeter. The user is holding off before printing, not reporting a failed
-print. Physical sample approval of S16 remains valid in its original scope.
-
-### Feasible curved-core direction
-
-![Actual middle-height CAD sections: existing left, proposed right](renders/corner_study/corner_study_top.png)
-
-Left is a crop of the delivered liner at Z 15 mm. Right is a rough candidate
-with the same external/internal outline, **0.4 mm backing, 0.8 mm curved air core
-and 0.4 mm contact skin**, with short radial ribs around each corner. The three
-corner pockets per bend are spaced at 30°, preserving a minimum nominal 0.9 mm
-rib chord at the inner core radius. This is closer corner support spacing than
-the straight-wall S16 pitch; it preserves the local sandwich rather than
-stretching the original ribs. Existing solid transitions at the corner ends
-are retained in this rough study and would need review in a complete revision.
-
-[Inspection-only source](corner_study.py) builds this candidate without changing
-the production builder or exports. [Geometric witnesses](notes/corner_study.json)
-confirm **36 new corner air locations** (three angles at three heights in all
-four corners), **72 retained skin locations**, and one valid connected candidate.
-At those same air locations the original corner is solid, providing the negative
-comparison. [Native section receipt](notes/corner_view.json) covers the reviewed
-view. These are targeted samples, not full manufacturing or acoustic qualification.
-
-**Recommendation:** carry a curved core around the corners before investing in
-the full liner print. This is geometrically feasible; there is no need to accept
-solid bends as an unavoidable limitation. A complete revision still needs curved
-skin/rib toolpath review, closed-channel cap review and its own matching exports
-and final slice. Both skins stay in place; opening the outside backing is not
-the proposed fix. The vertical pockets and shallow top caps offer a plausible
-print orientation, but this candidate has not been sliced or physically tested.
-No new printable test piece or revised production STEP/STL is delivered in this
-exploration phase.
-
-The product plan now declares the missing corner-coverage obligation. Its
-[focused current-design result](notes/corner_coverage.json) is **FAIL** for the
-original solid corners. Omitted checks in that focused receipt are UNKNOWN;
-the unchanged fit/motion/straight-profile evidence is retained separately in
-[the original receipt](notes/verification.json). The original successful slice
-remains evidence for path generation in its checked regions, not readiness.
-
-Reproduce the investigation:
-
-```sh
-./execute.py --threads 1 model/sunglasses_case_liner/corner_study.py
-./execute.py --threads 1 model/sunglasses_case_liner/verification.py --variant s16-retrofit --check liner.corners
-./evaluate_model.py model/sunglasses_case_liner/corner_study.py --views top --output-dir renders/corner_study --report model/sunglasses_case_liner/notes/corner_view.json
-```
+The user then held off before printing after noticing the solid corners, asked
+for investigation, and explicitly authorized updating the model and recording
+that **future adaptations must check corners**. The current revision implements
+that correction. The accepted rigid case and its source/exports are unchanged.
 
 ## Geometry and adaptation
 
-The target is the printed reduced E case: **158 × 78 × 63 mm**, 7 mm inner corner
-radius. Each cup is **157.6 × 77.6 × 30.8 mm**, outer corner radius 6.8 mm;
-0.2 mm nominal allowance per side. S16 is preserved locally:
+Target cavity: **158 × 78 × 63 mm**, 7 mm inner corner radius. Each cup remains
+**157.6 × 77.6 × 30.8 mm**, with a 6.8 mm outer corner radius and 0.2 mm nominal
+allowance per side. The correction removes material only inside the corner cores;
+it preserves the installed envelope, opening and shell clearances.
 
 | Feature | Dimension |
 | --- | --- |
 | Shell-side backing / air core / contents-side skin | 0.4 / 0.8 / 0.4 mm |
 | Total floor and wall sandwich | 1.6 mm |
-| Straight ribs / pitch / nominal inter-rib channel | 0.9 / 4.4 / 3.5 mm |
+| Straight ribs / pitch / nominal open channel | 0.9 / 4.4 / 3.5 mm |
+| Corner pockets | Three curved vertical pockets per bend; 12 per cup |
+| Corner ribs | Radial, minimum nominal 0.9 mm chord at the inner core radius |
+| Corner sector pitch | 30°, about 3.14 mm along the core centreline |
 | Solid top closure of wall channels | 0.4 mm |
 | Rounded opening edges | 0.2 mm radius |
 
-Floor ribs run along the short direction, with bridge paths across them. Wall
-ribs run vertically. Both skins remain continuous; corners and short pattern
-remainders are solid TPU, rather than scaled or stretched cells. The floor/wall
-junction is solid locally. This adaptation changes coverage and corner stiffness;
-it does not claim that the coupon's subjective response transfers unchanged.
-No printed labels cut the thin skins; the two inserts are interchangeable.
+Floor ribs run along the short direction; first-skin bridges cross them.
+Wall and corner ribs run vertically. Both skins remain continuous through the
+rounded bends. The floor/wall junction, short pattern remainders, rib roots and
+top cap remain solid locally. There is no claim of identical compliance at every
+point or calibrated acoustic transfer from the S16 sample. No labels cut the
+thin skins; the two inserts are interchangeable.
 
-A seated backing is nominally 0.2 mm above its rigid exterior panel's inner face,
-reserved for tape. Each insert ends 0.5 mm below the rigid mating rim, leaving
-**1 mm between opposing liner rims** when closed. The case closure is unchanged.
-The residual rounded interior is nominally **154.4 × 74.4 × 59.4 mm** with the
-0.2 mm backing allowance occupied; this is available geometry, not a measured
-glasses envelope. The narrow seam band is deliberately unlined to avoid pinching.
+Each backing reserves **0.2 mm** for tape against the rigid panel. Each cup ends
+**0.5 mm below the rigid mating rim**, leaving **1 mm between liner rims** when
+closed. This narrow seam band remains unlined to avoid pinching. The remaining
+rounded interior is nominally **154.4 × 74.4 × 59.4 mm**, including the tape
+allowance. This is available geometry, not a measured glasses envelope.
 
 ## Installation
 
-1. Print the supplied two-cup layout, backing down and openings up. Remove
-   strings and clean the contact faces before placing glasses inside.
-2. Dry-fit each cup in an open case half, with its flat backing against the
-   panel. It should seat without buckling and stay below the rigid rim.
+1. Print the supplied layout, backing down and openings up. Remove strings and
+   clean the contact faces before placing glasses inside.
+2. Dry-fit each cup in an open half. It should seat without buckling and stay
+   below the rigid rim.
 3. Use small strips of **thin removable double-sided tape, at most 0.2 mm total
    installed thickness**, under the flat backing, particularly for the lid cup.
-   Start near the perimeter; do not fill channels, glue the rim, or use thick
-   foam tape. Select tape compatible with the actual TPU and shell; adhesion is
-   untested. The design does not rely on an unqualified friction fit.
+   Start near the perimeter; avoid thick foam tape and adhesive in the channels.
+   Select tape compatible with the actual TPU/shell; adhesion is untested.
+   The design does not rely on an unqualified friction fit.
 4. Close the empty box gently and check the latch. Then check the actual glasses
    for clearance and compare contact noise. Check that the lid insert stays in
    place after repeated opening. No case reprint or new fasteners are needed.
 
 ## Printing and manufacturing review
 
-Use TPU (Generic 95A is the reference assumption), **0.4 mm nozzle, 0.10 mm
-layers including first layer, Arachne, two requested walls**, 100% material fill.
-The air channels are CAD voids. Reuse the S16 reference
+Use TPU (Generic 95A is the reference assumption), **0.4 mm nozzle, 0.10 mm layers
+including first layer, Arachne, two requested walls**, 100% material fill.
+The channels are CAD voids. Reuse the S16 reference
 [process](../tpu_damping_box/profiles/tpu-closed-process.json),
 [filament](../tpu_damping_box/profiles/tpu95a.json) and
 [Q2C printer](../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json).
-Actual successful sample print settings and TPU brand/hardness were not reported;
+The successful sample's actual settings and TPU brand/hardness were not reported;
 these profiles are diagnostic references, not recovered settings or calibration.
 
-Keep supports **off**, both thick bridge options **off**, bridge directions
+Keep **supports off**, both thick bridge options **off**, bridge directions
 **180°**, and the supplied unrotated layout. Each 0.4 mm vertical skin is
-intentionally one bead; the 0.9 mm ribs need multiple substantial paths.
-Horizontal skins have four 0.1 mm layers. The unsupported floor roofs span
-3.5 mm between ribs; wall-channel top caps span the 0.8 mm core. Trapped automatic
-support would be inaccessible, so the probe is a review signal, not an instruction
-to enable supports. Physical bridging, sag and channel separation remain untested.
+intentionally one bead; the ribs need multiple substantial paths. Horizontal
+skins have four 0.1 mm layers. The floor roofs span at most 3.5 mm between ribs;
+wall and curved-corner cap regions bridge the narrow 0.8 mm core with support
+from adjacent ribs/skins. Trapped support would be inaccessible. The primary
+unsupported slice and automatic probe are reviewed separately; physical sag,
+spreading and channel survival remain unknown.
 
-The layout is **157.6 × 161.2 × 30.8 mm**, with 6 mm between cups, inside the
-Q2C's 270 × 270 × 256 mm envelope. Broad uninterrupted bottom skins provide
-bed contact; flat backings remain available for tape. Exposed opening edges are
-rounded, and corners retain the case outline. Cup orientation keeps the vertical
-ribs upright and leaves no detached wall starts.
+The **157.6 × 161.2 × 30.8 mm** layout, including 6 mm between cups, fits the Q2C
+270 × 270 × 256 mm envelope. Broad uninterrupted bottom skins give bed contact
+and flat tape backing. Rounded opening edges and corners retain the accepted
+outline. Vertical ribs grow from the existing floor/wall junction; the corner
+change introduces no detached wall starts.
 
 ## Verification
 
-[CAD checks](checks.py) address continuous S16 skins and open channels, connected
-cups, the residual rounded cavity, complete-case insertion, closed fit and
-sampled hinge travel. A deliberately shifted insert must fail the same shell
-collision criterion. Contact/overlap criteria are local CAD screens, not measured
-fit or a physical holding-force claim. Rigid opening is sampled every 10°;
-installation is sampled at 0, 0.5, 5, 20 and 35 mm above the seated position.
-The accepted original shell/latch evidence is retained in the case's own record;
-this accessory does not inherit physical PASS for the lined assembly.
+[Product verification](verification.py) uses the shared CLI with explicit
+`s16-retrofit` selection. [Current receipt](notes/verification.json) distinguishes
+CAD coverage from actual fit, adhesion, glasses clearance and subjective
+quietness, which remain physical/subjective **UNKNOWN** until reported.
+[Checks](checks.py) cover profile, connected cup, residual cavity, installation,
+closed fit, sampled opening and the new corner obligation. The original solid
+corners must fail the same coverage checker; a shifted insert must fail the
+shell collision criterion. Hinge travel is sampled every 10° and insertion at
+0, 0.5, 5, 20 and 35 mm above seating; these are sampled rigid checks.
 
-[Product verification receipt](notes/verification.json): profile, nominal fit and
-sampled motion checks **PASS** within their original scope, including the collision
-negative control. The newly added corner-coverage obligation fails separately
-(see investigation above). The original receipt keeps actual fit,
-attachment, glasses clearance and subjective quietness **UNKNOWN** until reported.
-[Final evaluator receipt](notes/final_review.json) owns geometry/export/slice
-status, tool identities, profile selection and placement.
-[Path receipt](notes/path_review.json) and [preview](renders/path_review.png) own
-the scoped channel, bridge-height, wall-skin and rib-path review.
-STL slicing does not verify Orca GUI STEP import or actual printed behavior.
+Corner CAD witnesses check air at 15°, 45° and 75° at three heights in each bend
+(**36 air and 72 skin locations**), plus **24 radial-rib locations**. The retained
+solid-corner baseline is a negative control. [Corner comparison](corner_study.py)
+now uses these same production builders; [native view receipt](notes/corner_view.json).
+No duplicated experimental corner builder selects the printable geometry.
 
-Final slice: **OrcaSlicer 2.4.2**, supplied TPU triplet, centred compound with
-rotation disabled; **no keyword notices**. Estimated batch consumption is
-**65.08 g / 27 h 24 min 45 s**, not measured. The automatic probe places support
-interfaces in the floor channels at **Z 0.8–1.0 mm** (teal in the reviewed preview).
-These are enclosed shallow channels, with short roofs spanning the existing ribs.
-The primary unsupported slice preserves transverse first-skin bridges; supports
-remain off. The native `review_required` signal is retained, with this rationale;
-the print must still demonstrate acceptable bridging.
+[Final evaluator receipt](notes/final_review.json) owns final source association,
+paired exports, tool identities, profile selection, placement and slice status.
+[Path receipt](notes/path_review.json), [floor/support preview](renders/path_review.png)
+and [corner paths](renders/corner_paths.png) cover straight and radial sections,
+multiple rib tracks, first corner caps, floor bridges and bridge extrusion height.
+These are slicer metadata, not measured deposited polymer. STL slicing does not
+verify Orca GUI STEP import or physical damping.
 
-Path review passed **18 floor-channel samples**, **48 wall-gap samples** and
-**30 rib sections** (at least two substantial tracks each). Minimum sampled
-wall gap is **0.799 mm**; bridge extrusion height is **0.10 mm**. Both first
-contact-skin layers cross the floor ribs. These are local metadata witnesses,
-not a guarantee of gap survival or quietness in the print.
+Current checks: profile, corner coverage (including the solid-corner negative
+control), nominal fit and sampled motion all **PASS**. Physical use and quietness
+remain **UNKNOWN**. The final native evaluator reports valid geometry and
+successful matching STEP/STL exports. OrcaSlicer **2.4.2**, supplied TPU triplet,
+centred compound without rotation: slice completed with **no keyword notices**.
+Diagnostic batch estimate: **63.95 g / 28 h 10 min 4 s**, not measured.
+
+The revised slice retains **72 corner air-gap sections**, minimum **0.782 mm**,
+**48 corner rib sections** with at least two substantial tracks, and **24 first
+corner-cap sections** at Z 30.5 mm. Existing straight-region checks also pass:
+18 floor-channel samples, 48 wall-gap sections (minimum 0.799 mm) and 30 rib
+sections with at least two tracks. Bridge extrusion height is 0.10 mm. The
+reviewed corner preview shows the separate curved skins, radial rib joins and
+cap coverage. These local witnesses do not guarantee deposited gap survival.
+
+The automatic probe still proposes trapped support interfaces only in the floor
+channels at **Z 0.8–1.0 mm**, with none proposed at the new corner caps. The
+primary slice keeps supports **off**: floor bridges cross the 3.5 mm inter-rib
+gaps, and the new cap paths close the narrow curved core. The native
+`review_required` signal is retained with this reviewed rationale, rather than
+being relabeled as unconditional print qualification. Actual bridging needs a
+print report.
 
 Reproduce from the repository root:
 
@@ -199,16 +152,34 @@ Reproduce from the repository root:
 ./execute.py model/sunglasses_case_liner/review_paths.py
 ```
 
+## Corner coverage investigation — 2026-10-16
+
+The first liner (`60784df`) had hollow straight walls but solid rounded bends.
+The user's preprint concern led to the curved-core study (`ab43b48`). The
+[original corner FAIL](notes/corner_coverage_solid.json) and
+[initial CAD study](notes/corner_study.json) are retained as historical evidence;
+that study's `production_files_changed=false` describes the exploration phase.
+The user then authorized incorporating the curved core into the printable model.
+The previous successful straight-wall slice did not qualify corner coverage.
+
+Solid corners remove air-core deflection space at diagonal contacts. This does
+not establish zero damping in solid TPU or quantify acoustic improvement. Future
+S16 transfers must check all distinct contact regions, particularly curved
+corners, in both CAD and sliced paths. Sample approval alone cannot qualify a
+larger liner's complete coverage. This lesson is recorded in
+[print planning](../../.codex/skills/cadquery-3d-design/references/print-planning.md#functional-process-co-design)
+and the [reusable evidence index](../../.codex/skills/cadquery-3d-design/references/reusable-model-lessons.md).
+
 ## Print status
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A — complete accessory is the trial | No new coupon; printed S16 evidence belongs to the damping-box record | Preferred sample does not qualify this application. |
-| Final printable object(s) | No — user explicitly holding off, 2026-10-16 | `sunglasses_case_liner.step/.stl` | Print on hold for solid-corner review. Fit, adhesion, glasses clearance, quietness, skin integrity and wear remain untested. Existing case is printed and accepted. |
+| Test piece(s) | N/A — complete accessory is the trial | No new coupon; approved S16 samples belong to the damping-box record | Original sample approval remains scoped to its fixture. |
+| Final printable object(s) | No — user reported holding off before correction | Revised `sunglasses_case_liner.step/.stl` | Curved-core correction requested; actual fit, adhesion, quietness, skin integrity and wear remain untested. Existing rigid case is printed and accepted. |
 
 ## Attribution
 
 Primary language model: GPT-6-based Codex; exact model variant and reasoning effort
 not exposed. Harness: Codex shared-workspace API agent. Provider: OpenAI. No
-subagents. Uses the existing accepted E case geometry and the user-approved S16
-profile; their historical attribution remains in their respective records.
+subagents. Uses the existing accepted E case and user-approved S16 profile;
+their historical attribution remains in their respective records.

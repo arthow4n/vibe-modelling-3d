@@ -32,6 +32,12 @@
   "bridge_heights_mm": [
     0.0999999
   ],
+  "corner_gap_samples": 72,
+  "minimum_corner_gap_mm": 0.7818968308770939,
+  "corner_rib_sections": 48,
+  "minimum_corner_rib_tracks": 2,
+  "corner_cap_samples": 24,
+  "first_corner_cap_z_mm": 30.5,
   "support_probe": {
     "segments": 69078,
     "z_range_mm": [
