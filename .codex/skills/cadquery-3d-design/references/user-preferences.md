@@ -37,6 +37,14 @@ time or finish depends on them. Use the agreed setup to size geometry and screen
 loads before slicing. The reference Orca profile is diagnostic, not a substitute
 for the agreed print setup.
 
+For thin TPU impact liners, the user means a thin **overall sandwich**, not
+automatically thin webs or skins. Prefer substantial local features suitable for
+their normal 0.4 mm nozzle; do not recommend marginal single-path replacements
+merely because a diagnostic slice retains them. Their [I24/I20 rejection before
+printing](../../../../model/tpu_damping_box/README.md#thin-feature-rejection-and-prevention)
+does not establish a universal extrusion-width limit. I30 seemed printable to
+the user but has no physical print qualification.
+
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.
 Choose insertion allowance, seated play and retention separately; this report

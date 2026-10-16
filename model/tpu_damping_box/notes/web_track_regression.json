@@ -1,0 +1,34 @@
+{
+  "scope": "Toolpath-review regression only; not a universal printability or acoustic verdict",
+  "retired_source_commit": "5efd0e2",
+  "retired_receipt": "notes/retired_thin_r4.json",
+  "retired_gcode_sha256": "b4c472fa3466a14fc5e03eccea24b3d1353b325e4e29ed733e1a38d0b897526a",
+  "old_single_track_controls": [
+    {
+      "retired_variant": "I24",
+      "z_mm": 1.2,
+      "tracks": [
+        {
+          "position": 0.4998642533936658,
+          "width_mm": 0.504654,
+          "role": "Outer wall"
+        }
+      ],
+      "rejected": true
+    },
+    {
+      "retired_variant": "I20",
+      "z_mm": 1.0,
+      "tracks": [
+        {
+          "position": 0.5000904977375673,
+          "width_mm": 0.504652,
+          "role": "Outer wall"
+        }
+      ],
+      "rejected": true
+    }
+  ],
+  "current_review_sha256": "e065bfa529e3ca170303474f47347f28a53b067201d06479e8f16e4e7b44e98a",
+  "current_multi_track_witnesses": 36
+}

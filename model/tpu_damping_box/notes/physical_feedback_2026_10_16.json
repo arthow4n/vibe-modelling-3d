@@ -19,5 +19,17 @@
     "I"
   ],
   "reference": "README.md#user-print-feedback--2026-10-16",
-  "label_feedback": "Previous-batch labels were too small to read; user requests much larger/bolder labels before printing thin derivatives. Damping approval of I remains valid."
+  "label_feedback": "Previous-batch labels were too small to read; user requests much larger/bolder labels before printing thin derivatives. Damping approval of I remains valid.",
+  "preprint_manufacturing_feedback": {
+    "source_revision": "5efd0e2",
+    "kind": "user-rejection-before-printing",
+    "rejected_variants": [
+      "I24",
+      "I20"
+    ],
+    "reason": "Local lines too thin for normal 0.4 mm nozzle workflow; thin means total liner depth, not necessarily thin individual lines.",
+    "I30": "Seems printable per user; not a print report.",
+    "replacement_models_pushed_first": "0723297",
+    "unknowns": "Actual user slicer/settings and any exact line-width observations unreported; no failed print reported."
+  }
 }

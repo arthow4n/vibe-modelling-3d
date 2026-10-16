@@ -92,6 +92,44 @@ Reproduce from the repository root:
 ./execute.py model/tpu_damping_box/verification.py --variant I22
 ```
 
+### Thin-feature rejection and prevention
+
+After inspecting the batch before printing, the user rejected **I24/I20 at
+`5efd0e2`** because their lines were too thin for the intended normal 0.4 mm
+nozzle workflow. No failed print was reported. I30 seemed printable to the user;
+that is a provisional assessment, not physical qualification. The user clarified
+that **thin means total liner depth, not necessarily thinner webs** and requested
+replacement models committed/pushed before this retrospective.
+
+The corrected models were committed and pushed first as **`0723297`**. I26/I22
+retain three-layer skins/backings and 0.9 mm webs while reducing total depth by
+35%/45%; I30 is unchanged. Larger labels are retained. Quietness is still unknown.
+The slightly thicker envelopes preserve more core space than the retired pair.
+
+The earlier CAD checks established geometry and the earlier path review found
+material at selected loci. Neither established adequate manufacturing margin:
+**one retained extrusion path can pass a presence witness while remaining a
+marginal design choice for this user**. The prior review failed to distinguish
+those conclusions. No evidence shows that every 0.4 mm feature is universally
+unprintable; this is a rejection of the delivered design/setup choice.
+
+Prevention now lives in the design skill and its print-planning/user-preference
+references: choose the overall envelope and local minimum sections separately;
+preserve successful local dimensions where practical; inspect widths, distinct
+path count, continuity and supporting layers for critical webs; and avoid claiming
+printed robustness from slice completion or path presence. The replacement check
+uses an explicit local criterion, at least two 0.38–0.65 mm paths, not a global
+printer limit. Current witnesses contain two or three paths, widths 0.381–0.589 mm.
+
+[Regression evidence](notes/web_track_regression.json) uses the retained
+[original native slice receipt](notes/retired_thin_r4.json) from `5efd0e2`:
+[check_web_tracks.py](check_web_tracks.py) must reject the old single-track I24/I20
+floor samples and retain 36 successful replacement witnesses. It consumes saved
+G-code; its raw-file paths must remain available to reproduce it. The receipt
+stores source/G-code identity and local scope. This verifies that the new check
+can distinguish the relevant path allocation; it does not measure print success,
+TPU properties or quietness. No extra CAD/slice is needed for this retrospective.
+
 ## Print files
 
 | Print | Primary STEP | Matching STL | Parametric entry point |
