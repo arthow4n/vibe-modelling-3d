@@ -28,6 +28,10 @@ height fits the gap budget, not just its direction; inspect effective settings
 and recorded extrusion heights before relying on a shallow gap. Choose any
 finer layers or thin-bridge settings for the specific gap and verify their actual paths, rather than treating them as
 universal TPU presets. Printed sag, spreading and clamping can still close gaps.
+For S16 adaptations with ironing, consult the [scoped TPU/bridged-skin finish
+lesson](../../../../model/sunglasses_case_liner/README.md#ironing-flow-print-feedback--2026-10-16)
+for the user's preferred initial ironing-flow trial; check the adapted skin and
+channels rather than transferring surface appearance alone.
 The [I10 print report](../../../../model/tpu_damping_box/README.md#i22--i30--i10-print-feedback--latest-report)
 found broken shell-side regions despite valid CAD, multiple retained paths and
 no proposed support. That user now requires both skins. The precise failure

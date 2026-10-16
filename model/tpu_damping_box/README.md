@@ -28,6 +28,13 @@ coverage. New corners, spans, attachment, shell material and contents need
 application review. The sample approval does not establish sunglasses-case fit
 or quietness.
 
+**Printing future S16 adaptations:** for a comparable TPU contact skin over air
+pockets, the user's [printed ironing-flow lesson](../sunglasses_case_liner/README.md#ironing-flow-print-feedback--2026-10-16)
+suggests **50% ironing flow as an initial trial value** when ironing is used.
+Verify finish and skin/channel integrity in the new application. The user
+suspects the TPU/bridged-skin combination; the cause is unconfirmed. This later
+surface-finish trial does not establish the original damping samples' settings.
+
 I22 remains a historical accepted reference. I10 remains rejected for broken
 shell-side regions; the open-backed architecture is retired. I22's nearly joined
 internal lines remain unresolved.

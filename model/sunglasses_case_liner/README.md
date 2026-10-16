@@ -135,6 +135,18 @@ remain unreported. The supplied diagnostic profiles are not evidence of the
 actual settings used. This is subjective physical surface-finish feedback, not
 a measured roughness/flatness result or material calibration.
 
+**Future S16 adaptation suggestion:** when ironing a comparable TPU contact skin
+over S16 air pockets, use **50% ironing flow as the initial trial value**, then
+check finish and channel/skin integrity in the adapted print. This records the
+user's explicit reuse request; it does not change normal extrusion flow or make
+50% a universal TPU setting.
+
+**User hypothesis:** TPU combined with the skin bridging the air pockets may
+explain why the higher ironing flow was needed. This comparison did not isolate
+material from bridged-roof construction: no solid-backed or other-material
+control was reported. The cause remains unconfirmed; the preferred finish at
+50% remains the reported physical observation.
+
 Record **50% as preferred for this reported sample/setup** and a starting reference
 for a comparable follow-up. There is no reported ironing-off control result,
 channel-integrity measurement, damping comparison or full-liner ironing report.
