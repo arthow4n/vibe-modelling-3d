@@ -55,8 +55,8 @@ def cores(name,parts):
     material=b.block(.1,2,.1,v.backing+v.core/2-.05).translate((-1.8+v.amplitude,0,0))
     no_overlap(air,cup)
     contained(material,cup)
-    no_overlap(air.translate((0,0,b.PAD_PRELOAD)),pad)
-    contained(material.translate((0,0,b.PAD_PRELOAD)),pad)
+    no_overlap(air.translate((0,0,v.preload)),pad)
+    contained(material.translate((0,0,v.preload)),pad)
     inner=b.CUP_SIZE/2-v.backing
     air=b.block(.1,.2,2,18).translate((-inner+v.core/2,0,0))
     material=b.block(.1,.1,2,18).translate((-inner+v.core/2,-1.8+v.amplitude,0))
@@ -79,12 +79,15 @@ def labels(name,parts):
 
 
 def selection():
-    assert t.SELECTED_NAMES==('I30','I26','I22')
+    assert t.SELECTED_NAMES==('I30','I22','I10')
     expected={f'{kind}_{name}' for name in t.SELECTED_NAMES for kind in ('cup','pad')}
     assert {row[0] for row in t.placements()}==expected
     assert len(t.placements())==6
-    assert [t.variant_named(n).thickness for n in t.SELECTED_NAMES]==[3.,2.6,2.2]
+    assert [t.variant_named(n).thickness for n in t.SELECTED_NAMES]==[3.,2.2,1.]
     assert all(t.variant_named(n).clear>=26 for n in t.SELECTED_NAMES)
-    for name in ('I26','I22'):
+    for name in ('I22',):
         v=t.variant_named(name)
         assert v.web>=.9 and v.backing>=.6 and v.skin>=.6, 'Replacement uses undersized features'
+    v=t.variant_named('I10')
+    assert v.topology=='open-rib' and v.skin==.6 and v.web==1.2
+    assert v.backing==0 and abs(v.core-.4)<1e-9 and v.preload==0

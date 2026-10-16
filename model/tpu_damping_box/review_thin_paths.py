@@ -56,7 +56,7 @@ def main():
     for i,name in enumerate(t.SELECTED_NAMES):
         v=t.variant_named(name)
         x=93+42*i; y=114.9
-        for part,cy,base in (('cup',y,v.backing),('pad',y+41,v.backing+b.PAD_PRELOAD)):
+        for part,cy,base in (('cup',y,v.backing),('pad',y+41,v.backing+v.preload)):
             size=34 if part=='cup' else v.pad_size
             ax.add_patch(Rectangle((x-size/2,cy-size/2),size,size,fill=False,edgecolor='#334252'))
             ax.text(x,cy+size/2+1,f'{name} {part}',ha='center')
@@ -70,14 +70,16 @@ def main():
             assert across>0 and along==0, f'{name} {part}: bridge direction'
             roofs.append({'variant':name,'part':part,'first_skin_layer_z_mm':z,'transverse_segments':across,'longitudinal_segments':along,'roles':dict(Counter(p[-1] for p in local))})
             ax.add_collection(LineCollection([[(p[0],p[1]),(p[2],p[3])] for p in local],colors='#ae59a7',linewidths=.35))
-            for depth in (.1,round(v.core/2,1),round(v.core-.1,1)):
+            for depth in ((.1,.3) if name=='I10' else (.1,round(v.core/2,1),round(v.core-.1,1))):
                 # Sample centre of a 0.2 mm layer, matching the chevron locus.
                 z=round(base+depth+.1,3)
                 px=x-1.8+t.shift(v,depth)
-                coverage=section_coverage(paths,x_mm=px,z_mm=z,span_mm=(cy-6,cy+6))
+                # I10's edge label deliberately cuts its solid panel at Y>3.
+                span=(cy-12,cy+2) if name=='I10' else (cy-6,cy+6)
+                coverage=section_coverage(paths,x_mm=px,z_mm=z,span_mm=span)
                 assert coverage['uncovered_width_mm']<.01, f'{name} {part}: omitted web at {z}'
                 witnesses.append({'variant':name,'part':part,'z_mm':z,'coverage':coverage})
-                if name in ('I26','I22'):
+                if name in ('I22','I10'):
                     multi_tracks.append(require_multiple_tracks(paths,(px-.85,cy+2.3),(px+.85,cy+2.3),z,name,part))
         # Opposing side-wall pairs have orthogonal toolpaths. Test all four.
         for depth in (.3,round(v.core/2,1),round(v.core-.3,1)):
@@ -88,10 +90,20 @@ def main():
                 coverage=section_coverage(paths,x_mm=px,z_mm=18.,span_mm=(py-.08,py+.08))
                 assert coverage['uncovered_width_mm']<.01, f'{name} {face}: omitted side web at {depth}'
                 witnesses.append({'variant':name,'part':face,'depth_mm':depth,'coverage':coverage})
-                if name in ('I26','I22'):
+                if name=='I22':
                     # Cross the local web in the tangent direction of each wall.
                     dx,dy=(0,.85) if face in ('left','right') else (.85,0)
                     multi_tracks.append(require_multiple_tracks(paths,(px-dx,py-dy),(px+dx,py+dy),18.,name,face))
+        if name=='I10':
+            # Its shallow exterior stubs merge into a 0.6 mm skin. Inspect the
+            # complete 1 mm section at a rib, not a hypothetical free 0.4 mm wall.
+            for face,angle in (('left',0),('front',90),('right',180),('back',270)):
+                from math import cos,sin,pi
+                c,s=cos(angle*pi/180),sin(angle*pi/180)
+                def pose(px,py):
+                    return x+c*px-s*py,y+s*px+c*py
+                start=pose(-17.1,-1.8); end=pose(-15.9,-1.8)
+                multi_tracks.append(require_multiple_tracks(paths,start,end,18.,name,face+' skin-and-rib'))
     ax.autoscale();ax.set_aspect('equal');ax.set_xlabel('Bed X (mm)');ax.set_ylabel('Bed Y (mm)')
     ax.set_title('Thin I: support-probe paths cyan; first contact-skin paths purple')
     fig.tight_layout();fig.savefig(ROOT/'renders/thin_path_review.png',dpi=150)

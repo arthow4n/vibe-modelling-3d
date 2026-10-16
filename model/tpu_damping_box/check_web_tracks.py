@@ -28,7 +28,7 @@ def main():
             raise AssertionError(f'Negative control {name} incorrectly passes the replacement criterion')
     current=json.loads((ROOT/'notes/thin_path_review.json').read_text())
     witnesses=current['replacement_web_tracks']
-    assert len(witnesses)==36 and {w['variant'] for w in witnesses}=={'I26','I22'}
+    assert len(witnesses)==26 and {w['variant'] for w in witnesses}=={'I22','I10'}
     assert all(w['substantial_track_count']>=2 for w in witnesses)
     result={'scope':'Toolpath-review regression only; not a universal printability or acoustic verdict',
         'retired_source_commit':'5efd0e2','retired_receipt':'notes/retired_thin_r4.json',

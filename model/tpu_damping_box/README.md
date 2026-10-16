@@ -12,85 +12,117 @@ shell. Keep the printed I as the reference. Thin variants are untested.
 
 ## Thinner I experiment
 
-**Current batch: I30 / I26 / I22**, one cup and matching pad per ID.
+**Current batch: I30 / I22 / I10**, one cup and matching pad per ID.
 [Primary STEP](liners_thin.step) · [matching STL](liners_thin.stl) ·
 [entry point](liners_thin.py) · [builders](thin_design.py).
 Reuse the PLA shell, screws and printed original I. All six contact faces remain
-flat. I26/I22 replace I24/I20; the retired versions are absent from this plate.
+flat. **I10 replaces unprinted I26** to give a much larger experimental jump.
+I30 and I22 retain their geometry; I24/I20 and I26 are absent from this plate.
 
-| ID | Total lining | Reduction vs approved I | Backing / core / contact skin | Web normal thickness | Clear cavity |
+| ID | Total lining | Reduction vs approved I | Backing / gap or core / contact skin | Support width | Clear cavity |
 | --- | --- | --- | --- | --- | --- |
-| Original I, approved | 4.0 mm | Reference | 0.8 / 2.6 / 0.6 mm | 0.6 mm | 26 mm cube |
-| I30, retained | 3.0 mm | 25% | 0.6 / 1.8 / 0.6 mm | 0.5 mm | 28 mm cube |
-| I26, replaces I24 | 2.6 mm | 35% | 0.6 / 1.4 / 0.6 mm | 0.9 mm | 28.8 mm cube |
-| I22, replaces I20 | 2.2 mm | 45% | 0.6 / 1.0 / 0.6 mm | 0.9 mm | 29.6 mm cube |
+| Original I, approved | 4.0 mm | Reference | 0.8 / 2.6 / 0.6 mm | 0.6 mm chevrons | 26 mm cube |
+| I30, retained | 3.0 mm | 25% | 0.6 / 1.8 / 0.6 mm | 0.5 mm chevrons | 28 mm cube |
+| I22, retained | 2.2 mm | 45% | 0.6 / 1.0 / 0.6 mm | 0.9 mm chevrons | 29.6 mm cube |
+| I10, extreme limit | **1.0 mm** | **75%** | **0 / 0.4 / 0.6 mm** | **1.2 mm straight stand-offs** | 32 mm cube |
 
-I30 is unchanged. The replacements reduce total sandwich depth while keeping
-substantial individual features. They preserve the 3.6 mm web pitch and I's
-chevron centreline slope. Thicker, shorter webs may be stiffer; less available
-stroke can cause bottoming. Quietness versus approved I remains unmeasured.
-These are print experiments, not an acoustic ranking or calibrated stiffness test.
+I10 is about **55% thinner than I22**. This is an aggressive nominal design
+limit for this chosen nozzle/layer setup, not the thinnest physically possible
+liner or a claim of useful damping. A 0.6 mm skin over only 0.4 mm air space may
+bottom out early, bridge sag can consume that space, and its straight supports
+have much shorter load paths than approved I. It is a different architecture,
+not a scaled chevron. The experiment asks whether useful quieting survives.
+No numerical acoustic/compliance ranking is assigned.
 
-All cups retain the **34 × 34 × 34 mm** envelope and 0.2 mm per-side shell
-allowance. All roof pads are 32.4 mm square, with 0.2 mm per-side pocket allowance
-and 0.2 mm axial preload. Printed pad thickness is nominal lining plus 0.2 mm.
-Match each pad to its cup. **12 mm DejaVu Sans Mono Bold** labels have at least
-8 mm actual capital height and 0.2 mm exterior recesses, leaving 0.4 mm backing.
-No label enters the object-contact faces.
+### I10 architecture and assembly
 
-Use the same shell, nut, TPU and grip for comparison. First shake empty; then
-compare gentle and firmer X/Y/Z shaking and tumbling, interleaving original I.
-The thinner liner enlarges the cavity and permits more nut travel, so this is a
-practical same-box trial with a travel confound. Report quietness versus I, axis,
-shake strength, sharp ticks/dull thuds, fit and any skin damage.
+The shell itself backs the ribs, removing the liner's continuous outer skin.
+Its object-contact membrane remains flat and continuous on floor, ceiling and
+four walls; 3.6 mm-pitch ribs face outward toward the shell. **1.2 mm rib widths
+and bed frames** allow margin for the profile's 0.15 mm per-edge first-layer
+compensation; the 0.4 mm dimension is air-space/rib height, not a free-standing
+0.4 mm-wide wall. Corners, frames and supporting ribs remain direct TPU load paths.
+
+A 0.6 mm upper locating rim retains the common pad pocket. All cups retain the
+34 × 34 × 34 mm envelope and 0.2 mm per-side shell allowance. All pads are
+32.4 mm square with 0.2 mm per-side cup-pocket allowance. I30/I22 keep their
+0.2 mm axial preload. **I10 uses zero deliberate preload** so it does not spend
+half its shallow gap on nominal compression; its pad prints **1.0 mm thick**.
+I30/I22 pads print 3.2/2.4 mm thick. Actual clamping, rattle and fit remain untested.
+
+Both I10 parts retain a **12 mm bold recessed I10 label** on a solid **24 × 12 mm
+panel** near an exterior edge (label centre Y +9 mm in print pose), rather than
+hiding letters behind open ribs. The recess is 0.2 mm deep. The local panel fills
+the gap there, giving a stiffer patch; it does not protrude into the object space.
+This deliberately trades some local compliance for durable, readable labeling.
+I30/I22 labels retain their previous placement and typography.
+
+Use the same nut, shell, TPU and grip; shake empty first to detect liner rattle.
+Compare gentle and firmer X/Y/Z shaking and tumbling, interleaving original I.
+The cavity grows as lining shrinks: increased travel is a confound, not an
+isolated material comparison. Note sharp ticks, bottoming, skin damage, axis,
+label-side versus other impacts, and whether I10 offers any useful quieting.
 
 ### Manufacturing and verification
 
-Use the same TPU as approved I; the diagnostic setup assumes TPU 95A, Q2C
-0.4 mm nozzle, 0.2 mm layers and the existing
-[tpu-selected-process.json](profiles/tpu-selected-process.json): Arachne, two
-requested walls, solid fill where CAD contains material, supports off and
-**180° external/internal bridge direction**, unrotated parts. CAD voids remain
-empty regardless of infill. Each skin and backing is three layers, except the
-recessed label floors retain two. I30 retains its intentional 0.5 mm webs;
-I26/I22 target multiple substantial paths across their 0.9 mm webs.
+Use the same TPU as approved I; reference setup assumes TPU 95A, Q2C 0.4 mm nozzle,
+0.2 mm layers and [tpu-selected-process.json](profiles/tpu-selected-process.json):
+Arachne, two requested walls, solid fill in CAD material, supports off, explicit
+**180° external/internal bridge direction**, and no component rotation.
+Print backing/rib feet down, cups open up and pads contact-skin up. Layout remains
+118 × 74.2 mm, 34 mm tall, with stable perimeter-frame/rib bed contact on I10.
+I10's contact skin is three layers and its air gap is two layers. Floor/pad roof
+spans between straight ribs are 2.4 mm (outermost gaps up to 2.6 mm), with a bed
+frame supporting outer edges;
+the label panel supplies its own support. The I10 upper rim adds a 0.4 mm outward
+ledge over the wall skin between ribs. Review its actual paths and support probe;
+physical finish and membrane integrity remain unqualified.
 
-Print backing down, cups open up and pads contact-skin up. Layout is
-118 × 74.2 mm and 34 mm tall, with broad bed contact and separated components.
-Chevrons advance 0.154 mm laterally per 0.2 mm layer, preserving I's slope;
-roof gaps are below 4 mm and bridge ends land on webs or edge material.
-Closed channels cannot be cleaned of support. Label recesses create short
-backing bridges; printed integrity, flatness and damping remain physical checks.
+[Native final receipt](notes/thin_final.json) associates the published geometry,
+paired STEP/STL, settings and Orca 2.4.2 smoke slice. The STL review does not
+qualify GUI STEP import. Supports proposed inside shallow gaps cannot be removed;
+primary supports remain off and the native review status remains visible.
+The current slice completes with no keyword notices. Its support probe proposes
+**no support on either I10 part**; proposals remain in I30/I22 shallow cores.
+Estimated batch: **28.88 g / 5 h 5 min 45 s**, not measured.
 
-[Final native receipt](notes/thin_final.json) associates the current valid CAD
-with matching STEP/STL and the Orca 2.4.2 STL smoke slice. The automatic probe
-proposes trapped channel support; the primary slice keeps supports off. The native result retains
-`review_required` for support proposals; this slice has no keyword notices.
-Estimate: **35.39 g / 6 h 0 min 59 s**, not measured. STL slicing does not qualify
-GUI STEP import.
+Current CAD receipts: [I30](notes/limit_verification_I30.json),
+[I22](notes/limit_verification_I22.json), [I10](notes/limit_verification_I10.json):
+fit/insertion, six flat skins, core air/material, labels and selection dimensions.
+[Path review](notes/thin_path_review.json), [bridge/support preview](renders/thin_path_review.png)
+and [label paths](renders/thin_label_paths.png) cover the actual new batch.
+I10 floor/pad stand-offs require multiple substantial paths; its side check spans
+the complete skin-plus-rib section, since the shallow stub joins the continuous
+skin. These are different sections from I22's separate folded webs. Neither
+path coverage nor multiple paths establishes deposited strength or quietness.
+The final review covers **six first-skin layers**, **52 local web material
+witnesses**, and **26 multi-path sections** (18 I22, eight I10). I10 retains two
+paths about 0.50 mm wide at the first rib layer, three paths about 0.42–0.45 mm
+at the second, and two about 0.52–0.56 mm across each sampled side rib-plus-skin.
+The final CAD and common CLI checks pass; the CLI conformance suite has 87 passes.
 
-Current CAD receipts: [I30](notes/robust_verification_I30.json),
-[I26](notes/robust_verification_I26.json), [I22](notes/robust_verification_I22.json).
-They cover fit/travel, six flat skins, air/material cores, large labels and the
-selected dimensions/components. The existing rigid closure is unchanged.
-[Path review](notes/thin_path_review.json) and [preview](renders/thin_path_review.png)
-check transverse skin bridges and six-face web witnesses. Replacement webs are
-also checked for at least **two distinct paths 0.38–0.65 mm wide** at each local
-cross-section. These object-owned diagnostic criteria are not universal nozzle
-limits or evidence of printed bonding. [Label paths](renders/thin_label_paths.png)
-show the three matching IDs from below; printed readability is unreported.
-
-R3/R4 CAD and large-label receipts for I24/I20 remain historical; their geometry
-is retired. The original I's physical approval stays scoped to the reported PLA
-trial in [its receipt](notes/reported_I.json), alongside the old label rejection.
+Earlier I26 receipts remain historical: it is replaced for experiment spacing,
+not a failed print. The original I's approval stays scoped to its reported PLA
+trial in [the feedback receipt](notes/reported_I.json). All three thin pairs are
+unprinted and have no physical approval.
 
 Reproduce from the repository root:
 
 ```sh
 ./evaluate_model.py model/tpu_damping_box/liners_thin.py --views none --slice --slice-keep-run --slice-printer .codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json --slice-process model/tpu_damping_box/profiles/tpu-selected-process.json --slice-filament model/tpu_damping_box/profiles/tpu95a.json --report model/tpu_damping_box/notes/thin_final.json
 ./execute.py model/tpu_damping_box/review_thin_paths.py
-./execute.py model/tpu_damping_box/verification.py --variant I22
+./execute.py model/tpu_damping_box/verification.py --variant I10
 ```
+
+### I26 replacement request — 2026-10-16
+
+The user has not printed I26 and sees little value in its intermediate thickness.
+They request a much larger downward step beyond I22 while retaining I30 and I22.
+This is a change in experimental priorities, not a physical rejection. The user
+specifies no numerical minimum or guaranteed damping target; 1.0 mm and the open
+rib architecture are engineering choices. CAD plus actual sliced sections are the
+appropriate evidence for manufacturing; a material-calibrated impact/acoustic
+model is unavailable, so quietness remains a physical experiment.
 
 ### Thin-feature rejection and prevention
 
@@ -119,12 +151,14 @@ preserve successful local dimensions where practical; inspect widths, distinct
 path count, continuity and supporting layers for critical webs; and avoid claiming
 printed robustness from slice completion or path presence. The replacement check
 uses an explicit local criterion, at least two 0.38–0.65 mm paths, not a global
-printer limit. Current witnesses contain two or three paths, widths 0.381–0.589 mm.
+printer limit. At R5, the I26/I22 witnesses contained two or three paths, widths 0.381–0.589 mm.
+R6 changes the selected architecture and witnesses as described above.
 
 [Regression evidence](notes/web_track_regression.json) uses the retained
 [original native slice receipt](notes/retired_thin_r4.json) from `5efd0e2`:
 [check_web_tracks.py](check_web_tracks.py) must reject the old single-track I24/I20
-floor samples and retain 36 successful replacement witnesses. It consumes saved
+floor samples. R5 had 36 successful I26/I22 witnesses; the updated R6 consumer
+requires the 26 declared I22/I10 sections. It consumes saved
 G-code; its raw-file paths must remain available to reproduce it. The receipt
 stores source/G-code identity and local scope. This verifies that the new check
 can distinguish the relevant path allocation; it does not measure print success,
@@ -134,7 +168,7 @@ TPU properties or quietness. No extra CAD/slice is needed for this retrospective
 
 | Print | Primary STEP | Matching STL | Parametric entry point |
 | --- | --- | --- | --- |
-| New TPU batch: I30/I26/I22 | [liners_thin.step](liners_thin.step) | [liners_thin.stl](liners_thin.stl) | [liners_thin.py](liners_thin.py) |
+| New TPU batch: I30/I22/I10 | [liners_thin.step](liners_thin.step) | [liners_thin.stl](liners_thin.stl) | [liners_thin.py](liners_thin.py) |
 | Existing shared shell (PLA in user test); no reprint needed | [tpu_damping_box.step](tpu_damping_box.step) | [tpu_damping_box.stl](tpu_damping_box.stl) | [tpu_damping_box.py](tpu_damping_box.py) |
 | Retained A/E/H/I set; I approved | [liners_selected.step](liners_selected.step) | [liners_selected.stl](liners_selected.stl) | [liners_selected.py](liners_selected.py) |
 
@@ -331,7 +365,7 @@ witnesses; it does not establish their printed thickness, modulus or damping.
 [review_selected_paths.py](review_selected_paths.py) and its
 [native-path-derived receipt](notes/selected_path_review.json) record the local scope.
 
-The shared product verification CLI exposes A–I and I30/I26/I22 explicitly.
+The shared product verification CLI exposes A–I and I30/I22/I10 explicitly.
 The thin variants have independent CAD checks and no inherited physical approval.
 Receipts for [A](notes/selected_verification_A.json), [E](notes/selected_verification_E.json),
 [H](notes/selected_verification_H.json) and [I](notes/selected_verification_I.json)
@@ -368,7 +402,7 @@ orientation and component positions. STL slicing does not verify Orca GUI STEP i
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | Yes — A/E/H/I and shell reported 2026-10-16 | `tpu_damping_box.step/.stl`; `liners_selected.step/.stl`, named designs at `41e1e04`; exact printed files unknown | PLA shell. I approved, much quieter than E/H; E/H damp somewhat; A noisy. Previous labels too small to read. Detailed settings, fit and damage unknown. |
-| New thin test piece(s) | No — user reports before printing | `liners_thin.step/.stl` | I30/I26/I22 are new experiments; quietness and printed integrity unreported. |
+| New thin test piece(s) | No — user reports before printing | `liners_thin.step/.stl` | I30/I22/I10 are new experiments; quietness and printed integrity unreported. |
 | Final printable object(s) | N/A | None — research samples only | I approved in this trial; no final application qualified. |
 
 ## Shake experiment and feedback

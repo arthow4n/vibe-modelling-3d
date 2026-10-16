@@ -31,5 +31,12 @@
     "I30": "Seems printable per user; not a print report.",
     "replacement_models_pushed_first": "0723297",
     "unknowns": "Actual user slicer/settings and any exact line-width observations unreported; no failed print reported."
+  },
+  "batch_spacing_directive": {
+    "source_revision": "7a190bd",
+    "kind": "user-experiment-priority-change-before-printing",
+    "statement": "I26 has not been printed. Replace it with a much thinner sample than I22, preserving I30 and I22; make a much larger thickness jump.",
+    "physical_rejection": false,
+    "agent_choice": "I10, 1.0 mm open-backed ribbed membrane; effectiveness unmeasured."
   }
 }

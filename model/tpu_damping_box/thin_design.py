@@ -11,6 +11,7 @@ class ThinVariant:
     backing: float
     skin: float
     web: float
+    topology: str = 'chevron'
 
     @property
     def core(self):
@@ -23,19 +24,32 @@ class ThinVariant:
     @property
     def amplitude(self):
         # Preserve I's centreline slope, rather than create steeper overhangs.
-        return .5*self.core/2.6
+        return 0.0 if self.topology=='open-rib' else .5*self.core/2.6
+
+    @property
+    def pocket_backing(self):
+        return .6 if self.topology=='open-rib' else self.backing
+
+    @property
+    def frame(self):
+        return 1.2 if self.topology=='open-rib' else self.backing
+
+    @property
+    def preload(self):
+        # Do not spend half of the limit sample's 0.4 mm air gap on preload.
+        return 0.0 if self.topology=='open-rib' else base.PAD_PRELOAD
 
     @property
     def pad_size(self):
-        return base.CUP_SIZE - 2*self.backing - 2*base.PAD_ALLOWANCE
+        return base.CUP_SIZE - 2*self.pocket_backing - 2*base.PAD_ALLOWANCE
 
 
 VARIANTS = {
     'I30': ThinVariant('I30', 3.0, .6, .6, .5),
-    'I26': ThinVariant('I26', 2.6, .6, .6, .9),
+    'I10': ThinVariant('I10', 1.0, 0.0, .6, 1.2, 'open-rib'),
     'I22': ThinVariant('I22', 2.2, .6, .6, .9),
 }
-SELECTED_NAMES = ('I30', 'I26', 'I22')
+SELECTED_NAMES = ('I30', 'I22', 'I10')
 LABEL_DEPTH = .2
 LABEL_SIZE = 12.0  # font em size; actual capital height is font-dependent
 LABEL_FONT = 'DejaVu Sans Mono'
@@ -51,8 +65,9 @@ def label_cut(name, depth):
     variant_named(name)
     # Wide bold strokes and a barred I distinguish the common prefix from 1.
     # Read from exterior underside; preserve the thin backing above the recess.
-    return cq.Workplane('XY').text(name,LABEL_SIZE,depth,font=LABEL_FONT,
+    glyph=cq.Workplane('XY').text(name,LABEL_SIZE,depth,font=LABEL_FONT,
         kind='bold',combine=True).mirror('YZ')
+    return glyph.translate((0,9,0)) if name=='I10' else glyph
 
 
 def shift(v, depth):
@@ -61,8 +76,13 @@ def shift(v, depth):
 
 def face_core(v, length):
     a, h = v.amplitude, v.core
-    rib = base.web_segment(-a, 0, a, h/2, v.web, length).union(
-          base.web_segment(a, h/2, -a, h, v.web, length))
+    if v.topology=='open-rib':
+        rib=base.web_segment(0,0,0,h,v.web,length)
+    elif v.topology=='chevron':
+        rib = base.web_segment(-a, 0, a, h/2, v.web, length).union(
+              base.web_segment(a, h/2, -a, h, v.web, length))
+    else:
+        raise ValueError(v.topology)
     return cq.Compound.makeCompound([rib.translate((x,0,0)).val() for x in base.RIB_CENTRES])
 
 
@@ -72,7 +92,8 @@ def cup(name):
     wall_height = base.CUP_HEIGHT - v.thickness
     p = base.block(base.CUP_SIZE,base.CUP_SIZE,base.CUP_HEIGHT).cut(
         base.block(v.clear,v.clear,base.CUP_HEIGHT,v.thickness))
-    p = p.cut(base.block(inner,inner,v.thickness+1,wall_height))
+    pocket=base.CUP_SIZE-2*v.pocket_backing
+    p = p.cut(base.block(pocket,pocket,v.thickness+1,wall_height))
     p = p.cut(base.block(inner,inner,v.core,v.backing))
     inner_skin_outer = v.clear + 2*v.skin
     wall_void = base.block(inner,inner,wall_height-v.backing,v.backing).cut(
@@ -85,21 +106,34 @@ def cup(name):
     wall = wall.intersect(mask)
     for angle in (0,90,180,270):
         p = p.union(wall.rotate((0,0,0),(0,0,1),angle))
+    if v.topology=='open-rib':
+        p=p.union(limit_bed_support(v,base.CUP_SIZE))
     return p.cut(label_cut(name,LABEL_DEPTH)).clean()
 
 
 def pad_print(name):
     v = variant_named(name)
-    p = base.block(v.pad_size,v.pad_size,v.thickness+base.PAD_PRELOAD)
-    void_size = v.pad_size - 2*v.backing
-    p = p.cut(base.block(void_size,void_size,v.core,v.backing+base.PAD_PRELOAD))
-    core = cq.Workplane(obj=face_core(v,void_size)).translate((0,0,v.backing+base.PAD_PRELOAD))
-    return p.union(core).cut(label_cut(name,LABEL_DEPTH)).clean()
+    p = base.block(v.pad_size,v.pad_size,v.thickness+v.preload)
+    void_size = v.pad_size - 2*v.frame
+    p = p.cut(base.block(void_size,void_size,v.core,v.backing+v.preload))
+    core = cq.Workplane(obj=face_core(v,void_size)).translate((0,0,v.backing+v.preload))
+    p=p.union(core)
+    if v.topology=='open-rib':
+        p=p.union(limit_bed_support(v,v.pad_size))
+    return p.cut(label_cut(name,LABEL_DEPTH)).clean()
+
+
+def limit_bed_support(v,size):
+    """Bed frame supports edge bridges; a local solid label panel keeps ID legible."""
+    frame=base.block(size,size,v.core).cut(base.block(size-2*v.frame,size-2*v.frame,v.core))
+    panel=base.block(24,12,v.core).translate((0,9,0))
+    return frame.union(panel)
 
 
 def pad_closed(name):
+    v=variant_named(name)
     return pad_print(name).rotate((0,0,0),(1,0,0),180).translate(
-        (0,0,base.FLOOR+base.CUP_HEIGHT+base.PAD_PRELOAD))
+        (0,0,base.FLOOR+base.CUP_HEIGHT+v.preload))
 
 
 def placements():
