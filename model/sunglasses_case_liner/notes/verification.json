@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "variant": "s16-retrofit",
+  "selected_checks": null,
+  "available_variants": [
+    "s16-retrofit"
+  ],
+  "available_checks": [
+    "liner.profile",
+    "liner.fit",
+    "liner.motion"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "s16-retrofit",
+    "scope": {
+      "design": "s16-retrofit",
+      "shell": "accepted-e-158x78x63",
+      "liner": "TPU",
+      "physical": "unreported"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "liner.retrofit",
+        "text": "Add a liner to the already printed sunglasses case",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#intent",
+          "statement": "User reports existing case printed with sufficient room and requests a printable damping liner adapter"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "fit",
+            "criterion": "Nominal inserts clear the complete existing case and have a sampled installation route",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "liner.fit"
+            ],
+            "evidence": [
+              "liner.fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "motion",
+            "criterion": "Installed inserts clear one another and rigid mechanisms during sampled opening/closing",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "liner.motion"
+            ],
+            "evidence": [
+              "liner.motion"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "use",
+            "criterion": "Actual inserts fit, remain attached, permit closure and leave room for the user glasses",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "liner.profile",
+        "text": "Use the user-preferred printed S16 damping profile",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#intent",
+          "statement": "User selects S16 and requests its adaptation to the sunglasses case"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "profile",
+            "criterion": "Preserve S16 local skins/core/ribs/pitch and continuous floor/wall contact faces",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "liner.profile"
+            ],
+            "evidence": [
+              "liner.profile"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "liner.damping",
+        "text": "Damp sunglasses contact in the existing box",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#intent",
+          "statement": "User requests damping of the already printed sunglasses box"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "quiet",
+            "criterion": "User finds the lined sunglasses case sufficiently quiet in use",
+            "mode": "subjective",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "liner.profile",
+        "targets": [
+          [
+            "liner.profile",
+            "profile"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py#check_profile",
+        "scope": {
+          "design": "s16-retrofit",
+          "shell": "accepted-e-158x78x63",
+          "liner": "TPU",
+          "physical": "unreported"
+        }
+      },
+      {
+        "id": "liner.fit",
+        "targets": [
+          [
+            "liner.retrofit",
+            "fit"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py#check_fit",
+        "scope": {
+          "design": "s16-retrofit",
+          "shell": "accepted-e-158x78x63",
+          "liner": "TPU",
+          "physical": "unreported"
+        }
+      },
+      {
+        "id": "liner.motion",
+        "targets": [
+          [
+            "liner.retrofit",
+            "motion"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py#check_motion",
+        "scope": {
+          "design": "s16-retrofit",
+          "shell": "accepted-e-158x78x63",
+          "liner": "TPU",
+          "physical": "unreported"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "liner.attachment",
+        "text": "Two identical rounded cups, 0.2 mm lateral allowance, thin removable tape under flat backing; physical adhesion remains unqualified",
+        "reference": "README.md#installation"
+      }
+    ],
+    "hypotheses": [],
+    "directives": []
+  },
+  "help": null
+}

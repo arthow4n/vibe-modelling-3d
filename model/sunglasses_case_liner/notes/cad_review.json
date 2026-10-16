@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case_liner/sunglasses_case_liner.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case_liner/renders/print/sunglasses_case_liner_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "top",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case_liner/renders/print/sunglasses_case_liner_top.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          0,
+          1
+        ],
+        "up_direction": [
+          0,
+          1,
+          0
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013417089940048754,
+    "build": 3.424409116996685,
+    "selection": 0.0007045679958537221,
+    "validation": 1.3358126849925611,
+    "render_isometric": 1.0440933110076003,
+    "render_top": 1.0231859710038407,
+    "worker": 6.925939472013852,
+    "total": 12.435654392000288
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "327234f7d2ac11496aeb4ffe060d971d0e0179f68c3b3ffd8a046561ab955c04",
+    "artifact_identity": "80d1464cf9de8fae606235d1ac1d5162fec87b24cae734e6b8f257781ea99a52"
+  }
+}

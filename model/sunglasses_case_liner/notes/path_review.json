@@ -1,0 +1,42 @@
+{
+  "scope": "Slicer metadata only, not deposited-polymer measurements or physical approval",
+  "criteria": {
+    "core_gap_min_mm": 0.7,
+    "skin_width_min_mm": 0.36,
+    "rib_tracks_min": 2,
+    "track_width_range_mm": [
+      0.38,
+      0.65
+    ],
+    "bridge_height_max_mm": 0.1
+  },
+  "floor_channel_samples": 18,
+  "wall_gap_samples": 48,
+  "minimum_wall_gap_mm": 0.7994570000000181,
+  "rib_sections": 30,
+  "minimum_rib_tracks": 2,
+  "first_skin_layers": [
+    {
+      "z_mm": 1.3,
+      "roles": {
+        "Bridge": 63
+      }
+    },
+    {
+      "z_mm": 1.3,
+      "roles": {
+        "Bridge": 63
+      }
+    }
+  ],
+  "bridge_heights_mm": [
+    0.0999999
+  ],
+  "support_probe": {
+    "segments": 69078,
+    "z_range_mm": [
+      0.8,
+      1.0
+    ]
+  }
+}

@@ -38,6 +38,14 @@ The full shell is stiffer and the hinge/latch distance is greater than on the
 coupon. E's physical success supports this choice but does not physically
 validate the resized full case's closure force, fatigue or backpack durability.
 
+## Optional S16 damping retrofit
+
+The user reconfirmed the case is printed with sufficient room on 2026-10-16 and
+requested a liner using the preferred printed S16 TPU profile. The separate
+[two-cup accessory](../../sunglasses_case_liner/README.md) fits inside this existing
+case; use its own print files and setup. The original case remains unchanged.
+Lined-case fit and quietness have no physical report yet.
+
 ## Physical print status
 
 Status reviewed 2026-09-14.
