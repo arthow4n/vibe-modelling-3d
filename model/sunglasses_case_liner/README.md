@@ -86,8 +86,8 @@ After cooling, compare the central top area's visible lines, smoothness, ridges,
 flatness and any nozzle drag. Check the exposed channel edges for sag/fusion and
 whether the top skin remains intact. Prefer the finish you find better only if
 it preserves the sandwich; a smoother but damaged/fused skin calls for adjusting
-or omitting ironing before using it on the full liner. No printed comparison has
-been reported yet. This coupon omits corners, walls, adhesion, glasses fit and
+or omitting ironing before using it on the full liner. The reported flow
+comparison below now prefers 50%. This coupon omits corners, walls, adhesion, glasses fit and
 full-panel toolpath length/cooling; it qualifies a small flat surface comparison,
 not complete-box damping or necessarily the full panel's finish.
 
@@ -108,9 +108,39 @@ probe proposes support in the shallow channels at **Z 0.8–1.0 mm**; primary
 supports remain off, with the native `review_required` signal retained. These
 short roofs reproduce the liner's supported 3.5 mm spans; the trimmed bridge-end
 edges terminate on full ribs. Trapped support would defeat the air
-channels. Printed sag and ironing quality remain unknown. STL slicing does not
+channels. Surface-finish feedback is recorded below; printed sag and channel
+integrity remain unmeasured. STL slicing does not
 verify GUI STEP import. The full liner's existing geometry and exports are
 unchanged by this added sample.
+
+### Ironing-flow print feedback — 2026-10-16
+
+**The sample has been printed. The user's preferred ironing flow is 50%.**
+The user reports a starting/default ironing flow of 10% and tried 10%, 30%, 50%
+and 100%. These percentages refer to **ironing flow**, not normal extrusion flow.
+
+| Ironing flow | User observation | Decision for this sample/setup |
+| --- | --- | --- |
+| 10% | Gaps remain between surface lines after ironing | Not preferred. |
+| 30% | Gaps remain between surface lines after ironing | Not preferred. |
+| **50%** | Finish described as “perfect” | **Preferred tested value.** |
+| 100% | Top surface bulges/bumps upward instead of remaining flat | Not preferred. |
+
+Associated design: the supplied rib-bounded S16 bottom-panel sample at `de98e8f`,
+nominally 18.5 × 18.5 × 1.6 mm. The user identified the ironing sample and flow
+levels, not an exact printed filename/hash or measured dimensions. TPU is the
+intended material; actual spool/hardness, printer, nozzle/layers, ironing speed,
+spacing, temperature, orientation and whether other settings were held identical
+remain unreported. The supplied diagnostic profiles are not evidence of the
+actual settings used. This is subjective physical surface-finish feedback, not
+a measured roughness/flatness result or material calibration.
+
+Record **50% as preferred for this reported sample/setup** and a starting reference
+for a comparable follow-up. There is no reported ironing-off control result,
+channel-integrity measurement, damping comparison or full-liner ironing report.
+The small sample's successful finish does not automatically qualify the larger
+panel, corners, or another filament/process. Existing CAD and reference slices
+remain unchanged, including the ironing-off baseline.
 
 ### Reported STEP/STL mismatch
 
@@ -250,7 +280,7 @@ and the [reusable evidence index](../../.codex/skills/cadquery-3d-design/referen
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | Unknown — no bottom-sample print report | `bottom_sample_18p5mm.step/.stl`; 18.5 × 18.5 × 1.6 mm | Requested ironing off/on surface comparison; no result yet. Original approved S16 samples remain scoped to the damping-box fixture. |
+| Test piece(s) | Yes — ironing sample, reported 2026-10-16 | Associated `bottom_sample_18p5mm.step/.stl`; exact printed file/settings unknown | 10%/30% ironing flow leave line gaps; 50% described as perfect and preferred; 100% produces raised/bumpy top. No ironing-off control or full-liner finish result reported. Original S16 damping approval remains scoped to its fixture. |
 | Final printable object(s) | No — user reported holding off before correction | Revised `sunglasses_case_liner.step/.stl` | Curved-core correction requested; actual fit, adhesion, quietness, skin integrity and wear remain untested. Existing rigid case is printed and accepted. |
 
 ## Attribution
