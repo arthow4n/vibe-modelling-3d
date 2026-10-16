@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case_liner/corner_study.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "top",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/sunglasses_case_liner/renders/corner_study/corner_study_top.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          0,
+          1
+        ],
+        "up_direction": [
+          0,
+          1,
+          0
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0016276650130748749,
+    "build": 5.0907736149965785,
+    "selection": 0.0010355300037190318,
+    "validation": 0.031902731003356166,
+    "render_top": 0.48134529500384815,
+    "worker": 5.675419443999999,
+    "total": 8.18107287499879
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "6419921adac3557df8a639f0095a1381d9601dc86f7b3373a90aaa15ebe6f167",
+    "artifact_identity": "720ebc41f059a6744a889053ea32b6c1aade3167e685a9d0b9a2ad6abbb49dad"
+  }
+}

@@ -15,7 +15,11 @@ requiring a physical print. A homogeneous-solid solve needs a defensible sliced
 section, an explicit effective-material assumption, or a stated discrepancy;
 even solid paths leave anisotropy and bonding uncalibrated.
 
-For thin sandwich liners, verify the voids as well as the material: continuous
+For thin sandwich liners, map air-core coverage through corners, pattern ends
+and floor/wall junctions before accepting straight-section witnesses as whole-liner
+coverage. The [sunglasses liner corner review](../../../../model/sunglasses_case_liner/README.md#corner-coverage-investigation--2026-10-16)
+found deliberately solid bends after straight-wall path checks passed.
+Verify the voids as well as the material: continuous
 skins, separated support paths, remaining channel width and bridge extrusion
 height at representative layers. Check whether the planned bridge extrusion
 height fits the gap budget, not just its direction; inspect effective settings

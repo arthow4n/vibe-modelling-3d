@@ -16,6 +16,7 @@ QUESTIONS = (
     Q('motion','liner.retrofit','Installed inserts clear one another and rigid mechanisms during sampled opening/closing','CAD'),
     Q('use','liner.retrofit','Actual inserts fit, remain attached, permit closure and leave room for the user glasses','physical'),
     Q('profile','liner.profile','Preserve S16 local skins/core/ribs/pitch and continuous floor/wall contact faces','CAD'),
+    Q('corners','liner.profile','Air-core coverage extends around all four rounded corners between ribs; straight-wall witnesses alone are insufficient','CAD'),
     Q('quiet','liner.damping','User finds the lined sunglasses case sufficiently quiet in use','subjective'),
 )
 
@@ -27,6 +28,7 @@ def make_plan(variant):
     scope = {'design':variant,'shell':'accepted-e-158x78x63','liner':'TPU','physical':'unreported'}
     runs = (('liner.profile','liner.profile','profile',checks.check_profile),
             ('liner.fit','liner.retrofit','fit',checks.check_fit),
+            ('liner.corners','liner.profile','corners',checks.check_corner_coverage),
             ('liner.motion','liner.retrofit','motion',checks.check_motion))
     return Plan(variant,REQUIREMENTS,scope,
         tuple(assertion_check(id,((req,q),),run,'checks.py#'+run.__name__,scope)

@@ -61,3 +61,19 @@ def check_motion():
     # Deliberately displaced insert must trip the same shell-clearance criterion.
     bad = body.translate((1,0,0))
     assert check_pair(bad,m['body'],FREE).status=='failed', 'Missing collision sensitivity'
+
+
+def check_corner_coverage():
+    """Required air-core locations around bends; original solid corners fail."""
+    from math import cos, sin, radians
+    length,width,_,radius = d.dimensions()
+    core_radius = radius-d.BACKING-d.CORE/2
+    for sx in (-1,1):
+        for sy in (-1,1):
+            cx,cy = sx*(length/2-radius),sy*(width/2-radius)
+            for angle in (15,45,75):
+                air = (cq.Workplane('XY').sphere(.1).translate((
+                    cx+sx*core_radius*cos(radians(angle)),
+                    cy+sy*core_radius*sin(radians(angle)),15.)))
+                assert air.intersect(d.cup()).val().Volume()<1e-6, (
+                    'Required corner air core is solid',sx,sy,angle)

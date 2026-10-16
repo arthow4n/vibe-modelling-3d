@@ -1,6 +1,10 @@
 # S16 damping liner for the printed sunglasses case
 
-Print [sunglasses_case_liner.step](sunglasses_case_liner.step), or its matching
+**Print on hold — corner coverage review, 2026-10-16.** The user has not printed
+this liner and questions the solid rounded corners. Existing files are retained
+for investigation; their slice acceptance does not qualify corner damping.
+
+Previously delivered [sunglasses_case_liner.step](sunglasses_case_liner.step), or its matching
 [STL](sunglasses_case_liner.stl). The plate contains **two identical TPU cups**,
 one for each half of the existing [accepted E case](../sunglasses_case/notes/printing_and_design.md).
 Source: [print entry](sunglasses_case_liner.py), [parametric builder](design.py).
@@ -16,6 +20,71 @@ for the already printed sunglasses box. The user confirms enough interior room.
 The [original physical report](../tpu_damping_box/README.md#s16--s12-print-feedback--2026-10-16)
 qualifies the sample profile, not this new accessory's quietness or fit.
 The original case and its accepted source/exports are preserved.
+
+## Corner coverage investigation — 2026-10-16
+
+**Current printable files remain on hold.** The user reports no liner print and
+questions whether the solid sides/corners defeat the damping purpose. Inspection
+confirms that the straight side walls contain vertical ribs and a 0.8 mm air core;
+the original slice's 48 wall-gap witnesses apply to those straight regions only.
+The **four rounded bends are solid through the full 1.6 mm wall thickness**.
+The top 0.4 mm is also intentionally solid to close the wall channels, and floor/
+wall junctions and pattern remainders remain solid. A top-layer view alone does
+not reveal the hollow middle of a straight wall. The user's actual slicer setup
+has not been supplied; its paths are not inferred from the reference receipt.
+
+Solid corners remove the air-core deflection space at diagonal contacts. This
+is a real coverage limitation, not a slicer infill setting. It does not establish
+zero damping in solid TPU, nor does the absence/presence of air quantify noise.
+The earlier local checks were insufficient to qualify damping coverage around
+the perimeter. The user is holding off before printing, not reporting a failed
+print. Physical sample approval of S16 remains valid in its original scope.
+
+### Feasible curved-core direction
+
+![Actual middle-height CAD sections: existing left, proposed right](renders/corner_study/corner_study_top.png)
+
+Left is a crop of the delivered liner at Z 15 mm. Right is a rough candidate
+with the same external/internal outline, **0.4 mm backing, 0.8 mm curved air core
+and 0.4 mm contact skin**, with short radial ribs around each corner. The three
+corner pockets per bend are spaced at 30°, preserving a minimum nominal 0.9 mm
+rib chord at the inner core radius. This is closer corner support spacing than
+the straight-wall S16 pitch; it preserves the local sandwich rather than
+stretching the original ribs. Existing solid transitions at the corner ends
+are retained in this rough study and would need review in a complete revision.
+
+[Inspection-only source](corner_study.py) builds this candidate without changing
+the production builder or exports. [Geometric witnesses](notes/corner_study.json)
+confirm **36 new corner air locations** (three angles at three heights in all
+four corners), **72 retained skin locations**, and one valid connected candidate.
+At those same air locations the original corner is solid, providing the negative
+comparison. [Native section receipt](notes/corner_view.json) covers the reviewed
+view. These are targeted samples, not full manufacturing or acoustic qualification.
+
+**Recommendation:** carry a curved core around the corners before investing in
+the full liner print. This is geometrically feasible; there is no need to accept
+solid bends as an unavoidable limitation. A complete revision still needs curved
+skin/rib toolpath review, closed-channel cap review and its own matching exports
+and final slice. Both skins stay in place; opening the outside backing is not
+the proposed fix. The vertical pockets and shallow top caps offer a plausible
+print orientation, but this candidate has not been sliced or physically tested.
+No new printable test piece or revised production STEP/STL is delivered in this
+exploration phase.
+
+The product plan now declares the missing corner-coverage obligation. Its
+[focused current-design result](notes/corner_coverage.json) is **FAIL** for the
+original solid corners. Omitted checks in that focused receipt are UNKNOWN;
+the unchanged fit/motion/straight-profile evidence is retained separately in
+[the original receipt](notes/verification.json). The original successful slice
+remains evidence for path generation in its checked regions, not readiness.
+
+Reproduce the investigation:
+
+```sh
+./execute.py --threads 1 model/sunglasses_case_liner/corner_study.py
+./execute.py --threads 1 model/sunglasses_case_liner/verification.py --variant s16-retrofit --check liner.corners
+./evaluate_model.py model/sunglasses_case_liner/corner_study.py --views top --output-dir renders/corner_study --report model/sunglasses_case_liner/notes/corner_view.json
+```
 
 ## Geometry and adaptation
 
@@ -97,7 +166,9 @@ The accepted original shell/latch evidence is retained in the case's own record;
 this accessory does not inherit physical PASS for the lined assembly.
 
 [Product verification receipt](notes/verification.json): profile, nominal fit and
-sampled motion checks **PASS**, including the collision negative control. It keeps actual fit,
+sampled motion checks **PASS** within their original scope, including the collision
+negative control. The newly added corner-coverage obligation fails separately
+(see investigation above). The original receipt keeps actual fit,
 attachment, glasses clearance and subjective quietness **UNKNOWN** until reported.
 [Final evaluator receipt](notes/final_review.json) owns geometry/export/slice
 status, tool identities, profile selection and placement.
@@ -133,7 +204,7 @@ Reproduce from the repository root:
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | N/A — complete accessory is the trial | No new coupon; printed S16 evidence belongs to the damping-box record | Preferred sample does not qualify this application. |
-| Final printable object(s) | Unknown — no user print report | `sunglasses_case_liner.step/.stl` | Fit, adhesion, glasses clearance, quietness, skin integrity and wear require actual use. Existing case is printed and accepted. |
+| Final printable object(s) | No — user explicitly holding off, 2026-10-16 | `sunglasses_case_liner.step/.stl` | Print on hold for solid-corner review. Fit, adhesion, glasses clearance, quietness, skin integrity and wear remain untested. Existing case is printed and accepted. |
 
 ## Attribution
 

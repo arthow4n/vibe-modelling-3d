@@ -1,0 +1,12 @@
+{
+  "scope": "CAD corner coverage only; no stiffness, acoustic or print qualification",
+  "baseline": "solid corner at all sampled air-core locations",
+  "candidate": "0.8 mm curved core between 0.4 mm skins, with radial ribs",
+  "corner_pockets": 12,
+  "air_samples": 36,
+  "skin_samples": 72,
+  "rib_min_chord_mm": 0.9,
+  "corner_sector_pitch_deg": 30,
+  "core_radial_gap_mm": 0.8,
+  "production_files_changed": false
+}
