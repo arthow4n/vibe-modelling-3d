@@ -54,6 +54,56 @@ closed. This narrow seam band remains unlined to avoid pinching. The remaining
 rounded interior is nominally **154.4 × 74.4 × 59.4 mm**, including the tape
 allowance. This is available geometry, not a measured glasses envelope.
 
+## 20 mm bottom-panel sample — ironing comparison
+
+User-requested test piece: [bottom_sample.step](bottom_sample.step) ·
+[matching STL](bottom_sample.stl) · [source](bottom_sample.py).
+This is a **20 × 20 × 1.6 mm** crop from the centre of the actual liner bottom,
+with the same **0.4 mm backing / 0.8 mm ribbed air core / 0.4 mm contact skin**.
+It includes the full bottom-panel sandwich, rather than just the first print
+layer. Backing faces the bed; the glasses-contact skin faces upward for ironing.
+No labels, added edge frame, side walls or corner geometry change the test area.
+Cut edges expose the channels so their condition can also be inspected.
+
+Print the **same file twice**, using the liner's [TPU print setup](#printing-and-manufacturing-review)
+and supplied unrotated orientation. Keep material, plate, temperatures,
+flow and other process settings the same. Use ironing **off** for one print
+and ironing on the **top surface** for the other, using the ironing settings you
+want to assess. Mark which is which after removal rather than changing the CAD
+surface. The supplied reference smoke slice is the **ironing-off baseline**;
+it does not select or qualify ironing temperature, flow, speed or spacing.
+Ironing evaluates the upward contact face; the bed-facing underside's texture
+is a separate observation.
+
+After cooling, compare the central top area's visible lines, smoothness, ridges,
+flatness and any nozzle drag. Check the exposed channel edges for sag/fusion and
+whether the top skin remains intact. Prefer the finish you find better only if
+it preserves the sandwich; a smoother but damaged/fused skin calls for adjusting
+or omitting ironing before using it on the full liner. No printed comparison has
+been reported yet. This coupon omits corners, walls, adhesion, glasses fit and
+full-panel toolpath length/cooling; it qualifies a small flat surface comparison,
+not complete-box damping or necessarily the full panel's finish.
+
+[Native sample receipt](notes/bottom_sample_final.json) covers source association,
+paired exports and reference slicing. [Local path review](notes/bottom_sample_paths.json)
+checks the retained channels, substantial rib tracks and transverse first contact
+skin. The sample deliberately keeps the cut edges sharp in CAD to preserve the
+exact crop; it lies flat on its full backing, and its only short unsupported
+features are the existing channel roofs and short cut-edge skin overhangs.
+
+Baseline review: valid CAD and paired STEP/STL exports; OrcaSlicer **2.4.2**,
+supplied TPU triplet, centred without rotation, **no keyword notices**, ironing
+off. Estimated **0.54 g / 10 min 16 s** per sample, not measured. The local path
+check passed **12 open-channel samples**, **9 rib sections** with at least two
+substantial tracks, and the first contact-skin bridge direction. The automatic
+probe proposes support in the shallow channels at **Z 0.8–1.0 mm**; primary
+supports remain off, with the native `review_required` signal retained. These
+short roofs reproduce the liner's supported 3.5 mm spans; the cropped edge has
+only a short remaining skin projection. Trapped support would defeat the air
+channels. Printed sag and ironing quality remain unknown. STL slicing does not
+verify GUI STEP import. The full liner's existing geometry and exports are
+unchanged by this added sample.
+
 ## Installation
 
 1. Print the supplied layout, backing down and openings up. Remove strings and
@@ -174,7 +224,7 @@ and the [reusable evidence index](../../.codex/skills/cadquery-3d-design/referen
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A — complete accessory is the trial | No new coupon; approved S16 samples belong to the damping-box record | Original sample approval remains scoped to its fixture. |
+| Test piece(s) | Unknown — no bottom-sample print report | `bottom_sample.step/.stl`; 20 × 20 × 1.6 mm | Requested ironing off/on surface comparison; no result yet. Original approved S16 samples remain scoped to the damping-box fixture. |
 | Final printable object(s) | No — user reported holding off before correction | Revised `sunglasses_case_liner.step/.stl` | Curved-core correction requested; actual fit, adhesion, quietness, skin integrity and wear remain untested. Existing rigid case is printed and accepted. |
 
 ## Attribution
