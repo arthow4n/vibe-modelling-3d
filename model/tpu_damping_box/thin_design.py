@@ -32,10 +32,10 @@ class ThinVariant:
 
 VARIANTS = {
     'I30': ThinVariant('I30', 3.0, .6, .6, .5),
-    'I24': ThinVariant('I24', 2.4, .4, .6, .4),
-    'I20': ThinVariant('I20', 2.0, .4, .4, .4),
+    'I26': ThinVariant('I26', 2.6, .6, .6, .9),
+    'I22': ThinVariant('I22', 2.2, .6, .6, .9),
 }
-SELECTED_NAMES = ('I30', 'I24', 'I20')
+SELECTED_NAMES = ('I30', 'I26', 'I22')
 LABEL_DEPTH = .2
 LABEL_SIZE = 12.0  # font em size; actual capital height is font-dependent
 LABEL_FONT = 'DejaVu Sans Mono'

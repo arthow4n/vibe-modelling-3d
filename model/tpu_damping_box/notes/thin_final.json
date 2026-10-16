@@ -16,15 +16,15 @@
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.0013372389948926866,
-    "build": 6.6618325210001785,
-    "selection": 0.0014430520022870041,
-    "validation": 1.4238486120011657,
-    "export_step": 1.4031832330001635,
-    "export_stl": 0.3269149830011884,
-    "worker": 10.0326483309982,
-    "total": 51.650175932998536,
-    "slice": 36.36420883300161
+    "dependency_initialization": 0.0014275009962148033,
+    "build": 6.085026259002916,
+    "selection": 0.0011370400025043637,
+    "validation": 1.168159458997252,
+    "export_step": 1.2303134439935093,
+    "export_stl": 0.26675883900315966,
+    "worker": 8.96675363599934,
+    "total": 54.921480829994834,
+    "slice": 40.67326724399754
   },
   "versions": {
     "python": "3.14.7",
@@ -35,8 +35,8 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "9abe924f01a4da5bba37c7e3f2bd426ffc6c1d57880d43c55ae4c9b8f068b793",
-    "artifact_identity": "3bd27d847496ce26b90b83b4ae9960db9bff1753b0cbfe88cb76ac5a6c0a5ce4"
+    "identity": "2a0f53c37e2196ec9ed57ec5b9c55da40b34081121f6841f24d3ec96d78160c5",
+    "artifact_identity": "8c262abff89ad128e7d652667c5125b97880e3d617703c761455aed800ecab6d"
   },
   "slice": {
     "ok": true,
@@ -126,14 +126,12 @@
       "effective_support_threshold_angle": "30",
       "effective_max_bridge_length_mm": "10"
     },
-    "log_notices": [
-      "plate 1: It seems object input.stl has floating cantilever. Please re-orient the object or enable support generation."
-    ],
+    "log_notices": [],
     "review_required": true,
     "reused": false,
-    "identity": "a38d71e60d2aa1b616caa6a9aaef74518d4e1c99eaf63183cedb4edbf6655d69",
-    "input_sha256": "c39dfb74847ec17ce31f8220a72a8d1f651a160fcd46df36e0e8a47816dc2ac6",
-    "kept_run_directory": "/home/hevar/orca-slicer-review-5ttmusjc",
+    "identity": "41929ec7575b8fc75467cfdae13c4848090bc67b7c9b7b0f988d68d7cea527d7",
+    "input_sha256": "560305bd41799829aa9d4e050c69210a961129953e645485ad9c3f8f3a7509bb",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-fofs8lui",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",

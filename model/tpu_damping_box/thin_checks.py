@@ -79,9 +79,12 @@ def labels(name,parts):
 
 
 def selection():
-    assert t.SELECTED_NAMES==('I30','I24','I20')
+    assert t.SELECTED_NAMES==('I30','I26','I22')
     expected={f'{kind}_{name}' for name in t.SELECTED_NAMES for kind in ('cup','pad')}
     assert {row[0] for row in t.placements()}==expected
     assert len(t.placements())==6
-    assert [t.variant_named(n).thickness for n in t.SELECTED_NAMES]==[3.,2.4,2.]
+    assert [t.variant_named(n).thickness for n in t.SELECTED_NAMES]==[3.,2.6,2.2]
     assert all(t.variant_named(n).clear>=26 for n in t.SELECTED_NAMES)
+    for name in ('I26','I22'):
+        v=t.variant_named(name)
+        assert v.web>=.9 and v.backing>=.6 and v.skin>=.6, 'Replacement uses undersized features'

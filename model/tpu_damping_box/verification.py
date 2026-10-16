@@ -80,19 +80,19 @@ def thin_plan(variant):
     import thin_design as d
     d.variant_named(variant)
     protect_recorded_intent(ROOT,REQUIREMENTS)
-    scope={'revision':'thin-I-r4-large-labels','variant':variant,'shell':'PLA-reused','liner':'TPU95A-assumed-unprinted'}
+    scope={'revision':'thin-I-r5-robust-webs','variant':variant,'shell':'PLA-reused','liner':'TPU95A-assumed-unprinted'}
     @cache
     def parts():
         return c.candidate(variant)
     questions=(
         Q('fit','study.enclosure','Cup/pad clear the existing shell, each other and installation travel; expanded flat cavity admits a moving 12 mm nut proxy.','CAD'),
         Q('handling','study.enclosure','Printed pair swaps, seats and stays retained during shaking.','physical'),
-        Q('six-skins','study.coverage','Six continuous flat skins retain the declared 0.4 or 0.6 mm thickness.','CAD'),
+        Q('six-skins','study.coverage','Six continuous flat skins retain the declared 0.6 mm thickness.','CAD'),
         Q('flat-faces','study.flat','The expanded cubic shaking cavity is free of protrusions.','CAD'),
         Q('cores','study.variants','Air channels and chevron material remain behind all six faces.','CAD'),
-        Q('labels','study.variants','Both parts bear matching large bold recessed I30/I24/I20 labels, at least 8 mm actual capital height, with material above the recess.','CAD'),
+        Q('labels','study.variants','Both parts bear matching large bold recessed I30/I26/I22 labels, at least 8 mm actual capital height, with material above the recess.','CAD'),
         Q('printed-labels','study.variants','Labels remain readable, thin skins and web bridges print intact.','physical'),
-        Q('thin-selection','study.quiet_priority','One batch contains exactly three I-derived pairs at 3.0, 2.4 and 2.0 mm, 25/40/50 percent thinner than approved I.','CAD'),
+        Q('thin-selection','study.quiet_priority','One batch contains exactly three I-derived pairs at 3.0, 2.6 and 2.2 mm, 25/35/45 percent thinner than approved I.','CAD'),
         Q('quiet-winner','study.quiet_priority','User compares against approved 4 mm I and finds an acceptable thickness/quietness tradeoff.','physical'),
         Q('noise','study.research','Same-shell/nut comparison includes shake intensity and axis; larger cavity is acknowledged.','physical'),
     )
@@ -105,13 +105,13 @@ def thin_plan(variant):
     )
     checks=tuple(assertion_check(id,targets,run,'thin_checks.py / thin_design.py',scope) for id,targets,run in groups)
     return Plan(variant,REQUIREMENTS,scope,checks,(),questions=questions,
-        decisions=(DesignDecision('thickness-ladder','Reuse outer 34 mm cup and existing shell; expand cavity instead of adding rigid fillers. Thin skins and webs; retain I centreline slope and pitch.','README.md#thinner-i-experiment'),),
+        decisions=(DesignDecision('thickness-ladder','Reuse outer 34 mm cup and existing shell; expand cavity instead of adding rigid fillers. I26/I22 use 0.9 mm webs and 0.6 mm backing/skins; retain I centreline slope and pitch.','README.md#thinner-i-experiment'),),
         hypotheses=(Hypothesis('thin-quietness','Reduced core stroke may cause bottoming; shorter webs can stiffen despite thinner sections. Original I approval does not transfer.','README.md#thinner-i-experiment'),),
         directives=(Directive('approved-I-thinning','Preserve approved I; deliver three much thinner derivatives for printing.',S('README.md#user-print-feedback--2026-10-16','User reports I much more damping, explicitly approves it, and requests two or three much thinner I variants.')),))
 
 
 def make_plan(variant):
-    if variant in ('I30','I24','I20'):
+    if variant in ('I30','I26','I22'):
         return thin_plan(variant)
     if variant not in tuple("ABCDEFGHI"):
         raise ValueError(variant)
@@ -137,4 +137,4 @@ def make_plan(variant):
 
 
 if __name__=='__main__':
-    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I24','I20')))
+    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I26','I22')))
