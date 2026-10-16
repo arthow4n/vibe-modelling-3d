@@ -1,23 +1,46 @@
 # Flat-faced TPU damping box experiment
 
-**I22 is good enough in the user's latest print test.** There was little perceived
-difference from I30. **I10 is rejected for use:** shell-side regions broke in the
-printed part. It seemed to damp somewhat, but I22 was better. The open-backed
-architecture is retired; follow-up specimens retain both continuous skins.
+**S16 is the user's preferred printed damping profile (2026-10-16).**
+S16 and S12 were both printed and both work. Subjectively, S16 feels better than
+S12 and I22, and good even compared with I30 and the original 4 mm I. The user
+selects S16 for reuse in rigid-shell/TPU damping, starting with the already
+printed sunglasses case.
 
-The user also reports near-joining internal lines in I22. Their exact location
-and cause are unresolved; no actual slicer/settings, measured gaps or print
-photos have been supplied. Preserve the printed I22 as the reference.
+## S16 / S12 print feedback — 2026-10-16
+
+Associated designs: `skin_design.py`, `liners_closed.step/.stl` at the pre-report
+revision. User identified IDs; exact printed hashes, printer/profile, TPU
+hardness/brand, orientation and measured sound levels are unknown. Continuing
+fixture is understood as the existing PLA shell with TPU liners. Both work;
+detailed skin/channel integrity and durability were not reported. The reason
+for the preference is unknown: this is subjective physical approval, not
+acoustic or material calibration.
+
+S denotes the closed-skin straight-support series; 16/12 denote 1.6/1.2 mm nominal
+total lining. I is the earlier folded-web series; I22/I30 denote 2.2/3.0 mm,
+and original I is 4.0 mm. The project is called an experiment because it compares
+removable liners in a common rigid test box.
+
+**Approved reusable starting profile:** 0.4 mm backing + 0.8 mm air core +
+0.4 mm contact skin; 0.9 mm straight ribs at 4.4 mm pitch, leaving 3.5 mm nominal
+open channels. Preserve both skins and these local dimensions when adapting
+coverage. New corners, spans, attachment, shell material and contents need
+application review. The sample approval does not establish sunglasses-case fit
+or quietness.
+
+I22 remains a historical accepted reference. I10 remains rejected for broken
+shell-side regions; the open-backed architecture is retired. I22's nearly joined
+internal lines remain unresolved.
 
 ![Focused core sections](renders/selected_core_sections.png)
 
 ## Closed-skin follow-up
 
-**Next print: [liners_closed.step](liners_closed.step)** ·
+**Printed comparison batch: [liners_closed.step](liners_closed.step)** ·
 [matching STL](liners_closed.stl) · [entry point](liners_closed.py) ·
 [builders](skin_design.py) · **[required reference process](profiles/tpu-closed-process.json)**.
 The plate contains exactly **S16 and S12**, one cup/pad pair each. Keep your printed
-I22 as the accepted reference; no shell or I22 reprint is needed.
+I22 as a historical reference; S16 is now preferred. No reprint is needed.
 
 | ID | Nominal total lining | Thinner than I22 | Outer skin / core / contact skin | Internal supports |
 | --- | --- | --- | --- | --- |
@@ -25,7 +48,7 @@ I22 as the accepted reference; no shell or I22 reprint is needed.
 | **S16** | **1.6 mm** | **27%** | **0.4 / 0.8 / 0.4 mm** | **0.9 mm straight supports, 4.4 mm pitch** |
 | **S12** | **1.2 mm** | **45%** | **0.4 / 0.4 / 0.4 mm** | Same supports and pitch |
 
-S16 is the first candidate; S12 is the more aggressive limit. Both have continuous
+S16 is the preferred printed candidate; S12 also works. Both have continuous
 inner and outer skins over floor, roof and four walls. Their straight supports
 remove the closely returning chevron geometry and give **3.5 mm nominal open
 channels** between ribs, compared with about 2.46 mm same-layer horizontal
@@ -35,8 +58,8 @@ is not yet identified, so this comparison does not diagnose the printed cause.
 
 This is a different support arrangement, not a calibrated acoustic improvement.
 Wider membrane spans and less support area may help, but thinner skins and smaller
-stroke can bottom out, sag or fuse. Quietness, actual print stability and skin
-integrity remain **unknown until tested**. No universal minimum printable TPU
+stroke can bottom out, sag or fuse. Both now have subjective working print reports; detailed skin/channel
+integrity remains unreported. No universal minimum printable TPU
 feature or guaranteed damping thickness is established.
 
 ### Setup and assembly
@@ -113,6 +136,8 @@ Reproduce from the repository root:
 
 ### I22 / I30 / I10 print feedback — latest report
 
+Historical report; superseded for preference by S16 above.
+
 Associated source: `3758cb6`; user identified IDs, not artifact hashes. The
 continuing setup is understood as the existing PLA shell and TPU liners; actual
 printer, filament/hardness, profile, orientation and nut remain unreported.
@@ -127,8 +152,8 @@ The reusable lesson is recorded in the design skill's print-planning and
 user-preference references: preserve required skins, check open space as well as
 material paths, and inspect bridge height in shallow cores. I10's earlier local
 path checks and support probe were insufficient evidence of printed integrity.
-S16/S12 add closed-skin and open-gap checks; their physical outcome remains a
-new experiment rather than a correction claimed to be proven by slicing.
+S16/S12 added closed-skin and open-gap checks; their later print report above
+now prefers S16. Slicing alone did not establish this outcome.
 
 Latest request: one or two meaningfully thinner candidates than I22, with both
 continuous skins for print stability, improved separation and slicer changes if
@@ -438,8 +463,8 @@ orientation and component positions. STL slicing does not verify Orca GUI STEP i
 | --- | --- | --- | --- |
 | Test piece(s) | Yes — A/E/H/I and shell reported 2026-10-16 | `tpu_damping_box.step/.stl`; `liners_selected.step/.stl`, named designs at `41e1e04`; exact printed files unknown | PLA shell. I approved, much quieter than E/H; E/H damp somewhat; A noisy. Previous labels too small to read. Detailed settings, fit and damage unknown. |
 | Thin test piece(s) | Yes — latest report | `liners_thin.step/.stl`, associated with `3758cb6`; exact printed artifacts unknown | I22 good enough, little difference from I30. I10 shell-side features broken and rejected. I22 lines appear nearly joined; cause/settings unknown. |
-| Closed-skin follow-up | Unknown — no user print report | `liners_closed.step/.stl` | S16/S12 CAD and gap-path checks only; quietness and printed integrity unqualified. |
-| Final printable object(s) | N/A | None — research samples only | I22 is the latest accepted quietness reference; I10 rejected, no final application qualified. |
+| Closed-skin follow-up | Yes — S16/S12, 2026-10-16 | `liners_closed.step/.stl`; exact hashes/settings unknown | Both work; S16 preferred over S12/I22, good compared with I30/original I. Detailed skin integrity/durability unreported. |
+| Final printable object(s) | N/A | None — research samples only | S16 is preferred; I10 rejected, no final application qualified. |
 
 ## Shake experiment and feedback
 
