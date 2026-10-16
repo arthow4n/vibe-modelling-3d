@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "variant": "I30",
+  "selected_checks": null,
+  "available_variants": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "I30",
+    "I24",
+    "I20"
+  ],
+  "available_checks": [
+    "fit",
+    "skins",
+    "cores",
+    "labels",
+    "thin-selection"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "I30",
+    "scope": {
+      "revision": "thin-I-r3",
+      "variant": "I30",
+      "shell": "PLA-reused",
+      "liner": "TPU95A-assumed-unprinted"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "study.enclosure",
+        "text": "One small closable PETG enclosure accepts interchangeable separately printed TPU liners and a loose metal nut.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User requests one small PETG exterior, closable, with TPU inserts and space to shake a stock metal nut."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "fit",
+            "criterion": "Cup/pad clear the existing shell, each other and installation travel; expanded flat cavity admits a moving 12 mm nut proxy.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "fit"
+            ],
+            "evidence": [
+              "fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "handling",
+            "criterion": "Printed pair swaps, seats and stays retained during shaking.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.coverage",
+        "text": "The floor, ceiling and all four interior walls have TPU damping coverage.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User explicitly requires damping on the bottom, top, and all four walls."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "six-skins",
+            "criterion": "Six continuous flat skins retain the declared 0.4 or 0.6 mm thickness.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "skins"
+            ],
+            "evidence": [
+              "skins"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.flat",
+        "text": "All object-contact interior faces are flat; damping structures are inside the liner.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User clarification: the interior needs to be flat for the objects, while the liner may have structures inside."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "flat-faces",
+            "criterion": "The expanded cubic shaking cavity is free of protrusions.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "skins"
+            ],
+            "evidence": [
+              "skins"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.variants",
+        "text": "Several permanently labeled CAD-defined internal damping configurations can be printed together.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User asks for labeled variants, explicit CAD structures rather than infill, and a batch print; additional variants are welcome."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "cores",
+            "criterion": "Air channels and chevron material remain behind all six faces.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "cores"
+            ],
+            "evidence": [
+              "cores"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "labels",
+            "criterion": "Both parts bear matching recessed I30/I24/I20 labels with material above the recess.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "labels"
+            ],
+            "evidence": [
+              "labels"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "printed-labels",
+            "criterion": "Labels remain readable, thin skins and web bridges print intact.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.research",
+        "text": "Use research to inform a reusable damping experiment and compare variants by shaking the same metal nut.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User requests research on effective damping structures and plans to report which liner performs best."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "noise",
+            "criterion": "Same-shell/nut comparison includes shake intensity and axis; larger cavity is acknowledged.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.quiet_priority",
+        "text": "Prioritize maximum quietness in a thin liner and recommend a focused print batch with a solid control and the most promising candidates.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User follow-up: maximize quietness while keeping it thin; provide a STEP set focused on more confident candidates and retain control A."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "thin-selection",
+            "criterion": "One batch contains exactly three I-derived pairs at 3.0, 2.4 and 2.0 mm, 25/40/50 percent thinner than approved I.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "thin-selection"
+            ],
+            "evidence": [
+              "thin-selection"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "quiet-winner",
+            "criterion": "User compares against approved 4 mm I and finds an acceptable thickness/quietness tradeoff.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fit",
+        "targets": [
+          [
+            "study.enclosure",
+            "fit"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "thin_checks.py / thin_design.py",
+        "scope": {
+          "revision": "thin-I-r3",
+          "variant": "I30",
+          "shell": "PLA-reused",
+          "liner": "TPU95A-assumed-unprinted"
+        }
+      },
+      {
+        "id": "skins",
+        "targets": [
+          [
+            "study.coverage",
+            "six-skins"
+          ],
+          [
+            "study.flat",
+            "flat-faces"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "thin_checks.py / thin_design.py",
+        "scope": {
+          "revision": "thin-I-r3",
+          "variant": "I30",
+          "shell": "PLA-reused",
+          "liner": "TPU95A-assumed-unprinted"
+        }
+      },
+      {
+        "id": "cores",
+        "targets": [
+          [
+            "study.variants",
+            "cores"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "thin_checks.py / thin_design.py",
+        "scope": {
+          "revision": "thin-I-r3",
+          "variant": "I30",
+          "shell": "PLA-reused",
+          "liner": "TPU95A-assumed-unprinted"
+        }
+      },
+      {
+        "id": "labels",
+        "targets": [
+          [
+            "study.variants",
+            "labels"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "thin_checks.py / thin_design.py",
+        "scope": {
+          "revision": "thin-I-r3",
+          "variant": "I30",
+          "shell": "PLA-reused",
+          "liner": "TPU95A-assumed-unprinted"
+        }
+      },
+      {
+        "id": "thin-selection",
+        "targets": [
+          [
+            "study.quiet_priority",
+            "thin-selection"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "thin_checks.py / thin_design.py",
+        "scope": {
+          "revision": "thin-I-r3",
+          "variant": "I30",
+          "shell": "PLA-reused",
+          "liner": "TPU95A-assumed-unprinted"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "thickness-ladder",
+        "text": "Reuse outer 34 mm cup and existing shell; expand cavity instead of adding rigid fillers. Thin skins and webs; retain I centreline slope and pitch.",
+        "reference": "README.md#thinner-i-experiment"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "thin-quietness",
+        "text": "Reduced core stroke may cause bottoming; shorter webs can stiffen despite thinner sections. Original I approval does not transfer.",
+        "reference": "README.md#thinner-i-experiment"
+      }
+    ],
+    "directives": [
+      {
+        "id": "approved-I-thinning",
+        "text": "Preserve approved I; deliver three much thinner derivatives for printing.",
+        "source": {
+          "reference": "README.md#user-print-feedback--2026-10-16",
+          "statement": "User reports I much more damping, explicitly approves it, and requests two or three much thinner I variants."
+        }
+      }
+    ]
+  },
+  "help": null
+}

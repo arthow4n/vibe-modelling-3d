@@ -1,0 +1,22 @@
+{
+  "report_date": "2026-10-16",
+  "associated_repository_revision": "41e1e04",
+  "association": "User identified variant letters; exact printed artifact hashes unknown. Baseline builders remain unchanged.",
+  "source_sha256": {
+    "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+    "selection.py": "fdc94f0c8e48c0f7f656b1ec634316d6c23cba42e8e6be17874c356c3ac36e1b"
+  },
+  "shell_material": "PLA",
+  "liner_material": "TPU, actual hardness and brand unknown",
+  "actual_printer_profile_orientation_nut": "unknown",
+  "observations": {
+    "A": "Still makes a lot of sound.",
+    "E": "Some damping.",
+    "H": "Some damping.",
+    "I": "Much more damping than the others; explicitly approved."
+  },
+  "approved": [
+    "I"
+  ],
+  "reference": "README.md#user-print-feedback--2026-10-16"
+}

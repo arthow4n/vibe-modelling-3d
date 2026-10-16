@@ -1,0 +1,994 @@
+{
+  "scope": "Orca 2.4.2 TPU profile, thin I batch; local paths only, not material/quietness qualification",
+  "registration": "source compound translated (+73,+94.8) mm, unrotated",
+  "primary_support_segments": 0,
+  "probe_support_segments": 41375,
+  "probe_support_z_range_mm": [
+    0.8,
+    2.4
+  ],
+  "probe_locations": [
+    {
+      "variant": "I30",
+      "part": "cup",
+      "segments": 10574,
+      "z_range_mm": [
+        1.0,
+        2.2
+      ]
+    },
+    {
+      "variant": "I30",
+      "part": "pad",
+      "segments": 13410,
+      "z_range_mm": [
+        1.2,
+        2.4
+      ]
+    },
+    {
+      "variant": "I24",
+      "part": "cup",
+      "segments": 5671,
+      "z_range_mm": [
+        0.8,
+        1.6
+      ]
+    },
+    {
+      "variant": "I24",
+      "part": "pad",
+      "segments": 5573,
+      "z_range_mm": [
+        1.2,
+        1.8
+      ]
+    },
+    {
+      "variant": "I20",
+      "part": "cup",
+      "segments": 2980,
+      "z_range_mm": [
+        1.0,
+        1.4
+      ]
+    },
+    {
+      "variant": "I20",
+      "part": "pad",
+      "segments": 3167,
+      "z_range_mm": [
+        1.2,
+        1.6
+      ]
+    }
+  ],
+  "roofs": [
+    {
+      "variant": "I30",
+      "part": "cup",
+      "first_skin_layer_z_mm": 2.6,
+      "transverse_segments": 61,
+      "longitudinal_segments": 0,
+      "roles": {
+        "Bridge": 61
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "pad",
+      "first_skin_layer_z_mm": 2.8,
+      "transverse_segments": 62,
+      "longitudinal_segments": 0,
+      "roles": {
+        "Bridge": 62
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "cup",
+      "first_skin_layer_z_mm": 2.0,
+      "transverse_segments": 61,
+      "longitudinal_segments": 0,
+      "roles": {
+        "Bridge": 61
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "pad",
+      "first_skin_layer_z_mm": 2.2,
+      "transverse_segments": 62,
+      "longitudinal_segments": 0,
+      "roles": {
+        "Bridge": 62
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "cup",
+      "first_skin_layer_z_mm": 1.8,
+      "transverse_segments": 61,
+      "longitudinal_segments": 0,
+      "roles": {
+        "Bridge": 61
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "pad",
+      "first_skin_layer_z_mm": 2.0,
+      "transverse_segments": 62,
+      "longitudinal_segments": 0,
+      "roles": {
+        "Bridge": 62
+      }
+    }
+  ],
+  "web_witnesses": [
+    {
+      "variant": "I30",
+      "part": "cup",
+      "z_mm": 1.0,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            108.8,
+            120.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "cup",
+      "z_mm": 1.4,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            108.8,
+            120.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "cup",
+      "z_mm": 2.2,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            108.8,
+            120.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "pad",
+      "z_mm": 1.2,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            149.8,
+            161.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "pad",
+      "z_mm": 1.6,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            149.8,
+            161.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "pad",
+      "z_mm": 2.4,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            149.8,
+            161.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "left",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            112.80461538461539,
+            112.96461538461539
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "right",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            116.63538461538461,
+            116.7953846153846
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "front",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            98.62,
+            98.78
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "back",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.160000000000025,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            130.82,
+            130.98000000000002
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "left",
+      "depth_mm": 0.9,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            113.26615384615384,
+            113.42615384615384
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "right",
+      "depth_mm": 0.9,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            116.17384615384616,
+            116.33384615384615
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "front",
+      "depth_mm": 0.9,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            99.22,
+            99.38
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "back",
+      "depth_mm": 0.9,
+      "coverage": {
+        "filled_width_mm": 0.160000000000025,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            130.21999999999997,
+            130.38
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "left",
+      "depth_mm": 1.5,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            112.80461538461539,
+            112.96461538461539
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "right",
+      "depth_mm": 1.5,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            116.63538461538461,
+            116.7953846153846
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "front",
+      "depth_mm": 1.5,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            99.82000000000001,
+            99.98
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I30",
+      "part": "back",
+      "depth_mm": 1.5,
+      "coverage": {
+        "filled_width_mm": 0.160000000000025,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            129.61999999999998,
+            129.78
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "cup",
+      "z_mm": 0.8,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            108.8,
+            120.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "cup",
+      "z_mm": 1.2,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            108.8,
+            120.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "cup",
+      "z_mm": 1.6,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            108.8,
+            120.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "pad",
+      "z_mm": 1.0,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            149.8,
+            161.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "pad",
+      "z_mm": 1.4,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            149.8,
+            161.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "pad",
+      "z_mm": 1.8,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            149.8,
+            161.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "left",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            112.88153846153845,
+            113.04153846153845
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "right",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            116.55846153846154,
+            116.71846153846154
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "front",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            98.42,
+            98.58
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "back",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.160000000000025,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            131.01999999999998,
+            131.18
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "left",
+      "depth_mm": 0.7,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            113.18923076923076,
+            113.34923076923076
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "right",
+      "depth_mm": 0.7,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            116.25076923076924,
+            116.41076923076923
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "front",
+      "depth_mm": 0.7,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            98.82,
+            98.97999999999999
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "back",
+      "depth_mm": 0.7,
+      "coverage": {
+        "filled_width_mm": 0.160000000000025,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            130.61999999999998,
+            130.78
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "left",
+      "depth_mm": 1.1,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            112.88153846153845,
+            113.04153846153845
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "right",
+      "depth_mm": 1.1,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            116.55846153846154,
+            116.71846153846154
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "front",
+      "depth_mm": 1.1,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            99.22,
+            99.38
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I24",
+      "part": "back",
+      "depth_mm": 1.1,
+      "coverage": {
+        "filled_width_mm": 0.160000000000025,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            130.22,
+            130.38000000000002
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "cup",
+      "z_mm": 0.8,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            108.8,
+            120.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "cup",
+      "z_mm": 1.2,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            108.8,
+            120.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "cup",
+      "z_mm": 1.4,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            108.8,
+            120.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "pad",
+      "z_mm": 1.0,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            149.8,
+            161.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "pad",
+      "z_mm": 1.4,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            149.8,
+            161.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "pad",
+      "z_mm": 1.6,
+      "coverage": {
+        "filled_width_mm": 12.0,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            149.8,
+            161.8
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "left",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            112.92,
+            113.08
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "right",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            116.52,
+            116.67999999999999
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "front",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            98.42,
+            98.58
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "back",
+      "depth_mm": 0.3,
+      "coverage": {
+        "filled_width_mm": 0.160000000000025,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            131.01999999999998,
+            131.18
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "left",
+      "depth_mm": 0.6,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            113.15076923076923,
+            113.31076923076922
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "right",
+      "depth_mm": 0.6,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            116.28923076923077,
+            116.44923076923077
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "front",
+      "depth_mm": 0.6,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            98.72,
+            98.88
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "back",
+      "depth_mm": 0.6,
+      "coverage": {
+        "filled_width_mm": 0.160000000000025,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            130.72,
+            130.88000000000002
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "left",
+      "depth_mm": 0.9,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            112.92,
+            113.08
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "right",
+      "depth_mm": 0.9,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            116.52,
+            116.67999999999999
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "front",
+      "depth_mm": 0.9,
+      "coverage": {
+        "filled_width_mm": 0.1599999999999966,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            99.02,
+            99.17999999999999
+          ]
+        ]
+      }
+    },
+    {
+      "variant": "I20",
+      "part": "back",
+      "depth_mm": 0.9,
+      "coverage": {
+        "filled_width_mm": 0.160000000000025,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            130.42,
+            130.58
+          ]
+        ]
+      }
+    }
+  ]
+}
