@@ -1,0 +1,179 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/surface_samples.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/renders/print/surface_samples_isometric.png",
+      "reused": true,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "top",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/renders/print/surface_samples_top.png",
+      "reused": true,
+      "camera": {
+        "from_direction": [
+          0,
+          0,
+          1
+        ],
+        "up_direction": [
+          0,
+          1,
+          0
+        ]
+      }
+    }
+  ],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/surface_samples.step",
+      "ok": true,
+      "reused": true
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/surface_samples.stl",
+      "ok": true,
+      "reused": true
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.00138548399991123,
+    "build": 3.6104721309966408,
+    "selection": 0.0010750099972938187,
+    "validation": 0.580587584998284,
+    "export_step": 0.006855862004158553,
+    "export_stl": 0.0009740570021676831,
+    "render_isometric": 0.00015240399807225913,
+    "render_top": 0.00014711800031363964,
+    "worker": 4.322857630999351,
+    "total": 6.918285305997415,
+    "slice": 2.5077517769968836
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "bc1a4cc401c7339d83dd4103e86c991ea2f057d061318bef9465f2fcab3fbad7",
+    "artifact_identity": "e3f2f2c5105065d875d5670119acd5e5711b669665a894320c4877ae9889b05c"
+  },
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/surface_samples.stl",
+    "profiles": {
+      "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu-surface-process.json",
+      "filament": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu95a.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "center",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "TPU"
+      ],
+      "filament_settings_id": [
+        "Diagnostic Generic TPU 95A Q2C 0.4 - damping study"
+      ],
+      "nozzle_temperature": [
+        "230"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "230"
+      ],
+      "hot_plate_temp": [
+        "35"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "35"
+      ],
+      "print_settings_id": "Diagnostic TPU surface coupons 0.20 ironing 50pct",
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "line_width": "0.4",
+      "outer_wall_line_width": "0.4",
+      "inner_wall_line_width": "0.4",
+      "initial_layer_line_width": "0.4",
+      "brim_type": "no_brim",
+      "brim_width": "0",
+      "brim_object_gap": "0.1",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "1"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "100%",
+      "sparse_infill_pattern": "rectilinear"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": true,
+      "supported_plates": [
+        {
+          "plate": 1,
+          "roles": [
+            "Support interface"
+          ]
+        }
+      ],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": true,
+    "reused": false,
+    "identity": "c7368c472f44ed0cbd1e5c8a19802c829b9cc87e3e91954abb00620d82ba73b1",
+    "input_sha256": "04792b57f12bcf435d6e8db80236edb1cf84655383581d0c4a449e1c85f297f9",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-47v_l0e4",
+    "setup_selection": {
+      "profiles": "supplied",
+      "placement": "default_center",
+      "scope": "Selected-profile slice acceptance only; production setup agreement and physical print behavior are not established"
+    }
+  }
+}

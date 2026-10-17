@@ -140,7 +140,7 @@ coupon (N/A).
 
 [Preferred printed S16 profile](model/tpu_damping_box/README.md)
 
-- Test pieces: Yes — all liner prints used 0.2 mm layers, confirmed 2026-10-16; S16/S12 both work, S16 preferred; I10 rejected. Other exact settings unknown
+- Test pieces: Yes — prior liners at 0.2 mm layers; S16/S12 work, S16 preferred; I10 rejected. Latest report: surface waviness remains despite 50% ironing. New [eight 30 mm finish coupons](model/tpu_damping_box/README.md#surface-finish-coupons--2026-10-17): not yet printed; surface and damping comparison pending. Other exact prior settings unknown
 - Final object: N/A — samples; S16 approved starting profile for rigid-shell/TPU damping; application fit/quietness require review
 - Provenance: [Record](model/tpu_damping_box/README.md#attribution) · Agent effort: N/A — no performance study requested
 

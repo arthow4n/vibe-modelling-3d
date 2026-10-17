@@ -22,6 +22,17 @@ REQUIREMENTS = (
     U('study.two_skins','Thinner follow-up liners retain both continuous inner and outer TPU skins for stable printing.',
       S('README.md#i22--i30--i10-print-feedback--latest-report','User reports I10 shell-side print damage, says both walls are needed, and requests one or two significantly thinner stable variants; slicer changes are allowed.')),
 )
+REQUIREMENTS += (
+    U('surface.batch', 'Provide roughly 30 mm square flat plate samples, four to eight designs printable together, with filled exterior edges.',
+      S('README.md#surface-finish-coupons--2026-10-17',
+        'User requests four to eight roughly three-centimetre square bottom-plate samples rather than full boxes, filled exterior overhangs and a flat test face.')),
+    U('surface.finish', 'Explore structures that reduce visible surface lines and waviness beyond the current 50% ironing result.',
+      S('README.md#surface-finish-coupons--2026-10-17',
+        'User reports visible surface waviness despite improvement at 50% ironing and requests several internal structure experiments.')),
+    U('surface.damping', 'Keep damping usefulness as a later physical test; S16 remains the preferred baseline.',
+      S('README.md#surface-finish-coupons--2026-10-17',
+        'User names S16 as the best so far and says damping must still be tested later while initially focusing on surface texture.')),
+)
 QUESTIONS = (
     Q('fit','study.enclosure','Cup and pad fit the actual shell and each other; one 12 mm proxy can travel 14 mm on each axis inside the 26 mm clear cavity.', 'CAD'),
     Q('closure','study.enclosure','Two M3 nut installation paths clear and nuts bear under solid pocket roofs; screw bores clear a 3 mm shaft.', 'CAD'),
@@ -181,6 +192,9 @@ def closed_plan(variant):
 
 
 def make_plan(variant):
+    if variant in tuple(f'F{i}' for i in range(8)):
+        from surface_verification import make_surface_plan
+        return make_surface_plan(variant, REQUIREMENTS, ROOT)
     if variant in ('S16','S12'):
         return closed_plan(variant)
     if variant in ('I30','I22','I10'):
@@ -209,4 +223,4 @@ def make_plan(variant):
 
 
 if __name__=='__main__':
-    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10','S16','S12')))
+    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10','S16','S12','F0','F1','F2','F3','F4','F5','F6','F7')))

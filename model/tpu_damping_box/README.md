@@ -6,10 +6,16 @@ S12 and I22, and good even compared with I30 and the original 4 mm I. The user
 selects S16 for reuse in rigid-shell/TPU damping, starting with the already
 printed sunglasses case.
 
+**Current follow-up (2026-10-17):** the user reports visibly wavy/lined contact
+surfaces despite some improvement with 50% ironing. S16 remains preferred for
+damping, but surface flatness is unresolved. Print the new
+[eight small surface coupons](#surface-finish-coupons--2026-10-17) when convenient;
+no replacement full box is included.
+
 ## Current result and reading routes
 
-This is a comparative liner fixture, not a finished storage product. **No S16
-reprint is needed**: both S16/S12 work and S16 is the approved starting profile.
+This is a comparative liner fixture, not a finished storage product. **No full S16 cup
+reprint is needed for damping selection**: both S16/S12 work and S16 is the approved starting profile.
 The next application is the separate [sunglasses-case liner](../sunglasses_case_liner/README.md),
 whose fit and quietness are not established by these samples.
 
@@ -25,6 +31,136 @@ replace the current closed-skin choice. Quietness preferences are subjective
 reported observations at user-confirmed 0.2 mm layers. Other exact settings,
 acoustic mechanism and durability remain unknown. Detailed negative results
 remain useful for judging future transfers.
+
+## Surface-finish coupons — 2026-10-17
+
+**Print batch: [surface_samples.step](surface_samples.step)** ·
+[matching STL](surface_samples.stl) · [CadQuery entry point](surface_samples.py) ·
+[parametric builders](surface_design.py) ·
+[required comparison process](profiles/tpu-surface-process.json).
+Eight separate **30 × 30 mm** plates fit one **138 × 66 mm** unrotated layout,
+with 6 mm between parts. These are bottom-plate/flat-contact coupons, not cups,
+replacement box lids or a damping-qualified liner. The requested phase stops at
+these samples; the user will print later.
+
+The user's latest report is that 50% ironing improves the finish slightly but
+leaves clearly visible waviness/lines. They suspect a thin skin revealing the
+underlying supports; exact printed file, spool, complete settings, measured
+flatness and whether all lines follow ribs are unknown. This report limits the
+earlier local description of 50% as “perfect”: that was a scoped ironing-flow
+preference, not qualification of full-panel flatness. Preserve the approved S16
+damping result while investigating finish separately.
+
+The user requests four to eight roughly three-centimetre square plates, with a
+flat test face and exterior overhangs filled solid, before another full-box trial.
+All eight have a planar contact field, continuous backing, a solid **1.2 mm
+perimeter** and a **10 mm solid label band inside the square**. The unlettered
+test field is **27.6 × 18.8 mm**; compare there rather than over the label or
+frame. Large bold F0–F7 IDs are recessed 0.2 mm in the band. Vertical outside
+corners have a 0.6 mm radius; top and bed edges stay square to preserve planar
+contact. No exterior cantilevers, loose core supports or removable internal
+supports are included. Internal roof bridges are deliberately retained.
+
+| ID | Hidden geometry / changed factor | Contact skin | Total | Intended comparison to F0 |
+| --- | --- | --- | --- | --- |
+| F0 | S16 local baseline: 0.9 mm straight ribs, 4.4 mm pitch | 0.4 mm | 1.6 mm | Same-process reference; 3.5 mm nominal channels |
+| F1 | Same core, one extra skin layer | 0.6 mm | 1.8 mm | Does a thicker roof hide the rib pattern? |
+| F2 | Same core, two extra skin layers | 0.8 mm | 2.0 mm | Further skin thickness versus harder contact |
+| F3 | Straight ribs at 3.2 mm pitch | 0.4 mm | 1.6 mm | Shorter 2.3 mm bridges versus more supports |
+| F4 | Straight ribs at 2.4 mm pitch | 0.4 mm | 1.6 mm | Shorter 1.5 mm bridges versus still more supports |
+| F5 | Orthogonal 0.9 mm rib grid at 4.4 mm pitch | 0.4 mm | 1.6 mm | Break long channels into 3.5 mm square cells; risk grid print-through |
+| F6 | Baseline rib feet, upper 0.6 mm grows 0.6 mm each side | 0.4 mm | 1.6 mm | Sloped shoulders shorten final roof bridge to 2.3 mm without more rib feet |
+| F7 | Fully solid TPU at F0 thickness | Nominal 0.4 mm top zone | 1.6 mm | Control for ordinary top-path texture without any air core |
+
+F0–F6 retain the S16 **0.4 mm backing, 0.8 mm core depth and 0.9 mm rib feet**.
+They reuse its parameters without the cup pad's extra 0.1 mm assembly preload.
+The original skins/support dimensions transfer locally; coupon size, solid edge
+band and lack of side walls change restraint, so F0 is not a new damping approval.
+More skin material, denser ribs, grid intersections and wider rib shoulders can
+increase stiffness even while improving surface support. Retaining nominal air
+space makes these sensible *candidates* for damping comparison, not proven damping
+improvements. F7 intentionally removes air space. No calibrated material, dynamic
+loss, impact or acoustic prediction is available; further simulation would not
+establish the requested printed finish or subjective quietness.
+
+### Shared print setup and evidence
+
+Print **backing down, IDs/contact face up**, all eight together, using the same
+TPU spool. Keep the supplied layout unrotated with no scaling. The supplied
+process uses **0.4 mm nozzle, 0.20 mm layers including first layer, Arachne,
+two requested walls, 100% rectilinear material fill, supports off**, thin external
+and internal bridges, and 180° X-directed bridges across the principal ribs.
+CAD channels remain empty with 100% material fill. Top surfaces are monotonic;
+ironing is enabled on all top surfaces at **50% flow, 30 mm/s, 0.15 mm spacing**.
+Only the flow is user-preferred; speed/spacing and other spool settings are
+reference values, not recovered or calibrated physical settings. Use the supplied
+[TPU filament profile](profiles/tpu95a.json) (requested 9 mm³/s limit) and the
+[Q2C printer profile](../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json).
+Hold the process constant across this batch; varying ironing simultaneously
+would confound the geometry comparison. Future ironing-off trials are optional.
+
+[Native evaluation/export/slice receipt](notes/surface_final.json): valid CAD,
+paired STEP/STL from the same geometry and placement, Orca **2.4.2**, centered
+layout, supplied TPU triplet, no keyword notices. Slicer estimate **13.36 g /
+2 h 32 min 24 s**, not measured. The automatic-support probe proposes interfaces
+at **Z = 1.0 mm inside F0/F1/F2/F3/F5/F6 cores**; none in F4/F7. These are trapped
+internal suggestions, inspected in the [path view](renders/surface_path_review.png),
+not external ledges. Keep primary supports off. The native `review_required`
+flag remains; bridging, sag and fusion need the physical print. STL slicing does
+not verify Orca GUI STEP import.
+
+[Layout preview](renders/print/surface_samples_top.png). All [F0](notes/surface_verification_F0.json)–[F7](notes/surface_verification_F7.json)
+CAD receipts pass field-skin, planar-face, filled-edge, rib, broad air-witness and
+label checks. [Local path review](notes/surface_path_review.json), from
+[review_surface_paths.py](review_surface_paths.py), checks all four core layers
+on every structured coupon: local channel witnesses remain unfilled and ribs
+retain two or more 0.38–0.65 mm paths. All seven first roof layers have transverse
+bridge paths; bridge height metadata is **0.2 mm**, and every coupon has ironing
+paths. These are selected local path witnesses, not measurements of deposited
+polymer or complete-volume gap clearance. F7 passes the opposite, filled-core
+control. The reviewed source/export association in
+[the existing inventory](notes/verification_sources.json) prevents the path reader
+from qualifying stale exports after builder/profile changes. Physical finish/damping stay **UNKNOWN**; retained full-box requirements
+also stay UNKNOWN for these coupons because the assembly and six-sided coverage
+are omitted. Old S16 evidence remains scoped to the old print.
+
+Reproduce from the repository root:
+
+```sh
+./evaluate_model.py model/tpu_damping_box/surface_samples.py --views none --slice --slice-keep-run --slice-printer .codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json --slice-process model/tpu_damping_box/profiles/tpu-surface-process.json --slice-filament model/tpu_damping_box/profiles/tpu95a.json --report model/tpu_damping_box/notes/surface_final.json
+./execute.py model/tpu_damping_box/review_surface_paths.py
+./execute.py model/tpu_damping_box/verification.py --variant F6
+```
+
+### What the later print should decide
+
+First compare the central fields under the same low-angle light and with a light
+fingertip sweep. Photograph all IDs together; distinguish fine top-extrusion lines
+from broad periodic ribs/grid, skin tears, raised areas or sag. Check whether
+waviness tracks the core pattern. F7 shows the attainable solid-surface texture
+under the same process. If all samples including F7 remain similarly wavy, do not
+pick a core as the cause; revisit the surface process. If a changed core visibly
+improves F0 without tears/fusion, retain it for damping comparison. If denser ribs
+print through as a finer pattern, reject that finish direction rather than
+assuming that shorter bridges won.
+
+Later, place each coupon backing-down on the same rigid backing and compare
+light, repeatable contact/taps with the same object on the test field, away from
+the solid border. Listen for sharp ticks and compare bottoming and recovery
+against F0/F7; use the same motion and contact location. This is a qualitative
+screen, not a calibrated damping measurement or a replacement for the original
+closed-box shake comparison. A smoother but noticeably harder/noisier sample
+needs revision; prefer retaining S16 damping over a finish-only winner. Reject
+ruptured, fused or clearly bottoming candidates. Transfer the promising result
+to a full liner only after feedback; side walls, corners, shell fit, assembled
+restraint, impact sound and durability remain untested here. Small coupons save
+material and a feedback cycle while preserving local skin/core/layer dimensions;
+CAD and another full box would not answer the surface question more cheaply.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| New finish test pieces F0–F7 | No — user plans to print later | `surface_samples.step`, `surface_samples.stl` | Finish, readable IDs, actual core integrity, comparative damping and recovery untested |
+| Final printable object | N/A — samples-only phase | None new | Existing S16 remains preferred for damping; full-liner finish unresolved |
 
 ## Actual liner layer-height correction — 2026-10-16
 
@@ -480,7 +616,7 @@ witnesses; it does not establish their printed thickness, modulus or damping.
 [review_selected_paths.py](review_selected_paths.py) and its
 [native-path-derived receipt](notes/selected_path_review.json) record the local scope.
 
-The shared product verification CLI exposes A–I, I30/I22/I10 and S16/S12 explicitly.
+The shared product verification CLI exposes A–I, I30/I22/I10, S16/S12 and F0–F7 explicitly.
 The thin variants have independent CAD checks and no inherited physical approval.
 Receipts for [A](notes/selected_verification_A.json), [E](notes/selected_verification_E.json),
 [H](notes/selected_verification_H.json) and [I](notes/selected_verification_I.json)
@@ -608,3 +744,8 @@ not physical qualification. Orca/Qidi JSON profiles have separate
 figures were copied. Research/model dates: 2026-10-15 (baseline), 2026-10-16
 (thin derivatives, enlarged labels, closed-skin follow-up and user feedback).
 Thin revision: same user-supplied model/effort attribution; runtime identifier not exposed.
+
+Surface-coupon phase, 2026-10-17: primary language model GPT-6 family; exact
+runtime identifier and reasoning effort not exposed. Harness: Codex shared-workspace
+CLI/API agent; provider OpenAI. No subagents or third-party geometry. Prior
+user-supplied attribution above is historical and is not inferred for this phase.

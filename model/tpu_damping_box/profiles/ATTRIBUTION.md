@@ -52,3 +52,9 @@ and initial-layer heights, with a matching name/ID. Other settings are retained;
 this is still a diagnostic reference, not the user's recovered full profile.
 `tpu-closed-0p1-historical-process.json` preserves the exact earlier preset for
 historical 0.1 mm receipts/readers. It is not the future printing recommendation.
+
+`tpu-surface-process.json` derives from the current `tpu-closed-process.json`
+for the eight 30 mm surface coupons (2026-10-17). Changes: identifying name/ID,
+`ironing_type=top` and `ironing_flow=50%`; retained ironing speed 30 mm/s and
+spacing 0.15 mm are diagnostic values, not recovered user settings. The profile
+retains AGPL-3.0; its native slice receipt owns effective-setting evidence.

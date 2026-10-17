@@ -1,5 +1,5 @@
 {
-  "scope": "Original 2026-10-15 intent preserved; 2026-10-16 approves I in PLA shell and requests thinner I derivatives. Physical feedback retained separately. Later preprint I24/I20 rejection and robust replacements are recorded in README; local-feature thickness must not be conflated with total liner thickness. Latest user directive replaces unprinted I26 with an extreme sample beyond I22; I10 dimensions/topology are agent decisions, not user acceptance thresholds. Latest print feedback accepts I22 quietness, rejects broken I10, and explicitly requires both skins in thinner follow-ups.",
+  "scope": "Original 2026-10-15 intent preserved; 2026-10-16 approves I in PLA shell and requests thinner I derivatives. Physical feedback retained separately. Later preprint I24/I20 rejection and robust replacements are recorded in README; local-feature thickness must not be conflated with total liner thickness. Latest user directive replaces unprinted I26 with an extreme sample beyond I22; I10 dimensions/topology are agent decisions, not user acceptance thresholds. Latest print feedback accepts I22 quietness, rejects broken I10, and explicitly requires both skins in thinner follow-ups. On 2026-10-17 user requests finish-only 30 mm coupons (four to eight) with solid exterior edges, retaining S16 as damping baseline and deferring physical damping comparison. Full-box intent is preserved; sample plans cannot qualify omitted enclosure coverage.",
   "source_sha256": {},
   "user_requirements": [
     {
@@ -64,6 +64,49 @@
         "statement": "User reports I10 shell-side print damage, says both walls are needed, and requests one or two significantly thinner stable variants; slicer changes are allowed."
       },
       "acceptance_criteria": []
+    },
+    {
+      "id": "surface.batch",
+      "text": "Provide roughly 30 mm square flat plate samples, four to eight designs printable together, with filled exterior edges.",
+      "source": {
+        "reference": "README.md#surface-finish-coupons--2026-10-17",
+        "statement": "User requests four to eight roughly three-centimetre square bottom-plate samples rather than full boxes, filled exterior overhangs and a flat test face."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "surface.finish",
+      "text": "Explore structures that reduce visible surface lines and waviness beyond the current 50% ironing result.",
+      "source": {
+        "reference": "README.md#surface-finish-coupons--2026-10-17",
+        "statement": "User reports visible surface waviness despite improvement at 50% ironing and requests several internal structure experiments."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "surface.damping",
+      "text": "Keep damping usefulness as a later physical test; S16 remains the preferred baseline.",
+      "source": {
+        "reference": "README.md#surface-finish-coupons--2026-10-17",
+        "statement": "User names S16 as the best so far and says damping must still be tested later while initially focusing on surface texture."
+      },
+      "acceptance_criteria": []
     }
-  ]
+  ],
+  "surface_publication": {
+    "review": "Current native evaluator rebuilt the selected geometry and associated both exports; artifact identity unchanged from first slice. Only these reviewed source/profile bytes and exports may consume the retained paths. Republish and review before updating this association for a geometry change.",
+    "artifact_identity": "e3f2f2c5105065d875d5670119acd5e5711b669665a894320c4877ae9889b05c",
+    "source_sha256": {
+      "surface_samples.py": "2b7e320d5d2933375b811b6ebe3e425772c45cbe1a41f9af1bf130479e135300",
+      "surface_design.py": "6a00a46204ba5eb028373aa45a11c59df311d54381ec854f43591dcac6ce509a",
+      "skin_design.py": "8cc0124ea272826591be8d0b866619814ec03de53f746ba53e8f971e0a9c7965",
+      "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+      "profiles/tpu-surface-process.json": "0e343f8239be379aab044534b7e7443cdcaf5235329593ffc20008a273d8cb79",
+      "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1"
+    },
+    "export_sha256": {
+      "surface_samples.step": "e200b958efb100a61d68c4e869ba6b9f7e5d7a1bac9b0aa23ad0909d8e7a5c4f",
+      "surface_samples.stl": "04792b57f12bcf435d6e8db80236edb1cf84655383581d0c4a449e1c85f297f9"
+    }
+  }
 }

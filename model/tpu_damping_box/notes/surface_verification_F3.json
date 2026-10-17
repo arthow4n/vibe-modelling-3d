@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "variant": "F3",
+  "selected_checks": null,
+  "available_variants": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "I30",
+    "I22",
+    "I10",
+    "S16",
+    "S12",
+    "F0",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6",
+    "F7"
+  ],
+  "available_checks": [
+    "surface-geometry"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "F3",
+    "scope": {
+      "variant": "F3",
+      "phase": "30mm-finish-only",
+      "material": "TPU-uncalibrated",
+      "layer_mm": "0.2",
+      "ironing_flow": "50%"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "study.enclosure",
+        "text": "One small closable PETG enclosure accepts interchangeable separately printed TPU liners and a loose metal nut.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User requests one small PETG exterior, closable, with TPU inserts and space to shake a stock metal nut."
+        },
+        "non_applicable": null,
+        "questions": [],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.coverage",
+        "text": "The floor, ceiling and all four interior walls have TPU damping coverage.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User explicitly requires damping on the bottom, top, and all four walls."
+        },
+        "non_applicable": null,
+        "questions": [],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.flat",
+        "text": "All object-contact interior faces are flat; damping structures are inside the liner.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User clarification: the interior needs to be flat for the objects, while the liner may have structures inside."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "coupon-face",
+            "criterion": "The coupon contact field is flat and free of lettering/protrusions.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "surface-geometry"
+            ],
+            "evidence": [
+              "surface-geometry"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.variants",
+        "text": "Several permanently labeled CAD-defined internal damping configurations can be printed together.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User asks for labeled variants, explicit CAD structures rather than infill, and a batch print; additional variants are welcome."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "coupon-labels",
+            "criterion": "Eight named plate placements include permanent recessed IDs outside test fields.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "surface-geometry"
+            ],
+            "evidence": [
+              "surface-geometry"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.research",
+        "text": "Use research to inform a reusable damping experiment and compare variants by shaking the same metal nut.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User requests research on effective damping structures and plans to report which liner performs best."
+        },
+        "non_applicable": null,
+        "questions": [],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.quiet_priority",
+        "text": "Prioritize maximum quietness in a thin liner and recommend a focused print batch with a solid control and the most promising candidates.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User follow-up: maximize quietness while keeping it thin; provide a STEP set focused on more confident candidates and retain control A."
+        },
+        "non_applicable": null,
+        "questions": [],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.two_skins",
+        "text": "Thinner follow-up liners retain both continuous inner and outer TPU skins for stable printing.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#i22--i30--i10-print-feedback--latest-report",
+          "statement": "User reports I10 shell-side print damage, says both walls are needed, and requests one or two significantly thinner stable variants; slicer changes are allowed."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "coupon-skins",
+            "criterion": "The coupon retains both full continuous skins.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "surface-geometry"
+            ],
+            "evidence": [
+              "surface-geometry"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "surface.batch",
+        "text": "Provide roughly 30 mm square flat plate samples, four to eight designs printable together, with filled exterior edges.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#surface-finish-coupons--2026-10-17",
+          "statement": "User requests four to eight roughly three-centimetre square bottom-plate samples rather than full boxes, filled exterior overhangs and a flat test face."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "geometry",
+            "criterion": "Eight separate 30 mm plates have filled edges, planar fields, recessed IDs and the declared skin/core geometry.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "surface-geometry"
+            ],
+            "evidence": [
+              "surface-geometry"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "surface.finish",
+        "text": "Explore structures that reduce visible surface lines and waviness beyond the current 50% ironing result.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#surface-finish-coupons--2026-10-17",
+          "statement": "User reports visible surface waviness despite improvement at 50% ironing and requests several internal structure experiments."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "printed-finish",
+            "criterion": "User compares identical-process coupons to F0 and F7 for reduced rib print-through, flatness and visible lines.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "surface.damping",
+        "text": "Keep damping usefulness as a later physical test; S16 remains the preferred baseline.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#surface-finish-coupons--2026-10-17",
+          "statement": "User names S16 as the best so far and says damping must still be tested later while initially focusing on surface texture."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "damping",
+            "criterion": "A later controlled physical comparison tests damping; no geometric proxy qualifies quietness.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "surface-geometry",
+        "targets": [
+          [
+            "surface.batch",
+            "geometry"
+          ],
+          [
+            "study.flat",
+            "coupon-face"
+          ],
+          [
+            "study.two_skins",
+            "coupon-skins"
+          ],
+          [
+            "study.variants",
+            "coupon-labels"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "surface_checks.py / surface_design.py",
+        "scope": {
+          "variant": "F3",
+          "phase": "30mm-finish-only",
+          "material": "TPU-uncalibrated",
+          "layer_mm": "0.2",
+          "ironing_flow": "50%"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "surface-layout",
+        "text": "30 mm plates, 1.2 mm frame, 10 mm solid label band, backing down; CAD cores remain empty with 100% material fill. Solid F7 is a deliberate control.",
+        "reference": "README.md#surface-finish-coupons--2026-10-17"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "finish-compliance-tradeoff",
+        "text": "F3: straight, 0.4 mm skin, 3.2 mm pitch. Thicker skins and closer supports may flatten the surface while increasing stiffness. Retained air is not acoustic evidence.",
+        "reference": "README.md#surface-finish-coupons--2026-10-17"
+      }
+    ],
+    "directives": []
+  },
+  "help": null
+}

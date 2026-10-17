@@ -1,0 +1,900 @@
+{
+  "category": "local-sliced-manufacturing-evidence",
+  "limits": "Path metadata only: no deposited-gap, finish, stiffness, or damping qualification.",
+  "source_sha256": {
+    "surface_design.py": "6a00a46204ba5eb028373aa45a11c59df311d54381ec854f43591dcac6ce509a",
+    "surface_samples.py": "2b7e320d5d2933375b811b6ebe3e425772c45cbe1a41f9af1bf130479e135300",
+    "review_surface_paths.py": "6e6036008b0ad530a2109caa4a0b5e5dab2e8335401e4ccc1842b941238feed0",
+    "surface_samples.stl": "04792b57f12bcf435d6e8db80236edb1cf84655383581d0c4a449e1c85f297f9"
+  },
+  "gcode_sha256": "b9c4c02f1486cf0f06ec464772cda834ce695eeb1683b7da71d94457ba736a16",
+  "bridge_heights_mm": [
+    0.2
+  ],
+  "center_translation_mm": [
+    63.0,
+    99.0
+  ],
+  "results": [
+    {
+      "variant": "F0",
+      "channels": [
+        {
+          "z_mm": 0.6,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 0.8,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.0,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.2,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        }
+      ],
+      "rib_tracks": [
+        {
+          "variant": "F0",
+          "part": "coupon",
+          "z_mm": 0.6,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F0",
+          "part": "coupon",
+          "z_mm": 0.8,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F0",
+          "part": "coupon",
+          "z_mm": 1.0,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F0",
+          "part": "coupon",
+          "z_mm": 1.2,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        }
+      ],
+      "first_skin_bridge_segments": 34,
+      "ironing_segments": 2425,
+      "support_probe_segments": 204,
+      "support_probe_z_range_mm": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "variant": "F1",
+      "channels": [
+        {
+          "z_mm": 0.6,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 0.8,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.0,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.2,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        }
+      ],
+      "rib_tracks": [
+        {
+          "variant": "F1",
+          "part": "coupon",
+          "z_mm": 0.6,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F1",
+          "part": "coupon",
+          "z_mm": 0.8,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F1",
+          "part": "coupon",
+          "z_mm": 1.0,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F1",
+          "part": "coupon",
+          "z_mm": 1.2,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        }
+      ],
+      "first_skin_bridge_segments": 34,
+      "ironing_segments": 2383,
+      "support_probe_segments": 203,
+      "support_probe_z_range_mm": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "variant": "F2",
+      "channels": [
+        {
+          "z_mm": 0.6,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 0.8,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.0,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.2,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        }
+      ],
+      "rib_tracks": [
+        {
+          "variant": "F2",
+          "part": "coupon",
+          "z_mm": 0.6,
+          "tracks": [
+            {
+              "position": 0.34714285714285564,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571444,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F2",
+          "part": "coupon",
+          "z_mm": 0.8,
+          "tracks": [
+            {
+              "position": 0.34714285714285564,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571444,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F2",
+          "part": "coupon",
+          "z_mm": 1.0,
+          "tracks": [
+            {
+              "position": 0.34714285714285564,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571444,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F2",
+          "part": "coupon",
+          "z_mm": 1.2,
+          "tracks": [
+            {
+              "position": 0.34714285714285564,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571444,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        }
+      ],
+      "first_skin_bridge_segments": 34,
+      "ironing_segments": 2389,
+      "support_probe_segments": 205,
+      "support_probe_z_range_mm": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "variant": "F3",
+      "channels": [
+        {
+          "z_mm": 0.6,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 0.8,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.0,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.2,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        }
+      ],
+      "rib_tracks": [
+        {
+          "variant": "F3",
+          "part": "coupon",
+          "z_mm": 0.6,
+          "tracks": [
+            {
+              "position": 0.34714285714285564,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571444,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F3",
+          "part": "coupon",
+          "z_mm": 0.8,
+          "tracks": [
+            {
+              "position": 0.34714285714285564,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571444,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F3",
+          "part": "coupon",
+          "z_mm": 1.0,
+          "tracks": [
+            {
+              "position": 0.34714285714285564,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571444,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F3",
+          "part": "coupon",
+          "z_mm": 1.2,
+          "tracks": [
+            {
+              "position": 0.34714285714285564,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571444,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        }
+      ],
+      "first_skin_bridge_segments": 34,
+      "ironing_segments": 3098,
+      "support_probe_segments": 261,
+      "support_probe_z_range_mm": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "variant": "F4",
+      "channels": [
+        {
+          "z_mm": 0.6,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 0.8,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.0,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.2,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        }
+      ],
+      "rib_tracks": [
+        {
+          "variant": "F4",
+          "part": "coupon",
+          "z_mm": 0.6,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F4",
+          "part": "coupon",
+          "z_mm": 0.8,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F4",
+          "part": "coupon",
+          "z_mm": 1.0,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F4",
+          "part": "coupon",
+          "z_mm": 1.2,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        }
+      ],
+      "first_skin_bridge_segments": 34,
+      "ironing_segments": 3405,
+      "support_probe_segments": 0,
+      "support_probe_z_range_mm": null
+    },
+    {
+      "variant": "F5",
+      "channels": [
+        {
+          "z_mm": 0.6,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 0.8,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.0,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.2,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        }
+      ],
+      "rib_tracks": [
+        {
+          "variant": "F5",
+          "part": "coupon",
+          "z_mm": 0.6,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.648966,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F5",
+          "part": "coupon",
+          "z_mm": 0.8,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.648966,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F5",
+          "part": "coupon",
+          "z_mm": 1.0,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.648966,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F5",
+          "part": "coupon",
+          "z_mm": 1.2,
+          "tracks": [
+            {
+              "position": 0.34714285714285875,
+              "width_mm": 0.648967,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571412,
+              "width_mm": 0.47146,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        }
+      ],
+      "first_skin_bridge_segments": 34,
+      "ironing_segments": 2704,
+      "support_probe_segments": 214,
+      "support_probe_z_range_mm": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "variant": "F6",
+      "channels": [
+        {
+          "z_mm": 0.6,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 0.8,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.0,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        },
+        {
+          "z_mm": 1.2,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.0,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          }
+        }
+      ],
+      "rib_tracks": [
+        {
+          "variant": "F6",
+          "part": "coupon",
+          "z_mm": 0.6,
+          "tracks": [
+            {
+              "position": 0.34714285714285564,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.6528571428571444,
+              "width_mm": 0.471455,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 2
+        },
+        {
+          "variant": "F6",
+          "part": "coupon",
+          "z_mm": 0.8,
+          "tracks": [
+            {
+              "position": 0.24955983061375786,
+              "width_mm": 0.399999,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.5,
+              "width_mm": 0.385834,
+              "role": "Inner wall"
+            },
+            {
+              "position": 0.75,
+              "width_mm": 0.399999,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 3
+        },
+        {
+          "variant": "F6",
+          "part": "coupon",
+          "z_mm": 1.0,
+          "tracks": [
+            {
+              "position": 0.10670268775661303,
+              "width_mm": 0.399999,
+              "role": "Outer wall"
+            },
+            {
+              "position": 0.36714285714284994,
+              "width_mm": 0.41438,
+              "role": "Inner wall"
+            },
+            {
+              "position": 0.6328571428571501,
+              "width_mm": 0.41438,
+              "role": "Inner wall"
+            },
+            {
+              "position": 0.8928571428571573,
+              "width_mm": 0.399999,
+              "role": "Outer wall"
+            }
+          ],
+          "substantial_track_count": 4
+        },
+        {
+          "variant": "F6",
+          "part": "coupon",
+          "z_mm": 1.2,
+          "tracks": [
+            {
+              "position": 0.21359369583891474,
+              "width_mm": 0.399999,
+              "role": "Inner wall"
+            },
+            {
+              "position": 0.5,
+              "width_mm": 0.472184,
+              "role": "Internal solid infill"
+            },
+            {
+              "position": 0.7807142857142908,
+              "width_mm": 0.399999,
+              "role": "Inner wall"
+            }
+          ],
+          "substantial_track_count": 3
+        }
+      ],
+      "first_skin_bridge_segments": 34,
+      "ironing_segments": 2408,
+      "support_probe_segments": 198,
+      "support_probe_z_range_mm": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "variant": "F7",
+      "channels": [],
+      "rib_tracks": [],
+      "first_skin_bridge_segments": 0,
+      "ironing_segments": 1107,
+      "support_probe_segments": 0,
+      "support_probe_z_range_mm": null
+    }
+  ]
+}
