@@ -157,7 +157,7 @@ coupon (N/A).
 [Two-cup retrofit and setup](model/sunglasses_case_liner/README.md)
 
 - Test pieces: Yes — ironing sample printed at 0.2 mm layers; 50% flow preferred (“perfect”), 10%/30% leave gaps, 100% raises/bumps the top. Other exact settings unknown; S16 damping samples approved separately
-- Final object: No — all four bends have curved cores/ribs; CAD checks pass, retained 0.1 mm paths are diagnostic history; future setup is 0.2 mm. Actual fit, adhesion and quietness untested
+- Final object: Yes — user reports successful fit and damping, works well with no problems (2026-10-17). Exact printed revision/settings unknown; long-term wear and tape adhesion not separately assessed
 - Provenance: [Record](model/sunglasses_case_liner/README.md#attribution) · Agent effort: N/A — no performance study requested
 
 ### Unreported prototypes and calibration objects

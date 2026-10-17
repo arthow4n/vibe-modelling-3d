@@ -44,7 +44,8 @@ The user reconfirmed the case is printed with sufficient room on 2026-10-16 and
 requested a liner using the preferred printed S16 TPU profile. The separate
 [two-cup accessory](../../sunglasses_case_liner/README.md) fits inside this existing
 case; use its own print files and setup. The original case remains unchanged.
-Lined-case fit and quietness have no physical report yet.
+On 2026-10-17, the user reported that the printed liner fits and provides damping,
+works well and has no problems; see the accessory record for the report and limits.
 
 ## Physical print status
 

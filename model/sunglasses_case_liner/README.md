@@ -11,12 +11,15 @@ one for each half of the already printed [accepted E case](../sunglasses_case/no
 
 ## Current status and next step
 
-**The revised full liner has no print report.** The user held off after finding
-solid corners; the correction adds air cores/ribs around all four bends while
-preserving the installed envelope. CAD and sliced coverage checks support the
-correction, but fit, tape adhesion, quietness and wear remain physical unknowns.
-See the [corner investigation](#corner-coverage-investigation--2026-10-16) for
-what failed in the earlier design and what was checked afterward.
+**Printed and accepted — user report, 2026-10-17.** The liner fits inside
+the sunglasses case and provides damping; the user reports that it works well
+with no problems. See [print feedback](#full-liner-print-feedback--2026-10-17)
+for the report and its limits.
+
+The earlier corner correction adds air cores/ribs around all four bends while
+preserving the installed envelope. See the
+[corner investigation](#corner-coverage-investigation--2026-10-16) for the earlier
+design issue and the checks supporting that correction.
 
 A separate small ironing sample was printed: 50% ironing flow is preferred for
 that setup, at **0.2 mm actual layer height** (user clarification, 2026-10-16).
@@ -25,8 +28,9 @@ sample does not qualify the full liner or prove a cause. See the
 [shared layer-height correction](../tpu_damping_box/README.md#actual-liner-layer-height-correction--2026-10-16)
 for that report's scope and the
 [sample report](#ironing-flow-print-feedback--2026-10-16) before transferring the
-setting. The next application check, if the user prints the corrected cups, is
-[installation and actual use](#installation), using the [print setup](#printing-and-manufacturing-review).
+setting. The full-liner report now establishes application fit and damping;
+[installation](#installation) and [print setup](#printing-and-manufacturing-review)
+remain available for repeat prints.
 No further geometry revision is requested by this record. The rigid E case
 remains accepted and unchanged; [print status](#print-status) keeps the two scopes separate.
 
@@ -245,7 +249,8 @@ change introduces no detached wall starts.
 [Product verification](verification.py) uses the shared CLI with explicit
 `s16-retrofit` selection. [Current receipt](notes/verification.json) distinguishes
 CAD coverage from actual fit, adhesion, glasses clearance and subjective
-quietness, which remain physical/subjective **UNKNOWN** until reported.
+quietness. Fit and damping now have positive user feedback (2026-10-17);
+the retained automated reports still describe their original scope.
 [Checks](checks.py) cover profile, connected cup, residual cavity, installation,
 closed fit, sampled opening and the new corner obligation. The original solid
 corners must fail the same coverage checker; a shifted insert must fail the
@@ -267,8 +272,9 @@ These are slicer metadata, not measured deposited polymer. STL slicing does not
 verify Orca GUI STEP import or physical damping.
 
 Current CAD checks: profile, corner coverage (including the solid-corner negative
-control), nominal fit and sampled motion all **PASS**. Physical use and quietness
-remain **UNKNOWN**. The retained native evaluator reports valid geometry and
+control), nominal fit and sampled motion all **PASS**. User feedback now confirms
+fit and damping in use; quantitative acoustic performance remains unmeasured.
+The retained native evaluator reports valid geometry and
 successful matching STEP/STL exports. OrcaSlicer **2.4.2**, supplied TPU triplet,
 centred compound without rotation, **0.1 mm diagnostic layers**: slice completed
 with **no keyword notices**.
@@ -321,12 +327,23 @@ larger liner's complete coverage. This lesson is recorded in
 [print planning](../../.codex/skills/cadquery-3d-design/references/print-planning.md#functional-process-co-design)
 and the [reusable evidence index](../../.codex/skills/cadquery-3d-design/references/reusable-model-lessons.md).
 
+## Full-liner print feedback — 2026-10-17
+
+The user reports having printed the sunglasses-box liner: it fits inside, works
+well and provides damping, with no problems reported. Accept the existing liner
+for the reported fit and damping; no geometry or process change is requested.
+The exact printed artifact/revision, material, orientation and printer/profile
+were not identified. Current deliverables are the revised curved-corner cups.
+Earlier 0.2 mm layer-height and ironing feedback remain separately scoped to
+those reports. This observation does not measure damping quantitatively or
+establish long-term wear, tape adhesion or internal channel condition.
+
 ## Print status
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | Yes — ironing sample, reported 2026-10-16 | Associated `bottom_sample_18p5mm.step/.stl`; 0.2 mm layers confirmed; exact printed file/other settings unknown | 10%/30% ironing flow leave line gaps; 50% described as perfect and preferred; 100% produces raised/bumpy top. No ironing-off control or full-liner finish result reported. Original S16 damping approval remains scoped to its fixture. |
-| Final printable object(s) | No — user reported holding off before correction | Revised `sunglasses_case_liner.step/.stl` | Curved-core correction requested; actual fit, adhesion, quietness, skin integrity and wear remain untested. Existing rigid case is printed and accepted. |
+| Final printable object(s) | Yes — reported 2026-10-17 | Current deliverables: revised `sunglasses_case_liner.step/.stl`; exact printed file/revision unknown | User reports successful fit and damping, works well with no problems. Actual material, orientation and printer/profile unknown; tape adhesion, internal channel condition and long-term wear not separately assessed. |
 
 ## Attribution
 
