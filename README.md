@@ -124,7 +124,7 @@ coupon (N/A).
 
 [Current M3 prototype, STEP/STL and joint SVG](model/dental_travel_case/notes/m3.md)
 
-- Test pieces: Yes — small samples seemed to hold; exact revisions unknown
+- Test pieces: Historical small samples seemed to hold; exact revisions unknown. [M3 joint sample](model/dental_travel_case/m3_joint_test.step) delivered with matching STL; print status unknown
 - Final object: M1 printed — brush/tube fit with effort plus floss; joint too short/unstable, pulls apart without release. M1 frozen. M3 unprinted prototype: longer guide, thicker leaves and supported receivers; practical reduced simulation, local FEM, paired exports and diagnostic slice. Actual pull-off, recovery and bridge quality remain unmeasured; no new print requested
 - Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
 

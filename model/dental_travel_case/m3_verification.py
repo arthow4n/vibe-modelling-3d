@@ -46,6 +46,8 @@ def make_m3_plan(variant,baseline):
         Q('life','print.material','Printed fatigue, recovery, creep and tolerance are adequate','physical'),
         Q('protection','travel.protection','Complete loaded case protects real contents','physical'),
         Q('trial','test.fit','A further physical test supplies actual retention evidence','physical'),
+        Q('sample','test.fit','Joint sample preserves both production catch roots, receivers and complete overlap','CAD'),
+        Q('sample-slice','test.fit','Current joint-sample STEP/STL pair has selected-profile smoke-slice evidence','slicer'),
         Q('judgment','form.minimal','Whole-object compactness and controls are acceptable','subjective'),
     )
     def cad():
@@ -88,11 +90,27 @@ def make_m3_plan(variant,baseline):
     def width():
         from m3_design import D
         assert abs(D.width+2*D.skin_reinforcement-74.2)<1e-6,'M3 maximum width 77mm; explicit prototype compromise, no waiver of historical exact width criterion'
+    def sample():
+        data=json.loads((ROOT/'notes/m3/joint_sample_cad.json').read_text())
+        require_sources(data,'source_sha256')
+        assert data['producer_sha256']==hashed(ROOT/'m3_joint_checks.py')
+        assert data['status']=='PASS' and data['unchanged_root_support_and_cap_band']
+        from m3_design import D
+        assert data['overlap_mm']==D.lap
+    def sample_slice():
+        data=json.loads((ROOT/'notes/m3/joint_sample_association.json').read_text())
+        require_sources(data,'inputs')
+        require_sources(data,'outputs')
+        receipt=json.loads((ROOT/'notes/m3/joint_sample_export_slice.json').read_text())
+        assert receipt['ok'] and receipt['geometry']['valid'] and receipt['slice']['ok']
+        assert receipt['slice']['input_sha256']==hashed(ROOT/'m3_joint_test.stl')
     groups=(('m3.cad',(('closure.secure','capture'),('brush.fit','aperture'),('paste.fit','aperture'),('form.end-rounds','rounds')),cad,'notes/m3/cad.json'),
         ('m3.proxy',(('closure.secure','proxy'),('closure.secure','guide')),proxy,'notes/m3/proxy.json'),
         ('m3.operation',(('closure.end-retention','operation'),),operation,'notes/retention/dental_m3_press_7/result.json'),
         ('m3.slice',(('print.supportfree','slice'),),sliced,'notes/m3/export_slice.json'),
-        ('m3.width',(('form.width-revision','width'),),width,'m3_design.py'))
+        ('m3.width',(('form.width-revision','width'),),width,'m3_design.py'),
+        ('m3.sample',(('test.fit','sample'),),sample,'notes/m3/joint_sample_cad.json'),
+        ('m3.sample-slice',(('test.fit','sample-slice'),),sample_slice,'notes/m3/joint_sample_export_slice.json'))
     return Plan(variant,intent,scope,questions=questions,
         checks=tuple(assertion_check(id,targets,run,ref,scope) for id,targets,run,ref in groups),
         retained=(Evidence('m1.failed.reference',(('closure.secure','holding'),),Status.FAIL,

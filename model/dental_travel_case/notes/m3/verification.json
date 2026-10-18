@@ -15,7 +15,9 @@
     "m3.proxy",
     "m3.operation",
     "m3.slice",
-    "m3.width"
+    "m3.width",
+    "m3.sample",
+    "m3.sample-slice"
   ],
   "exit_reason": "criterion_failed",
   "error": null,
@@ -142,6 +144,36 @@
             "coverage": "uncovered",
             "strategies": [],
             "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "sample",
+            "criterion": "Joint sample preserves both production catch roots, receivers and complete overlap",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m3.sample"
+            ],
+            "evidence": [
+              "m3.sample"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "sample-slice",
+            "criterion": "Current joint-sample STEP/STL pair has selected-profile smoke-slice evidence",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m3.sample-slice"
+            ],
+            "evidence": [
+              "m3.sample-slice"
+            ],
             "out_of_scope": []
           }
         ],
@@ -526,6 +558,42 @@
         "status": "FAIL",
         "summary": "M3 maximum width 77mm; explicit prototype compromise, no waiver of historical exact width criterion",
         "reference": "m3_design.py",
+        "scope": {
+          "design": "slim-m3",
+          "revision": "M3 unprinted prototype",
+          "material": "uncalibrated effective PETG E800..2200 MPa",
+          "process": "diagnostic 0.4mm nozzle, 0.2mm layers"
+        }
+      },
+      {
+        "id": "m3.sample",
+        "targets": [
+          [
+            "test.fit",
+            "sample"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/m3/joint_sample_cad.json",
+        "scope": {
+          "design": "slim-m3",
+          "revision": "M3 unprinted prototype",
+          "material": "uncalibrated effective PETG E800..2200 MPa",
+          "process": "diagnostic 0.4mm nozzle, 0.2mm layers"
+        }
+      },
+      {
+        "id": "m3.sample-slice",
+        "targets": [
+          [
+            "test.fit",
+            "sample-slice"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/m3/joint_sample_export_slice.json",
         "scope": {
           "design": "slim-m3",
           "revision": "M3 unprinted prototype",

@@ -1,0 +1,15 @@
+{
+  "scope": "Sources unchanged since preflight; paired publication and slice association, not physical acceptance.",
+  "inputs": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design.py": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396",
+    "m3_design.py": "8e958036da3e31e22dc345c9994d68967cec56aa6ae8183e5ff8a34634e43ec9",
+    "m3_samples.py": "5897db304d43a17105bdfb14a73bab15b722e59b613f27db222b02f649d55885",
+    "m3_joint_test.py": "1af1b24dc042a5299ca2352971125b5cb62788ad3da1f82227c77ba947d25bb9"
+  },
+  "outputs": {
+    "m3_joint_test.step": "3e2119a363677fecf79cf1abf92031e826efa4fd12011ce49dc5b3157fec3636",
+    "m3_joint_test.stl": "8afc8f47e983ef0c89418483155160046ea4cdc9fe15bf20ede9c17b131c1338",
+    "notes/m3/joint_sample_export_slice.json": "7cea211637a824169c3b565020ec0d21030ee245c1239b93c6fd35b24b18f6d9"
+  }
+}
