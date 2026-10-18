@@ -65,6 +65,15 @@ liner follow-up.** The user allows slicer changes to explore thinner closed-skin
 variants. I22's near-joining lines remain an unresolved observation, not a
 calibrated minimum gap or proof of a specific process cause.
 
+**Upcoming TPU damping iterations, 2026-10-19:** explicitly check upright wall
+integrity in addition to dimensions. Aim for geometry/process configurations
+that do not require Arachne; allow a thicker sandwich rather than preserving
+S16's 1.6 mm at the expense of reliable walls. A stronger 1.6 mm design or about
+2.0 mm are both acceptable directions, not selected or qualified replacements.
+This is scoped to the ongoing liner experiment, not a general ban on Arachne.
+The [owning iteration priorities](../../../../model/tpu_damping_box/README.md#upcoming-iteration-priorities--2026-10-19)
+record the user's examples, unit interpretation and remaining evidence needs.
+
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.
 Choose insertion allowance, seated play and retention separately; this report

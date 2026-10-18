@@ -16,7 +16,9 @@ no replacement full box is included.
 locally broken inner and outer vertical skins, unlike the successful sunglasses
 liner. Future TPU work must address [upright side-wall printing](#deferred-side-wall-printing-investigation--2026-10-19)
 as well as horizontal finish. The flat F0–F7 plate cannot qualify that behavior;
-no new sample geometry or preset change is requested now.
+the user's [iteration priorities](#upcoming-iteration-priorities--2026-10-19)
+favor printing without Arachne and allow more thickness for wall integrity.
+No new sample geometry or preset change is requested now.
 
 ## Current result and reading routes
 
@@ -171,6 +173,38 @@ CAD and another full box would not answer the surface question more cheaply.
 | Final printable object | N/A — samples-only phase | None new | Existing S16 remains preferred for damping; full-liner finish unresolved |
 
 ## Deferred side-wall printing investigation — 2026-10-19
+
+### Upcoming iteration priorities — 2026-10-19
+
+The user's follow-up explicitly sets these goals for the next TPU iterations:
+
+- **Check side-wall printability after choosing dimensions.** Dimensional fit,
+  retained toolpaths and horizontal surface finish are insufficient: both inner
+  and outer upright skins must print continuously and remain bonded to ribs.
+  Representative physical wall integrity must be assessed before calling a new
+  application qualified; a successful flat coupon does not cover this question.
+- **Aim for configurations that do not require Arachne.** Prefer geometry and
+  settings that retain the intended skins, ribs and air channels with a
+  conventional fixed-width wall generator such as Classic. This is a design
+  preference for upcoming iterations, not a finding that Arachne caused the
+  dental defects or a qualification of existing files under Classic. Simply
+  switching the old preset is not an established fix.
+- **Allow thickness to improve reliability.** S16's 1.6 mm total sandwich is a
+  successful damping baseline, not a mandatory dimension. A more robust 1.6 mm
+  design or an increase to about 2.0 mm are both acceptable directions if they
+  improve printed wall integrity while preserving useful damping and application
+  fit. The user's spoken “16 / 20 mm” examples are interpreted here as
+  **1.6 / 2.0 mm**, consistent with the S16 context; they do not specify a new
+  selected thickness or calibrated minimum.
+
+These priorities qualify the earlier thinness objective below: reliable upright
+walls take precedence over holding the sandwich at 1.6 mm. Keep the existing
+successful S16 damping evidence as the comparison; any changed skin/core/rib
+allocation or thicker candidate needs its own scoped print and damping evidence.
+This instruction records future direction, without starting a new design or
+changing the existing F0–F7 batch and its reference setup.
+
+### Existing evidence and investigation scope
 
 The user requests adding side-wall printing to the experiment when TPU work
 resumes. The [dental physical report and source comparison](../dental_travel_case_liner/README.md#wall-print-feedback--2026-10-19)
@@ -762,7 +796,7 @@ permanently labeled TPU liners; explicit CAD damping structures on all six faces
 batch printing. The user then specified **flat object-contact faces with structures
 inside the liner**, and research on effective damping structures.
 
-Latest directive: **maximize quietness while keeping the liner thin**, retain
+Earlier directive: **maximize quietness while keeping the liner thin**, retain
 solid control A, and supply a focused STEP print set favoring stronger candidates
 rather than printing every concept. That request authorized additional
 promising suggestions and implementation, with no measured acoustic target.
@@ -772,6 +806,11 @@ remains available and need not be reprinted. Dimensions, shortlisted IDs,
 webs/skins and manufacturing settings remain agent decisions. This separate
 research does not resume the
 stopped swatch-box TPU project.
+
+The 2026-10-19 follow-up adds [upcoming iteration priorities](#upcoming-iteration-priorities--2026-10-19):
+check actual upright wall integrity as well as dimensions, aim to avoid requiring
+Arachne, and allow a thicker sandwich when needed for reliable walls. Keeping
+1.6 mm is optional; about 2.0 mm is an example to consider, not an adopted variant.
 
 ## Attribution
 
