@@ -1,0 +1,47 @@
+{
+  "scope": "Selected actual bridge/support locations; not measured printing quality.",
+  "gcode_sha256": {
+    "primary": "62c4423b46fa91a737ce05c489d681cda0473267f4b09fc893212c4cd2697ad5",
+    "auto_support": "e340f1be3037df851f10e9211c41a99850f3555fa9fbe1a4161243088a09d16d"
+  },
+  "groups": {
+    "primary / body / Bridge": {
+      "segment_count": 31,
+      "layers_mm": [
+        178.2
+      ],
+      "max_segment_length_mm": 7.310000000000002
+    },
+    "primary / cap / Bridge": {
+      "segment_count": 18,
+      "layers_mm": [
+        86.6
+      ],
+      "max_segment_length_mm": 13.055000000000007
+    },
+    "auto_support / body / Bridge": {
+      "segment_count": 31,
+      "layers_mm": [
+        178.2
+      ],
+      "max_segment_length_mm": 7.310000000000002
+    },
+    "auto_support / cap / Bridge": {
+      "segment_count": 18,
+      "layers_mm": [
+        86.6
+      ],
+      "max_segment_length_mm": 13.055000000000007
+    },
+    "auto_support / cap / Support interface": {
+      "segment_count": 201,
+      "layers_mm": [
+        2.4,
+        2.6,
+        86.0,
+        86.2
+      ],
+      "max_segment_length_mm": 16.004654885376308
+    }
+  }
+}

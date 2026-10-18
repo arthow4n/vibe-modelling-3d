@@ -1,0 +1,420 @@
+{
+  "scope": "Actual-CAD interior sections: central storage void excludes hidden latch channels.\n\nVolumes are midpoint integration of central cross-section area, not liquid\ncapacity, simultaneous packing or an ergonomic rating. No unprinted fit inferred.\n",
+  "slab_thickness_mm": 0.02,
+  "source_sha256": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design.py": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396",
+    "m3_design.py": "8e958036da3e31e22dc345c9994d68967cec56aa6ae8183e5ff8a34634e43ec9",
+    "m4_design.py": "64167bc4ad2ebb6fb6ddcdf869a8c0370e6f8e1a543abba38d92a9f6bc5d8c9c",
+    "m5_design.py": "258f9cd3fd094fea0e28e196391bdce74f913a96d99858056298164f47e66be7",
+    "m5_space_study.py": "e5b57bebf68aadaae892d48998c56d080344376fecb86ab85dbbdec085526998"
+  },
+  "cases": {
+    "M4": {
+      "dimensions": {
+        "length": 264.0,
+        "seam": 174.0,
+        "width": 75.0,
+        "depth": 51.2,
+        "corner": 6.0,
+        "end_radius": 4.0,
+        "wall": 2.0,
+        "receiver_wall": 2.7,
+        "floor": 2.0,
+        "lap": 78.0,
+        "lap_clearance": 0.15,
+        "axial_play": 0.4,
+        "lap_wall": 1.6,
+        "brush_x": 0.0,
+        "brush_y": -5.0,
+        "catch_y": 0.0,
+        "beam_width": 14.0,
+        "beam_thickness": 2.0,
+        "beam_length": 32.0,
+        "catch_height": 4.0,
+        "hook_projection": 2.0,
+        "hook_width": 9.0,
+        "release": 2.7,
+        "slot": 0.8,
+        "shelf_side_margin": 1.0,
+        "skin_reinforcement": 1.0,
+        "pocket_outer_skin": 0.5
+      },
+      "sections_mm2": {
+        "100": 3337.4654824574895,
+        "165": 3061.1054824598177,
+        "180": 2613.6476763515975,
+        "200": 2613.6476763532623,
+        "220": 2613.6476763498,
+        "245": 2613.6476763513974,
+        "258": 3337.3650634865635
+      },
+      "individual_tube_gap_mm": 0.9499999999999957,
+      "individual_tube_overlap_mm3": 0.0,
+      "guide_cap_bending_sections": {
+        "fixed": {
+          "area_mm2": 364.10477675472464,
+          "Ixx_mm4": 125701.72101833741,
+          "Iyy_mm4": 234813.208048488
+        },
+        "cap": {
+          "area_mm2": 664.7653915304711,
+          "Ixx_mm4": 268831.35790482047,
+          "Iyy_mm4": 532700.8436409466
+        }
+      },
+      "nominal_local_guide_plate_rigidity_ratio": 1.0,
+      "central_volume_ml_4mm": 801.8827345467079,
+      "central_volume_ml_2mm": 800.8578919006442
+    },
+    "short_guard": {
+      "dimensions": {
+        "length": 264.0,
+        "seam": 174.0,
+        "width": 75.0,
+        "depth": 51.2,
+        "corner": 6.0,
+        "end_radius": 4.0,
+        "wall": 2.0,
+        "receiver_wall": 2.7,
+        "floor": 2.0,
+        "lap": 78.0,
+        "lap_clearance": 0.15,
+        "axial_play": 0.4,
+        "lap_wall": 1.6,
+        "brush_x": 0.0,
+        "brush_y": -5.0,
+        "catch_y": 0.0,
+        "beam_width": 14.0,
+        "beam_thickness": 2.0,
+        "beam_length": 32.0,
+        "catch_height": 4.0,
+        "hook_projection": 2.0,
+        "hook_width": 9.0,
+        "release": 2.7,
+        "slot": 0.8,
+        "shelf_side_margin": 1.0,
+        "skin_reinforcement": 1.0,
+        "pocket_outer_skin": 0.5
+      },
+      "sections_mm2": {
+        "100": 3337.4654824574895,
+        "165": 3061.1054824598177,
+        "180": 2613.647676351586,
+        "200": 2793.967676351679,
+        "220": 2793.9676763516786,
+        "245": 2793.967676351678,
+        "258": 3337.3650634865635
+      },
+      "individual_tube_gap_mm": 0.9499999999999957,
+      "individual_tube_overlap_mm3": 0.0,
+      "guide_cap_bending_sections": {
+        "fixed": {
+          "area_mm2": 350.66477675467655,
+          "Ixx_mm4": 123824.9077702756,
+          "Iyy_mm4": 236265.11320045101
+        },
+        "cap": {
+          "area_mm2": 664.7653915304711,
+          "Ixx_mm4": 268831.35790482047,
+          "Iyy_mm4": 532700.8436409466
+        }
+      },
+      "nominal_local_guide_plate_rigidity_ratio": 1.0,
+      "central_volume_ml_4mm": 813.022992263323
+    },
+    "thin_sleeve": {
+      "dimensions": {
+        "length": 264.0,
+        "seam": 174.0,
+        "width": 75.0,
+        "depth": 51.2,
+        "corner": 6.0,
+        "end_radius": 4.0,
+        "wall": 2.0,
+        "receiver_wall": 2.7,
+        "floor": 2.0,
+        "lap": 78.0,
+        "lap_clearance": 0.15,
+        "axial_play": 0.4,
+        "lap_wall": 1.2,
+        "brush_x": 0.0,
+        "brush_y": -5.0,
+        "catch_y": 0.0,
+        "beam_width": 14.0,
+        "beam_thickness": 2.0,
+        "beam_length": 32.0,
+        "catch_height": 4.0,
+        "hook_projection": 2.0,
+        "hook_width": 9.0,
+        "release": 2.7,
+        "slot": 0.8,
+        "shelf_side_margin": 1.0,
+        "skin_reinforcement": 1.0,
+        "pocket_outer_skin": 0.5
+      },
+      "sections_mm2": {
+        "100": 3337.4654824574895,
+        "165": 3061.1054824598177,
+        "180": 2684.125906066648,
+        "200": 2880.125906066748,
+        "220": 2880.1259060667476,
+        "245": 2880.1259060667476,
+        "258": 3337.3650634865635
+      },
+      "individual_tube_gap_mm": 0.9499999999999957,
+      "individual_tube_overlap_mm3": 0.0,
+      "guide_cap_bending_sections": {
+        "fixed": {
+          "area_mm2": 264.5065470397293,
+          "Ixx_mm4": 94945.66341720492,
+          "Iyy_mm4": 180243.44200664927
+        },
+        "cap": {
+          "area_mm2": 664.7653915304711,
+          "Ixx_mm4": 268831.35790482047,
+          "Iyy_mm4": 532700.8436409466
+        }
+      },
+      "nominal_local_guide_plate_rigidity_ratio": 0.42187499999999983
+    },
+    "flat75": {
+      "dimensions": {
+        "length": 264.0,
+        "seam": 174.0,
+        "width": 75.0,
+        "depth": 51.2,
+        "corner": 6.0,
+        "end_radius": 4.0,
+        "wall": 2.0,
+        "receiver_wall": 3.7,
+        "floor": 2.0,
+        "lap": 78.0,
+        "lap_clearance": 0.15,
+        "axial_play": 0.4,
+        "lap_wall": 1.6,
+        "brush_x": 0.0,
+        "brush_y": -5.0,
+        "catch_y": 0.0,
+        "beam_width": 14.0,
+        "beam_thickness": 2.0,
+        "beam_length": 32.0,
+        "catch_height": 4.0,
+        "hook_projection": 2.0,
+        "hook_width": 9.0,
+        "release": 2.7,
+        "slot": 0.8,
+        "shelf_side_margin": 1.0,
+        "skin_reinforcement": 0.0,
+        "pocket_outer_skin": 1.5,
+        "guard_lap": 16.0,
+        "guide_notch_half": 9.0,
+        "broad_wall": 2.7,
+        "matched_corner_bearing": true
+      },
+      "sections_mm2": {
+        "100": 3337.4654824574895,
+        "165": 3021.9054824597974,
+        "180": 2606.227676351582,
+        "200": 2781.107676351672,
+        "220": 2781.1076763516726,
+        "245": 2781.107676351673,
+        "258": 3337.370236470171
+      },
+      "individual_tube_gap_mm": 0.0,
+      "individual_tube_overlap_mm3": 81.58469565215387,
+      "guide_cap_bending_sections": {
+        "fixed": {
+          "area_mm2": 366.02477675466247,
+          "Ixx_mm4": 127031.57548230956,
+          "Iyy_mm4": 253100.23157460673
+        },
+        "cap": {
+          "area_mm2": 624.4453915306733,
+          "Ixx_mm4": 258196.15016086027,
+          "Iyy_mm4": 474237.95971422223
+        }
+      },
+      "nominal_local_guide_plate_rigidity_ratio": 1.0
+    },
+    "flat77_light_cap": {
+      "dimensions": {
+        "length": 264.0,
+        "seam": 174.0,
+        "width": 77.0,
+        "depth": 51.2,
+        "corner": 6.0,
+        "end_radius": 4.0,
+        "wall": 2.0,
+        "receiver_wall": 3.7,
+        "floor": 2.0,
+        "lap": 78.0,
+        "lap_clearance": 0.15,
+        "axial_play": 0.4,
+        "lap_wall": 1.6,
+        "brush_x": 0.0,
+        "brush_y": -5.0,
+        "catch_y": 0.0,
+        "beam_width": 14.0,
+        "beam_thickness": 2.0,
+        "beam_length": 32.0,
+        "catch_height": 4.0,
+        "hook_projection": 2.0,
+        "hook_width": 9.0,
+        "release": 2.7,
+        "slot": 0.8,
+        "shelf_side_margin": 1.0,
+        "skin_reinforcement": 0.0,
+        "pocket_outer_skin": 1.5,
+        "guard_lap": 16.0,
+        "guide_notch_half": 9.0,
+        "broad_wall": 2.0,
+        "matched_corner_bearing": true
+      },
+      "sections_mm2": {
+        "100": 3431.865482459598,
+        "165": 3116.30548245842,
+        "180": 2785.8443128102235,
+        "200": 2960.7243128103128,
+        "220": 2960.7243128103128,
+        "245": 2960.7243128103128,
+        "258": 3431.8293574543054
+      },
+      "individual_tube_gap_mm": 0.9499999999999957,
+      "individual_tube_overlap_mm3": 0.0,
+      "guide_cap_bending_sections": {
+        "fixed": {
+          "area_mm2": 374.9819442986952,
+          "Ixx_mm4": 138182.1652117418,
+          "Iyy_mm4": 273999.5625555777
+        },
+        "cap": {
+          "area_mm2": 537.4318530713077,
+          "Ixx_mm4": 211797.89601351076,
+          "Iyy_mm4": 465923.48414428707
+        }
+      },
+      "nominal_local_guide_plate_rigidity_ratio": 1.0
+    },
+    "flat77_loose_corners": {
+      "dimensions": {
+        "length": 264.0,
+        "seam": 174.0,
+        "width": 77.0,
+        "depth": 51.2,
+        "corner": 6.0,
+        "end_radius": 4.0,
+        "wall": 2.0,
+        "receiver_wall": 3.7,
+        "floor": 2.0,
+        "lap": 78.0,
+        "lap_clearance": 0.15,
+        "axial_play": 0.4,
+        "lap_wall": 1.6,
+        "brush_x": 0.0,
+        "brush_y": -5.0,
+        "catch_y": 0.0,
+        "beam_width": 14.0,
+        "beam_thickness": 2.0,
+        "beam_length": 32.0,
+        "catch_height": 4.0,
+        "hook_projection": 2.0,
+        "hook_width": 9.0,
+        "release": 2.7,
+        "slot": 0.8,
+        "shelf_side_margin": 1.0,
+        "skin_reinforcement": 0.0,
+        "pocket_outer_skin": 1.5,
+        "guard_lap": 16.0,
+        "guide_notch_half": 9.0,
+        "broad_wall": 2.7,
+        "matched_corner_bearing": false
+      },
+      "sections_mm2": {
+        "100": 3431.865482459598,
+        "165": 3116.30548245842,
+        "180": 2688.544312810174,
+        "200": 2863.4243128102635,
+        "220": 2863.424312810264,
+        "245": 2863.4243128102644,
+        "258": 3431.7723255922374
+      },
+      "individual_tube_gap_mm": 0.9499999999999957,
+      "individual_tube_overlap_mm3": 0.0,
+      "guide_cap_bending_sections": {
+        "fixed": {
+          "area_mm2": 370.5019442986999,
+          "Ixx_mm4": 129116.50086364825,
+          "Iyy_mm4": 268336.77147298586
+        },
+        "cap": {
+          "area_mm2": 632.7313611177318,
+          "Ixx_mm4": 263303.5675233579,
+          "Iyy_mm4": 502748.8542829873
+        }
+      },
+      "nominal_local_guide_plate_rigidity_ratio": 1.0
+    },
+    "flat77": {
+      "dimensions": {
+        "length": 264.0,
+        "seam": 174.0,
+        "width": 77.0,
+        "depth": 51.2,
+        "corner": 6.0,
+        "end_radius": 4.0,
+        "wall": 2.0,
+        "receiver_wall": 3.7,
+        "floor": 2.0,
+        "lap": 78.0,
+        "lap_clearance": 0.15,
+        "axial_play": 0.4,
+        "lap_wall": 1.6,
+        "brush_x": 0.0,
+        "brush_y": -5.0,
+        "catch_y": 0.0,
+        "beam_width": 14.0,
+        "beam_thickness": 2.0,
+        "beam_length": 32.0,
+        "catch_height": 4.0,
+        "hook_projection": 2.0,
+        "hook_width": 9.0,
+        "release": 2.7,
+        "slot": 0.8,
+        "shelf_side_margin": 1.0,
+        "skin_reinforcement": 0.0,
+        "pocket_outer_skin": 1.5,
+        "guard_lap": 16.0,
+        "guide_notch_half": 9.0,
+        "broad_wall": 2.7,
+        "matched_corner_bearing": true
+      },
+      "sections_mm2": {
+        "100": 3431.865482459598,
+        "165": 3116.30548245842,
+        "180": 2690.8276763516255,
+        "200": 2865.707676351715,
+        "220": 2865.7076763517152,
+        "245": 2865.707676351716,
+        "258": 3431.768486471598
+      },
+      "individual_tube_gap_mm": 0.9499999999999957,
+      "individual_tube_overlap_mm3": 0.0,
+      "guide_cap_bending_sections": {
+        "fixed": {
+          "area_mm2": 372.4247767546571,
+          "Ixx_mm4": 130116.47702894988,
+          "Iyy_mm4": 270886.9881876948
+        },
+        "cap": {
+          "area_mm2": 635.245391530653,
+          "Ixx_mm4": 264553.78652081126,
+          "Iyy_mm4": 505847.70841058344
+        }
+      },
+      "nominal_local_guide_plate_rigidity_ratio": 1.0,
+      "central_volume_ml_4mm": 834.8482392785917,
+      "central_volume_ml_2mm": 833.8254155418971
+    }
+  }
+}

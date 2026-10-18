@@ -118,14 +118,14 @@ coupon (N/A).
 - Final object: Partial — variant H printed; user reports it works well; other variants unreported
 - Provenance: [Record](model/faceted_storage_tray/README.md#attribution) · Agent effort: [Selected token/timing record](model/faceted_storage_tray/notes/agent_effort.md)
 
-#### Dental travel containers — failed printed M1; M4 prototype
+#### Dental travel containers — failed printed M1; M5 prototype
 
 [M1 full-box feedback and retained files](model/dental_travel_case/notes/m1.md) · [Separate M2B retention investigation](model/dental_travel_case/notes/m2.md)
 
-[Current M4 prototype, matching test piece and physical motion drawings](model/dental_travel_case/notes/m4.md) · [Superseded M3 investigation](model/dental_travel_case/notes/m3.md)
+[Current M5 space-recovery prototype, matching test and section drawings](model/dental_travel_case/notes/m5.md) · [M4 motion investigation](model/dental_travel_case/notes/m4.md) · [Superseded M3 investigation](model/dental_travel_case/notes/m3.md)
 
-- Test pieces: Historical small samples seemed to hold; exact revisions unknown. [Current M4 test pair](model/dental_travel_case/m4_joint_test.step) preserves the full cap and 78mm guide, with matching STL; print status unknown
-- Final object: M1 printed — joint too short/unstable, pulls apart without release; source/exports frozen. M4 routes checked rocking into guide bearing before catch load, correcting the M3 contact-order gap. Full and sample exports plus committed scale drawings delivered; physical holding, fit/recovery and bridge quality remain unmeasured
+- Test pieces: Historical small samples seemed to hold; exact revisions unknown. [Current M5 test pair](model/dental_travel_case/m5_joint_test.step) preserves the full production cap and 78mm guide, with matching STL; print status unknown
+- Final object: M1 printed — joint too short/unstable, pulls apart without release; source/exports frozen. M5 shortens unused catch guards and moves the guide toward a flat 77mm exterior; central guide space increases while catches and entrance remain. Broad body grows from 75 to 77mm; previous maximum unchanged. Physical holding, fit/recovery and bridge quality remain unmeasured
 - Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
 
 #### Slim dental box S16 liner

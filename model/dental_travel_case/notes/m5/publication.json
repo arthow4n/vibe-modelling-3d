@@ -1,0 +1,25 @@
+{
+  "scope": "Same current production source for paired full/sample STEP/STL; no physical qualification.",
+  "inputs": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design.py": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396",
+    "m3_design.py": "8e958036da3e31e22dc345c9994d68967cec56aa6ae8183e5ff8a34634e43ec9",
+    "m4_design.py": "64167bc4ad2ebb6fb6ddcdf869a8c0370e6f8e1a543abba38d92a9f6bc5d8c9c",
+    "m5_design.py": "258f9cd3fd094fea0e28e196391bdce74f913a96d99858056298164f47e66be7",
+    "m3_samples.py": "5897db304d43a17105bdfb14a73bab15b722e59b613f27db222b02f649d55885",
+    "m5_case.py": "517a027d9575e5cc6676e2ffe443587d223d64df1f6b7de0078666947c6e300c",
+    "m5_joint_test.py": "b67190a46a782e92d69551663241e417dd1719952bb8ab8098d84e9d30671358"
+  },
+  "artifacts": {
+    "case": {
+      "m5_case.step": "68e5b4d6b729e84ae9842d286fbaf9b2e6ec735726bcc94adeb073c8be6da037",
+      "m5_case.stl": "2d2c1da93d3ac5f7938afdb9fe39b5194d64e51bb97ffb3fdb0ae919d33b32f4",
+      "notes/m5/case_export_slice.json": "c0f68e140d521b1f77c46494d670306f622905dc76ca43863f533e93ce2f8adf"
+    },
+    "joint": {
+      "m5_joint_test.step": "66a43ddf32e0936db25e03265fa8e8364ee3b1ddbea928b4e071ceea432af85a",
+      "m5_joint_test.stl": "1ab3b0f0e60208805a63a5554894b5b196982471834287dc307921a18cae02b6",
+      "notes/m5/joint_export_slice.json": "3d405677e99cffaed34ed0496fd3c3b497641808df0af139f867a29226be2ad0"
+    }
+  }
+}

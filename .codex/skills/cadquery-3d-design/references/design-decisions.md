@@ -194,6 +194,17 @@ refining it. The [phone stand v2 rejection](../../../../model/analysis_phone_sta
 shows why permitted rear support and a passing tap screen do not establish
 acceptance of the complete object's size.
 
+For enclosures, distinguish connected storage space, the narrowest loading
+passage and inaccessible mechanism voids. Show actual sections at the mechanism
+and beyond it; a larger total void can still leave the contents unable to enter.
+Challenge guards and release channels that continue beyond the moving parts,
+while preserving the complete guide/receiver travel and structural load path.
+When moving guide walls toward the perimeter, recheck corner bearing as well as
+flat-face gaps: the [M5 space study](../../../../model/dental_travel_case/notes/m5.md)
+recovered unused guard space but first exposed an adverse diagonal route through
+mismatched corner profiles. State any larger broad-body dimension even when the
+previous maximum envelope stays the same.
+
 Distinguish routine operation from occasional assembly or separation. A permanent
 handle or projection for a rare operation needs a benefit worth its effect on
 normal grip, appearance and material use. Check simpler release motions before

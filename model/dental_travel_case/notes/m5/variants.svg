@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<rect width="1200" height="720" fill="#fafaf7"/>
+<style>text{font-family:sans-serif;fill:#243444}</style>
+<text x="25" y="38" font-size="25">Alternatives actually explored</text>
+<text x="25" y="83" font-size="17">Same contents checks; actual section area at Z220. Volume is approximate central space, not proven packing.</text>
+<text x="30" y="134" font-size="19">Variant</text>
+<text x="265" y="134" font-size="19">Area at Z220</text>
+<text x="450" y="134" font-size="19">Tube gap</text>
+<text x="660" y="134" font-size="19">Decision</text>
+<text x="30" y="185" font-size="16">M4</text>
+<text x="265" y="185" font-size="16">2614 mm²</text>
+<text x="450" y="185" font-size="16">0.95 mm</text>
+<text x="660" y="185" font-size="16">Historical baseline; excessive guard length</text>
+<text x="30" y="246" font-size="16">Short guard only</text>
+<text x="265" y="246" font-size="16">2794 mm²</text>
+<text x="450" y="246" font-size="16">0.95 mm</text>
+<text x="660" y="246" font-size="16">Useful +11 mL, but keeps raised outer ribs</text>
+<text x="30" y="307" font-size="16">1.2 mm sleeve</text>
+<text x="265" y="307" font-size="16">2880 mm²</text>
+<text x="450" y="307" font-size="16">0.95 mm</text>
+<text x="660" y="307" font-size="16">Rejected: local plate rigidity falls to 42%</text>
+<text x="30" y="368" font-size="16">Flat 75 mm</text>
+<text x="265" y="368" font-size="16">2781 mm²</text>
+<text x="450" y="368" font-size="16">0.00 mm</text>
+<text x="660" y="368" font-size="16">Rejected: worsens the tube entrance</text>
+<text x="30" y="429" font-size="16">Flat, thinner cap</text>
+<text x="265" y="429" font-size="16">2961 mm²</text>
+<text x="450" y="429" font-size="16">0.95 mm</text>
+<text x="660" y="429" font-size="16">Avoided: cap section loses bending stiffness</text>
+<text x="30" y="490" font-size="16">Flat, loose corners</text>
+<text x="265" y="490" font-size="16">2863 mm²</text>
+<text x="450" y="490" font-size="16">0.95 mm</text>
+<text x="660" y="490" font-size="16">Rejected: diagonal rocking loads catch early</text>
+<text x="30" y="551" font-size="16">Flat 77 mm / M5</text>
+<text x="265" y="551" font-size="16">2866 mm²</text>
+<text x="450" y="551" font-size="16">0.95 mm</text>
+<text x="660" y="551" font-size="16">Selected: same old maximum width; flat sides</text>
+<text x="25" y="675" font-size="17">The selected variant preserves the original leaf and reinforced retaining strip; it does not claim measured holding force.</text>
+<metadata>{&quot;generator_sha256&quot;: &quot;4f9f0a16249002088fc2381640604313331bd13af4cabdbf5fe1c53d24fce873&quot;, &quot;data_sha256&quot;: &quot;f5dab5e86f671ec1425af46c0b2e60646a2ef3d16e9cc07995cb0650f1e263d1&quot;, &quot;contact_sha256&quot;: &quot;ce3a4686a84bab50ca5649f683db74ab92b1281d0598ce688c2668094e692c1e&quot;}</metadata></svg>

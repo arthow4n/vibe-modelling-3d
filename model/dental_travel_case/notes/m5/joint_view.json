@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/m5_joint_test.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "front",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/tests/m5/m5_joint_test_front.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          -1,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.001349933008896187,
+    "build": 4.872913928003982,
+    "selection": 0.000672133028274402,
+    "validation": 0.11065632698591799,
+    "render_front": 1.350385975005338,
+    "worker": 6.415783584001474,
+    "total": 6.545883164013503
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "3dbb0d52d27f6c8a905d1e4cf91471393f66789bf17321197a419c66304b0227",
+    "artifact_identity": "b1ba8bf7fcbfbba9ecfb61f580b005a1ea357e00f629c2903f0155e78dfebb99"
+  }
+}

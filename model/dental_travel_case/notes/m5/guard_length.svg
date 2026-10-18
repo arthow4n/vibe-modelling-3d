@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="875" viewBox="0 0 1200 875">
+<rect width="1200" height="875" fill="#fafaf7"/>
+<style>text{font-family:sans-serif;fill:#243444}</style>
+<text x="25" y="38" font-size="25">Keep the spring protection; remove the empty continuation</text>
+<text x="25" y="76" font-size="17">Actual central longitudinal section Y=0. Same scale; only the joint region and right-hand wall are shown.</text>
+<path d="M207.200,527.880 L207.200,544.800 L236.600,544.800 L238.239,544.746 L239.815,544.585 L241.267,544.325 L242.540,543.974 L243.584,543.547 L244.361,543.059 L244.839,542.530 L245.000,541.980 L245.000,541.040 L259.000,541.040 L259.000,173.500 L245.000,169.523 L245.000,150.000 L217.000,150.000 L207.200,168.800 L207.200,474.300 L238.000,474.300 L238.000,527.880 Z" fill="#cf741d" fill-rule="evenodd" stroke="#cf741d" stroke-width=".6"/>
+<path d="M135.100,178.200 L118.300,178.200 L118.300,665.120 L217.000,702.720 L217.000,723.400 L245.000,723.400 L245.000,643.896 L244.734,643.447 L243.975,643.065 L242.839,642.811 L241.500,642.721 L217.000,642.721 L217.000,655.720 L205.100,655.720 L205.100,574.880 L219.878,569.092 L221.378,568.235 L221.900,567.257 L221.900,559.943 L221.378,558.965 L219.878,558.108 L205.100,552.320 L205.100,526.000 L229.600,526.000 L230.939,525.911 L232.075,525.656 L232.834,525.275 L233.100,524.825 L233.100,520.697 L232.568,520.074 L205.100,505.320 L177.100,505.320 L177.100,651.960 L176.885,652.694 L176.247,653.399 L175.212,654.049 L173.820,654.619 L172.122,655.086 L170.186,655.434 L168.085,655.648 L165.900,655.720 L135.100,655.720 Z" fill="#1769a6" fill-rule="evenodd" stroke="#1769a6" stroke-width=".6"/>
+<text x="25" y="120" font-size="21">M4: guard continues to guide tip</text>
+<path d="M45,178.2 H460" stroke="#556572" stroke-dasharray="5 5" stroke-width=".8"/>
+<text x="320" y="173.2" font-size="15">Guide tip: 252</text>
+<path d="M45,469.6 H460" stroke="#556572" stroke-dasharray="5 5" stroke-width=".8"/>
+<text x="320" y="464.6" font-size="15">Guard can end: 190</text>
+<path d="M45,505.32 H460" stroke="#556572" stroke-dasharray="5 5" stroke-width=".8"/>
+<text x="320" y="500.32" font-size="15">Spring tip: 182.4</text>
+<path d="M45,544.8 H460" stroke="#556572" stroke-dasharray="5 5" stroke-width=".8"/>
+<text x="320" y="539.8" font-size="15">Case seam: 174</text>
+<path d="M807.200,527.880 L807.200,544.800 L850.600,544.800 L852.239,544.746 L853.815,544.585 L855.267,544.325 L856.540,543.974 L857.584,543.547 L858.361,543.059 L858.839,542.530 L859.000,541.980 L859.000,150.000 L831.000,150.000 L807.200,168.800 L807.200,474.300 L838.000,474.300 L838.000,527.880 Z" fill="#cf741d" fill-rule="evenodd" stroke="#cf741d" stroke-width=".6"/>
+<path d="M805.100,472.420 L805.100,181.020 L796.700,178.200 L791.100,178.200 L782.700,181.020 L782.700,472.420 Z M765.900,655.720 L735.100,655.720 L735.100,469.600 L718.300,469.600 L718.300,665.120 L831.000,702.720 L831.000,723.400 L859.000,723.400 L859.000,643.896 L858.734,643.447 L857.975,643.065 L856.839,642.811 L855.500,642.721 L831.000,642.721 L831.000,655.720 L805.100,655.720 L805.100,574.880 L819.878,569.092 L821.378,568.235 L821.900,567.257 L821.900,559.943 L821.378,558.965 L819.878,558.108 L805.100,552.320 L805.100,526.000 L829.600,526.000 L830.939,525.911 L832.075,525.656 L832.834,525.275 L833.100,524.825 L833.100,520.697 L832.568,520.074 L805.100,505.320 L777.100,505.320 L777.100,651.960 L776.885,652.694 L776.247,653.399 L775.212,654.049 L773.820,654.619 L772.122,655.086 L770.186,655.434 L768.085,655.648 Z" fill="#1769a6" fill-rule="evenodd" stroke="#1769a6" stroke-width=".6"/>
+<text x="625" y="120" font-size="21">M5: guard stops beyond spring</text>
+<path d="M645,178.2 H1060" stroke="#556572" stroke-dasharray="5 5" stroke-width=".8"/>
+<text x="920" y="173.2" font-size="15">Guide tip: 252</text>
+<path d="M645,469.6 H1060" stroke="#556572" stroke-dasharray="5 5" stroke-width=".8"/>
+<text x="920" y="464.6" font-size="15">Guard can end: 190</text>
+<path d="M645,505.32 H1060" stroke="#556572" stroke-dasharray="5 5" stroke-width=".8"/>
+<text x="920" y="500.32" font-size="15">Spring tip: 182.4</text>
+<path d="M645,544.8 H1060" stroke="#556572" stroke-dasharray="5 5" stroke-width=".8"/>
+<text x="920" y="539.8" font-size="15">Case seam: 174</text>
+<text x="25" y="767" font-size="19">The spring is unchanged. Its protective liner is needed beside the moving leaf, not another 62 mm above it.</text>
+<text x="25" y="805" font-size="18">The guide remains a continuous closed, stepped ring above the guard, with the same 1.6 mm wall.</text>
+<text x="25" y="842" font-size="17">Clearance channels on the guide let the reinforced receivers slide all the way off; they are not storage space.</text>
+<metadata>{&quot;generator_sha256&quot;: &quot;4f9f0a16249002088fc2381640604313331bd13af4cabdbf5fe1c53d24fce873&quot;, &quot;data_sha256&quot;: &quot;f5dab5e86f671ec1425af46c0b2e60646a2ef3d16e9cc07995cb0650f1e263d1&quot;, &quot;contact_sha256&quot;: &quot;ce3a4686a84bab50ca5649f683db74ab92b1281d0598ce688c2668094e692c1e&quot;}</metadata></svg>

@@ -1,0 +1,633 @@
+{
+  "schema_version": 1,
+  "variant": "slim-m5",
+  "selected_checks": null,
+  "available_variants": [
+    "measured-two-lane",
+    "rounded-c",
+    "plain-cylinder",
+    "slim-m1",
+    "slim-m2b",
+    "slim-m3",
+    "slim-m4",
+    "slim-m5"
+  ],
+  "available_checks": [
+    "m5.cad",
+    "m5.space",
+    "m5.contact",
+    "m5.operation",
+    "m5.slice",
+    "m5.sample-slice",
+    "m5.width"
+  ],
+  "exit_reason": "criterion_failed",
+  "error": null,
+  "report": {
+    "variant": "slim-m5",
+    "scope": {
+      "design": "slim-m5",
+      "revision": "M5 unprinted space-recovery prototype",
+      "material": "uncalibrated PETG",
+      "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "brush.fit",
+        "text": "Carry the measured electric toothbrush with its head attached",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured 250\u2013255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "aperture",
+            "criterion": "Established individual brush proxy clears the extended sleeve",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m5.cad"
+            ],
+            "evidence": [
+              "m5.cad"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "paste.fit",
+        "text": "Carry toothpaste on its own side with room for tube variation",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured a new tube about 160 x 55 x 40 mm with 30 mm cap and requested margins for other versions"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "aperture",
+            "criterion": "Established individual tube proxy passes extended sleeve",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m5.cad"
+            ],
+            "evidence": [
+              "m5.cad"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "variation",
+            "criterion": "Real combined contents and alternative tubes load comfortably",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.material",
+        "text": "Use a compliant printed design without a separate TPU print",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User requested compliance and preferably no separately printed TPU part"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "life",
+            "criterion": "Printed layer strength, fatigue and creep are adequate",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "test.fit",
+        "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#first-print-and-test-procedure",
+          "statement": "User authorized both the small fit test and complete model in one phase"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "sample",
+            "criterion": "Current sample retains full guide, both roots and receivers from the same production source",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m5.cad"
+            ],
+            "evidence": [
+              "m5.cad"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "sample-slice",
+            "criterion": "Current sample pair matches current full-case source version and slice",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m5.sample-slice"
+            ],
+            "evidence": [
+              "m5.sample-slice"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "trial",
+            "criterion": "Physical observations are available from the current sample",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.minimal",
+        "text": "Make M1 minimal in design and occupied size",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User rejected earlier bulky designs and requested the most slim minimal suggestions; then selected M1"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "judgment",
+            "criterion": "Current full-case handling and prolonged insertion are accepted",
+            "mode": "subjective",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "space",
+            "criterion": "Actual central sections recover usable space while preserving the existing individual tube passage",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m5.space"
+            ],
+            "evidence": [
+              "m5.space"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.secure",
+        "text": "Separate cap with no exterior hinge and a rounded joint that resists opening when struck in a backpack",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#user-instruction-and-architecture",
+          "statement": "User selected M1, accepted a separate cap, requested no exterior hinge, rounded overlap and resistance to popping open when hit in a backpack; authorized modelling"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "capture",
+            "criterion": "Actual flat capture, return and withdrawal have current CAD evidence",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m5.cad"
+            ],
+            "evidence": [
+              "m5.cad"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "contact-order",
+            "criterion": "Committed scale drawings and actual CAD witness first guide/catch contacts; old blocked ghost poses are identified",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m5.contact"
+            ],
+            "evidence": [
+              "m5.contact"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "holding",
+            "criterion": "Complete printed case holds under backpack handling and unintended release routes",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": [
+              "m1.failed.reference"
+            ]
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "travel.protection",
+        "text": "Protect the attached toothbrush and full toothpaste tube from outside backpack contents and pressure",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User said floss can travel elsewhere and the case mainly protects toothpaste and toothbrush from contact and crashes"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "protection",
+            "criterion": "Actual contents remain protected under use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.supportfree",
+        "text": "Make the selected architecture support-free",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User asked for a support-free rounded R2/C combination"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "slice",
+            "criterion": "Current full-case export pair smoke-slices with inspected support/bridge locations",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m5.slice"
+            ],
+            "evidence": [
+              "m5.slice"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Printed bridges and free mechanisms are adequate without supports",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.width-revision",
+        "text": "Reduce the previous M1 exterior width by 25 mm",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "width",
+            "criterion": "Historical exact74.2mm maximum width criterion",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "FAIL",
+            "coverage": "evidence",
+            "strategies": [
+              "m5.width"
+            ],
+            "evidence": [
+              "m5.width"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [
+          "25 mm reduction from the previous 99.2 mm exterior width"
+        ],
+        "coverage": "evidence"
+      },
+      {
+        "id": "closure.end-retention",
+        "text": "Use deeper/longer teeth and tight holding at both widthwise ends of the case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "operation",
+            "criterion": "Current leaf equals M4; isolated pressure evidence only, full-cap release remains separate",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m5.operation"
+            ],
+            "evidence": [
+              "m5.operation"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "comfort",
+            "criterion": "Printed controls release comfortably and recover",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.end-rounds",
+        "text": "Use substantially larger fillets at both top and bottom ends of the case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User additionally requests much larger fillets at both top and bottom ends of the case and asks that this be learned for future handled designs"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "rounds",
+            "criterion": "Handled end rounds preserved",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "m5.cad"
+            ],
+            "evidence": [
+              "m5.cad"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "m1.failed.reference",
+        "targets": [
+          [
+            "closure.secure",
+            "holding"
+          ]
+        ],
+        "status": "FAIL",
+        "summary": "Printed M1 releases without controls; negative reference, no M4 physical result.",
+        "reference": "notes/m1.md#full-box-print-feedback--2026-10-15",
+        "scope": {
+          "design": "slim-m1"
+        }
+      },
+      {
+        "id": "m5.cad",
+        "targets": [
+          [
+            "closure.secure",
+            "capture"
+          ],
+          [
+            "brush.fit",
+            "aperture"
+          ],
+          [
+            "paste.fit",
+            "aperture"
+          ],
+          [
+            "form.end-rounds",
+            "rounds"
+          ],
+          [
+            "test.fit",
+            "sample"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/m5/cad.json",
+        "scope": {
+          "design": "slim-m5",
+          "revision": "M5 unprinted space-recovery prototype",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "m5.space",
+        "targets": [
+          [
+            "form.minimal",
+            "space"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/m5/space_study.json",
+        "scope": {
+          "design": "slim-m5",
+          "revision": "M5 unprinted space-recovery prototype",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "m5.contact",
+        "targets": [
+          [
+            "closure.secure",
+            "contact-order"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/m5/contact.json",
+        "scope": {
+          "design": "slim-m5",
+          "revision": "M5 unprinted space-recovery prototype",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "m5.operation",
+        "targets": [
+          [
+            "closure.end-retention",
+            "operation"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/m5/cad.json",
+        "scope": {
+          "design": "slim-m5",
+          "revision": "M5 unprinted space-recovery prototype",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "m5.slice",
+        "targets": [
+          [
+            "print.supportfree",
+            "slice"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/m5/case_export_slice.json",
+        "scope": {
+          "design": "slim-m5",
+          "revision": "M5 unprinted space-recovery prototype",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "m5.sample-slice",
+        "targets": [
+          [
+            "test.fit",
+            "sample-slice"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/m5/joint_export_slice.json",
+        "scope": {
+          "design": "slim-m5",
+          "revision": "M5 unprinted space-recovery prototype",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "m5.width",
+        "targets": [
+          [
+            "form.width-revision",
+            "width"
+          ]
+        ],
+        "status": "FAIL",
+        "summary": "Flat 77mm keeps the M4 maximum; historical 74.2mm criterion still fails",
+        "reference": "notes/m5/../../m5_design.py",
+        "scope": {
+          "design": "slim-m5",
+          "revision": "M5 unprinted space-recovery prototype",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "m5.layout",
+        "text": "Short guards, stepped perimeter guide and flat77 shell preserve leaf/pocket and recover storage space",
+        "reference": "notes/m5.md"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "m5.limits",
+        "text": "Section stiffness and guide-first geometry support comparison, not a printed holding-force or shell-spreading rating",
+        "reference": "notes/m5.md"
+      }
+    ],
+    "directives": [
+      {
+        "id": "m5.space",
+        "text": "Explore useful interior recovery while retaining flat exterior, mechanism evidence and matching test piece",
+        "source": {
+          "reference": "notes/m5.md",
+          "statement": "User challenges excessive internal mechanism space; requests autonomous alternatives and a new reasonable variant; M4 unprinted"
+        }
+      }
+    ]
+  },
+  "help": null
+}
