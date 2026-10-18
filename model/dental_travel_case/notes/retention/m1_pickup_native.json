@@ -1,0 +1,118 @@
+{
+  "scope": "native planar geometry; no solver launch or contact-field extraction",
+  "input_sha256": "52d16932c76845d5dfb307a19ca170b62a04bb647c79fcd15d5f20eaa6e53313",
+  "case_sha256": "8898f70f9a0fdfa28a3617c08f83ab89a272dccbbc5055621ee703676949b58e",
+  "source": "/tmp/dental_m1_full_pickup",
+  "coordinate_tolerance_mm": 1e-06,
+  "retaining_plane_z_mm": 178.0,
+  "parts": {
+    "body": {
+      "selected_faces": 7166,
+      "retaining_faces": 102,
+      "retaining_area_mm2": 27.999999999999986,
+      "seat_faces": 1402,
+      "seat_z_range_mm": [
+        174.0,
+        174.0
+      ],
+      "seat_area_mm2": 516.7867071282213
+    },
+    "cap": {
+      "selected_faces": 12895,
+      "retaining_faces": 24,
+      "retaining_area_mm2": 31.919999999999977,
+      "seat_faces": 1458,
+      "seat_z_range_mm": [
+        174.15,
+        174.15
+      ],
+      "seat_area_mm2": 486.5569707964458
+    }
+  },
+  "catches": {
+    "-1": {
+      "slave": {
+        "face_count": 51,
+        "plane_z_range_mm": [
+          178.0,
+          178.0
+        ],
+        "outward_normal_min": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "outward_normal_max": [
+          -0.0,
+          -0.0,
+          -1.0
+        ]
+      },
+      "master": {
+        "face_count": 12,
+        "plane_z_range_mm": [
+          178.0,
+          178.0
+        ],
+        "outward_normal_min": [
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "outward_normal_max": [
+          -0.0,
+          -0.0,
+          1.0
+        ]
+      },
+      "coincident_footprint_area_mm2": 12.000000000000005
+    },
+    "1": {
+      "slave": {
+        "face_count": 51,
+        "plane_z_range_mm": [
+          178.0,
+          178.0
+        ],
+        "outward_normal_min": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "outward_normal_max": [
+          -0.0,
+          -0.0,
+          -1.0
+        ]
+      },
+      "master": {
+        "face_count": 12,
+        "plane_z_range_mm": [
+          178.0,
+          178.0
+        ],
+        "outward_normal_min": [
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "outward_normal_max": [
+          -0.0,
+          -0.0,
+          1.0
+        ]
+      },
+      "coincident_footprint_area_mm2": 12.000000000000007
+    }
+  },
+  "native_initial_contact": "UNKNOWN",
+  "limitations": [
+    "This does not identify the native matched projections or initial overclosure elsewhere.",
+    "Planar corner triangles represent these straight-boundary lands; all six face nodes are checked for coplanarity.",
+    "Positive capture area does not establish holding force, shell stability or resistance to release."
+  ],
+  "seat_gap_range_mm": [
+    0.15000000000000568,
+    0.15000000000000568
+  ]
+}

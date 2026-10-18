@@ -1,5 +1,6 @@
 """Gmsh geometry adapter. Called only inside the isolated worker."""
 from collections import Counter
+from pathlib import Path
 import numpy as np
 from execution.telemetry import operation
 
@@ -8,10 +9,11 @@ FACES = ((0,1,2,4,5,6), (0,3,1,7,8,4), (1,3,2,8,9,5), (2,3,0,9,7,6))
 
 
 @operation("analysis.mesh")
-def mesh_part(path, size, node_offset, element_offset):
+def mesh_part(path, size, node_offset, element_offset, *, min_size=None, curvature_points=None):
     import gmsh  # Saved-field geometry helpers need no mesher runtime libraries.
     gmsh.initialize()
     try:
+        gmsh.option.setString('General.LogFileName', str(Path(path).with_suffix('.mesh.log')))
         gmsh.option.setNumber('General.Terminal', 0)
         gmsh.option.setNumber('General.NumThreads', 1)
         gmsh.model.add('part')
@@ -19,7 +21,9 @@ def mesh_part(path, size, node_offset, element_offset):
         gmsh.model.occ.synchronize()
         if len(gmsh.model.getEntities(3)) != 1:
             raise ValueError('Mesher expects one volume per part')
-        gmsh.option.setNumber('Mesh.MeshSizeMin', size)
+        gmsh.option.setNumber('Mesh.MeshSizeMin', size if min_size is None else min_size)
+        if curvature_points is not None:
+            gmsh.option.setNumber('Mesh.MeshSizeFromCurvature', curvature_points)
         gmsh.option.setNumber('Mesh.MeshSizeMax', size)
         gmsh.option.setNumber('Mesh.ElementOrder', 2)
         gmsh.model.mesh.generate(3)

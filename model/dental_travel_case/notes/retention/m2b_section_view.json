@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/m2b_joint_view.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "front",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/m2b/m2b_joint_view_front.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          -1,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/m2b/m2b_joint_view_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014965000009397045,
+    "build": 3.633593304999522,
+    "selection": 0.0011990839993814006,
+    "validation": 0.05589395599963609,
+    "render_front": 1.0835231020028004,
+    "render_isometric": 0.20881003099202644,
+    "worker": 5.0645454460027395,
+    "total": 8.999668963006116
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "4ff35f683ec40670a1c40e3f048da6fd0825f662ffd934dfc001721a276e9dc1",
+    "artifact_identity": "478f2e800219b5f069efc7d399d648c92ae7d692812b796fd6b746aa5f040c83"
+  }
+}

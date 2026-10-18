@@ -1,0 +1,35 @@
+{
+  "case": "m1_eccentric",
+  "status": "failed",
+  "completed": false,
+  "metrics": {},
+  "history": [],
+  "assumptions": [
+    "mm, N, MPa; static loads ramp over time 0..1; motions may use recorded piecewise-linear progress.",
+    "Homogeneous isotropic elastic solids; no infill, creep, plasticity, fatigue or layer failure model.",
+    "Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.",
+    "Frictionless contact; enforcement and pairing depend on backend/formulation.",
+    "Numerical completion is not physical validation or a load rating."
+  ],
+  "warnings": [],
+  "errors": [
+    "Analysis worker exited with code -6: terminate called after throwing an instance of 'std::runtime_error'\n  what():  Failed to reach critical value in pass 1 for measure(s): ScaledJac\n"
+  ],
+  "provenance": {
+    "backend": "CalculiX",
+    "execution_resources": {
+      "peak_tree_rss_bytes": 84942848,
+      "sampled_tree_cpu_seconds": 1.7999999999999998,
+      "measurement": "sampled process tree",
+      "elapsed_seconds": 3.3630851469933987
+    }
+  },
+  "artifacts": {
+    "case": "case.json",
+    "worker_log": "worker.log.gz",
+    "fixture_geometry": [
+      "part_0.brep.gz"
+    ],
+    "raw_fields_retained": false
+  }
+}

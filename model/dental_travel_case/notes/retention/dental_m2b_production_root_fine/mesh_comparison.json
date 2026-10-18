@@ -1,0 +1,95 @@
+{
+  "scope": "One-level graded-mesh sensitivity of the actual production-root pressure fixture. Five-percent displacement and ten-percent strain/stress tolerances are numerical diagnostics; they are not asymptotic convergence, material acceptance, or retention qualification.",
+  "reference_directory": "dental_m2b_production_root_32",
+  "new_directory": "dental_m2b_production_root_fine",
+  "comparisons": {
+    "max_displacement_mm": {
+      "coarse": 2.693300257075267,
+      "refined": 2.7304175909226918,
+      "relative_change": 0.013594013593679484,
+      "relative_tolerance": 0.05,
+      "passes": true
+    },
+    "minimum_inward_tooth_displacement_mm.negative": {
+      "coarse": 2.207617,
+      "refined": 2.262921,
+      "relative_change": 0.02443920932281773,
+      "relative_tolerance": 0.05,
+      "passes": true
+    },
+    "minimum_inward_tooth_displacement_mm.positive": {
+      "coarse": 2.217314,
+      "refined": 2.260823,
+      "relative_change": 0.019244761752689087,
+      "relative_tolerance": 0.05,
+      "passes": true
+    },
+    "max_abs_principal_strain": {
+      "coarse": 0.007871931171537361,
+      "refined": 0.008861777179446289,
+      "relative_change": 0.11169836341684868,
+      "relative_tolerance": 0.1,
+      "passes": false
+    },
+    "max_von_mises_MPa": {
+      "coarse": 9.26295681072877,
+      "refined": 10.207301167100448,
+      "relative_change": 0.092516556620807,
+      "relative_tolerance": 0.1,
+      "passes": true
+    }
+  },
+  "channel_witnesses": {
+    "dental_m2b_production_root_32": {
+      "status": "SELECTED_QUADRATIC_FACES_SEPARATED",
+      "minimum_face_gap_lower_bound_mm": 0.32937825999999504
+    },
+    "dental_m2b_production_root_fine": {
+      "status": "SELECTED_QUADRATIC_FACES_SEPARATED",
+      "minimum_face_gap_lower_bound_mm": 0.29270055999999656
+    }
+  },
+  "mesh": {
+    "dental_m2b_production_root_32": {
+      "body_coupon": {
+        "nodes": 90470,
+        "elements": 46254,
+        "min_jacobian": 0.0006936196589276379
+      }
+    },
+    "dental_m2b_production_root_fine": {
+      "body_coupon": {
+        "nodes": 182772,
+        "elements": 96588,
+        "min_jacobian": 9.064001836865161e-05
+      }
+    }
+  },
+  "strain_peak_centroids_mm": {
+    "dental_m2b_production_root_32": [
+      32.574575150225,
+      -6.7473489435300005,
+      151.03086640025
+    ],
+    "dental_m2b_production_root_fine": [
+      32.65685943120883,
+      -1.4920816500173053,
+      150.97180079764394
+    ]
+  },
+  "final_minimum_tooth_inward_displacement_mm": {
+    "dental_m2b_production_root_32": {
+      "negative": 2.207617,
+      "positive": 2.217314
+    },
+    "dental_m2b_production_root_fine": {
+      "negative": 2.262921,
+      "positive": 2.260823
+    }
+  },
+  "raw_native_source_result_sha256": {
+    "dental_m2b_production_root_32": "3ef031a8e05f857f452bb0dad94f7df35952bc85a3f6b5637709ff5df3914bc2",
+    "dental_m2b_production_root_fine": "c0376f72e08b8e9d73f1c291f770f7620a8704c177126585a07fc3da78f19eff"
+  },
+  "retained_result_sha256": "16046f34890c6ef5d99adecfc4adbe74cb87b138cb409cd9111bf06189c8ff88"
+}

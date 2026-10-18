@@ -1,0 +1,366 @@
+{
+  "name": "m2b_production_root_press",
+  "nonlinear": true,
+  "max_increment": 0.1,
+  "parts": [
+    {
+      "name": "body_coupon",
+      "geometry": "part_0.brep",
+      "sha256": "79c281f385b4a2d613188e5c509bf4d14770b99829b1560fb8d0480aafe644cf",
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated homogeneous effective stiffness; no measured layer strength, infill, yield, fatigue or recovery. No strain acceptance threshold supplied.",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 2.1,
+      "mesh_min_size_mm": 0.35,
+      "mesh_curvature_points": 12
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            null,
+            null,
+            138.4
+          ],
+          "upper": [
+            null,
+            null,
+            138.4
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "annular_grip",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            -35.35,
+            -7.0,
+            169.0
+          ],
+          "upper": [
+            -35.35,
+            7.0,
+            171.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        3.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            35.35,
+            -7.0,
+            169.0
+          ],
+          "upper": [
+            35.35,
+            7.0,
+            171.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        -3.2,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": [
+    {
+      "name": "negative_pad",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            -35.35,
+            -7.0,
+            169.0
+          ],
+          "upper": [
+            -35.35,
+            7.0,
+            171.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "negative_tooth",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            -36.25,
+            -4.5,
+            177.9
+          ],
+          "upper": [
+            -32.449999999999996,
+            4.5,
+            182.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "negative_tip",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            -36.25,
+            -4.5,
+            182.3
+          ],
+          "upper": [
+            -32.449999999999996,
+            4.5,
+            182.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "negative_root_near",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            -36.25,
+            -7.0,
+            149.4
+          ],
+          "upper": [
+            -32.449999999999996,
+            7.0,
+            153.4
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "negative_leaf_inner",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            -32.55,
+            -7.0,
+            152.4
+          ],
+          "upper": [
+            -32.55,
+            7.0,
+            182.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "negative_liner_front",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            -29.549999999999997,
+            -7.0,
+            152.4
+          ],
+          "upper": [
+            -29.549999999999997,
+            7.0,
+            182.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "positive_pad",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            35.35,
+            -7.0,
+            169.0
+          ],
+          "upper": [
+            35.35,
+            7.0,
+            171.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "positive_tooth",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            32.449999999999996,
+            -4.5,
+            177.9
+          ],
+          "upper": [
+            36.25,
+            4.5,
+            182.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "positive_tip",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            32.449999999999996,
+            -4.5,
+            182.3
+          ],
+          "upper": [
+            36.25,
+            4.5,
+            182.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "positive_root_near",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            32.449999999999996,
+            -7.0,
+            149.4
+          ],
+          "upper": [
+            36.25,
+            7.0,
+            153.4
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "positive_leaf_inner",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            32.55,
+            -7.0,
+            152.4
+          ],
+          "upper": [
+            32.55,
+            7.0,
+            182.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "positive_liner_front",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            29.549999999999997,
+            -7.0,
+            152.4
+          ],
+          "upper": [
+            29.549999999999997,
+            7.0,
+            182.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "annular_grip",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            null,
+            null,
+            138.4
+          ],
+          "upper": [
+            null,
+            null,
+            138.4
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "remote_broad_wall",
+      "selection": {
+        "part": "body_coupon",
+        "region": {
+          "lower": [
+            -37.1,
+            25.6,
+            140.4
+          ],
+          "upper": [
+            37.1,
+            25.6,
+            172.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}

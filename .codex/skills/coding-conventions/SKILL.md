@@ -97,6 +97,14 @@ association when a harmless refactor changes a fingerprint. Never update hashes
 alone to make an unrelated design inherit physical success. Run affected checks;
 do not launch slices or solvers just for an instruction or interface refactor.
 
+Derive geometry selections from the selected variant's dimensions and verify
+that they cover the intended feature. A nonempty partial selection can silently
+renormalize a total force over the wrong area while the solve converges. The
+[dental retention review](../../../model/dental_travel_case/notes/m2.md#consistent-comparisons-and-numerical-limits)
+caught an old 8 mm selector on a widened 9 mm catch; actual native load area and
+whole-land CAD coverage exposed the defect. Test that coverage when dimensions
+or selection logic change, rather than asserting only that some faces exist.
+
 Qualify output readers against actual producer output, including valid numeric
 shorthand. The [dental liner review](../../../model/dental_travel_case_liner/README.md#toolpath-reader-correction)
 encountered Orca extrusion tokens such as `E.89832`; a leading-digit-only reader

@@ -189,6 +189,14 @@ timeouts and increasing one arbitrary cap to another. Use the
 The [phone-stand record](../../../../model/analysis_phone_stand/README.md#timeout-investigation-requested-by-the-user)
 documents the interrupted useful work and removed limits.
 
+For implementation–review work, complete a coherent implementation and prove its
+end-to-end behavior before invoking independent review. Avoid repeatedly delegating
+partially implemented fragments or using reviewers to do the implementer's own
+verification. The user explicitly corrected this cadence during the dental-case
+investigation on 2026-10-18 because repeated early reviews consumed inference quota.
+If a consequential technical blocker remains after a serious attempt, an honest
+partial result is acceptable. [Context](../../../../model/dental_travel_case/notes/m2.md#review-cadence-correction).
+
 ## Updating this record
 
 Record a repeated or explicit preference with its use context and a link to the

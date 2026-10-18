@@ -47,7 +47,8 @@ def evidence_files(directory):
                  recovery_log=('recovery.log',True),
                  increments=('analysis.sta', False), regions=('regions.json', True),
                  mesh_source_input=('mesh_source.inp',True), mesh_source_case=('mesh_source_case.json',False),
-                 fixture_geometry=[(p.name, True) for p in sorted(directory.glob('part_*.brep'))])
+                 fixture_geometry=[(p.name, True) for p in sorted(directory.glob('part_*.brep'))],
+                 mesh_logs=[(p.name, True) for p in sorted(directory.glob('part_*.mesh.log'))])
     replay = ('Decompress analysis.inp.gz in a new directory and run ccx -i analysis '
               'in the configured native environment to regenerate raw solver fields. '
               'Use the model analysis source to rebuild the current case; retained fixtures may be historical.')
@@ -93,11 +94,17 @@ class CalculixBackend:
     worker_module = 'physical_analysis.backends.worker'
     meshing_assumption = 'Quadratic tetrahedra; backend identifies strain measure and extraction; no stress singularity removal.'
 
+    def __init__(self, *, linear_solver="default"):
+        if linear_solver not in ("default", "iterative_scaling", "iterative_cholesky"):
+            raise ValueError("CalculiX linear_solver must be default, iterative_scaling or iterative_cholesky")
+        self.linear_solver = linear_solver
+
     def environment(self):
         return runtime_environment()
 
     def configure_request(self, request):
-        pass
+        if self.linear_solver != "default":
+            request["calculix"] = dict(linear_solver=self.linear_solver)
 
     def reuse_mesh(self, request, directory, source):
         """Backend-owned input identity; stable route keeps its existing deck guard."""
@@ -107,7 +114,8 @@ class CalculixBackend:
             for key,name in (('input_sha256','analysis.inp'),('case_sha256','case.json'))}
         if any(provenance.get(key)!=value for key,value in identity.items()):
             raise ValueError('Mesh source identity differs from its result provenance')
-        signature=lambda parts:[(p['name'],p['sha256'],p['mesh_size_mm']) for p in parts]
+        signature=lambda parts:[(p['name'],p['sha256'],p['mesh_size_mm'],
+                p.get('mesh_min_size_mm'),p.get('mesh_curvature_points')) for p in parts]
         if signature(previous['parts'])!=signature(request['parts']):
             raise ValueError('Mesh source geometry or mesh settings differ from the new case')
         shutil.copyfile(source/'analysis.inp',directory/'mesh_source.inp')
@@ -122,7 +130,8 @@ class CalculixBackend:
         # Reuse the existing backend snapshot/guard rather than storing another mesh format.
         return dict(backend=self.backend_name,runtime=runtime_identity(),
             implementation={p.name:digest(p) for p in Path(__file__).parent.glob('*.py')},
-            parts=[(p['name'],p['sha256'],p['mesh_size_mm']) for p in request['parts']],
+            parts=[(p['name'],p['sha256'],p['mesh_size_mm'],
+                p.get('mesh_min_size_mm'),p.get('mesh_curvature_points')) for p in request['parts']],
             ipc=request.get('ipc'),contacts=request['contacts'] if request.get('ipc') else None)
 
     @operation("analysis.prepare")
@@ -150,7 +159,9 @@ class CalculixBackend:
             shape.exportBrep(str(path))
             request['parts'].append(dict(name=part.name, geometry=path.name,
                 sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
-                material=asdict(part.material), mesh_size_mm=part.mesh_size_mm))
+                material=asdict(part.material), mesh_size_mm=part.mesh_size_mm,
+                mesh_min_size_mm=part.mesh_min_size_mm,
+                mesh_curvature_points=part.mesh_curvature_points))
         self.configure_request(request)
         return request
 

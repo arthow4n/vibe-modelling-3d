@@ -1,0 +1,43 @@
+{
+  "scope": "Actual full M1 assembly_case pickup=True exact CAD. Initial unstrained cap shift .15mm omits axial frictionless zero-work freeplay only. No force, off-axis, native-mesh or retention qualification.",
+  "source_sha256": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "retention_structure.py": "5eca898165d658169605899725109a2350fb2e74c3efd1d491f23322f814b48c",
+    "retention_pickup_geometry.py": "63c8d2d26bb483b1ce92e7bdf2a338b3903eef061e27e149822b5a4c9ed26a43"
+  },
+  "initial_lift_mm": 0.15,
+  "coincident_retaining_faces": [
+    {
+      "area_mm2": 11.999999999999996,
+      "hook_centroid_mm": [
+        35.02500000000003,
+        3.6240851589549685e-15,
+        178.0
+      ],
+      "receiver_centroid_mm": [
+        35.35,
+        3.734750082295373e-15,
+        178.0
+      ]
+    },
+    {
+      "area_mm2": 11.999999999999996,
+      "hook_centroid_mm": [
+        -35.02500000000003,
+        3.6240851589549685e-15,
+        178.0
+      ],
+      "receiver_centroid_mm": [
+        -35.35,
+        4.239554613804624e-15,
+        178.0
+      ]
+    }
+  ],
+  "body_cap_intersection_mm3_by_additional_cap_lift": {
+    "-0.01": 0.0,
+    "0": 0.0,
+    "0.01": 0.247497054604094
+  },
+  "status": "PASS"
+}

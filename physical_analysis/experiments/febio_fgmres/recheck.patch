@@ -1,0 +1,14 @@
+--- FGMRESSolver.cpp
++++ FGMRESSolver.cpp
+@@ -356,6 +356,11 @@
+ 
+ 	// Check the correctness and consistency of the newly set parameters
+ 	dfgmres_check(&ivar, &x[0], &F[0], &RCI_request, ipar, dpar, &m_tmp[0]);
++	if (RCI_request == -1001 || RCI_request == -1010 || RCI_request == -1011)
++	{
++		feLog("Rechecking corrected FGMRES workspace parameters.\n");
++		dfgmres_check(&ivar, &x[0], &F[0], &RCI_request, ipar, dpar, &m_tmp[0]);
++	}
+ 	if (RCI_request != 0) { MKL_Free_Buffers(); return false; }
+ 
+ 	// zero solution vector

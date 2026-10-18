@@ -1,0 +1,653 @@
+{
+  "case": "febio_iterative_contact",
+  "status": "completed_with_warnings",
+  "completed": true,
+  "metrics": {
+    "max_penetration_mm": 1.75239168575e-06,
+    "max_displacement_mm": 0.02,
+    "contact_detected": true,
+    "max_element_mean_abs_principal_green_strain": 0.00266358191949,
+    "max_force_balance_relative": 1.500932492461473e-07,
+    "observations": {
+      "receiving_surface": {
+        "min_mm": [
+          -8.33788956249e-05,
+          -7.78972960369e-05,
+          -0.0019150795735
+        ],
+        "max_mm": [
+          8.34723372821e-05,
+          7.8281264148e-05,
+          3.14059954416e-05
+        ],
+        "mean_mm": [
+          1.1127498559268165e-06,
+          6.361411425571592e-07,
+          -0.0005013657906361818
+        ]
+      }
+    },
+    "peak_reaction_force_N": {
+      "BC0": 13.547144316711217,
+      "BC1": 8.1249962559183e-05,
+      "BC2": 13.54714431644805
+    },
+    "peak_motion_force_N": {
+      "BC2": 13.547144316448051
+    },
+    "max_abs_principal_strain": 0.0034922094472036548,
+    "max_strain_part": "block",
+    "max_strain_element": 493,
+    "max_strain_integration_point": 5,
+    "max_strain_load_fraction": 1.0,
+    "max_strain_integration_point_natural_coordinates": [
+      0.679143178,
+      0.106952274,
+      0.106952274
+    ],
+    "max_strain_by_part": {
+      "block": 0.0034922094472036548,
+      "floor": 0.0021173723364598584
+    },
+    "strain_limits": {
+      "block": null,
+      "floor": null
+    },
+    "max_strain_element_centroid_mm": [
+      0.11698668692225,
+      0.11698668692225,
+      0.4724352833305
+    ],
+    "max_strain_recovery_mean_discrepancy": 4.1485110168945394e-12,
+    "path_completed": true
+  },
+  "history": [
+    {
+      "load_fraction": 0.0,
+      "reactions_N": {
+        "BC0": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "BC1": [
+          0.0,
+          0.0,
+          0
+        ],
+        "BC2": [
+          0,
+          0,
+          0.0
+        ]
+      },
+      "motion_force_N": {
+        "BC2": 0.0
+      },
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "max_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_mm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "max_displacement_mm": 0.0,
+      "max_penetration_mm": 0.0,
+      "contact_area_mm2": 0.0,
+      "max_element_mean_abs_principal_green_strain": 0.0,
+      "max_abs_principal_strain": 7.847718414596211e-16,
+      "strain_recovery_mean_discrepancy": 3.5850043501779515e-16,
+      "force_balance_residual_N": 0.0,
+      "force_balance_relative": 0.0
+    },
+    {
+      "load_fraction": 0.2,
+      "reactions_N": {
+        "BC0": [
+          -3.1447645704164628e-09,
+          4.12828889544112e-09,
+          -1.719183993021992e-09
+        ],
+        "BC1": [
+          -2.988272680909068e-20,
+          1.8970353373138e-21,
+          0
+        ],
+        "BC2": [
+          0,
+          0,
+          1.43693523704026e-07
+        ]
+      },
+      "motion_force_N": {
+        "BC2": -1.43693523704026e-07
+      },
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -4.81183778703e-12,
+            -1.12106112845e-11,
+            -1.47973094358e-12
+          ],
+          "max_mm": [
+            5.84886795755e-12,
+            1.60837782964e-12,
+            3.17600177531e-12
+          ],
+          "mean_mm": [
+            1.0559121141432354e-12,
+            -1.962400127337753e-12,
+            7.830320962293659e-14
+          ]
+        }
+      },
+      "max_displacement_mm": 0.00400000006453,
+      "max_penetration_mm": 0.0,
+      "contact_area_mm2": 0.0,
+      "max_element_mean_abs_principal_green_strain": 5.93880344345e-11,
+      "max_abs_principal_strain": 1.0197173222649371e-10,
+      "strain_recovery_mean_discrepancy": 2.0244449368551875e-14,
+      "force_balance_residual_N": 1.4206915727835987e-07,
+      "force_balance_relative": 1.4206915727835987e-07
+    },
+    {
+      "load_fraction": 0.4,
+      "reactions_N": {
+        "BC0": [
+          7.147679355022946e-14,
+          -6.19566619285946e-13,
+          -6.484363747019415e-13
+        ],
+        "BC1": [
+          1.4033946272574668e-20,
+          7.457963800354667e-20,
+          0
+        ],
+        "BC2": [
+          0,
+          0,
+          1.5009389768122619e-07
+        ]
+      },
+      "motion_force_N": {
+        "BC2": -1.5009389768122619e-07
+      },
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -7.50137425603e-16,
+            -2.91112891668e-16,
+            -5.00099405616e-16
+          ],
+          "max_mm": [
+            5.23921824047e-16,
+            1.12943976583e-15,
+            1.9337065304e-16
+          ],
+          "mean_mm": [
+            -9.600277150023854e-17,
+            2.1038125056924748e-16,
+            6.762885621850212e-18
+          ]
+        }
+      },
+      "max_displacement_mm": 0.00800000008849,
+      "max_penetration_mm": 0.0,
+      "contact_area_mm2": 0.0,
+      "max_element_mean_abs_principal_green_strain": 6.16648331076e-11,
+      "max_abs_principal_strain": 9.328828100096553e-11,
+      "strain_recovery_mean_discrepancy": 1.9088636543638346e-14,
+      "force_balance_residual_N": 1.500932492461473e-07,
+      "force_balance_relative": 1.500932492461473e-07
+    },
+    {
+      "load_fraction": 0.6,
+      "reactions_N": {
+        "BC0": [
+          2.3939420798479993e-07,
+          3.222264693999999e-06,
+          2.7163170426773444
+        ],
+        "BC1": [
+          -2.3923346161800743e-07,
+          -3.222047442220932e-06,
+          0
+        ],
+        "BC2": [
+          0,
+          0,
+          -2.7163170426807
+        ]
+      },
+      "motion_force_N": {
+        "BC2": 2.7163170426807
+      },
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -1.66235515713e-05,
+            -1.5524423208e-05,
+            -0.000382813639586
+          ],
+          "max_mm": [
+            1.66429134015e-05,
+            1.56067903871e-05,
+            6.32105352507e-06
+          ],
+          "mean_mm": [
+            2.2608671323440787e-07,
+            1.3133505428842236e-07,
+            -0.00010028323006426191
+          ]
+        }
+      },
+      "max_displacement_mm": 0.012,
+      "max_penetration_mm": 5.30900074709e-07,
+      "contact_area_mm2": 2.25449113794,
+      "max_element_mean_abs_principal_green_strain": 0.000533007151479,
+      "max_abs_principal_strain": 0.0006994845253899435,
+      "strain_recovery_mean_discrepancy": 7.898810855526935e-13,
+      "force_balance_residual_N": 2.702767473744776e-10,
+      "force_balance_relative": 4.9750559744657923e-11
+    },
+    {
+      "load_fraction": 0.721716515,
+      "reactions_N": {
+        "BC0": [
+          1.6834562309164802e-06,
+          1.5446800874313604e-05,
+          6.017903488321545
+        ],
+        "BC1": [
+          -1.6898428533940971e-06,
+          -1.544924151333435e-05,
+          0
+        ],
+        "BC2": [
+          0,
+          0,
+          -6.017903488273084
+        ]
+      },
+      "motion_force_N": {
+        "BC2": 6.017903488273084
+      },
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -3.68945346699e-05,
+            -3.44581977059e-05,
+            -0.000848944515396
+          ],
+          "max_mm": [
+            3.69409450118e-05,
+            3.46414390196e-05,
+            1.39777855304e-05
+          ],
+          "mean_mm": [
+            4.971717327806521e-07,
+            2.892104534905376e-07,
+            -0.00022233814416284148
+          ]
+        }
+      },
+      "max_displacement_mm": 0.0144343303062,
+      "max_penetration_mm": 9.74378282886e-07,
+      "contact_area_mm2": 2.16200490574,
+      "max_element_mean_abs_principal_green_strain": 0.00118159012269,
+      "max_abs_principal_strain": 0.0015502645851738143,
+      "strain_recovery_mean_discrepancy": 1.0640846002709722e-12,
+      "force_balance_residual_N": 6.837250051633255e-09,
+      "force_balance_relative": 5.680750145167366e-10
+    },
+    {
+      "load_fraction": 0.815069054,
+      "reactions_N": {
+        "BC0": [
+          7.637548952034445e-06,
+          3.037165568550715e-05,
+          8.546556536781758
+        ],
+        "BC1": [
+          -7.66261623961009e-06,
+          -3.0356626367546852e-05,
+          0
+        ],
+        "BC2": [
+          0,
+          0,
+          -8.546556536647289
+        ]
+      },
+      "motion_force_N": {
+        "BC2": 8.546556536647289
+      },
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -5.2469797553e-05,
+            -4.90093544708e-05,
+            -0.00120655849063
+          ],
+          "max_mm": [
+            5.25519093393e-05,
+            4.92646533638e-05,
+            1.98458330169e-05
+          ],
+          "mean_mm": [
+            7.00975962098893e-07,
+            4.080457587678108e-07,
+            -0.0003159668451799634
+          ]
+        }
+      },
+      "max_displacement_mm": 0.016301381083,
+      "max_penetration_mm": 1.17856588868e-06,
+      "contact_area_mm2": 2.17894496703,
+      "max_element_mean_abs_principal_green_strain": 0.00167878510504,
+      "max_abs_principal_strain": 0.002201592602786403,
+      "strain_recovery_mean_discrepancy": 2.855797415149129e-12,
+      "force_balance_residual_N": 2.922785312288391e-08,
+      "force_balance_relative": 1.7099167051549888e-09
+    },
+    {
+      "load_fraction": 0.904077254,
+      "reactions_N": {
+        "BC0": [
+          1.0518249743879382e-05,
+          4.980948145833636e-05,
+          10.954821419679055
+        ],
+        "BC1": [
+          -1.0551127280982115e-05,
+          -4.981600649404255e-05,
+          0
+        ],
+        "BC2": [
+          0,
+          0,
+          -10.954821419183416
+        ]
+      },
+      "motion_force_N": {
+        "BC2": 10.954821419183416
+      },
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -6.73363413121e-05,
+            -6.29030484194e-05,
+            -0.00154760276179
+          ],
+          "max_mm": [
+            6.74382868026e-05,
+            6.32244470678e-05,
+            2.54022053247e-05
+          ],
+          "mean_mm": [
+            8.962790090918498e-07,
+            5.194398021725155e-07,
+            -0.0004052086272316705
+          ]
+        }
+      },
+      "max_displacement_mm": 0.0180815450817,
+      "max_penetration_mm": 1.46008702754e-06,
+      "contact_area_mm2": 2.16228591309,
+      "max_element_mean_abs_principal_green_strain": 0.00215289735607,
+      "max_abs_principal_strain": 0.00282288710211867,
+      "strain_recovery_mean_discrepancy": 1.7567300299213021e-12,
+      "force_balance_residual_N": 3.352243913889274e-08,
+      "force_balance_relative": 1.5300277359391834e-09
+    },
+    {
+      "load_fraction": 0.993085454,
+      "reactions_N": {
+        "BC0": [
+          1.528333734912568e-05,
+          7.490362898086161e-05,
+          13.360311017790833
+        ],
+        "BC1": [
+          -1.5346711165557282e-05,
+          -7.49131188973115e-05,
+          0
+        ],
+        "BC2": [
+          0,
+          0,
+          -13.360311016903834
+        ]
+      },
+      "motion_force_N": {
+        "BC2": 13.360311016903834
+      },
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -8.22264750214e-05,
+            -7.681887206e-05,
+            -0.00188870056844
+          ],
+          "max_mm": [
+            8.23485805358e-05,
+            7.72043040215e-05,
+            3.096724182e-05
+          ],
+          "mean_mm": [
+            1.0897258092287385e-06,
+            6.293771644983188e-07,
+            -0.0004944513978418303
+          ]
+        }
+      },
+      "max_displacement_mm": 0.0198617090804,
+      "max_penetration_mm": 1.75239168575e-06,
+      "contact_area_mm2": 2.1622866441,
+      "max_element_mean_abs_principal_green_strain": 0.00262682836401,
+      "max_abs_principal_strain": 0.0034435473489099633,
+      "strain_recovery_mean_discrepancy": 4.1485110168945394e-12,
+      "force_balance_residual_N": 6.40865478565385e-08,
+      "force_balance_relative": 2.3983859496534403e-09
+    },
+    {
+      "load_fraction": 1.0,
+      "reactions_N": {
+        "BC0": [
+          4.885583576211272e-06,
+          8.110351572866714e-05,
+          13.547144316467563
+        ],
+        "BC1": [
+          -4.885895007094307e-06,
+          -8.11029250141343e-05,
+          0
+        ],
+        "BC2": [
+          0,
+          0,
+          -13.54714431644805
+        ]
+      },
+      "motion_force_N": {
+        "BC2": 13.547144316448051
+      },
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -8.33788956249e-05,
+            -7.78972960369e-05,
+            -0.0019150795735
+          ],
+          "max_mm": [
+            8.34723372821e-05,
+            7.8281264148e-05,
+            3.14059954416e-05
+          ],
+          "mean_mm": [
+            1.1127498559268165e-06,
+            6.361411425571592e-07,
+            -0.0005013657906361818
+          ]
+        }
+      },
+      "max_displacement_mm": 0.02,
+      "max_penetration_mm": 1.7104615949e-06,
+      "contact_area_mm2": 2.16228670732,
+      "max_element_mean_abs_principal_green_strain": 0.00266358191949,
+      "max_abs_principal_strain": 0.0034922094472036548,
+      "strain_recovery_mean_discrepancy": 2.966568223728425e-12,
+      "force_balance_residual_N": 6.68073882176336e-10,
+      "force_balance_relative": 2.4657295410752703e-11
+    }
+  ],
+  "assumptions": [
+    "mm, N, MPa; isotropic St Venant\u2013Kirchhoff elastic solid using the recorded E and Poisson ratio.",
+    "St Venant\u2013Kirchhoff law matches the CalculiX *ELASTIC/NLGEOM intent; eight rather than four volume quadrature points. No printed-layer calibration.",
+    "Frictionless sliding-elastic contact; projections update during iteration, no node relocation.",
+    "Peak absolute principal Green strain recovered from tet10 nodal fields at eight native quadrature points; means must agree with native element logs.",
+    "The provisional strain screen is conditional on the uncalibrated material and Green strain measure; numerical completion does not qualify a physical print."
+  ],
+  "warnings": [
+    "*                               WARNING                                 *"
+  ],
+  "errors": [],
+  "provenance": {
+    "backend": "FEBio",
+    "backend_sha256": {
+      "febio_worker.py": "eefada7fac769440095fc5b5029755450ec4a81e9324682c83ddeafdf964101a",
+      "contact_diagnostics.py": "2f708d98921416d255b35d05dbe09d5009b117b0f3c301d84f0ffbd2956c0b36",
+      "febio.py": "9ce9db51322e3144faaaf4d6782e1f22e56de5838405b51fda4e6525a45ad838",
+      "tet10_strain.py": "0eb4b4a1ec129adab94015e73126a650c3e62a281dae143b645b2c1953c1406a",
+      "polyfem_worker.py": "7cec9484b006980c9d96f3dd93858c03d16c224c203f96d4e919b33eb1738d41",
+      "febio_diagnostics.py": "b24d83c8b6dbf04396b2c50d69b9403a73dc2f695a240ef73c84c4e415584255",
+      "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+      "polyfem_output.py": "bd3b6e39db25f1c29e1a486f11c88f1d47980f97f544af6c945e02b98d112226",
+      "mesh.py": "557b59f5fcc10f1f9bbeb70e035cdb18707a5191817aaa971a8277824ef75b28",
+      "polyfem.py": "ed7584cf3ed337d58908c78e5cc92b8f40f632153bbfce7e730b086c5d13e9a9",
+      "ipc_benchmarks.py": "8e9800f1e5f42674c2872c2e3956dcf30248b00218471c26e4c943320f8c24b6",
+      "structural.py": "ef979dc3f0f36574f6a6196b0c0dd37cb8746f1a745369de45ea7c06fe2b574b",
+      "worker.py": "3f331ae4489f6041023ea6e78c140849207d965aaeefa873d5ae0ff1398d1e9e",
+      "polyfem_diagnostics.py": "e2bbad2721f8d8aa91990b99ca78f712f616fe9914d03f5d63ab840091069922"
+    },
+    "gmsh": "4.15.2",
+    "cadquery": "2.8.0",
+    "python": "3.14.7",
+    "linear_solver": {
+      "type": "fgmres",
+      "preconditioner": "ilut",
+      "max_iterations": 1000,
+      "restart_iterations": 150,
+      "relative_tolerance": 1e-08,
+      "absolute_tolerance": 1e-12,
+      "max_fill": 12,
+      "fill_tolerance": 1e-05,
+      "fail_max_iters": true,
+      "replace_zero_diagonal": false,
+      "print_level": 2
+    },
+    "command": [
+      "/home/hevar/.local/opt/febio-exploration/FEBio4/bin/febio4",
+      "-i",
+      "analysis.feb",
+      "-o",
+      "analysis.log"
+    ],
+    "executable_sha256": "c00b733dccf86f6696c504c739dda6dc9f42e63b9cf651e8149985ff783fb4b0",
+    "input_sha256": "8b976cbca51b9a57675c3191a05a8f20f0321a20bea8131acb11b1e445797523",
+    "native_input_sha256": "fae4a19768e9d85c86bf30bc8c195e739d55bf98ceec1e68d3d076a54a5a72e8",
+    "case_sha256": "b39c7c924f001eacb696efb68ddbc5868819536e13456d34d77cef7fcb6daa5b",
+    "mesh": {
+      "block": {
+        "nodes": 582,
+        "elements": 265,
+        "min_jacobian": 0.12703309424306428
+      },
+      "floor": {
+        "nodes": 603,
+        "elements": 267,
+        "min_jacobian": 0.12116089143990681
+      }
+    },
+    "contacts": [
+      {
+        "slave": {
+          "face_count": 26,
+          "parts": [
+            "block"
+          ],
+          "part": "block"
+        },
+        "master": {
+          "face_count": 68,
+          "parts": [
+            "floor"
+          ],
+          "part": "floor"
+        },
+        "discretization": "surface_to_surface",
+        "pairing_update": "once_per_increment"
+      }
+    ],
+    "native_libraries_sha256": {
+      "libfecore.so": "7fd1f21a0efb9a9a26782b85015cc3b8666b8e477a94f6084e576258f0b8e035",
+      "libfebiomech.so": "4174cfa99862bd9d2d1770b8b8ad14558d251d3662f743faafcae8e5b3e6d097",
+      "libnumcore.so": "3057297e029a344388a5018847ecd7eaa2423f57a60bbabcfaa35a0e3ae3b3f2"
+    },
+    "mesh_reuse": {
+      "input_sha256": "8b976cbca51b9a57675c3191a05a8f20f0321a20bea8131acb11b1e445797523",
+      "case_sha256": "be96f5a9535bda18d780bb9ffb6abd08545777db33b78c36f2be6cc2070acdbc",
+      "input": "mesh_source.inp",
+      "case": "mesh_source_case.json",
+      "mesh": {
+        "block": {
+          "nodes": 582,
+          "elements": 265,
+          "min_jacobian": 0.12703309424306428
+        },
+        "floor": {
+          "nodes": 603,
+          "elements": 267,
+          "min_jacobian": 0.12116089143990681
+        }
+      }
+    },
+    "postprocess_only": false,
+    "version": "4.13.0.3ef378562",
+    "execution_resources": {
+      "peak_tree_rss_bytes": 160759808,
+      "sampled_tree_cpu_seconds": 8.45,
+      "measurement": "sampled process tree",
+      "elapsed_seconds": 9.77216632499767
+    }
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "analysis.inp.gz",
+    "run_metadata": "run_metadata.json",
+    "solver_log": "solver.log.gz",
+    "worker_log": "worker.log.gz",
+    "mesh_source_input": "mesh_source.inp.gz",
+    "mesh_source_case": "mesh_source_case.json",
+    "fixture_geometry": [
+      "part_0.brep.gz",
+      "part_1.brep.gz"
+    ],
+    "native_input": "analysis.feb.gz",
+    "native_log": "analysis.log.gz",
+    "raw_fields_retained": false,
+    "reproduce": "Decompress analysis.feb.gz and run the recorded FEBio executable with -i analysis.feb in a new directory. analysis.inp is the shared mesh deck, not the native FEBio solve input. Peak Green strain uses recorded tet10 G8 kinematic recovery."
+  }
+}

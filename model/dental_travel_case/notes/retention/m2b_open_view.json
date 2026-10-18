@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/m2b_inspection.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/m2b/m2b_inspection_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.001504725994891487,
+    "build": 3.801579517996288,
+    "selection": 0.0009016490075737238,
+    "validation": 0.10716061199491378,
+    "render_isometric": 0.8570411440014141,
+    "worker": 4.856289005008875,
+    "total": 8.86692131399468
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "eade5f83e5636a8eac04856dbe9da1a25e6f3f683b3ead02136f0e08154715d0",
+    "artifact_identity": "c8dd50e50233ff3fe97c998a9d17516a96bfd8b598bb9c27d348ce7d52375360"
+  }
+}

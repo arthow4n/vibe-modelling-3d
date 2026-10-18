@@ -1,0 +1,176 @@
+{
+  "name": "iterative_contact",
+  "nonlinear": true,
+  "max_increment": 0.1,
+  "parts": [
+    {
+      "name": "block",
+      "geometry": "part_0.brep",
+      "sha256": "df00b228a026ffc1b7bfb3c57ea2fb379c130d99133897184302dcf0fb4d7d92",
+      "material": {
+        "name": "uniaxial",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0,
+        "source": "Poisson-zero uniaxial benchmark",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 0.8,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    },
+    {
+      "name": "floor",
+      "geometry": "part_1.brep",
+      "sha256": "2d4cf7001b95983909ddc90208e1794a8d37c934aeee79e795979138431630b6",
+      "material": {
+        "name": "uniaxial",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0,
+        "source": "Poisson-zero uniaxial benchmark",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 1,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "floor",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "BC0",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "block",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        null
+      ],
+      "name": "BC1",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "block",
+        "region": {
+          "lower": [
+            null,
+            null,
+            4.01
+          ],
+          "upper": [
+            null,
+            null,
+            4.01
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        null,
+        null,
+        -0.02
+      ],
+      "name": "BC2",
+      "progress": null
+    }
+  ],
+  "loads": [],
+  "contacts": [
+    {
+      "slave": {
+        "part": "block",
+        "region": {
+          "lower": [
+            null,
+            null,
+            0.01
+          ],
+          "upper": [
+            null,
+            null,
+            0.01
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "floor",
+        "region": {
+          "lower": [
+            null,
+            null,
+            0
+          ],
+          "upper": [
+            null,
+            null,
+            0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 120000,
+      "penetration_limit_mm": 0.05,
+      "discretization": "surface_to_surface"
+    }
+  ],
+  "observations": [],
+  "calculix": {
+    "linear_solver": "iterative_cholesky"
+  },
+  "mesh_reuse": {
+    "input_sha256": "5bc75df2b8ee0fdcc197705ad22706108af75a9c32052e26401315990508a7ad",
+    "case_sha256": "cff72d9c8b4be4980758f9cf48712fe009aebb87f4bf5d6c7e5e6222f05ac327",
+    "input": "mesh_source.inp",
+    "case": "mesh_source_case.json",
+    "mesh": {
+      "block": {
+        "nodes": 582,
+        "elements": 265,
+        "min_jacobian": 0.12703309424306428
+      },
+      "floor": {
+        "nodes": 411,
+        "elements": 186,
+        "min_jacobian": 0.2499999999999965
+      }
+    }
+  }
+}

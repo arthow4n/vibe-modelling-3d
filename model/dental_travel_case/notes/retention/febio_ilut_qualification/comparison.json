@@ -1,0 +1,130 @@
+{
+  "direct": {
+    "status": "completed_with_warnings",
+    "completed": true,
+    "errors": [],
+    "metrics": {
+      "max_penetration_mm": 1.75239168557e-06,
+      "max_displacement_mm": 0.02,
+      "contact_detected": true,
+      "max_element_mean_abs_principal_green_strain": 0.00266358191949,
+      "max_force_balance_relative": 2.3894790793917666e-09,
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -8.33788956281e-05,
+            -7.78972960369e-05,
+            -0.0019150795735
+          ],
+          "max_mm": [
+            8.34723372807e-05,
+            7.82812641451e-05,
+            3.14059954408e-05
+          ],
+          "mean_mm": [
+            1.112749852770388e-06,
+            6.36141143126712e-07,
+            -0.0005013657906356737
+          ]
+        }
+      },
+      "peak_reaction_force_N": {
+        "BC0": 13.547144316702758,
+        "BC1": 8.12499617899695e-05,
+        "BC2": 13.547144316450227
+      },
+      "peak_motion_force_N": {
+        "BC2": 13.547144316450227
+      },
+      "max_abs_principal_strain": 0.00349220944720544,
+      "max_strain_part": "block",
+      "max_strain_element": 493,
+      "max_strain_integration_point": 5,
+      "max_strain_load_fraction": 1.0,
+      "max_strain_integration_point_natural_coordinates": [
+        0.679143178,
+        0.106952274,
+        0.106952274
+      ],
+      "max_strain_by_part": {
+        "block": 0.00349220944720544,
+        "floor": 0.00211737233645701
+      },
+      "strain_limits": {
+        "block": null,
+        "floor": null
+      },
+      "max_strain_element_centroid_mm": [
+        0.11698668692230929,
+        0.11698668692230929,
+        0.47243528333064355
+      ],
+      "max_strain_recovery_mean_discrepancy": 3.984612691677025e-12,
+      "path_completed": true
+    },
+    "linear_solver": "native default"
+  },
+  "iterative": {
+    "status": "failed",
+    "completed": false,
+    "errors": [
+      "FEBio failed or did not finish (exit 1); see solver.log"
+    ],
+    "metrics": {},
+    "linear_solver": {
+      "type": "fgmres",
+      "preconditioner": "ilut",
+      "max_iterations": 1000,
+      "restart_iterations": 30,
+      "relative_tolerance": 1e-08,
+      "absolute_tolerance": 1e-12,
+      "max_fill": 12,
+      "fill_tolerance": 1e-05,
+      "fail_max_iters": true,
+      "replace_zero_diagonal": false,
+      "print_level": 2
+    }
+  },
+  "open": {
+    "status": "failed",
+    "completed": false,
+    "errors": [
+      "FEBio failed or did not finish (exit 1); see solver.log"
+    ],
+    "metrics": {},
+    "linear_solver": {
+      "type": "fgmres",
+      "preconditioner": "ilut",
+      "max_iterations": 1000,
+      "restart_iterations": 30,
+      "relative_tolerance": 1e-08,
+      "absolute_tolerance": 1e-12,
+      "max_fill": 12,
+      "fill_tolerance": 1e-05,
+      "fail_max_iters": true,
+      "replace_zero_diagonal": false,
+      "print_level": 2
+    }
+  },
+  "inadequate": {
+    "status": "failed",
+    "completed": false,
+    "errors": [
+      "FEBio failed or did not finish (exit 1); see solver.log"
+    ],
+    "metrics": {},
+    "linear_solver": {
+      "type": "fgmres",
+      "preconditioner": "ilut",
+      "max_iterations": 1,
+      "restart_iterations": 1,
+      "relative_tolerance": 1e-15,
+      "absolute_tolerance": 1e-15,
+      "max_fill": 1,
+      "fill_tolerance": 1e-05,
+      "fail_max_iters": true,
+      "replace_zero_diagonal": false,
+      "print_level": 2
+    }
+  }
+}

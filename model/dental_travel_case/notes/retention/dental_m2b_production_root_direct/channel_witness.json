@@ -1,0 +1,93 @@
+{
+  "status": "CONTACT_NOT_EXCLUDED",
+  "scope": "Convex-hull separation of actual deformed quadratic FEM planar inner-leaf and liner-front faces across all saved frames. Other faces, cap interaction, continuous load time between frames, exact CAD deformation and printed properties remain outside this witness.",
+  "minimum_continuous_face_gap_lower_bound_mm": -0.3405611900000025,
+  "history": [
+    {
+      "load_fraction": 0.1,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 2.6703194529999976,
+        "positive": 2.668876709999992
+      }
+    },
+    {
+      "load_fraction": 0.2,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 2.339520575999998,
+        "positive": 2.3366280999999915
+      }
+    },
+    {
+      "load_fraction": 0.3,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 2.007773124,
+        "positive": 2.003425375999999
+      }
+    },
+    {
+      "load_fraction": 0.4,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 1.6752505479999975,
+        "positive": 1.6694469339999998
+      }
+    },
+    {
+      "load_fraction": 0.5,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 1.3421324889999937,
+        "positive": 1.3348683659999985
+      }
+    },
+    {
+      "load_fraction": 0.6,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 1.008596039999997,
+        "positive": 0.999874909999992
+      }
+    },
+    {
+      "load_fraction": 0.7,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 0.6748259299999972,
+        "positive": 0.6646497999999958
+      }
+    },
+    {
+      "load_fraction": 0.8,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 0.34100239999999715,
+        "positive": 0.32937775999999275
+      }
+    },
+    {
+      "load_fraction": 0.9,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 0.007310679999999792,
+        "positive": -0.005753980000005043
+      }
+    },
+    {
+      "load_fraction": 1.0,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": -0.32606502000000503,
+        "positive": -0.3405611900000025
+      }
+    }
+  ],
+  "selected_face_counts": {
+    "negative_leaf_inner": 252,
+    "negative_liner_front": 270,
+    "positive_leaf_inner": 252,
+    "positive_liner_front": 266
+  },
+  "source_sha256": {
+    "m1_design": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396"
+  },
+  "input_sha256": "738b33dfba1a151092680a2b152cd8f3d4a555aaff105d01c66cedeac282495c",
+  "case_sha256": "b0aeb8b39448545056b5bbbfa8635afcc5619dc4d7fc012be637954e93f81099",
+  "raw_displacement_field_sha256": "36cf9266d89c9ff1cd3ce053f437c43e98db4c31b5928f03974d96ee88dec53d",
+  "nonpositive_bound_interpretation": "A conservative bound crossing zero does not prove contact, but prevents a contact-free conclusion from this witness.",
+  "raw_native_result_sha256": "d08d6c5678a2b8afa6a416e3c381cb7ef73591e12c6a23f875ab00d1d98f6c75",
+  "retained_result_sha256": "c41190c79776c88eda9f54bbdf071aacecffaa35eecb5dd7631fedfb6143cd0b"
+}

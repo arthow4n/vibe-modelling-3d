@@ -1,0 +1,410 @@
+{
+  "direct": {
+    "status": "completed_with_warnings",
+    "completed": true,
+    "errors": [],
+    "metrics": {
+      "max_penetration_mm": 1.75239168557e-06,
+      "max_displacement_mm": 0.02,
+      "contact_detected": true,
+      "max_element_mean_abs_principal_green_strain": 0.00266358191949,
+      "max_force_balance_relative": 2.3894790793917666e-09,
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -8.33788956281e-05,
+            -7.78972960369e-05,
+            -0.0019150795735
+          ],
+          "max_mm": [
+            8.34723372807e-05,
+            7.82812641451e-05,
+            3.14059954408e-05
+          ],
+          "mean_mm": [
+            1.112749852770388e-06,
+            6.36141143126712e-07,
+            -0.0005013657906356737
+          ]
+        }
+      },
+      "peak_reaction_force_N": {
+        "BC0": 13.547144316702758,
+        "BC1": 8.12499617899695e-05,
+        "BC2": 13.547144316450227
+      },
+      "peak_motion_force_N": {
+        "BC2": 13.547144316450227
+      },
+      "max_abs_principal_strain": 0.00349220944720544,
+      "max_strain_part": "block",
+      "max_strain_element": 493,
+      "max_strain_integration_point": 5,
+      "max_strain_load_fraction": 1.0,
+      "max_strain_integration_point_natural_coordinates": [
+        0.679143178,
+        0.106952274,
+        0.106952274
+      ],
+      "max_strain_by_part": {
+        "block": 0.00349220944720544,
+        "floor": 0.00211737233645701
+      },
+      "strain_limits": {
+        "block": null,
+        "floor": null
+      },
+      "max_strain_element_centroid_mm": [
+        0.11698668692230929,
+        0.11698668692230929,
+        0.47243528333064355
+      ],
+      "max_strain_recovery_mean_discrepancy": 3.984612691677025e-12,
+      "path_completed": true
+    },
+    "linear_solver": "native default"
+  },
+  "iterative": {
+    "status": "completed_with_warnings",
+    "completed": true,
+    "errors": [],
+    "metrics": {
+      "max_penetration_mm": 1.75239168601e-06,
+      "max_displacement_mm": 0.02,
+      "contact_detected": true,
+      "max_element_mean_abs_principal_green_strain": 0.00266358191949,
+      "max_force_balance_relative": 1.500932492461473e-07,
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -8.33788956229e-05,
+            -7.78972960389e-05,
+            -0.0019150795735
+          ],
+          "max_mm": [
+            8.34723372826e-05,
+            7.82812641483e-05,
+            3.14059954419e-05
+          ],
+          "mean_mm": [
+            1.112749857640839e-06,
+            6.361411437543068e-07,
+            -0.0005013657906361111
+          ]
+        }
+      },
+      "peak_reaction_force_N": {
+        "BC0": 13.547144316713824,
+        "BC1": 8.124996407568365e-05,
+        "BC2": 13.547144316446634
+      },
+      "peak_motion_force_N": {
+        "BC2": 13.547144316446632
+      },
+      "max_abs_principal_strain": 0.0034922094472036548,
+      "max_strain_part": "block",
+      "max_strain_element": 493,
+      "max_strain_integration_point": 5,
+      "max_strain_load_fraction": 1.0,
+      "max_strain_integration_point_natural_coordinates": [
+        0.679143178,
+        0.106952274,
+        0.106952274
+      ],
+      "max_strain_by_part": {
+        "block": 0.0034922094472036548,
+        "floor": 0.002117372336457397
+      },
+      "strain_limits": {
+        "block": null,
+        "floor": null
+      },
+      "max_strain_element_centroid_mm": [
+        0.11698668692225,
+        0.11698668692225,
+        0.4724352833305
+      ],
+      "max_strain_recovery_mean_discrepancy": 3.9845962722062775e-12,
+      "path_completed": true
+    },
+    "linear_solver": {
+      "type": "fgmres",
+      "preconditioner": "ilut",
+      "max_iterations": 1000,
+      "restart_iterations": 30,
+      "relative_tolerance": 1e-08,
+      "absolute_tolerance": 1e-12,
+      "max_fill": 12,
+      "fill_tolerance": 1e-05,
+      "fail_max_iters": true,
+      "replace_zero_diagonal": false,
+      "print_level": 2,
+      "plugin": {
+        "path": "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/libfgmres_restart_checked.so",
+        "sha256": "dac7511f0025bb3ab258ae80e5ce91e66a2db6a57c724f2f214b36428f0f498d",
+        "build_manifest": {
+          "commit": "3ef37856289269674827e1748313b6224c4041a7",
+          "sdk_hashes": {
+            "NumCore/FGMRESSolver.cpp": "d35dbb1b5a25ae6506f57b1e5813ea18129fb0d03736cdb4420d5adfd8218967",
+            "NumCore/FGMRESSolver.h": "fe0d0608dbbf2fe7d76b81bc9d567ea78df338234850b890b3a42c50bb8b20d9",
+            "FECore/version.h": "54c642d2426221028c203c1f65b86d84cb998c1eeae5598b9f00c2fea43a3184"
+          },
+          "sdk_header_tree_sha256": "4d89d82ed8fc0f56e21570bcc71c3b43326aeb6d37e897d7c6ed2d6e1f388fd3",
+          "runtime_hashes": {
+            "bin/febio4": "c00b733dccf86f6696c504c739dda6dc9f42e63b9cf651e8149985ff783fb4b0",
+            "lib/libnumcore.so": "3057297e029a344388a5018847ecd7eaa2423f57a60bbabcfaa35a0e3ae3b3f2",
+            "lib/libfecore.so": "7fd1f21a0efb9a9a26782b85015cc3b8666b8e477a94f6084e576258f0b8e035"
+          },
+          "sdk": "/tmp/dental_febio_exact_source",
+          "runtime": "/home/hevar/.local/opt/febio-exploration/FEBio4",
+          "command": [
+            "g++",
+            "-std=c++17",
+            "-O2",
+            "-fPIC",
+            "-shared",
+            "-DMKL_ISS",
+            "-I/tmp/dental_febio_exact_source",
+            "-I/tmp/dental_febio_exact_source/NumCore",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/RestartFGMRESSolver.cpp",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/plugin.cpp",
+            "-L/home/hevar/.local/opt/febio-exploration/FEBio4/lib",
+            "-Wl,-rpath,/home/hevar/.local/opt/febio-exploration/FEBio4/lib",
+            "-lfecore",
+            "-lnumcore",
+            "-o",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/libfgmres_restart_checked.so"
+          ],
+          "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+          "recipe_sha256": {
+            "README.md": "5e9d13d684425f2131fbe05d879f036a9e7ce843a1841b4deacdd4b8fff7e3da",
+            "build.py": "32de2a1e3375096c74a4e275a716dcc2e65fda79f1cd3e0553da50ce533c2af7",
+            "mkl_rci_abi.h": "5877e0dfcbc813856907f66847888d88b6e101a4240584aebf347306ed9d5063",
+            "plugin.cpp": "f739bf9e1f59ada922ee873029a4a753b1a863e4b605040f61fa7a8559d0eb94",
+            "recheck.patch": "01314500b5e730147705bba5734cd1adea946bcb92be46a93cd5e97dc1273e6a"
+          },
+          "generated_source_sha256": {
+            "FGMRESSolver.cpp": "4a0438a3359e9a46b01623e2542bac69aacabf02310ae6aef5fe266598f990de",
+            "FGMRESSolver.h": "fe0d0608dbbf2fe7d76b81bc9d567ea78df338234850b890b3a42c50bb8b20d9",
+            "RestartFGMRESSolver.cpp": "3d25d74bd622cf8680f3459b903507f538be5dbfccec80cdfdab6e7eed47a1ff",
+            "RestartFGMRESSolver.h": "a6a3d6685418b54404133745661d74a26d1fc364df43f9fa78e19a534c362cbc",
+            "mkl_rci_abi.h": "5877e0dfcbc813856907f66847888d88b6e101a4240584aebf347306ed9d5063",
+            "plugin.cpp": "f739bf9e1f59ada922ee873029a4a753b1a863e4b605040f61fa7a8559d0eb94"
+          },
+          "plugin_sha256": "dac7511f0025bb3ab258ae80e5ce91e66a2db6a57c724f2f214b36428f0f498d"
+        },
+        "manifest_sha256": "583fef636e235f3982715727cb6052a0fe97df674768fe9a0c2e9370f881f1e0"
+      }
+    }
+  },
+  "open": {
+    "status": "completed_with_warnings",
+    "completed": true,
+    "errors": [],
+    "metrics": {
+      "max_penetration_mm": 0.0,
+      "max_displacement_mm": 0.00500000003996,
+      "contact_detected": false,
+      "max_element_mean_abs_principal_green_strain": 2.35187983105e-11,
+      "max_force_balance_relative": 8.310003526356311e-08,
+      "observations": {
+        "receiving_surface": {
+          "min_mm": [
+            -8.18913430656e-12,
+            -1.71815580456e-12,
+            -3.94477522343e-12
+          ],
+          "max_mm": [
+            5.05845966578e-12,
+            1.35028380505e-11,
+            2.01365494021e-12
+          ],
+          "mean_mm": [
+            -1.4147361528710414e-12,
+            2.527540361763732e-12,
+            -9.524732897069789e-14
+          ]
+        }
+      },
+      "peak_reaction_force_N": {
+        "BC0": 6.962438525741227e-09,
+        "BC1": 3.211287200796097e-20,
+        "BC2": 8.07602130692597e-08
+      },
+      "peak_motion_force_N": {
+        "BC2": 8.07602130692597e-08
+      },
+      "max_abs_principal_strain": 3.382268328077543e-11,
+      "max_strain_part": "block",
+      "max_strain_element": 491,
+      "max_strain_integration_point": 7,
+      "max_strain_load_fraction": 1.0,
+      "max_strain_integration_point_natural_coordinates": [
+        0.106952274,
+        0.106952274,
+        0.679143178
+      ],
+      "max_strain_by_part": {
+        "block": 3.382268328077543e-11,
+        "floor": 2.6016449522074917e-11
+      },
+      "strain_limits": {
+        "block": null,
+        "floor": null
+      },
+      "max_strain_element_centroid_mm": [
+        1.859234374205,
+        0.1660807607165,
+        2.8172803580500005
+      ],
+      "max_strain_recovery_mean_discrepancy": 2.1902861137186593e-14,
+      "path_completed": true
+    },
+    "linear_solver": {
+      "type": "fgmres",
+      "preconditioner": "ilut",
+      "max_iterations": 1000,
+      "restart_iterations": 30,
+      "relative_tolerance": 1e-08,
+      "absolute_tolerance": 1e-12,
+      "max_fill": 12,
+      "fill_tolerance": 1e-05,
+      "fail_max_iters": true,
+      "replace_zero_diagonal": false,
+      "print_level": 2,
+      "plugin": {
+        "path": "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/libfgmres_restart_checked.so",
+        "sha256": "dac7511f0025bb3ab258ae80e5ce91e66a2db6a57c724f2f214b36428f0f498d",
+        "build_manifest": {
+          "commit": "3ef37856289269674827e1748313b6224c4041a7",
+          "sdk_hashes": {
+            "NumCore/FGMRESSolver.cpp": "d35dbb1b5a25ae6506f57b1e5813ea18129fb0d03736cdb4420d5adfd8218967",
+            "NumCore/FGMRESSolver.h": "fe0d0608dbbf2fe7d76b81bc9d567ea78df338234850b890b3a42c50bb8b20d9",
+            "FECore/version.h": "54c642d2426221028c203c1f65b86d84cb998c1eeae5598b9f00c2fea43a3184"
+          },
+          "sdk_header_tree_sha256": "4d89d82ed8fc0f56e21570bcc71c3b43326aeb6d37e897d7c6ed2d6e1f388fd3",
+          "runtime_hashes": {
+            "bin/febio4": "c00b733dccf86f6696c504c739dda6dc9f42e63b9cf651e8149985ff783fb4b0",
+            "lib/libnumcore.so": "3057297e029a344388a5018847ecd7eaa2423f57a60bbabcfaa35a0e3ae3b3f2",
+            "lib/libfecore.so": "7fd1f21a0efb9a9a26782b85015cc3b8666b8e477a94f6084e576258f0b8e035"
+          },
+          "sdk": "/tmp/dental_febio_exact_source",
+          "runtime": "/home/hevar/.local/opt/febio-exploration/FEBio4",
+          "command": [
+            "g++",
+            "-std=c++17",
+            "-O2",
+            "-fPIC",
+            "-shared",
+            "-DMKL_ISS",
+            "-I/tmp/dental_febio_exact_source",
+            "-I/tmp/dental_febio_exact_source/NumCore",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/RestartFGMRESSolver.cpp",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/plugin.cpp",
+            "-L/home/hevar/.local/opt/febio-exploration/FEBio4/lib",
+            "-Wl,-rpath,/home/hevar/.local/opt/febio-exploration/FEBio4/lib",
+            "-lfecore",
+            "-lnumcore",
+            "-o",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/libfgmres_restart_checked.so"
+          ],
+          "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+          "recipe_sha256": {
+            "README.md": "5e9d13d684425f2131fbe05d879f036a9e7ce843a1841b4deacdd4b8fff7e3da",
+            "build.py": "32de2a1e3375096c74a4e275a716dcc2e65fda79f1cd3e0553da50ce533c2af7",
+            "mkl_rci_abi.h": "5877e0dfcbc813856907f66847888d88b6e101a4240584aebf347306ed9d5063",
+            "plugin.cpp": "f739bf9e1f59ada922ee873029a4a753b1a863e4b605040f61fa7a8559d0eb94",
+            "recheck.patch": "01314500b5e730147705bba5734cd1adea946bcb92be46a93cd5e97dc1273e6a"
+          },
+          "generated_source_sha256": {
+            "FGMRESSolver.cpp": "4a0438a3359e9a46b01623e2542bac69aacabf02310ae6aef5fe266598f990de",
+            "FGMRESSolver.h": "fe0d0608dbbf2fe7d76b81bc9d567ea78df338234850b890b3a42c50bb8b20d9",
+            "RestartFGMRESSolver.cpp": "3d25d74bd622cf8680f3459b903507f538be5dbfccec80cdfdab6e7eed47a1ff",
+            "RestartFGMRESSolver.h": "a6a3d6685418b54404133745661d74a26d1fc364df43f9fa78e19a534c362cbc",
+            "mkl_rci_abi.h": "5877e0dfcbc813856907f66847888d88b6e101a4240584aebf347306ed9d5063",
+            "plugin.cpp": "f739bf9e1f59ada922ee873029a4a753b1a863e4b605040f61fa7a8559d0eb94"
+          },
+          "plugin_sha256": "dac7511f0025bb3ab258ae80e5ce91e66a2db6a57c724f2f214b36428f0f498d"
+        },
+        "manifest_sha256": "583fef636e235f3982715727cb6052a0fe97df674768fe9a0c2e9370f881f1e0"
+      }
+    }
+  },
+  "inadequate": {
+    "status": "failed",
+    "completed": false,
+    "errors": [
+      "FEBio failed or did not finish (exit 1); see solver.log"
+    ],
+    "metrics": {},
+    "linear_solver": {
+      "type": "fgmres",
+      "preconditioner": "ilut",
+      "max_iterations": 1,
+      "restart_iterations": 1,
+      "relative_tolerance": 1e-15,
+      "absolute_tolerance": 1e-15,
+      "max_fill": 1,
+      "fill_tolerance": 1e-05,
+      "fail_max_iters": true,
+      "replace_zero_diagonal": false,
+      "print_level": 2,
+      "plugin": {
+        "path": "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/libfgmres_restart_checked.so",
+        "sha256": "dac7511f0025bb3ab258ae80e5ce91e66a2db6a57c724f2f214b36428f0f498d",
+        "build_manifest": {
+          "commit": "3ef37856289269674827e1748313b6224c4041a7",
+          "sdk_hashes": {
+            "NumCore/FGMRESSolver.cpp": "d35dbb1b5a25ae6506f57b1e5813ea18129fb0d03736cdb4420d5adfd8218967",
+            "NumCore/FGMRESSolver.h": "fe0d0608dbbf2fe7d76b81bc9d567ea78df338234850b890b3a42c50bb8b20d9",
+            "FECore/version.h": "54c642d2426221028c203c1f65b86d84cb998c1eeae5598b9f00c2fea43a3184"
+          },
+          "sdk_header_tree_sha256": "4d89d82ed8fc0f56e21570bcc71c3b43326aeb6d37e897d7c6ed2d6e1f388fd3",
+          "runtime_hashes": {
+            "bin/febio4": "c00b733dccf86f6696c504c739dda6dc9f42e63b9cf651e8149985ff783fb4b0",
+            "lib/libnumcore.so": "3057297e029a344388a5018847ecd7eaa2423f57a60bbabcfaa35a0e3ae3b3f2",
+            "lib/libfecore.so": "7fd1f21a0efb9a9a26782b85015cc3b8666b8e477a94f6084e576258f0b8e035"
+          },
+          "sdk": "/tmp/dental_febio_exact_source",
+          "runtime": "/home/hevar/.local/opt/febio-exploration/FEBio4",
+          "command": [
+            "g++",
+            "-std=c++17",
+            "-O2",
+            "-fPIC",
+            "-shared",
+            "-DMKL_ISS",
+            "-I/tmp/dental_febio_exact_source",
+            "-I/tmp/dental_febio_exact_source/NumCore",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/RestartFGMRESSolver.cpp",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/plugin.cpp",
+            "-L/home/hevar/.local/opt/febio-exploration/FEBio4/lib",
+            "-Wl,-rpath,/home/hevar/.local/opt/febio-exploration/FEBio4/lib",
+            "-lfecore",
+            "-lnumcore",
+            "-o",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/libfgmres_restart_checked.so"
+          ],
+          "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+          "recipe_sha256": {
+            "README.md": "5e9d13d684425f2131fbe05d879f036a9e7ce843a1841b4deacdd4b8fff7e3da",
+            "build.py": "32de2a1e3375096c74a4e275a716dcc2e65fda79f1cd3e0553da50ce533c2af7",
+            "mkl_rci_abi.h": "5877e0dfcbc813856907f66847888d88b6e101a4240584aebf347306ed9d5063",
+            "plugin.cpp": "f739bf9e1f59ada922ee873029a4a753b1a863e4b605040f61fa7a8559d0eb94",
+            "recheck.patch": "01314500b5e730147705bba5734cd1adea946bcb92be46a93cd5e97dc1273e6a"
+          },
+          "generated_source_sha256": {
+            "FGMRESSolver.cpp": "4a0438a3359e9a46b01623e2542bac69aacabf02310ae6aef5fe266598f990de",
+            "FGMRESSolver.h": "fe0d0608dbbf2fe7d76b81bc9d567ea78df338234850b890b3a42c50bb8b20d9",
+            "RestartFGMRESSolver.cpp": "3d25d74bd622cf8680f3459b903507f538be5dbfccec80cdfdab6e7eed47a1ff",
+            "RestartFGMRESSolver.h": "a6a3d6685418b54404133745661d74a26d1fc364df43f9fa78e19a534c362cbc",
+            "mkl_rci_abi.h": "5877e0dfcbc813856907f66847888d88b6e101a4240584aebf347306ed9d5063",
+            "plugin.cpp": "f739bf9e1f59ada922ee873029a4a753b1a863e4b605040f61fa7a8559d0eb94"
+          },
+          "plugin_sha256": "dac7511f0025bb3ab258ae80e5ce91e66a2db6a57c724f2f214b36428f0f498d"
+        },
+        "manifest_sha256": "583fef636e235f3982715727cb6052a0fe97df674768fe9a0c2e9370f881f1e0"
+      }
+    }
+  }
+}

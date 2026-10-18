@@ -33,7 +33,9 @@ def progress_expression(points):
                     for a, b in zip(points, points[1:]))
 
 
-def mesh_geometry(path, size, volume):
+def mesh_geometry(path, size, volume, *, min_size=None, curvature_points=None):
+    if min_size is not None and min_size > size:
+        raise ValueError('Minimum mesh size exceeds selected IPC mesh size')
     import gmsh
     gmsh.initialize()
     try:
@@ -44,7 +46,9 @@ def mesh_geometry(path, size, volume):
         gmsh.model.occ.synchronize()
         if len(gmsh.model.getEntities(3)) != 1:
             raise ValueError('IPC mesher requires one connected CAD solid')
-        gmsh.option.setNumber('Mesh.MeshSizeMin', size)
+        gmsh.option.setNumber('Mesh.MeshSizeMin', size if min_size is None else min_size)
+        if curvature_points is not None:
+            gmsh.option.setNumber('Mesh.MeshSizeFromCurvature', curvature_points)
         gmsh.option.setNumber('Mesh.MeshSizeMax', size)
         gmsh.option.setNumber('Mesh.ElementOrder', 1)
         gmsh.model.mesh.generate(3 if volume else 2)
@@ -95,7 +99,8 @@ def compile_scene(case, directory):
     for index, part in enumerate(case['parts']):
         volume = part['name'] == flexible
         size = part['mesh_size_mm'] if volume else settings['obstacle_mesh_size_mm'] or part['mesh_size_mm']
-        mesh = reused[part['name']] if reused else mesh_geometry(directory/part['geometry'], size, volume)
+        mesh = reused[part['name']] if reused else mesh_geometry(directory/part['geometry'], size, volume,
+            min_size=part.get('mesh_min_size_mm'), curvature_points=part.get('mesh_curvature_points'))
         points = np.array(mesh['points_mm']); triangles = np.array(mesh['triangles'])
         if volume:
             surface_selections = []

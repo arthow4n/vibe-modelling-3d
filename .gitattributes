@@ -1,3 +1,5 @@
 # STEP exporters emit harmless trailing spaces. Preserve text diffs.
 model/**/*.step -whitespace
 model/**/*.stp -whitespace
+# Unified-diff context preserves the pinned upstream source's indentation.
+physical_analysis/experiments/febio_fgmres/recheck.patch -whitespace

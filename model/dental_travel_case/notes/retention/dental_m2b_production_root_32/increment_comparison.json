@@ -1,0 +1,52 @@
+{
+  "scope": "Same native mesh, material, grip, pressure selection and matching actual load; earlier saved frame versus new final frame. Later frames in the earlier run do not alter this equilibrium. Increment qualification only; no mesh, contact, material or product acceptance.",
+  "reference_directory": "dental_m2b_production_root_direct",
+  "new_directory": "dental_m2b_production_root_32",
+  "reference_fraction": 0.8,
+  "matching_final_force_vectors_N": [
+    [
+      3.2,
+      0.0,
+      0.0
+    ],
+    [
+      -3.2,
+      0.0,
+      0.0
+    ]
+  ],
+  "minimum_selected_face_channel_bound_over_compared_subpaths_mm": {
+    "dental_m2b_production_root_direct": 0.32937775999999275,
+    "dental_m2b_production_root_32": 0.32937825999999504
+  },
+  "reference_maximum_load_increment_N": 0.4,
+  "new_maximum_load_increment_N": 0.32000000000000006,
+  "comparisons": {
+    "max_displacement_mm": {
+      "coarse": 2.6933002569059137,
+      "refined": 2.693300257075267,
+      "relative_change": 6.287951732504833e-11,
+      "relative_tolerance": 0.01,
+      "passes": true
+    },
+    "max_abs_principal_strain": {
+      "coarse": 0.007871930195878899,
+      "refined": 0.007871931171537361,
+      "relative_change": 1.2394143708155414e-07,
+      "relative_tolerance": 0.01,
+      "passes": true
+    }
+  },
+  "maximum_observation_summary_component_difference_mm": 9.999999999177334e-07,
+  "final_strain_peak_centroid_mm": [
+    32.574575150225,
+    -6.7473489435300005,
+    151.03086640025
+  ],
+  "final_strain_peak_is_over_full_new_run": true,
+  "raw_native_source_result_sha256": {
+    "dental_m2b_production_root_direct": "d08d6c5678a2b8afa6a416e3c381cb7ef73591e12c6a23f875ab00d1d98f6c75",
+    "dental_m2b_production_root_32": "3ef031a8e05f857f452bb0dad94f7df35952bc85a3f6b5637709ff5df3914bc2"
+  },
+  "retained_result_sha256": "610496ec7fbdab9f429e995e2aa0119df917d8017dd07d821f6e45b675e46bb1"
+}

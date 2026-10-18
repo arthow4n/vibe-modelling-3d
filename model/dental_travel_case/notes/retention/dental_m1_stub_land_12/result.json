@@ -1,0 +1,907 @@
+{
+  "case": "m1_eccentric",
+  "status": "completed",
+  "completed": true,
+  "metrics": {
+    "max_displacement_mm": 1.361578953131652,
+    "max_abs_principal_strain": 0.005206511577483733,
+    "max_strain_part": "catch",
+    "max_strain_element": 6385,
+    "max_strain_integration_point": 4,
+    "max_strain_element_centroid_mm": [
+      -34.275000000000034,
+      3.714285714285715,
+      178.25
+    ],
+    "max_von_mises_MPa": 6.20399635362139,
+    "max_stress_part": "catch",
+    "max_stress_element": 6385,
+    "max_stress_integration_point": 4,
+    "max_stress_element_centroid_mm": [
+      -34.275000000000034,
+      3.714285714285715,
+      178.25
+    ],
+    "max_strain_by_part": {
+      "catch": 0.005206511577483733
+    },
+    "force_balance_residual_N": 3.2872774849322775e-07,
+    "force_balance_relative": 2.7393978363101366e-08,
+    "max_force_balance_relative": 8.871235956547529e-08,
+    "peak_reaction_force_N": {
+      "root": 12.000000296999993
+    },
+    "observations": {
+      "shoulder": {
+        "min_mm": [
+          1.043754,
+          -0.001307947,
+          0.04730539
+        ],
+        "max_mm": [
+          1.053753,
+          0.001475688,
+          0.1906775
+        ],
+        "mean_mm": [
+          1.0462092879999998,
+          7.817914891119999e-05,
+          0.11460454223999998
+        ]
+      }
+    },
+    "peak_motion_force_N": {},
+    "strain_limits": {
+      "catch": 0.01
+    },
+    "contact_detected": null,
+    "max_penetration_mm": 0
+  },
+  "history": [
+    {
+      "load_fraction": 0.05,
+      "max_displacement_mm": 0.12496278088874495,
+      "force_balance_residual_N": 2.3827731545120478e-08,
+      "force_balance_relative": 2.3827731545120478e-08,
+      "max_abs_principal_strain": 0.0002484375769872417,
+      "reactions_N": {
+        "root": [
+          -9.140000110929858e-10,
+          6.967000084484587e-10,
+          -0.6000000238000003
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.09949488,
+            -6.401589e-05,
+            0.004957061
+          ],
+          "max_mm": [
+            0.09999281,
+            8.737789e-05,
+            0.01626393
+          ],
+          "mean_mm": [
+            0.09958332935999996,
+            1.3392939215999998e-05,
+            0.010223239047999998
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.1,
+      "max_displacement_mm": 0.23924509428471383,
+      "force_balance_residual_N": 3.089911572593011e-08,
+      "force_balance_relative": 2.5749262735868967e-08,
+      "max_abs_principal_strain": 0.0004989083241483595,
+      "reactions_N": {
+        "root": [
+          2.1618000289186368e-08,
+          1.3841150019958809e-08,
+          -1.200000017200001
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.1901084,
+            -0.0001283675,
+            0.009291886
+          ],
+          "max_mm": [
+            0.1911046,
+            0.000171993,
+            0.03113682
+          ],
+          "mean_mm": [
+            0.1902838136,
+            2.4687946686399993e-05,
+            0.01947122338399999
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.15,
+      "max_displacement_mm": 0.34418168158890994,
+      "force_balance_residual_N": 1.2107521236475692e-07,
+      "force_balance_relative": 6.726400312868343e-08,
+      "max_abs_principal_strain": 0.0007511980162972789,
+      "reactions_N": {
+        "root": [
+          6.729699972632397e-08,
+          -1.0502899993290737e-08,
+          -1.8000001000999994
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.2729458,
+            -0.000192904,
+            0.01311992
+          ],
+          "max_mm": [
+            0.2744427,
+            0.0002542558,
+            0.04482872
+          ],
+          "mean_mm": [
+            0.2732112223999999,
+            3.423116924000003e-05,
+            0.02790279823999999
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.2,
+      "max_displacement_mm": 0.44089419129962243,
+      "force_balance_residual_N": 4.880083427067774e-08,
+      "force_balance_relative": 2.0333680559775808e-08,
+      "max_abs_principal_strain": 0.0010051219437898825,
+      "reactions_N": {
+        "root": [
+          -1.5658999853729316e-08,
+          7.547000012778082e-09,
+          -2.4000000455999984
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.3489304,
+            -0.0002575114,
+            0.01653219
+          ],
+          "max_mm": [
+            0.3509386,
+            0.0003344993,
+            0.05751024
+          ],
+          "mean_mm": [
+            0.3492986544,
+            4.230109163200001e-05,
+            0.03564548352000001
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.25,
+      "max_displacement_mm": 0.5303324402334733,
+      "force_balance_residual_N": 1.053106348655362e-07,
+      "force_balance_relative": 3.5103544955178734e-08,
+      "max_abs_principal_strain": 0.0012605224111246946,
+      "reactions_N": {
+        "root": [
+          -7.792329926453734e-08,
+          1.95110000352286e-08,
+          -2.9999999319
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.4188576,
+            -0.0003221036,
+            0.01960116
+          ],
+          "max_mm": [
+            0.4213818,
+            0.0004129966,
+            0.06932125
+          ],
+          "mean_mm": [
+            0.41933684639999996,
+            4.9124009032000014e-05,
+            0.04280267304000001
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.3,
+      "max_displacement_mm": 0.6133058662996048,
+      "force_balance_residual_N": 2.2862625182759122e-07,
+      "force_balance_relative": 6.35072921743309e-08,
+      "max_abs_principal_strain": 0.0015172634152624583,
+      "reactions_N": {
+        "root": [
+          -1.0209000707306348e-08,
+          4.8451000024540836e-08,
+          -3.5999997768000003
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.4834054,
+            -0.0003873821,
+            0.02238495
+          ],
+          "max_mm": [
+            0.4864458,
+            0.0004899732,
+            0.08037736
+          ],
+          "mean_mm": [
+            0.48400000640000007,
+            5.488524239999998e-05,
+            0.04945887319999999
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.35,
+      "max_displacement_mm": 0.6905089065782252,
+      "force_balance_residual_N": 3.725919333555365e-07,
+      "force_balance_relative": 8.871235956547529e-08,
+      "max_abs_principal_strain": 0.0017752294886898108,
+      "reactions_N": {
+        "root": [
+          2.605399991931212e-07,
+          5.1633000028306064e-08,
+          -4.2000002613000005
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.5431535,
+            -0.0004531923,
+            0.02493054
+          ],
+          "max_mm": [
+            0.5467085,
+            0.0005656169,
+            0.09077489
+          ],
+          "mean_mm": [
+            0.5438665936,
+            5.9737779296e-05,
+            0.055683704799999977
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.4,
+      "max_displacement_mm": 0.7625396225632298,
+      "force_balance_residual_N": 3.111281271914817e-07,
+      "force_balance_relative": 6.481835983155867e-08,
+      "max_abs_principal_strain": 0.0020343153038249687,
+      "reactions_N": {
+        "root": [
+          2.5437000161082635e-07,
+          3.881500009600414e-08,
+          -4.799999825100002
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.5986011,
+            -0.0005191217,
+            0.02727612
+          ],
+          "max_mm": [
+            0.6026681,
+            0.0006400849,
+            0.1005946
+          ],
+          "mean_mm": [
+            0.5994351071999998,
+            6.380859778399999e-05,
+            0.06153487592
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.45,
+      "max_displacement_mm": 0.8299168963766859,
+      "force_balance_residual_N": 1.8674778126973311e-07,
+      "force_balance_relative": 3.458292245735798e-08,
+      "max_abs_principal_strain": 0.002294434428091703,
+      "reactions_N": {
+        "root": [
+          8.3699999930964e-08,
+          -1.7693000047697138e-08,
+          -5.399999833999999
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.6501814,
+            -0.0005851193,
+            0.02945297
+          ],
+          "max_mm": [
+            0.6547572,
+            0.00071351,
+            0.1099046
+          ],
+          "mean_mm": [
+            0.6511381736000003,
+            6.720403788800002e-05,
+            0.06706062711999998
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.5,
+      "max_displacement_mm": 0.8930923957900426,
+      "force_balance_residual_N": 3.4876388783321993e-07,
+      "force_balance_relative": 5.812731164531341e-08,
+      "max_abs_principal_strain": 0.002555505474256742,
+      "reactions_N": {
+        "root": [
+          1.432330009459859e-07,
+          7.509700014445009e-08,
+          -6.000000309000001
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.6982717,
+            -0.0006511443,
+            0.03148687
+          ],
+          "max_mm": [
+            0.7033522,
+            0.0007860049,
+            0.1187628
+          ],
+          "mean_mm": [
+            0.6993525031999996,
+            7.001349770399996e-05,
+            0.07230147992
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.55,
+      "max_displacement_mm": 0.9524613255966111,
+      "force_balance_residual_N": 1.6709747508044365e-07,
+      "force_balance_relative": 2.5317798828813342e-08,
+      "max_abs_principal_strain": 0.0028174622192745,
+      "reactions_N": {
+        "root": [
+          8.851400203069293e-08,
+          8.812399994798104e-08,
+          -6.600000110999996
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.7432021,
+            -0.0007171635,
+            0.03339912
+          ],
+          "max_mm": [
+            0.7487831,
+            0.0008576659,
+            0.1272188
+          ],
+          "mean_mm": [
+            0.7444077496,
+            7.231265195759995e-05,
+            0.07729168688
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.6,
+      "max_displacement_mm": 1.008370764560405,
+      "force_balance_residual_N": 2.011640747379475e-07,
+      "force_balance_relative": 2.7939454102945687e-08,
+      "max_abs_principal_strain": 0.003080239914838796,
+      "reactions_N": {
+        "root": [
+          4.585300178439056e-08,
+          -6.138799996113775e-08,
+          -7.200000186000003
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.7852561,
+            -0.00078315,
+            0.03520747
+          ],
+          "max_mm": [
+            0.7913394,
+            0.0009285756,
+            0.1353149
+          ],
+          "mean_mm": [
+            0.786593596,
+            7.416583171199999e-05,
+            0.08206034095999996
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.65,
+      "max_displacement_mm": 1.0611278937548614,
+      "force_balance_residual_N": 8.910836774286447e-08,
+      "force_balance_relative": 1.1424149710623648e-08,
+      "max_abs_principal_strain": 0.003343784684513445,
+      "reactions_N": {
+        "root": [
+          1.9880000298733158e-08,
+          5.647199995129082e-08,
+          -7.7999999340000015
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.8246954,
+            -0.0008490821,
+            0.03692675
+          ],
+          "max_mm": [
+            0.8312769,
+            0.0009988051,
+            0.1430879
+          ],
+          "mean_mm": [
+            0.8261656463999998,
+            7.562802808000002e-05,
+            0.08663231479999998
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.7,
+      "max_displacement_mm": 1.111001818739136,
+      "force_balance_residual_N": 3.394712981819949e-07,
+      "force_balance_relative": 4.041324898492799e-08,
+      "max_abs_principal_strain": 0.0036080485051144823,
+      "reactions_N": {
+        "root": [
+          2.9439999940650274e-07,
+          -3.1833999988156725e-08,
+          -8.400000166000005
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.8617403,
+            -0.0009149421,
+            0.03856942
+          ],
+          "max_mm": [
+            0.8688221,
+            0.001068416,
+            0.1505696
+          ],
+          "mean_mm": [
+            0.8633502319999994,
+            7.674645718720002e-05,
+            0.09102894679999997
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.75,
+      "max_displacement_mm": 1.1582357837145634,
+      "force_balance_residual_N": 9.211770701987465e-08,
+      "force_balance_relative": 1.0235300709589945e-08,
+      "max_abs_principal_strain": 0.0038729853406733452,
+      "reactions_N": {
+        "root": [
+          6.319999998338766e-08,
+          -2.568699990039558e-08,
+          -9.000000061900003
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.8965982,
+            -0.0009807156,
+            0.04014596
+          ],
+          "max_mm": [
+            0.9041763,
+            0.001137463,
+            0.1577877
+          ],
+          "mean_mm": [
+            0.8983485248000002,
+            7.756186435999998e-05,
+            0.09526864392000002
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.8,
+      "max_displacement_mm": 1.2030439862713085,
+      "force_balance_residual_N": 3.6232882059183716e-07,
+      "force_balance_relative": 3.774258547831637e-08,
+      "max_abs_principal_strain": 0.0041385571275256595,
+      "reactions_N": {
+        "root": [
+          -3.5986000056220657e-07,
+          2.946000007136851e-08,
+          -9.599999969750002
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.9294488,
+            -0.001046391,
+            0.04166527
+          ],
+          "max_mm": [
+            0.9375191,
+            0.001205992,
+            0.1647664
+          ],
+          "mean_mm": [
+            0.9313398799999999,
+            7.810945703999998e-05,
+            0.09936734663999998
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.85,
+      "max_displacement_mm": 1.245618586509375,
+      "force_balance_residual_N": 1.632217057429246e-07,
+      "force_balance_relative": 1.6002128014012216e-08,
+      "max_abs_principal_strain": 0.0044047273070787285,
+      "reactions_N": {
+        "root": [
+          1.3887999794626182e-07,
+          -1.4608999869200612e-08,
+          -10.199999915500005
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.9604526,
+            -0.001111959,
+            0.04313489
+          ],
+          "max_mm": [
+            0.9690111,
+            0.001274045,
+            0.171527
+          ],
+          "mean_mm": [
+            0.9624847431999999,
+            7.841988831199998e-05,
+            0.10333891032000006
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.9,
+      "max_displacement_mm": 1.2861317138350368,
+      "force_balance_residual_N": 5.085952336645923e-07,
+      "force_balance_relative": 4.7092151265240024e-08,
+      "max_abs_principal_strain": 0.004671462299205613,
+      "reactions_N": {
+        "root": [
+          -5.009899999158796e-07,
+          -8.43590000545319e-08,
+          -10.799999976299999
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            0.9897538,
+            -0.001177411,
+            0.04456125
+          ],
+          "max_mm": [
+            0.9987963,
+            0.001341657,
+            0.1780883
+          ],
+          "mean_mm": [
+            0.9919270487999999,
+            7.851987403999999e-05,
+            0.10719544256
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 0.95,
+      "max_displacement_mm": 1.32473847386386,
+      "force_balance_residual_N": 3.797025106421069e-07,
+      "force_balance_relative": 3.330723712116543e-08,
+      "max_abs_principal_strain": 0.004938733492438461,
+      "reactions_N": {
+        "root": [
+          2.88310001705927e-07,
+          1.0428489993427603e-07,
+          -11.400000223999994
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            1.017482,
+            -0.001242742,
+            0.04594985
+          ],
+          "max_mm": [
+            1.027004,
+            0.001408862,
+            0.1844669
+          ],
+          "mean_mm": [
+            1.0197962719999998,
+            7.843277815999998e-05,
+            0.11094754488000001
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    },
+    {
+      "load_fraction": 1.0,
+      "max_displacement_mm": 1.361578953131652,
+      "force_balance_residual_N": 3.2872774849322775e-07,
+      "force_balance_relative": 2.7393978363101366e-08,
+      "max_abs_principal_strain": 0.005206511577483733,
+      "reactions_N": {
+        "root": [
+          -1.136000036400242e-07,
+          8.335450000628714e-08,
+          -12.00000029699999
+        ]
+      },
+      "observations": {
+        "shoulder": {
+          "min_mm": [
+            1.043754,
+            -0.001307947,
+            0.04730539
+          ],
+          "max_mm": [
+            1.053753,
+            0.001475688,
+            0.1906775
+          ],
+          "mean_mm": [
+            1.0462092879999998,
+            7.817914891119999e-05,
+            0.11460454223999998
+          ]
+        }
+      },
+      "motion_force_N": {},
+      "contact_points": 0,
+      "max_contact_pressure_MPa": 0,
+      "max_penetration_mm": 0
+    }
+  ],
+  "assumptions": [
+    "Units mm, N, MPa. Isotropic homogeneous linear-elastic material; geometric nonlinearity=True",
+    "No printed infill/layer failure, plastic set, creep, fatigue, or friction prediction.",
+    "Strain is maximum absolute principal mechanical strain at integration points, over all saved increments.",
+    "Frictionless contact. Surface-to-surface penalty pairing and Mortar segmentation are fixed within each increment; node-to-surface penalty re-pairs through iteration eight then freezes. Mortar contact-field extraction is unqualified. Completion alone does not prove engagement.",
+    "Loads ramp over normalized time 0..1; translations follow their recorded progress curves or a linear ramp.",
+    "Peak values are sampled at converged increments, not continuous extrema."
+  ],
+  "warnings": [],
+  "errors": [],
+  "provenance": {
+    "backend": "CalculiX",
+    "version": "unknown",
+    "linear_solver": "default",
+    "gmsh": "4.15.2",
+    "cadquery": "2.8.0",
+    "python": "3.14.7",
+    "input_sha256": "9187417c3793da7428a4cfdac5c2f3eda4f2bc7a0885615d649205895e170bf7",
+    "case_sha256": "3b4c3ecaa88631b3c9756d6ebfe97bfe7a3e5429ed0b36c6255cc8cf74c0e265",
+    "backend_sha256": {
+      "febio_worker.py": "3a3af762b8b3162190cebd399a1ea1332b0bdbb6b641bc5b80c72c55d940353a",
+      "contact_diagnostics.py": "2f708d98921416d255b35d05dbe09d5009b117b0f3c301d84f0ffbd2956c0b36",
+      "febio.py": "ed73e0cefb609408ca21aa1af8acb4ad9c2ddeda97f006b9971d62febcc4e956",
+      "tet10_strain.py": "0eb4b4a1ec129adab94015e73126a650c3e62a281dae143b645b2c1953c1406a",
+      "polyfem_worker.py": "7cec9484b006980c9d96f3dd93858c03d16c224c203f96d4e919b33eb1738d41",
+      "febio_diagnostics.py": "b24d83c8b6dbf04396b2c50d69b9403a73dc2f695a240ef73c84c4e415584255",
+      "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+      "polyfem_output.py": "bd3b6e39db25f1c29e1a486f11c88f1d47980f97f544af6c945e02b98d112226",
+      "mesh.py": "557b59f5fcc10f1f9bbeb70e035cdb18707a5191817aaa971a8277824ef75b28",
+      "polyfem.py": "ed7584cf3ed337d58908c78e5cc92b8f40f632153bbfce7e730b086c5d13e9a9",
+      "ipc_benchmarks.py": "8e9800f1e5f42674c2872c2e3956dcf30248b00218471c26e4c943320f8c24b6",
+      "structural.py": "ef979dc3f0f36574f6a6196b0c0dd37cb8746f1a745369de45ea7c06fe2b574b",
+      "worker.py": "3f331ae4489f6041023ea6e78c140849207d965aaeefa873d5ae0ff1398d1e9e",
+      "polyfem_diagnostics.py": "e2bbad2721f8d8aa91990b99ca78f712f616fe9914d03f5d63ab840091069922"
+    },
+    "command": [
+      "/home/hevar/.local/opt/physical-analysis/usr/bin/ccx",
+      "-i",
+      "analysis"
+    ],
+    "postprocess_only": false,
+    "mesh": {
+      "catch": {
+        "nodes": 8127,
+        "elements": 3992,
+        "min_jacobian": 0.0010786360681396291
+      }
+    },
+    "regions": {
+      "root": {
+        "part": "catch",
+        "node_count": 313,
+        "displacement_mm": [
+          0,
+          0,
+          0
+        ]
+      },
+      "@observe:shoulder": {
+        "part": "catch",
+        "node_count": 125,
+        "displacement_mm": [
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "loads": [
+      {
+        "part": "catch",
+        "area_mm2": 11.99999999999999,
+        "force_N": [
+          0.0,
+          0.0,
+          12.0
+        ]
+      }
+    ],
+    "contacts": [],
+    "iterative_cholesky_fallback_to_scaling": false,
+    "execution_resources": {
+      "peak_tree_rss_bytes": 181559296,
+      "sampled_tree_cpu_seconds": 50.559999999999995,
+      "measurement": "sampled process tree",
+      "elapsed_seconds": 66.90904735399818
+    }
+  },
+  "artifacts": {
+    "case": "case.json",
+    "input": "analysis.inp.gz",
+    "run_metadata": "run_metadata.json",
+    "solver_log": "solver.log.gz",
+    "worker_log": "worker.log.gz",
+    "increments": "analysis.sta",
+    "regions": "regions.json.gz",
+    "fixture_geometry": [
+      "part_0.brep.gz"
+    ],
+    "mesh_logs": [
+      "part_0.mesh.log.gz"
+    ],
+    "raw_fields_retained": false,
+    "reproduce": "Decompress analysis.inp.gz in a new directory and run ccx -i analysis in the configured native environment to regenerate raw solver fields. Use the model analysis source to rebuild the current case; retained fixtures may be historical."
+  }
+}

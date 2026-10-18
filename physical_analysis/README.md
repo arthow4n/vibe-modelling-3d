@@ -312,6 +312,19 @@ answer = case.run('notes/tip_load_run_01').require_completed()
 print(answer.metrics)
 ```
 
+For curved solids with small fillets, an explicitly uniform coarse C3D10 mesh can
+produce inverted curved elements or an expensive high-order optimization patch.
+`add_part(..., mesh_size_mm=3, mesh_min_size_mm=.5, mesh_curvature_points=8)`
+opts into Gmsh curvature sizing: maximum size 3 mm, minimum .5 mm, and a
+request for 8 elements per full curvature circle (clipped by the size bounds). Supply both optional controls together;
+leaving both absent preserves the constant-size route. These are meshing inputs,
+not qualification thresholds. Check positive Jacobians, then qualify the relevant
+response against finer curvature/size settings. Settings enter native requests
+and mesh reuse identities for CalculiX, FEBio and the experimental IPC adapter.
+An IPC obstacle-size override must remain at least the part minimum size.
+The quadratic native mesher writes sibling `part_N.mesh.log` files during work;
+backend evidence retention compresses these progress and optimizer diagnostics.
+
 All coordinates are assembly coordinates, in mm. Forces are N, stress and
 modulus are MPa. `Region()` means the entire part; `Region(lower, upper)` is a
 box. Plane regions select a coordinate plane. Constraints select nodes; surface
@@ -387,6 +400,28 @@ holding forces. At a knot the signed projection uses the incoming segment.
 Multiple steps, rotations, friction, rigid-body joints, contact activation changes
 and self-contact remain unsupported.
 
+### Optional lower-memory CalculiX linear solve
+
+`CalculixBackend(linear_solver='iterative_scaling')` requests native
+`*STATIC,SOLVER=ITERATIVE SCALING`; `linear_solver='iterative_cholesky'` instead
+requests incomplete Cholesky preconditioning. The default route remains unchanged.
+This changes the linear algebra, retaining the case's mesh, deformation and
+contact formulation. It is useful to investigate a demonstrated direct-solver
+memory failure, rather than removing deformable parts or contact to reduce cost.
+[CalculiX 2.21 source](https://www.dhondt.de/ccx_2.21.src.tar.bz2),
+`nonlingeo.c` and `predgmres_struct.f`, supplies diagonal-preconditioned GMRES
+for asymmetric matrices; iterative Cholesky instead falls back to scaling there.
+Symmetric matrices use native preconditioned CG. The requested choice and any
+logged Cholesky-to-scaling fallback remain visible in provenance. The native implementation fixes
+its linear tolerances; the wrapper does not retune them. Nonlinear completion,
+force balance, contact penetration and comparison evidence remain necessary.
+
+The [small native contact comparison](../model/dental_travel_case/notes/retention/solver_qualification/README.md)
+qualifies this option against the direct route on one frictionless compression
+fixture and an open-gap regression. It does not establish convergence, memory
+fit or contact adequacy for a full product. Mesh reuse permits a comparison on
+identical nodes/elements; solver choice is retained in the new request and input.
+
 ## Plan a contact study
 
 ### Experimental alternative for finite-edge contact
@@ -412,6 +447,21 @@ relocation and friction are disabled, and the nonsymmetric tangent is used.
 overlap on **both** surfaces; reported contact area remains the primary area's
 sum. These choices are numerical strategies, not fabricated material properties.
 See the [official formulation documentation](https://febiosoftware.github.io/febio-feature-manual/features/solid_surfaceinteraction_sliding-elastic/).
+
+For a demonstrated direct-factorization memory limit, `FebioBackend` also
+accepts a typed `FgmresILUT` configuration. All six numerical controls are
+required: maximum and restart iterations, relative and absolute linear tolerances,
+ILUT maximum fill and drop tolerance. They are retained in the request/native
+provenance; failed linear iteration remains a native failure. Explicit restart
+bounds the Krylov workspace and is separate from the total iteration limit.
+
+The installed 4.13 build rejects MKL's corrected nondefault-restart parameters
+before iterating. The narrowly pinned [native correction and build recipe](experiments/febio_fgmres/README.md)
+uses FEBio's official plugin API and leaves the original runtime unchanged. Its
+same-mesh contact/open-gap/failure controls qualify the correction, not full-case
+convergence or retention. Plugin, build and runtime hashes are checked and retained;
+replay requires the recorded plugin import. Other builds need a reviewed source/ABI
+association. Do not relax linear tolerances or remove deformable parts to fit memory.
 
 Zero supports use zero-valued prescribed displacements because FEBio's fixed
 DOFs do not retain the needed reaction fields. Native nodal forces are negated
@@ -603,6 +653,16 @@ actuator, including its side faces can add unintended vertical restraint;
 an engineering block is not a model of skin or grip. Conversely, include real
 cap edges that cross the snap during motion. Keep these fixture choices and
 their omitted physical behavior with the object.
+
+Prescribing one displacement component over a finite pad can still suppress its
+rotation: identical normal travel across the pad is a flat-press fixture, even
+when both tangential components are free. The [dental M2B study](../model/dental_travel_case/notes/m2.md)
+found materially different leaf motion and local strain from uniform pad traction.
+Use surface force or appropriate unilateral contact for a conforming press;
+retain a rigid flat-press case only for that declared support hypothesis. Neither
+calibrates skin, human effort or comfort. For a round trip, final displacement
+summaries can be zero while history contains substantial peak motion and strain;
+inspect the loaded frame rather than interpreting the final summary as a peak.
 
 Contact penetration above the explicit, required `penetration_limit_mm`
 rejects the result with `status='quality_failed'`, retaining diagnostic metrics.
@@ -846,6 +906,13 @@ integer/percentage command budgets and explicit IPC settings remain configurable
 Nested analyses borrow their command's budget. The current CalculiX/Gmsh route
 runs one thread: use `./execute.py --threads 1 SCRIPT.py` for sequential studies
 on that route. Larger leases reserve capacity without parallelizing that solver.
+FEBio/PARDISO instead receives its admitted CPU budget through the existing
+OpenMP/MKL environment; without an inherited budget it stays at one thread.
+For example, `./execute.py --threads 8 SCRIPT.py` admits eight threads for its
+FEBio native solve. A serial/four-thread contact comparison checks reaction,
+penetration, strain and balance equivalence; it does not establish full-product
+convergence or speedup. The [official threading guidance](https://febiosoftware.github.io/febio-docs/user/chapter2/2.6-using-multiple-processors/)
+notes that roundoff and contact convergence can change with thread count.
 Keep explicit CPU budgets for parallel batches and other backends. Computation
 runs without automatic deadlines; do not invent per-run or whole-study caps.
 Follow the [repository deadline rule](../AGENTS.md#shared-engineering-execution).

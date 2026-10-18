@@ -36,6 +36,20 @@ def compile_xml(case, directory, meshes, nodes, selections):
     for key,value in dict(max_refs=30,dtol=.001,etol=.01,rtol=0,min_residual=residual_floor,
                           reform_each_time_step=1,symmetric_stiffness=0).items():add(solver,key,value)
     add(add(solver,'qn_method',type='BFGS'),'max_ups',0)
+    linear = case['febio'].get('linear_solver')
+    if linear is not None:
+        if linear['type'] != 'fgmres' or linear['preconditioner'] != 'ilut' or not linear['fail_max_iters'] or linear['replace_zero_diagonal']:
+            raise ValueError('Unsupported FEBio linear solver configuration')
+        native = add(solver, 'linear_solver', type='fgmres_restart_checked' if linear.get('plugin') else 'fgmres')
+        for tag, key in (('max_iter','max_iterations'),('max_restart','restart_iterations'),
+                         ('tol','relative_tolerance'),('abs_tol','absolute_tolerance'),
+                         ('print_level','print_level')):
+            add(native, tag, linear[key])
+        add(native, 'fail_max_iters', 1)
+        preconditioner = add(native, 'pc_left', type='ilut')
+        add(preconditioner, 'maxfill', linear['max_fill'])
+        add(preconditioner, 'filltol', linear['fill_tolerance'])
+        add(preconditioner, 'replace_zero_diagonal', 0)
     stepper=add(control,'time_stepper')
     for key,value in dict(dtmin=1e-6,dtmax=case['max_increment'],max_retries=10,opt_iter=10).items():add(stepper,key,value)
     material=add(root,'Material')
@@ -222,11 +236,24 @@ def main(directory, *, postprocess_only=False):
                     raise ValueError('Saved FEBio input/case identity differs from its result')
         meshes,nodes,elements,selections,loads,contacts=compile_case(case,directory,expected_input_sha256=expected)
         r.provenance.update(gmsh=package_version('gmsh'),cadquery=package_version('cadquery'),python=sys.version.split()[0])
+        r.provenance['linear_solver'] = case['febio'].get('linear_solver', 'native default')
         xml=compile_xml(case,directory,meshes,nodes,selections)
         if postprocess_only:
             if xml!=(directory/'analysis.feb').read_bytes():raise ValueError('Regenerated FEBio input differs; cannot reuse native fields')
         else:(directory/'analysis.feb').write_bytes(xml)
         command=[os.environ['FEBIO_COMMAND'],'-i','analysis.feb','-o','analysis.log']
+        plugin = case['febio'].get('linear_solver',{}).get('plugin')
+        if plugin is not None:
+            plugin_path = Path(plugin['path'])
+            if hashlib.sha256(plugin_path.read_bytes()).hexdigest()!=plugin['sha256']:
+                raise ValueError('FEBio restart plugin changed after request preparation')
+            runtime = Path(command[0]).resolve().parent.parent
+            for name, expected in plugin['build_manifest']['runtime_hashes'].items():
+                if hashlib.sha256((runtime/name).read_bytes()).hexdigest()!=expected:
+                    raise ValueError(f'FEBio runtime differs from plugin build: {name}')
+            command.extend(['-import',str(plugin_path)])
+            if not postprocess_only:
+                (directory/'native_plugin_manifest.json').write_text(json.dumps(plugin,indent=2)+'\n')
         r.provenance.update(command=command,executable_sha256=hashlib.sha256(Path(command[0]).read_bytes()).hexdigest(),
                             input_sha256=hashlib.sha256((directory/'analysis.inp').read_bytes()).hexdigest(),
                             native_input_sha256=hashlib.sha256((directory/'analysis.feb').read_bytes()).hexdigest(),
@@ -247,6 +274,8 @@ def main(directory, *, postprocess_only=False):
             for key in ('executable_sha256','native_libraries_sha256','command'):
                 r.provenance[key]=original.get(key)
         log=(directory/'solver.log').read_text(errors='replace')
+        if plugin is not None and hashlib.sha256(Path(plugin['path']).read_bytes()).hexdigest()!=plugin['sha256']:
+            raise ValueError('FEBio restart plugin changed during the native solve')
         r.warnings=list(dict.fromkeys(line.strip() for line in log.splitlines() if 'WARNING' in line.upper()))
         version=re.search(r'version (4\.\S+)',log);r.provenance['version']=version[1] if version else 'unknown'
         if code or 'N O R M A L   T E R M I N A T I O N' not in log:

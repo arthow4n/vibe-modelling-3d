@@ -1,0 +1,376 @@
+{
+  "name": "retention_m1",
+  "nonlinear": true,
+  "max_increment": 1.0,
+  "parts": [
+    {
+      "name": "body",
+      "geometry": "part_0.brep",
+      "sha256": "628f75a1902f9c1defa83dc20bdc7a5edfda64f9915278d4ec5a85d26f7c8312",
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model; no calibrated strain acceptance",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 3.0,
+      "mesh_min_size_mm": 0.5,
+      "mesh_curvature_points": 8
+    },
+    {
+      "name": "cap",
+      "geometry": "part_1.brep",
+      "sha256": "e3b7f343352255a72ad9834550426ca85e36d95a06c400a8709e25bcfaf99870",
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model; no calibrated strain acceptance",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 3.0,
+      "mesh_min_size_mm": 0.5,
+      "mesh_curvature_points": 8
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "body",
+        "region": {
+          "lower": [
+            null,
+            null,
+            130.0
+          ],
+          "upper": [
+            null,
+            null,
+            130.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "body_grip",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            -3,
+            -25.6,
+            196.15
+          ],
+          "upper": [
+            3,
+            -25.6,
+            202.15
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0.05
+      ],
+      "name": "cap_grip",
+      "progress": null
+    }
+  ],
+  "loads": [],
+  "contacts": [
+    {
+      "slave": {
+        "part": "body",
+        "region": {
+          "lower": [
+            -50,
+            -40,
+            173.0
+          ],
+          "upper": [
+            50,
+            40,
+            186.1
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            -50,
+            -40,
+            174.0
+          ],
+          "upper": [
+            50,
+            40,
+            198.15
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 20000,
+      "penetration_limit_mm": 0.03,
+      "discretization": "surface_to_surface"
+    }
+  ],
+  "observations": [
+    {
+      "name": "hook_negative",
+      "selection": {
+        "part": "body",
+        "region": {
+          "lower": [
+            -36.25,
+            -4.0,
+            177.5
+          ],
+          "upper": [
+            -34.05,
+            4.0,
+            178.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "receiver_negative",
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            -38.0,
+            -5.0,
+            177.15
+          ],
+          "upper": [
+            -34.3,
+            5.0,
+            178.65
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "hook_positive",
+      "selection": {
+        "part": "body",
+        "region": {
+          "lower": [
+            34.05,
+            -4.0,
+            177.5
+          ],
+          "upper": [
+            36.25,
+            4.0,
+            178.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "receiver_positive",
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            34.3,
+            -5.0,
+            177.15
+          ],
+          "upper": [
+            38.0,
+            5.0,
+            178.65
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "rim_negative",
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            -38.0,
+            -5,
+            174.15
+          ],
+          "upper": [
+            -34.3,
+            5,
+            174.65
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "rim_positive",
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            34.3,
+            -5,
+            174.15
+          ],
+          "upper": [
+            38.0,
+            5,
+            174.65
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "cap_rim",
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            -50,
+            -40,
+            173.95000000000002
+          ],
+          "upper": [
+            50,
+            40,
+            174.35
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "guide_top",
+      "selection": {
+        "part": "body",
+        "region": {
+          "lower": [
+            -50,
+            -40,
+            185.0
+          ],
+          "upper": [
+            50,
+            40,
+            185.39999999999998
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ],
+  "febio": {
+    "augmented_lagrange": true,
+    "search_radius_mm": 1.0,
+    "two_pass": true,
+    "force_residual_tolerance_N": 1e-06,
+    "linear_solver": {
+      "type": "fgmres",
+      "preconditioner": "ilut",
+      "max_iterations": 1000,
+      "restart_iterations": 30,
+      "relative_tolerance": 1e-08,
+      "absolute_tolerance": 1e-12,
+      "max_fill": 50,
+      "fill_tolerance": 1e-05,
+      "fail_max_iters": true,
+      "replace_zero_diagonal": false,
+      "print_level": 2,
+      "plugin": {
+        "path": "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/libfgmres_restart_checked.so",
+        "sha256": "dac7511f0025bb3ab258ae80e5ce91e66a2db6a57c724f2f214b36428f0f498d",
+        "build_manifest": {
+          "commit": "3ef37856289269674827e1748313b6224c4041a7",
+          "sdk_hashes": {
+            "NumCore/FGMRESSolver.cpp": "d35dbb1b5a25ae6506f57b1e5813ea18129fb0d03736cdb4420d5adfd8218967",
+            "NumCore/FGMRESSolver.h": "fe0d0608dbbf2fe7d76b81bc9d567ea78df338234850b890b3a42c50bb8b20d9",
+            "FECore/version.h": "54c642d2426221028c203c1f65b86d84cb998c1eeae5598b9f00c2fea43a3184"
+          },
+          "sdk_header_tree_sha256": "4d89d82ed8fc0f56e21570bcc71c3b43326aeb6d37e897d7c6ed2d6e1f388fd3",
+          "runtime_hashes": {
+            "bin/febio4": "c00b733dccf86f6696c504c739dda6dc9f42e63b9cf651e8149985ff783fb4b0",
+            "lib/libnumcore.so": "3057297e029a344388a5018847ecd7eaa2423f57a60bbabcfaa35a0e3ae3b3f2",
+            "lib/libfecore.so": "7fd1f21a0efb9a9a26782b85015cc3b8666b8e477a94f6084e576258f0b8e035"
+          },
+          "sdk": "/tmp/dental_febio_exact_source",
+          "runtime": "/home/hevar/.local/opt/febio-exploration/FEBio4",
+          "command": [
+            "g++",
+            "-std=c++17",
+            "-O2",
+            "-fPIC",
+            "-shared",
+            "-DMKL_ISS",
+            "-I/tmp/dental_febio_exact_source",
+            "-I/tmp/dental_febio_exact_source/NumCore",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/RestartFGMRESSolver.cpp",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/plugin.cpp",
+            "-L/home/hevar/.local/opt/febio-exploration/FEBio4/lib",
+            "-Wl,-rpath,/home/hevar/.local/opt/febio-exploration/FEBio4/lib",
+            "-lfecore",
+            "-lnumcore",
+            "-o",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/libfgmres_restart_checked.so"
+          ],
+          "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+          "recipe_sha256": {
+            "README.md": "5e9d13d684425f2131fbe05d879f036a9e7ce843a1841b4deacdd4b8fff7e3da",
+            "build.py": "32de2a1e3375096c74a4e275a716dcc2e65fda79f1cd3e0553da50ce533c2af7",
+            "mkl_rci_abi.h": "5877e0dfcbc813856907f66847888d88b6e101a4240584aebf347306ed9d5063",
+            "plugin.cpp": "f739bf9e1f59ada922ee873029a4a753b1a863e4b605040f61fa7a8559d0eb94",
+            "recheck.patch": "01314500b5e730147705bba5734cd1adea946bcb92be46a93cd5e97dc1273e6a"
+          },
+          "generated_source_sha256": {
+            "FGMRESSolver.cpp": "4a0438a3359e9a46b01623e2542bac69aacabf02310ae6aef5fe266598f990de",
+            "FGMRESSolver.h": "fe0d0608dbbf2fe7d76b81bc9d567ea78df338234850b890b3a42c50bb8b20d9",
+            "RestartFGMRESSolver.cpp": "3d25d74bd622cf8680f3459b903507f538be5dbfccec80cdfdab6e7eed47a1ff",
+            "RestartFGMRESSolver.h": "a6a3d6685418b54404133745661d74a26d1fc364df43f9fa78e19a534c362cbc",
+            "mkl_rci_abi.h": "5877e0dfcbc813856907f66847888d88b6e101a4240584aebf347306ed9d5063",
+            "plugin.cpp": "f739bf9e1f59ada922ee873029a4a753b1a863e4b605040f61fa7a8559d0eb94"
+          },
+          "plugin_sha256": "dac7511f0025bb3ab258ae80e5ce91e66a2db6a57c724f2f214b36428f0f498d"
+        },
+        "manifest_sha256": "583fef636e235f3982715727cb6052a0fe97df674768fe9a0c2e9370f881f1e0"
+      }
+    }
+  },
+  "mesh_reuse": {
+    "input_sha256": "ae31c25281cc1c11a83fe3398da5d2b2f36a691394eee23db83be88d193c02b3",
+    "case_sha256": "942921e3ae77fb56da7008474fa7a048e5300f537c2b71eff9c58025bc675096",
+    "input": "mesh_source.inp",
+    "case": "mesh_source_case.json",
+    "mesh": {
+      "body": {
+        "nodes": 97391,
+        "elements": 50359,
+        "min_jacobian": 5.7999348882381736e-05
+      },
+      "cap": {
+        "nodes": 47756,
+        "elements": 24582,
+        "min_jacobian": 0.006800697908251864
+      }
+    }
+  }
+}

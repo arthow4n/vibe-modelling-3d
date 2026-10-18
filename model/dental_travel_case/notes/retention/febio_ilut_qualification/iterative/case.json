@@ -1,0 +1,212 @@
+{
+  "name": "febio_iterative_contact",
+  "nonlinear": true,
+  "max_increment": 0.2,
+  "parts": [
+    {
+      "name": "block",
+      "geometry": "part_0.brep",
+      "sha256": "df00b228a026ffc1b7bfb3c57ea2fb379c130d99133897184302dcf0fb4d7d92",
+      "material": {
+        "name": "benchmark",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.3,
+        "source": "Elastic numerical fixture, not filament calibration",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 0.8,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    },
+    {
+      "name": "floor",
+      "geometry": "part_1.brep",
+      "sha256": "2d4cf7001b95983909ddc90208e1794a8d37c934aeee79e795979138431630b6",
+      "material": {
+        "name": "benchmark",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.3,
+        "source": "Elastic numerical fixture, not filament calibration",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 0.8,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "floor",
+        "region": {
+          "lower": [
+            null,
+            null,
+            -1
+          ],
+          "upper": [
+            null,
+            null,
+            -1
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "BC0",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "block",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        null
+      ],
+      "name": "BC1",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "block",
+        "region": {
+          "lower": [
+            null,
+            null,
+            4.01
+          ],
+          "upper": [
+            null,
+            null,
+            4.01
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        null,
+        null,
+        -0.02
+      ],
+      "name": "BC2",
+      "progress": null
+    }
+  ],
+  "loads": [],
+  "contacts": [
+    {
+      "slave": {
+        "part": "block",
+        "region": {
+          "lower": [
+            null,
+            null,
+            0.01
+          ],
+          "upper": [
+            null,
+            null,
+            0.01
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "floor",
+        "region": {
+          "lower": [
+            null,
+            null,
+            0
+          ],
+          "upper": [
+            null,
+            null,
+            0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 120000,
+      "penetration_limit_mm": 0.01,
+      "discretization": "surface_to_surface"
+    }
+  ],
+  "observations": [
+    {
+      "name": "receiving_surface",
+      "selection": {
+        "part": "floor",
+        "region": {
+          "lower": [
+            null,
+            null,
+            0
+          ],
+          "upper": [
+            null,
+            null,
+            0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ],
+  "febio": {
+    "augmented_lagrange": true,
+    "search_radius_mm": 1.0,
+    "two_pass": false,
+    "force_residual_tolerance_N": 1e-06,
+    "linear_solver": {
+      "type": "fgmres",
+      "preconditioner": "ilut",
+      "max_iterations": 1000,
+      "restart_iterations": 30,
+      "relative_tolerance": 1e-08,
+      "absolute_tolerance": 1e-12,
+      "max_fill": 12,
+      "fill_tolerance": 1e-05,
+      "fail_max_iters": true,
+      "replace_zero_diagonal": false,
+      "print_level": 2
+    }
+  },
+  "mesh_reuse": {
+    "input_sha256": "8b976cbca51b9a57675c3191a05a8f20f0321a20bea8131acb11b1e445797523",
+    "case_sha256": "be96f5a9535bda18d780bb9ffb6abd08545777db33b78c36f2be6cc2070acdbc",
+    "input": "mesh_source.inp",
+    "case": "mesh_source_case.json",
+    "mesh": {
+      "block": {
+        "nodes": 582,
+        "elements": 265,
+        "min_jacobian": 0.12703309424306428
+      },
+      "floor": {
+        "nodes": 603,
+        "elements": 267,
+        "min_jacobian": 0.12116089143990681
+      }
+    }
+  }
+}

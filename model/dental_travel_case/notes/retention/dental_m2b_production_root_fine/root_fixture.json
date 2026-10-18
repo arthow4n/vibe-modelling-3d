@@ -1,0 +1,93 @@
+{
+  "scope": "Local production-root press compliance and strain. No cap, retention prediction, finger anatomy, or printed elastic-acceptance claim.",
+  "source_sha256": {
+    "m1_design": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396"
+  },
+  "geometry": "Actual m2b.build()[body] full-circumference crop; no reconstructed leaf/root approximation.",
+  "support_z_mm": 138.4,
+  "nominal_beam_root_z_mm": 150.4,
+  "upper_crop_z_mm": 204.0,
+  "root_blend_radius_mm": 0.8,
+  "support": "All three translations fixed only on annular bottom cut 12 mm below nominal beam root.",
+  "force": "Equal opposite inward normal tractions, total load per pad; pads retain all rotational/compliance degrees of freedom.",
+  "pads": [
+    {
+      "name": "negative",
+      "region": {
+        "lower": [
+          -35.35,
+          -7.0,
+          169.0
+        ],
+        "upper": [
+          -35.35,
+          7.0,
+          171.0
+        ]
+      },
+      "actual_CAD_planar_area_mm2": 15.56091108541409,
+      "force_N": [
+        3.2,
+        0,
+        0
+      ],
+      "nominal_uniform_traction_MPa": 0.20564348593955384,
+      "actual_surface_normals": [
+        [
+          -1.0,
+          1.1102230246251565e-16,
+          -0.0
+        ]
+      ]
+    },
+    {
+      "name": "positive",
+      "region": {
+        "lower": [
+          35.35,
+          -7.0,
+          169.0
+        ],
+        "upper": [
+          35.35,
+          7.0,
+          171.0
+        ]
+      },
+      "actual_CAD_planar_area_mm2": 15.56091108541409,
+      "force_N": [
+        -3.2,
+        0,
+        0
+      ],
+      "nominal_uniform_traction_MPa": 0.20564348593955384,
+      "actual_surface_normals": [
+        [
+          1.0,
+          1.1102230246251565e-16,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "material": {
+    "effective_modulus_MPa": 1200.0,
+    "poisson_ratio": 0.38,
+    "strain_limit": null
+  },
+  "mesh": {
+    "max_size_mm": 2.1,
+    "min_size_mm": 0.35,
+    "curvature_points": 12
+  },
+  "increment": 0.1,
+  "nominal_leaf_liner_gap_mm": 3.0,
+  "contact_policy": "No contact assumed for this initial press fixture. Every saved frame is screened for sampled leaf/liner relative motion. Nonpositive sampled clearance blocks any contact-free interpretation; native self-contact is outside the current AnalysisCase interface and must not be silently omitted.",
+  "limitations": [
+    "Annular grip is a local root fixture, not full-size handling.",
+    "Printed properties, recovery and permanent set are unmeasured.",
+    "Root peak strain needs mesh qualification; no arbitrary 1% material acceptance is applied.",
+    "Sampled nodal channel separation cannot bound quadratic-surface overshoot or continuous contact."
+  ]
+}

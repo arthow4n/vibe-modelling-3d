@@ -1,0 +1,304 @@
+{
+  "name": "retention_m1",
+  "nonlinear": true,
+  "max_increment": 0.02,
+  "parts": [
+    {
+      "name": "body",
+      "geometry": "part_0.brep",
+      "sha256": "12107da0bb04f1e82553e809fad23e356a21868094c4953dd10e52fd46eb669f",
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh_size_mm": 3.0,
+      "mesh_min_size_mm": 0.5,
+      "mesh_curvature_points": 8
+    },
+    {
+      "name": "cap",
+      "geometry": "part_1.brep",
+      "sha256": "6d0471c88efd6d536d3f1a5060171e8add0ffa9c9d39666df39d2e6d221859c0",
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh_size_mm": 3.0,
+      "mesh_min_size_mm": 0.5,
+      "mesh_curvature_points": 8
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "body",
+        "region": {
+          "lower": [
+            null,
+            null,
+            0.0
+          ],
+          "upper": [
+            null,
+            null,
+            0.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "body_grip",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            -3,
+            -3,
+            264.0
+          ],
+          "upper": [
+            3,
+            3,
+            264.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        2.5
+      ],
+      "name": "cap_grip",
+      "progress": null
+    }
+  ],
+  "loads": [],
+  "contacts": [
+    {
+      "slave": {
+        "part": "body",
+        "region": {
+          "lower": [
+            -50,
+            -40,
+            173.0
+          ],
+          "upper": [
+            50,
+            40,
+            186.1
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            -50,
+            -40,
+            174.0
+          ],
+          "upper": [
+            50,
+            40,
+            198.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 20000,
+      "penetration_limit_mm": 0.03,
+      "discretization": "surface_to_surface"
+    }
+  ],
+  "observations": [
+    {
+      "name": "hook_negative",
+      "selection": {
+        "part": "body",
+        "region": {
+          "lower": [
+            -36.25,
+            -4.0,
+            177.5
+          ],
+          "upper": [
+            -34.05,
+            4.0,
+            178.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "receiver_negative",
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            -38.0,
+            -5.0,
+            177.0
+          ],
+          "upper": [
+            -34.3,
+            5.0,
+            178.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "hook_positive",
+      "selection": {
+        "part": "body",
+        "region": {
+          "lower": [
+            34.05,
+            -4.0,
+            177.5
+          ],
+          "upper": [
+            36.25,
+            4.0,
+            178.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "receiver_positive",
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            34.3,
+            -5.0,
+            177.0
+          ],
+          "upper": [
+            38.0,
+            5.0,
+            178.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "rim_negative",
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            -38.0,
+            -5,
+            174.0
+          ],
+          "upper": [
+            -34.3,
+            5,
+            174.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "rim_positive",
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            34.3,
+            -5,
+            174.0
+          ],
+          "upper": [
+            38.0,
+            5,
+            174.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "cap_rim",
+      "selection": {
+        "part": "cap",
+        "region": {
+          "lower": [
+            -50,
+            -40,
+            173.8
+          ],
+          "upper": [
+            50,
+            40,
+            174.2
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "guide_top",
+      "selection": {
+        "part": "body",
+        "region": {
+          "lower": [
+            -50,
+            -40,
+            185.0
+          ],
+          "upper": [
+            50,
+            40,
+            185.39999999999998
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ],
+  "calculix": {
+    "linear_solver": "iterative_scaling"
+  },
+  "mesh_reuse": {
+    "input_sha256": "a2fc45a8183f44f8edba82dca5a29e651f948e714b931fc4b4eaaabadead4e08",
+    "case_sha256": "0a5498027ded61215089abb058474f5bae3680c4fcf9168228c8bb5b341ad724",
+    "input": "mesh_source.inp",
+    "case": "mesh_source_case.json",
+    "mesh": {
+      "body": {
+        "nodes": 310844,
+        "elements": 170998,
+        "min_jacobian": 0.0006936047618494051
+      },
+      "cap": {
+        "nodes": 238519,
+        "elements": 134002,
+        "min_jacobian": 0.0010450265004086272
+      }
+    }
+  }
+}

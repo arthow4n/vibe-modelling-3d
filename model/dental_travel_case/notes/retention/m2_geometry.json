@@ -1,0 +1,4189 @@
+{
+  "status": "FAIL",
+  "scope": "Exact CAD nominal and declared finite poses; no structural/contact-force or physical acceptance claim",
+  "source_sha256": {
+    "m1_design": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2_design": "57fd89ae91774393fd1f0db4d0872e8986c96f58b49a70876c3395dff2ec004c"
+  },
+  "lap_mm": 30.0,
+  "axial_play_mm": 0.65,
+  "retaining_angle_deg": 7.0,
+  "nominal_tooth_to_pocket_outer_clearance_mm": 0.45000000000000284,
+  "unreinforced_pocket_skin_mm": 0.5,
+  "reinforced_pocket_skin_mm": 1.3,
+  "boolean_overlap_epsilon_mm3": 1e-05,
+  "angle_resolution_deg": 0.002,
+  "unchanged_individual_brush_and_tube_aperture": true,
+  "sleeve_interior_width_mm": 65.1,
+  "sleeve_interior_depth_mm": 42.1,
+  "retaining_lands": {
+    "-1": [
+      {
+        "area_mm2": 12.288719363089132,
+        "radial_projected_width_mm": 1.4695326641487227,
+        "transverse_width_mm": 8.3,
+        "hook_normal": [
+          -0.12186934340513804,
+          -1.3530215104433423e-17,
+          -0.9925461516413232
+        ],
+        "receiver_normal": [
+          0.12186934340515723,
+          1.3530215104435554e-17,
+          0.9925461516413209
+        ],
+        "receiver_normal_outward_component": 0.12186934340515723,
+        "axial_alignment_translation_mm": 0.65,
+        "outward_seating_contact_direction": true
+      }
+    ],
+    "1": [
+      {
+        "area_mm2": 12.288719363089132,
+        "radial_projected_width_mm": 1.4695326641487227,
+        "transverse_width_mm": 8.3,
+        "hook_normal": [
+          0.12186934340513804,
+          -1.3530215104433423e-17,
+          -0.9925461516413232
+        ],
+        "receiver_normal": [
+          -0.12186934340515723,
+          1.3530215104435554e-17,
+          0.9925461516413209
+        ],
+        "receiver_normal_outward_component": 0.12186934340515723,
+        "axial_alignment_translation_mm": 0.65,
+        "outward_seating_contact_direction": true
+      }
+    ]
+  },
+  "operation_tests": [
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 0.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 1.5,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": -1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": -0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Squeeze remains clear under axial/lateral deviations",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "terminal_travel_mm": 2.7,
+      "catch": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "dz_mm": 0.15
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.25,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 0.65,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 1,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 2,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 4,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 8,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 12,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 20,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 30,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 40,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 60,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 90,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": -0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0.25,
+      "dy_mm": 0
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0,
+      "dy_mm": -0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catch": 1
+    },
+    {
+      "intent": "Long guide allows prescribed withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0,
+      "dy_mm": 0.25
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": -1
+    },
+    {
+      "intent": "Deliberately released hook clears withdrawal",
+      "overlap_mm3": 0.0,
+      "status": "PASS",
+      "lift_mm": 106,
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catch": 1
+    }
+  ],
+  "operation_failures": [],
+  "first_tooth_layer_control": {
+    "scope": "Exact thin-layer connectivity. A single section is not proof of a printable bridge.",
+    "samples": [
+      {
+        "z_mm": 177.80700447478463,
+        "offset_above_first_tooth_mm": 0.02,
+        "section_components": {
+          "gussets_present": 1,
+          "gussets_removed": 2
+        }
+      },
+      {
+        "z_mm": 177.86700447478464,
+        "offset_above_first_tooth_mm": 0.08,
+        "section_components": {
+          "gussets_present": 1,
+          "gussets_removed": 2
+        }
+      },
+      {
+        "z_mm": 177.9270044747846,
+        "offset_above_first_tooth_mm": 0.14,
+        "section_components": {
+          "gussets_present": 1,
+          "gussets_removed": 2
+        }
+      },
+      {
+        "z_mm": 177.9870044747846,
+        "offset_above_first_tooth_mm": 0.2,
+        "section_components": {
+          "gussets_present": 1,
+          "gussets_removed": 2
+        }
+      },
+      {
+        "z_mm": 178.04700447478461,
+        "offset_above_first_tooth_mm": 0.26,
+        "section_components": {
+          "gussets_present": 1,
+          "gussets_removed": 1
+        }
+      }
+    ],
+    "expected": "All gusseted sections connect; at least one removed-gusset early layer has a detached tooth island.",
+    "status": "PASS",
+    "nominal_bridge_span_mm": 9.0
+  },
+  "receiver_central_shelf_width_mm": 8.3,
+  "nominal_transverse_gusset_relief_margin_mm": 0.34999999999999964,
+  "iteration_history": [
+    {
+      "rejected_feature": "Original M2 pocket outer skin .8 mm",
+      "observation": "At +/- .25 mm X, one zero-travel hook intersected the pocket skin by 1.1024719403 mm3 at each of Z offsets -.15, 0, +.15. Deliberate release was clear.",
+      "correction": "Pocket skin .5 mm plus external .8 mm reinforcement; nominal radial clearance .45 mm. Subsequent 234-pose study had no operation collisions."
+    },
+    {
+      "rejected_feature": "Unsupported outward-descending 7 degree hook underside",
+      "observation": "Earliest tooth layers can be detached from the beam. The removed-gusset thin-layer control retains this mechanism.",
+      "correction": "Integral end gussets support a nominal 9 mm bridge; receiver side relief preserves a central shelf. Actual slice still required."
+    }
+  ],
+  "operation_failure_interpretation": "FAIL marks violation of the requested pure-clearance envelope. Zero-travel lateral-offset interference may require seated elastic leaf preload; it does not alone establish absent capture or product rejection. A deformable equilibrium is needed to resolve it.",
+  "rigid_guide_angular_freeplay": [
+    {
+      "lift_mm": 0,
+      "axis": "x",
+      "direction": -1,
+      "angle_deg": 0.0,
+      "bracket_deg": [
+        0.0,
+        0.00146484375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "lift_mm": 0,
+      "axis": "x",
+      "direction": 1,
+      "angle_deg": 0.0,
+      "bracket_deg": [
+        0.0,
+        0.00146484375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "lift_mm": 0,
+      "axis": "y",
+      "direction": -1,
+      "angle_deg": 0.0,
+      "bracket_deg": [
+        0.0,
+        0.00146484375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "lift_mm": 0,
+      "axis": "y",
+      "direction": 1,
+      "angle_deg": 0.0,
+      "bracket_deg": [
+        0.0,
+        0.00146484375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "lift_mm": 0.325,
+      "axis": "x",
+      "direction": -1,
+      "angle_deg": 0.49365234375,
+      "bracket_deg": [
+        0.49365234375,
+        0.4951171875
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "lift_mm": 0.325,
+      "axis": "x",
+      "direction": 1,
+      "angle_deg": 0.49365234375,
+      "bracket_deg": [
+        0.49365234375,
+        0.4951171875
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "lift_mm": 0.325,
+      "axis": "y",
+      "direction": -1,
+      "angle_deg": 0.4951171875,
+      "bracket_deg": [
+        0.4951171875,
+        0.49658203125
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "lift_mm": 0.325,
+      "axis": "y",
+      "direction": 1,
+      "angle_deg": 0.4951171875,
+      "bracket_deg": [
+        0.4951171875,
+        0.49658203125
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "lift_mm": 0.65,
+      "axis": "x",
+      "direction": -1,
+      "angle_deg": 0.49951171875,
+      "bracket_deg": [
+        0.49951171875,
+        0.5009765625
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.11488746244360135,
+        "1": 0.11488746244360709
+      }
+    },
+    {
+      "lift_mm": 0.65,
+      "axis": "x",
+      "direction": 1,
+      "angle_deg": 0.49951171875,
+      "bracket_deg": [
+        0.49951171875,
+        0.5009765625
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.11488746244393837,
+        "1": 0.11488746244395034
+      }
+    },
+    {
+      "lift_mm": 0.65,
+      "axis": "y",
+      "direction": -1,
+      "angle_deg": 0.5009765625,
+      "bracket_deg": [
+        0.5009765625,
+        0.50244140625
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 4.36098506664074,
+        "1": 0.0
+      }
+    },
+    {
+      "lift_mm": 0.65,
+      "axis": "y",
+      "direction": 1,
+      "angle_deg": 0.5009765625,
+      "bracket_deg": [
+        0.5009765625,
+        0.50244140625
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.0,
+        "1": 4.360985066640739
+      }
+    },
+    {
+      "lift_mm": 0.9,
+      "axis": "x",
+      "direction": -1,
+      "angle_deg": 0.50390625,
+      "bracket_deg": [
+        0.50390625,
+        0.50537109375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 3.4850350938514665,
+        "1": 3.485035093851431
+      }
+    },
+    {
+      "lift_mm": 0.9,
+      "axis": "x",
+      "direction": 1,
+      "angle_deg": 0.50390625,
+      "bracket_deg": [
+        0.50390625,
+        0.50537109375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 3.4850350937781895,
+        "1": 3.485035093778228
+      }
+    },
+    {
+      "lift_mm": 0.9,
+      "axis": "y",
+      "direction": -1,
+      "angle_deg": 0.50537109375,
+      "bracket_deg": [
+        0.50537109375,
+        0.5068359375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 8.204900056499497,
+        "1": 0.0
+      }
+    },
+    {
+      "lift_mm": 0.9,
+      "axis": "y",
+      "direction": 1,
+      "angle_deg": 0.50537109375,
+      "bracket_deg": [
+        0.50537109375,
+        0.5068359375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 0.0,
+        "1": 8.204900056499493
+      }
+    }
+  ],
+  "hook_controls": [
+    {
+      "name": "engaged",
+      "terminal_travel_mm": 0.0,
+      "catch_overlap_mm3": {
+        "-1": 4.952245741694659,
+        "1": 4.952245741694657
+      }
+    },
+    {
+      "name": "half_pressed",
+      "terminal_travel_mm": 1.35,
+      "catch_overlap_mm3": {
+        "-1": 2.23433791706183,
+        "1": 2.2343379170618207
+      }
+    },
+    {
+      "name": "released",
+      "terminal_travel_mm": 2.7,
+      "catch_overlap_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    }
+  ],
+  "removed_hook_control_overlap_mm3": 0.0,
+  "liner_compatibility": "NOT established; existing S16 is M1-specific",
+  "manufacturing_status": "REJECTED: exact inverted-cap sections show detached first receiver-shelf layers after side relief removes transverse anchors. Body gussets alone do not solve printable undercut capture.",
+  "limitations": [
+    "Normal direction establishes outward-seating geometry only; it does not predict holding force.",
+    "Hook contact may limit rocking before the fixed guide does; its interference is recorded separately.",
+    "First guide contact is not a bearing stiffness result or a full cap/body equilibrium.",
+    "Fixed-hook pose obstruction does not prove a force/energy barrier or continuous retention.",
+    "Axial negative deviations apply to leaf-vs-cap clearances; the hard seat independently blocks negative whole-cap travel.",
+    "Dimensional deviations are declared sensitivities, not measured print-error distributions."
+  ],
+  "cap_first_shelf_layer_control": {
+    "status": "FAIL",
+    "scope": "Exact 0.002 mm-thick sections of complete cap in its inverted print direction; isolated shelf strips are unsupported nominal layer islands.",
+    "first_receiver_shelf_z_mm": 177.31930385977427,
+    "samples": [
+      {
+        "z_mm": 177.29930385977426,
+        "print_depth_below_first_shelf_mm": 0.02,
+        "section_components": 3,
+        "pieces": [
+          {
+            "volume_mm3": 1.2008107830418915,
+            "center_mm": [
+              3.784358043290694e-11,
+              -1.6933818632500708e-10,
+              177.29930385977158
+            ]
+          },
+          {
+            "volume_mm3": 0.002703923014102549,
+            "center_mm": [
+              34.48151133383334,
+              2.516230869159407e-14,
+              177.2992871931076
+            ]
+          },
+          {
+            "volume_mm3": 0.002703923014101558,
+            "center_mm": [
+              -34.481511333833325,
+              4.705635853773726e-15,
+              177.2992871931076
+            ]
+          }
+        ]
+      },
+      {
+        "z_mm": 177.23930385977425,
+        "print_depth_below_first_shelf_mm": 0.08,
+        "section_components": 3,
+        "pieces": [
+          {
+            "volume_mm3": 1.2008107830694335,
+            "center_mm": [
+              1.512394452059539e-12,
+              -9.467506398553253e-14,
+              177.23930385977147
+            ]
+          },
+          {
+            "volume_mm3": 0.010815692056403805,
+            "center_mm": [
+              34.7257908245074,
+              9.345181698989855e-15,
+              177.23929969310757
+            ]
+          },
+          {
+            "volume_mm3": 0.010815692056402834,
+            "center_mm": [
+              -34.72579082450738,
+              3.912698137803942e-15,
+              177.23929969310757
+            ]
+          }
+        ]
+      },
+      {
+        "z_mm": 177.17930385977428,
+        "print_depth_below_first_shelf_mm": 0.14,
+        "section_components": 3,
+        "pieces": [
+          {
+            "volume_mm3": 1.2008107830403412,
+            "center_mm": [
+              3.631250713252767e-11,
+              -1.690512025375126e-10,
+              177.1793038597708
+            ]
+          },
+          {
+            "volume_mm3": 0.018927461098700207,
+            "center_mm": [
+              34.97011394560861,
+              7.209407279223912e-15,
+              177.17930147882194
+            ]
+          },
+          {
+            "volume_mm3": 0.0189274610986992,
+            "center_mm": [
+              -34.97011394560858,
+              3.784358835341465e-15,
+              177.17930147882188
+            ]
+          }
+        ]
+      },
+      {
+        "z_mm": 177.11930385977428,
+        "print_depth_below_first_shelf_mm": 0.2,
+        "section_components": 3,
+        "pieces": [
+          {
+            "volume_mm3": 1.2008107830410306,
+            "center_mm": [
+              3.481101978957575e-11,
+              -1.6948315751685975e-10,
+              177.1193038597717
+            ]
+          },
+          {
+            "volume_mm3": 0.027039230141001222,
+            "center_mm": [
+              35.21444142975269,
+              5.979410172398255e-15,
+              177.11930219310767
+            ]
+          },
+          {
+            "volume_mm3": 0.027039230141000216,
+            "center_mm": [
+              -35.21444142975266,
+              3.879505414927996e-15,
+              177.11930219310761
+            ]
+          }
+        ]
+      },
+      {
+        "z_mm": 177.05930385977427,
+        "print_depth_below_first_shelf_mm": 0.26,
+        "section_components": 3,
+        "pieces": [
+          {
+            "volume_mm3": 1.2008107830559729,
+            "center_mm": [
+              7.263813842915315e-11,
+              -3.386349523055485e-10,
+              177.05930385977143
+            ]
+          },
+          {
+            "volume_mm3": 0.035150999183301834,
+            "center_mm": [
+              35.45877025637144,
+              5.596454663570291e-15,
+              177.05930257772297
+            ]
+          },
+          {
+            "volume_mm3": 0.03515099918330088,
+            "center_mm": [
+              -35.458770256371416,
+              3.5447666227069033e-15,
+              177.059302577723
+            ]
+          }
+        ]
+      },
+      {
+        "z_mm": 176.99930385977427,
+        "print_depth_below_first_shelf_mm": 0.32,
+        "section_components": 1,
+        "pieces": [
+          {
+            "volume_mm3": 1.2738507830421324,
+            "center_mm": [
+              3.414622661062059e-11,
+              -1.5955337905835043e-10,
+              176.99930385977413
+            ]
+          }
+        ]
+      }
+    ],
+    "expected": "No detached section besides the continuous outer wall ring. More than one component demonstrates a floating shelf strip.",
+    "limitation": "Connectivity alone is insufficient to qualify a bridge or actual deposition."
+  }
+}

@@ -35,6 +35,9 @@ QUESTIONS = (
 
 
 def make_plan(variant):
+    if variant == 'slim-m2b':
+        from m2b_verification import make_m2b_plan
+        return make_m2b_plan(variant, REQUIREMENTS)
     if variant == 'slim-m1':
         from m1_verification import make_m1_plan
         return make_m1_plan(variant, REQUIREMENTS)
@@ -78,4 +81,4 @@ def make_plan(variant):
 
 
 if __name__ == '__main__':
-    raise SystemExit(cli(make_plan, ('measured-two-lane', 'rounded-c', 'plain-cylinder', 'slim-m1')))
+    raise SystemExit(cli(make_plan, ('measured-two-lane', 'rounded-c', 'plain-cylinder', 'slim-m1', 'slim-m2b')))

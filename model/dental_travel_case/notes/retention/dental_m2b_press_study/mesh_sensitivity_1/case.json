@@ -1,0 +1,153 @@
+{
+  "name": "m2b_press_force",
+  "nonlinear": true,
+  "max_increment": 0.1,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "6f669cd39b5aafb0712f603954f91f3c41354889066c096c2ff9330f10847a3a",
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh_size_mm": 0.84,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -50,
+            -20,
+            150.4
+          ],
+          "upper": [
+            50,
+            20,
+            151.4
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -35.35,
+            -7.0,
+            169.0
+          ],
+          "upper": [
+            -35.35,
+            7.0,
+            171.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        4.2,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": [
+    {
+      "name": "shoulder",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -40,
+            -4.5,
+            178.0
+          ],
+          "upper": [
+            -34.15,
+            4.5,
+            178.1
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "tooth",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -40,
+            -4.5,
+            177.9
+          ],
+          "upper": [
+            -34.05,
+            4.5,
+            182.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "pad",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -35.35,
+            -7.0,
+            169.0
+          ],
+          "upper": [
+            -35.35,
+            7.0,
+            171.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "tip",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            null,
+            null,
+            182.4
+          ],
+          "upper": [
+            null,
+            null,
+            182.4
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}

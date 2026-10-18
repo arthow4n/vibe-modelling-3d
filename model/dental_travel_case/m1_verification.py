@@ -75,7 +75,7 @@ def make_m1_plan(variant, baseline):
     def candidate():
         return build()
     scope = dict(design=variant, material='intended PETG',
-                 process='0.4 mm nozzle / 0.2 mm layers', revision='2026-10-15 unprinted narrow M1 with end catches',
+                 process='0.4 mm nozzle / 0.2 mm layers', revision='2026-10-15 printed narrow M1; presumed 001b739; failed retention',
                  packing_basis='user-confirmed real items together diagonally')
     questions, groups = [], []
     def add(id, targets, criterion, run, reference, mode):
@@ -145,6 +145,11 @@ def make_m1_plan(variant, baseline):
         questions.append(Q(qid, rid, criterion, mode))
     history_scope = {'design':variant, 'revision':'presumed 733b92f original 99.2 mm M1 test'}
     history = (
+        Evidence('full-box.print.retention', (('closure.secure','backpack'),('closure.end-retention','physical')),
+                 Status.FAIL,
+                 'User reports full-size cap pulls off without pressing either release and joint is too short/unstable; exact printed file/settings and force are unknown',
+                 RECORD+'#full-box-print-feedback--2026-10-15',
+                 {'design':variant,'revision':scope['revision']}),
         Evidence('items.diagonal-confirmed', (('paste.fit','diagonal-arrangement'),), Status.PASS,
                  'User confirms real items fit together diagonally. Accepted packing basis; this is not a report of printing the revised case',
                  PACKING.reference, {'design':variant,'packing_basis':scope['packing_basis']}),
@@ -159,4 +164,4 @@ def make_m1_plan(variant, baseline):
         directives=(Directive('floss.optional', 'No required floss volume or dedicated pocket', SOURCE),
                     Directive('inserts.deferred', 'Keep the cavity plain; defer any handle insert', FEEDBACK)),
         decisions=(DesignDecision('m1.two-cups', 'Plain shared cavity; 12 mm lap; two recessed widthwise end catches; tighter overlap and seat play', RECORD),),
-        hypotheses=(Hypothesis('m1.physical', 'The user-confirmed diagonal arrangement is the packing basis; revised printed clearances, end comfort and holding remain untested', RECORD),))
+        hypotheses=(Hypothesis('m1.physical', 'The full narrow case has a reported retention/stability failure; diagonal contents fit with effort. Exact escape path, loads, comfort, recovery and life remain unknown', RECORD),))

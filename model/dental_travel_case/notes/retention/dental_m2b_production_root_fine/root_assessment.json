@@ -1,0 +1,359 @@
+{
+  "status": "SAMPLED_CHANNEL_CLEAR",
+  "scope": "Native peak location and saved-frame nodal channel-separation interpretation; not mesh convergence, material acceptance or exact deformed-surface clearance.",
+  "native_status": "completed",
+  "native_completed": true,
+  "native_evidence_identity": {
+    "case_sha256": "f3602ad90cf717d577c7c222d0e3df3ae983f2c53ed3e7df475d15481bbab1df",
+    "input_sha256": "c4533c96653a3a7c847109ca8b07d335eb246c6851683cafb16e1b2892be0fea",
+    "backend_sha256": {
+      "febio_worker.py": "3a3af762b8b3162190cebd399a1ea1332b0bdbb6b641bc5b80c72c55d940353a",
+      "contact_diagnostics.py": "2f708d98921416d255b35d05dbe09d5009b117b0f3c301d84f0ffbd2956c0b36",
+      "febio.py": "5d68e47d0c3977c5fa9b94230825384a55c62c4becdc4f28080ffa75441a0feb",
+      "tet10_strain.py": "0eb4b4a1ec129adab94015e73126a650c3e62a281dae143b645b2c1953c1406a",
+      "polyfem_worker.py": "7cec9484b006980c9d96f3dd93858c03d16c224c203f96d4e919b33eb1738d41",
+      "febio_diagnostics.py": "b24d83c8b6dbf04396b2c50d69b9403a73dc2f695a240ef73c84c4e415584255",
+      "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+      "polyfem_output.py": "bd3b6e39db25f1c29e1a486f11c88f1d47980f97f544af6c945e02b98d112226",
+      "mesh.py": "557b59f5fcc10f1f9bbeb70e035cdb18707a5191817aaa971a8277824ef75b28",
+      "polyfem.py": "ed7584cf3ed337d58908c78e5cc92b8f40f632153bbfce7e730b086c5d13e9a9",
+      "ipc_benchmarks.py": "8e9800f1e5f42674c2872c2e3956dcf30248b00218471c26e4c943320f8c24b6",
+      "structural.py": "ef979dc3f0f36574f6a6196b0c0dd37cb8746f1a745369de45ea7c06fe2b574b",
+      "worker.py": "3f331ae4489f6041023ea6e78c140849207d965aaeefa873d5ae0ff1398d1e9e",
+      "polyfem_diagnostics.py": "e2bbad2721f8d8aa91990b99ca78f712f616fe9914d03f5d63ab840091069922"
+    }
+  },
+  "geometry_source_sha256": {
+    "m1_design": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396"
+  },
+  "max_abs_principal_strain": 0.008861777179446289,
+  "max_strain_element_centroid_mm": [
+    32.65685943120883,
+    -1.4920816500173053,
+    150.97180079764394
+  ],
+  "strain_peak_distance_from_nominal_root_z_mm": 0.571800797643931,
+  "strain_peak_distance_from_annular_clamp_z_mm": 12.571800797643931,
+  "minimum_sampled_channel_x_gap_mm": 0.2952833799999999,
+  "channel_history": [
+    {
+      "load_fraction": 0.1,
+      "sampled_channel_x_gap_lower_bound_mm": {
+        "negative": 2.731850792,
+        "positive": 2.7320949889999997
+      }
+    },
+    {
+      "load_fraction": 0.2,
+      "sampled_channel_x_gap_lower_bound_mm": {
+        "negative": 2.4629370579999996,
+        "positive": 2.463425858
+      }
+    },
+    {
+      "load_fraction": 0.3,
+      "sampled_channel_x_gap_lower_bound_mm": {
+        "negative": 2.1933493299999998,
+        "positive": 2.19408274
+      }
+    },
+    {
+      "load_fraction": 0.4,
+      "sampled_channel_x_gap_lower_bound_mm": {
+        "negative": 1.923179335,
+        "positive": 1.9241575610000001
+      }
+    },
+    {
+      "load_fraction": 0.5,
+      "sampled_channel_x_gap_lower_bound_mm": {
+        "negative": 1.652521997,
+        "positive": 1.6537440459999997
+      }
+    },
+    {
+      "load_fraction": 0.6,
+      "sampled_channel_x_gap_lower_bound_mm": {
+        "negative": 1.3814720400000002,
+        "positive": 1.3829379190000002
+      }
+    },
+    {
+      "load_fraction": 0.7,
+      "sampled_channel_x_gap_lower_bound_mm": {
+        "negative": 1.11012628,
+        "positive": 1.111834
+      }
+    },
+    {
+      "load_fraction": 0.8,
+      "sampled_channel_x_gap_lower_bound_mm": {
+        "negative": 0.8385805400000002,
+        "positive": 0.8405300999999996
+      }
+    },
+    {
+      "load_fraction": 0.9,
+      "sampled_channel_x_gap_lower_bound_mm": {
+        "negative": 0.5669336400000002,
+        "positive": 0.56912304
+      }
+    },
+    {
+      "load_fraction": 1.0,
+      "sampled_channel_x_gap_lower_bound_mm": {
+        "negative": 0.2952833799999999,
+        "positive": 0.2977116399999997
+      }
+    }
+  ],
+  "final_minimum_inward_tooth_displacement_mm": {
+    "negative": 2.262921,
+    "positive": 2.260823
+  },
+  "both_pad_and_tooth_observations": {
+    "negative_pad": {
+      "min_mm": [
+        1.339396,
+        -0.002217035,
+        0.1430121
+      ],
+      "max_mm": [
+        1.507937,
+        0.00227238,
+        0.1524892
+      ],
+      "mean_mm": [
+        1.4284732346208844,
+        3.29266650214592e-05,
+        0.1473768213161658
+      ]
+    },
+    "negative_tooth": {
+      "min_mm": [
+        2.262921,
+        -0.0001126617,
+        -0.2175778
+      ],
+      "max_mm": [
+        2.729996,
+        0.0003725165,
+        0.1874314
+      ],
+      "mean_mm": [
+        2.3854143579686227,
+        7.682897970189936e-05,
+        0.11876203795021872
+      ]
+    },
+    "negative_tip": {
+      "min_mm": [
+        2.720696,
+        6.323724e-05,
+        -0.2175778
+      ],
+      "max_mm": [
+        2.729996,
+        0.000244225,
+        -0.04790177
+      ],
+      "mean_mm": [
+        2.7256786600000003,
+        0.00015951860720000006,
+        -0.12749291299999996
+      ]
+    },
+    "negative_root_near": {
+      "min_mm": [
+        0.01316416,
+        -0.007591296,
+        -0.03074818
+      ],
+      "max_mm": [
+        0.07736722,
+        0.007627726,
+        0.01958235
+      ],
+      "mean_mm": [
+        0.024791049588972387,
+        1.921432386326819e-05,
+        -0.006776264978145869
+      ]
+    },
+    "negative_leaf_inner": {
+      "min_mm": [
+        0.03077053,
+        -0.01001191,
+        -0.2175778
+      ],
+      "max_mm": [
+        2.720983,
+        0.01009667,
+        -0.01954009
+      ],
+      "mean_mm": [
+        1.0111299233181812,
+        0.00010846300106984846,
+        -0.10907648001515144
+      ]
+    },
+    "negative_liner_front": {
+      "min_mm": [
+        0.01626638,
+        -0.0004763334,
+        -0.01098105
+      ],
+      "max_mm": [
+        0.03383889,
+        0.0004713997,
+        -0.006907549
+      ],
+      "mean_mm": [
+        0.02463019449901767,
+        8.02987296994105e-07,
+        -0.00818842447151277
+      ]
+    },
+    "positive_pad": {
+      "min_mm": [
+        -1.506321,
+        -0.002237652,
+        0.1429868
+      ],
+      "max_mm": [
+        -1.337927,
+        0.00224174,
+        0.1524472
+      ],
+      "mean_mm": [
+        -1.4256543175965661,
+        3.0214020028612854e-06,
+        0.14740921788268962
+      ]
+    },
+    "positive_tooth": {
+      "min_mm": [
+        -2.727585,
+        -0.0001597159,
+        -0.2173308
+      ],
+      "max_mm": [
+        -2.260823,
+        0.0003142003,
+        0.1873902
+      ],
+      "mean_mm": [
+        -2.384378825649623,
+        2.9098470224589275e-05,
+        0.11837945241480306
+      ]
+    },
+    "positive_tip": {
+      "min_mm": [
+        -2.727585,
+        2.075977e-06,
+        -0.2173308
+      ],
+      "max_mm": [
+        -2.718321,
+        0.000177062,
+        -0.04777413
+      ],
+      "mean_mm": [
+        -2.7232809800000006,
+        9.545954514000003e-05,
+        -0.12730490200000003
+      ]
+    },
+    "positive_root_near": {
+      "min_mm": [
+        -0.0771607,
+        -0.007568089,
+        -0.03067868
+      ],
+      "max_mm": [
+        -0.01311636,
+        0.007597634,
+        0.01950409
+      ],
+      "mean_mm": [
+        -0.024991436707692286,
+        1.574043527757948e-05,
+        -0.006773697744941276
+      ]
+    },
+    "positive_leaf_inner": {
+      "min_mm": [
+        -2.718583,
+        -0.01000891,
+        -0.2173308
+      ],
+      "max_mm": [
+        -0.03073877,
+        0.01007004,
+        -0.0194877
+      ],
+      "mean_mm": [
+        -1.0100240141969699,
+        8.039499316060613e-05,
+        -0.10894999074242441
+      ]
+    },
+    "positive_liner_front": {
+      "min_mm": [
+        -0.03387619,
+        -0.0004737869,
+        -0.01099374
+      ],
+      "max_mm": [
+        -0.01629464,
+        0.0004735651,
+        -0.006915689
+      ],
+      "mean_mm": [
+        -0.024652954420432218,
+        3.846008434774066e-06,
+        -0.008197864284872297
+      ]
+    },
+    "annular_grip": {
+      "min_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_mm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "remote_broad_wall": {
+      "min_mm": [
+        -0.001957387,
+        0.0001414449,
+        -0.0006971237
+      ],
+      "max_mm": [
+        0.001959209,
+        0.0203391,
+        0.0003428786
+      ],
+      "mean_mm": [
+        -3.3974805217891396e-06,
+        0.011806845664551433,
+        -0.0004386268518507034
+      ]
+    }
+  },
+  "force_balance": 3.779282913417364e-07,
+  "contact_consequence": "A nonpositive bound is potential leaf/liner contact requiring stronger local witness or self-contact treatment before interpreting root strain. Positive nodal bounds remain sampled evidence only.",
+  "native_result_sha256": "c0376f72e08b8e9d73f1c291f770f7620a8704c177126585a07fc3da78f19eff",
+  "retained_result_sha256": "16046f34890c6ef5d99adecfc4adbe74cb87b138cb409cd9111bf06189c8ff88"
+}

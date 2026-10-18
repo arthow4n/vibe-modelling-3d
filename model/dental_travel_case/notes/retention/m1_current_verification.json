@@ -1,0 +1,826 @@
+{
+  "schema_version": 1,
+  "variant": "slim-m1",
+  "selected_checks": null,
+  "available_variants": [
+    "measured-two-lane",
+    "rounded-c",
+    "plain-cylinder",
+    "slim-m1",
+    "slim-m2b"
+  ],
+  "available_checks": [
+    "case.construction",
+    "brush.fit",
+    "paste.aperture",
+    "case.end-rounds",
+    "cap.retention",
+    "cap.release",
+    "cap.admission",
+    "flexure.screen",
+    "form.size",
+    "print.slice"
+  ],
+  "exit_reason": "criterion_failed",
+  "error": null,
+  "report": {
+    "variant": "slim-m1",
+    "scope": {
+      "design": "slim-m1",
+      "material": "intended PETG",
+      "process": "0.4 mm nozzle / 0.2 mm layers",
+      "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention",
+      "packing_basis": "user-confirmed real items together diagonally"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "brush.fit",
+        "text": "Carry the measured electric toothbrush with its head attached",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured 250\u2013255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "envelope",
+            "criterion": "Measured 255/30 mm brush individually clears shell and complete extraction opening with >=0.8 mm clearance; simultaneous packing separate",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "brush.fit"
+            ],
+            "evidence": [
+              "brush.fit"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual attached brush fits, is accessible and avoids button activation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "paste.fit",
+        "text": "Carry toothpaste on its own side with room for tube variation",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured a new tube about 160 x 55 x 40 mm with 30 mm cap and requested margins for other versions"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "aperture",
+            "criterion": "Full 55 x 40 tube box individually passes the mouth with >=0.8 mm clearance after brush removal; no claim of simultaneous packing",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "paste.aperture"
+            ],
+            "evidence": [
+              "paste.aperture"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "diagonal-arrangement",
+            "criterion": "User has tried the real brush and toothpaste together and confirms that diagonal placement works",
+            "mode": "physical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [],
+            "evidence": [
+              "items.diagonal-confirmed"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "variation",
+            "criterion": "Actual current and desired alternative full tubes fit without unwanted squeeze",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.material",
+        "text": "Use a compliant printed design without a separate TPU print",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User requested compliance and preferably no separately printed TPU part"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "construction",
+            "criterion": "Two connected cups; full-rim test is cropped from production in matching print orientation",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "case.construction"
+            ],
+            "evidence": [
+              "case.construction"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "compliance",
+            "criterion": "Point-loaded rectangular-beam analogy at body contact, shortened root and +0.3 mm tip-travel allowance stays below provisional uncalibrated 1% strain and 5 N per-leaf squeeze screens",
+            "mode": "analytical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "flexure.screen"
+            ],
+            "evidence": [
+              "flexure.screen"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "effort-life",
+            "criterion": "Printed leaves operate, recover and withstand repeated use without cracks or creep",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "test.fit",
+        "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#first-print-and-test-procedure",
+          "statement": "User authorized both the small fit test and complete model in one phase"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "representative",
+            "criterion": "Two connected cups; full-rim test is cropped from production in matching print orientation",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "case.construction"
+            ],
+            "evidence": [
+              "case.construction"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "trial",
+            "criterion": "User reports useful fit/closure observations from the new joint pair",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.minimal",
+        "text": "Make M1 minimal in design and occupied size",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User rejected earlier bulky designs and requested the most slim minimal suggestions; then selected M1"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "envelope",
+            "criterion": "74.2 x 51.2 x 264 mm exterior: exactly 25 mm narrower than the previous model, two parts, no increased thickness; not a global minimum proof",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "form.size"
+            ],
+            "evidence": [
+              "form.size"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "judgment",
+            "criterion": "User accepts complete size, proportions and handling as minimal",
+            "mode": "subjective",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": [
+              "original.print.bulk"
+            ]
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.secure",
+        "text": "Separate cap with no exterior hinge and a rounded joint that resists opening when struck in a backpack",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#user-instruction-and-architecture",
+          "statement": "User selected M1, accepted a separate cap, requested no exterior hinge, rounded overlap and resistance to popping open when hit in a backpack; authorized modelling"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "capture",
+            "criterion": "Hard rim seats; deeper/wider catches lie at opposite widthwise ends and independently obstruct pull including +/-0.25 mm guide play; capture by 0.25 mm axial lift; removing hooks removes obstruction",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "cap.retention"
+            ],
+            "evidence": [
+              "cap.retention"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "release",
+            "criterion": "Five point-loaded fixed-root squeeze poses clear channels/contents; conservative continuous cap sweep and 16 actual cap poses clear; transverse guide-play release checked",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "cap.release"
+            ],
+            "evidence": [
+              "cap.release"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "admission",
+            "criterion": "Ten sampled precompressed squeeze-and-push poses clear; lap independently limits translation and twist; passive snap-on force not established",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "cap.admission"
+            ],
+            "evidence": [
+              "cap.admission"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "backpack",
+            "criterion": "Actual loaded cap resists accidental bump, peel and pulling during backpack use while deliberate release remains comfortable",
+            "mode": "physical",
+            "rationale": "",
+            "status": "FAIL",
+            "coverage": "evidence",
+            "strategies": [],
+            "evidence": [
+              "full-box.print.retention"
+            ],
+            "out_of_scope": [
+              "original.print.retention"
+            ]
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "travel.protection",
+        "text": "Protect the attached toothbrush and full toothpaste tube from outside backpack contents and pressure",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User said floss can travel elsewhere and the case mainly protects toothpaste and toothbrush from contact and crashes"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Actual loaded case protects items from external pressure and contact; no crush/drop rating assumed",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.supportfree",
+        "text": "Make the selected architecture support-free",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User asked for a support-free rounded R2/C combination"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "slice",
+            "criterion": "Delivered matching STLs accepted by Orca under named PETG diagnostic profiles, with support-probe review explicit; not physical print or GUI STEP qualification",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "print.slice"
+            ],
+            "evidence": [
+              "print.slice"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Actual ledges, bridges and vertical PETG leaf roots print successfully without supports",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.width-revision",
+        "text": "Reduce the previous M1 exterior width by 25 mm",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "dimensions",
+            "criterion": "74.2 x 51.2 x 264 mm exterior: exactly 25 mm narrower than the previous model, two parts, no increased thickness; not a global minimum proof",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "form.size"
+            ],
+            "evidence": [
+              "form.size"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [
+          "25 mm reduction from the previous 99.2 mm exterior width"
+        ],
+        "coverage": "evidence"
+      },
+      {
+        "id": "closure.end-retention",
+        "text": "Use deeper/longer teeth and tight holding at both widthwise ends of the case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "geometry",
+            "criterion": "Hard rim seats; deeper/wider catches lie at opposite widthwise ends and independently obstruct pull including +/-0.25 mm guide play; capture by 0.25 mm axial lift; removing hooks removes obstruction",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "cap.retention"
+            ],
+            "evidence": [
+              "cap.retention"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Revised end catches hold tightly, recover and release comfortably with actual shell flex and print tolerances",
+            "mode": "physical",
+            "rationale": "",
+            "status": "FAIL",
+            "coverage": "evidence",
+            "strategies": [],
+            "evidence": [
+              "full-box.print.retention"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "form.end-rounds",
+        "text": "Use substantially larger fillets at both top and bottom ends of the case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User additionally requests much larger fillets at both top and bottom ends of the case and asks that this be learned for future handled designs"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "geometry",
+            "criterion": "Actual horizontal-axis R4 cylindrical end surfaces cover left/right/front/back sides of both closed ends, above printable tangent feet",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "case.end-rounds"
+            ],
+            "evidence": [
+              "case.end-rounds"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "comfort",
+            "criterion": "User finds the newly rounded top/bottom ends comfortable on the full print",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "full-box.print.retention",
+        "targets": [
+          [
+            "closure.secure",
+            "backpack"
+          ],
+          [
+            "closure.end-retention",
+            "physical"
+          ]
+        ],
+        "status": "FAIL",
+        "summary": "User reports full-size cap pulls off without pressing either release and joint is too short/unstable; exact printed file/settings and force are unknown",
+        "reference": "notes/m1.md#full-box-print-feedback--2026-10-15",
+        "scope": {
+          "design": "slim-m1",
+          "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention"
+        }
+      },
+      {
+        "id": "items.diagonal-confirmed",
+        "targets": [
+          [
+            "paste.fit",
+            "diagonal-arrangement"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "User confirms real items fit together diagonally. Accepted packing basis; this is not a report of printing the revised case",
+        "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+        "scope": {
+          "design": "slim-m1",
+          "packing_basis": "user-confirmed real items together diagonally"
+        }
+      },
+      {
+        "id": "original.print.retention",
+        "targets": [
+          [
+            "closure.secure",
+            "backpack"
+          ]
+        ],
+        "status": "FAIL",
+        "summary": "User reports intermittent tooth engagement and weak far-end holding on the original printed test; exact file/settings unknown",
+        "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+        "scope": {
+          "design": "slim-m1",
+          "revision": "presumed 733b92f original 99.2 mm M1 test"
+        }
+      },
+      {
+        "id": "original.print.bulk",
+        "targets": [
+          [
+            "form.minimal",
+            "judgment"
+          ]
+        ],
+        "status": "FAIL",
+        "summary": "User says original printed 99.2 mm test is 25 mm too wide and authorizes narrowing",
+        "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+        "scope": {
+          "design": "slim-m1",
+          "revision": "presumed 733b92f original 99.2 mm M1 test"
+        }
+      },
+      {
+        "id": "case.construction",
+        "targets": [
+          [
+            "print.material",
+            "construction"
+          ],
+          [
+            "test.fit",
+            "representative"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#construction",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention",
+          "packing_basis": "user-confirmed real items together diagonally"
+        }
+      },
+      {
+        "id": "brush.fit",
+        "targets": [
+          [
+            "brush.fit",
+            "envelope"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#fit",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention",
+          "packing_basis": "user-confirmed real items together diagonally"
+        }
+      },
+      {
+        "id": "paste.aperture",
+        "targets": [
+          [
+            "paste.fit",
+            "aperture"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#tube_aperture",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention",
+          "packing_basis": "user-confirmed real items together diagonally"
+        }
+      },
+      {
+        "id": "case.end-rounds",
+        "targets": [
+          [
+            "form.end-rounds",
+            "geometry"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#end_rounds",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention",
+          "packing_basis": "user-confirmed real items together diagonally"
+        }
+      },
+      {
+        "id": "cap.retention",
+        "targets": [
+          [
+            "closure.secure",
+            "capture"
+          ],
+          [
+            "closure.end-retention",
+            "geometry"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#closure",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention",
+          "packing_basis": "user-confirmed real items together diagonally"
+        }
+      },
+      {
+        "id": "cap.release",
+        "targets": [
+          [
+            "closure.secure",
+            "release"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#release_path",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention",
+          "packing_basis": "user-confirmed real items together diagonally"
+        }
+      },
+      {
+        "id": "cap.admission",
+        "targets": [
+          [
+            "closure.secure",
+            "admission"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#assembly_path",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention",
+          "packing_basis": "user-confirmed real items together diagonally"
+        }
+      },
+      {
+        "id": "flexure.screen",
+        "targets": [
+          [
+            "print.material",
+            "compliance"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_checks.py#compliance",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention",
+          "packing_basis": "user-confirmed real items together diagonally"
+        }
+      },
+      {
+        "id": "form.size",
+        "targets": [
+          [
+            "form.minimal",
+            "envelope"
+          ],
+          [
+            "form.width-revision",
+            "dimensions"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "m1_design.py#Dimensions",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention",
+          "packing_basis": "user-confirmed real items together diagonally"
+        }
+      },
+      {
+        "id": "print.slice",
+        "targets": [
+          [
+            "print.supportfree",
+            "slice"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/slicer_review",
+        "scope": {
+          "design": "slim-m1",
+          "material": "intended PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers",
+          "revision": "2026-10-15 printed narrow M1; presumed 001b739; failed retention",
+          "packing_basis": "user-confirmed real items together diagonally"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "m1.two-cups",
+        "text": "Plain shared cavity; 12 mm lap; two recessed widthwise end catches; tighter overlap and seat play",
+        "reference": "notes/m1.md"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "m1.physical",
+        "text": "The full narrow case has a reported retention/stability failure; diagonal contents fit with effort. Exact escape path, loads, comfort, recovery and life remain unknown",
+        "reference": "notes/m1.md"
+      }
+    ],
+    "directives": [
+      {
+        "id": "floss.optional",
+        "text": "No required floss volume or dedicated pocket",
+        "source": {
+          "reference": "notes/m1.md#user-instruction-and-architecture",
+          "statement": "User selected M1, accepted a separate cap, requested no exterior hinge, rounded overlap and resistance to popping open when hit in a backpack; authorized modelling"
+        }
+      },
+      {
+        "id": "inserts.deferred",
+        "text": "Keep the cavity plain; defer any handle insert",
+        "source": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        }
+      }
+    ]
+  },
+  "help": null
+}

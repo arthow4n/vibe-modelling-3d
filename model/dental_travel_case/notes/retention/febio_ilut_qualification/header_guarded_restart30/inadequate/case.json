@@ -1,0 +1,268 @@
+{
+  "name": "febio_iterative_contact",
+  "nonlinear": true,
+  "max_increment": 0.2,
+  "parts": [
+    {
+      "name": "block",
+      "geometry": "part_0.brep",
+      "sha256": "df00b228a026ffc1b7bfb3c57ea2fb379c130d99133897184302dcf0fb4d7d92",
+      "material": {
+        "name": "benchmark",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.3,
+        "source": "Elastic numerical fixture, not filament calibration",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 0.8,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    },
+    {
+      "name": "floor",
+      "geometry": "part_1.brep",
+      "sha256": "2d4cf7001b95983909ddc90208e1794a8d37c934aeee79e795979138431630b6",
+      "material": {
+        "name": "benchmark",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.3,
+        "source": "Elastic numerical fixture, not filament calibration",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 0.8,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "floor",
+        "region": {
+          "lower": [
+            null,
+            null,
+            -1
+          ],
+          "upper": [
+            null,
+            null,
+            -1
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "BC0",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "block",
+        "region": {
+          "lower": [
+            null,
+            null,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        null
+      ],
+      "name": "BC1",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "block",
+        "region": {
+          "lower": [
+            null,
+            null,
+            4.01
+          ],
+          "upper": [
+            null,
+            null,
+            4.01
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        null,
+        null,
+        -0.02
+      ],
+      "name": "BC2",
+      "progress": null
+    }
+  ],
+  "loads": [],
+  "contacts": [
+    {
+      "slave": {
+        "part": "block",
+        "region": {
+          "lower": [
+            null,
+            null,
+            0.01
+          ],
+          "upper": [
+            null,
+            null,
+            0.01
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "floor",
+        "region": {
+          "lower": [
+            null,
+            null,
+            0
+          ],
+          "upper": [
+            null,
+            null,
+            0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 120000,
+      "penetration_limit_mm": 0.01,
+      "discretization": "surface_to_surface"
+    }
+  ],
+  "observations": [
+    {
+      "name": "receiving_surface",
+      "selection": {
+        "part": "floor",
+        "region": {
+          "lower": [
+            null,
+            null,
+            0
+          ],
+          "upper": [
+            null,
+            null,
+            0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ],
+  "febio": {
+    "augmented_lagrange": true,
+    "search_radius_mm": 1.0,
+    "two_pass": false,
+    "force_residual_tolerance_N": 1e-06,
+    "linear_solver": {
+      "type": "fgmres",
+      "preconditioner": "ilut",
+      "max_iterations": 1,
+      "restart_iterations": 1,
+      "relative_tolerance": 1e-15,
+      "absolute_tolerance": 1e-15,
+      "max_fill": 1,
+      "fill_tolerance": 1e-05,
+      "fail_max_iters": true,
+      "replace_zero_diagonal": false,
+      "print_level": 2,
+      "plugin": {
+        "path": "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/libfgmres_restart_checked.so",
+        "sha256": "dac7511f0025bb3ab258ae80e5ce91e66a2db6a57c724f2f214b36428f0f498d",
+        "build_manifest": {
+          "commit": "3ef37856289269674827e1748313b6224c4041a7",
+          "sdk_hashes": {
+            "NumCore/FGMRESSolver.cpp": "d35dbb1b5a25ae6506f57b1e5813ea18129fb0d03736cdb4420d5adfd8218967",
+            "NumCore/FGMRESSolver.h": "fe0d0608dbbf2fe7d76b81bc9d567ea78df338234850b890b3a42c50bb8b20d9",
+            "FECore/version.h": "54c642d2426221028c203c1f65b86d84cb998c1eeae5598b9f00c2fea43a3184"
+          },
+          "sdk_header_tree_sha256": "4d89d82ed8fc0f56e21570bcc71c3b43326aeb6d37e897d7c6ed2d6e1f388fd3",
+          "runtime_hashes": {
+            "bin/febio4": "c00b733dccf86f6696c504c739dda6dc9f42e63b9cf651e8149985ff783fb4b0",
+            "lib/libnumcore.so": "3057297e029a344388a5018847ecd7eaa2423f57a60bbabcfaa35a0e3ae3b3f2",
+            "lib/libfecore.so": "7fd1f21a0efb9a9a26782b85015cc3b8666b8e477a94f6084e576258f0b8e035"
+          },
+          "sdk": "/tmp/dental_febio_exact_source",
+          "runtime": "/home/hevar/.local/opt/febio-exploration/FEBio4",
+          "command": [
+            "g++",
+            "-std=c++17",
+            "-O2",
+            "-fPIC",
+            "-shared",
+            "-DMKL_ISS",
+            "-I/tmp/dental_febio_exact_source",
+            "-I/tmp/dental_febio_exact_source/NumCore",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/RestartFGMRESSolver.cpp",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/plugin.cpp",
+            "-L/home/hevar/.local/opt/febio-exploration/FEBio4/lib",
+            "-Wl,-rpath,/home/hevar/.local/opt/febio-exploration/FEBio4/lib",
+            "-lfecore",
+            "-lnumcore",
+            "-o",
+            "/home/hevar/.local/opt/febio-fgmres-restart-3ef378562-headers-qualified/libfgmres_restart_checked.so"
+          ],
+          "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+          "recipe_sha256": {
+            "README.md": "5e9d13d684425f2131fbe05d879f036a9e7ce843a1841b4deacdd4b8fff7e3da",
+            "build.py": "32de2a1e3375096c74a4e275a716dcc2e65fda79f1cd3e0553da50ce533c2af7",
+            "mkl_rci_abi.h": "5877e0dfcbc813856907f66847888d88b6e101a4240584aebf347306ed9d5063",
+            "plugin.cpp": "f739bf9e1f59ada922ee873029a4a753b1a863e4b605040f61fa7a8559d0eb94",
+            "recheck.patch": "01314500b5e730147705bba5734cd1adea946bcb92be46a93cd5e97dc1273e6a"
+          },
+          "generated_source_sha256": {
+            "FGMRESSolver.cpp": "4a0438a3359e9a46b01623e2542bac69aacabf02310ae6aef5fe266598f990de",
+            "FGMRESSolver.h": "fe0d0608dbbf2fe7d76b81bc9d567ea78df338234850b890b3a42c50bb8b20d9",
+            "RestartFGMRESSolver.cpp": "3d25d74bd622cf8680f3459b903507f538be5dbfccec80cdfdab6e7eed47a1ff",
+            "RestartFGMRESSolver.h": "a6a3d6685418b54404133745661d74a26d1fc364df43f9fa78e19a534c362cbc",
+            "mkl_rci_abi.h": "5877e0dfcbc813856907f66847888d88b6e101a4240584aebf347306ed9d5063",
+            "plugin.cpp": "f739bf9e1f59ada922ee873029a4a753b1a863e4b605040f61fa7a8559d0eb94"
+          },
+          "plugin_sha256": "dac7511f0025bb3ab258ae80e5ce91e66a2db6a57c724f2f214b36428f0f498d"
+        },
+        "manifest_sha256": "583fef636e235f3982715727cb6052a0fe97df674768fe9a0c2e9370f881f1e0"
+      }
+    }
+  },
+  "mesh_reuse": {
+    "input_sha256": "8b976cbca51b9a57675c3191a05a8f20f0321a20bea8131acb11b1e445797523",
+    "case_sha256": "be96f5a9535bda18d780bb9ffb6abd08545777db33b78c36f2be6cc2070acdbc",
+    "input": "mesh_source.inp",
+    "case": "mesh_source_case.json",
+    "mesh": {
+      "block": {
+        "nodes": 582,
+        "elements": 265,
+        "min_jacobian": 0.12703309424306428
+      },
+      "floor": {
+        "nodes": 603,
+        "elements": 267,
+        "min_jacobian": 0.12116089143990681
+      }
+    }
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "status": "SELECTED_QUADRATIC_FACES_SEPARATED",
+  "scope": "Convex-hull separation of actual deformed quadratic FEM planar inner-leaf and liner-front faces across all saved frames. Other faces, cap interaction, continuous load time between frames, exact CAD deformation and printed properties remain outside this witness.",
+  "minimum_continuous_face_gap_lower_bound_mm": 0.29270055999999656,
+  "history": [
+    {
+      "load_fraction": 0.1,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 2.7315935489999994,
+        "positive": 2.731835869000001
+      },
+      "selected_tooth_withdrawal_clearance_to_frozen_receiver_mm": {
+        "negative": {
+          "nominal_receiver_mm": -1.5309519204500006,
+          "receiver_at_adverse_guide_offset_mm": -1.7809519204500006,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 35.93095192045
+        },
+        "positive": {
+          "nominal_receiver_mm": -1.5276035445000034,
+          "receiver_at_adverse_guide_offset_mm": -1.7776035445000034,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 35.9276035445
+        }
+      }
+    },
+    {
+      "load_fraction": 0.2,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 2.4624221979999987,
+        "positive": 2.4629073419999976
+      },
+      "selected_tooth_withdrawal_clearance_to_frozen_receiver_mm": {
+        "negative": {
+          "nominal_receiver_mm": -1.30431427045,
+          "receiver_at_adverse_guide_offset_mm": -1.55431427045,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 35.70431427045
+        },
+        "positive": {
+          "nominal_receiver_mm": -1.3012866945,
+          "receiver_at_adverse_guide_offset_mm": -1.5512866945,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 35.7012866945
+        }
+      }
+    },
+    {
+      "load_fraction": 0.3,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 2.1925766180000004,
+        "positive": 2.193304538999996
+      },
+      "selected_tooth_withdrawal_clearance_to_frozen_receiver_mm": {
+        "negative": {
+          "nominal_receiver_mm": -1.0767409704499968,
+          "receiver_at_adverse_guide_offset_mm": -1.3267409704499968,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 35.476740970449995
+        },
+        "positive": {
+          "nominal_receiver_mm": -1.0740356445000074,
+          "receiver_at_adverse_guide_offset_mm": -1.3240356445000074,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 35.474035644500006
+        }
+      }
+    },
+    {
+      "load_fraction": 0.4,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 1.9221480729999953,
+        "positive": 1.9231194749999965
+      },
+      "selected_tooth_withdrawal_clearance_to_frozen_receiver_mm": {
+        "negative": {
+          "nominal_receiver_mm": -0.8483047204500025,
+          "receiver_at_adverse_guide_offset_mm": -1.0983047204500025,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 35.24830472045
+        },
+        "positive": {
+          "nominal_receiver_mm": -0.8459227445000082,
+          "receiver_at_adverse_guide_offset_mm": -1.0959227445000082,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 35.24592274450001
+        }
+      }
+    },
+    {
+      "load_fraction": 0.5,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 1.6512321789999973,
+        "positive": 1.6524455649999936
+      },
+      "selected_tooth_withdrawal_clearance_to_frozen_receiver_mm": {
+        "negative": {
+          "nominal_receiver_mm": -0.6190790204499947,
+          "receiver_at_adverse_guide_offset_mm": -0.8690790204499947,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 35.01907902044999
+        },
+        "positive": {
+          "nominal_receiver_mm": -0.6170222945000106,
+          "receiver_at_adverse_guide_offset_mm": -0.8670222945000106,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 35.01702229450001
+        }
+      }
+    },
+    {
+      "load_fraction": 0.6,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 1.3799239969999988,
+        "positive": 1.3813793709999906
+      },
+      "selected_tooth_withdrawal_clearance_to_frozen_receiver_mm": {
+        "negative": {
+          "nominal_receiver_mm": -0.3891400204500073,
+          "receiver_at_adverse_guide_offset_mm": -0.6391400204500073,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 34.789140020450006
+        },
+        "positive": {
+          "nominal_receiver_mm": -0.3874082945000126,
+          "receiver_at_adverse_guide_offset_mm": -0.6374082945000126,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 34.78740829450001
+        }
+      }
+    },
+    {
+      "load_fraction": 0.7,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 1.1083198869999897,
+        "positive": 1.1100147529999944
+      },
+      "selected_tooth_withdrawal_clearance_to_frozen_receiver_mm": {
+        "negative": {
+          "nominal_receiver_mm": -0.15856702044999338,
+          "receiver_at_adverse_guide_offset_mm": -0.4085670204499934,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 34.55856702044999
+        },
+        "positive": {
+          "nominal_receiver_mm": -0.15715929450001198,
+          "receiver_at_adverse_guide_offset_mm": -0.407159294500012,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 34.55715929450001
+        }
+      }
+    },
+    {
+      "load_fraction": 0.8,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 0.8365157099999934,
+        "positive": 0.8384505699999991
+      },
+      "selected_tooth_withdrawal_clearance_to_frozen_receiver_mm": {
+        "negative": {
+          "nominal_receiver_mm": 0.07256597955000643,
+          "receiver_at_adverse_guide_offset_mm": -0.17743402044999357,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 34.32743402044999
+        },
+        "positive": {
+          "nominal_receiver_mm": 0.0736467054999963,
+          "receiver_at_adverse_guide_offset_mm": -0.1763532945000037,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 34.3263532945
+        }
+      }
+    },
+    {
+      "load_fraction": 0.9,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 0.5646103099999955,
+        "positive": 0.5667826699999949
+      },
+      "selected_tooth_withdrawal_clearance_to_frozen_receiver_mm": {
+        "negative": {
+          "nominal_receiver_mm": 0.3041764795500015,
+          "receiver_at_adverse_guide_offset_mm": 0.05417647955000149,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 34.09582352045
+        },
+        "positive": {
+          "nominal_receiver_mm": 0.3049322054999877,
+          "receiver_at_adverse_guide_offset_mm": 0.054932205499987674,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 34.09506779450001
+        }
+      }
+    },
+    {
+      "load_fraction": 1.0,
+      "continuous_quadratic_face_gap_lower_bound_mm": {
+        "negative": 0.29270055999999656,
+        "positive": 0.2951109299999999
+      },
+      "selected_tooth_withdrawal_clearance_to_frozen_receiver_mm": {
+        "negative": {
+          "nominal_receiver_mm": 0.5361864795499898,
+          "receiver_at_adverse_guide_offset_mm": 0.28618647954998977,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 33.86381352045001
+        },
+        "positive": {
+          "nominal_receiver_mm": 0.536616205499989,
+          "receiver_at_adverse_guide_offset_mm": 0.286616205499989,
+          "deformed_tooth_outward_coordinate_upper_bound_mm": 33.86338379450001
+        }
+      }
+    }
+  ],
+  "final_selected_tooth_withdrawal_clearance_to_frozen_receiver_mm": {
+    "negative": {
+      "nominal_receiver_mm": 0.5361864795499898,
+      "receiver_at_adverse_guide_offset_mm": 0.28618647954998977,
+      "deformed_tooth_outward_coordinate_upper_bound_mm": 33.86381352045001
+    },
+    "positive": {
+      "nominal_receiver_mm": 0.536616205499989,
+      "receiver_at_adverse_guide_offset_mm": 0.286616205499989,
+      "deformed_tooth_outward_coordinate_upper_bound_mm": 33.86338379450001
+    }
+  },
+  "withdrawal_scope": "Coordinate bound on the selected actual tooth surface patch versus the frozen CAD receiver plane at each side independently adverse guide offset. Positive values indicate radial clearance of this selected FEM patch; early negative values are intentional retained engagement. This omits unselected faces, cap deformation, tilt, friction and external opening load.",
+  "selected_face_counts": {
+    "negative_leaf_inner": 459,
+    "negative_liner_front": 540,
+    "negative_tooth": 717,
+    "positive_leaf_inner": 459,
+    "positive_liner_front": 540,
+    "positive_tooth": 713
+  },
+  "source_sha256": {
+    "m1_design": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396"
+  },
+  "raw_native_result_sha256": "c0376f72e08b8e9d73f1c291f770f7620a8704c177126585a07fc3da78f19eff",
+  "input_sha256": "c4533c96653a3a7c847109ca8b07d335eb246c6851683cafb16e1b2892be0fea",
+  "case_sha256": "f3602ad90cf717d577c7c222d0e3df3ae983f2c53ed3e7df475d15481bbab1df",
+  "raw_displacement_field_sha256": "698b6eb4c28a249afb93efc3b620def6a46a9d2e6b402478e9f9b2201851c56c",
+  "nonpositive_bound_interpretation": "A conservative bound crossing zero does not prove contact, but prevents a contact-free conclusion from this witness.",
+  "retained_result_sha256": "16046f34890c6ef5d99adecfc4adbe74cb87b138cb409cd9111bf06189c8ff88"
+}

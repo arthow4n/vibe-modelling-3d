@@ -1,0 +1,767 @@
+{
+  "fair_root_stub_traction_comparison": {
+    "dental_m1_stub_land_12": {
+      "actual_loaded_area_mm2": 11.99999999999999,
+      "inward_shoulder_mean_mm": 1.0462092879999998,
+      "peak_strain": 0.005206511577483733
+    },
+    "dental_m2b_land_fullwidth_12": {
+      "actual_loaded_area_mm2": 13.499999999999988,
+      "inward_shoulder_mean_mm": 0.7576684276595745,
+      "peak_strain": 0.004743966285971502
+    }
+  },
+  "scope": "Actual-CAD M1 eccentric axial-traction diagnostic, not holding force. Full-contact attempt incomplete; no product approval.",
+  "records": {
+    "dental_m1_eccentric_12": {
+      "status": "completed",
+      "completed": true,
+      "errors": [],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "catch": {
+          "nodes": 7838,
+          "elements": 3851,
+          "min_jacobian": 0.0011772504303017082
+        }
+      },
+      "loaded_areas": [
+        {
+          "part": "catch",
+          "area_mm2": 13.999999999999533,
+          "force_N": [
+            0.0,
+            0.0,
+            12.0
+          ]
+        }
+      ],
+      "shoulder": {
+        "min_mm": [
+          0.9966138,
+          -0.001295219,
+          0.04683087
+        ],
+        "max_mm": [
+          1.00574,
+          0.001359272,
+          0.1805809
+        ],
+        "mean_mm": [
+          0.9992847979166667,
+          2.7523899020833324e-05,
+          0.12050752937499999
+        ]
+      },
+      "peak_strain": 0.00329443792660523,
+      "max_force_balance_relative": 7.802723859201245e-08,
+      "resources": {
+        "peak_tree_rss_bytes": 179814400,
+        "sampled_tree_cpu_seconds": 45.99,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 59.613523684005486
+      },
+      "case_sha256": "a5ea64e9757606a45020b95b56e671390443716d973bb8612f3548a0bcf1216a"
+    },
+    "dental_m1_land_12": {
+      "status": "completed",
+      "completed": true,
+      "errors": [],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "catch": {
+          "nodes": 7838,
+          "elements": 3851,
+          "min_jacobian": 0.0011772504303017082
+        }
+      },
+      "loaded_areas": [
+        {
+          "part": "catch",
+          "area_mm2": 7.1327801250864695,
+          "force_N": [
+            0.0,
+            0.0,
+            12.0
+          ]
+        }
+      ],
+      "shoulder": {
+        "min_mm": [
+          1.252386,
+          -0.001553383,
+          0.04854063
+        ],
+        "max_mm": [
+          1.265054,
+          0.001642102,
+          0.2179433
+        ],
+        "mean_mm": [
+          1.2563038958333332,
+          4.0921089343749945e-05,
+          0.14167068812500003
+        ]
+      },
+      "peak_strain": 0.003844955643787811,
+      "max_force_balance_relative": 7.124912427170929e-08,
+      "resources": {
+        "peak_tree_rss_bytes": 150282240,
+        "sampled_tree_cpu_seconds": 50.69,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 70.18342144100461
+      },
+      "case_sha256": "8f7a73ea4371d95be5db3d65a87b6e7d4567ceb7a7461598c56924f2d707c4a5"
+    },
+    "dental_m1_exact_land_12": {
+      "status": "completed",
+      "completed": true,
+      "errors": [],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "catch": {
+          "nodes": 8127,
+          "elements": 3992,
+          "min_jacobian": 0.0011323422311207477
+        }
+      },
+      "loaded_areas": [
+        {
+          "part": "catch",
+          "area_mm2": 11.999999999999993,
+          "force_N": [
+            0.0,
+            0.0,
+            12.0
+          ]
+        }
+      ],
+      "shoulder": {
+        "min_mm": [
+          1.071199,
+          -0.001367838,
+          0.04748092
+        ],
+        "max_mm": [
+          1.081257,
+          0.001413363,
+          0.191902
+        ],
+        "mean_mm": [
+          1.073627888,
+          3.0780785088000122e-06,
+          0.11526197623999998
+        ]
+      },
+      "peak_strain": 0.005208918295955822,
+      "max_force_balance_relative": 7.905042918693934e-08,
+      "resources": {
+        "peak_tree_rss_bytes": 182202368,
+        "sampled_tree_cpu_seconds": 64.07000000000001,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 84.51653854100732
+      },
+      "case_sha256": "84e4da8a240b5fc42f8e7b5e60be59d470798b49a1d78629f4bf87cf97c162a4"
+    },
+    "dental_m1_exact_soft": {
+      "status": "completed",
+      "completed": true,
+      "errors": [],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 800.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "catch": {
+          "nodes": 8127,
+          "elements": 3992,
+          "min_jacobian": 0.0010903511407804847
+        }
+      },
+      "loaded_areas": [
+        {
+          "part": "catch",
+          "area_mm2": 11.999999999999977,
+          "force_N": [
+            0.0,
+            0.0,
+            12.0
+          ]
+        }
+      ],
+      "shoulder": {
+        "min_mm": [
+          1.271168,
+          -0.002001967,
+          0.05998073
+        ],
+        "max_mm": [
+          1.285847,
+          0.0020751,
+          0.2469801
+        ],
+        "mean_mm": [
+          1.2750460879999999,
+          7.480347332800004e-06,
+          0.14802013615999998
+        ]
+      },
+      "peak_strain": 0.007910568030261885,
+      "max_force_balance_relative": 7.482726001721435e-08,
+      "resources": {
+        "peak_tree_rss_bytes": 182366208,
+        "sampled_tree_cpu_seconds": 64.96000000000001,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 100.38693120400421
+      },
+      "case_sha256": "38d21beeaeea570c31b25d2264aa820e1098569150bbe86479f133a94aaec4bd"
+    },
+    "dental_m1_exact_stiff": {
+      "status": "completed",
+      "completed": true,
+      "errors": [],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 2200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "catch": {
+          "nodes": 8127,
+          "elements": 3992,
+          "min_jacobian": 0.000976478701041376
+        }
+      },
+      "loaded_areas": [
+        {
+          "part": "catch",
+          "area_mm2": 12.0,
+          "force_N": [
+            0.0,
+            0.0,
+            12.0
+          ]
+        }
+      ],
+      "shoulder": {
+        "min_mm": [
+          0.7647638,
+          -0.0007693864,
+          0.03345369
+        ],
+        "max_mm": [
+          0.7703325,
+          0.0007915876,
+          0.1278497
+        ],
+        "mean_mm": [
+          0.7659364423999999,
+          1.6932482959999656e-07,
+          0.07759259223999995
+        ]
+      },
+      "peak_strain": 0.002795010841003041,
+      "max_force_balance_relative": 1.206011257849553e-07,
+      "resources": {
+        "peak_tree_rss_bytes": 180166656,
+        "sampled_tree_cpu_seconds": 56.9,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 78.24694570999418
+      },
+      "case_sha256": "10912e9a9d187a0674d67956a44d9b65934cc3ba379e9d047319483fbef374d3"
+    },
+    "dental_m1_exact_mesh08": {
+      "status": "failed",
+      "completed": false,
+      "errors": [
+        "Analysis worker exited with code -6: terminate called after throwing an instance of 'std::runtime_error'\n  what():  Failed to reach critical value in pass 1 for measure(s): ScaledJac\n"
+      ],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": null,
+      "loaded_areas": null,
+      "shoulder": null,
+      "peak_strain": null,
+      "max_force_balance_relative": null,
+      "resources": {
+        "peak_tree_rss_bytes": 84942848,
+        "sampled_tree_cpu_seconds": 1.7999999999999998,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 3.3630851469933987
+      },
+      "case_sha256": "266000bc910f8f511841c3c4cdb340b33d1ff9c3e75a34af8369d10ac2b830b7"
+    },
+    "dental_m1_land_curved08": {
+      "status": "completed",
+      "completed": true,
+      "errors": [],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "catch": {
+          "nodes": 26766,
+          "elements": 15056,
+          "min_jacobian": 0.0006192979452553397
+        }
+      },
+      "loaded_areas": [
+        {
+          "part": "catch",
+          "area_mm2": 12.0,
+          "force_N": [
+            0.0,
+            0.0,
+            12.0
+          ]
+        }
+      ],
+      "shoulder": {
+        "min_mm": [
+          1.073047,
+          -0.001471327,
+          0.04780528
+        ],
+        "max_mm": [
+          1.083653,
+          0.001525175,
+          0.1938013
+        ],
+        "mean_mm": [
+          1.0767957579143386,
+          1.823056457355678e-05,
+          0.14685935787709506
+        ]
+      },
+      "peak_strain": 0.00588350114679201,
+      "max_force_balance_relative": 6.282258905738746e-08,
+      "resources": {
+        "peak_tree_rss_bytes": 530554880,
+        "sampled_tree_cpu_seconds": 351.24,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 469.47109127299336
+      },
+      "case_sha256": "f07c31a656fb1944f51c2592b9c352f7c38da38c15f48cb1435a2892fe1ddd6b"
+    },
+    "dental_m1_full_curv8": {
+      "status": "failed",
+      "completed": false,
+      "errors": [
+        "Solver failed or did not finish (exit -9); see solver.log"
+      ],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "body": {
+          "nodes": 310844,
+          "elements": 170998,
+          "min_jacobian": 0.0006936047618494051
+        },
+        "cap": {
+          "nodes": 238519,
+          "elements": 134002,
+          "min_jacobian": 0.0010450265004086272
+        }
+      },
+      "loaded_areas": [],
+      "shoulder": null,
+      "peak_strain": null,
+      "max_force_balance_relative": null,
+      "resources": {
+        "peak_tree_rss_bytes": 6392844288,
+        "sampled_tree_cpu_seconds": 344.23,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 428.3138875500008
+      },
+      "case_sha256": "0a5498027ded61215089abb058474f5bae3680c4fcf9168228c8bb5b341ad724"
+    },
+    "dental_m1_stub_land_12": {
+      "status": "completed",
+      "completed": true,
+      "errors": [],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "catch": {
+          "nodes": 8127,
+          "elements": 3992,
+          "min_jacobian": 0.0010786360681396291
+        }
+      },
+      "loaded_areas": [
+        {
+          "part": "catch",
+          "area_mm2": 11.99999999999999,
+          "force_N": [
+            0.0,
+            0.0,
+            12.0
+          ]
+        }
+      ],
+      "shoulder": {
+        "min_mm": [
+          1.043754,
+          -0.001307947,
+          0.04730539
+        ],
+        "max_mm": [
+          1.053753,
+          0.001475688,
+          0.1906775
+        ],
+        "mean_mm": [
+          1.0462092879999998,
+          7.817914891119999e-05,
+          0.11460454223999998
+        ]
+      },
+      "peak_strain": 0.005206511577483733,
+      "max_force_balance_relative": 8.871235956547529e-08,
+      "resources": {
+        "peak_tree_rss_bytes": 181559296,
+        "sampled_tree_cpu_seconds": 50.559999999999995,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 66.90904735399818
+      },
+      "case_sha256": "3b4c3ecaa88631b3c9756d6ebfe97bfe7a3e5429ed0b36c6255cc8cf74c0e265"
+    },
+    "dental_m2b_land_12": {
+      "status": "completed",
+      "completed": true,
+      "errors": [],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "catch": {
+          "nodes": 6946,
+          "elements": 3429,
+          "min_jacobian": 0.0011906766668768353
+        }
+      },
+      "loaded_areas": [
+        {
+          "part": "catch",
+          "area_mm2": 10.676278518825415,
+          "force_N": [
+            0.0,
+            0.0,
+            12.0
+          ]
+        }
+      ],
+      "shoulder": {
+        "min_mm": [
+          0.7559013,
+          -0.001405586,
+          0.043749
+        ],
+        "max_mm": [
+          0.7635338,
+          0.001348863,
+          0.1695132
+        ],
+        "mean_mm": [
+          0.7575653777777781,
+          -3.1659453418803415e-05,
+          0.10113446418803422
+        ]
+      },
+      "peak_strain": 0.0048043596461724925,
+      "max_force_balance_relative": 7.996250939196311e-08,
+      "resources": {
+        "peak_tree_rss_bytes": 166871040,
+        "sampled_tree_cpu_seconds": 40.92,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 55.889795069990214
+      },
+      "case_sha256": "851aa1016972802354eb82958412fd50f9fedef6a5afcae37abb31d1e0af2895"
+    },
+    "dental_m2b_land_fullwidth_12": {
+      "status": "completed",
+      "completed": true,
+      "errors": [],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "catch": {
+          "nodes": 6946,
+          "elements": 3429,
+          "min_jacobian": 0.0011906766668768353
+        }
+      },
+      "loaded_areas": [
+        {
+          "part": "catch",
+          "area_mm2": 13.499999999999988,
+          "force_N": [
+            0.0,
+            0.0,
+            12.0
+          ]
+        }
+      ],
+      "shoulder": {
+        "min_mm": [
+          0.7556556,
+          -0.001371172,
+          0.04334851
+        ],
+        "max_mm": [
+          0.7638905,
+          0.001345176,
+          0.1687267
+        ],
+        "mean_mm": [
+          0.7576684276595745,
+          -5.636547638297875e-05,
+          0.1021764764539007
+        ]
+      },
+      "peak_strain": 0.004743966285971502,
+      "max_force_balance_relative": 9.921600331721713e-08,
+      "resources": {
+        "peak_tree_rss_bytes": 139259904,
+        "sampled_tree_cpu_seconds": 40.61000000000001,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 54.62538750600652
+      },
+      "case_sha256": "08a0330c159543046280b5f5cbb95f133e0de84343d6adb3621fc676a82b7479"
+    },
+    "dental_m1_full_pickup": {
+      "status": "interrupted",
+      "completed": false,
+      "errors": [
+        "Owner process ended before any accepted increment. On continuation no native/worker process remains. No completed fields recovered or inferred."
+      ],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "body": {
+          "nodes": 310844,
+          "elements": 170998,
+          "min_jacobian": 0.0005103030474490114
+        },
+        "cap": {
+          "nodes": 238680,
+          "elements": 134112,
+          "min_jacobian": 0.001045026505395862
+        }
+      },
+      "loaded_areas": [],
+      "shoulder": null,
+      "peak_strain": null,
+      "max_force_balance_relative": null,
+      "resources": null,
+      "case_sha256": "8898f70f9a0fdfa28a3617c08f83ab89a272dccbbc5055621ee703676949b58e"
+    },
+    "dental_m1_crop_pickup_febio": {
+      "status": "interrupted",
+      "completed": false,
+      "errors": [
+        "Caller interrupted analysis; worker and solver stopped"
+      ],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model",
+        "strain_limit": 0.01
+      },
+      "mesh": {
+        "body": {
+          "nodes": 97391,
+          "elements": 50359,
+          "min_jacobian": 5.7999348882381736e-05
+        },
+        "cap": {
+          "nodes": 47756,
+          "elements": 24582,
+          "min_jacobian": 0.006800697908251864
+        }
+      },
+      "loaded_areas": null,
+      "shoulder": null,
+      "peak_strain": null,
+      "max_force_balance_relative": null,
+      "resources": null,
+      "case_sha256": "942921e3ae77fb56da7008474fa7a048e5300f537c2b71eff9c58025bc675096"
+    },
+    "dental_m1_full_pickup_febio": {
+      "status": "failed",
+      "completed": false,
+      "errors": [
+        "FEBio failed or did not finish (exit -9); see solver.log"
+      ],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model; no calibrated strain acceptance",
+        "strain_limit": null
+      },
+      "mesh": {
+        "body": {
+          "nodes": 310844,
+          "elements": 170998,
+          "min_jacobian": 0.0005103030474490114
+        },
+        "cap": {
+          "nodes": 238680,
+          "elements": 134112,
+          "min_jacobian": 0.001045026505395862
+        }
+      },
+      "loaded_areas": null,
+      "shoulder": null,
+      "peak_strain": null,
+      "max_force_balance_relative": null,
+      "resources": {
+        "peak_tree_rss_bytes": 7122870272,
+        "sampled_tree_cpu_seconds": 116.52,
+        "measurement": "sampled process tree",
+        "elapsed_seconds": 71.55802941700676
+      },
+      "case_sha256": "934ffb574ac58a561ee202021f9b9d4971300cdc17484f084bde88eb314290ce"
+    },
+    "dental_m1_crop_ilut_pickup": {
+      "status": "interrupted",
+      "completed": false,
+      "errors": [
+        "Caller interrupted analysis; worker and solver stopped"
+      ],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model; no calibrated strain acceptance",
+        "strain_limit": null
+      },
+      "mesh": {
+        "body": {
+          "nodes": 97391,
+          "elements": 50359,
+          "min_jacobian": 5.7999348882381736e-05
+        },
+        "cap": {
+          "nodes": 47756,
+          "elements": 24582,
+          "min_jacobian": 0.006800697908251864
+        }
+      },
+      "loaded_areas": null,
+      "shoulder": null,
+      "peak_strain": null,
+      "max_force_balance_relative": null,
+      "resources": null,
+      "case_sha256": "41832d23dd645362f26540e903df05b5ac11cdda5fa569773562a15127d2a18e"
+    },
+    "dental_m1_crop_ilut50_pickup": {
+      "status": "interrupted",
+      "completed": false,
+      "errors": [
+        "Caller interrupted analysis; worker and solver stopped"
+      ],
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model; no calibrated strain acceptance",
+        "strain_limit": null
+      },
+      "mesh": {
+        "body": {
+          "nodes": 97391,
+          "elements": 50359,
+          "min_jacobian": 5.7999348882381736e-05
+        },
+        "cap": {
+          "nodes": 47756,
+          "elements": 24582,
+          "min_jacobian": 0.006800697908251864
+        }
+      },
+      "loaded_areas": null,
+      "shoulder": null,
+      "peak_strain": null,
+      "max_force_balance_relative": null,
+      "resources": null,
+      "case_sha256": "c8fc944293edce28f71b434fb1c699a72a76d4846bbb281d844391b61ef0e341"
+    }
+  },
+  "mesh_comparison": {
+    "max_displacement_mm": {
+      "coarse": 1.3913763579671898,
+      "refined": 1.395887753518966,
+      "relative_change": 0.003231918569672341,
+      "relative_tolerance": 0.1,
+      "passes": true
+    },
+    "max_abs_principal_strain": {
+      "coarse": 0.005208918295955822,
+      "refined": 0.00588350114679201,
+      "relative_change": 0.11465670423197001,
+      "relative_tolerance": 0.1,
+      "passes": false
+    }
+  },
+  "interpretation": "Inward retraction is robust to declared material and mesh choices. Local strain does not meet the requested 10% mesh comparison. The imposed traction does not follow migrating receiver contact; no release barrier follows.",
+  "m1_source_sha256": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5"
+}

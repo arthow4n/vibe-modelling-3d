@@ -65,7 +65,9 @@ def compile_case(case, directory, *, expected_input_sha256=None):
     for i,part in enumerate(case['parts']):
         if original is None:
             ns,es,surface,jac = mesh_part(directory/part['geometry'],part['mesh_size_mm'],
-                                         max(nodes,default=0),max(elements,default=0))
+                                         max(nodes,default=0),max(elements,default=0),
+                                         min_size=part.get('mesh_min_size_mm'),
+                                         curvature_points=part.get('mesh_curvature_points'))
         else:
             m=original[part['name']]
             ns,es,surface,jac=m['nodes'],m['elements'],m['surface'],None
@@ -139,7 +141,13 @@ def compile_case(case, directory, *, expected_input_sha256=None):
                  f"{c['penalty_N_mm3']},1e-10",
                  f'*CONTACT PAIR,INTERACTION=I{i},TYPE={contact_type}',f'C{i}SLAVE,C{i}MASTER']
         contact_records.append(record)
-    deck += ['*STEP'+(',NLGEOM' if case['nonlinear'] else '')+',INC=1000','*STATIC',
+    linear_solver = case.get('calculix', {}).get('linear_solver', 'default')
+    if linear_solver not in ('default', 'iterative_scaling', 'iterative_cholesky'):
+        raise ValueError(f'Unknown CalculiX linear solver: {linear_solver}')
+    solver_parameter = {'default': '', 'iterative_scaling': ',SOLVER=ITERATIVE SCALING',
+                        'iterative_cholesky': ',SOLVER=ITERATIVE CHOLESKY'}
+    static = '*STATIC' + solver_parameter[linear_solver]
+    deck += ['*STEP'+(',NLGEOM' if case['nonlinear'] else '')+',INC=1000',static,
              f"{case['max_increment']},1,1e-6,{case['max_increment']}"]+boundary
     if loads:
         deck+=['*CLOAD']+[f'{n},{d},{v:.12g}' for (n,d),v in loads.items() if abs(v)>1e-14]
@@ -341,6 +349,7 @@ def main(directory, *, postprocess_only=False):
     env=os.environ.copy(); command=[env['CALCULIX_COMMAND'],'-i','analysis']
     (directory/'regions.json').write_text(json.dumps(selections,indent=2)+'\n')
     result.provenance=dict(backend='CalculiX',version='unknown',
+        linear_solver=case.get('calculix', {}).get('linear_solver', 'default'),
         gmsh=package_version("gmsh"),cadquery=package_version("cadquery"),python=sys.version.split()[0],
         input_sha256=hashlib.sha256((directory/'analysis.inp').read_bytes()).hexdigest(),
         case_sha256=hashlib.sha256((directory/'case.json').read_bytes()).hexdigest(),
@@ -359,6 +368,8 @@ def main(directory, *, postprocess_only=False):
     log=(directory/'solver.log').read_text(errors='replace')
     version=re.search(r'This is Version\s+(\S+)',log)
     result.provenance['version']=version[1] if version else 'unknown'
+    result.provenance['iterative_cholesky_fallback_to_scaling'] = (
+        'iterative scaling solver will be used instead' in ' '.join(log.split()))
     result.artifacts=dict(case='case.json',input='analysis.inp',solver_log='solver.log',
                           raw_results='analysis.dat',increments='analysis.sta',regions='regions.json')
     lines=log.splitlines()

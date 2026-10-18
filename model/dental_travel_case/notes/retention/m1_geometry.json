@@ -1,0 +1,1879 @@
+{
+  "schema": "dental-m1-exact-capture-v1",
+  "source_sha256": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+  "dimensions_mm": {
+    "length": 264.0,
+    "seam": 174.0,
+    "width": 74.2,
+    "depth": 51.2,
+    "corner": 6.0,
+    "end_radius": 4.0,
+    "wall": 2.0,
+    "receiver_wall": 2.7,
+    "floor": 2.0,
+    "lap": 12.0,
+    "lap_clearance": 0.25,
+    "axial_play": 0.15,
+    "lap_wall": 1.6,
+    "brush_x": 0.0,
+    "brush_y": -5.0,
+    "catch_y": 0.0,
+    "beam_width": 14.0,
+    "beam_thickness": 1.6,
+    "beam_length": 40.4,
+    "catch_height": 4.0,
+    "hook_projection": 2.0,
+    "hook_width": 8.0,
+    "release": 2.7,
+    "slot": 0.8
+  },
+  "numerics": {
+    "volume_epsilon_mm3": 1e-07,
+    "retraction_resolution_mm": 0.005
+  },
+  "scope": "Authoritative nominal CAD, rigid pose and prescribed hook-shape screens. No holding-force, stiffness, elasticity or physical acceptance claim.",
+  "dimensional_sensitivity": "dx/dy +/-0.25 nominal per-side guide play and +/-0.5 enlarged clearance control. Local radial retraction also represents net tooth undersize or receiver outward motion; these are independent offsets, not measured manufacturing distributions.",
+  "seated_flat_lands": {
+    "-1": [
+      {
+        "area_mm2": 11.999999999999996,
+        "x_extent_mm": [
+          34.4,
+          35.9
+        ],
+        "y_extent_mm": [
+          -3.9999999999999964,
+          4.0000000000000036
+        ],
+        "hook_normal": [
+          0.0,
+          -0.0,
+          -1.0
+        ],
+        "receiver_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ],
+    "1": [
+      {
+        "area_mm2": 11.999999999999996,
+        "x_extent_mm": [
+          -35.9,
+          -34.4
+        ],
+        "y_extent_mm": [
+          -3.9999999999999964,
+          4.0000000000000036
+        ],
+        "hook_normal": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "receiver_normal": [
+          0.0,
+          -0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "flat_land_radial_loss_control": [
+    {
+      "radial_retraction_mm": 0.0,
+      "catches": {
+        "-1": [
+          {
+            "area_mm2": 11.999999999999996,
+            "x_extent_mm": [
+              34.4,
+              35.9
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              -0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "area_mm2": 11.999999999999996,
+            "x_extent_mm": [
+              -35.9,
+              -34.4
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              0.0,
+              -0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "radial_retraction_mm": 0.5,
+      "catches": {
+        "-1": [
+          {
+            "area_mm2": 7.9999999999999964,
+            "x_extent_mm": [
+              34.4,
+              35.4
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              -0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "area_mm2": 7.999999999999996,
+            "x_extent_mm": [
+              -35.4,
+              -34.4
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              0.0,
+              -0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "radial_retraction_mm": 1.0,
+      "catches": {
+        "-1": [
+          {
+            "area_mm2": 3.9999999999999964,
+            "x_extent_mm": [
+              34.4,
+              34.9
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              -0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "area_mm2": 3.999999999999996,
+            "x_extent_mm": [
+              -34.9,
+              -34.4
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              0.0,
+              -0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "radial_retraction_mm": 1.5,
+      "catches": {
+        "-1": [],
+        "1": []
+      }
+    },
+    {
+      "radial_retraction_mm": 1.75,
+      "catches": {
+        "-1": [],
+        "1": []
+      }
+    }
+  ],
+  "flat_land_transverse_sensitivity": [
+    {
+      "dx_mm": -0.25,
+      "dy_mm": 0,
+      "catches": {
+        "-1": [
+          {
+            "area_mm2": 13.999999999999993,
+            "x_extent_mm": [
+              34.15,
+              35.9
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              -0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "area_mm2": 9.999999999999995,
+            "x_extent_mm": [
+              -35.9,
+              -34.65
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              0.0,
+              -0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "dx_mm": 0.25,
+      "dy_mm": 0,
+      "catches": {
+        "-1": [
+          {
+            "area_mm2": 9.999999999999995,
+            "x_extent_mm": [
+              34.65,
+              35.9
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              -0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "area_mm2": 13.999999999999993,
+            "x_extent_mm": [
+              -35.9,
+              -34.15
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              0.0,
+              -0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "dx_mm": 0,
+      "dy_mm": -0.25,
+      "catches": {
+        "-1": [
+          {
+            "area_mm2": 11.924999999999997,
+            "x_extent_mm": [
+              34.4,
+              35.9
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              3.950000000000005
+            ],
+            "hook_normal": [
+              0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              -0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "area_mm2": 11.924999999999997,
+            "x_extent_mm": [
+              -35.9,
+              -34.4
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              3.950000000000005
+            ],
+            "hook_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              0.0,
+              -0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "dx_mm": 0,
+      "dy_mm": 0.25,
+      "catches": {
+        "-1": [
+          {
+            "area_mm2": 11.924999999999995,
+            "x_extent_mm": [
+              34.4,
+              35.9
+            ],
+            "y_extent_mm": [
+              -3.9499999999999966,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              -0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "area_mm2": 11.924999999999995,
+            "x_extent_mm": [
+              -35.9,
+              -34.4
+            ],
+            "y_extent_mm": [
+              -3.9499999999999957,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              0.0,
+              -0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "dx_mm": 0,
+      "dy_mm": -0.5,
+      "catches": {
+        "-1": [
+          {
+            "area_mm2": 11.549999999999997,
+            "x_extent_mm": [
+              34.4,
+              35.9
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              3.700000000000005
+            ],
+            "hook_normal": [
+              0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              -0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "area_mm2": 11.549999999999997,
+            "x_extent_mm": [
+              -35.9,
+              -34.4
+            ],
+            "y_extent_mm": [
+              -3.9999999999999964,
+              3.700000000000005
+            ],
+            "hook_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              0.0,
+              -0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "dx_mm": 0,
+      "dy_mm": 0.5,
+      "catches": {
+        "-1": [
+          {
+            "area_mm2": 11.549999999999995,
+            "x_extent_mm": [
+              34.4,
+              35.9
+            ],
+            "y_extent_mm": [
+              -3.6999999999999966,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              -0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "area_mm2": 11.549999999999995,
+            "x_extent_mm": [
+              -35.9,
+              -34.4
+            ],
+            "y_extent_mm": [
+              -3.6999999999999957,
+              4.0000000000000036
+            ],
+            "hook_normal": [
+              -0.0,
+              -0.0,
+              -1.0
+            ],
+            "receiver_normal": [
+              0.0,
+              -0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "receiver_face_catalog_one_side": [
+    {
+      "type": "PLANE",
+      "area_mm2": 651.7399999999983,
+      "center_mm": [
+        -34.4,
+        -2.3226920467095147e-15,
+        184.16498220149143
+      ],
+      "normal_at_center": [
+        1.0,
+        -0.0,
+        -0.0
+      ]
+    },
+    {
+      "type": "PLANE",
+      "area_mm2": 7.523616151824903,
+      "center_mm": [
+        -35.35,
+        -5.599999999999995,
+        179.25
+      ],
+      "normal_at_center": [
+        7.850462293418892e-17,
+        0.707106781186549,
+        0.7071067811865461
+      ]
+    },
+    {
+      "type": "PLANE",
+      "area_mm2": 8.265000000000015,
+      "center_mm": [
+        -35.35,
+        -6.999999999999996,
+        182.82500000000002
+      ],
+      "normal_at_center": [
+        1.1102230246251565e-16,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "type": "PLANE",
+      "area_mm2": 10.748023074035553,
+      "center_mm": [
+        -35.35,
+        -4.9999999999999964,
+        187.0
+      ],
+      "normal_at_center": [
+        7.850462293418876e-17,
+        0.7071067811865476,
+        -0.7071067811865476
+      ]
+    },
+    {
+      "type": "PLANE",
+      "area_mm2": 11.400000000000032,
+      "center_mm": [
+        -35.35,
+        3.720890554734674e-15,
+        189.00000000000003
+      ],
+      "normal_at_center": [
+        -0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "type": "PLANE",
+      "area_mm2": 10.748023074035553,
+      "center_mm": [
+        -35.35,
+        5.000000000000004,
+        187.0
+      ],
+      "normal_at_center": [
+        -7.850462293418876e-17,
+        -0.7071067811865476,
+        -0.7071067811865476
+      ]
+    },
+    {
+      "type": "PLANE",
+      "area_mm2": 8.265000000000015,
+      "center_mm": [
+        -35.35,
+        7.000000000000004,
+        182.825
+      ],
+      "normal_at_center": [
+        -1.1102230246251565e-16,
+        -1.0,
+        0.0
+      ]
+    },
+    {
+      "type": "PLANE",
+      "area_mm2": 7.523616151824903,
+      "center_mm": [
+        -35.35,
+        5.600000000000005,
+        179.25
+      ],
+      "normal_at_center": [
+        -7.850462293418892e-17,
+        -0.707106781186549,
+        0.7071067811865461
+      ]
+    },
+    {
+      "type": "PLANE",
+      "area_mm2": 15.960000000000052,
+      "center_mm": [
+        -35.35,
+        4.239554613804624e-15,
+        177.85
+      ],
+      "normal_at_center": [
+        0.0,
+        -0.0,
+        1.0
+      ]
+    },
+    {
+      "type": "PLANE",
+      "area_mm2": 132.26000000000008,
+      "center_mm": [
+        -36.3,
+        4.510707045542872e-15,
+        183.18701421442614
+      ],
+      "normal_at_center": [
+        1.0,
+        -1.1102230246251565e-16,
+        0.0
+      ]
+    }
+  ],
+  "rigid_hook_pose_samples": [
+    {
+      "name": "axial_0.0",
+      "pose": {
+        "lift": 0.0,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        },
+        "1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        }
+      }
+    },
+    {
+      "name": "axial_0.1",
+      "pose": {
+        "lift": 0.1,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        },
+        "1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        }
+      }
+    },
+    {
+      "name": "axial_0.15",
+      "pose": {
+        "lift": 0.15,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        },
+        "1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        }
+      }
+    },
+    {
+      "name": "axial_0.2",
+      "pose": {
+        "lift": 0.2,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.6408752771980967,
+          "terminal_retraction_mm": 1.65087890625,
+          "hook_shoulder_retraction_mm": 1.65087890625,
+          "terminal_threshold_bracket_mm": [
+            1.6474609375,
+            1.65087890625
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 0.6408752771980967,
+          "terminal_retraction_mm": 1.65087890625,
+          "hook_shoulder_retraction_mm": 1.65087890625,
+          "terminal_threshold_bracket_mm": [
+            1.6474609375,
+            1.65087890625
+          ]
+        }
+      }
+    },
+    {
+      "name": "axial_0.25",
+      "pose": {
+        "lift": 0.25,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 1.311823804500327,
+          "terminal_retraction_mm": 1.7021484375,
+          "hook_shoulder_retraction_mm": 1.7021484375,
+          "terminal_threshold_bracket_mm": [
+            1.69873046875,
+            1.7021484375
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 1.311823804500327,
+          "terminal_retraction_mm": 1.7021484375,
+          "hook_shoulder_retraction_mm": 1.7021484375,
+          "terminal_threshold_bracket_mm": [
+            1.69873046875,
+            1.7021484375
+          ]
+        }
+      }
+    },
+    {
+      "name": "axial_0.4",
+      "pose": {
+        "lift": 0.4,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 3.3926990816987224,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 3.3926990816987224,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "axial_0.6",
+      "pose": {
+        "lift": 0.6,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 6.192699081698564,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 6.192699081698564,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "axial_0.9",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 10.392699081698725,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 10.392699081698725,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "axial_1.2",
+      "pose": {
+        "lift": 1.2,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 14.592699081698486,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 14.592699081698486,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "axial_2.0",
+      "pose": {
+        "lift": 2.0,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 24.73270079732884,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 24.73270079732884,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "axial_4.0",
+      "pose": {
+        "lift": 4.0,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 36.23270079732879,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 36.23270079732879,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "axial_4.6",
+      "pose": {
+        "lift": 4.6,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 27.996251715629462,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 27.99625171562944,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "dx_-0.5",
+      "pose": {
+        "lift": 0.9,
+        "dx": -0.5,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 74.1871463299191,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 15.432950797328898,
+          "terminal_retraction_mm": 2.25244140625,
+          "hook_shoulder_retraction_mm": 2.25244140625,
+          "terminal_threshold_bracket_mm": [
+            2.2490234375,
+            2.25244140625
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 7.392699081698724,
+          "terminal_retraction_mm": 1.2509765625,
+          "hook_shoulder_retraction_mm": 1.2509765625,
+          "terminal_threshold_bracket_mm": [
+            1.24755859375,
+            1.2509765625
+          ]
+        }
+      }
+    },
+    {
+      "name": "seated_dx_-0.5",
+      "pose": {
+        "lift": 0.0,
+        "dx": -0.5,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 80.47371045965096,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 4.032950797328902,
+          "terminal_retraction_mm": 0.35205078125,
+          "hook_shoulder_retraction_mm": 0.35205078125,
+          "terminal_threshold_bracket_mm": [
+            0.3486328125,
+            0.35205078125
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        }
+      }
+    },
+    {
+      "name": "dx_-0.25",
+      "pose": {
+        "lift": 0.9,
+        "dx": -0.25,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 12.312950797328897,
+          "terminal_retraction_mm": 2.0029296875,
+          "hook_shoulder_retraction_mm": 2.0029296875,
+          "terminal_threshold_bracket_mm": [
+            1.99951171875,
+            2.0029296875
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 8.892699081698725,
+          "terminal_retraction_mm": 1.50048828125,
+          "hook_shoulder_retraction_mm": 1.50048828125,
+          "terminal_threshold_bracket_mm": [
+            1.4970703125,
+            1.50048828125
+          ]
+        }
+      }
+    },
+    {
+      "name": "seated_dx_-0.25",
+      "pose": {
+        "lift": 0.0,
+        "dx": -0.25,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.9320755201305823,
+          "terminal_retraction_mm": 0.1025390625,
+          "hook_shoulder_retraction_mm": 0.1025390625,
+          "terminal_threshold_bracket_mm": [
+            0.09912109375,
+            0.1025390625
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        }
+      }
+    },
+    {
+      "name": "dx_0.25",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.25,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 8.892699081698725,
+          "terminal_retraction_mm": 1.50048828125,
+          "hook_shoulder_retraction_mm": 1.50048828125,
+          "terminal_threshold_bracket_mm": [
+            1.4970703125,
+            1.50048828125
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 12.312950797328897,
+          "terminal_retraction_mm": 2.0029296875,
+          "hook_shoulder_retraction_mm": 2.0029296875,
+          "terminal_threshold_bracket_mm": [
+            1.99951171875,
+            2.0029296875
+          ]
+        }
+      }
+    },
+    {
+      "name": "seated_dx_0.25",
+      "pose": {
+        "lift": 0.0,
+        "dx": 0.25,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        },
+        "1": {
+          "initial_overlap_mm3": 0.9320755201305823,
+          "terminal_retraction_mm": 0.1025390625,
+          "hook_shoulder_retraction_mm": 0.1025390625,
+          "terminal_threshold_bracket_mm": [
+            0.09912109375,
+            0.1025390625
+          ]
+        }
+      }
+    },
+    {
+      "name": "dx_0.5",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.5,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 74.18714632991902,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 7.392699081698724,
+          "terminal_retraction_mm": 1.2509765625,
+          "hook_shoulder_retraction_mm": 1.2509765625,
+          "terminal_threshold_bracket_mm": [
+            1.24755859375,
+            1.2509765625
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 15.432950797328898,
+          "terminal_retraction_mm": 2.25244140625,
+          "hook_shoulder_retraction_mm": 2.25244140625,
+          "terminal_threshold_bracket_mm": [
+            2.2490234375,
+            2.25244140625
+          ]
+        }
+      }
+    },
+    {
+      "name": "seated_dx_0.5",
+      "pose": {
+        "lift": 0.0,
+        "dx": 0.5,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 80.47371045965096,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        },
+        "1": {
+          "initial_overlap_mm3": 4.032950797328902,
+          "terminal_retraction_mm": 0.35205078125,
+          "hook_shoulder_retraction_mm": 0.35205078125,
+          "terminal_threshold_bracket_mm": [
+            0.3486328125,
+            0.35205078125
+          ]
+        }
+      }
+    },
+    {
+      "name": "dy_-0.5",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": -0.5,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 176.7183963248863,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 10.47144908169871,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 10.471449081698733,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "seated_dy_-0.5",
+      "pose": {
+        "lift": 0.0,
+        "dx": 0.0,
+        "dy": -0.5,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 191.6899604547518,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.01840764923270083,
+          "terminal_retraction_mm": 1.72607421875,
+          "hook_shoulder_retraction_mm": 1.72607421875,
+          "terminal_threshold_bracket_mm": [
+            1.72265625,
+            1.72607421875
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 0.018407649232701523,
+          "terminal_retraction_mm": 1.72607421875,
+          "hook_shoulder_retraction_mm": 1.72607421875,
+          "terminal_threshold_bracket_mm": [
+            1.72265625,
+            1.72607421875
+          ]
+        }
+      }
+    },
+    {
+      "name": "dy_-0.25",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": -0.25,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 10.394886581698714,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 10.394886581698735,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "seated_dy_-0.25",
+      "pose": {
+        "lift": 0.0,
+        "dx": 0.0,
+        "dy": -0.25,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        },
+        "1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        }
+      }
+    },
+    {
+      "name": "dy_0.25",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": 0.25,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 10.394886581698739,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 10.394886581698751,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "seated_dy_0.25",
+      "pose": {
+        "lift": 0.0,
+        "dx": 0.0,
+        "dy": 0.25,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        },
+        "1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        }
+      }
+    },
+    {
+      "name": "dy_0.5",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": 0.5,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 176.71839632487482,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 10.47144908169874,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 10.471449081698752,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "seated_dy_0.5",
+      "pose": {
+        "lift": 0.0,
+        "dx": 0.0,
+        "dy": 0.5,
+        "angle_x": 0.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 191.68996045474725,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.018407649232701394,
+          "terminal_retraction_mm": 1.72607421875,
+          "hook_shoulder_retraction_mm": 1.72607421875,
+          "terminal_threshold_bracket_mm": [
+            1.72265625,
+            1.72607421875
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 0.018407649232702036,
+          "terminal_retraction_mm": 1.72607421875,
+          "hook_shoulder_retraction_mm": 1.72607421875,
+          "terminal_threshold_bracket_mm": [
+            1.72265625,
+            1.72607421875
+          ]
+        }
+      }
+    },
+    {
+      "name": "angle_x_0.25",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.25,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 10.393212175735624,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 10.393212175735579,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "angle_x_0.5",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.5,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 10.394751506689897,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 10.394751506689882,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "angle_x_1.0",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 1.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 10.400909563265035,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 10.400909563264962,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "angle_x_2.0",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 2.0,
+        "angle_y": 0.0
+      },
+      "fixed_body_overlap_mm3": 10.162955572088036,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 10.425553519405323,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 10.425553519405387,
+          "terminal_retraction_mm": 1.75,
+          "hook_shoulder_retraction_mm": 1.75,
+          "terminal_threshold_bracket_mm": [
+            1.74658203125,
+            1.75
+          ]
+        }
+      }
+    },
+    {
+      "name": "angle_y_0.25",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.25
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 8.165602635933519,
+          "terminal_retraction_mm": 1.736328125,
+          "hook_shoulder_retraction_mm": 1.736328125,
+          "terminal_threshold_bracket_mm": [
+            1.73291015625,
+            1.736328125
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 12.657235970763683,
+          "terminal_retraction_mm": 1.7705078125,
+          "hook_shoulder_retraction_mm": 1.7705078125,
+          "terminal_threshold_bracket_mm": [
+            1.76708984375,
+            1.7705078125
+          ]
+        }
+      }
+    },
+    {
+      "name": "angle_y_0.5",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 0.5
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 5.975862898482426,
+          "terminal_retraction_mm": 1.72265625,
+          "hook_shoulder_retraction_mm": 1.72265625,
+          "terminal_threshold_bracket_mm": [
+            1.71923828125,
+            1.72265625
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 14.959300602289273,
+          "terminal_retraction_mm": 1.78759765625,
+          "hook_shoulder_retraction_mm": 1.78759765625,
+          "terminal_threshold_bracket_mm": [
+            1.7841796875,
+            1.78759765625
+          ]
+        }
+      }
+    },
+    {
+      "name": "angle_y_1.0",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 1.0
+      },
+      "fixed_body_overlap_mm3": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 1.720410105208248,
+          "terminal_retraction_mm": 1.66796875,
+          "hook_shoulder_retraction_mm": 1.66796875,
+          "terminal_threshold_bracket_mm": [
+            1.66455078125,
+            1.66796875
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 19.591086865091555,
+          "terminal_retraction_mm": 1.82177734375,
+          "hook_shoulder_retraction_mm": 1.82177734375,
+          "terminal_threshold_bracket_mm": [
+            1.818359375,
+            1.82177734375
+          ]
+        }
+      }
+    },
+    {
+      "name": "angle_y_2.0",
+      "pose": {
+        "lift": 0.9,
+        "dx": 0.0,
+        "dy": 0.0,
+        "angle_x": 0.0,
+        "angle_y": 2.0
+      },
+      "fixed_body_overlap_mm3": 45.16450176839547,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 0.0,
+          "terminal_retraction_mm": 0.0,
+          "hook_shoulder_retraction_mm": 0.0
+        },
+        "1": {
+          "initial_overlap_mm3": 27.937336413723553,
+          "terminal_retraction_mm": 1.8798828125,
+          "hook_shoulder_retraction_mm": 1.8798828125,
+          "terminal_threshold_bracket_mm": [
+            1.87646484375,
+            1.8798828125
+          ]
+        }
+      }
+    }
+  ],
+  "prescribed_leaf_thresholds": [
+    {
+      "dx_mm": -0.25,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 12.312950797328897,
+          "terminal_retraction_mm": 2.30029296875,
+          "hook_shoulder_retraction_mm": 1.9813447840073526,
+          "terminal_threshold_bracket_mm": [
+            2.296875,
+            2.30029296875
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 8.892699081698725,
+          "terminal_retraction_mm": 1.72607421875,
+          "hook_shoulder_retraction_mm": 1.4867446001838232,
+          "terminal_threshold_bracket_mm": [
+            1.72265625,
+            1.72607421875
+          ]
+        }
+      }
+    },
+    {
+      "dx_mm": 0.0,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 10.392699081698725,
+          "terminal_retraction_mm": 2.01318359375,
+          "hook_shoulder_retraction_mm": 1.7340446920955879,
+          "terminal_threshold_bracket_mm": [
+            2.009765625,
+            2.01318359375
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 10.392699081698725,
+          "terminal_retraction_mm": 2.01318359375,
+          "hook_shoulder_retraction_mm": 1.7340446920955879,
+          "terminal_threshold_bracket_mm": [
+            2.009765625,
+            2.01318359375
+          ]
+        }
+      }
+    },
+    {
+      "dx_mm": 0.25,
+      "catches": {
+        "-1": {
+          "initial_overlap_mm3": 8.892699081698725,
+          "terminal_retraction_mm": 1.72607421875,
+          "hook_shoulder_retraction_mm": 1.4867446001838232,
+          "terminal_threshold_bracket_mm": [
+            1.72265625,
+            1.72607421875
+          ]
+        },
+        "1": {
+          "initial_overlap_mm3": 12.312950797328897,
+          "terminal_retraction_mm": 2.30029296875,
+          "hook_shoulder_retraction_mm": 1.9813447840073526,
+          "terminal_threshold_bracket_mm": [
+            2.296875,
+            2.30029296875
+          ]
+        }
+      }
+    }
+  ],
+  "hook_controls": [
+    {
+      "name": "engaged",
+      "prescribed_terminal_retraction_mm": 0.0,
+      "catch_overlap_mm3": {
+        "-1": 10.392699081698725,
+        "1": 10.392699081698725
+      }
+    },
+    {
+      "name": "partly_retracted",
+      "prescribed_terminal_retraction_mm": 0.5,
+      "catch_overlap_mm3": {
+        "-1": 7.769212324610662,
+        "1": 7.769212324610662
+      }
+    },
+    {
+      "name": "nearly_released",
+      "prescribed_terminal_retraction_mm": 1.5,
+      "catch_overlap_mm3": {
+        "-1": 2.521858907229389,
+        "1": 2.5218589072293884
+      }
+    },
+    {
+      "name": "deliberately_released",
+      "prescribed_terminal_retraction_mm": 2.7,
+      "catch_overlap_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    }
+  ],
+  "removed_hook_control_fixed_body_overlap_mm3": 0.0,
+  "limitations": [
+    "Finite pose samples do not establish a continuous opening path.",
+    "Rigid guide interference prevents treating a pose as an admissible escape route; deformation requires structural analysis.",
+    "No print-error calibration. Hook/receiver dimensional errors can combine with elastic motion.",
+    "Fixed body includes production liner and sleeve. Full-size nominal cap is retained, but rigid geometric queries cannot distinguish its compliance from a crop."
+  ]
+}

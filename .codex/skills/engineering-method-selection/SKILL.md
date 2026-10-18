@@ -89,6 +89,17 @@ its capabilities are integrated or qualified here.
   parameters and qualification, often physical evidence. Keep established anatomy
   when changing the analysis; a reachable pose proves neither force capability,
   comfort nor real accessibility.
+- **Retained enclosures:** use exact CAD first to distinguish flat capture, edge
+  obstruction and incomplete return. An isolated prescribed-release flexure cannot
+  predict pull-off through a deformable receiver or long cup. Prefer deformable
+  contact (`ContactQuestion` or multipart `AnalysisCase`), choosing force or
+  displacement control to resolve the loading path and any unstable release, when those
+  motions can consume the margin; rigid-mate `SnapFitQuestion` passage is a
+  different question. Preserve plausible grip locations, rocking freedom and
+  receiver/guide load paths, and qualify finite-edge contact before interpreting
+  a force or work barrier. The [M1/M2 study](../../../model/dental_travel_case/notes/m2.md)
+  supplies actual-CAD controls and an eccentric-load counterexample; it does not
+  qualify an unrestricted retention predictor or a different native solver.
 - **Analytical versus numerical:** equations are preferable when their assumptions
   bound the decisive quantity adequately. Move to numerical analysis for relevant
   section distortion, large deformation, contact, instability or coupled loading

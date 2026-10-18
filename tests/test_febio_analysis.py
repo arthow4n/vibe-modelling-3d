@@ -132,3 +132,29 @@ def test_mortar_missing_fields_remain_explicit_failure(tmp_path):
     assert 'Missing contact output' in str(r.errors)
     assert r.provenance['backend']=='CalculiX'
     assert not r.metrics
+
+
+def test_febio_environment_respects_admitted_budget(monkeypatch):
+    from execution import resources
+    monkeypatch.setattr(resources, 'inherited_budget', lambda: 4)
+    environment=FebioBackend().environment()
+    assert environment['OMP_NUM_THREADS']=='4'
+    assert environment['MKL_NUM_THREADS']=='4'
+    monkeypatch.setattr(resources, 'inherited_budget', lambda: None)
+    assert FebioBackend().environment()['OMP_NUM_THREADS']=='1'
+
+
+def test_febio_parallel_contact_matches_serial(tmp_path):
+    from execution.resources import lease
+    def solve(name,budget,source=None):
+        with lease(budget):
+            c=contact_case(.02)
+            c.contacts[0]=replace(c.contacts[0],discretization='surface_to_surface')
+            return c.run(tmp_path/name,backend=FebioBackend(two_pass=True),mesh_from=source).require_completed()
+    serial=solve('serial',1)
+    parallel=solve('parallel',4,tmp_path/'serial')
+    for field in ('max_penetration_mm','max_abs_principal_strain'):
+        assert parallel.metrics[field]==pytest.approx(serial.metrics[field],rel=1e-5,abs=1e-8)
+    assert parallel.metrics['peak_motion_force_N']['BC2']==pytest.approx(serial.metrics['peak_motion_force_N']['BC2'],rel=1e-5)
+    assert parallel.metrics['max_force_balance_relative']<1e-6
+    assert [f['load_fraction'] for f in parallel.history]==[f['load_fraction'] for f in serial.history]

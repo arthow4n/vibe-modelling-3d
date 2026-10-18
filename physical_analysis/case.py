@@ -60,6 +60,8 @@ class Part:
     shape: Any
     material: Material
     mesh_size_mm: float
+    mesh_min_size_mm: float | None = None
+    mesh_curvature_points: int | None = None
 
 @dataclass(frozen=True)
 class Constraint:
@@ -105,13 +107,23 @@ class AnalysisCase:
         if self.max_increment > 1:
             raise ValueError('Maximum increment cannot exceed the unit load interval')
 
-    def add_part(self, name, shape, *, material: Material, mesh_size_mm: float):
+    def add_part(self, name, shape, *, material: Material, mesh_size_mm: float,
+                 mesh_min_size_mm: float | None = None, mesh_curvature_points: int | None = None):
         if name in self.parts or not re.fullmatch(r'[A-Za-z][A-Za-z0-9_]{0,47}', name):
             raise ValueError('Part names must be unique short identifiers')
         positive(mesh_size_mm, 'Mesh size')
+        if (mesh_min_size_mm is None) != (mesh_curvature_points is None):
+            raise ValueError('Provide mesh_min_size_mm and mesh_curvature_points together')
+        if mesh_min_size_mm is not None:
+            positive(mesh_min_size_mm, 'Minimum mesh size')
+            if mesh_min_size_mm > mesh_size_mm:
+                raise ValueError('Minimum mesh size cannot exceed mesh_size_mm')
+            if type(mesh_curvature_points) is not int or mesh_curvature_points < 3:
+                raise ValueError('Curvature sampling needs an integer of at least 3 points per full circle')
         if not isinstance(material, Material):
             raise TypeError('Provide an explicit Material, including property assumptions')
-        self.parts[name] = Part(name, shape, material, mesh_size_mm)
+        self.parts[name] = Part(name, shape, material, mesh_size_mm,
+                                mesh_min_size_mm, mesh_curvature_points)
         return self
 
     def select(self, part, region=None):

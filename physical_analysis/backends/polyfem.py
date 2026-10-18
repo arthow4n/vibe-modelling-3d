@@ -69,7 +69,8 @@ class PolyfemBackend(CalculixBackend):
             for key,name in (('input_sha256','scene.json'),('mesh_sha256','mesh.json'),('case_sha256','case.json'))}
         if any(provenance.get(key)!=value for key,value in identity.items()):
             raise ValueError('IPC mesh source identity differs from result provenance')
-        signature=lambda c: json.dumps(([ (p['name'],p['sha256'],p['mesh_size_mm']) for p in c['parts']],
+        signature=lambda c: json.dumps(([ (p['name'],p['sha256'],p['mesh_size_mm'],
+                p.get('mesh_min_size_mm'),p.get('mesh_curvature_points')) for p in c['parts']],
             [(p['slave'],p['master']) for p in c['contacts']],
             c['ipc']['initial_offset_mm'],c['ipc']['obstacle_mesh_size_mm']),sort_keys=True)
         if signature(previous)!=signature(request):

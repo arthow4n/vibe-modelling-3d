@@ -573,14 +573,28 @@ adequate retention. Screen engagement and effort at consequential clearance
 extremes, including guide play and alignment, before refining nominal force.
 Do not apply every tolerance combination when only one could change the decision.
 
-For a snap-retained enclosure, also challenge opening **without operating the
+For a snap-retained enclosure, challenge opening **without operating the
 release** through receiver spreading, shell bending, off-center peeling and
-rocking. Identify the least constrained escape route of the complete cups, not
-only the prescribed cantilever release. Rigid catch obstruction and a local leaf
-force screen leave these elastic routes unresolved. The [full M1 print](../../../../model/dental_travel_case/notes/m1.md#full-box-print-feedback--2026-10-15)
-pulled apart despite better-feeling small samples. When complete-wall compliance
-or leverage governs, preserve it in the chosen assessment or physical trial;
-a deeper tooth alone does not establish secure retention.
+rocking. Measure useful retaining land separately from rounded-edge or flank
+interference, and check that both leaves can recover at the seated fit extremes.
+Trace external opening loads to the actual contact centroid: even a flat shoulder
+can retract a long leaf through an eccentric axial load; subsequent leaf rotation
+can change its contact normal. Release-button force does not measure that barrier.
+
+Use the complete cups when surrounding compliance or leverage could consume the
+capture margin. A coupon transfers only the local relationships it actually
+preserves. Retain an established failed full product as a negative benchmark;
+if the model cannot expose a plausible weak route, keep its retention prediction
+unqualified. The [M1/M2 investigation](../../../../model/dental_travel_case/notes/m2.md)
+separates genuine flat capture from corner obstruction and demonstrates inward
+leaf motion under actual-CAD axial traction; that traction fixture alone does not
+establish pull-off force. Prefer simple CAD checks when they already reject absent
+capture, then use [method selection](../../engineering-method-selection/SKILL.md)
+for consequential deformable contact. Compare force/work only after checking how
+the mechanism engages, which surfaces contact while loaded, and what frees both
+catches. Include hook-removal, degraded-engagement or receiver-motion controls
+with expected qualitative behavior; preserve numerical uncertainty separately
+from provisional design and physical acceptance.
 
 For a retained removable cover, consider the loaded box hanging from the cover
 when that is intended or a relevant preference. Separate mandatory carrying from
