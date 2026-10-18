@@ -1,0 +1,34 @@
+{
+  "scope": "Short research specimens only, not the long force-study fixture.",
+  "inputs": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "closure_research_design.py": "fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128",
+    "closure_short_design.py": "986f5285dd8eccbf9be674305f5ae0fcac30b3cb0e295574e88280e095c6b135",
+    "shell_broad_short_test.py": "a71ff8dc5f6f33902333f74974500abf6a0d8bd106c05c5fafae4c77c6a1e418",
+    "shell_end_short_test.py": "4db6f77fceddb7caa76781413f9978d71675806d841da9dfcfc003cb3b6251fa",
+    "perimeter_bead_short_test.py": "2d178d290eaa563fd3fb220478de910f0a7b1dfe63b31909ebbac2e3c42413a8",
+    "slide_wall_short_test.py": "6c8c5eb008f692f312978f6fcef4bca17e9c5e5c220b8386fa9770535fcaede7"
+  },
+  "artifacts": {
+    "shell_broad": {
+      "shell_broad_short_test.step": "8a4e7a39422dc64e27d19da2c49946c286a22774330b2d2622d77f8c7427a422",
+      "shell_broad_short_test.stl": "5fd2d2576c1f2d9678e181078ea09e0d52b561a327171b9ea7bd23fe14fb8bab",
+      "notes/closure_short/shell_broad_slice.json": "6f127ba73c22ede3f165d77d5c2f54330433d29061d4bc21549a58d576ecec95"
+    },
+    "shell_end": {
+      "shell_end_short_test.step": "b64effd6e6fadceeb1426f013843bb88af9a2a73bdaa96a9a0b600c884ef0998",
+      "shell_end_short_test.stl": "4383cd7345e64796f29fdaf8988e0c53e0fe897a074f8710734706da189e87f1",
+      "notes/closure_short/shell_end_slice.json": "60762effff4059c0516b2f199d0e65495d9edbe258baf7b009801a01fc5ce52c"
+    },
+    "perimeter_bead": {
+      "perimeter_bead_short_test.step": "dac25eeebc9aa61ca4244c353d057ed5b9965782ddd95137ab61a2d8b38611da",
+      "perimeter_bead_short_test.stl": "11858af209c1bb18941abcb42a2f4af17c4c884f5f9c6eaf3bcb3b9891b79137",
+      "notes/closure_short/perimeter_bead_slice.json": "8caf40261534167e136b166eeb8afe9f6eb6cf85e364ff19e3cfdc73cee775b3"
+    },
+    "slide_wall": {
+      "slide_wall_short_test.step": "07219bbe342bc665f87ee0ffedcee6adfbe6f462fc02e73102324c82cbf1cb3b",
+      "slide_wall_short_test.stl": "2369c9ae52c5233f1a2fd4fc99711ef57cfc68e4b89fe2ba02fb1c724ae1a66b",
+      "notes/closure_short/slide_wall_slice.json": "0f0f09ca581da671adb42cdf41c03a53cf2ab50efa3802a57fde1468a3ec784c"
+    }
+  }
+}

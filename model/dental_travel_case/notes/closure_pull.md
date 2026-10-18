@@ -1,5 +1,10 @@
 # Lifting the box by its cap — force estimate, not a payload rating
 
+This record concerns the original long research geometry. The later
+[short, lower-material specimens](closure_short.md) preserve the interfaces but
+change wall stiffness and supports; these force/weight estimates do not apply
+to them.
+
 The user asks how much force the four research closures can resist, expressed
 also as an understandable hanging weight, before deciding whether to print them.
 The earlier unit-radial-load studies did **not** answer this question. They measured

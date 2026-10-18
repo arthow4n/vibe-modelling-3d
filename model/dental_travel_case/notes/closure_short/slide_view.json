@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/slide_wall_short_test.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/tests/closure_short/slide_wall_short_test_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014710269999795855,
+    "build": 0.5611652500001583,
+    "selection": 0.0011585540000851324,
+    "validation": 0.04061317299988332,
+    "render_isometric": 0.35614579800017054,
+    "worker": 1.0316266019999603,
+    "total": 1.1672920789999353
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "f20036c72bbf843dfb0ebace04f455c90ec294a8bad21ca4375a32846f8f6946",
+    "artifact_identity": "a071bc5181950012baecdeaffbdc06622d5609ddc6e3e7c3f28d10c796c811f9"
+  }
+}

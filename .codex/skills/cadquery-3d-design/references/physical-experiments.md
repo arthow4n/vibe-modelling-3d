@@ -114,6 +114,12 @@ release. Preserving local tooth geometry alone does not preserve those escape
 routes. The [M1 full-box report](../../../../model/dental_travel_case/notes/m1.md#full-box-print-feedback--2026-10-15)
 shows why a better-feeling short sample cannot qualify complete-shell retention.
 
+For wall-flex snaps, a shortened full-XY ring is a useful economical experiment,
+but preserving that perimeter alone does not preserve axial shell stiffness.
+Label its force-transfer limit. Add separation purchase without deleting the
+seating stop: the [short dental trials](../../../../model/dental_travel_case/notes/closure_short.md)
+retain corner stops around recessed seam gaps and check against cap overshoot.
+
 Estimate material or print time only when it changes the sample choice;
 use a slicer's existing estimate when available, without adding G-code analysis
 solely to obtain a precise number. Compare with a less simplified fixture when

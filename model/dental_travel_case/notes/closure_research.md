@@ -11,6 +11,12 @@ unchanged references. No new print has been reported or requested.
 The user explicitly requests **no sub-agents unless they ask for them**. This
 phase uses implementation and self-review only.
 
+**Current lower-material print option:** the user subsequently requested shorter
+retention-only trials. Use the [four short R1-S–R4-S pairs](closure_short.md) for
+that purpose: full XY shape, shorter axial walls and recessed pull gaps. The long
+specimens below remain the reference for the earlier stiffness/force studies;
+their force estimates do not transfer to the shortened trials.
+
 For the later question “how much weight could hang from the cap?”, see the
 [straight-pull force investigation](closure_pull.md) and its
 [section/force drawing](closure_research/pull_estimate.svg). It adds a conditional
