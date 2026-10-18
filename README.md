@@ -118,12 +118,14 @@ coupon (N/A).
 - Final object: Partial — variant H printed; user reports it works well; other variants unreported
 - Provenance: [Record](model/faceted_storage_tray/README.md#attribution) · Agent effort: [Selected token/timing record](model/faceted_storage_tray/notes/agent_effort.md)
 
-#### Dental travel containers — failed printed M1; M2B computational research
+#### Dental travel containers — failed printed M1; M3 prototype
 
 [M1 full-box feedback and retained files](model/dental_travel_case/notes/m1.md) · [Separate M2B retention investigation](model/dental_travel_case/notes/m2.md)
 
+[Current M3 prototype, STEP/STL and joint SVG](model/dental_travel_case/notes/m3.md)
+
 - Test pieces: Yes — small samples seemed to hold; exact revisions unknown
-- Final object: M1 printed — brush/tube fit with effort plus floss; joint too short/unstable, pulls apart without release. M1 frozen. M2B unprinted research: longer guide and revised catches; full retention qualification unresolved, no print requested
+- Final object: M1 printed — brush/tube fit with effort plus floss; joint too short/unstable, pulls apart without release. M1 frozen. M3 unprinted prototype: longer guide, thicker leaves and supported receivers; practical reduced simulation, local FEM, paired exports and diagnostic slice. Actual pull-off, recovery and bridge quality remain unmeasured; no new print requested
 - Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
 
 #### Slim dental box S16 liner

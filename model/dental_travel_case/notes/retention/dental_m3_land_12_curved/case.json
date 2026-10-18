@@ -1,0 +1,96 @@
+{
+  "name": "m3_eccentric",
+  "nonlinear": true,
+  "max_increment": 0.05,
+  "parts": [
+    {
+      "name": "catch",
+      "geometry": "part_0.brep",
+      "sha256": "b366f77477b44d6d8c8d2cfc0db7c9cd46313d5cf895d0768cf325af698f8f4c",
+      "material": {
+        "name": "PETG effective isotropic hypothesis",
+        "youngs_modulus_MPa": 1200.0,
+        "poisson_ratio": 0.38,
+        "source": "Uncalibrated sensitivity hypothesis; homogeneous load-bearing CAD, not a measured infill/layer model; no calibrated strain acceptance",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 1.2,
+      "mesh_min_size_mm": 0.35,
+      "mesh_curvature_points": 12
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "catch",
+        "region": {
+          "lower": [
+            -50,
+            -20,
+            150.4
+          ],
+          "upper": [
+            50,
+            20,
+            151.4
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "catch",
+        "region": {
+          "lower": [
+            -40,
+            -4.51,
+            178.0
+          ],
+          "upper": [
+            -34.8,
+            4.51,
+            178.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        12.0
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": [
+    {
+      "name": "shoulder",
+      "selection": {
+        "part": "catch",
+        "region": {
+          "lower": [
+            -40,
+            -4.51,
+            178.0
+          ],
+          "upper": [
+            -34.55,
+            4.51,
+            178.1
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "scope": "Post-completion source/artifact association after guarded CAD publication; not a physical validation.",
+  "inputs": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design.py": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396",
+    "m3_design.py": "8e958036da3e31e22dc345c9994d68967cec56aa6ae8183e5ff8a34634e43ec9",
+    "m3_case.py": "887787208b4892ce97bba0a57bb60e1be8406f2fe5cd84682a0635029ba859e0"
+  },
+  "outputs": {
+    "m3_case.step": "3057d31f5edd75cb1d3b6aa1e72c12a80c33694c3cfe18e2aa194a573c384561",
+    "m3_case.stl": "9dc6207a022e5e5bcd4cbb6ad09c57ddba371991af3792091b2f5226e7094fb9",
+    "notes/m3/export_slice.json": "809bb3cb968702562e68dd41e51eebcdcfc975e012da8e973124db686de61452",
+    "notes/m3/toolpaths.json": "318d407724ea777e5a065e8c23dbb8f13e5405414d8e4713677cc9d4d2c707ba",
+    "notes/m3/native_summary.json": "78b460432696e1a11ee7ecd46a8cf0b293945189f70d364c4b01d6de3c670bb9",
+    "notes/retention/dental_m3_press_7/result.json": "8e20ad32fed2ebf43784da98e0fca3b71993975d2d8f15a82c3df4c34316ef29",
+    "notes/retention/dental_m3_land_12_curved/result.json": "a4adefe6c34a8dc5e24553641be5cbd4b1ebc2a74a1cedf07b44af30f4f09d5d"
+  }
+}

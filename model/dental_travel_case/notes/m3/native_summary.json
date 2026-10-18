@@ -1,0 +1,36 @@
+{
+  "scope": "Local fixed-world traction and pressure only; no whole-product contact or strength qualification.",
+  "preliminary_narrow_width_mm": 74.2,
+  "final_main_width_mm": 75.0,
+  "native_geometry_translation_mm": [
+    -0.4,
+    0,
+    0
+  ],
+  "native_symmetric_difference_mm3": 0.0,
+  "coarse_shoulder_mm": 0.5298743808510638,
+  "current_curvature_mesh_shoulder_mm": 0.5307225110091746,
+  "relative_shoulder_change": 0.0016006249570861275,
+  "peak_strain_coarse": 0.0040191149648697985,
+  "peak_strain_curved": 0.0035705658937050626,
+  "native_force_balance_relative": 1.0660345075143257e-07,
+  "press_minimum_tooth_inward_mm": 2.123849,
+  "press_peak_strain": 0.01070785425092179,
+  "failed_uniform_refinement": "dental_m3_land_12_final: Gmsh high-order ScaledJac optimization failed; no mechanics result. Adapted once to curvature sizing; succeeded.",
+  "mesh_provenance": {
+    "coarse_narrow": {
+      "catch": {
+        "nodes": 7255,
+        "elements": 3657,
+        "min_jacobian": 0.001165793454098981
+      }
+    },
+    "current_curved": {
+      "catch": {
+        "nodes": 12447,
+        "elements": 6577,
+        "min_jacobian": 0.0023034722935865275
+      }
+    }
+  }
+}

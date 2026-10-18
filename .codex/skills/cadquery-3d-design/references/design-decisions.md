@@ -224,6 +224,13 @@ this motion,” or “this stop carries the closed-position load.” If the resp
 mating geometry cannot be named, resolve the architecture before simulating that
 function. Bounding-envelope fit or generic absence of collision is insufficient.
 
+For joints, catches and comparable mechanisms, provide a cross-section SVG that
+explains the engagement, guide, seat and intended release motion. Prefer sections
+from the actual CAD once available; label different section planes, omitted parts
+and schematic force arrows. The user requested this after the
+[dental M3 continuation](../../../../model/dental_travel_case/notes/m3.md): an
+understandable load path is part of the deliverable, not just numerical output.
+
 Build low-detail **complete geometry** as soon as possible: the actual object,
 contents/held item, all major moving parts, and assembled/open states. A local
 mechanism coupon answers mechanics, not whole-object architecture. Cheap math may

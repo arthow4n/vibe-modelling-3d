@@ -100,6 +100,16 @@ its capabilities are integrated or qualified here.
   a force or work barrier. The [M1/M2 study](../../../model/dental_travel_case/notes/m2.md)
   supplies actual-CAD controls and an eccentric-load counterexample; it does not
   qualify an unrestricted retention predictor or a different native solver.
+  When a detailed full-assembly route exceeds available resources, adapt the
+  representation before developing more solver infrastructure. The
+  [M3 continuation](../../../model/dental_travel_case/notes/m3.md) uses an elastica
+  with explicit contact-direction hypotheses, receiver-strip sensitivity and
+  guide bearing couples, cross-checked against local actual-CAD FEM. It supports
+  a comparative prototype decision and exposes weak routes without predicting
+  complete escape. Preserve that boundary: simplified springs and assumed contact
+  directions are not measured shell stiffness or a guaranteed pull-off force.
+  If reasonable adaptations still cannot answer the decision, stop with the
+  specific unresolved quantity instead of repeatedly rescuing the detailed route.
 - **Analytical versus numerical:** equations are preferable when their assumptions
   bound the decisive quantity adequately. Move to numerical analysis for relevant
   section distortion, large deformation, contact, instability or coupled loading

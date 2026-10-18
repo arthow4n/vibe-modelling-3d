@@ -25,6 +25,9 @@ def design_module(variant):
     if variant=='m2b':
         import m2b_design
         return m2b_design
+    if variant=='m3':
+        import m3_design
+        return m3_design
     if variant=='m2':
         import m2_design
         return m2_design
@@ -169,7 +172,7 @@ def main():
     p.add_argument('--load', type=float)
     p.add_argument('--receiving-land',action='store_true')
     p.add_argument('--root-stub',action='store_true')
-    p.add_argument('--variant', choices=('m1','m2','m2b'),required=True)
+    p.add_argument('--variant', choices=('m1','m2','m2b','m3'),required=True)
     p.add_argument('--travel', type=float)
     p.add_argument('--increment', type=float, default=.02)
     p.add_argument('--eccentric', type=float, default=0)

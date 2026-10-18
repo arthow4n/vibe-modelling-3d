@@ -1,0 +1,2233 @@
+{
+  "status": "PASS",
+  "sources": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design.py": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396",
+    "m3_design.py": "8e958036da3e31e22dc345c9994d68967cec56aa6ae8183e5ff8a34634e43ec9"
+  },
+  "producer_sha256": "1818fed0b10e9298e1ce68d687b78925d0b8b9341fbe3a4695df76b6bc0a7321",
+  "scope": "Finite exact-CAD engagement, return, press and withdrawal; no elastic recovery or force assertion.",
+  "lands": {
+    "-1": [
+      {
+        "area_mm2": 13.499999999999995,
+        "x_extent_mm": [
+          34.8,
+          36.3
+        ],
+        "y_extent_mm": [
+          -4.4999999999999964,
+          4.500000000000005
+        ],
+        "hook_normal": [
+          0.0,
+          -0.0,
+          -1.0
+        ],
+        "receiver_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ],
+    "1": [
+      {
+        "area_mm2": 13.499999999999995,
+        "x_extent_mm": [
+          -36.3,
+          -34.8
+        ],
+        "y_extent_mm": [
+          -4.4999999999999964,
+          4.500000000000004
+        ],
+        "hook_normal": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "receiver_normal": [
+          0.0,
+          -0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "retraction_controls": {
+    "1.0": {
+      "-1": [
+        {
+          "area_mm2": 4.499999999999996,
+          "x_extent_mm": [
+            34.8,
+            35.3
+          ],
+          "y_extent_mm": [
+            -4.4999999999999964,
+            4.500000000000005
+          ],
+          "hook_normal": [
+            0.0,
+            -0.0,
+            -1.0
+          ],
+          "receiver_normal": [
+            -0.0,
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "1": [
+        {
+          "area_mm2": 4.499999999999995,
+          "x_extent_mm": [
+            -35.3,
+            -34.8
+          ],
+          "y_extent_mm": [
+            -4.4999999999999964,
+            4.500000000000004
+          ],
+          "hook_normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "receiver_normal": [
+            0.0,
+            -0.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "1.5": {
+      "-1": [],
+      "1": []
+    }
+  },
+  "first_feature_layers": {
+    "status": "PASS",
+    "scope": "Exact 0.002mm layer slabs at the flat retaining features. Connectivity does not qualify overhang/bridge deposition.",
+    "samples": [
+      {
+        "part": "body_tooth",
+        "z_mm": 178.02,
+        "print_depth_mm": 0.02,
+        "section_components": 1,
+        "status": "PASS"
+      },
+      {
+        "part": "body_tooth",
+        "z_mm": 178.08,
+        "print_depth_mm": 0.08,
+        "section_components": 1,
+        "status": "PASS"
+      },
+      {
+        "part": "body_tooth",
+        "z_mm": 178.14,
+        "print_depth_mm": 0.14,
+        "section_components": 1,
+        "status": "PASS"
+      },
+      {
+        "part": "body_tooth",
+        "z_mm": 178.2,
+        "print_depth_mm": 0.2,
+        "section_components": 1,
+        "status": "PASS"
+      },
+      {
+        "part": "body_tooth",
+        "z_mm": 178.26,
+        "print_depth_mm": 0.26,
+        "section_components": 1,
+        "status": "PASS"
+      },
+      {
+        "part": "cap_shelf",
+        "z_mm": 177.73,
+        "print_depth_mm": 0.02,
+        "section_components": 1,
+        "status": "PASS"
+      },
+      {
+        "part": "cap_shelf",
+        "z_mm": 177.67,
+        "print_depth_mm": 0.08,
+        "section_components": 1,
+        "status": "PASS"
+      },
+      {
+        "part": "cap_shelf",
+        "z_mm": 177.61,
+        "print_depth_mm": 0.14,
+        "section_components": 1,
+        "status": "PASS"
+      },
+      {
+        "part": "cap_shelf",
+        "z_mm": 177.55,
+        "print_depth_mm": 0.2,
+        "section_components": 1,
+        "status": "PASS"
+      },
+      {
+        "part": "cap_shelf",
+        "z_mm": 177.49,
+        "print_depth_mm": 0.26,
+        "section_components": 1,
+        "status": "PASS"
+      }
+    ]
+  },
+  "guide_only_angles": [
+    {
+      "axis": "x",
+      "sign": -1,
+      "angle_deg": 0.50390625,
+      "bracket_deg": [
+        0.50390625,
+        0.50537109375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 10.119070750672307,
+        "1": 10.119070750672263
+      }
+    },
+    {
+      "axis": "x",
+      "sign": 1,
+      "angle_deg": 0.50390625,
+      "bracket_deg": [
+        0.50390625,
+        0.50537109375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 10.11907075067186,
+        "1": 10.119070750671902
+      }
+    },
+    {
+      "axis": "y",
+      "sign": -1,
+      "angle_deg": 0.50537109375,
+      "bracket_deg": [
+        0.50537109375,
+        0.5068359375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 15.335414949499501,
+        "1": 5.069670676597484
+      }
+    },
+    {
+      "axis": "y",
+      "sign": 1,
+      "angle_deg": 0.50537109375,
+      "bracket_deg": [
+        0.50537109375,
+        0.5068359375
+      ],
+      "hook_interference_at_last_guide_clear_pose_mm3": {
+        "-1": 5.069670676597483,
+        "1": 15.335414949499501
+      }
+    }
+  ],
+  "poses": [
+    {
+      "name": "complete seated",
+      "overlap_mm3": 0.0,
+      "clear": true
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "leaf and pad clear body guard",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "leaf and pad clear body guard",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "leaf and pad clear body guard",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 1.35
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "leaf and pad clear body guard",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 1.35
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "leaf and pad clear body guard",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "release_mm": 2.7
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": -0.25,
+      "dy": 0,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": 0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": -0.15
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0
+    },
+    {
+      "name": "return / deliberate press",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7,
+      "dx": 0,
+      "dy": -0.25,
+      "dz": 0.15
+    },
+    {
+      "name": "leaf and pad clear body guard",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "release_mm": 2.7
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 0,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 0,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 0,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 0,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 0,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 0,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 0,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 0,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 0,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 0,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 0,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 0,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 0,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 0,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 0,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 0.25,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 0.25,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 0.25,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 0.25,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 0.25,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 0.25,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 0.25,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 0.25,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 0.25,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 0.25,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 0.25,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 0.25,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 0.25,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 0.25,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 0.25,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 1,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 1,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 1,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 1,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 1,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 1,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 1,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 1,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 1,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 1,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 1,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 1,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 1,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 1,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 1,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 4,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 4,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 4,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 4,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 4,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 4,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 4,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 4,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 4,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 4,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 4,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 4,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 4,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 4,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 4,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 12,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 12,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 12,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 12,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 12,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 12,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 12,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 12,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 12,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 12,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 12,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 12,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 12,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 12,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 12,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 30,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 30,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 30,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 30,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 30,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 30,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 30,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 30,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 30,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 30,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 30,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 30,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 30,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 30,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 30,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 60,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 60,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 60,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 60,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 60,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 60,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 60,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 60,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 60,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 60,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 60,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 60,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 60,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 60,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 60,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 106,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 106,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 106,
+      "dx": 0,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 106,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 106,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 106,
+      "dx": 0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 106,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 106,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 106,
+      "dx": -0.25,
+      "dy": 0
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 106,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 106,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 106,
+      "dx": 0,
+      "dy": 0.25
+    },
+    {
+      "name": "guide withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "lift_mm": 106,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": -1,
+      "lift_mm": 106,
+      "dx": 0,
+      "dy": -0.25
+    },
+    {
+      "name": "released hook withdrawal",
+      "overlap_mm3": 0.0,
+      "clear": true,
+      "sign": 1,
+      "lift_mm": 106,
+      "dx": 0,
+      "dy": -0.25
+    }
+  ],
+  "failures": [],
+  "liner": "Excluded by user; a later liner will be redesigned."
+}
