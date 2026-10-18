@@ -201,11 +201,13 @@ timeouts and increasing one arbitrary cap to another. Use the
 The [phone-stand record](../../../../model/analysis_phone_stand/README.md#timeout-investigation-requested-by-the-user)
 documents the interrupted useful work and removed limits.
 
-For implementation–review work, complete a coherent implementation and prove its
-end-to-end behavior before invoking independent review. Avoid repeatedly delegating
-partially implemented fragments or using reviewers to do the implementer's own
-verification. The user explicitly corrected this cadence during the dental-case
-investigation on 2026-10-18 because repeated early reviews consumed inference quota.
+**Do not invoke sub-agents unless the user explicitly requests them.** The user
+replaced the earlier implementation–review cadence preference with this explicit
+instruction during the [space-first closure research](../../../../model/dental_travel_case/notes/closure_research.md).
+Do the implementation, end-to-end checks and critical self-review directly.
+When independent review is explicitly requested, finish a coherent implementation
+and its own verification first; do not use a reviewer to direct partial fragments.
+The earlier dental-case cadence correction also identified inference cost as the reason.
 If a consequential technical blocker remains after a serious attempt, an honest
 partial result is acceptable. [Context](../../../../model/dental_travel_case/notes/m2.md#review-cadence-correction).
 

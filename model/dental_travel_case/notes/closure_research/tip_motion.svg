@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="880" viewBox="0 0 1200 880">
+<rect width="1200" height="880" fill="#fafaf7"/>
+<style>text{font-family:sans-serif;fill:#243444}</style>
+<text x="25" y="38" font-size="25">Your tip catch: a short retaining lip, then space to recover</text>
+<text x="25" y="77" font-size="17">Actual central section through one broad-wall detent. Same magnification in each panel; rigid poses.</text>
+<path d="M136.600,263.500 L119.700,238.647 L119.700,236.382 L119.700,234.116 L119.700,229.585 L119.700,220.524 L119.700,202.400 L109.300,192.000 L78.100,192.000 L78.100,517.000 L119.700,517.000 L119.700,295.388 L136.600,276.500 Z" fill="#1769a6" fill-rule="evenodd" fill-opacity="1.0" stroke="#1769a6" stroke-width=".7"/>
+<path d="M123.600,297.755 L123.600,353.200 L140.500,353.200 L140.500,517.000 L175.600,517.000 L175.600,127.000 L123.600,127.000 L123.600,237.175 L140.500,258.300 L140.500,281.700 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<text x="25" y="125" font-size="18">Seated</text>
+<text x="25" y="565" font-size="18">Cap lift: 0 mm</text>
+<path d="M536.600,263.500 L519.700,238.647 L519.700,236.382 L519.700,234.116 L519.700,229.585 L519.700,220.524 L519.700,202.400 L509.300,192.000 L478.100,192.000 L478.100,517.000 L519.700,517.000 L519.700,295.388 L536.600,276.500 Z" fill="#1769a6" fill-rule="evenodd" fill-opacity="1.0" stroke="#1769a6" stroke-width=".7"/>
+<path d="M523.600,258.755 L523.600,314.200 L540.500,314.200 L540.500,517.000 L575.600,517.000 L575.600,127.000 L523.600,127.000 L523.600,198.175 L540.500,219.300 L540.500,242.700 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<path d="M523.600,258.755 L523.600,291.029 L536.600,276.500 L536.600,263.500 L529.538,253.114 Z" fill="#c62f48" fill-rule="evenodd" fill-opacity="1.0" stroke="#c62f48" stroke-width=".7"/>
+<text x="425" y="125" font-size="18">Pulling against the retaining lip</text>
+<text x="425" y="565" font-size="18">Cap lift: 1.5 mm</text>
+<path d="M936.600,263.500 L919.700,238.647 L919.700,236.382 L919.700,234.116 L919.700,229.585 L919.700,220.524 L919.700,202.400 L909.300,192.000 L878.100,192.000 L878.100,517.000 L919.700,517.000 L919.700,295.388 L936.600,276.500 Z" fill="#1769a6" fill-rule="evenodd" fill-opacity="1.0" stroke="#1769a6" stroke-width=".7"/>
+<path d="M923.600,141.755 L923.600,197.200 L940.500,197.200 L940.500,517.000 L975.600,517.000 L975.600,127.000 L939.132,127.000 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<text x="825" y="125" font-size="18">Past the lip — wall can recover</text>
+<text x="825" y="565" font-size="18">Cap lift: 6 mm</text>
+<text x="25" y="616" font-size="17">Red is blocked rigid overlap: real wall deformation is needed here. It is not an allowed interpenetrating pose.</text>
+<text x="25" y="654" font-size="18">A recess alone would keep rubbing for almost the entire guide length after the catch popped out.</text>
+<text x="25" y="691" font-size="18">The track below the retaining lip removes that drag after the first few millimetres. The lip is not cut away.</text>
+<text x="25" y="735" font-size="17">No runout at 30 mm lift: still obstructed. Corrected samples at 6–90 mm: clear in the declared axial path.</text>
+<text x="25" y="779" font-size="17">Guide and bearing remain 78 mm long. The cap stays complete so its roof and wall constraints are represented.</text>
+<text x="25" y="824" font-size="17">Both shell and cap can flex in a print. CAD capture does not determine how many newtons are needed.</text>
+<metadata>{&quot;m1_design.py&quot;: &quot;aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5&quot;, &quot;closure_research_design.py&quot;: &quot;fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128&quot;, &quot;closure_research_drawings.py&quot;: &quot;a3303c13adb922910fc040986714f3f2a2f3c3d6b2563ebc326e19ca1e8b66e9&quot;}</metadata></svg>

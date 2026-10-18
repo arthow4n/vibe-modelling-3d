@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/perimeter_bead_test.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "front",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/tests/closure_research/perimeter_bead_test_front.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          -1,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013801020104438066,
+    "build": 3.2963747670000885,
+    "selection": 0.0006975159922149032,
+    "validation": 0.05734775000018999,
+    "render_front": 0.9802177270175889,
+    "worker": 4.407720855990192,
+    "total": 8.58721660199808
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "49751b7688dabee0bafad8d39835bf6dd2548fbbafd7d31bc638ea370f1f1a09",
+    "artifact_identity": "4755fc067ad55f17eb3f059e231b4c42cbe95b3b38ad16d0a724f21bce842b13"
+  }
+}

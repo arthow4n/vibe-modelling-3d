@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/shell_broad_test.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "front",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/tests/closure_research/shell_broad_test_front.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          -1,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013834350102115422,
+    "build": 2.661177564004902,
+    "selection": 0.0007443490030709654,
+    "validation": 0.05375451999134384,
+    "render_front": 0.9762099350045901,
+    "worker": 3.7666451599798165,
+    "total": 5.494750585989095
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "69eb17eedc2ce1f3717408c824449cc24cbfb9dee8f68cdd33f6500658870f67",
+    "artifact_identity": "f93d6c3e4bdaecdf41fdc03313d973ca2e7162c616a372e7bc2c2f428189b1c3"
+  }
+}

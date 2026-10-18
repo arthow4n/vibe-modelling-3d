@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740">
+<rect width="1200" height="740" fill="#fafaf7"/>
+<style>text{font-family:sans-serif;fill:#243444}</style>
+<text x="25" y="38" font-size="25">Sliding alternative: guide and retention live near the opening</text>
+<path d="M124.000,316.200 L121.600,316.200 L121.600,417.000 L160.000,417.000 L160.000,232.200 L125.117,232.200 L139.600,262.200 L139.600,280.200 Z" fill="#1769a6" fill-rule="evenodd" fill-opacity="1.0" stroke="#1769a6" stroke-width=".7"/>
+<path d="M58.000,184.200 L58.000,232.200 L104.200,232.200 L104.200,309.000 L121.000,309.000 L136.600,274.200 L136.600,268.200 L118.600,232.200 L160.000,232.200 L160.000,184.200 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<text x="25" y="100" font-size="19">Cross-section at Y35 — plain rail, away from the detent</text>
+<text x="370" y="197" font-size="18">Lid slides along the case length, into the page.</text>
+<text x="370" y="235" font-size="18">Sloping keys sit under the sidewall rails.</text>
+<text x="370" y="273" font-size="18">The rails block lifting even with detents removed.</text>
+<text x="370" y="311" font-size="18">Only the upper few millimetres of the cavity contain rails.</text>
+<text x="25" y="455" font-size="19">Detent section at Y10 — small ramp into a sidewall pocket</text>
+<path d="M124.000,622.000 L121.600,622.000 L121.600,625.600 L160.000,625.600 L160.000,559.000 L125.117,559.000 L136.703,577.000 L145.000,577.000 L145.000,602.200 L135.440,602.200 Z" fill="#1769a6" fill-rule="evenodd" fill-opacity="1.0" stroke="#1769a6" stroke-width=".7"/>
+<path d="M58.000,523.000 L58.000,559.000 L104.200,559.000 L104.200,616.600 L121.000,616.600 L131.759,598.600 L143.200,598.600 L143.200,580.600 L133.000,580.600 L118.600,559.000 L160.000,559.000 L160.000,523.000 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<text x="370" y="505" font-size="18">The sidewall bows outward as the tooth crosses the lip.</text>
+<text x="370" y="543" font-size="18">A clearance track avoids rubbing along the whole rail.</text>
+<text x="370" y="581" font-size="18">Open body: 70.6 mm wide, with broad-face access.</text>
+<text x="25" y="650" font-size="17">Tradeoff: about 264 mm of lid travel in the complete concept. The 70 mm sample tests the interface, not that handling.</text>
+<text x="25" y="690" font-size="17">Body prints on its broad floor; lid prints outside-face down. Print-layer directions differ from the cap samples.</text>
+<metadata>{&quot;m1_design.py&quot;: &quot;aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5&quot;, &quot;closure_research_design.py&quot;: &quot;fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128&quot;, &quot;closure_research_drawings.py&quot;: &quot;a3303c13adb922910fc040986714f3f2a2f3c3d6b2563ebc326e19ca1e8b66e9&quot;}</metadata></svg>

@@ -1,0 +1,42 @@
+{
+  "scope": "Specific current-profile rail-neck paths/width approximation; no deposited material or strength calibration.",
+  "producer_sha256": "18ccb042107ed2a8cd21338bcbf3444b91249e879468f8cd48d6f24cef9a0ef6",
+  "STL_sha256": "70d9cc536e69896cb5c8084fa51eb1bbeb681392209a7a46441829866f92a35a",
+  "gcode_sha256": "770fa02aff6899f03b2c644572fc21f4c89ca0d5f5e0919d0777c8eddb668aa5",
+  "layer_mm": 2.2,
+  "section_printer_Y_mm": 135,
+  "sections": {
+    "left": {
+      "filled_width_mm": 1.200000000000017,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          154.95,
+          156.15
+        ]
+      ],
+      "path_centres_crossing_mm": [
+        155.06,
+        155.5,
+        155.94
+      ]
+    },
+    "right": {
+      "filled_width_mm": 1.200000000000017,
+      "uncovered_width_mm": 0,
+      "internal_gap_mm": 0,
+      "intervals_mm": [
+        [
+          223.85,
+          225.05
+        ]
+      ],
+      "path_centres_crossing_mm": [
+        224.06,
+        224.5,
+        224.94
+      ]
+    }
+  }
+}

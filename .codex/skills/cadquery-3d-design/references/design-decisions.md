@@ -267,6 +267,15 @@ complexity warning that needs a concrete reason. Prefer geometry that guides, a
 hard surface that seats/stops, enclosure that contains, retention that retains,
 and release that releases. Multifunctional parts are allowed when justified.
 
+Before adding a guarded internal spring, consider whether an existing free shell
+edge can provide the needed elastic travel outside the storage cavity. Preserve
+the wall span in a representative sample, and trace the entire motion after the
+snap: a catch near the far overlap tip may rub along the remaining cap unless a
+clearance track follows a short retaining lip. The [space-first dental research](../../../../model/dental_travel_case/notes/closure_research.md)
+compares broad/end-wall bending, a perimeter bead and a sliding alternative,
+with full-section samples and a retained no-track counterexample. Wall flexibility
+can save space; it does not independently establish an adequate opening barrier.
+
 Identify a small set of meaningful states along an explicit path: open/unassembled,
 initial alignment, partial engagement, mechanism engagement, maximum required
 flexure if relevant, seated/working, intentional release and open again. At each,

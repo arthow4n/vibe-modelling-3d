@@ -35,6 +35,9 @@ QUESTIONS = (
 
 
 def make_plan(variant):
+    if variant == 'research-minimal-closures':
+        from closure_research_verification import make_research_plan
+        return make_research_plan(variant, REQUIREMENTS)
     if variant == 'slim-m5':
         from m5_verification import make_m5_plan
         return make_m5_plan(variant, REQUIREMENTS)
@@ -90,4 +93,4 @@ def make_plan(variant):
 
 
 if __name__ == '__main__':
-    raise SystemExit(cli(make_plan, ('measured-two-lane', 'rounded-c', 'plain-cylinder', 'slim-m1', 'slim-m2b', 'slim-m3', 'slim-m4', 'slim-m5')))
+    raise SystemExit(cli(make_plan, ('measured-two-lane', 'rounded-c', 'plain-cylinder', 'slim-m1', 'slim-m2b', 'slim-m3', 'slim-m4', 'slim-m5', 'research-minimal-closures')))

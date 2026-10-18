@@ -1,0 +1,33 @@
+{
+  "scope": "Current research specimen pairs only; not full-product or physical qualification.",
+  "inputs": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "closure_research_design.py": "fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128",
+    "shell_broad_test.py": "8067900289a469776e0844ad1b2118aa60000bca0c07d89622ebf2fc4dd80a0b",
+    "shell_end_test.py": "ade15b8078b91f94d979f09a160ec9ae0e9d44b3dab0e0f85ac1e8032c19f069",
+    "perimeter_bead_test.py": "3aa60430be6fa73fa1101e2e5fcaaac9f18627f587c3b25231bebb3e61cef224",
+    "slide_wall_test.py": "8d1c346a68f7b977442c646228fbb2f470b06112a4361b56a05925f8485db3a2"
+  },
+  "artifacts": {
+    "shell_broad": {
+      "shell_broad_test.step": "917f87f3720d20a1c2d21c57e272e1616101e46b48ec363dbcc2b369408674d6",
+      "shell_broad_test.stl": "1c87c9b90397ab67baf7f8b3ffabe6cc491499f9348f6e7041a2412a1f29fe82",
+      "notes/closure_research/shell_broad_slice.json": "51345545c7016560ae9cfe03a0c20d820a6828ca0778bfeacfde2e88568d2136"
+    },
+    "shell_end": {
+      "shell_end_test.step": "adf08f1977073c82dde85c6e1550e9c14aafd14b4837665b30d2b4d9d3e93f78",
+      "shell_end_test.stl": "d0caf21e7a35092f201a61b58fcd2d830c747b1e4867ea656ae26a09c64929ba",
+      "notes/closure_research/shell_end_slice.json": "3f540e7647cdf4f63b38ffbc56cc2a23b20887ef8b5c3f94a0399531c62891cf"
+    },
+    "perimeter_bead": {
+      "perimeter_bead_test.step": "67879520a628aba9b7c94180034ee596229eeafa2fee1e0b193bb75bbe17acab",
+      "perimeter_bead_test.stl": "9d64c146c51c328b6d7de1fc361404b3b01a1d61c4728f80d9321a141ab067c1",
+      "notes/closure_research/perimeter_bead_slice.json": "69c730f7fc03bca26b8e62da7eb1b83858042cbdad7a5b92552409d46aeccb0a"
+    },
+    "slide_wall": {
+      "slide_wall_test.step": "20be4b52168cd913ba8a4e9bcc107f63f2a1a3f4143019eb1720657b31887dfd",
+      "slide_wall_test.stl": "70d9cc536e69896cb5c8084fa51eb1bbeb681392209a7a46441829866f92a35a",
+      "notes/closure_research/slide_wall_slice.json": "1ffc0e17fc04cdd004c0ff34eaa3164d40d41bbd9e404eb38bd7c4e3d3e1f1f9"
+    }
+  }
+}

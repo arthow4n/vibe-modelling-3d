@@ -1,0 +1,152 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/perimeter_bead_test.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "front",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/tests/closure_research/perimeter_bead_test_front.png",
+      "reused": true,
+      "camera": {
+        "from_direction": [
+          0,
+          -1,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/perimeter_bead_test.step",
+      "ok": true,
+      "reused": true
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/perimeter_bead_test.stl",
+      "ok": true,
+      "reused": true
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013914699957240373,
+    "build": 3.3321310480241664,
+    "selection": 0.0007193970086518675,
+    "validation": 0.05886406000354327,
+    "export_step": 0.0020606079779099673,
+    "export_stl": 0.004741893004393205,
+    "render_front": 0.00019234299543313682,
+    "worker": 3.4759684239979833,
+    "total": 49.019414573995164,
+    "slice": 45.06650083800196
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "68cd5baca117b5064c4f6689840fd43214d5e706867cdbcb7a8dcec622e3a15f",
+    "artifact_identity": "4755fc067ad55f17eb3f059e231b4c42cbe95b3b38ad16d0a724f21bce842b13"
+  },
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/perimeter_bead_test.stl",
+    "profiles": {
+      "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json",
+      "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "center",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "PETG"
+      ],
+      "filament_settings_id": [
+        "Generic PETG @Qidi Q2C 0.4 nozzle"
+      ],
+      "nozzle_temperature": [
+        "250"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "245"
+      ],
+      "hot_plate_temp": [
+        "80"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "80"
+      ],
+      "print_settings_id": "0.20mm Standard 7% Adaptive Cubic @Qidi Q2C",
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "auto_brim",
+      "brim_width": "5",
+      "brim_object_gap": "0.1",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "0.95"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "7%",
+      "sparse_infill_pattern": "adaptivecubic"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": false,
+      "supported_plates": [],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": false,
+    "reused": false,
+    "identity": "d37ea89b200afcb30353cbd4ef3db402007bff3c3789d1a70477667f499423f3",
+    "input_sha256": "9d64c146c51c328b6d7de1fc361404b3b01a1d61c4728f80d9321a141ab067c1",
+    "setup_selection": {
+      "profiles": "diagnostic_reference",
+      "placement": "default_center",
+      "scope": "Selected-profile slice acceptance only; production setup agreement and physical print behavior are not established"
+    }
+  }
+}

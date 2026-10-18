@@ -1,0 +1,598 @@
+{
+  "schema_version": 1,
+  "variant": "research-minimal-closures",
+  "selected_checks": null,
+  "available_variants": [
+    "measured-two-lane",
+    "rounded-c",
+    "plain-cylinder",
+    "slim-m1",
+    "slim-m2b",
+    "slim-m3",
+    "slim-m4",
+    "slim-m5",
+    "research-minimal-closures"
+  ],
+  "available_checks": [
+    "research.CAD",
+    "research.flex",
+    "research.slice.shell_broad",
+    "research.slice.shell_end",
+    "research.slice.perimeter_bead",
+    "research.slice.slide_wall"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "research-minimal-closures",
+    "scope": {
+      "design": "research-minimal-closures",
+      "phase": "Research specimens only; no new full case adopted",
+      "material": "uncalibrated PETG",
+      "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "brush.fit",
+        "text": "Carry the measured electric toothbrush with its head attached",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured 250\u2013255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-product",
+            "criterion": "Full-case adoption/physical behavior is outside this specimen research phase",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "paste.fit",
+        "text": "Carry toothpaste on its own side with room for tube variation",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured a new tube about 160 x 55 x 40 mm with 30 mm cap and requested margins for other versions"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-product",
+            "criterion": "Full-case adoption/physical behavior is outside this specimen research phase",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.material",
+        "text": "Use a compliant printed design without a separate TPU print",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User requested compliance and preferably no separately printed TPU part"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-product",
+            "criterion": "Full-case adoption/physical behavior is outside this specimen research phase",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "test.fit",
+        "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#first-print-and-test-procedure",
+          "statement": "User authorized both the small fit test and complete model in one phase"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-product",
+            "criterion": "Full-case adoption/physical behavior is outside this specimen research phase",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.minimal",
+        "text": "Make M1 minimal in design and occupied size",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User rejected earlier bulky designs and requested the most slim minimal suggestions; then selected M1"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-product",
+            "criterion": "Full-case adoption/physical behavior is outside this specimen research phase",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.secure",
+        "text": "Separate cap with no exterior hinge and a rounded joint that resists opening when struck in a backpack",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#user-instruction-and-architecture",
+          "statement": "User selected M1, accepted a separate cap, requested no exterior hinge, rounded overlap and resistance to popping open when hit in a backpack; authorized modelling"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-product",
+            "criterion": "Full-case adoption/physical behavior is outside this specimen research phase",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "travel.protection",
+        "text": "Protect the attached toothbrush and full toothpaste tube from outside backpack contents and pressure",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User said floss can travel elsewhere and the case mainly protects toothpaste and toothbrush from contact and crashes"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-product",
+            "criterion": "Full-case adoption/physical behavior is outside this specimen research phase",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.supportfree",
+        "text": "Make the selected architecture support-free",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User asked for a support-free rounded R2/C combination"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-product",
+            "criterion": "Full-case adoption/physical behavior is outside this specimen research phase",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.width-revision",
+        "text": "Reduce the previous M1 exterior width by 25 mm",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-product",
+            "criterion": "Full-case adoption/physical behavior is outside this specimen research phase",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [
+          "25 mm reduction from the previous 99.2 mm exterior width"
+        ],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.end-retention",
+        "text": "Use deeper/longer teeth and tight holding at both widthwise ends of the case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-product",
+            "criterion": "Full-case adoption/physical behavior is outside this specimen research phase",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.end-rounds",
+        "text": "Use substantially larger fillets at both top and bottom ends of the case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User additionally requests much larger fillets at both top and bottom ends of the case and asks that this be learned for future handled designs"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-product",
+            "criterion": "Full-case adoption/physical behavior is outside this specimen research phase",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.samples",
+        "text": "Create corresponding test pieces for each explored closure, including the user idea",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_research.md",
+          "statement": "User requests autonomous space-first alternatives, their free-rim idea, visual explanations and corresponding test pieces; full models only as useful; no sub-agents unless explicitly requested"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "CAD",
+            "criterion": "Four current representative samples, capture, release tracks and independent guide controls",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "research.CAD"
+            ],
+            "evidence": [
+              "research.CAD"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Printed fit, opening effort, holding, recovery and wear measured for these specimens",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "shell_broad",
+            "criterion": "Current paired exports slice under diagnostic PETG settings with support locations reviewed",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "research.slice.shell_broad"
+            ],
+            "evidence": [
+              "research.slice.shell_broad"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "shell_end",
+            "criterion": "Current paired exports slice under diagnostic PETG settings with support locations reviewed",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "research.slice.shell_end"
+            ],
+            "evidence": [
+              "research.slice.shell_end"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "perimeter_bead",
+            "criterion": "Current paired exports slice under diagnostic PETG settings with support locations reviewed",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "research.slice.perimeter_bead"
+            ],
+            "evidence": [
+              "research.slice.perimeter_bead"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "slide_wall",
+            "criterion": "Current paired exports slice under diagnostic PETG settings with support locations reviewed",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "research.slice.slide_wall"
+            ],
+            "evidence": [
+              "research.slice.slide_wall"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.interior",
+        "text": "Maximize clear interior and explore flat internal walls with minimal retention features",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_research.md",
+          "statement": "User requests autonomous space-first alternatives, their free-rim idea, visual explanations and corresponding test pieces; full models only as useful; no sub-agents unless explicitly requested"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "space",
+            "criterion": "Uniform central storage gauges clear actual CAD; no internal guarded cantilever",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "research.CAD"
+            ],
+            "evidence": [
+              "research.CAD"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "flexibility",
+            "criterion": "Mesh-checked shell flexibility distinguishes orientation under stated radial fixture",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "research.flex"
+            ],
+            "evidence": [
+              "research.flex"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "research.CAD",
+        "targets": [
+          [
+            "research.samples",
+            "CAD"
+          ],
+          [
+            "research.interior",
+            "space"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/closure_research.md",
+        "scope": {
+          "design": "research-minimal-closures",
+          "phase": "Research specimens only; no new full case adopted",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "research.flex",
+        "targets": [
+          [
+            "research.interior",
+            "flexibility"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/closure_research/flex_summary.json",
+        "scope": {
+          "design": "research-minimal-closures",
+          "phase": "Research specimens only; no new full case adopted",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "research.slice.shell_broad",
+        "targets": [
+          [
+            "research.samples",
+            "shell_broad"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/closure_research/shell_broad_slice.json",
+        "scope": {
+          "design": "research-minimal-closures",
+          "phase": "Research specimens only; no new full case adopted",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "research.slice.shell_end",
+        "targets": [
+          [
+            "research.samples",
+            "shell_end"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/closure_research/shell_end_slice.json",
+        "scope": {
+          "design": "research-minimal-closures",
+          "phase": "Research specimens only; no new full case adopted",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "research.slice.perimeter_bead",
+        "targets": [
+          [
+            "research.samples",
+            "perimeter_bead"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/closure_research/perimeter_bead_slice.json",
+        "scope": {
+          "design": "research-minimal-closures",
+          "phase": "Research specimens only; no new full case adopted",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "research.slice.slide_wall",
+        "targets": [
+          [
+            "research.samples",
+            "slide_wall"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/closure_research/slide_wall_slice.json",
+        "scope": {
+          "design": "research-minimal-closures",
+          "phase": "Research specimens only; no new full case adopted",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "research.scope",
+        "text": "Full reference shells establish sample fidelity and space only; publish specimens, retain M5 as historical prototype",
+        "reference": "notes/closure_research.md"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "research.limits",
+        "text": "Radial elastic response is not assembled opening force; coupon fit/retention/fatigue are unmeasured",
+        "reference": "notes/closure_research.md"
+      }
+    ],
+    "directives": [
+      {
+        "id": "research.no-agents",
+        "text": "Do not use sub-agents unless the user explicitly requests them",
+        "source": {
+          "reference": "notes/closure_research.md",
+          "statement": "User requests autonomous space-first alternatives, their free-rim idea, visual explanations and corresponding test pieces; full models only as useful; no sub-agents unless explicitly requested"
+        }
+      }
+    ]
+  },
+  "help": null
+}

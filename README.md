@@ -124,7 +124,9 @@ coupon (N/A).
 
 [Current M5 space-recovery prototype, matching test and section drawings](model/dental_travel_case/notes/m5.md) · [M4 motion investigation](model/dental_travel_case/notes/m4.md) · [Superseded M3 investigation](model/dental_travel_case/notes/m3.md)
 
-- Test pieces: Historical small samples seemed to hold; exact revisions unknown. [Current M5 test pair](model/dental_travel_case/m5_joint_test.step) preserves the full production cap and 78mm guide, with matching STL; print status unknown
+[Current research: four minimal wall-flexure/slide closure specimens](model/dental_travel_case/notes/closure_research.md), including the user's free-rim idea. Specimens only; no new full case adopted or print reported.
+
+- Test pieces: Historical small samples seemed to hold; exact revisions unknown. Current research delivers [four matching R1–R4 pairs](model/dental_travel_case/notes/closure_research.md), all unprinted. The [M5 pair](model/dental_travel_case/m5_joint_test.step) remains with its earlier full-case proposal
 - Final object: M1 printed — joint too short/unstable, pulls apart without release; source/exports frozen. M5 shortens unused catch guards and moves the guide toward a flat 77mm exterior; central guide space increases while catches and entrance remain. Broad body grows from 75 to 77mm; previous maximum unchanged. Physical holding, fit/recovery and bridge quality remain unmeasured
 - Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
 

@@ -1,0 +1,121 @@
+{
+  "scope": "Linear no-contact 1N radial shell traction, clamped specimen base. No pull-off force, full contact or fatigue prediction.",
+  "source_sha256": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "closure_research_design.py": "fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128",
+    "closure_research_flex.py": "3cc48785e80635532b43162b62570614f9971f24d95d4919dfb4dcae95bed8a7",
+    "closure_research_flex_report.py": "a6d276abc7a33de251ad67760acda535e27d7db468cc03f0575a95897abade5a"
+  },
+  "material": {
+    "E_MPa": 1200,
+    "nu": 0.38,
+    "calibrated": false
+  },
+  "cases": {
+    "shell_broad": {
+      "pad_mean_displacement_at_1N_mm": 0.3073820384615384,
+      "pad_response_relative_mesh_change": 0.0035839630528171984,
+      "maximum_displacement_mm": 0.34768536574526415,
+      "max_principal_strain_at_1N": 0.001246879798704326,
+      "max_force_balance_relative": 1.4028976297717984e-08,
+      "displacement_range_E900_E1800_mm": [
+        0.20492135897435892,
+        0.40984271794871785
+      ],
+      "solver_input_sha256": "083f119249f59bc6066b915a62bbfcd4aba7065fe82b56808529d6167eba7e66",
+      "mesh": {
+        "part": {
+          "nodes": 112709,
+          "elements": 57080,
+          "min_jacobian": 0.044737730002048046
+        }
+      },
+      "load_patch": [
+        {
+          "part": "part",
+          "area_mm2": 5.000000000000287,
+          "force_N": [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        }
+      ],
+      "numerical_confidence": {
+        "increment_sensitivity": "not_run",
+        "mesh_sensitivity": "stable",
+        "contact_parameter_sensitivity": "not_run"
+      }
+    },
+    "shell_end": {
+      "pad_mean_displacement_at_1N_mm": 0.12333247179487183,
+      "pad_response_relative_mesh_change": 0.0058212233850301965,
+      "maximum_displacement_mm": 0.14671507752219418,
+      "max_principal_strain_at_1N": 0.001033464904032378,
+      "max_force_balance_relative": 1.5629277873144905e-08,
+      "displacement_range_E900_E1800_mm": [
+        0.08222164786324788,
+        0.16444329572649577
+      ],
+      "solver_input_sha256": "f245fae8b1aa9dca60348089a799d190901bbe840251fd574b0753fd6700f494",
+      "mesh": {
+        "part": {
+          "nodes": 113063,
+          "elements": 57053,
+          "min_jacobian": 0.04071605021518522
+        }
+      },
+      "load_patch": [
+        {
+          "part": "part",
+          "area_mm2": 5.000000000000255,
+          "force_N": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "numerical_confidence": {
+        "increment_sensitivity": "not_run",
+        "mesh_sensitivity": "stable",
+        "contact_parameter_sensitivity": "not_run"
+      }
+    },
+    "slide_wall": {
+      "pad_mean_displacement_at_1N_mm": 0.01737329135135135,
+      "pad_response_relative_mesh_change": 0.01908073797723059,
+      "maximum_displacement_mm": 0.02467348302125948,
+      "max_principal_strain_at_1N": 0.0005323731018720722,
+      "max_force_balance_relative": 2.880492088794278e-08,
+      "displacement_range_E900_E1800_mm": [
+        0.011582194234234233,
+        0.023164388468468466
+      ],
+      "solver_input_sha256": "a684a920d6a7eb9a14ad6bd1868eaa570b696c7422e47e481368599dad11ff84",
+      "mesh": {
+        "part": {
+          "nodes": 103392,
+          "elements": 54646,
+          "min_jacobian": 0.014491379310333369
+        }
+      },
+      "load_patch": [
+        {
+          "part": "part",
+          "area_mm2": 28.762797876467868,
+          "force_N": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "numerical_confidence": {
+        "increment_sensitivity": "not_run",
+        "mesh_sensitivity": "stable",
+        "contact_parameter_sensitivity": "not_run"
+      }
+    }
+  }
+}
