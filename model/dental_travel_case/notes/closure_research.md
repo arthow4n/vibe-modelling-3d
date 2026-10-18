@@ -11,6 +11,14 @@ unchanged references. No new print has been reported or requested.
 The user explicitly requests **no sub-agents unless they ask for them**. This
 phase uses implementation and self-review only.
 
+For the later question “how much weight could hang from the cap?”, see the
+[straight-pull force investigation](closure_pull.md) and its
+[section/force drawing](closure_research/pull_estimate.svg). It adds a conditional
+R1/R2 spring/ramp estimate using both cap and body compliance; it does not turn
+the original radial bending tests into holding-force measurements. R3 bead
+pull-off and R4 rail-lifting capacities remain unresolved. The four specimen
+sources, paired exports and slice receipts are unchanged by this continuation.
+
 ## Questions and scope before computation
 
 Compare the user's broad-wall tip snap (R1), the same tip snap on the end walls

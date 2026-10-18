@@ -66,22 +66,44 @@ def sliced(kind):
         assert all(len(s['path_centres_crossing_mm'])>=2 for s in rails['sections'].values())
 
 
+def pull_estimate():
+    data=json.loads((OUT/'pull_estimate.json').read_text())
+    require_sources(data['source_sha256'])
+    for kind,row in data['cases'].items():
+        assert row['cap_compliance_mesh_change']<.10
+        assert row['cap_balance']<.01
+        result=json.loads((OUT/'pull'/kind/'mesh_sensitivity_1/result.json').read_text())
+        assert result['completed'] and result['metrics']['question']['numerical_evidence_adequate']
+        assert result['provenance']['input_sha256']==row['cap_native_input_sha256']
+        for path in row['paths'].values():
+            assert path['peak_force_step_change']<.10
+            assert path['release_energy_step_change']<.10
+            assert all(abs(p['CAD_retraction_mm']-p['profile_retraction_mm'])<.001 for p in path['CAD_witnesses'])
+    block=ET.parse(OUT/'pull_estimate.svg').find('{http://www.w3.org/2000/svg}metadata')
+    require_sources(json.loads(block.text))
+    return data
+
+
 def make_research_plan(variant,baseline):
     if variant!='research-minimal-closures':raise ValueError(variant)
     old=requirements(baseline)
     protect_recorded_intent(ROOT,old)
     source=UserSource(RECORD,'User requests autonomous space-first alternatives, their free-rim idea, visual explanations and corresponding test pieces; full models only as useful; no sub-agents unless explicitly requested')
     intent=old+(UserRequirement('research.samples','Create corresponding test pieces for each explored closure, including the user idea',source),
-                UserRequirement('research.interior','Maximize clear interior and explore flat internal walls with minimal retention features',source))
+                UserRequirement('research.interior','Maximize clear interior and explore flat internal walls with minimal retention features',source),
+                UserRequirement('research.force','Investigate retention force and equivalent hanging weight before printing, using a reasonable simulation where possible',
+                    UserSource(RECORD,'User asks how much force or weight each variant can hold when lifting the box by its cap, and requests recorded computational estimates where feasible')))
     questions=tuple(Q('full-product',r.id,'Full-case adoption/physical behavior is outside this specimen research phase','physical') for r in old)+(
         Q('CAD','research.samples','Four current representative samples, capture, release tracks and independent guide controls','CAD'),
         Q('space','research.interior','Uniform central storage gauges clear actual CAD; no internal guarded cantilever','CAD'),
         Q('flexibility','research.interior','Mesh-checked shell flexibility distinguishes orientation under stated radial fixture','numerical'),
         Q('physical','research.samples','Printed fit, opening effort, holding, recovery and wear measured for these specimens','physical'))+tuple(
+        Q(kind,'research.force','Conditional force estimate in the actual opening/load direction; not a measured or safe payload rating','numerical') for kind in KINDS)+tuple(
         Q(kind,'research.samples','Current paired exports slice under diagnostic PETG settings with support locations reviewed','slicer') for kind in KINDS)
     scope=dict(design=variant,phase='Research specimens only; no new full case adopted',material='uncalibrated PETG',process='0.4mm nozzle /0.2mm diagnostic PETG')
     groups=[assertion_check('research.CAD',(('research.samples','CAD'),('research.interior','space')),cad,RECORD,scope),
-            assertion_check('research.flex',(('research.interior','flexibility'),),flex,'notes/closure_research/flex_summary.json',scope)]
+            assertion_check('research.flex',(('research.interior','flexibility'),),flex,'notes/closure_research/flex_summary.json',scope),
+            assertion_check('research.pull-proxy',(('research.force','shell_broad'),('research.force','shell_end')),pull_estimate,'notes/closure_research/pull_estimate.json',scope)]
     for kind in KINDS:
         groups.append(assertion_check('research.slice.'+kind,(('research.samples',kind),),lambda kind=kind:sliced(kind),
                                      'notes/closure_research/'+kind+'_slice.json',scope))

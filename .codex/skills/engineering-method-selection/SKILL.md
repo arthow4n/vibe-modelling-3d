@@ -110,6 +110,19 @@ its capabilities are integrated or qualified here.
   directions are not measured shell stiffness or a guaranteed pull-off force.
   If reasonable adaptations still cannot answer the decision, stop with the
   specific unresolved quantity instead of repeatedly rescuing the detailed route.
+  For a deliberately pull-open ramped snap, an actual-CAD clearance path combined
+  with component compliance can give a useful conditional force scale: derive
+  axial resistance from the change in elastic energy along withdrawal, including
+  receiver flexibility. Constant radial compression can store energy while giving
+  zero frictionless axial resistance; do not call radial spring force holding
+  force. The [wall-snap study](../../../model/dental_travel_case/notes/closure_pull.md)
+  retains this negative control, section/3D witnesses and limits. Equivalent
+  hanging mass includes the unsupported enclosure itself and is not a safe payload
+  rating. When initial axial play lets a released load accelerate before contact,
+  compare driving work with the elastic barrier as well as the slow-pull peak;
+  keep damping/friction assumptions explicit. Do not transfer two local springs
+  to a coupled perimeter bead, or a sliding detent estimate to perpendicular rail
+  lifting.
 - **Analytical versus numerical:** equations are preferable when their assumptions
   bound the decisive quantity adequately. Move to numerical analysis for relevant
   section distortion, large deformation, contact, instability or coupled loading

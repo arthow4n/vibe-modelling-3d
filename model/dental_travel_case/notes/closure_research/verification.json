@@ -16,6 +16,7 @@
   "available_checks": [
     "research.CAD",
     "research.flex",
+    "research.pull-proxy",
     "research.slice.shell_broad",
     "research.slice.shell_end",
     "research.slice.perimeter_bead",
@@ -453,6 +454,72 @@
         ],
         "acceptance_criteria": [],
         "coverage": "evidence"
+      },
+      {
+        "id": "research.force",
+        "text": "Investigate retention force and equivalent hanging weight before printing, using a reasonable simulation where possible",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_research.md",
+          "statement": "User asks how much force or weight each variant can hold when lifting the box by its cap, and requests recorded computational estimates where feasible"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "shell_broad",
+            "criterion": "Conditional force estimate in the actual opening/load direction; not a measured or safe payload rating",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "research.pull-proxy"
+            ],
+            "evidence": [
+              "research.pull-proxy"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "shell_end",
+            "criterion": "Conditional force estimate in the actual opening/load direction; not a measured or safe payload rating",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "research.pull-proxy"
+            ],
+            "evidence": [
+              "research.pull-proxy"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "perimeter_bead",
+            "criterion": "Conditional force estimate in the actual opening/load direction; not a measured or safe payload rating",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "slide_wall",
+            "criterion": "Conditional force estimate in the actual opening/load direction; not a measured or safe payload rating",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
       }
     ],
     "evidence": [
@@ -489,6 +556,28 @@
         "status": "PASS",
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "notes/closure_research/flex_summary.json",
+        "scope": {
+          "design": "research-minimal-closures",
+          "phase": "Research specimens only; no new full case adopted",
+          "material": "uncalibrated PETG",
+          "process": "0.4mm nozzle /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "research.pull-proxy",
+        "targets": [
+          [
+            "research.force",
+            "shell_broad"
+          ],
+          [
+            "research.force",
+            "shell_end"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/closure_research/pull_estimate.json",
         "scope": {
           "design": "research-minimal-closures",
           "phase": "Research specimens only; no new full case adopted",
