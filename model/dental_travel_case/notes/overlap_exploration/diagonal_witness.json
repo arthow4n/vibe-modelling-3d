@@ -1,0 +1,26 @@
+{
+  "cases": {
+    "nominal": {
+      "guide_angle_deg": 0.22265625,
+      "catch_angle_deg": 0.312744140625,
+      "maximum_corner_axial_demand_mm": -0.11477510490638565,
+      "minimum_proxy_axial_rise_mm": 0.05534399020435998,
+      "scope": "Actual diagonal path with side shift of magnitude equal to clearance; not unrestricted search or force equilibrium."
+    },
+    "larger_gap_smaller_axial_play": {
+      "guide_angle_deg": 0.29736328125,
+      "catch_angle_deg": 0.27392578125,
+      "maximum_corner_axial_demand_mm": 0.030496714869116204,
+      "minimum_proxy_axial_rise_mm": 0.055666498822862565,
+      "scope": "Actual diagonal path with side shift of magnitude equal to clearance; not unrestricted search or force equilibrium."
+    }
+  },
+  "source_sha256": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design.py": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396",
+    "m3_design.py": "8e958036da3e31e22dc345c9994d68967cec56aa6ae8183e5ff8a34634e43ec9",
+    "m4_design.py": "64167bc4ad2ebb6fb6ddcdf869a8c0370e6f8e1a543abba38d92a9f6bc5d8c9c",
+    "overlap_diagonal.py": "440e4fb117abf5ec5c8d77a83d2cd8448fe47839548f62269b66eb312ef45483",
+    "retention_proxy.py": "cda45739a513675348215881c4ca7208f34f8cfe20b95670ceeea92400e25ab4"
+  }
+}

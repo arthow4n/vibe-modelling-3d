@@ -118,14 +118,14 @@ coupon (N/A).
 - Final object: Partial — variant H printed; user reports it works well; other variants unreported
 - Provenance: [Record](model/faceted_storage_tray/README.md#attribution) · Agent effort: [Selected token/timing record](model/faceted_storage_tray/notes/agent_effort.md)
 
-#### Dental travel containers — failed printed M1; M3 prototype
+#### Dental travel containers — failed printed M1; M4 prototype
 
 [M1 full-box feedback and retained files](model/dental_travel_case/notes/m1.md) · [Separate M2B retention investigation](model/dental_travel_case/notes/m2.md)
 
-[Current M3 prototype, STEP/STL and joint SVG](model/dental_travel_case/notes/m3.md)
+[Current M4 prototype, matching test piece and physical motion drawings](model/dental_travel_case/notes/m4.md) · [Superseded M3 investigation](model/dental_travel_case/notes/m3.md)
 
-- Test pieces: Historical small samples seemed to hold; exact revisions unknown. [M3 joint sample](model/dental_travel_case/m3_joint_test.step) delivered with matching STL; print status unknown
-- Final object: M1 printed — brush/tube fit with effort plus floss; joint too short/unstable, pulls apart without release. M1 frozen. M3 unprinted prototype: longer guide, thicker leaves and supported receivers; practical reduced simulation, local FEM, paired exports and diagnostic slice. Actual pull-off, recovery and bridge quality remain unmeasured; no new print requested
+- Test pieces: Historical small samples seemed to hold; exact revisions unknown. [Current M4 test pair](model/dental_travel_case/m4_joint_test.step) preserves the full cap and 78mm guide, with matching STL; print status unknown
+- Final object: M1 printed — joint too short/unstable, pulls apart without release; source/exports frozen. M4 routes checked rocking into guide bearing before catch load, correcting the M3 contact-order gap. Full and sample exports plus committed scale drawings delivered; physical holding, fit/recovery and bridge quality remain unmeasured
 - Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
 
 #### Slim dental box S16 liner

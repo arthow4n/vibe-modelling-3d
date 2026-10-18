@@ -1,0 +1,3080 @@
+{
+  "scope": "Actual-CAD rocking/contact exploration; preserve poses for visual judgment.\n\nNo force solver. Peeling rotates the cap about the outer near-side seam line,\nwith no imposed spring deformation. Guide-only limits deliberately omit hooks;\nactual catch pickup is measured separately, so blocked ghost poses cannot be\npresented as free motion of the closed assembly.\n",
+  "boolean_volume_epsilon_mm3": 1e-05,
+  "angle_resolution_deg": 0.0005,
+  "source_sha256": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design.py": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396",
+    "m3_design.py": "8e958036da3e31e22dc345c9994d68967cec56aa6ae8183e5ff8a34634e43ec9",
+    "m4_design.py": "64167bc4ad2ebb6fb6ddcdf869a8c0370e6f8e1a543abba38d92a9f6bc5d8c9c",
+    "retention_proxy.py": "cda45739a513675348215881c4ca7208f34f8cfe20b95670ceeea92400e25ab4",
+    "overlap_exploration.py": "731ad72d4423356306ff6044ae3fe10169b8c7be66af733f64e1c111312283a1"
+  },
+  "cases": {
+    "M1": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 12.0,
+        "width_mm": 74.2,
+        "axial_play_mm": 0.15,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 1.3575439453125,
+        "bracket_deg": [
+          1.3575439453125,
+          1.35791015625
+        ],
+        "contact_center_mm": [
+          34.14994901040745,
+          -6.4518301817613055e-06,
+          185.39800490315906
+        ],
+        "contact_extent_mm": [
+          34.148073651359994,
+          34.15000010000004,
+          -19.708380939011228,
+          19.708380939036264,
+          185.39386139484068,
+          185.4001491428132
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.1175537109375,
+          "bracket_deg": [
+            0.1175537109375,
+            0.117919921875
+          ],
+          "contact_center_mm": [
+            35.864883644639136,
+            2.2542548008670353e-15,
+            178.00009158175487
+          ],
+          "contact_extent_mm": [
+            35.77901380495946,
+            35.91168102027647,
+            -3.9999999999999964,
+            4.0000000000000036,
+            178.0,
+            178.0002730415728
+          ]
+        },
+        "1": {
+          "angle_deg": 3.3310546875,
+          "bracket_deg": [
+            3.3310546875,
+            3.3314208984375
+          ],
+          "contact_center_mm": [
+            -34.63054600670179,
+            4.551165322102561e-14,
+            178.00013164941888
+          ],
+          "contact_extent_mm": [
+            -34.63507693745317,
+            -34.628269046381654,
+            -3.9999999999999982,
+            4.000000000000004,
+            178.0,
+            178.00039494825663
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.1175537109375,
+      "top_center_motion_mm": [
+        -2.142638774942703,
+        0,
+        0.8536895023028706
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 1.7310383064945256,
+      "demanded_far_land_axial_motion_mm": 1.58103830649452,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.06868960555900827,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 5.38620012959723,
+          "tooth_centroid_axial_rise_mm": 0.032281819330606254
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 3.641852109982102,
+          "tooth_centroid_axial_rise_mm": 0.06868960555900827
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 2.776363090462829,
+          "tooth_centroid_axial_rise_mm": 0.10736768564193966
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 22.59628986667896,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 30.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.4925537109375,
+        "bracket_deg": [
+          0.4925537109375,
+          0.492919921875
+        ],
+        "contact_center_mm": [
+          34.549909118355096,
+          -1.497862203528933e-05,
+          203.38998415289865
+        ],
+        "contact_extent_mm": [
+          34.5465564310522,
+          34.550000100000005,
+          -19.744890759130115,
+          19.744890759129845,
+          203.36966112184135,
+          203.40026337830065
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.194091796875,
+          "bracket_deg": [
+            0.194091796875,
+            0.1944580078125
+          ],
+          "contact_center_mm": [
+            36.258814685715976,
+            3.732925282297442e-15,
+            178.0001850390795
+          ],
+          "contact_extent_mm": [
+            36.1542175995296,
+            36.31659030959944,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00055108413267
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -35.18887551515863,
+            1.4991011168096576e-13,
+            178.0001607651087
+          ],
+          "contact_extent_mm": [
+            -35.19210085941355,
+            -35.18723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.194091796875,
+      "top_center_motion_mm": [
+        -0.7750777023790626,
+        0,
+        0.319046065786722
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.6345894808033279,
+      "demanded_far_land_axial_motion_mm": 0.3845894808033279,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 5.963340231961365,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_12": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 12.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 1.3590087890625,
+        "bracket_deg": [
+          1.3590087890625,
+          1.359375
+        ],
+        "contact_center_mm": [
+          34.54994082007057,
+          -5.093850235684992e-06,
+          185.39769168713204
+        ],
+        "contact_extent_mm": [
+          34.547768841746105,
+          34.5500001,
+          -19.71663833441662,
+          19.716638334392623,
+          185.3928971208729,
+          185.40017274600012
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.194091796875,
+          "bracket_deg": [
+            0.194091796875,
+            0.1944580078125
+          ],
+          "contact_center_mm": [
+            36.258814685715976,
+            3.732925282297442e-15,
+            178.0001850390795
+          ],
+          "contact_extent_mm": [
+            36.1542175995296,
+            36.31659030959944,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00055108413267
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -35.18887551515863,
+            1.4999002980676367e-13,
+            178.00016076510866
+          ],
+          "contact_extent_mm": [
+            -35.19210085941355,
+            -35.18723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.194091796875,
+      "top_center_motion_mm": [
+        -2.1450740978757534,
+        0,
+        0.8640699861903727
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 1.7518587986625391,
+      "demanded_far_land_axial_motion_mm": 1.5018587986625391,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 24.24533388472508,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_24": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 24.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.62255859375,
+        "bracket_deg": [
+          0.62255859375,
+          0.6229248046875
+        ],
+        "contact_center_mm": [
+          34.5499503023912,
+          -1.8278923364441219e-06,
+          197.39564647477457
+        ],
+        "contact_extent_mm": [
+          34.54810302105851,
+          34.55000010000001,
+          -19.707551777780374,
+          19.707551777779955,
+          197.386785034708,
+          197.40014535817264
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.194091796875,
+          "bracket_deg": [
+            0.194091796875,
+            0.1944580078125
+          ],
+          "contact_center_mm": [
+            36.258814685715976,
+            3.732925282297442e-15,
+            178.0001850390795
+          ],
+          "contact_extent_mm": [
+            36.1542175995296,
+            36.31659030959944,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00055108413267
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -35.18887551515863,
+            1.4991011168096576e-13,
+            178.0001607651087
+          ],
+          "contact_extent_mm": [
+            -35.19210085941355,
+            -35.18723868269285,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.194091796875,
+      "top_center_motion_mm": [
+        -0.9801071763102,
+        0,
+        0.40214282939427903
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.802141395965549,
+      "demanded_far_land_axial_motion_mm": 0.552141395965549,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 8.67151803227329,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_36": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 36.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.4075927734375,
+        "bracket_deg": [
+          0.4075927734375,
+          0.407958984375
+        ],
+        "contact_center_mm": [
+          34.5499210709489,
+          8.458015520270387e-05,
+          209.3894328115757
+        ],
+        "contact_extent_mm": [
+          34.54699788311102,
+          34.55000010000002,
+          -19.735289755618464,
+          19.73528975561817,
+          209.36804157171608,
+          209.4002292863003
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.194091796875,
+          "bracket_deg": [
+            0.194091796875,
+            0.1944580078125
+          ],
+          "contact_center_mm": [
+            36.258814685715976,
+            3.732925282297442e-15,
+            178.0001850390795
+          ],
+          "contact_extent_mm": [
+            36.1542175995296,
+            36.31659030959944,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00055108413267
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -35.188875515158635,
+            1.499085359542645e-13,
+            178.0001607651087
+          ],
+          "contact_extent_mm": [
+            -35.19210085941355,
+            -35.18723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.194091796875,
+      "top_center_motion_mm": [
+        -0.6411887021423156,
+        0,
+        0.26448930619903877
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.5251048355559931,
+      "demanded_far_land_axial_motion_mm": 0.2751048355559931,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 4.2077403096978365,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_48": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 48.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.30322265625,
+        "bracket_deg": [
+          0.30322265625,
+          0.3035888671875
+        ],
+        "contact_center_mm": [
+          34.54995107496531,
+          5.14197787827675e-05,
+          221.3911049327363
+        ],
+        "contact_extent_mm": [
+          34.54812289004498,
+          34.55000010000001,
+          -19.706987190619493,
+          19.706987190598426,
+          221.37315333310826,
+          221.40014310898803
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.194091796875,
+          "bracket_deg": [
+            0.194091796875,
+            0.1944580078125
+          ],
+          "contact_center_mm": [
+            36.258814685715976,
+            3.732925282297442e-15,
+            178.0001850390795
+          ],
+          "contact_extent_mm": [
+            36.1542175995296,
+            36.31659030959944,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00055108413267
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -35.188875515158635,
+            1.499085359542645e-13,
+            178.0001607651087
+          ],
+          "contact_extent_mm": [
+            -35.19210085941355,
+            -35.18723868269285,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.194091796875,
+      "top_center_motion_mm": [
+        -0.47682395514592263,
+        0,
+        0.19719749278101517
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.3906230098634751,
+      "demanded_far_land_axial_motion_mm": 0.1406230098634751,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 2.0742938530869774,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_54": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 54.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.268798828125,
+        "bracket_deg": [
+          0.268798828125,
+          0.2691650390625
+        ],
+        "contact_center_mm": [
+          34.5499770123542,
+          -1.8927384290783742e-08,
+          227.39524181892207
+        ],
+        "contact_extent_mm": [
+          34.549110203414564,
+          34.55000010000001,
+          -19.673663914801573,
+          19.673663914801054,
+          227.38565085519448,
+          227.4000678278466
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.194091796875,
+          "bracket_deg": [
+            0.194091796875,
+            0.1944580078125
+          ],
+          "contact_center_mm": [
+            36.258814685715976,
+            3.732925282297442e-15,
+            178.0001850390795
+          ],
+          "contact_extent_mm": [
+            36.1542175995296,
+            36.31659030959944,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00055108413267
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -35.18887551515863,
+            1.4999037996811973e-13,
+            178.0001607651087
+          ],
+          "contact_extent_mm": [
+            -35.19210085941355,
+            -35.18723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.194091796875,
+      "top_center_motion_mm": [
+        -0.42263933973458806,
+        0,
+        0.17493735217453832
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.3462709419678731,
+      "demanded_far_land_axial_motion_mm": 0.09627094196787311,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 1.386710160890782,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_60": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 60.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.24169921875,
+        "bracket_deg": [
+          0.24169921875,
+          0.2420654296875
+        ],
+        "contact_center_mm": [
+          34.549891608681314,
+          7.173188842079877e-05,
+          233.37553979151167
+        ],
+        "contact_extent_mm": [
+          34.545890477184635,
+          34.55000010000001,
+          -19.758273887526027,
+          19.75827388751371,
+          233.32623197516003,
+          233.40031308174719
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.194091796875,
+          "bracket_deg": [
+            0.194091796875,
+            0.1944580078125
+          ],
+          "contact_center_mm": [
+            36.258814685715976,
+            3.732925282297442e-15,
+            178.0001850390795
+          ],
+          "contact_extent_mm": [
+            36.1542175995296,
+            36.31659030959944,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00055108413267
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -35.18887551515862,
+            1.4990783563134478e-13,
+            178.00016076510863
+          ],
+          "contact_extent_mm": [
+            -35.19210085941355,
+            -35.18723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.194091796875,
+      "top_center_motion_mm": [
+        -0.3799927802894689,
+        0,
+        0.15739051241797597
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.3113566140284263,
+      "demanded_far_land_axial_motion_mm": 0.06135661402842629,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.8562583885341263,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_66": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 66.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.2193603515625,
+        "bracket_deg": [
+          0.2193603515625,
+          0.2197265625
+        ],
+        "contact_center_mm": [
+          34.54990445121232,
+          -2.5188274051308712e-05,
+          239.37617449714304
+        ],
+        "contact_extent_mm": [
+          34.546367719102406,
+          34.55000010000003,
+          -19.748805713917477,
+          19.748805713930537,
+          239.3281786944061,
+          239.400276592565
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.194091796875,
+          "bracket_deg": [
+            0.194091796875,
+            0.1944580078125
+          ],
+          "contact_center_mm": [
+            36.258814685715976,
+            3.732925282297442e-15,
+            178.0001850390795
+          ],
+          "contact_extent_mm": [
+            36.1542175995296,
+            36.31659030959944,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00055108413267
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -35.18887551515863,
+            1.4998722851497728e-13,
+            178.00016076510866
+          ],
+          "contact_extent_mm": [
+            -35.19210085941355,
+            -35.18723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.194091796875,
+      "top_center_motion_mm": [
+        -0.34484442751423483,
+        0,
+        0.1429110600738568
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.28257662048000043,
+      "demanded_far_land_axial_motion_mm": 0.03257662048000043,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.42931548173686473,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_72": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 72.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.20068359375,
+        "bracket_deg": [
+          0.20068359375,
+          0.2010498046875
+        ],
+        "contact_center_mm": [
+          34.549966796716234,
+          0.00018303217397475105,
+          245.39080814846506
+        ],
+        "contact_extent_mm": [
+          34.54871777003445,
+          34.550000100000005,
+          -19.688427182552154,
+          19.688427182574173,
+          245.37231103991485,
+          245.40009760222082
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.194091796875,
+          "bracket_deg": [
+            0.194091796875,
+            0.1944580078125
+          ],
+          "contact_center_mm": [
+            36.258814685715976,
+            3.732925282297442e-15,
+            178.0001850390795
+          ],
+          "contact_extent_mm": [
+            36.1542175995296,
+            36.31659030959944,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00055108413267
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -35.18887551515863,
+            1.4990713530789012e-13,
+            178.00016076510866
+          ],
+          "contact_extent_mm": [
+            -35.19210085941355,
+            -35.18723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.194091796875,
+      "top_center_motion_mm": [
+        -0.315462434615323,
+        0,
+        0.13079477097988956
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.25851516250642703,
+      "demanded_far_land_axial_motion_mm": 0.008515162506427032,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0832697418527601,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_78": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.185302734375,
+        "bracket_deg": [
+          0.185302734375,
+          0.1856689453125
+        ],
+        "contact_center_mm": [
+          34.54984653803205,
+          -1.5161817345847384e-05,
+          251.35508219729985
+        ],
+        "contact_extent_mm": [
+          34.544219417286556,
+          34.55000010000001,
+          -19.787690085272374,
+          19.787690085272075,
+          251.26464414129381,
+          251.40044015254
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.194091796875,
+          "bracket_deg": [
+            0.194091796875,
+            0.1944580078125
+          ],
+          "contact_center_mm": [
+            36.258814685715976,
+            3.732925282297442e-15,
+            178.0001850390795
+          ],
+          "contact_extent_mm": [
+            36.1542175995296,
+            36.31659030959944,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00055108413267
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -35.188875515158635,
+            1.499048592586329e-13,
+            178.0001607651087
+          ],
+          "contact_extent_mm": [
+            -35.19210085941355,
+            -35.18723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.194091796875,
+      "top_center_motion_mm": [
+        -0.29126846590596434,
+        0,
+        0.1208094594345539
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.23870018485092714,
+      "demanded_far_land_axial_motion_mm": -0.011299815149072856,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_12_floating": {
+      "transverse_shift_mm": 0.25,
+      "dimensions": {
+        "lap_mm": 12.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 3.0146484375,
+        "bracket_deg": [
+          3.0146484375,
+          3.0150146484375
+        ],
+        "contact_center_mm": [
+          34.549917556920335,
+          2.4500906130886558e-06,
+          185.3986448653229
+        ],
+        "contact_extent_mm": [
+          34.5469556289734,
+          34.5500001,
+          -19.73623807442767,
+          19.736238074427348,
+          185.39569138930145,
+          185.40023964883204
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.1944580078125,
+          "bracket_deg": [
+            0.1944580078125,
+            0.19482421875
+          ],
+          "contact_center_mm": [
+            36.29240808590421,
+            -2.5133095560102207e-15,
+            178.00004923506663
+          ],
+          "contact_extent_mm": [
+            36.26574481185909,
+            36.30852739341357,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.0001454752029
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -34.938875515158614,
+            2.366797802002797e-13,
+            178.00016076510866
+          ],
+          "contact_extent_mm": [
+            -34.94210085941349,
+            -34.93723868269285,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.1944580078125,
+      "top_center_motion_mm": [
+        -4.535109520769064,
+        0,
+        1.8476234909315963
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 3.878644849060919,
+      "demanded_far_land_axial_motion_mm": 3.628644849060919,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 38.80060458014029,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_30_floating": {
+      "transverse_shift_mm": 0.25,
+      "dimensions": {
+        "lap_mm": 30.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.9957275390625,
+        "bracket_deg": [
+          0.9957275390625,
+          0.99609375
+        ],
+        "contact_center_mm": [
+          34.54991352065988,
+          3.2949637565906105e-07,
+          203.3953626726621
+        ],
+        "contact_extent_mm": [
+          34.54674364259852,
+          34.55000010000001,
+          -19.740899237440424,
+          19.740899237459065,
+          203.38582450310705,
+          203.40025092683885
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.1944580078125,
+          "bracket_deg": [
+            0.1944580078125,
+            0.19482421875
+          ],
+          "contact_center_mm": [
+            36.29240808590421,
+            -2.5133095560102207e-15,
+            178.00004923506663
+          ],
+          "contact_extent_mm": [
+            36.26574481185909,
+            36.30852739341357,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.0001454752029
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -34.93887551515861,
+            2.366801303617825e-13,
+            178.00016076510863
+          ],
+          "contact_extent_mm": [
+            -34.94210085941349,
+            -34.93723868269285,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.1944580078125,
+      "top_center_motion_mm": [
+        -1.319669164570795,
+        0,
+        0.6380787862177044
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 1.2789002064959902,
+      "demanded_far_land_axial_motion_mm": 1.0289002064959902,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 14.262213120633346,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_36_floating": {
+      "transverse_shift_mm": 0.25,
+      "dimensions": {
+        "lap_mm": 36.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.821044921875,
+        "bracket_deg": [
+          0.821044921875,
+          0.8214111328125
+        ],
+        "contact_center_mm": [
+          34.54996185391685,
+          4.2661277943899416e-08,
+          209.3974754938055
+        ],
+        "contact_extent_mm": [
+          34.5485433468775,
+          34.550000100000005,
+          -19.69424898593627,
+          19.694248985935815,
+          209.39230993211345,
+          209.40011195719288
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.1944580078125,
+          "bracket_deg": [
+            0.1944580078125,
+            0.19482421875
+          ],
+          "contact_center_mm": [
+            36.29240808590421,
+            -2.5133095560102207e-15,
+            178.00004923506663
+          ],
+          "contact_extent_mm": [
+            36.26574481185909,
+            36.30852739341357,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.0001454752029
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -34.938875515158614,
+            2.3667978020007837e-13,
+            178.00016076510866
+          ],
+          "contact_extent_mm": [
+            -34.94210085941349,
+            -34.93723868269285,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.1944580078125,
+      "top_center_motion_mm": [
+        -1.0435004009406295,
+        0,
+        0.5281137922541461
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 1.0544240882806548,
+      "demanded_far_land_axial_motion_mm": 0.8044240882806548,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 11.035149585909737,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_48_floating": {
+      "transverse_shift_mm": 0.25,
+      "dimensions": {
+        "lap_mm": 48.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.609375,
+        "bracket_deg": [
+          0.609375,
+          0.6097412109375
+        ],
+        "contact_center_mm": [
+          34.54987689631137,
+          -0.028020146497412777,
+          221.38898959507443
+        ],
+        "contact_extent_mm": [
+          34.545314371598174,
+          34.55000010000001,
+          -19.768994942412434,
+          19.768996458169987,
+          221.36662411601625,
+          221.40035911904764
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.1944580078125,
+          "bracket_deg": [
+            0.1944580078125,
+            0.19482421875
+          ],
+          "contact_center_mm": [
+            36.29240808590421,
+            -2.5133095560102207e-15,
+            178.00004923506663
+          ],
+          "contact_extent_mm": [
+            36.26574481185909,
+            36.30852739341357,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.0001454752029
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -34.93887551515862,
+            2.3684031677488244e-13,
+            178.0001607651087
+          ],
+          "contact_extent_mm": [
+            -34.94210085941349,
+            -34.93723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.1944580078125,
+      "top_center_motion_mm": [
+        -0.7093068707182314,
+        0,
+        0.3937373142169349
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.7824899882594991,
+      "demanded_far_land_axial_motion_mm": 0.5324899882594991,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 7.188606835992463,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_60_floating": {
+      "transverse_shift_mm": 0.25,
+      "dimensions": {
+        "lap_mm": 60.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.4844970703125,
+        "bracket_deg": [
+          0.4844970703125,
+          0.48486328125
+        ],
+        "contact_center_mm": [
+          34.549967976201636,
+          4.1627937941260154e-07,
+          233.39635967494812
+        ],
+        "contact_extent_mm": [
+          34.548768665315315,
+          34.55000010000003,
+          -19.686654676553832,
+          19.686654676521396,
+          233.38897877033745,
+          233.4000941649032
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.1944580078125,
+          "bracket_deg": [
+            0.1944580078125,
+            0.19482421875
+          ],
+          "contact_center_mm": [
+            36.29240808590421,
+            -2.5133095560102207e-15,
+            178.00004923506663
+          ],
+          "contact_extent_mm": [
+            36.26574481185909,
+            36.30852739341357,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.0001454752029
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -34.93887551515862,
+            2.3684031677488244e-13,
+            178.0001607651087
+          ],
+          "contact_extent_mm": [
+            -34.94210085941349,
+            -34.93723868269285,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.1944580078125,
+      "top_center_motion_mm": [
+        -0.5123778613611678,
+        0,
+        0.31388110140426306
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.6220927823499949,
+      "demanded_far_land_axial_motion_mm": 0.3720927823499949,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 4.95203390350333,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_66_floating": {
+      "transverse_shift_mm": 0.25,
+      "dimensions": {
+        "lap_mm": 66.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.4398193359375,
+        "bracket_deg": [
+          0.4398193359375,
+          0.440185546875
+        ],
+        "contact_center_mm": [
+          34.54988689339575,
+          -4.139911012500882e-05,
+          239.38607177346438
+        ],
+        "contact_extent_mm": [
+          34.54572867896249,
+          34.550000100000005,
+          -19.761357482848272,
+          19.76135748284803,
+          239.35784564988947,
+          239.4003264717472
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.1944580078125,
+          "bracket_deg": [
+            0.1944580078125,
+            0.19482421875
+          ],
+          "contact_center_mm": [
+            36.29240808590421,
+            -2.5133095560102207e-15,
+            178.00004923506663
+          ],
+          "contact_extent_mm": [
+            36.26574481185909,
+            36.30852739341357,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.0001454752029
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -34.938875515158614,
+            2.3668573294577537e-13,
+            178.00016076510866
+          ],
+          "contact_extent_mm": [
+            -34.94210085941349,
+            -34.93723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.1944580078125,
+      "top_center_motion_mm": [
+        -0.4419646603626889,
+        0,
+        0.2852066201103298
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.5647131138668726,
+      "demanded_far_land_axial_motion_mm": 0.3147131138668726,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 4.157750594676451,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_72_floating": {
+      "transverse_shift_mm": 0.25,
+      "dimensions": {
+        "lap_mm": 72.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.4024658203125,
+        "bracket_deg": [
+          0.4024658203125,
+          0.40283203125
+        ],
+        "contact_center_mm": [
+          34.54992496919023,
+          7.764346497649951e-05,
+          245.38981689454766
+        ],
+        "contact_extent_mm": [
+          34.547143576087336,
+          34.55000010000001,
+          -19.731967585696044,
+          19.731967585695745,
+          245.3692066199544,
+          245.40021813626205
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.1944580078125,
+          "bracket_deg": [
+            0.1944580078125,
+            0.19482421875
+          ],
+          "contact_center_mm": [
+            36.29240808590421,
+            -2.5133095560102207e-15,
+            178.00004923506663
+          ],
+          "contact_extent_mm": [
+            36.26574481185909,
+            36.30852739341357,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.0001454752029
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -34.93887551515861,
+            2.3683418894924205e-13,
+            178.00016076510866
+          ],
+          "contact_extent_mm": [
+            -34.94210085941349,
+            -34.93723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.1944580078125,
+      "top_center_motion_mm": [
+        -0.3831117834938319,
+        0,
+        0.261190736836852
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.5167422287453576,
+      "demanded_far_land_axial_motion_mm": 0.2667422287453576,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 3.496062209364215,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M3_overlap_78_floating": {
+      "transverse_shift_mm": 0.25,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.25,
+        "guide_clearance_per_side_mm": 0.25,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.3709716796875,
+        "bracket_deg": [
+          0.3709716796875,
+          0.371337890625
+        ],
+        "contact_center_mm": [
+          34.54995762564643,
+          -2.1030555287216397e-08,
+          251.3937054391632
+        ],
+        "contact_extent_mm": [
+          34.548373081391695,
+          34.550000100000034,
+          -19.69960405055978,
+          19.69960405058364,
+          251.3809800415291,
+          251.4001241748886
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.1944580078125,
+          "bracket_deg": [
+            0.1944580078125,
+            0.19482421875
+          ],
+          "contact_center_mm": [
+            36.29240808590421,
+            -2.5133095560102207e-15,
+            178.00004923506663
+          ],
+          "contact_extent_mm": [
+            36.26574481185909,
+            36.30852739341357,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.0001454752029
+          ]
+        },
+        "1": {
+          "angle_deg": 5.720947265625,
+          "bracket_deg": [
+            5.720947265625,
+            5.7213134765625
+          ],
+          "contact_center_mm": [
+            -34.93887551515861,
+            2.3684416855088627e-13,
+            178.00016076510866
+          ],
+          "contact_extent_mm": [
+            -34.94210085941349,
+            -34.93723868269286,
+            -4.4999999999999964,
+            4.5000000000000036,
+            178.0,
+            178.00048229532598
+          ]
+        }
+      },
+      "first_catch_contact_deg": 0.1944580078125,
+      "top_center_motion_mm": [
+        -0.33350290474429467,
+        0,
+        0.24091224170985015
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.4762977698641464,
+      "demanded_far_land_axial_motion_mm": 0.2262977698641464,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10540045845549884,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 16.468203632893147,
+          "tooth_centroid_axial_rise_mm": 0.05578465625087148
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 11.55466721124616,
+          "tooth_centroid_axial_rise_mm": 0.10540045845549884
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 8.951395155831337,
+          "tooth_centroid_axial_rise_mm": 0.15714909111061104
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 2.9399197180311103,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M4_centered": {
+      "transverse_shift_mm": 0.0,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.4,
+        "guide_clearance_per_side_mm": 0.15,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.1109619140625,
+        "bracket_deg": [
+          0.1109619140625,
+          0.111328125
+        ],
+        "contact_center_mm": [
+          34.64990810665556,
+          -6.271293779709048e-05,
+          251.35636014526997
+        ],
+        "contact_extent_mm": [
+          34.64439494194542,
+          34.65000010000008,
+          -19.787829331454933,
+          19.787829331454954,
+          251.268667725756,
+          251.40025578109785
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.309814453125,
+          "bracket_deg": [
+            0.309814453125,
+            0.3101806640625
+          ],
+          "contact_center_mm": [
+            36.3964279108981,
+            -1.6563154042412312e-14,
+            178.00006082556703
+          ],
+          "contact_extent_mm": [
+            36.376511227939424,
+            36.40943927711906,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00017826346078
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.309814453125,
+      "top_center_motion_mm": [
+        -0.1743687820990511,
+        0,
+        0.07245557985669393
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.14312542008104856,
+      "demanded_far_land_axial_motion_mm": -0.2568745799189571,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.1088924801229183,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 18.14403560345898,
+          "tooth_centroid_axial_rise_mm": 0.05534399020435998
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 12.674201093640361,
+          "tooth_centroid_axial_rise_mm": 0.1088924801229183
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 9.80526460988022,
+          "tooth_centroid_axial_rise_mm": 0.165110436214146
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M4": {
+      "transverse_shift_mm": 0.15,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.4,
+        "guide_clearance_per_side_mm": 0.15,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.2222900390625,
+        "bracket_deg": [
+          0.2222900390625,
+          0.22265625
+        ],
+        "contact_center_mm": [
+          34.64991415855672,
+          -3.254139754070639e-05,
+          251.3796426370091
+        ],
+        "contact_extent_mm": [
+          34.64475936138517,
+          34.650000100000014,
+          -19.78162589670422,
+          19.781625896704224,
+          251.33861740388087,
+          251.40023956938413
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.310546875,
+          "bracket_deg": [
+            0.310546875,
+            0.3109130859375
+          ],
+          "contact_center_mm": [
+            36.38988860980115,
+            2.749303715096459e-14,
+            178.00011098558883
+          ],
+          "contact_extent_mm": [
+            36.35243002907674,
+            36.412793524418106,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.00032756312928
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.310546875,
+      "top_center_motion_mm": [
+        -0.1994537258752788,
+        0,
+        0.1448107853919396
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.2861558937667894,
+      "demanded_far_land_axial_motion_mm": -0.11384410623321628,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.1088924801229183,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 18.14403560345898,
+          "tooth_centroid_axial_rise_mm": 0.05534399020435998
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 12.674201093640361,
+          "tooth_centroid_axial_rise_mm": 0.1088924801229183
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 9.80526460988022,
+          "tooth_centroid_axial_rise_mm": 0.165110436214146
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force.",
+      "depth_rocking": {
+        "guide": {
+          "angle_deg": 0.2222900390625,
+          "bracket_deg": [
+            0.2222900390625,
+            0.22265625
+          ],
+          "contact_center_mm": [
+            -2.9856329411912536e-05,
+            22.749854795497026,
+            251.36428487969414
+          ],
+          "contact_extent_mm": [
+            -31.74028482980381,
+            31.740284829803866,
+            22.74082196573742,
+            22.7500001,
+            251.29237293819855,
+            251.40041998129294
+          ]
+        },
+        "catches": {
+          "-1": {
+            "angle_deg": 0.7650146484375,
+            "bracket_deg": [
+              0.7650146484375,
+              0.765380859375
+            ],
+            "contact_center_mm": [
+              35.603910773917384,
+              4.489288526456547,
+              178.0001433950555
+            ],
+            "contact_extent_mm": [
+              34.8,
+              36.41464956699034,
+              4.467843255908802,
+              4.500000000000009,
+              178.0,
+              178.00042958871896
+            ]
+          },
+          "1": {
+            "angle_deg": 0.7650146484375,
+            "bracket_deg": [
+              0.7650146484375,
+              0.765380859375
+            ],
+            "contact_center_mm": [
+              -35.603910773928504,
+              4.489288526456599,
+              178.00014339505546
+            ],
+            "contact_extent_mm": [
+              -36.41464956699034,
+              -34.8,
+              4.467843255908824,
+              4.500000000000004,
+              178.0,
+              178.00042958871893
+            ]
+          }
+        }
+      }
+    },
+    "M4_rejected_centered_only": {
+      "transverse_shift_mm": 0.2,
+      "dimensions": {
+        "lap_mm": 72.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.3,
+        "guide_clearance_per_side_mm": 0.2,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.3218994140625,
+        "bracket_deg": [
+          0.3218994140625,
+          0.322265625
+        ],
+        "contact_center_mm": [
+          34.599836760185774,
+          0.00018408785385346736,
+          245.37312233785028
+        ],
+        "contact_extent_mm": [
+          34.592478409299154,
+          34.600000100000024,
+          -19.81581638650988,
+          19.81581638650988,
+          245.31879566766875,
+          245.40045942940534
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.2332763671875,
+          "bracket_deg": [
+            0.2332763671875,
+            0.233642578125
+          ],
+          "contact_center_mm": [
+            36.32669473334942,
+            5.015930767974783e-15,
+            178.0001428337278
+          ],
+          "contact_extent_mm": [
+            36.26054755335862,
+            36.36455631952103,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.00042413265302
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.2332763671875,
+      "top_center_motion_mm": [
+        -0.3062275848276939,
+        0,
+        0.2092611791851482
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.41384351960658705,
+      "demanded_far_land_axial_motion_mm": 0.11384351960657568,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10727502506095021,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 17.30198748548768,
+          "tooth_centroid_axial_rise_mm": 0.055666498822862565
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 12.113883698113808,
+          "tooth_centroid_axial_rise_mm": 0.10727502506095021
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 9.37853560130293,
+          "tooth_centroid_axial_rise_mm": 0.1612762972344619
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 1.5102481462389767,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M4_fit_0.1_0.35": {
+      "transverse_shift_mm": 0.1,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.35,
+        "guide_clearance_per_side_mm": 0.1,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.14794921875,
+        "bracket_deg": [
+          0.14794921875,
+          0.1483154296875
+        ],
+        "contact_center_mm": [
+          34.69995770721147,
+          -3.821306056258446e-05,
+          251.3852089823594
+        ],
+        "contact_extent_mm": [
+          34.69619962806697,
+          34.70000010000009,
+          -19.75590808024684,
+          19.75590808024684,
+          251.35546685642166,
+          251.4001156773506
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.2713623046875,
+          "bracket_deg": [
+            0.2713623046875,
+            0.271728515625
+          ],
+          "contact_center_mm": [
+            36.43608759719256,
+            5.13604511323412e-15,
+            178.00011613024168
+          ],
+          "contact_extent_mm": [
+            36.39063833694069,
+            36.46310419455678,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.00034367605645
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.2713623046875,
+      "top_center_motion_mm": [
+        -0.13252285156966634,
+        0,
+        0.09653238050407253
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.19070813586668578,
+      "demanded_far_land_axial_motion_mm": -0.15929186413330854,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.11025955541904509,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 18.99530533590788,
+          "tooth_centroid_axial_rise_mm": 0.054824574031517415
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 13.235937554812047,
+          "tooth_centroid_axial_rise_mm": 0.11025955541904509
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 10.231745284191785,
+          "tooth_centroid_axial_rise_mm": 0.16865792956050996
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M4_fit_0.1_0.4": {
+      "transverse_shift_mm": 0.1,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.4,
+        "guide_clearance_per_side_mm": 0.1,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.14794921875,
+        "bracket_deg": [
+          0.14794921875,
+          0.1483154296875
+        ],
+        "contact_center_mm": [
+          34.69995770721147,
+          -3.821306056258446e-05,
+          251.3852089823594
+        ],
+        "contact_extent_mm": [
+          34.69619962806697,
+          34.70000010000009,
+          -19.75590808024684,
+          19.75590808024684,
+          251.35546685642166,
+          251.4001156773506
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.3101806640625,
+          "bracket_deg": [
+            0.3101806640625,
+            0.310546875
+          ],
+          "contact_center_mm": [
+            36.436176121774615,
+            8.642733738485215e-15,
+            178.00013723500908
+          ],
+          "contact_extent_mm": [
+            36.38936800086089,
+            36.46423865242338,
+            -4.4999999999999964,
+            4.500000000000005,
+            178.0,
+            178.00040580780563
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.3101806640625,
+      "top_center_motion_mm": [
+        -0.13252285156966634,
+        0,
+        0.09653238050407253
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.19070796917219468,
+      "demanded_far_land_axial_motion_mm": -0.209292030827811,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.11025955541904509,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 18.99530533590788,
+          "tooth_centroid_axial_rise_mm": 0.054824574031517415
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 13.235937554812047,
+          "tooth_centroid_axial_rise_mm": 0.11025955541904509
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 10.231745284191785,
+          "tooth_centroid_axial_rise_mm": 0.16865792956050996
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M4_fit_0.1_0.45": {
+      "transverse_shift_mm": 0.1,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.45,
+        "guide_clearance_per_side_mm": 0.1,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.14794921875,
+        "bracket_deg": [
+          0.14794921875,
+          0.1483154296875
+        ],
+        "contact_center_mm": [
+          34.69995770721147,
+          -3.821306056258446e-05,
+          251.3852089823594
+        ],
+        "contact_extent_mm": [
+          34.69619962806697,
+          34.70000010000009,
+          -19.75590808024684,
+          19.75590808024684,
+          251.35546685642166,
+          251.4001156773506
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.3489990234375,
+          "bracket_deg": [
+            0.3489990234375,
+            0.349365234375
+          ],
+          "contact_center_mm": [
+            36.436252604634795,
+            4.073608744921629e-15,
+            178.00015936838923
+          ],
+          "contact_extent_mm": [
+            36.388108954321446,
+            36.46533734167164,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.0004709116146
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.3489990234375,
+      "top_center_motion_mm": [
+        -0.13252285156966634,
+        0,
+        0.09653238050407253
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.19070780247767516,
+      "demanded_far_land_axial_motion_mm": -0.2592921975223135,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.11025955541904509,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 18.99530533590788,
+          "tooth_centroid_axial_rise_mm": 0.054824574031517415
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 13.235937554812047,
+          "tooth_centroid_axial_rise_mm": 0.11025955541904509
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 10.231745284191785,
+          "tooth_centroid_axial_rise_mm": 0.16865792956050996
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M4_fit_0.15_0.35": {
+      "transverse_shift_mm": 0.15,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.35,
+        "guide_clearance_per_side_mm": 0.15,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.2222900390625,
+        "bracket_deg": [
+          0.2222900390625,
+          0.22265625
+        ],
+        "contact_center_mm": [
+          34.64991415855672,
+          -3.254139754070639e-05,
+          251.3796426370091
+        ],
+        "contact_extent_mm": [
+          34.64475936138517,
+          34.650000100000014,
+          -19.78162589670422,
+          19.781625896704224,
+          251.33861740388087,
+          251.40023956938413
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.271728515625,
+          "bracket_deg": [
+            0.271728515625,
+            0.2720947265625
+          ],
+          "contact_center_mm": [
+            36.38628298143393,
+            1.9139125242694096e-14,
+            178.00011514636464
+          ],
+          "contact_extent_mm": [
+            36.34129908021904,
+            36.413048035910656,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.0003407346825
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.271728515625,
+      "top_center_motion_mm": [
+        -0.1994537258752788,
+        0,
+        0.1448107853919396
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.286156270069597,
+      "demanded_far_land_axial_motion_mm": -0.06384372993039733,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.1088924801229183,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 18.14403560345898,
+          "tooth_centroid_axial_rise_mm": 0.05534399020435998
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 12.674201093640361,
+          "tooth_centroid_axial_rise_mm": 0.1088924801229183
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 9.80526460988022,
+          "tooth_centroid_axial_rise_mm": 0.165110436214146
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M4_fit_0.15_0.4": {
+      "transverse_shift_mm": 0.15,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.4,
+        "guide_clearance_per_side_mm": 0.15,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.2222900390625,
+        "bracket_deg": [
+          0.2222900390625,
+          0.22265625
+        ],
+        "contact_center_mm": [
+          34.64991415855672,
+          -3.254139754070639e-05,
+          251.3796426370091
+        ],
+        "contact_extent_mm": [
+          34.64475936138517,
+          34.650000100000014,
+          -19.78162589670422,
+          19.781625896704224,
+          251.33861740388087,
+          251.40023956938413
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.310546875,
+          "bracket_deg": [
+            0.310546875,
+            0.3109130859375
+          ],
+          "contact_center_mm": [
+            36.38988860980115,
+            2.749303715096459e-14,
+            178.00011098558883
+          ],
+          "contact_extent_mm": [
+            36.35243002907674,
+            36.412793524418106,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.00032756312928
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.310546875,
+      "top_center_motion_mm": [
+        -0.1994537258752788,
+        0,
+        0.1448107853919396
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.2861558937667894,
+      "demanded_far_land_axial_motion_mm": -0.11384410623321628,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.1088924801229183,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 18.14403560345898,
+          "tooth_centroid_axial_rise_mm": 0.05534399020435998
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 12.674201093640361,
+          "tooth_centroid_axial_rise_mm": 0.1088924801229183
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 9.80526460988022,
+          "tooth_centroid_axial_rise_mm": 0.165110436214146
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M4_fit_0.15_0.45": {
+      "transverse_shift_mm": 0.15,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.45,
+        "guide_clearance_per_side_mm": 0.15,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.2222900390625,
+        "bracket_deg": [
+          0.2222900390625,
+          0.22265625
+        ],
+        "contact_center_mm": [
+          34.64991415855672,
+          -3.254139754070639e-05,
+          251.3796426370091
+        ],
+        "contact_extent_mm": [
+          34.64475936138517,
+          34.650000100000014,
+          -19.78162589670422,
+          19.781625896704224,
+          251.33861740388087,
+          251.40023956938413
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.349365234375,
+          "bracket_deg": [
+            0.349365234375,
+            0.3497314453125
+          ],
+          "contact_center_mm": [
+            36.392591346225984,
+            1.7150269360750226e-14,
+            178.00010731582233
+          ],
+          "contact_extent_mm": [
+            36.36081932388912,
+            36.41256272975043,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.00031584387227
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.349365234375,
+      "top_center_motion_mm": [
+        -0.1994537258752788,
+        0,
+        0.1448107853919396
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.2861555174639534,
+      "demanded_far_land_axial_motion_mm": -0.16384448253603523,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.1088924801229183,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 18.14403560345898,
+          "tooth_centroid_axial_rise_mm": 0.05534399020435998
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 12.674201093640361,
+          "tooth_centroid_axial_rise_mm": 0.1088924801229183
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 9.80526460988022,
+          "tooth_centroid_axial_rise_mm": 0.165110436214146
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M4_fit_0.2_0.35": {
+      "transverse_shift_mm": 0.2,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.35,
+        "guide_clearance_per_side_mm": 0.2,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.296630859375,
+        "bracket_deg": [
+          0.296630859375,
+          0.2969970703125
+        ],
+        "contact_center_mm": [
+          34.59991530755937,
+          6.461079964841023e-05,
+          251.38459292863666
+        ],
+        "contact_extent_mm": [
+          34.59602571001707,
+          34.60000010000004,
+          -19.756921047321242,
+          19.756921047321196,
+          251.35348968229704,
+          251.4002424476823
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.2720947265625,
+          "bracket_deg": [
+            0.2720947265625,
+            0.2724609375
+          ],
+          "contact_center_mm": [
+            36.336555224177104,
+            7.7297848774652e-16,
+            178.00011368998966
+          ],
+          "contact_extent_mm": [
+            36.292226831151225,
+            36.36296452980009,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.00033638437478
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.2720947265625,
+      "top_center_motion_mm": [
+        -0.2664471425857252,
+        0,
+        0.1929374328007043
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.3813520101656138,
+      "demanded_far_land_axial_motion_mm": 0.031352010165619504,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10727502506095021,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 17.30198748548768,
+          "tooth_centroid_axial_rise_mm": 0.055666498822862565
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 12.113883698113808,
+          "tooth_centroid_axial_rise_mm": 0.10727502506095021
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 9.37853560130293,
+          "tooth_centroid_axial_rise_mm": 0.1612762972344619
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.3662498155472763,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M4_fit_0.2_0.4": {
+      "transverse_shift_mm": 0.2,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.4,
+        "guide_clearance_per_side_mm": 0.2,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.296630859375,
+        "bracket_deg": [
+          0.296630859375,
+          0.2969970703125
+        ],
+        "contact_center_mm": [
+          34.59991530755937,
+          6.461079964841023e-05,
+          251.38459292863666
+        ],
+        "contact_extent_mm": [
+          34.59602571001707,
+          34.60000010000004,
+          -19.756921047321242,
+          19.756921047321196,
+          251.35348968229704,
+          251.4002424476823
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.3109130859375,
+          "bracket_deg": [
+            0.3109130859375,
+            0.311279296875
+          ],
+          "contact_center_mm": [
+            36.34356093923551,
+            -6.363668824813659e-15,
+            178.00008383262295
+          ],
+          "contact_extent_mm": [
+            36.315696588148036,
+            36.36110335040739,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.00024669049296
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.3109130859375,
+      "top_center_motion_mm": [
+        -0.2664471425857252,
+        0,
+        0.1929374328007043
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.38135134007700344,
+      "demanded_far_land_axial_motion_mm": -0.018648659923002242,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10727502506095021,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 17.30198748548768,
+          "tooth_centroid_axial_rise_mm": 0.055666498822862565
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 12.113883698113808,
+          "tooth_centroid_axial_rise_mm": 0.10727502506095021
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 9.37853560130293,
+          "tooth_centroid_axial_rise_mm": 0.1612762972344619
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    },
+    "M4_fit_0.2_0.45": {
+      "transverse_shift_mm": 0.2,
+      "dimensions": {
+        "lap_mm": 78.0,
+        "width_mm": 75.0,
+        "axial_play_mm": 0.45,
+        "guide_clearance_per_side_mm": 0.2,
+        "cap_length_mm": 90.0
+      },
+      "guide_only_onset": {
+        "angle_deg": 0.296630859375,
+        "bracket_deg": [
+          0.296630859375,
+          0.2969970703125
+        ],
+        "contact_center_mm": [
+          34.59991530755937,
+          6.461079964841023e-05,
+          251.38459292863666
+        ],
+        "contact_extent_mm": [
+          34.59602571001707,
+          34.60000010000004,
+          -19.756921047321242,
+          19.756921047321196,
+          251.35348968229704,
+          251.4002424476823
+        ]
+      },
+      "catch_onsets": {
+        "-1": {
+          "angle_deg": 0.3497314453125,
+          "bracket_deg": [
+            0.3497314453125,
+            0.35009765625
+          ],
+          "contact_center_mm": [
+            36.34852584171737,
+            8.665561716813767e-15,
+            178.00005258473124
+          ],
+          "contact_extent_mm": [
+            36.33369136150544,
+            36.35874817363584,
+            -4.4999999999999964,
+            4.500000000000004,
+            178.0,
+            178.00015310796803
+          ]
+        },
+        "1": {
+          "angle_deg": null,
+          "reason": "No contact by 6 degrees"
+        }
+      },
+      "first_catch_contact_deg": 0.3497314453125,
+      "top_center_motion_mm": [
+        -0.2664471425857252,
+        0,
+        0.1929374328007043
+      ],
+      "far_receiver_rise_at_guide_onset_mm": 0.3813506699883362,
+      "demanded_far_land_axial_motion_mm": -0.06864933001165241,
+      "proxy_center_axial_motion_at_adverse_capture_loss_mm": 0.10727502506095021,
+      "proxy_contact_edge_controls": [
+        {
+          "lever_offset_mm": -0.75,
+          "first_capture_loss_per_catch_N": 17.30198748548768,
+          "tooth_centroid_axial_rise_mm": 0.055666498822862565
+        },
+        {
+          "lever_offset_mm": 0,
+          "first_capture_loss_per_catch_N": 12.113883698113808,
+          "tooth_centroid_axial_rise_mm": 0.10727502506095021
+        },
+        {
+          "lever_offset_mm": 0.75,
+          "first_capture_loss_per_catch_N": 9.37853560130293,
+          "tooth_centroid_axial_rise_mm": 0.1612762972344619
+        }
+      ],
+      "hook_intersection_at_guide_only_pose_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      },
+      "decision_scope": "Comparison of one declared peel path and local proxy; not complete contact equilibrium or measured holding force."
+    }
+  }
+}

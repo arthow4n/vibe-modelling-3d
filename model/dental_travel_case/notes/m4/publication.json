@@ -1,0 +1,24 @@
+{
+  "scope": "Paired current full/coupon exports after guarded publication; no physical acceptance.",
+  "inputs": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m2b_design.py": "e4fab8b97c020f89361e79ba2eb759e685d994a8109244bf76dfed9bcff1f396",
+    "m3_design.py": "8e958036da3e31e22dc345c9994d68967cec56aa6ae8183e5ff8a34634e43ec9",
+    "m4_design.py": "64167bc4ad2ebb6fb6ddcdf869a8c0370e6f8e1a543abba38d92a9f6bc5d8c9c",
+    "m3_samples.py": "5897db304d43a17105bdfb14a73bab15b722e59b613f27db222b02f649d55885",
+    "m4_case.py": "61397b91be5c7cfc7857758fd6b9c24573ac8e970ad819463d9f0003e817c832",
+    "m4_joint_test.py": "50ebed0a2863122dafe36ca468f1a27ab6ccbe04621d95f374bf9bf2863a9b1e"
+  },
+  "artifacts": {
+    "case": {
+      "m4_case.step": "250ea52e76334f841b624a8c3f187bb2620ff792c15c56417c189a8ca452ac81",
+      "m4_case.stl": "4943508e94b0d17e77efea2888066753e8349c9da043652a00e6c12ba73b889a",
+      "notes/m4/case_export_slice.json": "941bef103bc89acc043ec17767d3f921f2734ae7ab329b8173d65bca8a78601f"
+    },
+    "joint": {
+      "m4_joint_test.step": "1cb77081864cba270ca637b6651345f927b4ea7a0bebecc9cad9214ffff51c1f",
+      "m4_joint_test.stl": "355e55b73e1b1ac785ed8f7510fa6a22c013cb1377febb0625952757d48f7bc1",
+      "notes/m4/joint_export_slice.json": "f1bdc677905aac63ad44bdeaf3bb2da1286a1d0719cf860131b4a43db78f711b"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="970" viewBox="0 0 1200 970">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto-start-reverse"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#263746"/></marker></defs>
+<rect width="1200" height="970" fill="#fafaf7"/>
+<style>text{font-family:sans-serif;fill:#243444}.small{font-size:16px}.note{font-size:19px}.title{font-size:25px;font-weight:bold}</style>
+<text x="30" y="40" class="title">The important difference: does the guide help before the catch has to bend?</text>
+<text x="30" y="76" class="small">Same magnification in all panels. Actual catch plane Y=0. Orange cap is at first guide contact.</text>
+<text x="30" y="100" class="small">Red = blocked rigid overlap. The blue tooth could escape by bending inward (left); deformation is not drawn.</text>
+<text x="22" y="138" class="note">1.2 cm control (M3 catch)</text>
+<path d="M35.000,491.000 L50.400,491.000 L50.400,155.000 L35.000,155.000 Z" fill="#1769a6" fill-opacity="0.2" stroke="#1769a6" stroke-opacity="1.0" stroke-width="1.0"/>
+<path d="M134.400,491.000 L190.400,491.000 L190.400,351.000 L239.400,351.000 L242.079,350.467 L244.350,348.950 L245.867,346.679 L246.400,344.000 L246.400,319.408 L246.129,317.478 L245.336,315.698 L190.400,227.800 L134.400,227.800 Z" fill="#1769a6" fill-opacity="0.2" stroke="#1769a6" stroke-opacity="1.0" stroke-width="1.0"/>
+<path d="M196.076,251.680 L201.598,356.534 L260.317,353.442 L263.573,352.947 L266.670,351.827 L269.489,350.124 L271.921,347.903 L273.874,345.251 L275.271,342.269 L276.060,339.072 L276.210,335.782 L275.916,330.189 L303.877,328.717 L294.728,155.000 L252.670,155.000 L257.591,248.440 Z" fill="#cf741d" fill-opacity="0.16000000000000003" stroke="#cf741d" stroke-opacity="0.8" stroke-width="1.0"/>
+<path d="M245.336,315.698 L205.030,251.208 L204.470,251.237 L203.911,251.267 L202.792,251.326 L200.553,251.444 L196.076,251.680 L201.307,351.000 L239.400,351.000 L242.079,350.467 L244.350,348.950 L245.867,346.679 L246.400,344.000 L246.400,319.408 L246.129,317.478 Z" fill="#cc2947" fill-opacity="0.2" stroke="#cc2947" stroke-opacity="1.0" stroke-width="2.0"/>
+<path d="M35,351.0 H343" stroke="#344651" stroke-dasharray="5 4"/>
+<text x="30" y="530" class="small">Dashed line: tooth shoulder height.</text>
+<text x="30" y="563" class="note" style="fill:#cc2947">Cap demands 3.63 mm extra rise.</text>
+<text x="30" y="600" class="small">Catch touches: 0.19°</text>
+<text x="30" y="625" class="small">Guide touches: 3.01°</text>
+<text x="30" y="663" class="small">Guide arrives after catch loading.</text>
+<path d="M35,699 H63 M35,694 V704 M63,694 V704" stroke="#263746"/>
+<text x="72" y="705" class="small">1 mm ruler</text>
+<text x="422" y="138" class="note">3 cm overlap — previous M3</text>
+<path d="M435.000,491.000 L450.400,491.000 L450.400,155.000 L435.000,155.000 Z" fill="#1769a6" fill-opacity="0.2" stroke="#1769a6" stroke-opacity="1.0" stroke-width="1.0"/>
+<path d="M534.400,491.000 L590.400,491.000 L590.400,351.000 L639.400,351.000 L642.079,350.467 L644.350,348.950 L645.867,346.679 L646.400,344.000 L646.400,319.408 L646.129,317.478 L645.336,315.698 L590.400,227.800 L534.400,227.800 Z" fill="#1769a6" fill-opacity="0.2" stroke="#1769a6" stroke-opacity="1.0" stroke-width="1.0"/>
+<path d="M602.270,322.836 L604.094,427.820 L662.885,426.798 L666.157,426.419 L669.291,425.408 L672.168,423.805 L674.678,421.672 L676.722,419.090 L678.224,416.159 L679.125,412.992 L679.391,409.709 L679.294,404.110 L707.289,403.623 L702.968,155.000 L660.962,155.000 L663.860,321.766 Z" fill="#cf741d" fill-opacity="0.16000000000000003" stroke="#cf741d" stroke-opacity="0.8" stroke-width="1.0"/>
+<path d="M646.400,322.069 L602.270,322.836 L602.277,323.276 L602.285,323.716 L602.300,324.596 L602.331,326.357 L602.392,329.877 L602.514,336.918 L602.759,351.000 L639.400,351.000 L642.079,350.467 L644.350,348.950 L645.867,346.679 L646.400,344.000 Z" fill="#cc2947" fill-opacity="0.2" stroke="#cc2947" stroke-opacity="1.0" stroke-width="2.0"/>
+<path d="M435,351.0 H743" stroke="#344651" stroke-dasharray="5 4"/>
+<text x="430" y="530" class="small">Dashed line: tooth shoulder height.</text>
+<text x="430" y="563" class="note" style="fill:#cc2947">Cap demands 1.03 mm extra rise.</text>
+<text x="430" y="600" class="small">Catch touches: 0.19°</text>
+<text x="430" y="625" class="small">Guide touches: 1.00°</text>
+<text x="430" y="663" class="small">Guide arrives after catch loading.</text>
+<path d="M435,699 H463 M435,694 V704 M463,694 V704" stroke="#263746"/>
+<text x="472" y="705" class="small">1 mm ruler</text>
+<text x="822" y="138" class="note">7.8 cm overlap — revised M4</text>
+<path d="M835.000,491.000 L853.200,491.000 L853.200,155.000 L835.000,155.000 Z" fill="#1769a6" fill-opacity="0.2" stroke="#1769a6" stroke-opacity="1.0" stroke-width="1.0"/>
+<path d="M937.200,491.000 L993.200,491.000 L993.200,351.000 L1042.200,351.000 L1044.879,350.467 L1047.150,348.950 L1048.667,346.679 L1049.200,344.000 L1049.200,319.408 L1048.929,317.478 L1048.136,315.698 L993.200,227.800 L937.200,227.800 Z" fill="#1769a6" fill-opacity="0.2" stroke="#1769a6" stroke-opacity="1.0" stroke-width="1.0"/>
+<path d="M1001.194,354.347 L1001.585,455.146 L1060.384,454.918 L1063.661,454.582 L1066.808,453.614 L1069.707,452.050 L1072.245,449.951 L1074.324,447.397 L1075.865,444.487 L1076.809,441.332 L1077.119,438.053 L1077.097,432.453 L1105.097,432.344 L1104.021,155.000 L1062.021,155.000 L1062.793,354.108 Z" fill="#cf741d" fill-opacity="0.16000000000000003" stroke="#cf741d" stroke-opacity="0.8" stroke-width="1.0"/>
+<path d="M835,351.0 H1143" stroke="#344651" stroke-dasharray="5 4"/>
+<text x="830" y="530" class="small">Dashed line: tooth shoulder height.</text>
+<text x="830" y="563" class="note" style="fill:#1769a6">Catch still has 0.11 mm clearance.</text>
+<text x="830" y="600" class="small">Catch touches: 0.31°</text>
+<text x="830" y="625" class="small">Guide touches: 0.22°</text>
+<text x="830" y="663" class="small">Guide arrives before catch loading.</text>
+<path d="M835,699 H863 M835,694 V704 M863,694 V704" stroke="#263746"/>
+<text x="872" y="705" class="small">1 mm ruler</text>
+<text x="30" y="759" class="note">Even centered, the old 3 cm design demands ~0.38 mm of catch rise; side movement makes it worse.</text>
+<text x="30" y="793" class="small">The earlier catch proxy loses capture after only about 0.06–0.16 mm in its adverse scenarios.</text>
+<text x="30" y="823" class="small">That exposed a missing load-path check. The drawing does not claim those scenarios measured a real print.</text>
+<text x="30" y="863" class="note" style="fill:#1769a6">M4 puts the guide into contact while the catches remain clear in this nominal peel path.</text>
+<text x="30" y="899" class="small">The guide can now carry the rocking load first; the catches retain the cap against straight withdrawal.</text>
+<text x="30" y="932" class="small">Nominal CAD + declared peel path. Shell flexibility, tolerances and printed recovery still need their stated evidence.</text>
+<metadata id="engineering_source_association">{&quot;data_sha256&quot;: &quot;db6f66cb00d617d3a912e88316e59fc3f0899c6fdd39f6ce8950c1f961dbbbae&quot;, &quot;generator_sha256&quot;: &quot;9e6d92a820c224003ccf5d17ede95eb42bce3cf381f6c8217bc0175a4e8733fc&quot;}</metadata>
+</svg>

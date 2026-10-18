@@ -227,9 +227,21 @@ function. Bounding-envelope fit or generic absence of collision is insufficient.
 For joints, catches and comparable mechanisms, provide a cross-section SVG that
 explains the engagement, guide, seat and intended release motion. Prefer sections
 from the actual CAD once available; label different section planes, omitted parts
-and schematic force arrows. The user requested this after the
-[dental M3 continuation](../../../../model/dental_travel_case/notes/m3.md): an
-understandable load path is part of the deliverable, not just numerical output.
+and schematic force arrows. Show the mechanical consequence of a proposed change:
+overlay the motion at a common scale, relate movement to the actual capture/gap,
+and identify which surfaces meet first. Label enlarged motion and blocked ghost
+poses explicitly. A smaller angle or a prettier static section does not establish
+that a guide protects the catch; allow relevant lateral play instead of choosing
+a favorable fixed pivot. The [dental M4 exploration](../../../../model/dental_travel_case/notes/m4.md)
+found that mistake by drawing contact order and changed the product accordingly.
+
+Inspect the drawings and decide whether the change materially protects the
+intended load path. Revise the mechanism if the benefit is negligible or arrives
+after the weak feature has already been defeated. **Commit useful exploration
+drawings, their reproducing source and relevant negative examples with the object
+record**; do not leave the evidence only in temporary files or conversation.
+These are engineering witnesses, not decoration or a substitute for omitted
+material/contact evidence. An understandable load path is part of the deliverable.
 
 Build low-detail **complete geometry** as soon as possible: the actual object,
 contents/held item, all major moving parts, and assembled/open states. A local

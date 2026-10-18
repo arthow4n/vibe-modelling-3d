@@ -12,7 +12,7 @@ from m3_toolpaths import selected_paths
 ROOT=Path(__file__).resolve().parent
 
 
-def inspect(directory):
+def inspect(directory, *, output=ROOT/'notes/m3/joint_sample_toolpaths.svg'):
     files={'primary':directory/'plate_1.gcode',
            'auto_support':directory/'support_probe/plate_1.gcode'}
     paths={name:list(selected_paths(path)) for name,path in files.items()}
@@ -37,7 +37,7 @@ def inspect(directory):
     for s in paths['auto_support']:
         if s['role']=='Support interface':axes[2].plot(s['x'],[s['z'],s['z']],color='#c06c26',lw=.6)
     axes[2].set(title='Auto-support interfaces',xlabel='Printer X (mm)',ylabel='Z (mm)')
-    output=ROOT/'notes/m3/joint_sample_toolpaths.svg'
+    output.parent.mkdir(parents=True,exist_ok=True)
     fig.savefig(output)
     output.write_text('\n'.join(line.rstrip() for line in output.read_text().splitlines())+'\n')
     fig.savefig(output.with_suffix('.png'),dpi=140)

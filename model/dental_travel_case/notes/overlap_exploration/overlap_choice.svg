@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="790" viewBox="0 0 1200 790">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto-start-reverse"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#263746"/></marker></defs>
+<rect width="1200" height="790" fill="#fafaf7"/>
+<style>text{font-family:sans-serif;fill:#243444}.small{font-size:16px}.note{font-size:19px}.title{font-size:25px;font-weight:bold}</style>
+<text x="30" y="40" class="title">Why overlap length alone was not enough</text>
+<text x="30" y="79" class="small">Controlled rows: same M3 catches/clearances with side play allowed. Last row is the complete M4 revision.</text>
+<text x="30" y="109" class="small">Bars show how far the far retaining shoulder must rise before the guide bears. Shorter is better.</text>
+<text x="35" y="158" class="note">12 mm</text>
+<rect x="195" y="137" width="600.0" height="27" fill="#cf741d"/>
+<text x="810.0" y="158" class="small">3.629 mm</text>
+<text x="35" y="206" class="note">30 mm</text>
+<rect x="195" y="185" width="170.12966260871733" height="27" fill="#cf741d"/>
+<text x="380.12966260871735" y="206" class="small">1.029 mm</text>
+<text x="35" y="254" class="note">36 mm</text>
+<rect x="195" y="233" width="133.0123153532929" height="27" fill="#cf741d"/>
+<text x="343.01231535329293" y="254" class="small">0.804 mm</text>
+<text x="35" y="302" class="note">48 mm</text>
+<rect x="195" y="281" width="88.0477440602608" height="27" fill="#cf741d"/>
+<text x="298.0477440602608" y="302" class="small">0.532 mm</text>
+<text x="35" y="350" class="note">60 mm</text>
+<rect x="195" y="329" width="61.52590807220352" height="27" fill="#cf741d"/>
+<text x="271.5259080722035" y="350" class="small">0.372 mm</text>
+<text x="35" y="398" class="note">66 mm</text>
+<rect x="195" y="377" width="52.038123369662806" height="27" fill="#cf741d"/>
+<text x="262.0381233696628" y="398" class="small">0.315 mm</text>
+<text x="35" y="446" class="note">72 mm</text>
+<rect x="195" y="425" width="44.106090263596265" height="27" fill="#cf741d"/>
+<text x="254.10609026359626" y="446" class="small">0.267 mm</text>
+<text x="35" y="494" class="note">78 mm</text>
+<rect x="195" y="473" width="37.41855914987847" height="27" fill="#cf741d"/>
+<text x="247.41855914987846" y="494" class="small">0.226 mm</text>
+<text x="35" y="542" class="note">M4: 78 mm + fit</text>
+<rect x="195" y="521" width="1" height="27" fill="#1769a6"/>
+<text x="210.0" y="542" class="small">Guide first: 0.114 mm catch gap</text>
+<path d="M204.22404785885425,130 V575" stroke="#cc2947" stroke-dasharray="6 5" stroke-width="2"/>
+<text x="875" y="177" class="small">Dashed reference:</text>
+<text x="875" y="204" class="small">adverse local catch</text>
+<text x="875" y="231" class="small">proxy loses capture</text>
+<text x="875" y="258" class="small">after ~0.056 mm rise.</text>
+<text x="30" y="630" class="note">Side play exposed a weak route that the centered angle comparison hid; making a sleeve longer alone was insufficient.</text>
+<text x="30" y="676" class="small">M4 combines longer support with .15 mm side clearance and .40 mm axial play; nominal guide bearing comes first.</text>
+<text x="30" y="722" class="small">Assembled size is unchanged. The body is taller to print; the test uses the full reusable cap plus a shortened body.</text>
+<metadata id="engineering_source_association">{&quot;data_sha256&quot;: &quot;db6f66cb00d617d3a912e88316e59fc3f0899c6fdd39f6ce8950c1f961dbbbae&quot;, &quot;generator_sha256&quot;: &quot;9e6d92a820c224003ccf5d17ede95eb42bce3cf381f6c8217bc0175a4e8733fc&quot;}</metadata>
+</svg>

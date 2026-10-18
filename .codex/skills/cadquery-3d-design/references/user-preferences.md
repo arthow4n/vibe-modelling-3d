@@ -184,7 +184,12 @@ preference for future rounds. [Evidence](../../../../model/filament_swatch_box_s
 ## Engineering computation
 
 For mechanical joints and catches, include a cross-section SVG explaining how
-the interface holds, guides and releases. The user requests practical adaptations
+the interface holds, guides and releases. Draw movement and contact order at
+comparable scale to show whether a numerical improvement physically matters,
+including relevant side play. Commit useful exploration drawings and their source.
+If the supposed benefit does not protect the mechanism, improve the model and
+update the matching test piece too. [M4 correction](../../../../model/dental_travel_case/notes/m4.md).
+The user requests practical adaptations
 when a simulation is too demanding: retain the consequential mechanics in an
 interpretable proxy, try reasonable corrections, and stop if those remain
 unproductive. Do not prolong solver development merely to preserve the original

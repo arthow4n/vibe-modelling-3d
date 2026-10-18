@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/m4_joint_test.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/tests/m4/m4_joint_test_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014037020155228674,
+    "build": 2.4394583069952205,
+    "selection": 0.0011190500226803124,
+    "validation": 0.10156753999763168,
+    "render_isometric": 0.6542984519910533,
+    "worker": 3.2766231299901847,
+    "total": 5.393479681981262
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "a02c4aae66c096b925d0dd095d34fc054f3aef3ade2235d451e6ac58bd2c7549",
+    "artifact_identity": "2920514c6049747201ce28193463521abea82ea9be95654670e3987e66719afb"
+  }
+}
