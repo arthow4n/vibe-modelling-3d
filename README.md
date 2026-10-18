@@ -137,7 +137,7 @@ coupon (N/A).
 [Full two-cup TPU retrofit](model/dental_travel_case_liner/README.md)
 
 - Test pieces: N/A — uses the preferred printed S16 starting profile
-- Final object: No print reported — user confirms room for full coverage; flexible installation, attachment, contents fit and quietness remain untested
+- Final object: Printed — 2026-10-19 report: inner and outer wall skins locally broken; cause unresolved, wall integrity not accepted. Reported 0.4 mm nozzle / 0.2 mm layers and 9 mm³/s limit; actual speeds unknown. Installation, contents fit and quietness unreported
 - Provenance: [Record](model/dental_travel_case_liner/README.md#attribution) · Agent effort: N/A — no performance study requested
 
 ### Samples and application research
@@ -148,6 +148,7 @@ coupon (N/A).
 
 - Test pieces: Yes — prior liners at 0.2 mm layers; S16/S12 work, S16 preferred; I10 rejected. Latest report: surface waviness remains despite 50% ironing. New [eight 30 mm finish coupons](model/tpu_damping_box/README.md#surface-finish-coupons--2026-10-17): not yet printed; surface and damping comparison pending. Other exact prior settings unknown
 - Final object: N/A — samples; S16 approved starting profile for rigid-shell/TPU damping; application fit/quietness require review
+- Deferred follow-up: [Upright wall integrity](model/tpu_damping_box/README.md#deferred-side-wall-printing-investigation--2026-10-19), prompted by dental-liner breakage. Small-box side defects were not noticeable at recalled 9 mm³/s; F0–F7 horizontal coupons do not qualify tall walls. No new wall samples now
 - Provenance: [Record](model/tpu_damping_box/README.md#attribution) · Agent effort: N/A — no performance study requested
 
 #### One-sided dental latch research
@@ -163,7 +164,7 @@ coupon (N/A).
 [Two-cup retrofit and setup](model/sunglasses_case_liner/README.md)
 
 - Test pieces: Yes — ironing sample printed at 0.2 mm layers; 50% flow preferred (“perfect”), 10%/30% leave gaps, 100% raises/bumps the top. Other exact settings unknown; S16 damping samples approved separately
-- Final object: Yes — user reports successful fit and damping, works well with no problems (2026-10-17). Exact printed revision/settings unknown; long-term wear and tape adhesion not separately assessed
+- Final object: Yes — successful fit and damping (2026-10-17); 2026-10-19 comparison confirms no dental-style wall breakage, with a recalled earlier 80 mm/s setting whose role/attained speeds are unverified. Exact printed revision/full settings unknown; long-term wear and tape adhesion not separately assessed
 - Provenance: [Record](model/sunglasses_case_liner/README.md#attribution) · Agent effort: N/A — no performance study requested
 
 ### Unreported prototypes and calibration objects

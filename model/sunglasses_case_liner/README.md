@@ -227,7 +227,8 @@ The successful sample's layer height is user-confirmed as **0.2 mm**; other actu
 settings and TPU brand/hardness remain unreported. These profiles are diagnostic
 references, not a recovered full profile or calibration. The retained 0.1 mm
 receipts below are historical diagnostic evidence and do not establish current
-0.2 mm full-liner toolpaths. No full-liner print has been reported.
+0.2 mm full-liner toolpaths. The successful full-liner print is reported below;
+its complete actual profile has not been recovered.
 
 Keep **supports off**, both thick bridge options **off**, bridge directions
 **180°**, and the supplied unrotated layout. Each 0.4 mm vertical skin is
@@ -338,12 +339,22 @@ Earlier 0.2 mm layer-height and ironing feedback remain separately scoped to
 those reports. This observation does not measure damping quantitatively or
 establish long-term wear, tape adhesion or internal channel condition.
 
+**Comparison clarification, 2026-10-19:** the user says this liner did not have
+the local inner/outer wall breakage now seen on the old slim dental liner. They
+recall 80 mm/s for the earlier successful liner, apparently this one; the exact
+speed field and actual attained wall speeds are unverified. This supplements
+the successful report without identifying the full process or printed revision.
+See the [dental comparison](../dental_travel_case_liner/README.md#wall-print-feedback--2026-10-19)
+for shared skin/core dimensions, different wall heights and why 80 mm/s cannot
+be compared directly with a 9 mm³/s filament limit. No change to this accepted
+liner is requested.
+
 ## Print status
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | Yes — ironing sample, reported 2026-10-16 | Associated `bottom_sample_18p5mm.step/.stl`; 0.2 mm layers confirmed; exact printed file/other settings unknown | 10%/30% ironing flow leave line gaps; 50% described as perfect and preferred; 100% produces raised/bumpy top. No ironing-off control or full-liner finish result reported. Original S16 damping approval remains scoped to its fixture. |
-| Final printable object(s) | Yes — reported 2026-10-17 | Current deliverables: revised `sunglasses_case_liner.step/.stl`; exact printed file/revision unknown | User reports successful fit and damping, works well with no problems. Actual material, orientation and printer/profile unknown; tape adhesion, internal channel condition and long-term wear not separately assessed. |
+| Final printable object(s) | Yes — reported 2026-10-17; comparison 2026-10-19 | Current deliverables: revised `sunglasses_case_liner.step/.stl`; exact printed file/revision unknown | Successful fit and damping; user says dental-style wall breakage was absent. Recalled earlier 80 mm/s setting, exact role/actual speeds unverified. Actual material, orientation and full profile unknown; tape adhesion, internal channel condition and long-term wear not separately assessed. |
 
 ## Attribution
 

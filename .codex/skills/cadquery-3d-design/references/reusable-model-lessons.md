@@ -36,6 +36,14 @@ Preserve both skins for this follow-up; path presence alone did not establish pr
 
 **Scope and limits:** Actual print/use feedback at user-confirmed 0.2 mm layers; other settings and precise cause unknown. Both skins are now required for this follow-up; later S16/S12 both work; S16 is preferred (entry below). [Print planning](print-planning.md#functional-process-co-design) owns skin/channel/bridge-height review. No universal rule that all exposed TPU ribs fail follows.
 
+### Closed-skin TPU: upright wall integrity does not follow from flat coupons
+
+Keep vertical skin continuity separate from horizontal finish and retained paths.
+
+**Evidence:** [Slim dental liner print report, 2026-10-19](../../../../model/dental_travel_case_liner/README.md#wall-print-feedback--2026-10-19): both inner and outer wall skins are locally broken, whereas the sunglasses liner did not show that problem. Both use the nominal S16 sandwich and similar straight-channel widths; wall heights and transitions differ.
+
+**Scope and limits:** Cause and actual speeds remain unknown; recalled 80 mm/s and 9 mm³/s are not directly comparable settings. [Deferred TPU side-wall work](../../../../model/tpu_damping_box/README.md#deferred-side-wall-printing-investigation--2026-10-19) must preserve relevant orientation/height/restraint. Neither flat F0–F7 coupons nor a successful small cup qualifies tall walls; no universal pocket-size, Arachne or speed verdict follows.
+
 ### Overall thinness versus printable local features
 
 Separate overall lining thickness from substantial local feature width and path count.

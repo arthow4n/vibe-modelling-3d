@@ -12,12 +12,20 @@ damping, but surface flatness is unresolved. Print the new
 [eight small surface coupons](#surface-finish-coupons--2026-10-17) when convenient;
 no replacement full box is included.
 
+**Additional deferred question (2026-10-19):** the full slim dental liner has
+locally broken inner and outer vertical skins, unlike the successful sunglasses
+liner. Future TPU work must address [upright side-wall printing](#deferred-side-wall-printing-investigation--2026-10-19)
+as well as horizontal finish. The flat F0–F7 plate cannot qualify that behavior;
+no new sample geometry or preset change is requested now.
+
 ## Current result and reading routes
 
 This is a comparative liner fixture, not a finished storage product. **No full S16 cup
 reprint is needed for damping selection**: both S16/S12 work and S16 is the approved starting profile.
-The next application is the separate [sunglasses-case liner](../sunglasses_case_liner/README.md),
-whose fit and quietness are not established by these samples.
+The separate [sunglasses-case liner](../sunglasses_case_liner/README.md) now has
+positive application feedback for fit and damping. The
+[slim dental liner](../dental_travel_case_liner/README.md) has reported wall
+defects; neither application result is established by these research samples.
 
 - For the current geometry/files/setup, read [closed-skin follow-up](#closed-skin-follow-up)
   and [setup](#setup-and-assembly).
@@ -161,6 +169,39 @@ CAD and another full box would not answer the surface question more cheaply.
 | --- | --- | --- | --- |
 | New finish test pieces F0–F7 | No — user plans to print later | `surface_samples.step`, `surface_samples.stl` | Finish, readable IDs, actual core integrity, comparative damping and recovery untested |
 | Final printable object | N/A — samples-only phase | None new | Existing S16 remains preferred for damping; full-liner finish unresolved |
+
+## Deferred side-wall printing investigation — 2026-10-19
+
+The user requests adding side-wall printing to the experiment when TPU work
+resumes. The [dental physical report and source comparison](../dental_travel_case_liner/README.md#wall-print-feedback--2026-10-19)
+own the detailed observations and hypotheses: the old slim-box liner has local
+breakage on both wall skins; the sunglasses liner did not show this problem.
+The user recalls 9 mm³/s for the dental and small-box prints, versus 80 mm/s
+for the earlier successful liner. These are different types of cap and do not
+establish actual wall speeds. The small-box report says side defects were not
+noticeable there, not that every internal channel was inspected and intact.
+Prior S16 damping approval remains valid for that tested sample.
+
+Both applications retain the same nominal 0.4 / 0.8 / 0.4 mm sandwich and
+0.9 mm ribs at up to 4.4 mm pitch. Pocket height, wall height and transitions
+differ substantially; neither pocket size, Arachne nor job duration is a
+demonstrated cause. Current path witnesses establish retained geometry in a
+specific toolpath, not physically continuous deposited walls.
+
+When this work resumes, include **inner and outer upright skin continuity and
+rib bonding** alongside horizontal finish and damping. Start with existing-print
+damage locations and the actual saved job/settings before selecting a new trial.
+If a sample is needed, preserve vertical orientation, skin/core/rib dimensions,
+representative seams/restarts and material/process; retain sufficient height
+and surrounding restraint for the suspected failure. A short wall can screen
+local extrusion but cannot clear a tall-wall stability hypothesis. Inspect
+straight walls, corners and relevant transitions separately; distinguish holes,
+layer splits, rib detachment and damage first occurring during handling.
+Compare one relevant factor at a time, using intact skins as the necessary
+result before transferring a finish/damping candidate to a full tall liner.
+Final specimen dimensions and changed factors remain deferred until the actual
+failure pattern can select them. No new wall coupon, product redesign, print
+instruction or global TPU speed calibration is delivered in this phase.
 
 ## Actual liner layer-height correction — 2026-10-16
 

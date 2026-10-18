@@ -5,6 +5,12 @@ M1**. The body insert follows the internal catch guards and continues through th
 overlap sleeve; the cap insert begins above the sleeve. The rigid box is unchanged.
 This accessory does not repair the box's reported pull-apart retention failure.
 
+**Printed with wall defects — user report, 2026-10-19.** Both the contents-side
+and shell-side skins have locally broken areas. Printed wall integrity is not
+accepted; the cause is unresolved. See the [physical report and comparison](#wall-print-feedback--2026-10-19).
+Fit, installation and damping were not reported. This phase records feedback
+and investigation priorities; no geometry, exports or print presets are revised.
+
 Primary print interchange: [STEP](dental_travel_case_liner.step), matching
 [STL](dental_travel_case_liner.stl), [Python entry](dental_travel_case_liner.py),
 [parametric design](design.py). The delivered compound contains both inserts,
@@ -116,7 +122,8 @@ and air channels afterward. Do not confuse ironing flow with normal extrusion fl
 ```
 
 CAD fit is distinct from flexible installation, adhesive retention and actual
-quietness. Those physical/subjective questions remain UNKNOWN until feedback.
+quietness. Those physical/subjective questions remain UNKNOWN; the later print
+report below establishes local skin defects, not application performance.
 STL smoke acceptance does not establish Orca's separate GUI STEP import.
 
 The [current verification receipt](notes/verification.json) reports CAD PASS for
@@ -172,12 +179,98 @@ forms and separates missing samples from excessive height. This was a reader
 failure, not evidence of thick bridge extrusion. Material paths use the shared
 `orca_linear_paths` parser; the additional scan reads its missing height metadata.
 
+## Wall print feedback — 2026-10-19
+
+The user printed the liner for the already printed **old slim dental box** and
+reports locally broken walls on **both interior and exterior sides**. They say
+the sunglasses liner did not have this problem. The exact defect appearance,
+height/location, affected cup(s), onset during printing versus removal/handling,
+and correspondence to ribs, seams or transitions are unknown. No photograph or
+actual project/G-code was supplied. Associate this with the slim-M1 accessory;
+the exact printed revision/file/hash remains unknown.
+
+The user recalls **80 mm/s for the earlier successful liner** (apparently the
+sunglasses liner), versus a **9 mm³/s maximum volumetric setting for the dental
+liner**, with **0.4 mm nozzle / 0.2 mm layers**. They also recall using 9 mm³/s
+on the small damping box without this side-wall problem being noticeable.
+The 80 mm/s setting's exact role and the actual speeds reached on each print
+are unverified. TPU is the reported experiment context; exact brand/hardness,
+drying/storage, actual printer, temperatures, cooling, retractions, pressure
+advance and complete process profile are unknown. The user suspects speed,
+Arachne, pocket dimensions or the longer project; none is a confirmed cause.
+
+### What differs from the successful sunglasses liner?
+
+Comparison of current source and recorded dimensions, not metrology of the prints:
+
+| Feature | Dental liner | Sunglasses liner |
+| --- | --- | --- |
+| Backing / core depth / contact skin | 0.4 / 0.8 / 0.4 mm | Same |
+| Straight rib width / pitch / open width | 0.9 / at most 4.4 / about 3.5 mm or less on ordinary straight regions | 0.9 / 4.4 / 3.5 mm |
+| Cup print height | Body 183.4 mm; cap 75.4 mm | Both 30.8 mm |
+| Wall channels | Split into height zones by solid bands; rounded and concave guard detours, sleeve and ramps | Mostly uniform vertical channels; three curved pockets per corner |
+
+The ordinary air gap is **not wider or deeper** in the dental design. The complete
+pockets do differ in height, segmentation and corner shape. Greater unsupported
+skin height between restraints and motion of a tall flexible print are plausible
+contributors, but this comparison cannot establish them. A longer job also gives
+more opportunity for feed or filament-condition changes; elapsed time alone
+does not diagnose a failure. During ordinary vertical growth, skins build on
+the preceding layer rather than bridging the full 3.5 mm channel width on each
+layer. Channel closures and ramps are distinct from those straight vertical walls.
+
+### Speed and Arachne questions
+
+**9 mm³/s is a ceiling, not a commanded 9 mm/s wall speed.** A rectangular-bead
+estimate gives `Q ≈ width × layer height × speed`: at 0.4 × 0.2 mm, 80 mm/s
+is about **6.4 mm³/s**, while 9 mm³/s permits about **112.5 mm/s** before other
+limits. Rounded bead cross-sections and Arachne widths change the exact result.
+Actual wall speed also depends on process caps, acceleration and cooling.
+[Orca's volumetric-limit documentation](https://github.com/OrcaSlicer/OrcaSlicer/wiki/material_volumetric_speed_limitation)
+explains this separate cap. The repository's diagnostic dental preset caps
+ordinary walls at **25 mm/s** (about 2 mm³/s by that approximation); raising
+its filament limit to 9 would not alone command faster ordinary walls. The
+user's actual job may use a different process. Thus the two recalled numbers
+do not establish whether the dental walls printed faster.
+
+[Arachne varies extrusion width to retain thin geometry](https://github.com/OrcaSlicer/OrcaSlicer/wiki/quality_settings_wall_generator).
+Both reference liner setups use it. Width transitions and extrusion starts
+are worth correlating with damage, but a correct preview cannot establish
+deposited skin integrity. There is no evidence here that Arachne caused the
+damage or that Classic would fix it; changing generators can also change
+retention of the thin skins/ribs.
+
+Inconsistent extrusion, inadequate bonding, moisture or tall-wall movement are
+alternative hypotheses. [Prusa's flexible-material guidance](https://help.prusa3d.com/article/flexible-materials_2057)
+describes feed/speed difficulties; its printer-specific speed advice is not a
+calibrated Q2C limit. [Moisture guidance](https://help.prusa3d.com/article/drying-filament_332086)
+describes bubbles and poor bonding as possible wet-filament symptoms. None of
+these symptoms has been confirmed in this print.
+
+### Next investigation when the TPU work resumes
+
+First use the existing print and saved actual job: locate damage against Z,
+seams/restarts, ribs, guard ramps and upper channels; inspect actual speed,
+volumetric-flow and width previews at those locations. Missing/thin stretches
+after restarts would favor investigating extrusion/retraction; rough bubbly
+areas would favor checking filament condition; defects increasing with height
+or observed nozzle contact would favor wall stability. These patterns guide a
+test, rather than prove a cause. If actual dental wall speeds exceed the
+successful setup, compare matched speeds before changing core geometry or
+the wall generator. Do not change several factors together.
+
+The [TPU experiment's deferred side-wall work](../tpu_damping_box/README.md#deferred-side-wall-printing-investigation--2026-10-19)
+must distinguish upright wall integrity from horizontal roof finish and preserve
+representative wall height/restraint where those could matter. No new sample
+or full-liner reprint is prescribed by this recording phase. Existing CAD/path
+receipts remain valid within their scope; they do not overrule the physical defect.
+
 ## Print status
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test pieces | N/A — no new coupon required | Existing S16 research has separate physical approval | Sample approval does not establish application fit or noise reduction |
-| Final printable objects | No print reported | `dental_travel_case_liner.step/.stl` | Flexible installation, actual contents fit, closure clearance in print, attachment, skin/channel integrity and quietness untested |
+| Final printable objects | Yes — defects reported 2026-10-19 | Associated `dental_travel_case_liner.step/.stl`; exact printed files/revision unknown | Both inner and outer wall skins locally broken; cause unresolved, printed wall integrity not accepted. Actual fit, installation, attachment, closure clearance, internal channel survival and damping unreported. Reported 0.4 mm nozzle / 0.2 mm layers, 9 mm³/s limit; actual wall speeds/complete profile unknown. |
 
 ## Attribution
 
