@@ -16,6 +16,8 @@ OUT = ROOT/'notes/short_lap'
 RECORD = 'notes/short_lap.md'
 SOURCE = S(RECORD+'#authorized-direction--2026-10-19',
     'User discards hinged box, reopens smaller-bite wall snaps, accepts potentially tolerable opening noise, and requests a grounded shorter overlap range with very good retention against sideways handling and an improved full model')
+SIDE_HIT_SOURCE = S(RECORD+'#sideways-hit-clarification--2026-10-20',
+    'User clarifies: hitting the box from sideways should not open the box; impact severity is not specified')
 PUBLICATION_INPUTS = ('m1_design.py','closure_research_design.py','short_lap_design.py',
     'short_lap_refinement.py','short_lap_reinforced.py','short_lap_case.py','short_lap_joint_test.py',
     '../../uv.lock','../../evaluate_model.py')
@@ -135,6 +137,7 @@ def make_plan(variant, baseline):
         if r.id == 'closure.end-retention' else r for r in parent.requirements)
     protect_user_requirements(parent.requirements,intent,changes={'closure.end-retention':SOURCE})
     intent += (U('closure.short-overlap','Find a reasonable shorter overlap range while retaining very good closure and sideways resistance',SOURCE),)
+    intent += (U('closure.side-hit','The box stays closed when hit from the side',SIDE_HIT_SOURCE),)
     scope = dict(design=variant,material='uncalibrated PETG comparison',
                  process='0.4 mm nozzle / 0.2 mm layers / three walls',phase='unprinted full prototype and matching joint',
                  overlap_mm=str(production.SELECTED_OVERLAP))

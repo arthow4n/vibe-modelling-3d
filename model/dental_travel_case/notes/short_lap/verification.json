@@ -718,6 +718,31 @@
         ],
         "acceptance_criteria": [],
         "coverage": "uncovered"
+      },
+      {
+        "id": "closure.side-hit",
+        "text": "The box stays closed when hit from the side",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/short_lap.md#sideways-hit-clarification--2026-10-20",
+          "statement": "User clarifies: hitting the box from sideways should not open the box; impact severity is not specified"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
       }
     ],
     "evidence": [

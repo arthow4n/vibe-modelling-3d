@@ -14,6 +14,29 @@ R1–R4 specimens and their force calculations remain untouched. This revision
 uses R2's opposed end-wall bumps: the complete walls bend, without independent
 cantilever arms. A ramped snap can pull open; it is not a separately released lock.
 
+## Sideways-hit clarification — 2026-10-20
+
+The user explicitly means that **a sideways hit must not open the box**. This
+is an unintended-release requirement. The current prototype has **UNKNOWN**
+coverage: neither the 2 N static stiffness comparison nor the 11.22 N centered
+slow-pull estimate establishes that the cap stays attached during a lateral hit.
+No acceptable impact severity has yet been specified or measured.
+
+Review of the current geometry and study fixtures identifies the missing path:
+a hit can rock the cap, spreading a receiving wall and loading one ramped bite
+before the other. Sequential peel release is a possible failure mode, not an
+observed failure of this unprinted candidate. The guide study omits the bites;
+the side-bearing study observes bearing-band motion, without solving snap
+engagement; the pull model prescribes axial withdrawal and independent catches.
+Together these do not determine whether that lateral escape path is blocked.
+
+Further retention work must track both bites through lateral rocking and wall
+deformation, including one-bite release followed by the other. A defined lateral
+impact on a loaded full box must ultimately establish closure retention under
+its stated hit location, support, direction and severity. The short joint sample
+can assess local fit and effort but omits the full box's inertia and leverage.
+The 30 mm candidate remains a prototype; no sideways-hit rating is assigned.
+
 ## Selected prototype and why
 
 The delivered candidate uses **30 mm overlap**, about **62% shorter than 78 mm**.

@@ -127,6 +127,9 @@ strong retention and sideways stability. Current geometry and computational
 screens are prototypes; printed retention/effort/packing remain unqualified.
 The selected model uses **30 mm overlap**, reinforced bearing walls and small
 .6 mm bumps, preserving the printed slim box's exterior size.
+**2026-10-20 clarification:** a sideways hit must not open the box. This remains
+unverified; existing static stiffness and straight-pull screens do not establish
+lateral-impact closure retention.
 
 [M1 full-box feedback and retained files](model/dental_travel_case/notes/m1.md) · [Separate M2B retention investigation](model/dental_travel_case/notes/m2.md)
 

@@ -22,6 +22,9 @@ def test_current_direction_preserves_intent_with_explicit_smaller_bite_supersess
     assert any(d.id == 'hinge.abandoned' for d in plan.directives)
     physical = {(q.requirement_id,q.id) for q in plan.questions if q.mode == 'physical'}
     assert ('closure.secure','physical') in physical
+    assert ('closure.side-hit','physical') in physical
+    assert not any(rid == 'closure.side-hit' for check in plan.checks for rid,qid in check.targets), (
+        'Static bearing stiffness and centered-pull screens cannot qualify lateral-impact retention')
     assert not any(target in physical for check in plan.checks for target in check.targets)
     assert not plan.retained, 'Old sample print results cannot qualify this full prototype'
 
