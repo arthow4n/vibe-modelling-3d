@@ -27,6 +27,15 @@ motion and axial capture separately. A rounded crown can soften the hinge's
 exterior while retaining tangent sloped undersides; a fully circular underside
 would need its own support review. Angles alone do not guarantee print success.
 
+For a recessed hinge, draw the shell seam and web sweep before shrinking the
+pivot. Moving an exterior axle inside can drive the rear rim or web into the
+opposite wall. Check the actual complete print pose for **positive surface gap**,
+not just zero intersection volume: touching stepped wall edges can fuse. The
+[C7 mini-box study](../../../../model/dental_travel_case/notes/internal_hinge.md)
+retains a zero-gap counterexample and a segmented-seam correction. It also rejects
+end-on cavity roofs and explores a V print pose; these remain unprinted trials,
+not universal support-free prescriptions.
+
 ## Interpret clearance and physical evidence
 
 For these 45-degree conical mating faces, a radial offset measured at fixed

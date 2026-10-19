@@ -1,0 +1,105 @@
+{
+  "scope": "Object-local review for experimental mini-box prints; physical support-free printing, hinge freedom and surface quality remain unknown",
+  "source_sha256": {
+    "internal_hinge_toolpaths.py": "47a75e9826334f005e1a735cbf040d7adfa3d2040d6e0d7abcfd029e9b639c3c",
+    "notes/internal_hinge/toolpaths.json": "651c934c497315f2febbe9ebfb62864de2175e8e85eed5d1c3fd6dd8ce9b2bb5"
+  },
+  "layouts": {
+    "c7_mini_screw": {
+      "STL_sha256": "5b9a71a6d9cc9055980bff93c40a19a7bdb8437465f376ba200194ce74e8b173",
+      "disposition": "experimental_print_reviewed",
+      "native_flags": "Floating-cantilever notice and loop-bridge support suggestion",
+      "interpretation": "Separate floor/roof-down halves, supported hinge webs and local two-ended 12mm loop bridge. Supports-off trial preserves the retaining land; new thin loop and bore quality need physical inspection.",
+      "support_z_range_mm": [
+        0.2,
+        31.6
+      ],
+      "bridge_layers": {
+        "1.2": {
+          "strokes": 522,
+          "max_stroke_mm": 35.56200005623982
+        },
+        "22.6": {
+          "strokes": 57,
+          "max_stroke_mm": 1.2830000000000013
+        },
+        "24.8": {
+          "strokes": 36,
+          "max_stroke_mm": 7.112716499341165
+        },
+        "27.4": {
+          "strokes": 38,
+          "max_stroke_mm": 4.2109999999999985
+        },
+        "32.0": {
+          "strokes": 4,
+          "max_stroke_mm": 11.599999999999994
+        }
+      }
+    },
+    "c7_mini_pip": {
+      "STL_sha256": "0cd096e8e196e332cfac310d0cc900beb58f988c9d07a12fea41357c84670d16",
+      "disposition": "experimental_print_reviewed",
+      "native_flags": "No primary notice; support probe still suggests rounded feet and small hinge regions",
+      "interpretation": "V pose removes end-on closing roofs. Rounded feet have narrow initial bed contact; use the supplied brim. Cone/ear undersides and positive .30mm wall gap remain physical fusion/sag risks. Supports-off experimental trial; auto supports must not be trapped in captive gaps. No support-free guarantee.",
+      "support_z_range_mm": [
+        0.2,
+        17.2
+      ],
+      "bridge_layers": {
+        "0.4": {
+          "strokes": 83,
+          "max_stroke_mm": 52.35700061118858
+        },
+        "0.6": {
+          "strokes": 57,
+          "max_stroke_mm": 52.272000038261396
+        },
+        "0.8": {
+          "strokes": 20,
+          "max_stroke_mm": 0.9432210769485755
+        },
+        "11.2": {
+          "strokes": 40,
+          "max_stroke_mm": 1.7960000000000207
+        },
+        "16.8": {
+          "strokes": 9,
+          "max_stroke_mm": 9.812002496942199
+        },
+        "17.0": {
+          "strokes": 2,
+          "max_stroke_mm": 0.4212362757408224
+        },
+        "17.2": {
+          "strokes": 2,
+          "max_stroke_mm": 0.12067311216669738
+        },
+        "17.4": {
+          "strokes": 90,
+          "max_stroke_mm": 4.5800000000000125
+        },
+        "17.6": {
+          "strokes": 18,
+          "max_stroke_mm": 4.5800000000000125
+        },
+        "17.8": {
+          "strokes": 6,
+          "max_stroke_mm": 4.5800000000000125
+        },
+        "40.4": {
+          "strokes": 28,
+          "max_stroke_mm": 7.179945960799431
+        },
+        "43.8": {
+          "strokes": 3,
+          "max_stroke_mm": 10.790000000000006
+        },
+        "44.0": {
+          "strokes": 1,
+          "max_stroke_mm": 10.469999999999999
+        }
+      }
+    }
+  }
+}

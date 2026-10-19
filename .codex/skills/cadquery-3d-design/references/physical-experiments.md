@@ -53,6 +53,12 @@ Choose the least expensive experiment capable of answering the question:
 | Partial-product prototype | A section of the actual product with enough surrounding geometry to reproduce a meaningful assembly or handling interaction | Omitted span, contents or supports can still change behavior. |
 | Complete prototype | The full object for integrated function, appearance and handling | May cost more, but can be the cheapest informative test for a small object or an inseparable interaction. |
 
+For coupled opening/closing operation, preserve the lid guidance and restraint:
+a loose latch-wall pair cannot reproduce a hinged lid. Prefer a small complete
+box with the actual hinge, latch and keeper when those determine the path, as in
+the [C7 correction](../../../../model/dental_travel_case/notes/internal_hinge.md).
+Keep changed span/stiffness and print orientation explicit.
+
 The smallest specimen is not necessarily the most informative. A full-size simple
 mockup can answer access or coordination cheaply; a functional mechanism trial
 needs representative interfaces and manufacturing. Do not recommend a mechanism

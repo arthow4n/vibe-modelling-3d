@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/c7_mini_open.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/concepts/internal_hinge/c7_mini_open_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014195629992173053,
+    "build": 3.75411192500178,
+    "selection": 0.0008148310007527471,
+    "validation": 0.10978756099939346,
+    "render_isometric": 1.0198600309959147,
+    "worker": 4.97336017699854,
+    "total": 13.384101139003178
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "4e9af224b7b8831b32683a1065e6cd28e23f52d6e2428663fbed486bdd33cca1",
+    "artifact_identity": "7b5db9b5e129991f5ae5f39b780c1a947630d8c797505dd1d022fbc997256584"
+  }
+}

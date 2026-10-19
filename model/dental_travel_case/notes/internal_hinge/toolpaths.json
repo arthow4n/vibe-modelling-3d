@@ -1,0 +1,112 @@
+{
+  "scope": "Native support-location witness; support necessity/removability remains separately reviewed",
+  "source_sha256": "47a75e9826334f005e1a735cbf040d7adfa3d2040d6e0d7abcfd029e9b639c3c",
+  "cases": {
+    "c7_mini_screw": {
+      "STL_sha256": "5b9a71a6d9cc9055980bff93c40a19a7bdb8437465f376ba200194ce74e8b173",
+      "support_roles": {
+        "Support": 8509,
+        "Support interface": 45
+      },
+      "bridge_layers": {
+        "1.2": {
+          "strokes": 522,
+          "max_stroke_mm": 35.56200005623982
+        },
+        "22.6": {
+          "strokes": 57,
+          "max_stroke_mm": 1.2830000000000013
+        },
+        "24.8": {
+          "strokes": 36,
+          "max_stroke_mm": 7.112716499341165
+        },
+        "27.4": {
+          "strokes": 38,
+          "max_stroke_mm": 4.2109999999999985
+        },
+        "32.0": {
+          "strokes": 4,
+          "max_stroke_mm": 11.599999999999994
+        }
+      },
+      "support_z_range_mm": [
+        0.2,
+        31.6
+      ],
+      "gcode_sha256": {
+        "plate_1.gcode": "9145185e9534f4c0dc57c48fec512ef5cdf6a1439ae90bcadd6a6777748c911a",
+        "support_probe/plate_1.gcode": "1dfdaf64e62eca80b24b3c463702e337517d096672773c849fc5e621a6bdf9e5"
+      }
+    },
+    "c7_mini_pip": {
+      "STL_sha256": "0cd096e8e196e332cfac310d0cc900beb58f988c9d07a12fea41357c84670d16",
+      "support_roles": {
+        "Support": 7449,
+        "Support interface": 862
+      },
+      "bridge_layers": {
+        "0.4": {
+          "strokes": 83,
+          "max_stroke_mm": 52.35700061118858
+        },
+        "0.6": {
+          "strokes": 57,
+          "max_stroke_mm": 52.272000038261396
+        },
+        "0.8": {
+          "strokes": 20,
+          "max_stroke_mm": 0.9432210769485755
+        },
+        "11.2": {
+          "strokes": 40,
+          "max_stroke_mm": 1.7960000000000207
+        },
+        "16.8": {
+          "strokes": 9,
+          "max_stroke_mm": 9.812002496942199
+        },
+        "17.0": {
+          "strokes": 2,
+          "max_stroke_mm": 0.4212362757408224
+        },
+        "17.2": {
+          "strokes": 2,
+          "max_stroke_mm": 0.12067311216669738
+        },
+        "17.4": {
+          "strokes": 90,
+          "max_stroke_mm": 4.5800000000000125
+        },
+        "17.6": {
+          "strokes": 18,
+          "max_stroke_mm": 4.5800000000000125
+        },
+        "17.8": {
+          "strokes": 6,
+          "max_stroke_mm": 4.5800000000000125
+        },
+        "40.4": {
+          "strokes": 28,
+          "max_stroke_mm": 7.179945960799431
+        },
+        "43.8": {
+          "strokes": 3,
+          "max_stroke_mm": 10.790000000000006
+        },
+        "44.0": {
+          "strokes": 1,
+          "max_stroke_mm": 10.469999999999999
+        }
+      },
+      "support_z_range_mm": [
+        0.2,
+        17.2
+      ],
+      "gcode_sha256": {
+        "plate_1.gcode": "4fe062d98abed3cc1bb2d3bfa6352ac21d304ca6e534744f51d56e3d7e3a7d76",
+        "support_probe/plate_1.gcode": "fa9e3bfed70677698ff3c4bd271d0f88376173be7a2f9366d6500123ac3fc277"
+      }
+    }
+  }
+}

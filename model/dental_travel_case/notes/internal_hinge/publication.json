@@ -1,0 +1,23 @@
+{
+  "scope": "Two unprinted complete mini-box trials; no full-case adoption or physical approval",
+  "source_sha256": {
+    "internal_hinge_design.py": "9d3c9e433f759d153b00e13b245c2a0fa2328bc308b66ccde6fe957386231d1d",
+    "clamshell_design.py": "545a911d8f3c49b983095815d93adbbd270f28a47791985bb207b84581d0864d",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "../sunglasses_case/e_closure.py": "1b0c1a608499716515ce870fc706aef6646cc5c62575d9490b74da7a649cd6e9",
+    "c7_mini_screw.py": "f52f045093b65a1ffede6b068192b6e77e3bd11104a3fdfa5dcdf9e3e43582b0",
+    "c7_mini_pip.py": "b933587fc539da1a21f154277978587b2d82639f1e8a6bd20e029e6e9367c198"
+  },
+  "artifacts": {
+    "c7_mini_screw": {
+      "c7_mini_screw.step": "d71b797f43e7d482f444f36fc0516df24c3ee284310a4ad812ab9c8c98ef250a",
+      "c7_mini_screw.stl": "5b9a71a6d9cc9055980bff93c40a19a7bdb8437465f376ba200194ce74e8b173",
+      "notes/internal_hinge/c7_mini_screw_slice.json": "8ed0299186a91a6244f30992ddfa6d8d78d50877f65cdc41a72551df2ed61aad"
+    },
+    "c7_mini_pip": {
+      "c7_mini_pip.step": "a201288fa07a0b1320ea05c07f26f68c3737ba5f9bc2cde1d059d92968b63b3c",
+      "c7_mini_pip.stl": "0cd096e8e196e332cfac310d0cc900beb58f988c9d07a12fea41357c84670d16",
+      "notes/internal_hinge/c7_mini_pip_slice.json": "c35fef17054634af21f2f4fcda31ad4be39aa9d1638f4accb0d30326bff80d38"
+    }
+  }
+}

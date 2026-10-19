@@ -130,12 +130,15 @@ coupon (N/A).
 
 **2026-10-19:** two short samples printed (exact variants unknown); user reports
 high engagement effort and noisy opening, and discontinues these closure trials.
-[Current direction: horizontal clamshell with sunglasses-style closure and a smaller lid connection](model/dental_travel_case/notes/clamshell_exploration.md).
-The unprinted C6 prototype selects a compact M3-pin hinge and shorter explicit-release front loop;
-[its matching small latch trial](model/dental_travel_case/c6_latch_test.step) is the next proposed print. Bridge/support review flags are retained in its notes.
+[Current C7 exploration: internal hinges and complete working mini boxes](model/dental_travel_case/notes/internal_hinge.md).
+The user rejects the unhinged C6 wall crop as an operation test. C7 offers complete
+64 × 40 × 51.2 mm mini boxes with internal M3 or captive printed pivots, shortened
+loop and keeper. The rear exterior has no hinge bumps; sampled opening clears
+through 100°. The print-in-place V pose remains experimental, with support-review
+flags retained. [C6](model/dental_travel_case/notes/clamshell_exploration.md) remains historical.
 
-- Test pieces: Two short samples printed, exact variants/settings unknown; engagement too forceful and opening noisy. Remaining R1–R4 trials discontinued. The short/long specimens and M5 pair remain historical evidence, not current print recommendations
-- Final object: M1 printed — retention failed; historical source/exports preserved. C6 is an unprinted horizontal prototype with compact hinges and a shorter front loop; integrated holding, fit, quietness and durability remain unknown. M2–M5 and wall-snap studies are historical
+- Test pieces: Two short wall snaps printed, exact variants/settings unknown; excessive effort/noise stops that family. C7 complete mini boxes are unprinted; C6 wall-only trial superseded for integrated testing
+- Final object: M1 printed — retention failed; historical source/exports preserved. C7 studies hidden hinges for the horizontal architecture, with mini boxes first; no full C7 print adopted. Integrated holding, packing, quietness and durability remain unknown. C6, M2–M5 and wall-snap studies are historical
 - Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
 
 #### Slim dental box S16 liner

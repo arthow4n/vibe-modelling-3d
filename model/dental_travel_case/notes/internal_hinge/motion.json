@@ -1,0 +1,767 @@
+{
+  "scope": "Rigid CAD operation only; unprinted, no force or durability rating",
+  "source_sha256": {
+    "internal_hinge_design.py": "9d3c9e433f759d153b00e13b245c2a0fa2328bc308b66ccde6fe957386231d1d",
+    "internal_hinge_study.py": "9ed7b3ec52987d30194ca21fea3d0d94aac1a917ac76c173dbb92d27e47bfca6",
+    "clamshell_design.py": "545a911d8f3c49b983095815d93adbbd270f28a47791985bb207b84581d0864d",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "../sunglasses_case/e_closure.py": "1b0c1a608499716515ce870fc706aef6646cc5c62575d9490b74da7a649cd6e9"
+  },
+  "cases": {
+    "mini_naive_internal": {
+      "connected_solids": {
+        "body": 1,
+        "lid": 1
+      },
+      "valid": true,
+      "sweep": [
+        {
+          "angle_deg": 0,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "intersection_mm3": 8.179736434661333
+        },
+        {
+          "angle_deg": 2,
+          "intersection_mm3": 17.45500362336107
+        },
+        {
+          "angle_deg": 5,
+          "intersection_mm3": 48.44941494433076
+        },
+        {
+          "angle_deg": 10,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 45,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 70,
+          "intersection_mm3": 0.6639331265242928
+        },
+        {
+          "angle_deg": 90,
+          "intersection_mm3": 38.682164140761905
+        },
+        {
+          "angle_deg": 100,
+          "intersection_mm3": 27.454796094444458
+        },
+        {
+          "angle_deg": 110,
+          "intersection_mm3": 1842.960905911506
+        },
+        {
+          "angle_deg": 120,
+          "intersection_mm3": 2237.117707297686
+        },
+        {
+          "angle_deg": 150,
+          "intersection_mm3": 678.6013940079279
+        },
+        {
+          "angle_deg": 180,
+          "intersection_mm3": 1778.0680028441216
+        }
+      ],
+      "released_loop_sweep": [],
+      "screw_insertion": []
+    },
+    "mini_raised_seam": {
+      "connected_solids": {
+        "body": 1,
+        "lid": 1
+      },
+      "valid": true,
+      "sweep": [
+        {
+          "angle_deg": 0,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "intersection_mm3": 0.20001202952003402
+        },
+        {
+          "angle_deg": 10,
+          "intersection_mm3": 2.6430759606763514
+        },
+        {
+          "angle_deg": 20,
+          "intersection_mm3": 11.58057556020086
+        },
+        {
+          "angle_deg": 45,
+          "intersection_mm3": 15.71790360672348
+        },
+        {
+          "angle_deg": 70,
+          "intersection_mm3": 16.66814083926938
+        },
+        {
+          "angle_deg": 90,
+          "intersection_mm3": 29.073591031506858
+        },
+        {
+          "angle_deg": 100,
+          "intersection_mm3": 102.08869306593037
+        },
+        {
+          "angle_deg": 110,
+          "intersection_mm3": 235.38196020604022
+        },
+        {
+          "angle_deg": 120,
+          "intersection_mm3": 311.31958558822373
+        },
+        {
+          "angle_deg": 150,
+          "intersection_mm3": 535.0064054801928
+        },
+        {
+          "angle_deg": 180,
+          "intersection_mm3": 1565.297652017056
+        }
+      ],
+      "released_loop_sweep": [],
+      "screw_insertion": []
+    },
+    "mini_internal_screw": {
+      "connected_solids": {
+        "body": 1,
+        "lid": 1
+      },
+      "valid": true,
+      "sweep": [
+        {
+          "angle_deg": 0,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 10,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 45,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 70,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 90,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 100,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 110,
+          "intersection_mm3": 6.352089627377199
+        },
+        {
+          "angle_deg": 120,
+          "intersection_mm3": 131.08060587737853
+        },
+        {
+          "angle_deg": 150,
+          "intersection_mm3": 513.4339801481257
+        },
+        {
+          "angle_deg": 180,
+          "intersection_mm3": 1511.0092365108187
+        }
+      ],
+      "released_loop_sweep": [
+        {
+          "angle_deg": 0,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 10,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 45,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 70,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 90,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 100,
+          "released_loop_intersection_mm3": 0.0
+        }
+      ],
+      "screw_insertion": [
+        {
+          "center_x_mm": -10.0,
+          "travel_mm": 0,
+          "intersection_mm3": 0.0
+        },
+        {
+          "center_x_mm": -10.0,
+          "travel_mm": 3,
+          "intersection_mm3": 0.0
+        },
+        {
+          "center_x_mm": -10.0,
+          "travel_mm": 6,
+          "intersection_mm3": 0.0
+        },
+        {
+          "center_x_mm": -10.0,
+          "travel_mm": 9,
+          "intersection_mm3": 0.0
+        },
+        {
+          "center_x_mm": -10.0,
+          "travel_mm": 12,
+          "intersection_mm3": 0.0
+        },
+        {
+          "center_x_mm": 10.0,
+          "travel_mm": 0,
+          "intersection_mm3": 0.0
+        },
+        {
+          "center_x_mm": 10.0,
+          "travel_mm": 3,
+          "intersection_mm3": 0.0
+        },
+        {
+          "center_x_mm": 10.0,
+          "travel_mm": 6,
+          "intersection_mm3": 0.0
+        },
+        {
+          "center_x_mm": 10.0,
+          "travel_mm": 9,
+          "intersection_mm3": 0.0
+        },
+        {
+          "center_x_mm": 10.0,
+          "travel_mm": 12,
+          "intersection_mm3": 0.0
+        }
+      ],
+      "open90_minimum_surface_gap_mm": 0.29999999999999716
+    },
+    "mini_internal_cone": {
+      "connected_solids": {
+        "body": 1,
+        "lid": 1
+      },
+      "valid": true,
+      "sweep": [
+        {
+          "angle_deg": 0,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 10,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 45,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 70,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 90,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 100,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 110,
+          "intersection_mm3": 6.352089627377199
+        },
+        {
+          "angle_deg": 120,
+          "intersection_mm3": 131.08060587737853
+        },
+        {
+          "angle_deg": 150,
+          "intersection_mm3": 513.4339801481257
+        },
+        {
+          "angle_deg": 180,
+          "intersection_mm3": 1511.0092365108187
+        }
+      ],
+      "released_loop_sweep": [
+        {
+          "angle_deg": 0,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 10,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 45,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 70,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 90,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 100,
+          "released_loop_intersection_mm3": 0.0
+        }
+      ],
+      "screw_insertion": [],
+      "open90_minimum_surface_gap_mm": 0.2999999999999954
+    },
+    "full_naive_internal": {
+      "connected_solids": {
+        "body": 1,
+        "lid": 1
+      },
+      "valid": true,
+      "sweep": [
+        {
+          "angle_deg": 0,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "intersection_mm3": 34.52956092518664
+        },
+        {
+          "angle_deg": 2,
+          "intersection_mm3": 73.72409363269654
+        },
+        {
+          "angle_deg": 5,
+          "intersection_mm3": 204.72352352030143
+        },
+        {
+          "angle_deg": 10,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "intersection_mm3": 925.5315125502959
+        },
+        {
+          "angle_deg": 45,
+          "intersection_mm3": 2223.5965071262112
+        },
+        {
+          "angle_deg": 70,
+          "intersection_mm3": 0.6639331265244044
+        },
+        {
+          "angle_deg": 90,
+          "intersection_mm3": 38.682164140761785
+        },
+        {
+          "angle_deg": 100,
+          "intersection_mm3": 27.45479609444413
+        },
+        {
+          "angle_deg": 110,
+          "intersection_mm3": 7756.587579053473
+        },
+        {
+          "angle_deg": 120,
+          "intersection_mm3": 9414.980031696032
+        },
+        {
+          "angle_deg": 150,
+          "intersection_mm3": 2246.301509373893
+        },
+        {
+          "angle_deg": 180,
+          "intersection_mm3": 5640.098176191174
+        }
+      ],
+      "released_loop_sweep": [],
+      "screw_insertion": []
+    },
+    "full_raised_seam": {
+      "connected_solids": {
+        "body": 1,
+        "lid": 1
+      },
+      "valid": true,
+      "sweep": [
+        {
+          "angle_deg": 0,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "intersection_mm3": 0.20001202952003316
+        },
+        {
+          "angle_deg": 10,
+          "intersection_mm3": 2.6430759606763625
+        },
+        {
+          "angle_deg": 20,
+          "intersection_mm3": 11.580575560200815
+        },
+        {
+          "angle_deg": 45,
+          "intersection_mm3": 15.717903606723455
+        },
+        {
+          "angle_deg": 70,
+          "intersection_mm3": 16.66814083926925
+        },
+        {
+          "angle_deg": 90,
+          "intersection_mm3": 56.586324864834374
+        },
+        {
+          "angle_deg": 100,
+          "intersection_mm3": 372.29871369883097
+        },
+        {
+          "angle_deg": 110,
+          "intersection_mm3": 927.3888604267597
+        },
+        {
+          "angle_deg": 120,
+          "intersection_mm3": 1235.07848377932
+        },
+        {
+          "angle_deg": 150,
+          "intersection_mm3": 2102.71823869178
+        },
+        {
+          "angle_deg": 180,
+          "intersection_mm3": 5427.32782047707
+        }
+      ],
+      "released_loop_sweep": [],
+      "screw_insertion": []
+    },
+    "full_internal_screw": {
+      "connected_solids": {
+        "body": 1,
+        "lid": 1
+      },
+      "valid": true,
+      "sweep": [
+        {
+          "angle_deg": 0,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 10,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 45,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 70,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 90,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 100,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 110,
+          "intersection_mm3": 29.97401297514298
+        },
+        {
+          "angle_deg": 120,
+          "intersection_mm3": 602.3996067810382
+        },
+        {
+          "angle_deg": 150,
+          "intersection_mm3": 2081.1933455962508
+        },
+        {
+          "angle_deg": 180,
+          "intersection_mm3": 5373.039408726013
+        }
+      ],
+      "released_loop_sweep": [
+        {
+          "angle_deg": 0,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 10,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 45,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 70,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 90,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 100,
+          "released_loop_intersection_mm3": 0.0
+        }
+      ],
+      "screw_insertion": [],
+      "open90_minimum_surface_gap_mm": 0.29999999999998295
+    },
+    "full_internal_cone": {
+      "connected_solids": {
+        "body": 1,
+        "lid": 1
+      },
+      "valid": true,
+      "sweep": [
+        {
+          "angle_deg": 0,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 10,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 45,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 70,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 90,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 100,
+          "intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 110,
+          "intersection_mm3": 29.97401297514298
+        },
+        {
+          "angle_deg": 120,
+          "intersection_mm3": 602.3996067810382
+        },
+        {
+          "angle_deg": 150,
+          "intersection_mm3": 2081.1933455962508
+        },
+        {
+          "angle_deg": 180,
+          "intersection_mm3": 5373.039408726013
+        }
+      ],
+      "released_loop_sweep": [
+        {
+          "angle_deg": 0,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 10,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 45,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 70,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 90,
+          "released_loop_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 100,
+          "released_loop_intersection_mm3": 0.0
+        }
+      ],
+      "screw_insertion": [],
+      "open90_minimum_surface_gap_mm": 0.29999999999998295
+    }
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "scope": "Native support-location witness; support necessity/removability remains separately reviewed",
+  "source_sha256": "47a75e9826334f005e1a735cbf040d7adfa3d2040d6e0d7abcfd029e9b639c3c",
+  "cases": {
+    "c7_mini_screw": {
+      "STL_sha256": "e0e5ed69c3294781c6a0bea0c0b41970f9ac5280456d7edc7f22d093c9b576f1",
+      "support_roles": {
+        "Support": 8509,
+        "Support interface": 45
+      },
+      "bridge_layers": {
+        "1.2": {
+          "strokes": 522,
+          "max_stroke_mm": 35.56200005623982
+        },
+        "22.6": {
+          "strokes": 57,
+          "max_stroke_mm": 1.2830000000000013
+        },
+        "24.8": {
+          "strokes": 36,
+          "max_stroke_mm": 7.112716499341165
+        },
+        "27.4": {
+          "strokes": 38,
+          "max_stroke_mm": 4.2109999999999985
+        },
+        "32.0": {
+          "strokes": 4,
+          "max_stroke_mm": 11.599999999999994
+        }
+      },
+      "support_z_range_mm": [
+        0.2,
+        31.6
+      ],
+      "gcode_sha256": {
+        "plate_1.gcode": "35ecfe3c35d469277b37c5ccab8b96402128e14d435c27ee2662674d04ee8631",
+        "support_probe/plate_1.gcode": "8519ac95072a48f4c58e3a9cb7f85029613c3e5e2e899bca3d14a8a2a13a05e5"
+      }
+    },
+    "c7_mini_pip": {
+      "STL_sha256": "2c8909685dec1773f6b44c391cd58e259d3613f6c773cba208b0c13fc474ecbb",
+      "support_roles": {
+        "Support": 296144,
+        "Support interface": 8769
+      },
+      "bridge_layers": {
+        "0.4": {
+          "strokes": 137,
+          "max_stroke_mm": 31.261000015994366
+        },
+        "0.6": {
+          "strokes": 75,
+          "max_stroke_mm": 28.17100086968868
+        },
+        "0.8": {
+          "strokes": 11,
+          "max_stroke_mm": 21.27800021148603
+        },
+        "1.0": {
+          "strokes": 39,
+          "max_stroke_mm": 29.761438758904113
+        },
+        "1.2": {
+          "strokes": 362,
+          "max_stroke_mm": 36.99558791261466
+        },
+        "16.0": {
+          "strokes": 37,
+          "max_stroke_mm": 8.321000000000012
+        },
+        "16.2": {
+          "strokes": 111,
+          "max_stroke_mm": 9.041067304251197
+        },
+        "18.2": {
+          "strokes": 35,
+          "max_stroke_mm": 5.240343500191576
+        },
+        "19.6": {
+          "strokes": 32,
+          "max_stroke_mm": 8.322000000000003
+        },
+        "19.8": {
+          "strokes": 143,
+          "max_stroke_mm": 9.040360225123774
+        },
+        "21.8": {
+          "strokes": 19,
+          "max_stroke_mm": 2.276999999999987
+        },
+        "23.2": {
+          "strokes": 60,
+          "max_stroke_mm": 23.403000000000006
+        },
+        "25.0": {
+          "strokes": 38,
+          "max_stroke_mm": 8.352000957854342
+        },
+        "25.2": {
+          "strokes": 171,
+          "max_stroke_mm": 9.041067304251197
+        },
+        "26.8": {
+          "strokes": 82,
+          "max_stroke_mm": 4.371334121295238
+        },
+        "27.2": {
+          "strokes": 34,
+          "max_stroke_mm": 5.2450000000000045
+        },
+        "28.2": {
+          "strokes": 5,
+          "max_stroke_mm": 0.6030000000000086
+        },
+        "28.6": {
+          "strokes": 32,
+          "max_stroke_mm": 8.323000000000008
+        },
+        "36.0": {
+          "strokes": 37,
+          "max_stroke_mm": 8.321000000000012
+        },
+        "36.2": {
+          "strokes": 104,
+          "max_stroke_mm": 9.041067304251197
+        },
+        "38.0": {
+          "strokes": 23,
+          "max_stroke_mm": 5.878999999999991
+        },
+        "38.2": {
+          "strokes": 78,
+          "max_stroke_mm": 20.41300000000001
+        },
+        "39.6": {
+          "strokes": 33,
+          "max_stroke_mm": 8.317000000000007
+        },
+        "39.8": {
+          "strokes": 143,
+          "max_stroke_mm": 9.040360225123774
+        },
+        "40.2": {
+          "strokes": 25,
+          "max_stroke_mm": 7.920999999999992
+        },
+        "41.8": {
+          "strokes": 19,
+          "max_stroke_mm": 2.283999999999992
+        },
+        "43.2": {
+          "strokes": 8,
+          "max_stroke_mm": 0.0903548559846164
+        },
+        "45.0": {
+          "strokes": 37,
+          "max_stroke_mm": 8.321000000000012
+        },
+        "45.2": {
+          "strokes": 128,
+          "max_stroke_mm": 9.041067304251197
+        },
+        "47.2": {
+          "strokes": 35,
+          "max_stroke_mm": 5.240343500191576
+        },
+        "48.6": {
+          "strokes": 32,
+          "max_stroke_mm": 8.323000000000008
+        },
+        "61.8": {
+          "strokes": 13,
+          "max_stroke_mm": 21.187000849577537
+        },
+        "62.0": {
+          "strokes": 39,
+          "max_stroke_mm": 28.018000000000015
+        },
+        "62.2": {
+          "strokes": 453,
+          "max_stroke_mm": 32.22700001551493
+        },
+        "62.4": {
+          "strokes": 75,
+          "max_stroke_mm": 2.730868360064262
+        },
+        "63.0": {
+          "strokes": 43,
+          "max_stroke_mm": 24.114000000000004
+        },
+        "63.2": {
+          "strokes": 247,
+          "max_stroke_mm": 30.891566001094883
+        }
+      },
+      "support_z_range_mm": [
+        0.2,
+        61.8
+      ],
+      "gcode_sha256": {
+        "plate_1.gcode": "a601462dd1edec0eb67b5187741f38c34189717fe57f6c7f473aa8de5d8bd4b9",
+        "support_probe/plate_1.gcode": "eeb4b2e874dcd5e4f50c336b1bc6bf8b80fe9b77ba98cd6edd9625fa623e249f"
+      }
+    }
+  }
+}

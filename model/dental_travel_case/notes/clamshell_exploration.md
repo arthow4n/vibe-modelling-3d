@@ -1,5 +1,11 @@
 # C6 — horizontal dental clamshell, compact hinge and shorter front loop
 
+**Superseded trial recommendation — 2026-10-19:** the user rejects the wall-only
+latch crop as an integrated operation test and requests hidden hinges and complete
+mini boxes. See [current C7 hinge exploration and complete mini-box trials](internal_hinge.md).
+C6 is preserved as an unprinted historical prototype; print suggestions below
+describe that earlier phase.
+
 **Current result: an unprinted computational prototype, with a matching small
 short-loop trial.** The user printed two short wall-snap samples and reports
 excessive engagement effort and noisy opening. Exact sample identities and print
