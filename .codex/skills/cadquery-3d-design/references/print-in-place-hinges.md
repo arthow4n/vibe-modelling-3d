@@ -33,8 +33,9 @@ opposite wall. Check the actual complete print pose for **positive surface gap**
 not just zero intersection volume: touching stepped wall edges can fuse. The
 [C7 mini-box study](../../../../model/dental_travel_case/notes/internal_hinge.md)
 retains a zero-gap counterexample and a segmented-seam correction. It also rejects
-end-on cavity roofs and explores a V print pose; these remain unprinted trials,
-not universal support-free prescriptions.
+end-on cavity roofs and explores a V print pose. C7 was subsequently rejected
+for intrusive interior shelves and limited opening; these local CAD lessons do
+not rehabilitate its product architecture or establish support-free printing.
 
 ## Interpret clearance and physical evidence
 

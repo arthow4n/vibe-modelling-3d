@@ -1,0 +1,649 @@
+{
+  "scope": "Feasible prescribed folding geometry; constant neutral arclength, not TPU equilibrium, force, fatigue or payload qualification",
+  "source_sha256": {
+    "spine_design.py": "65041cc634a00548febe599fc902bf535cc8d233d2e0df539d92fadd4ad58482",
+    "spine_study.py": "3c46ae2e434f0d3f5d895aafc03b81b01a302f2be08d9ceffdc7fd6521d2f891",
+    "internal_hinge_design.py": "9d3c9e433f759d153b00e13b245c2a0fa2328bc308b66ccde6fe957386231d1d",
+    "clamshell_design.py": "545a911d8f3c49b983095815d93adbbd270f28a47791985bb207b84581d0864d",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "../sunglasses_case/e_closure.py": "1b0c1a608499716515ce870fc706aef6646cc5c62575d9490b74da7a649cd6e9"
+  },
+  "cases": {
+    "mini_tpu_spine": {
+      "closed_cavity_intrusion_mm3": 0.0,
+      "poses": [
+        {
+          "angle_deg": 0,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 1,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 2,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 5,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 10,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 20,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 45,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 70,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 90,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 120,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 150,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 180,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    "mini_edge_pin": {
+      "closed_cavity_intrusion_mm3": 0.0,
+      "poses": [
+        {
+          "angle_deg": 0,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 1,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 2,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 5,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 10,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 20,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 45,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 70,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 90,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 120,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 150,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 180,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        }
+      ]
+    },
+    "mini_C7": {
+      "closed_cavity_intrusion_mm3": 502.697675114086,
+      "operating_limit_deg": 100
+    },
+    "full_tpu_spine": {
+      "closed_cavity_intrusion_mm3": 0.0,
+      "poses": [
+        {
+          "angle_deg": 0,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 1,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 2,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 5,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 10,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 20,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 45,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 70,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 90,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 120,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 150,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        },
+        {
+          "angle_deg": 180,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": [
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            },
+            {
+              "connected_solids": 1,
+              "shell_intersection_mm3": 0.0,
+              "contents_intersection_mm3": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    "full_edge_pin": {
+      "closed_cavity_intrusion_mm3": 0.0,
+      "poses": [
+        {
+          "angle_deg": 0,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 1,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 2,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 5,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 10,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 20,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 45,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 70,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 90,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 120,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 150,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        },
+        {
+          "angle_deg": 180,
+          "shell_intersection_mm3": 0.0,
+          "release_intersection_mm3": 0.0,
+          "lower_cavity_intersection_mm3": 0.0,
+          "spines": []
+        }
+      ]
+    },
+    "full_C7": {
+      "closed_cavity_intrusion_mm3": 502.6976751140862,
+      "operating_limit_deg": 100
+    }
+  },
+  "spine": {
+    "neutral_length_mm": 16,
+    "thickness_mm": 0.8,
+    "flat_open_radius_mm": 5.092958178940651,
+    "illustrative_outer_fibre_strain": 0.07853981633974483,
+    "rear_wall_extra_mm": 0.8,
+    "flat_open_back_gap_mm": 9.385916357881301
+  }
+}

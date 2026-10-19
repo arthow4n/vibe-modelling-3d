@@ -1,11 +1,18 @@
 # C7 — hidden rear hinges and complete working mini boxes
 
-**Current deliverable: two unprinted, complete mini boxes, 64 × 40 × 51.2 mm
+**Rejected before printing — 2026-10-19:** the user rejects the large internal
+projections visible in the open view as obstructive to contents and opening.
+They also want flat opening if feasible. C7 is no longer a print recommendation;
+its CAD and slicer results remain narrow historical evidence. Recommendations
+below describe the rejected phase, not current print instructions. See the
+[current C8 clear-interior exploration](spine.md).
+
+**Historical deliverable: two unprinted, complete mini boxes, 64 × 40 × 51.2 mm
 shells.** Each has a base, lid, two internal hinges, the actual C6 shortened
 front loop, receiver and matching E keeper. They replace the wall-only C6 latch
 crop as the proposed operation test. The screw version is the simpler first
 trial; the captive printed-pivot version explores avoiding hinge hardware.
-No full-size C7 print recommendation is made yet.
+The earlier phase did not publish a full-size C7 print.
 
 The user rejected the wall-only sample **before reporting a print of it**:
 without a hinge it requires manually aligning and restraining loose walls, so

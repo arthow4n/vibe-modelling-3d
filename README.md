@@ -130,15 +130,16 @@ coupon (N/A).
 
 **2026-10-19:** two short samples printed (exact variants unknown); user reports
 high engagement effort and noisy opening, and discontinues these closure trials.
-[Current C7 exploration: internal hinges and complete working mini boxes](model/dental_travel_case/notes/internal_hinge.md).
-The user rejects the unhinged C6 wall crop as an operation test. C7 offers complete
-64 × 40 × 51.2 mm mini boxes with internal M3 or captive printed pivots, shortened
-loop and keeper. The rear exterior has no hinge bumps; sampled opening clears
-through 100°. The print-in-place V pose remains experimental, with support-review
-flags retained. [C6](model/dental_travel_case/notes/clamshell_exploration.md) remains historical.
+[Current C8: clear interior and a flat-opening flexible spine](model/dental_travel_case/notes/spine.md).
+C7's internal pivot shelves were rejected before printing. C8 replaces them with
+flush-mounted TPU spines and a continuous rear wall (.8 mm thicker), with a CAD
+folding path to 180°. The complete mini box uses separate PETG and TPU plates;
+mount pullout, hinge life and operating feel remain unmeasured. A small exterior
+pin hinge is retained as a rough alternative. [C7](model/dental_travel_case/notes/internal_hinge.md)
+and [C6](model/dental_travel_case/notes/clamshell_exploration.md) remain historical.
 
-- Test pieces: Two short wall snaps printed, exact variants/settings unknown; excessive effort/noise stops that family. C7 complete mini boxes are unprinted; C6 wall-only trial superseded for integrated testing
-- Final object: M1 printed — retention failed; historical source/exports preserved. C7 studies hidden hinges for the horizontal architecture, with mini boxes first; no full C7 print adopted. Integrated holding, packing, quietness and durability remain unknown. C6, M2–M5 and wall-snap studies are historical
+- Test pieces: Two short wall snaps printed and rejected for effort/noise; that family is stopped. C7 mini boxes rejected before printing for intrusive shelves. C8 complete PETG/TPU mini box is unprinted
+- Final object: M1 printed — retention failed; source/exports preserved. C8 studies clear-interior flat opening, with complete mini box first; no full C8 print adopted. Packing, integrated retention and durability remain unknown
 - Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
 
 #### Slim dental box S16 liner

@@ -1,0 +1,396 @@
+{
+  "scope": "C8 complete mini-box plates: PETG shells and TPU spines; no physical approval",
+  "source_sha256": {
+    "spine_design.py": "65041cc634a00548febe599fc902bf535cc8d233d2e0df539d92fadd4ad58482",
+    "clamshell_design.py": "545a911d8f3c49b983095815d93adbbd270f28a47791985bb207b84581d0864d",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "../sunglasses_case/e_closure.py": "1b0c1a608499716515ce870fc706aef6646cc5c62575d9490b74da7a649cd6e9",
+    "../tpu_damping_box/profiles/tpu-solid-process.json": "86ae9f20fa50c683b0a743a3773e29c86ed4170138bd0eb3b95cbbaec480804d",
+    "../tpu_damping_box/profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+    "c8_mini_shells.py": "655b510250ebede1f68866e932c0ce40133d9f6c41c6e733225da5458f4699c5",
+    "c8_spines.py": "37d28d2dfbb1541732c15c3e8103d316a82ca82cbba5d4033c0381de3e1c299b"
+  },
+  "producer_sha256": "7c4f70ecf268476cf6cca46ada0e7d4d621d3b5a4f54cca61c5502a39cfe07ae",
+  "artifacts": {
+    "c8_mini_shells": {
+      "c8_mini_shells.step": "48ba35096b3f806eb0f56dc3eeae27875b34f4d33423d2d70fddb81a289574a2",
+      "c8_mini_shells.stl": "2337a3b4ceb68d1bbb00e5d55031b748cb2ff1833721c7840a1fea89d44fbc18",
+      "notes/spine/c8_mini_shells_slice.json": "65fba52796759cce473cf8f3e5b6a639a2902decc8902d9964febb68b6904b7f"
+    },
+    "c8_spines": {
+      "c8_spines.step": "98f95b39866093f236e756d0f90b30a6dfe6f54193d71b39f34aac9c9b8ffbfd",
+      "c8_spines.stl": "85ffe819ccb9bdf73eeb5f82a0b655eb48ae163e27c835b823050551090e4710",
+      "notes/spine/c8_spines_slice.json": "82dac98ce0f24a9f4d4bd6708e39d8e400f6e97025f214aafb9d1cc09756e49a"
+    }
+  },
+  "native": {
+    "c8_mini_shells": {
+      "support_roles": {
+        "Support": 8509,
+        "Support interface": 45
+      },
+      "bridge_layers": {
+        "1.2": {
+          "strokes": 532,
+          "max_stroke_mm": 35.56200005623982
+        },
+        "14.2": {
+          "strokes": 16,
+          "max_stroke_mm": 1.0930000000000177
+        },
+        "15.0": {
+          "strokes": 16,
+          "max_stroke_mm": 1.4720000000000084
+        },
+        "18.0": {
+          "strokes": 61,
+          "max_stroke_mm": 2.883000693721744
+        },
+        "22.6": {
+          "strokes": 57,
+          "max_stroke_mm": 1.2830000000000013
+        },
+        "24.8": {
+          "strokes": 36,
+          "max_stroke_mm": 7.112716499341165
+        },
+        "32.0": {
+          "strokes": 4,
+          "max_stroke_mm": 11.599999999999994
+        }
+      },
+      "support_z_range_mm": [
+        0.2,
+        31.6
+      ],
+      "gcode_sha256": {
+        "plate_1.gcode": "37a50ca40efa5424f117286c719d79c7f526921b2d1bc6f37e22c870864d000a",
+        "probe": "814fbb7842af77ae37c5dcb1c19687e92bea715d6b6641285fc8688e11b04ddb"
+      },
+      "extrusion_layers_mm": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0,
+        1.2,
+        1.4,
+        1.6,
+        1.8,
+        2.0,
+        2.2,
+        2.4,
+        2.6,
+        2.8,
+        3.0,
+        3.2,
+        3.4,
+        3.6,
+        3.8,
+        4.0,
+        4.2,
+        4.4,
+        4.6,
+        4.8,
+        5.0,
+        5.2,
+        5.4,
+        5.6,
+        5.8,
+        6.0,
+        6.2,
+        6.4,
+        6.6,
+        6.8,
+        7.0,
+        7.2,
+        7.4,
+        7.6,
+        7.8,
+        8.0,
+        8.2,
+        8.4,
+        8.6,
+        8.8,
+        9.0,
+        9.2,
+        9.4,
+        9.6,
+        9.8,
+        10.0,
+        10.2,
+        10.4,
+        10.6,
+        10.8,
+        11.0,
+        11.2,
+        11.4,
+        11.6,
+        11.8,
+        12.0,
+        12.2,
+        12.4,
+        12.6,
+        12.8,
+        13.0,
+        13.2,
+        13.4,
+        13.6,
+        13.8,
+        14.0,
+        14.2,
+        14.4,
+        14.6,
+        14.8,
+        15.0,
+        15.2,
+        15.4,
+        15.6,
+        15.8,
+        16.0,
+        16.2,
+        16.4,
+        16.6,
+        16.8,
+        17.0,
+        17.2,
+        17.4,
+        17.6,
+        17.8,
+        18.0,
+        18.2,
+        18.4,
+        18.6,
+        18.8,
+        19.0,
+        19.2,
+        19.4,
+        19.6,
+        19.8,
+        20.0,
+        20.2,
+        20.4,
+        20.6,
+        20.8,
+        21.0,
+        21.2,
+        21.4,
+        21.6,
+        21.8,
+        22.0,
+        22.2,
+        22.4,
+        22.6,
+        22.8,
+        23.0,
+        23.2,
+        23.4,
+        23.6,
+        23.8,
+        24.0,
+        24.2,
+        24.4,
+        24.6,
+        24.8,
+        25.0,
+        25.2,
+        25.4,
+        25.6,
+        25.8,
+        26.0,
+        26.2,
+        26.4,
+        26.6,
+        26.8,
+        27.0,
+        27.2,
+        27.4,
+        27.6,
+        27.8,
+        28.0,
+        28.2,
+        28.4,
+        28.6,
+        28.8,
+        29.0,
+        29.2,
+        29.4,
+        29.6,
+        29.8,
+        30.0,
+        30.2,
+        30.4,
+        30.6,
+        30.8,
+        31.0,
+        31.2,
+        31.4,
+        31.6,
+        31.8,
+        32.0,
+        32.2,
+        32.4,
+        32.6,
+        32.8,
+        33.0,
+        33.2,
+        33.4,
+        33.6,
+        33.8,
+        34.0,
+        34.2,
+        34.4,
+        34.6,
+        34.8
+      ],
+      "effective_settings": {
+        "printer_model": "Qidi Q2C",
+        "printer_variant": "0.4",
+        "nozzle_diameter": [
+          "0.4"
+        ],
+        "printable_area": [
+          "0x0",
+          "270x0",
+          "270x270",
+          "0x270"
+        ],
+        "printable_height": "256",
+        "bed_exclude_area": [
+          "0x0",
+          "11x0",
+          "11x16",
+          "0x16"
+        ],
+        "filament_type": [
+          "PETG"
+        ],
+        "filament_settings_id": [
+          "Generic PETG @Qidi Q2C 0.4 nozzle"
+        ],
+        "nozzle_temperature": [
+          "250"
+        ],
+        "nozzle_temperature_initial_layer": [
+          "245"
+        ],
+        "hot_plate_temp": [
+          "80"
+        ],
+        "hot_plate_temp_initial_layer": [
+          "80"
+        ],
+        "print_settings_id": "0.20mm Standard 7% Adaptive Cubic @Qidi Q2C",
+        "layer_height": "0.2",
+        "wall_loops": "2",
+        "line_width": "0.42",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "initial_layer_line_width": "0.5",
+        "brim_type": "auto_brim",
+        "brim_width": "5",
+        "brim_object_gap": "0.1",
+        "enable_support": "0",
+        "support_type": "tree(auto)",
+        "support_threshold_angle": "30",
+        "bridge_no_support": "0",
+        "max_bridge_length": "10",
+        "filament_flow_ratio": [
+          "0.95"
+        ],
+        "enable_arc_fitting": "0",
+        "sparse_infill_density": "7%",
+        "sparse_infill_pattern": "adaptivecubic"
+      }
+    },
+    "c8_spines": {
+      "support_roles": {},
+      "bridge_layers": {
+        "2.0": {
+          "strokes": 425,
+          "max_stroke_mm": 2.3319999999999936
+        }
+      },
+      "support_z_range_mm": null,
+      "gcode_sha256": {
+        "plate_1.gcode": "485419060789f84a0679074116f2da368647d0e1a15f9cc89f419bd1767a8d77",
+        "probe": "071c5151df4074cda53efb9b022f76d1e0c96f34219e4eda60bdba9f965acf53"
+      },
+      "extrusion_layers_mm": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0,
+        1.2,
+        1.4,
+        1.6,
+        1.8,
+        2.0,
+        2.2,
+        2.4,
+        2.6,
+        2.8
+      ],
+      "effective_settings": {
+        "printer_model": "Qidi Q2C",
+        "printer_variant": "0.4",
+        "nozzle_diameter": [
+          "0.4"
+        ],
+        "printable_area": [
+          "0x0",
+          "270x0",
+          "270x270",
+          "0x270"
+        ],
+        "printable_height": "256",
+        "bed_exclude_area": [
+          "0x0",
+          "11x0",
+          "11x16",
+          "0x16"
+        ],
+        "filament_type": [
+          "TPU"
+        ],
+        "filament_settings_id": [
+          "Diagnostic Generic TPU 95A Q2C 0.4 - damping study"
+        ],
+        "nozzle_temperature": [
+          "230"
+        ],
+        "nozzle_temperature_initial_layer": [
+          "230"
+        ],
+        "hot_plate_temp": [
+          "35"
+        ],
+        "hot_plate_temp_initial_layer": [
+          "35"
+        ],
+        "print_settings_id": "Diagnostic TPU solid 0.20 mm 25 mm-s - damping study",
+        "layer_height": "0.2",
+        "wall_loops": "2",
+        "line_width": "0.42",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "initial_layer_line_width": "0.5",
+        "brim_type": "no_brim",
+        "brim_width": "0",
+        "brim_object_gap": "0.1",
+        "enable_support": "0",
+        "support_type": "tree(auto)",
+        "support_threshold_angle": "30",
+        "bridge_no_support": "0",
+        "max_bridge_length": "10",
+        "filament_flow_ratio": [
+          "1"
+        ],
+        "enable_arc_fitting": "0",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear"
+      }
+    }
+  }
+}

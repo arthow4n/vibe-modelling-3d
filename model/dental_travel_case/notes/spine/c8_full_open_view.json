@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/c8_full_open.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/concepts/spine/c8_full_open_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013714779997826554,
+    "build": 2.3732923260031384,
+    "selection": 0.0008763410005485639,
+    "validation": 0.10103859600349097,
+    "render_isometric": 0.9825383930001408,
+    "worker": 3.548078476000228,
+    "total": 3.712417605005612
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "39df2331797f5360dc3ee87e39190c3e976efbe131cb00415b22825906f121d5",
+    "artifact_identity": "8c963bea09b73dbc6210fad99cfea67e34fb2a069efa1da243d8ad09f2e04a2e"
+  }
+}

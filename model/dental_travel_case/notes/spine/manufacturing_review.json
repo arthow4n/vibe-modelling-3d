@@ -1,0 +1,12 @@
+{
+  "scope": "Object-local C8 PETG experimental-print review; no physical bridge, fit or strength approval",
+  "source_sha256": {
+    "spine_evidence.py": "7c4f70ecf268476cf6cca46ada0e7d4d621d3b5a4f54cca61c5502a39cfe07ae",
+    "notes/spine/publication.json": "df78035fb18e23bcb55263d24c99404cb9468c4e1e4928cb16a0a7b4e6e94e77"
+  },
+  "STL_sha256": "2337a3b4ceb68d1bbb00e5d55031b748cb2ff1833721c7840a1fea89d44fbc18",
+  "disposition": "experimental_print_reviewed",
+  "native_flags": "Floating-cantilever notice; support probe generates a tree under the front loop rail.",
+  "witness": "Native support-location plot places the suggestion under the two-ended 12mm rail. Z32 bridge strokes span 11.6mm; local hole/recess strokes at Z14.2,15.0,18.0 are under 2.9mm. Internal Bridge labels in floor/infill are not whole unsupported-air spans.",
+  "interpretation": "PETG base floor down and lid roof down preserve existing loop orientation. Supports-off experimental rail trial avoids scarring the retaining shoulder. Inspect sag and hole/counterbore quality; new mounting collar integrity and release effort remain unmeasured. The separately sliced solid TPU plate reports no notices or generated supports; inspect soft head shoulders despite that clean status."
+}

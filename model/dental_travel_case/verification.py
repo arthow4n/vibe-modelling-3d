@@ -35,6 +35,9 @@ QUESTIONS = (
 
 
 def make_plan(variant):
+    if variant == 'spine-c8-mini':
+        from spine_verification import make_plan as make_spine_plan
+        return make_spine_plan(variant, REQUIREMENTS)
     if variant == 'hinge-c7-mini':
         from internal_hinge_verification import make_plan as make_hinge_plan
         return make_hinge_plan(variant, REQUIREMENTS)
@@ -102,4 +105,4 @@ def make_plan(variant):
 
 
 if __name__ == '__main__':
-    raise SystemExit(cli(make_plan, ('measured-two-lane', 'rounded-c', 'plain-cylinder', 'slim-m1', 'slim-m2b', 'slim-m3', 'slim-m4', 'slim-m5', 'research-minimal-closures', 'research-short-closures', 'clamshell-c6', 'hinge-c7-mini')))
+    raise SystemExit(cli(make_plan, ('measured-two-lane', 'rounded-c', 'plain-cylinder', 'slim-m1', 'slim-m2b', 'slim-m3', 'slim-m4', 'slim-m5', 'research-minimal-closures', 'research-short-closures', 'clamshell-c6', 'hinge-c7-mini', 'spine-c8-mini')))

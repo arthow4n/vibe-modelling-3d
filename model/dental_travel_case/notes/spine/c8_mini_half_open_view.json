@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/c8_mini_half_open.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/concepts/spine/c8_mini_half_open_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014662999965366907,
+    "build": 2.5503177020000294,
+    "selection": 0.0008501740012434311,
+    "validation": 0.09548276299756253,
+    "render_isometric": 1.0138091080007143,
+    "worker": 3.746414980996633,
+    "total": 6.416861779005558
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "f7c7580f7465d11486094b6c8bdebbd8940ed1402ac15daa2a36e8fd42b936fa",
+    "artifact_identity": "d8add3a2e3719565b5d10caeb019b6aaae30bd764c5aa35298159c3a4ed8f6ad"
+  }
+}

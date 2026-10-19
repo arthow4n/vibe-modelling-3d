@@ -195,8 +195,13 @@ shows why permitted rear support and a passing tap screen do not establish
 acceptance of the complete object's size.
 
 For enclosures, distinguish connected storage space, the narrowest loading
-passage and inaccessible mechanism voids. Show actual sections at the mechanism
-and beyond it; a larger total void can still leave the contents unable to enter.
+passage and inaccessible mechanism voids. Check the closed, intermediate and
+requested fully open states against storage/access space, not just shell-to-shell
+collision. Draw the maximum inward projection and its sweep: hiding a hinge can
+trade an exterior bump for obstructive internal shelves even when total material
+volume is small. The [C7 rejection and C8 exploration](../../../../model/dental_travel_case/notes/spine.md)
+show why this product check must precede mechanism publication. Show actual
+sections at the mechanism and beyond it; a larger total void can still leave the contents unable to enter.
 Challenge guards and release channels that continue beyond the moving parts,
 while preserving the complete guide/receiver travel and structural load path.
 When moving guide walls toward the perimeter, recheck corner bearing as well as
