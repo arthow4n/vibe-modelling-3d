@@ -134,11 +134,13 @@ high engagement effort and noisy opening, and discontinues these closure trials.
 C7's internal pivot shelves were rejected before printing. C8 replaces them with
 flush-mounted TPU spines and a continuous rear wall (.8 mm thicker), with a CAD
 folding path to 180°. The complete mini box uses separate PETG and TPU plates;
-mount pullout, hinge life and operating feel remain unmeasured. A small exterior
+**latest print feedback: the shortened loop broke immediately on its first push;
+TPU strips have not been printed. Work paused — record only, no redesign.**
+Mount pullout, hinge life and integrated operation remain untested. A small exterior
 pin hinge is retained as a rough alternative. [C7](model/dental_travel_case/notes/internal_hinge.md)
 and [C6](model/dental_travel_case/notes/clamshell_exploration.md) remain historical.
 
-- Test pieces: Two short wall snaps printed and rejected for effort/noise; that family is stopped. C7 mini boxes rejected before printing for intrusive shelves. C8 complete PETG/TPU mini box is unprinted
+- Test pieces: Two short wall snaps printed and rejected for effort/noise; that family is stopped. C7 mini boxes rejected before printing for intrusive shelves. C8-context box printed (exact file/size/settings unknown); shortened loop broke on first push, TPU strips not printed. Work paused at user request
 - Final object: M1 printed — retention failed; source/exports preserved. C8 studies clear-interior flat opening, with complete mini box first; no full C8 print adopted. Packing, integrated retention and durability remain unknown
 - Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
 

@@ -1,7 +1,31 @@
 # C8 — clear interior and a flat-opening flexible spine
 
-**Current result: a complete mini-box candidate using PETG shells and two small,
-replaceable TPU 95A spines.** The rear is flush when closed; the inside has a
+**Current status — 2026-10-19: printed box failure; work paused at the user's
+request.** The shortened loop broke immediately on the first attempt to push it.
+The TPU strips have **not** been printed. No redesign, analysis or further print
+is authorized by this report; the user requests recording it only.
+
+## Printed feedback — shortened loop breaks on first push
+
+The user reports printing the box and finding that the shortened plastic loop
+could not withstand the first push: it broke immediately. The exact printed
+file/size, actual material, nozzle/layer settings, force, push direction and
+fracture location were not supplied. The exact printed export and cause remain
+unknown; this feedback is recorded against the current C8 conversation.
+
+The shortened-loop interface is inadequate in this reported print. Previous CAD
+motion, capture geometry and slicing results remain evidence within their stated
+scope; they did not establish printed loop strength. The TPU spine, its mounting
+buttons and integrated hinge operation remain physically untested.
+
+Source: direct user print feedback, 2026-10-19. Action: record only and pause.
+Assembly/printing procedures below describe the earlier candidate and are not
+current recommendations to print again or continue development.
+
+## Retained candidate and computational evidence
+
+The published candidate uses PETG shells and two small, replaceable TPU 95A
+spines. The rear is flush when closed; the inside has a
 continuous flat rear wall instead of hinge barrels and shelves. A prescribed
 CAD folding path reaches **180° with both broad exterior panels on the same
 plane**. This is a more practical spatial architecture than C7, while printed
@@ -24,7 +48,7 @@ recommendations are retired in the [C7 record](internal_hinge.md).
 ![Full-size rough architecture, open flat](../renders/concepts/spine/c8_full_open_isometric.png)
 
 The full-size model is an inspection/motion configuration, not an adopted full
-print layout. The proposed next print is the **complete 64 × 40 × 51.2 mm mini
+print layout. The published trial is the **complete 64 × 40 × 51.2 mm mini
 box**, which includes the hinge connection, shortened front loop and matching
 keeper. It has five printed parts: base, lid, keeper and two TPU spines; no hinge
 screws, nuts, separate pins or glue. Two material plates are required, rather
@@ -189,15 +213,17 @@ full-size C8 publication.
 [SVG generator](../spine_drawings.py) retain the comparison and its limits.
 The focused regression run passed **120 tests**, including the new spatial
 negative reference, flush mounting/headless control and retained dental intent.
-The shared verification keeps physical questions UNKNOWN alongside scoped CAD
-and manufacturing results. Re-export via `evaluate_model.py --slice` on each
+The retained pre-feedback verification reports physical questions UNKNOWN alongside
+scoped CAD and manufacturing results. It predates the loop-break report above
+and does not supersede that physical failure; no numerical report was rerun.
+The earlier reproduction procedure uses `evaluate_model.py --slice` on each
 material wrapper, selecting the complete TPU profile triplet for `c8_spines.py`;
 retain native runs for `spine_evidence.py` and review changed warnings before
 updating the object-local manufacturing review.
 
 | Item | Print status | Artifact(s) | Physical result / remaining checks |
 | --- | --- | --- | --- |
-| C8 complete mini box | Unknown — no print reported | PETG shells/keeper and two TPU spines | Button installation/pullout, collar integrity, hinge life, alignment, closing effort and noise |
+| Latest C8-context box trial | Partial — box printed; shortened loop failed on first push; TPU strips not printed | Published C8 files retained; exact printed file/size not identified | 2026-10-19 user report: immediate loop fracture. TPU mounting/hinge and integrated operation untested; work paused |
 | C8 full dental case | N/A — rough architecture/motion phase | Full-size inspection CAD; no print exports | Actual contents packing, full print setup and integrated loads/use |
 | C7 recessed-pivot mini boxes | Unknown — no print reported; design rejected | Historical C7 files retained | Interior shelves obstruct practical use and the opening does not reach flat |
 
