@@ -1,5 +1,11 @@
 # Space-first closure research — four unprinted experiments
 
+**Historical phase — discontinued 2026-10-19.** The user printed two later short
+samples (exact variants unknown), reports excessive engagement effort and noisy
+opening, and stops this mechanism family. See the [print report](closure_short.md#printed-feedback-and-direction-change--2026-10-19)
+and [current C6 clamshell exploration](clamshell_exploration.md). Print suggestions
+below describe the earlier phase, not current instructions.
+
 The user requests a fresh comparison of minimal retention mechanisms, including
 their idea of using the free shell near the overlap tip. Interior access and flat
 walls take priority over preserving the M5 cantilever architecture. The authorized

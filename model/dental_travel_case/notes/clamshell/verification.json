@@ -1,0 +1,577 @@
+{
+  "schema_version": 1,
+  "variant": "clamshell-c6",
+  "selected_checks": null,
+  "available_variants": [
+    "measured-two-lane",
+    "rounded-c",
+    "plain-cylinder",
+    "slim-m1",
+    "slim-m2b",
+    "slim-m3",
+    "slim-m4",
+    "slim-m5",
+    "research-minimal-closures",
+    "research-short-closures",
+    "clamshell-c6"
+  ],
+  "available_checks": [
+    "c6.CAD",
+    "c6.sample",
+    "c6.slice.c6_body",
+    "c6.slice.c6_lid",
+    "c6.slice.c6_keeper",
+    "c6.slice.c6_latch_test"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "clamshell-c6",
+    "scope": {
+      "design": "clamshell-c6",
+      "phase": "Unprinted computational prototype; trial short loop before committing to full-box print",
+      "material": "PETG hypothesis, uncalibrated",
+      "process": "0.4mm /0.2mm diagnostic PETG"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "brush.fit",
+        "text": "Carry the measured electric toothbrush with its head attached",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured 250\u2013255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Intent retained; new complete case has no physical validation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "paste.fit",
+        "text": "Carry toothpaste on its own side with room for tube variation",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured a new tube about 160 x 55 x 40 mm with 30 mm cap and requested margins for other versions"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Intent retained; new complete case has no physical validation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.material",
+        "text": "Use a compliant printed design without a separate TPU print",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User requested compliance and preferably no separately printed TPU part"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Intent retained; new complete case has no physical validation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "test.fit",
+        "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#first-print-and-test-procedure",
+          "statement": "User authorized both the small fit test and complete model in one phase"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Intent retained; new complete case has no physical validation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.minimal",
+        "text": "Make M1 minimal in design and occupied size",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User rejected earlier bulky designs and requested the most slim minimal suggestions; then selected M1"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Intent retained; new complete case has no physical validation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.secure",
+        "text": "Use a deliberate-release horizontal closure that resists accidental opening in backpack handling",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/clamshell_exploration.md",
+          "statement": "2026-10-19: user rejects forceful/noisy short wall snaps, authorizes horizontal sunglasses-style dental case, minimal hinge alternatives and shorter front loop with matching tests; accepted slim interior remains basis"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Intent retained; new complete case has no physical validation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "travel.protection",
+        "text": "Protect the attached toothbrush and full toothpaste tube from outside backpack contents and pressure",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User said floss can travel elsewhere and the case mainly protects toothpaste and toothbrush from contact and crashes"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Intent retained; new complete case has no physical validation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.supportfree",
+        "text": "Make the selected architecture support-free",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User asked for a support-free rounded R2/C combination"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Intent retained; new complete case has no physical validation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.width-revision",
+        "text": "Reduce the previous M1 exterior width by 25 mm",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Intent retained; new complete case has no physical validation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [
+          "25 mm reduction from the previous 99.2 mm exterior width"
+        ],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.end-retention",
+        "text": "Use a practical minimal rear lid connection and secure front closure instead of the discontinued dual-end cap catches",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/clamshell_exploration.md",
+          "statement": "2026-10-19: user rejects forceful/noisy short wall snaps, authorizes horizontal sunglasses-style dental case, minimal hinge alternatives and shorter front loop with matching tests; accepted slim interior remains basis"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Intent retained; new complete case has no physical validation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.end-rounds",
+        "text": "Use substantially larger fillets at both top and bottom ends of the case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User additionally requests much larger fillets at both top and bottom ends of the case and asks that this be learned for future handled designs"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "use",
+            "criterion": "Intent retained; new complete case has no physical validation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "clamshell.operation",
+        "text": "Open horizontally with an attached or otherwise practical minimal lid connection and deliberate secure closure",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/clamshell_exploration.md",
+          "statement": "2026-10-19: user rejects forceful/noisy short wall snaps, authorizes horizontal sunglasses-style dental case, minimal hinge alternatives and shorter front loop with matching tests; accepted slim interior remains basis"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "geometry",
+            "criterion": "Closed fit, explicit-release path, sample hinge sweep and preserved nominal interior; no holding-force prediction",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "c6.CAD"
+            ],
+            "evidence": [
+              "c6.CAD"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "use",
+            "criterion": "Integrated operation, quietness, force, hinge life, hardware retention and backpack protection tested in a print",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "c6_body",
+            "criterion": "Paired exports sliced; object-local warnings/bridge review retained; physical print remains unknown",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "c6.slice.c6_body"
+            ],
+            "evidence": [
+              "c6.slice.c6_body"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "c6_lid",
+            "criterion": "Paired exports sliced; object-local warnings/bridge review retained; physical print remains unknown",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "c6.slice.c6_lid"
+            ],
+            "evidence": [
+              "c6.slice.c6_lid"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "c6_keeper",
+            "criterion": "Paired exports sliced; object-local warnings/bridge review retained; physical print remains unknown",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "c6.slice.c6_keeper"
+            ],
+            "evidence": [
+              "c6.slice.c6_keeper"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "c6_latch_test",
+            "criterion": "Paired exports sliced; object-local warnings/bridge review retained; physical print remains unknown",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "c6.slice.c6_latch_test"
+            ],
+            "evidence": [
+              "c6.slice.c6_latch_test"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "clamshell.short-loop",
+        "text": "Explore shortening the front loop and provide its corresponding test pieces before relying on it",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/clamshell_exploration.md",
+          "statement": "2026-10-19: user rejects forceful/noisy short wall snaps, authorizes horizontal sunglasses-style dental case, minimal hinge alternatives and shorter front loop with matching tests; accepted slim interior remains basis"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "source",
+            "criterion": "Matching crop and full lid share current authoritative short-loop builder and print orientation",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "c6.sample"
+            ],
+            "evidence": [
+              "c6.sample"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "trial",
+            "criterion": "Printed shortened loop operates/repeats satisfactorily; analytical release screen is not physical approval",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "c6.CAD",
+        "targets": [
+          [
+            "clamshell.operation",
+            "geometry"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/clamshell_exploration.md",
+        "scope": {
+          "design": "clamshell-c6",
+          "phase": "Unprinted computational prototype; trial short loop before committing to full-box print",
+          "material": "PETG hypothesis, uncalibrated",
+          "process": "0.4mm /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "c6.sample",
+        "targets": [
+          [
+            "clamshell.short-loop",
+            "source"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "c6_latch_test.py",
+        "scope": {
+          "design": "clamshell-c6",
+          "phase": "Unprinted computational prototype; trial short loop before committing to full-box print",
+          "material": "PETG hypothesis, uncalibrated",
+          "process": "0.4mm /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "c6.slice.c6_body",
+        "targets": [
+          [
+            "clamshell.operation",
+            "c6_body"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/clamshell/c6_body_slice.json",
+        "scope": {
+          "design": "clamshell-c6",
+          "phase": "Unprinted computational prototype; trial short loop before committing to full-box print",
+          "material": "PETG hypothesis, uncalibrated",
+          "process": "0.4mm /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "c6.slice.c6_lid",
+        "targets": [
+          [
+            "clamshell.operation",
+            "c6_lid"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/clamshell/c6_lid_slice.json",
+        "scope": {
+          "design": "clamshell-c6",
+          "phase": "Unprinted computational prototype; trial short loop before committing to full-box print",
+          "material": "PETG hypothesis, uncalibrated",
+          "process": "0.4mm /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "c6.slice.c6_keeper",
+        "targets": [
+          [
+            "clamshell.operation",
+            "c6_keeper"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/clamshell/c6_keeper_slice.json",
+        "scope": {
+          "design": "clamshell-c6",
+          "phase": "Unprinted computational prototype; trial short loop before committing to full-box print",
+          "material": "PETG hypothesis, uncalibrated",
+          "process": "0.4mm /0.2mm diagnostic PETG"
+        }
+      },
+      {
+        "id": "c6.slice.c6_latch_test",
+        "targets": [
+          [
+            "clamshell.operation",
+            "c6_latch_test"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/clamshell/c6_latch_test_slice.json",
+        "scope": {
+          "design": "clamshell-c6",
+          "phase": "Unprinted computational prototype; trial short loop before committing to full-box print",
+          "material": "PETG hypothesis, uncalibrated",
+          "process": "0.4mm /0.2mm diagnostic PETG"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "c6.prototype",
+        "text": "Compact M3 hinge selected over unretained filament pins and uncaptured lift-off locators; loop shortened/thinned with matching trial",
+        "reference": "notes/clamshell_exploration.md"
+      }
+    ],
+    "hypotheses": [],
+    "directives": []
+  },
+  "help": null
+}

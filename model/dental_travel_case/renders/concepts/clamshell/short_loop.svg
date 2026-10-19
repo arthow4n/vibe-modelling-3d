@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920">
+<rect width="1200" height="920" fill="#fafaf7"/>
+<style>text{font-family:sans-serif;fill:#243444}</style>
+<text x="25" y="38" font-size="25">Shorten the front loop without turning it into another force-open snap</text>
+<text x="25" y="78" font-size="16">Actual YZ leaf sections at X7.5. Same placement against the 51.2 mm case roof; the short loop changes root position and thickness.</text>
+<path d="M127.900,402.600 L107.500,402.600 L104.898,402.326 L102.692,401.546 L101.218,400.378 L100.700,399.000 L100.700,208.200 L100.047,204.688 L98.112,201.312 L94.970,198.200 L90.742,195.472 L85.589,193.234 L79.711,191.570 L73.333,190.546 L66.700,190.200 L14.000,190.200 L14.000,172.200 L92.402,172.200 L94.679,172.440 L96.609,173.123 L114.783,182.744 L119.265,185.362 L123.240,188.199 L126.671,191.230 L129.524,194.423 L131.772,197.750 L133.393,201.177 L134.373,204.671 L134.700,208.200 L134.700,399.000 L134.182,400.378 L132.708,401.546 L130.502,402.326 Z" fill="#b4bfc9" fill-rule="evenodd" fill-opacity="0.65" stroke="#b4bfc9" stroke-width=".7"/>
+<path d="M248.600,211.800 L248.600,483.600 L201.000,483.600 L201.000,243.300 L200.739,241.895 L199.965,240.545 L198.708,239.300 L197.017,238.209 L194.956,237.313 L192.604,236.648 L190.053,236.238 L187.400,236.100 L124.500,236.100 L124.500,146.100 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<path d="M25,172.2 H365" stroke="#c62f48" stroke-dasharray="6 4"/>
+<text x="25" y="535" font-size="16">E: root-to-upper-rail 27.5 mm / 2.8 mm thick</text>
+<text x="25" y="567" font-size="16">Unchanged copy extends 2.9 mm above roof.</text>
+<path d="M527.900,402.600 L507.500,402.600 L504.898,402.326 L502.692,401.546 L501.218,400.378 L500.700,399.000 L500.700,208.200 L500.047,204.688 L498.112,201.312 L494.970,198.200 L490.742,195.472 L485.589,193.234 L479.711,191.570 L473.333,190.546 L466.700,190.200 L414.000,190.200 L414.000,172.200 L492.402,172.200 L494.679,172.440 L496.609,173.123 L514.783,182.744 L519.265,185.362 L523.240,188.199 L526.671,191.230 L529.524,194.423 L531.772,197.750 L533.393,201.177 L534.373,204.671 L534.700,208.200 L534.700,399.000 L534.182,400.378 L532.708,401.546 L530.502,402.326 Z" fill="#b4bfc9" fill-rule="evenodd" fill-opacity="0.65" stroke="#b4bfc9" stroke-width=".7"/>
+<path d="M631.600,271.650 L631.600,484.950 L601.000,484.950 L601.000,312.150 L600.739,310.745 L599.965,309.395 L598.708,308.150 L597.017,307.059 L594.956,306.163 L592.604,305.498 L590.053,305.088 L587.400,304.950 L524.500,304.950 L524.500,214.950 Z" fill="#1769a6" fill-rule="evenodd" fill-opacity="1.0" stroke="#1769a6" stroke-width=".7"/>
+<path d="M425,172.2 H765" stroke="#c62f48" stroke-dasharray="6 4"/>
+<text x="425" y="535" font-size="16">Short: root-to-upper-rail 20 mm / 1.8 mm thick</text>
+<text x="425" y="567" font-size="16">Root fits 4.75 mm below the roof.</text>
+<path d="M954.680,242.200 L935.300,264.820 L915.920,242.200 L935.300,219.580 L943.644,229.319 L964.200,213.600 L964.200,185.000 L1025.400,231.800 L1025.400,252.600 L964.200,252.600 L964.200,226.600 L950.373,237.173 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<path d="M1001.600,293.550 L1001.600,296.150 L971.000,296.150 L971.000,257.150 L1001.600,257.150 L1001.600,271.450 L1015.200,281.850 L1015.200,293.550 Z" fill="#1769a6" fill-rule="evenodd" fill-opacity="1.0" stroke="#1769a6" stroke-width=".7"/>
+<path d="M1061.100,293.550 L1061.100,296.150 L1030.500,296.150 L1030.500,257.150 L1061.100,257.150 L1061.100,271.450 L1074.700,281.850 L1074.700,293.550 Z" fill="#1769a6" fill-rule="evenodd" fill-opacity="0.25" stroke="#1769a6" stroke-width=".7"/>
+<text x="825" y="535" font-size="16">Rail section: solid = seated; pale = released.</text>
+<text x="825" y="567" font-size="17">Pull outward 3.2 mm before lifting.</text>
+<text x="25" y="636" font-size="18">Keeper and radial capture stay the same; axial gap is .35 mm. Shorter leaves are thinner for release.</text>
+<text x="25" y="685" font-size="18">Nominal end-load screen: about 69% of E actuation force. Rail/root coupling is uncertain; strain is higher.</text>
+<text x="25" y="728" font-size="17">These are provisional comparisons, not measured PETG properties, fatigue acceptance or holding-force predictions.</text>
+<text x="25" y="773" font-size="17">Print the matching small front-wall crop first. Check engage/release effort, recovery, whitening and noise; full box is unprinted.</text>
+<text x="25" y="819" font-size="17">Closing method: hold loop outward, lower lid onto its rims, then release the loop. Avoid forcing it over the keeper.</text>
+<text x="25" y="868" font-size="17">Rounded loop roots and keeper geometry are retained. The new flexure and 2 mm supporting walls still need the physical trial.</text>
+<metadata>{&quot;clamshell_design.py&quot;: &quot;545a911d8f3c49b983095815d93adbbd270f28a47791985bb207b84581d0864d&quot;, &quot;clamshell_drawings.py&quot;: &quot;c23ee2d9489cd79970f4fe379b202550b1feccaf60d01c6dcb3d4a554e7a5cd1&quot;, &quot;m1_design.py&quot;: &quot;aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5&quot;, &quot;../sunglasses_case/e_closure.py&quot;: &quot;1b0c1a608499716515ce870fc706aef6646cc5c62575d9490b74da7a649cd6e9&quot;}</metadata></svg>

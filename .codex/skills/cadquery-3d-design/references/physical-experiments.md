@@ -14,6 +14,11 @@ printing. Record that as product-design rejection, not a demonstrated print or
 material failure. A user who physically prints and rejects a product provides
 stronger evidence about its actual usefulness than internal assertions, FEA,
 slicing or autonomous reviews.
+Separate retention from acceptable operation: strong capture can still be rejected
+for closing effort, release noise or awkward handling. The [dental short-snap report](../../../../model/dental_travel_case/notes/closure_short.md#printed-feedback-and-direction-change--2026-10-19)
+discontinues the mechanism family; increasing stiffness again would miss that
+product decision. A working closure from another object is a reference, while
+shortened flexures need their own effort/recovery trial.
 Update the current object conclusion and root index immediately; remove “ready to
 print” or equivalent confidence. Identify what earlier checks established narrowly
 (fit, local deformation, slice acceptance) and what product relationship failed.

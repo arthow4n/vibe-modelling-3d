@@ -118,18 +118,24 @@ coupon (N/A).
 - Final object: Partial — variant H printed; user reports it works well; other variants unreported
 - Provenance: [Record](model/faceted_storage_tray/README.md#attribution) · Agent effort: [Selected token/timing record](model/faceted_storage_tray/notes/agent_effort.md)
 
-#### Dental travel containers — failed printed M1; M5 prototype
+#### Dental travel containers — closure trials discontinued; clamshell exploration
 
 [M1 full-box feedback and retained files](model/dental_travel_case/notes/m1.md) · [Separate M2B retention investigation](model/dental_travel_case/notes/m2.md)
 
-[Current M5 space-recovery prototype, matching test and section drawings](model/dental_travel_case/notes/m5.md) · [M4 motion investigation](model/dental_travel_case/notes/m4.md) · [Superseded M3 investigation](model/dental_travel_case/notes/m3.md)
+[Historical M5 space-recovery prototype and test](model/dental_travel_case/notes/m5.md) · [M4 motion investigation](model/dental_travel_case/notes/m4.md) · [Superseded M3 investigation](model/dental_travel_case/notes/m3.md)
 
-[Current research: four minimal wall-flexure/slide closure specimens](model/dental_travel_case/notes/closure_research.md), including the user's free-rim idea. Specimens only; no new full case adopted or print reported.
+[Historical research: four minimal wall-flexure/slide closure specimens](model/dental_travel_case/notes/closure_research.md), including the user's free-rim idea. These long specimens were not adopted as a full case; subsequent short samples were printed and rejected as recorded below.
 [Conditional R1/R2 straight-pull force and equivalent-weight investigation](model/dental_travel_case/notes/closure_pull.md); R3 bead and R4 rail-lifting forces remain unresolved.
-[Current economical test pieces: four short full-cross-section pairs with recessed pull gaps](model/dental_travel_case/notes/closure_short.md). Shortening changes compliance; the earlier force estimates do not apply to these trials.
+[Discontinued short wall-snap trials and their print report](model/dental_travel_case/notes/closure_short.md).
 
-- Test pieces: Historical small samples seemed to hold; exact revisions unknown. Current economical research delivers [four short R1-S–R4-S pairs](model/dental_travel_case/notes/closure_short.md), no print report. The [long R1–R4 pairs](model/dental_travel_case/notes/closure_research.md) and [M5 pair](model/dental_travel_case/m5_joint_test.step) remain with their earlier investigations
-- Final object: M1 printed — joint too short/unstable, pulls apart without release; source/exports frozen. M5 shortens unused catch guards and moves the guide toward a flat 77mm exterior; central guide space increases while catches and entrance remain. Broad body grows from 75 to 77mm; previous maximum unchanged. Physical holding, fit/recovery and bridge quality remain unmeasured
+**2026-10-19:** two short samples printed (exact variants unknown); user reports
+high engagement effort and noisy opening, and discontinues these closure trials.
+[Current direction: horizontal clamshell with sunglasses-style closure and a smaller lid connection](model/dental_travel_case/notes/clamshell_exploration.md).
+The unprinted C6 prototype selects a compact M3-pin hinge and shorter explicit-release front loop;
+[its matching small latch trial](model/dental_travel_case/c6_latch_test.step) is the next proposed print. Bridge/support review flags are retained in its notes.
+
+- Test pieces: Two short samples printed, exact variants/settings unknown; engagement too forceful and opening noisy. Remaining R1–R4 trials discontinued. The short/long specimens and M5 pair remain historical evidence, not current print recommendations
+- Final object: M1 printed — retention failed; historical source/exports preserved. C6 is an unprinted horizontal prototype with compact hinges and a shorter front loop; integrated holding, fit, quietness and durability remain unknown. M2–M5 and wall-snap studies are historical
 - Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
 
 #### Slim dental box S16 liner

@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/c6_open.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/concepts/clamshell/c6_open_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.00142155499997898,
+    "build": 1.593566458002897,
+    "selection": 0.0007794299999659415,
+    "validation": 0.06257414799983962,
+    "render_isometric": 0.8641621909991954,
+    "worker": 2.6004871370023466,
+    "total": 3.9038035459998355
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "ce2db0bd7d6704322c93ebc05ba9d3c04316488225288af79aa55252fb633e60",
+    "artifact_identity": "0f6194dd5383135c6113f34b551d8ae086833f9d9ad25fc29b5a0312126efa73"
+  }
+}

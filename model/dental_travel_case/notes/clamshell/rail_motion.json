@@ -1,0 +1,493 @@
+{
+  "scope": "Challenge rigid release translation with approximate bending tip rotation.\n\nSmall-slope inextensible end-loaded leaf: rotation 1.5*d/L and axial shortening\n0.6*d\u00b2/L. Effective tip at either rail edge brackets crossbar coupling; this is\nnot nonlinear contact FEM or a material/force qualification.\n",
+  "source_sha256": {
+    "clamshell_design.py": "545a911d8f3c49b983095815d93adbbd270f28a47791985bb207b84581d0864d",
+    "clamshell_rail_motion.py": "078afa795c7bfbef377c2098c8f862eb39d5f830f77581d733faac14c1bdb8cf",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "../sunglasses_case/e_closure.py": "1b0c1a608499716515ce870fc706aef6646cc5c62575d9490b74da7a649cd6e9"
+  },
+  "poses": [
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 0.0,
+      "tip_angle_deg": -0.0,
+      "axial_motion_mm": 0.0,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 0.25,
+      "tip_angle_deg": -1.2638774892591689,
+      "axial_motion_mm": 0.0022058823529411764,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 0.5,
+      "tip_angle_deg": -2.5277549785183377,
+      "axial_motion_mm": 0.008823529411764706,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 0.75,
+      "tip_angle_deg": -3.791632467777507,
+      "axial_motion_mm": 0.019852941176470587,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 1.0,
+      "tip_angle_deg": -5.0555099570366755,
+      "axial_motion_mm": 0.03529411764705882,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 1.25,
+      "tip_angle_deg": -6.319387446295845,
+      "axial_motion_mm": 0.05514705882352941,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 1.5,
+      "tip_angle_deg": -7.583264935555014,
+      "axial_motion_mm": 0.07941176470588235,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 1.75,
+      "tip_angle_deg": -8.847142424814182,
+      "axial_motion_mm": 0.10808823529411764,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 2.0,
+      "tip_angle_deg": -10.111019914073351,
+      "axial_motion_mm": 0.1411764705882353,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 2.25,
+      "tip_angle_deg": -11.37489740333252,
+      "axial_motion_mm": 0.1786764705882353,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 2.5,
+      "tip_angle_deg": -12.63877489259169,
+      "axial_motion_mm": 0.22058823529411764,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 2.75,
+      "tip_angle_deg": -13.902652381850858,
+      "axial_motion_mm": 0.26691176470588235,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 3.0,
+      "tip_angle_deg": -15.166529871110027,
+      "axial_motion_mm": 0.3176470588235294,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 3.25,
+      "tip_angle_deg": -16.430407360369195,
+      "axial_motion_mm": 0.3727941176470588,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 3.5,
+      "tip_angle_deg": -17.694284849628364,
+      "axial_motion_mm": 0.43235294117647055,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 0.0,
+      "tip_angle_deg": -0.0,
+      "axial_motion_mm": 0.0,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 0.25,
+      "tip_angle_deg": -1.0742958658702935,
+      "axial_motion_mm": 0.001875,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 0.5,
+      "tip_angle_deg": -2.148591731740587,
+      "axial_motion_mm": 0.0075,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 0.75,
+      "tip_angle_deg": -3.222887597610881,
+      "axial_motion_mm": 0.016874999999999998,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 1.0,
+      "tip_angle_deg": -4.297183463481174,
+      "axial_motion_mm": 0.03,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 1.25,
+      "tip_angle_deg": -5.371479329351468,
+      "axial_motion_mm": 0.046875,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 1.5,
+      "tip_angle_deg": -6.445775195221762,
+      "axial_motion_mm": 0.06749999999999999,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 1.75,
+      "tip_angle_deg": -7.520071061092056,
+      "axial_motion_mm": 0.091875,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 2.0,
+      "tip_angle_deg": -8.594366926962348,
+      "axial_motion_mm": 0.12,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 2.25,
+      "tip_angle_deg": -9.668662792832643,
+      "axial_motion_mm": 0.151875,
+      "intersection_mm3": 0.0004233054556957152
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 2.5,
+      "tip_angle_deg": -10.742958658702936,
+      "axial_motion_mm": 0.1875,
+      "intersection_mm3": 0.00027363167052170867
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 2.75,
+      "tip_angle_deg": -11.817254524573228,
+      "axial_motion_mm": 0.226875,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 3.0,
+      "tip_angle_deg": -12.891550390443523,
+      "axial_motion_mm": 0.26999999999999996,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 3.25,
+      "tip_angle_deg": -13.965846256313815,
+      "axial_motion_mm": 0.31687499999999996,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.2,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 3.5,
+      "tip_angle_deg": -15.040142122184111,
+      "axial_motion_mm": 0.3675,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 0.0,
+      "tip_angle_deg": -0.0,
+      "axial_motion_mm": 0.0,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 0.25,
+      "tip_angle_deg": -1.2638774892591689,
+      "axial_motion_mm": 0.0022058823529411764,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 0.5,
+      "tip_angle_deg": -2.5277549785183377,
+      "axial_motion_mm": 0.008823529411764706,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 0.75,
+      "tip_angle_deg": -3.791632467777507,
+      "axial_motion_mm": 0.019852941176470587,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 1.0,
+      "tip_angle_deg": -5.0555099570366755,
+      "axial_motion_mm": 0.03529411764705882,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 1.25,
+      "tip_angle_deg": -6.319387446295845,
+      "axial_motion_mm": 0.05514705882352941,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 1.5,
+      "tip_angle_deg": -7.583264935555014,
+      "axial_motion_mm": 0.07941176470588235,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 1.75,
+      "tip_angle_deg": -8.847142424814182,
+      "axial_motion_mm": 0.10808823529411764,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 2.0,
+      "tip_angle_deg": -10.111019914073351,
+      "axial_motion_mm": 0.1411764705882353,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 2.25,
+      "tip_angle_deg": -11.37489740333252,
+      "axial_motion_mm": 0.1786764705882353,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 2.5,
+      "tip_angle_deg": -12.63877489259169,
+      "axial_motion_mm": 0.22058823529411764,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 2.75,
+      "tip_angle_deg": -13.902652381850858,
+      "axial_motion_mm": 0.26691176470588235,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 3.0,
+      "tip_angle_deg": -15.166529871110027,
+      "axial_motion_mm": 0.3176470588235294,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 3.25,
+      "tip_angle_deg": -16.430407360369195,
+      "axial_motion_mm": 0.3727941176470588,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 17.0,
+      "radial_motion_mm": 3.5,
+      "tip_angle_deg": -17.694284849628364,
+      "axial_motion_mm": 0.43235294117647055,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 0.0,
+      "tip_angle_deg": -0.0,
+      "axial_motion_mm": 0.0,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 0.25,
+      "tip_angle_deg": -1.0742958658702935,
+      "axial_motion_mm": 0.001875,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 0.5,
+      "tip_angle_deg": -2.148591731740587,
+      "axial_motion_mm": 0.0075,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 0.75,
+      "tip_angle_deg": -3.222887597610881,
+      "axial_motion_mm": 0.016874999999999998,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 1.0,
+      "tip_angle_deg": -4.297183463481174,
+      "axial_motion_mm": 0.03,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 1.25,
+      "tip_angle_deg": -5.371479329351468,
+      "axial_motion_mm": 0.046875,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 1.5,
+      "tip_angle_deg": -6.445775195221762,
+      "axial_motion_mm": 0.06749999999999999,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 1.75,
+      "tip_angle_deg": -7.520071061092056,
+      "axial_motion_mm": 0.091875,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 2.0,
+      "tip_angle_deg": -8.594366926962348,
+      "axial_motion_mm": 0.12,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 2.25,
+      "tip_angle_deg": -9.668662792832643,
+      "axial_motion_mm": 0.151875,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 2.5,
+      "tip_angle_deg": -10.742958658702936,
+      "axial_motion_mm": 0.1875,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 2.75,
+      "tip_angle_deg": -11.817254524573228,
+      "axial_motion_mm": 0.226875,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 3.0,
+      "tip_angle_deg": -12.891550390443523,
+      "axial_motion_mm": 0.26999999999999996,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 3.25,
+      "tip_angle_deg": -13.965846256313815,
+      "axial_motion_mm": 0.31687499999999996,
+      "intersection_mm3": 0.0
+    },
+    {
+      "seated_gap_mm": 0.35,
+      "effective_length_mm": 20.0,
+      "radial_motion_mm": 3.5,
+      "tip_angle_deg": -15.040142122184111,
+      "axial_motion_mm": 0.3675,
+      "intersection_mm3": 0.0
+    }
+  ],
+  "reference_gap_maximum_intersection_mm3": 0.0004233054556957152,
+  "selected_maximum_intersection_mm3": 0.0
+}

@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/c6_hinge_view.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric_back",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/concepts/clamshell/c6_hinge_view_isometric_back.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          -1,
+          1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013258300023153424,
+    "build": 1.508329815002071,
+    "selection": 0.0008523270007572137,
+    "validation": 0.011418351998145226,
+    "render_isometric_back": 0.2895680909969087,
+    "worker": 1.873460211998463,
+    "total": 2.02717626699814
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "90ec4cdfc0a870483e73c716ae622d6630cc594d9fbc497261930a4c94386bca",
+    "artifact_identity": "adae10dac1af208c8198e3986aa843e3c62ca4a15788b01a3cf0fd2ea0894245"
+  }
+}

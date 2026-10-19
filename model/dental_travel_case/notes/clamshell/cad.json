@@ -1,0 +1,233 @@
+{
+  "scope": "C6 computational prototype: dimensional/CAD operation, not force, fatigue, quietness or full-product physical acceptance",
+  "source_sha256": {
+    "clamshell_design.py": "545a911d8f3c49b983095815d93adbbd270f28a47791985bb207b84581d0864d",
+    "clamshell_study.py": "52972f3e4b8be94eac0b2b39ce522b1c64c6419a61c3c9c640183c287cbd66c5",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "../sunglasses_case/e_closure.py": "1b0c1a608499716515ce870fc706aef6646cc5c62575d9490b74da7a649cd6e9"
+  },
+  "interior_straight_extents_mm": [
+    260,
+    70.2,
+    47.2
+  ],
+  "shell_exterior_mm": [
+    264,
+    74.2,
+    51.2
+  ],
+  "hypotheses": {
+    "screw_pin": {
+      "rear_projection_mm": 7.8999999999999995,
+      "nominal_barrel_diameter_mm": 7.6,
+      "shell_sweep": [
+        {
+          "angle_deg": 0,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 10,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 45,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 70,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 90,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 120,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 150,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 180,
+          "shell_intersection_mm3": 0.0
+        }
+      ],
+      "closed_intersection_mm3": 0.0,
+      "storage_intrusion_mm3": 0.0,
+      "loop_retaining_intersection_at_point4mm_lift_mm3": 0.9900000000001545,
+      "retaining_faces": {
+        "loop_normal": [
+          0,
+          0,
+          1
+        ],
+        "keeper_normal": [
+          0,
+          0,
+          -1
+        ],
+        "axial_gap_mm": 0.35,
+        "projected_contact_area_mm2": 19.79999999999997,
+        "radial_release_travel_mm": 3.2
+      },
+      "status": "CAD motion candidate, new hinge and flexure physically unknown"
+    },
+    "filament_pin": {
+      "rear_projection_mm": 5.5,
+      "nominal_barrel_diameter_mm": 5.2,
+      "shell_sweep": [
+        {
+          "angle_deg": 0,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 1,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 2,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 5,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 10,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 20,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 45,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 70,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 90,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 120,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 150,
+          "shell_intersection_mm3": 0.0
+        },
+        {
+          "angle_deg": 180,
+          "shell_intersection_mm3": 0.0
+        }
+      ],
+      "closed_intersection_mm3": 0.0,
+      "storage_intrusion_mm3": 0.0,
+      "loop_retaining_intersection_at_point4mm_lift_mm3": 0.9900000000001545,
+      "retaining_faces": {
+        "loop_normal": [
+          0,
+          0,
+          1
+        ],
+        "keeper_normal": [
+          0,
+          0,
+          -1
+        ],
+        "axial_gap_mm": 0.35,
+        "projected_contact_area_mm2": 19.79999999999997,
+        "radial_release_travel_mm": 3.2
+      },
+      "status": "CAD motion candidate, new hinge and flexure physically unknown"
+    },
+    "lift_off": {
+      "rear_projection_mm": 4.3,
+      "nominal_barrel_diameter_mm": null,
+      "shell_sweep": [],
+      "closed_intersection_mm3": 0.0,
+      "storage_intrusion_mm3": 0.0,
+      "loop_retaining_intersection_at_point4mm_lift_mm3": 0.9900000000001545,
+      "retaining_faces": {
+        "loop_normal": [
+          0,
+          0,
+          1
+        ],
+        "keeper_normal": [
+          0,
+          0,
+          -1
+        ],
+        "axial_gap_mm": 0.35,
+        "projected_contact_area_mm2": 19.79999999999997,
+        "radial_release_travel_mm": 3.2
+      },
+      "status": "Rejected: drop-in locators do not positively capture rear lift; extraction mechanism unresolved"
+    }
+  },
+  "loop_actuation_screen": {
+    "accepted_e": {
+      "root_to_upper_rail_mm": 27.5,
+      "clear_span_to_lower_rail_mm": 24.5,
+      "leaf_thickness_mm": 2.8,
+      "release_travel_mm": 3.2,
+      "two_leaf_force_E900_to1800_N": [
+        4.559946626596544,
+        9.119893253193087
+      ],
+      "estimated_root_surface_strain": 0.01777190082644628,
+      "effective_length_sensitivity_force_N": [
+        4.559946626596544,
+        12.897026239067053
+      ],
+      "effective_length_sensitivity_strain": [
+        0.01777190082644628,
+        0.022390670553935857
+      ],
+      "scope": "Ideal straight end-loaded beam; root-to-upper-rail nominal span, lower-rail span sensitivity. No acceptance limit or pull-off prediction"
+    },
+    "short": {
+      "root_to_upper_rail_mm": 20.0,
+      "clear_span_to_lower_rail_mm": 17.0,
+      "leaf_thickness_mm": 1.8,
+      "release_travel_mm": 3.2,
+      "two_leaf_force_E900_to1800_N": [
+        3.1492800000000005,
+        6.298560000000001
+      ],
+      "estimated_root_surface_strain": 0.0216,
+      "effective_length_sensitivity_force_N": [
+        3.1492800000000005,
+        10.256153063301447
+      ],
+      "effective_length_sensitivity_strain": [
+        0.0216,
+        0.0298961937716263
+      ],
+      "scope": "Ideal straight end-loaded beam; root-to-upper-rail nominal span, lower-rail span sensitivity. No acceptance limit or pull-off prediction"
+    }
+  }
+}

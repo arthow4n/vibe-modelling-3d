@@ -1,5 +1,25 @@
 # Short retention trials — less material, full cross-section
 
+## Printed feedback and direction change — 2026-10-19
+
+The user printed **two short test pieces**. Exact R1-S/R2-S/R3-S/R4-S identities,
+export hashes, material and print settings were not specified. They report that
+engaging these closures takes much more force and opening generally makes a lot
+of noise, particularly with longer engagement. No measured force, sound level,
+damage, fatigue or exact microscopic cause was supplied. This is authoritative
+negative use feedback, not a calibration of the earlier numerical estimates.
+
+The user does not see sufficient benefit and is unlikely to print the remaining
+experimental mechanisms. **Stop the R1–R4 / short-wall closure development**;
+preserve the sources, exports and numerical evidence as historical experiments.
+The user authorizes a new horizontally opening dental case based on the working
+sunglasses-case operation, retaining the accepted slim interior basis and
+exploring a substantially smaller hinge or an alternative lid connection.
+See the [new clamshell exploration](clamshell_exploration.md).
+
+The recommendations below describe the earlier experiment phase; they are no
+longer current print recommendations.
+
 These are the current economical alternatives to the tall R1–R4 research test
 pieces. The user trusts the long-overlap investigation but wants to try the
 retention mechanisms with much less overlap/base material, preserving the full
@@ -149,7 +169,7 @@ four slice PASSes while physical/full-product/force intent remains UNKNOWN.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Short test pieces | Unknown — no print report | Four R1-S–R4-S STEP/STL pairs above | Seating, retention, recovery, pulling effort and grip comfort unmeasured |
+| Short test pieces | Partial — two printed, exact variants unknown | Four R1-S–R4-S STEP/STL pairs above; exact printed files not identified | 2026-10-19: excessive engagement effort and noisy opening; development discontinued |
 | Final printable object | N/A — samples-only phase | No new full-box export | Production overlap, guidance and ergonomic grips require later integration |
 
 Attribution: primary model GPT-6, reasoning effort not exposed; Codex CLI agent

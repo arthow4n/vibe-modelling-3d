@@ -1,0 +1,166 @@
+{
+  "scope": "Native path location witness only; CAD support and review interpretation belong in the object record.",
+  "producer_sha256": "14c5441760f852c8edcec657f162b47b21d8b6fb339b8a7d732ff02035d5dfcc",
+  "cases": {
+    "c6_body": {
+      "STL_sha256": "8a4ce28fb66968e46baeceb0d02293dd4a15fce979b0d2c8a94cde4da6806d3e",
+      "primary_gcode_sha256": "eea8ae1305f9fbddd610a3d38ddfdff18ca1135b2b1f688bbae16d47862eede8",
+      "probe_gcode_sha256": "45d3aba7007814a14d810b829aa2b57f03c51573df3d7f9de8ac921511e2295f",
+      "bridge_roles": {
+        "Internal Bridge": 1222,
+        "Bridge": 57,
+        "Overhang wall": 16
+      },
+      "support_roles": {},
+      "bridge_bounds": {
+        "x_mm": [
+          20.139,
+          249.861
+        ],
+        "y_mm": [
+          20.137,
+          250.051
+        ],
+        "z_mm": [
+          1.2,
+          27.4
+        ]
+      },
+      "support_bounds": null,
+      "bridge_layers": {
+        "1.2": {
+          "strokes": 1194,
+          "max_stroke_mm": 69.94429615057972
+        },
+        "22.6": {
+          "strokes": 57,
+          "max_stroke_mm": 1.2826917010724124
+        },
+        "24.8": {
+          "strokes": 28,
+          "max_stroke_mm": 10.41108505392208
+        },
+        "27.4": {
+          "strokes": 16,
+          "max_stroke_mm": 1.1964246737676436
+        }
+      }
+    },
+    "c6_lid": {
+      "STL_sha256": "f0fa3b10766afee0edad2d726696b82e89e53546164aaeb8f389ac95e096c2fb",
+      "primary_gcode_sha256": "4181ec1e2b8a251591966be8740d59a977340c23bb8816a57c66944d2c6e72b7",
+      "probe_gcode_sha256": "3daf0865f111065e53e69d7ef08496c11e2e9d01760fd1ddf58381951d22c5cd",
+      "bridge_roles": {
+        "Internal Bridge": 1194,
+        "Overhang wall": 12,
+        "Bridge": 14
+      },
+      "support_roles": {
+        "Support": 23820,
+        "Support interface": 33
+      },
+      "bridge_bounds": {
+        "x_mm": [
+          20.139,
+          249.861
+        ],
+        "y_mm": [
+          20.142,
+          250.051
+        ],
+        "z_mm": [
+          1.2,
+          32.0
+        ]
+      },
+      "support_bounds": {
+        "x_mm": [
+          100.184,
+          230.535
+        ],
+        "y_mm": [
+          39.403,
+          169.793
+        ],
+        "z_mm": [
+          0.2,
+          31.6
+        ]
+      },
+      "bridge_layers": {
+        "1.2": {
+          "strokes": 1194,
+          "max_stroke_mm": 69.94429615057972
+        },
+        "27.4": {
+          "strokes": 22,
+          "max_stroke_mm": 4.21152798874709
+        },
+        "32.0": {
+          "strokes": 4,
+          "max_stroke_mm": 11.600793852146502
+        }
+      }
+    },
+    "c6_latch_test": {
+      "STL_sha256": "3bcdafb65922039eac40aea645f2f9cf7c766016bb5b9e017ffb86007ec1174e",
+      "primary_gcode_sha256": "8087bec3f7bd6974a4a9afbb1130ae031861a6842db31c9ca7ad83fe0775a954",
+      "probe_gcode_sha256": "80a6cf29d0dddfe3a732feb1d5e44e3a44ad3d29a8a84382e5464a7a67e42e9e",
+      "bridge_roles": {
+        "Internal Bridge": 408,
+        "Bridge": 55,
+        "Overhang wall": 4
+      },
+      "support_roles": {
+        "Support": 8514,
+        "Support interface": 44
+      },
+      "bridge_bounds": {
+        "x_mm": [
+          57.814,
+          185.597
+        ],
+        "y_mm": [
+          93.669,
+          176.09
+        ],
+        "z_mm": [
+          1.2,
+          32.0
+        ]
+      },
+      "support_bounds": {
+        "x_mm": [
+          155.958,
+          166.84
+        ],
+        "y_mm": [
+          169.874,
+          180.767
+        ],
+        "z_mm": [
+          0.2,
+          31.6
+        ]
+      },
+      "bridge_layers": {
+        "1.2": {
+          "strokes": 372,
+          "max_stroke_mm": 27.817918002611197
+        },
+        "22.6": {
+          "strokes": 55,
+          "max_stroke_mm": 1.2819999999999965
+        },
+        "24.8": {
+          "strokes": 36,
+          "max_stroke_mm": 7.1118504624324075
+        },
+        "32.0": {
+          "strokes": 4,
+          "max_stroke_mm": 11.599999999999994
+        }
+      }
+    }
+  }
+}
