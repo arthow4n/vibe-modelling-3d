@@ -1,13 +1,22 @@
-# Dental travel containers — slim M1 with a separate cap
+# Dental travel containers — short-lap slim box with wall snaps
+
+**Current direction, 2026-10-19:** the user discards the hinged box and returns
+to a slim separate cap with small wall-snap bites. Opening noise is potentially
+acceptable; the new priority is a much shorter overlap with strong retention
+and sideways stability. See the [current short-lap prototype and comparison](short_lap.md)
+for the full model, matching production-joint test, evidence and physical limits.
+This explicitly reopens the previously stopped wall-snap direction. Historical
+printed failures and unprinted proposals below remain scoped to their own parts.
 
 The user selected M1 from the [slim SVG exploration](slim_exploration.md) and
-authorized a rounded, positive-retention separate cap. The current printable
+authorized a rounded, positive-retention separate cap. The historical printed
 design, small joint test, opening explanation and checks are in [M1](m1.md).
 The full **264 × 74.2 × 51.2 mm** slim box is now printed and usable, but its
 joint feels too short/unstable and the halves pull apart without pressing the
 release controls. Secure retention is not accepted. The brush and toothpaste fit
-with effort (toothpaste tail down, cap up), plus one floss case. The user requests
-**no further revision or print**. See the [full-box feedback and lessons](m1.md#full-box-print-feedback--2026-10-15).
+with effort (toothpaste tail down, cap up), plus one floss case. At that phase the
+user requested **no further revision or print**; later authorization above
+supersedes that development stop. See the [full-box feedback and lessons](m1.md#full-box-print-feedback--2026-10-15).
 Digital/slice passes remain scoped evidence and do not override this physical
 result. Geometry and exports are retained unchanged.
 Earlier test layouts, assembly instructions and evidence remain in

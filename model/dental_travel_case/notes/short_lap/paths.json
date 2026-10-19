@@ -1,0 +1,103 @@
+{
+  "scope": "Review multiple extrusion paths through the load-bearing sleeve/pocket skin.\n\nThis is a targeted thin-section review, not a generic footprint/mesh audit.\nSupplied pair centers X0/112, Y0; Orca's centered layout shifts X79/Y135.\n Path-width approximation; not deposited bonding, modulus or strength calibration.",
+  "source_sha256": {
+    "short_lap_toolpaths.py": "81b5615f63c4f22ef1d69b411e8ed796a7819caa2f452822d4b41bf95bcd2d38",
+    "short_lap_refinement.py": "74c18ee68c7648d11aea3f59ecf627f6bfb6cf50e2981581c36a0fd225df6472",
+    "short_lap_design.py": "98860b93b2a24c7fca89072222845aa1a05e7ac3c0d95ef58e6d1e6ee26ae61b",
+    "short_lap_reinforced.py": "66dedc606876908bb5f43bc2dada12734611ba7340d2a705b6c2905149aac1bc"
+  },
+  "slice_input_sha256": "4ffca9ff81c96a8dcd66a901f9414ecbdb3f536b3bd84b7685741f155cafbb5a",
+  "gcode_sha256": "e544ea14e68b1d05e589942c724feaefbdd4f7b32abd246bffc6e2bc5a7a87b3",
+  "sections": {
+    "body_sleeve": {
+      "layer_mm": 30.0,
+      "span_mm": [
+        111.30000000000001,
+        113.30000000000001
+      ],
+      "crossings": [
+        {
+          "x_mm": 111.902,
+          "width_mm": 0.45,
+          "role": "Inner wall"
+        },
+        {
+          "x_mm": 111.51,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        },
+        {
+          "x_mm": 112.692,
+          "width_mm": 0.45,
+          "role": "Inner wall"
+        },
+        {
+          "x_mm": 113.084,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        },
+        {
+          "x_mm": 112.297,
+          "width_mm": 0.429597,
+          "role": "Gap infill"
+        }
+      ],
+      "coverage": {
+        "filled_width_mm": 1.9939999999999856,
+        "uncovered_width_mm": 0.006000000000014438,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            111.30000000000001,
+            113.294
+          ]
+        ]
+      }
+    },
+    "cap_pocket_skin": {
+      "layer_mm": 63.0,
+      "span_mm": [
+        226.05,
+        228.1
+      ],
+      "crossings": [
+        {
+          "x_mm": 226.652,
+          "width_mm": 0.45,
+          "role": "Inner wall"
+        },
+        {
+          "x_mm": 226.26,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        },
+        {
+          "x_mm": 227.49452404614019,
+          "width_mm": 0.45,
+          "role": "Inner wall"
+        },
+        {
+          "x_mm": 227.88652509183026,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        },
+        {
+          "x_mm": 227.07350000000002,
+          "width_mm": 0.479189,
+          "role": "Gap infill"
+        }
+      ],
+      "coverage": {
+        "filled_width_mm": 2.0465250951320115,
+        "uncovered_width_mm": 0.003474904867971418,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            226.05,
+            228.09652509513202
+          ]
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "backend": "CalculiX",
+  "version": "unknown",
+  "linear_solver": "default",
+  "gmsh": "4.15.2",
+  "cadquery": "2.8.0",
+  "python": "3.14.7",
+  "input_sha256": "7d1caff5208077799ba90e0c5074d63b97139ebf619c707b28ffac62f05b5634",
+  "case_sha256": "797dd1a743a2c775f9d29438d6bc35c133eff0e3c6a7262359a050400907fb0f",
+  "backend_sha256": {
+    "febio_worker.py": "f19350dfa91552d2272263b48ca87d444bf5e13496d8d2a48121d95eb9d1c825",
+    "contact_diagnostics.py": "2f708d98921416d255b35d05dbe09d5009b117b0f3c301d84f0ffbd2956c0b36",
+    "febio.py": "896077401f8021a950eb0a11ba89cd58aebed169c66fb0d0be9089e3b1fe74c0",
+    "tet10_strain.py": "0eb4b4a1ec129adab94015e73126a650c3e62a281dae143b645b2c1953c1406a",
+    "polyfem_worker.py": "7cec9484b006980c9d96f3dd93858c03d16c224c203f96d4e919b33eb1738d41",
+    "febio_diagnostics.py": "b24d83c8b6dbf04396b2c50d69b9403a73dc2f695a240ef73c84c4e415584255",
+    "__init__.py": "77173af75aa9a76226824183d2b579b40b8c1daef349ab1f28403845351032f9",
+    "polyfem_output.py": "bd3b6e39db25f1c29e1a486f11c88f1d47980f97f544af6c945e02b98d112226",
+    "mesh.py": "557b59f5fcc10f1f9bbeb70e035cdb18707a5191817aaa971a8277824ef75b28",
+    "polyfem.py": "ed7584cf3ed337d58908c78e5cc92b8f40f632153bbfce7e730b086c5d13e9a9",
+    "ipc_benchmarks.py": "8e9800f1e5f42674c2872c2e3956dcf30248b00218471c26e4c943320f8c24b6",
+    "structural.py": "ef979dc3f0f36574f6a6196b0c0dd37cb8746f1a745369de45ea7c06fe2b574b",
+    "worker.py": "3f331ae4489f6041023ea6e78c140849207d965aaeefa873d5ae0ff1398d1e9e",
+    "polyfem_diagnostics.py": "e2bbad2721f8d8aa91990b99ca78f712f616fe9914d03f5d63ab840091069922"
+  },
+  "command": [
+    "/home/hevar/.local/opt/physical-analysis/usr/bin/ccx",
+    "-i",
+    "analysis"
+  ],
+  "postprocess_only": false,
+  "mesh": {
+    "part": {
+      "nodes": 64507,
+      "elements": 32639,
+      "min_jacobian": 0.016135199274769974
+    }
+  },
+  "regions": {
+    "root": {
+      "part": "part",
+      "node_count": 2583,
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ]
+    },
+    "@observe:pad": {
+      "part": "part",
+      "node_count": 53,
+      "displacement_mm": [
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "loads": [
+    {
+      "part": "part",
+      "area_mm2": 22.957368421051637,
+      "force_N": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "contacts": []
+}

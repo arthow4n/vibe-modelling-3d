@@ -1,5 +1,12 @@
 # Short retention trials — less material, full cross-section
 
+**Later continuation, 2026-10-19:** the user reopens wall snaps, accepts that
+opening noise may be tolerable, and asks to reduce production overlap while
+retaining strong closure and sideways stability. The [new full prototype and
+comparison](short_lap.md) supersede this phase's stop. The two printed samples'
+high effort/noise remain observations; their exact identities remain unknown.
+The files below are historical and do not match the new production cap.
+
 ## Printed feedback and direction change — 2026-10-19
 
 The user printed **two short test pieces**. Exact R1-S/R2-S/R3-S/R4-S identities,

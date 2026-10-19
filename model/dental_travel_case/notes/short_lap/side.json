@@ -1,0 +1,174 @@
+{
+  "scope": "Conditional side-bearing response, not a contact equilibrium or impact solve.\n\nTwo opposing 4mm contact bands reproduce a 2N load 90mm above the seam.\nBody and cap deform separately under equal/opposite tractions on matching\nbearing walls. Existing geometry meshes can be reused by the native API.\n Independent linear fixture response and rigid-band extrapolation. Contact redistribution, shell grip, inertia, diagonal loading and material calibration omitted.",
+  "source_sha256": {
+    "short_lap_side_study.py": "8f944eca7945e1f97ec475cc6c2416303a609c34f806a39cc7eb4bce0a3680df",
+    "short_lap_refinement_study.py": "c4bb308384516be43f35a45cb73dbf44157baaa4dc7fcfa1b206ec0eefad0eb1",
+    "short_lap_refinement.py": "74c18ee68c7648d11aea3f59ecf627f6bfb6cf50e2981581c36a0fd225df6472",
+    "short_lap_design.py": "98860b93b2a24c7fca89072222845aa1a05e7ac3c0d95ef58e6d1e6ee26ae61b",
+    "closure_research_design.py": "fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "short_lap_reinforced.py": "66dedc606876908bb5f43bc2dada12734611ba7340d2a705b6c2905149aac1bc",
+    "short_lap_reinforced_study.py": "9f4158b8bdd343176a48e18303e3fafc78ad1e522c908733ab8902bc59dc76da"
+  },
+  "load_N": 2.0,
+  "moment_Nmm": 180.0,
+  "overlap_mm": 24.0,
+  "cases": {
+    "x": {
+      "members": {
+        "body": {
+          "mean_mm": {
+            "top": 0.43884251166666677,
+            "bottom": -0.07316261794466403
+          },
+          "pad_mesh_relative_change": {
+            "top": 0.006690971456130917,
+            "bottom": 0.10564635262209665
+          },
+          "peak_strain": 0.003956764200212241,
+          "input_sha256": "44d50c2cc5c495c1636f81204e2aa100ffe364357c60e5bf3e5adffb9d2ea299",
+          "loads": [
+            {
+              "part": "part",
+              "area_mm2": 55.96917137126992,
+              "force_N": [
+                9.666666666666666,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "part": "part",
+              "area_mm2": 105.0780795559778,
+              "force_N": [
+                -7.666666666666666,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "balance": 3.770873368740055e-07
+        },
+        "cap": {
+          "mean_mm": {
+            "top": -0.2581361855421687,
+            "bottom": 0.4187008945544559
+          },
+          "pad_mesh_relative_change": {
+            "top": 0.006094346227082028,
+            "bottom": 0.036162640696321795
+          },
+          "peak_strain": 0.003446866230034755,
+          "input_sha256": "4d5015a63c701453c68f5a372c60c5fa471de8ace9cf6352b4d5d5aa61b4ce2e",
+          "loads": [
+            {
+              "part": "part",
+              "area_mm2": 55.71747535182181,
+              "force_N": [
+                -9.666666666666666,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "part": "part",
+              "area_mm2": 64.39239753373815,
+              "force_N": [
+                7.666666666666666,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "balance": 8.251248784221273e-08
+        }
+      },
+      "relative_bearing_motion_mm": {
+        "top": 0.6969786972088354,
+        "bottom": -0.49186351249911997
+      },
+      "estimated_extra_roof_motion_mm": 5.254207167755998,
+      "roof_mesh_relative_change": 0.017939788361665064,
+      "coarse_estimated_extra_roof_motion_mm": 5.159947803158111,
+      "estimated_extra_rotation_deg": 3.7787141863714924
+    },
+    "y": {
+      "members": {
+        "body": {
+          "mean_mm": {
+            "top": 0.8638991616797896,
+            "bottom": -0.10449267673684208
+          },
+          "pad_mesh_relative_change": {
+            "top": 0.055113680981619194,
+            "bottom": 0.04641769562980703
+          },
+          "peak_strain": 0.003563841504484105,
+          "input_sha256": "565d1c3168338780de06e5ba050a8343a1bc8f4e2782d1a50ef175ddde3b524d",
+          "loads": [
+            {
+              "part": "part",
+              "area_mm2": 152.77959823208306,
+              "force_N": [
+                0.0,
+                9.666666666666666,
+                0.0
+              ]
+            },
+            {
+              "part": "part",
+              "area_mm2": 149.90570467172353,
+              "force_N": [
+                0.0,
+                -7.666666666666666,
+                0.0
+              ]
+            }
+          ],
+          "balance": 6.089601161475329e-07
+        },
+        "cap": {
+          "mean_mm": {
+            "top": -0.4826918196132594,
+            "bottom": 0.8080971031460674
+          },
+          "pad_mesh_relative_change": {
+            "top": 0.02278447012438295,
+            "bottom": 0.012685046087755633
+          },
+          "peak_strain": 0.0041934390645402145,
+          "input_sha256": "60eca57c6a9d83a5f7c13ad4e225115587dcc90f6093b3f92c081d2d3303f467",
+          "loads": [
+            {
+              "part": "part",
+              "area_mm2": 129.34995346148176,
+              "force_N": [
+                0.0,
+                -9.666666666666666,
+                0.0
+              ]
+            },
+            {
+              "part": "part",
+              "area_mm2": 125.60755059217875,
+              "force_N": [
+                0.0,
+                7.666666666666666,
+                0.0
+              ]
+            }
+          ],
+          "balance": 3.5377360773841694e-07
+        }
+      },
+      "relative_bearing_motion_mm": {
+        "top": 1.346590981293049,
+        "bottom": -0.9125897798829095
+      },
+      "estimated_extra_roof_motion_mm": 10.006783899134224,
+      "roof_mesh_relative_change": 0.015616383741362368,
+      "coarse_estimated_extra_roof_motion_mm": 9.850514121748457,
+      "estimated_extra_rotation_deg": 7.153788222018947
+    }
+  }
+}

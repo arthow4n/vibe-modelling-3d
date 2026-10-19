@@ -1,0 +1,887 @@
+{
+  "schema_version": 1,
+  "variant": "slim-short-lap",
+  "selected_checks": null,
+  "available_variants": [
+    "measured-two-lane",
+    "rounded-c",
+    "plain-cylinder",
+    "slim-m1",
+    "slim-m2b",
+    "slim-m3",
+    "slim-m4",
+    "slim-m5",
+    "research-minimal-closures",
+    "research-short-closures",
+    "clamshell-c6",
+    "hinge-c7-mini",
+    "spine-c8-mini",
+    "slim-short-lap"
+  ],
+  "available_checks": [
+    "short-lap.CAD",
+    "short-lap.comparison",
+    "short-lap.side",
+    "short-lap.publication"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "slim-short-lap",
+    "scope": {
+      "design": "slim-short-lap",
+      "material": "uncalibrated PETG comparison",
+      "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
+      "phase": "unprinted full prototype and matching joint",
+      "overlap_mm": "30.0"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "brush.fit",
+        "text": "Carry the measured electric toothbrush with its head attached",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured 250\u2013255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.CAD"
+            ],
+            "evidence": [
+              "short-lap.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "paste.fit",
+        "text": "Carry toothpaste on its own side with room for tube variation",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured a new tube about 160 x 55 x 40 mm with 30 mm cap and requested margins for other versions"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.CAD"
+            ],
+            "evidence": [
+              "short-lap.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.material",
+        "text": "Use a compliant printed design without a separate TPU print",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User requested compliance and preferably no separately printed TPU part"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "slice",
+            "criterion": "Current paired print exports have native source associations and successful diagnostic slices, no generated support",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.publication"
+            ],
+            "evidence": [
+              "short-lap.publication"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "test.fit",
+        "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#first-print-and-test-procedure",
+          "statement": "User authorized both the small fit test and complete model in one phase"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.CAD"
+            ],
+            "evidence": [
+              "short-lap.CAD"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "slice",
+            "criterion": "Current paired print exports have native source associations and successful diagnostic slices, no generated support",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.publication"
+            ],
+            "evidence": [
+              "short-lap.publication"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.minimal",
+        "text": "Make M1 minimal in design and occupied size",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User rejected earlier bulky designs and requested the most slim minimal suggestions; then selected M1"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.CAD"
+            ],
+            "evidence": [
+              "short-lap.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.secure",
+        "text": "Separate cap with no exterior hinge and a rounded joint that resists opening when struck in a backpack",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#user-instruction-and-architecture",
+          "statement": "User selected M1, accepted a separate cap, requested no exterior hinge, rounded overlap and resistance to popping open when hit in a backpack; authorized modelling"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.CAD"
+            ],
+            "evidence": [
+              "short-lap.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "travel.protection",
+        "text": "Protect the attached toothbrush and full toothpaste tube from outside backpack contents and pressure",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User said floss can travel elsewhere and the case mainly protects toothpaste and toothbrush from contact and crashes"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "side-screen",
+            "criterion": "Stronger 30mm bearing sections improve both mesh-checked principal 2N/180Nmm side-load fixtures versus the first 24mm candidate; independent band tractions and roof extrapolation are not contact equilibrium or impact qualification",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.side"
+            ],
+            "evidence": [
+              "short-lap.side"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.supportfree",
+        "text": "Make the selected architecture support-free",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User asked for a support-free rounded R2/C combination"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "slice",
+            "criterion": "Current paired print exports have native source associations and successful diagnostic slices, no generated support",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.publication"
+            ],
+            "evidence": [
+              "short-lap.publication"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.width-revision",
+        "text": "Reduce the previous M1 exterior width by 25 mm",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.CAD"
+            ],
+            "evidence": [
+              "short-lap.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [
+          "25 mm reduction from the previous 99.2 mm exterior width"
+        ],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.end-retention",
+        "text": "Use small wall-snap bites and tight holding at both widthwise ends of the case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/short_lap.md#authorized-direction--2026-10-19",
+          "statement": "User discards hinged box, reopens smaller-bite wall snaps, accepts potentially tolerable opening noise, and requests a grounded shorter overlap range with very good retention against sideways handling and an improved full model"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.CAD"
+            ],
+            "evidence": [
+              "short-lap.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.end-rounds",
+        "text": "Use substantially larger fillets at both top and bottom ends of the case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User additionally requests much larger fillets at both top and bottom ends of the case and asks that this be learned for future handled designs"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.CAD"
+            ],
+            "evidence": [
+              "short-lap.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.samples",
+        "text": "Create corresponding test pieces for each explored closure, including the user idea",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_research.md",
+          "statement": "User requests autonomous space-first alternatives, their free-rim idea, visual explanations and corresponding test pieces; full models only as useful; no sub-agents unless explicitly requested"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.interior",
+        "text": "Maximize clear interior and explore flat internal walls with minimal retention features",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_research.md",
+          "statement": "User requests autonomous space-first alternatives, their free-rim idea, visual explanations and corresponding test pieces; full models only as useful; no sub-agents unless explicitly requested"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.CAD"
+            ],
+            "evidence": [
+              "short-lap.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.force",
+        "text": "Investigate retention force and equivalent hanging weight before printing, using a reasonable simulation where possible",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_research.md",
+          "statement": "User asks how much force or weight each variant can hold when lifting the box by its cap, and requests recorded computational estimates where feasible"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "comparison",
+            "criterion": "New mesh-checked body/cap radial compliances and actual CAD energy paths compare 18/24/30mm; rigid guide motion and ideal bearing-couple reactions are separately scoped, not loaded stiffness or safe payload",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.comparison"
+            ],
+            "evidence": [
+              "short-lap.comparison"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.short",
+        "text": "Provide substantially shorter, lower-material retention samples without scaling the full cross-section or catches",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_short.md",
+          "statement": "User requests much shorter overlap/base while preserving full XY shapes, a small separation grip gap, and later rechecking full-case overlap and recessed grips"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.grip",
+        "text": "Provide a small accessible separation gap, and record ergonomic gripping and shorter-overlap questions for later full-case adoption",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_short.md",
+          "statement": "User requests much shorter overlap/base while preserving full XY shapes, a small separation grip gap, and later rechecking full-case overlap and recessed grips"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.CAD"
+            ],
+            "evidence": [
+              "short-lap.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.short-overlap",
+        "text": "Find a reasonable shorter overlap range while retaining very good closure and sideways resistance",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/short_lap.md#authorized-direction--2026-10-19",
+          "statement": "User discards hinged box, reopens smaller-bite wall snaps, accepts potentially tolerable opening noise, and requests a grounded shorter overlap range with very good retention against sideways handling and an improved full model"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "comparison",
+            "criterion": "New mesh-checked body/cap radial compliances and actual CAD energy paths compare 18/24/30mm; rigid guide motion and ideal bearing-couple reactions are separately scoped, not loaded stiffness or safe payload",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.comparison"
+            ],
+            "evidence": [
+              "short-lap.comparison"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "side-screen",
+            "criterion": "Stronger 30mm bearing sections improve both mesh-checked principal 2N/180Nmm side-load fixtures versus the first 24mm candidate; independent band tractions and roof extrapolation are not contact equilibrium or impact qualification",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.side"
+            ],
+            "evidence": [
+              "short-lap.side"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "short-lap.CAD",
+        "targets": [
+          [
+            "brush.fit",
+            "geometry"
+          ],
+          [
+            "paste.fit",
+            "geometry"
+          ],
+          [
+            "test.fit",
+            "geometry"
+          ],
+          [
+            "form.minimal",
+            "geometry"
+          ],
+          [
+            "form.width-revision",
+            "geometry"
+          ],
+          [
+            "form.end-rounds",
+            "geometry"
+          ],
+          [
+            "closure.secure",
+            "geometry"
+          ],
+          [
+            "closure.end-retention",
+            "geometry"
+          ],
+          [
+            "research.interior",
+            "geometry"
+          ],
+          [
+            "research.grip",
+            "geometry"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/short_lap/cad.json",
+        "scope": {
+          "design": "slim-short-lap",
+          "material": "uncalibrated PETG comparison",
+          "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
+          "phase": "unprinted full prototype and matching joint",
+          "overlap_mm": "30.0"
+        }
+      },
+      {
+        "id": "short-lap.comparison",
+        "targets": [
+          [
+            "research.force",
+            "comparison"
+          ],
+          [
+            "closure.short-overlap",
+            "comparison"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/short_lap/comparison.json",
+        "scope": {
+          "design": "slim-short-lap",
+          "material": "uncalibrated PETG comparison",
+          "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
+          "phase": "unprinted full prototype and matching joint",
+          "overlap_mm": "30.0"
+        }
+      },
+      {
+        "id": "short-lap.side",
+        "targets": [
+          [
+            "closure.short-overlap",
+            "side-screen"
+          ],
+          [
+            "travel.protection",
+            "side-screen"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/short_lap/reinforced_side.json",
+        "scope": {
+          "design": "slim-short-lap",
+          "material": "uncalibrated PETG comparison",
+          "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
+          "phase": "unprinted full prototype and matching joint",
+          "overlap_mm": "30.0"
+        }
+      },
+      {
+        "id": "short-lap.publication",
+        "targets": [
+          [
+            "print.material",
+            "slice"
+          ],
+          [
+            "print.supportfree",
+            "slice"
+          ],
+          [
+            "test.fit",
+            "slice"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/short_lap/publication.json",
+        "scope": {
+          "design": "slim-short-lap",
+          "material": "uncalibrated PETG comparison",
+          "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
+          "phase": "unprinted full prototype and matching joint",
+          "overlap_mm": "30.0"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "short-lap.selection",
+        "text": "Select overlap from the recorded compliance/guide tradeoff; prototype only, physical retention remains unknown",
+        "reference": "notes/short_lap.md"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "short-lap.sound",
+        "text": "Less overlap may reduce sliding/rubbing time; it does not establish quieter snap release or easier engagement",
+        "reference": "notes/short_lap.md"
+      }
+    ],
+    "directives": [
+      {
+        "id": "hinge.abandoned",
+        "text": "Discard hinged dental-box direction; continue short wall snaps autonomously",
+        "source": {
+          "reference": "notes/short_lap.md#authorized-direction--2026-10-19",
+          "statement": "User discards hinged box, reopens smaller-bite wall snaps, accepts potentially tolerable opening noise, and requests a grounded shorter overlap range with very good retention against sideways handling and an improved full model"
+        }
+      },
+      {
+        "id": "research.no-agents",
+        "text": "Do not use sub-agents unless the user explicitly requests them",
+        "source": {
+          "reference": "notes/closure_research.md",
+          "statement": "User requests autonomous space-first alternatives, their free-rim idea, visual explanations and corresponding test pieces; full models only as useful; no sub-agents unless explicitly requested"
+        }
+      }
+    ]
+  },
+  "help": null
+}

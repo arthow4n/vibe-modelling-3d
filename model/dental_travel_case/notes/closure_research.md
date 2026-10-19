@@ -1,5 +1,10 @@
 # Space-first closure research — four unprinted experiments
 
+**Later continuation, 2026-10-19:** [short-lap production work](short_lap.md)
+reopens the end-wall-snap direction under the user's new noise/overlap priorities.
+The historical specimens and calculations below remain unchanged; their earlier
+stop and clamshell recommendation are superseded for current work.
+
 **Historical phase — discontinued 2026-10-19.** The user printed two later short
 samples (exact variants unknown), reports excessive engagement effort and noisy
 opening, and stops this mechanism family. See the [print report](closure_short.md#printed-feedback-and-direction-change--2026-10-19)

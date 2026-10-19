@@ -1,6 +1,11 @@
 # C8 — clear interior and a flat-opening flexible spine
 
-**Current status — 2026-10-19: printed box failure; work paused at the user's
+**Direction discarded, later on 2026-10-19:** the user explicitly ditches the
+hinged box and authorizes the [short-lap wall-snap box](short_lap.md). Preserve
+this failed/unqualified hinge work as history; do not resume it from old print
+instructions below.
+
+**Earlier status — 2026-10-19: printed box failure; work paused at the user's
 request.** The shortened loop broke immediately on the first attempt to push it.
 The TPU strips have **not** been printed. No redesign, analysis or further print
 is authorized by this report; the user requests recording it only.

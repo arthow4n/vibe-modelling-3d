@@ -1,0 +1,138 @@
+{
+  "name": "side_cap_y",
+  "nonlinear": false,
+  "max_increment": 1.0,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "7d004bbbd1fc8c228e38d53b23bf19e428edf0940f5e2a26262d7cf94127c561",
+      "material": {
+        "name": "Uncalibrated PETG comparison",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus. Not measured FDM data; no strength limit supplied.",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 2.5,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            null,
+            null,
+            264.0
+          ],
+          "upper": [
+            null,
+            null,
+            264.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -28,
+            -23.6,
+            193.0
+          ],
+          "upper": [
+            28,
+            -23.6,
+            197.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        -9.666666666666666,
+        0.0
+      ]
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -28,
+            23.6,
+            175.0
+          ],
+          "upper": [
+            28,
+            23.6,
+            179.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        7.666666666666666,
+        0.0
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": [
+    {
+      "name": "top",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -28,
+            -23.6,
+            193.0
+          ],
+          "upper": [
+            28,
+            -23.6,
+            197.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "bottom",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -28,
+            23.6,
+            175.0
+          ],
+          "upper": [
+            28,
+            23.6,
+            179.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}

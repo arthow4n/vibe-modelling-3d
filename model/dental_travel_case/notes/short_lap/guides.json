@@ -1,0 +1,117 @@
+{
+  "source_sha256": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "closure_research_design.py": "fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128",
+    "short_lap_design.py": "98860b93b2a24c7fca89072222845aa1a05e7ac3c0d95ef58e6d1e6ee26ae61b",
+    "short_lap_study.py": "48a411636e0c3b65325e5f78f0f482afaf0b57019626ded54db65fd94d3c7b0e",
+    "short_lap_report.py": "1769d155fe74b34c1961eebbba5422e8aefd9e6e6c169c79fc4c9360f0c4b866",
+    "closure_research_flex.py": "3cc48785e80635532b43162b62570614f9971f24d95d4919dfb4dcae95bed8a7",
+    "closure_research_pull.py": "6d9cb2b2876c4a50d561b583424c69e446481e29aed591813bb4b0fbbc57d3e0",
+    "overlap_exploration.py": "731ad72d4423356306ff6044ae3fe10169b8c7be66af733f64e1c111312283a1",
+    "overlap_diagonal.py": "440e4fb117abf5ec5c8d77a83d2cd8448fe47839548f62269b66eb312ef45483"
+  },
+  "cases": {
+    "18.0": {
+      "x": [
+        {
+          "shift_mm": 0.0,
+          "angle_deg": 0.494384765625,
+          "roof_center_lateral_motion_mm": 0.7775211358145389
+        },
+        {
+          "shift_mm": 0.15,
+          "angle_deg": 1.001220703125,
+          "roof_center_lateral_motion_mm": 1.4265422915595605
+        }
+      ],
+      "y": [
+        {
+          "shift_mm": 0.0,
+          "angle_deg": 0.497314453125,
+          "roof_center_lateral_motion_mm": 0.782567427621188
+        },
+        {
+          "shift_mm": 0.15,
+          "angle_deg": 1.0133056640625,
+          "roof_center_lateral_motion_mm": 1.4474157154932255
+        }
+      ],
+      "diagonal": {
+        "angle_deg": 1.0228271484375,
+        "roof_center_lateral_motion_mm": 1.463632111528647
+      },
+      "side_load_assumption_N": 2.0,
+      "seam_moment_Nmm": 180.0,
+      "ideal_full_span_bearing_reaction_N": 10.0,
+      "scope": "Guide-only rigid prescribed principal and diagonal rocking, snaps omitted; no loaded stiffness, unrestricted peel or impact strength claim"
+    },
+    "24.0": {
+      "x": [
+        {
+          "shift_mm": 0.0,
+          "angle_deg": 0.3665771484375,
+          "roof_center_lateral_motion_mm": 0.5763380648397738
+        },
+        {
+          "shift_mm": 0.15,
+          "angle_deg": 0.73828125,
+          "roof_center_lateral_motion_mm": 1.0117825970502863
+        }
+      ],
+      "y": [
+        {
+          "shift_mm": 0.0,
+          "angle_deg": 0.36767578125,
+          "roof_center_lateral_motion_mm": 0.5783036864218745
+        },
+        {
+          "shift_mm": 0.15,
+          "angle_deg": 0.7430419921875,
+          "roof_center_lateral_motion_mm": 1.0202546623160345
+        }
+      ],
+      "diagonal": {
+        "angle_deg": 0.7474365234375,
+        "roof_center_lateral_motion_mm": 1.0278096631896805
+      },
+      "side_load_assumption_N": 2.0,
+      "seam_moment_Nmm": 180.0,
+      "ideal_full_span_bearing_reaction_N": 7.5,
+      "scope": "Guide-only rigid prescribed principal and diagonal rocking, snaps omitted; no loaded stiffness, unrestricted peel or impact strength claim"
+    },
+    "30.0": {
+      "x": [
+        {
+          "shift_mm": 0.0,
+          "angle_deg": 0.29150390625,
+          "roof_center_lateral_motion_mm": 0.4582226134974223
+        },
+        {
+          "shift_mm": 0.15,
+          "angle_deg": 0.5855712890625,
+          "roof_center_lateral_motion_mm": 0.7711341837315014
+        }
+      ],
+      "y": [
+        {
+          "shift_mm": 0.0,
+          "angle_deg": 0.292236328125,
+          "roof_center_lateral_motion_mm": 0.4595243368802411
+        },
+        {
+          "shift_mm": 0.15,
+          "angle_deg": 0.588134765625,
+          "roof_center_lateral_motion_mm": 0.7757782636384379
+        }
+      ],
+      "diagonal": {
+        "angle_deg": 0.5906982421875,
+        "roof_center_lateral_motion_mm": 0.7802063523171066
+      },
+      "side_load_assumption_N": 2.0,
+      "seam_moment_Nmm": 180.0,
+      "ideal_full_span_bearing_reaction_N": 6.0,
+      "scope": "Guide-only rigid prescribed principal and diagonal rocking, snaps omitted; no loaded stiffness, unrestricted peel or impact strength claim"
+    }
+  }
+}

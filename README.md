@@ -118,7 +118,15 @@ coupon (N/A).
 - Final object: Partial — variant H printed; user reports it works well; other variants unreported
 - Provenance: [Record](model/faceted_storage_tray/README.md#attribution) · Agent effort: [Selected token/timing record](model/faceted_storage_tray/notes/agent_effort.md)
 
-#### Dental travel containers — closure trials discontinued; clamshell exploration
+#### Dental travel containers — short-lap slim wall-snap box
+
+[Current full prototype, production joint test and overlap comparison](model/dental_travel_case/notes/short_lap.md).
+**2026-10-19:** the user discards the hinged box and reopens small wall snaps.
+Opening noise is potentially acceptable; priority is much shorter overlap with
+strong retention and sideways stability. Current geometry and computational
+screens are prototypes; printed retention/effort/packing remain unqualified.
+The selected model uses **30 mm overlap**, reinforced bearing walls and small
+.6 mm bumps, preserving the printed slim box's exterior size.
 
 [M1 full-box feedback and retained files](model/dental_travel_case/notes/m1.md) · [Separate M2B retention investigation](model/dental_travel_case/notes/m2.md)
 
@@ -126,23 +134,24 @@ coupon (N/A).
 
 [Historical research: four minimal wall-flexure/slide closure specimens](model/dental_travel_case/notes/closure_research.md), including the user's free-rim idea. These long specimens were not adopted as a full case; subsequent short samples were printed and rejected as recorded below.
 [Conditional R1/R2 straight-pull force and equivalent-weight investigation](model/dental_travel_case/notes/closure_pull.md); R3 bead and R4 rail-lifting forces remain unresolved.
-[Discontinued short wall-snap trials and their print report](model/dental_travel_case/notes/closure_short.md).
+[Earlier short wall-snap trials and their print report](model/dental_travel_case/notes/closure_short.md).
 
 **2026-10-19:** two short samples printed (exact variants unknown); user reports
-high engagement effort and noisy opening, and discontinues these closure trials.
-[Current C8: clear interior and a flat-opening flexible spine](model/dental_travel_case/notes/spine.md).
+high engagement effort and noisy opening, and initially discontinues these trials;
+the later direction above reopens them with revised priorities.
+[Discarded C8: clear interior and a flat-opening flexible spine](model/dental_travel_case/notes/spine.md).
 C7's internal pivot shelves were rejected before printing. C8 replaces them with
 flush-mounted TPU spines and a continuous rear wall (.8 mm thicker), with a CAD
 folding path to 180°. The complete mini box uses separate PETG and TPU plates;
 **latest print feedback: the shortened loop broke immediately on its first push;
-TPU strips have not been printed. Work paused — record only, no redesign.**
+TPU strips have not been printed. Hinged direction now discarded.**
 Mount pullout, hinge life and integrated operation remain untested. A small exterior
-pin hinge is retained as a rough alternative. [C7](model/dental_travel_case/notes/internal_hinge.md)
+pin hinge remains historical CAD. [C7](model/dental_travel_case/notes/internal_hinge.md)
 and [C6](model/dental_travel_case/notes/clamshell_exploration.md) remain historical.
 
-- Test pieces: Two short wall snaps printed and rejected for effort/noise; that family is stopped. C7 mini boxes rejected before printing for intrusive shelves. C8-context box printed (exact file/size/settings unknown); shortened loop broke on first push, TPU strips not printed. Work paused at user request
-- Final object: M1 printed — retention failed; source/exports preserved. C8 studies clear-interior flat opening, with complete mini box first; no full C8 print adopted. Packing, integrated retention and durability remain unknown
-- Provenance: [Record](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
+- Test pieces: New production-joint prototype unprinted. Earlier two short wall snaps had high effort/noise, exact variants unknown. C7 rejected before printing for intrusive shelves; C8-context shortened loop broke on first push, TPU strips unprinted; hinged work discarded
+- Final object: New short-lap wall-snap prototype unprinted. M1 printed and usable, retention inadequate; source/exports preserved. Current packing, integrated retention, sideways stiffness and durability require physical assessment
+- Provenance: [Current](model/dental_travel_case/notes/short_lap.md#attribution), [historical](model/dental_travel_case/notes/provenance.md) · Agent effort: [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
 
 #### Slim dental box S16 liner
 
@@ -288,6 +297,7 @@ take precedence for their stated files.
 | [Integrated MacBook charger holder](model/macbook_charger_holder/) | [CC BY-NC-SA 4.0](model/macbook_charger_holder/LICENSE) | [Original model and modifications](model/macbook_charger_holder/ATTRIBUTION.md) |
 | [TPU damping-box Orca snapshots](model/tpu_damping_box/profiles/) — profile JSONs only | [AGPL-3.0](model/tpu_damping_box/profiles/LICENSE.txt) | [Orca/Qidi sources and changes](model/tpu_damping_box/profiles/ATTRIBUTION.md); model geometry retains the default licence |
 | [Dental S16 Orca process](model/dental_travel_case_liner/profiles/) — profile JSON only | [AGPL-3.0](model/dental_travel_case_liner/profiles/LICENSE.txt) | [Source and layer-height changes](model/dental_travel_case_liner/profiles/ATTRIBUTION.md); liner geometry retains the default licence |
+| [Dental short-lap Orca process](model/dental_travel_case/notes/short_lap/profiles/) — profile JSON only | [AGPL-3.0](model/dental_travel_case/notes/short_lap/profiles/LICENSE.txt) | [Source and three-wall change](model/dental_travel_case/notes/short_lap/profiles/ATTRIBUTION.md); geometry retains the default licence |
 | [Swatch Q1 Orca profile snapshots](model/filament_swatch_box_study/notes/quiet_q1_profiles/) — profile JSONs only | [AGPL-3.0](model/filament_swatch_box_study/notes/quiet_q1_profiles/LICENSE.txt) | [Orca/Qidi source and snapshot changes](model/filament_swatch_box_study/notes/quiet_q1_profiles/ATTRIBUTION.md); Q1 model geometry retains the default licence |
 
 Remixing is welcome under each object's applicable terms. For the charger

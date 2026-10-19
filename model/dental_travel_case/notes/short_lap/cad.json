@@ -1,0 +1,139 @@
+{
+  "scope": "Product-local fit, capture, path and rocking checks for the short-lap box. Finite rigid obstructions do not establish elastic snap passage or printed retention.",
+  "source_sha256": {
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m1_checks.py": "f6966d451b172a47ac40d7f665919cd8907b0d930bb0f5bd52cf48fea01faa9e",
+    "closure_research_design.py": "fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128",
+    "short_lap_design.py": "98860b93b2a24c7fca89072222845aa1a05e7ac3c0d95ef58e6d1e6ee26ae61b",
+    "short_lap_refinement.py": "74c18ee68c7648d11aea3f59ecf627f6bfb6cf50e2981581c36a0fd225df6472",
+    "short_lap_reinforced.py": "66dedc606876908bb5f43bc2dada12734611ba7340d2a705b6c2905149aac1bc",
+    "short_lap_checks.py": "8e2eab2f73bf36411138fc59a07521e5e225890d851a0de05c0b29d449f341ad"
+  },
+  "selected_overlap_mm": 30.0,
+  "dimensions_mm": {
+    "width": 74.2,
+    "depth": 51.2,
+    "length": 264.0,
+    "seam": 174.0,
+    "overlap": 30.0,
+    "guide_clearance_per_side": 0.1,
+    "sleeve_wall": 2.0,
+    "bump": 0.6
+  },
+  "independent_capture": [
+    {
+      "catch": -1,
+      "x_shift_mm": -0.1,
+      "obstruction_mm3": 2.6752070249542297
+    },
+    {
+      "catch": -1,
+      "x_shift_mm": 0.0,
+      "obstruction_mm3": 3.8631558105930464
+    },
+    {
+      "catch": -1,
+      "x_shift_mm": 0.1,
+      "obstruction_mm3": 5.24579836603136
+    },
+    {
+      "catch": 1,
+      "x_shift_mm": -0.1,
+      "obstruction_mm3": 5.245798366031352
+    },
+    {
+      "catch": 1,
+      "x_shift_mm": 0.0,
+      "obstruction_mm3": 3.863155810593042
+    },
+    {
+      "catch": 1,
+      "x_shift_mm": 0.1,
+      "obstruction_mm3": 2.6752070249542257
+    }
+  ],
+  "path": [
+    {
+      "travel_mm": 0,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 0.0
+    },
+    {
+      "travel_mm": 0.2,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 0.08429824561675384
+    },
+    {
+      "travel_mm": 0.5,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 2.914473684211296
+    },
+    {
+      "travel_mm": 1,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 7.726311621183164
+    },
+    {
+      "travel_mm": 1.5,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 11.146586172401832
+    },
+    {
+      "travel_mm": 2,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 12.961792085812046
+    },
+    {
+      "travel_mm": 3,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 9.65624999999397
+    },
+    {
+      "travel_mm": 4,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 1.1229166666605823
+    },
+    {
+      "travel_mm": 6,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 0.0
+    },
+    {
+      "travel_mm": 12,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 0.0
+    },
+    {
+      "travel_mm": 30.0,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 0.0
+    },
+    {
+      "travel_mm": 31.0,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 0.0
+    },
+    {
+      "travel_mm": 90,
+      "guide_intersection_mm3": 0.0,
+      "snap_intersection_mm3": 0.0
+    }
+  ],
+  "individual_passage_gaps_mm": {
+    "brush_extraction": 0.8000000000000007,
+    "tube_individual_passage": 0.8000000000000007
+  },
+  "central_aperture_mm": [
+    64.60000000000001,
+    41.6
+  ],
+  "sample": {
+    "complete_production_cap": true,
+    "body_crop_below_seam_mm": 16,
+    "body_height_mm": 46.0,
+    "cap_height_mm": 90.0
+  },
+  "hard_seat": true,
+  "grips_clear": true,
+  "end_rounds_checked": true
+}

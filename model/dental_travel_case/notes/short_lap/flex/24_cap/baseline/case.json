@@ -1,0 +1,96 @@
+{
+  "name": "short_lap_24_cap",
+  "nonlinear": false,
+  "max_increment": 1.0,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "b2788d0787476e5f06d3d75f8fe2886788200a2fd548270f90f4626e373c9dee",
+      "material": {
+        "name": "Uncalibrated PETG comparison",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus. Not measured FDM data; no strength limit supplied.",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 2.5,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            null,
+            null,
+            264.0
+          ],
+          "upper": [
+            null,
+            null,
+            264.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            35.1,
+            -5.3,
+            191.8
+          ],
+          "upper": [
+            35.1,
+            5.3,
+            194.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": [
+    {
+      "name": "pad",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            35.1,
+            -5.3,
+            191.8
+          ],
+          "upper": [
+            35.1,
+            5.3,
+            194.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}
