@@ -79,11 +79,14 @@ Check damping-core coverage around bends as well as along straight walls.
 
 ### Preferred closed-skin straight-rib TPU damping profile
 
-Use the approved S16 starting profile while qualifying each new application.
+Retain S16 as an approved reference; consider the later B08/B16 approval when
+selecting an experimental liner, and qualify each new application.
 
 **Evidence:** [Printed S16/S12 comparison](../../../../model/tpu_damping_box/README.md#s16--s12-print-feedback--2026-10-16): both work; user prefers S16 over S12/I22, good compared with I30/original 4 mm I. S16: 0.4 mm backing + 0.8 mm air core + 0.4 mm contact skin; 0.9 mm straight ribs at 4.4 mm pitch.
 
 **Scope and limits:** Approved starting profile for rigid-shell/TPU impact liners, including the requested sunglasses-case adaptation. Preserve both skins and local rib dimensions; review new coverage, corners, installation, contents and printing. Consult the linked S16 adaptation ironing lesson when choosing the contact-skin finish. Subjective single-setup evidence at user-confirmed 0.2 mm layers; other exact settings, cause, dB, wear and application performance unknown. No universal optimum or material calibration.
+
+**Later comparison:** [2026-10-21 A/B/C report](../../../../model/tpu_damping_box/notes/b_surface_concepts.md): user approves B08/B16 with damping similar to S16 and improved object-facing finish, tentatively favoring B08 print quality; rejects A16/A20 frames and C12/C16 solids for damping. Phone ranges are approximate observations, not calibrated attenuation. Existing B tie layers contain more disconnected deposition chains than layers between ties, while their visible contact contour stays closed. Printed strings/seam artifacts and tall-liner survival remain unresolved; proposed SVG patterns have no CAD/slice/physical qualification. This advances the experiment without replacing successful application-specific S16 evidence.
 
 ### Flat-faced folded-web TPU impact liner
 

@@ -1,0 +1,189 @@
+{
+  "category": "retained-slicer-route-inspection",
+  "new_slice": false,
+  "limits": "Centerline endpoint links are illustrative, not actual travels, seam counts or physical artifacts. Two selected layers of existing slices, excluding pad and inter-part moves. Actual user settings unknown.",
+  "chain_break_tolerance_mm": 0.005,
+  "source_sha256": {
+    "review_b_surface_routes.py": "03fd53eed19232118b51bbe25c6f4ee628294225dd760f3b333b7e4e82843c8d",
+    "review_support_paths.py": "39954f92248b998ddb9e9af0af68a07e5daa667307b560a1188645fb4604a578",
+    "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373"
+  },
+  "variants": {
+    "B08": {
+      "gcode_sha256": "b07c974d66f89c8093dec18fe108b413db3534716f2154bcacdc56731efbe8b4",
+      "input_stl_sha256": "160aff29c019dacaf931b9dd903b842ee6c416270e1c865b8f307070c33ab12b",
+      "native_receipt": "notes/support_B08_final.json",
+      "effective_settings": {
+        "wall_generator": "classic",
+        "detect_thin_wall": "0",
+        "reduce_crossing_wall": "0",
+        "seam_position": "aligned",
+        "seam_gap": "0%",
+        "wall_loops": "2",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "retraction_length": [
+          "0.8"
+        ],
+        "retraction_minimum_travel": [
+          "1"
+        ],
+        "wipe": [
+          "1"
+        ]
+      },
+      "layers": [
+        {
+          "z_mm": 3.0,
+          "deposition_segments": 368,
+          "disconnected_chains": 30,
+          "full_width_contours": [
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                15.610000000000014,
+                -15.61
+              ],
+              "closed_to_mm": 0.0
+            },
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                16.789999999999992,
+                16.789999999999992
+              ],
+              "closed_to_mm": 0.0
+            }
+          ]
+        },
+        {
+          "z_mm": 4.4,
+          "deposition_segments": 16,
+          "disconnected_chains": 4,
+          "full_width_contours": [
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                16.710000000000008,
+                -16.709999999999994
+              ],
+              "closed_to_mm": 0.0
+            },
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                16.789999999999992,
+                16.789999999999992
+              ],
+              "closed_to_mm": 0.0
+            },
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                15.610000000000014,
+                -15.61
+              ],
+              "closed_to_mm": 0.0
+            },
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                15.689999999999998,
+                15.689999999999998
+              ],
+              "closed_to_mm": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    "B16": {
+      "gcode_sha256": "f42c49f96c1e60371ccd15aaafec5253b44f257720dc348fc55dc9aa16dccf42",
+      "input_stl_sha256": "a16911cd29157ddc418bb51acfb3e4824942573ac0d2aec1539d62404cdf9408",
+      "native_receipt": "notes/support_B16_final.json",
+      "effective_settings": {
+        "wall_generator": "classic",
+        "detect_thin_wall": "0",
+        "reduce_crossing_wall": "0",
+        "seam_position": "aligned",
+        "seam_gap": "0%",
+        "wall_loops": "2",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "retraction_length": [
+          "0.8"
+        ],
+        "retraction_minimum_travel": [
+          "1"
+        ],
+        "wipe": [
+          "1"
+        ]
+      },
+      "layers": [
+        {
+          "z_mm": 3.0,
+          "deposition_segments": 251,
+          "disconnected_chains": 58,
+          "full_width_contours": [
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                -15.61,
+                -15.61
+              ],
+              "closed_to_mm": 0.0
+            },
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                -16.789999999999992,
+                -16.790000000000006
+              ],
+              "closed_to_mm": 0.0
+            }
+          ]
+        },
+        {
+          "z_mm": 4.4,
+          "deposition_segments": 16,
+          "disconnected_chains": 4,
+          "full_width_contours": [
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                -16.709999999999994,
+                -16.709999999999994
+              ],
+              "closed_to_mm": 0.0
+            },
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                -16.789999999999992,
+                -16.790000000000006
+              ],
+              "closed_to_mm": 0.0
+            },
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                -15.61,
+                -15.61
+              ],
+              "closed_to_mm": 0.0
+            },
+            {
+              "role": "Outer wall",
+              "start_mm": [
+                -15.689999999999998,
+                -15.689999999999998
+              ],
+              "closed_to_mm": 0.0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

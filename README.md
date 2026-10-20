@@ -175,11 +175,11 @@ and [C6](model/dental_travel_case/notes/clamshell_exploration.md) remain histori
 
 #### TPU damping box research
 
-[Preferred printed S16 profile](model/tpu_damping_box/README.md)
+[Approved B08/B16 experiments and retained S16 reference](model/tpu_damping_box/README.md)
 
-- Test pieces: Yes — prior liners at 0.2 mm layers; S16/S12 work, S16 preferred; I10 rejected. Latest report: surface waviness remains despite 50% ironing. New [eight 30 mm finish coupons](model/tpu_damping_box/README.md#surface-finish-coupons--2026-10-17): not yet printed; surface and damping comparison pending. Other exact prior settings unknown
-- Final object: N/A — samples; S16 approved starting profile for rigid-shell/TPU damping; application fit/quietness require review
-- Current follow-up: [R2 support-test pairs](model/tpu_damping_box/README.md#ordinary-classic-repair--r2) replace R1, which the user rejected before printing for missing sliced walls. R2 retains A at 1.6/2.0 mm and both B tie sizes at 1.6 mm, with 0.5 mm skins and engraved R2 IDs. One ordinary Classic profile, thin-wall detection OFF; R1 loses walls/produces empty-layer errors under that setup. User now reports all four R2 pairs printed, testing pending. New [solid C12/C16 controls](model/tpu_damping_box/README.md#solid-c12c16-controls--2026-10-20) at 1.2/1.6 mm are supplied for comparison, unprinted; both pass the supplied 100% fill Classic TPU slice without generated supports. Physical installation survival and damping remain untested. F0–F7 do not qualify tall walls
+- Test pieces: Yes — prior liners at 0.2 mm layers; S16/S12 work, S16 preferred; I10 rejected. Earlier surface report: waviness remains despite 50% ironing. New [eight 30 mm finish coupons](model/tpu_damping_box/README.md#surface-finish-coupons--2026-10-17): not yet printed; surface and damping comparison pending. Other exact prior settings unknown
+- Final object: N/A — samples; B08/B16 now approved experimental candidates, S16 retained as the earlier approved reference; application fit/quietness require review
+- Current follow-up (2026-10-21): all six latest A/B/C pairs printed and compared. **B08/B16 approved**, similar damping to S16; B08 tentatively has fewer print issues. A16/A20 and solid C12/C16 rejected for damping relative to S16. B's object-facing finish is better, but stringing/seam artifacts remain. [Physical report and SVG-only improvement proposals](model/tpu_damping_box/notes/b_surface_concepts.md); no new models or presets in this phase. Taller-liner breakage risk remains unqualified. Existing [R2 files/setup](model/tpu_damping_box/README.md#ordinary-classic-repair--r2) retained unchanged.
 - Provenance: [Record](model/tpu_damping_box/README.md#attribution) · Agent effort: N/A — no performance study requested
 
 #### One-sided dental latch research

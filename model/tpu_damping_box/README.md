@@ -1,30 +1,28 @@
 # Flat-faced TPU damping box experiment
 
-**R2 replaces the rejected support batch — 2026-10-20.** The user declined
-printing R1 because walls disappeared in their slice. The same failure is reproduced
-with ordinary Classic widths. [R2](#ordinary-classic-repair--r2) retains the four
-selected total thicknesses, uses 0.5 mm continuous skins, and removes dependence
-on narrow widths/thin-wall recovery. Both pieces now carry an **R2** marking.
-The user clarifies that repository defaults were used; exact original slicer
-runtime/import format remain unreported. The user now reports all four R2 pairs
-printed; installation survival and damping are still untested.
+**Current decision — 2026-10-21:** the user has printed all six latest A/B/C
+pairs. **B08 and B16 are approved** for this experiment; B08 has a tentative
+small print-quality advantage and no meaningful damping difference from B16.
+A16/A20 and solid C12/C16 are rejected as damping choices relative to the retained
+S16 baseline. Object-facing finish, stringing and seam-area artifacts still need
+improvement; approval does not qualify tall application liners.
+[Full print report and SVG proposals](notes/b_surface_concepts.md).
 
-**S16 is the user's preferred printed damping profile (2026-10-16).**
-S16 and S12 were both printed and both work. Subjectively, S16 feels better than
-S12 and I22, and good even compared with I30 and the original 4 mm I. The user
-selects S16 for reuse in rigid-shell/TPU damping, starting with the already
-printed sunglasses case.
+**Current phase:** investigate B-derived routes and draw SVG suggestions only.
+**No new CAD models, exports or changed print presets are authorized in this
+phase.** Existing B files and settings remain the printed baseline.
 
-**Current phase (2026-10-20):** add [solid C12/C16 pairs](#solid-c12c16-controls--2026-10-20)
-at 1.2/1.6 mm for comparison with the printed, untested
-[four support-test pairs](#four-printable-support-pairs--2026-10-20).
-The dental liner broke further during insertion. These are experiments in minimum
-usable thickness, installation survival and damping; neither concept inherits
-the printed S16 approval.
+**Retained baseline:** S16/S12 were printed and accepted on 2026-10-16, with S16
+preferred. The latest report finds B damping similar to S16 and its object-facing
+finish already better; it moves B08/B16 forward as approved candidates. The
+sunglasses application's successful S16-derived liner remains scoped to that
+application. R1's missing-wall rejection and [R2 repair](#ordinary-classic-repair--r2)
+remain documented; all latest A/B references here mean R2.
 
 **Surface follow-up (2026-10-17):** the user reports visibly wavy/lined contact
-surfaces despite some improvement with 50% ironing. S16 remains preferred for
-damping, but surface flatness is unresolved. Print the new
+surfaces despite some improvement with 50% ironing. S16 was preferred for
+damping at that phase; the latest B approval is recorded above. Surface flatness
+remains unresolved. Print the new
 [eight small surface coupons](#surface-finish-coupons--2026-10-17) when convenient;
 no replacement full box is included.
 
@@ -39,14 +37,16 @@ the current R2 support correction.
 
 ## Current result and reading routes
 
-This is a comparative liner fixture, not a finished storage product. **No full S16 cup
-reprint is needed for damping selection**: both S16/S12 work and S16 is the approved starting profile.
+This is a comparative liner fixture, not a finished storage product. **B08/B16 are
+now approved experimental candidates**, with S16 retained as the earlier damping
+reference. No S16 reprint is needed for the current comparison.
 The separate [sunglasses-case liner](../sunglasses_case_liner/README.md) now has
 positive application feedback for fit and damping. The
 [slim dental liner](../dental_travel_case_liner/README.md) has reported wall
 defects; neither application result is established by these research samples.
 
-- For the current support-test files/setup, read [R2](#ordinary-classic-repair--r2).
+- For the latest physical results and proposed improvements, read [B surface concepts](notes/b_surface_concepts.md).
+- For the existing support-test files/setup, read [R2](#ordinary-classic-repair--r2).
 - For the printed S16 baseline, read [closed-skin follow-up](#closed-skin-follow-up)
   and [setup](#setup-and-assembly).
 - For what the preference actually establishes, read the [S16/S12 report](#s16--s12-print-feedback--2026-10-16).
@@ -55,8 +55,8 @@ defects; neither application result is established by these research samples.
   [path review](#printing-and-manufacturing-review) and [physical status](#verification-and-physical-status).
 
 Older batch/test instructions below describe those experiments; they do not
-replace the current closed-skin choice. Quietness preferences are subjective
-reported observations at user-confirmed 0.2 mm layers. Other exact settings,
+replace the latest B approval and remaining finish work. Quietness preferences
+are subjective reported observations at user-confirmed 0.2 mm layers. Other exact settings,
 acoustic mechanism and durability remain unknown. Detailed negative results
 remain useful for judging future transfers.
 
@@ -267,10 +267,13 @@ Saved verification reports for [A16](notes/support_verification_A16.json),
 [A20](notes/support_verification_A20.json), [B08](notes/support_verification_B08.json)
 and [B16](notes/support_verification_B16.json) pass all seven digital checks:
 fit, skins, cores, labels, ordinary Classic paths, repository-default paths and
-publication identity. Physical questions remain **UNKNOWN**, so their overall
-exit reason is `unresolved_evidence`; no report claims physical approval.
+publication identity. At the time of those saved reports, physical questions
+were **UNKNOWN**, so their overall exit reason is `unresolved_evidence`. The
+[later print comparison](notes/b_surface_concepts.md) now supplies B approval and
+A rejection for damping; it does not qualify every other physical question.
 
-Physical approval is still absent. First inspect inner/outer skins, corners,
+**Historical R2 test plan (before the 2026-10-21 report):** first inspect
+inner/outer skins, corners,
 floor junctions, labels and bridge bonds as printed; then gently insert/remove
 one complete matched set in the existing shell. Reject tears, layer splits,
 skin/support detachment or lost shape. If intact, compare repeatable gentle/firmer
@@ -283,13 +286,18 @@ association. The separate F0–F7 finish study remains untested.
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | R1 support pairs | No — rejected before printing | [Historical files/evidence](notes/rejected_r1/README.md) | Missing walls in user's slice; ordinary-control failure reproduced |
-| R2 support pairs | Yes — user reports all four printed, testing pending | `support_A16`, `support_A20`, `support_B08`, `support_B16`, each `.py/.step/.stl` | Physical continuity, bridge bonding, channel survival, installation survival, squeeze and damping untested |
+| R2 A16/A20 pairs | Yes — compared, 2026-10-21 | `support_A16`, `support_A20`, each `.py/.step/.stl` | Rejected for damping relative to S16; exterior appearance may be better; [full report](notes/b_surface_concepts.md#physical-report--2026-10-21) |
+| R2 B08/B16 pairs | Yes — approved, 2026-10-21 | `support_B08`, `support_B16`, each `.py/.step/.stl` | Similar damping to S16 and each other; tentative print advantage for B08; finish/stringing/seam issues remain; tall-liner survival unqualified |
 | Final application liner | N/A — experiment phase | None new | Existing dental failure remains unresolved; R2 does not qualify transfer |
 
 ## Solid C12/C16 controls — 2026-10-20
 
-The user has printed all four R2 pairs but has not tested them. After touching
-B16, they request two **solid** variants without internal structures. This phase
+**Current status:** both solid controls are printed and rejected for damping in
+the [2026-10-21 comparison](notes/b_surface_concepts.md). The original design
+and proposed test setup below remain as historical evidence.
+
+**Original request, 2026-10-20:** the user has printed all four R2 pairs but has
+not tested them. After touching B16, they request two **solid** variants without internal structures. This phase
 adds C12/C16; it does not replace or modify the printed A/B designs. Spoken
 “12/16” is interpreted as **1.2/1.6 mm total lining**, consistent with S16 and the
 preceding A16/A20 discussion. There is an older, unrelated 4 mm variant C;
@@ -354,21 +362,24 @@ Saved [C12 verification](notes/solid_verification_C12.json) and
 labels and current publication/path identity; all four digital checks pass for
 both variants. Reproduce with
 `./execute.py model/tpu_damping_box/verification.py --variant C12` (or `C16`).
-Physical questions remain UNKNOWN. Digital checks cannot establish printed
-density, installation strength, squeeze, fatigue or quietness. The STL slice
+Physical questions were UNKNOWN when these reports were saved; the later user
+report rejects C for damping. Digital checks cannot establish printed density,
+installation strength, squeeze, fatigue or quietness. The STL slice
 does not verify Orca's separate GUI STEP import.
 
-Compare C16 with B16 first: both have the same nominal cavity and total lining,
+**Historical comparison plan:** compare C16 with B16 first; both have the same
+nominal cavity and total lining,
 so that comparison holds more geometry constant than C12. Use the same shell,
 nut, spool and grip; inspect the print, gently insert/remove it, then compare
 repeatable X/Y/Z shaking. Record tears, permanent distortion, fit/squeeze and
-sharp ticks separately. C12 changes thickness and cavity size together. No
-printed result or minimum safe thickness is established for C yet.
+sharp ticks separately. C12 changes thickness and cavity size together. The later
+[2026-10-21 report](notes/b_surface_concepts.md) rejects both C controls for damping;
+no minimum safe thickness is established.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Solid C control pairs | No — newly supplied test pieces | `solid_C12`, `solid_C16`, each `.py/.step/.stl` | Print integrity, labels, insertion/removal, squeeze and damping comparison pending |
-| Final application liner | N/A — experiment phase | None new | These controls do not qualify transfer to the dental liner |
+| Solid C control pairs | Yes — compared, 2026-10-21 | `solid_C12`, `solid_C16`, each `.py/.step/.stl` | Rejected for damping: user perceives only a small effect, almost none; [full report](notes/b_surface_concepts.md#physical-report--2026-10-21) |
+| Final application liner | N/A — experiment phase | None new | Rejected controls retained as evidence; they do not qualify transfer to the dental liner |
 
 ## Surface-finish coupons — 2026-10-17
 
@@ -1183,3 +1194,9 @@ identifier/reasoning effort not exposed. Harness: Codex shared-workspace CLI/API
 agent; provider OpenAI. No subagents. Solid C12/C16 comparison is user-requested;
 this phase authors the parametric solid geometry, markings and checks, retaining
 the established fixture, R2 pad interface and attributed print profiles.
+
+B print-feedback and SVG-discussion phase, 2026-10-21: primary language model
+GPT-6 family; exact runtime identifier/reasoning effort not exposed. Harness:
+Codex shared-workspace CLI/API agent; provider OpenAI. No subagents. User supplies
+the physical comparison and B approvals; the phase authors retained-path
+inspection and SVG ideas. No new CAD geometry, printable export or preset.
