@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="930" viewBox="0 0 1200 930">
+<rect width="1200" height="930" fill="#faf9f5"/>
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#243840} .small{font-size:15px} .label{font-size:18px}</style>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#c1742b"/></marker></defs>
+<text x="38" y="43" font-size="30" style="fill:#243840">Where should the two recessed grip bands sit?</text>
+<text x="38" y="74" font-size="17" style="fill:#243840">Selected shape: smooth full-wrap bands, 0.7 mm deep × 20 mm wide. Distances are from the seam.</text>
+<text x="38" y="104" font-size="17" style="fill:#243840">Opening: keep the body below the cap, upright or diagonal, to help keep the toothbrush inside.</text>
+<text x="45" y="142" font-size="20" style="fill:#243840">A — too near the backing</text>
+<rect x="90" y="160" width="123" height="435.59999999999997" rx="10" fill="#e3ecee" stroke="#486775" stroke-width="2"/>
+<rect x="97" y="259.0" width="109" height="49.5" fill="#93adb5" opacity=".4" stroke="#486775" stroke-dasharray="5 4"/>
+<rect x="86" y="244.14999999999998" width="7" height="64.35" fill="#8b8d92"/>
+<line x1="81" x2="222" y1="308.5" y2="308.5" stroke="#243840" stroke-width="3"/>
+<rect x="90" y="226.0" width="123" height="33.0" rx="5" fill="#d58c45" opacity=".85"/>
+<line x1="83" x2="220" y1="242.5" y2="242.5" stroke="#d58c45" stroke-dasharray="3 3"/>
+<rect x="90" y="316.75" width="123" height="33.0" rx="5" fill="#8873af" opacity=".85"/>
+<line x1="83" x2="220" y1="333.25" y2="333.25" stroke="#8873af" stroke-dasharray="3 3"/>
+<text x="226" y="247.5" font-size="16" style="fill:#243840">+40 mm</text>
+<text x="226" y="338.25" font-size="16" style="fill:#243840">−15 mm</text>
+<path d="M151.5 234.5V199.5" stroke="#c1742b" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="58" y="630" font-size="15" style="fill:#243840">Cap band overlaps the backing blend.</text>
+<text x="58" y="658" font-size="16" style="fill:#243840">Band centres: 55 mm apart</text>
+<text x="58" y="684" font-size="16" style="fill:#243840">Cap band: +30 to +50 mm</text>
+<text x="58" y="710" font-size="16" style="fill:#243840">Body band: −25 to −5 mm</text>
+<text x="435" y="142" font-size="20" style="fill:#243840">B — selected layout</text>
+<rect x="480" y="160" width="123" height="435.59999999999997" rx="10" fill="#e3ecee" stroke="#486775" stroke-width="2"/>
+<rect x="487" y="259.0" width="109" height="49.5" fill="#93adb5" opacity=".4" stroke="#486775" stroke-dasharray="5 4"/>
+<rect x="476" y="244.14999999999998" width="7" height="64.35" fill="#8b8d92"/>
+<line x1="471" x2="612" y1="308.5" y2="308.5" stroke="#243840" stroke-width="3"/>
+<rect x="480" y="201.25" width="123" height="33.0" rx="5" fill="#d58c45" opacity=".85"/>
+<line x1="473" x2="610" y1="217.75" y2="217.75" stroke="#d58c45" stroke-dasharray="3 3"/>
+<rect x="480" y="341.5" width="123" height="33.0" rx="5" fill="#8873af" opacity=".85"/>
+<line x1="473" x2="610" y1="358.0" y2="358.0" stroke="#8873af" stroke-dasharray="3 3"/>
+<text x="616" y="222.75" font-size="16" style="fill:#243840">+55 mm</text>
+<text x="616" y="363.0" font-size="16" style="fill:#243840">−30 mm</text>
+<path d="M541.5 209.75V174.75" stroke="#c1742b" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="448" y="630" font-size="15" style="fill:#243840">Clear of backing; useful room to either end.</text>
+<text x="448" y="658" font-size="16" style="fill:#243840">Band centres: 85 mm apart</text>
+<text x="448" y="684" font-size="16" style="fill:#243840">Cap band: +45 to +65 mm</text>
+<text x="448" y="710" font-size="16" style="fill:#243840">Body band: −40 to −20 mm</text>
+<text x="825" y="142" font-size="20" style="fill:#243840">C — usable alternative</text>
+<rect x="870" y="160" width="123" height="435.59999999999997" rx="10" fill="#e3ecee" stroke="#486775" stroke-width="2"/>
+<rect x="877" y="259.0" width="109" height="49.5" fill="#93adb5" opacity=".4" stroke="#486775" stroke-dasharray="5 4"/>
+<rect x="866" y="244.14999999999998" width="7" height="64.35" fill="#8b8d92"/>
+<line x1="861" x2="1002" y1="308.5" y2="308.5" stroke="#243840" stroke-width="3"/>
+<rect x="870" y="184.75" width="123" height="33.0" rx="5" fill="#d58c45" opacity=".85"/>
+<line x1="863" x2="1000" y1="201.25" y2="201.25" stroke="#d58c45" stroke-dasharray="3 3"/>
+<rect x="870" y="374.5" width="123" height="33.0" rx="5" fill="#8873af" opacity=".85"/>
+<line x1="863" x2="1000" y1="391.0" y2="391.0" stroke="#8873af" stroke-dasharray="3 3"/>
+<text x="1006" y="206.25" font-size="16" style="fill:#243840">+65 mm</text>
+<text x="1006" y="396.0" font-size="16" style="fill:#243840">−50 mm</text>
+<path d="M931.5 193.25V166" stroke="#c1742b" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="838" y="630" font-size="15" style="fill:#243840">Less room above the cap band.</text>
+<text x="838" y="658" font-size="16" style="fill:#243840">Band centres: 115 mm apart</text>
+<text x="838" y="684" font-size="16" style="fill:#243840">Cap band: +55 to +75 mm</text>
+<text x="838" y="710" font-size="16" style="fill:#243840">Body band: −60 to −40 mm</text>
+<text x="38" y="760" font-size="20" style="fill:#243840">Read the drawing</text>
+<text x="38" y="789" font-size="17" style="fill:#243840">Orange: lift the cap here. Purple: support the body here. Black line: seam.</text>
+<text x="38" y="817" font-size="17" style="fill:#243840">Dashed fill: internal sleeve ends at +30 mm. Grey strip: existing exterior backing blend ends at +39 mm.</text>
+<text x="38" y="845" font-size="17" style="fill:#243840">Choose B: cap centre +55 mm / body centre −30 mm. Cap band starts 6 mm beyond the backing.</text>
+<text x="38" y="873" font-size="17" style="fill:#243840">Location selected from layout and opening use. Printed traction/feel remains a separate physical question.</text>
+<text x="38" y="904" font-size="15" style="fill:#243840">Side view, schematic width. Bands wrap around all faces/corners. No printable CAD has been changed.</text>
+</svg>
