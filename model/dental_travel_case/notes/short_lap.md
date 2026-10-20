@@ -20,7 +20,11 @@ The user explicitly means that **a sideways hit must not open the box**. This
 is an unintended-release requirement. The current prototype has **UNKNOWN**
 coverage: neither the 2 N static stiffness comparison nor the 11.22 N centered
 slow-pull estimate establishes that the cap stays attached during a lateral hit.
-No acceptable impact severity has yet been specified or measured.
+The intended use is knocks and bumps inside a travel bag; no numerical impact
+severity has been specified or measured.
+The coupled-release investigation is **INCONCLUSIVE**. Keep the current 30 mm
+prototype; the available results do not justify a further overlap reduction or
+a side-impact force rating. No geometry fix is claimed from these snapshots.
 
 Review of the current geometry and study fixtures identifies the missing path:
 a hit can rock the cap, spreading a receiving wall and loading one ramped bite
@@ -36,6 +40,124 @@ impact on a loaded full box must ultimately establish closure retention under
 its stated hit location, support, direction and severity. The short joint sample
 can assess local fit and effort but omits the full box's inertia and leverage.
 The 30 mm candidate remains a prototype; no sideways-hit rating is assigned.
+
+The user subsequently specifies **knocks and bumps inside a travel bag**, and
+authorizes verification and correction. The computational question is
+whether the complete cap, with axial movement free, peels off the deformable
+30 mm joint during transverse roof displacement. The body perimeter is clamped
+16 mm below the seam; a small roof patch moves sideways, with its axial DOF free
+and an explicit .05 N seating bias. This is a quasi-static weakness search, not
+an impact-time simulation or measured bag load. A provisional 10 N lateral
+roof-force comparison is agent-selected, not user acceptance or a safe rating.
+Inspect contact/engagement and stop this route if failed numerical quality or
+resource limits prevent interpretation; do not infer retention from failure.
+If a weak escape path is found, revise it before refining force precision.
+Otherwise resolve relevant mesh/increment/contact sensitivity to about 10% and
+retain the need for a loaded physical knock test.
+
+The [rigid contact-sequence search](short_lap/rocking.json) includes both bites,
+both principal rocking axes and initial shifts of −.10 / 0 / +.10 mm. With no
+initial shift, widthwise rocking picks up the far bite at **.0877–.0881°**,
+before the guide at **.1941–.1945°**. At the adverse +.10 mm shift these become
+**.1568–.1572°** and **.3904–.3907°**. Broad-face rocking at +.10 mm shift also
+picks up both bites before its guide. Thus the guide-only angle cannot be used
+as free assembled motion or a retention limit. A rigid ±.10 mm widthwise shift
+alone gives a tiny **.00112 mm³** flank overlap at the near bite; a printed joint
+would have to deform there. That overlap is not a measured preload or failure.
+
+The initial [full](short_lap/flex/lateral_x/baseline/result.json) and
+[mirror-half](short_lap/flex/lateral_half_x/baseline/result.json) contact attempts
+were deliberately interrupted during initial contact settling, with **no accepted
+loading frames**. The initial simultaneous side displacement and tiny seating
+load did not establish the unloaded cap state cleanly; these attempts do not
+show opening or establish any force threshold. Both meshes have positive
+Jacobians. The revised fixture holds lateral displacement at zero over the first
+10% of its load parameter to establish seating, then drives sideways with the
+axial DOF still free. The half-domain has zero normal displacement on the actual
+mirror plane and half the seating load; full lateral reaction is twice its
+reaction. This restriction covers centered principal-plane loading, not diagonal
+or asymmetric impacts. The fresh solve reuses only the identity-checked mesh,
+never the interrupted displacement/contact solution. Source:
+[lateral study](../short_lap_lateral.py).
+
+The later seated runs were interrupted before completing their loading paths;
+accepted snapshots survive, but **neither run is a completed retention study**.
+The additional initially shifted-cap attempt never accepted a frame. These
+interruptions are not measured opening events. The native process owners no
+longer existed when work continued, so incomplete jobs were not called complete
+or silently resumed. The shorter targeted restart uses fresh solutions, the
+previous finalized X-half mesh only, and a fresh Y mesh. Its first mesh-reuse
+attempt correctly rejected the orphaned runs' missing final receipts; the retry
+preserves this guard rather than fabricating a receipt.
+
+| Diagnostic accepted state | Equivalent full lateral roof force | Additional inward tooth retraction needed on sampled axial withdrawal |
+| --- | ---: | --- |
+| Widthwise X, .889 mm roof drive | 12.64 N | Negative-X tooth: **.028 mm**; positive-X tooth: **.347 mm** |
+| Broad-side Y, .356 mm roof drive | .00298 N | Both mirrored end teeth: **.506 mm** |
+
+These are **conditional static snapshots, not safe-force or impact ratings**.
+The X state consumes nearly all capture at one bite while the other remains
+engaged; it does not demonstrate complete cap release. Its roof has lifted
+.406 mm on average despite the small seating bias. The Y state lifts .104 mm,
+primarily taking up geometric play before bearing.
+Snapshot force-balance errors are below 3e−7 relative; reported contact
+penetrations are .00798 / .000111 mm, below the provisional .03 mm screen. No
+mesh, increment or contact sensitivity has qualified these coupled results.
+The largest absolute principal strain is .713% / .00105%; uncalibrated isotropic
+PETG supplies no printed strength or impact allowable.
+
+The last accepted-step records at X=.22 / Y=.16 were initially inspected as
+17.81 N / 1.084 N states. Their complete nodal fields yielded the preliminary
+one-bite loss / remaining-capture observations. Contact-location diagnostics then
+rejected them: CDIS/CSTR row counts were **3501/3481** and **348/298**.
+The interrupted jobs left the final pressure blocks short by 20 / 50 rows.
+Consequently those states cannot supply complete contact-quality evidence;
+the table uses the preceding complete output frames instead. The inspection
+reader now rejects mismatched rows, and the shared native summary applies the
+same check before accepting numerical evidence. Reproduction of the retained
+frames checks their full fields and original frozen input/case identities.
+The existing backend's physical-intent comparison also matches the retained
+X/Y shapes, material, supports, loading and numerical settings to the current
+builders, and rejects a deliberately changed fixture. The capture reader uses
+this association before selecting teeth with current production dimensions.
+The complete X=.20 contact-location diagnostic places peak pressure on the
+negative-X retaining lip; the other loaded locations are the sleeve guidance
+and seam seat. Its 159.7 MPa local penalty-pressure peak is mesh/contact-sensitive
+and is not a printed-material strength measurement or allowable.
+
+The [snapshot reader](../short_lap_lateral_capture.py) keeps native IDs and
+checks complete finite nodal/integration-point fields with the existing native
+summary and matching contact displacement/pressure rows before inspecting
+deformed surface triangles. Virtual axial withdrawal
+samples 0–6 mm with radial bisection brackets ≤.01 mm. A fixed 1.2 mm inward
+shift clears every sampled path as a negative control. The unloaded X control
+recovers the nominal .5 mm obstruction within .01 mm. The .05 mm additional
+retraction screen is agent-selected geometry discrimination, not retention-force
+acceptance. Constant initial penetration alone does not count as capture.
+
+Reports: [X loaded](short_lap/lateral_capture_seated_x_0.2.json),
+[Y loaded](short_lap/lateral_capture_seated_y_0.14.json),
+[unloaded control](short_lap/lateral_capture_seated_x_0.02.json).
+[Actual deformed X section](short_lap/lateral_seated_x_0.2.svg).
+Their [snapshot archives](short_lap/snapshots/) retain the frozen deck, case,
+regions, native accepted-step log and the original selected DAT frame, gzip
+compressed. Expand each file into its `scope.json` source directory to inspect
+again; do not use these one-frame archives as complete-run evidence. Raw local
+native jobs are ignored. The original capture reports record the source identity
+used at their creation, including the native summary implementation.
+
+The decisive physical check is the existing **full 30 mm prototype**, loaded
+with the actual travel contents and printed in the delivered PETG placement and
+settings below. Mark the seated seam, then try realistic knocks in the intended
+bag against both broad faces, both widthwise ends and corners; inspect for a
+partially lifted or unlatched end as well as complete opening. Record the bag,
+surrounding contents, approximate action and direction so the result has a
+defined scope. Any partial unlatching or opening requires revision before further
+overlap reduction. Staying seated supports that tested use only, not a universal
+impact/force rating. The joint crop is useful for fit and deliberate opening
+effort, but omits body span, contents and inertia; it cannot settle this question.
+The existing full prototype is more informative than another smaller coupon or
+an uncalibrated impact simulation. No current prototype print is reported.
 
 ## Selected prototype and why
 
@@ -296,7 +418,11 @@ not become successful tests of this new full geometry.
 
 The shared [verification report](short_lap/verification.json) records separate
 CAD, reduced-mechanics, side-screen and slice evidence; actual printed acceptance
-remains UNKNOWN. The focused intent/CLI tests passed **26 tests**. Reflection:
+remains UNKNOWN. The previous intent/CLI phase passed **26 tests**. This
+investigation passed **19 focused regression tests**, including incomplete
+contact output rejection; all three retained native snapshots reproduce their
+complete field summaries. The real-solver node/surface-contact and open-gap
+benchmarks also accept complete fields under the strengthened guard. Reflection:
 shorter guidance and stronger retention are separate design choices; explicitly
 checking wall compliance changed the recommendation from a thin 24 mm joint to
 the reinforced 30 mm prototype. Existing shared guidance already covers that

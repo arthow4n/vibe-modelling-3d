@@ -231,6 +231,10 @@ def summarize(case, frames, meshes, nodes, elements, selections):
     for time,frame in sorted(frames.items()) if isinstance(frames,dict) else frames:
         if case['contacts'] and any(field not in frame for field in ('relative contact displacement','contact stress')):
             raise ValueError(f'Missing contact output at load fraction {time}; cannot assess penetration or engagement')
+        if case['contacts']:
+            gaps,pressures=frame['relative contact displacement'],frame['contact stress']
+            if len(gaps)!=len(pressures) or any(g[:2]!=p[:2] for g,p in zip(gaps,pressures)):
+                raise ValueError(f'Incomplete or differently ordered contact output at load fraction {time}')
         for field in ('displacements','forces','stresses','strains'):
             if not frame.get(field): raise ValueError(f'Missing {field} at load fraction {time}')
         us={int(r[0]):np.array(r[1:]) for r in frame['displacements']}

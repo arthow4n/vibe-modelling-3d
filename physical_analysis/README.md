@@ -586,7 +586,8 @@ whole-assembly compliance or collision clearance.
 ## Result contract
 
 `completed` means the solver finished the entire normalized load interval,
-required nodal/integration-point fields exist and force imbalance at every saved
+required nodal/integration-point fields exist, contact displacement/pressure rows
+have matching counts and identifiers when contact is requested, and force imbalance at every saved
 increment is below 1% (normalized by the larger of applied force, summed reaction magnitudes
 and 1 N). It does **not** mean the design is adequate. `status`, `errors` and
 `warnings` distinguish failures, timeouts and completed solves with notices.

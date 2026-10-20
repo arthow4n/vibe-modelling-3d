@@ -1,0 +1,7 @@
+{
+  "status": "interrupted_run_snapshot",
+  "completed": false,
+  "accepted_fraction": 0.2,
+  "source_directory": "notes/short_lap/native/lateral_seated_x/baseline",
+  "warning": "Only one accepted output frame retained. No complete loading path, sensitivity or impact qualification."
+}

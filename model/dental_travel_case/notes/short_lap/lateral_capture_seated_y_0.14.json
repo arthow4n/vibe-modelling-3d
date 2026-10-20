@@ -1,0 +1,159 @@
+{
+  "scope": "Snapshot capture on deformed native triangles; not a holding-force solver.\n\nVirtually withdraw the cap and measure additional radial tooth retraction needed\nfor clearance. Constant initial compression alone is not called axial capture.\nBoth the state and the virtual paths are sampled, not continuous-motion proofs.\n",
+  "stage": "seated",
+  "axis": "y",
+  "load_fraction": 0.14,
+  "run_completed": false,
+  "interpretation": "Diagnostic accepted snapshot only; full side-release study INCONCLUSIVE",
+  "snapshot_quality": {
+    "load_fraction": 0.14,
+    "max_displacement_mm": 0.4094529611368209,
+    "force_balance_residual_N": 2.1877266706916382e-07,
+    "force_balance_relative": 2.1877266706916382e-07,
+    "max_abs_principal_strain": 1.0441611909576978e-05,
+    "reactions_N": {
+      "symmetry": [
+        -1.7193478799777694e-07,
+        0.0,
+        0.0
+      ],
+      "lateral": [
+        0.0,
+        0.0014890019899999989,
+        0.0
+      ],
+      "body_root": [
+        -0.0013231283590300013,
+        -0.0014889973090650025,
+        0.00349999897625
+      ],
+      "body_symmetry": [
+        0.0013488312436299992,
+        0.0,
+        0.0
+      ]
+    },
+    "observations": {
+      "roof": {
+        "min_mm": [
+          -4.402621e-06,
+          0.3555556,
+          0.08827397
+        ],
+        "max_mm": [
+          0.0,
+          0.3555556,
+          0.1199718
+        ],
+        "mean_mm": [
+          -1.6271849230769232e-06,
+          0.3555556,
+          0.10409638999999998
+        ]
+      },
+      "lip_positive": {
+        "min_mm": [
+          -1.637719e-05,
+          0.07563935,
+          0.08275856
+        ],
+        "max_mm": [
+          -1.356093e-05,
+          0.0849817,
+          0.1275903
+        ],
+        "mean_mm": [
+          -1.5518826812500006e-05,
+          0.079438280375,
+          0.10516160006250005
+        ]
+      },
+      "rim_positive": {
+        "min_mm": [
+          -1.84996e-05,
+          -0.02497731,
+          0.08299084
+        ],
+        "max_mm": [
+          -1.689713e-05,
+          -0.02348638,
+          0.1278033
+        ],
+        "mean_mm": [
+          -1.7904162127659574e-05,
+          -0.024620878936170206,
+          0.10541652106382979
+        ]
+      }
+    },
+    "motion_force_N": {
+      "lateral": 0.0014890019899999989
+    },
+    "contact_points": 247,
+    "max_contact_pressure_MPa": 2.220285,
+    "max_penetration_mm": 0.0001110143
+  },
+  "roof_drive_mm": 0.3555555555555556,
+  "full_fixture_signed_lateral_reaction_N": 0.0029780039799999977,
+  "native_input_sha256": "1706541e246e9a3b0267155bad59bd87a64b9edc4617e285f67b2534d7914f31",
+  "native_case_sha256": "19a0379753645e55216bd6a87d5a094ee7965707f7dcbb4feb5c327f69553b78",
+  "native_maximum_penetration_mm": 0.0001110143,
+  "radial_bracket_width_at_most_mm": 0.01,
+  "provisional_capture_margin_mm": 0.05,
+  "source_sha256": {
+    "short_lap_lateral_capture.py": "e77d1ed61436378dc4a13f317852b3ceb8d6e586209e90befdc9fbd717b7ecad",
+    "short_lap_lateral_view.py": "06b182785d0e2fe5c8c2e0f5ff349f2f408d3eba1eff271d7c71fed354769d61",
+    "short_lap_lateral.py": "1e37f198d029b81be815e410b3b852465a851dfbb784e24f1f7f4c95b28be410",
+    "short_lap_reinforced.py": "66dedc606876908bb5f43bc2dada12734611ba7340d2a705b6c2905149aac1bc",
+    "short_lap_refinement.py": "74c18ee68c7648d11aea3f59ecf627f6bfb6cf50e2981581c36a0fd225df6472",
+    "../../physical_analysis/mesh_witness.py": "0443f3fd74203503520ec9d6267f1da7760f47ed567a793695750079b3f26d2d",
+    "../../physical_analysis/backends/worker.py": "c6a7ade14164fa9b331b1da1befd8601f2fef8f4351afbde141d975801392fc6"
+  },
+  "catches": {
+    "1": {
+      "face_count": 36,
+      "path": [
+        {
+          "virtual_withdrawal_mm": 0.0,
+          "additional_inward_clearance_shift_mm": 0.0
+        },
+        {
+          "virtual_withdrawal_mm": 0.25,
+          "additional_inward_clearance_shift_mm": 0.178125
+        },
+        {
+          "virtual_withdrawal_mm": 0.5,
+          "additional_inward_clearance_shift_mm": 0.375
+        },
+        {
+          "virtual_withdrawal_mm": 1.0,
+          "additional_inward_clearance_shift_mm": 0.5062499999999999
+        },
+        {
+          "virtual_withdrawal_mm": 1.5,
+          "additional_inward_clearance_shift_mm": 0.5062499999999999
+        },
+        {
+          "virtual_withdrawal_mm": 2.0,
+          "additional_inward_clearance_shift_mm": 0.5062499999999999
+        },
+        {
+          "virtual_withdrawal_mm": 3.0,
+          "additional_inward_clearance_shift_mm": 0.5062499999999999
+        },
+        {
+          "virtual_withdrawal_mm": 4.0,
+          "additional_inward_clearance_shift_mm": 0.196875
+        },
+        {
+          "virtual_withdrawal_mm": 6.0,
+          "additional_inward_clearance_shift_mm": 0.0
+        }
+      ],
+      "extra_retraction_above_current_contact_mm": 0.5062499999999999,
+      "sampled_capture_witness": true,
+      "inward_1_2mm_negative_control_clear": true
+    }
+  },
+  "native_snapshot": "notes/short_lap/snapshots/lateral_seated_y_0.14"
+}

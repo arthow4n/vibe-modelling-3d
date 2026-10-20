@@ -13,6 +13,15 @@ from physical_analysis import AnalysisCase, Material, Region
 MATERIAL = Material('benchmark',1200,.3,'Explicit numerical benchmark, not filament data')
 
 
+@pytest.mark.parametrize('pressures', [[], [[2,1,.2,0,0]]])
+def test_summary_rejects_truncated_or_misaligned_contact_fields(pressures):
+    from physical_analysis.backends.worker import summarize
+    frame = {'relative contact displacement': [[1,1,-.001,0,0]],
+             'contact stress': pressures}
+    with pytest.raises(ValueError,match='Incomplete or differently ordered contact output'):
+        summarize({'parts': [],'contacts': [{}]}, {1.:frame}, {}, {}, {}, {})
+
+
 def beam(mesh=2, nonlinear=False):
     c=AnalysisCase('cantilever',nonlinear=nonlinear)
     c.add_part('beam',cq.Workplane('XY').box(40,8,2,centered=False),material=MATERIAL,mesh_size_mm=mesh)

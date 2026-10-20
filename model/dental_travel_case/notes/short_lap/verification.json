@@ -22,6 +22,7 @@
     "short-lap.CAD",
     "short-lap.comparison",
     "short-lap.side",
+    "short-lap.lateral-release",
     "short-lap.publication"
   ],
   "exit_reason": "unresolved_evidence",
@@ -725,7 +726,7 @@
         "kind": "user",
         "provenance": {
           "reference": "notes/short_lap.md#sideways-hit-clarification--2026-10-20",
-          "statement": "User clarifies: hitting the box from sideways should not open the box; impact severity is not specified"
+          "statement": "User clarifies: hitting the box from sideways should not open the box, specifically knocks and bumps inside a travel bag; no numeric impact severity is specified"
         },
         "non_applicable": null,
         "questions": [
@@ -739,9 +740,26 @@
             "strategies": [],
             "evidence": [],
             "out_of_scope": []
+          },
+          {
+            "id": "coupled-release",
+            "criterion": "Coupled deformable cap/body loading with free axial cap motion excludes sequential release through a provisional 10N principal-plane comparison, with adequate contact and sensitivity evidence; separate from impact validation",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "INCONCLUSIVE",
+            "coverage": "evidence",
+            "strategies": [
+              "short-lap.lateral-release"
+            ],
+            "evidence": [
+              "short-lap.lateral-release"
+            ],
+            "out_of_scope": []
           }
         ],
-        "acceptance_criteria": [],
+        "acceptance_criteria": [
+          "Knocks and bumps inside a travel bag"
+        ],
         "coverage": "uncovered"
       }
     ],
@@ -839,6 +857,25 @@
         "status": "PASS",
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "notes/short_lap/reinforced_side.json",
+        "scope": {
+          "design": "slim-short-lap",
+          "material": "uncalibrated PETG comparison",
+          "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
+          "phase": "unprinted full prototype and matching joint",
+          "overlap_mm": "30.0"
+        }
+      },
+      {
+        "id": "short-lap.lateral-release",
+        "targets": [
+          [
+            "closure.side-hit",
+            "coupled-release"
+          ]
+        ],
+        "status": "INCONCLUSIVE",
+        "summary": "A complete static snapshot shows almost all capture consumed at one widthwise bite while the other retains it. No qualified complete sequential-release path or mesh/increment/contact sensitivities; 10 N is an agent comparison, not travel-bag impact acceptance. See notes/short_lap.md.",
+        "reference": "notes/short_lap.md#sideways-hit-clarification--2026-10-20",
         "scope": {
           "design": "slim-short-lap",
           "material": "uncalibrated PETG comparison",

@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from product_verification import (Plan, Question as Q, UserRequirement as U,
     UserSource as S, Directive, DesignDecision, Hypothesis, assertion_check,
-    protect_user_requirements)
+    protect_user_requirements, CalculationInconclusive)
 from closure_short_verification import make_short_plan
 from closure_research_verification import require_sources
 from closure_research_checks import hashes
@@ -17,7 +17,7 @@ RECORD = 'notes/short_lap.md'
 SOURCE = S(RECORD+'#authorized-direction--2026-10-19',
     'User discards hinged box, reopens smaller-bite wall snaps, accepts potentially tolerable opening noise, and requests a grounded shorter overlap range with very good retention against sideways handling and an improved full model')
 SIDE_HIT_SOURCE = S(RECORD+'#sideways-hit-clarification--2026-10-20',
-    'User clarifies: hitting the box from sideways should not open the box; impact severity is not specified')
+    'User clarifies: hitting the box from sideways should not open the box, specifically knocks and bumps inside a travel bag; no numeric impact severity is specified')
 PUBLICATION_INPUTS = ('m1_design.py','closure_research_design.py','short_lap_design.py',
     'short_lap_refinement.py','short_lap_reinforced.py','short_lap_case.py','short_lap_joint_test.py',
     '../../uv.lock','../../evaluate_model.py')
@@ -97,6 +97,19 @@ def side_comparison():
         assert after < before, 'Reinforcement must improve both declared side-bearing paths'
 
 
+def lateral_release():
+    """Preserve attempted coupled evidence without promoting partial snapshots."""
+    for name in ('seated_x_0.2','seated_y_0.14'):
+        data = json.loads((OUT/('lateral_capture_'+name+'.json')).read_text())
+        require_sources({key:data['source_sha256'][key]
+                         for key in ('short_lap_reinforced.py','short_lap_refinement.py')})
+        assert not data['run_completed'], 'Historical interrupted snapshots must retain their scope'
+    raise CalculationInconclusive(
+        'A complete static snapshot shows almost all capture consumed at one widthwise bite while the other retains it. '
+        'No qualified complete sequential-release path or mesh/increment/contact sensitivities; '
+        '10 N is an agent comparison, not travel-bag impact acceptance. See notes/short_lap.md.')
+
+
 def publication():
     record = json.loads((OUT/'publication.json').read_text())
     require_sources(record['inputs'])
@@ -137,7 +150,8 @@ def make_plan(variant, baseline):
         if r.id == 'closure.end-retention' else r for r in parent.requirements)
     protect_user_requirements(parent.requirements,intent,changes={'closure.end-retention':SOURCE})
     intent += (U('closure.short-overlap','Find a reasonable shorter overlap range while retaining very good closure and sideways resistance',SOURCE),)
-    intent += (U('closure.side-hit','The box stays closed when hit from the side',SIDE_HIT_SOURCE),)
+    intent += (U('closure.side-hit','The box stays closed when hit from the side',SIDE_HIT_SOURCE,
+                 acceptance_criteria=('Knocks and bumps inside a travel bag',)),)
     scope = dict(design=variant,material='uncalibrated PETG comparison',
                  process='0.4 mm nozzle / 0.2 mm layers / three walls',phase='unprinted full prototype and matching joint',
                  overlap_mm=str(production.SELECTED_OVERLAP))
@@ -158,6 +172,9 @@ def make_plan(variant, baseline):
     add('short-lap.side',[(r,'side-screen') for r in ('closure.short-overlap','travel.protection')],
         'Stronger 30mm bearing sections improve both mesh-checked principal 2N/180Nmm side-load fixtures versus the first 24mm candidate; independent band tractions and roof extrapolation are not contact equilibrium or impact qualification',
         'numerical',side_comparison,'notes/short_lap/reinforced_side.json')
+    add('short-lap.lateral-release',[('closure.side-hit','coupled-release')],
+        'Coupled deformable cap/body loading with free axial cap motion excludes sequential release through a provisional 10N principal-plane comparison, with adequate contact and sensitivity evidence; separate from impact validation',
+        'numerical',lateral_release,RECORD+'#sideways-hit-clarification--2026-10-20')
     add('short-lap.publication',[(r,'slice') for r in ('print.material','print.supportfree','test.fit')],
         'Current paired print exports have native source associations and successful diagnostic slices, no generated support',
         'slicer',publication,'notes/short_lap/publication.json')

@@ -1,0 +1,227 @@
+{
+  "scope": "Rigid rocking contact sequence; no elastic or impact qualification.\n\nThe guide-only limit is deliberately not called free assembled motion. Locate\nearlier tooth contact on the same path, including adverse initial side play.\n",
+  "intersection_tolerance_mm3": 1e-05,
+  "scan_step_at_most_deg": 0.025,
+  "bracket_width_at_most_deg": 0.0005,
+  "source_sha256": {
+    "short_lap_rocking.py": "dfd0bb8fbe1d364b6a3f489672277bdb4fc1fd92ab846f01c8fa650a1bd36011",
+    "short_lap_reinforced.py": "66dedc606876908bb5f43bc2dada12734611ba7340d2a705b6c2905149aac1bc",
+    "short_lap_refinement.py": "74c18ee68c7648d11aea3f59ecf627f6bfb6cf50e2981581c36a0fd225df6472",
+    "short_lap_design.py": "98860b93b2a24c7fca89072222845aa1a05e7ac3c0d95ef58e6d1e6ee26ae61b",
+    "closure_research_design.py": "fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128",
+    "overlap_exploration.py": "731ad72d4423356306ff6044ae3fe10169b8c7be66af733f64e1c111312283a1",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5"
+  },
+  "cases": [
+    {
+      "rotation_axis": "x",
+      "initial_side_shift_mm": -0.1,
+      "guide_contact": {
+        "angle_deg": 0.0179443359375,
+        "bracket_deg": [
+          0.0179443359375,
+          0.018310546875
+        ],
+        "contact_center_mm": [
+          7.639691707350586e-05,
+          22.79588677123105,
+          193.82743337130347
+        ],
+        "contact_extent_mm": [
+          -32.421308178281116,
+          32.421308178281116,
+          22.51447154375794,
+          22.800000100000002,
+          174.01549947195335,
+          203.60946019508995
+        ]
+      },
+      "catch_contact_brackets_deg": {
+        "-1": null,
+        "1": null
+      },
+      "initial_tooth_overlap_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "rotation_axis": "x",
+      "initial_side_shift_mm": 0.0,
+      "guide_contact": {
+        "angle_deg": 0.194091796875,
+        "bracket_deg": [
+          0.194091796875,
+          0.1944580078125
+        ],
+        "contact_center_mm": [
+          0.00022690143711172233,
+          22.799936450217587,
+          203.58224760470682
+        ],
+        "contact_extent_mm": [
+          -31.29551580832289,
+          31.295515808322868,
+          22.79402144153647,
+          22.80000010000006,
+          203.54653533359019,
+          203.60018217377487
+        ]
+      },
+      "catch_contact_brackets_deg": {
+        "-1": null,
+        "1": null
+      },
+      "initial_tooth_overlap_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "rotation_axis": "x",
+      "initial_side_shift_mm": 0.1,
+      "guide_contact": {
+        "angle_deg": 0.3892822265625,
+        "bracket_deg": [
+          0.3892822265625,
+          0.3896484375
+        ],
+        "contact_center_mm": [
+          -1.030286548105973e-07,
+          22.799936527723386,
+          203.5912063467247
+        ],
+        "contact_extent_mm": [
+          -31.29518131944088,
+          31.295181319403728,
+          22.79404189903157,
+          22.800000100000005,
+          203.57342438999913,
+          203.60018207102004
+        ]
+      },
+      "catch_contact_brackets_deg": {
+        "-1": [
+          0.3055543899536133,
+          0.3059349060058594
+        ],
+        "1": [
+          0.3055543899536133,
+          0.3059349060058594
+        ]
+      },
+      "initial_tooth_overlap_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "rotation_axis": "y",
+      "initial_side_shift_mm": -0.1,
+      "guide_contact": {
+        "angle_deg": 0.0150146484375,
+        "bracket_deg": [
+          0.0150146484375,
+          0.015380859375
+        ],
+        "contact_center_mm": [
+          34.29579923171611,
+          -0.0019294302907158665,
+          194.2331997492865
+        ],
+        "contact_extent_mm": [
+          34.056863859751566,
+          34.300000100000005,
+          -20.823501437768915,
+          20.823501437768915,
+          174.01919381217752,
+          203.60794567736207
+        ]
+      },
+      "catch_contact_brackets_deg": {
+        "-1": null,
+        "1": [
+          0.0,
+          0.0
+        ]
+      },
+      "initial_tooth_overlap_mm3": {
+        "-1": 0.0,
+        "1": 0.001123072833600003
+      }
+    },
+    {
+      "rotation_axis": "y",
+      "initial_side_shift_mm": 0.0,
+      "guide_contact": {
+        "angle_deg": 0.194091796875,
+        "bracket_deg": [
+          0.194091796875,
+          0.1944580078125
+        ],
+        "contact_center_mm": [
+          34.299982983495624,
+          -1.0389698760518527e-09,
+          203.59520684079263
+        ],
+        "contact_extent_mm": [
+          34.29838373692036,
+          34.30000010000006,
+          -19.70168998015842,
+          19.701689980092432,
+          203.5855655947244,
+          203.60004925607987
+        ]
+      },
+      "catch_contact_brackets_deg": {
+        "-1": null,
+        "1": [
+          0.08773398399353027,
+          0.08811378479003906
+        ]
+      },
+      "initial_tooth_overlap_mm3": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    },
+    {
+      "rotation_axis": "y",
+      "initial_side_shift_mm": 0.1,
+      "guide_contact": {
+        "angle_deg": 0.390380859375,
+        "bracket_deg": [
+          0.390380859375,
+          0.3907470703125
+        ],
+        "contact_center_mm": [
+          34.29992501911447,
+          4.155764671501227e-08,
+          203.5899541701165
+        ],
+        "contact_extent_mm": [
+          34.29317366593649,
+          34.300000100000005,
+          -19.80890510361401,
+          19.808905103614116,
+          203.56962950792345,
+          203.60020864617704
+        ]
+      },
+      "catch_contact_brackets_deg": {
+        "-1": [
+          0.0,
+          0.0
+        ],
+        "1": [
+          0.15683305263519287,
+          0.15721464157104492
+        ]
+      },
+      "initial_tooth_overlap_mm3": {
+        "-1": 0.0011230728336026783,
+        "1": 0.0
+      }
+    }
+  ]
+}
