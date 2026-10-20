@@ -120,6 +120,14 @@ coupon (N/A).
 
 #### Dental travel containers — short-lap slim wall-snap box
 
+[Current print comparison: full 2 mm and three-line (1.2 mm) body/cap pairs](model/dental_travel_case/notes/wall_comparison.md).
+Both pairs slice without supports. The thin pair uses about 41% less material
+in the same profile, with local catch backing; use matching bodies and caps.
+No physical comparison is reported. [Wall and toolpath drawing](model/dental_travel_case/notes/wall_comparison/comparison.svg).
+Both caps now have rounded inner/outer finger-slot edges; the thin cap's raised
+joint backing blends into the shell. [Comfort details](model/dental_travel_case/notes/wall_comparison/comfort.svg).
+Retained force/contact studies describe the earlier cap geometry.
+
 [Current full prototype, production joint test and overlap comparison](model/dental_travel_case/notes/short_lap.md).
 **2026-10-19:** the user discards the hinged box and reopens small wall snaps.
 Opening noise is potentially acceptable; priority is much shorter overlap with

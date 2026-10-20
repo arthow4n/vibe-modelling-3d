@@ -39,6 +39,20 @@ def test_bad_overlap_fails_before_cad_construction():
         make_plan('slim-short-lap-typo')
 
 
+def test_thin_pair_preserves_intent_without_inheriting_thick_force_evidence():
+    thick = make_plan('slim-short-lap')
+    thin = make_plan('slim-short-lap-three-line')
+    thin.validate()
+    assert thin.requirements == thick.requirements
+    assert any(d.id == 'thin.matching-pair' for d in thin.directives)
+    assert {c.id for c in thin.checks} == {'wall-comparison.publication'}
+    assert not thin.retained
+    physical = {(q.requirement_id,q.id) for q in thin.questions if q.mode == 'physical'}
+    assert ('closure.side-hit','physical') in physical
+    assert ('research.force','physical') in physical
+    assert not any(target in physical for c in thin.checks for target in c.targets)
+
+
 @pytest.mark.parametrize('axis,index', [('x',0),('y',1)])
 def test_lateral_fixture_does_not_hold_the_cap_closed_axially(axis,index):
     from short_lap_lateral import question
@@ -92,7 +106,8 @@ def test_unconverged_native_attempt_is_not_an_accepted_snapshot(tmp_path):
 
 def test_partial_contact_snapshots_do_not_pass_coupled_release_obligation():
     from product_verification import Status
-    plan = make_plan('slim-short-lap')
+    from short_lap_verification import make_plan as historical_plan
+    plan = historical_plan('slim-short-lap',REQUIREMENTS)
     check = next(c for c in plan.checks if c.id == 'short-lap.lateral-release')
     assert check.targets == (('closure.side-hit','coupled-release'),)
     assert all(e.status == Status.INCONCLUSIVE for e in check.run())
