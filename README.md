@@ -121,6 +121,10 @@ coupon (N/A).
 #### Dental travel containers — short-lap slim wall-snap box
 
 **Current grip exploration:** the user prefers recessed saddles (B).
+[Band placement and native-hand investigation](model/dental_travel_case/notes/grip_human.md)
+compares three locations for upright/diagonal opening, with recorded SVGs.
+Cap +50 / body −30 mm from the seam is a dimensional starting proposal;
+the hand search has not validated a usable grasp or comfort.
 [Full-wrap band and shallow-profile SVGs](model/dental_travel_case/notes/wall_comparison.md#continuous-band-and-shallow-profile)
 now compare grip coverage and smooth 0.4/0.7 mm recesses; a 0.7 × 20 mm band is
 the proposed starting shape, with printed usefulness unverified.

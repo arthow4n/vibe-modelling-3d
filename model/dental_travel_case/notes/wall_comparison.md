@@ -293,6 +293,12 @@ change is warranted by this preference refinement.
 
 ## Continuous band and shallow profile
 
+**Latest placement exploration:** [upright/diagonal opening and native hands](grip_human.md)
+compares three band locations. The provisional dimensional starting point is
+cap +50 / body −30 mm from the seam; the older −27 mm sketch below is historical.
+The anatomical search does not qualify comfort or a usable grasp. Production
+CAD and exports remain unchanged.
+
 The user asks whether a recess can stay shallow and smoothly curved while still
 being useful, and whether wrapping it around the entire box would improve use.
 This continues the SVG exploration; no CAD edits or notch removal are authorized

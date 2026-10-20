@@ -66,6 +66,16 @@ only the declared pad/patch contact with named numerical tolerances. Other finge
 arm or product penetration remains forbidden. These tolerances are screens, not
 user requirements or universal ergonomic thresholds.
 
+For a new grasp, qualify the anatomical side before searching: a primitive's
+outward pole is not automatically palmar skin, and mirrored native hands can
+reverse local axes. The [dental band contact audit](../../../model/dental_travel_case/notes/grip_human.md#contact-side-audit-and-lesson)
+found the flattened distal ellipsoids extensor-facing. Its grasp instead uses
+the imported capsule's flexor-facing barrel, identified from native joint motion
+and flexor-tendon shortening, without force claims. Preserve the phone example's
+original geometric scope; do not transfer its +local-Z target as a pad convention.
+Retain actual rounded-corner access when that space could decide a grasp;
+filled corners may be conservative but can make a negative search uninformative.
+
 Audit self-collision separately. Imported MyoArm skin masks have `conaffinity=0`
 and only four torso/arm pairs are explicit. No simulator contacts does not establish
 anatomical nonpenetration. The example directly queries native signed distances,
