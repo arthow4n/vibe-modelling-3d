@@ -5,11 +5,13 @@ M1**. The body insert follows the internal catch guards and continues through th
 overlap sleeve; the cap insert begins above the sleeve. The rigid box is unchanged.
 This accessory does not repair the box's reported pull-apart retention failure.
 
-**Printed with wall defects — user report, 2026-10-19.** Both the contents-side
+**Printed with wall defects and installation breakage — reports, 2026-10-19/20.** Both the contents-side
 and shell-side skins have locally broken areas. Printed wall integrity is not
 accepted; the cause is unresolved. See the [physical report and comparison](#wall-print-feedback--2026-10-19).
-Fit, installation and damping were not reported. This phase records feedback
-and investigation priorities; no geometry, exports or print presets are revised.
+The user now reports further breakage while pushing the liner into the old box;
+installation integrity is not accepted. Completed seating, contents fit and
+damping remain unreported. The [new support sketches](../tpu_damping_box/README.md#wall-support-concepts--2026-10-20)
+are for discussion; existing geometry, exports and print presets remain unchanged.
 
 Primary print interchange: [STEP](dental_travel_case_liner.step), matching
 [STL](dental_travel_case_liner.stl), [Python entry](dental_travel_case_liner.py),
@@ -247,7 +249,26 @@ calibrated Q2C limit. [Moisture guidance](https://help.prusa3d.com/article/dryin
 describes bubbles and poor bonding as possible wet-filament symptoms. None of
 these symptoms has been confirmed in this print.
 
-### Next investigation when the TPU work resumes
+### Installation breakage — 2026-10-20
+
+The user clarifies that some walls were already locally broken, and **the liner
+broke further while being pushed into the old dental box**. This establishes a
+failure during installation/handling in addition to the earlier wall defects;
+it does not establish when the original damage began. Exact cup, damage location,
+fracture mode, force, printed revision and complete settings remain unknown.
+The user suspects insufficient mutual support between the skins and unsuitable
+extrusion routing. These are hypotheses, not confirmed causes. Installation is
+part of the liner's required use: the existing CAD/slicer results do not qualify
+it as a usable, intact liner.
+
+The user requests **SVG alignment first** on two support ideas in the
+[TPU experiment](../tpu_damping_box/README.md#wall-support-concepts--2026-10-20),
+eventually followed by complete inserts for its existing rigid box. The goal is
+the minimum practical sandwich thickness that survives insertion and handling
+while retaining useful damping. No replacement dental liner is delivered in this
+visual phase.
+
+### Retained diagnostic options from 2026-10-19
 
 First use the existing print and saved actual job: locate damage against Z,
 seams/restarts, ribs, guard ramps and upper channels; inspect actual speed,
@@ -262,7 +283,8 @@ the wall generator. Do not change several factors together.
 The [TPU experiment's deferred side-wall work](../tpu_damping_box/README.md#deferred-side-wall-printing-investigation--2026-10-19)
 must distinguish upright wall integrity from horizontal roof finish and preserve
 representative wall height/restraint where those could matter. No new sample
-or full-liner reprint is prescribed by this recording phase. Existing CAD/path
+or full-liner reprint was prescribed by that recording phase. The 2026-10-20
+authorization above now advances support concepts to SVG discussion. Existing CAD/path
 receipts remain valid within their scope; they do not overrule the physical defect.
 
 ## Print status
@@ -270,7 +292,7 @@ receipts remain valid within their scope; they do not overrule the physical defe
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test pieces | N/A — no new coupon required | Existing S16 research has separate physical approval | Sample approval does not establish application fit or noise reduction |
-| Final printable objects | Yes — defects reported 2026-10-19 | Associated `dental_travel_case_liner.step/.stl`; exact printed files/revision unknown | Both inner and outer wall skins locally broken; cause unresolved, printed wall integrity not accepted. Actual fit, installation, attachment, closure clearance, internal channel survival and damping unreported. Reported 0.4 mm nozzle / 0.2 mm layers, 9 mm³/s limit; actual wall speeds/complete profile unknown. |
+| Final printable objects | Yes — wall defects 2026-10-19; installation breakage 2026-10-20 | Associated `dental_travel_case_liner.step/.stl`; exact printed files/revision unknown | Both inner and outer wall skins locally broken; further breakage while pushing the liner into the old box. Wall and installation integrity not accepted; cause unresolved. Completed seating, contents fit, attachment, closure clearance, internal channel survival and damping unreported. Reported 0.4 mm nozzle / 0.2 mm layers, 9 mm³/s limit; actual wall speeds/complete profile unknown. |
 
 ## Attribution
 

@@ -173,7 +173,7 @@ and [C6](model/dental_travel_case/notes/clamshell_exploration.md) remain histori
 [Full two-cup TPU retrofit](model/dental_travel_case_liner/README.md)
 
 - Test pieces: N/A — uses the preferred printed S16 starting profile
-- Final object: Printed — 2026-10-19 report: inner and outer wall skins locally broken; cause unresolved, wall integrity not accepted. Reported 0.4 mm nozzle / 0.2 mm layers and 9 mm³/s limit; actual speeds unknown. Installation, contents fit and quietness unreported
+- Final object: Printed — inner and outer wall skins locally broken (2026-10-19); further breakage while pushing the liner into the old box (2026-10-20). Wall and installation integrity not accepted; cause unresolved. Reported 0.4 mm nozzle / 0.2 mm layers and 9 mm³/s limit; actual speeds unknown. Completed seating, contents fit and quietness unreported
 - Provenance: [Record](model/dental_travel_case_liner/README.md#attribution) · Agent effort: N/A — no performance study requested
 
 ### Samples and application research
@@ -184,7 +184,7 @@ and [C6](model/dental_travel_case/notes/clamshell_exploration.md) remain histori
 
 - Test pieces: Yes — prior liners at 0.2 mm layers; S16/S12 work, S16 preferred; I10 rejected. Latest report: surface waviness remains despite 50% ironing. New [eight 30 mm finish coupons](model/tpu_damping_box/README.md#surface-finish-coupons--2026-10-17): not yet printed; surface and damping comparison pending. Other exact prior settings unknown
 - Final object: N/A — samples; S16 approved starting profile for rigid-shell/TPU damping; application fit/quietness require review
-- Deferred follow-up: [Upright wall integrity and iteration priorities](model/tpu_damping_box/README.md#upcoming-iteration-priorities--2026-10-19): check side walls as well as dimensions, aim to print without requiring Arachne, and allow about 2.0 mm thickness or a stronger 1.6 mm design. F0–F7 horizontal coupons do not qualify tall walls. No new wall samples now
+- Current follow-up: [Two wall-support SVG concepts](model/tpu_damping_box/README.md#wall-support-concepts--2026-10-20): square frames alongside continuous skins versus separate short cross-gap ties. Discussion first; eventual complete inserts for the existing experiment shell, seeking minimum usable thickness with installation integrity and damping. No new printable samples yet. [Earlier priorities](model/tpu_damping_box/README.md#upcoming-iteration-priorities--2026-10-19) include upright-wall integrity and avoiding reliance on Arachne; F0–F7 do not qualify tall walls
 - Provenance: [Record](model/tpu_damping_box/README.md#attribution) · Agent effort: N/A — no performance study requested
 
 #### One-sided dental latch research
