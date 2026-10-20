@@ -1,10 +1,14 @@
 # Full-case print comparison: 2 mm and three-line walls
 
 Two complete body/cap pairs are ready for a practical print comparison. The
-existing thick model is preserved. The new thin pair has **1.2 mm ordinary walls**;
+thick construction is retained. The thin pair has **1.2 mm ordinary walls**;
 Orca actually generates **three extrusion strokes across them**, rather than
 relying on the nominal nozzle diameter. Both pairs sliced without supports.
 Neither has a reported physical result for this comparison.
+
+**Current revision:** both caps have complete finger-slot rounding, and the thin
+cap's raised joint backing blends into the shell. See the
+[comfort detail drawing](wall_comparison/comfort.svg) and [revision](#comfort-revision).
 
 ![Wall sections, actual sliced strokes and material comparison](wall_comparison/comparison.svg)
 
@@ -15,7 +19,7 @@ Neither has a reported physical result for this comparison.
 
 | Complete case | Authoritative Python entry | STEP (primary print file) | STL |
 | --- | --- | --- | --- |
-| Preserved 2 mm control | [short_lap_case.py](../short_lap_case.py) | [short_lap_case.step](../short_lap_case.step) | [short_lap_case.stl](../short_lap_case.stl) |
+| 2 mm control, finished cap | [short_lap_case.py](../short_lap_case.py) | [short_lap_case.step](../short_lap_case.step) | [short_lap_case.stl](../short_lap_case.stl) |
 | Three-line thin pair | [short_lap_case_three_line.py](../short_lap_case_three_line.py) | [short_lap_case_three_line.step](../short_lap_case_three_line.step) | [short_lap_case_three_line.stl](../short_lap_case_three_line.stl) |
 
 Each export contains the complete body and cap, separated in print placement.
@@ -55,8 +59,8 @@ its results do not establish a safe bag-knock load for either pair.
 
 Simply thinning the existing cap would leave only 0.55 mm behind its catch
 recesses and the long relief tracks. Instead, two small outside pads add 0.65 mm
-per side over a 14 mm wide region, preserving 1.2 mm of backing at the deepest
-cuts. They taper back into the shell above the overlap. This avoids cutting long
+per side over a 19 mm blended region, preserving 1.2 mm of backing at the deepest
+cuts. They blend back into the shell above and beside the overlap. This avoids cutting long
 open slots or adding separate cantilever arms. Between recessed regions a pad
 is intentionally thicker than three lines; the whole cap is not uniformly 1.2 mm.
 The main thin builder is [short_lap_thin.py](../short_lap_thin.py).
@@ -82,9 +86,9 @@ adding nozzle diameters is not the width calculation.
 
 | Same-profile full-pair estimate | Control | Thin |
 | --- | --- | --- |
-| Filament | 183.27 g | 108.43 g |
-| Print time | 5 h 2 m 21 s | 4 h 5 m 27 s |
-| Saving | — | 74.84 g (40.8%); 56 m 54 s (18.8%) |
+| Filament | 183.27 g | 108.54 g |
+| Print time | 5 h 0 m 56 s | 4 h 4 m 57 s |
+| Saving | — | 74.73 g (40.8%); 55 m 59 s (18.6%) |
 
 These are slicer estimates, not weighed prints. They include the full pair under
 this profile. Different settings, caps alone and real printing can differ.
@@ -103,8 +107,8 @@ The focused checks passed:
   approximation leaves under 0.05 mm total uncovered width and under 0.01 mm
   internal gap at each section. These are local fill checks, not calibration of
   deposited polymer, bonding or every curved corner.
-- Native evaluation/export succeeded for both; the original exports were reused
-  unchanged. Both diagnostic slices and automatic-support probes succeeded,
+- Native evaluation/export succeeded for both revised full pairs. Both
+  diagnostic slices and automatic-support probes succeeded,
   with no generated supports and no log notices.
 
 Reproducible local inspection and SVG source:
@@ -127,6 +131,38 @@ The thin plan preserves inherited user intent and physical unknowns while
 replacing geometry-dependent evidence. No thick-shell numerical force or impact
 claim is inherited. Current reports: [thin](wall_comparison/thin_verification.json),
 [control](wall_comparison/control_verification.json).
+
+## Comfort revision
+
+The user visually identified square corners remaining on the cap finger slots,
+including their interior edges, and rejected abrupt exterior joint transitions.
+This is CAD/appearance feedback, not a print report. Both full-case exports now
+include **0.4 mm fillets along the complete inner and outer slot boundaries**,
+including the inward corners where the slot meets the open rim. The earlier
+0.8 mm rounding in the cutting profile alone did not finish those edges.
+
+The thin cap's backing is now a low, blended swelling: tangent cubic curves
+spread its 0.65 mm projection across 3.2 mm ramps on either side, and blend its
+upper end back into the cap over 8 mm. The total blended region is 19 mm wide;
+the flat middle preserves full backing across the 10.6 mm pocket/track. The
+outside open rim is filleted after joining the backing to the shell, removing
+the separate square pad lip. Maximum width and central backing thickness are
+unchanged. The thicker control has no raised outside pads.
+
+[Before/after slot sections and the new backing section](wall_comparison/comfort.svg)
+show the actual CAD. [short_lap_comfort.py](../short_lap_comfort.py) applies the
+slot finishing to both print wrappers; the historical reinforced builder is
+unchanged. Both bodies are unchanged. The matching guide, bite, seat and release
+profiles are preserved and both finished pairs receive the same fit/path checks.
+The full pairs have fresh export/slice evidence; earlier force calculations stay
+historical and are not promoted to ratings for these revised caps. The old joint
+specimen remains historical and does not contain this finishing revision.
+
+The missed step was reviewing only the rounded cutter rather than the final
+opening, including its junctions with the rim. Existing edge-treatment guidance
+already covers this; the correction is the complete-boundary selection and the
+two complementary section views here, rather than another workflow rule. Printed
+surface feel still depends on the print; no tactile result is claimed.
 
 ## Print and compare
 

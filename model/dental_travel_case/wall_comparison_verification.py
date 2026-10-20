@@ -15,6 +15,8 @@ REQUIREMENT = U('closure.wall-comparison',
     'Preserve the current thick case and provide a complete thinner matching pair for practical print comparison',
     SOURCE,acceptance_criteria=('Three extrusion lines in ordinary thin walls',
                                'Full case for both variants; user can choose to print just the cap'))
+COMFORT_REQUIREMENT = U('form.cap-comfort','Round the finger slots including interior corners and smooth the exterior joint backing',
+    S(RECORD+'#comfort-revision','User visually rejects remaining square finger-slot corners and abrupt exterior joint transitions, and requests rounded, comfortable surfaces'))
 
 
 def evidence():
@@ -31,28 +33,28 @@ def evidence():
             assert len(row['strokes']) == (3 if name == 'thin' else 5)
             assert row['coverage']['uncovered_width_mm'] < .05
             assert row['coverage']['internal_gap_mm'] < .01
-    fit = data['thin_fit']
-    assert min(row['obstruction_mm3'] for row in fit['catches']) > .05
-    assert all(row['guide_mm3'] < 1e-5 for row in fit['path'])
-    assert all(row['snap_mm3'] < 1e-5 for row in fit['path'] if row['lift_mm'] >= 6)
-    assert min(fit['individual_passage_gaps_mm'].values()) >= .8-1e-6
-    assert fit['hard_seat'] and fit['grips_clear'] and fit['end_rounds']
+    for fit in data['fits'].values():
+        assert min(row['obstruction_mm3'] for row in fit['catches']) > .05
+        assert all(row['guide_mm3'] < 1e-5 for row in fit['path'])
+        assert all(row['snap_mm3'] < 1e-5 for row in fit['path'] if row['lift_mm'] >= 6)
+        assert min(fit['individual_passage_gaps_mm'].values()) >= .8-1e-6
+        assert fit['hard_seat'] and fit['grips_clear'] and fit['end_rounds']
 
 
 def make_plan(variant,baseline):
-    if variant != 'slim-short-lap-three-line':
+    if variant not in ('slim-short-lap','slim-short-lap-three-line'):
         raise ValueError(variant)
     from short_lap_verification import make_plan as thick_plan
     parent = thick_plan('slim-short-lap',baseline)
     scope = dict(design=variant,material='uncalibrated PETG',
-        process='0.4 mm nozzle / 0.2 mm layers; three actual strokes across ordinary walls',
+        process='0.4 mm nozzle / 0.2 mm layers; three thin or five control strokes across ordinary walls',
         phase='unprinted full matching body and cap; physical comparison',overlap_mm='30')
-    questions = [Q('physical',r.id,'Thin full pair satisfies this intent in actual integrated printed use','physical')
+    questions = [Q('physical',r.id,'Finished full pair satisfies this intent in actual integrated printed use','physical')
                  for r in parent.requirements]
     targets = tuple((rid,'comparison-CAD-and-slice') for rid in
-        ('closure.wall-comparison','brush.fit','paste.fit','closure.secure',
+        ('closure.wall-comparison','form.cap-comfort','brush.fit','paste.fit','closure.secure',
          'closure.end-retention','research.grip','form.end-rounds','print.material','print.supportfree'))
-    questions.extend(Q(qid,rid,'Matching-pair rigid fit and native exported/sliced three-line walls; no force or impact rating','CAD/slicer')
+    questions.extend(Q(qid,rid,'Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating','CAD/slicer')
                      for rid,qid in targets)
     return Plan(variant,parent.requirements,scope,questions=tuple(questions),
         checks=(assertion_check('wall-comparison.publication',targets,evidence,

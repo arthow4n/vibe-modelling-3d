@@ -124,6 +124,9 @@ coupon (N/A).
 Both pairs slice without supports. The thin pair uses about 41% less material
 in the same profile, with local catch backing; use matching bodies and caps.
 No physical comparison is reported. [Wall and toolpath drawing](model/dental_travel_case/notes/wall_comparison/comparison.svg).
+Both caps now have rounded inner/outer finger-slot edges; the thin cap's raised
+joint backing blends into the shell. [Comfort details](model/dental_travel_case/notes/wall_comparison/comfort.svg).
+Retained force/contact studies describe the earlier cap geometry.
 
 [Current full prototype, production joint test and overlap comparison](model/dental_travel_case/notes/short_lap.md).
 **2026-10-19:** the user discards the hinged box and reopens small wall snaps.

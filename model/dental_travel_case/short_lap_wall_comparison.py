@@ -11,6 +11,7 @@ import cairosvg
 import m1_design as base
 import short_lap_reinforced as control
 from short_lap_thin import build_three_line
+from short_lap_comfort import finish
 from closure_research_checks import hashes
 from closure_research_drawings import canvas, label, section, BLUE, ORANGE
 from physical_analysis.manufacturing import orca_linear_paths, section_coverage
@@ -19,7 +20,7 @@ ROOT = Path(__file__).resolve().parent
 OUT = ROOT/'notes/wall_comparison'
 GEOMETRY_INPUTS = ('m1_design.py','closure_research_design.py','short_lap_design.py',
     'short_lap_refinement.py','short_lap_reinforced.py','short_lap_thin.py',
-    'short_lap_case.py','short_lap_case_three_line.py')
+    'short_lap_case.py','short_lap_case_three_line.py','short_lap_comfort.py')
 INPUTS = GEOMETRY_INPUTS+('short_lap_wall_comparison.py','closure_research_drawings.py',
     '../../physical_analysis/manufacturing.py','../../uv.lock')
 STEMS = {'control':'short_lap_case','thin':'short_lap_case_three_line'}
@@ -134,17 +135,49 @@ def draw(parts,records):
     cairosvg.svg2png(url=str(path),write_to=str(path.with_suffix('.png')))
 
 
+def draw_comfort(raw,finished):
+    items = canvas('Comfort fixes: finger slots and raised joint backing',880)
+    label(items,25,77,'Actual CAD sections. Orange = cap. Enlarged views; dimensions are in millimetres.',18)
+    for i,(title,part) in enumerate((('Before: cut profile only',raw),('After: complete edge rounding',finished))):
+        x0 = 280+570*i
+        label(items,x0-245,125,title,22)
+        clip = base.box(0,24.8,175,25,3,6).val()
+        xf = lambda v,x0=x0:(x0+17*v.x,190+22*(177-v.z))
+        section(items,part['cap'].val().intersect(clip),'XZ',(0,24.8,0),xf,ORANGE)
+        label(items,x0-245,301,'Slot meets open rim — inward corners',17)
+        clip = base.box(0,25,176,2,5,5).val()
+        xf = lambda v,x0=x0:(x0+90*(v.y-25),342+35*(178-v.z))
+        section(items,part['cap'].val().intersect(clip),'YZ',(0,0,0),xf,ORANGE)
+        label(items,x0-245,503,'Through wall — inner and outer lip',17)
+    label(items,25,547,'0.4 mm fillet follows both slot boundaries and their junctions with the open rim, on both faces.',18)
+    p = finished['dimensions']
+    clip = base.box(p.width/2,0,190,5,23,2).val()
+    xf = lambda v:(340+27*v.y,630+80*(37.75-v.x))
+    section(items,finished['cap'].val().intersect(clip),'XY',(0,0,190),xf,ORANGE)
+    label(items,720,620,'Joint backing: section across thin cap',19)
+    label(items,720,657,'Curved ramps blend into the shell.',18)
+    label(items,720,690,'Full backing remains behind the recess.',18)
+    label(items,720,723,'Same 0.65 mm maximum projection.',18)
+    label(items,25,817,'The backing also blends out over 8 mm along the cap. Snap and guide profiles are retained.',18)
+    items.append('</svg>')
+    path = OUT/'comfort.svg'
+    path.write_text('\n'.join(items)+'\n')
+    cairosvg.svg2png(url=str(path),write_to=str(path.with_suffix('.png')))
+
+
 def main():
-    parts = dict(control=control.build(control.SELECTED_OVERLAP),thin=build_three_line())
-    fit = inspect_fit(parts['thin'])
+    raw = dict(control=control.build(control.SELECTED_OVERLAP),thin=build_three_line())
+    parts = {name:finish(p) for name,p in raw.items()}
+    fits = {name:inspect_fit(p) for name,p in parts.items()}
     print('Thin paired fit, capture and release-path checks passed',flush=True)
     records = {name:sliced_sections(name) for name in STEMS}
     draw(parts,records)
+    draw_comfort(raw['thin'],parts['thin'])
     artifacts = {}
     for name,stem in STEMS.items():
         artifacts[name] = hashes((stem+'.step',stem+'.stl','notes/wall_comparison/'+name+'_slice.json'))
     data = dict(scope='Rigid CAD fit and local linear toolpaths; not force, impact or physical validation',
-        source_sha256=hashes(INPUTS),artifacts=artifacts,thin_fit=fit,cases=records)
+        source_sha256=hashes(INPUTS),artifacts=artifacts,thin_fit=fits['thin'],fits=fits,cases=records)
     (OUT/'checks.json').write_text(json.dumps(data,indent=2)+'\n')
     print(json.dumps({name:{k:v for k,v in row.items() if k!='sections'} for name,row in records.items()}),flush=True)
 

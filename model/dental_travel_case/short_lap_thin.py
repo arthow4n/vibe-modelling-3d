@@ -14,7 +14,7 @@ from short_lap_refinement import bump
 OVERLAP = 30.
 WALL = 1.2
 PAD_PROJECTION = .65
-PAD_WIDTH = 14.
+PAD_WIDTH = 19.
 
 
 def build_three_line():
@@ -33,18 +33,31 @@ def build_three_line():
     cavity = cavity.edges('<Z').fillet(d.end_radius-WALL)
     plain = outer.union(sleeve).cut(cavity).clean()
     cap_outer = base.prism(d.width,d.depth,d.corner,d.seam,d.length-d.seam)
-    cap_outer = base.rounded_print_end(cap_outer,d,top=True).edges('<Z').fillet(.6)
+    cap_outer = base.rounded_print_end(cap_outer,d,top=True)
     radius = d.width/2
-    pad = cq.Workplane('XZ',origin=(0,PAD_WIDTH/2,0)).polyline([
-        (radius-.12,d.seam),(radius+PAD_PROJECTION,d.seam),
-        (radius+PAD_PROJECTION,d.seam+d.lap+2),(radius,d.seam+d.lap+6),
-        (radius-.12,d.seam+d.lap+6)]).close().extrude(PAD_WIDTH)
-    pad = pad.edges('|Z').fillet(.3)
+    # Tangent cubic ramps blend the backing into the shell on both sides.
+    # Keep full backing over the 10.6mm pocket/track, widen only outside it.
+    half = PAD_WIDTH/2
+    pad = (cq.Workplane('XY',origin=(0,0,d.seam)).moveTo(radius-.12,-half)
+        .lineTo(radius,-half)
+        .bezier([(radius,-7.9),(radius+PAD_PROJECTION,-7.9),(radius+PAD_PROJECTION,-6.3)],includeCurrent=True)
+        .lineTo(radius+PAD_PROJECTION,6.3)
+        .bezier([(radius+PAD_PROJECTION,7.9),(radius,7.9),(radius,half)],includeCurrent=True)
+        .lineTo(radius-.12,half).close().extrude(d.lap+9))
+    # A second tangent ramp removes the abrupt top of the raised joint backing.
+    axial = (cq.Workplane('XZ',origin=(0,half+1,0)).moveTo(radius-.12,d.seam)
+        .lineTo(radius+PAD_PROJECTION,d.seam).lineTo(radius+PAD_PROJECTION,d.seam+d.lap+1)
+        .bezier([(radius+PAD_PROJECTION,d.seam+d.lap+5),
+                 (radius,d.seam+d.lap+5),(radius,d.seam+d.lap+9)],includeCurrent=True)
+        .lineTo(radius-.12,d.seam+d.lap+9).close().extrude(PAD_WIDTH+2))
+    pad = pad.intersect(axial)
     pads = pad.union(pad.mirror('YZ'))
     cap_cavity = base.prism(d.width-2*WALL,d.depth-2*WALL,d.corner-WALL,
                            d.seam-1,d.length-d.floor-d.seam+1)
     cap_cavity = cap_cavity.edges('>Z').fillet(d.end_radius-WALL)
-    cap = cap_outer.union(pads).cut(cap_cavity)
+    # Round the combined outside rim, so the pad cannot leave a square lip or
+    # a narrow cleft against an already-rounded shell at the open end.
+    cap = cap_outer.union(pads).edges('<Z').fillet(.6).cut(cap_cavity)
     tooth = bump(d.sleeve_width/2,d,pocket=False).rotate((0,0,0),(0,0,1),90)
     tooth = tooth.union(tooth.mirror('YZ'))
     pocket = bump(d.sleeve_width/2,d,pocket=True).rotate((0,0,0),(0,0,1),90)

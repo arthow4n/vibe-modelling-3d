@@ -20,11 +20,7 @@
     "slim-short-lap-three-line"
   ],
   "available_checks": [
-    "short-lap.CAD",
-    "short-lap.comparison",
-    "short-lap.side",
-    "short-lap.lateral-release",
-    "short-lap.publication"
+    "wall-comparison.publication"
   ],
   "exit_reason": "unresolved_evidence",
   "error": null,
@@ -32,10 +28,10 @@
     "variant": "slim-short-lap",
     "scope": {
       "design": "slim-short-lap",
-      "material": "uncalibrated PETG comparison",
-      "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
-      "phase": "unprinted full prototype and matching joint",
-      "overlap_mm": "30.0"
+      "material": "uncalibrated PETG",
+      "process": "0.4 mm nozzle / 0.2 mm layers; three thin or five control strokes across ordinary walls",
+      "phase": "unprinted full matching body and cap; physical comparison",
+      "overlap_mm": "30"
     },
     "focused": false,
     "requirements": [
@@ -51,7 +47,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -61,17 +57,17 @@
             "out_of_scope": []
           },
           {
-            "id": "geometry",
-            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
-            "mode": "CAD",
+            "id": "comparison-CAD-and-slice",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
+            "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
             "coverage": "evidence",
             "strategies": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "evidence": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "out_of_scope": []
           }
@@ -91,7 +87,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -101,17 +97,17 @@
             "out_of_scope": []
           },
           {
-            "id": "geometry",
-            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
-            "mode": "CAD",
+            "id": "comparison-CAD-and-slice",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
+            "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
             "coverage": "evidence",
             "strategies": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "evidence": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "out_of_scope": []
           }
@@ -131,7 +127,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -141,17 +137,17 @@
             "out_of_scope": []
           },
           {
-            "id": "slice",
-            "criterion": "Current paired print exports have native source associations and successful diagnostic slices, no generated support",
-            "mode": "slicer",
+            "id": "comparison-CAD-and-slice",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
+            "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
             "coverage": "evidence",
             "strategies": [
-              "short-lap.publication"
+              "wall-comparison.publication"
             ],
             "evidence": [
-              "short-lap.publication"
+              "wall-comparison.publication"
             ],
             "out_of_scope": []
           }
@@ -171,43 +167,13 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
             "strategies": [],
             "evidence": [],
-            "out_of_scope": []
-          },
-          {
-            "id": "geometry",
-            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
-            "mode": "CAD",
-            "rationale": "",
-            "status": "PASS",
-            "coverage": "evidence",
-            "strategies": [
-              "short-lap.CAD"
-            ],
-            "evidence": [
-              "short-lap.CAD"
-            ],
-            "out_of_scope": []
-          },
-          {
-            "id": "slice",
-            "criterion": "Current paired print exports have native source associations and successful diagnostic slices, no generated support",
-            "mode": "slicer",
-            "rationale": "",
-            "status": "PASS",
-            "coverage": "evidence",
-            "strategies": [
-              "short-lap.publication"
-            ],
-            "evidence": [
-              "short-lap.publication"
-            ],
             "out_of_scope": []
           }
         ],
@@ -226,28 +192,13 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
             "strategies": [],
             "evidence": [],
-            "out_of_scope": []
-          },
-          {
-            "id": "geometry",
-            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
-            "mode": "CAD",
-            "rationale": "",
-            "status": "PASS",
-            "coverage": "evidence",
-            "strategies": [
-              "short-lap.CAD"
-            ],
-            "evidence": [
-              "short-lap.CAD"
-            ],
             "out_of_scope": []
           }
         ],
@@ -266,7 +217,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -276,17 +227,17 @@
             "out_of_scope": []
           },
           {
-            "id": "geometry",
-            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
-            "mode": "CAD",
+            "id": "comparison-CAD-and-slice",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
+            "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
             "coverage": "evidence",
             "strategies": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "evidence": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "out_of_scope": []
           }
@@ -306,28 +257,13 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
             "strategies": [],
             "evidence": [],
-            "out_of_scope": []
-          },
-          {
-            "id": "side-screen",
-            "criterion": "Stronger 30mm bearing sections improve both mesh-checked principal 2N/180Nmm side-load fixtures versus the first 24mm candidate; independent band tractions and roof extrapolation are not contact equilibrium or impact qualification",
-            "mode": "numerical",
-            "rationale": "",
-            "status": "PASS",
-            "coverage": "evidence",
-            "strategies": [
-              "short-lap.side"
-            ],
-            "evidence": [
-              "short-lap.side"
-            ],
             "out_of_scope": []
           }
         ],
@@ -346,7 +282,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -356,17 +292,17 @@
             "out_of_scope": []
           },
           {
-            "id": "slice",
-            "criterion": "Current paired print exports have native source associations and successful diagnostic slices, no generated support",
-            "mode": "slicer",
+            "id": "comparison-CAD-and-slice",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
+            "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
             "coverage": "evidence",
             "strategies": [
-              "short-lap.publication"
+              "wall-comparison.publication"
             ],
             "evidence": [
-              "short-lap.publication"
+              "wall-comparison.publication"
             ],
             "out_of_scope": []
           }
@@ -386,28 +322,13 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
             "strategies": [],
             "evidence": [],
-            "out_of_scope": []
-          },
-          {
-            "id": "geometry",
-            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
-            "mode": "CAD",
-            "rationale": "",
-            "status": "PASS",
-            "coverage": "evidence",
-            "strategies": [
-              "short-lap.CAD"
-            ],
-            "evidence": [
-              "short-lap.CAD"
-            ],
             "out_of_scope": []
           }
         ],
@@ -428,7 +349,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -438,17 +359,17 @@
             "out_of_scope": []
           },
           {
-            "id": "geometry",
-            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
-            "mode": "CAD",
+            "id": "comparison-CAD-and-slice",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
+            "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
             "coverage": "evidence",
             "strategies": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "evidence": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "out_of_scope": []
           }
@@ -468,7 +389,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -478,17 +399,17 @@
             "out_of_scope": []
           },
           {
-            "id": "geometry",
-            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
-            "mode": "CAD",
+            "id": "comparison-CAD-and-slice",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
+            "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
             "coverage": "evidence",
             "strategies": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "evidence": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "out_of_scope": []
           }
@@ -508,7 +429,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -533,28 +454,13 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
             "strategies": [],
             "evidence": [],
-            "out_of_scope": []
-          },
-          {
-            "id": "geometry",
-            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
-            "mode": "CAD",
-            "rationale": "",
-            "status": "PASS",
-            "coverage": "evidence",
-            "strategies": [
-              "short-lap.CAD"
-            ],
-            "evidence": [
-              "short-lap.CAD"
-            ],
             "out_of_scope": []
           }
         ],
@@ -573,28 +479,13 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
             "strategies": [],
             "evidence": [],
-            "out_of_scope": []
-          },
-          {
-            "id": "comparison",
-            "criterion": "New mesh-checked body/cap radial compliances and actual CAD energy paths compare 18/24/30mm; rigid guide motion and ideal bearing-couple reactions are separately scoped, not loaded stiffness or safe payload",
-            "mode": "numerical",
-            "rationale": "",
-            "status": "PASS",
-            "coverage": "evidence",
-            "strategies": [
-              "short-lap.comparison"
-            ],
-            "evidence": [
-              "short-lap.comparison"
-            ],
             "out_of_scope": []
           }
         ],
@@ -613,7 +504,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -638,7 +529,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -648,17 +539,17 @@
             "out_of_scope": []
           },
           {
-            "id": "geometry",
-            "criterion": "Current production geometry has individual passage, two independent snap obstructions, clear guide/runout, hard seat, recessed grips, R4 ends and matching production crop; not elastic or physical qualification",
-            "mode": "CAD",
+            "id": "comparison-CAD-and-slice",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
+            "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
             "coverage": "evidence",
             "strategies": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "evidence": [
-              "short-lap.CAD"
+              "wall-comparison.publication"
             ],
             "out_of_scope": []
           }
@@ -678,43 +569,13 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
             "strategies": [],
             "evidence": [],
-            "out_of_scope": []
-          },
-          {
-            "id": "comparison",
-            "criterion": "New mesh-checked body/cap radial compliances and actual CAD energy paths compare 18/24/30mm; rigid guide motion and ideal bearing-couple reactions are separately scoped, not loaded stiffness or safe payload",
-            "mode": "numerical",
-            "rationale": "",
-            "status": "PASS",
-            "coverage": "evidence",
-            "strategies": [
-              "short-lap.comparison"
-            ],
-            "evidence": [
-              "short-lap.comparison"
-            ],
-            "out_of_scope": []
-          },
-          {
-            "id": "side-screen",
-            "criterion": "Stronger 30mm bearing sections improve both mesh-checked principal 2N/180Nmm side-load fixtures versus the first 24mm candidate; independent band tractions and roof extrapolation are not contact equilibrium or impact qualification",
-            "mode": "numerical",
-            "rationale": "",
-            "status": "PASS",
-            "coverage": "evidence",
-            "strategies": [
-              "short-lap.side"
-            ],
-            "evidence": [
-              "short-lap.side"
-            ],
             "out_of_scope": []
           }
         ],
@@ -733,28 +594,13 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
             "strategies": [],
             "evidence": [],
-            "out_of_scope": []
-          },
-          {
-            "id": "coupled-release",
-            "criterion": "Coupled deformable cap/body loading with free axial cap motion excludes sequential release through a provisional 10N principal-plane comparison, with adequate contact and sensitivity evidence; separate from impact validation",
-            "mode": "numerical",
-            "rationale": "",
-            "status": "INCONCLUSIVE",
-            "coverage": "evidence",
-            "strategies": [
-              "short-lap.lateral-release"
-            ],
-            "evidence": [
-              "short-lap.lateral-release"
-            ],
             "out_of_scope": []
           }
         ],
@@ -775,13 +621,28 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Current full prototype satisfies this intent in actual printed integrated use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
             "strategies": [],
             "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "comparison-CAD-and-slice",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
+            "mode": "CAD/slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "wall-comparison.publication"
+            ],
+            "evidence": [
+              "wall-comparison.publication"
+            ],
             "out_of_scope": []
           }
         ],
@@ -790,171 +651,113 @@
           "Full case for both variants; user can choose to print just the cap"
         ],
         "coverage": "uncovered"
+      },
+      {
+        "id": "form.cap-comfort",
+        "text": "Round the finger slots including interior corners and smooth the exterior joint backing",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/wall_comparison.md#comfort-revision",
+          "statement": "User visually rejects remaining square finger-slot corners and abrupt exterior joint transitions, and requests rounded, comfortable surfaces"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "comparison-CAD-and-slice",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
+            "mode": "CAD/slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "wall-comparison.publication"
+            ],
+            "evidence": [
+              "wall-comparison.publication"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
       }
     ],
     "evidence": [
       {
-        "id": "short-lap.CAD",
+        "id": "wall-comparison.publication",
         "targets": [
           [
+            "closure.wall-comparison",
+            "comparison-CAD-and-slice"
+          ],
+          [
+            "form.cap-comfort",
+            "comparison-CAD-and-slice"
+          ],
+          [
             "brush.fit",
-            "geometry"
+            "comparison-CAD-and-slice"
           ],
           [
             "paste.fit",
-            "geometry"
-          ],
-          [
-            "test.fit",
-            "geometry"
-          ],
-          [
-            "form.minimal",
-            "geometry"
-          ],
-          [
-            "form.width-revision",
-            "geometry"
-          ],
-          [
-            "form.end-rounds",
-            "geometry"
+            "comparison-CAD-and-slice"
           ],
           [
             "closure.secure",
-            "geometry"
+            "comparison-CAD-and-slice"
           ],
           [
             "closure.end-retention",
-            "geometry"
-          ],
-          [
-            "research.interior",
-            "geometry"
+            "comparison-CAD-and-slice"
           ],
           [
             "research.grip",
-            "geometry"
-          ]
-        ],
-        "status": "PASS",
-        "summary": "Existing assertion group passed; see linked criteria/limits",
-        "reference": "notes/short_lap/cad.json",
-        "scope": {
-          "design": "slim-short-lap",
-          "material": "uncalibrated PETG comparison",
-          "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
-          "phase": "unprinted full prototype and matching joint",
-          "overlap_mm": "30.0"
-        }
-      },
-      {
-        "id": "short-lap.comparison",
-        "targets": [
-          [
-            "research.force",
-            "comparison"
+            "comparison-CAD-and-slice"
           ],
           [
-            "closure.short-overlap",
-            "comparison"
-          ]
-        ],
-        "status": "PASS",
-        "summary": "Existing assertion group passed; see linked criteria/limits",
-        "reference": "notes/short_lap/comparison.json",
-        "scope": {
-          "design": "slim-short-lap",
-          "material": "uncalibrated PETG comparison",
-          "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
-          "phase": "unprinted full prototype and matching joint",
-          "overlap_mm": "30.0"
-        }
-      },
-      {
-        "id": "short-lap.side",
-        "targets": [
-          [
-            "closure.short-overlap",
-            "side-screen"
+            "form.end-rounds",
+            "comparison-CAD-and-slice"
           ],
-          [
-            "travel.protection",
-            "side-screen"
-          ]
-        ],
-        "status": "PASS",
-        "summary": "Existing assertion group passed; see linked criteria/limits",
-        "reference": "notes/short_lap/reinforced_side.json",
-        "scope": {
-          "design": "slim-short-lap",
-          "material": "uncalibrated PETG comparison",
-          "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
-          "phase": "unprinted full prototype and matching joint",
-          "overlap_mm": "30.0"
-        }
-      },
-      {
-        "id": "short-lap.lateral-release",
-        "targets": [
-          [
-            "closure.side-hit",
-            "coupled-release"
-          ]
-        ],
-        "status": "INCONCLUSIVE",
-        "summary": "A complete static snapshot shows almost all capture consumed at one widthwise bite while the other retains it. No qualified complete sequential-release path or mesh/increment/contact sensitivities; 10 N is an agent comparison, not travel-bag impact acceptance. See notes/short_lap.md.",
-        "reference": "notes/short_lap.md#sideways-hit-clarification--2026-10-20",
-        "scope": {
-          "design": "slim-short-lap",
-          "material": "uncalibrated PETG comparison",
-          "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
-          "phase": "unprinted full prototype and matching joint",
-          "overlap_mm": "30.0"
-        }
-      },
-      {
-        "id": "short-lap.publication",
-        "targets": [
           [
             "print.material",
-            "slice"
+            "comparison-CAD-and-slice"
           ],
           [
             "print.supportfree",
-            "slice"
-          ],
-          [
-            "test.fit",
-            "slice"
+            "comparison-CAD-and-slice"
           ]
         ],
         "status": "PASS",
         "summary": "Existing assertion group passed; see linked criteria/limits",
-        "reference": "notes/short_lap/publication.json",
+        "reference": "notes/wall_comparison/checks.json",
         "scope": {
           "design": "slim-short-lap",
-          "material": "uncalibrated PETG comparison",
-          "process": "0.4 mm nozzle / 0.2 mm layers / three walls",
-          "phase": "unprinted full prototype and matching joint",
-          "overlap_mm": "30.0"
+          "material": "uncalibrated PETG",
+          "process": "0.4 mm nozzle / 0.2 mm layers; three thin or five control strokes across ordinary walls",
+          "phase": "unprinted full matching body and cap; physical comparison",
+          "overlap_mm": "30"
         }
       }
     ],
     "decisions": [
       {
-        "id": "short-lap.selection",
-        "text": "Select overlap from the recorded compliance/guide tradeoff; prototype only, physical retention remains unknown",
-        "reference": "notes/short_lap.md"
+        "id": "thin.local-backing",
+        "text": "1.2 mm ordinary walls; 0.65 mm exterior pads preserve 1.2 mm backing behind recessed catches/runout",
+        "reference": "notes/wall_comparison.md"
       }
     ],
-    "hypotheses": [
-      {
-        "id": "short-lap.sound",
-        "text": "Less overlap may reduce sliding/rubbing time; it does not establish quieter snap release or easier engagement",
-        "reference": "notes/short_lap.md"
-      }
-    ],
+    "hypotheses": [],
     "directives": [
       {
         "id": "hinge.abandoned",
@@ -970,6 +773,14 @@
         "source": {
           "reference": "notes/closure_research.md",
           "statement": "User requests autonomous space-first alternatives, their free-rim idea, visual explanations and corresponding test pieces; full models only as useful; no sub-agents unless explicitly requested"
+        }
+      },
+      {
+        "id": "thin.matching-pair",
+        "text": "Keep general outside size and provide matching thin body/cap; overall width need not be exact",
+        "source": {
+          "reference": "notes/wall_comparison.md#authorized-comparison",
+          "statement": "User requests full 2 mm and three-line thin case variants for test printing, allows catch openings if needed and width variation, then selects the same general outside size with matching thin body and cap"
         }
       }
     ]

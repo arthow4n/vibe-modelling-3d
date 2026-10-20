@@ -29,7 +29,7 @@
     "scope": {
       "design": "slim-short-lap-three-line",
       "material": "uncalibrated PETG",
-      "process": "0.4 mm nozzle / 0.2 mm layers; three actual strokes across ordinary walls",
+      "process": "0.4 mm nozzle / 0.2 mm layers; three thin or five control strokes across ordinary walls",
       "phase": "unprinted full matching body and cap; physical comparison",
       "overlap_mm": "30"
     },
@@ -47,7 +47,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -58,7 +58,7 @@
           },
           {
             "id": "comparison-CAD-and-slice",
-            "criterion": "Matching-pair rigid fit and native exported/sliced three-line walls; no force or impact rating",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
             "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
@@ -87,7 +87,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -98,7 +98,7 @@
           },
           {
             "id": "comparison-CAD-and-slice",
-            "criterion": "Matching-pair rigid fit and native exported/sliced three-line walls; no force or impact rating",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
             "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
@@ -127,7 +127,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -138,7 +138,7 @@
           },
           {
             "id": "comparison-CAD-and-slice",
-            "criterion": "Matching-pair rigid fit and native exported/sliced three-line walls; no force or impact rating",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
             "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
@@ -167,7 +167,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -192,7 +192,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -217,7 +217,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -228,7 +228,7 @@
           },
           {
             "id": "comparison-CAD-and-slice",
-            "criterion": "Matching-pair rigid fit and native exported/sliced three-line walls; no force or impact rating",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
             "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
@@ -257,7 +257,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -282,7 +282,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -293,7 +293,7 @@
           },
           {
             "id": "comparison-CAD-and-slice",
-            "criterion": "Matching-pair rigid fit and native exported/sliced three-line walls; no force or impact rating",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
             "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
@@ -322,7 +322,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -349,7 +349,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -360,7 +360,7 @@
           },
           {
             "id": "comparison-CAD-and-slice",
-            "criterion": "Matching-pair rigid fit and native exported/sliced three-line walls; no force or impact rating",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
             "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
@@ -389,7 +389,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -400,7 +400,7 @@
           },
           {
             "id": "comparison-CAD-and-slice",
-            "criterion": "Matching-pair rigid fit and native exported/sliced three-line walls; no force or impact rating",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
             "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
@@ -429,7 +429,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -454,7 +454,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -479,7 +479,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -504,7 +504,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -529,7 +529,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -540,7 +540,7 @@
           },
           {
             "id": "comparison-CAD-and-slice",
-            "criterion": "Matching-pair rigid fit and native exported/sliced three-line walls; no force or impact rating",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
             "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
@@ -569,7 +569,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -594,7 +594,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -621,7 +621,7 @@
         "questions": [
           {
             "id": "physical",
-            "criterion": "Thin full pair satisfies this intent in actual integrated printed use",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -632,7 +632,7 @@
           },
           {
             "id": "comparison-CAD-and-slice",
-            "criterion": "Matching-pair rigid fit and native exported/sliced three-line walls; no force or impact rating",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
             "mode": "CAD/slicer",
             "rationale": "",
             "status": "PASS",
@@ -651,6 +651,46 @@
           "Full case for both variants; user can choose to print just the cap"
         ],
         "coverage": "uncovered"
+      },
+      {
+        "id": "form.cap-comfort",
+        "text": "Round the finger slots including interior corners and smooth the exterior joint backing",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/wall_comparison.md#comfort-revision",
+          "statement": "User visually rejects remaining square finger-slot corners and abrupt exterior joint transitions, and requests rounded, comfortable surfaces"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Finished full pair satisfies this intent in actual integrated printed use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "comparison-CAD-and-slice",
+            "criterion": "Finished matching-pair fit, reviewed cap rounding and native exports/slices; no force, comfort or impact rating",
+            "mode": "CAD/slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "wall-comparison.publication"
+            ],
+            "evidence": [
+              "wall-comparison.publication"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
       }
     ],
     "evidence": [
@@ -659,6 +699,10 @@
         "targets": [
           [
             "closure.wall-comparison",
+            "comparison-CAD-and-slice"
+          ],
+          [
+            "form.cap-comfort",
             "comparison-CAD-and-slice"
           ],
           [
@@ -700,7 +744,7 @@
         "scope": {
           "design": "slim-short-lap-three-line",
           "material": "uncalibrated PETG",
-          "process": "0.4 mm nozzle / 0.2 mm layers; three actual strokes across ordinary walls",
+          "process": "0.4 mm nozzle / 0.2 mm layers; three thin or five control strokes across ordinary walls",
           "phase": "unprinted full matching body and cap; physical comparison",
           "overlap_mm": "30"
         }

@@ -106,7 +106,8 @@ def test_unconverged_native_attempt_is_not_an_accepted_snapshot(tmp_path):
 
 def test_partial_contact_snapshots_do_not_pass_coupled_release_obligation():
     from product_verification import Status
-    plan = make_plan('slim-short-lap')
+    from short_lap_verification import make_plan as historical_plan
+    plan = historical_plan('slim-short-lap',REQUIREMENTS)
     check = next(c for c in plan.checks if c.id == 'short-lap.lateral-release')
     assert check.targets == (('closure.side-hit','coupled-release'),)
     assert all(e.status == Status.INCONCLUSIVE for e in check.run())

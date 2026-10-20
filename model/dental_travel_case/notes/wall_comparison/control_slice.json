@@ -7,24 +7,24 @@
     {
       "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/short_lap_case.step",
       "ok": true,
-      "reused": true
+      "reused": false
     },
     {
       "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/short_lap_case.stl",
       "ok": true,
-      "reused": true
+      "reused": false
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.0017716630245558918,
-    "build": 1.0722096919780597,
-    "selection": 0.001031348976539448,
-    "validation": 0.05752741699689068,
-    "export_step": 0.005345435987692326,
-    "export_stl": 0.01389194800867699,
-    "worker": 1.2613304679980502,
-    "total": 19.932391911977902,
-    "slice": 18.4910436939972
+    "dependency_initialization": 0.0014111990167293698,
+    "build": 1.0800693210039753,
+    "selection": 0.0009253699972759932,
+    "validation": 0.0632501170039177,
+    "export_step": 0.21231038999394514,
+    "export_stl": 0.15428245899965987,
+    "worker": 1.6053806440031622,
+    "total": 24.362421655998332,
+    "slice": 20.270498719008174
   },
   "versions": {
     "python": "3.14.7",
@@ -35,8 +35,8 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "6bd2be8338a87c00c6fc3864df9631a92ebd2111bdf13ddec00d181f95a00398",
-    "artifact_identity": "bff57f3c632e4e3c80f1481eb685ea0b838ab17c3ea27b4f1c2c7791441375b5"
+    "identity": "a5278282f31cf621ef17a319a662cad77d28a877c41c26ed1de65043e2a1339d",
+    "artifact_identity": "bcc89b9557857cc0ae05e4fdac73007f165372fa2488b848df67fc5554531f5d"
   },
   "slice": {
     "ok": true,
@@ -121,9 +121,9 @@
     "log_notices": [],
     "review_required": false,
     "reused": false,
-    "identity": "6000e498060186fd8b3da3c795727e40ac6d5def75eb89d24e20262aee17412d",
-    "input_sha256": "d5a9b9320f14ee61623b3bc3964ee386a2152207642be88e09365832af80a1b9",
-    "kept_run_directory": "/home/hevar/orca-slicer-review-v9gtmuti",
+    "identity": "bdd5fd3353f69fe6920047a262f576b18fb6b519681b00d0f1b4f22376478c70",
+    "input_sha256": "f4f69d63569458727c43b43d94c00181818b3e107fac49c5833cb3763f8d544f",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-ec3kmetj",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",

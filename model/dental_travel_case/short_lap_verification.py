@@ -152,8 +152,8 @@ def make_plan(variant, baseline):
     intent += (U('closure.short-overlap','Find a reasonable shorter overlap range while retaining very good closure and sideways resistance',SOURCE),)
     intent += (U('closure.side-hit','The box stays closed when hit from the side',SIDE_HIT_SOURCE,
                  acceptance_criteria=('Knocks and bumps inside a travel bag',)),)
-    from wall_comparison_verification import REQUIREMENT
-    intent += (REQUIREMENT,)
+    from wall_comparison_verification import REQUIREMENT, COMFORT_REQUIREMENT
+    intent += (REQUIREMENT,COMFORT_REQUIREMENT)
     scope = dict(design=variant,material='uncalibrated PETG comparison',
                  process='0.4 mm nozzle / 0.2 mm layers / three walls',phase='unprinted full prototype and matching joint',
                  overlap_mm=str(production.SELECTED_OVERLAP))

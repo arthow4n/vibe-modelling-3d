@@ -16,15 +16,15 @@
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.001365744014037773,
-    "build": 1.1313961030100472,
-    "selection": 0.0009201909997500479,
-    "validation": 0.06216052902163938,
-    "export_step": 0.24508328101364896,
-    "export_stl": 0.15077556899632327,
-    "worker": 1.6722750529879704,
-    "total": 31.560569244000362,
-    "slice": 24.453336723003304
+    "dependency_initialization": 0.0013697519898414612,
+    "build": 1.2942865520017222,
+    "selection": 0.0009981270122807473,
+    "validation": 0.06653469800949097,
+    "export_step": 0.12456358800409362,
+    "export_stl": 0.23653517101774924,
+    "worker": 1.8063658830069471,
+    "total": 27.208399007999105,
+    "slice": 25.23241182899801
   },
   "versions": {
     "python": "3.14.7",
@@ -35,8 +35,8 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "8ba7ff6839cc1d0d8c759ba72eb32601f1a035467128dde9809753341e289a04",
-    "artifact_identity": "efa7e0540462fe3eb047cff829a5cd39777511625719c3e1e399f9fd9e842790"
+    "identity": "af56f06460a4fa4de765a6ccf123fd4487f5f9a97cb2aac0144cc31ad07b6ca0",
+    "artifact_identity": "d07deb3242137482d7a726de85665ddfd4292f29963e593228e36ae6e86d6ce5"
   },
   "slice": {
     "ok": true,
@@ -121,9 +121,9 @@
     "log_notices": [],
     "review_required": false,
     "reused": false,
-    "identity": "6970d4e4ed99af89bea345bdc12ed660f5d6f8115149bf2dce311773248be82f",
-    "input_sha256": "c4e0b80913317603e673c823e59ccc767db76670aa4f18e7940f9d6f1e887109",
-    "kept_run_directory": "/home/hevar/orca-slicer-review-szwsm2lr",
+    "identity": "5b139db7185f205f8f2ecb171348e72314139de9ee21588b1dd8e2bae84aa336",
+    "input_sha256": "16b5d30c647cc072d34302867eaef893c91929d6ddbee4d1a67ec3c279bb6d09",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-e8otvpm6",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",
