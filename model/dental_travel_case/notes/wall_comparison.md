@@ -1,5 +1,11 @@
 # Full-case print comparison: 2 mm and three-line walls
 
+**Current design feedback:** the user rejects the finger notches as an opening
+aid and intends to remove them. The authorized next deliverable is the
+[SVG grip comparison](#corner-grip-exploration), before any CAD changes. Existing
+print files below retain the notches and are available for thickness comparison;
+their opening grip is not accepted.
+
 Two complete body/cap pairs are ready for a practical print comparison. The
 thick construction is retained. The thin pair has **1.2 mm ordinary walls**;
 Orca actually generates **three extrusion strokes across them**, rather than
@@ -163,6 +169,70 @@ opening, including its junctions with the rim. Existing edge-treatment guidance
 already covers this; the correction is the complete-boundary selection and the
 two complementary section views here, rather than another workflow rule. Printed
 surface feel still depends on the print; no tactile result is claimed.
+
+## Corner grip exploration
+
+The user questions the practical value of gripping the seam notches when pulling
+the halves apart. They request several SVG proposals for exterior friction,
+texture or shape, especially around the corners. Removal of the notches is the
+intended direction, but they explicitly defer CAD edits until after this visual
+exploration. This supersedes refining the old notch as the opening solution; it
+is design/use feedback, not evidence of a print or measured opening force.
+
+**[Compare all three directions](../renders/concepts/grip_comparison.svg)** ·
+[PNG preview](../renders/concepts/grip_comparison.png)
+
+| Proposal | What the fingers use | Practical tradeoff |
+| --- | --- | --- |
+| [A — Soft corner ribs](../renders/concepts/grip_a_ribs.svg) | Several low, rounded ribs run across the pulling direction, wrapping each corner | Least change to storage and silhouette; relies substantially on pinch/friction, with some small rib bearing surfaces |
+| [B — Shallow corner saddles](../renders/concepts/grip_b_saddles.svg) | A broad depression gives the finger pad a seat and curved slopes to press against | Cleaner, recessed exterior; needs the inner surface moved too to preserve wall thickness, using local interior space |
+| [C — Rounded corner shoulders](../renders/concepts/grip_c_shoulders.svg) | A small rounded shoulder above the cap grasp and below the body grasp gives opposing bearing faces | More direct resistance to axial slipping, but more visible exterior swelling; useful grip still depends on finger contact and compliance |
+
+The drawings use the current **74.2 × 51.2 × 264 mm** general proportions and
+**30 mm overlap**. They show the closed case, one contact zone for each hand,
+opposite pulling directions, corner coverage from the end, and an enlarged axial
+surface profile. Existing notches are omitted in the sketches only. Orange
+contact marks are schematic finger pads, not an anatomical reach/comfort study.
+The thin cap's local snap backing is omitted from these simplified front/end
+views; the proposals do not remove or replace it.
+
+For all three, the proposed cap grasp is **35–55 mm above the seam**, just past
+the end of the hidden sleeve. The body grasp is **12–32 mm below the seam**.
+These are editable starting locations, not measured human-fit requirements.
+Putting the cap grasp directly over the sleeve could squeeze the mating walls
+together; placing it beyond the overlap aims to reduce that unwanted clamping.
+The four-corner treatment provides front and back contact without covering the
+center faces or requiring a through-hole. The body and cap shoulders in C face
+opposite directions: fingers press the cap shoulder upward and the body shoulder
+downward. A texture that only runs along the pulling direction would offer less
+geometric opposition to slipping.
+
+**Recommendation for discussion: A.** Low rounded ribs are the smallest change
+to the existing thin construction and contents space. B is worth considering if
+the recessed appearance matters more, but a 0.6 mm depression must not simply be
+cut from a 1.2 mm wall: the wall itself needs reshaping inward and contents/guide
+clearance needs checking. C offers a clearer pulling surface if shallow texture
+feels inadequate, at the cost of a more pronounced shape. None has demonstrated
+grip or a force rating; skin friction, wet hands, wall flex and printed texture
+remain unknown.
+
+The illustrated amplitudes are starting proposals: A about 0.4 mm raised ribs,
+B about 0.6 mm depression, C about 0.8 mm raised shoulder. All assume the existing
+0.4 mm nozzle / 0.2 mm layer PETG direction. Any selected concept will need
+smooth blends, preserved minimum wall and snap backing, closed and opening-path
+clearance, and a support-aware profile in the existing print orientation. No CAD,
+mesh, export, slice or physical test was performed for this sketch phase. The
+existing source/export pairs and their evidence remain unchanged.
+
+The editable SVGs are the proposal sources; PNGs are previews. This phase is
+complete with the visual comparison; concept selection precedes implementation.
+The lesson is local and practical: establish where each hand grips and how its
+contact opposes the pull before refining the edges of a recess. Existing
+[whole-object handling guidance](../../../.codex/skills/cadquery-3d-design/references/design-decisions.md#whole-object-form-and-handling)
+already requires this, so no additional shared workflow rule was added.
+Attribution is the same Codex/OpenAI agent context recorded below; no subagents
+or third-party geometry contributed. These are unprinted rough proposals with
+no printable deliverables (test pieces and final objects N/A for this phase).
 
 ## Print and compare
 
