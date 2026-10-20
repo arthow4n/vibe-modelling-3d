@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1090" viewBox="0 0 1100 1090" role="img" aria-labelledby="title desc">
+<title id="title">B / Separate short ties between two skins</title>
+<desc id="desc">Concept alignment drawing, not to scale. Blue is continuous TPU skins, green is internal connections, white is air. Shows a horizontal wall section, a wall face with the near skin hidden, a vertical wall section, and a bottom section. A uses square loops continued up the wall. B uses separate short cross-gap ties spaced in length and height. No dimensions, actual slicer paths or physical strength have been verified.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#bc6415" stroke-width="1.2"/></marker></defs>
+<rect x="0" y="0" width="1100" height="1090" rx="0" fill="#f4f7fa" />
+<text x="38" y="48" font-size="31" fill="#172e42" font-weight="bold">B / Separate short ties between two skins</text>
+<text x="38" y="80" font-size="18" fill="#172e42" font-weight="normal">Alignment sketch • 20 Oct 2026 • enlarged sections • no dimensions selected</text>
+<rect x="38" y="104" width="20" height="12" rx="0" fill="#2367b1" />
+<text x="68" y="117" font-size="17" fill="#172e42" font-weight="normal">Continuous skins</text>
+<rect x="274" y="104" width="20" height="12" rx="0" fill="#13836d" />
+<text x="304" y="117" font-size="17" fill="#172e42" font-weight="normal">Internal connections</text>
+<rect x="530" y="104" width="20" height="12" rx="0" fill="white" stroke="#a7b5c1"/>
+<text x="560" y="117" font-size="17" fill="#172e42" font-weight="normal">Air gap</text>
+<text x="710" y="117" font-size="17" fill="#172e42" font-weight="normal">Colours = roles in the same TPU</text>
+<rect x="24" y="143" width="1052" height="264" rx="14" fill="white" />
+<text x="44" y="177" font-size="23" fill="#172e42" font-weight="bold">1  /  Horizontal cut through an upright wall</text>
+<text x="80" y="216" font-size="17" fill="#2367b1" font-weight="normal">Shell side</text>
+<rect x="80" y="228" width="550" height="12" rx="0" fill="#2367b1" />
+<rect x="80" y="340" width="550" height="12" rx="0" fill="#2367b1" />
+<text x="80" y="380" font-size="17" fill="#2367b1" font-weight="normal">Contents side</text>
+<rect x="115" y="240" width="14" height="100" rx="0" fill="#13836d" />
+<rect x="235" y="240" width="14" height="100" rx="0" fill="#13836d" />
+<rect x="355" y="240" width="14" height="100" rx="0" fill="#13836d" />
+<rect x="475" y="240" width="14" height="100" rx="0" fill="#13836d" />
+<rect x="595" y="240" width="14" height="100" rx="0" fill="#13836d" />
+<text x="680" y="223" font-size="19" fill="#172e42" font-weight="normal">Each tie reaches both skins.</text>
+<text x="680" y="255" font-size="19" fill="#172e42" font-weight="normal">Short along the wall; short in height.</text>
+<text x="680" y="283" font-size="19" fill="#172e42" font-weight="normal">Air remains between separate ties.</text>
+<text x="680" y="323" font-size="19" fill="#172e42" font-weight="normal">No full-height ribs or loose dots.</text>
+<text x="680" y="351" font-size="19" fill="#172e42" font-weight="normal">Skins stay continuous on both sides.</text>
+<text x="680" y="385" font-size="17" fill="#bc6415" font-weight="normal">Tie size / spacing are still open.</text>
+<rect x="24" y="423" width="1052" height="350" rx="14" fill="white" />
+<text x="44" y="458" font-size="23" fill="#172e42" font-weight="bold">2  /  Upright wall: how the support continues in height</text>
+<text x="80" y="493" font-size="17" fill="#172e42" font-weight="normal">Face view • near skin hidden</text>
+<rect x="80" y="512" width="550" height="180" rx="0" fill="#eaf0f5" />
+<text x="728" y="493" font-size="17" fill="#172e42" font-weight="normal">Vertical cut through a tie</text>
+<rect x="760" y="512" width="12" height="180" rx="0" fill="#2367b1" />
+<rect x="872" y="512" width="12" height="180" rx="0" fill="#2367b1" />
+<rect x="115" y="540" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="235" y="540" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="355" y="540" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="475" y="540" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="595" y="540" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="772" y="540" width="100" height="12" rx="0" fill="#13836d" />
+<line x1="772" y1="540" x2="872" y2="540" stroke="#bc6415" stroke-width="3" />
+<rect x="115" y="595" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="235" y="595" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="355" y="595" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="475" y="595" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="595" y="595" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="772" y="595" width="100" height="12" rx="0" fill="#13836d" />
+<line x1="772" y1="595" x2="872" y2="595" stroke="#bc6415" stroke-width="3" />
+<rect x="115" y="650" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="235" y="650" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="355" y="650" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="475" y="650" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="595" y="650" width="14" height="12" rx="0" fill="#13836d" />
+<rect x="772" y="650" width="100" height="12" rx="0" fill="#13836d" />
+<line x1="772" y1="650" x2="872" y2="650" stroke="#bc6415" stroke-width="3" />
+<text x="80" y="727" font-size="18" fill="#172e42" font-weight="normal">Ties are separated in BOTH directions: length and height.</text>
+<text x="80" y="753" font-size="18" fill="#bc6415" font-weight="normal">Orange = tie undersides proposed to bridge across the gap.</text>
+<line x1="985" y1="679" x2="985" y2="536" stroke="#bc6415" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="923" y="714" font-size="17" fill="#bc6415" font-weight="normal">Build up</text>
+<rect x="24" y="790" width="1052" height="183" rx="14" fill="white" />
+<text x="44" y="825" font-size="23" fill="#172e42" font-weight="bold">3  /  Bottom section: same idea turned flat</text>
+<text x="80" y="857" font-size="17" fill="#2367b1" font-weight="normal">Contents / upper skin</text>
+<rect x="80" y="870" width="550" height="10" rx="0" fill="#2367b1" />
+<rect x="80" y="934" width="550" height="10" rx="0" fill="#2367b1" />
+<rect x="115" y="880" width="14" height="54" rx="0" fill="#13836d" />
+<rect x="235" y="880" width="14" height="54" rx="0" fill="#13836d" />
+<rect x="355" y="880" width="14" height="54" rx="0" fill="#13836d" />
+<rect x="475" y="880" width="14" height="54" rx="0" fill="#13836d" />
+<rect x="595" y="880" width="14" height="54" rx="0" fill="#13836d" />
+<text x="680" y="866" font-size="19" fill="#172e42" font-weight="normal">Dots become short posts under the roof.</text>
+<text x="680" y="898" font-size="19" fill="#172e42" font-weight="normal">Upper skin bridges between the posts.</text>
+<text x="680" y="938" font-size="18" fill="#172e42" font-weight="normal">Both skins and an air core are retained.</text>
+<text x="38" y="1008" font-size="20" fill="#172e42" font-weight="bold">Goal: find the thinnest usable liner that survives insertion and handling, with useful damping.</text>
+<text x="38" y="1041" font-size="18" fill="#172e42" font-weight="normal">One drawn line is conceptual: line width, bonding, bridge behaviour and strength remain unverified.</text>
+<text x="38" y="1070" font-size="18" fill="#172e42" font-weight="normal">Later phase: compare complete inserts in the existing experiment shell. This phase: discuss the two ideas.</text>
+</svg>

@@ -6,7 +6,13 @@ S12 and I22, and good even compared with I30 and the original 4 mm I. The user
 selects S16 for reuse in rigid-shell/TPU damping, starting with the already
 printed sunglasses case.
 
-**Current follow-up (2026-10-17):** the user reports visibly wavy/lined contact
+**Current phase (2026-10-20):** discuss [two support concepts in SVG](#wall-support-concepts--2026-10-20)
+before CAD. The dental liner broke further while being pushed into its box.
+Seek the minimum usable sandwich thickness with intact walls/bottom, installation
+survival and useful damping. Complete inserts for the existing experiment shell
+are the later goal; this phase delivers drawings only.
+
+**Surface follow-up (2026-10-17):** the user reports visibly wavy/lined contact
 surfaces despite some improvement with 50% ironing. S16 remains preferred for
 damping, but surface flatness is unresolved. Print the new
 [eight small surface coupons](#surface-finish-coupons--2026-10-17) when convenient;
@@ -18,7 +24,8 @@ liner. Future TPU work must address [upright side-wall printing](#deferred-side-
 as well as horizontal finish. The flat F0–F7 plate cannot qualify that behavior;
 the user's [iteration priorities](#upcoming-iteration-priorities--2026-10-19)
 favor printing without Arachne and allow more thickness for wall integrity.
-No new sample geometry or preset change is requested now.
+That recording phase requested no new geometry or preset change; the current
+SVG phase advances the wall-support question without changing those files.
 
 ## Current result and reading routes
 
@@ -41,6 +48,52 @@ replace the current closed-skin choice. Quietness preferences are subjective
 reported observations at user-confirmed 0.2 mm layers. Other exact settings,
 acoustic mechanism and durability remain unknown. Detailed negative results
 remain useful for judging future transfers.
+
+## Wall-support concepts — 2026-10-20
+
+The user reports that already damaged dental-liner walls **broke further during
+insertion into the old box**; the [application record](../dental_travel_case_liner/README.md#installation-breakage--2026-10-20)
+owns the physical report and unknowns. Insufficient support between skins and
+unhelpful extrusion routing are user hypotheses. Neither is an established root
+cause. The unprinted F0–F7 finish coupons remain available, but are not the
+priority for this discussion and do not qualify installation or upright walls.
+
+The requested sequence is two SVG interpretations, discussion, then later
+complete experimental inserts that fit the existing rigid experiment box.
+The goal is minimum practical **overall liner thickness**, interpreted from the
+S16/thickness context, rather than shrinking the box footprint. Wall and bottom
+integrity must accompany useful damping. No minimum thickness, support spacing
+or print-path count is selected or qualified here.
+
+| Idea | SVG and interpretation | What remains to align or investigate |
+| --- | --- | --- |
+| A — square frames | [Editable SVG](renders/concepts/wall_support_a.svg). Two continuous skins, with a row of thin square frames between them in a horizontal wall cut. Each frame's parallel edges add material alongside both skins locally; its other two edges cross the air gap. | **Drawing assumption:** the square is in the horizontal print plane and is repeated up the wall, leaving full-height cross-gap webs. Confirm this orientation before CAD. Two adjacent drawn lines express the user's desired local two-line structure; fused geometry does not guarantee two distinct slicer paths or a particular route. |
+| B — separated ties / dots | [Editable SVG](renders/concepts/wall_support_b.svg). Short connections reach both skins, separated along wall length **and height**. They are bonded ties rather than floating dots. In the bottom they become spaced posts under the upper skin. | Proposed tie undersides bridge across the wall gap; the bottom roof bridges between posts. Printed bridge bonding, skin continuity, gap survival, support spacing and damping remain unknown. No continuous vertical ribs are intended. |
+
+![A: square frames alongside two continuous skins](renders/concepts/wall_support_a.svg)
+
+![B: separate short cross-gap ties](renders/concepts/wall_support_b.svg)
+
+Blue denotes the two continuous skins; green denotes internal connections, all
+in the same TPU. Views show a horizontal wall cut, a wall face with the near skin
+hidden, a vertical cut and a bottom section. Sections are enlarged schematics,
+not to scale, actual extrusion previews or complete CAD. Wall/bottom junctions,
+corners, rims and full-shell fit are not detailed. The same comparison can later
+cover walls and bottom without assuming they print or behave identically.
+
+The existing 0.4 mm nozzle / 0.2 mm layer context and preference to avoid reliance
+on Arachne remain relevant. The user's explicit single-line-frame idea is being
+explored here despite the earlier preference for substantial local features;
+it is not already accepted as robust. Alignment on the geometry comes before
+selecting dimensions, inspecting actual sliced routes or printing. Successful
+routes alone would still leave installation/handling and damping to physical
+comparison. The useful lesson from this report is local: installation survival
+must be assessed alongside as-printed wall appearance.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Support concept test pieces | N/A — SVG discussion only | `renders/concepts/wall_support_a.svg`, `renders/concepts/wall_support_b.svg` | Geometry interpretation pending discussion; no new CAD, exports, slicing or physical results |
+| Final printable objects | N/A — visual phase | None new | Existing experiment shell retained for later complete-insert comparison; strength, fit and damping unqualified for both concepts |
 
 ## Surface-finish coupons — 2026-10-17
 
@@ -824,6 +877,12 @@ not physical qualification. Orca/Qidi JSON profiles have separate
 figures were copied. Research/model dates: 2026-10-15 (baseline), 2026-10-16
 (thin derivatives, enlarged labels, closed-skin follow-up and user feedback).
 Thin revision: same user-supplied model/effort attribution; runtime identifier not exposed.
+
+Support-concept SVGs and installation-feedback update, 2026-10-20: primary model
+GPT-6 family; exact runtime identifier and reasoning effort not exposed. Harness:
+Codex shared-workspace agent; provider OpenAI. No subagents. Both concepts originate
+with the user; drawings and the stated geometric interpretations were authored
+in this phase. Historical attribution above remains scoped to its earlier work.
 
 Surface-coupon phase, 2026-10-17: primary language model GPT-6 family; exact
 runtime identifier and reasoning effort not exposed. Harness: Codex shared-workspace
