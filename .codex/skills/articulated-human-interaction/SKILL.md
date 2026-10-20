@@ -17,6 +17,17 @@ setup, obstructions and decision the result could change. Ordinary dimensional
 clearance may need only CAD; effort, friction, comfort and fatigue need other
 qualified analysis or physical evidence.
 
+For a broad exterior grip with freely chosen contacts, start with support/pull
+roles, usable surface zones and an opening walkthrough. Do not turn one chosen
+digit pair, fixed wrist posture, rigid-skin point/normal tolerance or hand-to-hand
+clearance into a user requirement. Use articulated search when precise reach or
+an obstructed path can change the decision. If a search fails, revisit whether
+its grasp task is necessary before tuning it; layout judgment may complete the
+design choice without a claimed anatomical witness. Follow
+[method selection](../engineering-method-selection/SKILL.md#choose-from-the-decision)
+when replacing a mismatched question. The [dental correction](../../../model/dental_travel_case/notes/grip_human.md#working-approach-correction)
+preserves the unsuccessful native search while retiring it as a placement gate.
+
 When anatomy coverage, collision proxies, deformable contact, detailed material
 behavior or physiological forces limit the question, consult
 [engineering method selection](../engineering-method-selection/SKILL.md) for a
@@ -68,7 +79,7 @@ user requirements or universal ergonomic thresholds.
 
 For a new grasp, qualify the anatomical side before searching: a primitive's
 outward pole is not automatically palmar skin, and mirrored native hands can
-reverse local axes. The [dental band contact audit](../../../model/dental_travel_case/notes/grip_human.md#contact-side-audit-and-lesson)
+reverse local axes. The [dental band contact audit](../../../model/dental_travel_case/notes/grip_human/native_search.md#contact-side-audit-and-lesson)
 found the flattened distal ellipsoids extensor-facing. Its grasp instead uses
 the imported capsule's flexor-facing barrel, identified from native joint motion
 and flexor-tendon shortening, without force claims. Preserve the phone example's

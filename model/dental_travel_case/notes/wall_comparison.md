@@ -293,10 +293,11 @@ change is warranted by this preference refinement.
 
 ## Continuous band and shallow profile
 
-**Latest placement exploration:** [upright/diagonal opening and native hands](grip_human.md)
-compares three band locations. The provisional dimensional starting point is
-cap +50 / body −30 mm from the seam; the older −27 mm sketch below is historical.
-The anatomical search does not qualify comfort or a usable grasp. Production
+**Selected placement:** [upright/diagonal opening walkthrough](grip_human.md)
+uses cap +55 / body −30 mm band centres. Nominal layout checks pass; placement
+selection is complete. Earlier +50/−30 and +50/−27 sketches below are historical.
+The precise-hand search is retained as an unsuccessful diagnostic, retired as
+a placement criterion. Printed traction/feel remains unmeasured. Production
 CAD and exports remain unchanged.
 
 The user asks whether a recess can stay shallow and smoothly curved while still

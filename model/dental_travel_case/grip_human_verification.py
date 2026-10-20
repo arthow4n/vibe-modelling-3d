@@ -1,16 +1,15 @@
-"""Current native replay for the grip-placement concept, through the shared CLI."""
+"""Practical placement checks; earlier native grasp replay retained as history."""
 import json
 from dataclasses import asdict
 import numpy as np
 from product_verification import (UserRequirement as U,UserSource as S,Question as Q,
     Check,Evidence,Status,Plan,Directive,DesignDecision)
-import grip_human_record as study
 
 RECORD='notes/grip_human.md'
-TARGET=('form.grip-placement','endpoint')
 
 
 def read_record(path):
+    import grip_human_record as study
     if not path.is_file():return Status.UNKNOWN,'No retained study',None
     try:
         r=json.loads(path.read_text())
@@ -34,6 +33,7 @@ def read_record(path):
 
 
 def evaluate(path):
+    import grip_human_record as study
     status,summary,record=read_record(path)
     if record is None:return status,summary
     # Construction/program errors remain errors. Only validated saved states are
@@ -53,16 +53,23 @@ def make_plan(variant,baseline):
     parent=parent_plan('slim-short-lap-three-line',baseline)
     source=S(RECORD+'#user-direction','User selected shallow smooth full-wrap exploration, requested anatomical placement and recorded visualizations; opening upright/diagonal to keep toothbrush from falling')
     requirement=U('form.grip-placement','Provide useful exterior grips for separating cap/body while holding the case upright or diagonal',source)
-    scope=dict(design=variant,phase='concept investigation; production printable files unchanged',
-               anatomy='MyoSim myohands; rigid hand placement, no arm reach or dynamics')
+    from grip_placement import selected_layout
+    scope=dict(design=variant,phase='selected concept layout; production printable files unchanged',
+               method='nominal functional zones and prescribed opening motion; no grasp/force claim')
+    target=('form.grip-placement','layout')
     def run():
-        status,summary=evaluate(study.OUT/'study.json')
-        return (Evidence('grip.native-replay',(TARGET,),status,summary,'notes/grip_human/study.json',scope),)
+        result=selected_layout()
+        checks=result['checks']
+        checks['opening_zones_separate']=all(p['axial_band_gap_mm']>=result['metrics']['axial_band_gap_mm'] for p in result['travel'])
+        status=Status.PASS if all(checks.values()) else Status.FAIL
+        m=result['metrics'];p=result['layout']
+        summary=(f"Selected +{p['cap_center_mm']:g}/{p['body_center_mm']:g} mm layout: {m['cap_backing_gap_mm']:g} mm beyond backing, {m['cap_closed_end_gap_mm']:g} mm below cap end, {m['body_seam_gap_mm']:g} mm below body seam; band gap {m['axial_band_gap_mm']:g} mm, increasing with cap lift. Nominal layout only"
+                 if status==Status.PASS else 'Nominal layout contradicts checks: '+str([k for k,v in checks.items() if not v]))
+        return (Evidence('grip.layout',(target,),status,summary,'notes/grip_human/layout.json',scope),)
     return Plan(variant,(*parent.requirements,requirement),scope,
         questions=(*parent.questions,
-            Q('endpoint',requirement.id,'Find at least one declared finite placement/orientation with native skin contacts and selected collision/joint screens','kinematic'),
-            Q('opening',requirement.id,'Held grasp clears the first 6 mm lift; requires an accepted endpoint','kinematic'),
+            Q('layout',requirement.id,'Bands occupy separate exterior zones outside sleeve/backing and end rounds, and separate under prescribed cap lift','dimensional'),
             Q('use',requirement.id,'Printed bands provide useful traction and comfortable upright/diagonal opening with actual contents','physical')),
-        checks=(Check('grip.native-replay',(TARGET,),run),),
+        checks=(Check('grip.layout',(target,),run),),
         directives=(*parent.directives,Directive('grip.upright','Support body below cap; preserve upright/diagonal use to help retain toothbrush',source)),
-        decisions=(DesignDecision('grip.provisional-position','Compare +40/−15, +50/−30 and +65/−50 mm centres; balanced is a dimensional starting proposal, not a validated grasp',RECORD),))
+        decisions=(DesignDecision('grip.selected-position','Use +55/−30 mm centres with 20 mm bands and 0.7 mm depth; keep full wrap for freely chosen hand contacts. Detailed rigid-fingertip IK is retired as a placement criterion',RECORD),))

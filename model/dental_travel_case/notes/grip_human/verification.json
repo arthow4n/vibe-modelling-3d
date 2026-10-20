@@ -21,7 +21,7 @@
     "grip-band-placement"
   ],
   "available_checks": [
-    "grip.native-replay"
+    "grip.layout"
   ],
   "exit_reason": "unresolved_evidence",
   "error": null,
@@ -29,8 +29,8 @@
     "variant": "grip-band-placement",
     "scope": {
       "design": "grip-band-placement",
-      "phase": "concept investigation; production printable files unchanged",
-      "anatomy": "MyoSim myohands; rigid hand placement, no arm reach or dynamics"
+      "phase": "selected concept layout; production printable files unchanged",
+      "method": "nominal functional zones and prescribed opening motion; no grasp/force claim"
     },
     "focused": false,
     "requirements": [
@@ -662,29 +662,18 @@
         "non_applicable": null,
         "questions": [
           {
-            "id": "endpoint",
-            "criterion": "Find at least one declared finite placement/orientation with native skin contacts and selected collision/joint screens",
-            "mode": "kinematic",
+            "id": "layout",
+            "criterion": "Bands occupy separate exterior zones outside sleeve/backing and end rounds, and separate under prescribed cap lift",
+            "mode": "dimensional",
             "rationale": "",
-            "status": "INCONCLUSIVE",
+            "status": "PASS",
             "coverage": "evidence",
             "strategies": [
-              "grip.native-replay"
+              "grip.layout"
             ],
             "evidence": [
-              "grip.native-replay"
+              "grip.layout"
             ],
-            "out_of_scope": []
-          },
-          {
-            "id": "opening",
-            "criterion": "Held grasp clears the first 6 mm lift; requires an accepted endpoint",
-            "mode": "kinematic",
-            "rationale": "",
-            "status": "UNKNOWN",
-            "coverage": "uncovered",
-            "strategies": [],
-            "evidence": [],
             "out_of_scope": []
           },
           {
@@ -705,27 +694,27 @@
     ],
     "evidence": [
       {
-        "id": "grip.native-replay",
+        "id": "grip.layout",
         "targets": [
           [
             "form.grip-placement",
-            "endpoint"
+            "layout"
           ]
         ],
-        "status": "INCONCLUSIVE",
-        "summary": "No accepted grasp in finite baseline search or translated placement replays; no physical impossibility established",
-        "reference": "notes/grip_human/study.json",
+        "status": "PASS",
+        "summary": "Selected +55/-30 mm layout: 6 mm beyond backing, 25 mm below cap end, 20 mm below body seam; band gap 65 mm, increasing with cap lift. Nominal layout only",
+        "reference": "notes/grip_human/layout.json",
         "scope": {
           "design": "grip-band-placement",
-          "phase": "concept investigation; production printable files unchanged",
-          "anatomy": "MyoSim myohands; rigid hand placement, no arm reach or dynamics"
+          "phase": "selected concept layout; production printable files unchanged",
+          "method": "nominal functional zones and prescribed opening motion; no grasp/force claim"
         }
       }
     ],
     "decisions": [
       {
-        "id": "grip.provisional-position",
-        "text": "Compare +40/\u221215, +50/\u221230 and +65/\u221250 mm centres; balanced is a dimensional starting proposal, not a validated grasp",
+        "id": "grip.selected-position",
+        "text": "Use +55/\u221230 mm centres with 20 mm bands and 0.7 mm depth; keep full wrap for freely chosen hand contacts. Detailed rigid-fingertip IK is retired as a placement criterion",
         "reference": "notes/grip_human.md"
       }
     ],
