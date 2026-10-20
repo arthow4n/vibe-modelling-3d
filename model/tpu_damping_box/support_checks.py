@@ -118,10 +118,25 @@ def publication(name):
     assert all(digest(ROOT/file)==sha for file,sha in row['source_sha256'].items())
     assert all(digest(ROOT/file)==sha for file,sha in row['export_sha256'].items())
     assert row['checks_passed'], row
+    assert set(paths['rejected_batch_controls'])==set(d.NAMES)
+    assert all(x['ordinary_failure'] for x in paths['rejected_batch_controls'].values())
+    assert all(x['layers']>100 and x['tangent_samples_per_layer']==6 for x in row['wall_continuity'])
 
 
 def classic(name):
     paths=json.loads((ROOT/'notes/support_path_review.json').read_text())
     row=paths['variants'][name]
     assert row['effective_process']['wall_generator']=='classic'
+    assert row['effective_process']['detect_thin_wall']=='0'
+    assert all(digest(ROOT/file)==sha for file,sha in row['source_sha256'].items())
+
+
+def repo_default(name):
+    paths=json.loads((ROOT/'notes/support_path_review.json').read_text())
+    row=paths['variants'][name]
+    assert row['repo_default']['checks_passed']
+    assert row['repo_default']['wall_generator']=='classic'
+    assert row['repo_default']['detect_thin_wall']=='0'
+    assert all(x['layers']>100 and all(isinstance(z,(int,float)) for z in x['z_range_mm'])
+               for x in row['repo_default']['faces'])
     assert all(digest(ROOT/file)==sha for file,sha in row['source_sha256'].items())

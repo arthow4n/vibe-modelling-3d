@@ -39,6 +39,10 @@ REQUIREMENTS += (
       S(SUPPORT_SOURCE,'During implementation the user explicitly reiterates: I do not want Arachne.')),
     U('support.four','Provide four labeled complete cup/lid-insert pairs for the existing experiment box: A at 1.6 and 2.0 mm; B at 1.6 mm with two distinct tie sizes.',
       S(SUPPORT_SOURCE,'User accepts both SVG explanations and requests four printable variants, matching lids and markings: A at 16/20 and B at 16 with two distinct tie sizes; the S16 context establishes 1.6/2.0 mm units.')),
+    U('support.repo_defaults','The replacements must retain wall paths with the ordinary repository default slicing process.',
+      S('README.md#ordinary-classic-repair--r2','Asked which slicer/nozzle/line width/profile was used for the failure, the user answers: default as in the repo. They allow increased A thickness if needed, prioritising reliable Classic slicing.')),
+    U('support.ordinary','The four replacements must generate their wall skins with ordinary Classic slicing, without Arachne or dependence on thin-wall recovery.',
+      S('README.md#ordinary-classic-repair--r2','User reports wall paths missing on all four variants, declines printing the batch, and requests investigation and repair for normal slicing without Arachne.')),
     U('support.integrity','Find a thin liner that survives installation and handling with mutually supported walls and bottom.',
       S('README.md#wall-support-concepts--2026-10-20','User reports further dental-liner breakage during insertion and requests support experiments to find the minimum usable thickness without breakage.')),
 )

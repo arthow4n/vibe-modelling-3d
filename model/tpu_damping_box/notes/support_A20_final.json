@@ -16,15 +16,15 @@
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.0013833669945597649,
-    "build": 1.857474517019,
-    "selection": 0.0010173129849135876,
-    "validation": 0.4081836829718668,
-    "export_step": 0.37327511399053037,
-    "export_stl": 0.10014787301770411,
-    "worker": 2.860634274984477,
-    "total": 16.078322607994778,
-    "slice": 10.51188600299065
+    "dependency_initialization": 0.0014175770047586411,
+    "build": 2.4797523409943096,
+    "selection": 0.0007802739855833352,
+    "validation": 0.4526669059996493,
+    "export_step": 0.4457608349912334,
+    "export_stl": 0.1469966669974383,
+    "worker": 3.660359448986128,
+    "total": 25.885211184999207,
+    "slice": 19.671466492000036
   },
   "versions": {
     "python": "3.14.7",
@@ -35,15 +35,15 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "b565efb04b5c45ebf0d2edc38be659aa4d7d0a59ed915c6863825ffd454724fd",
-    "artifact_identity": "075b4c44d1dd4fcefc7afcd02f6cdf5b2ff2e1c72ce0a79f2ada3dbfd4cbc620"
+    "identity": "cde6ef8743b0690afcdb77e7e47b3430f5ae315311dab97032cd2f921058a7c8",
+    "artifact_identity": "d5ef2f71ededab9ab5455710902516b4ffadbb004bd5d3a433b007ef2650cebf"
   },
   "slice": {
     "ok": true,
     "model": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/support_A20.stl",
     "profiles": {
       "printer": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
-      "process": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu-support-a-process.json",
+      "process": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu-support-classic-process.json",
       "filament": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu95a.json"
     },
     "slicer_version": "2.4.2",
@@ -85,13 +85,13 @@
       "hot_plate_temp_initial_layer": [
         "35"
       ],
-      "print_settings_id": "TPU support A Classic 0.20",
+      "print_settings_id": "TPU support ordinary Classic 0.20",
       "layer_height": "0.2",
       "wall_loops": "2",
-      "line_width": "0.3",
-      "outer_wall_line_width": "0.3",
-      "inner_wall_line_width": "0.3",
-      "initial_layer_line_width": "0.4",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
       "brim_type": "no_brim",
       "brim_width": "0",
       "brim_object_gap": "0.1",
@@ -117,7 +117,6 @@
         {
           "plate": 1,
           "roles": [
-            "Support",
             "Support interface"
           ]
         }
@@ -126,14 +125,12 @@
       "effective_support_threshold_angle": "30",
       "effective_max_bridge_length_mm": "10"
     },
-    "log_notices": [
-      "plate 1: It seems object input.stl has floating regions. Please re-orient the object or enable support generation."
-    ],
+    "log_notices": [],
     "review_required": true,
     "reused": false,
-    "identity": "1972a39777edda31942bb0a2e685341b1d625e3d5a1a3ef62c2552bc3c719bbe",
-    "input_sha256": "af8007341f1629c851c2a21a07074817162e627c26d773f8e33c4703bb8ed8e9",
-    "kept_run_directory": "/home/hevar/orca-slicer-review-o8i4fn08",
+    "identity": "98d8499c4f0957cbcbee7866cd12550a9c57663ba3f0dace8b82fe32d637ff5f",
+    "input_sha256": "60327dd0fc8e95916224c9ef9064267623be2db4886050a48290f60dede1ab05",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-fxu86o24",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",

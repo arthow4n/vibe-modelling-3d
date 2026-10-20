@@ -74,6 +74,14 @@ This is scoped to the ongoing liner experiment, not a general ban on Arachne.
 The [owning iteration priorities](../../../../model/tpu_damping_box/README.md#upcoming-iteration-priorities--2026-10-19)
 record the user's examples, unit interpretation and remaining evidence needs.
 
+**TPU support-batch clarification, 2026-10-20:** the user explicitly requires
+no Arachne and rejects the four R1 support pairs before printing because walls
+disappear in their slice. They request normal slicing compatibility. The
+[R2 correction](../../../../model/tpu_damping_box/README.md#ordinary-classic-repair--r2)
+tests ordinary Classic widths with thin-wall detection off to establish that
+it does not depend on recovery options; that diagnostic choice is not a claim
+about the user's unreported checkbox settings or a global ban for other models.
+
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.
 Choose insertion allowance, seated play and retention separately; this report

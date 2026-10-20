@@ -44,6 +44,15 @@ Keep vertical skin continuity separate from horizontal finish and retained paths
 
 **Scope and limits:** Cause and actual speeds remain unknown; recalled 80 mm/s and 9 mm³/s are not directly comparable settings. [Deferred TPU side-wall work](../../../../model/tpu_damping_box/README.md#deferred-side-wall-printing-investigation--2026-10-19) must preserve relevant orientation/height/restraint. Neither flat F0–F7 coupons nor a successful small cup qualifies tall walls; no universal pocket-size, Arachne or speed verdict follows.
 
+### Classic generator choice versus ordinary-profile compatibility
+
+Checking `wall_generator=classic` alone does not establish ordinary slicing
+compatibility when the diagnostic also narrows widths or enables thin-wall recovery.
+
+**Evidence:** [R1 rejection and R2 correction](../../../../model/tpu_damping_box/README.md#ordinary-classic-repair--r2): the user declines all four unprinted R1 sets for missing walls. Ordinary 0.42/0.45 mm Classic widths with recovery off reproduce missing A16 skins and empty-layer errors in the other sets. R2 retains the requested total thicknesses by reallocating skin/core/support material.
+
+**Scope and limits:** Slicer failure and user preprint rejection, not printed breakage or a calibrated material limit. The user's original complete settings remain unknown. [Print planning](print-planning.md#functional-process-co-design) owns the workflow correction; the object's selected widths and 0.5 mm skins are setup-specific experiments, not a universal minimum.
+
 ### Overall thinness versus printable local features
 
 Separate overall lining thickness from substantial local feature width and path count.

@@ -12,9 +12,11 @@ PITCH = 4.4
 CENTRES = tuple(i * PITCH for i in range(-3, 4))
 FLOOR_SKIN = .4
 RIM_CAP = .4
-FRAME_CROSS_WEB = .6  # Classic omits short .3 and .4 mm links in A16.
+FRAME_CROSS_WEB = .6
+FLOOR_FRAME_WEB = .5
 LABEL_DEPTH = .2
 LABEL_SIZE = 12.0
+REVISION = "R2"
 # A one-layer preload replaces historical 0.1 mm, so all pad Z features lie on
 # the agreed 0.2 mm grid. This is deliberate squeeze, not a calibrated fit.
 PRELOAD = .2
@@ -54,10 +56,10 @@ class SupportVariant:
 
 
 VARIANTS = {
-    'A16': SupportVariant('A16', 'frame', 1.6, .3, .3),
-    'A20': SupportVariant('A20', 'frame', 2.0, .3, .3),
-    'B08': SupportVariant('B08', 'ties', 1.6, .4, .8),
-    'B16': SupportVariant('B16', 'ties', 1.6, .4, 1.6),
+    'A16': SupportVariant('A16', 'frame', 1.6, .5, .2),
+    'A20': SupportVariant('A20', 'frame', 2.0, .5, .2),
+    'B08': SupportVariant('B08', 'ties', 1.6, .5, .8),
+    'B16': SupportVariant('B16', 'ties', 1.6, .5, 1.6),
 }
 NAMES = tuple(VARIANTS)
 
@@ -78,22 +80,25 @@ def compound(parts):
 
 def label_cut(name, depth=LABEL_DEPTH):
     variant_named(name)
-    return (cq.Workplane('XY').text(name, LABEL_SIZE, depth,
-            font='DejaVu Sans Mono', kind='bold', combine=True).mirror('YZ'))
+    main = cq.Workplane('XY').text(name,LABEL_SIZE,depth,
+        font='DejaVu Sans Mono',kind='bold',combine=True)
+    revision = cq.Workplane('XY').center(0,-11).text(REVISION,8,depth,
+        font='DejaVu Sans Mono',kind='bold',combine=True)
+    return main.union(revision).mirror('YZ')
 
 
 def floor_supports(v, length):
     if v.topology == 'ties':
         return compound([block(v.tie_size, v.tie_size, v.core,
                                FLOOR_SKIN, x, y) for x in CENTRES for y in CENTRES])
-    # Preserve the same square AIR opening as the upright frames. The bottom
-    # has 0.4 mm two-layer skins, so its frame rails are 0.2 mm tall, while the
-    # upright frame rails are 0.3 mm wide. This is an explicit layer-grid change.
-    rail_height = (v.core - v.frame_opening) / 2
-    assert abs(rail_height - .2) < 1e-8
-    loop = block(v.wall_core, length, v.core, FLOOR_SKIN).cut(
-        block(v.frame_opening, length+1, v.frame_opening,
-              FLOOR_SKIN+rail_height))
+    # Horizontal skins/rail heights follow the 0.2 mm layer grid; the long
+    # vertical cross-webs need ordinary-line-width material, independent of the
+    # small rails embedded in the upright skins.
+    rail_height = .2
+    opening = v.core - 2*rail_height
+    width = opening + 2*FLOOR_FRAME_WEB
+    loop = block(width,length,v.core,FLOOR_SKIN).cut(
+        block(opening,length+1,opening,FLOOR_SKIN+rail_height))
     return compound([loop.translate((x,0,0)) for x in CENTRES])
 
 
@@ -130,7 +135,7 @@ def cup(name):
     p = p.cut(block(v.clear, v.clear, fixture.CUP_HEIGHT, v.thickness))
     pocket = fixture.CUP_SIZE - 2 * v.wall_skin
     p = p.cut(block(pocket, pocket, v.thickness + 1, v.wall_height))
-    floor_size = fixture.CUP_SIZE - 2 * FLOOR_SKIN
+    floor_size = fixture.CUP_SIZE - 2 * v.wall_skin
     floor_void = block(floor_size, floor_size, v.core, FLOOR_SKIN)
     p = p.cut(floor_void.cut(cq.Workplane(obj=floor_supports(v, floor_size))))
     inner_skin_outer = v.clear + 2 * v.wall_skin
@@ -147,7 +152,7 @@ def cup(name):
 def pad_print(name):
     v = variant_named(name)
     p = block(v.pad_size, v.pad_size, v.thickness + PRELOAD)
-    inside = v.pad_size - 2 * FLOOR_SKIN
+    inside = v.pad_size - 2 * v.wall_skin
     void = block(inside, inside, v.core, FLOOR_SKIN + PRELOAD)
     supports = cq.Workplane(obj=floor_supports(v, inside)).translate((0, 0, PRELOAD))
     return p.cut(void.cut(supports)).cut(label_cut(name)).clean()

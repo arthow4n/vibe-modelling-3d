@@ -179,7 +179,7 @@ and [C6](model/dental_travel_case/notes/clamshell_exploration.md) remain histori
 
 - Test pieces: Yes — prior liners at 0.2 mm layers; S16/S12 work, S16 preferred; I10 rejected. Latest report: surface waviness remains despite 50% ironing. New [eight 30 mm finish coupons](model/tpu_damping_box/README.md#surface-finish-coupons--2026-10-17): not yet printed; surface and damping comparison pending. Other exact prior settings unknown
 - Final object: N/A — samples; S16 approved starting profile for rigid-shell/TPU damping; application fit/quietness require review
-- Current follow-up: [Four complete support-test pairs](model/tpu_damping_box/README.md#four-printable-support-pairs--2026-10-20), unprinted: A16/A20 square-frame concepts at 1.6/2.0 mm, B08/B16 at 1.6 mm with 0.8/1.6 mm ties. Each has a labeled cup and matching lid pad for the existing shell. Classic is required; installation survival and useful damping remain untested. [SVG alignment](model/tpu_damping_box/README.md#wall-support-concepts--2026-10-20) accepted; F0–F7 do not qualify tall walls
+- Current follow-up: [R2 support-test pairs](model/tpu_damping_box/README.md#ordinary-classic-repair--r2) replace R1, which the user rejected before printing for missing sliced walls. R2 retains A at 1.6/2.0 mm and both B tie sizes at 1.6 mm, with 0.5 mm skins and engraved R2 IDs. One ordinary Classic profile, thin-wall detection OFF; R1 loses walls/produces empty-layer errors under that setup. Physical installation survival and damping remain untested. F0–F7 do not qualify tall walls
 - Provenance: [Record](model/tpu_damping_box/README.md#attribution) · Agent effort: N/A — no performance study requested
 
 #### One-sided dental latch research

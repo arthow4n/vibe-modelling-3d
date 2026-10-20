@@ -36,6 +36,7 @@
     "support-cores",
     "support-labels",
     "support-classic",
+    "support-repo-default",
     "support-publication"
   ],
   "exit_reason": "unresolved_evidence",
@@ -44,7 +45,7 @@
     "variant": "A20",
     "scope": {
       "variant": "A20",
-      "phase": "four-complete-support-pairs",
+      "phase": "four-complete-support-pairs-R2",
       "material": "TPU-uncalibrated",
       "layer_mm": 0.2,
       "wall_generator": "classic",
@@ -322,7 +323,7 @@
         "questions": [
           {
             "id": "classic",
-            "criterion": "The actual slice effective settings record Classic for each delivered pair.",
+            "criterion": "The actual slice uses Classic with thin-wall detection OFF and ordinary 0.42/0.45 mm widths.",
             "mode": "slicer",
             "rationale": "",
             "status": "PASS",
@@ -366,7 +367,65 @@
           },
           {
             "id": "paths",
-            "criterion": "Current paired exports and Classic slices retain thin skins, open cores, supports and legible label paths.",
+            "criterion": "Current paired exports and ordinary Classic slices retain wall skins on every upright layer, open cores, supports and legible R2 label paths; the rejected batch fails the control.",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "support-publication"
+            ],
+            "evidence": [
+              "support-publication"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "support.repo_defaults",
+        "text": "The replacements must retain wall paths with the ordinary repository default slicing process.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#ordinary-classic-repair--r2",
+          "statement": "Asked which slicer/nozzle/line width/profile was used for the failure, the user answers: default as in the repo. They allow increased A thickness if needed, prioritising reliable Classic slicing."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "repo-default",
+            "criterion": "The exact repository default Classic process generates both skins on every upright layer of each corrected layout; its PETG diagnostic material is not a TPU print recipe.",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "support-repo-default"
+            ],
+            "evidence": [
+              "support-repo-default"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "support.ordinary",
+        "text": "The four replacements must generate their wall skins with ordinary Classic slicing, without Arachne or dependence on thin-wall recovery.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#ordinary-classic-repair--r2",
+          "statement": "User reports wall paths missing on all four variants, declines printing the batch, and requests investigation and repair for normal slicing without Arachne."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "ordinary",
+            "criterion": "Every upright layer retains both wall skins in ordinary Classic; thin-wall detection is disabled, and the original batch is a failing control.",
             "mode": "slicer",
             "rationale": "",
             "status": "PASS",
@@ -423,7 +482,7 @@
         "reference": "support_checks.py / support_design.py",
         "scope": {
           "variant": "A20",
-          "phase": "four-complete-support-pairs",
+          "phase": "four-complete-support-pairs-R2",
           "material": "TPU-uncalibrated",
           "layer_mm": 0.2,
           "wall_generator": "classic",
@@ -451,7 +510,7 @@
         "reference": "support_checks.py / support_design.py",
         "scope": {
           "variant": "A20",
-          "phase": "four-complete-support-pairs",
+          "phase": "four-complete-support-pairs-R2",
           "material": "TPU-uncalibrated",
           "layer_mm": 0.2,
           "wall_generator": "classic",
@@ -471,7 +530,7 @@
         "reference": "support_checks.py / support_design.py",
         "scope": {
           "variant": "A20",
-          "phase": "four-complete-support-pairs",
+          "phase": "four-complete-support-pairs-R2",
           "material": "TPU-uncalibrated",
           "layer_mm": 0.2,
           "wall_generator": "classic",
@@ -491,7 +550,7 @@
         "reference": "support_checks.py / support_design.py",
         "scope": {
           "variant": "A20",
-          "phase": "four-complete-support-pairs",
+          "phase": "four-complete-support-pairs-R2",
           "material": "TPU-uncalibrated",
           "layer_mm": 0.2,
           "wall_generator": "classic",
@@ -511,7 +570,27 @@
         "reference": "support_checks.py / support_design.py",
         "scope": {
           "variant": "A20",
-          "phase": "four-complete-support-pairs",
+          "phase": "four-complete-support-pairs-R2",
+          "material": "TPU-uncalibrated",
+          "layer_mm": 0.2,
+          "wall_generator": "classic",
+          "total_mm": 2.0
+        }
+      },
+      {
+        "id": "support-repo-default",
+        "targets": [
+          [
+            "support.repo_defaults",
+            "repo-default"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "support_checks.py / support_design.py",
+        "scope": {
+          "variant": "A20",
+          "phase": "four-complete-support-pairs-R2",
           "material": "TPU-uncalibrated",
           "layer_mm": 0.2,
           "wall_generator": "classic",
@@ -524,6 +603,10 @@
           [
             "support.four",
             "paths"
+          ],
+          [
+            "support.ordinary",
+            "ordinary"
           ]
         ],
         "status": "PASS",
@@ -531,7 +614,7 @@
         "reference": "support_checks.py / support_design.py",
         "scope": {
           "variant": "A20",
-          "phase": "four-complete-support-pairs",
+          "phase": "four-complete-support-pairs-R2",
           "material": "TPU-uncalibrated",
           "layer_mm": 0.2,
           "wall_generator": "classic",
@@ -542,7 +625,7 @@
     "decisions": [
       {
         "id": "support-sizes",
-        "text": "A: .3 mm upright skins/parallel rails, .6 mm cross-links and .4 mm horizontal skins, square internal openings .4/.8 mm. B: .8/.1.6 mm ties at identical 4.4 mm pitch in length and height. Both retain explicit CAD voids. Pads add .2 mm axial squeeze on a whole-layer grid.",
+        "text": "R2: .5 mm continuous upright skins on all four variants; A locally thickens each skin to .7 mm around .2/.6 mm square openings, with .6 mm cross-links. Horizontal A webs are .5 mm wide. B retains .8/1.6 mm ties, now across a .6 mm wall gap. Common ordinary Classic .42/.45 mm widths, thin-wall detection off, same 4.4 mm pitch. Both retain explicit CAD voids. Pads add .2 mm axial squeeze on a whole-layer grid.",
         "reference": "README.md#four-printable-support-pairs--2026-10-20"
       }
     ],

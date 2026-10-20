@@ -7,24 +7,24 @@
     {
       "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/support_B16.step",
       "ok": true,
-      "reused": true
+      "reused": false
     },
     {
       "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/support_B16.stl",
       "ok": true,
-      "reused": true
+      "reused": false
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.0014683459885418415,
-    "build": 3.99448724501417,
-    "selection": 0.0010284740128554404,
-    "validation": 1.1438526979763992,
-    "export_step": 0.011764138995204121,
-    "export_stl": 0.0015127380029298365,
-    "worker": 5.3457459319906775,
-    "total": 19.08315448401845,
-    "slice": 13.420310683985008
+    "dependency_initialization": 0.0014361939975060523,
+    "build": 4.789831587986555,
+    "selection": 0.0010782830067910254,
+    "validation": 1.3361644280084874,
+    "export_step": 1.1910589079780038,
+    "export_stl": 0.2148361520085018,
+    "worker": 7.753048866987228,
+    "total": 20.032981714000925,
+    "slice": 5.917913946992485
   },
   "versions": {
     "python": "3.14.7",
@@ -35,15 +35,15 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "515358a364fbbe3b31d5623765a5f5533c74a63d00593f76009a685b8eeb3d86",
-    "artifact_identity": "0765dd7a3146a32700109c9ae3e90923307a7b2b649dba2e4cdd65fe62c72f28"
+    "identity": "e59e556861aad295a6e6202a9307b5ace59c900e91b7bf8e02c2e36ec4d02bcc",
+    "artifact_identity": "7ee28d78ff4a6be83b92e162cd68043aded451e87acf788089ae24b715316e41"
   },
   "slice": {
     "ok": true,
     "model": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/support_B16.stl",
     "profiles": {
       "printer": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
-      "process": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu-support-b-process.json",
+      "process": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu-support-classic-process.json",
       "filament": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu95a.json"
     },
     "slicer_version": "2.4.2",
@@ -85,13 +85,13 @@
       "hot_plate_temp_initial_layer": [
         "35"
       ],
-      "print_settings_id": "TPU support B Classic 0.20",
+      "print_settings_id": "TPU support ordinary Classic 0.20",
       "layer_height": "0.2",
-      "wall_loops": "1",
-      "line_width": "0.4",
-      "outer_wall_line_width": "0.4",
-      "inner_wall_line_width": "0.4",
-      "initial_layer_line_width": "0.4",
+      "wall_loops": "2",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
       "brim_type": "no_brim",
       "brim_width": "0",
       "brim_object_gap": "0.1",
@@ -125,14 +125,12 @@
       "effective_support_threshold_angle": "30",
       "effective_max_bridge_length_mm": "10"
     },
-    "log_notices": [
-      "plate 1: It seems object input.stl has floating regions. Please re-orient the object or enable support generation."
-    ],
+    "log_notices": [],
     "review_required": true,
     "reused": false,
-    "identity": "327c17daa2ffcfe5b4802c4f7642bf0fc7d13e053a5b7ecc9d2fd61c97ad9f39",
-    "input_sha256": "3af987bc09c5ae88b7ae987a0ee33f9bd65c58f65c1d55fdfbcc130deea03f20",
-    "kept_run_directory": "/home/hevar/orca-slicer-review-rtupufdc",
+    "identity": "cd0db071337268213a8894fb98b0f6fcd884854b7bd849736a650c3271c8a456",
+    "input_sha256": "a16911cd29157ddc418bb51acfb3e4824942573ac0d2aec1539d62404cdf9408",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-ik5y4jj7",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",

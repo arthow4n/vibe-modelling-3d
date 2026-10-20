@@ -7,56 +7,118 @@
   },
   "variants": {
     "A16": {
+      "revision": "R2",
       "checks_passed": true,
-      "artifact_identity": "9f10df92ddb30eb8788d3bcfd348984a175e287387357f8dee0c2fbda704112b",
+      "artifact_identity": "fafcf4d9b28b95d8db6263f21e758e730589b6ab3268d6c6f6e6aa654f377730",
       "source_sha256": {
         "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
-        "support_design.py": "26fcebaa5317f613c5ee6434a0b510c1a71b5eb9f157b7fd8b08aad7f3ca658b",
+        "support_design.py": "88cf7fa4d384bd2d8dd6cae73822075cc29197c80a056434d09743636c1b77d7",
         "support_A16.py": "0e40a1cbe116c63a04de72ca7048deed6f83d3e8e0e0efe4c92a338b1ffd4090",
-        "profiles/tpu-support-a-process.json": "c340caa055fb7c8e433d3989abceae27cc1847dbd7be6b844aec661175dba721",
+        "profiles/tpu-support-classic-process.json": "a6bec442b14eaa04a3da3b374e1f277cb3be69f3cb9377e8f8f6b972db18358f",
         "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
-        "review_support_paths.py": "9fb0a57c003a583660fa751a72ba1bc307783b90455277849fed52dd4301c828",
+        "review_support_paths.py": "39954f92248b998ddb9e9af0af68a07e5daa667307b560a1188645fb4604a578",
         "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
-        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd",
+        "notes/rejected_r1/support_A16_ordinary.json": "dcb82642a51607e0724a37613bb7165d3435203ca831536ce941a006ab62e6df",
+        "notes/support_A16_repo_default.json": "8ca89a986b9d1f9421101842849b95c99749f11aada4b1d8437662ad9899bfe5",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json": "d0ff4d67939b4f75dc4146f331ec6cf1a70cb076034da8ebc8dc4efbdf0b25f3",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json": "186159c2b3f1e046f0004e86bdf99722da291e31cc6472be277302767113e2db"
       },
       "export_sha256": {
-        "support_A16.step": "9ea03622371ba944d52bb0d5183eae16476cb49e50c2fe4df7b7672edf02dc51",
-        "support_A16.stl": "1467584c804d8d39cce458430c0ef09f5ca41e09040f19d9d6d971ebb5e3b285"
+        "support_A16.step": "c3152e2756b9f61e6118c2b2a538fd99381dbd4125bf14877600bbf3611a66fe",
+        "support_A16.stl": "0558ffaa4f21007327fb97f2f8f7d5fc9e2a1177b8a016a0b1195c6c58be96b4"
       },
-      "gcode_sha256": "db27d2378a0ce72fc16fdbf559ba73e28d3d1568613fce366665faaf94f91eb5",
+      "gcode_sha256": "94b5ac7c9aa3707a006a318b4d5f7e784837d95ed3f69161e809e5fee995ab01",
       "center_translation_mm": [
-        94.25,
+        94.35,
         115.0
       ],
+      "repo_default": {
+        "checks_passed": true,
+        "wall_generator": "classic",
+        "detect_thin_wall": "0",
+        "outer_width_mm": "0.42",
+        "inner_width_mm": "0.45",
+        "filament": [
+          "PETG"
+        ],
+        "sparse_infill_density": "7%",
+        "faces": [
+          {
+            "face_deg": 0,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.4999999999999982,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 90,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.4999999999999982,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 180,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.49999999999998224,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 270,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.499999999999984,
+            "tangent_samples_per_layer": 6
+          }
+        ],
+        "gcode_sha256": "7a0702329d8051a0261cb5a297c8fa186bda9c827e6c01103a0ba9c8f4846c89",
+        "scope": "Exact repository-default diagnostic path compatibility; not a TPU print recipe."
+      },
       "effective_process": {
         "wall_generator": "classic",
         "wall_loops": "2",
-        "line_width": "0.3",
+        "line_width": "0.42",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "detect_thin_wall": "0",
         "layer_height": "0.2",
         "enable_support": "0",
-        "bridge_angle": "180",
-        "internal_bridge_angle": "180",
-        "filter_out_gap_fill": "0"
+        "bridge_angle": "0",
+        "internal_bridge_angle": "0",
+        "filter_out_gap_fill": "2"
       },
       "bridge_heights_mm": [
-        0.2,
-        0.200001
+        0.2
       ],
       "wall_sections": [
         {
           "z_mm": 3.2,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.6429200000000019,
-            "uncovered_width_mm": 0.9570799999999977,
-            "internal_gap_mm": 0.9570799999999977,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.678539999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.721459999999997,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -66,16 +128,16 @@
           "z_mm": 3.2,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.6429200000000019,
-            "uncovered_width_mm": 0.9570799999999977,
-            "internal_gap_mm": 0.9570799999999977,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.678539999999995
+                -16.499999999999993
               ],
               [
-                -15.721459999999997,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -85,17 +147,17 @@
           "z_mm": 3.2,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.6429180000000159,
-            "uncovered_width_mm": 0.9570819999999838,
-            "internal_gap_mm": 0.9570819999999838,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.721459000000012,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -104,17 +166,17 @@
           "z_mm": 3.2,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.6429180000000159,
-            "uncovered_width_mm": 0.9570819999999838,
-            "internal_gap_mm": 0.9570819999999838,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.721459000000012,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -123,16 +185,16 @@
           "z_mm": 5.4,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.6429200000000019,
-            "uncovered_width_mm": 0.9570799999999977,
-            "internal_gap_mm": 0.9570799999999977,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.678539999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.721459999999997,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -142,16 +204,16 @@
           "z_mm": 5.4,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.6429200000000019,
-            "uncovered_width_mm": 0.9570799999999977,
-            "internal_gap_mm": 0.9570799999999977,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.678539999999995
+                -16.499999999999993
               ],
               [
-                -15.721459999999997,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -161,17 +223,17 @@
           "z_mm": 5.4,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.6429180000000159,
-            "uncovered_width_mm": 0.9570819999999838,
-            "internal_gap_mm": 0.9570819999999838,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.721459000000012,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -180,17 +242,17 @@
           "z_mm": 5.4,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.6429180000000159,
-            "uncovered_width_mm": 0.9570819999999838,
-            "internal_gap_mm": 0.9570819999999838,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.721459000000012,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -199,16 +261,16 @@
           "z_mm": 10.0,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.6429200000000019,
-            "uncovered_width_mm": 0.9570799999999977,
-            "internal_gap_mm": 0.9570799999999977,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.678539999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.721459999999997,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -218,16 +280,16 @@
           "z_mm": 10.0,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.6429200000000019,
-            "uncovered_width_mm": 0.9570799999999977,
-            "internal_gap_mm": 0.9570799999999977,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.678539999999995
+                -16.499999999999993
               ],
               [
-                -15.721459999999997,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -237,17 +299,17 @@
           "z_mm": 10.0,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.6429180000000159,
-            "uncovered_width_mm": 0.9570819999999838,
-            "internal_gap_mm": 0.9570819999999838,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.721459000000012,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -256,17 +318,17 @@
           "z_mm": 10.0,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.6429180000000159,
-            "uncovered_width_mm": 0.9570819999999838,
-            "internal_gap_mm": 0.9570819999999838,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.721459000000012,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -275,16 +337,16 @@
           "z_mm": 18.0,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.6429200000000019,
-            "uncovered_width_mm": 0.9570799999999977,
-            "internal_gap_mm": 0.9570799999999977,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.678539999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.721459999999997,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -294,16 +356,16 @@
           "z_mm": 18.0,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.6429200000000019,
-            "uncovered_width_mm": 0.9570799999999977,
-            "internal_gap_mm": 0.9570799999999977,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.678539999999995
+                -16.499999999999993
               ],
               [
-                -15.721459999999997,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -313,17 +375,17 @@
           "z_mm": 18.0,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.6429180000000159,
-            "uncovered_width_mm": 0.9570819999999838,
-            "internal_gap_mm": 0.9570819999999838,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.721459000000012,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -332,17 +394,17 @@
           "z_mm": 18.0,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.6429180000000159,
-            "uncovered_width_mm": 0.9570819999999838,
-            "internal_gap_mm": 0.9570819999999838,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.721459000000012,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -351,16 +413,16 @@
           "z_mm": 29.6,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.6429200000000019,
-            "uncovered_width_mm": 0.9570799999999977,
-            "internal_gap_mm": 0.9570799999999977,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.678539999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.721459999999997,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -370,16 +432,16 @@
           "z_mm": 29.6,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.6429200000000019,
-            "uncovered_width_mm": 0.9570799999999977,
-            "internal_gap_mm": 0.9570799999999977,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.678539999999995
+                -16.499999999999993
               ],
               [
-                -15.721459999999997,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -389,17 +451,17 @@
           "z_mm": 29.6,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.6429180000000159,
-            "uncovered_width_mm": 0.9570819999999838,
-            "internal_gap_mm": 0.9570819999999838,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.721459000000012,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -408,34 +470,114 @@
           "z_mm": 29.6,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.6429180000000159,
-            "uncovered_width_mm": 0.9570819999999838,
-            "internal_gap_mm": 0.9570819999999838,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.721459000000012,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
         }
       ],
+      "wall_continuity": [
+        {
+          "face_deg": 0,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.4999999999999982,
+          "minimum_gap_mm": 0.5999999999999943
+        },
+        {
+          "face_deg": 90,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.4999999999999982,
+          "minimum_gap_mm": 0.5999999999999943
+        },
+        {
+          "face_deg": 180,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.49999999999998224,
+          "minimum_gap_mm": 0.6000000000000068
+        },
+        {
+          "face_deg": 270,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.499999999999984,
+          "minimum_gap_mm": 0.6000000000000068
+        }
+      ],
+      "outside_full_height": [
+        {
+          "face_deg": 0,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.3499999999999943,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 90,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.3499999999999943,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 180,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.34999999999999076,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 270,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.34999999999999076,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        }
+      ],
       "topology": {
         "frame_center": {
-          "filled_width_mm": 1.1999999999999886,
-          "uncovered_width_mm": 0.400000000000011,
-          "internal_gap_mm": 0.4000000000000039,
+          "filled_width_mm": 1.400000000000004,
+          "uncovered_width_mm": 0.19999999999999574,
+          "internal_gap_mm": 0.19999999999998863,
           "intervals_mm": [
             [
               -16.999999999999993,
-              -16.4
+              -16.29999999999999
             ],
             [
-              -15.999999999999995,
+              -16.1,
               -15.4
             ]
           ]
@@ -507,7 +649,7 @@
       "support_proposals": [
         {
           "part": "cup",
-          "segments": 508,
+          "segments": 431,
           "z_range_mm": [
             1.0,
             1.0
@@ -515,7 +657,7 @@
         },
         {
           "part": "pad",
-          "segments": 2708,
+          "segments": 1596,
           "z_range_mm": [
             1.0,
             1.2
@@ -524,57 +666,119 @@
       ]
     },
     "A20": {
+      "revision": "R2",
       "checks_passed": true,
-      "artifact_identity": "075b4c44d1dd4fcefc7afcd02f6cdf5b2ff2e1c72ce0a79f2ada3dbfd4cbc620",
+      "artifact_identity": "d5ef2f71ededab9ab5455710902516b4ffadbb004bd5d3a433b007ef2650cebf",
       "source_sha256": {
         "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
-        "support_design.py": "26fcebaa5317f613c5ee6434a0b510c1a71b5eb9f157b7fd8b08aad7f3ca658b",
+        "support_design.py": "88cf7fa4d384bd2d8dd6cae73822075cc29197c80a056434d09743636c1b77d7",
         "support_A20.py": "ab467235c81df889e6f07ab2b342528840614ee6b567153d2e3665037a83c0ac",
-        "profiles/tpu-support-a-process.json": "c340caa055fb7c8e433d3989abceae27cc1847dbd7be6b844aec661175dba721",
+        "profiles/tpu-support-classic-process.json": "a6bec442b14eaa04a3da3b374e1f277cb3be69f3cb9377e8f8f6b972db18358f",
         "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
-        "review_support_paths.py": "9fb0a57c003a583660fa751a72ba1bc307783b90455277849fed52dd4301c828",
+        "review_support_paths.py": "39954f92248b998ddb9e9af0af68a07e5daa667307b560a1188645fb4604a578",
         "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
-        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd",
+        "notes/rejected_r1/support_A20_ordinary.json": "dffa60de81252e77a6459201ef18fd595da2d7e05686c7ff4004394a418a5943",
+        "notes/support_A20_repo_default.json": "99b34a7f0f5388df2c4222bc8e986d011264ccfb8e1ba459c034f534c2e47012",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json": "d0ff4d67939b4f75dc4146f331ec6cf1a70cb076034da8ebc8dc4efbdf0b25f3",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json": "186159c2b3f1e046f0004e86bdf99722da291e31cc6472be277302767113e2db",
+        "notes/rejected_r1/support_A20_orca_result.json": "e76e9e243fe164827c23884c97f58d6fd696963919f5849c329912978e044317"
       },
       "export_sha256": {
-        "support_A20.step": "88d70a453e99d9bf5996b16fbdbea3b673bf81015235bab8190d4e70aae7de54",
-        "support_A20.stl": "af8007341f1629c851c2a21a07074817162e627c26d773f8e33c4703bb8ed8e9"
+        "support_A20.step": "387d4381a988f1bbeb9f7a181dcf2465f85e3e01dbc7c8dd0f253c13bffa9b8f",
+        "support_A20.stl": "60327dd0fc8e95916224c9ef9064267623be2db4886050a48290f60dede1ab05"
       },
-      "gcode_sha256": "981c47687b41e335ff0919aa23bc2ee122843c318414a2f8b623b57146fd0cf7",
+      "gcode_sha256": "f7ee4b233a714cd8200f5ecd927bbc8b304fba4532ed5d5f392491fe34fed570",
       "center_translation_mm": [
-        94.25,
+        94.35,
         115.0
       ],
+      "repo_default": {
+        "checks_passed": true,
+        "wall_generator": "classic",
+        "detect_thin_wall": "0",
+        "outer_width_mm": "0.42",
+        "inner_width_mm": "0.45",
+        "filament": [
+          "PETG"
+        ],
+        "sparse_infill_density": "7%",
+        "faces": [
+          {
+            "face_deg": 0,
+            "layers": 148,
+            "z_range_mm": [
+              2.2,
+              31.6
+            ],
+            "minimum_skin_path_mm": 0.4999999999999929,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 90,
+            "layers": 148,
+            "z_range_mm": [
+              2.2,
+              31.6
+            ],
+            "minimum_skin_path_mm": 0.5000000000000071,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 180,
+            "layers": 148,
+            "z_range_mm": [
+              2.2,
+              31.6
+            ],
+            "minimum_skin_path_mm": 0.49999999999998224,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 270,
+            "layers": 148,
+            "z_range_mm": [
+              2.2,
+              31.6
+            ],
+            "minimum_skin_path_mm": 0.499999999999984,
+            "tangent_samples_per_layer": 6
+          }
+        ],
+        "gcode_sha256": "b3dc448b4fc23c4c0c0a360031d31faea46b4acb2112a5e4055bebee60dbaa71",
+        "scope": "Exact repository-default diagnostic path compatibility; not a TPU print recipe."
+      },
       "effective_process": {
         "wall_generator": "classic",
         "wall_loops": "2",
-        "line_width": "0.3",
+        "line_width": "0.42",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "detect_thin_wall": "0",
         "layer_height": "0.2",
         "enable_support": "0",
-        "bridge_angle": "180",
-        "internal_bridge_angle": "180",
-        "filter_out_gap_fill": "0"
+        "bridge_angle": "0",
+        "internal_bridge_angle": "0",
+        "filter_out_gap_fill": "2"
       },
       "bridge_heights_mm": [
-        0.199999,
-        0.2,
-        0.200001
+        0.2
       ],
       "wall_sections": [
         {
           "z_mm": 3.2,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.6429200000000108,
-            "uncovered_width_mm": 1.3570799999999892,
-            "internal_gap_mm": 1.3570799999999892,
+            "filled_width_mm": 0.9999999999999929,
+            "uncovered_width_mm": 1.000000000000007,
+            "internal_gap_mm": 1.0,
             "intervals_mm": [
               [
-                -17,
-                -16.678539999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.321460000000005,
+                -15.499999999999993,
                 -15.0
               ]
             ]
@@ -584,16 +788,16 @@
           "z_mm": 3.2,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.6429200000000108,
-            "uncovered_width_mm": 1.3570799999999892,
-            "internal_gap_mm": 1.3570799999999892,
+            "filled_width_mm": 1.0000000000000142,
+            "uncovered_width_mm": 0.9999999999999858,
+            "internal_gap_mm": 0.9999999999999858,
             "intervals_mm": [
               [
                 -17,
-                -16.678539999999995
+                -16.499999999999993
               ],
               [
-                -15.321460000000005,
+                -15.500000000000007,
                 -15.0
               ]
             ]
@@ -603,17 +807,17 @@
           "z_mm": 3.2,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.6429180000000105,
-            "uncovered_width_mm": 1.3570819999999895,
-            "internal_gap_mm": 1.3570819999999895,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 1.0000000000000284,
+            "internal_gap_mm": 1.0000000000000142,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.321459000000006,
-                -15.0
+                -15.499999999999993,
+                -15.000000000000007
               ]
             ]
           }
@@ -622,17 +826,17 @@
           "z_mm": 3.2,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.6429180000000105,
-            "uncovered_width_mm": 1.3570819999999895,
-            "internal_gap_mm": 1.3570819999999895,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 1.0000000000000284,
+            "internal_gap_mm": 1.0000000000000142,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.321459000000006,
-                -15.0
+                -15.499999999999993,
+                -15.000000000000007
               ]
             ]
           }
@@ -641,16 +845,16 @@
           "z_mm": 5.4,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.6429200000000108,
-            "uncovered_width_mm": 1.3570799999999892,
-            "internal_gap_mm": 1.3570799999999892,
+            "filled_width_mm": 0.9999999999999929,
+            "uncovered_width_mm": 1.000000000000007,
+            "internal_gap_mm": 1.0,
             "intervals_mm": [
               [
-                -17,
-                -16.678539999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.321460000000005,
+                -15.499999999999993,
                 -15.0
               ]
             ]
@@ -660,16 +864,16 @@
           "z_mm": 5.4,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.6429200000000108,
-            "uncovered_width_mm": 1.3570799999999892,
-            "internal_gap_mm": 1.3570799999999892,
+            "filled_width_mm": 1.0000000000000142,
+            "uncovered_width_mm": 0.9999999999999858,
+            "internal_gap_mm": 0.9999999999999858,
             "intervals_mm": [
               [
                 -17,
-                -16.678539999999995
+                -16.499999999999993
               ],
               [
-                -15.321460000000005,
+                -15.500000000000007,
                 -15.0
               ]
             ]
@@ -679,17 +883,17 @@
           "z_mm": 5.4,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.6429180000000105,
-            "uncovered_width_mm": 1.3570819999999895,
-            "internal_gap_mm": 1.3570819999999895,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 1.0000000000000284,
+            "internal_gap_mm": 1.0000000000000142,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.321459000000006,
-                -15.0
+                -15.499999999999993,
+                -15.000000000000007
               ]
             ]
           }
@@ -698,17 +902,17 @@
           "z_mm": 5.4,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.6429180000000105,
-            "uncovered_width_mm": 1.3570819999999895,
-            "internal_gap_mm": 1.3570819999999895,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 1.0000000000000284,
+            "internal_gap_mm": 1.0000000000000142,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.321459000000006,
-                -15.0
+                -15.499999999999993,
+                -15.000000000000007
               ]
             ]
           }
@@ -717,16 +921,16 @@
           "z_mm": 10.0,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.6429200000000108,
-            "uncovered_width_mm": 1.3570799999999892,
-            "internal_gap_mm": 1.3570799999999892,
+            "filled_width_mm": 0.9999999999999929,
+            "uncovered_width_mm": 1.000000000000007,
+            "internal_gap_mm": 1.0,
             "intervals_mm": [
               [
-                -17,
-                -16.678539999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.321460000000005,
+                -15.499999999999993,
                 -15.0
               ]
             ]
@@ -736,16 +940,16 @@
           "z_mm": 10.0,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.6429200000000108,
-            "uncovered_width_mm": 1.3570799999999892,
-            "internal_gap_mm": 1.3570799999999892,
+            "filled_width_mm": 1.0000000000000142,
+            "uncovered_width_mm": 0.9999999999999858,
+            "internal_gap_mm": 0.9999999999999858,
             "intervals_mm": [
               [
                 -17,
-                -16.678539999999995
+                -16.499999999999993
               ],
               [
-                -15.321460000000005,
+                -15.500000000000007,
                 -15.0
               ]
             ]
@@ -755,17 +959,17 @@
           "z_mm": 10.0,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.6429180000000105,
-            "uncovered_width_mm": 1.3570819999999895,
-            "internal_gap_mm": 1.3570819999999895,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 1.0000000000000284,
+            "internal_gap_mm": 1.0000000000000142,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.321459000000006,
-                -15.0
+                -15.499999999999993,
+                -15.000000000000007
               ]
             ]
           }
@@ -774,17 +978,17 @@
           "z_mm": 10.0,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.6429180000000105,
-            "uncovered_width_mm": 1.3570819999999895,
-            "internal_gap_mm": 1.3570819999999895,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 1.0000000000000284,
+            "internal_gap_mm": 1.0000000000000142,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.321459000000006,
-                -15.0
+                -15.499999999999993,
+                -15.000000000000007
               ]
             ]
           }
@@ -793,16 +997,16 @@
           "z_mm": 18.0,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.6429200000000108,
-            "uncovered_width_mm": 1.3570799999999892,
-            "internal_gap_mm": 1.3570799999999892,
+            "filled_width_mm": 0.9999999999999929,
+            "uncovered_width_mm": 1.000000000000007,
+            "internal_gap_mm": 1.0,
             "intervals_mm": [
               [
-                -17,
-                -16.678539999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.321460000000005,
+                -15.499999999999993,
                 -15.0
               ]
             ]
@@ -812,16 +1016,16 @@
           "z_mm": 18.0,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.6429200000000108,
-            "uncovered_width_mm": 1.3570799999999892,
-            "internal_gap_mm": 1.3570799999999892,
+            "filled_width_mm": 1.0000000000000142,
+            "uncovered_width_mm": 0.9999999999999858,
+            "internal_gap_mm": 0.9999999999999858,
             "intervals_mm": [
               [
                 -17,
-                -16.678539999999995
+                -16.499999999999993
               ],
               [
-                -15.321460000000005,
+                -15.500000000000007,
                 -15.0
               ]
             ]
@@ -831,17 +1035,17 @@
           "z_mm": 18.0,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.6429180000000105,
-            "uncovered_width_mm": 1.3570819999999895,
-            "internal_gap_mm": 1.3570819999999895,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 1.0000000000000284,
+            "internal_gap_mm": 1.0000000000000142,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.321459000000006,
-                -15.0
+                -15.499999999999993,
+                -15.000000000000007
               ]
             ]
           }
@@ -850,17 +1054,17 @@
           "z_mm": 18.0,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.6429180000000105,
-            "uncovered_width_mm": 1.3570819999999895,
-            "internal_gap_mm": 1.3570819999999895,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 1.0000000000000284,
+            "internal_gap_mm": 1.0000000000000142,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.321459000000006,
-                -15.0
+                -15.499999999999993,
+                -15.000000000000007
               ]
             ]
           }
@@ -869,16 +1073,16 @@
           "z_mm": 29.6,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.6429200000000108,
-            "uncovered_width_mm": 1.3570799999999892,
-            "internal_gap_mm": 1.3570799999999892,
+            "filled_width_mm": 0.9999999999999929,
+            "uncovered_width_mm": 1.000000000000007,
+            "internal_gap_mm": 1.0,
             "intervals_mm": [
               [
-                -17,
-                -16.678539999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.321460000000005,
+                -15.499999999999993,
                 -15.0
               ]
             ]
@@ -888,16 +1092,16 @@
           "z_mm": 29.6,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.6429200000000108,
-            "uncovered_width_mm": 1.3570799999999892,
-            "internal_gap_mm": 1.3570799999999892,
+            "filled_width_mm": 1.0000000000000142,
+            "uncovered_width_mm": 0.9999999999999858,
+            "internal_gap_mm": 0.9999999999999858,
             "intervals_mm": [
               [
                 -17,
-                -16.678539999999995
+                -16.499999999999993
               ],
               [
-                -15.321460000000005,
+                -15.500000000000007,
                 -15.0
               ]
             ]
@@ -907,17 +1111,17 @@
           "z_mm": 29.6,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.6429180000000105,
-            "uncovered_width_mm": 1.3570819999999895,
-            "internal_gap_mm": 1.3570819999999895,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 1.0000000000000284,
+            "internal_gap_mm": 1.0000000000000142,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.321459000000006,
-                -15.0
+                -15.499999999999993,
+                -15.000000000000007
               ]
             ]
           }
@@ -926,46 +1130,126 @@
           "z_mm": 29.6,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.6429180000000105,
-            "uncovered_width_mm": 1.3570819999999895,
-            "internal_gap_mm": 1.3570819999999895,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 1.0000000000000284,
+            "internal_gap_mm": 1.0000000000000142,
             "intervals_mm": [
               [
-                -17,
-                -16.678540999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.321459000000006,
-                -15.0
+                -15.499999999999993,
+                -15.000000000000007
               ]
             ]
           }
         }
       ],
+      "wall_continuity": [
+        {
+          "face_deg": 0,
+          "layers": 148,
+          "z_range_mm": [
+            2.2,
+            31.6
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.4999999999999929,
+          "minimum_gap_mm": 1.0
+        },
+        {
+          "face_deg": 90,
+          "layers": 148,
+          "z_range_mm": [
+            2.2,
+            31.6
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.5000000000000071,
+          "minimum_gap_mm": 0.9999999999999858
+        },
+        {
+          "face_deg": 180,
+          "layers": 148,
+          "z_range_mm": [
+            2.2,
+            31.6
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.49999999999998224,
+          "minimum_gap_mm": 1.0000000000000124
+        },
+        {
+          "face_deg": 270,
+          "layers": 148,
+          "z_range_mm": [
+            2.2,
+            31.6
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.499999999999984,
+          "minimum_gap_mm": 1.0000000000000124
+        }
+      ],
+      "outside_full_height": [
+        {
+          "face_deg": 0,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.3499999999999943,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 90,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.3499999999999943,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 180,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.34999999999999076,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 270,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.34999999999999076,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        }
+      ],
       "topology": {
         "frame_center": {
-          "filled_width_mm": 1.1999999999999922,
-          "uncovered_width_mm": 0.8000000000000078,
-          "internal_gap_mm": 0.7999999999999954,
+          "filled_width_mm": 1.3999999999999986,
+          "uncovered_width_mm": 0.6000000000000014,
+          "internal_gap_mm": 0.5999999999999943,
           "intervals_mm": [
             [
               -16.999999999999993,
-              -16.4
+              -16.29999999999999
             ],
             [
-              -15.600000000000003,
-              -15.000000000000005
+              -15.699999999999996,
+              -15.0
             ]
           ]
         },
         "cross_web": {
-          "filled_width_mm": 1.9999999999999876,
-          "uncovered_width_mm": 1.2434497875801753e-14,
+          "filled_width_mm": 1.999999999999993,
+          "uncovered_width_mm": 7.105427357601002e-15,
           "internal_gap_mm": 0,
           "intervals_mm": [
             [
               -16.999999999999993,
-              -15.000000000000005
+              -15.0
             ]
           ]
         }
@@ -1025,15 +1309,15 @@
       "support_proposals": [
         {
           "part": "cup",
-          "segments": 36748,
+          "segments": 1862,
           "z_range_mm": [
-            0.8,
-            31.4
+            1.0,
+            1.4
           ]
         },
         {
           "part": "pad",
-          "segments": 2747,
+          "segments": 1951,
           "z_range_mm": [
             1.2,
             1.6
@@ -1042,56 +1326,119 @@
       ]
     },
     "B08": {
+      "revision": "R2",
       "checks_passed": true,
-      "artifact_identity": "e6e886ce8724815035148f6f2d9f2e8583ac9893d78710dc4aaceb10f5055014",
+      "artifact_identity": "8846f3bee77c09ae91b6015f5c614b6039bd39d2c3c6cf8e12b40708b444736d",
       "source_sha256": {
         "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
-        "support_design.py": "26fcebaa5317f613c5ee6434a0b510c1a71b5eb9f157b7fd8b08aad7f3ca658b",
+        "support_design.py": "88cf7fa4d384bd2d8dd6cae73822075cc29197c80a056434d09743636c1b77d7",
         "support_B08.py": "3c7e1f6e7da1a3560317f05e4528f7a73e6b847da90dd1405ec7fd434f641208",
-        "profiles/tpu-support-b-process.json": "40fc5e60bde0b3c64d30cf0498e00f159b827b4a0fed29331e04b81a23609f33",
+        "profiles/tpu-support-classic-process.json": "a6bec442b14eaa04a3da3b374e1f277cb3be69f3cb9377e8f8f6b972db18358f",
         "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
-        "review_support_paths.py": "9fb0a57c003a583660fa751a72ba1bc307783b90455277849fed52dd4301c828",
+        "review_support_paths.py": "39954f92248b998ddb9e9af0af68a07e5daa667307b560a1188645fb4604a578",
         "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
-        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd",
+        "notes/rejected_r1/support_B08_ordinary.json": "e9c351f5d479d3c3dd4cffa175136558013c72cfa6ec16dff59823988a4ba4bb",
+        "notes/support_B08_repo_default.json": "8ed3625c5c6f5e944038a72d5823d813aa31dc45356607961c921dc6795a8400",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json": "d0ff4d67939b4f75dc4146f331ec6cf1a70cb076034da8ebc8dc4efbdf0b25f3",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json": "186159c2b3f1e046f0004e86bdf99722da291e31cc6472be277302767113e2db",
+        "notes/rejected_r1/support_B08_orca_result.json": "1d1ebbd82e22ef2db41ac38e021ea7f1c034c43689aba136acf1b15ecc263b48"
       },
       "export_sha256": {
-        "support_B08.step": "2f484d6e8c2909866c448c5c319419a5eb232cd590e23783f7e2aecc86b5fe26",
-        "support_B08.stl": "8bf24924f8192497295b4700d6285a270e10117f4e14f2f73371b9040832eec8"
+        "support_B08.step": "4f75accca47c58a1b91ad4bdbd42f3727e0020ce2a3a5202c7ff0995100d719e",
+        "support_B08.stl": "160aff29c019dacaf931b9dd903b842ee6c416270e1c865b8f307070c33ab12b"
       },
-      "gcode_sha256": "87c556cbfa909f0710c8fff70e2c953d319c00b9c58c55b611daf78a3f1115df",
+      "gcode_sha256": "b07c974d66f89c8093dec18fe108b413db3534716f2154bcacdc56731efbe8b4",
       "center_translation_mm": [
-        94.3,
+        94.35,
         115.0
       ],
+      "repo_default": {
+        "checks_passed": true,
+        "wall_generator": "classic",
+        "detect_thin_wall": "0",
+        "outer_width_mm": "0.42",
+        "inner_width_mm": "0.45",
+        "filament": [
+          "PETG"
+        ],
+        "sparse_infill_density": "7%",
+        "faces": [
+          {
+            "face_deg": 0,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.4999999999999982,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 90,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.49999999999999645,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 180,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.49999999999998224,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 270,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.499999999999984,
+            "tangent_samples_per_layer": 6
+          }
+        ],
+        "gcode_sha256": "01d73b43047589d2aeed9e80ca03cabac2750b72817bb5d967b2e461ca9580e5",
+        "scope": "Exact repository-default diagnostic path compatibility; not a TPU print recipe."
+      },
       "effective_process": {
         "wall_generator": "classic",
-        "wall_loops": "1",
-        "line_width": "0.4",
+        "wall_loops": "2",
+        "line_width": "0.42",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "detect_thin_wall": "0",
         "layer_height": "0.2",
         "enable_support": "0",
         "bridge_angle": "0",
         "internal_bridge_angle": "0",
-        "filter_out_gap_fill": "0"
+        "filter_out_gap_fill": "2"
       },
       "bridge_heights_mm": [
-        0.2,
-        0.200001
+        0.2
       ],
       "wall_sections": [
         {
           "z_mm": 3.2,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.8429179999999974,
-            "uncovered_width_mm": 0.7570820000000023,
-            "internal_gap_mm": 0.7570820000000023,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.578539999999997
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.821457999999994,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1101,16 +1448,16 @@
           "z_mm": 3.2,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.8429199999999977,
-            "uncovered_width_mm": 0.757080000000002,
-            "internal_gap_mm": 0.757080000000002,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.578539999999997
+                -16.499999999999993
               ],
               [
-                -15.821459999999995,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1120,17 +1467,17 @@
           "z_mm": 3.2,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.8429200000000119,
-            "uncovered_width_mm": 0.7570799999999878,
-            "internal_gap_mm": 0.7570799999999878,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.578538999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821459000000008,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1139,17 +1486,17 @@
           "z_mm": 3.2,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.8429189999999842,
-            "uncovered_width_mm": 0.7570810000000154,
-            "internal_gap_mm": 0.7570810000000154,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.57853900000001
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821457999999994,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1158,16 +1505,16 @@
           "z_mm": 5.4,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.842963499999998,
-            "uncovered_width_mm": 0.7570365000000017,
-            "internal_gap_mm": 0.7570365000000017,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.578517999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.821481499999994,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1177,16 +1524,16 @@
           "z_mm": 5.4,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.8429199999999977,
-            "uncovered_width_mm": 0.757080000000002,
-            "internal_gap_mm": 0.757080000000002,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.578539999999997
+                -16.499999999999993
               ],
               [
-                -15.821459999999995,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1196,17 +1543,17 @@
           "z_mm": 5.4,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.8429195000000096,
-            "uncovered_width_mm": 0.75708049999999,
-            "internal_gap_mm": 0.75708049999999,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.578539499999998
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821459000000008,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1215,17 +1562,17 @@
           "z_mm": 5.4,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.8429194999999847,
-            "uncovered_width_mm": 0.7570805000000149,
-            "internal_gap_mm": 0.7570805000000149,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.57853900000001
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821458499999995,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1234,16 +1581,16 @@
           "z_mm": 10.0,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.842963499999998,
-            "uncovered_width_mm": 0.7570365000000017,
-            "internal_gap_mm": 0.7570365000000017,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.578517999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.821481499999994,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1253,16 +1600,16 @@
           "z_mm": 10.0,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.8429199999999977,
-            "uncovered_width_mm": 0.757080000000002,
-            "internal_gap_mm": 0.757080000000002,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.578539999999997
+                -16.499999999999993
               ],
               [
-                -15.821459999999995,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1272,17 +1619,17 @@
           "z_mm": 10.0,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.8429195000000096,
-            "uncovered_width_mm": 0.75708049999999,
-            "internal_gap_mm": 0.75708049999999,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.578539499999998
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821459000000008,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1291,17 +1638,17 @@
           "z_mm": 10.0,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.8429194999999847,
-            "uncovered_width_mm": 0.7570805000000149,
-            "internal_gap_mm": 0.7570805000000149,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.57853900000001
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821458499999995,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1310,16 +1657,16 @@
           "z_mm": 18.0,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.842963499999998,
-            "uncovered_width_mm": 0.7570365000000017,
-            "internal_gap_mm": 0.7570365000000017,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.578517999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.821481499999994,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1329,16 +1676,16 @@
           "z_mm": 18.0,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.8429199999999977,
-            "uncovered_width_mm": 0.757080000000002,
-            "internal_gap_mm": 0.757080000000002,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.578539999999997
+                -16.499999999999993
               ],
               [
-                -15.821459999999995,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1348,17 +1695,17 @@
           "z_mm": 18.0,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.8429195000000096,
-            "uncovered_width_mm": 0.75708049999999,
-            "internal_gap_mm": 0.75708049999999,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.578539499999998
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821459000000008,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1367,17 +1714,17 @@
           "z_mm": 18.0,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.8429194999999847,
-            "uncovered_width_mm": 0.7570805000000149,
-            "internal_gap_mm": 0.7570805000000149,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.57853900000001
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821458499999995,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1386,16 +1733,16 @@
           "z_mm": 29.6,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.8429179999999974,
-            "uncovered_width_mm": 0.7570820000000023,
-            "internal_gap_mm": 0.7570820000000023,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.578539999999997
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.821457999999994,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1405,16 +1752,16 @@
           "z_mm": 29.6,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.8429199999999977,
-            "uncovered_width_mm": 0.757080000000002,
-            "internal_gap_mm": 0.757080000000002,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.578539999999997
+                -16.499999999999993
               ],
               [
-                -15.821459999999995,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1424,17 +1771,17 @@
           "z_mm": 29.6,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.8429200000000119,
-            "uncovered_width_mm": 0.7570799999999878,
-            "internal_gap_mm": 0.7570799999999878,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.578538999999996
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821459000000008,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1443,57 +1790,137 @@
           "z_mm": 29.6,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.8429189999999842,
-            "uncovered_width_mm": 0.7570810000000154,
-            "internal_gap_mm": 0.7570810000000154,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.57853900000001
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821457999999994,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
         }
       ],
+      "wall_continuity": [
+        {
+          "face_deg": 0,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.4999999999999982,
+          "minimum_gap_mm": 0.5999999999999943
+        },
+        {
+          "face_deg": 90,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.49999999999999645,
+          "minimum_gap_mm": 0.5999999999999925
+        },
+        {
+          "face_deg": 180,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.49999999999998224,
+          "minimum_gap_mm": 0.6000000000000068
+        },
+        {
+          "face_deg": 270,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.4999999999999858,
+          "minimum_gap_mm": 0.6000000000000068
+        }
+      ],
+      "outside_full_height": [
+        {
+          "face_deg": 0,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.3499999999999943,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 90,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.3499999999999943,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 180,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.34999999999999076,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 270,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.34999999999999076,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        }
+      ],
       "topology": {
         "tie_present": {
-          "filled_width_mm": 1.599999999999996,
-          "uncovered_width_mm": 3.552713678800501e-15,
+          "filled_width_mm": 1.5999999999999925,
+          "uncovered_width_mm": 7.105427357601002e-15,
           "internal_gap_mm": 0,
           "intervals_mm": [
             [
-              -16.999999999999996,
+              -16.999999999999993,
               -15.4
             ]
           ]
         },
         "tie_absent_between_rows": {
-          "filled_width_mm": 0.842963499999998,
-          "uncovered_width_mm": 0.7570365000000017,
-          "internal_gap_mm": 0.7570365000000017,
+          "filled_width_mm": 0.9999999999999982,
+          "uncovered_width_mm": 0.6000000000000014,
+          "internal_gap_mm": 0.5999999999999943,
           "intervals_mm": [
             [
-              -17,
-              -16.578517999999995
+              -16.999999999999993,
+              -16.499999999999993
             ],
             [
-              -15.821481499999994,
+              -15.899999999999999,
               -15.4
             ]
           ]
         },
         "first_tie_layer_mm": 3.0,
         "first_tie_section": {
-          "filled_width_mm": 1.599999999999996,
-          "uncovered_width_mm": 3.552713678800501e-15,
+          "filled_width_mm": 1.5999999999999925,
+          "uncovered_width_mm": 7.105427357601002e-15,
           "internal_gap_mm": 0,
           "intervals_mm": [
             [
-              -16.999999999999996,
+              -16.999999999999993,
               -15.4
             ]
           ]
@@ -1554,7 +1981,7 @@
       "support_proposals": [
         {
           "part": "cup",
-          "segments": 624,
+          "segments": 623,
           "z_range_mm": [
             1.0,
             1.0
@@ -1562,7 +1989,7 @@
         },
         {
           "part": "pad",
-          "segments": 3746,
+          "segments": 3944,
           "z_range_mm": [
             1.0,
             1.2
@@ -1571,57 +1998,119 @@
       ]
     },
     "B16": {
+      "revision": "R2",
       "checks_passed": true,
-      "artifact_identity": "0765dd7a3146a32700109c9ae3e90923307a7b2b649dba2e4cdd65fe62c72f28",
+      "artifact_identity": "7ee28d78ff4a6be83b92e162cd68043aded451e87acf788089ae24b715316e41",
       "source_sha256": {
         "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
-        "support_design.py": "26fcebaa5317f613c5ee6434a0b510c1a71b5eb9f157b7fd8b08aad7f3ca658b",
+        "support_design.py": "88cf7fa4d384bd2d8dd6cae73822075cc29197c80a056434d09743636c1b77d7",
         "support_B16.py": "a81f24c9e4de9c1a6cd89297df4c96435ae42f20852b505a4b85a388a0a2f9f4",
-        "profiles/tpu-support-b-process.json": "40fc5e60bde0b3c64d30cf0498e00f159b827b4a0fed29331e04b81a23609f33",
+        "profiles/tpu-support-classic-process.json": "a6bec442b14eaa04a3da3b374e1f277cb3be69f3cb9377e8f8f6b972db18358f",
         "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
-        "review_support_paths.py": "9fb0a57c003a583660fa751a72ba1bc307783b90455277849fed52dd4301c828",
+        "review_support_paths.py": "39954f92248b998ddb9e9af0af68a07e5daa667307b560a1188645fb4604a578",
         "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
-        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd",
+        "notes/rejected_r1/support_B16_ordinary.json": "6ec0c88306c8ed26c8d3cf0805d62caccbf6a9ebb1dc9c99bbe3d0aa9097e692",
+        "notes/support_B16_repo_default.json": "d841ff243c26c41322830ff5278e13a794914acf21970fe82114025ea8ac20d4",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.20-standard-adaptive-cubic-7.json": "d0ff4d67939b4f75dc4146f331ec6cf1a70cb076034da8ebc8dc4efbdf0b25f3",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json": "186159c2b3f1e046f0004e86bdf99722da291e31cc6472be277302767113e2db",
+        "notes/rejected_r1/support_B16_orca_result.json": "f4d3f1c562319bf6e2190727e3b2cb838d37c492b89268f822373bcc103ae519"
       },
       "export_sha256": {
-        "support_B16.step": "2640374fa3fa39cd668b4974d60901deed56efbfc8c982c271dd09b0c7807caf",
-        "support_B16.stl": "3af987bc09c5ae88b7ae987a0ee33f9bd65c58f65c1d55fdfbcc130deea03f20"
+        "support_B16.step": "7d35dbb0e46893c09573165251820fd5864a07b70e9bb2710ab913404cba4501",
+        "support_B16.stl": "a16911cd29157ddc418bb51acfb3e4824942573ac0d2aec1539d62404cdf9408"
       },
-      "gcode_sha256": "dae10bf1605416124ac3296463cc6d1529d6b0d38763157df34a1846a9bee3ab",
+      "gcode_sha256": "f42c49f96c1e60371ccd15aaafec5253b44f257720dc348fc55dc9aa16dccf42",
       "center_translation_mm": [
-        94.3,
+        94.35,
         115.0
       ],
+      "repo_default": {
+        "checks_passed": true,
+        "wall_generator": "classic",
+        "detect_thin_wall": "0",
+        "outer_width_mm": "0.42",
+        "inner_width_mm": "0.45",
+        "filament": [
+          "PETG"
+        ],
+        "sparse_infill_density": "7%",
+        "faces": [
+          {
+            "face_deg": 0,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.4999999999999982,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 90,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.49999999999999645,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 180,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.49999999999998224,
+            "tangent_samples_per_layer": 6
+          },
+          {
+            "face_deg": 270,
+            "layers": 152,
+            "z_range_mm": [
+              1.8,
+              32.0
+            ],
+            "minimum_skin_path_mm": 0.49999999999998224,
+            "tangent_samples_per_layer": 6
+          }
+        ],
+        "gcode_sha256": "8363982cca31e7c0194473c8458aadb0bf2dbfd2e2cf58ba527fc58a94716de8",
+        "scope": "Exact repository-default diagnostic path compatibility; not a TPU print recipe."
+      },
       "effective_process": {
         "wall_generator": "classic",
-        "wall_loops": "1",
-        "line_width": "0.4",
+        "wall_loops": "2",
+        "line_width": "0.42",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "detect_thin_wall": "0",
         "layer_height": "0.2",
         "enable_support": "0",
         "bridge_angle": "0",
         "internal_bridge_angle": "0",
-        "filter_out_gap_fill": "0"
+        "filter_out_gap_fill": "2"
       },
       "bridge_heights_mm": [
-        0.199999,
-        0.2,
-        0.200001
+        0.2
       ],
       "wall_sections": [
         {
           "z_mm": 3.2,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.8429179999999974,
-            "uncovered_width_mm": 0.7570820000000023,
-            "internal_gap_mm": 0.7570820000000023,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.578539999999997
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.821457999999994,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1631,16 +2120,16 @@
           "z_mm": 3.2,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.8429199999999977,
-            "uncovered_width_mm": 0.757080000000002,
-            "internal_gap_mm": 0.757080000000002,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.578539999999997
+                -16.499999999999993
               ],
               [
-                -15.821459999999995,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1650,17 +2139,17 @@
           "z_mm": 3.2,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.8429190000000109,
-            "uncovered_width_mm": 0.7570809999999888,
-            "internal_gap_mm": 0.7570809999999888,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.578539999999997
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821459000000008,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1669,17 +2158,17 @@
           "z_mm": 3.2,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.8429189999999842,
-            "uncovered_width_mm": 0.7570810000000154,
-            "internal_gap_mm": 0.7570810000000154,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.57853900000001
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821457999999994,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1688,16 +2177,16 @@
           "z_mm": 5.4,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.842963499999998,
-            "uncovered_width_mm": 0.7570365000000017,
-            "internal_gap_mm": 0.7570365000000017,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.578517999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.821481499999994,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1707,16 +2196,16 @@
           "z_mm": 5.4,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.8429199999999977,
-            "uncovered_width_mm": 0.757080000000002,
-            "internal_gap_mm": 0.757080000000002,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.578539999999997
+                -16.499999999999993
               ],
               [
-                -15.821459999999995,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1726,17 +2215,17 @@
           "z_mm": 5.4,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.8429195000000096,
-            "uncovered_width_mm": 0.75708049999999,
-            "internal_gap_mm": 0.75708049999999,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.578539499999998
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821459000000008,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1745,17 +2234,17 @@
           "z_mm": 5.4,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.8429194999999847,
-            "uncovered_width_mm": 0.7570805000000149,
-            "internal_gap_mm": 0.7570805000000149,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.57853900000001
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821458499999995,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1764,16 +2253,16 @@
           "z_mm": 10.0,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.842963499999998,
-            "uncovered_width_mm": 0.7570365000000017,
-            "internal_gap_mm": 0.7570365000000017,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.578517999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.821481499999994,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1783,16 +2272,16 @@
           "z_mm": 10.0,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.8429199999999977,
-            "uncovered_width_mm": 0.757080000000002,
-            "internal_gap_mm": 0.757080000000002,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.578539999999997
+                -16.499999999999993
               ],
               [
-                -15.821459999999995,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1802,17 +2291,17 @@
           "z_mm": 10.0,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.8429195000000096,
-            "uncovered_width_mm": 0.75708049999999,
-            "internal_gap_mm": 0.75708049999999,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.578539499999998
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821459000000008,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1821,17 +2310,17 @@
           "z_mm": 10.0,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.8429194999999847,
-            "uncovered_width_mm": 0.7570805000000149,
-            "internal_gap_mm": 0.7570805000000149,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.57853900000001
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821458499999995,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1840,16 +2329,16 @@
           "z_mm": 18.0,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.842963499999998,
-            "uncovered_width_mm": 0.7570365000000017,
-            "internal_gap_mm": 0.7570365000000017,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.578517999999995
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.821481499999994,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1859,16 +2348,16 @@
           "z_mm": 18.0,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.8429199999999977,
-            "uncovered_width_mm": 0.757080000000002,
-            "internal_gap_mm": 0.757080000000002,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.578539999999997
+                -16.499999999999993
               ],
               [
-                -15.821459999999995,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1878,17 +2367,17 @@
           "z_mm": 18.0,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.8429195000000096,
-            "uncovered_width_mm": 0.75708049999999,
-            "internal_gap_mm": 0.75708049999999,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.578539499999998
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821459000000008,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1897,17 +2386,17 @@
           "z_mm": 18.0,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.8429194999999847,
-            "uncovered_width_mm": 0.7570805000000149,
-            "internal_gap_mm": 0.7570805000000149,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.57853900000001
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821458499999995,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1916,16 +2405,16 @@
           "z_mm": 29.6,
           "face_deg": 0,
           "section": {
-            "filled_width_mm": 0.8429179999999974,
-            "uncovered_width_mm": 0.7570820000000023,
-            "internal_gap_mm": 0.7570820000000023,
+            "filled_width_mm": 0.9999999999999982,
+            "uncovered_width_mm": 0.6000000000000014,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
-                -17,
-                -16.578539999999997
+                -16.999999999999993,
+                -16.499999999999993
               ],
               [
-                -15.821457999999994,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1935,16 +2424,16 @@
           "z_mm": 29.6,
           "face_deg": 90,
           "section": {
-            "filled_width_mm": 0.8429199999999977,
-            "uncovered_width_mm": 0.757080000000002,
-            "internal_gap_mm": 0.757080000000002,
+            "filled_width_mm": 1.0000000000000053,
+            "uncovered_width_mm": 0.5999999999999943,
+            "internal_gap_mm": 0.5999999999999943,
             "intervals_mm": [
               [
                 -17,
-                -16.578539999999997
+                -16.499999999999993
               ],
               [
-                -15.821459999999995,
+                -15.899999999999999,
                 -15.4
               ]
             ]
@@ -1954,17 +2443,17 @@
           "z_mm": 29.6,
           "face_deg": 180,
           "section": {
-            "filled_width_mm": 0.8429190000000109,
-            "uncovered_width_mm": 0.7570809999999888,
-            "internal_gap_mm": 0.7570809999999888,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.578539999999997
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821459000000008,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
@@ -1973,57 +2462,137 @@
           "z_mm": 29.6,
           "face_deg": 270,
           "section": {
-            "filled_width_mm": 0.8429189999999842,
-            "uncovered_width_mm": 0.7570810000000154,
-            "internal_gap_mm": 0.7570810000000154,
+            "filled_width_mm": 0.9999999999999716,
+            "uncovered_width_mm": 0.6000000000000281,
+            "internal_gap_mm": 0.6000000000000085,
             "intervals_mm": [
               [
-                -17,
-                -16.57853900000001
+                -16.999999999999993,
+                -16.500000000000007
               ],
               [
-                -15.821457999999994,
-                -15.4
+                -15.899999999999999,
+                -15.400000000000013
               ]
             ]
           }
         }
       ],
+      "wall_continuity": [
+        {
+          "face_deg": 0,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.4999999999999982,
+          "minimum_gap_mm": 0.5999999999999943
+        },
+        {
+          "face_deg": 90,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.49999999999999645,
+          "minimum_gap_mm": 0.5999999999999925
+        },
+        {
+          "face_deg": 180,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.49999999999998224,
+          "minimum_gap_mm": 0.6000000000000068
+        },
+        {
+          "face_deg": 270,
+          "layers": 152,
+          "z_range_mm": [
+            1.8,
+            32.0
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_skin_path_mm": 0.49999999999998224,
+          "minimum_gap_mm": 0.6000000000000068
+        }
+      ],
+      "outside_full_height": [
+        {
+          "face_deg": 0,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.3499999999999943,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 90,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.3499999999999943,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 180,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.34999999999999076,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        },
+        {
+          "face_deg": 270,
+          "layers": 170,
+          "tangent_samples_per_layer": 6,
+          "minimum_filled_skin_mm": 0.34999999999999076,
+          "minimum_ordinary_bead_mm": 0.39999999999999997,
+          "first_layer_inset_mm": 0.15
+        }
+      ],
       "topology": {
         "tie_present": {
-          "filled_width_mm": 1.599999999999996,
-          "uncovered_width_mm": 3.552713678800501e-15,
+          "filled_width_mm": 1.5999999999999925,
+          "uncovered_width_mm": 7.105427357601002e-15,
           "internal_gap_mm": 0,
           "intervals_mm": [
             [
-              -16.999999999999996,
+              -16.999999999999993,
               -15.4
             ]
           ]
         },
         "tie_absent_between_rows": {
-          "filled_width_mm": 0.842963499999998,
-          "uncovered_width_mm": 0.7570365000000017,
-          "internal_gap_mm": 0.7570365000000017,
+          "filled_width_mm": 0.9999999999999982,
+          "uncovered_width_mm": 0.6000000000000014,
+          "internal_gap_mm": 0.5999999999999943,
           "intervals_mm": [
             [
-              -17,
-              -16.578517999999995
+              -16.999999999999993,
+              -16.499999999999993
             ],
             [
-              -15.821481499999994,
+              -15.899999999999999,
               -15.4
             ]
           ]
         },
         "first_tie_layer_mm": 2.6,
         "first_tie_section": {
-          "filled_width_mm": 1.599999999999996,
-          "uncovered_width_mm": 3.552713678800501e-15,
+          "filled_width_mm": 1.5999999999999925,
+          "uncovered_width_mm": 7.105427357601002e-15,
           "internal_gap_mm": 0,
           "intervals_mm": [
             [
-              -16.999999999999996,
+              -16.999999999999993,
               -15.4
             ]
           ]
@@ -2084,7 +2653,7 @@
       "support_proposals": [
         {
           "part": "cup",
-          "segments": 743,
+          "segments": 751,
           "z_range_mm": [
             1.0,
             1.0
@@ -2092,13 +2661,41 @@
         },
         {
           "part": "pad",
-          "segments": 3232,
+          "segments": 2716,
           "z_range_mm": [
             1.0,
             1.2
           ]
         }
       ]
+    }
+  },
+  "rejected_batch_controls": {
+    "A16": {
+      "input_revision": "8f1e611",
+      "input_sha256": "1467584c804d8d39cce458430c0ef09f5ca41e09040f19d9d6d971ebb5e3b285",
+      "ordinary_failure": "wall skins absent between frames",
+      "section": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 1.5999999999999996,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    "A20": {
+      "input_revision": "8f1e611",
+      "input_sha256": "af8007341f1629c851c2a21a07074817162e627c26d773f8e33c4703bb8ed8e9",
+      "ordinary_failure": "Object can't be printed for empty layer between 0.8 and 1.6.\nObject: input.stl\nMaybe parts of the object at these height are too thin, or the object has faulty mesh"
+    },
+    "B08": {
+      "input_revision": "8f1e611",
+      "input_sha256": "8bf24924f8192497295b4700d6285a270e10117f4e14f2f73371b9040832eec8",
+      "ordinary_failure": "Object can't be printed for empty layer between 1.8 and 3.\nObject can't be printed for empty layer between 3.6 and 7.4.\nObject can't be printed for empty layer between 8 and 11.8.\nObject can't be printed for empty layer between 12.4 and 16.2.\nObject can't be printed for empty layer between 16.8 and 20.6.\nObject: input.stl\nMaybe parts of the object at these height are too thin, or the object has faulty mesh"
+    },
+    "B16": {
+      "input_revision": "8f1e611",
+      "input_sha256": "3af987bc09c5ae88b7ae987a0ee33f9bd65c58f65c1d55fdfbcc130deea03f20",
+      "ordinary_failure": "Object can't be printed for empty layer between 1.8 and 2.6.\nObject can't be printed for empty layer between 4 and 7.\nObject can't be printed for empty layer between 8.4 and 11.4.\nObject can't be printed for empty layer between 12.8 and 15.8.\nObject can't be printed for empty layer between 17.2 and 20.2.\nObject: input.stl\nMaybe parts of the object at these height are too thin, or the object has faulty mesh"
     }
   }
 }

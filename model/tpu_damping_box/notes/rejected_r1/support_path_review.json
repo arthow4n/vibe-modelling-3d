@@ -1,0 +1,2104 @@
+{
+  "category": "slicer-path-metadata",
+  "limits": "No physical strength, deposited gap or damping claim.",
+  "criteria": {
+    "feature_rounding_allowance_mm": 0.06,
+    "max_bridge_height_mm": 0.2
+  },
+  "variants": {
+    "A16": {
+      "checks_passed": true,
+      "artifact_identity": "9f10df92ddb30eb8788d3bcfd348984a175e287387357f8dee0c2fbda704112b",
+      "source_sha256": {
+        "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+        "support_design.py": "26fcebaa5317f613c5ee6434a0b510c1a71b5eb9f157b7fd8b08aad7f3ca658b",
+        "support_A16.py": "0e40a1cbe116c63a04de72ca7048deed6f83d3e8e0e0efe4c92a338b1ffd4090",
+        "profiles/tpu-support-a-process.json": "c340caa055fb7c8e433d3989abceae27cc1847dbd7be6b844aec661175dba721",
+        "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+        "review_support_paths.py": "9fb0a57c003a583660fa751a72ba1bc307783b90455277849fed52dd4301c828",
+        "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+      },
+      "export_sha256": {
+        "support_A16.step": "9ea03622371ba944d52bb0d5183eae16476cb49e50c2fe4df7b7672edf02dc51",
+        "support_A16.stl": "1467584c804d8d39cce458430c0ef09f5ca41e09040f19d9d6d971ebb5e3b285"
+      },
+      "gcode_sha256": "db27d2378a0ce72fc16fdbf559ba73e28d3d1568613fce366665faaf94f91eb5",
+      "center_translation_mm": [
+        94.25,
+        115.0
+      ],
+      "effective_process": {
+        "wall_generator": "classic",
+        "wall_loops": "2",
+        "line_width": "0.3",
+        "layer_height": "0.2",
+        "enable_support": "0",
+        "bridge_angle": "180",
+        "internal_bridge_angle": "180",
+        "filter_out_gap_fill": "0"
+      },
+      "bridge_heights_mm": [
+        0.2,
+        0.200001
+      ],
+      "wall_sections": [
+        {
+          "z_mm": 3.2,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.6429200000000019,
+            "uncovered_width_mm": 0.9570799999999977,
+            "internal_gap_mm": 0.9570799999999977,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.721459999999997,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.6429200000000019,
+            "uncovered_width_mm": 0.9570799999999977,
+            "internal_gap_mm": 0.9570799999999977,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.721459999999997,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.6429180000000159,
+            "uncovered_width_mm": 0.9570819999999838,
+            "internal_gap_mm": 0.9570819999999838,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.721459000000012,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.6429180000000159,
+            "uncovered_width_mm": 0.9570819999999838,
+            "internal_gap_mm": 0.9570819999999838,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.721459000000012,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.6429200000000019,
+            "uncovered_width_mm": 0.9570799999999977,
+            "internal_gap_mm": 0.9570799999999977,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.721459999999997,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.6429200000000019,
+            "uncovered_width_mm": 0.9570799999999977,
+            "internal_gap_mm": 0.9570799999999977,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.721459999999997,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.6429180000000159,
+            "uncovered_width_mm": 0.9570819999999838,
+            "internal_gap_mm": 0.9570819999999838,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.721459000000012,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.6429180000000159,
+            "uncovered_width_mm": 0.9570819999999838,
+            "internal_gap_mm": 0.9570819999999838,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.721459000000012,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.6429200000000019,
+            "uncovered_width_mm": 0.9570799999999977,
+            "internal_gap_mm": 0.9570799999999977,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.721459999999997,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.6429200000000019,
+            "uncovered_width_mm": 0.9570799999999977,
+            "internal_gap_mm": 0.9570799999999977,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.721459999999997,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.6429180000000159,
+            "uncovered_width_mm": 0.9570819999999838,
+            "internal_gap_mm": 0.9570819999999838,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.721459000000012,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.6429180000000159,
+            "uncovered_width_mm": 0.9570819999999838,
+            "internal_gap_mm": 0.9570819999999838,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.721459000000012,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.6429200000000019,
+            "uncovered_width_mm": 0.9570799999999977,
+            "internal_gap_mm": 0.9570799999999977,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.721459999999997,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.6429200000000019,
+            "uncovered_width_mm": 0.9570799999999977,
+            "internal_gap_mm": 0.9570799999999977,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.721459999999997,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.6429180000000159,
+            "uncovered_width_mm": 0.9570819999999838,
+            "internal_gap_mm": 0.9570819999999838,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.721459000000012,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.6429180000000159,
+            "uncovered_width_mm": 0.9570819999999838,
+            "internal_gap_mm": 0.9570819999999838,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.721459000000012,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.6429200000000019,
+            "uncovered_width_mm": 0.9570799999999977,
+            "internal_gap_mm": 0.9570799999999977,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.721459999999997,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.6429200000000019,
+            "uncovered_width_mm": 0.9570799999999977,
+            "internal_gap_mm": 0.9570799999999977,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.721459999999997,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.6429180000000159,
+            "uncovered_width_mm": 0.9570819999999838,
+            "internal_gap_mm": 0.9570819999999838,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.721459000000012,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.6429180000000159,
+            "uncovered_width_mm": 0.9570819999999838,
+            "internal_gap_mm": 0.9570819999999838,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.721459000000012,
+                -15.4
+              ]
+            ]
+          }
+        }
+      ],
+      "topology": {
+        "frame_center": {
+          "filled_width_mm": 1.1999999999999886,
+          "uncovered_width_mm": 0.400000000000011,
+          "internal_gap_mm": 0.4000000000000039,
+          "intervals_mm": [
+            [
+              -16.999999999999993,
+              -16.4
+            ],
+            [
+              -15.999999999999995,
+              -15.4
+            ]
+          ]
+        },
+        "cross_web": {
+          "filled_width_mm": 1.5999999999999925,
+          "uncovered_width_mm": 7.105427357601002e-15,
+          "internal_gap_mm": 0,
+          "intervals_mm": [
+            [
+              -16.999999999999993,
+              -15.4
+            ]
+          ]
+        }
+      },
+      "panels": [
+        {
+          "part": "cup",
+          "core_z_mm": 0.8,
+          "air": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 0.3999999999999999,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          },
+          "roof_z_mm": 1.4,
+          "roof": {
+            "filled_width_mm": 20,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -10,
+                10
+              ]
+            ]
+          }
+        },
+        {
+          "part": "pad",
+          "core_z_mm": 1.0,
+          "air": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 0.3999999999999999,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          },
+          "roof_z_mm": 1.6,
+          "roof": {
+            "filled_width_mm": 20,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -10,
+                10
+              ]
+            ]
+          }
+        }
+      ],
+      "corner_air": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.10000000000000142,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      },
+      "support_proposals": [
+        {
+          "part": "cup",
+          "segments": 508,
+          "z_range_mm": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "pad",
+          "segments": 2708,
+          "z_range_mm": [
+            1.0,
+            1.2
+          ]
+        }
+      ]
+    },
+    "A20": {
+      "checks_passed": true,
+      "artifact_identity": "075b4c44d1dd4fcefc7afcd02f6cdf5b2ff2e1c72ce0a79f2ada3dbfd4cbc620",
+      "source_sha256": {
+        "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+        "support_design.py": "26fcebaa5317f613c5ee6434a0b510c1a71b5eb9f157b7fd8b08aad7f3ca658b",
+        "support_A20.py": "ab467235c81df889e6f07ab2b342528840614ee6b567153d2e3665037a83c0ac",
+        "profiles/tpu-support-a-process.json": "c340caa055fb7c8e433d3989abceae27cc1847dbd7be6b844aec661175dba721",
+        "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+        "review_support_paths.py": "9fb0a57c003a583660fa751a72ba1bc307783b90455277849fed52dd4301c828",
+        "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+      },
+      "export_sha256": {
+        "support_A20.step": "88d70a453e99d9bf5996b16fbdbea3b673bf81015235bab8190d4e70aae7de54",
+        "support_A20.stl": "af8007341f1629c851c2a21a07074817162e627c26d773f8e33c4703bb8ed8e9"
+      },
+      "gcode_sha256": "981c47687b41e335ff0919aa23bc2ee122843c318414a2f8b623b57146fd0cf7",
+      "center_translation_mm": [
+        94.25,
+        115.0
+      ],
+      "effective_process": {
+        "wall_generator": "classic",
+        "wall_loops": "2",
+        "line_width": "0.3",
+        "layer_height": "0.2",
+        "enable_support": "0",
+        "bridge_angle": "180",
+        "internal_bridge_angle": "180",
+        "filter_out_gap_fill": "0"
+      },
+      "bridge_heights_mm": [
+        0.199999,
+        0.2,
+        0.200001
+      ],
+      "wall_sections": [
+        {
+          "z_mm": 3.2,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.6429200000000108,
+            "uncovered_width_mm": 1.3570799999999892,
+            "internal_gap_mm": 1.3570799999999892,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.321460000000005,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.6429200000000108,
+            "uncovered_width_mm": 1.3570799999999892,
+            "internal_gap_mm": 1.3570799999999892,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.321460000000005,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.6429180000000105,
+            "uncovered_width_mm": 1.3570819999999895,
+            "internal_gap_mm": 1.3570819999999895,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.321459000000006,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.6429180000000105,
+            "uncovered_width_mm": 1.3570819999999895,
+            "internal_gap_mm": 1.3570819999999895,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.321459000000006,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.6429200000000108,
+            "uncovered_width_mm": 1.3570799999999892,
+            "internal_gap_mm": 1.3570799999999892,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.321460000000005,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.6429200000000108,
+            "uncovered_width_mm": 1.3570799999999892,
+            "internal_gap_mm": 1.3570799999999892,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.321460000000005,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.6429180000000105,
+            "uncovered_width_mm": 1.3570819999999895,
+            "internal_gap_mm": 1.3570819999999895,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.321459000000006,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.6429180000000105,
+            "uncovered_width_mm": 1.3570819999999895,
+            "internal_gap_mm": 1.3570819999999895,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.321459000000006,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.6429200000000108,
+            "uncovered_width_mm": 1.3570799999999892,
+            "internal_gap_mm": 1.3570799999999892,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.321460000000005,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.6429200000000108,
+            "uncovered_width_mm": 1.3570799999999892,
+            "internal_gap_mm": 1.3570799999999892,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.321460000000005,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.6429180000000105,
+            "uncovered_width_mm": 1.3570819999999895,
+            "internal_gap_mm": 1.3570819999999895,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.321459000000006,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.6429180000000105,
+            "uncovered_width_mm": 1.3570819999999895,
+            "internal_gap_mm": 1.3570819999999895,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.321459000000006,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.6429200000000108,
+            "uncovered_width_mm": 1.3570799999999892,
+            "internal_gap_mm": 1.3570799999999892,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.321460000000005,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.6429200000000108,
+            "uncovered_width_mm": 1.3570799999999892,
+            "internal_gap_mm": 1.3570799999999892,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.321460000000005,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.6429180000000105,
+            "uncovered_width_mm": 1.3570819999999895,
+            "internal_gap_mm": 1.3570819999999895,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.321459000000006,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.6429180000000105,
+            "uncovered_width_mm": 1.3570819999999895,
+            "internal_gap_mm": 1.3570819999999895,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.321459000000006,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.6429200000000108,
+            "uncovered_width_mm": 1.3570799999999892,
+            "internal_gap_mm": 1.3570799999999892,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.321460000000005,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.6429200000000108,
+            "uncovered_width_mm": 1.3570799999999892,
+            "internal_gap_mm": 1.3570799999999892,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678539999999995
+              ],
+              [
+                -15.321460000000005,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.6429180000000105,
+            "uncovered_width_mm": 1.3570819999999895,
+            "internal_gap_mm": 1.3570819999999895,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.321459000000006,
+                -15.0
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.6429180000000105,
+            "uncovered_width_mm": 1.3570819999999895,
+            "internal_gap_mm": 1.3570819999999895,
+            "intervals_mm": [
+              [
+                -17,
+                -16.678540999999996
+              ],
+              [
+                -15.321459000000006,
+                -15.0
+              ]
+            ]
+          }
+        }
+      ],
+      "topology": {
+        "frame_center": {
+          "filled_width_mm": 1.1999999999999922,
+          "uncovered_width_mm": 0.8000000000000078,
+          "internal_gap_mm": 0.7999999999999954,
+          "intervals_mm": [
+            [
+              -16.999999999999993,
+              -16.4
+            ],
+            [
+              -15.600000000000003,
+              -15.000000000000005
+            ]
+          ]
+        },
+        "cross_web": {
+          "filled_width_mm": 1.9999999999999876,
+          "uncovered_width_mm": 1.2434497875801753e-14,
+          "internal_gap_mm": 0,
+          "intervals_mm": [
+            [
+              -16.999999999999993,
+              -15.000000000000005
+            ]
+          ]
+        }
+      },
+      "panels": [
+        {
+          "part": "cup",
+          "core_z_mm": 1.0,
+          "air": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 0.3999999999999999,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          },
+          "roof_z_mm": 1.8,
+          "roof": {
+            "filled_width_mm": 20,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -10,
+                10
+              ]
+            ]
+          }
+        },
+        {
+          "part": "pad",
+          "core_z_mm": 1.2,
+          "air": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 0.3999999999999999,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          },
+          "roof_z_mm": 2.0,
+          "roof": {
+            "filled_width_mm": 20,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -10,
+                10
+              ]
+            ]
+          }
+        }
+      ],
+      "corner_air": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.10000000000000142,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      },
+      "support_proposals": [
+        {
+          "part": "cup",
+          "segments": 36748,
+          "z_range_mm": [
+            0.8,
+            31.4
+          ]
+        },
+        {
+          "part": "pad",
+          "segments": 2747,
+          "z_range_mm": [
+            1.2,
+            1.6
+          ]
+        }
+      ]
+    },
+    "B08": {
+      "checks_passed": true,
+      "artifact_identity": "e6e886ce8724815035148f6f2d9f2e8583ac9893d78710dc4aaceb10f5055014",
+      "source_sha256": {
+        "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+        "support_design.py": "26fcebaa5317f613c5ee6434a0b510c1a71b5eb9f157b7fd8b08aad7f3ca658b",
+        "support_B08.py": "3c7e1f6e7da1a3560317f05e4528f7a73e6b847da90dd1405ec7fd434f641208",
+        "profiles/tpu-support-b-process.json": "40fc5e60bde0b3c64d30cf0498e00f159b827b4a0fed29331e04b81a23609f33",
+        "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+        "review_support_paths.py": "9fb0a57c003a583660fa751a72ba1bc307783b90455277849fed52dd4301c828",
+        "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+      },
+      "export_sha256": {
+        "support_B08.step": "2f484d6e8c2909866c448c5c319419a5eb232cd590e23783f7e2aecc86b5fe26",
+        "support_B08.stl": "8bf24924f8192497295b4700d6285a270e10117f4e14f2f73371b9040832eec8"
+      },
+      "gcode_sha256": "87c556cbfa909f0710c8fff70e2c953d319c00b9c58c55b611daf78a3f1115df",
+      "center_translation_mm": [
+        94.3,
+        115.0
+      ],
+      "effective_process": {
+        "wall_generator": "classic",
+        "wall_loops": "1",
+        "line_width": "0.4",
+        "layer_height": "0.2",
+        "enable_support": "0",
+        "bridge_angle": "0",
+        "internal_bridge_angle": "0",
+        "filter_out_gap_fill": "0"
+      },
+      "bridge_heights_mm": [
+        0.2,
+        0.200001
+      ],
+      "wall_sections": [
+        {
+          "z_mm": 3.2,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.8429179999999974,
+            "uncovered_width_mm": 0.7570820000000023,
+            "internal_gap_mm": 0.7570820000000023,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821457999999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.8429199999999977,
+            "uncovered_width_mm": 0.757080000000002,
+            "internal_gap_mm": 0.757080000000002,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459999999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.8429200000000119,
+            "uncovered_width_mm": 0.7570799999999878,
+            "internal_gap_mm": 0.7570799999999878,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578538999999996
+              ],
+              [
+                -15.821459000000008,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.8429189999999842,
+            "uncovered_width_mm": 0.7570810000000154,
+            "internal_gap_mm": 0.7570810000000154,
+            "intervals_mm": [
+              [
+                -17,
+                -16.57853900000001
+              ],
+              [
+                -15.821457999999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.842963499999998,
+            "uncovered_width_mm": 0.7570365000000017,
+            "internal_gap_mm": 0.7570365000000017,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578517999999995
+              ],
+              [
+                -15.821481499999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.8429199999999977,
+            "uncovered_width_mm": 0.757080000000002,
+            "internal_gap_mm": 0.757080000000002,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459999999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.8429195000000096,
+            "uncovered_width_mm": 0.75708049999999,
+            "internal_gap_mm": 0.75708049999999,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539499999998
+              ],
+              [
+                -15.821459000000008,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.8429194999999847,
+            "uncovered_width_mm": 0.7570805000000149,
+            "internal_gap_mm": 0.7570805000000149,
+            "intervals_mm": [
+              [
+                -17,
+                -16.57853900000001
+              ],
+              [
+                -15.821458499999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.842963499999998,
+            "uncovered_width_mm": 0.7570365000000017,
+            "internal_gap_mm": 0.7570365000000017,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578517999999995
+              ],
+              [
+                -15.821481499999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.8429199999999977,
+            "uncovered_width_mm": 0.757080000000002,
+            "internal_gap_mm": 0.757080000000002,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459999999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.8429195000000096,
+            "uncovered_width_mm": 0.75708049999999,
+            "internal_gap_mm": 0.75708049999999,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539499999998
+              ],
+              [
+                -15.821459000000008,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.8429194999999847,
+            "uncovered_width_mm": 0.7570805000000149,
+            "internal_gap_mm": 0.7570805000000149,
+            "intervals_mm": [
+              [
+                -17,
+                -16.57853900000001
+              ],
+              [
+                -15.821458499999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.842963499999998,
+            "uncovered_width_mm": 0.7570365000000017,
+            "internal_gap_mm": 0.7570365000000017,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578517999999995
+              ],
+              [
+                -15.821481499999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.8429199999999977,
+            "uncovered_width_mm": 0.757080000000002,
+            "internal_gap_mm": 0.757080000000002,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459999999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.8429195000000096,
+            "uncovered_width_mm": 0.75708049999999,
+            "internal_gap_mm": 0.75708049999999,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539499999998
+              ],
+              [
+                -15.821459000000008,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.8429194999999847,
+            "uncovered_width_mm": 0.7570805000000149,
+            "internal_gap_mm": 0.7570805000000149,
+            "intervals_mm": [
+              [
+                -17,
+                -16.57853900000001
+              ],
+              [
+                -15.821458499999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.8429179999999974,
+            "uncovered_width_mm": 0.7570820000000023,
+            "internal_gap_mm": 0.7570820000000023,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821457999999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.8429199999999977,
+            "uncovered_width_mm": 0.757080000000002,
+            "internal_gap_mm": 0.757080000000002,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459999999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.8429200000000119,
+            "uncovered_width_mm": 0.7570799999999878,
+            "internal_gap_mm": 0.7570799999999878,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578538999999996
+              ],
+              [
+                -15.821459000000008,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.8429189999999842,
+            "uncovered_width_mm": 0.7570810000000154,
+            "internal_gap_mm": 0.7570810000000154,
+            "intervals_mm": [
+              [
+                -17,
+                -16.57853900000001
+              ],
+              [
+                -15.821457999999994,
+                -15.4
+              ]
+            ]
+          }
+        }
+      ],
+      "topology": {
+        "tie_present": {
+          "filled_width_mm": 1.599999999999996,
+          "uncovered_width_mm": 3.552713678800501e-15,
+          "internal_gap_mm": 0,
+          "intervals_mm": [
+            [
+              -16.999999999999996,
+              -15.4
+            ]
+          ]
+        },
+        "tie_absent_between_rows": {
+          "filled_width_mm": 0.842963499999998,
+          "uncovered_width_mm": 0.7570365000000017,
+          "internal_gap_mm": 0.7570365000000017,
+          "intervals_mm": [
+            [
+              -17,
+              -16.578517999999995
+            ],
+            [
+              -15.821481499999994,
+              -15.4
+            ]
+          ]
+        },
+        "first_tie_layer_mm": 3.0,
+        "first_tie_section": {
+          "filled_width_mm": 1.599999999999996,
+          "uncovered_width_mm": 3.552713678800501e-15,
+          "internal_gap_mm": 0,
+          "intervals_mm": [
+            [
+              -16.999999999999996,
+              -15.4
+            ]
+          ]
+        }
+      },
+      "panels": [
+        {
+          "part": "cup",
+          "core_z_mm": 0.8,
+          "air": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 0.3999999999999999,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          },
+          "roof_z_mm": 1.4,
+          "roof": {
+            "filled_width_mm": 20,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -10,
+                10
+              ]
+            ]
+          }
+        },
+        {
+          "part": "pad",
+          "core_z_mm": 1.0,
+          "air": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 0.3999999999999999,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          },
+          "roof_z_mm": 1.6,
+          "roof": {
+            "filled_width_mm": 20,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -10,
+                10
+              ]
+            ]
+          }
+        }
+      ],
+      "corner_air": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.10000000000000142,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      },
+      "support_proposals": [
+        {
+          "part": "cup",
+          "segments": 624,
+          "z_range_mm": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "pad",
+          "segments": 3746,
+          "z_range_mm": [
+            1.0,
+            1.2
+          ]
+        }
+      ]
+    },
+    "B16": {
+      "checks_passed": true,
+      "artifact_identity": "0765dd7a3146a32700109c9ae3e90923307a7b2b649dba2e4cdd65fe62c72f28",
+      "source_sha256": {
+        "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+        "support_design.py": "26fcebaa5317f613c5ee6434a0b510c1a71b5eb9f157b7fd8b08aad7f3ca658b",
+        "support_B16.py": "a81f24c9e4de9c1a6cd89297df4c96435ae42f20852b505a4b85a388a0a2f9f4",
+        "profiles/tpu-support-b-process.json": "40fc5e60bde0b3c64d30cf0498e00f159b827b4a0fed29331e04b81a23609f33",
+        "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+        "review_support_paths.py": "9fb0a57c003a583660fa751a72ba1bc307783b90455277849fed52dd4301c828",
+        "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+      },
+      "export_sha256": {
+        "support_B16.step": "2640374fa3fa39cd668b4974d60901deed56efbfc8c982c271dd09b0c7807caf",
+        "support_B16.stl": "3af987bc09c5ae88b7ae987a0ee33f9bd65c58f65c1d55fdfbcc130deea03f20"
+      },
+      "gcode_sha256": "dae10bf1605416124ac3296463cc6d1529d6b0d38763157df34a1846a9bee3ab",
+      "center_translation_mm": [
+        94.3,
+        115.0
+      ],
+      "effective_process": {
+        "wall_generator": "classic",
+        "wall_loops": "1",
+        "line_width": "0.4",
+        "layer_height": "0.2",
+        "enable_support": "0",
+        "bridge_angle": "0",
+        "internal_bridge_angle": "0",
+        "filter_out_gap_fill": "0"
+      },
+      "bridge_heights_mm": [
+        0.199999,
+        0.2,
+        0.200001
+      ],
+      "wall_sections": [
+        {
+          "z_mm": 3.2,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.8429179999999974,
+            "uncovered_width_mm": 0.7570820000000023,
+            "internal_gap_mm": 0.7570820000000023,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821457999999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.8429199999999977,
+            "uncovered_width_mm": 0.757080000000002,
+            "internal_gap_mm": 0.757080000000002,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459999999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.8429190000000109,
+            "uncovered_width_mm": 0.7570809999999888,
+            "internal_gap_mm": 0.7570809999999888,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459000000008,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.8429189999999842,
+            "uncovered_width_mm": 0.7570810000000154,
+            "internal_gap_mm": 0.7570810000000154,
+            "intervals_mm": [
+              [
+                -17,
+                -16.57853900000001
+              ],
+              [
+                -15.821457999999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.842963499999998,
+            "uncovered_width_mm": 0.7570365000000017,
+            "internal_gap_mm": 0.7570365000000017,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578517999999995
+              ],
+              [
+                -15.821481499999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.8429199999999977,
+            "uncovered_width_mm": 0.757080000000002,
+            "internal_gap_mm": 0.757080000000002,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459999999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.8429195000000096,
+            "uncovered_width_mm": 0.75708049999999,
+            "internal_gap_mm": 0.75708049999999,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539499999998
+              ],
+              [
+                -15.821459000000008,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 5.4,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.8429194999999847,
+            "uncovered_width_mm": 0.7570805000000149,
+            "internal_gap_mm": 0.7570805000000149,
+            "intervals_mm": [
+              [
+                -17,
+                -16.57853900000001
+              ],
+              [
+                -15.821458499999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.842963499999998,
+            "uncovered_width_mm": 0.7570365000000017,
+            "internal_gap_mm": 0.7570365000000017,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578517999999995
+              ],
+              [
+                -15.821481499999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.8429199999999977,
+            "uncovered_width_mm": 0.757080000000002,
+            "internal_gap_mm": 0.757080000000002,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459999999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.8429195000000096,
+            "uncovered_width_mm": 0.75708049999999,
+            "internal_gap_mm": 0.75708049999999,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539499999998
+              ],
+              [
+                -15.821459000000008,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 10.0,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.8429194999999847,
+            "uncovered_width_mm": 0.7570805000000149,
+            "internal_gap_mm": 0.7570805000000149,
+            "intervals_mm": [
+              [
+                -17,
+                -16.57853900000001
+              ],
+              [
+                -15.821458499999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.842963499999998,
+            "uncovered_width_mm": 0.7570365000000017,
+            "internal_gap_mm": 0.7570365000000017,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578517999999995
+              ],
+              [
+                -15.821481499999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.8429199999999977,
+            "uncovered_width_mm": 0.757080000000002,
+            "internal_gap_mm": 0.757080000000002,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459999999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.8429195000000096,
+            "uncovered_width_mm": 0.75708049999999,
+            "internal_gap_mm": 0.75708049999999,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539499999998
+              ],
+              [
+                -15.821459000000008,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 18.0,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.8429194999999847,
+            "uncovered_width_mm": 0.7570805000000149,
+            "internal_gap_mm": 0.7570805000000149,
+            "intervals_mm": [
+              [
+                -17,
+                -16.57853900000001
+              ],
+              [
+                -15.821458499999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 0,
+          "section": {
+            "filled_width_mm": 0.8429179999999974,
+            "uncovered_width_mm": 0.7570820000000023,
+            "internal_gap_mm": 0.7570820000000023,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821457999999994,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 90,
+          "section": {
+            "filled_width_mm": 0.8429199999999977,
+            "uncovered_width_mm": 0.757080000000002,
+            "internal_gap_mm": 0.757080000000002,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459999999995,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 180,
+          "section": {
+            "filled_width_mm": 0.8429190000000109,
+            "uncovered_width_mm": 0.7570809999999888,
+            "internal_gap_mm": 0.7570809999999888,
+            "intervals_mm": [
+              [
+                -17,
+                -16.578539999999997
+              ],
+              [
+                -15.821459000000008,
+                -15.4
+              ]
+            ]
+          }
+        },
+        {
+          "z_mm": 29.6,
+          "face_deg": 270,
+          "section": {
+            "filled_width_mm": 0.8429189999999842,
+            "uncovered_width_mm": 0.7570810000000154,
+            "internal_gap_mm": 0.7570810000000154,
+            "intervals_mm": [
+              [
+                -17,
+                -16.57853900000001
+              ],
+              [
+                -15.821457999999994,
+                -15.4
+              ]
+            ]
+          }
+        }
+      ],
+      "topology": {
+        "tie_present": {
+          "filled_width_mm": 1.599999999999996,
+          "uncovered_width_mm": 3.552713678800501e-15,
+          "internal_gap_mm": 0,
+          "intervals_mm": [
+            [
+              -16.999999999999996,
+              -15.4
+            ]
+          ]
+        },
+        "tie_absent_between_rows": {
+          "filled_width_mm": 0.842963499999998,
+          "uncovered_width_mm": 0.7570365000000017,
+          "internal_gap_mm": 0.7570365000000017,
+          "intervals_mm": [
+            [
+              -17,
+              -16.578517999999995
+            ],
+            [
+              -15.821481499999994,
+              -15.4
+            ]
+          ]
+        },
+        "first_tie_layer_mm": 2.6,
+        "first_tie_section": {
+          "filled_width_mm": 1.599999999999996,
+          "uncovered_width_mm": 3.552713678800501e-15,
+          "internal_gap_mm": 0,
+          "intervals_mm": [
+            [
+              -16.999999999999996,
+              -15.4
+            ]
+          ]
+        }
+      },
+      "panels": [
+        {
+          "part": "cup",
+          "core_z_mm": 0.8,
+          "air": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 0.3999999999999999,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          },
+          "roof_z_mm": 1.4,
+          "roof": {
+            "filled_width_mm": 20,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -10,
+                10
+              ]
+            ]
+          }
+        },
+        {
+          "part": "pad",
+          "core_z_mm": 1.0,
+          "air": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 0.3999999999999999,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          },
+          "roof_z_mm": 1.6,
+          "roof": {
+            "filled_width_mm": 20,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -10,
+                10
+              ]
+            ]
+          }
+        }
+      ],
+      "corner_air": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.10000000000000142,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      },
+      "support_proposals": [
+        {
+          "part": "cup",
+          "segments": 743,
+          "z_range_mm": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "pad",
+          "segments": 3232,
+          "z_range_mm": [
+            1.0,
+            1.2
+          ]
+        }
+      ]
+    }
+  }
+}

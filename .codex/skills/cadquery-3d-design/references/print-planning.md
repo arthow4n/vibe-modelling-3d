@@ -45,6 +45,14 @@ its walls bulge or move. The [TPU G and PETG vase hood reports](../../../../mode
 illustrate that distinction without establishing a common cause or universal
 wall thickness. Record physical uncertainty when it affects the intended use.
 
+When ordinary Classic slicing is requested, a pass obtained only with narrower
+widths or thin-wall recovery does not qualify that workflow. Probe the intended
+ordinary widths/recovery settings before depending on thin skins, and check
+their retained paths through the relevant wall height. Keep a failed control
+when it distinguishes missing walls from a merely completed slice. The
+[TPU R1 rejection and R2 repair](../../../../model/tpu_damping_box/README.md#ordinary-classic-repair--r2)
+shows why the generator's name alone was insufficient.
+
 ## Printability
 
 Read the [printer/setup defaults](user-preferences.md#printer-manufacturing-and-available-hardware)

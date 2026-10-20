@@ -24,13 +24,13 @@
   ],
   "exports": [],
   "timings_seconds": {
-    "dependency_initialization": 0.0016170839953701943,
-    "build": 14.456791685981443,
-    "selection": 0.0011180599976796657,
-    "validation": 1.4577758499945048,
-    "render_isometric": 1.430886291025672,
-    "worker": 17.644240008987254,
-    "total": 17.775175907998346
+    "dependency_initialization": 0.0014499580138362944,
+    "build": 17.68129067798145,
+    "selection": 0.0011334409937262535,
+    "validation": 1.485424567013979,
+    "render_isometric": 1.54087536901352,
+    "worker": 21.019832110003335,
+    "total": 21.168528180016438
   },
   "versions": {
     "python": "3.14.7",
@@ -41,7 +41,7 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "074ad5478ebb80ffe440a1bbc3f902a3593265db75e94d4d0252730746016ce2",
-    "artifact_identity": "bbc8d2566d223024d86f44414c16e6c67b21099fcc66d3237be4633cced547ee"
+    "identity": "23d9e5c28f0147a737c1ee6a528f8d9371f9758c9f82dbb7ab53627c09014db4",
+    "artifact_identity": "e094358217fabe9b2e5f0017279c14f2a393fae0e8c4f3145af0cea9e7591a42"
   }
 }
