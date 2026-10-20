@@ -128,9 +128,10 @@ screens are prototypes; printed retention/effort/packing remain unqualified.
 The selected model uses **30 mm overlap**, reinforced bearing walls and small
 .6 mm bumps, preserving the printed slim box's exterior size.
 **2026-10-20 clarification:** knocks and bumps inside a travel bag must not open
-the box. Deformable contact snapshots show that widthwise loading can unload one
-bite while the other retains capture; complete release and impact resistance
-remain unverified. The 30 mm prototype remains unprinted; do not infer a safe
+the box. Deformable contact snapshots show that widthwise loading can consume
+almost all capture at one bite while the other remains engaged. The coupled
+release investigation is **INCONCLUSIVE**; impact resistance remains unverified.
+The 30 mm prototype remains unprinted; do not infer a safe
 side-hit force from the static stiffness or straight-pull screens.
 
 [M1 full-box feedback and retained files](model/dental_travel_case/notes/m1.md) · [Separate M2B retention investigation](model/dental_travel_case/notes/m2.md)

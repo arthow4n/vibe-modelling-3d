@@ -90,6 +90,21 @@ previous finalized X-half mesh only, and a fresh Y mesh. Its first mesh-reuse
 attempt correctly rejected the orphaned runs' missing final receipts; the retry
 preserves this guard rather than fabricating a receipt.
 
+The shorter [X](short_lap/flex/lateral_targeted_v2_x/baseline/result.json) /
+[Y](short_lap/flex/lateral_targeted_v2_y/baseline/result.json) restarts then
+accepted the seating hold, but each rejected its first sideways increment at
+the native 60-iteration convergence limit: .222 mm X / .444 mm Y roof drive.
+Neither accepted a loaded frame. Their built-in retries were deliberately
+interrupted after this method review; the retained results say **interrupted**,
+not completed or demonstrated box failure. No elapsed-time deadline was applied.
+The full-domain, mirror-half, seated, shifted-pose and coarser-path adaptations
+have not established a qualified sequential-release threshold. Another coarse
+baseline cannot substitute for finite-edge passage qualification and relevant
+mesh/increment/contact sensitivity, including asymmetric loading. This numerical
+route is closed **INCONCLUSIVE**; the full-prototype physical check below is the
+next useful evidence. No geometry change or stronger retention claim follows
+from failed convergence.
+
 | Diagnostic accepted state | Equivalent full lateral roof force | Additional inward tooth retraction needed on sampled axial withdrawal |
 | --- | ---: | --- |
 | Widthwise X, .889 mm roof drive | 12.64 N | Negative-X tooth: **.028 mm**; positive-X tooth: **.347 mm** |

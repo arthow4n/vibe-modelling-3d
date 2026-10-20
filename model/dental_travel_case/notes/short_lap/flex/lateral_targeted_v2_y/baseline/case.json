@@ -1,0 +1,275 @@
+{
+  "name": "short_lap_lateral_y_half_seated_targeted",
+  "nonlinear": true,
+  "max_increment": 0.1,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "e16d32d630a6f494513c3668ba61ae413d88f6cd9d9daecbb3103fdcc01d5469",
+      "material": {
+        "name": "Uncalibrated PETG comparison",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus. Not measured FDM data; no strength limit supplied.",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 2.5,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    },
+    {
+      "name": "body",
+      "geometry": "part_1.brep",
+      "sha256": "94092cea9849b6e14b43f41ea08f8516dafe5084742034c74d3ac13f9dc2890a",
+      "material": {
+        "name": "Uncalibrated PETG comparison",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus. Not measured FDM data; no strength limit supplied.",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 2.5,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            0,
+            null,
+            null
+          ],
+          "upper": [
+            0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0.0,
+        null,
+        null
+      ],
+      "name": "symmetry",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -4,
+            -4,
+            264.0
+          ],
+          "upper": [
+            4,
+            4,
+            264.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        null,
+        4.0,
+        null
+      ],
+      "name": "lateral",
+      "progress": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.1,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "selection": {
+        "part": "body",
+        "region": {
+          "lower": [
+            null,
+            null,
+            158.0
+          ],
+          "upper": [
+            null,
+            null,
+            158.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "body_root",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "body",
+        "region": {
+          "lower": [
+            0,
+            null,
+            null
+          ],
+          "upper": [
+            0,
+            null,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0.0,
+        null,
+        null
+      ],
+      "name": "body_symmetry",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -4,
+            -4,
+            264.0
+          ],
+          "upper": [
+            4,
+            4,
+            264.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.0,
+        0.0,
+        -0.025
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "slave": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -74.2,
+            -51.2,
+            173.99
+          ],
+          "upper": [
+            74.2,
+            51.2,
+            210.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "master": {
+        "part": "body",
+        "region": {
+          "lower": [
+            -74.2,
+            -51.2,
+            173.99
+          ],
+          "upper": [
+            74.2,
+            51.2,
+            210.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "penalty_N_mm3": 20000.0,
+      "penetration_limit_mm": 0.03,
+      "discretization": "surface_to_surface"
+    }
+  ],
+  "observations": [
+    {
+      "name": "roof",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -4,
+            -4,
+            264.0
+          ],
+          "upper": [
+            4,
+            4,
+            264.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "lip_positive",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            34.39,
+            -5.3,
+            197.8
+          ],
+          "upper": [
+            37.11,
+            5.3,
+            200.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "rim_positive",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            34.39,
+            -5.3,
+            174.0
+          ],
+          "upper": [
+            37.11,
+            5.3,
+            174.5
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}
