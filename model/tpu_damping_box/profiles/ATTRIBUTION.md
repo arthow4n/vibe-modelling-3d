@@ -58,3 +58,16 @@ for the eight 30 mm surface coupons (2026-10-17). Changes: identifying name/ID,
 `ironing_type=top` and `ironing_flow=50%`; retained ironing speed 30 mm/s and
 spacing 0.15 mm are diagnostic values, not recovered user settings. The profile
 retains AGPL-3.0; its native slice receipt owns effective-setting evidence.
+
+`tpu-support-a-process.json` and `tpu-support-b-process.json` derive from
+`tpu-surface-process.json` for the four complete support-test pairs (2026-10-20).
+Both require Classic, enable thin-wall detection, use 0.2 mm layers, two
+bottom/top skin layers, no absolute top-shell thickness, no seam gap, no
+ironing and no prime tower. A uses 0.3 mm nominal wall/solid/infill widths with
+0.4 mm first-layer width and two requested perimeter loops; gap-fill filtering
+is disabled. B retains 0.4 mm
+widths, uses one requested perimeter loop plus 100% solid material fill, disables
+gap-fill filtering and uses automatic external/internal bridge directions for
+ties across all four wall normals. A keeps X-directed bridges. These profiles
+retain AGPL-3.0; current native receipts and the support-path review own actual
+setup-specific evidence, not physical strength or damping qualification.

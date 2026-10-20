@@ -3,6 +3,20 @@ import math
 import pytest
 
 
+def test_transformed_tangent_stroke_retains_section_without_filling_real_gap():
+    # B08's nominal .4 mm paths meet at the centre of its .8 mm tie.
+    # Recentring/rotating bed coordinates can move a tangent boundary by 1e-14.
+    for error in (-1e-14, 0, 1e-14):
+        path=(.2+error,0,.2+error,1,.2,.4,'Outer wall')
+        result=section_coverage([path],x_mm=0,z_mm=.2,span_mm=(0,1))
+        assert abs(result['filled_width_mm']-1)<1e-9
+    # A real separation, even one much smaller than a printable feature,
+    # must remain empty rather than being absorbed by numerical tolerance.
+    separated=(.200001,0,.200001,1,.2,.4,'Outer wall')
+    result=section_coverage([separated],x_mm=0,z_mm=.2,span_mm=(0,1))
+    assert result['filled_width_mm']==0
+
+
 def test_layer_segments_keep_position_width_role_and_relative_extrusion(tmp_path):
     p=tmp_path/'slice.gcode'
     p.write_text('G90\nM83\nG0 X10 Y20 Z.2\n;LAYER_CHANGE\n;TYPE:Inner wall\n;WIDTH:0.45\nG1 X12 E.1\nG1 E-1\nG0 Y22\n;TYPE:Support interface\nG1 X10 E.2\n')

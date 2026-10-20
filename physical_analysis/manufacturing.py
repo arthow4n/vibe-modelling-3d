@@ -19,6 +19,10 @@ def section_coverage(paths, *, x_mm, z_mm, span_mm):
     """
     lo,hi=span_mm
     if hi<=lo: raise ValueError('Section span must have positive length')
+    # Translation/rotation can put a nominally tangent stroke ~1e-14 mm
+    # outside the section. Use the existing interval-merging tolerance here
+    # too; this is numerical roundoff, not a printable-gap allowance.
+    coordinate_tol=1e-10
     spans=[]
     def add(a,b):
         a,b=max(lo,a),min(hi,b)
@@ -30,18 +34,19 @@ def section_coverage(paths, *, x_mm, z_mm, span_mm):
         dx,dy=nx-x,ny-y
         length=math.hypot(dx,dy)
         if not length: continue
-        if x_mm<min(x,nx)-radius or x_mm>max(x,nx)+radius: continue
+        if x_mm<min(x,nx)-radius-coordinate_tol or x_mm>max(x,nx)+radius+coordinate_tol: continue
         ox,oy=-dy*radius/length,dx*radius/length
         corners=((x+ox,y+oy),(nx+ox,ny+oy),(nx-ox,ny-oy),(x-ox,y-oy))
         crossings=[]
         for (ax,ay),(bx,by) in zip(corners,(*corners[1:],corners[0])):
             if abs(bx-ax)<1e-12:
                 if abs(x_mm-ax)<1e-10: crossings.extend((ay,by))
-            elif min(ax,bx)<=x_mm<=max(ax,bx):
-                crossings.append(ay+(by-ay)*(x_mm-ax)/(bx-ax))
+            elif min(ax,bx)-coordinate_tol<=x_mm<=max(ax,bx)+coordinate_tol:
+                fraction=max(0,min(1,(x_mm-ax)/(bx-ax)))
+                crossings.append(ay+(by-ay)*fraction)
         if crossings: add(min(crossings),max(crossings))
         for cx,cy in ((x,y),(nx,ny)):
-            if abs(x_mm-cx)<=radius:
+            if abs(x_mm-cx)<=radius+coordinate_tol:
                 half=math.sqrt(max(0,radius**2-(x_mm-cx)**2))
                 add(cy-half,cy+half)
     merged=[]

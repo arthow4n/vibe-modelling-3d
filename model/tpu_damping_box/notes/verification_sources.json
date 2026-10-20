@@ -1,5 +1,5 @@
 {
-  "scope": "Original 2026-10-15 intent preserved; 2026-10-16 approves I in PLA shell and requests thinner I derivatives. Physical feedback retained separately. Later preprint I24/I20 rejection and robust replacements are recorded in README; local-feature thickness must not be conflated with total liner thickness. Latest user directive replaces unprinted I26 with an extreme sample beyond I22; I10 dimensions/topology are agent decisions, not user acceptance thresholds. Latest print feedback accepts I22 quietness, rejects broken I10, and explicitly requires both skins in thinner follow-ups. On 2026-10-17 user requests finish-only 30 mm coupons (four to eight) with solid exterior edges, retaining S16 as damping baseline and deferring physical damping comparison. Full-box intent is preserved; sample plans cannot qualify omitted enclosure coverage.",
+  "scope": "Original 2026-10-15 intent preserved; 2026-10-16 approves I in PLA shell and requests thinner I derivatives. Physical feedback retained separately. Later preprint I24/I20 rejection and robust replacements are recorded in README; local-feature thickness must not be conflated with total liner thickness. Latest user directive replaces unprinted I26 with an extreme sample beyond I22; I10 dimensions/topology are agent decisions, not user acceptance thresholds. Latest print feedback accepts I22 quietness, rejects broken I10, and explicitly requires both skins in thinner follow-ups. On 2026-10-17 user requests finish-only 30 mm coupons (four to eight) with solid exterior edges, retaining S16 as damping baseline and deferring physical damping comparison. Full-box intent is preserved; sample plans cannot qualify omitted enclosure coverage. On 2026-10-20 user accepts the two SVG interpretations, authorizes four complete labeled cup/pad pairs (A 1.6/2.0 mm; B 1.6 mm with two tie sizes), and explicitly requires no Arachne. Installation survival remains physical after reported dental-liner breakage.",
   "source_sha256": {},
   "user_requirements": [
     {
@@ -89,6 +89,33 @@
       "source": {
         "reference": "README.md#surface-finish-coupons--2026-10-17",
         "statement": "User names S16 as the best so far and says damping must still be tested later while initially focusing on surface texture."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "support.classic",
+      "text": "All four support-test variants must use Classic, without Arachne.",
+      "source": {
+        "reference": "README.md#four-printable-support-pairs--2026-10-20",
+        "statement": "During implementation the user explicitly reiterates: I do not want Arachne."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "support.four",
+      "text": "Provide four labeled complete cup/lid-insert pairs for the existing experiment box: A at 1.6 and 2.0 mm; B at 1.6 mm with two distinct tie sizes.",
+      "source": {
+        "reference": "README.md#four-printable-support-pairs--2026-10-20",
+        "statement": "User accepts both SVG explanations and requests four printable variants, matching lids and markings: A at 16/20 and B at 16 with two distinct tie sizes; the S16 context establishes 1.6/2.0 mm units."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "support.integrity",
+      "text": "Find a thin liner that survives installation and handling with mutually supported walls and bottom.",
+      "source": {
+        "reference": "README.md#wall-support-concepts--2026-10-20",
+        "statement": "User reports further dental-liner breakage during insertion and requests support experiments to find the minimum usable thickness without breakage."
       },
       "acceptance_criteria": []
     }

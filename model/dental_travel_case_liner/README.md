@@ -10,8 +10,9 @@ and shell-side skins have locally broken areas. Printed wall integrity is not
 accepted; the cause is unresolved. See the [physical report and comparison](#wall-print-feedback--2026-10-19).
 The user now reports further breakage while pushing the liner into the old box;
 installation integrity is not accepted. Completed seating, contents fit and
-damping remain unreported. The [new support sketches](../tpu_damping_box/README.md#wall-support-concepts--2026-10-20)
-are for discussion; existing geometry, exports and print presets remain unchanged.
+damping remain unreported. The user accepted the support sketches and requested
+[four experimental cup/pad pairs](../tpu_damping_box/README.md#four-printable-support-pairs--2026-10-20)
+for the existing small test shell. The dental geometry, exports and presets remain unchanged.
 
 Primary print interchange: [STEP](dental_travel_case_liner.step), matching
 [STL](dental_travel_case_liner.stl), [Python entry](dental_travel_case_liner.py),
@@ -267,6 +268,13 @@ eventually followed by complete inserts for its existing rigid box. The goal is
 the minimum practical sandwich thickness that survives insertion and handling
 while retaining useful damping. No replacement dental liner is delivered in this
 visual phase.
+
+The user subsequently accepts both SVG interpretations and authorizes four
+complete, labeled test pairs for the small experiment shell: A at 1.6/2.0 mm,
+B at 1.6 mm with two tie sizes, all using Classic with no Arachne. The
+[experiment record](../tpu_damping_box/README.md#four-printable-support-pairs--2026-10-20)
+owns those files and setup-specific checks. They are unprinted and do not
+qualify installation survival of this taller dental liner.
 
 ### Retained diagnostic options from 2026-10-19
 
