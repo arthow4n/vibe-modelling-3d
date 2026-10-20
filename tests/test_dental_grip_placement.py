@@ -59,3 +59,16 @@ def test_replacing_strategy_preserves_intent_and_does_not_depend_on_native_searc
     evidence=plan.checks[0].run()[0]
     assert evidence.status==Status.PASS
     assert evidence.targets==(('form.grip-placement','layout'),)
+
+
+def test_printable_band_variant_preserves_intent_with_authorized_notch_removal():
+    parent=make_plan('grip-band-placement')
+    plan=make_plan('slim-short-lap-three-line-grip');plan.validate()
+    before={r.id:r for r in parent.requirements};after={r.id:r for r in plan.requirements}
+    assert before.keys()==after.keys()
+    for rid in before.keys()-{'form.cap-comfort'}:assert before[rid]==after[rid]
+    assert after['form.cap-comfort'].source.reference.endswith('#implemented-three-line-case')
+    assert 'omit the old seam finger notches' in after['form.cap-comfort'].text
+    assert any(d.id=='grip.thin-only' for d in plan.directives)
+    physical={(q.requirement_id,q.id) for q in plan.questions if q.mode=='physical'}
+    assert not any(t in physical for check in plan.checks for t in check.targets)

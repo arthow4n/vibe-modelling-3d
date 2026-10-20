@@ -1,6 +1,11 @@
 # Full-case print comparison: 2 mm and three-line walls
 
-**Current design feedback:** the user prefers recessed saddles and now asks
+**Latest printable model:** [three-line wrap-grip pair](grip_human.md#implemented-three-line-case)
+implements the selected bands and removes the seam notches. Only that thin
+version was revised, as requested. The original comparison pairs and results
+below remain historical evidence for their unchanged files.
+
+**Exploration history:** the user prefers recessed saddles and asked
 whether a shallow, smoothly curved [full-wrap band](#continuous-band-and-shallow-profile)
 would make the grip easier to use. The [B-family suggestions](#recessed-saddle-variants)
 remain the preceding comparison.
@@ -15,7 +20,7 @@ Orca actually generates **three extrusion strokes across them**, rather than
 relying on the nominal nozzle diameter. Both pairs sliced without supports.
 Neither has a reported physical result for this comparison.
 
-**Current revision:** both caps have complete finger-slot rounding, and the thin
+**Retained comparison revision:** both caps have complete finger-slot rounding, and the thin
 cap's raised joint backing blends into the shell. See the
 [comfort detail drawing](wall_comparison/comfort.svg) and [revision](#comfort-revision).
 
@@ -297,13 +302,14 @@ change is warranted by this preference refinement.
 uses cap +55 / body −30 mm band centres. Nominal layout checks pass; placement
 selection is complete. Earlier +50/−30 and +50/−27 sketches below are historical.
 The precise-hand search is retained as an unsuccessful diagnostic, retired as
-a placement criterion. Printed traction/feel remains unmeasured. Production
-CAD and exports remain unchanged.
+a placement criterion. Printed traction/feel remains unmeasured.
+The new thin-case implementation and current exports are linked above; the
+original comparison files remain unchanged.
 
 The user asks whether a recess can stay shallow and smoothly curved while still
 being useful, and whether wrapping it around the entire box would improve use.
-This continues the SVG exploration; no CAD edits or notch removal are authorized
-for this phase. The finish line is an understandable comparison of coverage,
+This was the SVG exploration stage; CAD edits and notch removal were not yet
+authorized at that stage. The finish line was an understandable comparison of coverage,
 depth, slope and interior cost, not an asserted minimum usable grip depth.
 
 - [B4 — Full-wrap band versus corner saddles](../renders/concepts/grip_b4_full_band.svg)

@@ -1,11 +1,20 @@
-# Selected opening-grip layout
+# Three-line case with wraparound grips
 
 **Use two smooth full-wrap bands: cap centre +55 mm, body centre −30 mm
-from the seam; each 20 mm wide and 0.7 mm deep.** Placement exploration is
-complete. The cap band sits beyond the joint backing with room toward the
+from the seam; each 20 mm wide and 0.7 mm deep.** The selected design is now
+implemented in the matching three-line pair. The cap band sits beyond the joint backing with room toward the
 closed end; the body band lets the lower hand support the case while the upper
 hand lifts the cap. Printed grip feel is a later physical observation, not an
 unresolved location-selection task.
+
+**Print this version:** [STEP — matching body and cap](../short_lap_case_three_line_grip.step)
+· [STL](../short_lap_case_three_line_grip.stl)
+· [Python entry point](../short_lap_case_three_line_grip.py).
+The 2 mm version and earlier thin pair are retained unchanged.
+[Actual finished CAD sections](grip_human/finished_band_sections.svg)
+([PNG](grip_human/finished_band_sections.png)) show the continuous thin shell;
+[print-placement preview](../renders/print/grip/short_lap_case_three_line_grip_isometric.png)
+shows the separate named body and cap.
 
 [Selected opening sequence — SVG](grip_human/selected_opening.svg)
 ([PNG](grip_human/selected_opening.png)) shows the supported half, moving half
@@ -24,9 +33,10 @@ optional computation as an inconclusive product decision and requests a
 practical conclusion and a lasting workflow correction.
 
 The user has not supplied numerical hand-force or comfort thresholds. The
-band size, location and comparison criteria are engineering choices. This
-remains the agreed visual/design phase; production source, STEP and STL are
-unchanged, with seam-notch removal belonging to the subsequent CAD revision.
+band size, location and comparison criteria are engineering choices. The latest
+instruction authorizes implementing this design **only in the three-line
+version**, since the user does not expect to print the 2 mm case. Earlier
+instructions authorize removal of the unhelpful seam finger notches.
 
 ## Why this location
 
@@ -51,7 +61,7 @@ there is no need to land four particular fingertips on predefined points.
 | --- | --- | --- | --- | --- |
 | Near | +40 / −15 mm | −9 mm: overlaps backing | 40 mm | Discard: conflicts with the existing exterior blend |
 | Previous | +50 / −30 mm | 1 mm | 30 mm | Viable; revised to give more room from the blend |
-| **Selected** | **+55 / −30 mm** | **6 mm** | **25 mm** | **Use for the next design revision** |
+| **Selected** | **+55 / −30 mm** | **6 mm** | **25 mm** | **Implemented in the new thin pair** |
 | Far | +65 / −50 mm | 16 mm | 15 mm | Viable alternative; consumes more cap-end space without a demonstrated need |
 
 This is a reasoned selection among usable alternatives, not a claim of a
@@ -59,8 +69,61 @@ unique ergonomic optimum. The depth/profile choice and local interior cost
 remain in the [shape comparison](wall_comparison.md#continuous-band-and-shallow-profile):
 the inner and outer skins move inward together to retain nominal wall
 thickness. The resulting thin-wall interior at the band's flat regions is
-70.4 × 47.4 mm; finished-corner construction and actual contents passage belong
-to the later CAD revision, whose geometry does not yet exist.
+70.4 × 47.4 mm. Finished-corner construction and actual passage are checked below.
+
+## Implemented three-line case
+
+[The builder](../short_lap_grip.py) reuses the original thin pair, restores the
+cap-rim material removed by the old front/back notches, and replaces each grip
+zone with a continuous recessed shell. The end-wall catch pockets and runouts
+lie outside the notch-restoration cut and remain unchanged. The old 2 mm and
+thin builders/exports are preserved; the new wrapper has the explicit
+`_three_line_grip` filename so it cannot be confused with the old trial.
+
+Both skins follow **exact quintic Bezier ramps**, with zero slope and curvature
+at their joins. Rounded corners use the same radial profile. Each horizontal
+wall section remains **1.2 mm**, verified in 66 actual CAD sections across faces,
+corners, ramps and joins. Normal thickness on the sloping ramp falls slightly
+to approximately **1.172 mm**; “1.2 mm” describes the horizontal section that
+determines extrusion count, not a constant normal offset everywhere.
+
+The joint-region symmetric differences against the previous thin case are zero
+for the body guide/catches and both cap end-wall receiver regions. The hard
+seat, both snap obstructions and guide path remain present. Sampled opening
+positions 0…90 mm have no guide interference; snap geometry clears after 6 mm.
+This preserves geometric function without inferring unchanged elastic stiffness
+or a measured release force.
+
+Individual passage gauges clear the narrowed shell: the 30 mm brush-handle
+gauge at its retained offset has at least **3.1 mm body / 3.7 mm cap-band
+clearance**; the 55 × 40 mm tube gauge has **1.8 / 3.7 mm**, respectively.
+This checks the new band apertures and body passage, not simultaneous packing
+of both actual items. Cap-band gauges stop before the intentionally closed roof.
+
+**Print placement:** body upright on its base, 204 mm high including the sleeve;
+cap on its closed roof, 90 mm high, beside the body. STEP and STL use this same
+millimetre placement, with separately named components. Select just the cap in
+STEP if desired. Use the retained Q2C PETG profile: 0.4 mm nozzle, 0.2 mm layers,
+three walls, automatic 5 mm brim. The 1.2 mm floor/roof remain six nominal layers.
+
+The maximum outward increment at a band is approximately **0.044 mm per 0.2 mm
+layer**, leaving substantial support from the preceding wall. Closed-end feet,
+R4 end rounds, backing blends and overlap are retained. OrcaSlicer 2.4.2 accepted
+the delivered layout with no notices and no generated automatic supports.
+Native toolpaths show **three strokes** with continuous coverage through both
+landings and ramps: body print Z 137/144/151 mm, cap 28/35/42 mm. Estimated pair
+mass is **108.54 g** in this profile. This STL review does not qualify Orca's
+separate GUI STEP importer or predict printed grip feel.
+
+- [Actual CAD checks](grip_human/finished_checks.json).
+- [Native export/slice report](grip_human/finished_slice.json).
+- [Export association and toolpath sections](grip_human/finished_publication.json).
+- [Printable-case verification](grip_human/finished_verification.json): CAD and
+  publication checks PASS; print observations remain separate.
+
+Print the matched thin pair and use the bands during upright/diagonal opening.
+Check grip feel, actual contents passage, cap fit and snap return. No separate
+coupon or additional numerical investigation is required before this full-case trial.
 
 ## How the hands use it
 
@@ -92,26 +155,32 @@ limits do not prevent selecting this layout.
 the same constructor and 30 mm overlap as the thin builder; the local backing
 end is `lap + 9 mm` from that builder's axial pad blend. It checks bands against
 the sleeve, backing, end-round regions and seam, and calculates the prescribed
-opening positions. It does not create or qualify modified solid CAD.
+opening positions. This earlier layout calculation is supplemented by the
+finished-CAD and publication evidence above.
 
 - [Current dimensions and alternative results](grip_human/layout.json).
 - [Current shared verification report](grip_human/verification.json):
   **grip.layout PASS**, scoped to nominal placement and prescribed motion.
   Printed usefulness remains a physical question; inherited product requirements
-  remain visible and do not inherit an unbuilt band's qualification.
+  remain visible. The implemented case has its separate report linked above.
 - [Historical native-hand investigation](grip_human/native_search.md), including
   replayable anatomy, unsuccessful poses, source/tool identities and its old
   verification report. Its results are preserved without turning them into
   passing grasps or product failure.
 
-Reproduce the current phase from the repository root:
+Reproduce the layout exploration from the repository root:
 
 ```sh
 ./execute.py --threads 1 model/dental_travel_case/grip_placement_diagram.py
 ./execute.py --threads 1 model/dental_travel_case/verification.py --variant grip-band-placement
 ```
 
-The verifier recomputes the layout; it does not trust `accepted` flags in the
+For the implemented case, run `short_lap_grip_checks.py` through `./execute.py`,
+evaluate/export the `_three_line_grip.py` wrapper with the retained three-profile
+slice setup, then run `short_lap_grip_publication.py`. Select
+`--variant slim-short-lap-three-line-grip` in the shared verification CLI.
+
+The layout verifier recomputes the layout; it does not trust `accepted` flags in the
 saved JSON. Regression controls include a band overlapping the backing, a
 band reaching the cap-end round, an invalid body position, and preservation
 of the user requirement when the verification strategy changes.
@@ -143,8 +212,8 @@ problems. This is implemented in the current consumer, not just a reminder to
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test pieces | N/A | SVGs and nominal layout calculation | No new print in this visual phase |
-| Final printable objects | N/A for this phase | Existing production pairs unchanged | Band construction, contents passage and printed traction/feel belong to implementation |
+| Test pieces | N/A | No separate coupon; full matched pair provided | User can choose only the cap from STEP |
+| Final printable objects | Unknown | `short_lap_case_three_line_grip.step/.stl` | No user print report yet; compare grip feel, actual contents, cap fit and snap return |
 
 Primary model: GPT-6; exact runtime variant and reasoning effort not exposed.
 Harness: Codex in the shared local repository. Provider: OpenAI. No subagents.
