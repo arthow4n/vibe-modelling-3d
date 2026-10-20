@@ -35,6 +35,9 @@ QUESTIONS = (
 
 
 def make_plan(variant):
+    if variant == 'slim-short-lap-three-line':
+        from wall_comparison_verification import make_plan as make_thin_plan
+        return make_thin_plan(variant, REQUIREMENTS)
     if variant == 'slim-short-lap':
         from short_lap_verification import make_plan as make_short_lap_plan
         return make_short_lap_plan(variant, REQUIREMENTS)
@@ -108,4 +111,4 @@ def make_plan(variant):
 
 
 if __name__ == '__main__':
-    raise SystemExit(cli(make_plan, ('measured-two-lane', 'rounded-c', 'plain-cylinder', 'slim-m1', 'slim-m2b', 'slim-m3', 'slim-m4', 'slim-m5', 'research-minimal-closures', 'research-short-closures', 'clamshell-c6', 'hinge-c7-mini', 'spine-c8-mini', 'slim-short-lap')))
+    raise SystemExit(cli(make_plan, ('measured-two-lane', 'rounded-c', 'plain-cylinder', 'slim-m1', 'slim-m2b', 'slim-m3', 'slim-m4', 'slim-m5', 'research-minimal-closures', 'research-short-closures', 'clamshell-c6', 'hinge-c7-mini', 'spine-c8-mini', 'slim-short-lap', 'slim-short-lap-three-line')))

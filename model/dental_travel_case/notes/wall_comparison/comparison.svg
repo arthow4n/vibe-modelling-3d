@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000">
+<rect width="1200" height="1000" fill="#fafaf7"/>
+<style>text{font-family:sans-serif;fill:#243444}</style>
+<text x="25" y="38" font-size="25">Dental box: 2 mm control vs three-line thin pair</text>
+<text x="25" y="76" font-size="18">Actual CAD catch sections, common scale (height compressed). Blue = body; orange = cap.</text>
+<text x="25" y="118" font-size="23">2 mm control</text>
+<path d="M239.000,419.000 L190.600,419.000 L190.600,237.000 L203.800,231.750 L203.800,228.250 L190.600,219.587 L190.600,211.800 L181.800,209.000 L146.600,209.000 L146.600,419.000 L187.667,447.000 L252.200,447.000 L252.200,423.200 L251.946,422.381 L251.195,421.593 L249.975,420.867 L248.334,420.230 L246.334,419.708 L244.051,419.320 L241.575,419.081 Z" fill="#1769a6" fill-rule="evenodd" fill-opacity="1.0" stroke="#1769a6" stroke-width=".7"/>
+<path d="M207.100,252.400 L207.100,419.000 L239.000,419.000 L241.575,418.919 L244.051,418.680 L246.334,418.292 L248.334,417.770 L249.975,417.133 L251.195,416.407 L251.946,415.619 L252.200,414.800 L252.200,139.000 L208.200,139.000 L208.200,167.000 L192.800,195.000 L192.800,219.647 L207.100,227.550 L207.100,232.450 L192.800,237.239 L192.800,252.400 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<text x="25" y="488" font-size="17">30 mm overlap · 0.6 mm bite · 0.1 mm guide gap</text>
+<text x="25" y="520" font-size="16">2.05 mm behind recess</text>
+<text x="600" y="118" font-size="23">1.2 mm ordinary walls</text>
+<path d="M814.000,419.000 L798.600,419.000 L798.600,237.000 L811.800,231.750 L811.800,228.250 L798.600,219.587 L798.600,211.800 L789.800,209.000 L772.200,209.000 L772.200,419.000 L791.267,447.000 L827.200,447.000 L827.200,423.200 L826.946,422.381 L826.195,421.593 L824.975,420.867 L823.334,420.230 L821.334,419.708 L819.051,419.320 L816.575,419.081 Z" fill="#1769a6" fill-rule="evenodd" fill-opacity="1.0" stroke="#1769a6" stroke-width=".7"/>
+<path d="M841.500,195.000 L827.200,167.000 L827.200,139.000 L800.800,139.000 L800.800,219.647 L815.100,227.550 L815.100,232.450 L800.800,237.239 L800.800,252.400 L815.100,252.400 L815.100,418.985 L817.830,418.819 L820.390,418.475 L822.667,417.968 L824.560,417.320 L824.560,419.000 L841.500,419.000 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<text x="600" y="488" font-size="17">30 mm overlap · 0.6 mm bite · 0.1 mm guide gap</text>
+<text x="600" y="520" font-size="16">1.2 mm behind recess; local outside pad +0.65 mm</text>
+<text x="25" y="572" font-size="21">Actual slicer strokes across a straight main wall — enlarged, common scale</text>
+<text x="25" y="630" font-size="19">2.0 mm: 5 lines</text>
+<ellipse cx="342.00" cy="622" rx="42.00" ry="20" fill="#1769a6" fill-opacity=".72"/>
+<ellipse cx="420.40" cy="622" rx="45.00" ry="20" fill="#ce741c" fill-opacity=".72"/>
+<ellipse cx="498.30" cy="622" rx="42.98" ry="20" fill="#598044" fill-opacity=".72"/>
+<ellipse cx="577.90" cy="622" rx="45.00" ry="20" fill="#ce741c" fill-opacity=".72"/>
+<ellipse cx="657.50" cy="622" rx="42.00" ry="20" fill="#1769a6" fill-opacity=".72"/>
+<text x="790" y="630" font-size="18">183.27 g / 5h 2m 21s</text>
+<text x="25" y="715" font-size="19">1.2 mm: 3 lines</text>
+<ellipse cx="342.00" cy="707" rx="42.00" ry="20" fill="#1769a6" fill-opacity=".72"/>
+<ellipse cx="419.70" cy="707" rx="42.90" ry="20" fill="#598044" fill-opacity=".72"/>
+<ellipse cx="497.50" cy="707" rx="42.00" ry="20" fill="#1769a6" fill-opacity=".72"/>
+<text x="790" y="715" font-size="18">108.43 g / 4h 5m 27s</text>
+<text x="25" y="774" font-size="17">Blue = outside contour; orange = inner wall; green = center gap-fill line. No sparse infill here.</text>
+<text x="25" y="813" font-size="18">Thin floor / roof: 1.2 mm = six 0.2 mm layers. Pads are locally thicker between recesses.</text>
+<text x="25" y="850" font-size="17">Matching pairs only: thin cap + thin body. General size retained; pads increase width to 75.5 mm.</text>
+<text x="25" y="889" font-size="18">Both full pairs slice without supports. Mass / time are estimates for the same PETG setup.</text>
+<text x="25" y="931" font-size="17">Next useful evidence: print and compare flex, fit and snap return. Holding force / bag knocks untested.</text>
+</svg>
