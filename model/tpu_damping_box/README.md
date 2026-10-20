@@ -1,16 +1,26 @@
 # Flat-faced TPU damping box experiment
 
+**R2 replaces the rejected support batch — 2026-10-20.** The user declined
+printing R1 because walls disappeared in their slice. The same failure is reproduced
+with ordinary Classic widths. [R2](#ordinary-classic-repair--r2) retains the four
+selected total thicknesses, uses 0.5 mm continuous skins, and removes dependence
+on narrow widths/thin-wall recovery. Both pieces now carry an **R2** marking.
+The user clarifies that repository defaults were used; exact original slicer
+runtime/import format remain unreported. Physical
+installation survival and damping are still untested.
+
 **S16 is the user's preferred printed damping profile (2026-10-16).**
 S16 and S12 were both printed and both work. Subjectively, S16 feels better than
 S12 and I22, and good even compared with I30 and the original 4 mm I. The user
 selects S16 for reuse in rigid-shell/TPU damping, starting with the already
 printed sunglasses case.
 
-**Current phase (2026-10-20):** discuss [two support concepts in SVG](#wall-support-concepts--2026-10-20)
-before CAD. The dental liner broke further while being pushed into its box.
-Seek the minimum usable sandwich thickness with intact walls/bottom, installation
-survival and useful damping. Complete inserts for the existing experiment shell
-are the later goal; this phase delivers drawings only.
+**Current phase (2026-10-20):** the user accepts the SVG interpretations and
+requests [four complete support-test pairs](#four-printable-support-pairs--2026-10-20)
+for the existing experiment box: A at 1.6/2.0 mm and two B tie sizes at 1.6 mm.
+The dental liner broke further during insertion. These are experiments in minimum
+usable thickness, installation survival and damping; neither concept inherits
+the printed S16 approval.
 
 **Surface follow-up (2026-10-17):** the user reports visibly wavy/lined contact
 surfaces despite some improvement with 50% ironing. S16 remains preferred for
@@ -24,8 +34,8 @@ liner. Future TPU work must address [upright side-wall printing](#deferred-side-
 as well as horizontal finish. The flat F0–F7 plate cannot qualify that behavior;
 the user's [iteration priorities](#upcoming-iteration-priorities--2026-10-19)
 favor printing without Arachne and allow more thickness for wall integrity.
-That recording phase requested no new geometry or preset change; the current
-SVG phase advances the wall-support question without changing those files.
+That recording phase requested no new geometry or preset change; it predates
+the current R2 support correction.
 
 ## Current result and reading routes
 
@@ -36,7 +46,8 @@ positive application feedback for fit and damping. The
 [slim dental liner](../dental_travel_case_liner/README.md) has reported wall
 defects; neither application result is established by these research samples.
 
-- For the current geometry/files/setup, read [closed-skin follow-up](#closed-skin-follow-up)
+- For the current support-test files/setup, read [R2](#ordinary-classic-repair--r2).
+- For the printed S16 baseline, read [closed-skin follow-up](#closed-skin-follow-up)
   and [setup](#setup-and-assembly).
 - For what the preference actually establishes, read the [S16/S12 report](#s16--s12-print-feedback--2026-10-16).
 - For why open-backed I10 was retired, read the [I22/I30/I10 feedback](#i22--i30--i10-print-feedback--latest-report).
@@ -50,6 +61,10 @@ acoustic mechanism and durability remain unknown. Detailed negative results
 remain useful for judging future transfers.
 
 ## Wall-support concepts — 2026-10-20
+
+**Alignment completed:** the user confirms both drawings capture the ideas and
+authorizes the [four printable pairs below](#four-printable-support-pairs--2026-10-20).
+The original visual-phase scope and interpretations are retained here.
 
 The user reports that already damaged dental-liner walls **broke further during
 insertion into the old box**; the [application record](../dental_travel_case_liner/README.md#installation-breakage--2026-10-20)
@@ -94,6 +109,175 @@ must be assessed alongside as-printed wall appearance.
 | --- | --- | --- | --- |
 | Support concept test pieces | N/A — SVG discussion only | `renders/concepts/wall_support_a.svg`, `renders/concepts/wall_support_b.svg` | Geometry interpretation pending discussion; no new CAD, exports, slicing or physical results |
 | Final printable objects | N/A — visual phase | None new | Existing experiment shell retained for later complete-insert comparison; strength, fit and damping unqualified for both concepts |
+
+## Four printable support pairs — 2026-10-20
+
+The user accepted both SVG explanations and requested complete, labeled cup/lid-pad
+pairs for the existing experiment shell: **A at 1.6/2.0 mm, B at 1.6 mm with two
+distinct tie sizes**. Spoken “16/20” means 1.6/2.0 mm in the S16 context.
+No Arachne is permitted. These dimensions and requirements remain active in R2.
+
+The first batch, **R1**, was **rejected before printing**: the user reports missing
+wall paths on every variant and declines printing it. They identify the setup as
+**the repository defaults** and authorise thicker A variants if needed; R2 retains
+the original thicknesses. Exact original runtime/import format remain unreported.
+[R1's decisions and narrow
+custom-profile evidence](notes/rejected_r1/README.md) are retained as history;
+they do not establish ordinary Classic compatibility or a successful print.
+
+### Ordinary Classic repair — R2
+
+**Why the walls disappeared:** R1 had 0.3 mm upright skins on A and 0.4 mm on B.
+Its successful diagnostic slices used narrow widths and enabled thin-wall recovery.
+With ordinary **0.42 mm outer / 0.45 mm inner widths and thin-wall detection OFF**,
+the retained A16 control loses its skins between frames; Orca rejects A20/B08/B16
+with empty-layer errors after thin regions vanish. This reproduces the reported
+failure mode, rather than asserting that the user's unidentified settings are
+identical. The old STEP/STL exports themselves are retained in Git commit
+`8f1e611`; the [ordinary-control receipts](notes/rejected_r1/) preserve the failed
+settings/results. A completed custom-profile slice was insufficient evidence for
+the workflow the user requested.
+
+**R2 changes geometry rather than relying on thin-wall recovery.** All four
+continuous upright skins are now **0.5 mm thick**, including the outside skirt
+through the floor-core region and the pad's enclosing edge. The total lining,
+34 mm cup envelope and existing-shell fit are retained. Each part now also bears
+an engraved **R2** below its large variant ID, so it can be distinguished from R1.
+
+| ID — use the R2-marked files | Total lining | Upright support/core geometry | Primary STEP | Matching STL / Python |
+| --- | --- | --- | --- | --- |
+| **A16 R2** | **1.6 mm** | 0.5 / 0.6 / 0.5 mm sandwich; 0.2 mm square frame openings | [STEP](support_A16.step) | [STL](support_A16.stl) · [Python](support_A16.py) |
+| **A20 R2** | **2.0 mm** | 0.5 / 1.0 / 0.5 mm sandwich; 0.6 mm square frame openings | [STEP](support_A20.step) | [STL](support_A20.stl) · [Python](support_A20.py) |
+| **B08 R2** | **1.6 mm** | 0.5 / 0.6 / 0.5 mm; 0.8 × 0.8 mm ties across the 0.6 mm gap | [STEP](support_B08.step) | [STL](support_B08.stl) · [Python](support_B08.py) |
+| **B16 R2** | **1.6 mm** | Same sandwich; 1.6 × 1.6 mm ties | [STEP](support_B16.step) | [STL](support_B16.stl) · [Python](support_B16.py) |
+
+A's parallel frame rails add **0.2 mm to the adjacent 0.5 mm skin**, making a
+**combined 0.7 mm local section**. They are fused into that skin throughout their
+height; R2 does not ask Classic to generate a standalone 0.2 mm wall. Cross-links
+remain 0.6 mm wide. Outer frame sections are 0.6 × 1.4 mm (A16) and 1.0 × 1.8 mm
+(A20), with the square openings above. The A16 opening is especially small:
+retained path separation is not a guarantee that deposited TPU will leave it open.
+
+All horizontal skins remain **0.4 mm / two layers**. A's horizontal frame cross-webs
+are now **0.5 mm wide**, with 0.2 mm lower/upper rails and 0.4/0.8 mm square air
+openings for A16/A20. Their geometry differs deliberately from the upright frames
+to fit the layer grid and ordinary line widths. B's floor/pad gap stays 0.8 mm,
+with square posts matching its tie sizes. B ties remain separated along both wall
+length and height at identical **4.4 mm pitch**; B16 has four times B08's nominal
+attachment area. The first row centres are 3.2 mm above the bed, then every 4.4 mm.
+
+### R2 printing and installation
+
+Use the **same [ordinary Classic process](profiles/tpu-support-classic-process.json)
+for all four pairs**, [TPU filament](profiles/tpu95a.json) and the
+[Q2C 0.4 mm printer profile](../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json).
+The process uses **0.4 mm nozzle, 0.2 mm layers including the first, Classic,
+thin-wall detection OFF, two wall loops**, 0.42 mm outer / 0.45 mm inner widths,
+100% material fill, thin bridges and **supports OFF**. No narrow 0.3 mm widths,
+Arachne, one-wall B exception or disabled gap-fill filter is needed. Automatic
+bridge directions, 25 mm/s wall/material speeds, 15 mm/s bridges and no ironing
+are explicit experiment settings. CAD air spaces stay empty despite 100% material
+fill. The R1 profiles are retained only in `profiles/rejected_r1/`.
+
+Re-download the STEP or STL: filenames are reused, and **R2 is engraved on both
+parts**. Each file contains exactly one cup and matching lid pad, backing down,
+with their intended positions/orientation. Keep those positions/orientation when
+importing for the setup-specific slice evidence. The same original rigid body,
+lid, two M3 screws/nuts and loose test nut are used; no rigid box reprint is needed.
+
+Cup size stays **34 × 34 × 34 mm**, with **0.2 mm per-side shell clearance**.
+Pads are now **32.6 mm square**, with the same 0.2 mm per-side pocket allowance.
+Nominal cavities remain 30.8 mm cubes for A16/B08/B16 and 30.0 mm for A20.
+Pads include **0.2 mm axial squeeze allowance**: printed pad thickness is 1.8 mm
+for 1.6 mm sets and 2.2 mm for A20. Squeeze force is uncalibrated. Seat at the
+existing rigid rim; do not force an unexpectedly resistant insert. Match the IDs.
+
+The primary ID uses 12 mm bold monospaced text; the secondary R2 uses 8 mm.
+Both are recessed 0.2 mm into the shell-facing backing, leaving 0.2 mm cup backing
+and 0.4 mm pad backing above the recess. Object-contact faces stay flat. Square
+bed/rim edges preserve the thin sections and established fit; no cosmetic edge
+operation reduces the 0.5 mm skins. The wall core remains capped beneath the pad
+seat by a 0.4 mm top band.
+
+### R2 evidence and remaining experiment
+
+Native TPU export/slice receipts: [A16](notes/support_A16_final.json),
+[A20](notes/support_A20_final.json), [B08](notes/support_B08_final.json),
+[B16](notes/support_B16_final.json). All four have valid CAD, successful matched
+STEP/STL exports and completed **OrcaSlicer 2.4.2** slices with the common
+ordinary-width TPU process, Classic and thin-wall detection off.
+
+After the user's clarification, the exact unmodified **repository-default
+diagnostic triplet** is also sliced: [A16](notes/support_A16_repo_default.json),
+[A20](notes/support_A20_repo_default.json), [B08](notes/support_B08_repo_default.json),
+[B16](notes/support_B16_repo_default.json). This extra check is for default wall
+generation; that diagnostic's **PETG / 7% adaptive cubic** settings are not a
+TPU print recipe. Use the common TPU process above for the proposed test prints.
+
+![Rejected R1 versus corrected R2 with ordinary Classic](renders/support_classic_before_after.png)
+
+[Path evidence](notes/support_path_review.json) includes every upright 0.2 mm
+layer, four faces and six positions per face, using actual wall-role paths for
+the repository-default comparison. Both skins remain on **152 upright layers**
+in A16/B08/B16 and **148 in A20**. The outside skin is additionally checked through
+all **170 layers**, including the lower skirt and upper pad pocket. At the base,
+the supplied 0.15 mm first-layer compensation is accounted for deliberately;
+normal outer paths are judged against their 0.42 mm width, not assumed to occupy
+every hundredth of the 0.5 mm CAD allowance. These are path-metadata checks,
+not measurements of deposited material.
+
+![Actual R2 IDs, skins and support paths](renders/support_path_review.png)
+
+The smoke receipts still carry **review_required=true** for intentional enclosed
+bridge regions and automatic-support proposals. [Their locations](renders/support_probe_review.png)
+are in floor/pad cores: thin-set cup proposals at Z 1.0 mm, A20 cup at Z 1.0–1.4 mm;
+thin-set pads at Z 1.0–1.2 mm, A20 pad at Z 1.2–1.6 mm. No tall-wall proposals
+occur in the R2 review. Internal supports would be trapped, so supplied print
+supports remain off. Actual bridge sag/bonding must be observed in the experiment;
+those warnings are preserved rather than claimed as physical success.
+
+![R2 display-only cutaways: A16, A20, B08, B16](renders/assembled/support_inspection_isometric.png)
+
+[Parametric builders](support_design.py), [CAD checks](support_checks.py) and
+[path review](review_support_paths.py) share explicit variants through the existing
+[verification entry point](verification.py). Native assemblies name each printed
+part; the established straight fit/witness checks remain adequate without a new
+assembly API. CAD checks cover shell/pad fit and straight insertion/removal, six
+contact skins, continuous outside skins, label backing, frame interiors, separate
+ties, floor supports and corner air regions. Source inputs and STEP/STL placement
+are associated by the native evaluator; its STL slice does not verify GUI STEP import.
+
+The revised manufacturing check tests **every upright layer**, all four sides,
+and six locations between supports on each side, rather than relying on a few
+selected heights. It also checks A's locally thickened skins and cross-links,
+B's present/absent tie rows and first tie layer, panel air/roof paths, corner gaps,
+bridge metadata and the legible R2 label previews. The original batch is a retained
+negative control: it must lose wall paths or produce the native empty-layer error
+under the same ordinary process. Missing/failed slices are not counted as a
+successful wall check.
+
+Saved verification reports for [A16](notes/support_verification_A16.json),
+[A20](notes/support_verification_A20.json), [B08](notes/support_verification_B08.json)
+and [B16](notes/support_verification_B16.json) pass all seven digital checks:
+fit, skins, cores, labels, ordinary Classic paths, repository-default paths and
+publication identity. Physical questions remain **UNKNOWN**, so their overall
+exit reason is `unresolved_evidence`; no report claims physical approval.
+
+Physical approval is still absent. First inspect inner/outer skins, corners,
+floor junctions, labels and bridge bonds as printed; then gently insert/remove
+one complete matched set in the existing shell. Reject tears, layer splits,
+skin/support detachment or lost shape. If intact, compare repeatable gentle/firmer
+X/Y/Z nut shaking against printed S16 using the same shell, nut, spool and grip;
+record sharp ticks, bottoming, recovery and quietness. Full small cups retain the
+height, joints and assembly restraint that flat coupons omit. They do not qualify
+the taller dental liner, subjective damping, fatigue or minimum printable gap by
+association. The separate F0–F7 finish study remains untested.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| R1 support pairs | No — rejected before printing | [Historical files/evidence](notes/rejected_r1/README.md) | Missing walls in user's slice; ordinary-control failure reproduced |
+| R2 support pairs | No — replacement experiments | `support_A16`, `support_A20`, `support_B08`, `support_B16`, each `.py/.step/.stl` | Physical continuity, bridge bonding, channel survival, installation survival, squeeze and damping untested |
+| Final application liner | N/A — experiment phase | None new | Existing dental failure remains unresolved; R2 does not qualify transfer |
 
 ## Surface-finish coupons — 2026-10-17
 
@@ -883,6 +1067,20 @@ GPT-6 family; exact runtime identifier and reasoning effort not exposed. Harness
 Codex shared-workspace agent; provider OpenAI. No subagents. Both concepts originate
 with the user; drawings and the stated geometric interpretations were authored
 in this phase. Historical attribution above remains scoped to its earlier work.
+
+Four printable support-pair phase, 2026-10-20: primary model GPT-6 family;
+exact runtime identifier and reasoning effort not exposed. Harness: Codex
+shared-workspace CLI/API agent; provider OpenAI. No subagents. A/B concepts are
+the user's; detailed dimensions, Classic process choices, parametric construction,
+checks and shared-reader correction were authored in this phase. Existing fixture
+geometry is reused; profile derivatives retain the attribution/licence above.
+
+R2 ordinary-Classic repair, 2026-10-20: primary model GPT-6 family; exact runtime
+identifier/reasoning effort not exposed. Harness: Codex shared-workspace CLI/API
+agent; provider OpenAI. No subagents. Preserves the user's A/B ideas, selected
+total thicknesses, two B sizes and existing fixture; this phase authors the
+reallocated skins/supports, R2 IDs, ordinary-profile controls and expanded path
+checks. R1's rejected files and its historical attribution remain distinguishable.
 
 Surface-coupon phase, 2026-10-17: primary language model GPT-6 family; exact
 runtime identifier and reasoning effort not exposed. Harness: Codex shared-workspace

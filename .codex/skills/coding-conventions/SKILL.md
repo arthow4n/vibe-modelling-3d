@@ -112,6 +112,14 @@ silently collected no bridge heights. Prefer the owning parser where it covers
 the field, and distinguish missing parsed evidence from a failed engineering
 criterion. Do not diagnose excessive bridge height from an empty collection.
 
+For geometric output readers, use consistent bounded roundoff tolerances at
+transformed boundaries. Test a nominally tangent feature and a real separated
+negative control; do not widen an engineering acceptance limit to conceal a
+reader error. The [B08 support review](../../../model/tpu_damping_box/README.md#four-printable-support-pairs--2026-10-20)
+found strict capsule bounds rejecting a path after a roughly 1e-14 mm coordinate
+roundoff; the shared reader's 1e-10 mm numerical tolerance remains distinct from
+the object's printed-feature assumptions.
+
 ## Review from code and intent
 
 Inspect the diff, current code, callers and original user intent. Passing tests or

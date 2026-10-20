@@ -33,6 +33,21 @@ REQUIREMENTS += (
       S('README.md#surface-finish-coupons--2026-10-17',
         'User names S16 as the best so far and says damping must still be tested later while initially focusing on surface texture.')),
 )
+SUPPORT_SOURCE='README.md#four-printable-support-pairs--2026-10-20'
+REQUIREMENTS += (
+    U('support.classic','All four support-test variants must use Classic, without Arachne.',
+      S(SUPPORT_SOURCE,'During implementation the user explicitly reiterates: I do not want Arachne.')),
+    U('support.four','Provide four labeled complete cup/lid-insert pairs for the existing experiment box: A at 1.6 and 2.0 mm; B at 1.6 mm with two distinct tie sizes.',
+      S(SUPPORT_SOURCE,'User accepts both SVG explanations and requests four printable variants, matching lids and markings: A at 16/20 and B at 16 with two distinct tie sizes; the S16 context establishes 1.6/2.0 mm units.')),
+    U('support.repo_defaults','The replacements must retain wall paths with the ordinary repository default slicing process.',
+      S('README.md#ordinary-classic-repair--r2','Asked which slicer/nozzle/line width/profile was used for the failure, the user answers: default as in the repo. They allow increased A thickness if needed, prioritising reliable Classic slicing.')),
+    U('support.ordinary','The four replacements must generate their wall skins with ordinary Classic slicing, without Arachne or dependence on thin-wall recovery.',
+      S('README.md#ordinary-classic-repair--r2','User reports wall paths missing on all four variants, declines printing the batch, and requests investigation and repair for normal slicing without Arachne.')),
+    U('support.integrity','Find a thin liner that survives installation and handling with mutually supported walls and bottom.',
+      S('README.md#wall-support-concepts--2026-10-20','User reports further dental-liner breakage during insertion and requests support experiments to find the minimum usable thickness without breakage.')),
+)
+
+
 QUESTIONS = (
     Q('fit','study.enclosure','Cup and pad fit the actual shell and each other; one 12 mm proxy can travel 14 mm on each axis inside the 26 mm clear cavity.', 'CAD'),
     Q('closure','study.enclosure','Two M3 nut installation paths clear and nuts bear under solid pocket roofs; screw bores clear a 3 mm shaft.', 'CAD'),
@@ -192,6 +207,9 @@ def closed_plan(variant):
 
 
 def make_plan(variant):
+    if variant in ('A16','A20','B08','B16'):
+        from support_verification import make_support_plan
+        return make_support_plan(variant, REQUIREMENTS, ROOT)
     if variant in tuple(f'F{i}' for i in range(8)):
         from surface_verification import make_surface_plan
         return make_surface_plan(variant, REQUIREMENTS, ROOT)
@@ -223,4 +241,4 @@ def make_plan(variant):
 
 
 if __name__=='__main__':
-    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10','S16','S12','F0','F1','F2','F3','F4','F5','F6','F7')))
+    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10','S16','S12','F0','F1','F2','F3','F4','F5','F6','F7','A16','A20','B08','B16')))

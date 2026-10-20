@@ -1,0 +1,20 @@
+{
+  "ok": false,
+  "file_path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/support_A20.stl",
+  "errors": [
+    {
+      "stage": "slice",
+      "message": "OrcaSlicer CLI failed; use --slice-keep-run to retain the slicer log; run artifacts kept at /home/hevar/orca-slicer-review-y_lh9a82"
+    }
+  ],
+  "views": [],
+  "exports": [],
+  "timings_seconds": {
+    "slice": 14.223698409012286,
+    "total": 14.223703980009304
+  },
+  "slice": {
+    "ok": false,
+    "message": "OrcaSlicer CLI failed; use --slice-keep-run to retain the slicer log; run artifacts kept at /home/hevar/orca-slicer-review-y_lh9a82"
+  }
+}
