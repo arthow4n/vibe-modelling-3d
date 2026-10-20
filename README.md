@@ -121,6 +121,9 @@ coupon (N/A).
 #### Dental travel containers — short-lap slim wall-snap box
 
 **Current grip exploration:** the user prefers recessed saddles (B).
+[Full-wrap band and shallow-profile SVGs](model/dental_travel_case/notes/wall_comparison.md#continuous-band-and-shallow-profile)
+now compare grip coverage and smooth 0.4/0.7 mm recesses; a 0.7 × 20 mm band is
+the proposed starting shape, with printed usefulness unverified.
 [Three B-family SVG suggestions](model/dental_travel_case/renders/concepts/grip_b_family_comparison.svg)
 compare oval dimples, longer corner saddles and directional scoops. The
 [earlier comparison](model/dental_travel_case/renders/concepts/grip_comparison.svg)

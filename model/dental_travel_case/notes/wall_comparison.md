@@ -1,7 +1,9 @@
 # Full-case print comparison: 2 mm and three-line walls
 
-**Current design feedback:** the user prefers the recessed saddle direction B
-and requests further [B-family SVG suggestions](#recessed-saddle-variants).
+**Current design feedback:** the user prefers recessed saddles and now asks
+whether a shallow, smoothly curved [full-wrap band](#continuous-band-and-shallow-profile)
+would make the grip easier to use. The [B-family suggestions](#recessed-saddle-variants)
+remain the preceding comparison.
 They reject the finger notches as an opening aid and intend to remove them,
 but defer CAD changes until after the visual exploration. Existing
 print files below retain the notches and are available for thickness comparison;
@@ -288,6 +290,66 @@ All proposed dimensions are adjustable; printed feel and performance remain
 unknown. Attribution and the N/A printable-deliverable status for the sketch
 phase are as recorded in the preceding exploration. No shared workflow or tool
 change is warranted by this preference refinement.
+
+## Continuous band and shallow profile
+
+The user asks whether a recess can stay shallow and smoothly curved while still
+being useful, and whether wrapping it around the entire box would improve use.
+This continues the SVG exploration; no CAD edits or notch removal are authorized
+for this phase. The finish line is an understandable comparison of coverage,
+depth, slope and interior cost, not an asserted minimum usable grip depth.
+
+- [B4 — Full-wrap band versus corner saddles](../renders/concepts/grip_b4_full_band.svg)
+  ([PNG](../renders/concepts/grip_b4_full_band.png)): closed-case placement,
+  alternative contact positions, sleeve extent and the narrowed wall section.
+- [Three shallow profiles at common scales](../renders/concepts/grip_b4_band_profiles.svg)
+  ([PNG](../renders/concepts/grip_b4_band_profiles.png)): a very gentle recess,
+  a balanced starting profile and a directional variation. Depth is enlarged
+  five times relative to the axial scale, explicitly labeled.
+
+**A full band is a plausible improvement in finding the grip.** Fingers could
+land on a face, side or corner rather than having to align with separate pockets.
+It is still one band on each half, leaving the seam and overlap region separate.
+It does not inherently increase traction at a given contact: pinch pressure,
+surface friction, finger compliance and the slope the finger presses against
+still matter. Grasp alternatives in the drawing are schematic, not anatomical
+fit evidence or multiple simultaneous finger loads.
+
+**Recommended starting exploration: 0.7 mm deep and 20 mm wide axially**, within
+a provisional 0.6–0.8 mm depth / 18–24 mm width range. G2 uses two 6 mm smooth
+ramps and an 8 mm central landing region. G1 is 0.4 mm deep and 28 mm wide with
+10 mm ramps: its long gentle slopes provide less geometric opposition to axial
+sliding. G3 keeps the 0.7 mm depth and 20 mm overall width but uses a 10 mm
+entry, 6 mm landing and 4 mm return in the cap's pulling direction. Its shorter
+return makes a more distinct curved surface to press against. Mirror G3 on the
+body for the opposite pull. Depth alone cannot determine usefulness.
+
+The proposed blend is a quintic smoothstep, `10u³ − 15u⁴ + 6u⁵`, between flat
+regions: both slope and curvature approach zero at the joins. The profile SVG
+samples this geometric curve; it is not a contact or grip-force calculation.
+Printed stepping and actual touch remain untested, and the proposed dimensions
+are not a proven human-feel threshold.
+
+The band would reshape both outer and inner surfaces while preserving nominal
+wall thickness. At 0.7 mm inward displacement on both sides, nominal thin main
+interior dimensions locally reduce from **71.8 × 48.8 to 70.4 × 47.4 mm**. This
+simple flat-wall dimensional screen is not a qualified full corner offset or
+simultaneous contents-packing result. Unlike corner-only saddles, a full band
+uses interior room along every face and changes the whole shell section.
+
+The full-band sketch keeps the prior cap/body grasp centers at +50/−27 mm from
+the seam. A 20 mm cap band begins 40 mm above the seam, beyond the 30 mm sleeve;
+the body band ends 17 mm below it. The wide G1 would begin 36 mm above / end
+13 mm below, also outside the nominal overlap. This avoids deliberately placing
+the pinch over mating walls, but does not prove that elastic deformation cannot
+affect fit or release. Contents passage, constant-thickness corner construction,
+wall flex and support-aware slopes remain checks for a selected CAD revision.
+
+The SVGs are editable proposal sources, with visually reviewed PNG previews.
+CAD, STEP, STL and existing verification evidence are unchanged. No slice, solver
+or physical trial was performed; print-test and final-object deliverables are
+N/A for this sketch phase. Existing attribution applies. This is a local grip
+design question and adds no shared workflow rule or universal minimum depth.
 
 ## Print and compare
 
