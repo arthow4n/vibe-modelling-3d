@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1080" viewBox="0 0 1280 1080" role="img" aria-labelledby="title desc">
+<title id="title">E1 / A separately printed smooth cup</title>
+<desc id="desc">Concept investigation only, not to scale or evaluated CAD. Normal black TPU, no thickness cap. Blue is facing material, green is compliant structure, brown is solid corner or perimeter material. Process and assembly views show proposals, not verified toolpaths.</desc>
+<defs>
+<marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto-start-reverse">
+<path d="M0 0 L8 4 L0 8" fill="none" stroke="#bd5c24" stroke-width="1.5"/>
+</marker>
+</defs>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1280" height="1080" fill="#f1f5f8" rx="0"/>
+<text x="38" y="48" font-size="31" fill="#173247" font-weight="700">E1 / A separately printed smooth cup</text>
+<text x="38" y="83" font-size="19" fill="#173247" font-weight="400">Separate the face print from the spring carrier print.</text>
+<text x="38" y="116" font-size="16" fill="#bd5c24" font-weight="400">SVG PROPOSAL • 21 Oct 2026 • black TPU • thickness free • no new model or slice</text>
+<rect x="28" y="140" width="1224" height="365" fill="white" rx="14"/>
+<rect x="28" y="526" width="1224" height="228" fill="white" rx="14"/>
+<rect x="28" y="774" width="1224" height="252" fill="white" rx="14"/>
+<text x="52" y="178" font-size="22" fill="#173247" font-weight="700">Horizontal wall section: the face and springs are separate prints</text>
+<rect x="82" y="226" width="28" height="200" fill="#15836e" rx="0"/>
+<rect x="318" y="226" width="65" height="200" fill="#2367b1" rx="0"/>
+<path d="M110 245 C245 245 280 265 280 269 C280 283 235 289 110 289" fill="none" stroke="#15836e" stroke-width="7"/>
+<path d="M110 315 C245 315 280 335 280 339 C280 353 235 359 110 359" fill="none" stroke="#15836e" stroke-width="7"/>
+<path d="M110 385 C245 385 280 405 280 409 C280 423 235 429 110 429" fill="none" stroke="#15836e" stroke-width="7"/>
+<path d="M299 218 V440" fill="none" stroke="#bd5c24" stroke-width="2" stroke-dasharray="7 6"/>
+<text x="62" y="468" font-size="17" fill="#15836e" font-weight="400">Carrier / spring region</text>
+<text x="294" y="468" font-size="17" fill="#2367b1" font-weight="400">Plain contact cup</text>
+<path d="M432 308 L385 308" fill="none" stroke="#bd5c24" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="426" y="282" font-size="18" fill="#173247" font-weight="400">Contents</text>
+<text x="654" y="220" font-size="18" fill="#173247" font-weight="400">What changes at the face:</text>
+<text x="654" y="249" font-size="18" fill="#173247" font-weight="400">• No core junctions beside it during its print.</text>
+<text x="654" y="278" font-size="18" fill="#173247" font-weight="400">• No carrier travels or starts during its print.</text>
+<text x="654" y="307" font-size="18" fill="#173247" font-weight="400">• Nest the cooled parts; capture at the rim.</text>
+<text x="654" y="336" font-size="18" fill="#173247" font-weight="400">• Build solid lands into the cup corners.</text>
+<text x="654" y="365" font-size="18" fill="#173247" font-weight="400">Carrier springs grow vertically from a base;</text>
+<text x="654" y="394" font-size="18" fill="#173247" font-weight="400">this section repeats up the upright wall.</text>
+<text x="52" y="565" font-size="22" fill="#173247" font-weight="700">Print separately → assemble after cooling</text>
+<path d="M95 612 V697 H255 V612" fill="none" stroke="#15836e" stroke-width="12"/>
+<path d="M320 612 V697 H460 V612" fill="none" stroke="#2367b1" stroke-width="14"/>
+<path d="M275 653 L305 653" fill="none" stroke="#bd5c24" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M491 653 L552 653" fill="none" stroke="#bd5c24" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M590 600 V705 H776 V600" fill="none" stroke="#15836e" stroke-width="12"/>
+<path d="M612 607 V684 H754 V607" fill="none" stroke="#2367b1" stroke-width="14"/>
+<text x="834" y="611" font-size="17" fill="#173247" font-weight="400">Cup assembly: carrier + contact cup.</text>
+<text x="834" y="640" font-size="17" fill="#173247" font-weight="400">Lid: separate backing/core + face pad.</text>
+<text x="834" y="669" font-size="17" fill="#173247" font-weight="400">Four parts in the complete liner set.</text>
+<text x="834" y="698" font-size="17" fill="#173247" font-weight="400">Retained joints sit at boundaries.</text>
+<text x="52" y="814" font-size="22" fill="#173247" font-weight="700">What this buys — and what it does not establish</text>
+<text x="52" y="856" font-size="18" fill="#173247" font-weight="400">Example budget: 0.8 backing + 2.0 spring space + 0.2 fit + 1.6 face ≈ 4.6 mm.</text>
+<text x="52" y="890" font-size="18" fill="#173247" font-weight="400">Strong change: the internal structure is absent while the visible cup is printed.</text>
+<text x="52" y="924" font-size="18" fill="#173247" font-weight="400">Trade-off: assembly, fit take-up and spring contacts can still mark the cup in use.</text>
+<text x="52" y="958" font-size="18" fill="#173247" font-weight="400">Ordinary seams/layer lines remain. Surface and damping benefit are untested.</text>
+<text x="38" y="1060" font-size="16" fill="#bd5c24" font-weight="400">Solid corners + gradual transition required. Dimensions are discussion examples; Classic qualification comes later.</text>
+</g>
+</svg>

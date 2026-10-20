@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1080" viewBox="0 0 1280 1080" role="img" aria-labelledby="title desc">
+<title id="title">Solid corners with a gradual core transition</title>
+<desc id="desc">Concept investigation only, not to scale or evaluated CAD. Normal black TPU, no thickness cap. Blue is facing material, green is compliant structure, brown is solid corner or perimeter material. Process and assembly views show proposals, not verified toolpaths.</desc>
+<defs>
+<marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto-start-reverse">
+<path d="M0 0 L8 4 L0 8" fill="none" stroke="#bd5c24" stroke-width="1.5"/>
+</marker>
+</defs>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1280" height="1080" fill="#f1f5f8" rx="0"/>
+<text x="38" y="48" font-size="31" fill="#173247" font-weight="700">Solid corners with a gradual core transition</text>
+<text x="38" y="83" font-size="19" fill="#173247" font-weight="400">A shared principle for the new architectures — existing A/B have corner air cores.</text>
+<text x="38" y="116" font-size="16" fill="#bd5c24" font-weight="400">SVG PROPOSAL • 21 Oct 2026 • black TPU • thickness free • no new model or slice</text>
+<rect x="28" y="144" width="598" height="510" fill="white" rx="14"/>
+<rect x="648" y="144" width="604" height="510" fill="white" rx="14"/>
+<text x="52" y="184" font-size="23" fill="#173247" font-weight="700">Existing A/B topology</text>
+<text x="673" y="184" font-size="23" fill="#173247" font-weight="700">Proposed corner lands</text>
+<g transform="translate(137 219) scale(1)">
+<rect x="0" y="0" width="360" height="360" fill="#2367b1" rx="0"/>
+<rect x="16" y="16" width="328" height="328" fill="white" rx="0"/>
+<rect x="44" y="44" width="272" height="272" fill="#2367b1" rx="0"/>
+<rect x="60" y="60" width="240" height="240" fill="white" rx="0"/>
+<rect x="78" y="16" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="78" y="316" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="16" y="78" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="316" y="78" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="118" y="16" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="118" y="316" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="16" y="118" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="316" y="118" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="158" y="16" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="158" y="316" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="16" y="158" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="316" y="158" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="198" y="16" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="198" y="316" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="16" y="198" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="316" y="198" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="238" y="16" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="238" y="316" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="16" y="238" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="316" y="238" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="278" y="16" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="278" y="316" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="16" y="278" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="316" y="278" width="28" height="8" fill="#15836e" rx="0"/>
+<text x="92" y="187" font-size="19" fill="#173247" font-weight="400">Contents space</text>
+</g>
+<g transform="translate(763 219) scale(1)">
+<rect x="0" y="0" width="360" height="360" fill="#2367b1" rx="0"/>
+<rect x="16" y="16" width="328" height="328" fill="white" rx="0"/>
+<rect x="44" y="44" width="272" height="272" fill="#2367b1" rx="0"/>
+<rect x="60" y="60" width="240" height="240" fill="white" rx="0"/>
+<g transform="rotate(0 180 180)">
+<path d="M16 16 H112 L136 44 H44 V136 L16 112 Z" fill="#ad6836" stroke="#ad6836" stroke-width="0"/>
+</g>
+<g transform="rotate(90 180 180)">
+<path d="M16 16 H112 L136 44 H44 V136 L16 112 Z" fill="#ad6836" stroke="#ad6836" stroke-width="0"/>
+</g>
+<g transform="rotate(180 180 180)">
+<path d="M16 16 H112 L136 44 H44 V136 L16 112 Z" fill="#ad6836" stroke="#ad6836" stroke-width="0"/>
+</g>
+<g transform="rotate(270 180 180)">
+<path d="M16 16 H112 L136 44 H44 V136 L16 112 Z" fill="#ad6836" stroke="#ad6836" stroke-width="0"/>
+</g>
+<rect x="166" y="16" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="166" y="316" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="202" y="16" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="202" y="316" width="8" height="28" fill="#15836e" rx="0"/>
+<rect x="16" y="166" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="316" y="166" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="16" y="202" width="28" height="8" fill="#15836e" rx="0"/>
+<rect x="316" y="202" width="28" height="8" fill="#15836e" rx="0"/>
+<text x="92" y="187" font-size="19" fill="#173247" font-weight="400">Contents space</text>
+</g>
+<text x="64" y="621" font-size="17" fill="#173247" font-weight="400">Blue skins turn the corner; the core stays hollow.</text>
+<text x="681" y="621" font-size="17" fill="#173247" font-weight="400">Brown fills the corner core and tapers into green.</text>
+<rect x="28" y="677" width="1224" height="342" fill="white" rx="14"/>
+<text x="52" y="716" font-size="23" fill="#173247" font-weight="700">Keep the active pattern away from the turn AND soften its return</text>
+<text x="52" y="759" font-size="18" fill="#173247" font-weight="400">Solid land g: a discussion starting range is 4–6 mm along EACH adjacent face.</text>
+<text x="52" y="793" font-size="18" fill="#173247" font-weight="400">Transition t: taper back to the active core over a further 2–3 mm; lengths are not selected.</text>
+<text x="52" y="827" font-size="18" fill="#173247" font-weight="400">Run the plan profile consistently up the upright region; check floor and rim junctions too.</text>
+<text x="52" y="861" font-size="18" fill="#173247" font-weight="400">E1/E3: include solid corner lands in the inner cup itself, not only in an added outer frame.</text>
+<text x="52" y="895" font-size="18" fill="#173247" font-weight="400">E2: print the broad faces flat; separate solid rails capture and close their corner joints.</text>
+<text x="52" y="929" font-size="18" fill="#173247" font-weight="400">Cost: stiffer corner impacts, less active damping area, and a new transition to inspect.</text>
+<text x="38" y="1056" font-size="16" fill="#bd5c24" font-weight="400">Schematic, not to scale. A filled corner is not proof of correct seam/flow, or a guaranteed surface-quality cure.</text>
+</g>
+</svg>

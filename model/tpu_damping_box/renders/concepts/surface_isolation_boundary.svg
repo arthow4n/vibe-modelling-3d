@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1080" viewBox="0 0 1280 1080" role="img" aria-labelledby="title desc">
+<title id="title">E3 / A boundary-supported inner cup</title>
+<desc id="desc">Concept investigation only, not to scale or evaluated CAD. Normal black TPU, no thickness cap. Blue is facing material, green is compliant structure, brown is solid corner or perimeter material. Process and assembly views show proposals, not verified toolpaths.</desc>
+<defs>
+<marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto-start-reverse">
+<path d="M0 0 L8 4 L0 8" fill="none" stroke="#bd5c24" stroke-width="1.5"/>
+</marker>
+</defs>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1280" height="1080" fill="#f1f5f8" rx="0"/>
+<text x="38" y="48" font-size="31" fill="#173247" font-weight="700">E3 / A boundary-supported inner cup</text>
+<text x="38" y="83" font-size="19" fill="#173247" font-weight="400">Remove all local support contacts from behind the broad faces.</text>
+<text x="38" y="116" font-size="16" fill="#bd5c24" font-weight="400">SVG PROPOSAL • 21 Oct 2026 • black TPU • thickness free • no new model or slice</text>
+<rect x="28" y="140" width="1224" height="365" fill="white" rx="14"/>
+<rect x="28" y="526" width="1224" height="228" fill="white" rx="14"/>
+<rect x="28" y="774" width="1224" height="252" fill="white" rx="14"/>
+<text x="52" y="178" font-size="22" fill="#173247" font-weight="700">Move the support to the edges: nothing touches the broad face</text>
+<rect x="86" y="229" width="28" height="211" fill="#15836e" rx="0"/>
+<rect x="321" y="229" width="62" height="211" fill="#2367b1" rx="0"/>
+<rect x="114" y="229" width="207" height="33" fill="#ad6836" rx="0"/>
+<rect x="114" y="407" width="207" height="33" fill="#ad6836" rx="0"/>
+<path d="M300 275 Q263 333 300 394" fill="none" stroke="#bd5c24" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="135" y="341" font-size="18" fill="#173247" font-weight="400">Free gap</text>
+<text x="65" y="475" font-size="17" fill="#15836e" font-weight="400">Backing</text>
+<text x="300" y="475" font-size="17" fill="#2367b1" font-weight="400">Contact face</text>
+<path d="M437 334 L387 334" fill="none" stroke="#bd5c24" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="426" y="307" font-size="18" fill="#173247" font-weight="400">Impact</text>
+<text x="670" y="224" font-size="18" fill="#173247" font-weight="400">No tie or rib sites under broad panels.</text>
+<text x="670" y="253" font-size="18" fill="#173247" font-weight="400">Cup prints separately, then is supported</text>
+<text x="670" y="282" font-size="18" fill="#173247" font-weight="400">at solid corners, rim and floor perimeter.</text>
+<text x="670" y="311" font-size="18" fill="#173247" font-weight="400">The face can flex toward a backing stop.</text>
+<text x="670" y="340" font-size="18" fill="#173247" font-weight="400">Solid corner lands carry boundary loads.</text>
+<text x="670" y="369" font-size="18" fill="#173247" font-weight="400">Dashed shape is possible deflection,</text>
+<text x="670" y="398" font-size="18" fill="#173247" font-weight="400">not a computed displacement.</text>
+<text x="52" y="565" font-size="22" fill="#173247" font-weight="700">Separate cup + perimeter support: avoid a suspended printed floor</text>
+<path d="M90 605 V709 H300 V605" fill="none" stroke="#15836e" stroke-width="12"/>
+<path d="M125 594 V676 H265 V594" fill="none" stroke="#2367b1" stroke-width="14"/>
+<rect x="101" y="683" width="44" height="20" fill="#ad6836" rx="0"/>
+<rect x="245" y="683" width="44" height="20" fill="#ad6836" rx="0"/>
+<text x="342" y="621" font-size="18" fill="#173247" font-weight="400">↑ Inner floor prints on the bed first.</text>
+<text x="342" y="659" font-size="18" fill="#173247" font-weight="400">Then seat it on a carrier perimeter.</text>
+<text x="342" y="688" font-size="18" fill="#173247" font-weight="400">Use a separate flat lid face and its frame.</text>
+<text x="883" y="617" font-size="17" fill="#173247" font-weight="400">No broad-floor bridge</text>
+<text x="883" y="646" font-size="17" fill="#173247" font-weight="400">is assumed during print.</text>
+<text x="883" y="675" font-size="17" fill="#173247" font-weight="400">Vent route and stops</text>
+<text x="883" y="704" font-size="17" fill="#173247" font-weight="400">still need design.</text>
+<text x="52" y="814" font-size="22" fill="#173247" font-weight="700">What this buys — and what it does not establish</text>
+<text x="52" y="856" font-size="18" fill="#173247" font-weight="400">Example budget: 1.6 face + 2.0 free gap + 0.8 backing ≈ 4.4 mm.</text>
+<text x="52" y="890" font-size="18" fill="#173247" font-weight="400">Strong change: no broad-face dots or ribs, even after the liner is assembled.</text>
+<text x="52" y="924" font-size="18" fill="#173247" font-weight="400">Trade-off: bowing, sag, sudden bottoming and sound carried through the solid corners.</text>
+<text x="52" y="958" font-size="18" fill="#173247" font-weight="400">This is the higher-risk mechanical option. It is not yet a print recommendation.</text>
+<text x="38" y="1060" font-size="16" fill="#bd5c24" font-weight="400">Solid corners + gradual transition required. Dimensions are discussion examples; Classic qualification comes later.</text>
+</g>
+</svg>

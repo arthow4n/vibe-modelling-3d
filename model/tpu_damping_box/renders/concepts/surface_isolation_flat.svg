@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1080" viewBox="0 0 1280 1080" role="img" aria-labelledby="title desc">
+<title id="title">E2 / Flat-printed contact panels</title>
+<desc id="desc">Concept investigation only, not to scale or evaluated CAD. Normal black TPU, no thickness cap. Blue is facing material, green is compliant structure, brown is solid corner or perimeter material. Process and assembly views show proposals, not verified toolpaths.</desc>
+<defs>
+<marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto-start-reverse">
+<path d="M0 0 L8 4 L0 8" fill="none" stroke="#bd5c24" stroke-width="1.5"/>
+</marker>
+</defs>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1280" height="1080" fill="#f1f5f8" rx="0"/>
+<text x="38" y="48" font-size="31" fill="#173247" font-weight="700">E2 / Flat-printed contact panels</text>
+<text x="38" y="83" font-size="19" fill="#173247" font-weight="400">Change which surface touches the bed, and when the core is made.</text>
+<text x="38" y="116" font-size="16" fill="#bd5c24" font-weight="400">SVG PROPOSAL • 21 Oct 2026 • black TPU • thickness free • no new model or slice</text>
+<rect x="28" y="140" width="1224" height="365" fill="white" rx="14"/>
+<rect x="28" y="526" width="1224" height="228" fill="white" rx="14"/>
+<rect x="28" y="774" width="1224" height="252" fill="white" rx="14"/>
+<text x="52" y="178" font-size="22" fill="#173247" font-weight="700">Make the visible face first, flat against the build surface</text>
+<rect x="80" y="407" width="480" height="10" fill="#485c69" rx="0"/>
+<rect x="100" y="344" width="440" height="63" fill="#2367b1" rx="0"/>
+<rect x="145" y="270" width="26" height="74" fill="#15836e" rx="0"/>
+<rect x="245" y="270" width="26" height="74" fill="#15836e" rx="0"/>
+<rect x="345" y="270" width="26" height="74" fill="#15836e" rx="0"/>
+<rect x="445" y="270" width="26" height="74" fill="#15836e" rx="0"/>
+<text x="100" y="450" font-size="17" fill="#2367b1" font-weight="400">Object-facing side against the build surface</text>
+<path d="M596 391 L596 272" fill="none" stroke="#bd5c24" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="580" y="251" font-size="17" fill="#bd5c24" font-weight="400">Z ↑</text>
+<text x="686" y="224" font-size="18" fill="#173247" font-weight="400">1  Print a continuous facing plate.</text>
+<text x="686" y="253" font-size="18" fill="#173247" font-weight="400">2  Grow open core features on its back.</text>
+<text x="686" y="282" font-size="18" fill="#173247" font-weight="400">3  Fit tiles into a separate outer carrier.</text>
+<text x="686" y="311" font-size="18" fill="#173247" font-weight="400">No core roof is closed during printing.</text>
+<text x="686" y="340" font-size="18" fill="#173247" font-weight="400">Carrier provides the assembled outer skin.</text>
+<text x="686" y="369" font-size="18" fill="#173247" font-weight="400">Plate finish and cooling still matter.</text>
+<text x="52" y="565" font-size="22" fill="#173247" font-weight="700">Turn the finished tiles upright and capture their edges</text>
+<rect x="95" y="603" width="54" height="95" fill="#2367b1" rx="0"/>
+<rect x="167" y="603" width="54" height="95" fill="#2367b1" rx="0"/>
+<rect x="239" y="603" width="54" height="95" fill="#2367b1" rx="0"/>
+<path d="M330 651 L401 651" fill="none" stroke="#bd5c24" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M465 605 V707 H656 V605" fill="none" stroke="#15836e" stroke-width="14"/>
+<path d="M487 605 V684 H634 V605" fill="none" stroke="#2367b1" stroke-width="12"/>
+<rect x="465" y="682" width="27" height="25" fill="#ad6836" rx="0"/>
+<rect x="629" y="682" width="27" height="25" fill="#ad6836" rx="0"/>
+<text x="782" y="611" font-size="17" fill="#173247" font-weight="400">Four wall tiles + floor + lid face.</text>
+<text x="782" y="640" font-size="17" fill="#173247" font-weight="400">Carrier and lid backing add two parts.</text>
+<text x="782" y="669" font-size="17" fill="#173247" font-weight="400">Solid rails close and capture corners.</text>
+<text x="782" y="698" font-size="17" fill="#173247" font-weight="400">No glue or folded hinge assumed.</text>
+<text x="52" y="814" font-size="22" fill="#173247" font-weight="700">What this buys — and what it does not establish</text>
+<text x="52" y="856" font-size="18" fill="#173247" font-weight="400">Example budget: 1.6 facing + 2.0 open core + 0.8 carrier ≈ 4.4 mm.</text>
+<text x="52" y="890" font-size="18" fill="#173247" font-weight="400">Strong change: visible surface is bed-supported and completed before the core starts.</text>
+<text x="52" y="924" font-size="18" fill="#173247" font-weight="400">Trade-off: about eight parts, corner joints, edge capture and build-surface texture.</text>
+<text x="52" y="958" font-size="18" fill="#173247" font-weight="400">Later core cooling may still distort a tile. Gloss and damping are not guaranteed.</text>
+<text x="38" y="1060" font-size="16" fill="#bd5c24" font-weight="400">Solid corners + gradual transition required. Dimensions are discussion examples; Classic qualification comes later.</text>
+</g>
+</svg>

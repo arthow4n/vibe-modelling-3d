@@ -149,6 +149,13 @@ Screen rough fit and print feasibility, then stop exploring when the choice is
 adequately informed. Compare before expensive simulation, manufacturing refinement
 and print-ready exports.
 
+For an architectural request, make alternatives change the relationship that
+matters. Fewer or rearranged features may retain the same unwanted coupling.
+The [black-TPU surface investigation](../../../../model/tpu_damping_box/notes/surface_decoupling.md)
+compares print sequence, component separation and support path after the user
+finds tie-pattern changes insufficient. Distinguish isolation during manufacture
+from local contact or deformation after assembly; neither proves the other.
+
 Useful SVG proposal sketches are valid design-phase deliverables. Retain their
 editable SVGs in the object's `renders/concepts/` directory, with PNG previews
 when useful, and link them from the existing decision record. Commit and push

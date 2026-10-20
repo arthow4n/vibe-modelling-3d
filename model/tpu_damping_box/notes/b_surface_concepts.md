@@ -64,6 +64,22 @@ trial, insertion-strength test or quantified failure rate. No new breakage is
 reported in these six samples. Fatigue, long-term integrity, application fit and
 reliable large-print transfer remain unqualified.
 
+## Later review of D — 2026-10-21
+
+The user says D1–D3 are not invalid, but they are inadequate as the main answer:
+changing tie density or timing still leaves the face affected by its internal
+structure. They request different architectures. Thickness is explicitly **not
+constrained** in the next exploration. They clarify that the filament is normal
+**black TPU**: visible surface patterns are the main issue, with occasional
+apparently random bumps, explicitly excluding translucent material. They also
+request substantial solid corner regions to avoid corner print defects. The existing A/B designs
+have corner air regions, not dedicated full-thickness solid corner lands.
+
+The D recommendation below is **superseded as the next direction**, not a
+physical rejection or proof that its secondary experiments cannot help.
+[Current architectural investigation and SVGs](surface_decoupling.md) address
+these clarifications. All earlier print reports and approvals remain intact.
+
 ## Investigation and proposals
 
 The investigation below uses the existing B08/B16 geometry and saved ordinary
@@ -123,7 +139,7 @@ non-printable diagrams, not to scale or slicer previews of new designs.
 | **D2 — remove alternate ties** · [SVG](../renders/concepts/b_improvement_sparse.svg) | Keep 0.8 × 0.8 mm ties only on alternating checkerboard sites. Each row has 8.8 mm horizontal spacing; the next is offset by 4.4 mm, still 4.4 mm higher. | Can genuinely fewer cell boundaries/starts improve finish and stringing without losing support or damping? About half the ties remain in an interior repeat; skin spans become longer. Reduced connection count is not itself a strength improvement. |
 | **D3 — taller ties in fewer rows** · [SVG](../renders/concepts/b_improvement_tall.svg) | 0.8 mm tie width, 1.6 mm height, 4.4 mm horizontal pitch and 8.8 mm row pitch. | Do fewer geometry turn-on/turn-off heights help? At 0.2 mm layers each tie persists for eight layers rather than four. Nominal attachment fraction stays equal to B08 in the interior repeating pattern, but clear height between rows grows from 3.6 to 7.2 mm. Total tie-active layers/starts need not fall, and stiffness/damping can change despite the matched fraction. |
 
-**Suggested priority:** D1 first for a controlled surface-consistency comparison
+**Historical suggested priority (superseded by the review above):** D1 first for a controlled surface-consistency comparison
 that retains the interior average tie amount, and D2 for a distinct reduction in
 cell count. D3 is a lower-priority alternative for separating row-change effects
 from nominal attachment amount. These are suggestions for discussion, not

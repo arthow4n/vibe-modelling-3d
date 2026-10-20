@@ -6,9 +6,15 @@ small print-quality advantage and no meaningful damping difference from B16.
 A16/A20 and solid C12/C16 are rejected as damping choices relative to the retained
 S16 baseline. Object-facing finish, stringing and seam-area artifacts still need
 improvement; approval does not qualify tall application liners.
-[Full print report and SVG proposals](notes/b_surface_concepts.md).
+[Full print report](notes/b_surface_concepts.md) ·
+[Current surface-isolation concepts](notes/surface_decoupling.md).
 
-**Current phase:** investigate B-derived routes and draw SVG suggestions only.
+**Current phase:** investigate different architectures that isolate the black
+TPU object-facing surface from the core. D's tie-pattern changes are insufficient
+as the main solution. The user explicitly removes wall/overall thickness limits
+and asks for solid corner regions. Current concerns are mainly visible surface
+patterns with occasional bumps; this is not a translucent-TPU investigation.
+Deliver new SVG comparisons only.
 **No new CAD models, exports or changed print presets are authorized in this
 phase.** Existing B files and settings remain the printed baseline.
 
@@ -45,7 +51,8 @@ positive application feedback for fit and damping. The
 [slim dental liner](../dental_travel_case_liner/README.md) has reported wall
 defects; neither application result is established by these research samples.
 
-- For the latest physical results and proposed improvements, read [B surface concepts](notes/b_surface_concepts.md).
+- For the latest physical results, read [B comparison](notes/b_surface_concepts.md).
+- For current architecture proposals and the corner requirement, read [surface isolation](notes/surface_decoupling.md).
 - For the existing support-test files/setup, read [R2](#ordinary-classic-repair--r2).
 - For the printed S16 baseline, read [closed-skin follow-up](#closed-skin-follow-up)
   and [setup](#setup-and-assembly).
@@ -1200,3 +1207,10 @@ GPT-6 family; exact runtime identifier/reasoning effort not exposed. Harness:
 Codex shared-workspace CLI/API agent; provider OpenAI. No subagents. User supplies
 the physical comparison and B approvals; the phase authors retained-path
 inspection and SVG ideas. No new CAD geometry, printable export or preset.
+
+Surface-isolation architecture phase, 2026-10-21: primary language model GPT-6
+family; exact runtime identifier/reasoning effort not exposed. Harness: Codex
+shared-workspace CLI/API agent; provider OpenAI. No subagents. User supplies the
+D critique, unconstrained thickness, black-TPU clarification and solid-corner
+priority. This phase authors the new investigation and SVGs; no new CAD or
+print profile. Earlier attributions and print evidence remain scoped to their work.
