@@ -91,6 +91,12 @@ not make folding or insertion simple. The user explicitly excludes the usual
 lid pad from the one/two-cup-piece limit; still show the whole-liner count.
 [Owning print-first review](../../../../model/tpu_damping_box/notes/print_first_concepts.md).
 This is scoped to the current liner, not a universal ban on multipart products.
+Later feedback sets aside two thin upright cups because of prior wall-printing
+failures, and rejects folding because adapting it to other liner shapes would
+introduce impractical-to-print constructions. Future liner concepts should be
+preformed and transferable to intended container shapes; a simple fixture net
+alone does not settle that adoption. These are architecture decisions, not new
+physical print results or a universal claim that all thick TPU cups fail.
 
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.

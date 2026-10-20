@@ -14,17 +14,18 @@ TPU object-facing surface from the core. D's tie-pattern changes are insufficien
 as the main solution. The user explicitly removes wall/overall thickness limits
 and asks for solid corner regions. Current concerns are mainly visible surface
 patterns with occasional bumps; this is not a translucent-TPU investigation.
-The current [print-first comparison](notes/print_first_concepts.md) shows **P1**, a
-plain cup in an integral spring carrier, and **P2**, a connected flat blank folded
-into a cup. P1 prints upright and has three total pieces including its one lid
-pad; P2 prints contact-face down and has two total pieces but eight folds.
-The user confirms up to two cup pieces **plus the usual lid pad**; complicated
-assembly is unwanted. P1 meets that preference and is the recommended next
-discussion concept; P2's folding cost may still be unacceptable. Neither is
-selected or approved. E5/E6 are
-retired for whole-liner assembly cost; E2/E4 remain dropped and E3 set aside.
-The SVGs now show print orientation, layer support, bridges, corners, floor/lid
-and assembly rather than only wall mechanisms. Deliver SVG explainers only.
+The [print-first comparison](notes/print_first_concepts.md) retains the drawings,
+but **P1/two cups is now set aside**: the user points out that separately printing
+a thin-walled TPU cup still depends on upright-wall reliability that failed in
+earlier repository prints. Removing core junctions does not resolve that risk.
+The user allows up to two cup pieces plus the usual lid pad, so part count was
+acceptable; print reliability is the rejection. **P2/folding is also rejected**:
+the user does not want a folding architecture that becomes impractical to print
+when adapted to other models. Both are retired; no replacement is selected.
+Next exploration must use preformed constructions suited to real container
+shapes and the known wall-printing evidence. B08/B16 stay approved.
+E5/E6 loose cores remain retired; E2/E4 dropped, E3 set aside. Deliver SVG
+explainers only; no new physical trial is reported by this correction.
 **No new CAD models, exports or changed print presets are authorized in this
 phase.** Existing B files and settings remain the printed baseline.
 

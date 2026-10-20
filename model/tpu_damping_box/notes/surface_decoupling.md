@@ -17,7 +17,10 @@ liner counts](print_first_concepts.md)**. E1 is reworked there with an integral
 floor core and one lid pad. E5/E6 are retired from the active shortlist for their
 whole-liner part/retention burden, not a claimed failed print of their individual
 parts. P1 is three pieces including the pad; P2 is two pieces but requires eight
-folds. Both costs are exposed before any CAD choice. B08/B16 remain approved.
+folds. Both costs are exposed before any CAD choice. **Latest correction: P1 is set
+aside for depending on upright thin TPU walls despite prior physical failures;
+P2/folding is also rejected for poor printability when adapting to other models.
+Neither remains an active proposal.** B08/B16 remain approved.
 
 The following E sections preserve the earlier proposal and its reasoning;
 their former next steps and shortlists are superseded by that review.

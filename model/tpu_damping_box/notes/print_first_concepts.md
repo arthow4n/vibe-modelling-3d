@@ -14,17 +14,36 @@ baseline. No CAD, exports, slicing or profile changes are made in this phase.
 
 The user confirms **up to two cup pieces, plus the usual lid pad**. P1 meets
 that preference: two cup parts and one pad, three pieces for the complete liner.
-P2 uses one connected body blank and one pad, two total, but requires eight folds.
-P1 is the recommended concept to discuss next because it separates the contact
-cup's print from the core with just a nesting operation. This recommendation is
-not user selection, CAD approval or a damping result. The existing rigid test box
-and its lid are reused and are not additional printed liner components.
+P2 uses one connected body blank and one pad, two total, but requires eight
+folds. **Latest user correction: P1 is set aside.** The user points out that
+thin TPU walls have already printed poorly in this repository, so a separately
+printed thin-walled cup does not resolve the known manufacturing risk. The
+earlier recommendation below is superseded. Part count was acceptable; upright
+wall reliability is the objection. **P2 is also rejected:** the user dislikes
+folding because adopting it to other models would introduce constructions they
+consider impossible to print. A printable flat net for this simple fixture is
+insufficient evidence of a usable architecture for other shapes. Do not replace
+it with separate folding tiles. The existing rigid test box and its lid are
+reused, not additional printed liner components.
+
+The retained [dental wall report](../../dental_travel_case_liner/README.md#wall-
+print-feedback--2026-10-19) records local breaks on both skins of the tall
+liner. The short sunglasses liner was successful; exact causes and printed
+dental revision remain unknown. The separate R1 missing-wall slice failure and
+R2 Classic repair are different evidence: paths existing in a slice do not prove
+reliable deposited walls. P1 removed print-time core junctions but retained
+upright walls and offered no representative physical evidence for them. I should
+have applied this known failure before recommending that architecture. Both
+proposals are now retired from the active shortlist. This correction does not
+establish that all thicker TPU cups fail, nor justify silently thickening P1 and
+promoting it again. Thickness is unconstrained, but reliability and useful
+damping would both need support for any genuinely revised construction.
 
 ## What the manufacturing review changes
 
 | Earlier suggestion | Current decision and reason |
 | --- | --- |
-| E1: two cups with attached wall springs | Reworked as P1, with integral floor posts, rooted wall springs, an open top and **one** lid pad. The earlier floor/lid modules were unresolved, not ready to print. |
+| E1 / P1: two cups with attached wall springs | **Set aside after the latest user correction:** still relies on upright thin TPU walls despite earlier physical failures. Integral floor posts and a simple assembly did not resolve that risk. |
 | E5: independent wave insert | Retired from the active shortlist. A constant-section insert can be printed upright, but a complete liner adds core retention and floor/lid pieces for no established benefit over an integral carrier. |
 | E6: loose hollow tubes | Retired. Upright open tubes need no tube roof, but arranging/retaining numerous tubes and the floor modules is the wrong assembly burden here. This is not a claim that individual tubes are unprintable. |
 | E2/E4 | Remain dropped after user feedback. P2 borrows E2's useful flat-print orientation, replacing separate wall tiles with **one connected blank**, not reviving its multipart assembly. |
@@ -59,7 +78,7 @@ clearance. P2 uses solid fold bands and solid overlapping corner flaps; its fold
 bands are thinner than the sandwich so they can bend. These are different
 interpretations of a robust corner, with untested stiffness and fit.
 
-## P1 — plain inner cup in an integral spring carrier
+## Historical P1 — plain inner cup in an integral spring carrier (set aside)
 
 Print **two upright cup parts**, then drop one inside the other. The blue cup is
 an ordinary closed-floor, open-top cup, with no internal-core junctions in its
@@ -103,13 +122,14 @@ Posts and wall springs can also imprint the cup **after** assembly. P1 removes
 print-time core branching from the inner surface, not every source of marks,
 seams, friction or poor damping.
 
-If advanced to CAD, reject or revise it if the carrier has isolated spring starts,
-its top retention closes a broad roof, its floor posts are too stiff, corner
-lands jam the cup, or the lid requires more loose parts. No auxiliary floor
-module is hidden in this count. This is the simpler assembly option and meets the clarified cup-plus-pad
-preference.
+If advanced to CAD, reject or revise it if the carrier has isolated spring
+starts, its top retention closes a broad roof, its floor posts are too stiff,
+corner lands jam the cup, or the lid requires more loose parts. No auxiliary
+floor module is hidden in this count. The assembly meets the clarified cup-plus-
+pad preference, but this does not resolve the wall-printing objection; P1 is no
+longer recommended.
 
-## P2 — flat sandwich blank, folded into the existing box
+## Historical P2 — flat sandwich blank, folded into the existing box (rejected)
 
 Print one connected cross-shaped body blank **contact face down**, plus one lid
 pad in the same face-down orientation. The floor and four wall panels are joined
@@ -170,20 +190,25 @@ a starting reference for the pad, not proof of changed spans or interfaces.
 
 The two proposals now expose build orientation, all starts/roofs, corner
 construction, floor/lid construction and complete part counts. That permits a
-choice **before** modelling. P1 is the clearer route to independently printed
-contact walls with little assembly; P2 is the route to two total pieces with
-bed-printed contact faces, at the cost of folding. No proposal is promoted to
-approved or better damping. No new physical test is reported.
+choice **before** modelling. Both are now retired: P1 retains the thin upright
+wall risk; P2's folding architecture is rejected for adoption to other models.
+No proposal remains selected from this review and no new physical test is
+reported. This is a corrected architectural decision, not an inconclusive slice.
 
-If one is selected for modelling, use real selected CAD and the ordinary Classic
-slice to check wall generation, the identified bridge layers, seams/travels and
-full layout. Physical comparison to approved B/S is still required for surface
-quality, handling and damping. Current authorized phase remains discussion/SVGs.
+Future exploration should start from the approved B evidence and compare
+preformed constructions that remain printable when adapted to real container
+shapes. One cup piece is preferred, up to two cup pieces plus the usual pad are
+acceptable; complicated assembly, thin separate cups and folding are not the
+current route. This does not yet select another core, guarantee a smoother
+surface or authorize new CAD. The next authorized phase remains concept
+investigation/SVGs, with existing physical failures screened before suggestions
+are recommended.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s), P1/P2 | N/A | SVG explainers only; no exported print files | No new physical trial; surface/damping remain unknown. |
-| Final printable object(s), P1/P2 | N/A | None; concept phase | Complete CAD/Classic checks and physical review would follow selection. |
+| Final printable object(s), P1/P2 | N/A | None; concept phase | P1 set aside; P2 rejected. |
+
 - CAD/export/slicer status: N/A — no new model evaluated or sliced.
 - Physical validation: unknown for P1/P2; B08/B16 approval remains separate.
 - Documentation validation: SVG XML parsing, raster preview inspection and

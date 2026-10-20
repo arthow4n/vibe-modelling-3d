@@ -161,7 +161,11 @@ whole assembly, including loose inserts, and state folding/insertion steps.
 The [subsequent print-first correction](../../../../model/tpu_damping_box/notes/print_first_concepts.md)
 exposed why a wall-only mechanism drawing was insufficient. Revise or drop an
 architecture whose missing components defeat printability or assembly simplicity;
-a printable individual core is not a complete printable liner.
+a printable individual core is not a complete printable liner. Before recommending
+separate shells, check the retained physical failures of those shells: removing
+core junctions does not establish reliability of thin upright walls. In this
+case the user set aside P1 on that existing evidence, despite its feasible layer
+support and acceptable part count.
 
 Useful SVG proposal sketches are valid design-phase deliverables. Retain their
 editable SVGs in the object's `renders/concepts/` directory, with PNG previews
