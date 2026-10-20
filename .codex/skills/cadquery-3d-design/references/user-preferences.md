@@ -224,6 +224,16 @@ evidence exists for the actual decision. Follow the
 keep physical unknowns visible without automatically expanding the task.
 [Source and explanatory SVGs](../../../../model/dental_travel_case/notes/short_lap.md#practical-stopping-and-explanation-feedback).
 
+**Repeated correction, grip-placement work:** the user rejects a stream of
+“inconclusive” research as a substitute for a practical engineering decision.
+Conclude the requested choice using suitable evidence; distinguish the chosen
+design from a specific unmeasured property or unsuccessful optional calculation.
+When the agent invented the wrong acceptance problem, change the active
+verification strategy and deliver the missing practical result, rather than
+only stopping the solver or adding another caution. Preserve genuine unknowns
+and failed evidence. [Concrete correction and selected grip](../../../../model/dental_travel_case/notes/grip_human.md#working-approach-correction);
+[method owner](../../engineering-method-selection/SKILL.md#choose-from-the-decision).
+
 For mechanical joints and catches, include a cross-section SVG explaining how
 the interface holds, guides and releases. Draw movement and contact order at
 comparable scale to show whether a numerical improvement physically matters,

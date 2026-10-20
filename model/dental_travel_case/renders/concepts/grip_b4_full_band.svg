@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1050" viewBox="0 0 1320 1050">
+  <style>text{font-family:DejaVu Sans,sans-serif}</style>
+  <rect x="0" y="0" width="1320" height="1050" rx="0" fill="#f6f6f1" stroke="none" />
+  <text x="28" y="43" font-size="29" fill="#253746" font-weight="bold">From corner saddles to a continuous recessed band</text>
+  <text x="28" y="82" font-size="19" fill="#253746" font-weight="normal">Concept comparison: same box proportions, two separate grips, no outward ridge or through-hole.</text>
+  <text x="76" y="125" font-size="23" fill="#253746" font-weight="bold">B2 · Corners only</text>
+  <rect x="166" y="149" width="148.4" height="528" rx="10" fill="#edf1f3" stroke="#377b98" />
+  <rect x="167" y="150" width="146.4" height="178" rx="9" fill="#deedf2" stroke="none" />
+  <rect x="168" y="269" width="144.4" height="60" rx="0" fill="#ecf2fb" stroke="none" />
+  <path d="M166,329 H314.4" stroke="#253746" stroke-width="2" fill="none" />
+  <path d="M166,269 H314.4" stroke="#377b98" stroke-width="1.5" fill="none" stroke-dasharray="5 4" />
+  <text x="186" y="181" font-size="16" fill="#377b98" font-weight="normal">CAP</text>
+  <text x="186" y="655" font-size="16" fill="#377b98" font-weight="normal">BODY</text>
+  <rect x="165" y="199.0" width="24" height="60" rx="11" fill="#fafdfb" stroke="#247d6c" />
+  <rect x="291.4" y="199.0" width="24" height="60" rx="11" fill="#fafdfb" stroke="#247d6c" />
+  <rect x="165" y="353.0" width="24" height="60" rx="11" fill="#fafdfb" stroke="#247d6c" />
+  <rect x="291.4" y="353.0" width="24" height="60" rx="11" fill="#fafdfb" stroke="#247d6c" />
+  <path d="M343.4,244 L343.4,193" stroke="#247d6c" stroke-width="3" fill="none" />
+  <path d="M337.4,202 L343.4,193 L349.4,202" stroke="#247d6c" stroke-width="3" fill="none" />
+  <path d="M343.4,367 L343.4,418" stroke="#247d6c" stroke-width="3" fill="none" />
+  <path d="M337.4,409 L343.4,418 L349.4,409" stroke="#247d6c" stroke-width="3" fill="none" />
+  <text x="76" y="722" font-size="17" fill="#253746" font-weight="normal">Specific corner landing areas</text>
+  <text x="76" y="750" font-size="17" fill="#253746" font-weight="normal">Smaller reshaped interior region</text>
+  <text x="441" y="125" font-size="23" fill="#253746" font-weight="bold">B4 · Full wrap</text>
+  <rect x="531" y="149" width="148.4" height="528" rx="10" fill="#edf1f3" stroke="#377b98" />
+  <rect x="532" y="150" width="146.4" height="178" rx="9" fill="#deedf2" stroke="none" />
+  <rect x="533" y="269" width="144.4" height="60" rx="0" fill="#ecf2fb" stroke="none" />
+  <path d="M531,329 H679.4" stroke="#253746" stroke-width="2" fill="none" />
+  <path d="M531,269 H679.4" stroke="#377b98" stroke-width="1.5" fill="none" stroke-dasharray="5 4" />
+  <text x="551" y="181" font-size="16" fill="#377b98" font-weight="normal">CAP</text>
+  <text x="551" y="655" font-size="16" fill="#377b98" font-weight="normal">BODY</text>
+  <rect x="532.4" y="209.0" width="145.6" height="40" rx="8" fill="#d9ebe3" stroke="none" />
+  <path d="M531,209.0 C531,211.0 532.4,211.0 532.4,229 C532.4,247.0 531,247.0 531,249.0" stroke="#247d6c" stroke-width="2" fill="none" />
+  <path d="M679.4,209.0 C679.4,211.0 678.0,211.0 678.0,229 C678.0,247.0 679.4,247.0 679.4,249.0" stroke="#247d6c" stroke-width="2" fill="none" />
+  <ellipse cx="553" cy="229" rx="11" ry="14" fill="none" stroke="#d48740" stroke-dasharray="4 3" />
+  <ellipse cx="605.2" cy="229" rx="11" ry="14" fill="none" stroke="#d48740" stroke-dasharray="4 3" />
+  <ellipse cx="657.4" cy="229" rx="11" ry="14" fill="none" stroke="#d48740" stroke-dasharray="4 3" />
+  <rect x="532.4" y="363.0" width="145.6" height="40" rx="8" fill="#d9ebe3" stroke="none" />
+  <path d="M531,363.0 C531,365.0 532.4,365.0 532.4,383 C532.4,401.0 531,401.0 531,403.0" stroke="#247d6c" stroke-width="2" fill="none" />
+  <path d="M679.4,363.0 C679.4,365.0 678.0,365.0 678.0,383 C678.0,401.0 679.4,401.0 679.4,403.0" stroke="#247d6c" stroke-width="2" fill="none" />
+  <ellipse cx="553" cy="383" rx="11" ry="14" fill="none" stroke="#d48740" stroke-dasharray="4 3" />
+  <ellipse cx="605.2" cy="383" rx="11" ry="14" fill="none" stroke="#d48740" stroke-dasharray="4 3" />
+  <ellipse cx="657.4" cy="383" rx="11" ry="14" fill="none" stroke="#d48740" stroke-dasharray="4 3" />
+  <path d="M708.4,244 L708.4,193" stroke="#247d6c" stroke-width="3" fill="none" />
+  <path d="M702.4,202 L708.4,193 L714.4,202" stroke="#247d6c" stroke-width="3" fill="none" />
+  <path d="M708.4,367 L708.4,418" stroke="#247d6c" stroke-width="3" fill="none" />
+  <path d="M702.4,409 L708.4,418 L714.4,409" stroke="#247d6c" stroke-width="3" fill="none" />
+  <text x="441" y="722" font-size="17" fill="#253746" font-weight="normal">Find the grip anywhere around it</text>
+  <text x="441" y="750" font-size="17" fill="#253746" font-weight="normal">The whole section narrows locally</text>
+  <text x="906" y="153" font-size="22" fill="#253746" font-weight="bold">Why a full band may help</text>
+  <text x="906" y="195" font-size="18" fill="#253746" font-weight="normal">Less need to line up fingers</text>
+  <text x="906" y="224" font-size="18" fill="#253746" font-weight="normal">with separate pockets.</text>
+  <text x="906" y="272" font-size="18" fill="#253746" font-weight="normal">Front, back, sides and corners</text>
+  <text x="906" y="301" font-size="18" fill="#253746" font-weight="normal">all offer the same hollow.</text>
+  <text x="906" y="349" font-size="18" fill="#253746" font-weight="normal">It does not guarantee more</text>
+  <text x="906" y="378" font-size="18" fill="#253746" font-weight="normal">traction at one contact.</text>
+  <text x="906" y="426" font-size="17" fill="#d48740" font-weight="normal">Dashed orange ovals show</text>
+  <text x="906" y="453" font-size="17" fill="#d48740" font-weight="normal">alternative finger positions,</text>
+  <text x="906" y="480" font-size="17" fill="#d48740" font-weight="normal">not simultaneous contacts.</text>
+  <text x="906" y="532" font-size="17" fill="#377b98" font-weight="normal">Blue dashed line: end of</text>
+  <text x="906" y="559" font-size="17" fill="#377b98" font-weight="normal">the hidden 30 mm sleeve.</text>
+  <text x="906" y="607" font-size="17" fill="#253746" font-weight="normal">Cap band stays beyond it;</text>
+  <text x="906" y="634" font-size="17" fill="#253746" font-weight="normal">body band stays below seam.</text>
+  <text x="28" y="802" font-size="23" fill="#253746" font-weight="bold">Full band at its deepest section — end view</text>
+  <rect x="92" y="833" width="210" height="145" rx="18" fill="none" stroke="#a2afb6" stroke-dasharray="6 4" />
+  <rect x="99" y="840" width="196" height="131" rx="15" fill="#d9ebe3" stroke="#247d6c" />
+  <rect x="111" y="852" width="172" height="107" rx="11" fill="#f6f6f1" stroke="#247d6c" />
+  <text x="335" y="858" font-size="18" fill="#253746" font-weight="normal">Dashed = original outside. Inset exaggerated to explain the wall.</text>
+  <text x="335" y="893" font-size="18" fill="#253746" font-weight="normal">Move both wall surfaces inward; retain the 1.2 mm thin skin.</text>
+  <text x="335" y="928" font-size="18" fill="#253746" font-weight="normal">0.7 mm recess on each side removes 1.4 mm of width and depth locally.</text>
+  <text x="335" y="963" font-size="18" fill="#253746" font-weight="normal">Nominal thin interior there: 71.8 × 48.8 → 70.4 × 47.4 mm.</text>
+  <text x="28" y="1020" font-size="17" fill="#253746" font-weight="normal">Sketch only. Current CAD and notches unchanged. Grip, packing and printability remain untested.</text>
+</svg>
