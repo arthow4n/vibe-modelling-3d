@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="930" viewBox="0 0 1440 930" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="966" viewBox="0 0 1440 966" role="img" aria-labelledby="title desc">
 <title id="title">A clear two-cup shortlist</title>
 <desc id="desc">Labelled concept only, not CAD or calculated deformation. Blue is the smooth inner TPU cup, dark grey the outer TPU cup, orange flexible TPU springs, pale grey the existing rigid box. White is empty space for the spring to bend into. All TPU is black in real life. Before and during impact sections show intended qualitative behavior, with motion exaggerated.</desc>
 <defs>
@@ -10,6 +10,9 @@
 <path d="M0 13 L13 0" stroke="#d67a20" stroke-width="3"/>
 </pattern>
 </defs>
+<rect x="0" y="0" width="1440" height="36" fill="#fff0d5"/>
+<text x="30" y="25" font-family="DejaVu Sans,sans-serif" font-size="18" fill="#713e0b">SUPERSEDED: see print_first_overview.svg for complete print / floor / lid / assembly plans.</text>
+<g transform="translate(0 36)">
 <g font-family="DejaVu Sans,sans-serif">
 <rect x="0" y="0" width="1440" height="930" fill="#f2f5f8" rx="0"/>
 <text x="38" y="48" font-size="33" fill="#163146" font-weight="700">A clear two-cup shortlist</text>
@@ -84,4 +87,4 @@
 <text x="38" y="886" font-size="18" fill="#163146" font-weight="400">White is empty deformation space, not a missing part. New E5/E6 keep the two-cup idea but change the spring mechanism.</text>
 <text x="38" y="918" font-size="16" fill="#bd3434" font-weight="400">SVG discussion only — not CAD, sliced toolpaths, calculated deformation or a proven damping improvement.</text>
 </g>
-</svg>
+</g></svg>

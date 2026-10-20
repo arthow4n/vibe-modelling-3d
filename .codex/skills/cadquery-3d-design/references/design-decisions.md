@@ -155,6 +155,13 @@ The [black-TPU surface investigation](../../../../model/tpu_damping_box/notes/su
 compares print sequence, component separation and support path after the user
 finds tie-pattern changes insufficient. Distinguish isolation during manufacture
 from local contact or deformation after assembly; neither proves the other.
+At this sketch stage, show the chosen bed orientation, layer support for core
+starts and roofs, and the complete floor/lid/retention construction. Count the
+whole assembly, including loose inserts, and state folding/insertion steps.
+The [subsequent print-first correction](../../../../model/tpu_damping_box/notes/print_first_concepts.md)
+exposed why a wall-only mechanism drawing was insufficient. Revise or drop an
+architecture whose missing components defeat printability or assembly simplicity;
+a printable individual core is not a complete printable liner.
 
 Useful SVG proposal sketches are valid design-phase deliverables. Retain their
 editable SVGs in the object's `renders/concepts/` directory, with PNG previews

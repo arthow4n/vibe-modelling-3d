@@ -7,16 +7,24 @@ A16/A20 and solid C12/C16 are rejected as damping choices relative to the retain
 S16 baseline. Object-facing finish, stringing and seam-area artifacts still need
 improvement; approval does not qualify tall application liners.
 [Full print report](notes/b_surface_concepts.md) ·
-[Current surface-isolation concepts](notes/surface_decoupling.md).
+[Current print-first concepts](notes/print_first_concepts.md).
 
 **Current phase:** investigate different architectures that isolate the black
 TPU object-facing surface from the core. D's tie-pattern changes are insufficient
 as the main solution. The user explicitly removes wall/overall thickness limits
 and asks for solid corner regions. Current concerns are mainly visible surface
 patterns with occasional bumps; this is not a translucent-TPU investigation.
-The current shortlist is **E1, E5 and E6**, with explicit part/color legends,
-assembly and before/impact sections. E2/E4 are dropped and E3 is set aside after
-the user's review; E1 is interesting but unapproved. Deliver SVG explainers only.
+The current [print-first comparison](notes/print_first_concepts.md) shows **P1**, a
+plain cup in an integral spring carrier, and **P2**, a connected flat blank folded
+into a cup. P1 prints upright and has three total pieces including its one lid
+pad; P2 prints contact-face down and has two total pieces but eight folds.
+The user confirms up to two cup pieces **plus the usual lid pad**; complicated
+assembly is unwanted. P1 meets that preference and is the recommended next
+discussion concept; P2's folding cost may still be unacceptable. Neither is
+selected or approved. E5/E6 are
+retired for whole-liner assembly cost; E2/E4 remain dropped and E3 set aside.
+The SVGs now show print orientation, layer support, bridges, corners, floor/lid
+and assembly rather than only wall mechanisms. Deliver SVG explainers only.
 **No new CAD models, exports or changed print presets are authorized in this
 phase.** Existing B files and settings remain the printed baseline.
 
@@ -54,7 +62,8 @@ positive application feedback for fit and damping. The
 defects; neither application result is established by these research samples.
 
 - For the latest physical results, read [B comparison](notes/b_surface_concepts.md).
-- For current architecture proposals and the corner requirement, read [surface isolation](notes/surface_decoupling.md).
+- For current printable-construction proposals and whole-liner counts, read [print-first concepts](notes/print_first_concepts.md).
+- For earlier architectures and the corner requirement, read [surface isolation history](notes/surface_decoupling.md).
 - For the existing support-test files/setup, read [R2](#ordinary-classic-repair--r2).
 - For the printed S16 baseline, read [closed-skin follow-up](#closed-skin-follow-up)
   and [setup](#setup-and-assembly).
@@ -1216,3 +1225,8 @@ shared-workspace CLI/API agent; provider OpenAI. No subagents. User supplies the
 D critique, unconstrained thickness, black-TPU clarification and solid-corner
 priority. This phase authors the new investigation and SVGs; no new CAD or
 print profile. Earlier attributions and print evidence remain scoped to their work.
+
+Print-first concept review, 2026-10-21: primary model GPT-6 family; exact runtime
+identifier/reasoning effort not exposed. Codex shared-workspace CLI/API agent,
+provider OpenAI, no subagents. User supplies printability and assembly preferences;
+agent authors construction revisions and SVGs. No new CAD or physical evidence.

@@ -8,7 +8,21 @@ insufficient as the main answer. This investigation changes the manufacturing
 sequence, component boundary or support path instead. B08/B16 stay approved;
 no new printable models or presets are made in this SVG-only phase.
 
-## Current shortlist and repaired explainer — 2026-10-21
+## Current route — print-first correction
+
+The user subsequently finds these suggestions insufficiently grounded in
+printability and requests one piece ideally, two acceptable, with no complicated
+assembly; they confirm up to two cup pieces plus the usual lid pad. The **current comparison is [P1/P2, including print sequence and complete
+liner counts](print_first_concepts.md)**. E1 is reworked there with an integral
+floor core and one lid pad. E5/E6 are retired from the active shortlist for their
+whole-liner part/retention burden, not a claimed failed print of their individual
+parts. P1 is three pieces including the pad; P2 is two pieces but requires eight
+folds. Both costs are exposed before any CAD choice. B08/B16 remain approved.
+
+The following E sections preserve the earlier proposal and its reasoning;
+their former next steps and shortlists are superseded by that review.
+
+## Historical shortlist and repaired explainer — 2026-10-21
 
 The user finds the earlier blue/green encoding unclear and cannot see how E1
 provides deformation space between the cups. They find E2/E4 unconvincing and

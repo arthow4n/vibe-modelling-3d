@@ -82,6 +82,16 @@ tests ordinary Classic widths with thin-wall detection off to establish that
 it does not depend on recovery options; that diagnostic choice is not a claim
 about the user's unreported checkbox settings or a global ban for other models.
 
+**TPU surface-concept clarification, 2026-10-21:** for this liner exploration,
+prefer one cup piece, accept two cup pieces plus the usual lid pad, and avoid
+complicated assembly. Show how each
+suggestion prints; replace impractical construction rather than deferring it.
+Count floor/lid and core/retention parts explicitly; a low part count alone does
+not make folding or insertion simple. The user explicitly excludes the usual
+lid pad from the one/two-cup-piece limit; still show the whole-liner count.
+[Owning print-first review](../../../../model/tpu_damping_box/notes/print_first_concepts.md).
+This is scoped to the current liner, not a universal ban on multipart products.
+
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.
 Choose insertion allowance, seated play and retention separately; this report

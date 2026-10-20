@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1010" viewBox="0 0 1500 1010" role="img" aria-labelledby="title desc"><title id="title">Print-first review · two ways forward</title><desc id="desc">Print direction, whole-liner part count and assembly are part of the concept, not deferred details.. Concept drawings, not evaluated CAD or a slicer result. All TPU is black; colours identify physical roles.</desc><defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#b83232"/></marker></defs><g font-family="DejaVu Sans,sans-serif"><rect width="1500" height="1010" fill="#f3f6f9"/>
+<text x="35" y="48" font-size="30" fill="#183247" font-weight="700">Print-first review · two ways forward</text>
+<text x="35" y="83" font-size="19" fill="#183247">Print direction, whole-liner part count and assembly are part of the concept, not deferred details.</text>
+<rect x="35" y="106" width="22" height="18" rx="0" fill="#2466b0" stroke="#183247"/>
+<text x="67" y="122" font-size="16" fill="#183247">Contact skin / inner cup</text>
+<rect x="405" y="106" width="22" height="18" rx="0" fill="#475569" stroke="#183247"/>
+<text x="437" y="122" font-size="16" fill="#183247">Backing / outer carrier</text>
+<rect x="790" y="106" width="22" height="18" rx="0" fill="#cf711c" stroke="#183247"/>
+<text x="822" y="122" font-size="16" fill="#183247">Flexible core, same TPU</text>
+<rect x="1165" y="106" width="22" height="18" rx="0" fill="white" stroke="#183247"/>
+<text x="1197" y="122" font-size="16" fill="#183247">Empty space</text>
+<text x="35" y="155" font-size="17" fill="#183247">All real parts: BLACK TPU. Pale grey = existing rigid box. Red = force or motion. Schematics, not to scale.</text>
+<rect x="30" y="185" width="710" height="575" rx="12" fill="white" stroke="#d4dde6"/>
+<text x="50" y="218" font-size="22" fill="#183247" font-weight="700">P1 · Nested cup + integral spring carrier</text>
+<path d="M80 285V465H320V285" fill="none" stroke="#475569" stroke-width="15" stroke-linejoin="round"/>
+<path d="M112 300V428H288V300" fill="none" stroke="#2466b0" stroke-width="16" stroke-linejoin="round"/>
+<rect x="99" y="320" width="7" height="96" rx="0" fill="#cf711c" stroke="none"/>
+<rect x="294" y="320" width="7" height="96" rx="0" fill="#cf711c" stroke="none"/>
+<rect x="150" y="436" width="8" height="22" rx="0" fill="#cf711c" stroke="none"/>
+<rect x="200" y="436" width="8" height="22" rx="0" fill="#cf711c" stroke="none"/>
+<rect x="250" y="436" width="8" height="22" rx="0" fill="#cf711c" stroke="none"/>
+<rect x="104" y="273" width="192" height="12" rx="0" fill="#2466b0" stroke="none"/>
+<path d="M365 430L365 300" fill="none" stroke="#b83232" stroke-width="3" marker-end="url(#arr)"/>
+<text x="385" y="330" font-size="17" fill="#183247">Both cups print upright.</text>
+<text x="385" y="365" font-size="17" fill="#183247">Open tops, rooted springs.</text>
+<text x="385" y="393" font-size="17" fill="#183247">Inner cup prints alone.</text>
+<text x="385" y="421" font-size="17" fill="#183247">Lid pad prints flat.</text>
+<text x="60" y="525" font-size="18" fill="#183247">3 pieces TOTAL: 2 cups + 1 lid pad.</text>
+<text x="60" y="556" font-size="18" fill="#183247">Assembly: nest cups; seat pad.</text>
+<text x="60" y="587" font-size="18" fill="#183247">No loose floor or wall core pieces.</text>
+<text x="60" y="618" font-size="18" fill="#183247"></text>
+<text x="60" y="649" font-size="18" fill="#183247">Improvement: no core joins the inner cup during printing.</text>
+<text x="60" y="680" font-size="18" fill="#183247">Limit: core contact can still mark it after assembly.</text>
+<text x="60" y="711" font-size="18" fill="#183247">Meets your preference: two cup pieces + usual lid pad.</text>
+<rect x="760" y="185" width="710" height="575" rx="12" fill="white" stroke="#d4dde6"/>
+<text x="780" y="218" font-size="22" fill="#183247" font-weight="700">P2 · One flat blank, folded into a cup</text>
+<rect x="960" y="350" width="85" height="85" rx="0" fill="#2466b0" stroke="#183247"/>
+<rect x="960" y="265" width="85" height="85" rx="0" fill="#2466b0" stroke="#183247"/>
+<rect x="960" y="435" width="85" height="85" rx="0" fill="#2466b0" stroke="#183247"/>
+<rect x="875" y="350" width="85" height="85" rx="0" fill="#2466b0" stroke="#183247"/>
+<rect x="1045" y="350" width="85" height="85" rx="0" fill="#2466b0" stroke="#183247"/>
+<rect x="960" y="347" width="85" height="6" rx="0" fill="#cf711c" stroke="none"/>
+<rect x="960" y="432" width="85" height="6" rx="0" fill="#cf711c" stroke="none"/>
+<rect x="957" y="350" width="6" height="85" rx="0" fill="#cf711c" stroke="none"/>
+<rect x="1042" y="350" width="6" height="85" rx="0" fill="#cf711c" stroke="none"/>
+<text x="1160" y="290" font-size="17" fill="#183247">Contact faces DOWN.</text>
+<text x="1160" y="319" font-size="17" fill="#183247">Core grows above them.</text>
+<text x="1160" y="348" font-size="17" fill="#183247">Small roofs bridge last.</text>
+<text x="1160" y="377" font-size="17" fill="#183247"></text>
+<text x="1160" y="406" font-size="17" fill="#183247">Fold walls and flaps;</text>
+<text x="1160" y="435" font-size="17" fill="#183247">insert into rigid box.</text>
+<text x="790" y="555" font-size="18" fill="#183247">2 pieces TOTAL: body blank + lid pad.</text>
+<text x="790" y="586" font-size="18" fill="#183247">Assembly: 4 wall folds + 4 solid corner-flap folds.</text>
+<text x="790" y="617" font-size="18" fill="#183247"></text>
+<text x="790" y="648" font-size="18" fill="#183247">Improvement: all contact surfaces print against the bed.</text>
+<text x="790" y="679" font-size="18" fill="#183247">Limit: folds and corner overlaps may be inconvenient.</text>
+<text x="790" y="710" font-size="18" fill="#183247">Body is one connected print, not an already formed cup.</text>
+<rect x="30" y="780" width="1440" height="195" rx="12" fill="white" stroke="#d4dde6"/>
+<text x="50" y="813" font-size="22" fill="#183247" font-weight="700">Removed from the active shortlist</text>
+<text x="55" y="837" font-size="18" fill="#183247">E5 wave inserts / E6 loose tubes: individually printable orientations exist, but floor, lid and retention add parts.</text>
+<text x="55" y="868" font-size="18" fill="#183247">E2/E4 remain dropped; E3 remains set aside. No complete-cup sideways print with a large unsupported cavity roof.</text>
+<text x="55" y="899" font-size="18" fill="#183247">Status: manufacturing concepts only — no new CAD, Classic slice, print or damping validation. B08/B16 stay approved.</text>
+<text x="55" y="930" font-size="18" fill="#183247">Thickness is open. Both proposals include solid corner regions. Detailed drawings show layer order and remaining risks.</text>
+</g></svg>
