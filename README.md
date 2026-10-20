@@ -120,10 +120,12 @@ coupon (N/A).
 
 #### Dental travel containers — short-lap slim wall-snap box
 
-**Current grip exploration:** the user rejects the seam notches as an opening
-aid. [Three corner-grip SVG proposals](model/dental_travel_case/renders/concepts/grip_comparison.svg)
-compare soft ribs, recessed saddles and rounded shoulders. CAD is unchanged;
-notch removal is deferred until after the visual choice.
+**Current grip exploration:** the user prefers recessed saddles (B).
+[Three B-family SVG suggestions](model/dental_travel_case/renders/concepts/grip_b_family_comparison.svg)
+compare oval dimples, longer corner saddles and directional scoops. The
+[earlier comparison](model/dental_travel_case/renders/concepts/grip_comparison.svg)
+is retained. CAD is unchanged; the rejected seam notches will be removed after
+the visual exploration.
 
 [Current print comparison: full 2 mm and three-line (1.2 mm) body/cap pairs](model/dental_travel_case/notes/wall_comparison.md).
 Both pairs slice without supports. The thin pair uses about 41% less material

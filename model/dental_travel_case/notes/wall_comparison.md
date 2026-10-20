@@ -1,8 +1,9 @@
 # Full-case print comparison: 2 mm and three-line walls
 
-**Current design feedback:** the user rejects the finger notches as an opening
-aid and intends to remove them. The authorized next deliverable is the
-[SVG grip comparison](#corner-grip-exploration), before any CAD changes. Existing
+**Current design feedback:** the user prefers the recessed saddle direction B
+and requests further [B-family SVG suggestions](#recessed-saddle-variants).
+They reject the finger notches as an opening aid and intend to remove them,
+but defer CAD changes until after the visual exploration. Existing
 print files below retain the notches and are available for thickness comparison;
 their opening grip is not accepted.
 
@@ -207,7 +208,7 @@ opposite directions: fingers press the cap shoulder upward and the body shoulder
 downward. A texture that only runs along the pulling direction would offer less
 geometric opposition to slipping.
 
-**Recommendation for discussion: A.** Low rounded ribs are the smallest change
+**Initial recommendation, superseded by the user's B preference: A.** Low rounded ribs are the smallest change
 to the existing thin construction and contents space. B is worth considering if
 the recessed appearance matters more, but a 0.6 mm depression must not simply be
 cut from a 1.2 mm wall: the wall itself needs reshaping inward and contents/guide
@@ -233,6 +234,60 @@ already requires this, so no additional shared workflow rule was added.
 Attribution is the same Codex/OpenAI agent context recorded below; no subagents
 or third-party geometry contributed. These are unprinted rough proposals with
 no printable deliverables (test pieces and final objects N/A for this phase).
+
+## Recessed saddle variants
+
+The user explicitly prefers B over the ribs and shoulders and requests several
+different suggestions within that recessed family. This selects a direction for
+further visual exploration, not a final saddle geometry or CAD implementation.
+The earlier A recommendation is historical. The source and print files retain
+the current notches while these sketches are discussed.
+
+**[Compare B1, B2 and B3 — SVG](../renders/concepts/grip_b_family_comparison.svg)** ·
+[PNG preview](../renders/concepts/grip_b_family_comparison.png)
+
+| Suggestion | Shape and starting size | Why choose it / what it costs |
+| --- | --- | --- |
+| [B1 — Oval dimples](../renders/concepts/grip_b1_dimples.svg) | Separate 20 × 10 mm oval pockets, about 0.5 mm deep, on front/back faces near the corners; the corner edge remains plain | A subtle outline and small modified area; requires more deliberate finger placement and remains largely a friction grip |
+| [B2 — Long corner saddles](../renders/concepts/grip_b2_long_saddles.svg) | A 30 mm long hollow wrapping about 18 mm around each corner, about 0.6 mm deep, with gentle slopes at both ends | More room to settle or shift the fingers, continuous contact around the edge; reshapes a larger region of the shell and interior |
+| [B3 — Directional scoops](../renders/concepts/grip_b3_directional_scoops.svg) | A 24 mm long hollow wrapping about 14 mm around the corner, about 0.6 mm deep; a long soft entrance ramp and a shorter rounded wall facing the pull | A more distinct surface to press against while remaining inside the original outline; the stronger directional feel and local pressure are untested |
+
+The sketches share the existing box proportions, closed seam and 30 mm hidden
+sleeve. The grasp centers are **50 mm above the seam on the cap** and **27 mm
+below on the body**. Centers are held fixed so different saddle lengths can be
+compared fairly. Even B2's nearest cap edge starts 35 mm above the seam, beyond
+the 30 mm sleeve; the body saddles stop at least 12 mm below the seam. These
+are proposed locations, not verified hand-fit criteria.
+
+B3's cap scoop has its shorter pulling wall toward the cap's far end, where a
+finger can push it upward; the body scoop is mirrored so a finger can push it
+downward. Both directions are drawn. All concepts retain rounded slopes without
+an undercut hook, outward tab or through-hole. The surface profiles are enlarged
+separately to explain the shapes; use the listed dimensions, not those enlarged
+profiles, to compare physical size. End views distinguish face dimples from
+continuous corner wraps. Orange pads are schematic contacts; the thin cap's
+snap-backing detail is omitted as in the earlier exploration.
+
+**Recommendation within B: B2 as the starting shape.** Its larger landing area
+allows more freedom in where the fingers settle, and the gentle corner wrap
+keeps the shape continuous. B1 suits a more discreet appearance. B3 is the option
+to explore if a distinct pulling wall matters more than a symmetric, gentle
+hollow. These are geometric tradeoffs, not measured comfort or opening-force
+results; no variant is claimed to grip better in a physical trial.
+
+All three would move the inner wall with the outside depression, preserving
+nominal wall thickness (1.2 mm thin main wall, 2 mm control main wall). Simply
+cutting these depressions out of the existing thin skin is not the proposal.
+The 0.5–0.6 mm inward shift uses local contents space and needs actual wall-offset,
+contents, guide-path and print-orientation checks after a shape is selected.
+Rounded transitions and self-supporting slopes remain implementation work.
+
+The editable SVGs and PNG previews complete this visual phase. No model Python,
+STEP, STL, slices or verification results were changed, and no print was reported.
+All proposed dimensions are adjustable; printed feel and performance remain
+unknown. Attribution and the N/A printable-deliverable status for the sketch
+phase are as recorded in the preceding exploration. No shared workflow or tool
+change is warranted by this preference refinement.
 
 ## Print and compare
 
