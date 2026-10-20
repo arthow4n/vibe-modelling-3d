@@ -1,0 +1,133 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/solid_C12.py",
+  "errors": [],
+  "views": [],
+  "exports": [
+    {
+      "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/solid_C12.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/solid_C12.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.002269849006552249,
+    "build": 1.3044477170042228,
+    "selection": 0.0014339619956444949,
+    "validation": 0.2172867170011159,
+    "export_step": 0.3379241449874826,
+    "export_stl": 0.11411577698891051,
+    "worker": 2.089614012016682,
+    "total": 10.259545123000862,
+    "slice": 5.072839022002881
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "04a6014a009b4593dbc9acaf603297162e539d08e3b9f071dcc600623fdcad8f",
+    "artifact_identity": "0d4bda0833939144c108a3e445db86fae2108cf42038f44bee158f0c820e2df8"
+  },
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/solid_C12.stl",
+    "profiles": {
+      "printer": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu-support-classic-process.json",
+      "filament": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu95a.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "center",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "TPU"
+      ],
+      "filament_settings_id": [
+        "Diagnostic Generic TPU 95A Q2C 0.4 - damping study"
+      ],
+      "nozzle_temperature": [
+        "230"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "230"
+      ],
+      "hot_plate_temp": [
+        "35"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "35"
+      ],
+      "print_settings_id": "TPU support ordinary Classic 0.20",
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "no_brim",
+      "brim_width": "0",
+      "brim_object_gap": "0.1",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "1"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "100%",
+      "sparse_infill_pattern": "rectilinear"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": false,
+      "supported_plates": [],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": false,
+    "reused": false,
+    "identity": "02f2d0c8fe3c7fb6ca963780ed7f80994f3cfe26271c23040dad5844cac80b3b",
+    "input_sha256": "2cb4865c96d6c8e6dd690ca25c45825bf4a7875848702308e3f9a529f172c590",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-pzlgoljf",
+    "setup_selection": {
+      "profiles": "supplied",
+      "placement": "default_center",
+      "scope": "Selected-profile slice acceptance only; production setup agreement and physical print behavior are not established"
+    }
+  }
+}

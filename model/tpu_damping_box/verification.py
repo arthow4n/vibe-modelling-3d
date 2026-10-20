@@ -48,6 +48,12 @@ REQUIREMENTS += (
 )
 
 
+REQUIREMENTS += (
+    U('solid.two','Provide two labeled solid cup/lid-pad controls, C12 at 1.2 mm and C16 at 1.6 mm, for the existing experiment shell, without internal structures.',
+      S('README.md#solid-c12c16-controls--2026-10-20','User reports all four new pairs printed but untested. After touching B16 they request two solid variants, optionally named C, at spoken 12/16; the prior S16/A16 context establishes 1.2/1.6 mm units. No interior design is wanted.')),
+)
+
+
 QUESTIONS = (
     Q('fit','study.enclosure','Cup and pad fit the actual shell and each other; one 12 mm proxy can travel 14 mm on each axis inside the 26 mm clear cavity.', 'CAD'),
     Q('closure','study.enclosure','Two M3 nut installation paths clear and nuts bear under solid pocket roofs; screw bores clear a 3 mm shaft.', 'CAD'),
@@ -207,6 +213,9 @@ def closed_plan(variant):
 
 
 def make_plan(variant):
+    if variant in ('C12','C16'):
+        from solid_verification import make_solid_plan
+        return make_solid_plan(variant, REQUIREMENTS, ROOT)
     if variant in ('A16','A20','B08','B16'):
         from support_verification import make_support_plan
         return make_support_plan(variant, REQUIREMENTS, ROOT)
@@ -241,4 +250,4 @@ def make_plan(variant):
 
 
 if __name__=='__main__':
-    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10','S16','S12','F0','F1','F2','F3','F4','F5','F6','F7','A16','A20','B08','B16')))
+    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10','S16','S12','F0','F1','F2','F3','F4','F5','F6','F7','A16','A20','B08','B16','C12','C16')))

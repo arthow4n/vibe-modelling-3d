@@ -1,5 +1,5 @@
 {
-  "scope": "Original 2026-10-15 intent preserved; 2026-10-16 approves I in PLA shell and requests thinner I derivatives. Physical feedback retained separately. Later preprint I24/I20 rejection and robust replacements are recorded in README; local-feature thickness must not be conflated with total liner thickness. Latest user directive replaces unprinted I26 with an extreme sample beyond I22; I10 dimensions/topology are agent decisions, not user acceptance thresholds. Latest print feedback accepts I22 quietness, rejects broken I10, and explicitly requires both skins in thinner follow-ups. On 2026-10-17 user requests finish-only 30 mm coupons (four to eight) with solid exterior edges, retaining S16 as damping baseline and deferring physical damping comparison. Full-box intent is preserved; sample plans cannot qualify omitted enclosure coverage. On 2026-10-20 user accepts the two SVG interpretations, authorizes four complete labeled cup/pad pairs (A 1.6/2.0 mm; B 1.6 mm with two tie sizes), and explicitly requires no Arachne. Installation survival remains physical after reported dental-liner breakage. Later on 2026-10-20 the user rejects all four before printing because walls disappear in their slice; requests ordinary Classic compatibility without Arachne. R2 preserves selected total thicknesses while using .5 mm continuous skins and ordinary widths with thin-wall detection off. User clarifies that the failure used defaults as in the repository and authorises increased A thickness if needed. R2 has so far retained the original thicknesses; the exact default diagnostic triplet is also checked for wall generation.",
+  "scope": "Original 2026-10-15 intent preserved; 2026-10-16 approves I in PLA shell and requests thinner I derivatives. Physical feedback retained separately. Later preprint I24/I20 rejection and robust replacements are recorded in README; local-feature thickness must not be conflated with total liner thickness. Latest user directive replaces unprinted I26 with an extreme sample beyond I22; I10 dimensions/topology are agent decisions, not user acceptance thresholds. Latest print feedback accepts I22 quietness, rejects broken I10, and explicitly requires both skins in thinner follow-ups. On 2026-10-17 user requests finish-only 30 mm coupons (four to eight) with solid exterior edges, retaining S16 as damping baseline and deferring physical damping comparison. Full-box intent is preserved; sample plans cannot qualify omitted enclosure coverage. On 2026-10-20 user accepts the two SVG interpretations, authorizes four complete labeled cup/pad pairs (A 1.6/2.0 mm; B 1.6 mm with two tie sizes), and explicitly requires no Arachne. Installation survival remains physical after reported dental-liner breakage. Later on 2026-10-20 the user rejects all four before printing because walls disappear in their slice; requests ordinary Classic compatibility without Arachne. R2 preserves selected total thicknesses while using .5 mm continuous skins and ordinary widths with thin-wall detection off. User clarifies that the failure used defaults as in the repository and authorises increased A thickness if needed. R2 has so far retained the original thicknesses; the exact default diagnostic triplet is also checked for wall generation. User subsequently confirms printing all four R2 pairs, with functional tests pending, and requests two solid controls at 1.2/1.6 mm without internal structures. R2 print completion is not functional approval.",
   "source_sha256": {},
   "user_requirements": [
     {
@@ -134,6 +134,15 @@
       "source": {
         "reference": "README.md#ordinary-classic-repair--r2",
         "statement": "Asked which slicer/nozzle/line width/profile was used for the failure, the user answers: default as in the repo. They allow increased A thickness if needed, prioritising reliable Classic slicing."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "solid.two",
+      "text": "Provide two labeled solid cup/lid-pad controls, C12 at 1.2 mm and C16 at 1.6 mm, for the existing experiment shell, without internal structures.",
+      "source": {
+        "reference": "README.md#solid-c12c16-controls--2026-10-20",
+        "statement": "User reports all four new pairs printed but untested. After touching B16 they request two solid variants, optionally named C, at spoken 12/16; the prior S16/A16 context establishes 1.2/1.6 mm units. No interior design is wanted."
       },
       "acceptance_criteria": []
     }

@@ -1,0 +1,151 @@
+{
+  "category": "slicer-path-metadata",
+  "limits": "No physical fit, deposited solidity or damping claim.",
+  "rounding_allowance_mm": 0.06,
+  "variants": {
+    "C12": {
+      "checks_passed": true,
+      "artifact_identity": "0d4bda0833939144c108a3e445db86fae2108cf42038f44bee158f0c820e2df8",
+      "source_sha256": {
+        "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+        "support_design.py": "88cf7fa4d384bd2d8dd6cae73822075cc29197c80a056434d09743636c1b77d7",
+        "solid_design.py": "c867e363fac889d479842b53fbf172a6ab54fefdff6fe0944c6699b6ab644194",
+        "solid_C12.py": "ad81d7a6896599b1249ba42ea1024f9c86a75138fef4881a739d27879a222ce4",
+        "review_solid_paths.py": "8d5248e336991031f668fa41cb6b707261856dc1a93025dad3bafb89cdccb635",
+        "review_support_paths.py": "39954f92248b998ddb9e9af0af68a07e5daa667307b560a1188645fb4604a578",
+        "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
+        "profiles/tpu-support-classic-process.json": "a6bec442b14eaa04a3da3b374e1f277cb3be69f3cb9377e8f8f6b972db18358f",
+        "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+      },
+      "export_sha256": {
+        "solid_C12.step": "87927c00d2ab1b9a8a11046fb0047af7e6b8f9595e15c2f054f760c47de140ee",
+        "solid_C12.stl": "2cb4865c96d6c8e6dd690ca25c45825bf4a7875848702308e3f9a529f172c590"
+      },
+      "effective_process": {
+        "wall_generator": "classic",
+        "detect_thin_wall": "0",
+        "sparse_infill_density": "100%",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "layer_height": "0.2",
+        "enable_support": "0"
+      },
+      "wall_continuity": [
+        {
+          "face_deg": 0,
+          "layers": 158,
+          "z_range_mm": [
+            1.4,
+            32.8
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_continuous_material_mm": 1.1999999999999922
+        },
+        {
+          "face_deg": 90,
+          "layers": 158,
+          "z_range_mm": [
+            1.4,
+            32.8
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_continuous_material_mm": 1.1999999999999957
+        },
+        {
+          "face_deg": 180,
+          "layers": 158,
+          "z_range_mm": [
+            1.4,
+            32.8
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_continuous_material_mm": 1.1999999999999726
+        },
+        {
+          "face_deg": 270,
+          "layers": 158,
+          "z_range_mm": [
+            1.4,
+            32.8
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_continuous_material_mm": 1.1999999999999886
+        }
+      ],
+      "gcode_sha256": "ad38ed9b5d418e5260f887c4704834c58b1464f3bd703a137b88790a10170114"
+    },
+    "C16": {
+      "checks_passed": true,
+      "artifact_identity": "a065e413b1b4dcff537c37ab78189a7a325204dbd23758440c118e4583339e73",
+      "source_sha256": {
+        "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+        "support_design.py": "88cf7fa4d384bd2d8dd6cae73822075cc29197c80a056434d09743636c1b77d7",
+        "solid_design.py": "c867e363fac889d479842b53fbf172a6ab54fefdff6fe0944c6699b6ab644194",
+        "solid_C16.py": "8a70db130ce855317e9d1f256204f5700ac3f6b3bb178a719e102631dc74899f",
+        "review_solid_paths.py": "8d5248e336991031f668fa41cb6b707261856dc1a93025dad3bafb89cdccb635",
+        "review_support_paths.py": "39954f92248b998ddb9e9af0af68a07e5daa667307b560a1188645fb4604a578",
+        "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
+        "profiles/tpu-support-classic-process.json": "a6bec442b14eaa04a3da3b374e1f277cb3be69f3cb9377e8f8f6b972db18358f",
+        "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+        "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+      },
+      "export_sha256": {
+        "solid_C16.step": "e511c96d22cc0e962fbf963d873e7e2f56df2610e50be8c6988a1467c556f648",
+        "solid_C16.stl": "b7e1ce570ea249469bfd0a167fb5b4adc9e866ddf0fd672d50031a9fd7134605"
+      },
+      "effective_process": {
+        "wall_generator": "classic",
+        "detect_thin_wall": "0",
+        "sparse_infill_density": "100%",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "layer_height": "0.2",
+        "enable_support": "0"
+      },
+      "wall_continuity": [
+        {
+          "face_deg": 0,
+          "layers": 154,
+          "z_range_mm": [
+            1.8,
+            32.4
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_continuous_material_mm": 1.5999999999999925
+        },
+        {
+          "face_deg": 90,
+          "layers": 154,
+          "z_range_mm": [
+            1.8,
+            32.4
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_continuous_material_mm": 1.5999999999999996
+        },
+        {
+          "face_deg": 180,
+          "layers": 154,
+          "z_range_mm": [
+            1.8,
+            32.4
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_continuous_material_mm": 1.5999999999999783
+        },
+        {
+          "face_deg": 270,
+          "layers": 154,
+          "z_range_mm": [
+            1.8,
+            32.4
+          ],
+          "tangent_samples_per_layer": 6,
+          "minimum_continuous_material_mm": 1.5999999999999783
+        }
+      ],
+      "gcode_sha256": "faccfca57160ab7671faf59fc92a943130cedc2922f2e44487848bbcae77896d"
+    }
+  }
+}

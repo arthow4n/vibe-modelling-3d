@@ -6,8 +6,8 @@ with ordinary Classic widths. [R2](#ordinary-classic-repair--r2) retains the fou
 selected total thicknesses, uses 0.5 mm continuous skins, and removes dependence
 on narrow widths/thin-wall recovery. Both pieces now carry an **R2** marking.
 The user clarifies that repository defaults were used; exact original slicer
-runtime/import format remain unreported. Physical
-installation survival and damping are still untested.
+runtime/import format remain unreported. The user now reports all four R2 pairs
+printed; installation survival and damping are still untested.
 
 **S16 is the user's preferred printed damping profile (2026-10-16).**
 S16 and S12 were both printed and both work. Subjectively, S16 feels better than
@@ -15,9 +15,9 @@ S12 and I22, and good even compared with I30 and the original 4 mm I. The user
 selects S16 for reuse in rigid-shell/TPU damping, starting with the already
 printed sunglasses case.
 
-**Current phase (2026-10-20):** the user accepts the SVG interpretations and
-requests [four complete support-test pairs](#four-printable-support-pairs--2026-10-20)
-for the existing experiment box: A at 1.6/2.0 mm and two B tie sizes at 1.6 mm.
+**Current phase (2026-10-20):** add [solid C12/C16 pairs](#solid-c12c16-controls--2026-10-20)
+at 1.2/1.6 mm for comparison with the printed, untested
+[four support-test pairs](#four-printable-support-pairs--2026-10-20).
 The dental liner broke further during insertion. These are experiments in minimum
 usable thickness, installation survival and damping; neither concept inherits
 the printed S16 approval.
@@ -201,6 +201,13 @@ seat by a 0.4 mm top band.
 
 ### R2 evidence and remaining experiment
 
+**Print report, 2026-10-20:** the user confirms printing all four new pairs,
+associated by conversation with R2 (`6356e74`, published in `b121b81`). They
+have touched B16 but report no comparative result or failure. Installation,
+handling integrity and damping are untested. Exact files/hashes, material/spool,
+printer settings and orientation of those prints remain unreported. This is
+print completion, not physical approval.
+
 Native TPU export/slice receipts: [A16](notes/support_A16_final.json),
 [A20](notes/support_A20_final.json), [B08](notes/support_B08_final.json),
 [B16](notes/support_B16_final.json). All four have valid CAD, successful matched
@@ -276,8 +283,92 @@ association. The separate F0–F7 finish study remains untested.
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | R1 support pairs | No — rejected before printing | [Historical files/evidence](notes/rejected_r1/README.md) | Missing walls in user's slice; ordinary-control failure reproduced |
-| R2 support pairs | No — replacement experiments | `support_A16`, `support_A20`, `support_B08`, `support_B16`, each `.py/.step/.stl` | Physical continuity, bridge bonding, channel survival, installation survival, squeeze and damping untested |
+| R2 support pairs | Yes — user reports all four printed, testing pending | `support_A16`, `support_A20`, `support_B08`, `support_B16`, each `.py/.step/.stl` | Physical continuity, bridge bonding, channel survival, installation survival, squeeze and damping untested |
 | Final application liner | N/A — experiment phase | None new | Existing dental failure remains unresolved; R2 does not qualify transfer |
+
+## Solid C12/C16 controls — 2026-10-20
+
+The user has printed all four R2 pairs but has not tested them. After touching
+B16, they request two **solid** variants without internal structures. This phase
+adds C12/C16; it does not replace or modify the printed A/B designs. Spoken
+“12/16” is interpreted as **1.2/1.6 mm total lining**, consistent with S16 and the
+preceding A16/A20 discussion. There is an older, unrelated 4 mm variant C;
+use these full IDs and filenames.
+
+| ID | Solid wall/floor thickness | Lid pad, including squeeze | Deliverables: one cup and matching pad |
+| --- | --- | --- | --- |
+| **C12** | **1.2 mm** | **1.4 mm** | [STEP](solid_C12.step) · [STL](solid_C12.stl) · [Python](solid_C12.py) |
+| **C16** | **1.6 mm** | **1.8 mm** | [STEP](solid_C16.step) · [STL](solid_C16.stl) · [Python](solid_C16.py) |
+
+These are solid CAD walls, floors and pads: **no channels, ribs, frames, ties or
+internal lattice**. Large 12 mm bold C12/C16 IDs and a smaller **SOLID** subtitle
+are recessed 0.2 mm into both shell-facing backings. Contact faces stay flat.
+The floor remains 1.0/1.4 mm thick beneath the label recess, and the pad retains
+1.2/1.6 mm above it. The upper pad pocket is the established R2 interface, not a
+hollow damping core: a 0.5 mm surrounding rim seats the **32.6 mm square pad**
+with **0.2 mm per-side clearance**.
+
+The cup remains **34 × 34 × 34 mm**, with the same **0.2 mm per-side clearance**
+in the existing rigid box. Nominal clear cavities are **31.6 mm cubes (C12)**
+and **30.8 mm cubes (C16)**. The matching pad adds the same **0.2 mm axial squeeze
+allowance** as R2; squeeze force is uncalibrated and may change for solid TPU.
+The native print assemblies reuse R2's two component positions, backing down.
+Existing local fit/path checks are adequate for this fixed interface; a new
+assembly constraint or movement API is unnecessary.
+
+Use the same [Classic TPU process](profiles/tpu-support-classic-process.json),
+[TPU filament](profiles/tpu95a.json) and
+[Q2C 0.4 mm printer](../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json)
+as R2: **0.2 mm layers, Classic, thin-wall detection OFF, 100% material fill,
+supports OFF**. Keep 100% fill to make a solid comparison; the default 7% recipe
+would change the experiment. Ordinary wall widths stay 0.42/0.45 mm, with two
+wall loops. Use both files as supplied, without scaling or rotation; the layout
+fits the selected bed. No rigid-shell or lid reprint is needed. Seat the matched
+pad in the cup pocket and close using the existing lid and screws. Stop if an
+insert unexpectedly resists rather than forcing it.
+
+Final FDM rationale: broad backing-down faces provide stable bed contact; upright
+solid walls grow directly from the floor, and the top pocket removes material
+rather than creating an overhanging roof. The only small downward recesses are
+the 0.2 mm exterior labels. Square bed/rim edges deliberately retain the existing
+fit and constant-section comparison. Layer bonding and printed label bridging
+remain material/process questions. This is a solid control for physical damping
+comparison, not a predicted improvement over B16.
+
+The [parametric source](solid_design.py) and [verification](solid_verification.py)
+check straight insertion/removal, the clear cavity, full solid wall/floor/pad
+witnesses, the pocket and recessed IDs. Native receipts for [C12](notes/solid_C12_final.json)
+and [C16](notes/solid_C16_final.json) record valid CAD, matching successful
+STEP/STL exports and completed OrcaSlicer **2.4.2** slices. Both have **no reported
+notices and no automatic supports generated** under the supplied setup.
+[Actual path review](notes/solid_path_review.json) confirms continuous filled
+wall sections at six positions on all four faces through **158 upright layers
+(C12)** and **154 (C16)**. Their minimum material widths are 1.2/1.6 mm within
+numeric roundoff; no frame/tie gaps remain. The first-layer label paths below
+were visually reviewed for matching readable IDs on both pieces.
+
+![Solid C12/C16 labels and continuous Classic wall paths](renders/solid_path_review.png)
+
+Saved [C12 verification](notes/solid_verification_C12.json) and
+[C16 verification](notes/solid_verification_C16.json) cover fit, solid material,
+labels and current publication/path identity; all four digital checks pass for
+both variants. Reproduce with
+`./execute.py model/tpu_damping_box/verification.py --variant C12` (or `C16`).
+Physical questions remain UNKNOWN. Digital checks cannot establish printed
+density, installation strength, squeeze, fatigue or quietness. The STL slice
+does not verify Orca's separate GUI STEP import.
+
+Compare C16 with B16 first: both have the same nominal cavity and total lining,
+so that comparison holds more geometry constant than C12. Use the same shell,
+nut, spool and grip; inspect the print, gently insert/remove it, then compare
+repeatable X/Y/Z shaking. Record tears, permanent distortion, fit/squeeze and
+sharp ticks separately. C12 changes thickness and cavity size together. No
+printed result or minimum safe thickness is established for C yet.
+
+| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| --- | --- | --- | --- |
+| Solid C control pairs | No — newly supplied test pieces | `solid_C12`, `solid_C16`, each `.py/.step/.stl` | Print integrity, labels, insertion/removal, squeeze and damping comparison pending |
+| Final application liner | N/A — experiment phase | None new | These controls do not qualify transfer to the dental liner |
 
 ## Surface-finish coupons — 2026-10-17
 
@@ -1086,3 +1177,9 @@ Surface-coupon phase, 2026-10-17: primary language model GPT-6 family; exact
 runtime identifier and reasoning effort not exposed. Harness: Codex shared-workspace
 CLI/API agent; provider OpenAI. No subagents or third-party geometry. Prior
 user-supplied attribution above is historical and is not inferred for this phase.
+
+Solid-control phase, 2026-10-20: primary language model GPT-6 family; exact runtime
+identifier/reasoning effort not exposed. Harness: Codex shared-workspace CLI/API
+agent; provider OpenAI. No subagents. Solid C12/C16 comparison is user-requested;
+this phase authors the parametric solid geometry, markings and checks, retaining
+the established fixture, R2 pad interface and attributed print profiles.
