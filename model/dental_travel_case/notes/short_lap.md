@@ -1,5 +1,53 @@
 # Short-lap slim box — end-wall snaps, separate cap
 
+## Practical stopping and explanation feedback
+
+The user requests a practical finish line, useful visual explanations and
+technical quantities paired with everyday meaning. They reject continued work
+on analysis-generated problems once adequate evidence answers the actual design
+decision. This is workflow feedback, not a physical print report or a new
+acceptance load. The 10 N comparison was an agent-selected screen; it was never
+the user's definition of an ordinary bag knock.
+
+**Current decision:** retain the existing 30 mm prototype and finish this
+computational branch. No further solver attempts, overlap changes or reinforcement
+are justified by an unknown result alone. Bag-impact resistance remains unverified;
+finishing the branch does not manufacture a pass. A direct trial of the existing
+full prototype is an available way to learn about actual use, not an automatically
+required new test campaign. The detailed recommendations below describe the
+earlier investigation and possible evidence routes; they are not authorization
+to keep extending it.
+
+Start with these explanations:
+
+- [What was actually tried — SVG](short_lap/sideways_test_map.svg): where the
+  computer held and pushed the box, the two directions, useful results, unsuccessful
+  attempts and tests never performed. **There were no physical knocks or dynamic
+  impact simulations.**
+- [What the 12.6 N result means — SVG](short_lap/sideways_result_explained.svg):
+  about the force needed to hold up 1.3 kg, with the actual simulated shape and
+  a common-scale comparison of the remaining catch geometry. This force analogy
+  is not an equivalent impact or safe travel load.
+
+The diagrams reuse retained data and the actual native section; no new CAD,
+physics solves or slices were run. Editable, reproducible source:
+[short_lap_explained.py](../short_lap_explained.py), run with
+`./execute.py --threads 1 model/dental_travel_case/short_lap_explained.py`.
+PNG previews accompany both SVGs. Values and evidence limits come from the linked
+snapshot records below; the schematic holding/direction drawings are labeled.
+
+The failure in the workflow was letting solver troubleshooting dominate the
+conversation without showing how each attempt could change a practical decision.
+The explanations compounded this by quoting unfamiliar forces and referring to
+plots without making the test setup and meaning visible. Existing guidance
+already required SVG mechanism explanations and decision-led methods; this
+feedback strengthens that early routing rather than creating another report or
+approval gate. The owning updates are
+[practical stopping criteria](../../../.codex/skills/cadquery-3d-design/references/design-decisions.md#adaptive-development-and-the-next-deliverable),
+[method choice](../../../.codex/skills/engineering-method-selection/SKILL.md#choose-from-the-decision),
+[engineering explanation preferences](../../../.codex/skills/cadquery-3d-design/references/user-preferences.md#engineering-computation)
+and [documentation explanations](../../../.codex/skills/documentation-writing/SKILL.md#explain-the-change-in-terms-of-its-consequence).
+
 ## Authorized direction — 2026-10-19
 
 The user discards the hinged box and reopens the small-bite wall-snap direction.

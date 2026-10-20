@@ -20,6 +20,19 @@ geometry or physics: rigid motion or deformation, inertia, contact/friction,
 material behavior, anatomy and boundary conditions. Prefer a representation that
 retains the decisive behavior and produces interpretable evidence.
 
+Use the design reference's
+[practical finish line](../cadquery-3d-design/references/design-decisions.md#adaptive-development-and-the-next-deliverable)
+when deciding whether more fidelity is worthwhile. Before an additional solver
+adaptation, state which keep/change decision it can resolve, why its result would
+be interpretable, and whether a simpler existing result or direct observation
+already suffices. Improving convergence is useful only through that product
+decision. A numerical limitation is a limitation of the attempted evidence;
+do not manufacture a product defect, new acceptance demand or indefinite solver
+project from it. A scoped practical decision can be complete while a physical
+rating remains unknown. This does not promote incomplete evidence to PASS or
+permit a computation deadline; it changes which work is worth starting. See the
+[dental feedback](../../../model/dental_travel_case/notes/short_lap.md#practical-stopping-and-explanation-feedback).
+
 The recommendation is a preferred starting point, not an exclusive assignment.
 Use it when it adequately represents the governing physics. Challenge it when
 concrete limitations, evidence or problem characteristics justify a different

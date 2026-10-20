@@ -192,6 +192,20 @@ preference for future rounds. [Evidence](../../../../model/filament_swatch_box_s
 
 ## Engineering computation
 
+**Engineering explanations, 2026-10-20:** mix precise technical quantities with
+everyday meaning and explain what decision they support. For example, 12.6 N is
+roughly the force needed to hold up 1.3 kg; that analogy does not equate a steady
+push with a knock. Provide useful SVG explanations during the discussion:
+where the object is held, where/how it is pushed, movement/contact sequence,
+comparable results, and which trials were completed, attempted or never done.
+Do not rely on technical prose or an unannotated solver plot when the user needs
+to understand the mechanism. The user explicitly requests practical stopping
+criteria and rejects chasing analysis-generated problems after sufficient
+evidence exists for the actual decision. Follow the
+[owning decision guidance](design-decisions.md#adaptive-development-and-the-next-deliverable);
+keep physical unknowns visible without automatically expanding the task.
+[Source and explanatory SVGs](../../../../model/dental_travel_case/notes/short_lap.md#practical-stopping-and-explanation-feedback).
+
 For mechanical joints and catches, include a cross-section SVG explaining how
 the interface holds, guides and releases. Draw movement and contact order at
 comparable scale to show whether a numerical improvement physically matters,

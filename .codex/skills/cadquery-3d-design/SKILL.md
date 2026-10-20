@@ -102,6 +102,10 @@ argument parsers, extra flags and output formats are prohibited.
 
 ## Build and review against intent
 
+Before a consequential investigation, establish its
+[practical finish line](references/design-decisions.md#adaptive-development-and-the-next-deliverable)
+and apply the user's [engineering explanation preferences](references/user-preferences.md#engineering-computation).
+
 Use the shared evaluator to establish valid geometry and inspect errors. Repair
 the smallest underlying cause of a build failure; simplify repeated failing
 construction. Read dimensions from source/notes, then measure actual CAD only

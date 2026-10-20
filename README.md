@@ -133,6 +133,10 @@ almost all capture at one bite while the other remains engaged. The coupled
 release investigation is **INCONCLUSIVE**; impact resistance remains unverified.
 The 30 mm prototype remains unprinted; do not infer a safe
 side-hit force from the static stiffness or straight-pull screens.
+[Visual test map](model/dental_travel_case/notes/short_lap/sideways_test_map.svg) ·
+[12.6 N result in everyday terms](model/dental_travel_case/notes/short_lap/sideways_result_explained.svg).
+The [workflow feedback](model/dental_travel_case/notes/short_lap.md#practical-stopping-and-explanation-feedback)
+closes this numerical branch and records practical stopping and visual-explanation lessons.
 
 [M1 full-box feedback and retained files](model/dental_travel_case/notes/m1.md) · [Separate M2B retention investigation](model/dental_travel_case/notes/m2.md)
 

@@ -50,6 +50,20 @@ uncertainty before work that depends on it. Consider total development, feedback
 and print cost, not just CAD build time. Record the next decision, useful evidence
 and intended deliverable briefly in existing notes; no new phase schema is needed.
 
+For a consequential investigation, make the practical finish line explicit before
+expensive work: the use being protected, the result that would keep or change the
+design, and what evidence is enough for the current phase. Explain agent-selected
+screening loads in everyday terms and label them as provisional; do not turn them
+into new user requirements. When adequate evidence answers that decision, finish
+the phase with its scoped conclusion and remaining unknowns. Do not raise the bar
+afterward merely because more analysis is possible. An unresolved quantity or a
+solver failure alone does not justify a redesign, another solve, or a mandatory
+physical-test campaign. Reopen work for a concrete uncovered use/failure or a
+result that could change the practical decision. The
+[dental side-push feedback](../../../../model/dental_travel_case/notes/short_lap.md#practical-stopping-and-explanation-feedback)
+shows how an initially useful investigation drifted into solving the analysis
+itself without a clearly communicated stopping decision.
+
 | Task and remaining uncertainty | Appropriate next investment |
 | --- | --- |
 | Straightforward, well-specified object; little subjective or mechanical uncertainty | Direct complete implementation with applicable CAD, FDM and delivery checks. No preliminary variants, intermediate approvals or coupons by default. |

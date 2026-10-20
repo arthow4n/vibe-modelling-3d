@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1210" viewBox="0 0 1200 1210" role="img">
+<title>What was actually tried on the dental box</title>
+<desc>Computer studies of steady pushes and rocking. No physical knocks or impact simulation were performed.</desc>
+<defs><marker id="push" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#e49b43"/></marker></defs>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1200" height="1210" rx="0" fill="#f3f6f8" stroke="#d6e0e7"/>
+<text x="35" y="52" font-size="32" fill="#172b3a" font-weight="bold">What was actually tried on the dental box</text>
+<text x="35" y="88" font-size="18" fill="#172b3a" font-weight="normal">Computer studies of steady pushes and rocking. No physical knocks or impact simulation were performed.</text>
+<rect x="35" y="120" width="545" height="450" rx="16" fill="white" stroke="#d6e0e7"/>
+<rect x="600" y="120" width="565" height="450" rx="16" fill="white" stroke="#d6e0e7"/>
+<text x="60" y="157" font-size="23" fill="#172b3a" font-weight="bold">1  Where the computer pushed</text>
+<text x="625" y="157" font-size="23" fill="#172b3a" font-weight="bold">2  Which directions were studied</text>
+<rect x="135" y="220" width="90" height="280" rx="12" fill="#edf4f9" stroke="#4187b5"/>
+<rect x="135" y="220" width="90" height="96" rx="12" fill="#fae7cc" stroke="#e49b43"/>
+<rect x="142" y="284" width="76" height="32" fill="none" stroke="#4187b5" stroke-width="3" stroke-dasharray="6 4"/>
+<path d="M130,316 H230" stroke="#172b3a" stroke-width="2"/>
+<rect x="112" y="330" width="136" height="10" fill="#617581"/>
+<rect x="130" y="341" width="100" height="165" fill="#f3f6f8" opacity=".8"/>
+<path d="M60,235 L128,235" fill="none" stroke="#e49b43" stroke-width="4" marker-end="url(#push)"/>
+<text x="60" y="207" font-size="17" fill="#172b3a" font-weight="normal">Side push</text>
+<text x="270" y="238" font-size="21" fill="#e49b43" font-weight="bold">Lid / cap</text>
+<text x="270" y="268" font-size="17" fill="#172b3a" font-weight="normal">90 mm from seam to tip</text>
+<text x="270" y="302" font-size="19" fill="#4187b5" font-weight="bold">30 mm overlap</text>
+<text x="270" y="338" font-size="19" fill="#172b3a" font-weight="bold">Body held here</text>
+<text x="270" y="366" font-size="17" fill="#172b3a" font-weight="normal">16 mm below the seam</text>
+<text x="65" y="465" font-size="16" fill="#172b3a" font-weight="normal">Faded lower body: omitted from this contact model.</text>
+<text x="65" y="501" font-size="18" fill="#172b3a" font-weight="normal">The lid could lift as it moved sideways.</text>
+<text x="65" y="536" font-size="16" fill="#172b3a" font-weight="normal">Simplified drawing; contents and inertia were omitted.</text>
+<text x="625" y="192" font-size="17" fill="#172b3a" font-weight="normal">Looking down the long axis (schematic)</text>
+<rect x="790" y="262" width="165" height="114" rx="25" fill="#fae7cc" stroke="#e49b43"/>
+<rect x="802" y="274" width="141" height="90" rx="21" fill="#edf4f9" stroke="#4187b5"/>
+<rect x="796" y="311" width="12" height="17" rx="2" fill="#4187b5" stroke="#4187b5"/>
+<rect x="937" y="311" width="12" height="17" rx="2" fill="#4187b5" stroke="#4187b5"/>
+<path d="M658,319 L777,319" fill="none" stroke="#e49b43" stroke-width="4" marker-end="url(#push)"/>
+<text x="625" y="248" font-size="18" fill="#172b3a" font-weight="normal">Widthwise / end push (X)</text>
+<path d="M872,205 L872,251" fill="none" stroke="#e49b43" stroke-width="4" marker-end="url(#push)"/>
+<text x="975" y="238" font-size="18" fill="#172b3a" font-weight="normal">Broad-face</text>
+<text x="975" y="263" font-size="18" fill="#172b3a" font-weight="normal">push (Y)</text>
+<text x="805" y="410" font-size="19" fill="#4187b5" font-weight="bold">Two end catches</text>
+<text x="625" y="458" font-size="18" fill="#172b3a" font-weight="normal">Only centered +X and +Y were driven.</text>
+<text x="625" y="489" font-size="17" fill="#172b3a" font-weight="normal">Mirror-half models reduced the calculation.</text>
+<text x="625" y="532" font-size="17" fill="#172b3a" font-weight="normal">No diagonal or corner impact was simulated.</text>
+<rect x="35" y="595" width="1130" height="355" rx="16" fill="white" stroke="#d6e0e7"/>
+<text x="60" y="634" font-size="23" fill="#172b3a" font-weight="bold">3  What each study actually tells us</text>
+<text x="60" y="676" font-size="18" fill="#172b3a" font-weight="bold">Rigid rocking (CAD)</text>
+<text x="330" y="676" font-size="17" fill="#172b3a" font-weight="normal">Both rocking axes, with small initial side shifts.</text>
+<text x="330" y="700" font-size="16" fill="#526573" font-weight="normal">Shows which tooth or guide touches first; says nothing about hit strength.</text>
+<text x="60" y="733" font-size="18" fill="#172b3a" font-weight="bold">Widthwise steady push</text>
+<text x="330" y="733" font-size="17" fill="#172b3a" font-weight="normal">12.64 N ≈ holding 1.29 kg.</text>
+<text x="330" y="757" font-size="16" fill="#526573" font-weight="normal">One catch nearly clear; the other still catches. See the second diagram.</text>
+<text x="60" y="790" font-size="18" fill="#172b3a" font-weight="bold">Broad-face steady push</text>
+<text x="330" y="790" font-size="17" fill="#172b3a" font-weight="normal">Last complete frame: about 0.003 N, mostly taking up play.</text>
+<text x="330" y="814" font-size="16" fill="#526573" font-weight="normal">Higher-load output was incomplete, so it gives no useful force rating.</text>
+<text x="60" y="847" font-size="18" fill="#172b3a" font-weight="bold">Earlier simplified checks</text>
+<text x="330" y="847" font-size="17" fill="#172b3a" font-weight="normal">2 N side-bearing stiffness; about 11.2 N centered pull estimate.</text>
+<text x="330" y="871" font-size="16" fill="#526573" font-weight="normal">Different load cases and assumptions; these were not sideways knock tests.</text>
+<text x="60" y="904" font-size="18" fill="#172b3a" font-weight="bold">Different solver setups</text>
+<text x="330" y="904" font-size="17" fill="#172b3a" font-weight="normal">Full / half model, seating first, shifted cap, coarser steps.</text>
+<text x="330" y="928" font-size="16" fill="#526573" font-weight="normal">These are calculation attempts, not extra knocks that the box survived.</text>
+<rect x="35" y="975" width="550" height="190" rx="16" fill="#fff3dd" stroke="#efc477"/>
+<rect x="605" y="975" width="560" height="190" rx="16" fill="#eaf1f7" stroke="#d6e0e7"/>
+<text x="60" y="1013" font-size="22" fill="#172b3a" font-weight="bold">Still untested</text>
+<text x="60" y="1048" font-size="18" fill="#172b3a" font-weight="normal">Actual bag knocks • impact timing • corners</text>
+<text x="60" y="1080" font-size="18" fill="#172b3a" font-weight="normal">Return to fully latched after a side push</text>
+<text x="60" y="1112" font-size="18" fill="#172b3a" font-weight="normal">Printed material, friction and loaded contents</text>
+<text x="630" y="1013" font-size="22" fill="#172b3a" font-weight="bold">Practical decision now</text>
+<text x="630" y="1048" font-size="19" fill="#172b3a" font-weight="normal">Keep the existing 30 mm prototype.</text>
+<text x="630" y="1080" font-size="18" fill="#172b3a" font-weight="normal">This numerical branch is finished.</text>
+<text x="630" y="1112" font-size="17" fill="#172b3a" font-weight="normal">Reopen for evidence that can change the design.</text>
+</g>
+<metadata>{&quot;source_sha256&quot;: {&quot;short_lap_explained.py&quot;: &quot;72b422ed47cf9306e910dfe6d34bfa6640e48310511835a7f66f5185bf9acd32&quot;, &quot;short_lap_lateral.py&quot;: &quot;6003880d854c28f38a0485c6660ef44491718609593ed62a92b9fe5b99dd6390&quot;, &quot;notes/short_lap/rocking.json&quot;: &quot;50adede908f8f09110ee9c35e93a9ec4cdd730efbb1f31d8ee2ec94c0ea20492&quot;, &quot;notes/short_lap/lateral_capture_seated_x_0.2.json&quot;: &quot;ec14a67ef2d0391c833927e1199c531f86a87f517c5953394699ff0955cfefe6&quot;, &quot;notes/short_lap/lateral_capture_seated_y_0.14.json&quot;: &quot;4a613d25fbb7c54b1a14458b7caebfdf69e4fb93cb1076c0238c75f901d551fb&quot;, &quot;notes/short_lap/reinforced.json&quot;: &quot;80774c8a6dc66d6ac6c5aecd27a13862b90fce552550a3c47fb86cb1fb32dde8&quot;, &quot;notes/short_lap/reinforced_side.json&quot;: &quot;2b2f7d16b32c663eadb7b724e35cdc1416f7bde9339a73f16f5adbaf2af84011&quot;}, &quot;scope&quot;: &quot;Explanatory diagrams from retained evidence; no new simulation or physical test.&quot;}</metadata>
+</svg>

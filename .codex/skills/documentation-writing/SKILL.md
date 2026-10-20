@@ -45,6 +45,18 @@ acceptance thresholds and physical unknowns beside the conclusion they qualify.
 Use short tables for genuinely comparable facts; keep investigation narratives
 in paragraphs with navigable headings rather than enormous table cells.
 
+For engineering explanations, pair consequential technical quantities with a
+familiar interpretation and their practical consequence. Preserve units and
+limits: an equivalent held weight explains force magnitude, not impact severity.
+Use an annotated SVG or comparable visual when spatial contact, loading or a
+result comparison is otherwise hard to follow. Show restraint, push direction,
+movement and evidence status; distinguish completed digital trials, unsuccessful
+attempts, proposed tests and physical observations. Put these explanations at the
+decision point, with direct links in the handoff. A raw solver plot or a file
+path without an understandable explanation is insufficient for that reader need.
+The user's [dental feedback](../../../model/dental_travel_case/notes/short_lap.md#practical-stopping-and-explanation-feedback)
+requests technical language mixed with everyday terms and useful visualizations.
+
 ## Organize by responsibility and reading depth
 
 - **Current understanding:** the README or existing authoritative current record
