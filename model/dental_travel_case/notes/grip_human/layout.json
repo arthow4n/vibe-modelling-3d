@@ -1,0 +1,277 @@
+{
+  "selected": "selected",
+  "candidates": {
+    "near": {
+      "layout": {
+        "cap_center_mm": 40.0,
+        "body_center_mm": -15.0,
+        "band_width_mm": 20.0,
+        "depth_mm": 0.7
+      },
+      "metrics": {
+        "cap_extent_mm": [
+          30.0,
+          50.0
+        ],
+        "body_extent_mm": [
+          -25.0,
+          -5.0
+        ],
+        "sleeve_end_mm": 30.0,
+        "backing_end_mm": 39.0,
+        "cap_length_mm": 90.0,
+        "cap_backing_gap_mm": -9.0,
+        "cap_sleeve_gap_mm": 0.0,
+        "cap_closed_end_gap_mm": 40.0,
+        "cap_end_round_gap_mm": 36.0,
+        "body_seam_gap_mm": 5.0,
+        "body_bottom_round_gap_mm": 145.0,
+        "axial_band_gap_mm": 35.0,
+        "center_separation_mm": 55.0,
+        "local_inner_width_mm": 70.39999999999999,
+        "local_inner_depth_mm": 47.400000000000006
+      },
+      "checks": {
+        "cap_beyond_backing": false,
+        "cap_beyond_sleeve": true,
+        "cap_before_end_round": true,
+        "body_below_seam": true,
+        "body_above_bottom_round": true,
+        "distinct_band_zones": true,
+        "positive_inward_section": true
+      },
+      "travel": [
+        {
+          "cap_lift_mm": 0.0,
+          "axial_band_gap_mm": 35.0,
+          "cap_center_mm": 40.0,
+          "body_center_mm": -15.0
+        },
+        {
+          "cap_lift_mm": 6.0,
+          "axial_band_gap_mm": 41.0,
+          "cap_center_mm": 46.0,
+          "body_center_mm": -15.0
+        },
+        {
+          "cap_lift_mm": 30.0,
+          "axial_band_gap_mm": 65.0,
+          "cap_center_mm": 70.0,
+          "body_center_mm": -15.0
+        },
+        {
+          "cap_lift_mm": 90.0,
+          "axial_band_gap_mm": 125.0,
+          "cap_center_mm": 130.0,
+          "body_center_mm": -15.0
+        }
+      ],
+      "accepted": false,
+      "scope": "Nominal band zones and prescribed axial motion; no anatomical grasp, force, packing or print qualification"
+    },
+    "previous": {
+      "layout": {
+        "cap_center_mm": 50.0,
+        "body_center_mm": -30.0,
+        "band_width_mm": 20.0,
+        "depth_mm": 0.7
+      },
+      "metrics": {
+        "cap_extent_mm": [
+          40.0,
+          60.0
+        ],
+        "body_extent_mm": [
+          -40.0,
+          -20.0
+        ],
+        "sleeve_end_mm": 30.0,
+        "backing_end_mm": 39.0,
+        "cap_length_mm": 90.0,
+        "cap_backing_gap_mm": 1.0,
+        "cap_sleeve_gap_mm": 10.0,
+        "cap_closed_end_gap_mm": 30.0,
+        "cap_end_round_gap_mm": 26.0,
+        "body_seam_gap_mm": 20.0,
+        "body_bottom_round_gap_mm": 130.0,
+        "axial_band_gap_mm": 60.0,
+        "center_separation_mm": 80.0,
+        "local_inner_width_mm": 70.39999999999999,
+        "local_inner_depth_mm": 47.400000000000006
+      },
+      "checks": {
+        "cap_beyond_backing": true,
+        "cap_beyond_sleeve": true,
+        "cap_before_end_round": true,
+        "body_below_seam": true,
+        "body_above_bottom_round": true,
+        "distinct_band_zones": true,
+        "positive_inward_section": true
+      },
+      "travel": [
+        {
+          "cap_lift_mm": 0.0,
+          "axial_band_gap_mm": 60.0,
+          "cap_center_mm": 50.0,
+          "body_center_mm": -30.0
+        },
+        {
+          "cap_lift_mm": 6.0,
+          "axial_band_gap_mm": 66.0,
+          "cap_center_mm": 56.0,
+          "body_center_mm": -30.0
+        },
+        {
+          "cap_lift_mm": 30.0,
+          "axial_band_gap_mm": 90.0,
+          "cap_center_mm": 80.0,
+          "body_center_mm": -30.0
+        },
+        {
+          "cap_lift_mm": 90.0,
+          "axial_band_gap_mm": 150.0,
+          "cap_center_mm": 140.0,
+          "body_center_mm": -30.0
+        }
+      ],
+      "accepted": true,
+      "scope": "Nominal band zones and prescribed axial motion; no anatomical grasp, force, packing or print qualification"
+    },
+    "selected": {
+      "layout": {
+        "cap_center_mm": 55.0,
+        "body_center_mm": -30.0,
+        "band_width_mm": 20.0,
+        "depth_mm": 0.7
+      },
+      "metrics": {
+        "cap_extent_mm": [
+          45.0,
+          65.0
+        ],
+        "body_extent_mm": [
+          -40.0,
+          -20.0
+        ],
+        "sleeve_end_mm": 30.0,
+        "backing_end_mm": 39.0,
+        "cap_length_mm": 90.0,
+        "cap_backing_gap_mm": 6.0,
+        "cap_sleeve_gap_mm": 15.0,
+        "cap_closed_end_gap_mm": 25.0,
+        "cap_end_round_gap_mm": 21.0,
+        "body_seam_gap_mm": 20.0,
+        "body_bottom_round_gap_mm": 130.0,
+        "axial_band_gap_mm": 65.0,
+        "center_separation_mm": 85.0,
+        "local_inner_width_mm": 70.39999999999999,
+        "local_inner_depth_mm": 47.400000000000006
+      },
+      "checks": {
+        "cap_beyond_backing": true,
+        "cap_beyond_sleeve": true,
+        "cap_before_end_round": true,
+        "body_below_seam": true,
+        "body_above_bottom_round": true,
+        "distinct_band_zones": true,
+        "positive_inward_section": true
+      },
+      "travel": [
+        {
+          "cap_lift_mm": 0.0,
+          "axial_band_gap_mm": 65.0,
+          "cap_center_mm": 55.0,
+          "body_center_mm": -30.0
+        },
+        {
+          "cap_lift_mm": 6.0,
+          "axial_band_gap_mm": 71.0,
+          "cap_center_mm": 61.0,
+          "body_center_mm": -30.0
+        },
+        {
+          "cap_lift_mm": 30.0,
+          "axial_band_gap_mm": 95.0,
+          "cap_center_mm": 85.0,
+          "body_center_mm": -30.0
+        },
+        {
+          "cap_lift_mm": 90.0,
+          "axial_band_gap_mm": 155.0,
+          "cap_center_mm": 145.0,
+          "body_center_mm": -30.0
+        }
+      ],
+      "accepted": true,
+      "scope": "Nominal band zones and prescribed axial motion; no anatomical grasp, force, packing or print qualification"
+    },
+    "far": {
+      "layout": {
+        "cap_center_mm": 65.0,
+        "body_center_mm": -50.0,
+        "band_width_mm": 20.0,
+        "depth_mm": 0.7
+      },
+      "metrics": {
+        "cap_extent_mm": [
+          55.0,
+          75.0
+        ],
+        "body_extent_mm": [
+          -60.0,
+          -40.0
+        ],
+        "sleeve_end_mm": 30.0,
+        "backing_end_mm": 39.0,
+        "cap_length_mm": 90.0,
+        "cap_backing_gap_mm": 16.0,
+        "cap_sleeve_gap_mm": 25.0,
+        "cap_closed_end_gap_mm": 15.0,
+        "cap_end_round_gap_mm": 11.0,
+        "body_seam_gap_mm": 40.0,
+        "body_bottom_round_gap_mm": 110.0,
+        "axial_band_gap_mm": 95.0,
+        "center_separation_mm": 115.0,
+        "local_inner_width_mm": 70.39999999999999,
+        "local_inner_depth_mm": 47.400000000000006
+      },
+      "checks": {
+        "cap_beyond_backing": true,
+        "cap_beyond_sleeve": true,
+        "cap_before_end_round": true,
+        "body_below_seam": true,
+        "body_above_bottom_round": true,
+        "distinct_band_zones": true,
+        "positive_inward_section": true
+      },
+      "travel": [
+        {
+          "cap_lift_mm": 0.0,
+          "axial_band_gap_mm": 95.0,
+          "cap_center_mm": 65.0,
+          "body_center_mm": -50.0
+        },
+        {
+          "cap_lift_mm": 6.0,
+          "axial_band_gap_mm": 101.0,
+          "cap_center_mm": 71.0,
+          "body_center_mm": -50.0
+        },
+        {
+          "cap_lift_mm": 30.0,
+          "axial_band_gap_mm": 125.0,
+          "cap_center_mm": 95.0,
+          "body_center_mm": -50.0
+        },
+        {
+          "cap_lift_mm": 90.0,
+          "axial_band_gap_mm": 185.0,
+          "cap_center_mm": 155.0,
+          "body_center_mm": -50.0
+        }
+      ],
+      "accepted": true,
+      "scope": "Nominal band zones and prescribed axial motion; no anatomical grasp, force, packing or print qualification"
+    }
+  }
+}
