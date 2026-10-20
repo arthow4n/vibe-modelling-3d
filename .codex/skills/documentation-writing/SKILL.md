@@ -54,6 +54,10 @@ movement and evidence status; distinguish completed digital trials, unsuccessful
 attempts, proposed tests and physical observations. Put these explanations at the
 decision point, with direct links in the handoff. A raw solver plot or a file
 path without an understandable explanation is insufficient for that reader need.
+Define every diagram colour as a physical part, material or empty region; state
+when role colours represent the same actual material. For nested/compliant
+structures, pair an assembly section with labelled before/load views showing
+what flexes into which space. Do not rely on colour alone to convey the mechanism.
 The user's [dental feedback](../../../model/dental_travel_case/notes/short_lap.md#practical-stopping-and-explanation-feedback)
 requests technical language mixed with everyday terms and useful visualizations.
 

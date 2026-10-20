@@ -8,6 +8,106 @@ insufficient as the main answer. This investigation changes the manufacturing
 sequence, component boundary or support path instead. B08/B16 stay approved;
 no new printable models or presets are made in this SVG-only phase.
 
+## Current shortlist and repaired explainer — 2026-10-21
+
+The user finds the earlier blue/green encoding unclear and cannot see how E1
+provides deformation space between the cups. They find E2/E4 unconvincing and
+are strongly doubtful about E3. **E2/E4 are dropped from the active shortlist;
+E3 is set aside.** This is concept feedback, not a physical test or a claim that
+the mechanisms were disproven. E1 remains interesting, not approved for modelling.
+The latest “fix and implement” request is implemented as the ongoing SVG
+explainer phase: new explanatory drawings and two new suggestions, no new CAD.
+
+[Current overview SVG](../renders/concepts/surface_isolation_overview.svg) ·
+[E1: two cups and attached springs](../renders/concepts/surface_isolation_separate.svg) ·
+[E5: separate corrugated insert](../renders/concepts/surface_isolation_wave.svg) ·
+[E6: hollow tube cushions](../renders/concepts/surface_isolation_tubes.svg).
+
+### Read the colours as actual parts
+
+All TPU would be **black** in the real print. The colours identify physical roles,
+not different filaments, material hardnesses or arbitrary decorative surfaces:
+
+| Drawing appearance | Physical meaning |
+| --- | --- |
+| Blue | The separately printed smooth **inner TPU cup**, touching the contents |
+| Dark grey | The **outer TPU cup**, backed by the existing rigid container |
+| Orange | **Flexible TPU spring material** in the gap; attached to the outer cup in E1, a separate insert in E5/E6 |
+| Pale grey | The **existing rigid test box**, supporting the outer cup |
+| White | **Empty space** into which springs can bend/flatten; the white bore in a tube is also empty |
+| Red arrows | An impact or assembly direction; not a material |
+| Orange diagonal hatching in the assembly view | Location of the spring region; not a solid orange slab. Individual springs are drawn in the close-up. |
+
+The whole-container side cut establishes which cup is inside which. The close-up
+then looks **down** through a wall, showing the spring before and during a local
+impact. Arrows, part labels and the legend repeat in every drawing. Drawn motion
+is deliberately exaggerated, not computed deformation. The content proxy is a
+small circle labelled “nut”, not a new container component.
+
+### Where E1's damping space is
+
+**Nut → inner cup → flexing TPU springs → outer cup → existing rigid box.**
+The two cups do not occupy the same wall position. There is a real gap between
+them, partially occupied by curved spring loops. When a local inner panel is
+pushed outward, those loops bend into the remaining white space. The rigid box
+backs the outer cup; the drawing does not require the whole inner cup to slide
+sideways as a rigid body. TPU flexing is intended to cushion the impact and
+dissipate some energy. Empty air alone is not the intended damper and no sealed
+pneumatic chamber is assumed.
+
+E1's orange loops are part of the outer cup, with their tips contacting the inner
+cup after assembly. They are **not bonded to the inner cup**, and the inner cup
+is printed independently with no cell junctions beside its visible surface.
+The new cartoon shows engaged tips before the impact. The earlier 0.2 mm take-up
+budget was an unselected example; actual fit/preload and travel are still open.
+Rim retention must preserve panel movement. Solid corner lands stay in the cup
+parts and can carry stiffer local loads; they do not imply welding the two cups
+into a full-thickness solid corner across the assembly clearance.
+
+The hatched region beneath the inner floor marks a needed elastic floor pad,
+not unsupported floating clearance. The lid needs a matching elastic stack.
+Their detailed core geometry and retention remain to be designed; this wall
+explainer does not claim a complete tested assembly. Springs can still bottom
+out, rub or indent a panel after assembly, so print separation is not a guarantee
+of unchanged surface texture under use or useful damping.
+
+### Two new suggestions within the two-cup arrangement
+
+E5/E6 retain the part relationship the user finds interesting. They change the
+actual spring mechanism and manufacturing boundary, rather than rearranging
+B's dots or returning to the set-aside E2–E4 architectures.
+
+**E5 — plain cups with an independent corrugated TPU insert.** Both cups print as
+unstructured shells. A third spring piece sits in their wall gap. Folds flex and
+may slide under the inner panel's load, with end/free space for that motion.
+This removes core junctions from the print of **both** cups, unlike E1's sprung
+outer cup. The cups could be kept constant while separate inserts are compared.
+The upright wall insert can have a constant XY section and print from its lower
+edge. Its retention, fold buckling, end motion and friction are open;
+floor/lid require corresponding separate modules. The drawn folded shape is a
+qualitative proposal, not an inextensible-sheet solution or predicted stroke.
+
+**E6 — plain cups with retained hollow TPU tubes.** Round, open-ended tubes sit
+between the cups. A tube wall can flex while the round section flattens toward an
+oval; its bore and the spaces between neighbouring tubes allow movement. The
+illustrated shapes are qualitative. Leave lateral space for bulging and use
+outer retention to control rolling/migration, without welding tubes to the inner
+cup. Print tubes upright with open ends; floor tubes can be reoriented after
+printing and may need a separate tray. Ends remain vented: this proposal uses
+flexing TPU walls, not compressed sealed air. More pieces, friction, eventual
+wall contact and variable collapse force are unresolved costs.
+
+These are new discussion proposals, not print-ready variants or claims of
+better quietness. Ordinary Classic slicing, solid corner lands and unconstrained
+thickness remain applicable. Tube diameter/wall, fold thickness, part capture,
+corner clearance, floor/lid integration and all spring stiffnesses remain open.
+No custom toolpath, supports trapped inside a sealed tube, glue or new material
+is assumed.
+
+**Next discussion:** whether the explained E1 arrangement makes sense, and whether
+an attached loop, independent fold insert or hollow tube is the more useful
+spring to develop. No automatic promotion to CAD or a print recommendation.
+
 ## Clarifications that govern this exploration
 
 - Wall and overall lining thickness are **not constrained**. The old 1.6 mm
@@ -62,7 +162,10 @@ This is a surface study, not another phone dB optimization.
 
 ## Four distinct approaches
 
-[Overview SVG](../renders/concepts/surface_isolation_overview.svg).
+**Earlier exploration — superseded shortlist.** E2/E4 are now dropped and E3 is
+set aside. Their descriptions below preserve the reasoning and limits; they are
+not current recommendations. The original four-way overview is retained in Git
+`11e7b49`; the live overview now shows E1/E5/E6.
 All views are schematic, not to scale or actual future toolpaths. Illustrative
 thickness budgets show the design freedom; none is a selected requirement or a
 minimum. All retain a compliant region, unlike the rejected fully solid C liner.
@@ -216,7 +319,7 @@ comparison fixture. That choice stays open in this diagram phase.
 
 ## Suggested direction and evidence boundary
 
-**Prioritize E1 and E2 for discussion.** They change how the visible face is
+**Historical recommendation, superseded by the current shortlist above:** prioritize E1 and E2 for discussion. They change how the visible face is
 manufactured, not merely the number or placement of ties. E1 is the cleaner
 whole-container arrangement with a separate plain cup; E2 gives the strongest
 change in face orientation at the cost of many pieces. E3 is an alternative
@@ -236,7 +339,8 @@ quality, and no new CAD, smoke slice or physical result exists for E1–E4.
 | --- | --- | --- | --- |
 | Approved B08/B16 | Yes — unchanged baseline | Existing R2 pairs | Retain approval; reported surface marks remain unresolved |
 | D1–D3 | N/A — SVG concepts | Earlier D diagrams | Inadequate as the main solution; not disproven secondary experiments |
-| E1–E4 and corner concept | N/A — SVG investigation | Six new SVGs, preview images | Discuss architecture; no printable models or exports |
+| E1, E5 and E6 | N/A — SVG discussion | Repaired E1 explainer and two new core mechanisms | Explain parts, gap, deformation and assembly; no CAD or physical qualification |
+| E2/E4; E3 | N/A — superseded concepts | Earlier SVGs retained with status labels | E2/E4 dropped; E3 set aside after user doubt; not physical failures |
 | Final application liner | N/A — not designed in this phase | None new | Existing application failures remain unresolved |
 
 Attribution: primary language model GPT-6 family; exact runtime identifier and
@@ -245,3 +349,9 @@ provider OpenAI. No subagents. User supplies the correction, black-TPU report,
 thickness freedom and corner requirement. This phase authors the architectural
 investigation and vector drawings; cited sources explain process considerations,
 not validation of these proposals. No third-party diagrams or meshes copied.
+
+Explainer-repair attribution, 2026-10-21: same primary model/environment/provider
+fields as above; exact identifier/effort not exposed. User supplies the rejection
+of the earlier explanation and tentative interest in E1. This phase authors the
+role-labelled, before/impact SVGs and the E5/E6 mechanisms. No new CAD, exports,
+print settings or physical results.

@@ -1,53 +1,92 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1080" viewBox="0 0 1280 1080" role="img" aria-labelledby="title desc">
-<title id="title">E1 / A separately printed smooth cup</title>
-<desc id="desc">Concept investigation only, not to scale or evaluated CAD. Normal black TPU, no thickness cap. Blue is facing material, green is compliant structure, brown is solid corner or perimeter material. Process and assembly views show proposals, not verified toolpaths.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1440" viewBox="0 0 1440 1440" role="img" aria-labelledby="title desc">
+<title id="title">E1 / Two cups with attached flexible springs</title>
+<desc id="desc">Labelled concept only, not CAD or calculated deformation. Blue is the smooth inner TPU cup, dark grey the outer TPU cup, orange flexible TPU springs, pale grey the existing rigid box. White is empty space for the spring to bend into. All TPU is black in real life. Before and during impact sections show intended qualitative behavior, with motion exaggerated.</desc>
 <defs>
-<marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto-start-reverse">
-<path d="M0 0 L8 4 L0 8" fill="none" stroke="#bd5c24" stroke-width="1.5"/>
+<marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+<path d="M0 0 L8 4 L0 8" fill="none" stroke="#bd3434" stroke-width="1.6"/>
 </marker>
+<pattern id="zone" width="13" height="13" patternUnits="userSpaceOnUse">
+<rect width="13" height="13" fill="#fff5e8"/>
+<path d="M0 13 L13 0" stroke="#d67a20" stroke-width="3"/>
+</pattern>
 </defs>
-<g font-family="DejaVu Sans, sans-serif">
-<rect x="0" y="0" width="1280" height="1080" fill="#f1f5f8" rx="0"/>
-<text x="38" y="48" font-size="31" fill="#173247" font-weight="700">E1 / A separately printed smooth cup</text>
-<text x="38" y="83" font-size="19" fill="#173247" font-weight="400">Separate the face print from the spring carrier print.</text>
-<text x="38" y="116" font-size="16" fill="#bd5c24" font-weight="400">SVG PROPOSAL • 21 Oct 2026 • black TPU • thickness free • no new model or slice</text>
-<rect x="28" y="140" width="1224" height="365" fill="white" rx="14"/>
-<rect x="28" y="526" width="1224" height="228" fill="white" rx="14"/>
-<rect x="28" y="774" width="1224" height="252" fill="white" rx="14"/>
-<text x="52" y="178" font-size="22" fill="#173247" font-weight="700">Horizontal wall section: the face and springs are separate prints</text>
-<rect x="82" y="226" width="28" height="200" fill="#15836e" rx="0"/>
-<rect x="318" y="226" width="65" height="200" fill="#2367b1" rx="0"/>
-<path d="M110 245 C245 245 280 265 280 269 C280 283 235 289 110 289" fill="none" stroke="#15836e" stroke-width="7"/>
-<path d="M110 315 C245 315 280 335 280 339 C280 353 235 359 110 359" fill="none" stroke="#15836e" stroke-width="7"/>
-<path d="M110 385 C245 385 280 405 280 409 C280 423 235 429 110 429" fill="none" stroke="#15836e" stroke-width="7"/>
-<path d="M299 218 V440" fill="none" stroke="#bd5c24" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="62" y="468" font-size="17" fill="#15836e" font-weight="400">Carrier / spring region</text>
-<text x="294" y="468" font-size="17" fill="#2367b1" font-weight="400">Plain contact cup</text>
-<path d="M432 308 L385 308" fill="none" stroke="#bd5c24" stroke-width="3" marker-end="url(#arrow)"/>
-<text x="426" y="282" font-size="18" fill="#173247" font-weight="400">Contents</text>
-<text x="654" y="220" font-size="18" fill="#173247" font-weight="400">What changes at the face:</text>
-<text x="654" y="249" font-size="18" fill="#173247" font-weight="400">• No core junctions beside it during its print.</text>
-<text x="654" y="278" font-size="18" fill="#173247" font-weight="400">• No carrier travels or starts during its print.</text>
-<text x="654" y="307" font-size="18" fill="#173247" font-weight="400">• Nest the cooled parts; capture at the rim.</text>
-<text x="654" y="336" font-size="18" fill="#173247" font-weight="400">• Build solid lands into the cup corners.</text>
-<text x="654" y="365" font-size="18" fill="#173247" font-weight="400">Carrier springs grow vertically from a base;</text>
-<text x="654" y="394" font-size="18" fill="#173247" font-weight="400">this section repeats up the upright wall.</text>
-<text x="52" y="565" font-size="22" fill="#173247" font-weight="700">Print separately → assemble after cooling</text>
-<path d="M95 612 V697 H255 V612" fill="none" stroke="#15836e" stroke-width="12"/>
-<path d="M320 612 V697 H460 V612" fill="none" stroke="#2367b1" stroke-width="14"/>
-<path d="M275 653 L305 653" fill="none" stroke="#bd5c24" stroke-width="3" marker-end="url(#arrow)"/>
-<path d="M491 653 L552 653" fill="none" stroke="#bd5c24" stroke-width="3" marker-end="url(#arrow)"/>
-<path d="M590 600 V705 H776 V600" fill="none" stroke="#15836e" stroke-width="12"/>
-<path d="M612 607 V684 H754 V607" fill="none" stroke="#2367b1" stroke-width="14"/>
-<text x="834" y="611" font-size="17" fill="#173247" font-weight="400">Cup assembly: carrier + contact cup.</text>
-<text x="834" y="640" font-size="17" fill="#173247" font-weight="400">Lid: separate backing/core + face pad.</text>
-<text x="834" y="669" font-size="17" fill="#173247" font-weight="400">Four parts in the complete liner set.</text>
-<text x="834" y="698" font-size="17" fill="#173247" font-weight="400">Retained joints sit at boundaries.</text>
-<text x="52" y="814" font-size="22" fill="#173247" font-weight="700">What this buys — and what it does not establish</text>
-<text x="52" y="856" font-size="18" fill="#173247" font-weight="400">Example budget: 0.8 backing + 2.0 spring space + 0.2 fit + 1.6 face ≈ 4.6 mm.</text>
-<text x="52" y="890" font-size="18" fill="#173247" font-weight="400">Strong change: the internal structure is absent while the visible cup is printed.</text>
-<text x="52" y="924" font-size="18" fill="#173247" font-weight="400">Trade-off: assembly, fit take-up and spring contacts can still mark the cup in use.</text>
-<text x="52" y="958" font-size="18" fill="#173247" font-weight="400">Ordinary seams/layer lines remain. Surface and damping benefit are untested.</text>
-<text x="38" y="1060" font-size="16" fill="#bd5c24" font-weight="400">Solid corners + gradual transition required. Dimensions are discussion examples; Classic qualification comes later.</text>
+<g font-family="DejaVu Sans,sans-serif">
+<rect x="0" y="0" width="1440" height="1440" fill="#f2f5f8" rx="0"/>
+<text x="38" y="48" font-size="31" fill="#163146" font-weight="700">E1 / Two cups with attached flexible springs</text>
+<text x="38" y="91" font-size="20" fill="#163146" font-weight="700">All TPU parts are BLACK in real life. These colours identify their jobs in the drawing.</text>
+<rect x="38" y="116" width="24" height="17" fill="#2466b0" rx="0"/>
+<text x="72" y="132" font-size="17" fill="#163146" font-weight="400">Inner cup: touches contents</text>
+<rect x="390" y="116" width="24" height="17" fill="#46505c" rx="0"/>
+<text x="424" y="132" font-size="17" fill="#163146" font-weight="400">Outer TPU cup</text>
+<rect x="666" y="116" width="24" height="17" fill="#d67a20" rx="0"/>
+<text x="700" y="132" font-size="17" fill="#163146" font-weight="400">TPU that flexes</text>
+<rect x="965" y="116" width="24" height="17" fill="#cbd3da" rx="0"/>
+<text x="999" y="132" font-size="17" fill="#163146" font-weight="400">Existing rigid test box</text>
+<text x="38" y="163" font-size="18" fill="#163146" font-weight="400">WHITE = empty space for movement. Air is vented; the flexing TPU is the proposed damping element.</text>
+<rect x="28" y="188" width="1384" height="330" fill="white" rx="13"/>
+<text x="52" y="226" font-size="25" fill="#163146" font-weight="700">1 / The parts and where the damping space is</text>
+<path d="M82 287 V430 H297 V287" stroke="#46505c" stroke-width="14" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<rect x="98" y="307" width="24" height="105" fill="url(#zone)" rx="0"/>
+<rect x="258" y="307" width="24" height="105" fill="url(#zone)" rx="0"/>
+<text x="55" y="468" font-size="17" fill="#163146" font-weight="400">A: sprung outer cup / side cut</text>
+<path d="M411 287 V410 H577 V287" stroke="#2466b0" stroke-width="17" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<text x="378" y="468" font-size="17" fill="#163146" font-weight="400">B: inner cup / side cut</text>
+<path d="M638 360 L708 360" stroke="#bd3434" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<path d="M800 284 V477 H1264 V284" stroke="#cbd3da" stroke-width="17" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<path d="M815 294 V462 H1249 V294" stroke="#46505c" stroke-width="14" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<path d="M913 300 V407 H1151 V300" stroke="#2466b0" stroke-width="18" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<rect x="822" y="308" width="82" height="108" fill="url(#zone)" rx="0"/>
+<rect x="1160" y="308" width="82" height="108" fill="url(#zone)" rx="0"/>
+<rect x="822" y="416" width="420" height="39" fill="url(#zone)" rx="0"/>
+<text x="847" y="250" font-size="19" fill="#163146" font-weight="700">Assembled in the box — side cut</text>
+<text x="851" y="498" font-size="16" fill="#163146" font-weight="400">Hatching locates the spring region; it is not solid fill.</text>
+<rect x="28" y="537" width="1384" height="491" fill="white" rx="13"/>
+<text x="52" y="575" font-size="25" fill="#163146" font-weight="700">2 / Look DOWN through one wall: before and during an impact</text>
+<text x="70" y="617" font-size="20" fill="#163146" font-weight="700">Before: springs contact the cup</text>
+<text x="771" y="617" font-size="20" fill="#163146" font-weight="700">During: the local inner wall pushes outward</text>
+<rect x="84" y="663" width="22" height="226" fill="#cbd3da" rx="0"/>
+<rect x="115" y="663" width="24" height="226" fill="#46505c" rx="0"/>
+<rect x="314" y="663" width="34" height="226" fill="#2466b0" rx="0"/>
+<path d="M139 683 C285 683 309 711 309 720 C309 741 289 759 139 759" stroke="#d67a20" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<path d="M139 786 C285 786 309 814 309 823 C309 844 289 862 139 862" stroke="#d67a20" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<circle cx="378" cy="775" r="28" fill="white" stroke="#163146" stroke-width="2"/>
+<text x="362" y="781" font-size="15" fill="#163146" font-weight="400">nut</text>
+<path d="M452 775 L408 775" stroke="#bd3434" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="84" y="648" font-size="16" fill="#163146" font-weight="400">Box</text>
+<text x="112" y="916" font-size="16" fill="#163146" font-weight="400">Outer cup</text>
+<text x="302" y="944" font-size="16" fill="#2466b0" font-weight="400">Inner cup</text>
+<text x="115" y="972" font-size="15" fill="#163146" font-weight="400">White: free space</text>
+<rect x="785" y="663" width="22" height="226" fill="#cbd3da" rx="0"/>
+<rect x="816" y="663" width="24" height="226" fill="#46505c" rx="0"/>
+<rect x="949" y="663" width="34" height="226" fill="#2466b0" rx="0"/>
+<path d="M840 683 C920 683 944 711 944 720 C944 741 924 759 840 759" stroke="#d67a20" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<path d="M840 786 C920 786 944 814 944 823 C944 844 924 862 840 862" stroke="#d67a20" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<circle cx="1013" cy="775" r="28" fill="white" stroke="#163146" stroke-width="2"/>
+<text x="997" y="781" font-size="15" fill="#163146" font-weight="400">nut</text>
+<path d="M1087 775 L1043 775" stroke="#bd3434" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="785" y="648" font-size="16" fill="#163146" font-weight="400">Box</text>
+<text x="813" y="916" font-size="16" fill="#163146" font-weight="400">Outer cup</text>
+<text x="937" y="944" font-size="16" fill="#2466b0" font-weight="400">Inner cup</text>
+<text x="816" y="972" font-size="15" fill="#163146" font-weight="400">White: free space</text>
+<text x="500" y="698" font-size="17" fill="#163146" font-weight="400">Orange = actual</text>
+<text x="500" y="723" font-size="17" fill="#163146" font-weight="400">flexible material.</text>
+<text x="500" y="748" font-size="17" fill="#163146" font-weight="400">
+</text>
+<text x="500" y="773" font-size="17" fill="#163146" font-weight="400">It bends into the</text>
+<text x="500" y="798" font-size="17" fill="#163146" font-weight="400">WHITE space.</text>
+<text x="500" y="823" font-size="17" fill="#163146" font-weight="400">
+</text>
+<text x="500" y="848" font-size="17" fill="#163146" font-weight="400">The close-up shows</text>
+<text x="500" y="873" font-size="17" fill="#163146" font-weight="400">shape, not a solid slab.</text>
+<text x="75" y="993" font-size="17" fill="#163146" font-weight="400">The outer cup is backed by the rigid box. The inner panel flexes locally; the whole cup is not sliding sideways.</text>
+<rect x="28" y="1047" width="1384" height="340" fill="white" rx="13"/>
+<text x="52" y="1087" font-size="25" fill="#163146" font-weight="700">3 / What this is meant to do</text>
+<text x="52" y="1130" font-size="19" fill="#163146" font-weight="400">Impact path: nut → smooth inner cup → curved TPU springs → outer cup → existing rigid box.</text>
+<text x="52" y="1164" font-size="19" fill="#163146" font-weight="400">Orange springs are attached to the outer cup, but NOT printed against or bonded to the inner cup.</text>
+<text x="52" y="1198" font-size="19" fill="#163146" font-weight="400">The inner cup is printed separately with no core junctions beside its visible surface.</text>
+<text x="52" y="1232" font-size="19" fill="#163146" font-weight="400">Floor and lid need matching elastic pads. Solid corner lands stay in each cup; no welded cup-to-cup bridge.</text>
+<text x="52" y="1266" font-size="19" fill="#163146" font-weight="400">TPU flexing is intended to provide cushioning and dissipate energy. Air alone is not the damping mechanism.</text>
+<text x="52" y="1300" font-size="19" fill="#163146" font-weight="400">Risks still open: spring stiffness, fit/preload, rubbing, bottoming and support marks under load.</text>
+<text x="38" y="1420" font-size="16" fill="#bd3434" font-weight="400">CONCEPT ONLY • motion exaggerated • no computed force, proven finish or acoustic result • ordinary Classic remains required</text>
 </g>
 </svg>

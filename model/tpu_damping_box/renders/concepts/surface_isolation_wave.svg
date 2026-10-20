@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1440" viewBox="0 0 1440 1440" role="img" aria-labelledby="title desc">
+<title id="title">E5 / Plain cups with a separate corrugated insert</title>
+<desc id="desc">Labelled concept only, not CAD or calculated deformation. Blue is the smooth inner TPU cup, dark grey the outer TPU cup, orange flexible TPU springs, pale grey the existing rigid box. White is empty space for the spring to bend into. All TPU is black in real life. Before and during impact sections show intended qualitative behavior, with motion exaggerated.</desc>
+<defs>
+<marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+<path d="M0 0 L8 4 L0 8" fill="none" stroke="#bd3434" stroke-width="1.6"/>
+</marker>
+<pattern id="zone" width="13" height="13" patternUnits="userSpaceOnUse">
+<rect width="13" height="13" fill="#fff5e8"/>
+<path d="M0 13 L13 0" stroke="#d67a20" stroke-width="3"/>
+</pattern>
+</defs>
+<g font-family="DejaVu Sans,sans-serif">
+<rect x="0" y="0" width="1440" height="1440" fill="#f2f5f8" rx="0"/>
+<text x="38" y="48" font-size="31" fill="#163146" font-weight="700">E5 / Plain cups with a separate corrugated insert</text>
+<text x="38" y="91" font-size="20" fill="#163146" font-weight="700">All TPU parts are BLACK in real life. These colours identify their jobs in the drawing.</text>
+<rect x="38" y="116" width="24" height="17" fill="#2466b0" rx="0"/>
+<text x="72" y="132" font-size="17" fill="#163146" font-weight="400">Inner cup: touches contents</text>
+<rect x="390" y="116" width="24" height="17" fill="#46505c" rx="0"/>
+<text x="424" y="132" font-size="17" fill="#163146" font-weight="400">Outer TPU cup</text>
+<rect x="666" y="116" width="24" height="17" fill="#d67a20" rx="0"/>
+<text x="700" y="132" font-size="17" fill="#163146" font-weight="400">TPU that flexes</text>
+<rect x="965" y="116" width="24" height="17" fill="#cbd3da" rx="0"/>
+<text x="999" y="132" font-size="17" fill="#163146" font-weight="400">Existing rigid test box</text>
+<text x="38" y="163" font-size="18" fill="#163146" font-weight="400">WHITE = empty space for movement. Air is vented; the flexing TPU is the proposed damping element.</text>
+<rect x="28" y="188" width="1384" height="330" fill="white" rx="13"/>
+<text x="52" y="226" font-size="25" fill="#163146" font-weight="700">1 / The parts and where the damping space is</text>
+<path d="M78 292 V427 H228 V292" stroke="#46505c" stroke-width="14" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<text x="55" y="468" font-size="17" fill="#163146" font-weight="400">Outer cup / side cut</text>
+<path d="M282 300 L336 326 L282 352 L336 378 L282 404" stroke="#d67a20" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<text x="250" y="468" font-size="17" fill="#163146" font-weight="400">Wave / top view</text>
+<path d="M441 292 V402 H584 V292" stroke="#2466b0" stroke-width="17" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<text x="426" y="468" font-size="17" fill="#163146" font-weight="400">Inner cup / side cut</text>
+<path d="M638 360 L708 360" stroke="#bd3434" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<path d="M800 284 V477 H1264 V284" stroke="#cbd3da" stroke-width="17" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<path d="M815 294 V462 H1249 V294" stroke="#46505c" stroke-width="14" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<path d="M913 300 V407 H1151 V300" stroke="#2466b0" stroke-width="18" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<rect x="822" y="308" width="82" height="108" fill="url(#zone)" rx="0"/>
+<rect x="1160" y="308" width="82" height="108" fill="url(#zone)" rx="0"/>
+<rect x="822" y="416" width="420" height="39" fill="url(#zone)" rx="0"/>
+<text x="847" y="250" font-size="19" fill="#163146" font-weight="700">Assembled in the box — side cut</text>
+<text x="851" y="498" font-size="16" fill="#163146" font-weight="400">Hatching locates the spring region; it is not solid fill.</text>
+<rect x="28" y="537" width="1384" height="491" fill="white" rx="13"/>
+<text x="52" y="575" font-size="25" fill="#163146" font-weight="700">2 / Look DOWN through one wall: before and during an impact</text>
+<text x="70" y="617" font-size="20" fill="#163146" font-weight="700">Before: springs contact the cup</text>
+<text x="771" y="617" font-size="20" fill="#163146" font-weight="700">During: the local inner wall pushes outward</text>
+<rect x="84" y="663" width="22" height="226" fill="#cbd3da" rx="0"/>
+<rect x="115" y="663" width="24" height="226" fill="#46505c" rx="0"/>
+<rect x="314" y="663" width="34" height="226" fill="#2466b0" rx="0"/>
+<path d="M145 677 L309 721 L145 765 L309 809 L145 853" stroke="#d67a20" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<circle cx="378" cy="775" r="28" fill="white" stroke="#163146" stroke-width="2"/>
+<text x="362" y="781" font-size="15" fill="#163146" font-weight="400">nut</text>
+<path d="M452 775 L408 775" stroke="#bd3434" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="84" y="648" font-size="16" fill="#163146" font-weight="400">Box</text>
+<text x="112" y="916" font-size="16" fill="#163146" font-weight="400">Outer cup</text>
+<text x="302" y="944" font-size="16" fill="#2466b0" font-weight="400">Inner cup</text>
+<text x="115" y="972" font-size="15" fill="#163146" font-weight="400">White: free space</text>
+<rect x="785" y="663" width="22" height="226" fill="#cbd3da" rx="0"/>
+<rect x="816" y="663" width="24" height="226" fill="#46505c" rx="0"/>
+<rect x="949" y="663" width="34" height="226" fill="#2466b0" rx="0"/>
+<path d="M846 667 Q944 698 944 716 Q944 749 846 776 Q846 803 944 833 Q944 860 846 882" stroke="#d67a20" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<circle cx="1013" cy="775" r="28" fill="white" stroke="#163146" stroke-width="2"/>
+<text x="997" y="781" font-size="15" fill="#163146" font-weight="400">nut</text>
+<path d="M1087 775 L1043 775" stroke="#bd3434" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="785" y="648" font-size="16" fill="#163146" font-weight="400">Box</text>
+<text x="813" y="916" font-size="16" fill="#163146" font-weight="400">Outer cup</text>
+<text x="937" y="944" font-size="16" fill="#2466b0" font-weight="400">Inner cup</text>
+<text x="816" y="972" font-size="15" fill="#163146" font-weight="400">White: free space</text>
+<text x="500" y="698" font-size="17" fill="#163146" font-weight="400">Orange = actual</text>
+<text x="500" y="723" font-size="17" fill="#163146" font-weight="400">flexible material.</text>
+<text x="500" y="748" font-size="17" fill="#163146" font-weight="400">
+</text>
+<text x="500" y="773" font-size="17" fill="#163146" font-weight="400">It bends into the</text>
+<text x="500" y="798" font-size="17" fill="#163146" font-weight="400">WHITE space.</text>
+<text x="500" y="823" font-size="17" fill="#163146" font-weight="400">
+</text>
+<text x="500" y="848" font-size="17" fill="#163146" font-weight="400">The close-up shows</text>
+<text x="500" y="873" font-size="17" fill="#163146" font-weight="400">shape, not a solid slab.</text>
+<text x="75" y="993" font-size="17" fill="#163146" font-weight="400">The outer cup is backed by the rigid box. The inner panel flexes locally; the whole cup is not sliding sideways.</text>
+<rect x="28" y="1047" width="1384" height="340" fill="white" rx="13"/>
+<text x="52" y="1087" font-size="25" fill="#163146" font-weight="700">3 / What this is meant to do</text>
+<text x="52" y="1130" font-size="19" fill="#163146" font-weight="400">Both cups print as plain shells. A third, removable wavy TPU piece occupies their wall gap.</text>
+<text x="52" y="1164" font-size="19" fill="#163146" font-weight="400">When the inner wall is pushed, folds flex and may slide; empty space permits that motion.</text>
+<text x="52" y="1198" font-size="19" fill="#163146" font-weight="400">The insert is not welded to either visible wall. Neither cup is printed beside its internal core.</text>
+<text x="52" y="1232" font-size="19" fill="#163146" font-weight="400">Print the upright wave insert standing from its lower edge; its section continues vertically.</text>
+<text x="52" y="1266" font-size="19" fill="#163146" font-weight="400">Keep end clearance for fold motion and solid corner lands. Floor/lid cores are separate modules.</text>
+<text x="52" y="1300" font-size="19" fill="#163146" font-weight="400">Trade-off: extra assembly, friction and loose-part retention. Buckling and damping are untested.</text>
+<text x="38" y="1420" font-size="16" fill="#bd3434" font-weight="400">CONCEPT ONLY • motion exaggerated • no computed force, proven finish or acoustic result • ordinary Classic remains required</text>
+</g>
+</svg>

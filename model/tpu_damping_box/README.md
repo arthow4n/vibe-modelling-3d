@@ -14,7 +14,9 @@ TPU object-facing surface from the core. D's tie-pattern changes are insufficien
 as the main solution. The user explicitly removes wall/overall thickness limits
 and asks for solid corner regions. Current concerns are mainly visible surface
 patterns with occasional bumps; this is not a translucent-TPU investigation.
-Deliver new SVG comparisons only.
+The current shortlist is **E1, E5 and E6**, with explicit part/color legends,
+assembly and before/impact sections. E2/E4 are dropped and E3 is set aside after
+the user's review; E1 is interesting but unapproved. Deliver SVG explainers only.
 **No new CAD models, exports or changed print presets are authorized in this
 phase.** Existing B files and settings remain the printed baseline.
 
