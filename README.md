@@ -120,6 +120,37 @@ coupon (N/A).
 
 #### Dental travel containers — short-lap slim wall-snap box
 
+**Current printable version — three-line wrap-grip case:**
+[STEP](model/dental_travel_case/short_lap_case_three_line_grip.step) ·
+[STL](model/dental_travel_case/short_lap_case_three_line_grip.stl) ·
+[actual CAD sections and print instructions](model/dental_travel_case/notes/grip_human.md#implemented-three-line-case).
+Smooth 0.7 mm bands retain 1.2 mm horizontal walls and three sliced strokes;
+old seam notches are removed. CAD and smoke slice pass without supports.
+Print status: Unknown — no user report. Only the thin version was revised;
+the 2 mm and earlier thin pairs remain available as historical comparisons.
+
+[Selected band placement and opening sequence](model/dental_travel_case/notes/grip_human.md):
+cap **+55 mm**, body **−30 mm** from the seam, both 20 mm wide × 0.7 mm deep.
+Nominal layout checks pass; SVGs show upright support and cap lift. The layout
+is implemented in the new thin pair, with printed traction/feel unmeasured. The earlier
+unsuccessful precise-hand search is retained as history, not a placement criterion.
+[Full-wrap band and shallow-profile SVGs](model/dental_travel_case/notes/wall_comparison.md#continuous-band-and-shallow-profile)
+compare grip coverage and smooth 0.4/0.7 mm recesses; the selected 0.7 × 20 mm
+shape is implemented above, with printed usefulness unverified.
+[Three B-family SVG suggestions](model/dental_travel_case/renders/concepts/grip_b_family_comparison.svg)
+compare oval dimples, longer corner saddles and directional scoops. The
+[earlier comparison](model/dental_travel_case/renders/concepts/grip_comparison.svg)
+is retained as exploration history. The new thin pair implements the selected
+bands and removes the rejected seam notches.
+
+[Earlier print comparison: full 2 mm and three-line (1.2 mm) body/cap pairs](model/dental_travel_case/notes/wall_comparison.md).
+Both pairs slice without supports. The thin pair uses about 41% less material
+in the same profile, with local catch backing; use matching bodies and caps.
+No physical comparison is reported. [Wall and toolpath drawing](model/dental_travel_case/notes/wall_comparison/comparison.svg).
+Both caps now have rounded inner/outer finger-slot edges; the thin cap's raised
+joint backing blends into the shell. [Comfort details](model/dental_travel_case/notes/wall_comparison/comfort.svg).
+Retained force/contact studies describe the earlier cap geometry.
+
 [Current full prototype, production joint test and overlap comparison](model/dental_travel_case/notes/short_lap.md).
 **2026-10-19:** the user discards the hinged box and reopens small wall snaps.
 Opening noise is potentially acceptable; priority is much shorter overlap with
