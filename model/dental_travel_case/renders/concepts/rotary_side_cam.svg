@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1110" viewBox="0 0 1200 1110">
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#cd513d"/></marker></defs><style>text{font-family:DejaVu Sans,sans-serif;fill:#203541}.title{font-size:30px;font-weight:bold}.h{font-size:24px;font-weight:bold}.sub{font-size:19px;font-weight:bold}.t{font-size:17px}.s{font-size:15px}.body{fill:#cee8f3;stroke:#2c7996;stroke-width:2}.cap{fill:#f7e4bd;stroke:#aa7c32;stroke-width:2}.rotor{fill:#d1e9d7;stroke:#34845b;stroke-width:2}.pin{fill:#a7b2ba;stroke:#536978;stroke-width:2}.ghost{fill:none;stroke:#34845b;stroke-width:2;stroke-dasharray:6 5}.act{fill:none;stroke:#cd513d;stroke-width:3;marker-end:url(#arr)}.lead{fill:none;stroke:#87959d;stroke-width:1.5}.card{fill:white;stroke:#d7e0e4;stroke-width:2}</style>
+<rect width="1200" height="1110" fill="#f2f5f7"/>
+<text x="28" y="45" class="title">R2 — one local quarter-turn cam, explained</text>
+<text x="28" y="82" class="t">The cap carries the rotating green cam. The blue body stud stays fixed.</text>
+<text x="28" y="107" class="t">Below: constant-radius capture illustrated. A small end-ramp for snug seating is shown separately.</text>
+<rect x="16" y="145" width="386" height="360" rx="9" class="card"/>
+<text x="34" y="185" class="h">1 · OPEN</text>
+<g transform="translate(208 325) scale(1.35)"><g transform="rotate(0)">
+<circle r="62" class="rotor"/><path d="M42 0 A42 42 0 0 1 0 42" fill="none" stroke="white" stroke-width="20" stroke-linecap="round"/><path d="M-10 42H10V72H-10Z" fill="white"/>
+</g>
+<circle r="6" class="pin"/><circle cy="42" r="8" class="body"/>
+</g>
+<path d="M281 221Q334 262 310 305" class="act"/>
+<text x="30" y="478" class="s">Stud can leave through the lower mouth.</text>
+<rect x="414" y="145" width="386" height="360" rx="9" class="card"/>
+<text x="432" y="185" class="h">2 · TURN</text>
+<g transform="translate(606 325) scale(1.35)"><g transform="rotate(45)">
+<circle r="62" class="rotor"/><path d="M42 0 A42 42 0 0 1 0 42" fill="none" stroke="white" stroke-width="20" stroke-linecap="round"/><path d="M-10 42H10V72H-10Z" fill="white"/>
+</g>
+<circle r="6" class="pin"/><circle cy="42" r="8" class="body"/>
+</g>
+<path d="M679 221Q732 262 708 305" class="act"/>
+<text x="428" y="478" class="s">Curved slot passes around the fixed stud.</text>
+<rect x="812" y="145" width="386" height="360" rx="9" class="card"/>
+<text x="830" y="185" class="h">3 · LOCK</text>
+<g transform="translate(1004 325) scale(1.35)"><g transform="rotate(90)">
+<circle r="62" class="rotor"/><path d="M42 0 A42 42 0 0 1 0 42" fill="none" stroke="white" stroke-width="20" stroke-linecap="round"/><path d="M-10 42H10V72H-10Z" fill="white"/>
+</g>
+<circle r="6" class="pin"/><circle cy="42" r="8" class="body"/>
+</g>
+<text x="826" y="478" class="s">Solid cam edge now blocks withdrawal.</text>
+<text x="28" y="544" class="h">Why it can hold the cap down</text>
+<text x="28" y="575" class="s">Radial / axial section through the stud · schematic, depth exaggerated</text>
+<path d="M65 845V746H101V613H119V845Z" class="body"/>
+<path d="M131 613H149V725H131Z" class="cap"/>
+<path d="M111 735H213V748H111Z" class="body"/>
+<path d="M149 651H199V662H149Z" class="pin"/>
+<path d="M186 620H199V733H186ZM186 749H199V763H186Z" class="rotor"/>
+<path d="M213 765H245" class="lead"/><path d="M209 740H245" class="lead"/>
+<text x="250" y="740" class="s">Body keeper stud</text>
+<text x="250" y="771" class="s">Cam jaw below stud</text>
+<text x="28" y="885" class="s">Upward cap pull puts the jaw against the stud underside.</text>
+<text x="28" y="908" class="s">The cam connects around the stud outside this section plane.</text>
+<text x="555" y="595" class="sub">Unwrapped seating edge — final part of turn</text>
+<path d="M565 805V769H680L915 730H1110V805Z" class="rotor"/>
+<circle cx="990" cy="716" r="14" class="body"/><path d="M565 825H1105" class="act"/>
+<text x="565" y="854" class="s">rotate → shallow take-up → flat dwell + hard stop</text>
+<path d="M927 689V711" class="act"/>
+<text x="555" y="887" class="s">A small ramp removes play; it is not a force rating.</text>
+<text x="555" y="911" class="s">Limit take-up at the existing seat. Do not wedge hard.</text>
+<text x="555" y="935" class="s">Add a light lock-position detent to resist back-turn.</text>
+<rect x="18" y="960" width="1164" height="122" rx="9" class="card"/>
+<text x="35" y="989" class="t">Keep the long sleeve for guidance and rocking resistance; use the rotary lock only for axial retention.</text>
+<text x="35" y="1018" class="t">A local lock still loads one wall and leaves an opposite-edge peel route to check.</text>
+<text x="35" y="1047" class="t">Pivot retention, stud strength, print clearances and the final exterior remain unresolved. No CAD or printing done.</text>
+</svg>

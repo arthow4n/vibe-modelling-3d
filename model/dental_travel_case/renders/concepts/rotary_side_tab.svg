@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="790" viewBox="0 0 900 790">
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#cd513d"/></marker></defs><style>text{font-family:DejaVu Sans,sans-serif;fill:#203541}.title{font-size:30px;font-weight:bold}.h{font-size:24px;font-weight:bold}.sub{font-size:19px;font-weight:bold}.t{font-size:17px}.s{font-size:15px}.body{fill:#cee8f3;stroke:#2c7996;stroke-width:2}.cap{fill:#f7e4bd;stroke:#aa7c32;stroke-width:2}.rotor{fill:#d1e9d7;stroke:#34845b;stroke-width:2}.pin{fill:#a7b2ba;stroke:#536978;stroke-width:2}.ghost{fill:none;stroke:#34845b;stroke-width:2;stroke-dasharray:6 5}.act{fill:none;stroke:#cd513d;stroke-width:3;marker-end:url(#arr)}.lead{fill:none;stroke:#87959d;stroke-width:1.5}.card{fill:white;stroke:#d7e0e4;stroke-width:2}</style>
+<rect width="900" height="790" fill="#f2f5f7"/>
+<text x="25" y="43" class="title">R1 — a swivel tab needs a retaining nose</text>
+<text x="25" y="81" class="t">The body carries the pivot. The cap carries a small shelf.</text>
+<text x="25" y="106" class="t">Turn the tab from parked to upright; its inward nose sits above that shelf.</text>
+<rect x="20" y="133" width="420" height="210" rx="9" class="card"/>
+<text x="40" y="169" class="sub">PARKED / OPEN</text>
+<rect x="128" y="187" width="190" height="69" rx="10" class="cap"/>
+<rect x="128" y="261" width="190" height="65" rx="10" class="body"/>
+<rect x="208" y="218" width="26" height="10" rx="2" class="cap"/>
+<rect x="215" y="285" width="90" height="14" rx="6" class="rotor"/>
+<circle cx="221" cy="292" r="5" class="pin"/>
+<rect x="460" y="133" width="420" height="210" rx="9" class="card"/>
+<text x="480" y="169" class="sub">LOCKED</text>
+<rect x="568" y="187" width="190" height="69" rx="10" class="cap"/>
+<rect x="568" y="261" width="190" height="65" rx="10" class="body"/>
+<rect x="648" y="218" width="26" height="10" rx="2" class="cap"/>
+<rect x="655" y="202" width="12" height="98" rx="5" class="rotor"/>
+<rect x="648" y="202" width="26" height="10" rx="3" class="rotor"/>
+<circle cx="661" cy="292" r="5" class="pin"/>
+<text x="25" y="385" class="sub">Side section in LOCK · radial depth and contact enlarged</text>
+<path d="M77 704V551H92V419H111V704Z" class="body"/>
+<path d="M129 419H145V523H129Z" class="cap"/>
+<path d="M145 460H190V474H145Z" class="cap"/>
+<path d="M202 448H214V647H202V460H172V448Z" class="rotor"/>
+<path d="M111 625H205V641H111Z" class="body"/><path d="M197 628H223V638H197Z" class="pin"/>
+<path d="M172 449L303 436M189 473L303 485M217 632L303 676" class="lead"/>
+<text x="315" y="442" class="t">Inward nose above cap shelf</text>
+<text x="315" y="491" class="t">Cap shelf pushes upward into nose</text>
+<text x="315" y="682" class="t">Body-mounted axle + retainer</text>
+<text x="315" y="544" class="t">A plain flat strip across the seam is not enough:</text>
+<text x="315" y="570" class="t">it needs this nose / shelf bearing relationship.</text>
+<text x="315" y="596" class="t">The stem stays outside the shelf, with clearance.</text>
+<text x="315" y="622" class="t">It locks removal; it does not create axial clamp.</text>
+<text x="25" y="743" class="s">No cam ramp shown. Small axial clearance, pivot retention and a lock-position detent still need design.</text>
+<text x="25" y="772" class="s">Body + cap + tab, plus a pivot/retainer. No CAD, interference or print check has been performed.</text>
+</svg>

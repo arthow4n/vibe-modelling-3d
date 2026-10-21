@@ -1,6 +1,6 @@
 # B1 sliding-lock test piece
 
-Print the **three-piece PLA B1 sample**: [STEP](../slider_b_test.step) · [STL](../slider_b_test.stl) · [Python](../slider_b_test.py). This is the authorized physical demonstrator of [proposal B](push_release.md), not a new full travel box. The previous PLA C2 pull-apart trial remains rejected for excessive opening/closing effort; do not repeat it unchanged.
+The user rejects **B1's exterior bulk** and requests [compact one-side rotary SVG proposals](rotary_side.md) before any further modelling. Pause unchanged B1 prints. Whether the B1 sample was physically printed or operated was not reported; this is a form/design rejection, not a measured mechanism failure. [STEP](../slider_b_test.step) · [STL](../slider_b_test.stl) · [Python](../slider_b_test.py) remain unchanged for reference. The instructions below describe the delivered sample before this rejection.
 
 ![Three separate parts in print placement](../renders/tests/slider_b/slider_b_test_isometric.png)
 
@@ -52,7 +52,7 @@ This is a standalone mechanism sample with local assembly checks, not an adopted
 
 | Item | Print status | Artifacts | Remaining physical observation |
 | --- | --- | --- | --- |
-| B1 sample | Unknown | `slider_b_test.py` / `.step` / `.stl` | Assembly, slider feel, ledge capture, wear and accidental slider motion. |
+| B1 sample | Unknown | `slider_b_test.py` / `.step` / `.stl` | Exterior bulk rejected; print/use not reported. Further unchanged prints on hold. |
 | Full B case | N/A | None | Only a sample is authorized and delivered. |
 | Previous C2 sample | Yes | `smooth_joint_test.step` / `.stl` | PLA: too tight opening and closing; rejected unchanged. |
 

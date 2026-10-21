@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1210" viewBox="0 0 1440 1210">
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#cd513d"/></marker></defs><style>text{font-family:DejaVu Sans,sans-serif;fill:#203541}.title{font-size:30px;font-weight:bold}.h{font-size:24px;font-weight:bold}.sub{font-size:19px;font-weight:bold}.t{font-size:17px}.s{font-size:15px}.body{fill:#cee8f3;stroke:#2c7996;stroke-width:2}.cap{fill:#f7e4bd;stroke:#aa7c32;stroke-width:2}.rotor{fill:#d1e9d7;stroke:#34845b;stroke-width:2}.pin{fill:#a7b2ba;stroke:#536978;stroke-width:2}.ghost{fill:none;stroke:#34845b;stroke-width:2;stroke-dasharray:6 5}.act{fill:none;stroke:#cd513d;stroke-width:3;marker-end:url(#arr)}.lead{fill:none;stroke:#87959d;stroke-width:1.5}.card{fill:white;stroke:#d7e0e4;stroke-width:2}</style>
+<rect width="1440" height="1210" fill="#f2f5f7"/>
+<text x="30" y="47" class="title">A small rotary lock on one side</text>
+<text x="30" y="82" class="t">Seat cap freely → turn one local control → open by turning back, then lifting.</text>
+<text x="30" y="108" class="t">Schematic options, not CAD. Whole-case views share scale; mechanism details are enlarged.</text>
+<rect x="30" y="130" width="20" height="16" rx="3" class="body"/>
+<text x="60" y="144" class="s">Body / body keeper</text>
+<rect x="360" y="130" width="20" height="16" rx="3" class="cap"/>
+<text x="390" y="144" class="s">Cap / cap keeper</text>
+<rect x="685" y="130" width="20" height="16" rx="3" class="rotor"/>
+<text x="715" y="144" class="s">Rotating part</text>
+<rect x="980" y="130" width="20" height="16" rx="3" class="pin"/>
+<text x="1010" y="144" class="s">Pivot / fastener</text>
+<rect x="20" y="170" width="460" height="995" rx="9" class="card"/>
+<g transform="translate(20 170)">
+<text x="24" y="38" class="h">R1 · Swivel tab</text>
+<text x="24" y="70" class="sub">Smallest visible mechanism</text>
+<rect x="154" y="111" width="114" height="130.5" rx="12" class="cap"/>
+<rect x="154" y="246" width="114" height="261" rx="12" class="body"/>
+<path d="M156 244H266" stroke="#73838b" stroke-width="2"/>
+<rect x="201" y="233" width="20" height="7" rx="2" class="cap"/>
+<rect x="205" y="230" width="12" height="33" rx="5" class="rotor"/>
+<circle cx="211" cy="256" r="3" class="pin"/>
+<text x="24" y="542" class="t">One tab crosses the seam locally.</text>
+<text x="24" y="567" class="s">~20 × 8 mm tab; pivot stack unresolved.</text>
+<text x="24" y="591" class="s">Sizes are design targets, not measured CAD.</text>
+<rect x="100" y="648" width="24" height="10" rx="2" class="cap"/>
+<rect x="107" y="675" width="60" height="12" rx="5" class="rotor"/>
+<circle cx="112" cy="681" r="5" class="pin"/>
+<rect x="303" y="648" width="24" height="10" rx="2" class="cap"/>
+<rect x="309" y="633" width="12" height="59" rx="5" class="rotor"/>
+<rect x="305" y="633" width="20" height="10" rx="3" class="rotor"/>
+<circle cx="315" cy="681" r="5" class="pin"/>
+<path d="M160 658Q207 622 263 649" class="act"/>
+<text x="75" y="734" class="s">PARKED</text>
+<text x="286" y="734" class="s">LOCKED</text>
+<text x="24" y="775" class="s">Tab underside catches cap keeper top.</text>
+<text x="24" y="821" class="sub">What it gives you</text>
+<text x="24" y="853" class="t">A small tab rotates above a cap ledge.</text>
+<text x="24" y="878" class="t">It blocks lifting without a strong snap.</text>
+<text x="24" y="903" class="t">It does not automatically pull snug.</text>
+<text x="24" y="928" class="t">Needs a keeper + pivot + position stop.</text>
+<text x="24" y="970" class="s">Best first try if holding is enough.</text>
+</g>
+<rect x="490" y="170" width="460" height="995" rx="9" class="card"/>
+<g transform="translate(490 170)">
+<text x="24" y="38" class="h">R2 · Cam around a stud</text>
+<text x="24" y="70" class="sub">Adds a little axial take-up</text>
+<rect x="154" y="111" width="114" height="130.5" rx="12" class="cap"/>
+<rect x="154" y="246" width="114" height="261" rx="12" class="body"/>
+<path d="M156 244H266" stroke="#73838b" stroke-width="2"/>
+<g transform="translate(211 234) scale(0.245)"><g transform="rotate(90)">
+<circle r="62" class="rotor"/><path d="M42 0 A42 42 0 0 1 0 42" fill="none" stroke="white" stroke-width="20" stroke-linecap="round"/><path d="M-10 42H10V72H-10Z" fill="white"/>
+</g>
+<circle r="6" class="pin"/><circle cy="42" r="8" class="body"/>
+</g>
+<text x="24" y="542" class="t">One small dial; no wraparound rails.</text>
+<text x="24" y="567" class="s">~20–24 mm dial; local axle and stud.</text>
+<text x="24" y="591" class="s">Sizes are design targets, not measured CAD.</text>
+<g transform="translate(112 665) scale(0.7)"><g transform="rotate(0)">
+<circle r="62" class="rotor"/><path d="M42 0 A42 42 0 0 1 0 42" fill="none" stroke="white" stroke-width="20" stroke-linecap="round"/><path d="M-10 42H10V72H-10Z" fill="white"/>
+</g>
+<circle r="6" class="pin"/><circle cy="42" r="8" class="body"/>
+</g>
+<g transform="translate(315 665) scale(0.7)"><g transform="rotate(90)">
+<circle r="62" class="rotor"/><path d="M42 0 A42 42 0 0 1 0 42" fill="none" stroke="white" stroke-width="20" stroke-linecap="round"/><path d="M-10 42H10V72H-10Z" fill="white"/>
+</g>
+<circle r="6" class="pin"/><circle cy="42" r="8" class="body"/>
+</g>
+<text x="80" y="734" class="s">OPEN</text>
+<text x="283" y="734" class="s">LOCKED</text>
+<text x="24" y="775" class="s">The body stud sits inside a curved slot.</text>
+<text x="24" y="821" class="sub">What it gives you</text>
+<text x="24" y="853" class="t">The slot turns around a body stud.</text>
+<text x="24" y="878" class="t">A small final ramp can draw cap down.</text>
+<text x="24" y="903" class="t">End on a dwell + stop, not a bare ramp.</text>
+<text x="24" y="928" class="t">Both cam and stud must stay local.</text>
+<text x="24" y="970" class="s">Closest match to “turn it snug”.</text>
+</g>
+<rect x="960" y="170" width="460" height="995" rx="9" class="card"/>
+<g transform="translate(960 170)">
+<text x="24" y="38" class="h">R3 · Side locking screw</text>
+<text x="24" y="70" class="sub">Familiar positive pin lock</text>
+<rect x="154" y="111" width="114" height="130.5" rx="12" class="cap"/>
+<rect x="154" y="246" width="114" height="261" rx="12" class="body"/>
+<path d="M156 244H266" stroke="#73838b" stroke-width="2"/>
+<circle cx="211" cy="225" r="11" class="rotor"/><path d="M205 225H217" stroke="#34845b" stroke-width="3"/>
+<text x="24" y="542" class="t">One knob above the seam.</text>
+<text x="24" y="567" class="s">~14–16 mm boss; needs thread depth.</text>
+<text x="24" y="591" class="s">Sizes are design targets, not measured CAD.</text>
+<rect x="60" y="620" width="48" height="95" rx="0" class="body"/>
+<rect x="126" y="620" width="21" height="95" rx="0" class="cap"/>
+<rect x="147" y="642" width="29" height="51" rx="4" class="cap"/>
+<path d="M96 659H109V678H96Z" fill="white"/>
+<rect x="99" y="664" width="100" height="10" rx="2" class="rotor"/>
+<rect x="192" y="650" width="17" height="38" rx="5" class="rotor"/>
+<path d="M143 663l8 12m2-12l8 12m2-12l8 12" stroke="#34845b" stroke-width="2"/>
+<text x="230" y="665" class="s">Side section</text>
+<text x="230" y="690" class="s">Tip enters sleeve.</text>
+<text x="24" y="775" class="s">Unscrew the tip clear before lifting.</text>
+<text x="24" y="821" class="sub">What it gives you</text>
+<text x="24" y="853" class="t">A pin enters a blind sleeve socket.</text>
+<text x="24" y="878" class="t">It blocks lift by bearing, not just friction.</text>
+<text x="24" y="903" class="t">One or two turns may be needed.</text>
+<text x="24" y="928" class="t">It does not pull the cap down axially.</text>
+<text x="24" y="970" class="s">Fallback; threads + loose-part risk.</text>
+</g>
+<text x="30" y="1194" class="s">One side is a hypothesis: overlap guides the cap; opposite-edge peel, latch roots and accidental rotation still need checking.</text>
+</svg>
