@@ -1,11 +1,8 @@
-# Short-lap slim box — end-wall snaps, separate cap
+# Short-lap slim box — 30 mm overlap and sideways-hit investigation
 
-**Current print choice:** [full 2 mm versus three-line wall comparison](wall_comparison.md).
-The existing thick construction and a separate matching thin pair are available;
-both caps now have finished finger slots, and the thin backing has smooth blends.
-Both have successful slices; physical comparison is not yet reported. The earlier
-joint specimen and numerical evidence below precede this finishing revision.
-The thickness experiment does not reopen the completed numerical investigation below.
+> **Navigation:** See the main [**Dental Travel Case README**](../README.md) for current print instructions.
+> - **Current recommended print:** [`short_lap_case_three_line_grip.step`](../short_lap_case_three_line_grip.step) ([`.stl`](../short_lap_case_three_line_grip.stl)) — see [Three-line case with wraparound grips](grip_human.md) and the [2 mm vs. 1.2 mm wall comparison](wall_comparison.md).
+> - **Role of this note:** Documents the **2026-10-19 switch to the `30 mm` short-lap wall-snap architecture**, the **`2 mm` reinforced prototype**, and the **2026-10-20 sideways bag-knock investigation** (which is closed as `INCONCLUSIVE`, with visual explanations below).
 
 ## Practical stopping and explanation feedback
 

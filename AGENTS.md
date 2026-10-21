@@ -48,7 +48,12 @@ physical observations, print status and attribution easy to find. Preserve valid
 historical evidence deliberately; Git history can hold superseded process prose.
 Do not commit a second completed checklist duplicating that record.
 
-Keep the current state readable without reconstructing the investigation history.
+Lead every object README and the root model index with human actionability:
+what the object is, what works or is ready to print now, what not to print or
+repeat, and direct links to the current printable files. Update the current
+state in place rather than stacking dated update banners at the top of files.
+Quarantine agent bookkeeping, CLI flags and repeated scope disclaimers to a
+single bottom section or linked `notes/` file so they never bury the human summary.
 Detailed engineering records, including failed attempts and unresolved work, are
 encouraged whenever useful and have no arbitrary length limit. Link them from the
 current record; distinguish historical recommendations from authorized next work.

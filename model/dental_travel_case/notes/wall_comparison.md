@@ -1,33 +1,14 @@
 # Full-case print comparison: 2 mm and three-line walls
 
-**Latest printable model:** [three-line wrap-grip pair](grip_human.md#implemented-three-line-case)
-implements the selected bands and removes the seam notches. Only that thin
-version was revised, as requested. The original comparison pairs and results
-below remain historical evidence for their unchanged files.
-
-**Exploration history:** the user prefers recessed saddles and asked
-whether a shallow, smoothly curved [full-wrap band](#continuous-band-and-shallow-profile)
-would make the grip easier to use. The [B-family suggestions](#recessed-saddle-variants)
-remain the preceding comparison.
-They reject the finger notches as an opening aid and intend to remove them,
-but defer CAD changes until after the visual exploration. Existing
-print files below retain the notches and are available for thickness comparison;
-their opening grip is not accepted.
-
-Two complete body/cap pairs are ready for a practical print comparison. The
-thick construction is retained. The thin pair has **1.2 mm ordinary walls**;
-Orca actually generates **three extrusion strokes across them**, rather than
-relying on the nominal nozzle diameter. Both pairs sliced without supports.
-Neither has a reported physical result for this comparison.
-
-**Retained comparison revision:** both caps have complete finger-slot rounding, and the thin
-cap's raised joint backing blends into the shell. See the
-[comfort detail drawing](wall_comparison/comfort.svg) and [revision](#comfort-revision).
+> **Navigation:** See the main [**Dental Travel Case README**](../README.md) for the quick overview.
+> - **Current recommended print:** [**Three-line wrap-grip pair (`short_lap_case_three_line_grip.step` / `.stl`)**](grip_human.md#implemented-three-line-case), which takes the `1.2 mm` (three-line) case from this comparison, removes the rejected seam finger notches, and adds smooth `+55 / -30 mm` full-wrap grip bands.
+> - **Role of this note:** Documents the `2 mm` (5-stroke, `183.3 g`) vs. `1.2 mm` (3-stroke, `108.5 g`) wall-thickness comparison, the local snap-backing pads, the finger-slot rounding, and the visual grip concept explorations (`A`/`B`/`C` and `B1`–`B4`) that led to the wrap-grip design.
 
 ![Wall sections, actual sliced strokes and material comparison](wall_comparison/comparison.svg)
 
 [SVG](wall_comparison/comparison.svg) · [PNG](wall_comparison/comparison.png) ·
-[Previous overlap/force investigation and physical history](short_lap.md)
+[Comfort detail drawing](wall_comparison/comfort.svg) ·
+[Previous overlap/force investigation](short_lap.md)
 
 ## Choose a matching pair
 

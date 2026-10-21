@@ -1,30 +1,10 @@
-# Dental travel containers — short-lap slim box with wall snaps
+# Dental travel containers — user measurements and historical clamshell baseline
 
-**Current direction, 2026-10-19:** the user discards the hinged box and returns
-to a slim separate cap with small wall-snap bites. Opening noise is potentially
-acceptable; the new priority is a much shorter overlap with strong retention
-and sideways stability. See the [current short-lap prototype and comparison](short_lap.md)
-for the full model, matching production-joint test, evidence and physical limits.
-This explicitly reopens the previously stopped wall-snap direction. Historical
-printed failures and unprinted proposals below remain scoped to their own parts.
+> **Looking for the current model to print?** Go to the main [**Dental Travel Case README**](../README.md).
+> - **Current printable model:** [`short_lap_case_three_line_grip.step`](../short_lap_case_three_line_grip.step) ([`.stl`](../short_lap_case_three_line_grip.stl)) — `30 mm` short-lap wall-snap box with `1.2 mm` (3-line) walls and smooth `+55 / -30 mm` wraparound grip bands ([design & opening details](grip_human.md#implemented-three-line-case)).
+> - **What this file is:** This file (`notes/README.md`) preserves the **original 2026-10-13 user item measurements**, the **2026-10-14 handle-clip print feedback**, and the **historical two-lane clamshell / cylinder baselines** referenced by automated verification.
 
-The user selected M1 from the [slim SVG exploration](slim_exploration.md) and
-authorized a rounded, positive-retention separate cap. The historical printed
-design, small joint test, opening explanation and checks are in [M1](m1.md).
-The full **264 × 74.2 × 51.2 mm** slim box is now printed and usable, but its
-joint feels too short/unstable and the halves pull apart without pressing the
-release controls. Secure retention is not accepted. The brush and toothpaste fit
-with effort (toothpaste tail down, cap up), plus one floss case. At that phase the
-user requested **no further revision or print**; later authorization above
-supersedes that development stop. See the [full-box feedback and lessons](m1.md#full-box-print-feedback--2026-10-15).
-Digital/slice passes remain scoped evidence and do not override this physical
-result. Geometry and exports are retained unchanged.
-Earlier test layouts, assembly instructions and evidence remain in
-[the implemented alternatives](current_design.md). The cylinder has a plain interior:
-**no separators or clips**. The R2/C hinged case has positive closed brush
-retention and a smaller revised grip, preserving the reported working socket.
-The original M1 test closure partly worked; that does not qualify the revised
-closure or a complete case. The earlier clip/socket success retains its own scope.
+The historical M1 slim sleeve box (`264 × 74.2 × 51.2 mm`, [m1.md](m1.md)) was printed on 2026-10-15 and is usable as a shell, but its joint pulled apart too easily ([full-box feedback](m1.md#full-box-print-feedback--2026-10-15)). On 2026-10-19 the user discarded the hinged alternatives (`C6`–`C8`) and authorized the current [30 mm short-lap wall-snap architecture](short_lap.md), followed by the [1.2 mm three-line wall comparison](wall_comparison.md) and the [wraparound grip bands](grip_human.md). Earlier clamshell/cylinder test layouts remain in [current_design.md](current_design.md).
 
 ![Closed M1](../renders/assembled/m1/m1_closed_isometric.png)
 

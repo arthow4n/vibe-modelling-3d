@@ -1,11 +1,8 @@
 # Three-line case with wraparound grips
 
-**Use two smooth full-wrap bands: cap centre +55 mm, body centre −30 mm
-from the seam; each 20 mm wide and 0.7 mm deep.** The selected design is now
-implemented in the matching three-line pair. The cap band sits beyond the joint backing with room toward the
-closed end; the body band lets the lower hand support the case while the upper
-hand lifts the cap. Printed grip feel is a later physical observation, not an
-unresolved location-selection task.
+> **Navigation:** Back to the main [**Dental Travel Case README**](../README.md).
+
+**Selected grip design:** Two smooth full-wrap bands — **cap centre `+55 mm`, body centre `-30 mm` from the seam**, each **`20 mm` wide and `0.7 mm` deep**. The cap band sits beyond the joint backing with room toward the closed end; the body band lets the lower hand support the case while the upper hand lifts the cap. Printed grip feel is a physical observation during use, not an open layout calculation.
 
 **Print this version:** [STEP — matching body and cap](../short_lap_case_three_line_grip.step)
 · [STL](../short_lap_case_three_line_grip.stl)
