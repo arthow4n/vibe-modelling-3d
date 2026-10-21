@@ -9,15 +9,16 @@ improvement; approval does not qualify tall application liners.
 [Full print report](notes/b_surface_concepts.md) ·
 [Current preformed surface concepts](notes/preformed_surface_concepts.md).
 
-**Next pair chosen by the user:** **T08 and T16**, following discussion of smaller
-bottom IDs. The user reports current lettering is too large/deep and interferes
-with the test skin. [Three marking SVG options](notes/marking_options.md) compare
-compact corner text, broad corner marks and ink-only identification. No marking
-option is selected; this phase delivers SVGs only, with full cup/pad modelling
-deferred until the discussion is settled. T08 is 0.8 mm per upright skin / 2.2 mm
-total wall; T16 is 1.6 mm per upright skin / 3.8 mm total wall.
+**Current print batch — T08/T16 with M1:** the user selects compact corner text
+and requests both full cup/pad pairs for the existing test shell. See
+[files, setup, dimensions and evidence](notes/t_skin/README.md).
+T08 has 0.8 mm upright skins / 2.2 mm total wall; T16 has 1.6 mm skins / 3.8 mm
+total wall. Both retain a 0.6 mm wall gap and B's 1.6 mm floor/pad sandwich,
+with solid corners and small fully backed underside IDs. No physical result is
+reported. Earlier [marking SVG alternatives](notes/marking_options.md) remain
+historical discussion; **M1 is now selected**.
 
-**Current phase:** investigate different architectures that isolate the black
+**Research context:** investigate different architectures that isolate the black
 TPU object-facing surface from the core. D's tie-pattern changes are insufficient
 as the main solution. The user explicitly removes wall/overall thickness limits
 and asks for solid corner regions. Current concerns are mainly visible surface
@@ -44,8 +45,8 @@ the user requests; the [N1 infill paths/configurations](notes/infill_study/READM
 and [N1–N3 concepts](notes/preformed_surface_concepts.md) remain available.
 The user allows up to two cup pieces plus the usual pad; prior thin separate cups
 and folding remain retired. Existing B08/B16 approval and files are unchanged.
-No new full-box model, matching pad or application liner is made here: these are
-slice studies, not a new print batch or tall-wall qualification.
+That research phase produced slice studies; the later selected full T08/T16
+pairs are linked above. No new application liner or tall-wall qualification is delivered.
 
 **Retained baseline:** S16/S12 were printed and accepted on 2026-10-16, with S16
 preferred. The latest report finds B damping similar to S16 and its object-facing
@@ -70,6 +71,19 @@ favor printing without Arachne and allow more thickness for wall integrity.
 That recording phase requested no new geometry or preset change; it predates
 the current R2 support correction.
 
+## T08/T16 with M1 — 2026-10-21
+
+The user asks to create both boxes after selecting M1. **Each export is a full
+34 mm cup plus its matching lid pad**, ready for the planned existing-shell
+print comparison under the supplied Classic TPU setup. The authoritative
+[delivery record](notes/t_skin/README.md) owns shared print instructions,
+corner/label details, native reviews and remaining physical questions.
+
+| Pair | Primary print file | Matching mesh / source |
+| --- | --- | --- |
+| T08 M1 | [STEP](t_skin_T08_m1.step) | [STL](t_skin_T08_m1.stl) · [Python](t_skin_T08_m1.py) |
+| T16 M1 | [STEP](t_skin_T16_m1.step) | [STL](t_skin_T16_m1.stl) · [Python](t_skin_T16_m1.py) |
+
 ## Current result and reading routes
 
 This is a comparative liner fixture, not a finished storage product. **B08/B16 are
@@ -81,7 +95,8 @@ positive application feedback for fit and damping. The
 defects; neither application result is established by these research samples.
 
 - For the latest physical results, read [B comparison](notes/b_surface_concepts.md).
-- For the current bottom-label discussion and eventual T08/T16 pair, read [marking options](notes/marking_options.md).
+- For the current printable T08/T16 M1 pairs and setup, read [full-pair instructions](notes/t_skin/README.md).
+- For the preceding bottom-label SVG discussion, read [marking options](notes/marking_options.md).
 - For the latest B-derived skin/joint decision, actual slices and study source, read [tie surface study](notes/tie_surface_study/README.md).
 - For the earlier architectural comparison, read [N1–N3 preformed concepts](notes/preformed_surface_concepts.md).
 - For concrete infill settings and actual deposited paths, read [G20/G30/X20 study](notes/infill_study/README.md).

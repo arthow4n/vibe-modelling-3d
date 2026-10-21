@@ -8,7 +8,7 @@
 [Refined skins and joints](../../renders/concepts/tie_refined_paths.svg) ·
 [N2 before/after root blend](../../renders/concepts/n2_blended_paths.svg)
 
-**Later user decision:** print T08 and T16 after settling [smaller bottom markings](../marking_options.md). No new full-cup model or print is reported. The T12/T16 recommendation below records the earlier path study; T12 is outside the chosen next pair.
+**Later user decision:** the user selects T08/T16 and M1 compact corner markings. [Complete cup/pad pairs and print instructions](../t_skin/README.md) now own the implemented batch; no physical result is reported. The T12/T16 recommendation below records the earlier path study; T12 is outside the chosen pair.
 
 **Study recommendation:** keep B's discrete ties and change the skin geometry first. **T12**
 is the leading compact candidate; **T16** is the stronger normal-perimeter

@@ -213,6 +213,9 @@ def closed_plan(variant):
 
 
 def make_plan(variant):
+    if variant in ('T08','T16'):
+        from t_skin_verification import make_t_skin_plan
+        return make_t_skin_plan(variant, REQUIREMENTS, ROOT)
     if variant in ('C12','C16'):
         from solid_verification import make_solid_plan
         return make_solid_plan(variant, REQUIREMENTS, ROOT)
@@ -250,4 +253,4 @@ def make_plan(variant):
 
 
 if __name__=='__main__':
-    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10','S16','S12','F0','F1','F2','F3','F4','F5','F6','F7','A16','A20','B08','B16','C12','C16')))
+    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10','S16','S12','F0','F1','F2','F3','F4','F5','F6','F7','A16','A20','B08','B16','C12','C16','T08','T16')))

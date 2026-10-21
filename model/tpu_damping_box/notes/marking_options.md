@@ -5,10 +5,11 @@
 [M2 broad marks](../renders/concepts/liner_marking_m2.svg) ·
 [M3 ink only](../renders/concepts/liner_marking_m3.svg)
 
-**Current discussion:** the user intends to print **T08 and T16**, after settling
-how to identify them without compromising the structure under test. This selects
-the eventual pair, not a marking option or permission to skip the discussion and
-publish full-box models now. Existing diagnostic probes are unchanged. T08/T16
+**Implementation authorized:** the user selects **M1** and requests the full T08/T16 boxes for printing. The [implemented pairs](t_skin/README.md) own current exports and checks; the alternatives below preserve the preceding discussion.
+
+**Earlier discussion:** the user intends to print **T08 and T16**, after settling
+how to identify them without compromising the structure under test. At that phase this selected
+the eventual pair while deferring the marking choice and full-box publication. Existing diagnostic probes are unchanged. T08/T16
 mean 0.8/1.6 mm **per upright skin**, with a 0.6 mm wall gap and 2.2/3.8 mm total
 wall depth. Their full-cup floor/pad/corner construction is not defined by those
 wall probes. T12 remains historical research, outside this requested next pair.
@@ -73,7 +74,7 @@ These IDs are batch-local. Do not reuse one/two-bar codes for another revision
 without retaining a clear batch key. Preserve previous B/S markings and files;
 no old label is edited or relabeled as T08/T16.
 
-## Recommendation for this discussion
+## Earlier recommendation for the SVG discussion
 
 **M2 is the preferred integral marking:** countable broad bars in a suitable
 solid corner, matching on cup and pad, with a full-name key kept with the batch.
@@ -88,12 +89,12 @@ mark on both parts, retaining the normal 0.4 mm nozzle / 0.2 mm layers and no
 Arachne. The decision is whether the code survives slicing and remains wholly
 backed by the solid corner, without intruding into the functional skins/core or
 altering shell fit. Physical visibility remains a print question. No new trial
-batch, pad, mesh, STEP or process profile is made in this SVG discussion.
+batch, pad, mesh, STEP or process profile was made in the SVG discussion; the later M1 implementation is linked above.
 
 | Item | Print status | Artifacts | User result / remaining checks |
 | --- | --- | --- | --- |
-| Marking suggestions | N/A — SVG discussion | Overview and three option SVGs | User reports existing bottom text too large/deep; no option selected or physically evaluated. |
-| Future T08/T16 cup/pad pairs | N/A — deferred until marking discussion is settled | Existing wall probes only | Full-box/pad design, corner/label integration, slicing, readability and damping remain future work. |
+| Marking suggestions | N/A — SVG discussion | Overview and three option SVGs | User reports existing bottom text too large/deep; M1 subsequently selected; no option physically evaluated. |
+| Implemented T08/T16 cup/pad pairs | Unknown — see implemented pair record | M1 implementation linked above | Full-box digital evidence belongs to the implementation; physical readability and damping remain unmeasured. |
 
 Attribution, 2026-10-21: GPT-6 family; exact runtime identifier and reasoning
 effort not exposed. Codex shared-workspace CLI/API agent, OpenAI; no subagents.

@@ -1,0 +1,684 @@
+{
+  "schema_version": 1,
+  "variant": "T08",
+  "selected_checks": null,
+  "available_variants": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "I30",
+    "I22",
+    "I10",
+    "S16",
+    "S12",
+    "F0",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6",
+    "F7",
+    "A16",
+    "A20",
+    "B08",
+    "B16",
+    "C12",
+    "C16",
+    "T08",
+    "T16"
+  ],
+  "available_checks": [
+    "t-fit",
+    "t-skins",
+    "t-cores",
+    "t-labels",
+    "t-publication"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "T08",
+    "scope": {
+      "variant": "T08",
+      "phase": "full-T-skin-M1-pair",
+      "material": "TPU-uncalibrated",
+      "wall_skin_mm": 0.8,
+      "wall_gap_mm": 0.6,
+      "floor_total_mm": 1.6,
+      "layer_mm": 0.2
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "study.enclosure",
+        "text": "One small closable PETG enclosure accepts interchangeable separately printed TPU liners and a loose metal nut.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User requests one small PETG exterior, closable, with TPU inserts and space to shake a stock metal nut."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "fit",
+            "criterion": "Full pair clears the established shell and pad insertion path; 0.2 mm squeeze is explicit.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "t-fit"
+            ],
+            "evidence": [
+              "t-fit"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.coverage",
+        "text": "The floor, ceiling and all four interior walls have TPU damping coverage.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User explicitly requires damping on the bottom, top, and all four walls."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "skins",
+            "criterion": "Continuous skins cover floor, pad and four walls.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "t-skins"
+            ],
+            "evidence": [
+              "t-skins"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.flat",
+        "text": "All object-contact interior faces are flat; damping structures are inside the liner.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User clarification: the interior needs to be flat for the objects, while the liner may have structures inside."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "flat",
+            "criterion": "The complete contents cavity has planar contact faces without marking protrusions.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "t-skins"
+            ],
+            "evidence": [
+              "t-skins"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.variants",
+        "text": "Several permanently labeled CAD-defined internal damping configurations can be printed together.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User asks for labeled variants, explicit CAD structures rather than infill, and a batch print; additional variants are welcome."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "ties",
+            "criterion": "Separated B-style ties and posts retain open core spaces.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "t-cores"
+            ],
+            "evidence": [
+              "t-cores"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "study.research",
+        "text": "Use research to inform a reusable damping experiment and compare variants by shaking the same metal nut.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User requests research on effective damping structures and plans to report which liner performs best."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "comparison",
+            "criterion": "Compare T08/T16 physically with cavity-size difference explicit.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.quiet_priority",
+        "text": "Prioritize maximum quietness in a thin liner and recommend a focused print batch with a solid control and the most promising candidates.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#user-intent",
+          "statement": "User follow-up: maximize quietness while keeping it thin; provide a STEP set focused on more confident candidates and retain control A."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "quiet",
+            "criterion": "Compare damping against approved B/S with the same nut and shell.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "study.two_skins",
+        "text": "Thinner follow-up liners retain both continuous inner and outer TPU skins for stable printing.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#i22--i30--i10-print-feedback--latest-report",
+          "statement": "User reports I10 shell-side print damage, says both walls are needed, and requests one or two significantly thinner stable variants; slicer changes are allowed."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "both",
+            "criterion": "Both skins survive core/label subtraction.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "t-skins"
+            ],
+            "evidence": [
+              "t-skins"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "surface.batch",
+        "text": "Provide roughly 30 mm square flat plate samples, four to eight designs printable together, with filled exterior edges.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#surface-finish-coupons--2026-10-17",
+          "statement": "User requests four to eight roughly three-centimetre square bottom-plate samples rather than full boxes, filled exterior overhangs and a flat test face."
+        },
+        "non_applicable": null,
+        "questions": [],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "surface.finish",
+        "text": "Explore structures that reduce visible surface lines and waviness beyond the current 50% ironing result.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#surface-finish-coupons--2026-10-17",
+          "statement": "User reports visible surface waviness despite improvement at 50% ironing and requests several internal structure experiments."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "finish",
+            "criterion": "Compare object-facing finish and seam/string artifacts physically.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "surface.damping",
+        "text": "Keep damping usefulness as a later physical test; S16 remains the preferred baseline.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#surface-finish-coupons--2026-10-17",
+          "statement": "User names S16 as the best so far and says damping must still be tested later while initially focusing on surface texture."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "damping",
+            "criterion": "Thicker upright skins retain useful damping.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "support.classic",
+        "text": "All four support-test variants must use Classic, without Arachne.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#four-printable-support-pairs--2026-10-20",
+          "statement": "During implementation the user explicitly reiterates: I do not want Arachne."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "classic",
+            "criterion": "Actual supplied TPU process uses Classic at ordinary widths without thin-wall recovery.",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "t-publication"
+            ],
+            "evidence": [
+              "t-publication"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "support.four",
+        "text": "Provide four labeled complete cup/lid-insert pairs for the existing experiment box: A at 1.6 and 2.0 mm; B at 1.6 mm with two distinct tie sizes.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#four-printable-support-pairs--2026-10-20",
+          "statement": "User accepts both SVG explanations and requests four printable variants, matching lids and markings: A at 16/20 and B at 16 with two distinct tie sizes; the S16 context establishes 1.6/2.0 mm units."
+        },
+        "non_applicable": null,
+        "questions": [],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "support.repo_defaults",
+        "text": "The replacements must retain wall paths with the ordinary repository default slicing process.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#ordinary-classic-repair--r2",
+          "statement": "Asked which slicer/nozzle/line width/profile was used for the failure, the user answers: default as in the repo. They allow increased A thickness if needed, prioritising reliable Classic slicing."
+        },
+        "non_applicable": null,
+        "questions": [],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "support.ordinary",
+        "text": "The four replacements must generate their wall skins with ordinary Classic slicing, without Arachne or dependence on thin-wall recovery.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#ordinary-classic-repair--r2",
+          "statement": "User reports wall paths missing on all four variants, declines printing the batch, and requests investigation and repair for normal slicing without Arachne."
+        },
+        "non_applicable": null,
+        "questions": [],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "support.integrity",
+        "text": "Find a thin liner that survives installation and handling with mutually supported walls and bottom.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#wall-support-concepts--2026-10-20",
+          "statement": "User reports further dental-liner breakage during insertion and requests support experiments to find the minimum usable thickness without breakage."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "installation",
+            "criterion": "Insert and handle without tears or detached ties.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "solid.two",
+        "text": "Provide two labeled solid cup/lid-pad controls, C12 at 1.2 mm and C16 at 1.6 mm, for the existing experiment shell, without internal structures.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#solid-c12c16-controls--2026-10-20",
+          "statement": "User reports all four new pairs printed but untested. After touching B16 they request two solid variants, optionally named C, at spoken 12/16; the prior S16/A16 context establishes 1.2/1.6 mm units. No interior design is wanted."
+        },
+        "non_applicable": null,
+        "questions": [],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "t_skin.pair",
+        "text": "Provide T08/T16 complete cup/pad pairs for the existing test shell, with compact M1 markings.",
+        "kind": "user",
+        "provenance": {
+          "reference": "README.md#t08t16-with-m1--2026-10-21",
+          "statement": "After choosing T08 and T16 as the next prints and reviewing marking SVGs, user asks to create the boxes with M1 to prepare for printing."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "pair",
+            "criterion": "The delivered pair has current matching source/STEP/STL and reviewed wall, gap and label paths.",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "t-publication"
+            ],
+            "evidence": [
+              "t-publication"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "physical",
+            "criterion": "Print and install the full cup/pad without breakage; verify fit and readability.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "t_skin.marking",
+        "text": "Minimize marking footprint while keeping IDs visible and protecting the structure being tested.",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/marking_options.md",
+          "statement": "User reports existing bottom text too big/deep and asks to preserve the functional skin; later selects M1 compact corner text."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "label",
+            "criterion": "Matching M1 IDs are recessed one layer and fully backed by local solid corners, outside the central floor.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "t-labels"
+            ],
+            "evidence": [
+              "t-labels"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "legible",
+            "criterion": "Both compact IDs are visible on printed black TPU.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "t_skin.corners",
+        "text": "Keep corners solid for a reasonable distance to reduce corner print defects.",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/surface_decoupling.md",
+          "statement": "User requests solid corner regions to avoid defects near corners; no numerical distance is specified."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "corner",
+            "criterion": "All wall channels stop 4 mm before tangent ends; floor and pad corners are solid.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "t-cores"
+            ],
+            "evidence": [
+              "t-cores"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "corner-print",
+            "criterion": "Solid corners print cleanly in the full cup.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "t-fit",
+        "targets": [
+          [
+            "study.enclosure",
+            "fit"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "t_skin_checks.py / t_skin_design.py",
+        "scope": {
+          "variant": "T08",
+          "phase": "full-T-skin-M1-pair",
+          "material": "TPU-uncalibrated",
+          "wall_skin_mm": 0.8,
+          "wall_gap_mm": 0.6,
+          "floor_total_mm": 1.6,
+          "layer_mm": 0.2
+        }
+      },
+      {
+        "id": "t-skins",
+        "targets": [
+          [
+            "study.coverage",
+            "skins"
+          ],
+          [
+            "study.flat",
+            "flat"
+          ],
+          [
+            "study.two_skins",
+            "both"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "t_skin_checks.py / t_skin_design.py",
+        "scope": {
+          "variant": "T08",
+          "phase": "full-T-skin-M1-pair",
+          "material": "TPU-uncalibrated",
+          "wall_skin_mm": 0.8,
+          "wall_gap_mm": 0.6,
+          "floor_total_mm": 1.6,
+          "layer_mm": 0.2
+        }
+      },
+      {
+        "id": "t-cores",
+        "targets": [
+          [
+            "study.variants",
+            "ties"
+          ],
+          [
+            "t_skin.corners",
+            "corner"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "t_skin_checks.py / t_skin_design.py",
+        "scope": {
+          "variant": "T08",
+          "phase": "full-T-skin-M1-pair",
+          "material": "TPU-uncalibrated",
+          "wall_skin_mm": 0.8,
+          "wall_gap_mm": 0.6,
+          "floor_total_mm": 1.6,
+          "layer_mm": 0.2
+        }
+      },
+      {
+        "id": "t-labels",
+        "targets": [
+          [
+            "t_skin.marking",
+            "label"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "t_skin_checks.py / t_skin_design.py",
+        "scope": {
+          "variant": "T08",
+          "phase": "full-T-skin-M1-pair",
+          "material": "TPU-uncalibrated",
+          "wall_skin_mm": 0.8,
+          "wall_gap_mm": 0.6,
+          "floor_total_mm": 1.6,
+          "layer_mm": 0.2
+        }
+      },
+      {
+        "id": "t-publication",
+        "targets": [
+          [
+            "t_skin.pair",
+            "pair"
+          ],
+          [
+            "support.classic",
+            "classic"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "t_skin_checks.py / t_skin_design.py",
+        "scope": {
+          "variant": "T08",
+          "phase": "full-T-skin-M1-pair",
+          "material": "TPU-uncalibrated",
+          "wall_skin_mm": 0.8,
+          "wall_gap_mm": 0.6,
+          "floor_total_mm": 1.6,
+          "layer_mm": 0.2
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "full-pair",
+        "text": "Retain 34 mm cup, B 1.6 mm horizontal sandwiches/.8 mm posts and .2 mm squeeze. Change upright skins to .8/1.6 around .6 gap; solid 4 mm wall-end lands and 10 x 6.5 mm floor/pad label corner seats. M1 strokes .8, .2 recess, widened .6 inter-glyph spacing within the accepted reserved footprint.",
+        "reference": "README.md#t08t16-with-m1--2026-10-21"
+      }
+    ],
+    "hypotheses": [
+      {
+        "id": "guard-paths",
+        "text": "Thicker skins may reduce joint marks; actual damping, finish, strength and readability remain physical.",
+        "reference": "README.md#t08t16-with-m1--2026-10-21"
+      }
+    ],
+    "directives": []
+  },
+  "help": null
+}

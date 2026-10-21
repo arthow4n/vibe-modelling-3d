@@ -112,7 +112,9 @@ feedback does not justify large/deep labels across a functional thin skin. The
 user now prioritizes a small visible ID that preserves the structure under test,
 and selects T08/T16 as the eventual next pair after an SVG marking discussion.
 [Owning options and source-backed skin effects](../../../../model/tpu_damping_box/notes/marking_options.md).
-This scopes the earlier large-label preference; no new mark is selected yet.
+This scopes the earlier large-label preference. The user subsequently selects
+M1 compact full-text corner IDs and authorizes the full T08/T16 cup/pad pairs;
+[implemented record](../../../../model/tpu_damping_box/notes/t_skin/README.md).
 
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.

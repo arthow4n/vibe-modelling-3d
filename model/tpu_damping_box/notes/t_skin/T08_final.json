@@ -1,0 +1,179 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/t_skin_T08_m1.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/renders/print/t_skin_T08_m1_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "bottom",
+      "ok": true,
+      "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/renders/print/t_skin_T08_m1_bottom.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          0,
+          -1
+        ],
+        "up_direction": [
+          0,
+          1,
+          0
+        ]
+      }
+    }
+  ],
+  "exports": [
+    {
+      "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/t_skin_T08_m1.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/t_skin_T08_m1.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014608519995817915,
+    "build": 5.179644759002258,
+    "selection": 0.0009001520011224784,
+    "validation": 0.7508664439956192,
+    "export_step": 0.6654064379981719,
+    "export_stl": 0.14698578800016548,
+    "render_isometric": 0.5936620879947441,
+    "render_bottom": 0.43467992300429614,
+    "worker": 7.912162876993534,
+    "total": 13.116291937003552,
+    "slice": 6.010190471999522
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "040b55c5c14723d373f1cabe8c409e52b699301ee9addc0ebf57681e2eca29d5",
+    "artifact_identity": "7aa90028dd944ce962995dc35522d6b7b9364a9951de689668bb4f0fe6e4718d"
+  },
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/t_skin_T08_m1.stl",
+    "profiles": {
+      "printer": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu-support-classic-process.json",
+      "filament": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu95a.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "preserve",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "TPU"
+      ],
+      "filament_settings_id": [
+        "Diagnostic Generic TPU 95A Q2C 0.4 - damping study"
+      ],
+      "nozzle_temperature": [
+        "230"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "230"
+      ],
+      "hot_plate_temp": [
+        "35"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "35"
+      ],
+      "print_settings_id": "TPU support ordinary Classic 0.20",
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "no_brim",
+      "brim_width": "0",
+      "brim_object_gap": "0.1",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "1"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "100%",
+      "sparse_infill_pattern": "rectilinear"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": true,
+      "supported_plates": [
+        {
+          "plate": 1,
+          "roles": [
+            "Support interface"
+          ]
+        }
+      ],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": true,
+    "reused": false,
+    "identity": "99e09ddc06e0f781dff1afe6df0d76364bdb2abf09e8e43bfc422bb741c0f26a",
+    "input_sha256": "dcb206a4a439c0d31c8237f8e3c117565680ee99b82e386d10bb369f0e4269c8",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-0iur1ldg",
+    "setup_selection": {
+      "profiles": "supplied",
+      "placement": "explicit",
+      "scope": "Selected-profile slice acceptance only; production setup agreement and physical print behavior are not established"
+    }
+  }
+}
