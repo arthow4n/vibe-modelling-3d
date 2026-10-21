@@ -1,0 +1,245 @@
+{
+  "source_sha256": {
+    "short_lap_grip.py": "a5021fb75df53c41b692b85c646662d764d633cccea1d5d77670381a8ae01372",
+    "short_lap_grip_checks.py": "54a510e090cb92e251a3e8d9feb72c8d42262c89293033dd0575663077740249",
+    "short_lap_case_three_line_grip.py": "48287480008458d0537108ffb4711b09e76d277724e5b649103a9cb8c05a5989",
+    "grip_placement.py": "92be48ba223251736ed5ed6f1f18778825df83ce8ca3f9d5486c81d0a82b8aff",
+    "short_lap_thin.py": "cdca3a1e168548b4f1d05466c342c9fb2dbd546a0ef5d265ede0f5d628b3322f",
+    "short_lap_design.py": "98860b93b2a24c7fca89072222845aa1a05e7ac3c0d95ef58e6d1e6ee26ae61b",
+    "short_lap_refinement.py": "74c18ee68c7648d11aea3f59ecf627f6bfb6cf50e2981581c36a0fd225df6472",
+    "closure_research_design.py": "fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "m1_checks.py": "f6966d451b172a47ac40d7f665919cd8907b0d930bb0f5bd52cf48fea01faa9e",
+    "closure_research_drawings.py": "a3303c13adb922910fc040986714f3f2a2f3c3d6b2563ebc326e19ca1e8b66e9",
+    "../../uv.lock": "decadf8943fd324455151518a1b14eef612e6df01d3faf4d57b5b7d754de1ec8",
+    "short_lap_grip_publication.py": "31674f9edde7a375a7bd8dfc2bfcaa3b84e778046ef9555b8721eceff6dde260",
+    "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373"
+  },
+  "artifacts": {
+    "short_lap_case_three_line_grip.step": "494aa842aaf510c0b1ac5bca54b41ff5b98c31c2f480aca092206b9137a379fa",
+    "short_lap_case_three_line_grip.stl": "4801816b81e272093f42b1bcf2569e0f9ed5e7a1e5a3976e64b22b43f3fd9474",
+    "notes/grip_human/finished_slice.json": "dc274f9776a048e30c542c60ef63b7a3409a75ff2c6939ab9a5cfabd00e844f1",
+    "notes/grip_human/finished_checks.json": "f866824b0bf1e3cb8a6374a564d2836d23eece5f87db8c19dbd8e163193f953f"
+  },
+  "sections": [
+    {
+      "part": "body",
+      "print_z_mm": 137.0,
+      "span_mm": [
+        114.24685880169753,
+        115.44685880169753
+      ],
+      "strokes": [
+        {
+          "offset_mm": 0.2091,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        },
+        {
+          "offset_mm": 0.5921,
+          "width_mm": 0.427824,
+          "role": "Gap infill"
+        },
+        {
+          "offset_mm": 0.9868,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        }
+      ],
+      "coverage": {
+        "filled_width_mm": 1.196806045695098,
+        "uncovered_width_mm": 0.003193954304904878,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            114.24685880169753,
+            115.44366484739263
+          ]
+        ]
+      }
+    },
+    {
+      "part": "body",
+      "print_z_mm": 144.0,
+      "span_mm": [
+        113.875,
+        115.075
+      ],
+      "strokes": [
+        {
+          "offset_mm": 0.21,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        },
+        {
+          "offset_mm": 0.5945,
+          "width_mm": 0.429109,
+          "role": "Gap infill"
+        },
+        {
+          "offset_mm": 0.984,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        }
+      ],
+      "coverage": {
+        "filled_width_mm": 1.1939999999999884,
+        "uncovered_width_mm": 0.006000000000014438,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            113.875,
+            115.06899999999999
+          ]
+        ]
+      }
+    },
+    {
+      "part": "body",
+      "print_z_mm": 151.0,
+      "span_mm": [
+        114.20314119830248,
+        115.40314119830248
+      ],
+      "strokes": [
+        {
+          "offset_mm": 0.2109,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        },
+        {
+          "offset_mm": 0.5934,
+          "width_mm": 0.43018,
+          "role": "Gap infill"
+        },
+        {
+          "offset_mm": 0.9839,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        }
+      ],
+      "coverage": {
+        "filled_width_mm": 1.1930006799046566,
+        "uncovered_width_mm": 0.0069993200953462065,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            114.20400000000001,
+            115.39700067990466
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "print_z_mm": 28.0,
+      "span_mm": [
+        226.24685880169756,
+        227.44685880169754
+      ],
+      "strokes": [
+        {
+          "offset_mm": 0.2072,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        },
+        {
+          "offset_mm": 0.5916,
+          "width_mm": 0.427453,
+          "role": "Gap infill"
+        },
+        {
+          "offset_mm": 0.9816,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        }
+      ],
+      "coverage": {
+        "filled_width_mm": 1.1916461643930631,
+        "uncovered_width_mm": 0.008353835606925486,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            226.24685880169756,
+            227.43850496609062
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "print_z_mm": 35.0,
+      "span_mm": [
+        225.87500000000003,
+        227.07500000000002
+      ],
+      "strokes": [
+        {
+          "offset_mm": 0.21,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        },
+        {
+          "offset_mm": 0.5945,
+          "width_mm": 0.428999,
+          "role": "Gap infill"
+        },
+        {
+          "offset_mm": 0.984,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        }
+      ],
+      "coverage": {
+        "filled_width_mm": 1.1939999999999884,
+        "uncovered_width_mm": 0.006000000000000227,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            225.87500000000003,
+            227.06900000000002
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "print_z_mm": 42.0,
+      "span_mm": [
+        226.2031411983025,
+        227.40314119830248
+      ],
+      "strokes": [
+        {
+          "offset_mm": 0.2099,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        },
+        {
+          "offset_mm": 0.5919,
+          "width_mm": 0.430394,
+          "role": "Gap infill"
+        },
+        {
+          "offset_mm": 0.9851,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        }
+      ],
+      "coverage": {
+        "filled_width_mm": 1.1951491349304604,
+        "uncovered_width_mm": 0.004850865069528254,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            226.2031411983025,
+            227.39829033323295
+          ]
+        ]
+      }
+    }
+  ],
+  "estimated_mass_g": 108.54,
+  "slice_input_sha256": "4801816b81e272093f42b1bcf2569e0f9ed5e7a1e5a3976e64b22b43f3fd9474",
+  "scope": "Selected Q2C PETG profile; three strokes at band landing and ramps. No printed strength/feel inference"
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="880" viewBox="0 0 1200 880">
+<rect width="1200" height="880" fill="#fafaf7"/>
+<style>text{font-family:sans-serif;fill:#243444}</style>
+<text x="25" y="38" font-size="25">Comfort fixes: finger slots and raised joint backing</text>
+<text x="25" y="77" font-size="18">Actual CAD sections. Orange = cap. Enlarged views; dimensions are in millimetres.</text>
+<text x="35" y="125" font-size="22">Before: cut profile only</text>
+<path d="M67.500,168.000 L67.500,256.000 L110.000,256.000 L110.000,207.600 L110.261,204.166 L111.035,200.865 L112.292,197.822 L113.983,195.155 L116.044,192.966 L118.396,191.340 L120.947,190.338 L123.600,190.000 L436.400,190.000 L439.053,190.338 L441.604,191.340 L443.956,192.966 L446.017,195.155 L447.708,197.822 L448.965,200.865 L449.739,204.166 L450.000,207.600 L450.000,256.000 L492.500,256.000 L492.500,168.000 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<text x="35" y="301" font-size="17">Slot meets open rim — inward corners</text>
+<path d="M226.000,324.500 L226.000,377.000 L334.000,377.000 L334.000,324.500 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<text x="35" y="503" font-size="17">Through wall — inner and outer lip</text>
+<text x="605" y="125" font-size="22">After: complete edge rounding</text>
+<path d="M673.200,256.000 L675.802,255.330 L678.008,253.423 L679.482,250.568 L680.000,247.200 L680.000,207.600 L680.261,204.166 L681.035,200.865 L682.292,197.822 L683.983,195.155 L686.044,192.966 L688.396,191.340 L690.947,190.338 L693.600,190.000 L1006.400,190.000 L1009.053,190.338 L1011.604,191.340 L1013.956,192.966 L1016.017,195.155 L1017.708,197.822 L1018.965,200.865 L1019.739,204.166 L1020.000,207.600 L1020.000,247.200 L1020.518,250.568 L1021.992,253.423 L1024.198,255.330 L1026.800,256.000 L1062.500,256.000 L1062.500,168.000 L637.500,168.000 L637.500,256.000 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<text x="605" y="301" font-size="17">Slot meets open rim — inward corners</text>
+<path d="M796.000,324.500 L796.000,363.000 L798.740,368.358 L806.544,372.899 L818.223,375.934 L832.000,377.000 L868.000,377.000 L881.777,375.934 L893.456,372.899 L901.260,368.358 L904.000,363.000 L904.000,324.500 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<text x="605" y="503" font-size="17">Through wall — inner and outer lip</text>
+<text x="25" y="547" font-size="18">0.4 mm fillet follows both slot boundaries and their junctions with the open rim, on both faces.</text>
+<path d="M29.500,778.000 L29.500,682.000 L83.500,682.000 L96.035,680.328 L108.251,674.509 L110.033,673.222 L123.253,660.119 L125.598,657.325 L130.147,651.881 L137.515,643.855 L145.149,637.491 L157.365,631.672 L169.900,630.000 L510.100,630.000 L522.635,631.672 L534.851,637.491 L536.633,638.778 L549.853,651.881 L552.198,654.675 L556.747,660.119 L564.115,668.145 L571.749,674.509 L583.965,680.328 L596.500,682.000 L650.500,682.000 L650.500,778.000 L483.100,778.000 L483.100,726.000 L196.900,726.000 L196.900,778.000 Z" fill="#ce741c" fill-rule="evenodd" fill-opacity="1.0" stroke="#ce741c" stroke-width=".7"/>
+<text x="720" y="620" font-size="19">Joint backing: section across thin cap</text>
+<text x="720" y="657" font-size="18">Curved ramps blend into the shell.</text>
+<text x="720" y="690" font-size="18">Full backing remains behind the recess.</text>
+<text x="720" y="723" font-size="18">Same 0.65 mm maximum projection.</text>
+<text x="25" y="817" font-size="18">The backing also blends out over 8 mm along the cap. Snap and guide profiles are retained.</text>
+</svg>

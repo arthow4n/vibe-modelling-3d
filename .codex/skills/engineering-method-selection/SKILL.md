@@ -20,6 +20,12 @@ geometry or physics: rigid motion or deformation, inertia, contact/friction,
 material behavior, anatomy and boundary conditions. Prefer a representation that
 retains the decisive behavior and produces interpretable evidence.
 
+Distinguish a **design choice**, a **physical rating**, and a **numerical
+diagnostic** before choosing a method. A request to choose a useful location
+does not automatically require proof of an optimum, a precise full-hand grasp,
+or a force rating. State which observation would reject or change the candidate;
+avoid adding conditions merely because the selected solver can test them.
+
 Use the design reference's
 [practical finish line](../cadquery-3d-design/references/design-decisions.md#adaptive-development-and-the-next-deliverable)
 when deciding whether more fidelity is worthwhile. Before an additional solver
@@ -32,6 +38,19 @@ project from it. A scoped practical decision can be complete while a physical
 rating remains unknown. This does not promote incomplete evidence to PASS or
 permit a computation deadline; it changes which work is worth starting. See the
 [dental feedback](../../../model/dental_travel_case/notes/short_lap.md#practical-stopping-and-explanation-feedback).
+
+When an optional analysis is unsuccessful, first check whether its criterion
+represents the user's task and permitted interactions. If it does not, replace
+the active engineering question/strategy, preserving user requirements and the
+historical unsuccessful result. Stopping computation while leaving that
+mismatched criterion as the product's headline INCONCLUSIVE is not a completed
+correction. Finish the actual decision with evidence suited to it: select,
+revise or reject the design, explain why, and state the specific remaining
+physical limit. Do not change an unresolved analysis to PASS or hide a genuine
+failure. The [dental grip correction](../../../model/dental_travel_case/notes/grip_human.md#working-approach-correction)
+replaced precise four-contact IK as a broad band-location criterion with
+functional-zone geometry and an opening walkthrough. Its nominal layout passes;
+the historical grasp search remains unsuccessful and printed feel unmeasured.
 
 The recommendation is a preferred starting point, not an exclusive assignment.
 Use it when it adequately represents the governing physics. Challenge it when
