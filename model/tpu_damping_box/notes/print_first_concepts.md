@@ -1,6 +1,6 @@
-# Print-first surface isolation — complete liners with few parts
+# Retired print-first surface concepts — P1/P2
 
-[Object status](../README.md) · [Overview SVG](../renders/concepts/print_first_overview.svg) ·
+[Current N1–N3 proposals](preformed_surface_concepts.md) · [Object status](../README.md) · [Overview SVG](../renders/concepts/print_first_overview.svg) ·
 [P1 nested cups: printing and assembly](../renders/concepts/print_first_nested.svg) ·
 [P2 folded blank: printing and assembly](../renders/concepts/print_first_fold.svg)
 

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1190" viewBox="0 0 1500 1190" role="img" aria-labelledby="title desc"><title id="title">Three new routes toward smoother TPU contact faces</title><desc id="desc">Concept comparison + actual N1 slice study. B08/B16 and S16 remain the physical evidence; no new full-box batch.. Schematic proposal only, not CAD, sliced paths or measured deformation. All real TPU is black.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#b83232"/></marker></defs><g font-family="DejaVu Sans,sans-serif">
+<rect x="0" y="0" width="1500" height="1190" fill="#f3f6f9" stroke="none" rx="0"/>
+<text x="35" y="49" font-size="29" fill="#183247" font-weight="700">Three new routes toward smoother TPU contact faces</text>
+<text x="35" y="84" font-size="18" fill="#183247">Concept comparison + actual N1 slice study. B08/B16 and S16 remain the physical evidence; no new full-box batch.</text>
+<rect x="35" y="107" width="22" height="17" fill="#2466b0" stroke="#183247" rx="0"/>
+<text x="66" y="122" font-size="16" fill="#183247">Contact face / solid skin</text>
+<rect x="430" y="107" width="22" height="17" fill="#475569" stroke="#183247" rx="0"/>
+<text x="461" y="122" font-size="16" fill="#183247">Outer skin / solid corner</text>
+<rect x="845" y="107" width="22" height="17" fill="#cf711c" stroke="#183247" rx="0"/>
+<text x="876" y="122" font-size="16" fill="#183247">Core material</text>
+<rect x="1160" y="107" width="22" height="17" fill="white" stroke="#183247" rx="0"/>
+<text x="1191" y="122" font-size="16" fill="#183247">Empty space</text>
+<text x="35" y="157" font-size="17" fill="#183247">Colours identify roles, not filaments. All TPU BLACK. Pale grey = existing box / bed. Red = force or movement.</text>
+<rect x="30" y="185" width="460" height="730" fill="white" stroke="#d4dde6" rx="12"/>
+<text x="50" y="219" font-size="22" fill="#183247" font-weight="700">N1 · Ordinary sparse infill</text>
+<rect x="75" y="280" width="360" height="24" fill="#475569" stroke="none" rx="0"/>
+<rect x="75" y="410" width="360" height="24" fill="#2466b0" stroke="none" rx="0"/>
+<path d="M105 301 C80 330 130 382 105 413" fill="none" stroke="#cf711c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M175 301 C150 330 200 382 175 413" fill="none" stroke="#cf711c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M245 301 C220 330 270 382 245 413" fill="none" stroke="#cf711c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M315 301 C290 330 340 382 315 413" fill="none" stroke="#cf711c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M395 301 C370 330 420 382 395 413" fill="none" stroke="#cf711c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="52" y="535" font-size="17" fill="#183247">Replace CAD dots with sparse gyroid.</text>
+<text x="52" y="569" font-size="17" fill="#183247">Use substantial, multi-path skins.</text>
+<text x="52" y="603" font-size="17" fill="#183247">1 preformed cup + 1 pad.</text>
+<text x="52" y="637" font-size="17" fill="#183247"></text>
+<text x="52" y="671" font-size="17" fill="#183247">Print: cup upright; pad flat.</text>
+<text x="52" y="705" font-size="17" fill="#183247">Benefit sought: less short local core work.</text>
+<text x="52" y="739" font-size="17" fill="#183247">Cost: infill preset + solid-corner regions.</text>
+<text x="52" y="773" font-size="17" fill="#183247">Still may show infill marks.</text>
+<text x="52" y="865" font-size="16" fill="#183247" font-weight="700">No promised smoothness or damping gain.</text>
+<rect x="520" y="185" width="460" height="730" fill="white" stroke="#d4dde6" rx="12"/>
+<text x="540" y="219" font-size="22" fill="#183247" font-weight="700">N2 · Curved, tangent web</text>
+<rect x="565" y="280" width="360" height="24" fill="#475569" stroke="none" rx="0"/>
+<rect x="565" y="410" width="360" height="24" fill="#2466b0" stroke="none" rx="0"/>
+<path d="M584.00 300.00L585.79 300.14L587.58 300.55L589.37 301.25L591.16 302.21L592.94 303.44L594.73 304.93L596.52 306.67L598.31 308.66L600.10 310.89L601.89 313.34L603.68 316.00L605.47 318.86L607.26 321.91L609.04 325.13L610.83 328.50L612.62 332.01L614.41 335.65L616.20 339.39L617.99 343.21L619.78 347.10L621.57 351.04L623.36 355.01L625.14 358.99L626.93 362.96L628.72 366.90L630.51 370.79L632.30 374.61L634.09 378.35L635.88 381.99L637.67 385.50L639.46 388.87L641.24 392.09L643.03 395.14L644.82 398.00L646.61 400.66L648.40 403.11L650.19 405.34L651.98 407.33L653.77 409.07L655.56 410.56L657.34 411.79L659.13 412.75L660.92 413.45L662.71 413.86L664.50 414.00L666.29 413.86L668.08 413.45L669.87 412.75L671.66 411.79L673.44 410.56L675.23 409.07L677.02 407.33L678.81 405.34L680.60 403.11L682.39 400.66L684.18 398.00L685.97 395.14L687.76 392.09L689.54 388.87L691.33 385.50L693.12 381.99L694.91 378.35L696.70 374.61L698.49 370.79L700.28 366.90L702.07 362.96L703.86 358.99L705.64 355.01L707.43 351.04L709.22 347.10L711.01 343.21L712.80 339.39L714.59 335.65L716.38 332.01L718.17 328.50L719.96 325.13L721.74 321.91L723.53 318.86L725.32 316.00L727.11 313.34L728.90 310.89L730.69 308.66L732.48 306.67L734.27 304.93L736.06 303.44L737.84 302.21L739.63 301.25L741.42 300.55L743.21 300.14L745.00 300.00L746.79 300.14L748.58 300.55L750.37 301.25L752.16 302.21L753.94 303.44L755.73 304.93L757.52 306.67L759.31 308.66L761.10 310.89L762.89 313.34L764.68 316.00L766.47 318.86L768.26 321.91L770.04 325.13L771.83 328.50L773.62 332.01L775.41 335.65L777.20 339.39L778.99 343.21L780.78 347.10L782.57 351.04L784.36 355.01L786.14 358.99L787.93 362.96L789.72 366.90L791.51 370.79L793.30 374.61L795.09 378.35L796.88 381.99L798.67 385.50L800.46 388.87L802.24 392.09L804.03 395.14L805.82 398.00L807.61 400.66L809.40 403.11L811.19 405.34L812.98 407.33L814.77 409.07L816.56 410.56L818.34 411.79L820.13 412.75L821.92 413.45L823.71 413.86L825.50 414.00L827.29 413.86L829.08 413.45L830.87 412.75L832.66 411.79L834.44 410.56L836.23 409.07L838.02 407.33L839.81 405.34L841.60 403.11L843.39 400.66L845.18 398.00L846.97 395.14L848.76 392.09L850.54 388.87L852.33 385.50L854.12 381.99L855.91 378.35L857.70 374.61L859.49 370.79L861.28 366.90L863.07 362.96L864.86 358.99L866.64 355.01L868.43 351.04L870.22 347.10L872.01 343.21L873.80 339.39L875.59 335.65L877.38 332.01L879.17 328.50L880.96 325.13L882.74 321.91L884.53 318.86L886.32 316.00L888.11 313.34L889.90 310.89L891.69 308.66L893.48 306.67L895.27 304.93L897.06 303.44L898.84 302.21L900.63 301.25L902.42 300.55L904.21 300.14L906.00 300.00" fill="none" stroke="#cf711c" stroke-width="15" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="542" y="535" font-size="17" fill="#183247">Replace straight posts with a curved web.</text>
+<text x="542" y="569" font-size="17" fill="#183247">Gentle merges into substantial skins.</text>
+<text x="542" y="603" font-size="17" fill="#183247">1 preformed cup + 1 pad.</text>
+<text x="542" y="637" font-size="17" fill="#183247"></text>
+<text x="542" y="671" font-size="17" fill="#183247">Print: constant wall section upright.</text>
+<text x="542" y="705" font-size="17" fill="#183247">Benefit sought: less abrupt junction work.</text>
+<text x="542" y="739" font-size="17" fill="#183247">Cost: deeper lining, possibly stiffer.</text>
+<text x="542" y="773" font-size="17" fill="#183247">CAD continuity ≠ one nozzle path.</text>
+<text x="542" y="865" font-size="16" fill="#183247" font-weight="700">No promised smoothness or damping gain.</text>
+<rect x="1010" y="185" width="460" height="730" fill="white" stroke="#d4dde6" rx="12"/>
+<text x="1030" y="219" font-size="22" fill="#183247" font-weight="700">N3 · Two preformed troughs</text>
+<path d="M1078 280V419H1404V280" fill="none" stroke="#475569" stroke-width="24" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1100 280V389H1382V280" fill="none" stroke="#2466b0" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1130" y="395" width="10" height="12" fill="#cf711c" stroke="none" rx="0"/>
+<rect x="1175" y="395" width="10" height="12" fill="#cf711c" stroke="none" rx="0"/>
+<rect x="1220" y="395" width="10" height="12" fill="#cf711c" stroke="none" rx="0"/>
+<rect x="1265" y="395" width="10" height="12" fill="#cf711c" stroke="none" rx="0"/>
+<rect x="1310" y="395" width="10" height="12" fill="#cf711c" stroke="none" rx="0"/>
+<rect x="1355" y="395" width="10" height="12" fill="#cf711c" stroke="none" rx="0"/>
+<rect x="1052" y="444" width="380" height="8" fill="#c5ccd4" stroke="none" rx="0"/>
+<text x="1052" y="473" font-size="14" fill="#183247" font-weight="700">PRINT BED</text>
+<path d="M1412 429L1412 359" fill="none" stroke="#b83232" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="1377" y="347" font-size="16" fill="#183247" font-weight="700">Z ↑</text>
+<text x="1032" y="535" font-size="17" fill="#183247">Split the cup into side-by-side halves.</text>
+<text x="1032" y="569" font-size="17" fill="#183247">Print their biggest faces horizontally.</text>
+<text x="1032" y="603" font-size="17" fill="#183247">2 cup halves + 1 pad.</text>
+<text x="1032" y="637" font-size="17" fill="#183247"></text>
+<text x="1032" y="671" font-size="17" fill="#183247">Print: each half on its back; pad flat.</text>
+<text x="1032" y="705" font-size="17" fill="#183247">Benefit sought: change face orientation.</text>
+<text x="1032" y="739" font-size="17" fill="#183247">Cost: seams on narrow faces and floor.</text>
+<text x="1032" y="773" font-size="17" fill="#183247">No thin separate cups; no folding.</text>
+<text x="1032" y="865" font-size="16" fill="#183247" font-weight="700">No promised smoothness or damping gain.</text>
+<rect x="30" y="935" width="1440" height="220" fill="white" stroke="#d4dde6" rx="12"/>
+<text x="50" y="969" font-size="22" fill="#183247" font-weight="700">Where I would focus</text>
+<text x="55" y="995" font-size="18" fill="#183247">N1 simplifies CAD but needs a prepared infill/corner project. N3 changes the face orientation if two flush joins are acceptable.</text>
+<text x="55" y="1027" font-size="18" fill="#183247">N2 is a more speculative geometry-controlled route, included as a distinct bending core—not as a guaranteed upgrade to S.</text>
+<text x="55" y="1059" font-size="18" fill="#183247">All retain continuous contact/back skins and solid corner regions. Ordinary Classic, 0.4 mm nozzle / 0.2 mm layers; no Arachne.</text>
+<text x="55" y="1091" font-size="18" fill="#183247">No isolated dots rearranged, folding blanks, loose inserts or a return to C’s solid lining. Damping and tall-print reliability remain physical questions.</text>
+<a href="infill_study_paths.svg"><text x="55" y="1135" font-size="18" fill="#2466b0" text-decoration="underline">Actual N1 G-code paths: infill_study_paths.svg — Gyroid 20/30% and Cross Hatch 20%</text></a>
+</g></svg>

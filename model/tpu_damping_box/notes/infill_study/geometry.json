@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/infill_wall_study.py",
+  "errors": [],
+  "views": [],
+  "exports": [
+    {
+      "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/infill_wall_study.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/infill_wall_study.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.001411967999956687,
+    "build": 0.01801519999935408,
+    "selection": 0.0006472259992733598,
+    "validation": 0.002351556000576238,
+    "export_step": 0.05408482200073195,
+    "export_stl": 0.008707621000212384,
+    "worker": 0.15277807399979793,
+    "total": 5.454611873999966
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "000dcc4b20b0aae90b03594f045d3ac4afb1f7d69ab94a3da71d892406e37055",
+    "artifact_identity": "9ec8d8fa69f1a6bebc5c161d4f2327ee77614b6c88431757746c3b5781d0ac8a"
+  }
+}

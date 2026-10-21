@@ -82,3 +82,10 @@ without filling CAD voids. Layers remain 0.2 mm, supports/ironing remain off,
 bridges stay thin with automatic directions, and the reference TPU filament
 remains unchanged. This derivative retains AGPL-3.0. Native R2 receipts and
 explicit wall-path checks qualify this setup only, not printed strength or damping.
+
+The separate [N1 infill-study profiles](../notes/infill_study/README.md) also derive
+from `tpu-support-classic-process.json` under this same AGPL-3.0 attribution.
+Their declared changes are Gyroid 20/30% or Cross Hatch 20%, three wall loops,
+Inner/Outer/Inner, infill-first off, six top/bottom layers and gyroid optimization
+off. They are diagnostic settings for a straight-wall proxy, not replacements
+for the approved B process or a calibrated TPU recipe.

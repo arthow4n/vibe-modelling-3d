@@ -96,7 +96,10 @@ failures, and rejects folding because adapting it to other liner shapes would
 introduce impractical-to-print constructions. Future liner concepts should be
 preformed and transferable to intended container shapes; a simple fixture net
 alone does not settle that adoption. These are architecture decisions, not new
-physical print results or a universal claim that all thick TPU cups fail.
+physical print results or a universal claim that all thick TPU cups fail. The
+user subsequently permits several infill-based candidates and requires their
+**actual sliced print paths** to explain the printing concept; generic pattern
+icons are insufficient. [Owning configurations and path evidence](../../../../model/tpu_damping_box/notes/infill_study/README.md).
 
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.

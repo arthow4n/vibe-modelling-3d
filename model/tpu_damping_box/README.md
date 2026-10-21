@@ -7,27 +7,32 @@ A16/A20 and solid C12/C16 are rejected as damping choices relative to the retain
 S16 baseline. Object-facing finish, stringing and seam-area artifacts still need
 improvement; approval does not qualify tall application liners.
 [Full print report](notes/b_surface_concepts.md) ·
-[Current print-first concepts](notes/print_first_concepts.md).
+[Current preformed surface concepts](notes/preformed_surface_concepts.md).
 
 **Current phase:** investigate different architectures that isolate the black
 TPU object-facing surface from the core. D's tie-pattern changes are insufficient
 as the main solution. The user explicitly removes wall/overall thickness limits
 and asks for solid corner regions. Current concerns are mainly visible surface
 patterns with occasional bumps; this is not a translucent-TPU investigation.
-The [print-first comparison](notes/print_first_concepts.md) retains the drawings,
-but **P1/two cups is now set aside**: the user points out that separately printing
-a thin-walled TPU cup still depends on upright-wall reliability that failed in
-earlier repository prints. Removing core junctions does not resolve that risk.
-The user allows up to two cup pieces plus the usual lid pad, so part count was
-acceptable; print reliability is the rejection. **P2/folding is also rejected**:
-the user does not want a folding architecture that becomes impractical to print
-when adapted to other models. Both are retired; no replacement is selected.
-Next exploration must use preformed constructions suited to real container
-shapes and the known wall-printing evidence. B08/B16 stay approved.
-E5/E6 loose cores remain retired; E2/E4 dropped, E3 set aside. Deliver SVG
-explainers only; no new physical trial is reported by this correction.
-**No new CAD models, exports or changed print presets are authorized in this
-phase.** Existing B files and settings remain the printed baseline.
+The current [N1–N3 comparison](notes/preformed_surface_concepts.md) explores
+**ordinary sparse infill behind substantial skins**, **curved tangent web
+junctions**, and **two preformed trough halves printed on their backs**.
+The SVGs show print order, core/floor/pad support, solid corners and complete
+part counts. N3 makes the clearest orientation change if joins on the narrow
+faces/floor are acceptable; N1 keeps one cup but needs an infill/corner project.
+N2 is a more speculative finish hypothesis. None is user-selected or physically
+qualified. The user additionally authorizes infill configurations and requires
+actual sliced paths: [G20/G30/X20 study](notes/infill_study/README.md) provides a
+6 mm wall proxy, separate profiles, G-code and consecutive-layer/roof SVGs.
+All three ordinary Classic slices complete; no physical print is reported.
+The user allows up to two cup pieces plus the usual pad. [P1/two cups and
+P2/folding remain retired](notes/print_first_concepts.md): prior thin-wall
+failures and adoption to other model shapes govern the new comparison.
+E5/E6 loose cores remain retired; E2/E4 dropped, E3 set aside. B08/B16 stay
+approved. Deliver SVG explainers only; no new physical trial is reported.
+**No new full-box models are made in this phase.** The later infill authorization
+is limited here to the explanatory proxy/configuration study. Existing B files
+and settings remain the printed baseline.
 
 **Retained baseline:** S16/S12 were printed and accepted on 2026-10-16, with S16
 preferred. The latest report finds B damping similar to S16 and its object-facing
@@ -63,7 +68,9 @@ positive application feedback for fit and damping. The
 defects; neither application result is established by these research samples.
 
 - For the latest physical results, read [B comparison](notes/b_surface_concepts.md).
-- For current printable-construction proposals and whole-liner counts, read [print-first concepts](notes/print_first_concepts.md).
+- For current surface ideas, print construction and tradeoffs, read [N1–N3 preformed concepts](notes/preformed_surface_concepts.md).
+- For concrete infill settings and actual deposited paths, read [G20/G30/X20 study](notes/infill_study/README.md).
+- For the retired two-cup/folding proposals and rejection reasons, read [print-first review](notes/print_first_concepts.md).
 - For earlier architectures and the corner requirement, read [surface isolation history](notes/surface_decoupling.md).
 - For the existing support-test files/setup, read [R2](#ordinary-classic-repair--r2).
 - For the printed S16 baseline, read [closed-skin follow-up](#closed-skin-follow-up)
@@ -1231,3 +1238,10 @@ Print-first concept review, 2026-10-21: primary model GPT-6 family; exact runtim
 identifier/reasoning effort not exposed. Codex shared-workspace CLI/API agent,
 provider OpenAI, no subagents. User supplies printability and assembly preferences;
 agent authors construction revisions and SVGs. No new CAD or physical evidence.
+
+N1–N3 preformed-concept and infill-path phase, 2026-10-21: primary model GPT-6
+family; exact runtime identifier/reasoning effort not exposed. Codex shared-workspace
+CLI/API agent, OpenAI; no subagents. User requests new ideas, permits infill
+configurations and requires actual paths. This phase authors the SVGs, diagnostic
+wall proxy and reader; Orca 2.4.2 supplies the three native slices. No new physical
+print or full-box variant; upstream profile attribution remains preserved.

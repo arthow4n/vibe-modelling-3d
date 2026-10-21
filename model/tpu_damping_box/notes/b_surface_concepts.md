@@ -77,7 +77,7 @@ have corner air regions, not dedicated full-thickness solid corner lands.
 
 The D recommendation below is **superseded as the next direction**, not a
 physical rejection or proof that its secondary experiments cannot help.
-[Current architectural investigation and SVGs](surface_decoupling.md) address
+[Current architectural investigation and SVGs](preformed_surface_concepts.md) address
 these clarifications. All earlier print reports and approvals remain intact.
 
 ## Investigation and proposals

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1300" viewBox="0 0 1500 1300" role="img" aria-labelledby="title desc"><title id="title">N1 · A sparse core behind substantial contact skins</title><desc id="desc">One preformed cup + one lid pad. Ordinary Classic walls with sparse gyroid inside a wider wall.. Schematic proposal only, not CAD, sliced paths or measured deformation. All real TPU is black.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#b83232"/></marker></defs><g font-family="DejaVu Sans,sans-serif">
+<rect x="0" y="0" width="1500" height="1300" fill="#f3f6f9" stroke="none" rx="0"/>
+<text x="35" y="49" font-size="29" fill="#183247" font-weight="700">N1 · A sparse core behind substantial contact skins</text>
+<text x="35" y="84" font-size="18" fill="#183247">One preformed cup + one lid pad. Ordinary Classic walls with sparse gyroid inside a wider wall.</text>
+<rect x="35" y="107" width="22" height="17" fill="#2466b0" stroke="#183247" rx="0"/>
+<text x="66" y="122" font-size="16" fill="#183247">Contact face / solid skin</text>
+<rect x="430" y="107" width="22" height="17" fill="#475569" stroke="#183247" rx="0"/>
+<text x="461" y="122" font-size="16" fill="#183247">Outer skin / solid corner</text>
+<rect x="845" y="107" width="22" height="17" fill="#cf711c" stroke="#183247" rx="0"/>
+<text x="876" y="122" font-size="16" fill="#183247">Core material</text>
+<rect x="1160" y="107" width="22" height="17" fill="white" stroke="#183247" rx="0"/>
+<text x="1191" y="122" font-size="16" fill="#183247">Empty space</text>
+<text x="35" y="157" font-size="17" fill="#183247">Colours identify roles, not filaments. All TPU BLACK. Pale grey = existing box / bed. Red = force or movement.</text>
+<rect x="30" y="185" width="1440" height="405" fill="white" stroke="#d4dde6" rx="12"/>
+<text x="50" y="219" font-size="22" fill="#183247" font-weight="700">1 · Wall cut: same outside shape, different ownership of the core</text>
+<rect x="80" y="280" width="290" height="170" fill="#475569" stroke="none" rx="0"/>
+<rect x="80" y="425" width="290" height="25" fill="#2466b0" stroke="none" rx="0"/>
+<text x="80" y="259" font-size="18" fill="#183247" font-weight="700">CAD wall is a solid volume</text>
+<text x="80" y="494" font-size="17" fill="#183247">The slicer hollows its interior.</text>
+<text x="80" y="522" font-size="17" fill="#183247">100% infill would make it solid again.</text>
+<path d="M405 363L495 363" fill="none" stroke="#b83232" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="420" y="332" font-size="16" fill="#183247" font-weight="700">SLICE</text>
+<rect x="540" y="280" width="485" height="27" fill="#475569" stroke="none" rx="0"/>
+<rect x="540" y="423" width="485" height="27" fill="#2466b0" stroke="none" rx="0"/>
+<path d="M575 304 C540 340 610 388 575 426" fill="none" stroke="#cf711c" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M660 304 C625 340 695 388 660 426" fill="none" stroke="#cf711c" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M745 304 C710 340 780 388 745 426" fill="none" stroke="#cf711c" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M830 304 C795 340 865 388 830 426" fill="none" stroke="#cf711c" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M915 304 C880 340 950 388 915 426" fill="none" stroke="#cf711c" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M990 304 C955 340 1025 388 990 426" fill="none" stroke="#cf711c" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1080" y="304" font-size="17" fill="#183247">Blue: several wall paths</text>
+<text x="1080" y="331" font-size="17" fill="#183247">between contents and core.</text>
+<text x="1080" y="358" font-size="17" fill="#183247"></text>
+<text x="1080" y="385" font-size="17" fill="#183247">Orange: sparse infill,</text>
+<text x="1080" y="412" font-size="17" fill="#183247">not isolated CAD ties.</text>
+<text x="1080" y="439" font-size="17" fill="#183247"></text>
+<text x="1080" y="466" font-size="17" fill="#183247">White: bending space.</text>
+<text x="540" y="489" font-size="16" fill="#183247">Gyroid sketch is symbolic, not an actual layer or promised single path.</text>
+<text x="540" y="532" font-size="17" fill="#183247" font-weight="700">Benefit sought: fewer short dot-boundary events beside the contact face.</text>
+<rect x="30" y="610" width="705" height="390" fill="white" stroke="#d4dde6" rx="12"/>
+<text x="50" y="644" font-size="22" fill="#183247" font-weight="700">2 · Cup prints upright; mouth stays open</text>
+<path d="M85 702V890H335V702" fill="none" stroke="#475569" stroke-width="38" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M112 702V864H308V702" fill="none" stroke="#2466b0" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="55" y="913" width="325" height="8" fill="#c5ccd4" stroke="none" rx="0"/>
+<text x="55" y="942" font-size="14" fill="#183247" font-weight="700">PRINT BED</text>
+<path d="M360 898L360 828" fill="none" stroke="#b83232" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="325" y="816" font-size="16" fill="#183247" font-weight="700">Z ↑</text>
+<text x="410" y="711" font-size="17" fill="#183247">Solid bottom skin first.</text>
+<text x="410" y="740" font-size="17" fill="#183247">Infill grows above it.</text>
+<text x="410" y="769" font-size="17" fill="#183247">Floor top skin bridges</text>
+<text x="410" y="798" font-size="17" fill="#183247">only between infill lines.</text>
+<text x="410" y="827" font-size="17" fill="#183247"></text>
+<text x="410" y="856" font-size="17" fill="#183247">Wall core grows from base.</text>
+<text x="410" y="885" font-size="17" fill="#183247">No roof over the mouth.</text>
+<text x="410" y="914" font-size="17" fill="#183247">Print pad flat separately.</text>
+<text x="60" y="974" font-size="16" fill="#183247">No supports trapped inside; roof support still depends on infill spacing.</text>
+<rect x="755" y="610" width="715" height="390" fill="white" stroke="#d4dde6" rx="12"/>
+<text x="775" y="644" font-size="22" fill="#183247" font-weight="700">3 · What changes from the earlier designs</text>
+<text x="780" y="684" font-size="18" fill="#183247">C: solid material throughout; rejected for damping.</text>
+<text x="780" y="715" font-size="18" fill="#183247">N1: preserve an air-filled, flexible core.</text>
+<text x="780" y="746" font-size="18" fill="#183247"></text>
+<text x="780" y="777" font-size="18" fill="#183247">E4 only thickened a skin around the old architecture.</text>
+<text x="780" y="808" font-size="18" fill="#183247">N1 replaces discrete CAD core features with normal infill</text>
+<text x="780" y="839" font-size="18" fill="#183247">and gives the contact face multiple perimeter paths.</text>
+<text x="780" y="870" font-size="18" fill="#183247"></text>
+<text x="780" y="901" font-size="18" fill="#183247">Example study range: 1.2–1.5 mm skins + 3–5 mm core.</text>
+<text x="780" y="932" font-size="18" fill="#183247">Actual Classic path count must be checked, not assumed.</text>
+<text x="780" y="963" font-size="18" fill="#183247">More thickness costs usable container space.</text>
+<rect x="30" y="1020" width="1440" height="245" fill="white" stroke="#d4dde6" rx="12"/>
+<text x="50" y="1054" font-size="22" fill="#183247" font-weight="700">Tradeoff and print-path reality</text>
+<text x="55" y="1082" font-size="18" fill="#183247">Requires a supplied ordinary sparse-infill preset: the existing 100% process must NOT be reused unchanged.</text>
+<text x="55" y="1113" font-size="18" fill="#183247">Gyroid still meets the walls and still has starts/travels. It may leave patterns or feel too stiff; no smoothness guarantee.</text>
+<text x="55" y="1144" font-size="18" fill="#183247">Needs prepared corner regions at 100% infill in a project file; a rounded CAD corner alone does not create a solid corner land.</text>
+<text x="55" y="1175" font-size="18" fill="#183247">First comparison would check wall paths, core/shell contact, roof support and finish/damping against B. No full-box print files yet.</text>
+<text x="55" y="1206" font-size="18" fill="#183247">Load path: contents → multi-path skin → bending infill → outer skin → rigid box. All parts are printed together.</text>
+<a href="infill_study_paths.svg"><text x="55" y="1244" font-size="18" fill="#2466b0" text-decoration="underline">Actual N1 G-code paths: infill_study_paths.svg — Gyroid 20/30% and Cross Hatch 20%</text></a>
+</g></svg>

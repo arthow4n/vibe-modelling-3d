@@ -1,0 +1,276 @@
+{
+  "category": "diagnostic-infill-path-comparison",
+  "proxy": "60 x 6 x 16 mm solid CAD wall",
+  "source_sha256": {
+    "infill_wall_study.py": "564ffc8ad25ece12cbd59b86a0f84a6023e514585447cba208ecb9715c535ac3",
+    "review_infill_study.py": "948299a2aaa20c7ddbeef75e66d41710ff8612b011a2f1cbbdcb5615d440b63c"
+  },
+  "geometry_receipt": "geometry.json",
+  "variants": {
+    "G20": {
+      "native_receipt": "G20_review.json",
+      "gcode_sha256": "3b025c98891f9fdb5276e9d8cfacbd817b476cc6235900bd1dc3d2abe533f41d",
+      "gcode_archive": "G20_paths.gcode.gz",
+      "input_stl_sha256": "0941d5eb71746ce1d2ddb71d8bb464c5f25ce929d7294f215c6591d334500ca3",
+      "process_sha256": "951157caf5f3f17958d2724aa8ab5c2975c829c725058909abb85e8ed39e4fdf",
+      "slicer_version": "2.4.2",
+      "effective_settings": {
+        "wall_generator": "classic",
+        "wall_loops": "3",
+        "wall_sequence": "inner-outer-inner wall",
+        "is_infill_first": "0",
+        "layer_height": "0.2",
+        "initial_layer_print_height": "0.2",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "sparse_infill_line_width": "0.42",
+        "sparse_infill_pattern": "gyroid",
+        "sparse_infill_density": "20%",
+        "infill_wall_overlap": "15%",
+        "top_shell_layers": "6",
+        "bottom_shell_layers": "6",
+        "detect_thin_wall": "0",
+        "gyroid_optimized": "0",
+        "fill_multiline": "1"
+      },
+      "whole_proxy_deposited_length_mm_by_role": {
+        "Inner wall": 19833.367999999955,
+        "Outer wall": 10424.07999999998,
+        "Bottom surface": 391.04139788346356,
+        "Internal solid infill": 4824.899669369833,
+        "Sparse infill": 8974.1073951561,
+        "Internal Bridge": 596.8627320342736,
+        "Top surface": 839.8618392194704
+      },
+      "selected_layers": [
+        {
+          "z_mm": 4.0,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 157
+          }
+        },
+        {
+          "z_mm": 4.2,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 240
+          }
+        },
+        {
+          "z_mm": 4.4,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 205
+          }
+        },
+        {
+          "z_mm": 14.8,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 156,
+            "Internal solid infill": 17
+          }
+        },
+        {
+          "z_mm": 15.0,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Internal Bridge": 204
+          }
+        }
+      ],
+      "support_probe": {
+        "ok": true,
+        "generated": false,
+        "supported_plates": [],
+        "effective_support_type": "tree(auto)",
+        "effective_support_threshold_angle": "30",
+        "effective_max_bridge_length_mm": "10"
+      },
+      "notices": []
+    },
+    "G30": {
+      "native_receipt": "G30_review.json",
+      "gcode_sha256": "c787008050b1e2f6e189be6a4762a13d55409c1c1da099efd6fbedbc92cfff8b",
+      "gcode_archive": "G30_paths.gcode.gz",
+      "input_stl_sha256": "0941d5eb71746ce1d2ddb71d8bb464c5f25ce929d7294f215c6591d334500ca3",
+      "process_sha256": "237cf65a83b1b5919ec0515524cb75277c227df2fb47826e27587d7a41c2ddcb",
+      "slicer_version": "2.4.2",
+      "effective_settings": {
+        "wall_generator": "classic",
+        "wall_loops": "3",
+        "wall_sequence": "inner-outer-inner wall",
+        "is_infill_first": "0",
+        "layer_height": "0.2",
+        "initial_layer_print_height": "0.2",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "sparse_infill_line_width": "0.42",
+        "sparse_infill_pattern": "gyroid",
+        "sparse_infill_density": "30%",
+        "infill_wall_overlap": "15%",
+        "top_shell_layers": "6",
+        "bottom_shell_layers": "6",
+        "detect_thin_wall": "0",
+        "gyroid_optimized": "0",
+        "fill_multiline": "1"
+      },
+      "whole_proxy_deposited_length_mm_by_role": {
+        "Inner wall": 19833.367999999955,
+        "Outer wall": 10424.07999999998,
+        "Bottom surface": 391.04139788346356,
+        "Internal solid infill": 4824.899669369833,
+        "Sparse infill": 13680.209953068375,
+        "Internal Bridge": 596.6453922648878,
+        "Top surface": 839.8618392194704
+      },
+      "selected_layers": [
+        {
+          "z_mm": 4.0,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 380
+          }
+        },
+        {
+          "z_mm": 4.2,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 364
+          }
+        },
+        {
+          "z_mm": 4.4,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 364
+          }
+        },
+        {
+          "z_mm": 14.8,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 284,
+            "Internal solid infill": 17
+          }
+        },
+        {
+          "z_mm": 15.0,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Internal Bridge": 172
+          }
+        }
+      ],
+      "support_probe": {
+        "ok": true,
+        "generated": false,
+        "supported_plates": [],
+        "effective_support_type": "tree(auto)",
+        "effective_support_threshold_angle": "30",
+        "effective_max_bridge_length_mm": "10"
+      },
+      "notices": []
+    },
+    "X20": {
+      "native_receipt": "X20_review.json",
+      "gcode_sha256": "b0200d4d1652684f041b9f5e2754b29c37e7163dc083b5bac82c7cdec6d8887b",
+      "gcode_archive": "X20_paths.gcode.gz",
+      "input_stl_sha256": "0941d5eb71746ce1d2ddb71d8bb464c5f25ce929d7294f215c6591d334500ca3",
+      "process_sha256": "669cddc4bb139b6deea430e690df247fc994e9edcfe3ab8a3a4a2ffe0ff10edc",
+      "slicer_version": "2.4.2",
+      "effective_settings": {
+        "wall_generator": "classic",
+        "wall_loops": "3",
+        "wall_sequence": "inner-outer-inner wall",
+        "is_infill_first": "0",
+        "layer_height": "0.2",
+        "initial_layer_print_height": "0.2",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "sparse_infill_line_width": "0.42",
+        "sparse_infill_pattern": "crosshatch",
+        "sparse_infill_density": "20%",
+        "infill_wall_overlap": "15%",
+        "top_shell_layers": "6",
+        "bottom_shell_layers": "6",
+        "detect_thin_wall": "0",
+        "gyroid_optimized": "0",
+        "fill_multiline": "1"
+      },
+      "whole_proxy_deposited_length_mm_by_role": {
+        "Inner wall": 19833.367999999955,
+        "Outer wall": 10424.07999999998,
+        "Bottom surface": 391.04139788346356,
+        "Internal solid infill": 4824.899669369833,
+        "Sparse infill": 10974.417447898255,
+        "Internal Bridge": 597.428004729427,
+        "Top surface": 839.8618392194704
+      },
+      "selected_layers": [
+        {
+          "z_mm": 4.0,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 47
+          }
+        },
+        {
+          "z_mm": 4.2,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 143
+          }
+        },
+        {
+          "z_mm": 4.4,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 181
+          }
+        },
+        {
+          "z_mm": 14.8,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Sparse infill": 77,
+            "Internal solid infill": 17
+          }
+        },
+        {
+          "z_mm": 15.0,
+          "segments_by_role": {
+            "Inner wall": 8,
+            "Outer wall": 4,
+            "Internal Bridge": 319
+          }
+        }
+      ],
+      "support_probe": {
+        "ok": true,
+        "generated": false,
+        "supported_plates": [],
+        "effective_support_type": "tree(auto)",
+        "effective_support_threshold_angle": "30",
+        "effective_max_bridge_length_mm": "10"
+      },
+      "notices": []
+    }
+  },
+  "limits": "Actual deposition only; travel/retraction moves omitted. Proxy has no cup corners, lid fit or tall-wall qualification. No physical print or measured surface/damping result."
+}

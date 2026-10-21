@@ -8,7 +8,17 @@ insufficient as the main answer. This investigation changes the manufacturing
 sequence, component boundary or support path instead. B08/B16 stay approved;
 no new printable models or presets are made in this SVG-only phase.
 
-## Current route — print-first correction
+## Current route — preformed surface concepts
+
+The user requests more ideas after retiring P1/P2. The **current drawings are
+[N1–N3](preformed_surface_concepts.md)**: slicer-generated sparse core, tangent
+curved web, and two preformed trough halves printed on their backs. The comparison
+shows print support, corner/floor/pad construction, setup costs and joins. No
+new full-box CAD or physical evidence; none is user-selected. The later
+[infill authorization and actual sliced paths](infill_study/README.md) add a
+diagnostic wall proxy, study profiles and three real slices.
+
+## Previous route — print-first correction
 
 The user subsequently finds these suggestions insufficiently grounded in
 printability and requests one piece ideally, two acceptable, with no complicated
