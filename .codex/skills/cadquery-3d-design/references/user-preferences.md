@@ -107,6 +107,13 @@ replacing it by assumption. [Owning adaptive path study](../../../../model/tpu_d
 This is a current exploration preference, not proof that every rib architecture
 is inferior or a new physical rejection of the approved B pairs.
 
+**TPU liner marking clarification, 2026-10-21:** earlier tiny-label readability
+feedback does not justify large/deep labels across a functional thin skin. The
+user now prioritizes a small visible ID that preserves the structure under test,
+and selects T08/T16 as the eventual next pair after an SVG marking discussion.
+[Owning options and source-backed skin effects](../../../../model/tpu_damping_box/notes/marking_options.md).
+This scopes the earlier large-label preference; no new mark is selected yet.
+
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.
 Choose insertion allowance, seated play and retention separately; this report

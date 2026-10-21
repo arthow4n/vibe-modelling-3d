@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="735" viewBox="0 0 940 735" role="img">
+  <title>Ink-only full ID</title>
+  <desc>SVG discussion concept, not CAD or actual sliced paths. Black is TPU, white is air, orange shows proposed recess voids, blue is optional contrasting ink. Only labels change; T08 and T16 full models are deferred.</desc>
+  <rect width="100%" height="100%" fill="white"/>
+  <text x="32" y="38" font-family="DejaVu Sans, sans-serif" font-size="27" fill="#20252b" font-weight="bold">Smaller IDs without carving up the test skin</text>
+  <text x="32" y="67" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Discussion only • future pair: T08 / T16 • same identifier on cup + lid pad</text>
+  <text x="32" y="91" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Black = TPU; white = air. Orange = recess void (explanatory color); blue = optional ink.</text>
+  <text x="32" y="134" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#20252b" font-weight="bold">M3  Ink-only full ID</text>
+  <text x="32" y="165" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#667085" font-weight="normal">No altered CAD area</text>
+  <rect x="50" y="203" width="238" height="238" fill="#20252b" stroke="#20252b"/>
+  <rect x="92" y="245" width="154" height="154" fill="none" stroke="#b9c0c9" stroke-dasharray="5 5"/>
+  <text x="102.5" y="322" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#f4f5f7" font-weight="normal">NO ID CUTS</text>
+  <text x="102.5" y="343" font-family="DejaVu Sans, sans-serif" font-size="9" fill="#c5cbd3" font-weight="normal">in central test field</text>
+  <g transform="translate(65.4 403.9) scale(7)" fill="none" stroke="#87cfee" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0H1.6 M.8 0V3.2" transform="translate(0.0 0)"/>
+    <path d="M0 0H1.6V3.2H0Z" transform="translate(2.5 0)"/>
+    <path d="M0 0H1.6V3.2H0Z M0 1.6H1.6" transform="translate(5.0 0)"/>
+  </g>
+  <text x="50" y="463" font-family="DejaVu Sans, sans-serif" font-size="12" fill="#667085" font-weight="normal">34 mm cup underside</text>
+  <text x="350" y="218" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#20252b" font-weight="normal">Write the full ID after printing</text>
+  <text x="350" y="247" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#20252b" font-weight="normal">Use contrasting ink on the shell-facing underside.</text>
+  <text x="350" y="276" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#20252b" font-weight="normal">No text geometry and no extra printed part.</text>
+  <text x="350" y="305" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#20252b" font-weight="normal">Both skins and every tie stay unchanged.</text>
+  <text x="350" y="386" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Cup and pad both receive T08 / T16.</text>
+  <text x="350" y="411" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">No change to the assembly or slicing process.</text>
+  <text x="350" y="436" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Let ink dry; adhesion / transfer are untested.</text>
+  <text x="350" y="461" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Choose this if zero structural footprint wins.</text>
+  <text x="50" y="530" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="bold">SECTION THROUGH THE MARK (vertical scale exaggerated)</text>
+  <rect x="50" y="555" width="260" height="30" fill="#20252b" stroke="#20252b"/>
+  <rect x="142" y="552" width="60" height="3" fill="#87cfee" stroke="#87cfee"/>
+  <rect x="50" y="586" width="260" height="28" fill="white" stroke="#667085"/>
+  <text x="330" y="567" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#20252b" font-weight="normal">Ink on the intact face</text>
+  <text x="330" y="587" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#20252b" font-weight="normal">no groove, boss or label panel</text>
+  <text x="330" y="607" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#20252b" font-weight="normal">no change to CAD or core</text>
+  <text x="50" y="670" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">Write the ID on both shell-facing undersides after printing; no CAD lettering is present.</text>
+  <text x="50" y="693" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">No added label panel or removed material. Ink adhesion and transfer remain untested.</text>
+</svg>

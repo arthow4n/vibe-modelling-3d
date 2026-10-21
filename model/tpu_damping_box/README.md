@@ -9,6 +9,14 @@ improvement; approval does not qualify tall application liners.
 [Full print report](notes/b_surface_concepts.md) ·
 [Current preformed surface concepts](notes/preformed_surface_concepts.md).
 
+**Next pair chosen by the user:** **T08 and T16**, following discussion of smaller
+bottom IDs. The user reports current lettering is too large/deep and interferes
+with the test skin. [Three marking SVG options](notes/marking_options.md) compare
+compact corner text, broad corner marks and ink-only identification. No marking
+option is selected; this phase delivers SVGs only, with full cup/pad modelling
+deferred until the discussion is settled. T08 is 0.8 mm per upright skin / 2.2 mm
+total wall; T16 is 1.6 mm per upright skin / 3.8 mm total wall.
+
 **Current phase:** investigate different architectures that isolate the black
 TPU object-facing surface from the core. D's tie-pattern changes are insufficient
 as the main solution. The user explicitly removes wall/overall thickness limits
@@ -18,9 +26,9 @@ patterns with occasional bumps; this is not a translucent-TPU investigation.
 for hand-designed curves, smoother N2 joints, thicker skins and real path
 inspection. [The B-derived wall study](notes/tie_surface_study/README.md) now
 compares fourteen geometry probes under ordinary Classic, with six current retained slices
-and the retained approved B08 reference. The current recommendation is **straight
+and the retained approved B08 reference. The earlier study recommendation was **straight
 ties with T12/T16 skins**: 1.2 mm or 1.6 mm **per skin**, total wall 3.0/3.8 mm
-with the 0.6 mm gap retained. These have no reported physical results and are not user selections.
+with the 0.6 mm gap retained. These have no reported physical results; the later user selection is T08/T16 above.
 
 The saved B08 slice places two nominal 0.42 mm passes just 0.08 mm apart within
 its 0.5 mm skin between ties; that nearby route changes at the joints. This is
@@ -73,6 +81,7 @@ positive application feedback for fit and damping. The
 defects; neither application result is established by these research samples.
 
 - For the latest physical results, read [B comparison](notes/b_surface_concepts.md).
+- For the current bottom-label discussion and eventual T08/T16 pair, read [marking options](notes/marking_options.md).
 - For the latest B-derived skin/joint decision, actual slices and study source, read [tie surface study](notes/tie_surface_study/README.md).
 - For the earlier architectural comparison, read [N1–N3 preformed concepts](notes/preformed_surface_concepts.md).
 - For concrete infill settings and actual deposited paths, read [G20/G30/X20 study](notes/infill_study/README.md).

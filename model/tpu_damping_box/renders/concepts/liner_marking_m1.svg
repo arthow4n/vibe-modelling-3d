@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="735" viewBox="0 0 940 735" role="img">
+  <title>Compact full ID</title>
+  <desc>SVG discussion concept, not CAD or actual sliced paths. Black is TPU, white is air, orange shows proposed recess voids, blue is optional contrasting ink. Only labels change; T08 and T16 full models are deferred.</desc>
+  <rect width="100%" height="100%" fill="white"/>
+  <text x="32" y="38" font-family="DejaVu Sans, sans-serif" font-size="27" fill="#20252b" font-weight="bold">Smaller IDs without carving up the test skin</text>
+  <text x="32" y="67" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Discussion only • future pair: T08 / T16 • same identifier on cup + lid pad</text>
+  <text x="32" y="91" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Black = TPU; white = air. Orange = recess void (explanatory color); blue = optional ink.</text>
+  <text x="32" y="134" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#20252b" font-weight="bold">M1  Compact full ID</text>
+  <text x="32" y="165" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#667085" font-weight="normal">9 × 5.5 mm reserved corner</text>
+  <rect x="50" y="203" width="238" height="238" fill="#20252b" stroke="#20252b"/>
+  <rect x="92" y="245" width="154" height="154" fill="none" stroke="#b9c0c9" stroke-dasharray="5 5"/>
+  <text x="102.5" y="322" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#f4f5f7" font-weight="normal">NO ID CUTS</text>
+  <text x="102.5" y="343" font-family="DejaVu Sans, sans-serif" font-size="9" fill="#c5cbd3" font-weight="normal">in central test field</text>
+  <rect x="57" y="395.5" width="63" height="38.5" fill="none" stroke="#dd8b24" stroke-dasharray="3 2"/>
+  <g transform="translate(65.4 403.9) scale(7)" fill="none" stroke="#dd8b24" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0H1.6 M.8 0V3.2" transform="translate(0.0 0)"/>
+    <path d="M0 0H1.6V3.2H0Z" transform="translate(2.5 0)"/>
+    <path d="M0 0H1.6V3.2H0Z M0 1.6H1.6" transform="translate(5.0 0)"/>
+  </g>
+  <text x="50" y="463" font-family="DejaVu Sans, sans-serif" font-size="12" fill="#667085" font-weight="normal">34 mm cup underside</text>
+  <text x="350" y="218" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#20252b" font-weight="normal">Compact monoline T08 / T16</text>
+  <text x="350" y="247" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#20252b" font-weight="normal">3.2 mm stroke-center height; 0.8 mm strokes</text>
+  <text x="350" y="276" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#20252b" font-weight="normal">Visible glyph envelope ≈ 7.4 × 4.0 mm</text>
+  <text x="350" y="305" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#20252b" font-weight="normal">Reserve 9 × 5.5 mm, including margins.</text>
+  <text x="350" y="334" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#20252b" font-weight="normal">One 0.2 mm layer deep; no separate R2 line.</text>
+  <text x="350" y="393" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Place beside the corner, never in the middle.</text>
+  <text x="350" y="418" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Same layout on underside of cup and pad.</text>
+  <text x="350" y="443" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">A 49.5 mm² backing zone is still a local change.</text>
+  <text x="350" y="468" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Use only if a suitable solid corner already fits.</text>
+  <text x="50" y="530" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="bold">SECTION THROUGH THE MARK (vertical scale exaggerated)</text>
+  <rect x="50" y="555" width="260" height="65" fill="#20252b" stroke="#20252b"/>
+  <rect x="142" y="555" width="60" height="10" fill="#dd8b24" stroke="#dd8b24"/>
+  <text x="330" y="568" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#20252b" font-weight="normal">0.2 mm recessed, one layer</text>
+  <text x="330" y="588" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#20252b" font-weight="normal">solid corner backing below</text>
+  <text x="330" y="608" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#20252b" font-weight="normal">NO cut over the open core</text>
+  <text x="50" y="670" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">Printed upside down on the marked face: recesses are on the bed side; no raised boss changes fit.</text>
+  <text x="50" y="693" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">M1 / M2 require solid backing, not a half-thickness membrane above an air core. No new CAD or slice supplied.</text>
+</svg>

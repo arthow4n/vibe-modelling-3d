@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1126" height="875" viewBox="0 0 1126 875" role="img">
+  <title>Three minimal-footprint liner ID options</title>
+  <desc>SVG discussion concept, not CAD or actual sliced paths. Black is TPU, white is air, orange shows proposed recess voids, blue is optional contrasting ink. Only labels change; T08 and T16 full models are deferred.</desc>
+  <rect width="100%" height="100%" fill="white"/>
+  <text x="32" y="38" font-family="DejaVu Sans, sans-serif" font-size="27" fill="#20252b" font-weight="bold">Smaller IDs without carving up the test skin</text>
+  <text x="32" y="67" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Discussion only • future pair: T08 / T16 • same identifier on cup + lid pad</text>
+  <text x="32" y="91" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Black = TPU; white = air. Orange = recess void (explanatory color); blue = optional ink.</text>
+  <rect x="32" y="115" width="336" height="465" fill="#f8fafc" stroke="#d4dae2" rx="10"/>
+  <text x="48" y="146" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#20252b" font-weight="bold">M1  Compact full ID</text>
+  <text x="48" y="173" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#667085" font-weight="normal">9 × 5.5 mm reserved corner</text>
+  <rect x="95" y="192" width="197.2" height="197.2" fill="#20252b" stroke="#20252b"/>
+  <rect x="129.8" y="226.8" width="127.6" height="127.6" fill="none" stroke="#b9c0c9" stroke-dasharray="5 5"/>
+  <text x="138.5" y="290.6" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#f4f5f7" font-weight="normal">NO ID CUTS</text>
+  <text x="138.5" y="308.0" font-family="DejaVu Sans, sans-serif" font-size="9" fill="#c5cbd3" font-weight="normal">in central test field</text>
+  <rect x="100.8" y="351.5" width="52.199999999999996" height="31.9" fill="none" stroke="#dd8b24" stroke-dasharray="3 2"/>
+  <g transform="translate(107.76 358.46) scale(5.8)" fill="none" stroke="#dd8b24" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0H1.6 M.8 0V3.2" transform="translate(0.0 0)"/>
+    <path d="M0 0H1.6V3.2H0Z" transform="translate(2.5 0)"/>
+    <path d="M0 0H1.6V3.2H0Z M0 1.6H1.6" transform="translate(5.0 0)"/>
+  </g>
+  <text x="95" y="411.2" font-family="DejaVu Sans, sans-serif" font-size="12" fill="#667085" font-weight="normal">34 mm cup underside</text>
+  <text x="48" y="440" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">T08 / T16, no separate revision line</text>
+  <text x="48" y="465" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">0.2 mm recess into solid backing</text>
+  <text x="48" y="490" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">Full name; larger reserved patch</text>
+  <rect x="386" y="115" width="336" height="465" fill="#f8fafc" stroke="#d4dae2" rx="10"/>
+  <text x="402" y="146" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#20252b" font-weight="bold">M2  Broad corner marks</text>
+  <text x="402" y="173" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#667085" font-weight="normal">4 × 4 mm reserved corner</text>
+  <rect x="449" y="192" width="197.2" height="197.2" fill="#20252b" stroke="#20252b"/>
+  <rect x="483.8" y="226.8" width="127.6" height="127.6" fill="none" stroke="#b9c0c9" stroke-dasharray="5 5"/>
+  <text x="492.5" y="290.6" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#f4f5f7" font-weight="normal">NO ID CUTS</text>
+  <text x="492.5" y="308.0" font-family="DejaVu Sans, sans-serif" font-size="9" fill="#c5cbd3" font-weight="normal">in central test field</text>
+  <rect x="454.8" y="360.2" width="23.2" height="23.2" fill="none" stroke="#dd8b24" stroke-dasharray="3 2"/>
+  <rect x="459.44" y="364.84000000000003" width="4.64" height="13.92" fill="#dd8b24" stroke="#dd8b24"/>
+  <text x="449" y="411.2" font-family="DejaVu Sans, sans-serif" font-size="12" fill="#667085" font-weight="normal">34 mm cup underside</text>
+  <text x="402" y="440" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">One bar = T08; two bars = T16</text>
+  <text x="402" y="465" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">0.8 × 2.4 mm bars, 0.2 mm deep</text>
+  <text x="402" y="490" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">Smallest integral mark; needs key</text>
+  <text x="402" y="550" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="bold">Preferred if the ID must be printed.</text>
+  <rect x="740" y="115" width="336" height="465" fill="#f8fafc" stroke="#d4dae2" rx="10"/>
+  <text x="756" y="146" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#20252b" font-weight="bold">M3  Ink-only full ID</text>
+  <text x="756" y="173" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#667085" font-weight="normal">No altered CAD area</text>
+  <rect x="803" y="192" width="197.2" height="197.2" fill="#20252b" stroke="#20252b"/>
+  <rect x="837.8" y="226.8" width="127.6" height="127.6" fill="none" stroke="#b9c0c9" stroke-dasharray="5 5"/>
+  <text x="846.5" y="290.6" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#f4f5f7" font-weight="normal">NO ID CUTS</text>
+  <text x="846.5" y="308.0" font-family="DejaVu Sans, sans-serif" font-size="9" fill="#c5cbd3" font-weight="normal">in central test field</text>
+  <g transform="translate(815.76 358.46) scale(5.8)" fill="none" stroke="#87cfee" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0H1.6 M.8 0V3.2" transform="translate(0.0 0)"/>
+    <path d="M0 0H1.6V3.2H0Z" transform="translate(2.5 0)"/>
+    <path d="M0 0H1.6V3.2H0Z M0 1.6H1.6" transform="translate(5.0 0)"/>
+  </g>
+  <text x="803" y="411.2" font-family="DejaVu Sans, sans-serif" font-size="12" fill="#667085" font-weight="normal">34 mm cup underside</text>
+  <text x="756" y="440" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">Write T08 / T16 on both undersides</text>
+  <text x="756" y="465" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">No recess, raised text or extra panel</text>
+  <text x="756" y="490" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">Manual step; ink adhesion untested</text>
+  <text x="32" y="620" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#20252b" font-weight="bold">Why not just make the existing text shallower?</text>
+  <text x="32" y="654" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="bold">SECTION THROUGH THE MARK (vertical scale exaggerated)</text>
+  <rect x="32" y="679" width="260" height="30" fill="#20252b" stroke="#20252b"/>
+  <rect x="124" y="679" width="60" height="15" fill="#dd8b24" stroke="#dd8b24"/>
+  <rect x="32" y="710" width="260" height="28" fill="white" stroke="#667085"/>
+  <text x="312" y="693" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#20252b" font-weight="normal">0.2 mm cut</text>
+  <text x="312" y="713" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#20252b" font-weight="normal">0.2 mm TPU remains</text>
+  <text x="312" y="733" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#20252b" font-weight="normal">air core starts below</text>
+  <text x="640" y="680" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Current B: 12 mm type + 8 mm R2 type.</text>
+  <text x="640" y="705" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">0.2 mm engraving removes half of its</text>
+  <text x="640" y="730" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">0.4 mm bottom skin at letter strokes.</text>
+  <text x="640" y="755" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#20252b" font-weight="normal">Smaller text reduces area, not local thinning.</text>
+  <text x="32" y="795" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">M1 / M2 only work if the entire mark lies over a genuine solid corner land. That land must be checked in future CAD.</text>
+  <text x="32" y="819" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">Do not add a central solid label panel. Apply the same corner treatment to T08 / T16 and both matching pads.</text>
+  <text x="32" y="843" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#20252b" font-weight="normal">Corner sizes are proposals, not existing geometry. All text/bar readability and physical effects remain untested.</text>
+</svg>
