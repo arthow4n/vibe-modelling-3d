@@ -1,0 +1,103 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/tie_surface_refined.stl",
+  "errors": [],
+  "views": [],
+  "exports": [],
+  "timings_seconds": {
+    "slice": 14.252798650000841,
+    "total": 14.252803490000588
+  },
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/tie_surface_refined.stl",
+    "profiles": {
+      "printer": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/notes/tie_surface_study/P2_process.json",
+      "filament": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu95a.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "preserve",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "TPU"
+      ],
+      "filament_settings_id": [
+        "Diagnostic Generic TPU 95A Q2C 0.4 - damping study"
+      ],
+      "nozzle_temperature": [
+        "230"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "230"
+      ],
+      "hot_plate_temp": [
+        "35"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "35"
+      ],
+      "print_settings_id": "TPU TIE SLICE STUDY P2",
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "no_brim",
+      "brim_width": "0",
+      "brim_object_gap": "0.1",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "1"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "100%",
+      "sparse_infill_pattern": "rectilinear"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": false,
+      "supported_plates": [],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": false,
+    "reused": false,
+    "identity": "107ccf64d81a17d220d33fc5cfbba1a17b7f467ff571217696aa6590b6764233",
+    "input_sha256": "0ccbd018015819fd134c2b7fd13d477e4209c5ddde58dd9edfbeb985fb191da6",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-4igph3is",
+    "setup_selection": {
+      "profiles": "supplied",
+      "placement": "explicit",
+      "scope": "Selected-profile slice acceptance only; production setup agreement and physical print behavior are not established"
+    }
+  }
+}

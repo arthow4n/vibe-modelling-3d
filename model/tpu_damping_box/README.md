@@ -14,25 +14,30 @@ TPU object-facing surface from the core. D's tie-pattern changes are insufficien
 as the main solution. The user explicitly removes wall/overall thickness limits
 and asks for solid corner regions. Current concerns are mainly visible surface
 patterns with occasional bumps; this is not a translucent-TPU investigation.
-The current [N1–N3 comparison](notes/preformed_surface_concepts.md) explores
-**ordinary sparse infill behind substantial skins**, **curved tangent web
-junctions**, and **two preformed trough halves printed on their backs**.
-The SVGs show print order, core/floor/pad support, solid corners and complete
-part counts. N3 makes the clearest orientation change if joins on the narrow
-faces/floor are acceptable; N1 keeps one cup but needs an infill/corner project.
-N2 is a more speculative finish hypothesis. None is user-selected or physically
-qualified. The user additionally authorizes infill configurations and requires
-actual sliced paths: [G20/G30/X20 study](notes/infill_study/README.md) provides a
-6 mm wall proxy, separate profiles, G-code and consecutive-layer/roof SVGs.
-All three ordinary Classic slices complete; no physical print is reported.
-The user allows up to two cup pieces plus the usual pad. [P1/two cups and
-P2/folding remain retired](notes/print_first_concepts.md): prior thin-wall
-failures and adoption to other model shapes govern the new comparison.
-E5/E6 loose cores remain retired; E2/E4 dropped, E3 set aside. B08/B16 stay
-approved. Deliver SVG explainers only; no new physical trial is reported.
-**No new full-box models are made in this phase.** The later infill authorization
-is limited here to the explanatory proxy/configuration study. Existing B files
-and settings remain the printed baseline.
+**Latest investigation:** the user favors B's discrete ties over ribs and asks
+for hand-designed curves, smoother N2 joints, thicker skins and real path
+inspection. [The B-derived wall study](notes/tie_surface_study/README.md) now
+compares fourteen geometry probes under ordinary Classic, with six current retained slices
+and the retained approved B08 reference. The current recommendation is **straight
+ties with T12/T16 skins**: 1.2 mm or 1.6 mm **per skin**, total wall 3.0/3.8 mm
+with the 0.6 mm gap retained. These have no reported physical results and are not user selections.
+
+The saved B08 slice places two nominal 0.42 mm passes just 0.08 mm apart within
+its 0.5 mm skin between ties; that nearby route changes at the joints. This is
+a concrete print-path hypothesis, not a confirmed cause of the physical marks.
+T12 adds a continuous near-normal-width gap-fill track; T16 keeps normal inner
+perimeters behind the face. More requested wall loops alone did not add the
+inspected tracks. Rounded/swept ties and the R0.25 N2 blend add local work, so
+they are lower priority for print finish. No damping gain is established.
+
+[Actual path views and source](notes/tie_surface_study/README.md) show the widths,
+roles and controlled comparisons. **Gyroid remains a separate candidate**, as
+the user requests; the [N1 infill paths/configurations](notes/infill_study/README.md)
+and [N1–N3 concepts](notes/preformed_surface_concepts.md) remain available.
+The user allows up to two cup pieces plus the usual pad; prior thin separate cups
+and folding remain retired. Existing B08/B16 approval and files are unchanged.
+No new full-box model, matching pad or application liner is made here: these are
+slice studies, not a new print batch or tall-wall qualification.
 
 **Retained baseline:** S16/S12 were printed and accepted on 2026-10-16, with S16
 preferred. The latest report finds B damping similar to S16 and its object-facing
@@ -68,7 +73,8 @@ positive application feedback for fit and damping. The
 defects; neither application result is established by these research samples.
 
 - For the latest physical results, read [B comparison](notes/b_surface_concepts.md).
-- For current surface ideas, print construction and tradeoffs, read [N1–N3 preformed concepts](notes/preformed_surface_concepts.md).
+- For the latest B-derived skin/joint decision, actual slices and study source, read [tie surface study](notes/tie_surface_study/README.md).
+- For the earlier architectural comparison, read [N1–N3 preformed concepts](notes/preformed_surface_concepts.md).
 - For concrete infill settings and actual deposited paths, read [G20/G30/X20 study](notes/infill_study/README.md).
 - For the retired two-cup/folding proposals and rejection reasons, read [print-first review](notes/print_first_concepts.md).
 - For earlier architectures and the corner requirement, read [surface isolation history](notes/surface_decoupling.md).
@@ -1245,3 +1251,11 @@ CLI/API agent, OpenAI; no subagents. User requests new ideas, permits infill
 configurations and requires actual paths. This phase authors the SVGs, diagnostic
 wall proxy and reader; Orca 2.4.2 supplies the three native slices. No new physical
 print or full-box variant; upstream profile attribution remains preserved.
+
+B-derived skin/joint slice investigation, 2026-10-21: primary model GPT-6 family;
+exact runtime identifier/reasoning effort not exposed. Codex shared-workspace
+CLI/API agent, OpenAI; no subagents. User requests autonomous B/curve/skin path
+research and retains gyroid. This phase authors the diagnostic geometries,
+profiles, actual-path reader and recommendations. Orca 2.4.2 supplies six new
+slices; retained B08 evidence remains attributed to its original phase. No new
+physical print, damping calibration or full-box approval.

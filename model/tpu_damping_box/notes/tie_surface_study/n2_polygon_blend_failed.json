@@ -1,0 +1,25 @@
+{
+  "ok": false,
+  "file_path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/tie_surface_n2_blend.py",
+  "errors": [
+    {
+      "stage": "build",
+      "type": "StdFail_NotDone",
+      "message": "BRep_API: command not done",
+      "file": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/.venv/lib/python3.14/site-packages/cadquery/occ_impl/shapes.py",
+      "line": 3987,
+      "traceback": "Traceback (most recent call last):\n  File \"/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/evaluate_model.py\", line 194, in evaluate_request\n    namespace = runpy.run_path(str(path), init_globals={\"show_object\": show_object}, run_name=\"__cqgi__\")\n  File \"<frozen runpy>\", line 294, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/tie_surface_n2_blend.py\", line 21, in <module>\n    blended = body.newObject(roots).fillet(.25)\n  File \"/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/.venv/lib/python3.14/site-packages/cadquery/cq.py\", line 1244, in fillet\n    s = solid.fillet(radius, edgeList)\n  File \"/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/.venv/lib/python3.14/site-packages/cadquery/occ_impl/shapes.py\", line 3987, in fillet\n    return self.__class__(fillet_builder.Shape())\n                          ~~~~~~~~~~~~~~~~~~~~^^\nOCP.OCP.StdFail.StdFail_NotDone: BRep_API: command not done\n"
+    }
+  ],
+  "views": [],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014159220008878037,
+    "worker": 3.6133651299987832,
+    "total": 5.931984992999787
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  }
+}

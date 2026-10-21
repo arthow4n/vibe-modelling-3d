@@ -6,6 +6,13 @@
 [N3: preformed trough halves](../renders/concepts/preformed_troughs.svg) ·
 [Actual N1 paths/configurations](infill_study/README.md)
 
+**Latest route:** the user favors ties and asks for direct B-skin/curve path
+research. The [completed adaptive wall study](tie_surface_study/README.md)
+recommends T12/T16 straight-tie skins ahead of the tested smooth roots, based on
+actual routes. Its N2 R0.25 blend is examined, not promoted. Gyroid remains a
+separate candidate; none of this establishes physical finish or damping.
+The comparison below preserves the earlier N1–N3 phase and its reasoning.
+
 The user requests further ideas after setting aside separate thin cups and
 rejecting folding. These three proposals change core generation, attachment
 geometry or print orientation. They are **discussion concepts**, not new models,
@@ -159,7 +166,7 @@ can move a seam artifact; it does not remove core patterns. Wipe was already on
 in the retained B setup. Moisture, pressure response and exact user seam/travel
 behavior remain unmeasured, so no new universal TPU process calibration is made.
 
-## Recommendation and evidence status
+## Earlier N1–N3 recommendation and evidence status
 
 N3 is the clearest change to manufacturing if the two narrow-face joins are
 acceptable; N1 is the useful one-piece-cup alternative, with its prepared-project

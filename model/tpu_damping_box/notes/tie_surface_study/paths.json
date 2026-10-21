@@ -1,0 +1,5342 @@
+{
+  "category": "diagnostic-tie-skin-path-study",
+  "baseline": {
+    "native_receipt": "../support_B08_final.json",
+    "gcode_sha256": "b07c974d66f89c8093dec18fe108b413db3534716f2154bcacdc56731efbe8b4",
+    "input_stl_sha256": "160aff29c019dacaf931b9dd903b842ee6c416270e1c865b8f307070c33ab12b",
+    "straight_skin_tracks_y_mm": {
+      "3.0": [
+        0.20999999999999908
+      ],
+      "4.4": [
+        0.20999999999999908,
+        0.28999999999999737
+      ]
+    },
+    "straight_skin_track_details": {
+      "3.0": [
+        {
+          "y_mm": 0.20999999999999908,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        }
+      ],
+      "4.4": [
+        {
+          "y_mm": 0.20999999999999908,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        },
+        {
+          "y_mm": 0.28999999999999737,
+          "width_mm": 0.42,
+          "role": "Outer wall"
+        }
+      ]
+    },
+    "local_transform": "tangent=rawY-135; normal=-15.4-(rawX-114.35); left wall only"
+  },
+  "variants": {
+    "P2": {
+      "gcode_sha256": "fb4800c11dce21c09d3d8fa145cfb95c7e0578000ac04695aaa1706889328030",
+      "input_stl_sha256": "31e1541e9ef453cbd98ef3679868dbefd04c473f4933c4be4aef6a09a4c3f0ac",
+      "process_sha256": "0e9999dc5f7fd7d1f83ae58460d8cbb407cfd4c8989e4c5926231837380b9040",
+      "model_stem": "tie_surface_study",
+      "native_receipt": "P2_review.json",
+      "process_file": "P2_process.json",
+      "effective_settings": {
+        "wall_generator": "classic",
+        "wall_loops": "2",
+        "wall_sequence": "inner wall/outer wall",
+        "layer_height": "0.2",
+        "detect_thin_wall": "0",
+        "enable_support": "0",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "sparse_infill_density": "100%"
+      },
+      "slicer_version": "2.4.2",
+      "support_probe": {
+        "ok": true,
+        "generated": false,
+        "supported_plates": [],
+        "effective_support_type": "tree(auto)",
+        "effective_support_threshold_angle": "30",
+        "effective_max_bridge_length_mm": "10"
+      },
+      "notices": [],
+      "cases": {
+        "T05": {
+          "skin_mm": 0.5,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.6000000000000001,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                0.5,
+                1.1
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.28999999999999915
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.28999999999999915,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 164.39999999999998
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 170.55999999999995,
+                "Overhang wall": 2.79999999999999
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 173.3599999999999
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 173.3599999999999
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 173.3599999999999
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.28999999999999915
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.28999999999999915,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 164.39999999999998
+              }
+            }
+          }
+        },
+        "T09": {
+          "skin_mm": 0.9,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.6,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                0.9,
+                1.5
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999975,
+                "Outer wall": 165.99999999999997,
+                "Internal solid infill": 9.551999999999992,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999975,
+                "Outer wall": 172.16,
+                "Overhang wall": 2.79999999999999,
+                "Internal solid infill": 9.551999999999992,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999975,
+                "Outer wall": 174.95999999999995,
+                "Internal solid infill": 9.551999999999992,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999975,
+                "Outer wall": 174.95999999999995,
+                "Internal solid infill": 9.551999999999992,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999975,
+                "Outer wall": 174.95999999999995,
+                "Internal solid infill": 9.551999999999992,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999975,
+                "Outer wall": 165.99999999999997,
+                "Internal solid infill": 9.551999999999992,
+                "Gap infill": 73.62400000000002
+              }
+            }
+          }
+        },
+        "T13": {
+          "skin_mm": 1.3,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.5999999999999999,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                1.3,
+                1.9
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0899999999999999
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0899999999999999,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 19.167999999999964,
+                "Outer wall": 167.6,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 19.167999999999964,
+                "Outer wall": 173.7600000000001,
+                "Overhang wall": 2.79999999999999,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 19.167999999999964,
+                "Outer wall": 176.56000000000006,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 19.167999999999964,
+                "Outer wall": 176.56000000000006,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 19.167999999999964,
+                "Outer wall": 176.56000000000006,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0899999999999999
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0899999999999999,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 19.167999999999964,
+                "Outer wall": 167.6,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 73.62400000000002
+              }
+            }
+          }
+        },
+        "R09": {
+          "skin_mm": 0.9,
+          "gap_mm": 0.6,
+          "joint": "rounded",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999961,
+                "Outer wall": 166.0,
+                "Internal solid infill": 9.552000000000106,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999961,
+                "Outer wall": 165.46565930870912,
+                "Overhang wall": 2.8699394791460575,
+                "Internal solid infill": 9.552000000000106,
+                "Gap infill": 79.76081973415718
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999961,
+                "Outer wall": 168.33793109299776,
+                "Internal solid infill": 9.552000000000106,
+                "Gap infill": 79.78489452278625
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999961,
+                "Outer wall": 168.3365930503786,
+                "Internal solid infill": 9.552000000000106,
+                "Gap infill": 80.55214519132257
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999961,
+                "Outer wall": 168.33765079682004,
+                "Internal solid infill": 9.552000000000106,
+                "Gap infill": 79.73149375909833
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.967999999999961,
+                "Outer wall": 166.0,
+                "Internal solid infill": 9.552000000000106,
+                "Gap infill": 73.62400000000002
+              }
+            }
+          }
+        },
+        "R13": {
+          "skin_mm": 1.3,
+          "gap_mm": 0.6,
+          "joint": "rounded",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 19.16800000000002,
+                "Outer wall": 167.6,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 73.624
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 45.86599617546513,
+                "Outer wall": 167.0666206321677,
+                "Overhang wall": 2.8684880418169705,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 58.87520924749254
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 45.69571284584005,
+                "Outer wall": 169.93557912911822,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 58.933608730066176
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 45.54439307593836,
+                "Outer wall": 169.9363727228834,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 58.96460872881392
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 45.57721636308516,
+                "Outer wall": 169.93738546925135,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 58.93860962558691
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 19.16800000000002,
+                "Outer wall": 167.6,
+                "Internal solid infill": 18.960000000000008,
+                "Gap infill": 73.624
+              }
+            }
+          }
+        },
+        "C13": {
+          "skin_mm": 1.3,
+          "gap_mm": 0.6,
+          "joint": "swept",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 19.167999999999992,
+                "Outer wall": 167.6,
+                "Internal solid infill": 18.959999999999965,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 52.31590810945633,
+                "Outer wall": 160.8814388625613,
+                "Overhang wall": 11.209526772883448,
+                "Internal solid infill": 18.959999999999965,
+                "Gap infill": 59.79200000000003
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 52.31590810945633,
+                "Outer wall": 172.14108657406348,
+                "Internal solid infill": 18.959999999999965,
+                "Gap infill": 59.79200000000003
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 52.31590810945633,
+                "Outer wall": 172.14108657406348,
+                "Internal solid infill": 18.959999999999965,
+                "Gap infill": 59.79200000000003
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 52.31590810945633,
+                "Outer wall": 172.14108657406345,
+                "Internal solid infill": 18.959999999999965,
+                "Gap infill": 59.79200000000003
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 19.167999999999992,
+                "Outer wall": 167.6,
+                "Internal solid infill": 18.959999999999965,
+                "Gap infill": 73.62400000000002
+              }
+            }
+          }
+        },
+        "W13": {
+          "skin_mm": 1.3,
+          "gap_mm": 2.4,
+          "joint": "continuous",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.10515649312436,
+                "Outer wall": 248.96148067443812,
+                "Internal solid infill": 40.240000000000066,
+                "Gap infill": 73.60609949843754
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.10630057185992,
+                "Outer wall": 248.96105706357338,
+                "Internal solid infill": 40.240000000000066,
+                "Gap infill": 73.60609949843754
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.10515649312436,
+                "Outer wall": 248.9617071631659,
+                "Internal solid infill": 40.240000000000066,
+                "Gap infill": 73.60609949843754
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.10630057185992,
+                "Outer wall": 248.96141297443125,
+                "Internal solid infill": 40.240000000000066,
+                "Gap infill": 73.60509949843757
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.10627997488623,
+                "Outer wall": 248.96108863155138,
+                "Internal solid infill": 40.240000000000066,
+                "Gap infill": 73.60609949843754
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.10515649312436,
+                "Outer wall": 248.9611542070282,
+                "Internal solid infill": 40.240000000000066,
+                "Gap infill": 73.60609949843754
+              }
+            }
+          }
+        }
+      }
+    },
+    "P3": {
+      "gcode_sha256": "ecd8cbc87c6c7fee94afb6ba2648adab9db32416afa8e1791440826cbb69dbef",
+      "input_stl_sha256": "31e1541e9ef453cbd98ef3679868dbefd04c473f4933c4be4aef6a09a4c3f0ac",
+      "process_sha256": "1a64140500b15bad3fce0a939ca39bb998a62a9bb1decc6d13feef59149aa442",
+      "model_stem": "tie_surface_study",
+      "native_receipt": "P3_review.json",
+      "process_file": "P3_process.json",
+      "effective_settings": {
+        "wall_generator": "classic",
+        "wall_loops": "3",
+        "wall_sequence": "inner wall/outer wall",
+        "layer_height": "0.2",
+        "detect_thin_wall": "0",
+        "enable_support": "0",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "sparse_infill_density": "100%"
+      },
+      "slicer_version": "2.4.2",
+      "support_probe": {
+        "ok": true,
+        "generated": false,
+        "supported_plates": [],
+        "effective_support_type": "tree(auto)",
+        "effective_support_threshold_angle": "30",
+        "effective_max_bridge_length_mm": "10"
+      },
+      "notices": [],
+      "cases": {
+        "T05": {
+          "skin_mm": 0.5,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.6000000000000001,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                0.5,
+                1.1
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.28999999999999915
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.28999999999999915,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 164.39999999999998
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 170.55999999999995,
+                "Overhang wall": 2.79999999999999
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 173.3599999999999
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 173.3599999999999
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 173.3599999999999
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.28999999999999915
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.28999999999999915,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 12.768000000000015,
+                "Outer wall": 164.39999999999998
+              }
+            }
+          }
+        },
+        "T09": {
+          "skin_mm": 0.9,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.6,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                0.9,
+                1.5
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 165.99999999999997,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 172.16,
+                "Overhang wall": 2.79999999999999,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 174.95999999999995,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 174.95999999999995,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 174.95999999999995,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 165.99999999999997,
+                "Gap infill": 73.62400000000002
+              }
+            }
+          }
+        },
+        "T13": {
+          "skin_mm": 1.3,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.5999999999999999,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                1.3,
+                1.9
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0899999999999999
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0899999999999999,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 167.6,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 173.7600000000001,
+                "Overhang wall": 2.79999999999999,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 176.56000000000006,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 176.56000000000006,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 176.56000000000006,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0899999999999999
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0899999999999999,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 167.6,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            }
+          }
+        },
+        "R09": {
+          "skin_mm": 0.9,
+          "gap_mm": 0.6,
+          "joint": "rounded",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 166.0,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 165.46565930870912,
+                "Overhang wall": 2.8699394791460575,
+                "Gap infill": 79.76081973415718
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 168.33793109299776,
+                "Gap infill": 79.78489452278622
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 168.3365930503786,
+                "Gap infill": 80.5521451913226
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 168.33765079682004,
+                "Gap infill": 79.73149375909833
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 166.0,
+                "Gap infill": 73.62400000000002
+              }
+            }
+          }
+        },
+        "R13": {
+          "skin_mm": 1.3,
+          "gap_mm": 0.6,
+          "joint": "rounded",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000026,
+                "Outer wall": 167.6,
+                "Internal solid infill": 6.304000000000002,
+                "Gap infill": 73.624
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 58.52199617546512,
+                "Outer wall": 167.0666206321677,
+                "Overhang wall": 2.8684880418169705,
+                "Internal solid infill": 6.304000000000002,
+                "Gap infill": 58.87520924749254
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 58.35171284584004,
+                "Outer wall": 169.93557912911822,
+                "Internal solid infill": 6.304000000000002,
+                "Gap infill": 58.933608730066176
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 58.200393075938365,
+                "Outer wall": 169.9363727228834,
+                "Internal solid infill": 6.304000000000002,
+                "Gap infill": 58.96460872881392
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 58.23321636308516,
+                "Outer wall": 169.93738546925135,
+                "Internal solid infill": 6.304000000000002,
+                "Gap infill": 58.93860962558691
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000026,
+                "Outer wall": 167.6,
+                "Internal solid infill": 6.304000000000002,
+                "Gap infill": 73.624
+              }
+            }
+          }
+        },
+        "C13": {
+          "skin_mm": 1.3,
+          "gap_mm": 0.6,
+          "joint": "swept",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.823999999999998,
+                "Outer wall": 167.6,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 64.97190810945634,
+                "Outer wall": 160.8814388625613,
+                "Overhang wall": 11.209526772883448,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 59.79200000000003
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 64.97190810945634,
+                "Outer wall": 172.14108657406348,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 59.79200000000003
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 64.97190810945634,
+                "Outer wall": 172.14108657406348,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 59.79200000000003
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 64.97190810945634,
+                "Outer wall": 172.14108657406345,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 59.79200000000003
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.823999999999998,
+                "Outer wall": 167.6,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            }
+          }
+        },
+        "W13": {
+          "skin_mm": 1.3,
+          "gap_mm": 2.4,
+          "joint": "continuous",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.961156493124406,
+                "Outer wall": 248.96148067443812,
+                "Internal solid infill": 20.384000000000015,
+                "Gap infill": 73.60609949843754
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.96230057185997,
+                "Outer wall": 248.96105706357338,
+                "Internal solid infill": 20.384000000000015,
+                "Gap infill": 73.60609949843754
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.961156493124406,
+                "Outer wall": 248.9617071631659,
+                "Internal solid infill": 20.384000000000015,
+                "Gap infill": 73.60609949843754
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.96230057185997,
+                "Outer wall": 248.96141297443125,
+                "Internal solid infill": 20.384000000000015,
+                "Gap infill": 73.60509949843757
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.96227997488628,
+                "Outer wall": 248.96108863155138,
+                "Internal solid infill": 20.384000000000015,
+                "Gap infill": 73.60609949843754
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.961156493124406,
+                "Outer wall": 248.9611542070282,
+                "Internal solid infill": 20.384000000000015,
+                "Gap infill": 73.60609949843754
+              }
+            }
+          }
+        }
+      }
+    },
+    "P3IOI": {
+      "gcode_sha256": "673f20e8f595c1b3622f4bb6b4fdbb67c92e0bb12cf90a7cf78c4ab265991ae7",
+      "input_stl_sha256": "31e1541e9ef453cbd98ef3679868dbefd04c473f4933c4be4aef6a09a4c3f0ac",
+      "process_sha256": "15ee6b7ae0e8cceb44340f617649350aefdd53332f7fa0054c9d099209253e0b",
+      "model_stem": "tie_surface_study",
+      "native_receipt": "P3IOI_review.json",
+      "process_file": "P3IOI_process.json",
+      "effective_settings": {
+        "wall_generator": "classic",
+        "wall_loops": "3",
+        "wall_sequence": "inner-outer-inner wall",
+        "layer_height": "0.2",
+        "detect_thin_wall": "0",
+        "enable_support": "0",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "sparse_infill_density": "100%"
+      },
+      "slicer_version": "2.4.2",
+      "support_probe": {
+        "ok": true,
+        "generated": false,
+        "supported_plates": [],
+        "effective_support_type": "tree(auto)",
+        "effective_support_threshold_angle": "30",
+        "effective_max_bridge_length_mm": "10"
+      },
+      "notices": [],
+      "cases": {
+        "T05": {
+          "skin_mm": 0.5,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.6000000000000001,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                0.5,
+                1.1
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.28999999999999915
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.28999999999999915,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 164.4,
+                "Inner wall": 12.768000000000015
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 170.5600000000001,
+                "Inner wall": 12.768000000000015,
+                "Overhang wall": 2.79999999999999
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 173.36000000000007,
+                "Inner wall": 12.768000000000015
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 173.36000000000007,
+                "Inner wall": 12.768000000000015
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 173.36000000000007,
+                "Inner wall": 12.768000000000015
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.28999999999999915
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.28999999999999915,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 164.4,
+                "Inner wall": 12.768000000000015
+              }
+            }
+          }
+        },
+        "T09": {
+          "skin_mm": 0.9,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.6,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                0.9,
+                1.5
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 166.0,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 172.16000000000014,
+                "Overhang wall": 2.79999999999999,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 174.96000000000004,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 174.96000000000004,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 174.96000000000004,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.423999999999964,
+                "Outer wall": 166.0,
+                "Gap infill": 73.62400000000002
+              }
+            }
+          }
+        },
+        "T13": {
+          "skin_mm": 1.3,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.5999999999999999,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                1.3,
+                1.9
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0899999999999999
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0899999999999999,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 167.6,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 173.76000000000013,
+                "Overhang wall": 2.79999999999999,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 176.56000000000014,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 176.56000000000014,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 176.56000000000017,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0899999999999999
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0899999999999999,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000012,
+                "Outer wall": 167.6,
+                "Internal solid infill": 6.303999999999959,
+                "Gap infill": 73.62400000000002
+              }
+            }
+          }
+        },
+        "R09": {
+          "skin_mm": 0.9,
+          "gap_mm": 0.6,
+          "joint": "rounded",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 166.00000000000003,
+                "Gap infill": 73.62400000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 165.4656593087093,
+                "Overhang wall": 2.8699394791460575,
+                "Gap infill": 79.76081973415718
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 168.33793109299774,
+                "Gap infill": 79.78489452278622
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 168.33659305037858,
+                "Gap infill": 80.5521451913226
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 168.33765079682,
+                "Gap infill": 79.73149375909833
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.4499999999999993,
+                0.6900000000000013
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.4499999999999993,
+                  "width_mm": 0.130842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.6900000000000013,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 25.424000000000063,
+                "Outer wall": 166.00000000000003,
+                "Gap infill": 73.62400000000002
+              }
+            }
+          }
+        },
+        "R13": {
+          "skin_mm": 1.3,
+          "gap_mm": 0.6,
+          "joint": "rounded",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000026,
+                "Outer wall": 167.59999999999997,
+                "Gap infill": 73.624,
+                "Internal solid infill": 6.304000000000002
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 58.52199617546512,
+                "Outer wall": 167.06662063216768,
+                "Overhang wall": 2.8684880418169705,
+                "Gap infill": 58.87520924749254,
+                "Internal solid infill": 6.304000000000002
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 58.35171284584004,
+                "Outer wall": 169.93557912911825,
+                "Gap infill": 58.933608730066176,
+                "Internal solid infill": 6.304000000000002
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 58.200393075938344,
+                "Outer wall": 169.93637272288356,
+                "Gap infill": 58.96460872881392,
+                "Internal solid infill": 6.304000000000002
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 58.233216363085134,
+                "Outer wall": 169.9373854692514,
+                "Gap infill": 58.93860962558691,
+                "Internal solid infill": 6.304000000000002
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.824000000000026,
+                "Outer wall": 167.59999999999997,
+                "Gap infill": 73.624,
+                "Internal solid infill": 6.304000000000002
+              }
+            }
+          }
+        },
+        "C13": {
+          "skin_mm": 1.3,
+          "gap_mm": 0.6,
+          "joint": "swept",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.823999999999998,
+                "Outer wall": 167.59999999999997,
+                "Gap infill": 73.62400000000002,
+                "Internal solid infill": 6.303999999999959
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 64.97190810945634,
+                "Outer wall": 160.88143886256125,
+                "Overhang wall": 11.209526772883446,
+                "Gap infill": 59.79200000000003,
+                "Internal solid infill": 6.303999999999959
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 64.97190810945634,
+                "Outer wall": 172.14108657406348,
+                "Gap infill": 59.79200000000003,
+                "Internal solid infill": 6.303999999999959
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 64.97190810945634,
+                "Outer wall": 172.14108657406348,
+                "Gap infill": 59.79200000000003,
+                "Internal solid infill": 6.303999999999959
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 64.97190810945634,
+                "Outer wall": 172.1410865740636,
+                "Gap infill": 59.79200000000003,
+                "Internal solid infill": 6.303999999999959
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986,
+                1.0900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 1.0900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 31.823999999999998,
+                "Outer wall": 167.59999999999997,
+                "Gap infill": 73.62400000000002,
+                "Internal solid infill": 6.303999999999959
+              }
+            }
+          }
+        },
+        "W13": {
+          "skin_mm": 1.3,
+          "gap_mm": 2.4,
+          "joint": "continuous",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.961156493124406,
+                "Outer wall": 248.96148067443784,
+                "Gap infill": 73.60609949843754,
+                "Internal solid infill": 20.384000000000015
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.96230057185997,
+                "Outer wall": 248.96105706357304,
+                "Gap infill": 73.60609949843754,
+                "Internal solid infill": 20.384000000000015
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.961156493124406,
+                "Outer wall": 248.9617071631656,
+                "Gap infill": 73.60609949843754,
+                "Internal solid infill": 20.384000000000015
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.96230057185997,
+                "Outer wall": 248.96141297443097,
+                "Gap infill": 73.60509949843757,
+                "Internal solid infill": 20.384000000000015
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.962279974886286,
+                "Outer wall": 248.96108863155104,
+                "Gap infill": 73.60609949843754,
+                "Internal solid infill": 20.384000000000015
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 46.961156493124406,
+                "Outer wall": 248.96115420702796,
+                "Gap infill": 73.60609949843754,
+                "Internal solid infill": 20.384000000000015
+              }
+            }
+          }
+        }
+      }
+    },
+    "R_P2": {
+      "gcode_sha256": "eb199c0621a41b43c295b11acdfed3c44b16761c1b65fee995bf6e1f1d5cbfc2",
+      "input_stl_sha256": "0ccbd018015819fd134c2b7fd13d477e4209c5ddde58dd9edfbeb985fb191da6",
+      "process_sha256": "0e9999dc5f7fd7d1f83ae58460d8cbb407cfd4c8989e4c5926231837380b9040",
+      "model_stem": "tie_surface_refined",
+      "native_receipt": "refined_P2_review.json",
+      "process_file": "P2_process.json",
+      "effective_settings": {
+        "wall_generator": "classic",
+        "wall_loops": "2",
+        "wall_sequence": "inner wall/outer wall",
+        "layer_height": "0.2",
+        "detect_thin_wall": "0",
+        "enable_support": "0",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "sparse_infill_density": "100%"
+      },
+      "slicer_version": "2.4.2",
+      "support_probe": {
+        "ok": true,
+        "generated": false,
+        "supported_plates": [],
+        "effective_support_type": "tree(auto)",
+        "effective_support_threshold_angle": "30",
+        "effective_max_bridge_length_mm": "10"
+      },
+      "notices": [],
+      "cases": {
+        "T08": {
+          "skin_mm": 0.8,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.5999999999999999,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                0.8,
+                1.4
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.5900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.5900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.167999999999978,
+                "Outer wall": 165.6,
+                "Gap infill": 4.775999999999954
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.167999999999978,
+                "Outer wall": 171.76,
+                "Overhang wall": 2.80000000000004,
+                "Gap infill": 4.775999999999954
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.167999999999978,
+                "Outer wall": 174.56,
+                "Gap infill": 4.775999999999954
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.167999999999978,
+                "Outer wall": 174.56,
+                "Gap infill": 4.775999999999954
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.167999999999978,
+                "Outer wall": 174.56,
+                "Gap infill": 4.775999999999954
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.5900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.5900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 15.167999999999978,
+                "Outer wall": 165.6,
+                "Gap infill": 4.775999999999954
+              }
+            }
+          }
+        },
+        "T12": {
+          "skin_mm": 1.2,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.5999999999999999,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                1.2,
+                1.7999999999999998
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014,
+                0.990000000000002
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.990000000000002,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 18.368000000000038,
+                "Outer wall": 167.2,
+                "Internal solid infill": 13.855999999999995,
+                "Gap infill": 73.624
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 18.368000000000038,
+                "Outer wall": 173.3599999999998,
+                "Overhang wall": 2.80000000000004,
+                "Internal solid infill": 13.855999999999995,
+                "Gap infill": 73.624
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 18.368000000000038,
+                "Outer wall": 176.15999999999985,
+                "Internal solid infill": 13.855999999999995,
+                "Gap infill": 73.624
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 18.368000000000038,
+                "Outer wall": 176.15999999999985,
+                "Internal solid infill": 13.855999999999995,
+                "Gap infill": 73.624
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 18.368000000000038,
+                "Outer wall": 176.15999999999985,
+                "Internal solid infill": 13.855999999999995,
+                "Gap infill": 73.624
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014,
+                0.990000000000002
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.990000000000002,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 18.368000000000038,
+                "Outer wall": 167.2,
+                "Internal solid infill": 13.855999999999995,
+                "Gap infill": 73.624
+              }
+            }
+          }
+        },
+        "T16": {
+          "skin_mm": 1.6,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.6000000000000001,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                1.6,
+                2.2
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 168.8,
+                "Outer wall": 168.79999999999998,
+                "Internal solid infill": 24.000000000000007
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 168.8,
+                "Outer wall": 174.9599999999999,
+                "Overhang wall": 2.80000000000004,
+                "Internal solid infill": 24.000000000000007
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 168.8,
+                "Outer wall": 177.75999999999993,
+                "Internal solid infill": 24.000000000000007
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 168.8,
+                "Outer wall": 177.75999999999993,
+                "Internal solid infill": 24.000000000000007
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 168.8,
+                "Outer wall": 177.75999999999993,
+                "Internal solid infill": 24.000000000000007
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 168.8,
+                "Outer wall": 168.79999999999998,
+                "Internal solid infill": 24.000000000000007
+              }
+            }
+          }
+        },
+        "R16": {
+          "skin_mm": 1.6,
+          "gap_mm": 0.6,
+          "joint": "rounded",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 168.8,
+                "Outer wall": 168.8,
+                "Internal solid infill": 24.000000000000057
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 171.59235608962086,
+                "Outer wall": 168.26426825603005,
+                "Overhang wall": 2.8725782582550283,
+                "Internal solid infill": 26.658642952065975
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 171.65548440736492,
+                "Outer wall": 171.13506978222688,
+                "Internal solid infill": 26.660099028182465
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 171.5667799942467,
+                "Outer wall": 171.1366114108498,
+                "Internal solid infill": 26.6570143424728
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 171.62068483457,
+                "Outer wall": 171.13672331107142,
+                "Internal solid infill": 26.651244982718147
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 168.8,
+                "Outer wall": 168.8,
+                "Internal solid infill": 24.000000000000057
+              }
+            }
+          }
+        },
+        "K16": {
+          "skin_mm": 1.6,
+          "gap_mm": 0.6,
+          "joint": "swept",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 168.8,
+                "Outer wall": 168.79999999999998,
+                "Internal solid infill": 24.000000000000114
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 182.63259008214942,
+                "Outer wall": 162.08143886256136,
+                "Overhang wall": 11.209526772883365,
+                "Internal solid infill": 28.954046969504848
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 182.6325899908704,
+                "Outer wall": 173.34108657406344,
+                "Internal solid infill": 28.954046969504848
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 182.6325899908704,
+                "Outer wall": 173.34108657406344,
+                "Internal solid infill": 28.954046969504848
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 182.6325899908704,
+                "Outer wall": 173.34108657406344,
+                "Internal solid infill": 28.954046969504848
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 168.8,
+                "Outer wall": 168.79999999999998,
+                "Internal solid infill": 24.000000000000114
+              }
+            }
+          }
+        }
+      }
+    },
+    "R_P3IOI": {
+      "gcode_sha256": "05ba7f92a02017c832dc8ab46a56305c7becc83fae041cb780e10769ca1cdfb9",
+      "input_stl_sha256": "0ccbd018015819fd134c2b7fd13d477e4209c5ddde58dd9edfbeb985fb191da6",
+      "process_sha256": "15ee6b7ae0e8cceb44340f617649350aefdd53332f7fa0054c9d099209253e0b",
+      "model_stem": "tie_surface_refined",
+      "native_receipt": "refined_P3IOI_review.json",
+      "process_file": "P3IOI_process.json",
+      "effective_settings": {
+        "wall_generator": "classic",
+        "wall_loops": "3",
+        "wall_sequence": "inner-outer-inner wall",
+        "layer_height": "0.2",
+        "detect_thin_wall": "0",
+        "enable_support": "0",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "sparse_infill_density": "100%"
+      },
+      "slicer_version": "2.4.2",
+      "support_probe": {
+        "ok": true,
+        "generated": false,
+        "supported_plates": [],
+        "effective_support_type": "tree(auto)",
+        "effective_support_threshold_angle": "30",
+        "effective_max_bridge_length_mm": "10"
+      },
+      "notices": [],
+      "cases": {
+        "T08": {
+          "skin_mm": 0.8,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.5999999999999999,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                0.8,
+                1.4
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.5900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.5900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 165.59999999999997,
+                "Inner wall": 15.167999999999978,
+                "Gap infill": 4.775999999999954
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 171.75999999999993,
+                "Inner wall": 15.167999999999978,
+                "Overhang wall": 2.80000000000004,
+                "Gap infill": 4.775999999999954
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 174.56000000000006,
+                "Inner wall": 15.167999999999978,
+                "Gap infill": 4.775999999999954
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 174.56000000000006,
+                "Inner wall": 15.167999999999978,
+                "Gap infill": 4.775999999999954
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 174.56000000000006,
+                "Inner wall": 15.167999999999978,
+                "Gap infill": 4.775999999999954
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.5900000000000034
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.5900000000000034,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 165.59999999999997,
+                "Inner wall": 15.167999999999978,
+                "Gap infill": 4.775999999999954
+              }
+            }
+          }
+        },
+        "T12": {
+          "skin_mm": 1.2,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.5999999999999999,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                1.2,
+                1.7999999999999998
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014,
+                0.990000000000002
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.990000000000002,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 30.224000000000032,
+                "Outer wall": 167.2,
+                "Gap infill": 73.624
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 30.224000000000032,
+                "Outer wall": 173.35999999999973,
+                "Overhang wall": 2.80000000000004,
+                "Gap infill": 73.624
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 30.224000000000032,
+                "Outer wall": 176.15999999999985,
+                "Gap infill": 73.624
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 30.224000000000032,
+                "Outer wall": 176.15999999999985,
+                "Gap infill": 73.624
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 30.224000000000032,
+                "Outer wall": 176.15999999999985,
+                "Gap infill": 73.624
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6000000000000014,
+                0.990000000000002
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6000000000000014,
+                  "width_mm": 0.430842,
+                  "role": "Gap infill"
+                },
+                {
+                  "y_mm": 0.990000000000002,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 30.224000000000032,
+                "Outer wall": 167.2,
+                "Gap infill": 73.624
+              }
+            }
+          }
+        },
+        "T16": {
+          "skin_mm": 1.6,
+          "gap_mm": 0.6,
+          "joint": "straight",
+          "straight_tie_core_section": {
+            "filled_width_mm": 0.6000000000000001,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                1.6,
+                2.2
+              ]
+            ]
+          },
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 183.856,
+                "Outer wall": 168.8,
+                "Internal solid infill": 8.944000000000024
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 183.856,
+                "Outer wall": 174.9599999999998,
+                "Overhang wall": 2.80000000000004,
+                "Internal solid infill": 8.944000000000024
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 183.856,
+                "Outer wall": 177.75999999999976,
+                "Internal solid infill": 8.944000000000024
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 183.856,
+                "Outer wall": 177.75999999999976,
+                "Internal solid infill": 8.944000000000024
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 183.856,
+                "Outer wall": 177.75999999999976,
+                "Internal solid infill": 8.944000000000024
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 183.856,
+                "Outer wall": 168.8,
+                "Internal solid infill": 8.944000000000024
+              }
+            }
+          }
+        },
+        "R16": {
+          "skin_mm": 1.6,
+          "gap_mm": 0.6,
+          "joint": "rounded",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 183.85600000000005,
+                "Outer wall": 168.79999999999995,
+                "Internal solid infill": 8.944000000000017
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 186.64835608962096,
+                "Outer wall": 168.26426825603,
+                "Overhang wall": 2.8725782582550288,
+                "Internal solid infill": 8.944000000000017
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 186.7114844073651,
+                "Outer wall": 171.1350697822269,
+                "Internal solid infill": 8.944000000000017
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 186.62277999424683,
+                "Outer wall": 171.13661141084992,
+                "Internal solid infill": 8.944000000000017
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 186.67668483457004,
+                "Outer wall": 171.1367233110713,
+                "Internal solid infill": 8.944000000000017
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 183.85600000000005,
+                "Outer wall": 168.79999999999995,
+                "Internal solid infill": 8.944000000000017
+              }
+            }
+          }
+        },
+        "K16": {
+          "skin_mm": 1.6,
+          "gap_mm": 0.6,
+          "joint": "swept",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 183.8560000000001,
+                "Outer wall": 168.79999999999995,
+                "Internal solid infill": 8.944000000000017
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 197.6885900821495,
+                "Outer wall": 162.0814388625613,
+                "Overhang wall": 11.209526772883365,
+                "Internal solid infill": 8.944000000000017
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 197.6885899908705,
+                "Outer wall": 173.34108657406347,
+                "Internal solid infill": 8.944000000000017
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 197.6885899908705,
+                "Outer wall": 173.34108657406347,
+                "Internal solid infill": 8.944000000000017
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 197.6885899908705,
+                "Outer wall": 173.34108657406347,
+                "Internal solid infill": 8.944000000000017
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6019999999999968,
+                0.9979999999999976,
+                1.3900000000000006
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6019999999999968,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 0.9979999999999976,
+                  "width_mm": 0.45,
+                  "role": "Inner wall"
+                },
+                {
+                  "y_mm": 1.3900000000000006,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 183.8560000000001,
+                "Outer wall": 168.79999999999995,
+                "Internal solid infill": 8.944000000000017
+              }
+            }
+          }
+        }
+      }
+    },
+    "WF13": {
+      "gcode_sha256": "1186a8f0531c56719b4cfb1a6bcf128a08e7d93d81f90943aae546466e216bb2",
+      "input_stl_sha256": "1e11e7e3079456cbeaa5415dc66263b61f3b66d0dab7ab9f5b56dc3fb59c457a",
+      "process_sha256": "0e9999dc5f7fd7d1f83ae58460d8cbb407cfd4c8989e4c5926231837380b9040",
+      "model_stem": "tie_surface_n2_blend",
+      "native_receipt": "n2_blend_review.json",
+      "process_file": "P2_process.json",
+      "effective_settings": {
+        "wall_generator": "classic",
+        "wall_loops": "2",
+        "wall_sequence": "inner wall/outer wall",
+        "layer_height": "0.2",
+        "detect_thin_wall": "0",
+        "enable_support": "0",
+        "outer_wall_line_width": "0.42",
+        "inner_wall_line_width": "0.45",
+        "sparse_infill_density": "100%"
+      },
+      "slicer_version": "2.4.2",
+      "support_probe": {
+        "ok": true,
+        "generated": false,
+        "supported_plates": [],
+        "effective_support_type": "tree(auto)",
+        "effective_support_threshold_angle": "30",
+        "effective_max_bridge_length_mm": "10"
+      },
+      "notices": [],
+      "cases": {
+        "WN13": {
+          "skin_mm": 1.3,
+          "gap_mm": 2.4,
+          "joint": "native continuous",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.469140130831764,
+                "Outer wall": 248.82667832023998,
+                "Internal solid infill": 40.24,
+                "Gap infill": 73.58639044406854
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.47082543536625,
+                "Outer wall": 248.82820904996788,
+                "Internal solid infill": 40.24,
+                "Gap infill": 73.58639044406854
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.469140130831764,
+                "Outer wall": 248.83238748559705,
+                "Internal solid infill": 40.24,
+                "Gap infill": 73.58639044406854
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.468846136964483,
+                "Outer wall": 248.82937915636887,
+                "Internal solid infill": 40.24,
+                "Gap infill": 73.58639044406854
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.530842,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.470322852382772,
+                "Outer wall": 248.82836818575487,
+                "Internal solid infill": 40.24,
+                "Gap infill": 73.58639044406854
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085,
+                0.6499999999999986
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                },
+                {
+                  "y_mm": 0.6499999999999986,
+                  "width_mm": 0.53084,
+                  "role": "Gap infill"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Inner wall": 27.469140130831764,
+                "Outer wall": 248.82822057192914,
+                "Internal solid infill": 40.24,
+                "Gap infill": 73.58639044406854
+              }
+            }
+          }
+        },
+        "WF13": {
+          "skin_mm": 1.3,
+          "gap_mm": 2.4,
+          "joint": "blended continuous",
+          "straight_tie_core_section": null,
+          "layers": {
+            "2.8": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 221.82538123259334,
+                "Inner wall": 97.44462768513988,
+                "Gap infill": 40.370004610701294,
+                "Internal solid infill": 44.79426002532695
+              }
+            },
+            "3.0": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 221.82039578165953,
+                "Inner wall": 97.3494664436569,
+                "Internal solid infill": 45.3625530855691,
+                "Gap infill": 40.370004610701294
+              }
+            },
+            "3.2": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 221.8279560564777,
+                "Inner wall": 97.46901509895177,
+                "Internal solid infill": 44.797181025036146,
+                "Gap infill": 40.370004610701294
+              }
+            },
+            "3.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 221.83005087213772,
+                "Inner wall": 97.39555752885178,
+                "Internal solid infill": 44.793529775399676,
+                "Gap infill": 40.415001579479984
+              }
+            },
+            "3.6": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 221.82484248792352,
+                "Inner wall": 97.4194195533228,
+                "Internal solid infill": 44.90308065848721,
+                "Gap infill": 40.370004610701294
+              }
+            },
+            "4.4": {
+              "straight_skin_tracks_y_mm": [
+                0.21000000000000085
+              ],
+              "straight_skin_track_details": [
+                {
+                  "y_mm": 0.21000000000000085,
+                  "width_mm": 0.42,
+                  "role": "Outer wall"
+                }
+              ],
+              "deposited_length_mm_by_role": {
+                "Outer wall": 221.82372966374837,
+                "Inner wall": 97.35961764511009,
+                "Internal solid infill": 44.79916262227773,
+                "Gap infill": 40.370004610701294
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "geometry_receipt": "geometry.json",
+  "source_sha256": {
+    "tie_surface_study.py": "be995b19d4d2025267123c942a12575255c60b3acd3673688dcec7788fadfcd4",
+    "tie_surface_refined.py": "14dccde0a62b73f7677067a6eec15eb67abd90f1f456c4e365be03856632cc07",
+    "tie_surface_n2_blend.py": "196b871ba7b9d68c78e8c031fc16b102c6c5fe32069bad83d254609f0a94ab06",
+    "n2_surface_design.py": "d9bc0bc2af08bf8c53b6019e663b7e52bcf759dd24cd5244091031cc415a1651",
+    "tie_surface_design.py": "6456d9f2d1e5ef8835b8234b3d263b30b2b95358f87dda5042c7f8359c24fbee",
+    "review_tie_surface_study.py": "d833e487035af999a21d93a1fd0361e72c60295a40161a65a4e2995effe8ac5c"
+  },
+  "track_definition": "Distinct horizontal single deposition moves spanning X -10 to +10 mm within the contact-side CAD skin. Not seam/travel/string counts.",
+  "limits": "Straight 34 mm-high wall probes, not full cups, lid/floor construction, print qualification or damping evidence."
+}

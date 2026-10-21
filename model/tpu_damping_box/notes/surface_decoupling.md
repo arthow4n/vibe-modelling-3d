@@ -8,7 +8,15 @@ insufficient as the main answer. This investigation changes the manufacturing
 sequence, component boundary or support path instead. B08/B16 stay approved;
 no new printable models or presets are made in this SVG-only phase.
 
-## Current route — preformed surface concepts
+## Current route — B-derived skin and joint paths
+
+The user's next request favors discrete ties, asks for curves/smoother N2 roots
+and thicker skins, and explicitly retains gyroid. The [completed path study](tie_surface_study/README.md)
+compares actual B08 with adaptive CAD/slice probes. It recommends T12/T16 straight
+ties ahead of the examined rounded roots; physical finish/damping remain unknown.
+The N1–N3 comparisons below are retained as earlier exploration.
+
+## Previous route — preformed surface concepts
 
 The user requests more ideas after retiring P1/P2. The **current drawings are
 [N1–N3](preformed_surface_concepts.md)**: slicer-generated sparse core, tangent

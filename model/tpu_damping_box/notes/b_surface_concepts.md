@@ -9,10 +9,15 @@ tentative preference, not a measured reliability ranking. All six latest A/B/C
 pairs were printed and compared. A and C are rejected for damping relative to
 S16; retain their files and negative results without recommending them again.
 
-**Authorized scope:** record feedback, inspect existing evidence, research and
+**Earlier SVG-phase scope:** record feedback, inspect existing evidence, research and
 produce SVG suggestions. No new CAD models, STEP/STL exports, altered presets,
 printing or application-liner redesign in this phase. All proposed dimensions
 below are discussion choices; they are not slicer-qualified replacements.
+
+**Latest research route:** the user favors discrete ties over ribs, asks for
+curved joints and thicker skins, and authorizes autonomous slicing/path review.
+The [B-derived wall study](tie_surface_study/README.md) owns those new results;
+it does not replace or expand the physical approvals below.
 
 ## Physical report — 2026-10-21
 

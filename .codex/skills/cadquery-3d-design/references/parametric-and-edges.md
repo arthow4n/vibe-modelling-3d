@@ -12,6 +12,14 @@ Strongly prefer parameterized construction so the model is easy to maintain and 
 
 Do not parameterize every incidental coordinate or introduce a general-purpose configuration framework without a benefit. Fixed local details are acceptable when they improve readability and are unlikely to need independent adjustment. Prioritize useful editability of the main design over parameter count.
 
+A transformed wire on a workplane stack may not move the pending profile used
+by a later extrusion. Set the sketch origin before drawing, or transform the
+solid after extrusion. In the [TPU tie study](../../../../model/tpu_damping_box/notes/tie_surface_study/README.md),
+`rect(...).translate(...).extrude(...)` left ties short of the opposite skin
+while the complete body remained CAD-valid through its foot/end lands. Check
+material across the intended local connection, not just the overall solid;
+the [regression](../../../../tests/test_tpu_tie_profile.py) protects this case.
+
 ## Components and shared parameters
 
 Use multiple Python files when separating components or shared dimensions makes a model easier to construct, inspect, change, or debug. A single file with small builder functions is also appropriate; do not split files merely because an object contains several features.

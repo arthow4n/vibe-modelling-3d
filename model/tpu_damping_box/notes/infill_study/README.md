@@ -5,6 +5,11 @@
 [Full wall paths](../../renders/concepts/infill_study_full.svg) ·
 [Roof/support-layer paths](../../renders/concepts/infill_study_roofs.svg)
 
+**Later B follow-up:** [skin/joint path investigation](../tie_surface_study/README.md)
+compares thicker B skins and hand-designed curves. The user explicitly retains
+gyroid as an additional route, so G20/G30/X20 remain available; their physical
+finish/damping is still unqualified.
+
 The user explicitly authorizes exploring infill configurations and requires the
 **actual sliced print paths**. These images come from fresh OrcaSlicer **2.4.2**
 G-code, not generic infill artwork. They show deposited centerlines in real mm:
@@ -138,7 +143,7 @@ used. Primary documentation motivates candidate choice, not TPU performance.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Diagnostic proxy | No | `infill_wall_study.py/.step/.stl`; G20/G30/X20 G-code archives | Generated solely to explain paths; no print requested or reported. |
+| Diagnostic proxy | Unknown | `infill_wall_study.py/.step/.stl`; G20/G30/X20 G-code archives | Generated solely to explain paths; no print requested or reported. |
 | Final printable liner | N/A | None new | Fit, corner construction, full roof paths, surface quality, damping and tall-wall reliability remain outside this study. |
 
 Attribution, 2026-10-21: GPT-6 family, exact runtime model/reasoning effort not

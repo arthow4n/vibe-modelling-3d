@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/tie_surface_refined.py",
+  "errors": [],
+  "views": [],
+  "exports": [
+    {
+      "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/tie_surface_refined.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/.codex/worktrees/d90a908d-84b7-4d04-9e4c-be86a4a54fec/vibe-modelling-3d/model/tpu_damping_box/tie_surface_refined.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.0018387839991191868,
+    "build": 18.241585883999505,
+    "selection": 0.00233759099864983,
+    "validation": 6.376409260999935,
+    "export_step": 8.17073014900052,
+    "export_stl": 1.6611416830000962,
+    "worker": 35.32796210199922,
+    "total": 37.99650210800064
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "7d9b838a87afd9f0df926ca8b6ba5031645c3d75b3545599b59e6f50436a54bd",
+    "artifact_identity": "63384f61387d46e6a5d71e4a7350b96e2b468a20f9ec4edefee03a4539684542"
+  }
+}

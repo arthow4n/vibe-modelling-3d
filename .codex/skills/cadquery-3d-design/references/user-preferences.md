@@ -100,6 +100,12 @@ physical print results or a universal claim that all thick TPU cups fail. The
 user subsequently permits several infill-based candidates and requires their
 **actual sliced print paths** to explain the printing concept; generic pattern
 icons are insufficient. [Owning configurations and path evidence](../../../../model/tpu_damping_box/notes/infill_study/README.md).
+The next request favors B's discrete ties over ribs and asks for autonomous
+research into thicker skins and self-designed curves, including a smoother N2,
+using actual slices of B and candidates. Keep gyroid available rather than
+replacing it by assumption. [Owning adaptive path study](../../../../model/tpu_damping_box/notes/tie_surface_study/README.md).
+This is a current exploration preference, not proof that every rib architecture
+is inferior or a new physical rejection of the approved B pairs.
 
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.

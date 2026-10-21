@@ -89,3 +89,10 @@ Their declared changes are Gyroid 20/30% or Cross Hatch 20%, three wall loops,
 Inner/Outer/Inner, infill-first off, six top/bottom layers and gyroid optimization
 off. They are diagnostic settings for a straight-wall proxy, not replacements
 for the approved B process or a calibrated TPU recipe.
+
+The [B-derived tie/skin study profiles](../notes/tie_surface_study/README.md)
+P2/P3/P3IOI retain this same AGPL-3.0 source attribution. They derive from
+`tpu-support-classic-process.json`: name metadata, explicit infill-first off,
+and the declared two/three wall-loop and Inner/Outer or Inner/Outer/Inner order
+choices differ. They are diagnostic study settings; no approved B profile is
+modified and no TPU recipe is calibrated.
