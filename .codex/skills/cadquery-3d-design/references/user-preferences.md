@@ -116,6 +116,14 @@ This scopes the earlier large-label preference. The user subsequently selects
 M1 compact full-text corner IDs and authorizes the full T08/T16 cup/pad pairs;
 [implemented record](../../../../model/tpu_damping_box/notes/t_skin/README.md).
 
+**Latest TPU physical baseline, 2026-10-21:** T08 M1 is the user's new golden
+standard: damping feels effectively like previous approved models and appearance
+is much better than B/S. T16 is rejected as too firm and somewhat noisier. Start
+new damping experiments from T08 rather than preferring more wall paths on
+slicer evidence alone. [Owning print report](../../../../model/tpu_damping_box/notes/t_skin/README.md#physical-feedback--2026-10-21).
+The user authorizes one or two thinner T08-derived full pairs; this does not
+approve the smaller gaps or qualify transfer to a different application.
+
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.
 Choose insertion allowance, seated play and retention separately; this report

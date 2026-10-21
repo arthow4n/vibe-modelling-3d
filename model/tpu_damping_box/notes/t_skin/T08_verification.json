@@ -32,14 +32,18 @@
     "C12",
     "C16",
     "T08",
-    "T16"
+    "T16",
+    "L20",
+    "L18"
   ],
   "available_checks": [
     "t-fit",
     "t-skins",
     "t-cores",
     "t-labels",
-    "t-publication"
+    "t-publication",
+    "t-physical-damping",
+    "t-physical-finish"
   ],
   "exit_reason": "unresolved_evidence",
   "error": null,
@@ -214,9 +218,13 @@
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
-            "strategies": [],
+            "strategies": [
+              "t-physical-damping"
+            ],
             "evidence": [],
-            "out_of_scope": []
+            "out_of_scope": [
+              "t-physical-damping"
+            ]
           }
         ],
         "acceptance_criteria": [],
@@ -276,7 +284,22 @@
         "questions": [
           {
             "id": "finish",
-            "criterion": "Compare object-facing finish and seam/string artifacts physically.",
+            "criterion": "User compares object-facing appearance against approved B/S.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "t-physical-finish"
+            ],
+            "evidence": [
+              "t-physical-finish"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "artifacts",
+            "criterion": "Characterize remaining seam/string artifacts separately.",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -306,9 +329,13 @@
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
-            "strategies": [],
+            "strategies": [
+              "t-physical-damping"
+            ],
             "evidence": [],
-            "out_of_scope": []
+            "out_of_scope": [
+              "t-physical-damping"
+            ]
           }
         ],
         "acceptance_criteria": [],
@@ -653,6 +680,54 @@
         "status": "PASS",
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "t_skin_checks.py / t_skin_design.py",
+        "scope": {
+          "variant": "T08",
+          "phase": "full-T-skin-M1-pair",
+          "material": "TPU-uncalibrated",
+          "wall_skin_mm": 0.8,
+          "wall_gap_mm": 0.6,
+          "floor_total_mm": 1.6,
+          "layer_mm": 0.2
+        }
+      },
+      {
+        "id": "t-physical-damping",
+        "targets": [
+          [
+            "study.quiet_priority",
+            "quiet"
+          ],
+          [
+            "surface.damping",
+            "damping"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "User approves T08 damping as equivalent to earlier approved models and calls it the golden standard.",
+        "reference": "notes/t_skin/physical_feedback.json",
+        "scope": {
+          "variant": "T08",
+          "phase": "full-T-skin-M1-pair",
+          "material": "TPU-uncalibrated",
+          "wall_skin_mm": 0.8,
+          "wall_gap_mm": 0.6,
+          "floor_total_mm": 1.6,
+          "layer_mm": 0.2,
+          "exact_print_settings": "unknown",
+          "reported_batch": "2f56b7c"
+        }
+      },
+      {
+        "id": "t-physical-finish",
+        "targets": [
+          [
+            "surface.finish",
+            "finish"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "User reports T08 visually much better than approved B/S.",
+        "reference": "notes/t_skin/physical_feedback.json",
         "scope": {
           "variant": "T08",
           "phase": "full-T-skin-M1-pair",

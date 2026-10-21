@@ -1,22 +1,15 @@
 # Flat-faced TPU damping box experiment
 
-**Current decision — 2026-10-21:** the user has printed all six latest A/B/C
-pairs. **B08 and B16 are approved** for this experiment; B08 has a tentative
-small print-quality advantage and no meaningful damping difference from B16.
-A16/A20 and solid C12/C16 are rejected as damping choices relative to the retained
-S16 baseline. Object-facing finish, stringing and seam-area artifacts still need
-improvement; approval does not qualify tall application liners.
-[Full print report](notes/b_surface_concepts.md) ·
-[Current preformed surface concepts](notes/preformed_surface_concepts.md).
+**Current physical decision — 2026-10-21:** **T08 M1 is the new golden standard.**
+The user has printed T08/T16: T08's damping feels equivalent to earlier approved
+models and its appearance is substantially better than B/S. **T16 is rejected**
+for being too firm and somewhat noisier. [Physical report](notes/t_skin/README.md#physical-feedback--2026-10-21).
+B08/B16 and S16 remain historical approved references; tall application-liner
+transfer, long-term integrity and exact print settings remain unqualified.
 
-**Current print batch — T08/T16 with M1:** the user selects compact corner text
-and requests both full cup/pad pairs for the existing test shell. See
-[files, setup, dimensions and evidence](notes/t_skin/README.md).
-T08 has 0.8 mm upright skins / 2.2 mm total wall; T16 has 1.6 mm skins / 3.8 mm
-total wall. Both retain a 0.6 mm wall gap and B's 1.6 mm floor/pad sandwich,
-with solid corners and small fully backed underside IDs. No physical result is
-reported. Earlier [marking SVG alternatives](notes/marking_options.md) remain
-historical discussion; **M1 is now selected**.
+**Authorized next work:** one or two full T08-derived pairs that are thinner,
+retaining ordinary Classic slicing, both skins, solid corners and compact M1 IDs.
+The approved 34 mm T08 cup/pad files remain unchanged.
 
 **Research context:** investigate different architectures that isolate the black
 TPU object-facing surface from the core. D's tie-pattern changes are insufficient
@@ -29,7 +22,7 @@ inspection. [The B-derived wall study](notes/tie_surface_study/README.md) now
 compares fourteen geometry probes under ordinary Classic, with six current retained slices
 and the retained approved B08 reference. The earlier study recommendation was **straight
 ties with T12/T16 skins**: 1.2 mm or 1.6 mm **per skin**, total wall 3.0/3.8 mm
-with the 0.6 mm gap retained. These have no reported physical results; the later user selection is T08/T16 above.
+with the 0.6 mm gap retained. Later full-pair feedback approves T08 and rejects T16; the path shortlist does not override that physical result.
 
 The saved B08 slice places two nominal 0.42 mm passes just 0.08 mm apart within
 its 0.5 mm skin between ties; that nearby route changes at the joints. This is
@@ -71,11 +64,21 @@ favor printing without Arachne and allow more thickness for wall integrity.
 That recording phase requested no new geometry or preset change; it predates
 the current R2 support correction.
 
+## Thinner T08 follow-up
+
+[**L20 and L18 full cup/pad files and setup**](notes/thin_gap/README.md) retain
+T08's 0.8 mm skins while reducing the upright air gap to 0.4/0.2 mm: total walls
+2.0/1.8 mm versus T08's 2.2 mm. L20 is the first test; L18 explores a smaller
+cushioning gap, with fusion/bottoming unresolved physically. Both use compact
+M1 IDs, solid corners, the same floor and a T08-compatible pad. The existing T08
+pad may be reused to save printing time. A [two-cup-only STEP plate](thin_gap_cups.step)
+avoids printing extra pads. No thinner pair is physically approved.
+
 ## T08/T16 with M1 — 2026-10-21
 
 The user asks to create both boxes after selecting M1. **Each export is a full
-34 mm cup plus its matching lid pad**, ready for the planned existing-shell
-print comparison under the supplied Classic TPU setup. The authoritative
+34 mm cup plus its matching lid pad**. T08 is now the approved baseline; T16
+is retained as a physically rejected comparison. The authoritative
 [delivery record](notes/t_skin/README.md) owns shared print instructions,
 corner/label details, native reviews and remaining physical questions.
 
@@ -86,9 +89,9 @@ corner/label details, native reviews and remaining physical questions.
 
 ## Current result and reading routes
 
-This is a comparative liner fixture, not a finished storage product. **B08/B16 are
-now approved experimental candidates**, with S16 retained as the earlier damping
-reference. No S16 reprint is needed for the current comparison.
+This is a comparative liner fixture, not a finished storage product. **T08 is
+now the preferred experimental baseline**; B08/B16 and S16 remain earlier approved
+references. T16 is physically rejected for firmness/noise.
 The separate [sunglasses-case liner](../sunglasses_case_liner/README.md) now has
 positive application feedback for fit and damping. The
 [slim dental liner](../dental_travel_case_liner/README.md) has reported wall

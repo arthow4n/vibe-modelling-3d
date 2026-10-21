@@ -32,14 +32,17 @@
     "C12",
     "C16",
     "T08",
-    "T16"
+    "T16",
+    "L20",
+    "L18"
   ],
   "available_checks": [
     "t-fit",
     "t-skins",
     "t-cores",
     "t-labels",
-    "t-publication"
+    "t-publication",
+    "t-physical-damping"
   ],
   "exit_reason": "unresolved_evidence",
   "error": null,
@@ -214,9 +217,13 @@
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
-            "strategies": [],
+            "strategies": [
+              "t-physical-damping"
+            ],
             "evidence": [],
-            "out_of_scope": []
+            "out_of_scope": [
+              "t-physical-damping"
+            ]
           }
         ],
         "acceptance_criteria": [],
@@ -276,7 +283,18 @@
         "questions": [
           {
             "id": "finish",
-            "criterion": "Compare object-facing finish and seam/string artifacts physically.",
+            "criterion": "User compares object-facing appearance against approved B/S.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "artifacts",
+            "criterion": "Characterize remaining seam/string artifacts separately.",
             "mode": "physical",
             "rationale": "",
             "status": "UNKNOWN",
@@ -306,9 +324,13 @@
             "rationale": "",
             "status": "UNKNOWN",
             "coverage": "uncovered",
-            "strategies": [],
+            "strategies": [
+              "t-physical-damping"
+            ],
             "evidence": [],
-            "out_of_scope": []
+            "out_of_scope": [
+              "t-physical-damping"
+            ]
           }
         ],
         "acceptance_criteria": [],
@@ -661,6 +683,33 @@
           "wall_gap_mm": 0.6,
           "floor_total_mm": 1.6,
           "layer_mm": 0.2
+        }
+      },
+      {
+        "id": "t-physical-damping",
+        "targets": [
+          [
+            "study.quiet_priority",
+            "quiet"
+          ],
+          [
+            "surface.damping",
+            "damping"
+          ]
+        ],
+        "status": "FAIL",
+        "summary": "User rejects T16: too firm and somewhat noisier.",
+        "reference": "notes/t_skin/physical_feedback.json",
+        "scope": {
+          "variant": "T16",
+          "phase": "full-T-skin-M1-pair",
+          "material": "TPU-uncalibrated",
+          "wall_skin_mm": 1.6,
+          "wall_gap_mm": 0.6,
+          "floor_total_mm": 1.6,
+          "layer_mm": 0.2,
+          "exact_print_settings": "unknown",
+          "reported_batch": "2f56b7c"
         }
       }
     ],

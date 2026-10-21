@@ -1,0 +1,304 @@
+{
+  "checks_passed": true,
+  "artifact_identity": "a99d3040ec52871f3d163918e432d5174515c30d7ebf6b50bcafa7cf4ba014ec",
+  "input_sha256": "b23370bb5793196b0a2635193b5da99d38f284c74be254a143aac5e44c5080ea",
+  "gcode_sha256": "e90ca865f5af9f620dfce36d95d035159b3bca5958a9cce132c7461d729bac31",
+  "cup_checks": {
+    "L20": {
+      "faces": [
+        {
+          "face_deg": 0,
+          "gap_section": {
+            "filled_width_mm": 1.6000000000000085,
+            "uncovered_width_mm": 0.3999999999999915,
+            "internal_gap_mm": 0.3999999999999915,
+            "intervals_mm": [
+              [
+                -17,
+                -16.199999999999996
+              ],
+              [
+                -15.800000000000004,
+                -15.0
+              ]
+            ]
+          },
+          "tie_section": {
+            "filled_width_mm": 0.40000000000000036,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -16.2,
+                -15.799999999999999
+              ]
+            ]
+          }
+        },
+        {
+          "face_deg": 90,
+          "gap_section": {
+            "filled_width_mm": 1.6000000000000085,
+            "uncovered_width_mm": 0.3999999999999915,
+            "internal_gap_mm": 0.3999999999999915,
+            "intervals_mm": [
+              [
+                -17,
+                -16.199999999999996
+              ],
+              [
+                -15.800000000000004,
+                -15.0
+              ]
+            ]
+          },
+          "tie_section": {
+            "filled_width_mm": 0.40000000000000036,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -16.2,
+                -15.799999999999999
+              ]
+            ]
+          }
+        },
+        {
+          "face_deg": 180,
+          "gap_section": {
+            "filled_width_mm": 1.6000000000000085,
+            "uncovered_width_mm": 0.3999999999999915,
+            "internal_gap_mm": 0.3999999999999915,
+            "intervals_mm": [
+              [
+                -17,
+                -16.199999999999996
+              ],
+              [
+                -15.800000000000004,
+                -15.0
+              ]
+            ]
+          },
+          "tie_section": {
+            "filled_width_mm": 0.40000000000000036,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -16.2,
+                -15.799999999999999
+              ]
+            ]
+          }
+        },
+        {
+          "face_deg": 270,
+          "gap_section": {
+            "filled_width_mm": 1.6000000000000085,
+            "uncovered_width_mm": 0.3999999999999915,
+            "internal_gap_mm": 0.3999999999999915,
+            "intervals_mm": [
+              [
+                -17,
+                -16.199999999999996
+              ],
+              [
+                -15.800000000000004,
+                -15.0
+              ]
+            ]
+          },
+          "tie_section": {
+            "filled_width_mm": 0.40000000000000036,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -16.2,
+                -15.799999999999999
+              ]
+            ]
+          }
+        }
+      ],
+      "label_cut": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.10000000000000142,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      },
+      "backing": {
+        "filled_width_mm": 0.10000000000000142,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -13.3,
+            -13.2
+          ]
+        ]
+      }
+    },
+    "L18": {
+      "faces": [
+        {
+          "face_deg": 0,
+          "gap_section": {
+            "filled_width_mm": 1.600000000000012,
+            "uncovered_width_mm": 0.19999999999998863,
+            "internal_gap_mm": 0.19999999999998863,
+            "intervals_mm": [
+              [
+                -17,
+                -16.199999999999996
+              ],
+              [
+                -16.000000000000007,
+                -15.2
+              ]
+            ]
+          },
+          "tie_section": {
+            "filled_width_mm": 0.1999999999999993,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -16.2,
+                -16.0
+              ]
+            ]
+          }
+        },
+        {
+          "face_deg": 90,
+          "gap_section": {
+            "filled_width_mm": 1.600000000000005,
+            "uncovered_width_mm": 0.19999999999999574,
+            "internal_gap_mm": 0.19999999999999574,
+            "intervals_mm": [
+              [
+                -17,
+                -16.199999999999996
+              ],
+              [
+                -16.0,
+                -15.2
+              ]
+            ]
+          },
+          "tie_section": {
+            "filled_width_mm": 0.1999999999999993,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -16.2,
+                -16.0
+              ]
+            ]
+          }
+        },
+        {
+          "face_deg": 180,
+          "gap_section": {
+            "filled_width_mm": 1.600000000000012,
+            "uncovered_width_mm": 0.19999999999998863,
+            "internal_gap_mm": 0.19999999999998863,
+            "intervals_mm": [
+              [
+                -17,
+                -16.199999999999996
+              ],
+              [
+                -16.000000000000007,
+                -15.2
+              ]
+            ]
+          },
+          "tie_section": {
+            "filled_width_mm": 0.1999999999999993,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -16.2,
+                -16.0
+              ]
+            ]
+          }
+        },
+        {
+          "face_deg": 270,
+          "gap_section": {
+            "filled_width_mm": 1.600000000000012,
+            "uncovered_width_mm": 0.19999999999998863,
+            "internal_gap_mm": 0.19999999999998863,
+            "intervals_mm": [
+              [
+                -17,
+                -16.199999999999996
+              ],
+              [
+                -16.000000000000007,
+                -15.2
+              ]
+            ]
+          },
+          "tie_section": {
+            "filled_width_mm": 0.1999999999999993,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                -16.2,
+                -16.0
+              ]
+            ]
+          }
+        }
+      ],
+      "label_cut": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.10000000000000142,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      },
+      "backing": {
+        "filled_width_mm": 0.10000000000000142,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            -13.3,
+            -13.2
+          ]
+        ]
+      }
+    }
+  },
+  "source_sha256": {
+    "thin_gap_design.py": "7013bc517e873899609832429f76fcd2da80e718275ae20b275be76f3da290d8",
+    "t_skin_design.py": "c02f331546c119f62ca47906495f7f95266f2f41ae670f93cf1651c5198c3092",
+    "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+    "support_design.py": "88cf7fa4d384bd2d8dd6cae73822075cc29197c80a056434d09743636c1b77d7",
+    "review_t_skin.py": "da97b2ea38caf89c8011cde9196259f7b4bc467ce1141ef9de04cb843bd2c227",
+    "thin_gap_cups.py": "ebf7d5f3f229fe9d580dd43115a6f338c7a082040178d75f35f2209aaa9c9551",
+    "review_thin_gap_cups.py": "60c2a35bc9a9253d92c20f065b8f10e65f843aaea87cd8e9e8c897c75016afc0"
+  },
+  "export_sha256": {
+    "thin_gap_cups.step": "6a942918d24ba182bb1e14d93931c57dd3cffed77898d7649fd58b34fc90d112",
+    "thin_gap_cups.stl": "b23370bb5793196b0a2635193b5da99d38f284c74be254a143aac5e44c5080ea"
+  },
+  "profile_sha256": {
+    "profiles/tpu-support-classic-process.json": "a6bec442b14eaa04a3da3b374e1f277cb3be69f3cb9377e8f8f6b972db18358f",
+    "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+    "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd"
+  },
+  "support_interface_z_mm": [
+    1.0
+  ],
+  "support_decision": "Only existing horizontal floor cores flagged; retain approved T08 supports-off strategy. Printed sag remains a physical question."
+}

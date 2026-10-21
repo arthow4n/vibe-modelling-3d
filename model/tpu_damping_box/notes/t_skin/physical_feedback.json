@@ -1,0 +1,25 @@
+{
+  "category": "user-physical-feedback",
+  "date": "2026-10-21",
+  "batch_commit": "2f56b7c",
+  "association": "User identifies T08/T16 printed pairs; exact artifact hashes and runtime settings unknown.",
+  "T08": {
+    "printed": true,
+    "decision": "approved-new-golden-standard",
+    "damping": "Effectively equivalent to earlier approved models.",
+    "appearance": "Visually much better than approved B/S; better hides structure."
+  },
+  "T16": {
+    "printed": true,
+    "decision": "rejected",
+    "observation": "Too firm; produces somewhat more sound."
+  },
+  "unknowns": [
+    "Exact printed hashes/settings",
+    "Calibrated sound levels",
+    "M1 label readability",
+    "Individual corner/installation integrity",
+    "Long-term durability"
+  ],
+  "next_authorization": "Create one or two thinner T08-derived full pairs if ordinary Classic paths support them."
+}

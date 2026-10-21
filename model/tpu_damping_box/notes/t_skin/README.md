@@ -3,8 +3,13 @@
 The user selects **T08 and T16**, then selects **M1 compact full-name markings**
 and requests the actual boxes for printing in the existing experiment shell.
 This supersedes the earlier SVG-only marking phase and T12/T16 research shortlist.
-B08/B16 and S16 physical approvals remain scoped to their previous prints; the
-new full pairs have no reported physical result.
+**Latest physical report:** both pairs have now been printed. **T08 is the new
+golden standard**: the user finds its damping effectively equivalent to earlier
+approved models and its appearance substantially better than B/S. **T16 is
+rejected**: it feels too firm and produces somewhat more sound. Do not recommend
+T16 as a damping improvement merely because its extra perimeter paths look clean.
+B/S remain historical approved references, not the current preferred starting point.
+See [reported feedback](#physical-feedback--2026-10-21).
 
 | Pair | Primary STEP / matching STL / source | Upright construction | Contents width | Pad width |
 | --- | --- | --- | --- | --- |
@@ -14,10 +19,27 @@ new full pairs have no reported physical result.
 Each file contains **one complete upright cup and its matching flat lid pad**,
 with both undersides on the bed. Each file is a separate plate; arrange the
 parts if importing both files together, since their supplied positions coincide.
-Print both pairs to compare them; these are
+The following files record the delivered comparison; T08 is preferred and T16
+is now a rejected reference. These are
 full-height parts, not the earlier wall probes. Use matching pads only.
 **T16 here means 1.6 mm per upright skin**, not B16's tie size or S16's total
 lining thickness. All geometry is in mm; import at 100% scale.
+
+## Physical feedback — 2026-10-21
+
+The user identifies the printed T08 and T16 pairs from this batch. Association:
+delivered M1 batch at commit `2f56b7c`; exact printed hashes and runtime settings
+are unknown. The user reports T16 feels too firm and produces a bit more sound;
+T08 is good, effectively like earlier approved damping models, with much better
+visual hiding of the structure than B/S, and explicitly calls T08 the new golden
+standard. This is subjective physical feedback, not a calibrated sound or material
+measurement. M1 readability, exact defects, individual corner integrity and
+installation/durability details are not explicitly reported.
+
+The user authorizes one or two thinner T08-derived full pairs for a quick print
+comparison. [Thinner-gap follow-up](../thin_gap/README.md) preserves T08's 0.8 mm
+skins while investigating the available core gap. T08 remains the control and
+approved baseline; no thinner geometry is approved by this print report.
 
 ## Preserved interfaces and intentional changes
 
@@ -99,7 +121,9 @@ Actual path analysis: [JSON](paths.json), [wall paths](../../renders/print/t_ski
 Full G-code: [T08](T08_paths.gcode.gz), [T16](T16_paths.gcode.gz).
 Product verification: [T08](T08_verification.json), [T16](T16_verification.json).
 These files record the delivered artifact/settings identities and scoped outcomes;
-physical fit, damping, readable black-TPU letters and finish remain unmeasured.
+T08 damping/appearance and T16 rejection now have subjective user evidence above.
+Exact fit forces, label readability, calibrated sound/finish measures and durability
+remain unmeasured.
 The STL review does not verify Orca's separate GUI STEP import.
 [Full-cup view](../../renders/print/t_skin_T16_m1_isometric.png) ·
 [Underside IDs](../../renders/print/t_skin_T08_m1_bottom.png).
@@ -163,8 +187,8 @@ remain physical properties, even where toolpaths are present.
 
 | Item | Print status | Artifacts | User result / remaining physical checks |
 | --- | --- | --- | --- |
-| T08 M1 cup/pad | Unknown | Paired Python / STEP / STL and retained native slice | No physical report; assess label readability, fit, insertion integrity, finish and damping. |
-| T16 M1 cup/pad | Unknown | Paired Python / STEP / STL and retained native slice | No physical report; assess label readability, fit, insertion integrity, finish and damping. |
+| T08 M1 cup/pad | Yes — approved, new golden standard | Paired Python / STEP / STL and retained native slice | User reports damping like prior approved models and much better appearance; exact print settings, label readability and long-term integrity remain unreported. |
+| T16 M1 cup/pad | Yes — rejected for damping | Paired Python / STEP / STL and retained native slice | User reports too firm and somewhat noisier; retain files as rejected evidence, not a recommended reprint. |
 | Final application liner | N/A | None new | These are existing-shell experiments, not qualified dental/sunglasses adaptations. |
 
 Attribution, 2026-10-21: GPT-6 family; exact runtime identifier/reasoning effort not

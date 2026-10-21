@@ -1,7 +1,7 @@
 """T08/T16 full-pair plan; retain historic user intent and physical unknowns."""
 from functools import cache
 from product_verification import (UserRequirement as U, UserSource as S, Question as Q,
-    Plan, DesignDecision, Hypothesis, assertion_check, protect_recorded_intent)
+    Plan, DesignDecision, Hypothesis, assertion_check, protect_recorded_intent, Check, Evidence, Status)
 import t_skin_design as d
 import t_skin_checks as c
 SOURCE='README.md#t08t16-with-m1--2026-10-21'
@@ -36,7 +36,8 @@ def make_t_skin_plan(name,original,root):
         Q('legible','t_skin.marking','Both compact IDs are visible on printed black TPU.','physical'),
         Q('corner-print','t_skin.corners','Solid corners print cleanly in the full cup.','physical'),
         Q('quiet','study.quiet_priority','Compare damping against approved B/S with the same nut and shell.','physical'),
-        Q('finish','surface.finish','Compare object-facing finish and seam/string artifacts physically.','physical'),
+        Q('finish','surface.finish','User compares object-facing appearance against approved B/S.','physical'),
+        Q('artifacts','surface.finish','Characterize remaining seam/string artifacts separately.','physical'),
         Q('damping','surface.damping','Thicker upright skins retain useful damping.','physical'),
         Q('comparison','study.research','Compare T08/T16 physically with cavity-size difference explicit.','physical'),
         Q('installation','support.integrity','Insert and handle without tears or detached ties.','physical'),
@@ -49,6 +50,19 @@ def make_t_skin_plan(name,original,root):
         ('t-publication',(('t_skin.pair','pair'),('support.classic','classic')),lambda:c.publication(name)),
     )
     checks=tuple(assertion_check(id,targets,run,'t_skin_checks.py / t_skin_design.py',scope) for id,targets,run in groups)
+    import json
+    def damping_feedback():
+        r=json.loads((root/'notes/t_skin/physical_feedback.json').read_text())[name]
+        accepted=r['decision']=='approved-new-golden-standard'
+        return (Evidence('t-physical-damping',(('study.quiet_priority','quiet'),('surface.damping','damping')),
+            Status.PASS if accepted else Status.FAIL,
+            'User approves T08 damping as equivalent to earlier approved models and calls it the golden standard.' if accepted else 'User rejects T16: too firm and somewhat noisier.',
+            'notes/t_skin/physical_feedback.json',{**scope,'exact_print_settings':'unknown','reported_batch':'2f56b7c'}),)
+    checks+=(Check('t-physical-damping',(('study.quiet_priority','quiet'),('surface.damping','damping')),damping_feedback),)
+    if name=='T08':
+        checks+=(Check('t-physical-finish',(('surface.finish','finish'),),lambda:(Evidence('t-physical-finish',
+            (('surface.finish','finish'),),Status.PASS,'User reports T08 visually much better than approved B/S.',
+            'notes/t_skin/physical_feedback.json',scope),)),)
     return Plan(name,requirements,scope,checks,(),questions=questions,
         decisions=(DesignDecision('full-pair','Retain 34 mm cup, B 1.6 mm horizontal sandwiches/.8 mm posts and .2 mm squeeze. Change upright skins to .8/1.6 around .6 gap; solid 4 mm wall-end lands and 10 x 6.5 mm floor/pad label corner seats. M1 strokes .8, .2 recess, widened .6 inter-glyph spacing within the accepted reserved footprint.',SOURCE),),
         hypotheses=(Hypothesis('guard-paths','Thicker skins may reduce joint marks; actual damping, finish, strength and readability remain physical.',SOURCE),))
