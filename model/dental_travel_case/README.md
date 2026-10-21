@@ -6,7 +6,8 @@ A slim, two-piece PETG travel box (`74.2 × 51.2 × 264 mm` closed exterior) des
 
 ## At a Glance: What to Do Now
 
-- **Current Model to Print (Recommended):** **Three-line wrap-grip short-lap case**
+- **Current action:** Review the [smoother exterior SVG options](renders/concepts/smooth_exterior_comparison.svg) and [grip / catch details](renders/concepts/smooth_exterior_details.svg) before printing. A–C are proposals only; [design discussion and tradeoffs](notes/smooth_exterior.md).
+- **Existing printable model (on hold for appearance review):** **Three-line wrap-grip short-lap case**
   - **Files:** [`short_lap_case_three_line_grip.step`](short_lap_case_three_line_grip.step) · [`short_lap_case_three_line_grip.stl`](short_lap_case_three_line_grip.stl) · [Python source](short_lap_case_three_line_grip.py)
   - **What it is:** The `30 mm` short-lap wall-snap case with **`1.2 mm` (three-extrusion-line) walls** (~41% lighter than the `2 mm` version, ~`108.5 g` total), **smooth `0.7 mm` deep × `20 mm` wide full-wrap grip bands** (`+55 mm` on cap, `-30 mm` on body from the seam), blended snap-backing pads, and **no seam finger notches**.
   - **How to print:** PETG, `0.4 mm` nozzle, `0.2 mm` layers, **3 wall loops**, `7%` adaptive cubic infill, `5 mm` automatic brim, **no supports** ([Orca process profile](notes/short_lap/profiles/process.json)). Body prints upright (`204 mm` tall); cap prints inverted on its roof (`90 mm` tall). You can select just the cap in your slicer if you want to inspect the feel first, though fit testing requires the matching thin body.
@@ -56,7 +57,7 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Variant / Phase | Status | Printable STEP / STL | Notes |
 | --- | --- | --- | --- |
-| **Three-line wrap-grip case (Current)** | **Recommended to print** (`Unknown` print status) | [`short_lap_case_three_line_grip.step`](short_lap_case_three_line_grip.step) · [`.stl`](short_lap_case_three_line_grip.stl) | `1.2 mm` walls, `+55/-30 mm` wrap bands, no seam notches. |
+| **Three-line wrap-grip case (Current)** | **On hold for appearance review** (`Unknown` print status) | [`short_lap_case_three_line_grip.step`](short_lap_case_three_line_grip.step) · [`.stl`](short_lap_case_three_line_grip.stl) | `1.2 mm` walls, `+55/-30 mm` wrap bands, no seam notches. |
 | **Three-line case (with old seam notches)** | Superseded comparison (`Unknown`) | [`short_lap_case_three_line.step`](short_lap_case_three_line.step) · [`.stl`](short_lap_case_three_line.stl) | Earlier `1.2 mm` pair before wrap-grip bands replaced seam notches. |
 | **`2 mm` thick short-lap case** | Heavy control (`Unknown`) | [`short_lap_case.step`](short_lap_case.step) · [`.stl`](short_lap_case.stl) | `2.0 mm` walls (`183 g`), rounded seam notches, no wrap bands. |
 | **Short-lap joint test crop (`2 mm`)** | Optional test coupon (`No`) | [`short_lap_joint_test.step`](short_lap_joint_test.step) · [`.stl`](short_lap_joint_test.stl) | `46 mm` cropped body + full `90 mm` `2 mm` cap. |
@@ -86,7 +87,8 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 All historical phases, negative results, and solver investigations are preserved in [`notes/`](notes/README.md):
 
-1. **Current Short-Lap Architecture (Oct 19–20, 2026)**
+1. **Current Short-Lap Architecture and Exterior Exploration**
+   - [`notes/smooth_exterior.md`](notes/smooth_exterior.md) — SVG-only exploration of one-way body shoulders, exposed overlap grip and a continuous cap exterior; no revised printable geometry yet.
    - [`notes/grip_human.md`](notes/grip_human.md) — Wraparound grip band placement (`+55 / -30 mm`), upright opening walkthrough, finished 3-line CAD sections, and retirement of the over-constrained MyoSim 4-finger search ([`notes/grip_human/native_search.md`](notes/grip_human/native_search.md)).
    - [`notes/wall_comparison.md`](notes/wall_comparison.md) — `2 mm` (5-stroke) vs. `1.2 mm` (3-stroke) wall comparison, local snap-backing pads, finger-slot edge rounding, and `A`/`B`/`C` & `B1`–`B4` grip concept SVGs.
    - [`notes/short_lap.md`](notes/short_lap.md) — Selection of `30 mm` overlap (`18`/`24`/`30 mm` comparison), sideways-hit deformable contact investigation (`12.6 N` snapshot), and practical stopping lessons.
