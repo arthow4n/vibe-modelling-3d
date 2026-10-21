@@ -3,12 +3,12 @@
 The user selects **T08 and T16**, then selects **M1 compact full-name markings**
 and requests the actual boxes for printing in the existing experiment shell.
 This supersedes the earlier SVG-only marking phase and T12/T16 research shortlist.
-**Latest physical report:** both pairs have now been printed. **T08 is the new
-golden standard**: the user finds its damping effectively equivalent to earlier
+**Latest physical report:** both pairs have now been printed. **T08 became the
+golden standard at that stage**: the user finds its damping effectively equivalent to earlier
 approved models and its appearance substantially better than B/S. **T16 is
 rejected**: it feels too firm and produces somewhat more sound. Do not recommend
 T16 as a damping improvement merely because its extra perimeter paths look clean.
-B/S remain historical approved references, not the current preferred starting point.
+B/S remain historical approved references. The subsequent [thinner-gap print report](../thin_gap/README.md#physical-feedback--2026-10-21) selects L20 as the current preferred baseline; T08 remains an approved control.
 See [reported feedback](#physical-feedback--2026-10-21).
 
 | Pair | Primary STEP / matching STL / source | Upright construction | Contents width | Pad width |
@@ -187,7 +187,7 @@ remain physical properties, even where toolpaths are present.
 
 | Item | Print status | Artifacts | User result / remaining physical checks |
 | --- | --- | --- | --- |
-| T08 M1 cup/pad | Yes — approved, new golden standard | Paired Python / STEP / STL and retained native slice | User reports damping like prior approved models and much better appearance; exact print settings, label readability and long-term integrity remain unreported. |
+| T08 M1 cup/pad | Yes — approved, earlier golden standard; now retained control | Paired Python / STEP / STL and retained native slice | User reports damping like prior approved models and much better appearance; exact print settings, label readability and long-term integrity remain unreported. |
 | T16 M1 cup/pad | Yes — rejected for damping | Paired Python / STEP / STL and retained native slice | User reports too firm and somewhat noisier; retain files as rejected evidence, not a recommended reprint. |
 | Final application liner | N/A | None new | These are existing-shell experiments, not qualified dental/sunglasses adaptations. |
 

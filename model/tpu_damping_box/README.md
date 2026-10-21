@@ -8,8 +8,8 @@ A small `38.4 × 38.4 × 42.4 mm` rigid test enclosure (two M3 screws/nuts + a l
 
 | Workstream | Status | What to Do / Printable Files |
 | --- | --- | --- |
-| **1. Current Golden Standard (`T08 M1`)** | **Printed & Approved (2026-10-21)** | **`T08 M1`** ([`t_skin_T08_m1.step`](t_skin_T08_m1.step) / [`.stl`](t_skin_T08_m1.stl)) is the **current golden standard**: `2.2 mm` wall (`0.8 mm` skins around a `0.6 mm` gap, separated `0.8 × 0.8 mm` B-style ties, solid `4 mm` corners, compact `M1` corner label). Printed damping equals earlier `B08`/`S16` while visual surface quality is substantially better ([details & report](#t08t16-with-m1--2026-10-21)). Earlier `B08`/`B16` and `S16` remain historical approved baselines. |
-| **2. Next Print Trial: Thinner `T08` Follow-Up (`L20` & `L18`)** | **Ready to Print (`Unknown`)** | Tests how thin the approved `T08` architecture can go by keeping `0.8 mm` skins and reducing the upright air gap to `0.4 mm` (**`L20`**, `2.0 mm` total wall) and `0.2 mm` (**`L18`**, `1.8 mm` total wall).<br>• **Fastest test (reuses printed `T08` pad):** [`thin_gap_cups.step`](thin_gap_cups.step) ([`.stl`](thin_gap_cups.stl))<br>• **Full cup+pad pairs:** [`thin_gap_L20.step`](thin_gap_L20.step) ([`.stl`](thin_gap_L20.stl)) and [`thin_gap_L18.step`](thin_gap_L18.step) ([`.stl`](thin_gap_L18.stl)) ([setup below](#thinner-t08-follow-up)). |
+| **1. Preferred Baseline (`L20`)** | **Printed & Approved (2026-10-21)** | **`L20`** ([`thin_gap_L20.step`](thin_gap_L20.step) / [`.stl`](thin_gap_L20.stl)) is the user's preferred sweet spot: `2.0 mm` total wall, thinner than `T08` (`2.2 mm`), with similarly good damping and print quality almost equal to `T08`. The bottom surface showed slightly fewer defects despite ironing being on; the cause is unknown ([physical report](notes/thin_gap/README.md#physical-feedback--2026-10-21)). |
+| **2. Accepted Alternatives (`L18` & `T08 M1`)** | **Printed & Approved** | `L18` ( `1.8 mm` wall; [`STEP`](thin_gap_L18.step) / [STL](thin_gap_L18.stl)) also damps well. `T08 M1` ([STEP](t_skin_T08_m1.step) / [STL](t_skin_T08_m1.stl)) remains an approved comparison control. Damping feels roughly equal across all three; `L20` is preferred for the balance of thickness and print finish. No repeat comparison print is needed. |
 | **3. Optional Flat Surface Coupons (`F0`–`F7`)** | **Optional / Deferred (`Unknown`)** | Eight `30 × 30 mm` flat bottom-plate coupons ([`surface_samples.step`](surface_samples.step) / [`.stl`](surface_samples.stl)) testing whether thicker skins or denser ribs reduce `50%`-ironing waviness ([setup below](#surface-finish-coupons--2026-10-17)). |
 | **4. Rejected / Superseded Variants** | **Do NOT Print** | • **`T16 M1`** (`3.8 mm` wall): Printed and **rejected** — too firm and somewhat noisier than `T08`.<br>• **R2 `A16` / `A20`** (square frames) & **Solid `C12` / `C16`**: Printed and **rejected** — insufficient damping.<br>• **R1 support pairs**: Rejected before printing (missing Classic walls).<br>• **`I10`** (`1.0 mm` open-backed): Printed and **rejected** (broken shell-side skin). |
 
@@ -18,9 +18,9 @@ A small `38.4 × 38.4 × 42.4 mm` rigid test enclosure (two M3 screws/nuts + a l
 ---
 
 <a id="thinner-t08-follow-up"></a>
-## 1. Active Print Trial: Thinner `T08` Follow-Up (`L20` & `L18`)
+## 1. Completed Thinner `T08` Comparison (`L20` & `L18`)
 
-After approving **`T08 M1`** as the new golden standard and rejecting **`T16 M1`** as too firm, the next question is how much wall thickness can be saved without losing `T08`'s visual surface quality or damping.
+Both thinner variants are now printed and accepted. The user reports roughly equal damping for `L18`, `L20` and `T08`, and prefers **`L20`** for its thinner wall and print quality close to `T08`. The reported bottom surface has slightly fewer defects with ironing on; no cause is established. The user confirmed the variant names as `L18`/`L20` ([full feedback](notes/thin_gap/README.md#physical-feedback--2026-10-21)).
 
 **`L20`** and **`L18`** keep `T08`'s `0.8 mm` inner and outer upright skins, `0.8 × 0.8 mm` separated ties, solid `4 mm` corner lands, `1.6 mm` floor/pad sandwich, and compact `M1` corner labels, while narrowing the upright air gap ([full study & toolpath details](notes/thin_gap/README.md)):
 
@@ -31,24 +31,24 @@ After approving **`T08 M1`** as the new golden standard and rejecting **`T16 M1`
 | **Two-cup fast plate (`L20` + `L18` cups only)** | `2.0` & `1.8 mm` | Reuses your already-printed `T08 M1` lid pad | — | [`thin_gap_cups.step`](thin_gap_cups.step) · [`.stl`](thin_gap_cups.stl) · [`.py`](thin_gap_cups.py) |
 
 - **Print setup:** Use the shared Classic TPU process [`profiles/tpu-support-classic-process.json`](profiles/tpu-support-classic-process.json), [`profiles/tpu95a.json`](profiles/tpu95a.json), and [`qidi-q2c-0.4-nozzle.json`](../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json) (`0.2 mm` layers, Classic wall generator, `detect_thin_wall = OFF`, `2` wall loops, `100%` rectilinear fill, supports `OFF`).
-- **What to check when printed:** Compare **`L20`** first against printed **`T08 M1`** using the same rigid shell and loose nut, then test **`L18`** to see whether the `0.2 mm` upright gap stays open and cushions without fusing or bottoming out.
+- **Physical scope:** The report accepts subjective damping and finish; internal gap openness, long-term durability and full-size liner transfer remain unmeasured. Actual ironing was on; its detailed settings are unknown and differ from the retained no-ironing review profile.
 
 ---
 
 <a id="t08t16-with-m1--2026-10-21"></a>
-## 2. Current Golden Standard: `T08 M1` (and Rejected `T16 M1`)
+## 2. Earlier Golden Standard: `T08 M1` (and Rejected `T16 M1`)
 
 Following the B-series print approval and the [14-probe Classic tie/skin toolpath study](notes/tie_surface_study/README.md) (which showed that `B08`'s `0.5 mm` skin places two `0.42 mm` passes only `0.08 mm` apart where tie joints disturb the outer perimeter), two full `34 mm` cup/pad pairs were built with thicker skins, solid `4 mm` corner lands, and compact `M1` corner markings ([full delivery & physical report](notes/t_skin/README.md)):
 
 | Variant | Status | Upright Wall (Outer / Gap / Inner) | Total Wall | Deliverables (1 Cup + 1 Pad) | Physical Result (2026-10-21) |
 | --- | --- | --- | --- | --- | --- |
-| **`T08 M1`** | **APPROVED (Golden Standard)** | `0.8 / 0.6 / 0.8 mm` (`0.8 mm` ties) | **`2.2 mm`** | [`t_skin_T08_m1.step`](t_skin_T08_m1.step) · [`.stl`](t_skin_T08_m1.stl) · [`.py`](t_skin_T08_m1.py) | **Approved:** Damping feels equivalent to earlier approved `B08`/`S16`, and visual appearance is substantially better. |
+| **`T08 M1`** | **APPROVED (Retained Control)** | `0.8 / 0.6 / 0.8 mm` (`0.8 mm` ties) | **`2.2 mm`** | [`t_skin_T08_m1.step`](t_skin_T08_m1.step) · [`.stl`](t_skin_T08_m1.stl) · [`.py`](t_skin_T08_m1.py) | **Approved:** Damping feels equivalent to earlier approved `B08`/`S16`, and visual appearance is substantially better. |
 | **`T16 M1`** | **REJECTED** | `1.6 / 0.6 / 1.6 mm` (`0.8 mm` ties) | **`3.8 mm`** | [`t_skin_T16_m1.step`](t_skin_T16_m1.step) · [`.stl`](t_skin_T16_m1.stl) · [`.py`](t_skin_T16_m1.py) | **Rejected:** Too firm and somewhat noisier than `T08`. |
 
 - **Supporting design notes & full agent logs:**
   - **[Complete Historical Development & Agent Log (`notes/development_record.md`)](notes/development_record.md)** — preserves the full 1,280-line phase-by-phase engineering log (`R1`/`R2`, `C12`/`C16`, `F0`–`F7`, `S16`/`S12`, `I22`/`I30`/`I10`, `A`–`I`). Append detailed future agent logs here or in dedicated `notes/<topic>/` folders rather than cluttering this `README.md`.
-  - [Thinner `T08` air-gap study (`L20` & `L18`)](notes/thin_gap/README.md) — full setup and path review for the current print trial.
-  - [`T08` / `T16` with `M1` delivery & physical report](notes/t_skin/README.md) — full record of the current golden standard.
+  - [Thinner `T08` air-gap study (`L20` & `L18`)](notes/thin_gap/README.md) — full setup, path review and physical feedback for the preferred baseline.
+  - [`T08` / `T16` with `M1` delivery & physical report](notes/t_skin/README.md) — full record of the earlier golden standard.
   - [Compact bottom-label comparison (`M1` selected)](notes/marking_options.md) — moves the ID to a `10 × 6.5 mm` solid corner land (`0.2 mm` recess) so the central floor skin is never thinned.
   - [B-derived tie/curve/skin toolpath study](notes/tie_surface_study/README.md) — compares 14 wall probes under Classic slicing.
   - [Gyroid infill path study (`G20`/`G30`/`X20`)](notes/infill_study/README.md) and [N1–N3 preformed surface concepts](notes/preformed_surface_concepts.md) — retained as a separate candidate branch at the user's request.
@@ -138,8 +138,8 @@ Informed by [corrugated/chevron TPU energy-absorption literature](https://doi.or
 
 | Category | Status | Summary |
 | --- | --- | --- |
-| **Test pieces (`T08 M1` golden standard, `B08`/`B16`, `S16`/`S12`, `I22`/`I30`, `A`/`E`/`H`/`I`)** | **Yes — Printed & Evaluated** | **`T08 M1` (`2.2 mm` wall) is the approved golden standard** (damping equals `B08`/`S16`, visual finish substantially better). `B08`/`B16` and `S16` remain earlier approved references. `T16`, `A16`/`A20`, `C12`/`C16`, and `I10` were printed and rejected. |
-| **Test pieces (`L20`/`L18` thinner follow-up & `F0`–`F7` surface coupons)** | **Unknown — Unprinted** | `thin_gap_cups.step` (`thin_gap_L20.step`, `thin_gap_L18.step`) and `surface_samples.step` pass CAD, toolpath, and OrcaSlicer `2.4.2` checks; physical print feedback pending. |
+| **Test pieces (`L20` preferred, `L18`, `T08 M1`, `B08`/`B16`, `S16`/`S12`, `I22`/`I30`, `A`/`E`/`H`/`I`)** | **Yes — Printed & Evaluated** | **`L20` (`2.0 mm` wall) is preferred** after the 2026-10-21 print report: `L18`, `L20` and `T08` all damp similarly well; `L20` balances thinner walls with finish close to `T08`. `B08`/`B16` and `S16` remain earlier approved references. `T16`, `A16`/`A20`, `C12`/`C16`, and `I10` were printed and rejected. |
+| **Test pieces (`F0`–`F7` surface coupons)** | **Unknown** | `surface_samples.step` passes retained CAD, toolpath and OrcaSlicer `2.4.2` checks; no physical print report. |
 | **Final object** | **N/A — Experimental Study** | Comparative test coupons only; application liners are tracked in [`sunglasses_case_liner`](../sunglasses_case_liner/README.md) (accepted) and [`dental_travel_case_liner`](../dental_travel_case_liner/README.md) (on hold). |
 
 ### Scope Limits & Reproduction Commands

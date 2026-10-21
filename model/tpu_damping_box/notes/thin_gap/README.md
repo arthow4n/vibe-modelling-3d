@@ -1,20 +1,18 @@
 # Thinner T08 follow-up: L20 and L18
 
-**Approved control: T08 M1**, now the user's golden standard. Its reported damping
-is effectively equivalent to earlier approved models, with substantially better
-appearance than B/S. T16 is physically rejected as too firm and somewhat noisier.
-[Physical report](../t_skin/README.md#physical-feedback--2026-10-21) ·
-[Original user observation](../t_skin/physical_feedback.json).
+**L20 is now the preferred baseline**, following the user's print comparison of both thinner variants against approved T08. L18 is also accepted. The user explicitly clarified that the printed variants are **L20/L18** after initially saying T20/T18. T08 remains an approved control; T16 remains rejected as too firm and somewhat noisier.
 
-The user authorizes one or two thinner T08-derived variants for a quick full-box
-comparison. These new designs keep both **0.8 mm upright skins** and shorten only
-the upright air gap. They are unqualified experiments, not replacements for T08.
+## Physical feedback — 2026-10-21
+
+The user reports both L18 and L20 printed and fine compared with T08. Damping feels roughly equally good across all three. **L20 feels like the sweet spot**: its bottom surface has slightly fewer printing defects despite ironing being on, and overall print quality is almost equal to T08. The user prefers L20 over T08 because it is thinner (`2.0` versus `2.2 mm` total upright wall). L18 remains acceptable, but L20 is preferred for print quality.
+
+The cause of the bottom-surface difference is unknown. The modeled floor/pad construction is unchanged, so this report does not establish that narrowing the upright gap caused a surface improvement. Ironing was on in the actual print; flow, speed and spacing are unreported. The retained digital review used no ironing. The designs are TPU 95A experiments; exact printed revision/hash, printer/profile, orientation and whether matching pads were printed or the T08 pad reused are unconfirmed. Prior user-confirmed layer height is `0.2 mm`; no new layer-height report was supplied. This is subjective physical acceptance, without acoustic measurements, internal-gap inspection or durability qualification, and does not qualify a full-size application liner.
 
 | Pair | Skin / upright gap / skin | Total wall | Contents width | Relative wall reduction | Primary files |
 | --- | --- | --- | --- | --- | --- |
-| **T08, approved control** | 0.8 / 0.6 / 0.8 mm | 2.2 mm | 29.6 mm | — | [Existing pair](../t_skin/README.md) |
-| **L20, first thinner test** | 0.8 / 0.4 / 0.8 mm | **2.0 mm** | **30.0 mm** | 9.1% | [STEP](../../thin_gap_L20.step) · [STL](../../thin_gap_L20.stl) · [Python](../../thin_gap_L20.py) |
-| **L18, limit-seeking test** | 0.8 / 0.2 / 0.8 mm | **1.8 mm** | **30.4 mm** | 18.2% | [STEP](../../thin_gap_L18.step) · [STL](../../thin_gap_L18.stl) · [Python](../../thin_gap_L18.py) |
+| **T08, retained approved control** | 0.8 / 0.6 / 0.8 mm | 2.2 mm | 29.6 mm | — | [Existing pair](../t_skin/README.md) |
+| **L20, preferred baseline** | 0.8 / 0.4 / 0.8 mm | **2.0 mm** | **30.0 mm** | 9.1% | [STEP](../../thin_gap_L20.step) · [STL](../../thin_gap_L20.stl) · [Python](../../thin_gap_L20.py) |
+| **L18, accepted alternative** | 0.8 / 0.2 / 0.8 mm | **1.8 mm** | **30.4 mm** | 18.2% | [STEP](../../thin_gap_L18.step) · [STL](../../thin_gap_L18.stl) · [Python](../../thin_gap_L18.py) |
 
 **L20/L18 encode total upright wall thickness**, not skin thickness. Both have
 compact M1-style full IDs on cup and pad, with solid backing and no revision line.
@@ -50,11 +48,10 @@ sag or compression can still close that channel. With two fixed 0.8 mm skins,
 established manufacturing limit. The rejected solid controls and firm T16 make
 physical damping the deciding evidence.
 
-L20 preserves more room to deform than L18 and should be tried first. L18 is an
+The original trial rationale was that L20 preserves more room to deform than L18. L18 was an
 explicit near-limit experiment: its 0.2 mm gap may fuse, bottom out or lose useful
 cushioning even when sliced paths remain separate. Neither gap is claimed as a
-reliable minimum. Keeping the skin thickness may preserve visual hiding, but
-that too needs a physical comparison.
+reliable minimum. The later report accepts the damping and finish of both variants without inspecting their internal gaps.
 
 ## What stays the same and how to print quickly
 
@@ -76,16 +73,13 @@ in shaking sound are not isolated material-property measurements.
 Use the same supplied [Classic TPU process](../../profiles/tpu-support-classic-process.json),
 [TPU filament profile](../../profiles/tpu95a.json) and
 [Qidi Q2C 0.4 mm printer](../../../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json).
-The agreed setup remains **0.4 mm nozzle, 0.2 mm normal/first layers, Classic,
+The retained digital review setup is **0.4 mm nozzle, 0.2 mm normal/first layers, Classic,
 two wall loops, ordinary 0.42/0.45 mm widths, thin-wall detection off, supports
 off, thin bridges, no ironing, 100% fill inside CAD material**. Air channels are
 CAD voids; the fill percentage does not fill them. Keep supplied orientation,
 labels on the bed. No Arachne or narrow-width recovery preset is introduced.
 
-Compare L20 first, then L18 against the retained T08 control: surface hiding,
-softness/quietness and any fused or torn regions. A smaller apparent gap or a
-clean STL slice is not a physical approval. Continue to treat T08 as the golden
-standard unless the user reports the new pair matches it sufficiently.
+The comparison is complete: both variants have user-reported acceptable damping, with L20 preferred. No repeat comparison print is required. Printed gap separation and long-term integrity remain unmeasured.
 
 ## Evidence and source scope
 
@@ -129,7 +123,7 @@ The cup-only layout has its own [native receipt](cups_final.json),
 [gap/tie/label/support review](cups_paths.json) and [G-code](cups_paths.gcode.gz).
 It reuses the same cup builders; only the second cup's placement differs from
 its standalone paired layout. Both full-pair geometry/publication check groups
-pass; physical outcomes for the new gaps remain UNKNOWN.
+pass; the later physical report accepts damping and finish, while printed gap separation remains unknown.
 
 Reproduce each native review with the selected named source and the complete
 profile triplet above, using `--slice --slice-placement preserve --slice-keep-run`
@@ -139,16 +133,15 @@ Then run `./execute.py model/tpu_damping_box/review_thin_gap.py` and
 The two-cup source uses the same supplied profile triplet and native review,
 with `cups_final.json` as its receipt. Run
 `./execute.py model/tpu_damping_box/review_thin_gap_cups.py` for its local checks.
-Read the JSON outcomes; physical questions remain UNKNOWN even when digital
-checks pass. Saved path rendering requires retained raw review directories;
+Read the JSON outcomes; retained digital receipts predate the physical report and do not measure printed gap separation or durability. Saved path rendering requires retained raw review directories;
 the G-code archives remain inspectable after raw cleanup.
 
 | Item | Print status | Artifact(s) | Remaining physical checks |
 | --- | --- | --- | --- |
-| T08 M1 control | Yes — approved golden standard | Existing pair retained unchanged | Exact settings, durability and application transfer remain unqualified. |
+| T08 M1 control | Yes — approved control | Existing pair retained unchanged | Exact settings, durability and application transfer remain unqualified. |
 | T16 M1 | Yes — rejected | Historical pair retained | Too firm/noisier; do not recommend as the improved baseline. |
-| L20 cup/pad | Unknown | Python / STEP / STL, native review and paths | Check appearance, quietness, open gap and installation against T08. |
-| L18 cup/pad | Unknown | Python / STEP / STL, native review and paths | Limit test: check fusion/bottoming and appearance/quietness against T08. |
+| L20 liner (matching pad print unknown) | Yes — preferred, 2026-10-21 | `thin_gap_L20.py` / `.step` / `.stl`; cup also in `thin_gap_cups.step` | Damping like T08/L18, print quality almost like T08, slightly fewer bottom defects with ironing on; thinner than T08. Gap separation and durability unmeasured. |
+| L18 liner (matching pad print unknown) | Yes — accepted, 2026-10-21 | `thin_gap_L18.py` / `.step` / `.stl`; cup also in `thin_gap_cups.step` | Damping similarly good; L20 preferred for print quality. Gap separation and durability unmeasured. |
 | Application liner | N/A | None new | No dental/sunglasses adaptation is delivered or qualified. |
 
 Attribution, 2026-10-21: GPT-6 family; exact runtime identifier/reasoning effort
