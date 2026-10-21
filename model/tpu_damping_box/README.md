@@ -45,7 +45,10 @@ Following the B-series print approval and the [14-probe Classic tie/skin toolpat
 | **`T08 M1`** | **APPROVED (Golden Standard)** | `0.8 / 0.6 / 0.8 mm` (`0.8 mm` ties) | **`2.2 mm`** | [`t_skin_T08_m1.step`](t_skin_T08_m1.step) · [`.stl`](t_skin_T08_m1.stl) · [`.py`](t_skin_T08_m1.py) | **Approved:** Damping feels equivalent to earlier approved `B08`/`S16`, and visual appearance is substantially better. |
 | **`T16 M1`** | **REJECTED** | `1.6 / 0.6 / 1.6 mm` (`0.8 mm` ties) | **`3.8 mm`** | [`t_skin_T16_m1.step`](t_skin_T16_m1.step) · [`.stl`](t_skin_T16_m1.stl) · [`.py`](t_skin_T16_m1.py) | **Rejected:** Too firm and somewhat noisier than `T08`. |
 
-- **Supporting design notes:**
+- **Supporting design notes & full agent logs:**
+  - **[Complete Historical Development & Agent Log (`notes/development_record.md`)](notes/development_record.md)** — preserves the full 1,280-line phase-by-phase engineering log (`R1`/`R2`, `C12`/`C16`, `F0`–`F7`, `S16`/`S12`, `I22`/`I30`/`I10`, `A`–`I`). Append detailed future agent logs here or in dedicated `notes/<topic>/` folders rather than cluttering this `README.md`.
+  - [Thinner `T08` air-gap study (`L20` & `L18`)](notes/thin_gap/README.md) — full setup and path review for the current print trial.
+  - [`T08` / `T16` with `M1` delivery & physical report](notes/t_skin/README.md) — full record of the current golden standard.
   - [Compact bottom-label comparison (`M1` selected)](notes/marking_options.md) — moves the ID to a `10 × 6.5 mm` solid corner land (`0.2 mm` recess) so the central floor skin is never thinned.
   - [B-derived tie/curve/skin toolpath study](notes/tie_surface_study/README.md) — compares 14 wall probes under Classic slicing.
   - [Gyroid infill path study (`G20`/`G30`/`X20`)](notes/infill_study/README.md) and [N1–N3 preformed surface concepts](notes/preformed_surface_concepts.md) — retained as a separate candidate branch at the user's request.

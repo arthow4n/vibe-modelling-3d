@@ -53,18 +53,18 @@ When explaining why the current design is the way it is:
 - **Use visuals at the decision point:** Link or embed annotated SVGs/renders where geometry, contact, or toolpaths are hard to picture in prose. Distinguish completed digital checks, physical print results, and unprinted proposals. Define every diagram colour as a physical part, material, or empty region, and state when role colours represent the same actual material. For nested/compliant structures, pair an assembly section with labelled before/load views showing what flexes into which space; do not rely on colour alone to convey the mechanism.
 - **Use short tables for comparable options:** Use tables for comparing variants, dimensions, or print settings; use clear paragraphs and subheadings for explanations.
 
-## Organize by reading depth
+## Organize by reading depth (Where agent logs live)
 
-Structure each object's documentation into three clean layers:
+Structure each object's documentation into a clean two-tier split so humans get a fast, readable `README.md` while agents always have a dedicated, unlimited place to write detailed logs:
 
-1. **Top of `model/<object>/README.md` (The 10-second scan):**
-   - What it is, Current Status (What to do / What not to do), Current Printable Files & Slicer Setup.
-2. **Middle of `model/<object>/README.md` (The current engineering summary):**
-   - How the current design works, key dimensions/improvements over the previous version, visual diagrams, and practical test/installation steps.
-3. **Bottom of `model/<object>/README.md` & `notes/` (History, verification & agent records):**
-   - Print status block, consolidated verification/limitations summary, concise chronological index of past iterations (with details in `notes/`), and attribution.
+1. **`model/<object>/README.md` — For the human reader (keep concise and current):**
+   - **Top (The 10-second scan):** What it is, Current Status (What to do / What not to do), Current Printable Files & Slicer Setup.
+   - **Middle (The current engineering summary):** How the current design works, key dimensions/improvements over the previous version, visual diagrams, and practical test/installation steps.
+   - **Bottom (Compact status, links & attribution):** Print status block, consolidated verification/limitations summary, links to `notes/development_record.md` (and any topic-specific `notes/*.md` files), and attribution.
 
-Agents are encouraged to write thorough, detailed engineering records in `notes/` whenever useful—including negative results, rejected alternatives, failed experiments, and solver diagnostics. There is no length limit on `notes/` investigations; keeping them out of the top-level reading flow is what makes both the human summary and the deep notes usable.
+2. **`model/<object>/notes/development_record.md` (or `notes/<topic>.md`) — For detailed agent & engineering logs (no length limit):**
+   - Whenever an agent needs to record extensive turn-by-turn investigations, slice/toolpath diagnostics, FEA tables, negative results, rejected alternatives, or superseded phase instructions, **write or append them in `model/<object>/notes/development_record.md` (or a dedicated `model/<object>/notes/<topic>.md` file)**—never by bloating the top of `model/<object>/README.md`.
+   - Agents are explicitly encouraged to write thorough, detailed engineering logs in `notes/` whenever useful. Separating `README.md` (human summary) from `notes/development_record.md` (agent logbook) is what keeps both genuinely usable.
 
 ## Preserve evidence, links, and verification contracts
 

@@ -54,9 +54,12 @@ repeat, and direct links to the current printable files. Update the current
 state in place rather than stacking dated update banners at the top of files.
 Quarantine agent bookkeeping, CLI flags and repeated scope disclaimers to a
 single bottom section or linked `notes/` file so they never bury the human summary.
-Detailed engineering records, including failed attempts and unresolved work, are
-encouraged whenever useful and have no arbitrary length limit. Link them from the
-current record; distinguish historical recommendations from authorized next work.
+Write detailed turn-by-turn agent engineering logs, slice diagnostics, failed
+attempts and superseded phase records in `model/<object>/notes/development_record.md`
+(or topic-specific `model/<object>/notes/<topic>.md` files), where they are
+encouraged whenever useful and have no arbitrary length limit. Link them from
+`model/<object>/README.md`; distinguish historical recommendations from authorized
+next work.
 
 ## Evidence integrity
 

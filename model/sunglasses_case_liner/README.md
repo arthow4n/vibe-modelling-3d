@@ -83,7 +83,8 @@ The user printed the sample at **`0.2 mm` layer height** across four **top-surfa
 | **Test piece (Ironing coupon)** | **Yes — Printed & Accepted** (2026-10-16) | `bottom_sample_18p5mm.step` / `.stl` | Printed at `0.2 mm` layers. **`50%` ironing flow preferred ("perfect")**; `10%`/`30%` leave gaps; `100%` bulges upward. |
 | **Final printable object (Full liner)** | **Yes — Printed & Accepted** (2026-10-17 / 2026-10-19) | `sunglasses_case_liner.step` / `.stl` | Fits cleanly inside Variant E case and damps well; confirmed free of the wall tears seen on the tall dental liner. Long-term wear and tape adhesion not separately rated. |
 
-### Digital Verification & Historical Receipts
+### Digital Verification, Full Agent Logs & Historical Receipts
+- **Full Historical Agent & Engineering Log:** [`notes/development_record.md`](notes/development_record.md) (preserves the complete verbatim phase-by-phase engineering, corner-coverage, and print-feedback record; write detailed future agent logs here).
 - **Automated Verification (`s16-retrofit`):**
   ```sh
   ./execute.py --threads 1 model/sunglasses_case_liner/verification.py --variant s16-retrofit
