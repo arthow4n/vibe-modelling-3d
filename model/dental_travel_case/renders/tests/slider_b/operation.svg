@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660">
+<rect width="1200" height="660" fill="#fafaf7"/>
+<style>text{font-family:sans-serif;fill:#243444}</style>
+<text x="25" y="38" font-size="25">B1 test piece — slide the lock before lifting the cap</text>
+<text x="25" y="78" font-size="18">Actual XZ sections at Y = 28 mm through one lug; second side works the same way.</text>
+<text x="25" y="109" font-size="17">Blue = body lug. Orange = cap rail. Green = sliding yoke. White = empty passage.</text>
+<text x="30" y="155" font-size="24">1  LOCK</text>
+<path d="M223.000,329.400 L167.000,329.400 L167.000,342.000 L223.000,342.000 Z" fill="#3686af" fill-rule="evenodd" fill-opacity="1.0" stroke="#3686af" stroke-width=".7"/>
+<path d="M162.100,401.500 L162.100,373.500 L76.000,373.500 L76.000,401.500 Z M314.000,401.500 L314.000,373.500 L227.900,373.500 L227.900,401.500 Z" fill="#d69b43" fill-rule="evenodd" fill-opacity="1.0" stroke="#d69b43" stroke-width=".7"/>
+<path d="M92.100,293.000 L76.000,293.000 L76.000,325.900 L92.100,325.900 Z M314.000,293.000 L157.900,293.000 L157.900,325.900 L188.177,325.900 L189.518,324.435 L191.166,323.326 L193.028,322.635 L195.000,322.400 L196.972,322.635 L198.834,323.326 L200.482,324.435 L201.823,325.900 L265.000,325.900 L265.000,333.600 L286.000,312.600 L314.000,340.600 Z M254.500,344.100 L157.900,344.100 L157.900,369.558 L241.900,369.558 L241.900,356.700 Z M314.000,405.442 L157.900,405.442 L157.900,421.100 L314.000,421.100 Z M92.100,369.558 L92.100,344.100 L76.000,344.100 L76.000,369.558 Z M92.100,421.100 L92.100,405.442 L76.000,405.442 L76.000,421.100 Z" fill="#4c9c70" fill-rule="evenodd" fill-opacity="1.0" stroke="#4c9c70" stroke-width=".7"/>
+<text x="25" y="482" font-size="17">Solid ledge is below the blue lug.</text>
+<text x="25" y="510" font-size="17">Pulling up meets that ledge.</text>
+<text x="430" y="155" font-size="24">2  UNLOCK</text>
+<path d="M623.000,329.400 L567.000,329.400 L567.000,342.000 L623.000,342.000 Z" fill="#3686af" fill-rule="evenodd" fill-opacity="1.0" stroke="#3686af" stroke-width=".7"/>
+<path d="M562.100,401.500 L562.100,373.500 L476.000,373.500 L476.000,401.500 Z M714.000,401.500 L714.000,373.500 L627.900,373.500 L627.900,401.500 Z" fill="#d69b43" fill-rule="evenodd" fill-opacity="1.0" stroke="#d69b43" stroke-width=".7"/>
+<path d="M562.100,293.000 L476.000,293.000 L476.000,325.900 L562.100,325.900 Z M714.000,293.000 L627.900,293.000 L627.900,293.257 L627.900,293.514 L627.900,294.028 L627.900,295.056 L627.900,297.112 L627.900,301.225 L627.900,309.450 L627.900,325.900 L658.177,325.900 L659.518,324.435 L661.166,323.326 L663.028,322.635 L665.000,322.400 L666.972,322.635 L668.834,323.326 L670.482,324.435 L671.823,325.900 L714.000,325.900 Z M714.000,354.600 L714.000,344.100 L627.900,344.100 L627.900,369.558 L711.900,369.558 L711.900,356.700 Z M714.000,405.442 L627.900,405.442 L627.900,421.100 L714.000,421.100 Z M562.100,369.558 L562.100,344.100 L476.000,344.100 L476.000,369.558 Z M562.100,421.100 L562.100,405.442 L476.000,405.442 L476.000,421.100 Z" fill="#4c9c70" fill-rule="evenodd" fill-opacity="1.0" stroke="#4c9c70" stroke-width=".7"/>
+<text x="425" y="482" font-size="17">Move the U-shaped yoke 10 mm.</text>
+<text x="425" y="510" font-size="17">Opening lines up below the lug.</text>
+<text x="830" y="155" font-size="24">3  LIFT</text>
+<path d="M1023.000,329.400 L967.000,329.400 L967.000,342.000 L1023.000,342.000 Z" fill="#3686af" fill-rule="evenodd" fill-opacity="1.0" stroke="#3686af" stroke-width=".7"/>
+<path d="M962.100,317.500 L962.100,289.500 L876.000,289.500 L876.000,317.500 Z M1114.000,317.500 L1114.000,289.500 L1027.900,289.500 L1027.900,317.500 Z" fill="#d69b43" fill-rule="evenodd" fill-opacity="1.0" stroke="#d69b43" stroke-width=".7"/>
+<path d="M962.100,209.000 L876.000,209.000 L876.000,241.900 L962.100,241.900 Z M1114.000,209.000 L1027.900,209.000 L1027.900,209.257 L1027.900,209.514 L1027.900,210.028 L1027.900,211.056 L1027.900,213.112 L1027.900,217.225 L1027.900,225.450 L1027.900,241.900 L1058.177,241.900 L1059.518,240.435 L1061.166,239.326 L1063.028,238.635 L1065.000,238.400 L1066.972,238.635 L1068.834,239.326 L1070.482,240.435 L1071.823,241.900 L1114.000,241.900 Z M1114.000,270.600 L1114.000,260.100 L1027.900,260.100 L1027.900,285.558 L1111.900,285.558 L1111.900,272.700 Z M1114.000,321.442 L1027.900,321.442 L1027.900,337.100 L1114.000,337.100 Z M962.100,285.558 L962.100,260.100 L876.000,260.100 L876.000,285.558 Z M962.100,337.100 L962.100,321.442 L876.000,321.442 L876.000,337.100 Z" fill="#4c9c70" fill-rule="evenodd" fill-opacity="1.0" stroke="#4c9c70" stroke-width=".7"/>
+<text x="825" y="482" font-size="17">Lift cap + yoke together.</text>
+<text x="825" y="510" font-size="17">The blue lug passes through the slot.</text>
+<text x="25" y="568" font-size="18">Close in reverse: keep UNLOCK, seat the cap, then slide to LOCK. No strong snap is forced.</text>
+<text x="25" y="604" font-size="17">Fit/action coupon only. The small detents hold slider position; they do not carry the cap pull load.</text>
+<text x="25" y="637" font-size="17">Assemble the yoke onto the cap once; see the separate print layout and assembly instructions.</text>
+</svg>

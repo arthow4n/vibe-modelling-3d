@@ -1,0 +1,26 @@
+{
+  "scope": "Pre-correction support interface locations; not a force or footprint audit",
+  "slice_input_sha256": "9e72b4774292c177493593a47dad3b4d646a5efc9a059f9711fc2a20090e00f2",
+  "gcode_sha256": "26f6a76892065ffd6a92219514fee219cc281b6bf2f2f465bc671bf2da219743",
+  "observations": [
+    {
+      "part": "body",
+      "interface_z_mm": [
+        21.6,
+        21.8
+      ],
+      "source_feature": "outer shoulder at original Z12",
+      "decision": "Bevel outer body shoulder 2.2 mm for inverted printing"
+    },
+    {
+      "part": "yoke",
+      "interface_z_mm": [
+        15.0,
+        15.4
+      ],
+      "source_feature": "9.4 mm exit-slot roof at original Z31.2",
+      "decision": "Use bottom-open notch through inner gate only, retaining 1.8 mm outside backing; no slot roof"
+    }
+  ],
+  "floating_region_correction": "Cap peg ramp now begins at cap wall, not beyond the rail; later slice has no notices."
+}

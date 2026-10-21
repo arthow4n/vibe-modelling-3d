@@ -1,6 +1,6 @@
 # Push-to-release alternatives
 
-The printed **PLA C2 ring sample was too tight both to open and to close**. Pause unchanged C2 prints. Review the [SVG comparison](../renders/concepts/push_release_options.svg) ([PNG](../renders/concepts/push_release_options.png)) before modelling a replacement. These are mechanism proposals only; no CAD, exports, force calculations or slices were changed or produced for them.
+The user has selected **B for a physical mechanism trial**. Print the [new three-piece B1 sample](slider_b.md) to understand and test the operation; the full case has not been redesigned. The printed PLA C2 sample was too tight both to open and to close, so unchanged C2 prints remain on hold. The [SVG comparison](../renders/concepts/push_release_options.svg) ([PNG](../renders/concepts/push_release_options.png)) below records the earlier proposal phase; no CAD was changed during that drawing-only phase.
 
 ## What the print changes
 
@@ -45,7 +45,7 @@ This phase checks drawing readability, mechanism direction and the local documen
 | Item | Print status | Artifacts | Result / remaining observation |
 | --- | --- | --- | --- |
 | C2 trial | Yes | `smooth_joint_test.step` / `.stl` | PLA, too tight opening and closing; no measured force. |
-| New release concepts | N/A | SVG / PNG only | No printable replacement; concept choice remains open. |
+| Release concepts | N/A | SVG / PNG only | B now selected for the separate B1 physical sample; A/C remain proposals. |
 | Full C2 case | No | `short_lap_case_smooth.step` / `.stl` | User has not printed the full case; on hold after sample feedback. |
 
 Primary model: GPT-6 family; exact identifier and reasoning effort not exposed. Harness: Codex coding-agent environment; provider: OpenAI. User supplied the physical feedback; diagrams and comparisons are agent-authored. Historical attribution is preserved in the existing object records.

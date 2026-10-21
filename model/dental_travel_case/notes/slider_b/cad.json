@@ -1,0 +1,513 @@
+{
+  "source_sha256": {
+    "slider_b_design.py": "19186613ae3ccada115e33e3150730c95ecaaa0ffff5e51906c9dab175b532af",
+    "slider_b_checks.py": "a4fc5255df17da3a5ebf2b9d38223dac312e0f126ebb245a5897ceb432740455",
+    "slider_b_test.py": "894d5f53775f4e057eaeb4872279d8193157652d6dca27dd555f910425b15a1d",
+    "slider_b_test_assembled.py": "6c90be9d7fd3fda5d7e839766596c5d891311e70b088a85bd64e840094144f02",
+    "slider_b_test_open.py": "56fb1d09157d9e6c96a91017d2a252363a159c37c17961c352d6a90d1353910f",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5"
+  },
+  "configurations": {
+    "locked": [
+      {
+        "first": "body",
+        "second": "cap",
+        "configuration": "locked",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "body",
+        "second": "yoke",
+        "configuration": "locked",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "cap",
+        "second": "yoke",
+        "configuration": "locked",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    ],
+    "unlocked": [
+      {
+        "first": "body",
+        "second": "cap",
+        "configuration": "unlocked",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "body",
+        "second": "yoke",
+        "configuration": "unlocked",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "cap",
+        "second": "yoke",
+        "configuration": "unlocked",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    ],
+    "open": [
+      {
+        "first": "body",
+        "second": "cap",
+        "configuration": "open",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "body",
+        "second": "yoke",
+        "configuration": "open",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "cap",
+        "second": "yoke",
+        "configuration": "open",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    ],
+    "print": [
+      {
+        "first": "body",
+        "second": "cap",
+        "configuration": "print",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "body",
+        "second": "yoke",
+        "configuration": "print",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "cap",
+        "second": "yoke",
+        "configuration": "print",
+        "requirement": {
+          "intent": "Distinct seated/print components",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    ]
+  },
+  "stop_obstruction_mm3": 15.322440053122422,
+  "independent_capture": [
+    {
+      "side": -1,
+      "guide_shift_mm": [
+        0.0,
+        0.0
+      ],
+      "obstruction_mm3": 9.439999999999976
+    },
+    {
+      "side": 1,
+      "guide_shift_mm": [
+        0.0,
+        0.0
+      ],
+      "obstruction_mm3": 9.439999999999975
+    },
+    {
+      "side": -1,
+      "guide_shift_mm": [
+        0.3,
+        0.0
+      ],
+      "obstruction_mm3": 9.439999999999976
+    },
+    {
+      "side": 1,
+      "guide_shift_mm": [
+        0.3,
+        0.0
+      ],
+      "obstruction_mm3": 9.439999999999975
+    },
+    {
+      "side": -1,
+      "guide_shift_mm": [
+        -0.3,
+        0.0
+      ],
+      "obstruction_mm3": 9.439999999999976
+    },
+    {
+      "side": 1,
+      "guide_shift_mm": [
+        -0.3,
+        0.0
+      ],
+      "obstruction_mm3": 9.439999999999975
+    },
+    {
+      "side": -1,
+      "guide_shift_mm": [
+        0.0,
+        0.3
+      ],
+      "obstruction_mm3": 10.39999999999997
+    },
+    {
+      "side": 1,
+      "guide_shift_mm": [
+        0.0,
+        0.3
+      ],
+      "obstruction_mm3": 8.479999999999974
+    },
+    {
+      "side": -1,
+      "guide_shift_mm": [
+        0.0,
+        -0.3
+      ],
+      "obstruction_mm3": 8.479999999999972
+    },
+    {
+      "side": 1,
+      "guide_shift_mm": [
+        0.0,
+        -0.3
+      ],
+      "obstruction_mm3": 10.399999999999968
+    },
+    {
+      "side": -1,
+      "guide_shift_mm": [
+        0.2,
+        0.2
+      ],
+      "obstruction_mm3": 10.079999999999966
+    },
+    {
+      "side": 1,
+      "guide_shift_mm": [
+        0.2,
+        0.2
+      ],
+      "obstruction_mm3": 8.799999999999976
+    },
+    {
+      "side": -1,
+      "guide_shift_mm": [
+        -0.2,
+        0.2
+      ],
+      "obstruction_mm3": 10.079999999999966
+    },
+    {
+      "side": 1,
+      "guide_shift_mm": [
+        -0.2,
+        0.2
+      ],
+      "obstruction_mm3": 8.799999999999976
+    },
+    {
+      "side": -1,
+      "guide_shift_mm": [
+        0.2,
+        -0.2
+      ],
+      "obstruction_mm3": 8.799999999999976
+    },
+    {
+      "side": 1,
+      "guide_shift_mm": [
+        0.2,
+        -0.2
+      ],
+      "obstruction_mm3": 10.079999999999966
+    },
+    {
+      "side": -1,
+      "guide_shift_mm": [
+        -0.2,
+        -0.2
+      ],
+      "obstruction_mm3": 8.799999999999976
+    },
+    {
+      "side": 1,
+      "guide_shift_mm": [
+        -0.2,
+        -0.2
+      ],
+      "obstruction_mm3": 10.079999999999966
+    }
+  ],
+  "slider_path": [
+    {
+      "shift_mm": -10.0,
+      "detent_interference_mm3": 0.0
+    },
+    {
+      "shift_mm": -9.0,
+      "detent_interference_mm3": 0.2086902230067218
+    },
+    {
+      "shift_mm": -8.0,
+      "detent_interference_mm3": 0.335539716254897
+    },
+    {
+      "shift_mm": -7.0,
+      "detent_interference_mm3": 0.3355397162607474
+    },
+    {
+      "shift_mm": -6.0,
+      "detent_interference_mm3": 0.335539716322824
+    },
+    {
+      "shift_mm": -5.0,
+      "detent_interference_mm3": 0.3355397162735523
+    },
+    {
+      "shift_mm": -4.0,
+      "detent_interference_mm3": 0.3355397162843703
+    },
+    {
+      "shift_mm": -3.0,
+      "detent_interference_mm3": 0.3355397162732707
+    },
+    {
+      "shift_mm": -2.0,
+      "detent_interference_mm3": 0.3355397162564273
+    },
+    {
+      "shift_mm": -1.0,
+      "detent_interference_mm3": 0.20869026788691425
+    },
+    {
+      "shift_mm": 0.0,
+      "detent_interference_mm3": 0.0
+    }
+  ],
+  "withdrawal": [
+    {
+      "slider_end_play_mm": -0.3,
+      "guide_positions": 9,
+      "sampled_lifts_mm": [
+        0,
+        0.3,
+        0.7,
+        1,
+        2,
+        4,
+        8,
+        16,
+        20,
+        23,
+        28
+      ]
+    },
+    {
+      "slider_end_play_mm": 0.0,
+      "guide_positions": 9,
+      "sampled_lifts_mm": [
+        0,
+        0.3,
+        0.7,
+        1,
+        2,
+        4,
+        8,
+        16,
+        20,
+        23,
+        28
+      ]
+    },
+    {
+      "slider_end_play_mm": 0.3,
+      "guide_positions": 9,
+      "sampled_lifts_mm": [
+        0,
+        0.3,
+        0.7,
+        1,
+        2,
+        4,
+        8,
+        16,
+        20,
+        23,
+        28
+      ]
+    }
+  ],
+  "yoke_capture": [
+    {
+      "x_shift_mm": -11.0,
+      "obstruction_mm3": 2.4010000000000487
+    },
+    {
+      "x_shift_mm": 1.0,
+      "obstruction_mm3": 92.00099999999986
+    },
+    {
+      "z_shift_mm": -0.8,
+      "obstruction_mm3": 41.15794717590006
+    },
+    {
+      "z_shift_mm": 0.8,
+      "obstruction_mm3": 58.899999999999494
+    }
+  ],
+  "scope": "B1 rigid geometry and explicit small detent interference. No PLA force, snap-on assembly, durability or bag-impact validation."
+}

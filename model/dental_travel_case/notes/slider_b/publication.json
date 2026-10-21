@@ -1,0 +1,19 @@
+{
+  "scope": "B1 paired native exports and selected-profile diagnostic slice; no physical PLA validation",
+  "source_sha256": {
+    "slider_b_design.py": "19186613ae3ccada115e33e3150730c95ecaaa0ffff5e51906c9dab175b532af",
+    "slider_b_checks.py": "a4fc5255df17da3a5ebf2b9d38223dac312e0f126ebb245a5897ceb432740455",
+    "slider_b_test.py": "894d5f53775f4e057eaeb4872279d8193157652d6dca27dd555f910425b15a1d",
+    "slider_b_test_assembled.py": "6c90be9d7fd3fda5d7e839766596c5d891311e70b088a85bd64e840094144f02",
+    "slider_b_test_open.py": "56fb1d09157d9e6c96a91017d2a252363a159c37c17961c352d6a90d1353910f",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5"
+  },
+  "artifacts": {
+    "slider_b_test.step": "5d7338fa51ee1182e755ce3b48c607767a8f053226ad659234fa304bfce567a0",
+    "slider_b_test.stl": "f609c0d46b286944bfe9836f70a09a86123d03b4a572e4f9e2a8856285e02d1b",
+    "notes/slider_b/cad.json": "19716c5e936cc4f91ce2d065b125264fa81d52f1ee7413a5c2bae77aa123a80e",
+    "notes/slider_b/print_review.json": "390e5cdfadff42f47912588eef28737481c50f98e8d4760a4aa3f630317a4ad6"
+  },
+  "native_input_identity": "69b013635127bcd65b0c672afe376e963d798e73558d2a69d7495ca70bd18103",
+  "association": "Repository Python frozen during final native publication; final CAD source hashes still match, and STL matches selected-profile slice."
+}

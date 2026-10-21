@@ -6,7 +6,7 @@ A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exter
 
 ## At a Glance: What to Do Now
 
-- **Current action: review push-to-release concepts.** The printed PLA C2 ring trial was **too tight to open and close**. Pause further prints of the unchanged pull-apart design. [SVG suggestions](renders/concepts/push_release_options.svg) · [comparison and print feedback](notes/push_release.md). No replacement CAD has been built.
+- **Current trial: B1 sliding yoke in PLA.** Print the short **three-piece** sample: [STEP](slider_b_test.step) · [STL](slider_b_test.stl) · [Python](slider_b_test.py). Push the U-shaped end toward the cap to **UNLOCK**, then lift; close unlocked and pull the yoke outward 10 mm to **LOCK**. Body/cap/yoke print heights: **34 / 27 / 18.3 mm**. PLA, 0.4 mm nozzle, 0.2 mm layers, 3 wall loops, 7% adaptive cubic, 5 mm brim; preserve the supplied placement. [Assembly, print review and trial instructions](notes/slider_b.md) · [actual operation SVG](renders/tests/slider_b/operation.svg). Unprinted mechanism trial; full B case not built.
 - **Printed trial:** [PLA C2 sample STEP](smooth_joint_test.step) · [STL](smooth_joint_test.stl), retained for identification, not a repeat-print recommendation. Its open ends limit transfer to the full case; the user suspects PETG would also be too tight, but PETG has not been tested.
 - **Existing CAD: Smooth C seam-grip case — full box unprinted; design on hold after sample rejection.** The selected C direction is implemented: straight, aligned sides, no wrap bands or local backing bumps, and a `3 mm` exposed overlap collar.
   - **Print files:** [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`short_lap_case_smooth.stl`](short_lap_case_smooth.stl) · [Python entry point](short_lap_case_smooth.py). Historical matching pair; hold printing pending release-design review. The closed `_assembled` pose is inspection only.
@@ -79,6 +79,7 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Variant / Phase | Status | Printable STEP / STL | Notes |
 | --- | --- | --- | --- |
+| **B1 sliding-yoke trial (Current)** | **Unknown** print status | [`slider_b_test.step`](slider_b_test.step) · [`.stl`](slider_b_test.stl) | Three separate parts; short manual lock/unlock trial. |
 | **Short PLA C2 joint trial** | **Printed in PLA; rejected for effort** | [`smooth_joint_test.step`](smooth_joint_test.step) · [`.stl`](smooth_joint_test.stl) | Open-ring 46/37 mm pair; local fit/action trial, not full-case force validation. |
 | **Smooth C seam-grip case (On hold)** | **Full box unprinted; sample rejected** | [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`.stl`](short_lap_case_smooth.stl) | Smooth sides, `3 mm` collar, internal stop; matching pair. |
 | **Three-line wrap-grip case** | Superseded comparison (`Unknown` print status) | [`short_lap_case_three_line_grip.step`](short_lap_case_three_line_grip.step) · [`.stl`](short_lap_case_three_line_grip.stl) | `1.2 mm` walls, `+55/-30 mm` wrap bands, no seam notches. |
