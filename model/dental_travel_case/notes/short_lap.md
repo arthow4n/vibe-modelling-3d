@@ -1,5 +1,12 @@
 # Short-lap slim box — end-wall snaps, separate cap
 
+**Current print choice:** [full 2 mm versus three-line wall comparison](wall_comparison.md).
+The existing thick construction and a separate matching thin pair are available;
+both caps now have finished finger slots, and the thin backing has smooth blends.
+Both have successful slices; physical comparison is not yet reported. The earlier
+joint specimen and numerical evidence below precede this finishing revision.
+The thickness experiment does not reopen the completed numerical investigation below.
+
 ## Practical stopping and explanation feedback
 
 The user requests a practical finish line, useful visual explanations and
