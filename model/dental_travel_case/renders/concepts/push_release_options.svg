@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1580" viewBox="0 0 1440 1580">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#d44e37"/></marker></defs>
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#192d3a} .title{font-size:31px;font-weight:bold}.h{font-size:25px;font-weight:bold}.sub{font-size:19px;font-weight:bold}.t{font-size:17px}.small{font-size:15px}.body{fill:#c5e5f3;stroke:#227393;stroke-width:3}.cap{fill:#fae2b7;stroke:#a87526;stroke-width:3}.move{fill:#d8cff1;stroke:#7050a5;stroke-width:3}.gate{fill:#cce8d6;stroke:#30855b;stroke-width:3}.ghost{fill:none;stroke:#7050a5;stroke-width:2;stroke-dasharray:7 5}.act{fill:none;stroke:#d44e37;stroke-width:3;marker-end:url(#arrow)}.lead{fill:none;stroke:#7a8791;stroke-width:1.5}.panel{fill:white;stroke:#d6dfe5;stroke-width:2}</style>
+<rect width="1440" height="1580" fill="#f3f6f8"/>
+
+<text x="35" y="49" class="title">A deliberate release, without a hard pull-apart snap</text>
+<text x="35" y="82" class="t">PLA C2 sample: opening and closing too tight. Explore the action before rebuilding CAD.</text>
+<text x="35" y="108" class="t">Concepts only • travel exaggerated • no force, printability or durability qualification.</text>
+<rect x="35" y="132" width="22" height="17" rx="3" class="body"/>
+<text x="69" y="147" class="small">Body / fixed lug</text>
+<rect x="330" y="132" width="22" height="17" rx="3" class="cap"/>
+<text x="364" y="147" class="small">Cap / guide</text>
+<rect x="590" y="132" width="22" height="17" rx="3" class="move"/>
+<text x="624" y="147" class="small">Moving flexure</text>
+<rect x="885" y="132" width="22" height="17" rx="3" class="gate"/>
+<text x="919" y="147" class="small">Sliding lock</text>
+<text x="1160" y="147" class="small">Red arrows = action</text>
+<rect x="20" y="172" width="1400" height="438" rx="12" class="panel"/>
+<g transform="translate(20 172)">
+<text x="30" y="40" class="h">A  ·  Torsion paddle — squeeze, then lift</text>
+<text x="34" y="93" class="small">Whole case · schematic</text>
+<rect x="78" y="110" width="104" height="90" rx="18" class="cap"/>
+<rect x="78" y="204" width="104" height="175" rx="18" class="body"/>
+<path d="M79 201H181" stroke="#7050a5" stroke-width="4"/>
+<rect x="73" y="184" width="14" height="25" rx="4" class="move"/>
+<rect x="173" y="184" width="14" height="25" rx="4" class="move"/>
+<path d="M40 195H69M220 195H192" class="act"/>
+<text x="39" y="401" class="small">2 printed shell pieces</text>
+<g transform="translate(280 0)">
+<text x="15" y="94" class="sub">LOCKED</text>
+<path d="M58 337V325H216V273H230V337Z" class="body"/>
+<path d="M220 115H239V155H220ZM220 210H239V270H220Z" class="cap"/>
+<path d="M165 196H220V211H165Z" class="cap"/>
+<path d="M123 281V171H150L180 181V194H143V263L198 272V290H123Z" class="move"/><rect x="143" y="159" width="80" height="12" class="move"/>
+<circle cx="198" cy="280" r="9" fill="#7050a5"/><path d="M198 280H218" stroke="#7050a5" stroke-width="7"/>
+<path d="M197 329H250" class="lead"/>
+<text x="9" y="361" class="small">Body-mounted hook retracts inward</text>
+<text x="9" y="384" class="small">Purple pivot = paired torsion bars</text>
+</g>
+<g transform="translate(590 0)">
+<text x="15" y="94" class="sub">PRESSED / CLEAR</text>
+<path d="M58 337V325H216V273H230V337Z" class="body"/>
+<path d="M220 115H239V155H220ZM220 210H239V270H220Z" class="cap"/>
+<path d="M165 196H220V211H165Z" class="cap"/>
+<g transform="rotate(-18 198 280)"><path d="M123 281V171H150L180 181V194H143V263L198 272V290H123Z" class="move"/><rect x="143" y="159" width="80" height="12" class="move"/></g>
+<path d="M123 281V171H150L180 181V194H143V263L198 272V290H123Z" class="ghost"/>
+<path d="M246 175H193" class="act"/><path d="M245 137V110" class="act"/>
+<circle cx="198" cy="280" r="9" fill="#7050a5"/><path d="M198 280H218" stroke="#7050a5" stroke-width="7"/>
+<path d="M197 329H250" class="lead"/>
+<text x="9" y="361" class="small">Body-mounted hook retracts inward</text>
+<text x="9" y="384" class="small">Purple pivot = paired torsion bars</text>
+</g>
+<text x="935" y="96" class="sub">Why it could beat a cantilever</text>
+<text x="935" y="129" class="t">A short rigid paddle turns on two bars;</text>
+<text x="935" y="154" class="t">no long bending tongue is needed.</text>
+<text x="935" y="179" class="t">Hook overlap and return spring can be</text>
+<text x="935" y="204" class="t">tuned more independently. Hold buttons</text>
+<text x="935" y="229" class="t">in while seating to avoid forcing a snap.</text>
+<text x="935" y="277" class="sub">What could make it worse</text>
+<text x="935" y="309" class="t">PLA torsion bars may crack or creep.</text>
+<text x="935" y="334" class="t">Needs two protected button windows,</text>
+<text x="935" y="359" class="t">press travel stops and room to retract.</text>
+<text x="935" y="384" class="t">Axial pull must favor engagement,</text>
+<text x="935" y="409" class="t">not rotate the paddle open.</text>
+<text x="285" y="418" class="small">Radial/axial sections · one side shown; mirror the release on the opposite side.</text>
+</g>
+<rect x="20" y="626" width="1400" height="438" rx="12" class="panel"/>
+<g transform="translate(20 626)">
+<text x="30" y="40" class="h">B  ·  Captive sliding yoke — push sideways, then lift</text>
+<text x="34" y="93" class="small">Whole case · schematic</text>
+<rect x="78" y="110" width="104" height="90" rx="18" class="cap"/>
+<rect x="78" y="204" width="104" height="175" rx="18" class="body"/>
+<path d="M79 201H181" stroke="#7050a5" stroke-width="4"/>
+<rect x="74" y="183" width="112" height="28" rx="4" class="gate"/>
+<path d="M215 197H191" class="act"/>
+<text x="39" y="401" class="small">3 pieces: body + cap + yoke</text>
+<g transform="translate(280 0)">
+<text x="15" y="94" class="sub">LOCKED</text>
+<rect x="25" y="128" width="252" height="145" rx="5" class="cap"/>
+<rect x="32" y="158" width="238" height="89" rx="4" class="gate"/>
+<path d="M172 246V169H230V246Z" fill="white" stroke="#30855b" stroke-width="3"/>
+<rect x="84" y="182" width="42" height="24" rx="2" class="body"/>
+<path d="M106 207V224" stroke="#192d3a" stroke-width="3"/>
+<text x="15" y="310" class="small">Gate material below the lug</text>
+<text x="15" y="335" class="small">blocks upward cap withdrawal.</text>
+<text x="15" y="365" class="small">Yoke rides captive on cap rails.</text>
+</g>
+<g transform="translate(590 0)">
+<text x="15" y="94" class="sub">RELEASE WINDOW ALIGNED</text>
+<rect x="25" y="128" width="252" height="145" rx="5" class="cap"/>
+<rect x="32" y="158" width="238" height="89" rx="4" class="gate"/>
+<path d="M78 246V169H136V246Z" fill="white" stroke="#30855b" stroke-width="3"/>
+<rect x="84" y="182" width="42" height="24" rx="2" class="body"/>
+<path d="M270 141H212" class="act"/><path d="M105 215V264" class="act"/>
+<text x="15" y="310" class="small">Blue lug exits down the slot as</text>
+<text x="15" y="335" class="small">the cap + yoke lift upward.</text>
+<text x="15" y="365" class="small">Yoke rides captive on cap rails.</text>
+</g>
+<text x="935" y="96" class="sub">Why it could beat a cantilever</text>
+<text x="935" y="129" class="t">Retention is rigid ledge bearing;</text>
+<text x="935" y="154" class="t">opening does not flex a structural arm.</text>
+<text x="935" y="179" class="t">Hold UNLOCK while fitting the cap,</text>
+<text x="935" y="204" class="t">then slide to LOCK. This removes the</text>
+<text x="935" y="229" class="t">need for a strong insertion snap.</text>
+<text x="935" y="277" class="sub">What could make it worse</text>
+<text x="935" y="309" class="t">One extra part; needs clean sliding fits.</text>
+<text x="935" y="334" class="t">Manual relocking, unless a return spring</text>
+<text x="935" y="359" class="t">is added. A guarded detent must resist</text>
+<text x="935" y="384" class="t">accidental sliding without making the</text>
+<text x="935" y="409" class="t">lock awkward or easy to forget.</text>
+<text x="285" y="418" class="small">Side views · two matching windows; yoke wraps one end.</text>
+</g>
+<rect x="20" y="1080" width="1400" height="438" rx="12" class="panel"/>
+<g transform="translate(20 1080)">
+<text x="30" y="40" class="h">C  ·  Squeeze rim — compress the ends, expand the catches</text>
+<text x="34" y="93" class="small">Whole case · schematic</text>
+<rect x="78" y="110" width="104" height="90" rx="18" class="cap"/>
+<rect x="78" y="204" width="104" height="175" rx="18" class="body"/>
+<path d="M79 201H181" stroke="#7050a5" stroke-width="4"/>
+<path d="M45 201H70M215 201H191" class="act"/>
+<text x="39" y="401" class="small">2 shell pieces if integral</text>
+<g transform="translate(280 0)">
+<text x="15" y="94" class="sub">LOCKED RIM</text>
+<rect x="51" y="182" width="195" height="91" rx="34" class="body"/>
+<rect x="135" y="172" width="28" height="14" class="body"/><rect x="135" y="269" width="28" height="14" class="body"/>
+<ellipse cx="149" cy="227" rx="118" ry="63" class="ghost"/>
+<ellipse cx="149" cy="227" rx="118" ry="63" fill="none" stroke="#7050a5" stroke-width="12"/>
+<path d="M80 390V345H115V356H95V390Z" class="body"/>
+<path d="M123 332H136V385H104V370H123Z" class="move"/>
+<text x="180" y="354" class="small">Axial lip section</text>
+<text x="180" y="378" class="small">Captured</text>
+</g>
+<g transform="translate(590 0)">
+<text x="15" y="94" class="sub">RIM SQUEEZED</text>
+<rect x="51" y="182" width="195" height="91" rx="34" class="body"/>
+<rect x="135" y="172" width="28" height="14" class="body"/><rect x="135" y="269" width="28" height="14" class="body"/>
+<ellipse cx="149" cy="227" rx="118" ry="63" class="ghost"/>
+<ellipse cx="149" cy="227" rx="107" ry="86" fill="none" stroke="#7050a5" stroke-width="12"/>
+<path d="M5 227H35M294 227H263M149 159V132M149 295V322" class="act"/>
+<path d="M80 390V345H115V356H95V390Z" class="body"/>
+<path d="M147 332H160V385H128V370H147Z" class="move"/>
+<text x="180" y="354" class="small">Axial lip section</text>
+<text x="180" y="378" class="small">Clear</text>
+</g>
+<text x="935" y="96" class="sub">Why it could beat a cantilever</text>
+<text x="935" y="129" class="t">Spreads bending around a curved rim;</text>
+<text x="935" y="154" class="t">no isolated tongue root or extra part.</text>
+<text x="935" y="179" class="t">End squeeze moves receiver lips away</text>
+<text x="935" y="204" class="t">from the two broad-face body lugs.</text>
+<text x="935" y="229" class="t">Hold squeezed during closing, too.</text>
+<text x="935" y="277" class="sub">What could make it worse</text>
+<text x="935" y="309" class="t">Most uncertain option: cap roof and</text>
+<text x="935" y="334" class="t">guides may suppress the expansion.</text>
+<text x="935" y="359" class="t">Needs an isolated rim with motion gaps;</text>
+<text x="935" y="384" class="t">bag compression may mimic release.</text>
+<text x="935" y="409" class="t">A stiff rectangular wall is not enough.</text>
+<text x="285" y="418" class="small">Top + axial views · exaggerated motion; catches relocate to broad faces.</text>
+</g>
+<text x="35" y="1550" class="small">All options: retain axial seating stop + seam grip, unload the latch before lifting, protect the contents passage.</text>
+</svg>

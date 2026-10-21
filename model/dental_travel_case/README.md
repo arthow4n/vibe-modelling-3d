@@ -6,11 +6,12 @@ A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exter
 
 ## At a Glance: What to Do Now
 
-- **Print the small PLA trial first:** [STEP](smooth_joint_test.step) · [STL](smooth_joint_test.stl) · [Python](smooth_joint_test.py). Two open rings, **46 mm body / 37 mm cap**, preserving the full C2 perimeter, both catches and seating stop. Use PLA, 0.4 mm nozzle, 0.2 mm layers, 3 wall loops and a 5 mm brim; keep the supplied upright/inverted orientation. This tests local fit, snap action and recovery; the missing floor/roof changes stiffness, so it does not validate the full case's pull force or bag retention. [Trial instructions and evidence](notes/smooth_exterior.md#short-pla-joint-trial).
-- **Current model: Smooth C seam-grip case — unprinted prototype.** The selected C direction is implemented: straight, aligned sides, no wrap bands or local backing bumps, and a `3 mm` exposed overlap collar.
-  - **Print files:** [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`short_lap_case_smooth.stl`](short_lap_case_smooth.stl) · [Python entry point](short_lap_case_smooth.py). Print this matching body/cap pair; do not print the closed `_assembled` inspection pose.
+- **Current action: review push-to-release concepts.** The printed PLA C2 ring trial was **too tight to open and close**. Pause further prints of the unchanged pull-apart design. [SVG suggestions](renders/concepts/push_release_options.svg) · [comparison and print feedback](notes/push_release.md). No replacement CAD has been built.
+- **Printed trial:** [PLA C2 sample STEP](smooth_joint_test.step) · [STL](smooth_joint_test.stl), retained for identification, not a repeat-print recommendation. Its open ends limit transfer to the full case; the user suspects PETG would also be too tight, but PETG has not been tested.
+- **Existing CAD: Smooth C seam-grip case — full box unprinted; design on hold after sample rejection.** The selected C direction is implemented: straight, aligned sides, no wrap bands or local backing bumps, and a `3 mm` exposed overlap collar.
+  - **Print files:** [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`short_lap_case_smooth.stl`](short_lap_case_smooth.stl) · [Python entry point](short_lap_case_smooth.py). Historical matching pair; hold printing pending release-design review. The closed `_assembled` pose is inspection only.
   - **How to print:** PETG, `0.4 mm` nozzle, `0.2 mm` layers, **3 configured wall loops**, `7%` adaptive cubic infill, `5 mm` automatic brim, no supports ([process profile](notes/short_lap/profiles/process.json)). Body upright (`204 mm`); cap inverted on its roof (`87 mm`). Thicker end walls may use more than three strokes.
-  - **Use:** Support the body underneath and lift the cap while upright or diagonal. The exposed collar replaces both separate grip bands; actual finger purchase and snap effort remain to test.
+  - **Use:** Support the body underneath and lift the cap while upright or diagonal. The exposed collar replaces both separate grip bands; PLA sample effort was rejected; full-case handling remains untested.
   - **What changed:** Width and depth each grow `1.6 mm` from the original thin case, to `75.8 × 52.8 mm`; closed length stays `264 mm`. Main walls and sleeve are `2.0 mm`, with `1.2 mm` backing behind catch recesses. The bite is `0.75 mm`, strengthened after a weak force screen; main contents space and guide dimensions are retained. An internal sleeve-tip stop sets the seam gap.
   - **Review:** [Actual CAD sections](renders/assembled/smooth_case_sections.svg) · [design and evidence](notes/smooth_exterior.md) · [closed inspection STEP](short_lap_case_smooth_assembled.step).
 - **What NOT to Do / Closed Branches:**
@@ -36,7 +37,7 @@ The end-wall bites increase from `0.6` to `0.75 mm`, with a 2 mm sleeve and stif
 | Centered slow-pull / closing estimate | **11 N / 6.8 N** nominal; material/fit scenarios give 6.3–25 N pull, not guaranteed print limits. |
 | One-end radial fixture | About **6 N**, not a freely rocking peel-release prediction. |
 | Principal side-bearing comparison | About **30% / 56% less** widthwise/broad-face flexibility than the intermediate thin C. X point-value mesh variation is 11.6%; this is a comparative result, not a bag-impact pass. |
-| Actual printed force and accidental opening | **Unknown** — loaded physical trial remains necessary. |
+| Actual operation / accidental opening | **PLA sample too tight** to open and close; measured force and full-case bag retention remain unknown. |
 
 [Force plot](renders/assembled/smooth_retention_force.svg) · [method, assumptions and primary research](notes/smooth_exterior.md#retention-check-authorization). Earlier thick-case force/contact numbers are not transferred to this model.
 
@@ -78,8 +79,8 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Variant / Phase | Status | Printable STEP / STL | Notes |
 | --- | --- | --- | --- |
-| **Short PLA C2 joint trial (Print first)** | **Unknown** print status | [`smooth_joint_test.step`](smooth_joint_test.step) · [`.stl`](smooth_joint_test.stl) | Open-ring 46/37 mm pair; local fit/action trial, not full-case force validation. |
-| **Smooth C seam-grip case (Current)** | **Unprinted prototype** (`Unknown`) | [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`.stl`](short_lap_case_smooth.stl) | Smooth sides, `3 mm` collar, internal stop; matching pair. |
+| **Short PLA C2 joint trial** | **Printed in PLA; rejected for effort** | [`smooth_joint_test.step`](smooth_joint_test.step) · [`.stl`](smooth_joint_test.stl) | Open-ring 46/37 mm pair; local fit/action trial, not full-case force validation. |
+| **Smooth C seam-grip case (On hold)** | **Full box unprinted; sample rejected** | [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`.stl`](short_lap_case_smooth.stl) | Smooth sides, `3 mm` collar, internal stop; matching pair. |
 | **Three-line wrap-grip case** | Superseded comparison (`Unknown` print status) | [`short_lap_case_three_line_grip.step`](short_lap_case_three_line_grip.step) · [`.stl`](short_lap_case_three_line_grip.stl) | `1.2 mm` walls, `+55/-30 mm` wrap bands, no seam notches. |
 | **Three-line case (with old seam notches)** | Superseded comparison (`Unknown`) | [`short_lap_case_three_line.step`](short_lap_case_three_line.step) · [`.stl`](short_lap_case_three_line.stl) | Earlier `1.2 mm` pair before wrap-grip bands replaced seam notches. |
 | **`2 mm` thick short-lap case** | Heavy control (`Unknown`) | [`short_lap_case.step`](short_lap_case.step) · [`.stl`](short_lap_case.stl) | `2.0 mm` walls (`183 g`), rounded seam notches, no wrap bands. |

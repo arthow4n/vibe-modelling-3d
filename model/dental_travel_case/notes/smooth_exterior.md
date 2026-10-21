@@ -1,6 +1,6 @@
 # Smooth C travel case
 
-For the next low-material trial, print the [short PLA joint pair](../smooth_joint_test.step) ([STL](../smooth_joint_test.stl)); see [instructions below](#short-pla-joint-trial). The complete updated matching pair remains available: [print STEP](../short_lap_case_smooth.step), [STL](../short_lap_case_smooth.stl), and [Python entry point](../short_lap_case_smooth.py). The [closed STEP](../short_lap_case_smooth_assembled.step) is for inspection, not printing. Both pieces changed; the force estimate does not apply to a mixed old/new pair.
+The PLA C2 joint sample has now been printed and was **too tight to open and close**. Pause unchanged C2 print recommendations and review the [push-to-release proposals](push_release.md). The user requests SVG exploration only; CAD and exports remain unchanged. Existing files and predictions below are retained as historical design evidence, not an accepted operation result.
 
 The final reinforced C has smooth aligned sides, a `3 mm` exposed overlap collar, and no wrap bands or local exterior backing bumps. Exterior: **75.8 × 52.8 × 264 mm**. Ordinary main wall flats and sleeve are **2.0 mm**; floor/roof and catch-pocket backing remain **1.2 mm**. The bite is **0.75 mm**, with the original ramp construction. The main cavity and outside guide dimensions are retained; the sleeve bore is **67.6 × 44.6 mm**. Rounded R4 handled ends remain.
 
@@ -83,6 +83,8 @@ Before developing a selected direction, check the affected catch seat and releas
 
 ## Short PLA joint trial
 
+**Printed feedback, 2026-10-22:** the user printed the short sample in PLA, not the full box, and found both opening and closing too tight. No force measurement, exact slicer settings, damage or cycle result was supplied. They suspect PETG would have the same problem; that remains untested. Positive retention is still wanted, now with a deliberate push-to-disengage action. Cantilevers are not rejected; explore other architectures first. The following instructions describe the delivered trial before this feedback and are no longer a repeat-print recommendation.
+
 The user requested a much shorter, minimal-material PLA trial of the current retention mechanism. [Source](../smooth_joint_test.py), [print STEP](../smooth_joint_test.step), [STL](../smooth_joint_test.stl), and [print view](../renders/tests/smooth_pla/smooth_joint_test_isometric.png) describe one matching two-piece specimen, directly cropped from `retention-c2`. It keeps the full **75.8 × 52.8 mm** perimeter, **2 mm** ordinary walls and sleeve, **0.75 mm** bites, **0.10 mm per-side** guide clearance, both recesses/runouts, the complete **30 mm sleeve / 27 mm cap coverage**, and the **3 mm collar / internal axial stop**. No PLA-specific clearance or catch adjustment has been guessed.
 
 The body retains **16 mm below the seam** and prints **46 mm high**. The cap retains **10 mm above the sleeve-tip seat** and prints **37 mm high**. The closed specimen is **56 mm high**. Both distant ends are open: no floor, roof, extra handles or stiffening plates. Keeping the full perimeter preserves wall coupling better than an isolated tooth strip; omitting the long ends saves most of their wall height and both end panels. Cropping also changes axial restraint and rocking response. This is an economical local fit/action experiment, not a force-equivalent miniature or a substitute for a loaded complete case.
@@ -101,7 +103,7 @@ The CAD print/closed views, actual sections and force plot were visually inspect
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test pieces | Unknown | `smooth_joint_test.step` / `.stl` | PLA C2 open-ring trial; fit, snap action and return untested. Full-shell force and loaded impacts excluded. |
-| Final printable object | Unknown | `short_lap_case_smooth.step` / `.stl` | No reported print. Check force, grip, return, internal seat, actual loaded packing and bag retention. |
+| Test pieces | Yes | `smooth_joint_test.step` / `.stl` | PLA trial reported 2026-10-22: too tight to open and close. Measured force, print settings and recovery/damage details unknown. |
+| Final printable object | No | `short_lap_case_smooth.step` / `.stl` | User reports the full box was not printed; on hold after PLA sample rejection. |
 
 Primary language model: GPT-6 family; exact model identifier and reasoning effort not exposed. Harness: Codex coding-agent environment. Provider: OpenAI. Drawings, implementation and checks are agent-authored from the current source and user feedback; historical attribution remains in the existing records.
