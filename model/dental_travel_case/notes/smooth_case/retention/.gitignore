@@ -1,0 +1,4 @@
+# Native workspaces stay local; compact completed evidence is retained in flex/.
+native/
+# Failed dense replay deck is local; native diagnostic records/logs are retained.
+strengthened/flex/pull_pair_cap_dense_failed/

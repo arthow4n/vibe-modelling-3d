@@ -412,3 +412,16 @@ def test_deformable_mate_requires_unambiguous_fixture_and_keeps_its_load():
     case=q.build_case()
     assert len(case.loads)==2
     assert case.constraints[-1].name=='stop_root'
+
+
+def test_question_curvature_controls_forward_and_preserve_defaults():
+    q=beam_question(force=True)
+    ordinary=q.build_case().parts[q.part_name]
+    assert ordinary.mesh_min_size_mm is None and ordinary.mesh_curvature_points is None
+    curved=replace(q,mesh_min_size_mm=.2,mesh_curvature_points=16)
+    part=curved.build_case().parts[q.part_name]
+    assert part.mesh_size_mm==q.mesh_size_mm
+    assert part.mesh_min_size_mm==.2 and part.mesh_curvature_points==16
+    for settings in ({'mesh_min_size_mm':.2}, {'mesh_curvature_points':16},
+                     {'mesh_min_size_mm':3,'mesh_curvature_points':16}):
+        with pytest.raises(ValueError):replace(q,**settings).build_case()

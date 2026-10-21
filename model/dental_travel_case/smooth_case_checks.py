@@ -5,7 +5,6 @@ import cadquery as cq
 import cairosvg
 import m1_design as base
 from smooth_case_design import build, WALL, END_BACKING_EXTRA, COLLAR_HEIGHT
-from short_lap_thin import build_three_line
 from closure_research_checks import hashes
 from closure_research_drawings import canvas, label, section, BLUE, ORANGE
 
@@ -19,26 +18,31 @@ EPS = 1e-5
 
 
 def inspect(parts):
-    d=parts['dimensions'];ex=parts['exterior'];old=build_three_line()
+    d=parts['dimensions'];ex=parts['exterior']
     for name in ('body','cap'):
         assert parts[name].val().isValid()
         assert len(parts[name].val().Solids())==1, name+' must be connected'
-    # Exactly retain the old sleeve, including both catch profiles, above the collar.
-    roi=base.box(0,0,d.seam+1+(d.lap-1)/2,ex.width+4,d.depth+4,d.lap-1)
-    a=parts['body'].intersect(roi);b=old['body'].intersect(roi)
-    diff=a.cut(b).val().Volume()+b.cut(a).val().Volume()
-    assert diff<EPS, ('sleeve changed',diff)
+    # The retention revision thickens inward, preserving the existing guide envelope.
+    sleeve_sections=[]
+    for z in (178.,185.,195.):
+        for axis,end,expected in (('width',(80,0,z),d.sleeve_width/2),('depth',(0,80,z),d.sleeve_depth/2)):
+            edges=parts['body'].val().intersect(cq.Edge.makeLine(cq.Vector(0,0,z),cq.Vector(*end))).Edges()
+            assert len(edges)==1
+            outside=max(v.X if axis=='width' else v.Y for v in edges[0].Vertices())
+            assert abs(outside-expected)<1e-5
+            assert abs(edges[0].Length()-d.sleeve_wall)<1e-5
+            sleeve_sections.append(dict(z_mm=z,axis=axis,wall_mm=edges[0].Length(),outer_coordinate_mm=outside))
     assert abs(parts['rim_z']-d.seam-COLLAR_HEIGHT)<1e-6
     rows=[]
     for name,levels in (('body',(12.,60.,120.,168.)),('cap',(180.,190.,201.,220.,240.,255.))):
         for z in levels:
-            for axis,end,expected in (('width',(80,0,z),ex.width/2),('depth',(0,80,z),d.depth/2)):
+            for axis,end,expected in (('width',(80,0,z),ex.width/2),('depth',(0,80,z),ex.depth/2)):
                 edges=parts[name].val().intersect(cq.Edge.makeLine(cq.Vector(0,0,z),cq.Vector(*end))).Edges()
                 assert len(edges)==1,(name,z,axis,'unbroken wall')
                 outside=max(v.X if axis=='width' else v.Y for v in edges[0].Vertices())
                 assert abs(outside-expected)<1e-5,(name,z,axis,'exterior bump or groove')
                 thick=edges[0].Length()
-                expected_wall=(WALL if axis=='depth' or (name=='cap' and z in (180.,190.,201.)) else WALL+END_BACKING_EXTRA)
+                expected_wall=(parts['broad_wall'] if axis=='depth' else WALL if name=='cap' and z in (180.,190.,201.) else WALL+END_BACKING_EXTRA)
                 assert abs(thick-expected_wall)<1e-5,(name,z,axis,thick,expected_wall)
                 rows.append(dict(part=name,z_mm=z,axis=axis,wall_mm=thick,outer_coordinate_mm=outside))
     assert parts['body'].intersect(parts['cap']).val().Volume()<EPS
@@ -76,7 +80,7 @@ def inspect(parts):
         passages.append(dict(gauge=name,body_gap_mm=body_gap,cap_gap_mm=cap_gap))
     from m1_checks import end_rounds
     end_rounds(parts)
-    return dict(sections=rows,sleeve_difference_mm3=diff,seat_gap_mm=seat_gap,
+    return dict(variant=parts['variant'],sections=rows,sleeve_sections=sleeve_sections,seat_gap_mm=seat_gap,
                 overclose_obstruction_mm3=seat_overlap,path=path,catches=catches,passages=passages,
                 collar_height_mm=COLLAR_HEIGHT,large_end_rounds=True,
                 scope='Rigid CAD; obstruction is not retention force. Individual gauges are not simultaneous loaded packing.')
@@ -84,7 +88,7 @@ def inspect(parts):
 
 def draw(parts):
     d=parts['dimensions'];items=canvas('Smooth C case — actual finished CAD sections',910)
-    label(items,25,76,'75.5 × 51.2 × 264 mm exterior • 3 mm exposed seam • no wrap bands or local exterior pads',18)
+    label(items,25,76,'75.8 × 52.8 × 264 mm exterior • 3 mm exposed seam • no wrap bands or local exterior pads',18)
     xf=lambda v:(140+2*v.x,680-2*v.z)
     section(items,parts['body'].val(),'XZ',(0,0,0),xf,BLUE)
     section(items,parts['cap'].val(),'XZ',(0,0,0),xf,ORANGE)
@@ -104,9 +108,9 @@ def draw(parts):
         section(items,parts[name].val().intersect(crop),'XZ',(0,0,0),xf,color)
     label(items,700,510,'Stop contacts the sleeve tip.',17)
     label(items,700,543,'1.5 mm taper supports inverted print.',17)
-    label(items,700,576,'Existing catch profile retained.',17)
+    label(items,700,576,'0.75 mm bite; thicker sleeve.',17)
     label(items,700,609,'Flat cap outside; 1.2 mm pocket backing.',17)
-    label(items,30,785,'Blue = body, orange = cap; both PETG. Ordinary end walls 1.85 mm; broad walls and sleeve 1.2 mm.',17)
+    label(items,30,785,'Blue = body, orange = cap; both PETG. Main walls and sleeve 2.0 mm; catch-pocket backing 1.2 mm.',17)
     label(items,30,825,'Print body upright (204 mm); cap roof-down (87 mm). Use the matching smooth pair.',17)
     label(items,30,865,'CAD geometry only: actual grip, snap effort, packing and bag retention need physical testing.',16)
     items.append('</svg>');dest=ROOT/'renders/assembled/smooth_case_sections.svg'
@@ -117,7 +121,7 @@ def draw(parts):
 
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
-    identity=hashes(INPUTS);parts=build();data=inspect(parts);draw(parts)
+    identity=hashes(INPUTS);parts=build('retention-c2');data=inspect(parts);draw(parts)
     assert identity==hashes(INPUTS),'Sources changed during checking'
     (OUT/'cad.json').write_text(json.dumps(dict(source_sha256=identity,**data),indent=2)+'\n')
     print(json.dumps(data))

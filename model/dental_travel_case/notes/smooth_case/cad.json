@@ -1,9 +1,9 @@
 {
   "source_sha256": {
-    "smooth_case_design.py": "48c4e3477500e6c66559140cf12f84a20fda28c2a00b1883a4249103e5dba94d",
-    "smooth_case_checks.py": "1de98efb19d81ccd329df15618029f90d7dea138e33545afcbfc61206ec56f9c",
-    "short_lap_case_smooth.py": "b887412495a7d356bb0196dd255613483417ee750d5a42fccd08bebb634d4304",
-    "short_lap_case_smooth_assembled.py": "b52f855177e0797e3d4d0fcfebe7ada41ca27eb0d71f9dd0eab13eb8ee28dab7",
+    "smooth_case_design.py": "6de59ac23920a8f089e7306d5d019baba8494ddaa8d07332638d905f9a53b104",
+    "smooth_case_checks.py": "cec11bddd96313f4c15d9888ccae58a774b6a0f43e9059a3f4501e522781bee6",
+    "short_lap_case_smooth.py": "1bf6200ab3b075400de112d65cc9f3e455fe97734ec20e107f5e0192245b2848",
+    "short_lap_case_smooth_assembled.py": "8998c3a6fd800b45c8bd1a1c3c51d1b45fb8533ebdc98e4de94d76967483f018",
     "short_lap_design.py": "98860b93b2a24c7fca89072222845aa1a05e7ac3c0d95ef58e6d1e6ee26ae61b",
     "short_lap_refinement.py": "74c18ee68c7648d11aea3f59ecf627f6bfb6cf50e2981581c36a0fd225df6472",
     "short_lap_thin.py": "cdca3a1e168548b4f1d05466c342c9fb2dbd546a0ef5d265ede0f5d628b3322f",
@@ -14,149 +14,187 @@
     "closure_research_checks.py": "b1349a6f68d9b9966bbb3a5df4c9ce92c67561ecf2fa776635e80e988b1039af",
     "../../uv.lock": "decadf8943fd324455151518a1b14eef612e6df01d3faf4d57b5b7d754de1ec8"
   },
+  "variant": "retention-c2",
   "sections": [
     {
       "part": "body",
       "z_mm": 12.0,
       "axis": "width",
-      "wall_mm": 1.8500000000000014,
-      "outer_coordinate_mm": 37.75
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 37.9
     },
     {
       "part": "body",
       "z_mm": 12.0,
       "axis": "depth",
-      "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 25.6
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 26.400000000000006
     },
     {
       "part": "body",
       "z_mm": 60.0,
       "axis": "width",
-      "wall_mm": 1.8500000000000014,
-      "outer_coordinate_mm": 37.75
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 37.9
     },
     {
       "part": "body",
       "z_mm": 60.0,
       "axis": "depth",
-      "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 25.6
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 26.400000000000006
     },
     {
       "part": "body",
       "z_mm": 120.0,
       "axis": "width",
-      "wall_mm": 1.8500000000000014,
-      "outer_coordinate_mm": 37.75
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 37.9
     },
     {
       "part": "body",
       "z_mm": 120.0,
       "axis": "depth",
-      "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 25.6
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 26.400000000000006
     },
     {
       "part": "body",
       "z_mm": 168.0,
       "axis": "width",
-      "wall_mm": 1.8500000000000014,
-      "outer_coordinate_mm": 37.75
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 37.9
     },
     {
       "part": "body",
       "z_mm": 168.0,
       "axis": "depth",
-      "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 25.6
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 26.400000000000006
     },
     {
       "part": "cap",
       "z_mm": 180.0,
       "axis": "width",
       "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 37.75
+      "outer_coordinate_mm": 37.9
     },
     {
       "part": "cap",
       "z_mm": 180.0,
       "axis": "depth",
-      "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 25.6
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 26.400000000000006
     },
     {
       "part": "cap",
       "z_mm": 190.0,
       "axis": "width",
       "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 37.75
+      "outer_coordinate_mm": 37.9
     },
     {
       "part": "cap",
       "z_mm": 190.0,
       "axis": "depth",
-      "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 25.6
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 26.400000000000006
     },
     {
       "part": "cap",
       "z_mm": 201.0,
       "axis": "width",
       "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 37.75
+      "outer_coordinate_mm": 37.9
     },
     {
       "part": "cap",
       "z_mm": 201.0,
       "axis": "depth",
-      "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 25.6
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 26.400000000000006
     },
     {
       "part": "cap",
       "z_mm": 220.0,
       "axis": "width",
-      "wall_mm": 1.8500000000000014,
-      "outer_coordinate_mm": 37.75
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 37.9
     },
     {
       "part": "cap",
       "z_mm": 220.0,
       "axis": "depth",
-      "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 25.6
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 26.400000000000006
     },
     {
       "part": "cap",
       "z_mm": 240.0,
       "axis": "width",
-      "wall_mm": 1.8500000000000014,
-      "outer_coordinate_mm": 37.75
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 37.9
     },
     {
       "part": "cap",
       "z_mm": 240.0,
       "axis": "depth",
-      "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 25.6
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 26.400000000000006
     },
     {
       "part": "cap",
       "z_mm": 255.0,
       "axis": "width",
-      "wall_mm": 1.8500000000000014,
-      "outer_coordinate_mm": 37.75
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 37.9
     },
     {
       "part": "cap",
       "z_mm": 255.0,
       "axis": "depth",
-      "wall_mm": 1.1999999999999957,
-      "outer_coordinate_mm": 25.6
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 26.400000000000006
     }
   ],
-  "sleeve_difference_mm3": 0.0,
+  "sleeve_sections": [
+    {
+      "z_mm": 178.0,
+      "axis": "width",
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 35.800000000000004
+    },
+    {
+      "z_mm": 178.0,
+      "axis": "depth",
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 24.3
+    },
+    {
+      "z_mm": 185.0,
+      "axis": "width",
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 35.800000000000004
+    },
+    {
+      "z_mm": 185.0,
+      "axis": "depth",
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 24.3
+    },
+    {
+      "z_mm": 195.0,
+      "axis": "width",
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 35.800000000000004
+    },
+    {
+      "z_mm": 195.0,
+      "axis": "depth",
+      "wall_mm": 2.0,
+      "outer_coordinate_mm": 24.3
+    }
+  ],
   "seat_gap_mm": 5.684341886080802e-14,
   "overclose_obstruction_mm3": 11.806428271425718,
   "path": [
@@ -168,32 +206,32 @@
     {
       "lift_mm": 0.25,
       "guide_mm3": 0.0,
-      "snap_mm3": 0.4176315789410928
+      "snap_mm3": 0.7837320574185962
     },
     {
       "lift_mm": 0.5,
       "guide_mm3": 0.0,
-      "snap_mm3": 2.9144736842047005
+      "snap_mm3": 4.03373205741849
     },
     {
       "lift_mm": 1.0,
       "guide_mm3": 0.0,
-      "snap_mm3": 7.726311621181498
+      "snap_mm3": 10.27104917068313
     },
     {
       "lift_mm": 2.0,
       "guide_mm3": 0.0,
-      "snap_mm3": 12.961792085806543
+      "snap_mm3": 17.49889727194873
     },
     {
       "lift_mm": 3.0,
       "guide_mm3": 0.0,
-      "snap_mm3": 9.656250000000451
+      "snap_mm3": 13.18815789473727
     },
     {
       "lift_mm": 4.0,
       "guide_mm3": 0.0,
-      "snap_mm3": 1.1229166666663715
+      "snap_mm3": 1.929824561403568
     },
     {
       "lift_mm": 6.0,
@@ -230,38 +268,38 @@
     {
       "end": -1,
       "lateral_shift_mm": -0.1,
-      "obstruction_mm3": 2.675207024954188
+      "obstruction_mm3": 3.8607268314630785
     },
     {
       "end": -1,
       "lateral_shift_mm": 0.0,
-      "obstruction_mm3": 3.8631558105930894
+      "obstruction_mm3": 5.13552458534151
     },
     {
       "end": -1,
       "lateral_shift_mm": 0.1,
-      "obstruction_mm3": 5.245798366031317
+      "obstruction_mm3": 6.575259999826994
     },
     {
       "end": 1,
       "lateral_shift_mm": -0.1,
-      "obstruction_mm3": 5.245798366031315
+      "obstruction_mm3": 6.575259999826994
     },
     {
       "end": 1,
       "lateral_shift_mm": 0.0,
-      "obstruction_mm3": 3.863155810593088
+      "obstruction_mm3": 5.135524585341507
     },
     {
       "end": 1,
       "lateral_shift_mm": 0.1,
-      "obstruction_mm3": 2.675207024954187
+      "obstruction_mm3": 3.860726831463077
     }
   ],
   "passages": [
     {
       "gauge": "brush",
-      "body_gap_mm": 3.1000000000000014,
+      "body_gap_mm": 2.3000000000000007,
       "cap_gap_mm": 2.8000000000000114
     },
     {

@@ -1,0 +1,16 @@
+{
+  "peak_force_N": 3.0366039525016078,
+  "barrier_Nmm": 0.9830881116667379,
+  "undamped_seated_release_force_N": 1.2483658560847464,
+  "body_compliance_mm_N": 0.25430070512820513,
+  "scope": "Optimistic infinitely stiff cap; original C. Both catches, no friction, E1200. Actual cap flexibility lowers these conditional values.",
+  "design_revision": "14d9fbf (original smooth C)",
+  "nominal_required_retraction_mm": 0.5,
+  "original_sleeve_wall_mm": 1.2,
+  "original_detent_mm": 0.6,
+  "mesh_change_limit": 0.1,
+  "native_body_runs": {
+    "baseline": "e44a3562dbc5221c2f8867eab7814cafe5873dac08be52a73d6057733f4dc744",
+    "mesh_sensitivity_1": "fab79cb0d71e47359ca95606b6f33bf1562914311ef35c923fe6538bdb22a1e1"
+  }
+}

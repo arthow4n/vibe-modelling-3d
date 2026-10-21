@@ -24,7 +24,9 @@
   ],
   "available_checks": [
     "smooth.CAD",
-    "smooth.publication"
+    "smooth.publication",
+    "smooth.retention",
+    "smooth.side-screen"
   ],
   "exit_reason": "unresolved_evidence",
   "error": null,
@@ -34,7 +36,7 @@
       "design": "slim-short-lap-smooth-c",
       "material": "intended PETG; printed behavior uncalibrated",
       "process": "Q2C 0.4 mm nozzle / 0.2 mm layers / 3 configured wall loops; thicker end walls allowed",
-      "geometry": "75.5 x 51.2 x 264 mm; 3 mm collar; 27 mm cap coverage; sleeve-tip stop; original catch profile"
+      "geometry": "75.8 x 52.8 x 264 mm; 3 mm collar; 27 mm cap coverage; sleeve-tip stop; 2 mm main walls and sleeve / 0.75 mm bite"
     },
     "focused": false,
     "requirements": [
@@ -61,7 +63,7 @@
           },
           {
             "id": "finished-CAD",
-            "criterion": "Actual smooth wall sections, unchanged sleeve/catches, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
+            "criterion": "Actual smooth wall sections, retained guide envelope / strengthened sleeve and bite, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -101,7 +103,7 @@
           },
           {
             "id": "finished-CAD",
-            "criterion": "Actual smooth wall sections, unchanged sleeve/catches, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
+            "criterion": "Actual smooth wall sections, retained guide envelope / strengthened sleeve and bite, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -231,7 +233,7 @@
           },
           {
             "id": "finished-CAD",
-            "criterion": "Actual smooth wall sections, unchanged sleeve/catches, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
+            "criterion": "Actual smooth wall sections, retained guide envelope / strengthened sleeve and bite, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -363,7 +365,7 @@
           },
           {
             "id": "finished-CAD",
-            "criterion": "Actual smooth wall sections, unchanged sleeve/catches, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
+            "criterion": "Actual smooth wall sections, retained guide envelope / strengthened sleeve and bite, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -403,7 +405,7 @@
           },
           {
             "id": "finished-CAD",
-            "criterion": "Actual smooth wall sections, unchanged sleeve/catches, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
+            "criterion": "Actual smooth wall sections, retained guide envelope / strengthened sleeve and bite, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -490,6 +492,21 @@
             "strategies": [],
             "evidence": [],
             "out_of_scope": []
+          },
+          {
+            "id": "conditional-pull",
+            "criterion": "Quantify actual-CAD paired/single force and energy scenarios with checked load coverage and mesh/travel precision; report the historical design-target comparisons separately, not as bag-retention acceptance",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "smooth.retention"
+            ],
+            "evidence": [
+              "smooth.retention"
+            ],
+            "out_of_scope": []
           }
         ],
         "acceptance_criteria": [],
@@ -568,7 +585,7 @@
           },
           {
             "id": "finished-CAD",
-            "criterion": "Actual smooth wall sections, unchanged sleeve/catches, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
+            "criterion": "Actual smooth wall sections, retained guide envelope / strengthened sleeve and bite, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -578,6 +595,21 @@
             ],
             "evidence": [
               "smooth.CAD"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "side-bearing-screen",
+            "criterion": "Both principal 2 N side-bearing responses are lower than C1 across the checked coarse/fine ranges; retain individual precision flags, with no sideways-release or impact claim",
+            "mode": "numerical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "smooth.side-screen"
+            ],
+            "evidence": [
+              "smooth.side-screen"
             ],
             "out_of_scope": []
           }
@@ -635,7 +667,7 @@
           },
           {
             "id": "finished-CAD",
-            "criterion": "Actual smooth wall sections, unchanged sleeve/catches, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
+            "criterion": "Actual smooth wall sections, retained guide envelope / strengthened sleeve and bite, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -692,7 +724,7 @@
           },
           {
             "id": "finished-CAD",
-            "criterion": "Actual smooth wall sections, unchanged sleeve/catches, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
+            "criterion": "Actual smooth wall sections, retained guide envelope / strengthened sleeve and bite, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -732,7 +764,7 @@
           },
           {
             "id": "finished-CAD",
-            "criterion": "Actual smooth wall sections, unchanged sleeve/catches, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
+            "criterion": "Actual smooth wall sections, retained guide envelope / strengthened sleeve and bite, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -772,7 +804,7 @@
           },
           {
             "id": "finished-CAD",
-            "criterion": "Actual smooth wall sections, unchanged sleeve/catches, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
+            "criterion": "Actual smooth wall sections, retained guide envelope / strengthened sleeve and bite, sleeve-tip seat, independent capture, sampled opening clearance and individual passage; no grip or force rating",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -842,7 +874,7 @@
           "design": "slim-short-lap-smooth-c",
           "material": "intended PETG; printed behavior uncalibrated",
           "process": "Q2C 0.4 mm nozzle / 0.2 mm layers / 3 configured wall loops; thicker end walls allowed",
-          "geometry": "75.5 x 51.2 x 264 mm; 3 mm collar; 27 mm cap coverage; sleeve-tip stop; original catch profile"
+          "geometry": "75.8 x 52.8 x 264 mm; 3 mm collar; 27 mm cap coverage; sleeve-tip stop; 2 mm main walls and sleeve / 0.75 mm bite"
         }
       },
       {
@@ -868,14 +900,50 @@
           "design": "slim-short-lap-smooth-c",
           "material": "intended PETG; printed behavior uncalibrated",
           "process": "Q2C 0.4 mm nozzle / 0.2 mm layers / 3 configured wall loops; thicker end walls allowed",
-          "geometry": "75.5 x 51.2 x 264 mm; 3 mm collar; 27 mm cap coverage; sleeve-tip stop; original catch profile"
+          "geometry": "75.8 x 52.8 x 264 mm; 3 mm collar; 27 mm cap coverage; sleeve-tip stop; 2 mm main walls and sleeve / 0.75 mm bite"
+        }
+      },
+      {
+        "id": "smooth.retention",
+        "targets": [
+          [
+            "research.force",
+            "conditional-pull"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/smooth_case/retention/final/pull.json",
+        "scope": {
+          "design": "slim-short-lap-smooth-c",
+          "material": "intended PETG; printed behavior uncalibrated",
+          "process": "Q2C 0.4 mm nozzle / 0.2 mm layers / 3 configured wall loops; thicker end walls allowed",
+          "geometry": "75.8 x 52.8 x 264 mm; 3 mm collar; 27 mm cap coverage; sleeve-tip stop; 2 mm main walls and sleeve / 0.75 mm bite"
+        }
+      },
+      {
+        "id": "smooth.side-screen",
+        "targets": [
+          [
+            "closure.short-overlap",
+            "side-bearing-screen"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/smooth_case/retention/final/side.json",
+        "scope": {
+          "design": "slim-short-lap-smooth-c",
+          "material": "intended PETG; printed behavior uncalibrated",
+          "process": "Q2C 0.4 mm nozzle / 0.2 mm layers / 3 configured wall loops; thicker end walls allowed",
+          "geometry": "75.8 x 52.8 x 264 mm; 3 mm collar; 27 mm cap coverage; sleeve-tip stop; 2 mm main walls and sleeve / 0.75 mm bite"
         }
       }
     ],
     "decisions": [
       {
         "id": "smooth.envelope",
-        "text": "Grow width by 1.3 mm, retain contents space and original sleeve/catches; replace cap pads with continuous end walls",
+        "text": "Grow width and depth by 1.6 mm; preserve main cavity and guide envelope; 2 mm main walls and sleeve address weak pull and side-bearing routes",
         "reference": "notes/smooth_exterior.md#authorized-c-implementation"
       },
       {

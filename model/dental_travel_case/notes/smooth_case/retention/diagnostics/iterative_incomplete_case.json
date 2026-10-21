@@ -1,0 +1,154 @@
+{
+  "name": "smooth_pull_pair_cap",
+  "nonlinear": false,
+  "max_increment": 1.0,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "b9a69e14ce5404a87a94f9be6d45136ba896bcf5572f9f2c0237fe3aa0cc21d2",
+      "material": {
+        "name": "Uncalibrated PETG comparison",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus. Not measured FDM data; no strength limit supplied.",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 2.5,
+      "mesh_min_size_mm": 0.5,
+      "mesh_curvature_points": 16
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            null,
+            null,
+            264.0
+          ],
+          "upper": [
+            null,
+            null,
+            264.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            35.9,
+            -5.3,
+            197.8
+          ],
+          "upper": [
+            35.9,
+            5.3,
+            200.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -35.9,
+            -5.3,
+            197.8
+          ],
+          "upper": [
+            -35.9,
+            5.3,
+            200.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        -1.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": [
+    {
+      "name": "positive",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            35.9,
+            -5.3,
+            197.8
+          ],
+          "upper": [
+            35.9,
+            5.3,
+            200.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "negative",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -35.9,
+            -5.3,
+            197.8
+          ],
+          "upper": [
+            -35.9,
+            5.3,
+            200.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ],
+  "calculix": {
+    "linear_solver": "iterative_cholesky"
+  },
+  "mesh_reuse": {
+    "input_sha256": "a28a901b746c6e2eaa024e79df815f1930433503c8bca7b77ae25514c6bbd139",
+    "case_sha256": "34a6426f8e074d93ca866267adc6cca8690936b6db5c8152a1b9cb504da24995",
+    "input": "mesh_source.inp",
+    "case": "mesh_source_case.json",
+    "mesh": {
+      "part": {
+        "nodes": 307462,
+        "elements": 166355,
+        "min_jacobian": 0.0011527453531856061
+      }
+    }
+  }
+}

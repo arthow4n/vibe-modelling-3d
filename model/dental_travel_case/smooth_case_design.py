@@ -1,8 +1,8 @@
 """C: continuous outer walls, exposed seam collar and a sleeve-tip hard seat.
 
 Assembly Z follows the brush; body floor is Z=0. No publication on import.
-The original 1.2 mm sleeve, catch profile and mating cavity stay unchanged.
-Only width grows: ordinary end walls are 1.85 mm, broad walls remain 1.2 mm.
+The guide envelope and main cavity are retained. Explicit C1/C2 configurations
+preserve the intermediate study; C2 has 2 mm main walls and sleeve.
 """
 from dataclasses import replace
 import cadquery as cq
@@ -11,17 +11,23 @@ from short_lap_design import dimensions
 from short_lap_refinement import bump
 
 WALL = 1.2
-END_BACKING_EXTRA = .65
+SPECS = {'retention-c1': (1.8,0.), 'retention-c2': (2.0,.8)}
+# Tuple fields: sleeve thickness and extra broad-wall backing, in mm.
+DETENT = .75
+# Keep 1.2 mm backing after cutting the catch pocket / runout.
+END_BACKING_EXTRA = DETENT+.15-.10
 COLLAR_HEIGHT = 3.0
 SEAT_OVERHANG = 1.0
 SEAT_RAMP_HEIGHT = 1.5
 RIM_RADIUS = .45
 
 
-def build():
-    d = replace(dimensions(30.), wall=WALL, sleeve_wall=WALL, floor=WALL,
-                clearance=.10, detent=.6, axial_play=.10)
-    exterior = replace(d, width=d.width+2*END_BACKING_EXTRA)
+def build(variant):
+    if variant not in SPECS:raise ValueError('Unknown smooth case: '+str(variant))
+    sleeve_wall,broad_extra=SPECS[variant]
+    d = replace(dimensions(30.), wall=WALL, sleeve_wall=sleeve_wall, floor=WALL,
+                clearance=.10, detent=DETENT, axial_play=.10)
+    exterior = replace(d, width=d.width+2*END_BACKING_EXTRA,depth=d.depth+2*broad_extra)
     rim_z = d.seam+COLLAR_HEIGHT
     seat_z = d.seam+d.lap
     inner_w = d.width-2*WALL
@@ -32,7 +38,7 @@ def build():
     if not (.4+d.clearance < SEAT_OVERHANG < WALL+d.clearance):
         raise ValueError('Seat must overlap the chamfered sleeve tip without blocking its bore')
 
-    outer = base.prism(exterior.width,d.depth,d.corner,0,d.seam)
+    outer = base.prism(exterior.width,exterior.depth,d.corner,0,d.seam)
     outer = base.rounded_print_end(outer,exterior,top=False).edges('>Z').fillet(.6)
     sleeve = base.prism(d.sleeve_width,d.sleeve_depth,d.sleeve_corner,d.seam-.5,d.lap+.5)
     sleeve = sleeve.edges('>Z').chamfer(.4)
@@ -40,12 +46,12 @@ def build():
         base.rounded_wire(w,h,r,z) for z,w,h,r in (
             (d.floor,inner_w,inner_h,inner_r),
             (d.seam-6,inner_w,inner_h,inner_r),
-            (d.seam,d.sleeve_width-2*WALL,d.sleeve_depth-2*WALL,d.sleeve_corner-WALL),
-            (seat_z+1,d.sleeve_width-2*WALL,d.sleeve_depth-2*WALL,d.sleeve_corner-WALL))],ruled=True))
+            (d.seam,d.sleeve_width-2*sleeve_wall,d.sleeve_depth-2*sleeve_wall,d.sleeve_corner-sleeve_wall),
+            (seat_z+1,d.sleeve_width-2*sleeve_wall,d.sleeve_depth-2*sleeve_wall,d.sleeve_corner-sleeve_wall))],ruled=True))
     cavity = cavity.edges('<Z').fillet(d.end_radius-WALL)
     plain = outer.union(sleeve).cut(cavity).clean()
 
-    cap_outer = base.prism(exterior.width,d.depth,d.corner,rim_z,d.length-rim_z)
+    cap_outer = base.prism(exterior.width,exterior.depth,d.corner,rim_z,d.length-rim_z)
     cap_outer = base.rounded_print_end(cap_outer,exterior,top=True)
     # A stepped cavity creates the downward-facing sleeve seat at Z=seat_z.
     # In the inverted print the seat grows inward along the 1.5 mm taper.
@@ -73,7 +79,7 @@ def build():
     result.add(base.print_cap(cap,d.length),name='cap')
     return dict(dimensions=d, exterior=exterior, body=body, cap=cap,
                 plain_body=plain, bump=tooth, pocket=pocket, result=result,
-                rim_z=rim_z, seat_z=seat_z)
+                rim_z=rim_z, seat_z=seat_z,variant=variant,broad_wall=WALL+broad_extra)
 
 
 def assembled(parts):

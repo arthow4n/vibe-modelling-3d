@@ -119,6 +119,8 @@ class StructuralQuestion:
     observations: dict[str, Region] = field(default_factory=dict)
     part_name: str = 'part'
     mesh_size_mm: float = 2
+    mesh_min_size_mm: float | None = None
+    mesh_curvature_points: int | None = None
     max_increment: float = .1
     timeout_seconds: float | None = None
     nonlinear: bool = True
@@ -136,7 +138,8 @@ class StructuralQuestion:
             raise ValueError('Provide explicit supports')
         c = AnalysisCase(self.name, nonlinear=self.nonlinear,
                          max_increment=self.max_increment, timeout_seconds=self.timeout_seconds)
-        c.add_part(self.part_name, self.part, material=self.material, mesh_size_mm=self.mesh_size_mm)
+        c.add_part(self.part_name, self.part, material=self.material, mesh_size_mm=self.mesh_size_mm,
+                   mesh_min_size_mm=self.mesh_min_size_mm, mesh_curvature_points=self.mesh_curvature_points)
         for support in self.supports:
             c.constrain(self.part_name, support.region, displacement_mm=support.displacement_mm, name=support.name)
         for force in self.forces:

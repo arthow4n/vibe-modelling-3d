@@ -1,0 +1,163 @@
+{
+  "name": "smooth_pull_pair_cap",
+  "nonlinear": false,
+  "max_increment": 1.0,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "fc5fe644c02a83a3f4e25effd3104ad56f2d552a128831843836266ab8621e80",
+      "material": {
+        "name": "Uncalibrated PETG comparison",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus. Not measured FDM data; no strength limit supplied.",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 1.75,
+      "mesh_min_size_mm": 0.5,
+      "mesh_curvature_points": 16
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            null,
+            null,
+            264.0
+          ],
+          "upper": [
+            null,
+            null,
+            264.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            null,
+            0,
+            null
+          ],
+          "upper": [
+            null,
+            0,
+            null
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        null,
+        0,
+        null
+      ],
+      "name": "symmetry",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            35.9,
+            -5.3,
+            197.8
+          ],
+          "upper": [
+            35.9,
+            5.3,
+            200.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        0.5,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -35.9,
+            -5.3,
+            197.8
+          ],
+          "upper": [
+            -35.9,
+            5.3,
+            200.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        -0.5,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": [
+    {
+      "name": "positive",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            35.9,
+            -5.3,
+            197.8
+          ],
+          "upper": [
+            35.9,
+            5.3,
+            200.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    },
+    {
+      "name": "negative",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            -35.9,
+            -5.3,
+            197.8
+          ],
+          "upper": [
+            -35.9,
+            5.3,
+            200.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ]
+}

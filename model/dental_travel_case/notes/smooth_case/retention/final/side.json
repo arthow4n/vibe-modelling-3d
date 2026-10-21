@@ -1,0 +1,107 @@
+{
+  "variant": "retention-c2",
+  "source_sha256": {
+    "smooth_case_design.py": "6de59ac23920a8f089e7306d5d019baba8494ddaa8d07332638d905f9a53b104",
+    "smooth_retention_study.py": "c543e3e0c5676d0c2aed81d452c3432e6c173d9394c35c4b4280e82c5fc899da",
+    "short_lap_refinement.py": "74c18ee68c7648d11aea3f59ecf627f6bfb6cf50e2981581c36a0fd225df6472",
+    "../../physical_analysis/questions.py": "79cd3de6e4cff65cdf7c45985a4f9bddcb4f677464ebb43ec7db0218b31e177c",
+    "../../physical_analysis/backends/mesh.py": "557b59f5fcc10f1f9bbeb70e035cdb18707a5191817aaa971a8277824ef75b28",
+    "short_lap_design.py": "98860b93b2a24c7fca89072222845aa1a05e7ac3c0d95ef58e6d1e6ee26ae61b",
+    "closure_research_design.py": "fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "closure_research_flex.py": "3cc48785e80635532b43162b62570614f9971f24d95d4919dfb4dcae95bed8a7",
+    "closure_research_pull.py": "6d9cb2b2876c4a50d561b583424c69e446481e29aed591813bb4b0fbbc57d3e0",
+    "short_lap_report.py": "1769d155fe74b34c1961eebbba5422e8aefd9e6e6c169c79fc4c9360f0c4b866",
+    "../../uv.lock": "decadf8943fd324455151518a1b14eef612e6df01d3faf4d57b5b7d754de1ec8"
+  },
+  "comparison_to_c1": {
+    "x": {
+      "previous_range_mm": [
+        3.96875225162825,
+        4.338985880421411
+      ],
+      "current_range_mm": [
+        2.7864876127882368,
+        3.109196945048061
+      ],
+      "improved_across_checked_meshes": true,
+      "fine_response_reduction_fraction": 0.297893283299548
+    },
+    "y": {
+      "previous_range_mm": [
+        12.351337848688967,
+        12.557288521135577
+      ],
+      "current_range_mm": [
+        5.526701054452929,
+        5.547311409495447
+      ],
+      "improved_across_checked_meshes": true,
+      "fine_response_reduction_fraction": 0.5582397107338428
+    }
+  },
+  "load_N": 2.0,
+  "seam_moment_Nmm": 180.0,
+  "band_centres_z_mm": [
+    180.0,
+    201.0
+  ],
+  "cases": {
+    "x": {
+      "members": {
+        "body": [
+          {
+            "top": 0.28157506993007,
+            "bottom": -0.04962189907142855
+          },
+          {
+            "top": 0.23088434775000002,
+            "bottom": -0.048122084206349225
+          }
+        ],
+        "cap": [
+          {
+            "top": -0.21294279080459766,
+            "bottom": 0.3274199349650348
+          },
+          {
+            "top": -0.18719445981366462,
+            "bottom": 0.3232687099715101
+          }
+        ]
+      },
+      "estimated_extra_roof_motion_mm": 2.7864876127882368,
+      "coarse_estimated_extra_roof_motion_mm": 3.109196945048061,
+      "mesh_relative_change": 0.11581222567751247
+    },
+    "y": {
+      "members": {
+        "body": [
+          {
+            "top": 0.48421741388888895,
+            "bottom": -0.07113845073033709
+          },
+          {
+            "top": 0.49460371866666714,
+            "bottom": -0.07459016243243247
+          }
+        ],
+        "cap": [
+          {
+            "top": -0.3662441226086956,
+            "bottom": 0.6371465187571933
+          },
+          {
+            "top": -0.35394120985401456,
+            "bottom": 0.643120402705141
+          }
+        ]
+      },
+      "estimated_extra_roof_motion_mm": 5.547311409495447,
+      "coarse_estimated_extra_roof_motion_mm": 5.526701054452929,
+      "mesh_relative_change": 0.0037153773280581394
+    }
+  },
+  "numerical_screen_status": "INCONCLUSIVE",
+  "scope": "Independent fixed band tractions on actual C coverage; not contact redistribution, release, impact or safety rating"
+}

@@ -1,28 +1,64 @@
 # Smooth C travel case
 
-C is implemented as a complete matching body/cap pair: [print STEP](../short_lap_case_smooth.step), [STL](../short_lap_case_smooth.stl), and [Python entry point](../short_lap_case_smooth.py). Use this pair for the next physical trial. The separate [closed STEP](../short_lap_case_smooth_assembled.step) is an inspection pose, not a print layout.
+Use the updated matching pair for the next physical trial: [print STEP](../short_lap_case_smooth.step), [STL](../short_lap_case_smooth.stl), and [Python entry point](../short_lap_case_smooth.py). The [closed STEP](../short_lap_case_smooth_assembled.step) is for inspection, not printing. Both pieces changed; the force estimate does not apply to a mixed old/new pair.
 
-![Closed smooth C case](../renders/assembled/smooth/short_lap_case_smooth_assembled_isometric.png)
+The final reinforced C has smooth aligned sides, a `3 mm` exposed overlap collar, and no wrap bands or local exterior backing bumps. Exterior: **75.8 × 52.8 × 264 mm**. Ordinary main wall flats and sleeve are **2.0 mm**; floor/roof and catch-pocket backing remain **1.2 mm**. The bite is **0.75 mm**, with the original ramp construction. The main cavity and outside guide dimensions are retained; the sleeve bore is **67.6 × 44.6 mm**. Rounded R4 handled ends remain.
+
+![Closed reinforced C](../renders/assembled/smooth/short_lap_case_smooth_assembled_isometric.png)
 
 ## Authorized C implementation
 
-The user selected C after the SVG discussion and explicitly authorized remodelling with engineering judgment. Small dimension increases and more than three extrusion lines are acceptable; exact overall dimensions and a strict three-line wall limit are not requirements for this revision. This supersedes the earlier thin-only / three-line restriction for the selected C pair while preserving the historical files and their evidence. No new print result was reported.
+The user selected C after the SVG discussion and authorized engineering judgment: small dimension increases and more than three extrusion lines are acceptable. This supersedes the earlier thin-only / three-line restriction for this C pair, preserving the historical files and evidence. No new print result was reported.
 
-The implemented exterior is `75.5 × 51.2 × 264 mm`: only width grows, by `1.3 mm`. Both main end walls are `1.85 mm`; broad walls and the sleeve remain `1.2 mm`. The original main-body cavity, sleeve, catch profiles and matching cap clearance are retained. The new cap's tapered stop locally reduces the upper cavity passage; actual individual brush/tube gauges still clear it by at least `2.8 mm`. The supplied item envelopes are not a simultaneous packing test.
+The cap ends `3 mm` above the body shoulder, exposing a continuous sleeve rather than a hole into the box. Rounded opposing rim contacts provide the grip reveal. The cap covers `27 mm` of the `30 mm` sleeve. A tapered internal seat at `Z=204 mm` contacts the sleeve tip and prevents the cap being pushed down until the reveal disappears. It projects inward `1 mm` with a `1.5 mm` print-supporting taper above it. The stop is clear of the catches and sampled opening path. This is not a sealing claim.
 
-There are no wrap bands, local exterior pads or seam finger notches. The cap rim ends `3 mm` above the body shoulder, leaving a continuous inner sleeve exposed with rounded opposing rim contacts. Cap coverage is `27 mm` over the unchanged `30 mm` sleeve. A continuous internal seat contacts the sleeve tip at `Z=204 mm`; this is necessary to stop the cap being pushed down until the exposed collar disappears. The seat projects inward `1 mm`, with a `1.5 mm` taper above it. It remains above the end catches and has no sampled opening-path interference.
+[Actual final CAD sections](../renders/assembled/smooth_case_sections.svg) show the collar, seat, pockets and current wall sections.
 
-![Actual CAD sections](../renders/assembled/smooth_case_sections.png)
+## Retention-check authorization
 
-### Verification and manufacturing
+The user requested research and checks of pull-apart force and sideways retention, with authority to improve C. They emphasized pragmatic evidence and rejected artificial passing checks. The old unsuccessful coupled-contact/impact branch remains historical; it was not restarted as a solver-development campaign.
 
-[CAD checks](smooth_case/cad.json) cover 20 actual outline/wall sections, unchanged sleeve and catch geometry above the collar, seated clearance, hard-seat contact, overclosing obstruction, six independent-catch obstruction witnesses across lateral play, 13 sampled axial poses, individual brush/tube passages and retained R4 handled ends. Numerical intersection screen: `1e-5 mm³`; individual passage screen: at least `0.8 mm`. The stop contacts within numerical tolerance and obstructs `0.1 mm` excess closing. No new force or impact analysis was run; the changed end-wall stiffness and stop invalidate transfer of historical force predictions.
+The original C (`14d9fbf`) had only geometric capture checks. Its 1.2 mm sleeve proved too flexible: even assuming an infinitely stiff cap, the actual profile and mesh-compared body compliance give an optimistic **3.04 N** centered slow-pull estimate and **1.25 N** ideal undamped threshold at E1200 MPa ([bound](smooth_case/retention/original_body_bound.json)). Actual cap flexibility would lower those conditional values. Original cap jobs were stopped once their completion could not change that rejection.
 
-[OrcaSlicer 2.4.2 review](smooth_case/print_review.json) passed with no notices and no generated support. The [source/export association](smooth_case/publication.json) uses the source snapshot taken before native evaluator publication, checks unchanged inputs afterward and identifies the delivered paired exports and slice receipt. STEP/STL came from the same selected geometry and placement; the native publication guards completed successfully. [Product verification](smooth_case/verification.json) preserves inherited user intent, records the latest wall/form authorization and leaves physical obligations UNKNOWN.
+The intermediate C1 used a 1.8 mm sleeve and 0.75 mm bite, predicting **8.13 N** aligned pull, but its side-bearing fixture remained flexible. The delivered C2 therefore uses 2 mm main walls and sleeve, adding only `1.6 mm` in both width and depth relative to the original thin case. These are explicit configurations in `smooth_case_design.py`; the printable entry points select `retention-c2`. C1 is retained as engineering evidence, not a print recommendation.
 
-Print the body upright on its floor (`204 mm` tall), cap inverted on its roof (`87 mm` tall), with the established PETG / `0.4 mm` nozzle / `0.2 mm` layers / 3 configured loops / `7%` adaptive cubic / `5 mm` automatic brim process. The width change stays well inside the Q2C layout envelope; the selected-profile slice accepts the paired placement. The broad walls remain the previously qualified nominal thickness; thicker end walls need no strict path-count promise. The R4 end blends retain the established chamfered bed-contact foot. The cap seat grows inward by `1 mm` over `1.5 mm` of print height (about `0.13 mm` radial movement per `0.2 mm` layer), then ends in its sleeve-bearing face. The small snap ramps/runouts retain the earlier geometry and print directions. No trapped supports or new unsupported islands are planned; the automatic-support probe generated none. Exterior/rim rounding preserves the functional sleeve and catch surfaces.
+### Pull and closing estimates
 
-The STL review does not qualify Orca's separate GUI STEP importer. Actual seam-grip purchase, snap closing/opening effort, recovery and durability, stop seating under hand pressure, simultaneous loaded packing and bag-bump retention need a physical trial. A shallow collar is not a claim of reliable finger purchase or sealing. Keep the body underneath when opening so loose contents remain supported.
+| Quantity | Final C2 estimate | Meaning |
+| --- | ---: | --- |
+| Both catches, aligned slow pull | **11.0 N** | About the steady force of supporting 1.1 kg, not a payload rating. |
+| Aligned closing peak | **6.8 N** | Reverse traversal of the same frictionless elastic path. |
+| One-end radial fixture | **6.0 N** | Conditional one-end result, not an unrestricted corner-peel threshold. |
+| Ideal undamped seated-release threshold | **4.6 N** | Initial play permits acceleration; this differs from the supported slow-pull peak. |
+
+![Conditional force curve](../renders/assembled/smooth_retention_force.png)
+
+[Pull study](smooth_case/retention/final/pull.json) uses actual C2 geometry, separate body/cap deformation, paired and single-end radial loads, the exact section profile, 3D clearance witnesses and an elastic-energy derivative. Constant radial compression is not counted as axial holding force. A deliberately uncaptured control has zero elastic barrier. The individual compliance mesh changes are below **0.7%**; withdrawal-step precision and 3D/profile agreement pass the declared screens.
+
+Assumptions: isotropic **E1200 MPa**, Poisson ratio **0.38**, linear elasticity and **no friction credit**. The body crop is clamped 16 mm below the seam; the complete cap roof is clamped. Mirror-reduced cap loads are halved, giving displacement per full-equivalent 1 N crest load. Full/half C1 cap responses agree within 1%, supporting the unchanged exact principal-plane symmetry reduction; asymmetric/diagonal impacts are excluded. Cap pressure windows are approximations, with selected areas retained, not measured uniform contact pressures.
+
+The E900–2200 MPa / ±0.15 mm radial-fit scenarios give **6.3–25.0 N** centered pull. These are sensitivity scenarios, not confidence bounds or guaranteed printed limits. Hand grip, anisotropy, friction, rate, wear and creep are not calibrated. The old agent-selected 8–18 N and 3.5 N comparison targets are reported separately; they are not user acceptance or universal travel-case standards. The nominal C2 values lie within those targets. [Research and primary sources](smooth_case/retention/research.md).
+
+### Sideways review
+
+The fresh [side-bearing study](smooth_case/retention/final/side.json) adapts the old **2 N / 180 Nmm** comparison to C's actual 27 mm cap coverage. Both principal directions use equal/opposite body/cap tractions at `Z=180/201 mm`. It measures conditional bearing flexibility; it does not solve contact redistribution, sequential catch release, a free cap or a dynamic bag hit.
+
+| Extrapolated extra roof-motion proxy | Intermediate C1 | Final C2 | Fine-response change |
+| --- | ---: | ---: | ---: |
+| Widthwise X | 3.97–4.34 mm | 2.79–3.11 mm | About **30% less** |
+| Broad-face Y | 12.35–12.56 mm | 5.53–5.55 mm | About **56% less** |
+
+Ranges show the checked coarse/fine responses. X retains **11.6%** mesh variation, above the original 10% precision target; that screen remains **INCONCLUSIVE**, not silently promoted. Y changes by about **0.4%**. The stiffness improvement is consistent across both meshes in both directions, sufficient for the thicker-wall prototype choice. More numerical precision would not establish bag retention. The previous thick case's 11.22 N estimate and 12.64 N incomplete side-contact snapshot remain scoped to their different geometry and fixtures; neither is imported as C2 validation.
+
+### Verification, printing and physical trial
+
+[CAD checks](smooth_case/cad.json) cover 20 main outline/wall sections plus six sleeve sections, seated clearance, hard-seat contact and overclosing obstruction, six independent-catch witnesses across guide play, 13 sampled axial poses, individual brush/tube passages and R4 handled ends. Individual gauges retain at least 1.8 mm body clearance and 2.8 mm cap clearance; they do not prove simultaneous loaded packing.
+
+Print the body upright on its floor (**204 mm**), cap inverted on its roof (**87 mm**): PETG, **0.4 mm nozzle / 0.2 mm layers / 3 configured wall loops / 7% adaptive cubic / 5 mm automatic brim** using the established [process profile](short_lap/profiles/process.json). Thicker walls use additional strokes; three strokes are not a requirement. The established rounded/chamfered feet provide bed contact. The seat grows inward 1 mm over 1.5 mm print height; small bite ramps retain supported layer overlap. No new disconnected islands or trapped supports are planned. The selected-profile slice determines layout/support acceptance; [native review](smooth_case/print_review.json) and [source/export association](smooth_case/publication.json) identify the delivered pair.
+
+The remaining decision is physical: actual opening/closing force, useful seam purchase, elastic return, loaded packing and bag-knock resistance. Print the matching pair, check empty operation and a fully seated uniform collar, then try the real loaded box in the intended bag against broad faces, ends and corners. Inspect a partly lifted end as well as complete opening. If a scale is available, record slow axial pull peaks and grip positions; squeezing/clamping the catch walls changes the question. No new arbitrary bump severity or safe payload is specified. The STL slice does not verify Orca's separate GUI STEP importer.
+
+Detailed setup/recovery evidence and the small shared mesh-control improvement are in [study decisions](smooth_case/retention/decision.md). Failed/interrupted solves supply no force evidence. The [verification report](smooth_case/verification.json) keeps physical requirements UNKNOWN.
 
 ## Earlier SVG exploration (historical)
 
@@ -47,11 +83,11 @@ Before developing a selected direction, check the affected catch seat and releas
 
 ## Phase evidence and attribution
 
-- The proposal SVGs were parsed/rendered and both PNGs visually inspected. Implemented CAD print/closed views and enlarged actual sections were also visually inspected.
+The CAD print/closed views, actual sections and force plot were visually inspected. The proposal SVGs/PNGs remain historical form evidence.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test pieces | N/A | No new coupon | Full matching pair is the next trial. Historical joint samples remain recorded in the object README. |
-| Final printable object | Unknown | `short_lap_case_smooth.step` / `.stl` | No reported print. Check seam grip, snap effort/return, internal seat, actual loaded packing and bag retention. Earlier wrap-grip pair remains Unknown / unprinted. |
+| Test pieces | N/A | No new coupon | Full matching pair is the next trial; historical samples remain in the object README. |
+| Final printable object | Unknown | `short_lap_case_smooth.step` / `.stl` | No reported print. Check force, grip, return, internal seat, actual loaded packing and bag retention. |
 
-- Primary language model: GPT-6 family; exact model identifier and reasoning effort not exposed. Harness: Codex coding-agent environment. Provider: OpenAI. New drawings, implementation and checks are agent-authored from the current source and user feedback; historical model attribution remains in the existing records.
+Primary language model: GPT-6 family; exact model identifier and reasoning effort not exposed. Harness: Codex coding-agent environment. Provider: OpenAI. Drawings, implementation and checks are agent-authored from the current source and user feedback; historical attribution remains in the existing records.

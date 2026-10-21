@@ -1,6 +1,6 @@
 # Dental Travel Case
 
-A slim, two-piece PETG travel box (`75.5 × 51.2 × 264 mm` current closed exterior) designed to hold a `255 mm` electric toothbrush (up to `30 mm` handle diameter) and a `160 × 55 × 40 mm` toothpaste tube without internal clips or dividers.
+A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exterior) designed to hold a `255 mm` electric toothbrush (up to `30 mm` handle diameter) and a `160 × 55 × 40 mm` toothpaste tube without internal clips or dividers.
 
 ![Closed smooth C case](renders/assembled/smooth/short_lap_case_smooth_assembled_isometric.png)
 
@@ -10,13 +10,13 @@ A slim, two-piece PETG travel box (`75.5 × 51.2 × 264 mm` current closed exter
   - **Print files:** [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`short_lap_case_smooth.stl`](short_lap_case_smooth.stl) · [Python entry point](short_lap_case_smooth.py). Print this matching body/cap pair; do not print the closed `_assembled` inspection pose.
   - **How to print:** PETG, `0.4 mm` nozzle, `0.2 mm` layers, **3 configured wall loops**, `7%` adaptive cubic infill, `5 mm` automatic brim, no supports ([process profile](notes/short_lap/profiles/process.json)). Body upright (`204 mm`); cap inverted on its roof (`87 mm`). Thicker end walls may use more than three strokes.
   - **Use:** Support the body underneath and lift the cap while upright or diagonal. The exposed collar replaces both separate grip bands; actual finger purchase and snap effort remain to test.
-  - **What changed:** Width grows just `1.3 mm` to `75.5 mm`; depth and closed length stay `51.2 × 264 mm`. End walls become `1.85 mm`, broad walls and sleeve stay `1.2 mm`, and original contents space and catch profile are retained. An internal sleeve-tip stop sets the seam gap.
+  - **What changed:** Width and depth each grow `1.6 mm` from the original thin case, to `75.8 × 52.8 mm`; closed length stays `264 mm`. Main walls and sleeve are `2.0 mm`, with `1.2 mm` backing behind catch recesses. The bite is `0.75 mm`, strengthened after a weak force screen; main contents space and guide dimensions are retained. An internal sleeve-tip stop sets the seam gap.
   - **Review:** [Actual CAD sections](renders/assembled/smooth_case_sections.svg) · [design and evidence](notes/smooth_exterior.md) · [closed inspection STEP](short_lap_case_smooth_assembled.step).
 - **What NOT to Do / Closed Branches:**
   - **Do NOT print the hinged cases (`C6`, `C7`, `C8`):** The `C8` shortened loop broke on its first push and the hinged direction is **permanently discarded**.
   - **Do NOT print `M1`–`M5` deep-sleeve cases:** `M1` was printed and works as a shell (and currently hosts the [TPU liner experiment](../dental_travel_case_liner/README.md)), but its `78 mm` sleeve and cantilever hooks had weak retention and pulled apart too easily.
   - **Use matching variants:** Smooth C adds a new internal cap stop and seam reveal. Use its matching pair; the older `2 mm` and three-line variants also have different mating offsets. The wrap-grip files are retained as a superseded comparison.
-  - **Do NOT run further sideways-impact FEA:** The computational side-knock release study is closed (`INCONCLUSIVE`); verify bag-bump retention physically with the printed box.
+  - **Old coupled-contact branch remains closed:** The new C retention review uses fresh pull/compliance and side-bearing screens. Earlier incomplete side-knock solves remain `INCONCLUSIVE`; a static screen does not qualify actual bag impacts.
 
 ---
 
@@ -28,7 +28,16 @@ The cap ends `3 mm` above the body shoulder, exposing the continuous inner sleev
 
 ![Actual smooth C seam and stop sections](renders/assembled/smooth_case_sections.png)
 
-The `0.6 mm` end-wall catches and their relief tracks are retained. Rigid CAD checks establish seated clearance, independent catch obstruction and a clear sampled withdrawal path after the initial snap. The thicker cap walls and added stop change stiffness, so previous force predictions do not qualify this version.
+The end-wall bites increase from `0.6` to `0.75 mm`, with a 2 mm sleeve and stiffer broad walls; the relief-track construction remains. Rigid CAD checks establish seated clearance, independent catch obstruction and a clear sampled withdrawal path after the initial snap. Fresh C2 analysis predicts about **11 N aligned pull-apart** and **6.8 N closing**, using an uncalibrated PETG elastic model and no friction credit. The first C's thin sleeve had an optimistic pull bound of only 3 N, so it was strengthened. The final ordinary main walls and sleeve are 2 mm; both pieces must be updated together.
+
+| Retention evidence | Current conclusion |
+| --- | --- |
+| Centered slow-pull / closing estimate | **11 N / 6.8 N** nominal; material/fit scenarios give 6.3–25 N pull, not guaranteed print limits. |
+| One-end radial fixture | About **6 N**, not a freely rocking peel-release prediction. |
+| Principal side-bearing comparison | About **30% / 56% less** widthwise/broad-face flexibility than the intermediate thin C. X point-value mesh variation is 11.6%; this is a comparative result, not a bag-impact pass. |
+| Actual printed force and accidental opening | **Unknown** — loaded physical trial remains necessary. |
+
+[Force plot](renders/assembled/smooth_retention_force.svg) · [method, assumptions and primary research](notes/smooth_exterior.md#retention-check-authorization). Earlier thick-case force/contact numbers are not transferred to this model.
 
 ## Previous Wrap-Grip Design (Superseded Comparison)
 
@@ -86,8 +95,9 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 | **Final printable object** | **Unknown** (Smooth C has no reported print) | `short_lap_case_smooth.step` / `.stl` | Check seam grip, snap effort/return, stop seating, combined brush+paste packing, and bag-bump retention. `M1` full box was printed and usable (2026-10-15) with inadequate retention; wrap-grip pair remains unprinted. |
 
 ### Verification & Scope Limits
-- **Smooth C CAD:** Valid geometry; 20 actual wall/outline sections, unchanged sleeve/catches, internal hard-seat contact and overclosing obstruction, six independent-catch witnesses, 13 sampled opening poses and individual brush/tube passages pass ([CAD record](notes/smooth_case/cad.json)). OrcaSlicer 2.4.2 accepts the matching layout with the stated profile, no notices and no generated support ([slice report](notes/smooth_case/print_review.json), [publication association](notes/smooth_case/publication.json)). The [verification report](notes/smooth_case/verification.json) keeps physical requirements UNKNOWN.
+- **Smooth C CAD:** Valid geometry; 20 actual wall/outline sections and six strengthened-sleeve sections, internal hard-seat contact and overclosing obstruction, six independent-catch witnesses, 13 sampled opening poses and individual brush/tube passages pass ([CAD record](notes/smooth_case/cad.json)). OrcaSlicer 2.4.2 accepts the matching layout with the stated profile, no notices and no generated support ([slice report](notes/smooth_case/print_review.json), [publication association](notes/smooth_case/publication.json)). The [verification report](notes/smooth_case/verification.json) keeps physical requirements UNKNOWN.
 - **Previous wrap-grip evidence (historical):** Valid CadQuery geometry, 66 section thickness checks, individual brush (`30 mm`) and tube (`55 × 40 mm`) passage gauges, and OrcaSlicer 2.4.2 smoke slices (`0` notices, no supports, verified 3-stroke wall toolpaths) pass for `slim-short-lap-three-line-grip` ([report](notes/grip_human/finished_verification.json)).
+- **Force & side evidence:** [Fresh pull model](notes/smooth_case/retention/final/pull.json) and [side-bearing comparison](notes/smooth_case/retention/final/side.json). Pull compliance is mesh-stable below 0.7% change. The X side point-value precision target remains INCONCLUSIVE; the stiffening decision is supported by consistently lower coarse/fine responses in both directions. Neither is printed-force or impact validation.
 - **Physical Unknowns:** Slicer STL checks do not test Orca's GUI STEP importer. Actual PETG snap force with the thicker end walls, layer-bond durability, stop behavior, simultaneous loaded packing of the real brush and tube, seam-grip traction, and resistance to knocks inside a packed travel bag remain physical checks (`UNKNOWN` / `INCONCLUSIVE`).
 - **Reproduce verification CLI:**
   ```sh

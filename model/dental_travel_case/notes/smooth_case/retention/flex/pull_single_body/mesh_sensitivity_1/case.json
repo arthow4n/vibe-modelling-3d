@@ -1,0 +1,110 @@
+{
+  "name": "smooth_pull_single_body",
+  "nonlinear": false,
+  "max_increment": 1.0,
+  "parts": [
+    {
+      "name": "part",
+      "geometry": "part_0.brep",
+      "sha256": "0e4acf5fc6ec5e399b2b5a327d841b4852d4b216cd75009b9eb27ceb4fb5c0f0",
+      "material": {
+        "name": "Uncalibrated PETG comparison",
+        "youngs_modulus_MPa": 1200,
+        "poisson_ratio": 0.38,
+        "source": "Assumed effective isotropic short-term modulus. Not measured FDM data; no strength limit supplied.",
+        "strain_limit": null
+      },
+      "mesh_size_mm": 1.75,
+      "mesh_min_size_mm": null,
+      "mesh_curvature_points": null
+    }
+  ],
+  "constraints": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            null,
+            null,
+            158.0
+          ],
+          "upper": [
+            null,
+            null,
+            158.0
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "displacement_mm": [
+        0,
+        0,
+        0
+      ],
+      "name": "root",
+      "progress": null
+    }
+  ],
+  "loads": [
+    {
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            36.400000000000006,
+            -5.0,
+            200.75
+          ],
+          "upper": [
+            36.400000000000006,
+            5.0,
+            201.25
+          ],
+          "tolerance_mm": 1e-05
+        }
+      },
+      "force_N": [
+        -1.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "contacts": [],
+  "observations": [
+    {
+      "name": "positive",
+      "selection": {
+        "part": "part",
+        "region": {
+          "lower": [
+            36.400000000000006,
+            -5.0,
+            200.75
+          ],
+          "upper": [
+            36.400000000000006,
+            5.0,
+            201.25
+          ],
+          "tolerance_mm": 1e-05
+        }
+      }
+    }
+  ],
+  "mesh_reuse": {
+    "input_sha256": "fab79cb0d71e47359ca95606b6f33bf1562914311ef35c923fe6538bdb22a1e1",
+    "case_sha256": "7c9a373734564407b3ef41b40da688f827c1b76d7b6df87792cbb0d17bc8868e",
+    "input": "mesh_source.inp",
+    "case": "mesh_source_case.json",
+    "mesh": {
+      "part": {
+        "nodes": 59324,
+        "elements": 29719,
+        "min_jacobian": 0.04105901697000455
+      }
+    },
+    "automatic": true
+  }
+}

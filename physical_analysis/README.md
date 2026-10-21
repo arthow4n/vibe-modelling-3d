@@ -103,6 +103,14 @@ loads, optional prescribed `motion` and named `observations`. Supports may leave
 DOFs free through `None`. No service load is inferred. `acceptance` maps existing
 metric paths to explicit upper limits, for example `{'max_displacement_mm': 2}`.
 Material strain limits remain provisional screens, not calibrated printed limits.
+Optional `mesh_min_size_mm` and `mesh_curvature_points` pass the existing case-level
+curvature controls through `StructuralQuestion` and its subclasses; provide both
+or neither. They refine curved regions without changing `mesh_size_mm` elsewhere.
+The [smooth travel-case study](../model/dental_travel_case/notes/smooth_case/retention/decision.md)
+uses them for small roof/rim rounds that made a uniform coarse quadratic mesh
+struggle during high-order optimization. Mesh quality and response sensitivity
+still need checking; local refinement is not physical calibration.
+
 
 `SnapFitQuestion` takes the same `part`, `material`, `supports`, `observations`
 and mesh controls, plus `contact_region`, a tuple of `MatingPart(name, shape,

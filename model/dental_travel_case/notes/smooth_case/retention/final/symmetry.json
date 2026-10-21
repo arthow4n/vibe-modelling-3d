@@ -1,0 +1,29 @@
+{
+  "source_sha256": {
+    "smooth_case_design.py": "6de59ac23920a8f089e7306d5d019baba8494ddaa8d07332638d905f9a53b104",
+    "smooth_retention_study.py": "c543e3e0c5676d0c2aed81d452c3432e6c173d9394c35c4b4280e82c5fc899da",
+    "short_lap_refinement.py": "74c18ee68c7648d11aea3f59ecf627f6bfb6cf50e2981581c36a0fd225df6472",
+    "../../physical_analysis/questions.py": "79cd3de6e4cff65cdf7c45985a4f9bddcb4f677464ebb43ec7db0218b31e177c",
+    "../../physical_analysis/backends/mesh.py": "557b59f5fcc10f1f9bbeb70e035cdb18707a5191817aaa971a8277824ef75b28",
+    "short_lap_design.py": "98860b93b2a24c7fca89072222845aa1a05e7ac3c0d95ef58e6d1e6ee26ae61b",
+    "closure_research_design.py": "fe7a4b0334d0e57aea7eb1458d3ee44c4576042224730f8b4876ecb0fd24f128",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "closure_research_flex.py": "3cc48785e80635532b43162b62570614f9971f24d95d4919dfb4dcae95bed8a7",
+    "closure_research_pull.py": "6d9cb2b2876c4a50d561b583424c69e446481e29aed591813bb4b0fbbc57d3e0",
+    "short_lap_report.py": "1769d155fe74b34c1961eebbba5422e8aefd9e6e6c169c79fc4c9360f0c4b866",
+    "../../uv.lock": "decadf8943fd324455151518a1b14eef612e6df01d3faf4d57b5b7d754de1ec8"
+  },
+  "comparison": [
+    {
+      "mesh": "baseline",
+      "half_compliance_mm_N": 0.05031712303030303,
+      "symmetry_basis": "C1 full/half comparison and unchanged exact principal-plane mirror symmetry"
+    },
+    {
+      "mesh": "mesh_sensitivity_1",
+      "half_compliance_mm_N": 0.05041528377777779,
+      "symmetry_basis": "C1 full/half comparison and unchanged exact principal-plane mirror symmetry"
+    }
+  ],
+  "relative_limit": 0.05
+}

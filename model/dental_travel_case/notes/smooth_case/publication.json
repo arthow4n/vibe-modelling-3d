@@ -1,9 +1,9 @@
 {
   "source_sha256": {
-    "smooth_case_design.py": "48c4e3477500e6c66559140cf12f84a20fda28c2a00b1883a4249103e5dba94d",
-    "smooth_case_checks.py": "1de98efb19d81ccd329df15618029f90d7dea138e33545afcbfc61206ec56f9c",
-    "short_lap_case_smooth.py": "b887412495a7d356bb0196dd255613483417ee750d5a42fccd08bebb634d4304",
-    "short_lap_case_smooth_assembled.py": "b52f855177e0797e3d4d0fcfebe7ada41ca27eb0d71f9dd0eab13eb8ee28dab7",
+    "smooth_case_design.py": "6de59ac23920a8f089e7306d5d019baba8494ddaa8d07332638d905f9a53b104",
+    "smooth_case_checks.py": "cec11bddd96313f4c15d9888ccae58a774b6a0f43e9059a3f4501e522781bee6",
+    "short_lap_case_smooth.py": "1bf6200ab3b075400de112d65cc9f3e455fe97734ec20e107f5e0192245b2848",
+    "short_lap_case_smooth_assembled.py": "8998c3a6fd800b45c8bd1a1c3c51d1b45fb8533ebdc98e4de94d76967483f018",
     "short_lap_design.py": "98860b93b2a24c7fca89072222845aa1a05e7ac3c0d95ef58e6d1e6ee26ae61b",
     "short_lap_refinement.py": "74c18ee68c7648d11aea3f59ecf627f6bfb6cf50e2981581c36a0fd225df6472",
     "short_lap_thin.py": "cdca3a1e168548b4f1d05466c342c9fb2dbd546a0ef5d265ede0f5d628b3322f",
@@ -13,18 +13,22 @@
     "closure_research_drawings.py": "a3303c13adb922910fc040986714f3f2a2f3c3d6b2563ebc326e19ca1e8b66e9",
     "closure_research_checks.py": "b1349a6f68d9b9966bbb3a5df4c9ce92c67561ecf2fa776635e80e988b1039af",
     "../../uv.lock": "decadf8943fd324455151518a1b14eef612e6df01d3faf4d57b5b7d754de1ec8",
-    "smooth_case_verification.py": "46aac1a9a8f93e7e2b7aa6c43bc9ebb52def55d863c4d90d100a027d21819ab8",
+    "smooth_case_verification.py": "6e2617415c92b5197778649353679fc8d4557a96e7b33d3318ede6658ca4e416",
     "verification.py": "ea5b6daea1a9fabc575af9994882ec578a19887765f2fbce69867950c613ec4f",
+    "smooth_retention_study.py": "c543e3e0c5676d0c2aed81d452c3432e6c173d9394c35c4b4280e82c5fc899da",
+    "../../physical_analysis/questions.py": "79cd3de6e4cff65cdf7c45985a4f9bddcb4f677464ebb43ec7db0218b31e177c",
     "../../evaluate_model.py": "3fdbcc1739e0f8a8779f101e834b9bfc4d3b8eacc8301d4907a79ce283e16159"
   },
   "artifacts": {
-    "short_lap_case_smooth.step": "743f28a962c22ad548c05da90cb2e3a03bcc9bde86013564a71d44a4e9c43270",
-    "short_lap_case_smooth.stl": "18e3a873bd2bc48d2beff079deeca7de78f21ebbed34ece555b8b23b0867ace5",
-    "notes/smooth_case/print_review.json": "65afeb63c0bf915103d46d9726b8a09babc85a66ea9a1b9de6129e1f1ef615ed",
-    "notes/smooth_case/cad.json": "0dde8120e641e08d2ab0e494a11089b38e4b558189c2a73832392ced2045c179"
+    "short_lap_case_smooth.step": "c479965e9fd5bd571f527778464d28101d918ecde50fab80dc0bbded31ebd9ac",
+    "short_lap_case_smooth.stl": "04247b566dee06be360f517bb85065aa3168c6e554593e6d8d1c21d3cdd4123d",
+    "notes/smooth_case/print_review.json": "0641d5083e2fe8d61af26d2dd437a0699d8fcfd890f64d6048cb99ef24bd677b",
+    "notes/smooth_case/cad.json": "c24d842bf763ef4fa3cac3ed8141fcecd8ade2ad4567fcb8e81363c3047cd7ee",
+    "notes/smooth_case/retention/final/pull.json": "534fb4f10028d03cd0db987198d25aeb65b304c6fc2ecc168ee1f185ccd47cf3",
+    "notes/smooth_case/retention/final/side.json": "5966630788d27d31812ef0d649c4ccc0d412fcc05c5e8ee32507e5cee98eec0f"
   },
-  "native_input_identity": "77cc73a84c0abccef39f28d58fd717db25b13f6bb33bff2f9485ae013d85f073",
-  "slice_input_sha256": "18e3a873bd2bc48d2beff079deeca7de78f21ebbed34ece555b8b23b0867ace5",
-  "association": "Source snapshot captured before native evaluator publication, unchanged after export/slice; native publication guard completed successfully",
-  "scope": "Selected profile acceptance; physical grip, stop, effort, durability and bag retention remain untested"
+  "native_input_identity": "31d9b8c6d230616886b9b0011d837064dc2d72261223dd2825ae8c3c58aa1a07",
+  "slice_input_sha256": "04247b566dee06be360f517bb85065aa3168c6e554593e6d8d1c21d3cdd4123d",
+  "association": "Source snapshot captured before native evaluator publication and unchanged afterward; native publication guards completed successfully",
+  "scope": "Matching retention-c2 exports, selected-profile slice and scoped numerical records; no printed-force or bag-impact rating"
 }

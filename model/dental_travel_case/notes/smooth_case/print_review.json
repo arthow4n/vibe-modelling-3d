@@ -35,16 +35,16 @@
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.001461400999687612,
-    "build": 1.0827103799965698,
-    "selection": 0.0010820419993251562,
-    "validation": 0.058453757999814115,
-    "export_step": 0.3235648440022487,
-    "export_stl": 0.26592318300390616,
-    "render_isometric": 0.5627195679990109,
-    "worker": 2.3839160459901905,
-    "total": 38.897334986992064,
-    "slice": 36.7432165890059
+    "dependency_initialization": 0.001362153998343274,
+    "build": 0.8813788599945838,
+    "selection": 0.0013531270087696612,
+    "validation": 0.055883955996250734,
+    "export_step": 0.20831588200235274,
+    "export_stl": 0.260978846999933,
+    "render_isometric": 0.5801637129916344,
+    "worker": 2.064378310999018,
+    "total": 38.46721583099861,
+    "slice": 34.37299231199722
   },
   "versions": {
     "python": "3.14.7",
@@ -55,8 +55,8 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "77cc73a84c0abccef39f28d58fd717db25b13f6bb33bff2f9485ae013d85f073",
-    "artifact_identity": "1ca7447af1384731193e9f40780b8ee5d7731b37a93652b88d503b9058617071"
+    "identity": "31d9b8c6d230616886b9b0011d837064dc2d72261223dd2825ae8c3c58aa1a07",
+    "artifact_identity": "123760a6ed28c95c0fb47dd1c3221e6705dec12b962aa45c1ee37e145a55f86f"
   },
   "slice": {
     "ok": true,
@@ -141,8 +141,8 @@
     "log_notices": [],
     "review_required": false,
     "reused": false,
-    "identity": "90279ee81c749db58b76a4f13be1fcb0b598fa7ccb1de0f7bd25a4826bba063c",
-    "input_sha256": "18e3a873bd2bc48d2beff079deeca7de78f21ebbed34ece555b8b23b0867ace5",
+    "identity": "7e98cfb25279cb5ef756839b64b61f91ea80ef5821c630acbf8caacae925ab58",
+    "input_sha256": "04247b566dee06be360f517bb85065aa3168c6e554593e6d8d1c21d3cdd4123d",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",
