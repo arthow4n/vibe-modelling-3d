@@ -1,6 +1,6 @@
 # Smooth C travel case
 
-Use the updated matching pair for the next physical trial: [print STEP](../short_lap_case_smooth.step), [STL](../short_lap_case_smooth.stl), and [Python entry point](../short_lap_case_smooth.py). The [closed STEP](../short_lap_case_smooth_assembled.step) is for inspection, not printing. Both pieces changed; the force estimate does not apply to a mixed old/new pair.
+For the next low-material trial, print the [short PLA joint pair](../smooth_joint_test.step) ([STL](../smooth_joint_test.stl)); see [instructions below](#short-pla-joint-trial). The complete updated matching pair remains available: [print STEP](../short_lap_case_smooth.step), [STL](../short_lap_case_smooth.stl), and [Python entry point](../short_lap_case_smooth.py). The [closed STEP](../short_lap_case_smooth_assembled.step) is for inspection, not printing. Both pieces changed; the force estimate does not apply to a mixed old/new pair.
 
 The final reinforced C has smooth aligned sides, a `3 mm` exposed overlap collar, and no wrap bands or local exterior backing bumps. Exterior: **75.8 × 52.8 × 264 mm**. Ordinary main wall flats and sleeve are **2.0 mm**; floor/roof and catch-pocket backing remain **1.2 mm**. The bite is **0.75 mm**, with the original ramp construction. The main cavity and outside guide dimensions are retained; the sleeve bore is **67.6 × 44.6 mm**. Rounded R4 handled ends remain.
 
@@ -81,13 +81,27 @@ The comparison uses the current 264 mm closed length, 174 mm body seam, 90 mm ca
 
 Before developing a selected direction, check the affected catch seat and release path, sleeve guidance/overlap, wall thickness and contents space. Those questions are now addressed by the C records above where geometric. Grip effectiveness and feel remain physical questions. No CAD, simulation or slice was run during the earlier drawing phase.
 
+## Short PLA joint trial
+
+The user requested a much shorter, minimal-material PLA trial of the current retention mechanism. [Source](../smooth_joint_test.py), [print STEP](../smooth_joint_test.step), [STL](../smooth_joint_test.stl), and [print view](../renders/tests/smooth_pla/smooth_joint_test_isometric.png) describe one matching two-piece specimen, directly cropped from `retention-c2`. It keeps the full **75.8 × 52.8 mm** perimeter, **2 mm** ordinary walls and sleeve, **0.75 mm** bites, **0.10 mm per-side** guide clearance, both recesses/runouts, the complete **30 mm sleeve / 27 mm cap coverage**, and the **3 mm collar / internal axial stop**. No PLA-specific clearance or catch adjustment has been guessed.
+
+The body retains **16 mm below the seam** and prints **46 mm high**. The cap retains **10 mm above the sleeve-tip seat** and prints **37 mm high**. The closed specimen is **56 mm high**. Both distant ends are open: no floor, roof, extra handles or stiffening plates. Keeping the full perimeter preserves wall coupling better than an isolated tooth strip; omitting the long ends saves most of their wall height and both end panels. Cropping also changes axial restraint and rocking response. This is an economical local fit/action experiment, not a force-equivalent miniature or a substitute for a loaded complete case.
+
+**Print:** ordinary PLA with your calibrated PLA filament preset, **0.4 mm nozzle / 0.2 mm layers / 3 configured wall loops / 7% adaptive cubic / 5 mm automatic brim / no supports**. The thin walls may be filled entirely by perimeters. Print both in the supplied placement: body upright on its cut annular end; cap inverted on its cut annular end. Those cuts are away from mating surfaces. Preserve these layer directions, avoid scaling, and remove brim/first-layer burrs before assembly. The continuous ring footprints provide bed purchase. The retained 1 mm seat grows inward over 1.5 mm print height in the inverted cap; the catch ramps and tracks use production geometry, with no newly added horizontal roofs.
+
+**Try:** let the parts cool, align the two catches, push the cap down until the internal stop seats with the 3 mm collar visible, then pull straight apart while supporting the body. Hold the ordinary walls rather than squeezing the catch locations inward. Start gently; record whether it seats completely, clicks, stays captured under a gentle tug and releases with useful effort. Repeat about ten cycles, looking for whitening, cracks, permanent spreading, loss of return or noticeably weaker retention. If measuring with a force scale, record closing/opening peaks and grip locations; these are coupon measurements only. A light sideways wiggle can reveal obvious play or escape, but it is not a bag-impact trial.
+
+If it binds before the stop, record the contact location before changing clearance. If it cracks or stays spread, the unchanged C2 interface needs a PLA-specific revision. If it seats, returns and retains usefully, it supports a full-size PLA trial; it does not qualify the PETG force estimates, whole-case handling or impact resistance. There is no prescribed pull-force pass number for this cropped specimen.
+
+[Scoped CAD checks](smooth_case/pla_trial/cad.json) passed for the cropped pair's seated clearance, preserved stop, both independent catches across guide play and sampled withdrawal clearance. [Native export/slice review](smooth_case/pla_trial/print_review.json) records the valid paired geometry and layout: OrcaSlicer 2.4.2 completed with no notices or generated support. The print view was inspected. The smoke slice uses the existing **PETG diagnostic filament profile**, with the Q2C 0.4 mm printer and three-wall process; it checks path/layout/support generation, **not a qualified PLA process or temperatures**. Use your PLA preset for the actual print. Printed fit, effort, recovery and durability remain unknown.
+
 ## Phase evidence and attribution
 
 The CAD print/closed views, actual sections and force plot were visually inspected. The proposal SVGs/PNGs remain historical form evidence.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test pieces | N/A | No new coupon | Full matching pair is the next trial; historical samples remain in the object README. |
+| Test pieces | Unknown | `smooth_joint_test.step` / `.stl` | PLA C2 open-ring trial; fit, snap action and return untested. Full-shell force and loaded impacts excluded. |
 | Final printable object | Unknown | `short_lap_case_smooth.step` / `.stl` | No reported print. Check force, grip, return, internal seat, actual loaded packing and bag retention. |
 
 Primary language model: GPT-6 family; exact model identifier and reasoning effort not exposed. Harness: Codex coding-agent environment. Provider: OpenAI. Drawings, implementation and checks are agent-authored from the current source and user feedback; historical attribution remains in the existing records.

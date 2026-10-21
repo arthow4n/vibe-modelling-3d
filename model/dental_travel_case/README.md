@@ -6,6 +6,7 @@ A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exter
 
 ## At a Glance: What to Do Now
 
+- **Print the small PLA trial first:** [STEP](smooth_joint_test.step) · [STL](smooth_joint_test.stl) · [Python](smooth_joint_test.py). Two open rings, **46 mm body / 37 mm cap**, preserving the full C2 perimeter, both catches and seating stop. Use PLA, 0.4 mm nozzle, 0.2 mm layers, 3 wall loops and a 5 mm brim; keep the supplied upright/inverted orientation. This tests local fit, snap action and recovery; the missing floor/roof changes stiffness, so it does not validate the full case's pull force or bag retention. [Trial instructions and evidence](notes/smooth_exterior.md#short-pla-joint-trial).
 - **Current model: Smooth C seam-grip case — unprinted prototype.** The selected C direction is implemented: straight, aligned sides, no wrap bands or local backing bumps, and a `3 mm` exposed overlap collar.
   - **Print files:** [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`short_lap_case_smooth.stl`](short_lap_case_smooth.stl) · [Python entry point](short_lap_case_smooth.py). Print this matching body/cap pair; do not print the closed `_assembled` inspection pose.
   - **How to print:** PETG, `0.4 mm` nozzle, `0.2 mm` layers, **3 configured wall loops**, `7%` adaptive cubic infill, `5 mm` automatic brim, no supports ([process profile](notes/short_lap/profiles/process.json)). Body upright (`204 mm`); cap inverted on its roof (`87 mm`). Thicker end walls may use more than three strokes.
@@ -77,6 +78,7 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Variant / Phase | Status | Printable STEP / STL | Notes |
 | --- | --- | --- | --- |
+| **Short PLA C2 joint trial (Print first)** | **Unknown** print status | [`smooth_joint_test.step`](smooth_joint_test.step) · [`.stl`](smooth_joint_test.stl) | Open-ring 46/37 mm pair; local fit/action trial, not full-case force validation. |
 | **Smooth C seam-grip case (Current)** | **Unprinted prototype** (`Unknown`) | [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`.stl`](short_lap_case_smooth.stl) | Smooth sides, `3 mm` collar, internal stop; matching pair. |
 | **Three-line wrap-grip case** | Superseded comparison (`Unknown` print status) | [`short_lap_case_three_line_grip.step`](short_lap_case_three_line_grip.step) · [`.stl`](short_lap_case_three_line_grip.stl) | `1.2 mm` walls, `+55/-30 mm` wrap bands, no seam notches. |
 | **Three-line case (with old seam notches)** | Superseded comparison (`Unknown`) | [`short_lap_case_three_line.step`](short_lap_case_three_line.step) · [`.stl`](short_lap_case_three_line.stl) | Earlier `1.2 mm` pair before wrap-grip bands replaced seam notches. |
