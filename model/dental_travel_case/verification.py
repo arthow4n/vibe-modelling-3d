@@ -35,6 +35,9 @@ QUESTIONS = (
 
 
 def make_plan(variant):
+    if variant == 'slim-short-lap-smooth-c':
+        from smooth_case_verification import make_plan as smooth_plan
+        return smooth_plan(variant, REQUIREMENTS)
     if variant == 'slim-short-lap-three-line-grip':
         from short_lap_grip_verification import make_plan as grip_case_plan
         return grip_case_plan(variant, REQUIREMENTS)
@@ -114,4 +117,4 @@ def make_plan(variant):
 
 
 if __name__ == '__main__':
-    raise SystemExit(cli(make_plan, ('measured-two-lane', 'rounded-c', 'plain-cylinder', 'slim-m1', 'slim-m2b', 'slim-m3', 'slim-m4', 'slim-m5', 'research-minimal-closures', 'research-short-closures', 'clamshell-c6', 'hinge-c7-mini', 'spine-c8-mini', 'slim-short-lap', 'slim-short-lap-three-line', 'grip-band-placement', 'slim-short-lap-three-line-grip')))
+    raise SystemExit(cli(make_plan, ('measured-two-lane', 'rounded-c', 'plain-cylinder', 'slim-m1', 'slim-m2b', 'slim-m3', 'slim-m4', 'slim-m5', 'research-minimal-closures', 'research-short-closures', 'clamshell-c6', 'hinge-c7-mini', 'spine-c8-mini', 'slim-short-lap', 'slim-short-lap-three-line', 'grip-band-placement', 'slim-short-lap-three-line-grip', 'slim-short-lap-smooth-c')))

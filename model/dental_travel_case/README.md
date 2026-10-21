@@ -1,25 +1,36 @@
 # Dental Travel Case
 
-A slim, two-piece PETG travel box (`74.2 × 51.2 × 264 mm` closed exterior) designed to hold a `255 mm` electric toothbrush (up to `30 mm` handle diameter) and a `160 × 55 × 40 mm` toothpaste tube without internal clips or dividers.
+A slim, two-piece PETG travel box (`75.5 × 51.2 × 264 mm` current closed exterior) designed to hold a `255 mm` electric toothbrush (up to `30 mm` handle diameter) and a `160 × 55 × 40 mm` toothpaste tube without internal clips or dividers.
 
-![Print-placement preview of the current three-line wrap-grip case](renders/print/grip/short_lap_case_three_line_grip_isometric.png)
+![Closed smooth C case](renders/assembled/smooth/short_lap_case_smooth_assembled_isometric.png)
 
 ## At a Glance: What to Do Now
 
-- **Current action:** Review the [smoother exterior SVG options](renders/concepts/smooth_exterior_comparison.svg) and [grip / catch details](renders/concepts/smooth_exterior_details.svg) before printing. A–C are proposals only; [design discussion and tradeoffs](notes/smooth_exterior.md).
-- **Existing printable model (on hold for appearance review):** **Three-line wrap-grip short-lap case**
-  - **Files:** [`short_lap_case_three_line_grip.step`](short_lap_case_three_line_grip.step) · [`short_lap_case_three_line_grip.stl`](short_lap_case_three_line_grip.stl) · [Python source](short_lap_case_three_line_grip.py)
-  - **What it is:** The `30 mm` short-lap wall-snap case with **`1.2 mm` (three-extrusion-line) walls** (~41% lighter than the `2 mm` version, ~`108.5 g` total), **smooth `0.7 mm` deep × `20 mm` wide full-wrap grip bands** (`+55 mm` on cap, `-30 mm` on body from the seam), blended snap-backing pads, and **no seam finger notches**.
-  - **How to print:** PETG, `0.4 mm` nozzle, `0.2 mm` layers, **3 wall loops**, `7%` adaptive cubic infill, `5 mm` automatic brim, **no supports** ([Orca process profile](notes/short_lap/profiles/process.json)). Body prints upright (`204 mm` tall); cap prints inverted on its roof (`90 mm` tall). You can select just the cap in your slicer if you want to inspect the feel first, though fit testing requires the matching thin body.
+- **Current model: Smooth C seam-grip case — unprinted prototype.** The selected C direction is implemented: straight, aligned sides, no wrap bands or local backing bumps, and a `3 mm` exposed overlap collar.
+  - **Print files:** [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`short_lap_case_smooth.stl`](short_lap_case_smooth.stl) · [Python entry point](short_lap_case_smooth.py). Print this matching body/cap pair; do not print the closed `_assembled` inspection pose.
+  - **How to print:** PETG, `0.4 mm` nozzle, `0.2 mm` layers, **3 configured wall loops**, `7%` adaptive cubic infill, `5 mm` automatic brim, no supports ([process profile](notes/short_lap/profiles/process.json)). Body upright (`204 mm`); cap inverted on its roof (`87 mm`). Thicker end walls may use more than three strokes.
+  - **Use:** Support the body underneath and lift the cap while upright or diagonal. The exposed collar replaces both separate grip bands; actual finger purchase and snap effort remain to test.
+  - **What changed:** Width grows just `1.3 mm` to `75.5 mm`; depth and closed length stay `51.2 × 264 mm`. End walls become `1.85 mm`, broad walls and sleeve stay `1.2 mm`, and original contents space and catch profile are retained. An internal sleeve-tip stop sets the seam gap.
+  - **Review:** [Actual CAD sections](renders/assembled/smooth_case_sections.svg) · [design and evidence](notes/smooth_exterior.md) · [closed inspection STEP](short_lap_case_smooth_assembled.step).
 - **What NOT to Do / Closed Branches:**
   - **Do NOT print the hinged cases (`C6`, `C7`, `C8`):** The `C8` shortened loop broke on its first push and the hinged direction is **permanently discarded**.
   - **Do NOT print `M1`–`M5` deep-sleeve cases:** `M1` was printed and works as a shell (and currently hosts the [TPU liner experiment](../dental_travel_case_liner/README.md)), but its `78 mm` sleeve and cantilever hooks had weak retention and pulled apart too easily.
-  - **Do NOT mix `2 mm` and `1.2 mm` parts:** The `2 mm` control (`short_lap_case.step`) and `1.2 mm` three-line (`short_lap_case_three_line_grip.step`) have different internal wall offsets—always pair matching bodies and caps.
+  - **Use matching variants:** Smooth C adds a new internal cap stop and seam reveal. Use its matching pair; the older `2 mm` and three-line variants also have different mating offsets. The wrap-grip files are retained as a superseded comparison.
   - **Do NOT run further sideways-impact FEA:** The computational side-knock release study is closed (`INCONCLUSIVE`); verify bag-bump retention physically with the printed box.
 
 ---
 
-## How the Current Design Works
+<a id="how-the-current-design-works"></a>
+
+## Smooth C: Grip and Closure
+
+The cap ends `3 mm` above the body shoulder, exposing the continuous inner sleeve. Rounded opposing rim edges provide a place to grip without separate bands. Inside the cap, a tapered seat contacts the sleeve tip and prevents overclosing; the catch pockets remain at their original height. The cap covers `27 mm` of the unchanged `30 mm` sleeve.
+
+![Actual smooth C seam and stop sections](renders/assembled/smooth_case_sections.png)
+
+The `0.6 mm` end-wall catches and their relief tracks are retained. Rigid CAD checks establish seated clearance, independent catch obstruction and a clear sampled withdrawal path after the initial snap. The thicker cap walls and added stop change stiffness, so previous force predictions do not qualify this version.
+
+## Previous Wrap-Grip Design (Superseded Comparison)
 
 ### 1. Wraparound Grip Bands & Upright Opening (`grip_human.md`)
 
@@ -57,11 +68,12 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Variant / Phase | Status | Printable STEP / STL | Notes |
 | --- | --- | --- | --- |
-| **Three-line wrap-grip case (Current)** | **On hold for appearance review** (`Unknown` print status) | [`short_lap_case_three_line_grip.step`](short_lap_case_three_line_grip.step) · [`.stl`](short_lap_case_three_line_grip.stl) | `1.2 mm` walls, `+55/-30 mm` wrap bands, no seam notches. |
+| **Smooth C seam-grip case (Current)** | **Unprinted prototype** (`Unknown`) | [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`.stl`](short_lap_case_smooth.stl) | Smooth sides, `3 mm` collar, internal stop; matching pair. |
+| **Three-line wrap-grip case** | Superseded comparison (`Unknown` print status) | [`short_lap_case_three_line_grip.step`](short_lap_case_three_line_grip.step) · [`.stl`](short_lap_case_three_line_grip.stl) | `1.2 mm` walls, `+55/-30 mm` wrap bands, no seam notches. |
 | **Three-line case (with old seam notches)** | Superseded comparison (`Unknown`) | [`short_lap_case_three_line.step`](short_lap_case_three_line.step) · [`.stl`](short_lap_case_three_line.stl) | Earlier `1.2 mm` pair before wrap-grip bands replaced seam notches. |
 | **`2 mm` thick short-lap case** | Heavy control (`Unknown`) | [`short_lap_case.step`](short_lap_case.step) · [`.stl`](short_lap_case.stl) | `2.0 mm` walls (`183 g`), rounded seam notches, no wrap bands. |
 | **Short-lap joint test crop (`2 mm`)** | Optional test coupon (`No`) | [`short_lap_joint_test.step`](short_lap_joint_test.step) · [`.stl`](short_lap_joint_test.stl) | `46 mm` cropped body + full `90 mm` `2 mm` cap. |
-| **Printed `M1` slim box** | **Printed & usable shell**, weak retention (Superseded) | [`m1_slim_dental_case.step`](m1_slim_dental_case.step) · [`.stl`](m1_slim_dental_case.stl) | Printed 2026-10-15; fits brush + paste, but halves pull apart without pressing release buttons. |
+| **Printed `M1` slim box** | **Printed & usable shell**, weak retention (Superseded) | [`m1_case.step`](m1_case.step) · [`.stl`](m1_case.stl) | Printed 2026-10-15; fits brush + paste, but halves pull apart without pressing release buttons. |
 | **Earlier discarded/historical files** | **Do not print** | See historical notes below | Hinged (`C6`–`C8`), `M2`–`M5`, `R1`–`R4`, cylinder, and initial two-lane clamshell. |
 
 ---
@@ -70,15 +82,16 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| **Test pieces** | Historical partial; current N/A | Full `short_lap_case_three_line_grip` pair has no separate coupon (`short_lap_joint_test` is for `2 mm` control) | Earlier: initial handle clip/socket worked (2026-10-14); `M1` joint coupon partly worked (2026-10-15); two short wall-snap coupons had high effort/noise (2026-10-19); `C8` shortened hinge loop broke on first push (2026-10-19). |
-| **Final printable object** | **Unknown** (Current 3-line grip case unprinted) | `short_lap_case_three_line_grip.step` / `.stl` | `M1` full box printed and usable (2026-10-15) with inadequate retention. Current `30 mm` 3-line wrap-grip case needs physical check for grip feel, snap effort/return, combined brush+paste packing, and bag-bump retention. |
+| **Test pieces** | Historical partial; current N/A | Full `short_lap_case_smooth` pair has no separate coupon (`short_lap_joint_test` is for `2 mm` control) | Earlier: initial handle clip/socket worked (2026-10-14); `M1` joint coupon partly worked (2026-10-15); two short wall-snap coupons had high effort/noise (2026-10-19); `C8` shortened hinge loop broke on first push (2026-10-19). |
+| **Final printable object** | **Unknown** (Smooth C has no reported print) | `short_lap_case_smooth.step` / `.stl` | Check seam grip, snap effort/return, stop seating, combined brush+paste packing, and bag-bump retention. `M1` full box was printed and usable (2026-10-15) with inadequate retention; wrap-grip pair remains unprinted. |
 
 ### Verification & Scope Limits
-- **CAD & Slicer:** Valid CadQuery geometry, 66 section thickness checks, individual brush (`30 mm`) and tube (`55 × 40 mm`) passage gauges, and OrcaSlicer 2.4.2 smoke slices (`0` notices, no supports, verified 3-stroke wall toolpaths) pass for `slim-short-lap-three-line-grip` ([report](notes/grip_human/finished_verification.json)).
-- **Physical Unknowns:** Slicer STL checks do not test Orca's GUI STEP importer. Actual PETG snap force, layer-bond durability, simultaneous loaded packing of the real brush and tube, grip traction, and resistance to knocks inside a packed travel bag remain physical checks (`UNKNOWN` / `INCONCLUSIVE`).
+- **Smooth C CAD:** Valid geometry; 20 actual wall/outline sections, unchanged sleeve/catches, internal hard-seat contact and overclosing obstruction, six independent-catch witnesses, 13 sampled opening poses and individual brush/tube passages pass ([CAD record](notes/smooth_case/cad.json)). OrcaSlicer 2.4.2 accepts the matching layout with the stated profile, no notices and no generated support ([slice report](notes/smooth_case/print_review.json), [publication association](notes/smooth_case/publication.json)). The [verification report](notes/smooth_case/verification.json) keeps physical requirements UNKNOWN.
+- **Previous wrap-grip evidence (historical):** Valid CadQuery geometry, 66 section thickness checks, individual brush (`30 mm`) and tube (`55 × 40 mm`) passage gauges, and OrcaSlicer 2.4.2 smoke slices (`0` notices, no supports, verified 3-stroke wall toolpaths) pass for `slim-short-lap-three-line-grip` ([report](notes/grip_human/finished_verification.json)).
+- **Physical Unknowns:** Slicer STL checks do not test Orca's GUI STEP importer. Actual PETG snap force with the thicker end walls, layer-bond durability, stop behavior, simultaneous loaded packing of the real brush and tube, seam-grip traction, and resistance to knocks inside a packed travel bag remain physical checks (`UNKNOWN` / `INCONCLUSIVE`).
 - **Reproduce verification CLI:**
   ```sh
-  ./execute.py --threads 1 model/dental_travel_case/verification.py --variant slim-short-lap-three-line-grip
+  ./execute.py --threads 1 model/dental_travel_case/verification.py --variant slim-short-lap-smooth-c
   ```
 
 ---
@@ -88,7 +101,7 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 All historical phases, negative results, and solver investigations are preserved in [`notes/`](notes/README.md):
 
 1. **Current Short-Lap Architecture and Exterior Exploration**
-   - [`notes/smooth_exterior.md`](notes/smooth_exterior.md) — SVG-only exploration of one-way body shoulders, exposed overlap grip and a continuous cap exterior; no revised printable geometry yet.
+   - [`notes/smooth_exterior.md`](notes/smooth_exterior.md) — C selection and implementation, earlier SVG proposals, continuous cap exterior, exposed seam grip and internal stop.
    - [`notes/grip_human.md`](notes/grip_human.md) — Wraparound grip band placement (`+55 / -30 mm`), upright opening walkthrough, finished 3-line CAD sections, and retirement of the over-constrained MyoSim 4-finger search ([`notes/grip_human/native_search.md`](notes/grip_human/native_search.md)).
    - [`notes/wall_comparison.md`](notes/wall_comparison.md) — `2 mm` (5-stroke) vs. `1.2 mm` (3-stroke) wall comparison, local snap-backing pads, finger-slot edge rounding, and `A`/`B`/`C` & `B1`–`B4` grip concept SVGs.
    - [`notes/short_lap.md`](notes/short_lap.md) — Selection of `30 mm` overlap (`18`/`24`/`30 mm` comparison), sideways-hit deformable contact investigation (`12.6 N` snapshot), and practical stopping lessons.

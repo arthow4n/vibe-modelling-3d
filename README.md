@@ -87,15 +87,13 @@ Modular 5-card display bases and 15-card compact archival box sharing a clear PE
 
 ### 2. Active Prototypes, Print Trials & Partial Results
 
-#### Dental travel case (Short-lap slim wall-snap box) — [`model/dental_travel_case/`](model/dental_travel_case/README.md)
-Slim two-piece travel box (`74.2 × 51.2 × 264 mm`) for an electric toothbrush (`255 mm`) and toothpaste tube (`160 × 55 × 40 mm`).
-- **Action / Print:**
-  - **Current action:** Compare the [smooth-exterior SVG proposals](model/dental_travel_case/renders/concepts/smooth_exterior_comparison.svg) before printing; no revised CAD selected.
-  - **Existing printable model (appearance review hold):** **Three-line wrap-grip case** — [`short_lap_case_three_line_grip.step`](model/dental_travel_case/short_lap_case_three_line_grip.step) ([`.stl`](model/dental_travel_case/short_lap_case_three_line_grip.stl)) with the [3-wall Orca profile](model/dental_travel_case/notes/short_lap/profiles/process.json) ([details & setup](model/dental_travel_case/README.md)). Features a `30 mm` overlap, `0.6 mm` wall-snap catches, `1.2 mm` walls (41% lighter than 2 mm), rounded finger-slot edges, and smooth `0.7 × 20 mm` wrap-around grip bands at `+55 mm` (cap) and `-30 mm` (body).
-  - **Do NOT print / Closed:** Hinged designs (`C6`/`C7`/`C8` — broken loop, direction discarded), `M1`–`M5` deep-sleeve boxes (`M1` retention too weak), and sideways-impact FEA (closed as `INCONCLUSIVE`; verify by physical bag test).
-- **Test pieces:** New production-joint prototype unprinted. Earlier short wall snaps had high effort/noise (variants unknown). `C7` rejected before print; `C8` shortened loop broke on first push, TPU strips unprinted (hinged work discarded).
-- **Final object:** Current 3-line wrap-grip `30 mm` short-lap case is **Unknown** (unprinted). Earlier `M1` slim box was printed and usable as a shell, but retention was inadequate.
-- **Provenance:** [Current](model/dental_travel_case/notes/short_lap.md#attribution), [historical](model/dental_travel_case/notes/provenance.md) · **Agent effort:** [Historical selected token/timing record](model/dental_travel_case/notes/agent_effort.md)
+#### Dental travel case (Smooth C seam-grip box) — [`model/dental_travel_case/`](model/dental_travel_case/README.md)
+Slim two-piece PETG box (`75.5 × 51.2 × 264 mm`) for an electric toothbrush (`255 mm`) and toothpaste tube (`160 × 55 × 40 mm`).
+- **Action / Print:** Smooth C **unprinted prototype** — [STEP](model/dental_travel_case/short_lap_case_smooth.step) · [STL](model/dental_travel_case/short_lap_case_smooth.stl). Smooth aligned sides, `3 mm` exposed seam grip, internal sleeve-tip stop; use the matching pair. PETG, `0.4 mm` nozzle, `0.2 mm` layers, 3 configured loops, no supports ([setup / evidence](model/dental_travel_case/README.md)).
+- **Do not print / Closed:** Closed `_assembled` inspection pose, superseded wrap-grip and deep-sleeve variants, and discarded hinged designs. Sideways-impact FEA remains closed; verify bag retention physically.
+- **Test pieces:** Current N/A. Earlier short wall snaps had high effort/noise (variants unknown); C7 rejected before print, C8 loop broke on first push and its TPU strips were unprinted.
+- **Final object:** Smooth C **Unknown** (no reported print); seam grip, stop and snap feel need testing. Previous three-line wrap-grip pair unprinted. Printed M1 was usable as a shell but had inadequate retention.
+- **Provenance:** [Smooth C](model/dental_travel_case/notes/smooth_exterior.md#phase-evidence-and-attribution), [short lap](model/dental_travel_case/notes/short_lap.md#attribution), [historical](model/dental_travel_case/notes/provenance.md) · **Agent effort:** [Historical record](model/dental_travel_case/notes/agent_effort.md)
 
 #### TPU damping box & wall-support research — [`model/tpu_damping_box/`](model/tpu_damping_box/README.md)
 30–34 mm TPU 95A test coupons used to qualify impact damping, tall-wall support durability, and surface finish before full liner prints.
