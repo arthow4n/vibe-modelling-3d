@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1580" height="1400" viewBox="0 0 1580 1400">
+  <style>text{font-family:DejaVu Sans,sans-serif}</style>
+  <rect x="0" y="0" width="1580" height="1400" rx="0" fill="#f4f4ef" stroke="none" />
+  <text x="25" y="43" font-size="30" fill="#253746" font-weight="bold">Three ways to develop the recessed saddle</text>
+  <text x="25" y="80" font-size="19" fill="#253746" font-weight="normal">B is the chosen direction for exploration. Compare the contact area, corner coverage and pulling slope.</text>
+  <text x="25" y="113" font-size="18" fill="#253746" font-weight="normal">Same 74.2 × 51.2 × 264 mm box proportions. Grip zones stay beyond the sleeve; old notches omitted in sketches only.</text>
+  <g transform="translate(25,145)">
+    <rect x="0" y="0" width="500" height="1175" rx="18" fill="#fff" stroke="none" />
+    <text x="24" y="40" font-size="25" fill="#253746" font-weight="bold">B1 · Oval dimples</text>
+    <text x="24" y="73" font-size="18" fill="#253746" font-weight="normal">Small pockets near the corners</text>
+    <rect x="180" y="119" width="126.14" height="448.8" rx="10" fill="#edf1f3" stroke="#377b98" />
+    <rect x="181" y="120" width="124.14" height="151" rx="9" fill="#deedf2" stroke="none" />
+    <rect x="182" y="221" width="122.14" height="51" rx="0" fill="#ecf2fb" stroke="none" />
+    <path d="M180,272 H306.14" stroke="#253746" stroke-width="2" fill="none" />
+    <path d="M182,221 H304.14" stroke="#377b98" stroke-width="1.5" fill="none" stroke-dasharray="5 4" />
+    <text x="195" y="145" font-size="15" fill="#377b98" font-weight="normal">CAP</text>
+    <text x="195" y="540" font-size="15" fill="#377b98" font-weight="normal">BODY</text>
+    <text x="24" y="228" font-size="14" fill="#377b98" font-weight="normal">Hidden sleeve</text>
+    <text x="24" y="248" font-size="14" fill="#377b98" font-weight="normal">30 mm overlap</text>
+    <path d="M138,244 L178,252" stroke="#377b98" stroke-width="1.5" fill="none" />
+    <rect x="188" y="170.0" width="16" height="34.0" rx="8" fill="#fafdfb" stroke="#247d6c" />
+    <path d="M192,175.0 Q200,187 192,199.0" stroke="#9bbdb4" stroke-width="1.6" fill="none" />
+    <rect x="282.14" y="170.0" width="16" height="34.0" rx="8" fill="#fafdfb" stroke="#247d6c" />
+    <path d="M286.14,175.0 Q294.14,187 286.14,199.0" stroke="#9bbdb4" stroke-width="1.6" fill="none" />
+    <ellipse cx="196" cy="187" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" />
+    <ellipse cx="290.14" cy="187" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" stroke-dasharray="3 3" />
+    <rect x="188" y="300.9" width="16" height="34.0" rx="8" fill="#fafdfb" stroke="#247d6c" />
+    <path d="M192,305.9 Q200,317.9 192,329.9" stroke="#9bbdb4" stroke-width="1.6" fill="none" />
+    <rect x="282.14" y="300.9" width="16" height="34.0" rx="8" fill="#fafdfb" stroke="#247d6c" />
+    <path d="M286.14,305.9 Q294.14,317.9 286.14,329.9" stroke="#9bbdb4" stroke-width="1.6" fill="none" />
+    <ellipse cx="196" cy="317.9" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" />
+    <ellipse cx="290.14" cy="317.9" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" stroke-dasharray="3 3" />
+    <path d="M355,208 L355,158" stroke="#247d6c" stroke-width="3" fill="none" />
+    <path d="M349,166 L355,158 L361,166" stroke="#247d6c" stroke-width="3" fill="none" />
+    <text x="374" y="178" font-size="17" fill="#247d6c" font-weight="normal">Cap ↑</text>
+    <path d="M355,313 L355,363" stroke="#247d6c" stroke-width="3" fill="none" />
+    <path d="M349,355 L355,363 L361,355" stroke="#247d6c" stroke-width="3" fill="none" />
+    <text x="374" y="348" font-size="17" fill="#247d6c" font-weight="normal">Body ↓</text>
+    <text x="24" y="411" font-size="16" fill="#253746" font-weight="normal">Same grasp centers:</text>
+    <text x="24" y="437" font-size="16" fill="#253746" font-weight="normal">cap 50 mm above seam;</text>
+    <text x="24" y="463" font-size="16" fill="#253746" font-weight="normal">body 27 mm below.</text>
+    <text x="24" y="598" font-size="14" fill="#647582" font-weight="normal">Orange = schematic finger contact, not hand-fit proof.</text>
+    <text x="24" y="638" font-size="18" fill="#253746" font-weight="bold">Where the hollow sits — end view</text>
+    <rect x="181" y="660" width="126" height="87" rx="10" fill="#edf1f3" stroke="#377b98" />
+    <path d="M193,660 H209" stroke="#247d6c" stroke-width="6" fill="none" />
+    <path d="M193,747 H209" stroke="#247d6c" stroke-width="6" fill="none" />
+    <path d="M279,660 H295" stroke="#247d6c" stroke-width="6" fill="none" />
+    <path d="M279,747 H295" stroke="#247d6c" stroke-width="6" fill="none" />
+    <text x="24" y="689" font-size="15" fill="#253746" font-weight="normal">Face pockets;</text>
+    <text x="24" y="715" font-size="15" fill="#253746" font-weight="normal">corner edge</text>
+    <text x="24" y="741" font-size="15" fill="#253746" font-weight="normal">stays plain.</text>
+    <text x="332" y="696" font-size="14" fill="#253746" font-weight="normal">Front + back</text>
+    <text x="332" y="722" font-size="14" fill="#253746" font-weight="normal">No holes</text>
+    <text x="24" y="791" font-size="18" fill="#253746" font-weight="bold">Cap surface profile along the pull</text>
+    <path d="M365,816 V970" stroke="#a1b0b8" stroke-width="1.2" fill="none" stroke-dasharray="4 4" />
+    <path d="M460,883 L460,825" stroke="#247d6c" stroke-width="3" fill="none" />
+    <path d="M454,833 L460,825 L466,833" stroke="#247d6c" stroke-width="3" fill="none" />
+    <text x="418" y="915" font-size="15" fill="#247d6c" font-weight="normal">Pull ↑</text>
+    <text x="24" y="837" font-size="15" fill="#253746" font-weight="normal">Dashed =</text>
+    <text x="24" y="861" font-size="15" fill="#253746" font-weight="normal">plain exterior</text>
+    <path d="M365,970 C365,942 338,942 338,891 C338,840 365,841 365,816" stroke="#247d6c" stroke-width="5" fill="none" />
+    <text x="24" y="937" font-size="14" fill="#647582" font-weight="normal">Profiles enlarged separately.</text>
+    <text x="24" y="1010" font-size="16" fill="#253746" font-weight="normal">20 × 10 mm footprint; ~0.5 mm deep.</text>
+    <text x="24" y="1037" font-size="16" fill="#253746" font-weight="normal">Subtle outline; precise finger placement.</text>
+    <text x="24" y="1064" font-size="16" fill="#253746" font-weight="normal">Mostly friction with a shallow finger seat.</text>
+    <text x="24" y="1111" font-size="16" fill="#253746" font-weight="bold">Reshape inner + outer skin together.</text>
+    <text x="24" y="1137" font-size="15" fill="#253746" font-weight="normal">Keep full wall thickness; check clearance.</text>
+    <text x="24" y="1161" font-size="14" fill="#647582" font-weight="normal">Concept only · no CAD or print validation</text>
+  </g>
+  <g transform="translate(545,145)">
+    <rect x="0" y="0" width="500" height="1175" rx="18" fill="#fff" stroke="none" />
+    <text x="24" y="40" font-size="25" fill="#253746" font-weight="bold">B2 · Long corner saddles</text>
+    <text x="24" y="73" font-size="18" fill="#253746" font-weight="normal">A longer, continuous corner hollow</text>
+    <rect x="180" y="119" width="126.14" height="448.8" rx="10" fill="#edf1f3" stroke="#377b98" />
+    <rect x="181" y="120" width="124.14" height="151" rx="9" fill="#deedf2" stroke="none" />
+    <rect x="182" y="221" width="122.14" height="51" rx="0" fill="#ecf2fb" stroke="none" />
+    <path d="M180,272 H306.14" stroke="#253746" stroke-width="2" fill="none" />
+    <path d="M182,221 H304.14" stroke="#377b98" stroke-width="1.5" fill="none" stroke-dasharray="5 4" />
+    <text x="195" y="145" font-size="15" fill="#377b98" font-weight="normal">CAP</text>
+    <text x="195" y="540" font-size="15" fill="#377b98" font-weight="normal">BODY</text>
+    <text x="24" y="228" font-size="14" fill="#377b98" font-weight="normal">Hidden sleeve</text>
+    <text x="24" y="248" font-size="14" fill="#377b98" font-weight="normal">30 mm overlap</text>
+    <path d="M138,244 L178,252" stroke="#377b98" stroke-width="1.5" fill="none" />
+    <rect x="179" y="161.5" width="24" height="51.0" rx="11" fill="#fafdfb" stroke="#247d6c" />
+    <path d="M184,167.5 Q196,187 184,206.5" stroke="#9bbdb4" stroke-width="1.6" fill="none" />
+    <rect x="283.14" y="161.5" width="24" height="51.0" rx="11" fill="#fafdfb" stroke="#247d6c" />
+    <path d="M288.14,167.5 Q300.14,187 288.14,206.5" stroke="#9bbdb4" stroke-width="1.6" fill="none" />
+    <ellipse cx="178" cy="187" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" />
+    <ellipse cx="308.14" cy="187" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" stroke-dasharray="3 3" />
+    <rect x="179" y="292.4" width="24" height="51.0" rx="11" fill="#fafdfb" stroke="#247d6c" />
+    <path d="M184,298.4 Q196,317.9 184,337.4" stroke="#9bbdb4" stroke-width="1.6" fill="none" />
+    <rect x="283.14" y="292.4" width="24" height="51.0" rx="11" fill="#fafdfb" stroke="#247d6c" />
+    <path d="M288.14,298.4 Q300.14,317.9 288.14,337.4" stroke="#9bbdb4" stroke-width="1.6" fill="none" />
+    <ellipse cx="178" cy="317.9" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" />
+    <ellipse cx="308.14" cy="317.9" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" stroke-dasharray="3 3" />
+    <path d="M355,208 L355,158" stroke="#247d6c" stroke-width="3" fill="none" />
+    <path d="M349,166 L355,158 L361,166" stroke="#247d6c" stroke-width="3" fill="none" />
+    <text x="374" y="178" font-size="17" fill="#247d6c" font-weight="normal">Cap ↑</text>
+    <path d="M355,313 L355,363" stroke="#247d6c" stroke-width="3" fill="none" />
+    <path d="M349,355 L355,363 L361,355" stroke="#247d6c" stroke-width="3" fill="none" />
+    <text x="374" y="348" font-size="17" fill="#247d6c" font-weight="normal">Body ↓</text>
+    <text x="24" y="411" font-size="16" fill="#253746" font-weight="normal">Same grasp centers:</text>
+    <text x="24" y="437" font-size="16" fill="#253746" font-weight="normal">cap 50 mm above seam;</text>
+    <text x="24" y="463" font-size="16" fill="#253746" font-weight="normal">body 27 mm below.</text>
+    <text x="24" y="598" font-size="14" fill="#647582" font-weight="normal">Orange = schematic finger contact, not hand-fit proof.</text>
+    <text x="24" y="638" font-size="18" fill="#253746" font-weight="bold">Where the hollow sits — end view</text>
+    <rect x="181" y="660" width="126" height="87" rx="10" fill="#edf1f3" stroke="#377b98" />
+    <path d="M181,682 L181,670 Q181,660 191,660 L203,660" stroke="#247d6c" stroke-width="6" fill="none" transform="rotate(0 181 660)" stroke-linecap="round" />
+    <path d="M307,682 L307,670 Q307,660 317,660 L329,660" stroke="#247d6c" stroke-width="6" fill="none" transform="rotate(90 307 660)" stroke-linecap="round" />
+    <path d="M307,769 L307,757 Q307,747 317,747 L329,747" stroke="#247d6c" stroke-width="6" fill="none" transform="rotate(180 307 747)" stroke-linecap="round" />
+    <path d="M181,769 L181,757 Q181,747 191,747 L203,747" stroke="#247d6c" stroke-width="6" fill="none" transform="rotate(270 181 747)" stroke-linecap="round" />
+    <text x="24" y="689" font-size="15" fill="#253746" font-weight="normal">Wraps around</text>
+    <text x="24" y="715" font-size="15" fill="#253746" font-weight="normal">all 4 corners;</text>
+    <text x="24" y="741" font-size="15" fill="#253746" font-weight="normal">center plain.</text>
+    <text x="332" y="696" font-size="14" fill="#253746" font-weight="normal">Front + back</text>
+    <text x="332" y="722" font-size="14" fill="#253746" font-weight="normal">No holes</text>
+    <text x="24" y="791" font-size="18" fill="#253746" font-weight="bold">Cap surface profile along the pull</text>
+    <path d="M365,816 V970" stroke="#a1b0b8" stroke-width="1.2" fill="none" stroke-dasharray="4 4" />
+    <path d="M460,883 L460,825" stroke="#247d6c" stroke-width="3" fill="none" />
+    <path d="M454,833 L460,825 L466,833" stroke="#247d6c" stroke-width="3" fill="none" />
+    <text x="418" y="915" font-size="15" fill="#247d6c" font-weight="normal">Pull ↑</text>
+    <text x="24" y="837" font-size="15" fill="#253746" font-weight="normal">Dashed =</text>
+    <text x="24" y="861" font-size="15" fill="#253746" font-weight="normal">plain exterior</text>
+    <path d="M365,970 C365,928 332,942 332,893 C332,844 365,858 365,816" stroke="#247d6c" stroke-width="5" fill="none" />
+    <text x="24" y="937" font-size="14" fill="#647582" font-weight="normal">Profiles enlarged separately.</text>
+    <text x="24" y="1010" font-size="16" fill="#253746" font-weight="normal">30 mm long; ~18 mm around corner.</text>
+    <text x="24" y="1037" font-size="16" fill="#253746" font-weight="normal">~0.6 mm deep; more freedom to regrip.</text>
+    <text x="24" y="1064" font-size="16" fill="#253746" font-weight="normal">Broad gentle slopes; no abrupt catch.</text>
+    <text x="24" y="1111" font-size="16" fill="#253746" font-weight="bold">Reshape inner + outer skin together.</text>
+    <text x="24" y="1137" font-size="15" fill="#253746" font-weight="normal">Keep full wall thickness; check clearance.</text>
+    <text x="24" y="1161" font-size="14" fill="#647582" font-weight="normal">Concept only · no CAD or print validation</text>
+  </g>
+  <g transform="translate(1065,145)">
+    <rect x="0" y="0" width="500" height="1175" rx="18" fill="#fff" stroke="none" />
+    <text x="24" y="40" font-size="25" fill="#253746" font-weight="bold">B3 · Directional scoops</text>
+    <text x="24" y="73" font-size="18" fill="#253746" font-weight="normal">A rounded wall to pull against</text>
+    <rect x="180" y="119" width="126.14" height="448.8" rx="10" fill="#edf1f3" stroke="#377b98" />
+    <rect x="181" y="120" width="124.14" height="151" rx="9" fill="#deedf2" stroke="none" />
+    <rect x="182" y="221" width="122.14" height="51" rx="0" fill="#ecf2fb" stroke="none" />
+    <path d="M180,272 H306.14" stroke="#253746" stroke-width="2" fill="none" />
+    <path d="M182,221 H304.14" stroke="#377b98" stroke-width="1.5" fill="none" stroke-dasharray="5 4" />
+    <text x="195" y="145" font-size="15" fill="#377b98" font-weight="normal">CAP</text>
+    <text x="195" y="540" font-size="15" fill="#377b98" font-weight="normal">BODY</text>
+    <text x="24" y="228" font-size="14" fill="#377b98" font-weight="normal">Hidden sleeve</text>
+    <text x="24" y="248" font-size="14" fill="#377b98" font-weight="normal">30 mm overlap</text>
+    <path d="M138,244 L178,252" stroke="#377b98" stroke-width="1.5" fill="none" />
+    <path d="M184,207.4 C174,199.4 178,181.6 179,172.6 Q190,161.6 201,172.6 C202,181.6 204,199.4 194,207.4 Z" stroke="#247d6c" stroke-width="1.5" fill="#fafdfb" />
+    <path d="M183,173.6 Q190,170.6 197,173.6" stroke="#247d6c" stroke-width="3" fill="none" />
+    <path d="M288.14,207.4 C278.14,199.4 282.14,181.6 283.14,172.6 Q294.14,161.6 305.14,172.6 C306.14,181.6 308.14,199.4 298.14,207.4 Z" stroke="#247d6c" stroke-width="1.5" fill="#fafdfb" />
+    <path d="M287.14,173.6 Q294.14,170.6 301.14,173.6" stroke="#247d6c" stroke-width="3" fill="none" />
+    <ellipse cx="178" cy="187" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" />
+    <ellipse cx="308.14" cy="187" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" stroke-dasharray="3 3" />
+    <path d="M184,338.29999999999995 C174,330.29999999999995 178,312.5 179,303.5 Q190,292.5 201,303.5 C202,312.5 204,330.29999999999995 194,338.29999999999995 Z" stroke="#247d6c" stroke-width="1.5" fill="#fafdfb" transform="translate(0 635.8) scale(1 -1)" />
+    <path d="M183,331.29999999999995 Q190,334.29999999999995 197,331.29999999999995" stroke="#247d6c" stroke-width="3" fill="none" />
+    <path d="M288.14,338.29999999999995 C278.14,330.29999999999995 282.14,312.5 283.14,303.5 Q294.14,292.5 305.14,303.5 C306.14,312.5 308.14,330.29999999999995 298.14,338.29999999999995 Z" stroke="#247d6c" stroke-width="1.5" fill="#fafdfb" transform="translate(0 635.8) scale(1 -1)" />
+    <path d="M287.14,331.29999999999995 Q294.14,334.29999999999995 301.14,331.29999999999995" stroke="#247d6c" stroke-width="3" fill="none" />
+    <ellipse cx="178" cy="317.9" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" />
+    <ellipse cx="308.14" cy="317.9" rx="11" ry="14" fill="#d48740" fill-opacity=".23" stroke="#d48740" stroke-dasharray="3 3" />
+    <path d="M355,208 L355,158" stroke="#247d6c" stroke-width="3" fill="none" />
+    <path d="M349,166 L355,158 L361,166" stroke="#247d6c" stroke-width="3" fill="none" />
+    <text x="374" y="178" font-size="17" fill="#247d6c" font-weight="normal">Cap ↑</text>
+    <path d="M355,313 L355,363" stroke="#247d6c" stroke-width="3" fill="none" />
+    <path d="M349,355 L355,363 L361,355" stroke="#247d6c" stroke-width="3" fill="none" />
+    <text x="374" y="348" font-size="17" fill="#247d6c" font-weight="normal">Body ↓</text>
+    <text x="24" y="411" font-size="16" fill="#253746" font-weight="normal">Same grasp centers:</text>
+    <text x="24" y="437" font-size="16" fill="#253746" font-weight="normal">cap 50 mm above seam;</text>
+    <text x="24" y="463" font-size="16" fill="#253746" font-weight="normal">body 27 mm below.</text>
+    <text x="24" y="598" font-size="14" fill="#647582" font-weight="normal">Orange = schematic finger contact, not hand-fit proof.</text>
+    <text x="24" y="638" font-size="18" fill="#253746" font-weight="bold">Where the hollow sits — end view</text>
+    <rect x="181" y="660" width="126" height="87" rx="10" fill="#edf1f3" stroke="#377b98" />
+    <path d="M181,682 L181,670 Q181,660 191,660 L203,660" stroke="#247d6c" stroke-width="6" fill="none" transform="rotate(0 181 660)" stroke-linecap="round" />
+    <path d="M307,682 L307,670 Q307,660 317,660 L329,660" stroke="#247d6c" stroke-width="6" fill="none" transform="rotate(90 307 660)" stroke-linecap="round" />
+    <path d="M307,769 L307,757 Q307,747 317,747 L329,747" stroke="#247d6c" stroke-width="6" fill="none" transform="rotate(180 307 747)" stroke-linecap="round" />
+    <path d="M181,769 L181,757 Q181,747 191,747 L203,747" stroke="#247d6c" stroke-width="6" fill="none" transform="rotate(270 181 747)" stroke-linecap="round" />
+    <text x="24" y="689" font-size="15" fill="#253746" font-weight="normal">Wraps around</text>
+    <text x="24" y="715" font-size="15" fill="#253746" font-weight="normal">all 4 corners;</text>
+    <text x="24" y="741" font-size="15" fill="#253746" font-weight="normal">center plain.</text>
+    <text x="332" y="696" font-size="14" fill="#253746" font-weight="normal">Front + back</text>
+    <text x="332" y="722" font-size="14" fill="#253746" font-weight="normal">No holes</text>
+    <text x="24" y="791" font-size="18" fill="#253746" font-weight="bold">Cap surface profile along the pull</text>
+    <path d="M365,816 V970" stroke="#a1b0b8" stroke-width="1.2" fill="none" stroke-dasharray="4 4" />
+    <path d="M460,883 L460,825" stroke="#247d6c" stroke-width="3" fill="none" />
+    <path d="M454,833 L460,825 L466,833" stroke="#247d6c" stroke-width="3" fill="none" />
+    <text x="418" y="915" font-size="15" fill="#247d6c" font-weight="normal">Pull ↑</text>
+    <text x="24" y="837" font-size="15" fill="#253746" font-weight="normal">Dashed =</text>
+    <text x="24" y="861" font-size="15" fill="#253746" font-weight="normal">plain exterior</text>
+    <path d="M365,970 C365,930 332,918 332,866 C332,841 365,851 365,816" stroke="#247d6c" stroke-width="5" fill="none" />
+    <text x="24" y="937" font-size="14" fill="#647582" font-weight="normal">Profiles enlarged separately.</text>
+    <text x="24" y="966" font-size="15" fill="#247d6c" font-weight="normal">Body scoop is mirrored: pull ↓.</text>
+    <text x="24" y="1010" font-size="16" fill="#253746" font-weight="normal">24 mm long; ~14 mm around corner.</text>
+    <text x="24" y="1037" font-size="16" fill="#253746" font-weight="normal">~0.6 mm deep; shorter curved pull wall.</text>
+    <text x="24" y="1064" font-size="16" fill="#253746" font-weight="normal">More directional purchase; feel untested.</text>
+    <text x="24" y="1111" font-size="16" fill="#253746" font-weight="bold">Reshape inner + outer skin together.</text>
+    <text x="24" y="1137" font-size="15" fill="#253746" font-weight="normal">Keep full wall thickness; check clearance.</text>
+    <text x="24" y="1161" font-size="14" fill="#647582" font-weight="normal">Concept only · no CAD or print validation</text>
+  </g>
+  <text x="25" y="1354" font-size="18" fill="#253746" font-weight="normal">All dimensions are proposals. Existing CAD / STEP / STL unchanged. No ribs, outward tabs or through-holes in these concepts.</text>
+  <text x="25" y="1383" font-size="17" fill="#253746" font-weight="normal">PETG concept, 0.4 mm nozzle / 0.2 mm layers. Actual grip, opening force, fit and printability remain untested.</text>
+</svg>
