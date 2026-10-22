@@ -1,8 +1,8 @@
 # Rotary closure with a solid custom printed screw and nut
 
-**Print only the two replacement fastener parts:** [STEP](../rotary_printed_fasteners.step) · [STL](../rotary_printed_fasteners.stl) · [Python](../rotary_printed_fasteners.py). Keep the **body, cap and spring wheel already printing** from the indexed sample. Their geometry is unchanged; the new pair fits the existing bore and top-loading nut pocket. No metal nut or new material is needed. The full case remains on hold.
+**Pause further shell/full-case prints: the indexed sample is too tight to separate in PLA even with the wheel completely removed.** This is a guide-fit failure independent of the lock or screw. The replacement screw has not been printed, and replacing it will not resolve the shell binding. PLA is the current development material; PETG has not been tested and is not an assumed remedy. [Guide diagnosis](#pla-guide-binding-feedback--2026-10-22).
 
-**Print the pair in PLA at 0.2 mm layers, 0.4 mm nozzle, four walls and 100% rectilinear infill, supports off.** The screw's external hex face and the nut's large flat face are already on the bed. Use a 5 mm automatic brim and your PLA temperature/flow preset. These solid settings apply to the fasteners only; the existing shells and spring wheel retain their own settings. [Diagnostic process](printed_fasteners/profiles/process.json).
+The compatible replacement fastener files remain available for an independent thread-fit trial: [STEP](../rotary_printed_fasteners.step) · [STL](../rotary_printed_fasteners.stl) · [Python](../rotary_printed_fasteners.py). Their geometry fits the existing sample, but printed thread fit remains untested. **If testing the pair separately, use PLA at 0.2 mm layers, 0.4 mm nozzle, four walls and 100% rectilinear infill, supports off.** The screw's external hex face and the nut's large flat face are already on the bed. Use a 5 mm automatic brim and your PLA temperature/flow preset. These solid settings apply to the fasteners only; the existing shells and spring wheel retain their own settings. [Diagnostic process](printed_fasteners/profiles/process.json).
 
 ![Replacement screw and keyed printed nut](../renders/tests/printed_fasteners/rotary_printed_fasteners_isometric.png)
 
@@ -24,9 +24,23 @@ The agent initially asserted the core was solid from reading the intended cylind
 
 The old diagnostic process also used sparse infill through parts of the head and shoulder. The new pair is explicitly **100% infill** and its sampled toolpaths fill the centre through head, shoulder and thread. Increasing infill alone could never repair the old CAD hole. [Actual old/new paths](../renders/tests/printed_fasteners/core_paths.svg) · [path evidence](printed_fasteners/core_paths.json).
 
+## PLA guide-binding feedback — 2026-10-22
+
+The user has printed the previous indexed sample and finds its PLA body and cap very tight and hard to pull apart. They explicitly confirm the problem persists with the **wheel completely removed**. The replacement screw is not printed. They are exploring PLA first; PETG is untested and may be explored later. The user expects the approximately 30 mm overlap to guide the case adequately once it releases; that expectation is not a measured retention result. The model has **30 mm sleeve height (3 cm), with 27 mm actually engaged** because of the 3 mm seam reveal.
+
+A targeted inspection of the actual delivered `rotary_index_test.step`, identified in [guide evidence](printed_fasteners/guide_review.json), finds **0.30 mm nominal clearance per side** at the four flats and a rounded-corner witness: sleeve outside 71.2 × 48.2 mm, cap inside 71.8 × 48.8 mm. Sampled straight withdrawal has no body/cap solid overlap. There are no shell snap teeth in this rotary sample. This establishes intended geometry only; it does not override the physical binding report or establish low sliding effort.
+
+The guide is nearly continuous around the perimeter and over the engaged length. Its tight nominal allowance leaves little room for printed surface error or misalignment. Which surfaces rub, the actual part dimensions and pull force are unknown; roughness, seams, shape error and cocking are plausible contributors rather than measured causes. The closed-ended sample also differs in stiffness from open R1a, whose qualitative success does not qualify the newer guide. The entry has no dedicated lead-in chamfer. Printed contact or end effects have not been isolated.
+
+The next design direction is to **preserve the long overlap while relaxing the sliding fit**, add an entry lead-in, and consider relieved broad surfaces with deliberately placed guide lands. The rotary nose should retain the cap; the sleeve should guide it without functioning as a friction lock. Any changed guide play must still preserve nose capture and side restraint. No new geometry, clearance value or print is qualified in this diagnosis phase. The new screw alone is not a correction for this problem, and an unchanged PETG reprint is not the recommended next experiment.
+
+[Prusa's tolerance guidance](https://help.prusa3d.com/article/modeling-with-3d-printing-in-mind_164135#tolerances) treats nominal clearance as a starting choice dependent on geometry, orientation, settings and material. Its generic 0.3 mm starting point is not qualification of this long rectangular PLA joint. Prior rigid-clearance checks answered geometric obstruction, not printed friction or comfortable operation.
+
 ## Assemble using the current sample
 
-1. Finish the body, cap and wheel already printing. Set aside the old fine-thread screw and metal M6 nut; neither mates with this new pair. Remove the pair's brim and any first-layer burrs without sanding away thread flanks.
+These are the preserved assembly steps for the compatible fastener pair; resolve the reported guide binding before treating the assembled sample as usable.
+
+1. Retain the existing body, cap and wheel for reference. Set aside the old fine-thread screw and metal M6 nut; neither mates with this new pair. Remove the pair's brim and any first-layer burrs without sanding away thread flanks.
 2. Try the new screw and nut **loose in your hands first**. Start square, back-turn until the lead finds its start, then turn gently. They should engage for about two turns without forcing, whitening or cracking. The nut is shallow to preserve compatibility; fit, stripping and durability remain untested.
 3. With the cap off, drop the printed nut into the existing top-loading pocket. Its **10 mm side runs across the slot**, its 11 mm dimension is vertical, and its threaded hole points out toward the wheel. The pocket's flat walls keep it from spinning; backing separates it from storage.
 4. Place the wheel over the body pins in LOCK and pass the new screw through it. Start the printed nut gently, then seat the shoulder using an **8 mm socket, maximum 12.8 mm outside diameter**. Do not tighten beyond light seating. The recessed head and protected interior remain as before.
@@ -45,8 +59,8 @@ The compatible body/cap/wheel are those in [`rotary_index_test.step`](../rotary_
 | Item | Print status | Artifact(s) | User result / remaining observation |
 | --- | --- | --- | --- |
 | R1a action sample | **Yes** | Unchanged `rotary_r1_test.step` / `.stl` | User reports “kind of works” / “okay” on 2026-10-22; quantitative effort, durability and bag security unknown. Exposed final appearance remains rejected. |
-| Indexed spring sample, old M6 fastener revision | **Partial — printing** | `rotary_index_test.step` / `.stl` at `d2e367c` | User anticipates screw breakage / inability to join; no completed assembly or actual break reported. Hollow thread CAD defect confirmed. Retain shells and wheel. |
-| Coarse printed replacement pair | **Unknown** | `rotary_printed_fasteners.py` / `.step` / `.stl` | Solid geometry/path checks pass; actual fit, strength and repeated use await printing. |
+| Indexed spring sample, old M6 fastener revision | **Partial — shells printed and tested; sliding fit rejected** | `rotary_index_test.step` / `.stl` at `d2e367c` | PLA body/cap very hard to separate with wheel removed. No successful complete closure result. Hollow old thread also confirmed; actual screw breakage not reported. |
+| Coarse printed replacement pair | **No — screw not printed; nut unreported** | `rotary_printed_fasteners.py` / `.step` / `.stl` | Solid geometry/path checks pass; actual fit, strength and repeated use await printing. Does not remedy guide binding. |
 | Full rotary case | **N/A — study only** | No new production print release | Full case on hold; retention force, far-edge peel and bag shaking unqualified. |
 
 ## History, references and attribution

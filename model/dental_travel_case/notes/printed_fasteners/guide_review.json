@@ -1,0 +1,95 @@
+{
+  "scope": "Targeted delivered-STEP guide inspection prompted by physical binding with wheel absent; no new geometry or fit qualification",
+  "step": "rotary_index_test.step",
+  "sha256": "7b3f983b3479d10e4a0c2bbb3ef9603471179b707d7896de1997f2ca4cc38bcf",
+  "sleeve_height_mm": 30,
+  "seam_reveal_mm": 3,
+  "engaged_guide_length_mm": 27,
+  "sleeve_outside_mm": [
+    71.2,
+    48.2
+  ],
+  "cap_inside_mm": [
+    71.8,
+    48.8
+  ],
+  "gap_witnesses": [
+    {
+      "sleeve_surface_point_mm": [
+        35.6,
+        0,
+        40
+      ],
+      "distance_to_body_mm": 0.0,
+      "distance_to_cap_mm": 0.30000000000000426
+    },
+    {
+      "sleeve_surface_point_mm": [
+        -35.6,
+        0,
+        40
+      ],
+      "distance_to_body_mm": 0.0,
+      "distance_to_cap_mm": 0.30000000000000426
+    },
+    {
+      "sleeve_surface_point_mm": [
+        0,
+        24.1,
+        40
+      ],
+      "distance_to_body_mm": 0.0,
+      "distance_to_cap_mm": 0.30000000000000426
+    },
+    {
+      "sleeve_surface_point_mm": [
+        0,
+        -24.1,
+        40
+      ],
+      "distance_to_body_mm": 0.0,
+      "distance_to_cap_mm": 0.29999999999999005
+    },
+    {
+      "sleeve_surface_point_mm": [
+        34.42842712474619,
+        22.928427124746193,
+        40
+      ],
+      "distance_to_body_mm": 0.0,
+      "distance_to_cap_mm": 0.2999999999999944
+    }
+  ],
+  "withdrawal": [
+    {
+      "lift_mm": 0,
+      "rigid_overlap_mm3": 0.0
+    },
+    {
+      "lift_mm": 1,
+      "rigid_overlap_mm3": 0.0
+    },
+    {
+      "lift_mm": 5,
+      "rigid_overlap_mm3": 0.0
+    },
+    {
+      "lift_mm": 15,
+      "rigid_overlap_mm3": 0.0
+    },
+    {
+      "lift_mm": 27,
+      "rigid_overlap_mm3": 0.0
+    },
+    {
+      "lift_mm": 30,
+      "rigid_overlap_mm3": 0.0
+    },
+    {
+      "lift_mm": 40,
+      "rigid_overlap_mm3": 0.0
+    }
+  ],
+  "physical_feedback": "User reports PLA body/cap difficult to pull apart even with wheel completely removed. New printed screw not printed. Actual surface error, force and exact settings unmeasured.",
+  "conclusion": "Nominal delivered geometry provides 0.30mm per-side gap and sampled rigid withdrawal without obstruction. Physical guide binding is confirmed by user; this does not qualify printed sliding effort or identify rubbing location. PETG is not established as a remedy."
+}

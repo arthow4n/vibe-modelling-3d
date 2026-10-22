@@ -4,7 +4,7 @@ A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exter
 
 ## At a Glance: What to Do Now
 
-- **Current action: print the [custom screw + nut STEP](rotary_printed_fasteners.step) / [STL](rotary_printed_fasteners.stl) only.** Keep the body, cap and spring wheel already printing; their geometry is unchanged. PLA, 0.4 mm nozzle, 0.2 mm layers, four walls, **100% infill**, supports off for the replacement pair. [Assembly and evidence](notes/rotary_refinement.md). The old M6 screw is hollow in its CAD thread and must not be repeated. **R1a is printed and reported to work okay**; final exposed appearance remains rejected. Full case stays on hold.
+- **Current action: pause additional indexed shell/full-case prints.** The printed PLA body and cap are very hard to separate **even with the wheel removed**. [Guide diagnosis](notes/rotary_refinement.md#pla-guide-binding-feedback--2026-10-22). The guide has 0.30 mm nominal clearance per side over 27 mm engagement; practical sliding fit needs revision. PLA is the development material; PETG is untested. The [coarse screw/nut STEP](rotary_printed_fasteners.step) / [STL](rotary_printed_fasteners.stl) remain an independent thread trial, not a fix for shell binding; the new screw is not printed. R1a works okay. The old hollow M6 screw must not be repeated.
 - **Previous B1 sample:** [STEP](slider_b_test.step) · [STL](slider_b_test.stl), retained for reference, not a current print recommendation. Print/use results were not reported; the bulky exterior is a product-design rejection. [Historical sample record](notes/slider_b.md).
 - **Printed trial:** [PLA C2 sample STEP](smooth_joint_test.step) · [STL](smooth_joint_test.stl), retained for identification, not a repeat-print recommendation. Its open ends limit transfer to the full case; the user suspects PETG would also be too tight, but PETG has not been tested.
 - **Existing CAD: Smooth C seam-grip case — full box unprinted; design on hold after sample rejection.** The selected C direction is implemented: straight, aligned sides, no wrap bands or local backing bumps, and a `3 mm` exposed overlap collar.
@@ -23,7 +23,7 @@ A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exter
 
 ## Current rotary refinement
 
-The current wheel uses a **coarse custom printed screw and keyed printed nut**, replacing the old hollow fine M6 screw. Both fit the indexed sample already printing. The shoulder, recessed head, protected storage walls, cap keeper and spring detent remain unchanged. [Sections, solid-core checks and assembly](notes/rotary_refinement.md). Actual new thread fit and effort remain untested; local projection remains 10.4 mm.
+The current wheel uses a **coarse custom printed screw and keyed printed nut**, replacing the old hollow fine M6 screw. Both geometrically fit the indexed sample, whose printed PLA guide now binds even without the wheel. The shoulder, recessed head, protected storage walls, cap keeper and spring detent remain unchanged. [Sections, solid-core checks and assembly](notes/rotary_refinement.md). Actual new thread fit and effort remain untested; local projection remains 10.4 mm.
 
 <a id="how-the-current-design-works"></a>
 
@@ -84,8 +84,8 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Variant / Phase | Status | Printable STEP / STL | Notes |
 | --- | --- | --- | --- |
-| **Coarse printed replacement pair** | **Current experimental files; print status unknown** | [STEP](rotary_printed_fasteners.step) · [STL](rotary_printed_fasteners.stl) | Print solid. Keep indexed body/cap/wheel; replace both old screw and metal nut. [Instructions](notes/rotary_refinement.md). |
-| Indexed spring sample | Printing; old screw superseded | [Original STEP](rotary_index_test.step) · [STL](rotary_index_test.stl) | Keep body/cap/wheel only. Fine M6 screw has a confirmed hollow CAD core. |
+| **Coarse printed replacement pair** | **Independent thread trial; screw not printed** | [STEP](rotary_printed_fasteners.step) · [STL](rotary_printed_fasteners.stl) | Print solid. Keep indexed body/cap/wheel; replace both old screw and metal nut. [Instructions](notes/rotary_refinement.md). |
+| Indexed spring sample | PLA shells printed; guide sliding rejected; old screw superseded | [Original STEP](rotary_index_test.step) · [STL](rotary_index_test.stl) | Guide binds with wheel removed. Fine M6 screw also has a confirmed hollow CAD core. Do not repeat unchanged shells. |
 | **R1a swivel-tab trial** | **Printed; action works okay; exposed form rejected for final box** | [`rotary_r1_test.step`](rotary_r1_test.step) · [`.stl`](rotary_r1_test.stl) | Three printed parts + M3×12 + two M3 nuts; [instructions](notes/rotary_r1.md). |
 | **B1 sliding-yoke trial (On hold)** | **Bulk rejected; print status unknown** | [`slider_b_test.step`](slider_b_test.step) · [`.stl`](slider_b_test.stl) | Three separate parts; short manual lock/unlock trial. |
 | **Short PLA C2 joint trial** | **Printed in PLA; rejected for effort** | [`smooth_joint_test.step`](smooth_joint_test.step) · [`.stl`](smooth_joint_test.stl) | Open-ring 46/37 mm pair; local fit/action trial, not full-case force validation. |
@@ -103,7 +103,7 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| **Test pieces** | R1a Yes — works okay; indexed sample Partial — printing; replacement pair Unknown | `rotary_printed_fasteners.step` / `.stl`; [current record](notes/rotary_refinement.md) | New pair fit/effort unknown; old hollow M6 axle superseded. Earlier: initial clip/socket worked (2026-10-14); M1 joint partly worked (2026-10-15); short wall snaps had high effort/noise and C8 hinge broke (2026-10-19). |
+| **Test pieces** | R1a Yes — works okay; indexed shells printed, sliding rejected; replacement screw No | `rotary_printed_fasteners.step` / `.stl`; [current record](notes/rotary_refinement.md) | PLA guide binds with wheel removed. New pair fit/effort unknown; old hollow M6 axle superseded. Earlier: initial clip/socket worked (2026-10-14); M1 joint partly worked (2026-10-15); short wall snaps had high effort/noise and C8 hinge broke (2026-10-19). |
 | **Final printable object** | **Unknown** (Smooth C has no reported print) | `short_lap_case_smooth.step` / `.stl` | Check seam grip, snap effort/return, stop seating, combined brush+paste packing, and bag-bump retention. `M1` full box was printed and usable (2026-10-15) with inadequate retention; wrap-grip pair remains unprinted. |
 
 ### Verification & Scope Limits
