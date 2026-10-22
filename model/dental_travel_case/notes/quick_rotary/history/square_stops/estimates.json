@@ -1,0 +1,21 @@
+{
+  "quick_shells": {
+    "slice_input_sha256": "e1d19a60cec6afd179bac415404e858407ab2ef1f7b4cf091bf37be1130e3e16",
+    "gcode_sha256": "a893d793176ec52cda03a80e6997a13bc357da0458c4f1ea5141fbb47b7423b5",
+    "filament_g": 52.77,
+    "time": "1h 40m 33s"
+  },
+  "earlier_70mm_layout": {
+    "slice_input_sha256": "efb07960df339b1ce6b261b6f09bb5f82b54bd27f6e7518a160eb12b1ded7ec5",
+    "gcode_sha256": "8637d0de28415aa55a7552d8c971e664b00430804674840fed25836f0b6598a5",
+    "filament_g": 77.36,
+    "time": "2h 13m 56s"
+  },
+  "printed_pair": {
+    "slice_input_sha256": "64fae43884ee299920c213b79b1a8bcd78668644b2a3a5ecaad149f189ef6089",
+    "gcode_sha256": "022c22369256eb36b9af38271d738069bfec7e49f528af1d73475c224632f233",
+    "filament_g": 0.99,
+    "time": "8m 59s"
+  },
+  "limits": "Existing selected-profile slicer footer estimates including print aids; PETG diagnostic, not actual PLA timing. Earlier layout includes obsolete M6 axle; new shell job excludes fasteners and its separate solid pair is shown."
+}

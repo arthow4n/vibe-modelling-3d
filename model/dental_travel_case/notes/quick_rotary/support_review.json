@@ -1,6 +1,6 @@
 {
-  "slice_input_sha256": "e1d19a60cec6afd179bac415404e858407ab2ef1f7b4cf091bf37be1130e3e16",
-  "gcode_sha256": "a893d793176ec52cda03a80e6997a13bc357da0458c4f1ea5141fbb47b7423b5",
+  "slice_input_sha256": "9650d309f80b3c73a5d986f947d5fcbc41a176f62e57b5420514525ac6ca42a3",
+  "gcode_sha256": "3f18a70c9a70d536b05a611ededecb7a00e895c5c1592a1a7a83b4fb2a2d4809",
   "roles": {
     "Support": 14399,
     "Support interface": 596
@@ -34,5 +34,14 @@
     }
   },
   "scope": "Actual support-interface paths located against the declared print placement, not a footprint audit",
-  "review": "Wheel recess opens outward; cap keeper supports are exterior and accessible. End openings do not trap support. Removal finish and physical PLA fit remain unmeasured."
+  "review": "Wheel recess and cap keeper interface supports are accessible externally. Non-interface support also occurs at the body external axle-entry bore; clean it through the front bore/top nut slot before assembly. New end openings do not trap support. Finish and physical PLA fit remain unmeasured.",
+  "body_external_bore_support": {
+    "segments": 4265,
+    "z_mm": [
+      0.2,
+      23.4
+    ],
+    "role": "Support without interface labels",
+    "review": "External journal/axle-entry bore support; accessible through the front bore and open nut slot before assembly. Outside storage void."
+  }
 }

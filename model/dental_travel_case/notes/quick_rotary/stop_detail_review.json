@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_stop_detail.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/tests/quick_rotary/rotary_stop_detail_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.001621702016564086,
+    "build": 4.456484246009495,
+    "selection": 0.0010630940087139606,
+    "validation": 0.009134488995186985,
+    "render_isometric": 0.3732116619939916,
+    "worker": 4.93554188098642,
+    "total": 6.962708356993971
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "32a25513e1c531203385e3a5b2bfceb0cef90f20c6e32f7b4f4c57846ab768a8",
+    "artifact_identity": "5b0c65b833c9b4223f6d0a0163619b6c3031d33dc4f804d715df525ac892a1bc"
+  }
+}

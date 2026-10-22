@@ -3,8 +3,8 @@
     "rotary_quick_design.py": "1e3162fddbc97095c962cb8b1033a968de99c9d4c56317b233f2787d6e894031",
     "rotary_quick_test.py": "ca0aad8e6a56470b97606b893878bd7a1f033f1269ced0c8aa06d8f3133dfff0",
     "rotary_quick_assembled.py": "e5bc78d5587c884742cd4f372408078ea23ea4f95cedb04e41d3003e760e252c",
-    "rotary_quick_checks.py": "f3106e7880c966f0660b247e5f479fd0ef0ce3cc4af3dc63e2ffffc9cef10b73",
-    "rotary_refinement_design.py": "af0e880708aa5d3b81726031b3090f0caeec4a6fed240bda2d5a3195a41ab0d6",
+    "rotary_quick_checks.py": "ac68d93029e669b1859875208ef2ac56b69aff0924eb034ca5b3fd85a81263e9",
+    "rotary_refinement_design.py": "70dd0c42510216a1d89244dedd9982722ddb31da1fba3a3edcc5e4d6da61d786",
     "rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
     "rotary_refinement_checks.py": "0b320885bc861c3b586b00efd7af03e4d91231181b3a12a6b2a9f66c3a572eba",
     "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
@@ -978,6 +978,65 @@
       ],
       "wheel_axial_shift_mm": 0.2,
       "blocked_mm3": 12.168060215068017
+    }
+  ],
+  "stop_round_mm": 0.7,
+  "corner_seating": [
+    {
+      "model": "quick",
+      "corner": 0,
+      "flat_land_mm2": 1.2456637061435953,
+      "seated_gap_mm": 3.552713678800501e-15,
+      "overclose_point_one_mm_overlap_mm3": 0.3128318146133992
+    },
+    {
+      "model": "quick",
+      "corner": 1,
+      "flat_land_mm2": 1.2456637061435953,
+      "seated_gap_mm": 3.552713678800501e-15,
+      "overclose_point_one_mm_overlap_mm3": 0.31283181461339904
+    },
+    {
+      "model": "quick",
+      "corner": 2,
+      "flat_land_mm2": 1.2456637061435953,
+      "seated_gap_mm": 3.552713678800501e-15,
+      "overclose_point_one_mm_overlap_mm3": 0.31283177075815
+    },
+    {
+      "model": "quick",
+      "corner": 3,
+      "flat_land_mm2": 1.2456637061435953,
+      "seated_gap_mm": 3.552713678800501e-15,
+      "overclose_point_one_mm_overlap_mm3": 0.3128317707581496
+    },
+    {
+      "model": "full",
+      "corner": 0,
+      "flat_land_mm2": 1.2456637061435953,
+      "seated_gap_mm": 2.842170943040401e-14,
+      "overclose_point_one_mm_overlap_mm3": 0.3128318082476249
+    },
+    {
+      "model": "full",
+      "corner": 1,
+      "flat_land_mm2": 1.2456637061435953,
+      "seated_gap_mm": 2.842170943040401e-14,
+      "overclose_point_one_mm_overlap_mm3": 0.31283180824762635
+    },
+    {
+      "model": "full",
+      "corner": 2,
+      "flat_land_mm2": 1.2456637061435953,
+      "seated_gap_mm": 2.842170943040401e-14,
+      "overclose_point_one_mm_overlap_mm3": 0.3128317643923751
+    },
+    {
+      "model": "full",
+      "corner": 3,
+      "flat_land_mm2": 1.2456637061435953,
+      "seated_gap_mm": 2.842170943040401e-14,
+      "overclose_point_one_mm_overlap_mm3": 0.31283176439237526
     }
   ],
   "limits": "Shorter guide and open end frames change stiffness and tilt restraint. No full-case peel, shaking, force or printed-fit qualification. Chamber-overheat cause is a user hypothesis, not isolated evidence."

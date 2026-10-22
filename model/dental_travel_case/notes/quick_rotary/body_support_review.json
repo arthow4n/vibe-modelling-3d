@@ -1,0 +1,18 @@
+{
+  "slice_input_sha256": "2919064c7b973c5756d497d83e40a347f971a91081b387c0c6c4290ed1ba7792",
+  "gcode_sha256": "4dbfa424b2b694ba3f4dd41cdbaffcbe0a3386fa4b07908de2272e70910d3fff",
+  "roles": {
+    "Support": 4267
+  },
+  "support_z_mm": [
+    0.2,
+    23.4
+  ],
+  "support_xy_mm": [
+    129.32,
+    140.202,
+    101.036,
+    111.93
+  ],
+  "review": "Support rises under the external journal/axle-entry bore roof (top paths near model X -1..0, Y -32.6..-31.0, Z 23.4). The front bore and top-loading nut slot provide access before wheel/nut assembly. Support stays outside the protected storage void. Remove it before inserting the printed nut or axle; surface finish remains untested."
+}

@@ -4,7 +4,7 @@ import hashlib,json
 import cadquery as cq
 import m1_design as base
 from rotary_quick_design import build,QUICK
-from rotary_refinement_design import build as build_case,SAMPLE,rotor_pose
+from rotary_refinement_design import build as build_case,SAMPLE,D,rotor_pose,seating_stops,STOP_ROUND
 from rotary_refinement_checks import clear,material
 
 ROOT=Path(__file__).resolve().parent
@@ -66,12 +66,26 @@ def main():
         rows.append(clear(rotor,p['body_core'],'Only existing detent pin contacts leaf'))
     for angle in (5,10,15):
         assert p['cap'].translate((0,0,1.5)).intersect(rotor_pose(p,angle)).val().Volume()>.01
+    seats=[]
+    # Rounding must leave real stop contact at all four corners, not merely
+    # preserve maximum height while the cap misses the remaining top land.
+    for label,parts in (('quick',p),('full',build_case('wheel',dimensions=D,fastener='printed-coarse'))):
+        for index,pad in enumerate(seating_stops(parts['dimensions'])):
+            pad=pad.mirror('XZ')
+            land_area=sum(face.Area() for face in pad.faces('>Z').vals())
+            assert land_area>.1,('Missing flat seat',label,index,land_area)
+            gap=pad.val().distance(parts['cap'].val());assert gap<1e-6
+            blocked=pad.intersect(parts['cap'].translate((0,0,-.1))).val().Volume()
+            assert blocked>1e-5,('Rounded stop misses cap',label,index,blocked)
+            material(parts['body'],pad,'Rounded stop remains joined to body')
+            seats.append(dict(model=label,corner=index,flat_land_mm2=land_area,
+                              seated_gap_mm=gap,overclose_point_one_mm_overlap_mm3=blocked))
     assert hashes()==identity
     out=dict(source_sha256=identity,closed_height_mm=d.length,body_height_mm=d.seam+d.lap,
         cap_height_mm=d.length-d.rim,sleeve_height_mm=d.lap,engaged_guide_mm=d.lap-d.reveal,
         reveal_mm=d.reveal,end_opening_mm=[50,30],hole_edge_chamfer_mm=.4,
         unchanged=unchanged,guide_gap_witnesses=gaps,guide_skin=skins,
-        checks=rows,capture_witnesses=captures,
+        checks=rows,capture_witnesses=captures,stop_round_mm=STOP_ROUND,corner_seating=seats,
         limits='Shorter guide and open end frames change stiffness and tilt restraint. No full-case peel, shaking, force or printed-fit qualification. Chamber-overheat cause is a user hypothesis, not isolated evidence.')
     path=ROOT/'notes/quick_rotary/cad.json';path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(out,indent=2)+'\n')

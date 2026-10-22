@@ -1,0 +1,29 @@
+{
+  "scope": "Short open-ended experimental coupon; full-case dimensions and unchanged fastener pair preserved",
+  "source_sha256": {
+    "rotary_quick_design.py": "1e3162fddbc97095c962cb8b1033a968de99c9d4c56317b233f2787d6e894031",
+    "rotary_quick_test.py": "ca0aad8e6a56470b97606b893878bd7a1f033f1269ced0c8aa06d8f3133dfff0",
+    "rotary_quick_assembled.py": "e5bc78d5587c884742cd4f372408078ea23ea4f95cedb04e41d3003e760e252c",
+    "rotary_quick_checks.py": "f3106e7880c966f0660b247e5f479fd0ef0ce3cc4af3dc63e2ffffc9cef10b73",
+    "rotary_refinement_design.py": "af0e880708aa5d3b81726031b3090f0caeec4a6fed240bda2d5a3195a41ab0d6",
+    "rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
+    "rotary_refinement_checks.py": "0b320885bc861c3b586b00efd7af03e4d91231181b3a12a6b2a9f66c3a572eba",
+    "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5"
+  },
+  "artifacts": {
+    "rotary_quick_test.step": "b9bb301b7bdd67d8e1c3de8033593f781b74f1d64233eebc814cf92f1e541559",
+    "rotary_quick_test.stl": "e1d19a60cec6afd179bac415404e858407ab2ef1f7b4cf091bf37be1130e3e16",
+    "notes/quick_rotary/cad.json": "e420c921cace4d4554f02dda9d9c0475ec0bf941822910613be68e38175cdf94",
+    "notes/quick_rotary/print_review.json": "890e334bf875340243d4932d9634ed1faca675a4e661a772806433932b7ab7d2",
+    "notes/quick_rotary/support_review.json": "19c844e6423f0ad7d349fc2f25b3de41f7c9c2bb5b670a3946722182473db27f",
+    "notes/quick_rotary/assembled_review.json": "6fad8eb0e952e91f7e800f86453edd3afd14d9336db13dfa8ec16cad75d185e7",
+    "notes/quick_rotary/estimates.json": "c8d36adad819cd0c13e4416f9f1aa64816eabad9b1257b850eff60172ea8ea07"
+  },
+  "native_input_identity": "e70291111c0d86ad37330bcd9455792b12b68ae55720608f0f344d321b78cfee",
+  "artifact_identity": "3aa35f62485400fa2ea3d0e145a9a4b9ee8891ce672602ed66064a6f519af6f4",
+  "reused_fastener_publication_sha256": "3e4935346cb121d316e5f74be8d7662ba6cca4b5dd94d9b0db3a892d36b48313",
+  "reused_fastener_step_sha256": "6c052a6b3256bfd6036bccb94e768afa6c90efda281c9607156625787fdf172c",
+  "reused_fastener_stl_sha256": "64fae43884ee299920c213b79b1a8bcd78668644b2a3a5ecaad149f189ef6089",
+  "association": "Repository Python remained unchanged through current CAD checks and native publication. STEP and STL were exported together from the same three-part print-placement assembly. Delivered STL matches reviewed slice input. Existing coarse printed pair and its source hashes/paired exports are unchanged and retain their own native/core/path evidence. No production force or PLA fit qualification is transferred from CAD or the shortened fixture."
+}

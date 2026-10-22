@@ -41,6 +41,27 @@ class Dimensions:
 
 D=Dimensions()
 SAMPLE=replace(D,seam=24.,length=70.)
+STOP_ROUND=.7
+STOP_LENGTH=4.6
+STOP_WIDTH=1.8
+STOP_OFFSET=4.85
+
+
+def seating_stops(d):
+    """Four rounded corner lands; planar tops retain the exact cap seat level."""
+    # A capsule footprint gives fully rounded ends without trying to blend
+    # the acute remnants of a square crop through the thin shoulder ring.
+    offset=STOP_OFFSET/(2**.5)
+    pad=(cq.Workplane('XY').slot2D(STOP_LENGTH,STOP_WIDTH,angle=-45)
+         .extrude(d.reveal).faces('>Z').edges().fillet(STOP_ROUND)
+         .translate((d.width/2-6+offset,d.depth/2-6+offset,0)))
+    pads=[]
+    for sx in (-1,1):
+        for sy in (-1,1):
+            corner=pad.mirror('YZ') if sx<0 else pad
+            corner=corner.mirror('XZ') if sy<0 else corner
+            pads.append(corner.translate((0,0,d.seam)))
+    return tuple(pads)
 
 
 def printed_axle():
@@ -92,13 +113,8 @@ def build(variant,*,dimensions,fastener):
     body_core=body.clean()
     stop_pin=(cq.Workplane('XZ',origin=(-7.,d.wheel_back+.7,z)).circle(.7).extrude(1.1))
     body=body.union(detent_pin).union(stop_pin)
-    seat=base.prism(d.width,d.depth,6.,d.seam,d.reveal).cut(
-        base.prism(71.8,48.8,4.3,d.seam-1.,d.reveal+2.))
-    for sx in (-1,1):
-        for sy in (-1,1):
-            corner=seat.intersect(base.box(sx*(d.width/2-6),sy*(d.depth/2-6),
-                                    d.seam+d.reveal/2,8,8,d.reveal+2))
-            body=body.union(corner);body_core=body_core.union(corner)
+    for corner in seating_stops(d):
+        body=body.union(corner);body_core=body_core.union(corner)
     body=body.clean();body_core=body_core.clean()
     cap=base.prism(d.width,d.depth,6.,d.rim,d.length-d.rim).edges('>Z').fillet(3.)
     cap_void=base.prism(71.8,48.8,4.3,d.rim-1.,d.length-d.rim-1.)

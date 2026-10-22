@@ -1,9 +1,9 @@
 {
   "quick_shells": {
-    "slice_input_sha256": "e1d19a60cec6afd179bac415404e858407ab2ef1f7b4cf091bf37be1130e3e16",
-    "gcode_sha256": "a893d793176ec52cda03a80e6997a13bc357da0458c4f1ea5141fbb47b7423b5",
-    "filament_g": 52.77,
-    "time": "1h 40m 33s"
+    "slice_input_sha256": "9650d309f80b3c73a5d986f947d5fcbc41a176f62e57b5420514525ac6ca42a3",
+    "gcode_sha256": "3f18a70c9a70d536b05a611ededecb7a00e895c5c1592a1a7a83b4fb2a2d4809",
+    "filament_g": 52.81,
+    "time": "1h 40m 2s"
   },
   "earlier_70mm_layout": {
     "slice_input_sha256": "efb07960df339b1ce6b261b6f09bb5f82b54bd27f6e7518a160eb12b1ded7ec5",
