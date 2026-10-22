@@ -1,0 +1,1377 @@
+{
+  "source_sha256": {
+    "rotary_l20_design.py": "1568edb58f6fd6e6096a5d8cf67361db4de27cb098d6771fb3bb0ff98e2b40fe",
+    "rotary_l20_checks.py": "719f2bf2371e973f31821364f4fbeaa699574ef10e7ef26147e9e5bb371ee8a7",
+    "../dental_travel_case/rotary_case_design.py": "4a39a9ebc67d6a0f817df068027d494e401b1c4c2515805b152b25c57c9370f7",
+    "../dental_travel_case/rotary_refinement_design.py": "aa905b165710b47d5437eeabf2b6a3c60630f4db42e34771f56f0e4be833ded5",
+    "../dental_travel_case/rotary_covered_design.py": "cdab7e2167853a518ca9bfa3da6adecf0ef6eabda9173eb460fb4a52ae56edf4",
+    "../dental_travel_case/rotary_conical_design.py": "8dab2fd3f7356e54c346b703657467fb34773d2b6a16a1d9429cf7e67e93a652",
+    "../dental_travel_case/rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
+    "../dental_travel_case/rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
+    "../dental_travel_case/m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5"
+  },
+  "fit": [
+    {
+      "liner": "body",
+      "component": "body",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liner": "body",
+      "component": "cap",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liner": "body",
+      "component": "rotor",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liner": "body",
+      "component": "facecap",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liner": "body",
+      "component": "pivot_axle",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liner": "body",
+      "component": "pivot_nut",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liner": "cap",
+      "component": "body",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liner": "cap",
+      "component": "cap",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liner": "cap",
+      "component": "rotor",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liner": "cap",
+      "component": "facecap",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liner": "cap",
+      "component": "pivot_axle",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liner": "cap",
+      "component": "pivot_nut",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "liners": "body/cap",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "lift_mm": 0.4,
+      "rigid_cap": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      "cap_liner": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "lift_mm": 2.0,
+      "rigid_cap": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      "cap_liner": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "lift_mm": 6.0,
+      "rigid_cap": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      "cap_liner": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "lift_mm": 15.0,
+      "rigid_cap": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      "cap_liner": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "lift_mm": 30.0,
+      "rigid_cap": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      "cap_liner": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "lift_mm": 80.0,
+      "rigid_cap": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      "cap_liner": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    }
+  ],
+  "profile_probes": [
+    {
+      "part": "body",
+      "xyz_mm": [
+        -35.2,
+        -11.0,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -34.6,
+        -11.0,
+        14.049999999999983
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -34.0,
+        -11.0,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -34.6,
+        -13.200000000000001,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -34.6,
+        -13.200000000000001,
+        16.249999999999986
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        35.2,
+        -11.0,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        34.6,
+        -11.0,
+        14.049999999999983
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        34.0,
+        -11.0,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        34.6,
+        -13.200000000000001,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        34.6,
+        -13.200000000000001,
+        16.249999999999986
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -24.200000000000003,
+        -23.7,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -24.200000000000003,
+        -23.099999999999998,
+        14.049999999999983
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -24.200000000000003,
+        -22.499999999999996,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -26.400000000000002,
+        -23.099999999999998,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -26.400000000000002,
+        -23.099999999999998,
+        16.249999999999986
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -24.200000000000003,
+        23.7,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -24.200000000000003,
+        23.099999999999998,
+        14.049999999999983
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -24.200000000000003,
+        22.499999999999996,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -26.400000000000002,
+        23.099999999999998,
+        14.049999999999983
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -26.400000000000002,
+        23.099999999999998,
+        16.249999999999986
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -32.900000000000006,
+        -8.8,
+        179.9
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -32.300000000000004,
+        -8.8,
+        179.9
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -31.700000000000003,
+        -8.8,
+        179.9
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -32.300000000000004,
+        -11.0,
+        179.9
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -32.300000000000004,
+        -11.0,
+        182.10000000000002
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        32.900000000000006,
+        -8.8,
+        179.9
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        32.300000000000004,
+        -8.8,
+        179.9
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        31.700000000000003,
+        -8.8,
+        179.9
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        32.300000000000004,
+        -11.0,
+        179.9
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        32.300000000000004,
+        -11.0,
+        182.10000000000002
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -22.0,
+        -21.400000000000002,
+        179.9
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -22.0,
+        -20.8,
+        179.9
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -22.0,
+        -20.2,
+        179.9
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -24.200000000000003,
+        -20.8,
+        179.9
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -24.200000000000003,
+        -20.8,
+        182.10000000000002
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -22.0,
+        21.400000000000002,
+        179.9
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -22.0,
+        20.8,
+        179.9
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -22.0,
+        20.2,
+        179.9
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -24.200000000000003,
+        20.8,
+        179.9
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -24.200000000000003,
+        20.8,
+        182.10000000000002
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -22.0,
+        -8.8,
+        0.2
+      ],
+      "material": true,
+      "meaning": "floor backing"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -22.0,
+        -8.8,
+        0.8
+      ],
+      "material": false,
+      "meaning": "floor air"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -22.0,
+        -8.8,
+        1.4
+      ],
+      "material": true,
+      "meaning": "floor contact skin"
+    },
+    {
+      "part": "body",
+      "xyz_mm": [
+        -24.200000000000003,
+        -11.0,
+        0.8
+      ],
+      "material": true,
+      "meaning": "floor post"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -35.10000000000001,
+        -11.0,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -34.50000000000001,
+        -11.0,
+        6.6499999999999915
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -33.900000000000006,
+        -11.0,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -34.50000000000001,
+        -13.200000000000001,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -34.50000000000001,
+        -13.200000000000001,
+        8.84999999999999
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        35.10000000000001,
+        -11.0,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        34.50000000000001,
+        -11.0,
+        6.6499999999999915
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        33.900000000000006,
+        -11.0,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        34.50000000000001,
+        -13.200000000000001,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        34.50000000000001,
+        -13.200000000000001,
+        8.84999999999999
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -24.200000000000003,
+        -23.6,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -24.200000000000003,
+        -23.0,
+        6.6499999999999915
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -24.200000000000003,
+        -22.4,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -26.400000000000002,
+        -23.0,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -26.400000000000002,
+        -23.0,
+        8.84999999999999
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -24.200000000000003,
+        23.6,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "outer 0.8mm skin"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -24.200000000000003,
+        23.0,
+        6.6499999999999915
+      ],
+      "material": false,
+      "meaning": "0.4mm upright air gap"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -24.200000000000003,
+        22.4,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "inner 0.8mm skin"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -26.400000000000002,
+        23.0,
+        6.6499999999999915
+      ],
+      "material": true,
+      "meaning": "0.8mm discrete tie"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -26.400000000000002,
+        23.0,
+        8.84999999999999
+      ],
+      "material": false,
+      "meaning": "ties remain separated vertically"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -24.200000000000003,
+        -11.0,
+        0.2
+      ],
+      "material": true,
+      "meaning": "floor backing"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -24.200000000000003,
+        -11.0,
+        0.8
+      ],
+      "material": false,
+      "meaning": "floor air"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -24.200000000000003,
+        -11.0,
+        1.4
+      ],
+      "material": true,
+      "meaning": "floor contact skin"
+    },
+    {
+      "part": "cap",
+      "xyz_mm": [
+        -26.400000000000002,
+        -13.200000000000001,
+        0.8
+      ],
+      "material": true,
+      "meaning": "floor post"
+    }
+  ],
+  "individual_storage_gauges": [
+    {
+      "gauge": "brush_30x255",
+      "liner": "body",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "gauge": "brush_30x255",
+      "liner": "cap",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "gauge": "paste_55x40x160_stored_individually",
+      "liner": "body",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    },
+    {
+      "gauge": "paste_55x40x160_stored_individually",
+      "liner": "cap",
+      "result": {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Liner envelope must clear the rigid box and other liner",
+          "max_overlap_mm3": 0.001,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    }
+  ],
+  "floor_mouth_missing_mm3": 0.0,
+  "cap_retention": {
+    "pads": [
+      [
+        "x",
+        -1
+      ],
+      [
+        "x",
+        1
+      ],
+      [
+        "y",
+        -1
+      ],
+      [
+        "y",
+        1
+      ]
+    ],
+    "contact_mm3": 3.458183556181646,
+    "overlap_outside_pads_mm3": 0.0,
+    "overlap_beyond_0p101_mm_mm3": 0.0,
+    "nominal_interference_mm": 0.10000000000000003,
+    "limit": "Intentional local TPU compression; actual retention and installation force unmeasured"
+  },
+  "dimensions": {
+    "body_height_mm": 201.29999999999998,
+    "cap_height_mm": 57.29999999999998,
+    "throat_mm": [
+      62.60000000000001,
+      39.6
+    ],
+    "lower_cavity_mm": [
+      67.2,
+      44.199999999999996
+    ],
+    "clear_length_mm": 256.19999999999993,
+    "installation_clearance_per_side_mm": 0.3,
+    "liner_rim_gap_mm": 0.8
+  },
+  "limits": "Two preformed cups. Floor passes sleeve rigidly; wider walls require unmeasured elastic compression. Individual stored gauges do not establish simultaneous brush/paste packing or toothpaste insertion through the 39.6mm throat. Tall-wall durability, printed gap separation, retention and quietness remain physical."
+}

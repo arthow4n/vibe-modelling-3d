@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="740" viewBox="0 0 1100 740">
+<rect width="1100" height="740" fill="white"/>
+<style>text{font-family:Arial,sans-serif;font-size:17px;fill:#243443}.title{font-size:25px;font-weight:bold}.small{font-size:15px}.shell{fill:#d1d7dc;stroke:#626f79;stroke-width:1;fill-rule:evenodd}.tpu{fill:#dfae62;stroke:#68491e;stroke-width:1;fill-rule:evenodd}.line{stroke:#687787;stroke-width:1.4;fill:none}</style>
+<text x="35" y="40" class="title">Rotary box + L20 liner — two preformed TPU cups</text>
+<text x="35" y="72">Longitudinal centre section. Grey: rigid box. Gold: TPU. White: empty space.</text>
+<path d="M114.20,650.00 L114.20,302.00 L118.80,302.00 L118.80,242.00 L261.20,242.00 L261.20,302.00 L265.80,302.00 L265.80,650.00 Z M118.20,646.00 L118.20,314.00 L122.80,302.00 L122.80,242.00 L257.20,242.00 L257.20,302.00 L261.80,314.00 L261.80,646.00 Z" class="shell"/><path d="M114.20,296.00 L114.20,122.00 L265.80,122.00 L265.80,296.00 Z M118.40,296.00 L118.40,126.00 L261.60,126.00 L261.60,296.00 Z" class="shell"/>
+<path d="M123.40,645.40 L123.40,642.20 L118.80,630.20 L118.80,314.00 L123.40,302.00 L123.40,242.80 L256.60,242.80 L256.60,302.00 L261.20,314.00 L261.20,630.20 L256.60,642.20 L256.60,645.40 Z M127.40,642.20 L122.80,630.20 L122.80,314.00 L127.40,302.00 L127.40,242.80 L252.60,242.80 L252.60,302.00 L257.20,314.00 L257.20,630.20 L252.60,642.20 Z" class="tpu"/><path d="M119.00,241.20 L119.00,126.60 L261.00,126.60 L261.00,241.20 Z M123.00,241.20 L123.00,129.80 L257.00,129.80 L257.00,241.20 Z" class="tpu"/>
+<path d="M270 170 H350" class="line"/><text x="360" y="168">Lid cup: 57.3 mm tall</text>
+<path d="M270 242 H350" class="line"/><text x="360" y="237">0.8 mm between liner rims</text>
+<text x="360" y="195" class="small">Four shallow lid pads: 0.1 mm intended compression.</text>
+<text x="360" y="260" class="small">Keeps the sleeve tip clear.</text>
+<path d="M265 420 H350" class="line"/><text x="360" y="418">Body cup: 201.3 mm tall</text>
+<text x="360" y="441" class="small">Wider lower walls need a gentle pinch to install.</text>
+<path d="M260 640 H350" class="line"/><text x="360" y="634">Narrow leading floor fits the sleeve mouth.</text>
+<text x="360" y="658" class="small">0.3 mm shell clearance per side / at each closed end.</text>
+<text x="75" y="690" class="small">Installed outline; wall cores are enlarged at right.</text>
+<text x="700" y="125">Upright L20 wall — enlarged</text>
+<rect x="730" y="170" width="80" height="300" class="tpu"/>
+<rect x="850" y="170" width="80" height="300" class="tpu"/>
+<rect x="810" y="280" width="40" height="80" class="tpu"/>
+<text x="739" y="155" class="small">0.8</text><text x="815" y="155" class="small">0.4</text><text x="870" y="155" class="small">0.8 mm</text>
+<text x="714" y="500">2.0 mm total; continuous skins</text>
+<text x="701" y="530" class="small">Air gap crossed by separate 0.8 × 0.8 mm ties</text>
+<text x="701" y="552" class="small">at 4.4 mm pitch. Corners / transitions stay solid.</text>
+<text x="700" y="589" class="small">Floors: 0.4 + 0.8 air + 0.4 = 1.6 mm,</text>
+<text x="700" y="611" class="small">with 0.8 mm square supporting posts.</text>
+<text x="35" y="725" class="small">Main cavity 67.2 × 44.2 mm; lined throat 62.6 × 39.6 mm; clear length 256.2 mm. Combined packing untested.</text>
+</svg>

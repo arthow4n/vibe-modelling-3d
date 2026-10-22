@@ -16,6 +16,9 @@ QUESTIONS=(
 
 
 def make_plan(variant):
+    if variant=='rotary-l20':
+        from rotary_l20_verification import make_plan as current_plan
+        return current_plan(variant)
     if variant!='slim-m1-s16':
         raise ValueError(variant)
     import checks
@@ -29,4 +32,4 @@ def make_plan(variant):
 
 
 if __name__=='__main__':
-    raise SystemExit(cli(make_plan,('slim-m1-s16',)))
+    raise SystemExit(cli(make_plan,('slim-m1-s16','rotary-l20')))

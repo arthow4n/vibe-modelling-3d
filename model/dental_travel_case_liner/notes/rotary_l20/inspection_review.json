@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case_liner/rotary_l20_inspection.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case_liner/renders/rotary_l20/rotary_l20_inspection_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014073819911573082,
+    "build": 69.01626181599568,
+    "selection": 0.0015724700060673058,
+    "validation": 11.897154745005537,
+    "render_isometric": 3.4731995000038296,
+    "worker": 84.85623891701107,
+    "total": 85.01019638500293
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "7b4c09efe4045556c1c36e33e956d8ea6bf5080b197c98e89f6861ab7ae037cf",
+    "artifact_identity": "d9719c2a643b439804a65ce7e7d3c4cd1ade1c4986c8574d7280e23ec944a350"
+  }
+}

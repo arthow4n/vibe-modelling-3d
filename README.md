@@ -102,12 +102,12 @@ Slim two-piece rotary-lock box (`75.8 × 52.8 × 264 mm`) for a toothbrush and t
 - **Final object:** N/A — research samples feeding the sunglasses and dental liners.
 - **Provenance:** [Record](model/tpu_damping_box/README.md#attribution) · **Agent effort:** N/A — no performance study requested
 
-#### Slim dental box S16 TPU liner — [`model/dental_travel_case_liner/`](model/dental_travel_case_liner/README.md)
-Full two-cup `S16` TPU 95A sound-damping retrofit for the printed M1 slim dental travel box.
-- **Action / Print:** **Hold / Wait for T08 / L20 transfer.** The first `S16` print suffered local inner/outer wall skin tears (2026-10-19) and tore further during insertion into the tight deep box (2026-10-20). Small-box TPU research has now approved `T08 M1` (`0.8 mm` skins + separated ties + solid corners) and now prefers printed `L20` over `T08`, with `L18` also accepted; transfer to this tall dental liner remains unqualified.
-- **Test pieces:** N/A — uses the `S16` profile; see [TPU damping box](model/tpu_damping_box/README.md) for active wall-support replacements (`T08`, `L20`/`L18`).
-- **Final object:** Printed — wall and installation integrity **not accepted** (skins broke during print and insertion; cause unresolved).
-- **Provenance:** [Record](model/dental_travel_case_liner/README.md#attribution) · **Agent effort:** N/A — no performance study requested
+#### Dental box L20 TPU liner — [`model/dental_travel_case_liner/`](model/dental_travel_case_liner/README.md)
+Two preformed L20 TPU 95A cups for the latest rotary dental travel box.
+- **Action / Print:** New [STEP](model/dental_travel_case_liner/rotary_l20_liner.step) / [STL](model/dental_travel_case_liner/rotary_l20_liner.stl), both cups on one plate. TPU, 0.4/0.2 mm, Classic, two walls, 100% modeled-material fill, supports off, 9 mm³/s. [Settings and installation](model/dental_travel_case_liner/notes/rotary_l20.md).
+- **Test pieces:** Small L20 cup **Yes — accepted / preferred**; tall application transfer remains unqualified. No additional coupon is required before this authorized full-size trial.
+- **Final object:** Rotary L20 liner **Unknown — unprinted**. Check tall-wall integrity, gentle insertion and combined packing. Old M1 S16 liner was damaged during printing and insertion; do not reprint it.
+- **Provenance:** [Current record](model/dental_travel_case_liner/notes/rotary_l20.md#engineering-notes-and-attribution) · [Historical attribution](model/dental_travel_case_liner/README.md#attribution) · **Agent effort:** N/A — no performance study requested
 
 #### Postcard displays — [`model/postcard_display/`](model/postcard_display/README.md)
 Seven stand-alone A6 / `100 × 150 mm` postcard holders (`Original`, `Outline`, `Wave`, `Prism`, `Orbit`, `Bolt`, `Pebble`).
@@ -188,7 +188,7 @@ This is a mixed-license repository. [MIT](LICENSE) is the default for repository
 | --- | --- | --- |
 | [Integrated MacBook charger holder](model/macbook_charger_holder/) | [CC BY-NC-SA 4.0](model/macbook_charger_holder/LICENSE) | [Original model and modifications](model/macbook_charger_holder/ATTRIBUTION.md) |
 | [TPU damping-box Orca snapshots](model/tpu_damping_box/profiles/) — profile JSONs only | [AGPL-3.0](model/tpu_damping_box/profiles/LICENSE.txt) | [Orca/Qidi sources and changes](model/tpu_damping_box/profiles/ATTRIBUTION.md); model geometry retains the default licence |
-| [Dental S16 Orca process](model/dental_travel_case_liner/profiles/) — profile JSON only | [AGPL-3.0](model/dental_travel_case_liner/profiles/LICENSE.txt) | [Source and layer-height changes](model/dental_travel_case_liner/profiles/ATTRIBUTION.md); liner geometry retains the default licence |
+| [Dental TPU Orca processes](model/dental_travel_case_liner/profiles/) — profile JSON only | [AGPL-3.0](model/dental_travel_case_liner/profiles/LICENSE.txt) | [Source and layer-height changes](model/dental_travel_case_liner/profiles/ATTRIBUTION.md); liner geometry retains the default licence |
 | [Dental short-lap Orca process](model/dental_travel_case/notes/short_lap/profiles/) — profile JSON only | [AGPL-3.0](model/dental_travel_case/notes/short_lap/profiles/LICENSE.txt) | [Source and three-wall change](model/dental_travel_case/notes/short_lap/profiles/ATTRIBUTION.md); geometry retains the default licence |
 | [Rotary indexed-trial](model/dental_travel_case/notes/rotary_refinement/profiles/) / [solid printed-fastener](model/dental_travel_case/notes/printed_fasteners/profiles/) Orca processes — profile JSONs only | [AGPL-3.0](model/dental_travel_case/notes/rotary_refinement/profiles/LICENSE.txt) | [Original support change](model/dental_travel_case/notes/rotary_refinement/profiles/ATTRIBUTION.md), [solid fastener change](model/dental_travel_case/notes/printed_fasteners/profiles/ATTRIBUTION.md) |
 | [Swatch Q1 Orca profile snapshots](model/filament_swatch_box_study/notes/quiet_q1_profiles/) — profile JSONs only | [AGPL-3.0](model/filament_swatch_box_study/notes/quiet_q1_profiles/LICENSE.txt) | [Orca/Qidi source and snapshot changes](model/filament_swatch_box_study/notes/quiet_q1_profiles/ATTRIBUTION.md); Q1 model geometry retains the default licence |

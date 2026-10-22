@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "variant": "rotary-l20",
+  "selected_checks": null,
+  "available_variants": [
+    "slim-m1-s16",
+    "rotary-l20"
+  ],
+  "available_checks": [
+    "rotary.CAD",
+    "rotary.publication"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "rotary-l20",
+    "scope": {
+      "design": "rotary-l20",
+      "rigid_case": "latest wraparound-wheel rotary box",
+      "material": "TPU95A",
+      "setup": "0.4mm/0.2mm; Classic; two walls; 100% CAD material fill; supports off; 9mm3/s"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "rotary-liner.fit",
+        "text": "Fit the latest rotary box while preserving closure and usable storage",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_l20.md#user-direction",
+          "statement": "User confirms L20 recap and explicitly requests a new liner for the latest rotary dental box"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "envelope",
+            "criterion": "Current box clearance, free cap withdrawal and actual L20 skin/void/tie material witnesses",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "installation",
+            "criterion": "Wider walls compress gently through sleeve and both cups remain seated",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "packing",
+            "criterion": "Actual brush and toothpaste fit together and pass the lined mouth",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "liner.l20",
+        "text": "Use accepted L20 skins, separated ties and post-supported end panels",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_l20.md#user-direction",
+          "statement": "User confirms L20 recap and explicitly requests a new liner for the latest rotary dental box"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "geometry",
+            "criterion": "Current box clearance, free cap withdrawal and actual L20 skin/void/tie material witnesses",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "paths",
+            "criterion": "Matched raw exports, selected TPU slice, upright skin continuity and open core sections",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.publication"
+            ],
+            "evidence": [
+              "rotary.publication"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "integrity",
+            "criterion": "Tall printed skins and ties stay intact during printing and installation",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "liner.coverage",
+        "text": "Line both body and lid with preformed cups",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_l20.md#user-direction",
+          "statement": "User confirms L20 recap and explicitly requests a new liner for the latest rotary dental box"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "geometry",
+            "criterion": "Current box clearance, free cap withdrawal and actual L20 skin/void/tie material witnesses",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "publication",
+            "criterion": "Matched raw exports, selected TPU slice, upright skin continuity and open core sections",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.publication"
+            ],
+            "evidence": [
+              "rotary.publication"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "liner.quiet",
+        "text": "Reduce contents impact noise",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_l20.md#user-direction",
+          "statement": "User confirms L20 recap and explicitly requests a new liner for the latest rotary dental box"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "noise",
+            "criterion": "User accepts contents damping in the full box",
+            "mode": "subjective",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "rotary.CAD",
+        "targets": [
+          [
+            "rotary-liner.fit",
+            "envelope"
+          ],
+          [
+            "liner.l20",
+            "geometry"
+          ],
+          [
+            "liner.coverage",
+            "geometry"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/rotary_l20/cad.json",
+        "scope": {
+          "design": "rotary-l20",
+          "rigid_case": "latest wraparound-wheel rotary box",
+          "material": "TPU95A",
+          "setup": "0.4mm/0.2mm; Classic; two walls; 100% CAD material fill; supports off; 9mm3/s"
+        }
+      },
+      {
+        "id": "rotary.publication",
+        "targets": [
+          [
+            "liner.l20",
+            "paths"
+          ],
+          [
+            "liner.coverage",
+            "publication"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/rotary_l20/publication.json",
+        "scope": {
+          "design": "rotary-l20",
+          "rigid_case": "latest wraparound-wheel rotary box",
+          "material": "TPU95A",
+          "setup": "0.4mm/0.2mm; Classic; two walls; 100% CAD material fill; supports off; 9mm3/s"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "preformed",
+        "text": "Two conformal cups; narrow leading floor and 0.3mm installation allowance; wider body walls require elastic compression. Four small ramped TPU pads give the lid cup local 0.1mm intended interference. Short shoulder transitions and corners stay solid.",
+        "reference": "notes/rotary_l20.md"
+      }
+    ],
+    "hypotheses": [],
+    "directives": []
+  },
+  "help": null
+}

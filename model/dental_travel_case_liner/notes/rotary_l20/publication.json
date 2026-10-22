@@ -1,0 +1,41 @@
+{
+  "source_sha256": {
+    "rotary_l20_design.py": "1568edb58f6fd6e6096a5d8cf67361db4de27cb098d6771fb3bb0ff98e2b40fe",
+    "rotary_l20_checks.py": "719f2bf2371e973f31821364f4fbeaa699574ef10e7ef26147e9e5bb371ee8a7",
+    "../dental_travel_case/rotary_case_design.py": "4a39a9ebc67d6a0f817df068027d494e401b1c4c2515805b152b25c57c9370f7",
+    "../dental_travel_case/rotary_refinement_design.py": "aa905b165710b47d5437eeabf2b6a3c60630f4db42e34771f56f0e4be833ded5",
+    "../dental_travel_case/rotary_covered_design.py": "cdab7e2167853a518ca9bfa3da6adecf0ef6eabda9173eb460fb4a52ae56edf4",
+    "../dental_travel_case/rotary_conical_design.py": "8dab2fd3f7356e54c346b703657467fb34773d2b6a16a1d9429cf7e67e93a652",
+    "../dental_travel_case/rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
+    "../dental_travel_case/rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
+    "../dental_travel_case/m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "rotary_l20_print_checks.py": "7aaaee726232ef3f2b556d821bc9072e4ed3e77a7b26ef1aa766aad1761439dd",
+    "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
+    "rotary_l20_liner.py": "6129f03c46aa4e28b498eb94d04a5759d2d046843482f90b1f70561ff90723d7",
+    "rotary_l20_inspection.py": "7889ba40b92cc3070a7e4b621a99aa99b848989ec81393b9ecfa3a332b70c9ed",
+    "rotary_l20_verification.py": "77c261d90b43835b8a1d1eb89b03493ec44fbc75e25b40f888a98c0ef635f218",
+    "verification.py": "d90f224866186f48f3a05ff19d80637138800288715c547555b724990b4c1f59"
+  },
+  "artifacts": {
+    "rotary_l20_liner.step": "65570d98ad769a96ffe7645f628fe2d7472253c702554f34595bf7f667dcdb55",
+    "rotary_l20_liner.stl": "3580e71edb8890ae3ed27b5e461bcb6646d91b46f5442557c7de003ba7698f1f",
+    "profiles/rotary-l20-process.json": "2131095808683c9b9374e2e3a943aadd2f1c10b73cdd89e987c71353d45205e2",
+    "../tpu_damping_box/profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+    "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd",
+    "notes/rotary_l20/cad.json": "d08ec9dd1d256d015836331fa65b5a9468f2a2159d30ac5919989e12adb9b0ae",
+    "notes/rotary_l20/paths.json": "6b231eb8dc1d17a0995f6fc8c2d59f42034e04dbfcb12c0646945e26206f0e64",
+    "notes/rotary_l20/print_review.json": "0444894b8ae65ee746530a666efaa41325688bb40e96be1b3bd031a04c7cb64b",
+    "notes/rotary_l20/inspection_review.json": "05672c69628bec022d74b5d6bd88fcc7048e3a19644fc886c3db9b43637f16c1",
+    "renders/rotary_l20/rotary_l20_liner_isometric.png": "479d75c88f6edbcb177ef51eb74974a07c571fefcd7c4a2726a72201c716bef7",
+    "renders/rotary_l20/rotary_l20_inspection_isometric.png": "5edca1514dd43a09b77a8401e65bd2ac965ffdb1147f403c05c6ed7af2b1df10",
+    "renders/rotary_l20/liner_sections.svg": "6b180edbc278e89897e644888ede00a22dbd94a08b299ba705f6e8948fd093ab",
+    "renders/rotary_l20/liner_sections.png": "2c1558c9659223d5e7e2e7f8c17069678182b8f1d4258419599efd907d5226fd",
+    "renders/rotary_l20/wall_path_detail.svg": "4e332434052ba24a367042db5c04ba71fe7fca1620a195a7e2f6410c385c4107",
+    "renders/rotary_l20/wall_path_detail.png": "ef21490e76cbee3a3e8b9778d4ec1ea045de7922b2463702d00dbee2bc4e74fa"
+  },
+  "native_input_identity": "b0c9de62af5f6d602fc337839461b168252ae1e5a34485596647ecb20f2b7bba",
+  "native_artifact_identity": "da6d5cb9fd2d226fd783d591b78f7dcdf012c61f269aacf4de409491e9532eed",
+  "slice_input_sha256": "3580e71edb8890ae3ed27b5e461bcb6646d91b46f5442557c7de003ba7698f1f",
+  "slice_identity": "9110e61f8b3455929652c1cc739ee7d2681016dd9ffb35e89cc3dcaf7357bc7a",
+  "association": "Final cup geometry, dimensions, ties, floors and retention pads match the guarded CAD and actual-path records. Python stayed frozen during each native publication. The raw STEP/STL pair comes from the same two-cup print assembly at supplied placements; the delivered STL matches its completed TPU slice. After print export, only the separate inspection camera orientation and local path-review code changed; the printed geometry factory and print entry point stayed unchanged. Useful assembled/print views, annotated sections and actual-path detail were inspected. All four lid-pad contacts are intentional and limited to their 0.1mm bands. No success from the small L20 baseline or failed old M1/S16 liner is promoted to physical qualification of this tall application."
+}

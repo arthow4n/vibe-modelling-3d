@@ -1,23 +1,43 @@
-# S16 TPU Liner for the Printed Slim Dental Travel Box
+# TPU Liners for the Dental Travel Case
 
-A two-cup flexible TPU 95A sound-damping retrofit (`183.4 mm` tall body insert + `75.4 mm` tall cap insert) shaped to line the interior of the already-printed [narrow `M1` dental travel box](../dental_travel_case/notes/m1.md) (`264 × 74.2 × 51.2 mm`).
+Two preformed **L20 TPU 95A cups** for the latest [wraparound-wheel rotary box](../dental_travel_case/README.md). The long cup lines the body and sleeve; the short cup lines the lid above the sleeve.
 
-![Cutaway of the long body and short cap inserts](renders/assembled/inspection_isometric.png)
+## What to print now
 
----
+- **Current first-print files:** [STEP](rotary_l20_liner.step) · [matching STL](rotary_l20_liner.stl) · [Python](rotary_l20_liner.py). Both cups are on one plate, closed ends down and openings up. Two printed cups total.
+- **Settings:** TPU 95A, **0.4 mm nozzle / 0.2 mm layers**, Classic walls, thin-wall detection off, **2 walls / 100% rectilinear fill / supports off**, **9 mm³/s** maximum volumetric flow. The [process preset](profiles/rotary-l20-process.json) uses **50% top-surface ironing**, drawing on the earlier accepted floor coupon. [Filament preset](../tpu_damping_box/profiles/tpu95a.json).
+- **Status:** New full-size L20 cups are **unprinted**. Small L20 cups were accepted for damping and finish; tall-wall printing, installation and combined brush/paste fit still need this first trial. [Design, installation and current evidence](notes/rotary_l20.md).
+- **Do not reprint the old M1 S16 liner** (`dental_travel_case_liner.step` / `.stl`): it was damaged during printing and insertion and belongs to a different box.
 
-## At a Glance: Current Status & What to Do Next
+![L20 cups for the rotary box](renders/rotary_l20/rotary_l20_liner_isometric.png)
 
-- **Current Status:** **PRINTED — WALL & INSTALLATION INTEGRITY NOT ACCEPTED (ON HOLD)**
-  - **What happened:** The user printed this liner (`0.4 mm` nozzle, `0.2 mm` layers, `9 mm³/s` max volumetric flow) and reported **locally broken walls on both the inner and outer skins** (2026-10-19), followed by **further wall breakage when pushing the liner into the tight `M1` box** (2026-10-20).
-- **What to Do Now:**
-  - **Do NOT reprint this full `183.4 mm` tall liner yet.**
-  - **Print the small [R2 Wall-Support Test Pairs (`A16`, `A20`, `B08`, `B16`)](../tpu_damping_box/README.md#ordinary-classic-repair--r2) first.** Those four `34 mm` coupons in `model/tpu_damping_box/` test stronger `0.5 mm` skins with square frames (`A`) and staggered cross-gap ties (`B`) sliced under ordinary Classic wall generation (`detect_thin_wall = OFF`, no Arachne) before we revise this tall dental liner.
-- **Retained Files (Unchanged while R2 coupons are tested):**
-  - **STEP / STL / Python:** [`dental_travel_case_liner.step`](dental_travel_case_liner.step) · [`dental_travel_case_liner.stl`](dental_travel_case_liner.stl) · [`dental_travel_case_liner.py`](dental_travel_case_liner.py) · [design.py](design.py)
-  - **Reference Slicer Profile:** [`profiles/tpu-s16-0p2-process.json`](profiles/tpu-s16-0p2-process.json) + [`../tpu_damping_box/profiles/tpu95a.json`](../tpu_damping_box/profiles/tpu95a.json)
+## How this version fits
 
----
+The walls retain **0.8 mm outer skin / 0.4 mm air gap / 0.8 mm inner skin**, with discrete **0.8 × 0.8 mm ties at 4.4 mm pitch**. Floors retain the **1.6 mm** post-supported sandwich. Corners and short shape transitions have solid backing, following the accepted L20 construction.
+
+The body cup is **201.3 mm** tall; the lid cup **57.3 mm**. A **0.3 mm per-side installation allowance**, **0.3 mm at each closed end** and **0.8 mm between liner rims** keep the hard seating stops and rotary mechanism clear. Four shallow ramped TPU pads on the lid cup have **0.1 mm intended local interference** to help keep it seated, without tape. Their actual holding force is unmeasured. The leading body floor fits through the sleeve opening; the wider body walls still require a gentle pinch during installation. Do not force a reluctant cup.
+
+The narrowest lined passage is **62.6 × 39.6 mm**, opening to **67.2 × 44.2 mm** in the main body. Clear length is **256.2 mm**. The 255 mm toothbrush has little spare length; a nominal 40 mm-thick toothpaste tube may need slight deformation through the mouth. Simultaneous packing remains a physical check.
+
+![Installed outline and enlarged L20 wall section](renders/rotary_l20/liner_sections.png)
+
+[Editable section SVG](renders/rotary_l20/liner_sections.svg).
+
+## Print status and evidence
+
+| Item | Status | Evidence / next observation |
+| --- | --- | --- |
+| L20 small damping cups | **Yes — preferred baseline** | [User print comparison](../tpu_damping_box/notes/thin_gap/README.md#physical-feedback--2026-10-21): damping like L18/T08, preferred thickness/finish. |
+| Rotary L20 full liner | **Unknown — first full print prepared** | [Raw STEP](rotary_l20_liner.step) / [STL](rotary_l20_liner.stl); inspect skins, insert gently, check lid seating and actual contents together. |
+| Old M1 S16 full liner | **Printed — damaged / rejected** | Both skins broke locally and damage increased during insertion. Historical record below. |
+
+[Current CAD/slice records and limits](notes/rotary_l20.md#verification-and-limits). The old S16 observations remain historical evidence, not acceptance of these new taller cups.
+
+## Historical M1 S16 liner — retained evidence
+
+The following dimensions, print reports and receipts describe the old M1 retrofit. The R2/T08/L20 experiments mentioned here are now complete; the current rotary adaptation is above. Historical recommendations to wait for R2 are superseded.
+
+That earlier liner fitted the **264 × 74.2 × 51.2 mm** M1 shell, with **183.4 mm body / 75.4 mm cap** inserts. Its [original entry point](dental_travel_case_liner.py), [design source](design.py), [process](profiles/tpu-s16-0p2-process.json) and [cutaway](renders/assembled/inspection_isometric.png) are retained for identification and historical reproduction.
 
 ## Design & Geometry Summary
 

@@ -14,6 +14,8 @@ A slim, two-piece travel box (`75.8 × 52.8 × 264 mm` closed shell), currently 
 
 The [covered rotary model](notes/covered_rotary.md) follows the user's corrected direction: facecap and wheel share the existing scalloped grip shape, with two keyed hub connections. The cap's 1.2 mm wall covers the wheel's whole 4.2 mm edge, hiding the side gap. Its scalloped outline is offset 1.8 mm outward (37.6 mm maximum span). Internal clearance remains 0.40 mm over the spring and 0.60 mm around the rim; a longer flush hex-drive screw retains the stack. The added outward projection is 1.6 mm. Body, lid, nut and spring/nose outside the hub are retained; the full box still has a 30 mm sleeve, 27 mm engagement and 3 mm seam reveal.
 
+Optional **L20 TPU liner for this rotary box:** [STEP](../dental_travel_case_liner/rotary_l20_liner.step) / [STL](../dental_travel_case_liner/rotary_l20_liner.stl). Two preformed cups; [print settings and first-fit limits](../dental_travel_case_liner/notes/rotary_l20.md). The rigid box geometry is unchanged.
+
 ![Matching covered wheel and facecap](renders/assembled/covered/rotary_covered_detail_isometric.png)
 
 The new assembly is unprinted. Positive-drive, common-rotation, guide/lock and solid-thread CAD checks are separate from printed fit, effort, key strength and bag-impact performance. [Joint sections and detailed evidence](notes/covered_rotary.md#how-the-two-pieces-turn-together). The earlier [rounder-face proposals](notes/hidden_rotary.md) are historical; the matching scalloped cover is now modelled.
