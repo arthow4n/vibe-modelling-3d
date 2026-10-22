@@ -19,6 +19,8 @@ The successful [50 mm PLA quick trial](notes/quick_rotary.md) supports adoption 
 
 The wider keeper gives a matching ledge above the wheel. Turn a quarter turn to OPEN before lifting the cap; the spring resists leaving LOCK independently of screw tightening. Full loaded handling, force, bag bumps and wear remain untested. [Current print/status record](notes/rotary_case.md).
 
+[Concealed-face concept comparison](notes/hidden_rotary.md): a moving facecap or a fixed shield could hide the spring and slots. These are rough proposals; the current print files still use the exposed wheel.
+
 <a id="how-the-current-design-works"></a>
 
 ## Previous prototypes and held files

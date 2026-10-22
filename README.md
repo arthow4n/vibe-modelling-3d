@@ -93,6 +93,7 @@ Slim two-piece rotary-lock box (`75.8 × 52.8 × 264 mm`) for a toothbrush and t
 - **Do not print / Closed:** Old external-hex screw with the new wheel, obsolete hollow fine-thread axle, assembled inspection files, superseded snap cases and discarded hinged designs.
 - **Test pieces:** **Yes — complete PLA rotary trial works**, stays together, slightly loose at correct temperature. Earlier indexed shell binding had suspected chamber overheating; cause unconfirmed. C2 snap trial rejected for effort; C8 hinge broke. Wheel underside overhang finish was subsequently rejected; new conical pair unprinted. PETG untested.
 - **Final object:** New full rotary box **Unknown — first print prepared**. Printed M1 packed brush/paste diagonally but had weak retention. Full rotary force, side-impact retention and wear remain untested.
+- **Form exploration:** [Moving facecap vs fixed shield](model/dental_travel_case/notes/hidden_rotary.md) to conceal the wheel mechanism; rough proposals, no covered variant adopted.
 - **Provenance:** [Current record and attribution](model/dental_travel_case/notes/rotary_case.md#engineering-record-and-attribution) · [Historical evidence](model/dental_travel_case/README.md) · **Agent effort:** [Historical record](model/dental_travel_case/notes/agent_effort.md)
 
 #### TPU damping box & wall-support research — [`model/tpu_damping_box/`](model/tpu_damping_box/README.md)

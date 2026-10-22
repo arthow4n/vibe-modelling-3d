@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920">
+<defs>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#23323a;font-size:18px}
+    .title{font-size:28px;font-weight:700}.head{font-size:22px;font-weight:700}
+    .small{font-size:16px}.muted{fill:#64747c}.line{fill:none;stroke:#344b57;stroke-width:2}
+    .case{fill:#eef1f2;stroke:#788992;stroke-width:2}.wheel{fill:#526f7f;stroke:#344b57;stroke-width:2}
+    .cover{fill:#bcd9dc;stroke:#344b57;stroke-width:2}.screw{fill:#a7b1bc;stroke:#344b57;stroke-width:2}
+    .arrow{fill:none;stroke:#16818a;stroke-width:3;marker-end:url(#arrow)}
+    .label{fill:none;stroke:#64747c;stroke-width:1.5}
+  </style>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#16818a"/></marker>
+  <g id="front-context">
+    <rect class="case" x="-170.5" y="-130" width="341" height="265" rx="13"/>
+    <rect x="-168" y="-30" width="336" height="14" fill="#d7e2e6"/>
+    <path class="line" d="M-170-30H170M-170-16H170"/>
+    <rect class="case" x="-76.5" y="-90" width="153" height="60" rx="9"/>
+    <rect class="case" x="-58.5" y="-4" width="117" height="82" rx="8"/>
+    <circle class="wheel" r="76.5"/>
+    <circle class="cover" r="72"/>
+    <circle class="screw" r="27"/>
+    <path d="M-7.8 0-3.9-6.75H3.9L7.8 0 3.9 6.75H-3.9Z" fill="#fff" stroke="#344b57" stroke-width="1.5"/>
+  </g>
+  <g id="section-common">
+    <rect class="case" x="25" y="-65" width="32" height="130" rx="3"/>
+    <path class="case" d="M57-37H100V-10H57ZM57 10H100V37H57Z"/>
+    <path class="wheel" d="M132-60H152V-12H132ZM132 12H152V60H132Z"/>
+    <rect x="130" y="-50" width="24" height="27" fill="white"/>
+    <path d="M135-48V-26" stroke="#b16c39" stroke-width="7"/>
+    <path class="cover" d="M172-68H180V-15L172-11ZM172 11 180 15V68H172Z"/>
+    <path class="screw" d="M180-15 160-7H100V-10H57V10H100V7H160L180 15Z"/>
+    <path d="M180-5H165L161 0 165 5H180" fill="white" stroke="#344b57" stroke-width="1.2"/>
+    <path d="M12 0H207" stroke="#8b9aa2" stroke-dasharray="4 5"/>
+  </g>
+</defs>
+<rect width="1200" height="920" fill="#fafbfc"/>
+<text x="30" y="43" class="title">Hide the mechanism, keep the rotary action</text>
+<text x="30" y="73" class="muted">Two rough alternatives · Front views share a scale · Sections are schematic, not manufacturing drawings</text>
+<rect x="20" y="95" width="565" height="650" rx="14" fill="white" stroke="#d4dee3"/>
+<rect x="615" y="95" width="565" height="650" rx="14" fill="white" stroke="#d4dee3"/>
+<text x="40" y="130" class="head">A · Moving facecap — preferred</text>
+<text x="635" y="130" class="head">B · Fixed faceplate</text>
+<g transform="translate(300 289)"><use href="#front-context"/><path class="arrow" d="M-55 43A70 70 0 0 1-55-43"/></g>
+<g transform="translate(895 289)"><use href="#front-context"/><path class="arrow" d="M-88 43A98 98 0 0 1-88-43"/></g>
+<text x="50" y="449">Turn the smooth face and its edge.</text>
+<text x="50" y="475" class="small muted">The small central screw stays still.</text>
+<text x="645" y="449">Turn only the exposed wheel rim.</text>
+<text x="645" y="475" class="small muted">The smooth shield and screw stay still.</text>
+<g transform="translate(95 584)">
+  <use href="#section-common"/>
+  <path class="cover" d="M152-22H172V-14H152ZM152 14H172V22H152Z"/>
+  <path class="label" d="M160-45V-87H240"/>
+  <text x="245" y="-82" class="small">Air gap over spring</text>
+  <path class="label" d="M162 18 217 49H258"/>
+  <text x="263" y="54" class="small">Keyed to rigid hub</text>
+  <text x="26" y="91" class="small muted">Case → wheel → facecap → outside</text>
+</g>
+<g transform="translate(690 584)">
+  <use href="#section-common"/>
+  <path class="screw" d="M100-10H172V-8H100ZM100 8H172V10H100Z"/>
+  <path class="label" d="M161-39V-87H215"/>
+  <text x="220" y="-82" class="small">Wheel stays clear</text>
+  <path class="label" d="M150 9 211 49H248"/>
+  <text x="253" y="54" class="small">Fixed collar seat</text>
+  <text x="26" y="91" class="small muted">Case → wheel → fixed shield → outside</text>
+</g>
+<text x="40" y="710" class="small">One extra printed facecap; longer matching axle.</text>
+<text x="635" y="710" class="small">One extra printed shield; longer matching axle.</text>
+<rect x="20" y="765" width="1160" height="133" rx="12" fill="#eef4f5"/>
+<text x="40" y="793" class="head">Shared changes and limits</text>
+<text x="40" y="822" class="small">Smooth shallow puck; keep the spring free behind the cover. Rounder wheel rim shown instead of the current deep side scallops.</text>
+<text x="40" y="847" class="small">Cover prints smooth face down, rear features up. Retain the tapered screw seat and a short round journal for free rotation.</text>
+<text x="40" y="872" class="small">Six printed parts total (current five + cover). Hub clearance, grip, stiffness and print details need CAD review before adoption.</text>
+<rect x="41" y="907" width="16" height="8" fill="#bcd9dc"/><text x="64" y="916" class="small">Cover</text>
+<rect x="160" y="907" width="16" height="8" fill="#526f7f"/><text x="183" y="916" class="small">Wheel</text>
+<rect x="284" y="907" width="16" height="8" fill="#a7b1bc"/><text x="307" y="916" class="small">Fixed axle/head</text>
+<rect x="470" y="907" width="16" height="8" fill="#b16c39"/><text x="493" y="916" class="small">Spring section</text>
+<text x="710" y="916" class="small muted">Colours identify roles; all parts may use the same PLA.</text>
+</svg>
