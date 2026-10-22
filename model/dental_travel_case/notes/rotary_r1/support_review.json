@@ -1,0 +1,7 @@
+{
+  "scope": "First R1a support probe, actual toolpaths",
+  "slice_input_sha256": "85c892c7f13ba7ccf0f83cf81c2f61642547378821caf7d85296ad0a2953386a",
+  "support_gcode_sha256": "b7f8fd9b7ff9a32a30f39475a49c8477f2d6b230a227964e9b40179cbffc49f3",
+  "observation": "Support branches ended at Z11.4, under the original circular inside nut-access pocket ceiling at Z11.6. No cap keeper, window roof or tab support was proposed.",
+  "decision": "Use a larger gabled access pocket for narrow pliers; 45-degree ceiling removes the circular roof support request."
+}

@@ -1,6 +1,6 @@
 # Compact one-side rotary locks
 
-Review the [three-option SVG](../renders/concepts/rotary_side_options.svg) ([PNG](../renders/concepts/rotary_side_options.png)), [swivel-tab section](../renders/concepts/rotary_side_tab.svg) and [quarter-turn cam explanation](../renders/concepts/rotary_side_cam.svg). **SVG proposals only: no rotary CAD or print files have been built.** The bulky B1 yoke and the too-tight C2 pull-apart snap are on hold.
+Review the [three-option SVG](../renders/concepts/rotary_side_options.svg) ([PNG](../renders/concepts/rotary_side_options.png)), [swivel-tab section](../renders/concepts/rotary_side_tab.svg) and [quarter-turn cam explanation](../renders/concepts/rotary_side_cam.svg). **R1 has now been selected for a physical trial:** [R1a sample and instructions](rotary_r1.md), [STEP](../rotary_r1_test.step), [STL](../rotary_r1_test.stl). The proposal comparison below records the preceding SVG phase; R2/R3 remain unbuilt. The bulky B1 yoke and the too-tight C2 pull-apart snap are on hold.
 
 ## What the user means and what changed
 
@@ -38,11 +38,11 @@ A single lock is **plausible, not validated**. A long, close-fitting sleeve give
 
 Start with a lock near the center of one broad face, rather than at a corner, to avoid adding a sideways offset on that face. The opposite wall still sits across the case depth and can lift first if the shell spreads. Exact face choice, guide overlap and wall stiffness remain open. Keep the former approximate 30 mm overlap as a starting geometry, not proof that one side is sufficient or a reason to lengthen the sleeve indefinitely. A local axle or keeper boss may be necessary; it should not turn into another continuous exterior band or a bulky interior cage.
 
-After choosing a concept, a small trial would need the retained guide perimeter and overlap as well as the actual one-sided keeper and pivot. A bare rotating tab alone would only demonstrate rotation. A future complete-case check must still address the opposite edge, ordinary opening/closing, loaded packing and accidental contact with the control. No such trial is designed or authorized by this SVG-only phase.
+After choosing a concept, a small trial would need the retained guide perimeter and overlap as well as the actual one-sided keeper and pivot. A bare rotating tab alone would only demonstrate rotation. A future complete-case check must still address the opposite edge, ordinary opening/closing, loaded packing and accidental contact with the control. That was the boundary of the SVG phase. The subsequently authorized [R1a trial](rotary_r1.md) retains the full perimeter and overlap; it does not qualify the complete case.
 
 ## Parts, manufacture and research limits
 
-R1 and R2 need **body + cap + rotor + a pivot/retainer arrangement**. The drawings do not hide the axle as a cost-free attachment. A separate printed pin/retainer adds at least one piece; a stock M3 screw and nut are an alternative using the user's recorded hardware. That choice remains open for discussion before printable detailing. Small-head hardware may still project farther than the green rotor alone. R3 needs body + cap + screw/knob, plus whatever captive feature proves worthwhile; screw retention cannot be assumed just because some thread remains engaged in OPEN.
+R1 and R2 need **body + cap + rotor + a pivot/retainer arrangement**. The drawings do not hide the axle as a cost-free attachment. A separate printed pin/retainer adds at least one piece; a stock M3 screw and nut are an alternative using the user's recorded hardware. The subsequent R1a sample uses one M3×12 screw and two jammed M3 nuts to retain a freely turning tab; the earlier proposal left that detail open. Small-head hardware may still project farther than the green rotor alone. R3 needs body + cap + screw/knob, plus whatever captive feature proves worthwhile; screw retention cannot be assumed just because some thread remains engaged in OPEN.
 
 For the usual 0.4 mm nozzle / 0.2 mm layers, a future tab or cam would preferably print broad face down, keeping its load-bearing profile in the bed plane. Axle holes, local body/cap keeper undersides, retaining hardware pockets and any unsupported slot roof must be planned with their own orientations. The shell can retain its established longitudinal layer direction where feasible. No toolpath generation, numerical analysis, material allowable or printability result accompanies these sketches.
 
@@ -50,11 +50,12 @@ For the usual 0.4 mm nozzle / 0.2 mm layers, a future tab or cam would preferabl
 
 ## Verification, status and attribution
 
-SVG XML, rotation directions, the named bearing contacts, readable previews and local links were reviewed. The CAD source and STEP/STL files remain unchanged. Existing digital checks describe the old geometries and do not override product rejection. There is no force, wear, sealing, accidental-opening or manufacturing qualification for these rotary proposals.
+SVG XML, rotation directions, the named bearing contacts, readable previews and local links were reviewed. During the SVG phase, existing CAD source and STEP/STL files remained unchanged. The later R1a sample is separate; its evidence is recorded in [the sample notes](rotary_r1.md). Existing digital checks describe the old geometries and do not override product rejection. There is no force, wear, sealing, accidental-opening or manufacturing qualification for these rotary proposals.
 
 | Item | Print status | Artifacts | Result / remaining question |
 | --- | --- | --- | --- |
-| Rotary proposals | N/A | Three SVGs and PNG previews | Choose a mechanism before CAD; one-sided retention and manufacturing remain unqualified. |
+| R1a sample | Unknown | `rotary_r1_test.step` / `.stl` | Selected for PLA action trial; physical results pending. |
+| R2/R3 proposals | N/A | SVGs and PNG previews | Alternatives remain unbuilt. |
 | B1 yoke sample | Unknown | Existing `slider_b_test.step` / `.stl`, unchanged | Exterior bulk rejected; print/use not reported; unchanged repeat prints on hold. |
 | C2 joint sample | Yes | Existing `smooth_joint_test.step` / `.stl`, unchanged | Printed PLA; opening and closing too tight. |
 | Full rotary case | N/A | None | No CAD or printable replacement this phase. |

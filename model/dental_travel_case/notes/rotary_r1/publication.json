@@ -1,0 +1,20 @@
+{
+  "scope": "R1a paired native exports and selected-profile diagnostic slice; no physical PLA validation",
+  "source_sha256": {
+    "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
+    "rotary_r1_checks.py": "1f466e78269535a0f80b1078a61b4c8ca662d5c7360ae9d7da7538e15188c71b",
+    "rotary_r1_draw.py": "53c277a8edf10c8ef4c15d312b171aec8b9b5024cae5ccb5d258df19ac5e0b4e",
+    "rotary_r1_test.py": "ed33691b17368e676054548c2e53fa3408d177d3c698e7e06f06efcaa377060a",
+    "rotary_r1_test_assembled.py": "46be0f4cac4391687ae983e625876d2cb6263fe073ef2314a45778beb8d767fe",
+    "rotary_r1_test_open.py": "d6932a3f354f486dc4a40c226af95738e5fe5ebc93a8a601913109b76540fff3",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5"
+  },
+  "artifacts": {
+    "rotary_r1_test.step": "55e6a8b8700663440095b394cd4734ce0ee57eaf62c6f19bf8263e2e6276dcec",
+    "rotary_r1_test.stl": "6115487328a5d1d0e84f5116ad73dbf4c199089f42f3b433b299dd2fc8c0f8ad",
+    "notes/rotary_r1/cad.json": "5d2a1901066b096d3f0b4963fb47726fbc98f1fcef1bd759999d86eb8eafb3e3",
+    "notes/rotary_r1/print_review.json": "2ea33507a9876cc1301a861c9e527fdcffda49cb174d263b24bce91a0ad7dc26"
+  },
+  "native_input_identity": "681e073faa7e5c1589bad2bb97cf5cedfc6937d452297615b4fa4c394ea6d138",
+  "association": "Repository Python frozen during final native publication; final CAD source hashes match, and delivered STL matches selected-profile slice input."
+}
