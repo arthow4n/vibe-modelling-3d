@@ -1,0 +1,161 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_travel_case.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/print/rotary_case/rotary_travel_case_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_travel_case.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_travel_case.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.001430309988791123,
+    "build": 3.9844030780077446,
+    "selection": 0.001380834000883624,
+    "validation": 0.08324369302135892,
+    "export_step": 0.14954263297840953,
+    "export_stl": 0.2719819009944331,
+    "render_isometric": 0.6359192800009623,
+    "worker": 5.2234910179977305,
+    "total": 35.81453530699946,
+    "slice": 30.246631977992365
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "ecec257dcd69edfbe54d569b9bf01bd6bc70928744732dc121a202127b25bac5",
+    "artifact_identity": "ccce77a5b762096d52f51f6b5facd5a2e0a16fb86b06e4d58c9c2d2add71129e"
+  },
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_travel_case.stl",
+    "profiles": {
+      "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/notes/rotary_refinement/profiles/process.json",
+      "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "center",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "PETG"
+      ],
+      "filament_settings_id": [
+        "Generic PETG @Qidi Q2C 0.4 nozzle"
+      ],
+      "nozzle_temperature": [
+        "250"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "245"
+      ],
+      "hot_plate_temp": [
+        "80"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "80"
+      ],
+      "print_settings_id": "Rotary indexed trial 0.20mm 3 walls 7% with accessible supports",
+      "layer_height": "0.2",
+      "wall_loops": "3",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "auto_brim",
+      "brim_width": "5",
+      "brim_object_gap": "0.1",
+      "enable_support": "1",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "0.95"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "7%",
+      "sparse_infill_pattern": "adaptivecubic"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": true,
+      "supported_plates": [
+        {
+          "plate": 1,
+          "roles": [
+            "Support",
+            "Support interface"
+          ]
+        }
+      ],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": true,
+    "reused": false,
+    "identity": "590687c41176c8d18b0e54d1d2d70067824a8fb551d6a1ad772e8e614a38757d",
+    "input_sha256": "021b406d7118f1ba863ab81bd6d201a18b80f370238ca551a0d58a3956472ee2",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-ktjvj9n1",
+    "setup_selection": {
+      "profiles": "supplied",
+      "placement": "default_center",
+      "scope": "Selected-profile slice acceptance only; production setup agreement and physical print behavior are not established"
+    }
+  }
+}

@@ -1,24 +1,11 @@
 {
-  "slice_input_sha256": "021b406d7118f1ba863ab81bd6d201a18b80f370238ca551a0d58a3956472ee2",
-  "gcode_sha256": "31b600091fa82a8c8e8094ea97478a8246f5c709944e928a7e12f7e5b4b9c185",
+  "slice_input_sha256": "199150c2e0821119fdf327bdd940730f9660429e34b601f40a06276d2f8ff94c",
   "reviewed_roles": [
     "Support",
     "Support interface"
   ],
   "all_support_outside_storage": true,
   "regions": {
-    "wheel / Support": {
-      "segments": 2883,
-      "z_mm": [
-        0.2,
-        1.8
-      ],
-      "deposited_y_extent_mm": [
-        176.955,
-        189.745
-      ],
-      "outside_storage": true
-    },
     "cap / Support": {
       "segments": 48062,
       "z_mm": [
@@ -43,18 +30,6 @@
       ],
       "outside_storage": true
     },
-    "wheel / Support interface": {
-      "segments": 398,
-      "z_mm": [
-        2.0,
-        2.4
-      ],
-      "deposited_y_extent_mm": [
-        177.351,
-        189.351
-      ],
-      "outside_storage": true
-    },
     "cap / Support interface": {
       "segments": 478,
       "z_mm": [
@@ -72,5 +47,5 @@
     85.0,
     103.35
   ],
-  "interpretation": "Actual support and interface paths, including half extrusion width, stay outside both protected storage passages. The wheel is separate on the bed. Tall body support reaches the outside axle-entry bore; remove through front bore/top nut slot before assembly. Cap keeper support opens to the front, and the wheel head recess opens outward. Removal finish remains untested."
+  "interpretation": "Full layout has accessible body exterior bore and cap keeper supports only; new wheel has no supports. All recorded support paths plus half extrusion width remain outside storage. Remove before assembly."
 }

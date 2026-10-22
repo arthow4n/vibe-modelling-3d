@@ -1,0 +1,379 @@
+{
+  "source_sha256": {
+    "rotary_conical_design.py": "fc038d6064570388ebbc59a8479fd7cb1aec3663a220c3292e62ae41ab2e82ea",
+    "rotary_conical_checks.py": "e0db72deaf7f89b4214ab7c5297f9da291a56835b89ab50e045f8d3af469bcb6",
+    "rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
+    "rotary_refinement_design.py": "df2973359bc374cd2e5aa48c41eab4c56611e377a9ac26f8cbf4415e23b8a294",
+    "rotary_case_design.py": "4a39a9ebc67d6a0f817df068027d494e401b1c4c2515805b152b25c57c9370f7",
+    "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5"
+  },
+  "solid_core": {
+    "intent": "Complete solid thread core beyond tapered blind-drive roof",
+    "missing_mm3": 0.0
+  },
+  "thread_difference_mm3": 0.0,
+  "unchanged_interfaces": [
+    {
+      "part": "body",
+      "symmetric_difference_mm3": 0.0
+    },
+    {
+      "part": "cap",
+      "symmetric_difference_mm3": 0.0
+    },
+    {
+      "part": "pivot_nut",
+      "symmetric_difference_mm3": 0.0
+    },
+    {
+      "part": "detent_pin",
+      "symmetric_difference_mm3": 0.0
+    },
+    {
+      "part": "stop_pin",
+      "symmetric_difference_mm3": 0.0
+    }
+  ],
+  "checks": [
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical head clears rotating wheel at shoulder seated",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical head clears rotating wheel at shoulder seated",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical head clears rotating wheel at shoulder seated",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical head clears rotating wheel at shoulder seated",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical head clears rotating wheel at shoulder seated",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical head clears rotating wheel at shoulder seated",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical head clears rotating wheel at shoulder seated",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical head clears rotating wheel at shoulder seated",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical head clears rotating wheel at shoulder seated",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical head clears rotating wheel at shoulder seated",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "intent": "Wheel remains axially captured",
+      "shift_y_mm": -0.3,
+      "target": "pivot_axle",
+      "blocked_mm3": 5.580515750325645
+    },
+    {
+      "intent": "Wheel remains axially captured",
+      "shift_y_mm": 0.4,
+      "target": "body",
+      "blocked_mm3": 23.678733929278366
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical running seam clear of wheel",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical running seam clear of screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical running seam clear of wheel",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical running seam clear of screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical running seam clear of wheel",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Conical running seam clear of screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    }
+  ],
+  "flush_face": {
+    "intent": "Head annulus reaches wheel front plane within .01mm",
+    "missing_mm3": 0.0
+  },
+  "cone_gap": [
+    {
+      "depth_mm": 0.2,
+      "radial_gap_mm": 0.2
+    },
+    {
+      "depth_mm": 1.0,
+      "radial_gap_mm": 0.2
+    },
+    {
+      "depth_mm": 1.8,
+      "radial_gap_mm": 0.2
+    }
+  ],
+  "slope_radius_per_height": 1.0,
+  "socket_across_flats_mm": 3.2,
+  "socket_depth_mm": 2.2,
+  "socket_roof_height_mm": 1.9,
+  "limits": "Rigid CAD only; printed driver strength, cone finish, free rotation and thread fit after head revision remain untested"
+}

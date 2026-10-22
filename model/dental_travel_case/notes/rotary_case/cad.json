@@ -1,12 +1,13 @@
 {
   "source_sha256": {
-    "rotary_case_design.py": "01db823930f9aa2a5a34c4efcbb8c6dfb4aac95bc28343faa48a5849458b36c5",
-    "rotary_case_checks.py": "9a42d2a236622c7e3a5998e05895a0098ca23656c95a9714fc64d1605c541fae",
-    "rotary_refinement_design.py": "573f94385d13cb017a05e615f5dff26c008ce9801cd10af9d50eff1b7e06865d",
-    "rotary_refinement_checks.py": "e9aaa658e62f35e734df68262df6489ecf182835fb67a2fda67aefa2c54f6747",
+    "rotary_case_design.py": "4a39a9ebc67d6a0f817df068027d494e401b1c4c2515805b152b25c57c9370f7",
+    "rotary_case_checks.py": "80fdc6e515816064d389b3364c551d86ee9f65557b09cde5400d73e349ac8f1b",
+    "rotary_refinement_design.py": "df2973359bc374cd2e5aa48c41eab4c56611e377a9ac26f8cbf4415e23b8a294",
+    "rotary_refinement_checks.py": "37125af889778c97e47d165847b60b1a648f833bd3c850e037b6244b0cd92a1f",
     "rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
     "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
-    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5"
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "rotary_conical_design.py": "fc038d6064570388ebbc59a8479fd7cb1aec3663a220c3292e62ae41ab2e82ea"
   },
   "full": {
     "scope": "Indexed rotary geometry; no physical thread/detent/strength qualification",
@@ -2125,7 +2126,7 @@
         "second": "second",
         "configuration": null,
         "requirement": {
-          "intent": "8mm socket, <=12.8mm outside diameter, reaches external hex",
+          "intent": "3mm hex key reaches blind head socket",
           "max_overlap_mm3": 1e-05,
           "min_overlap_mm3": null,
           "min_gap_mm": null,
@@ -2144,7 +2145,7 @@
         "second": "second",
         "configuration": null,
         "requirement": {
-          "intent": "8mm socket, <=12.8mm outside diameter, reaches external hex",
+          "intent": "3mm hex key reaches blind head socket",
           "max_overlap_mm3": 1e-05,
           "min_overlap_mm3": null,
           "min_gap_mm": null,
@@ -2163,7 +2164,7 @@
         "second": "second",
         "configuration": null,
         "requirement": {
-          "intent": "8mm socket, <=12.8mm outside diameter, reaches external hex",
+          "intent": "3mm hex key reaches blind head socket",
           "max_overlap_mm3": 1e-05,
           "min_overlap_mm3": null,
           "min_gap_mm": null,
@@ -2182,7 +2183,7 @@
         "second": "second",
         "configuration": null,
         "requirement": {
-          "intent": "8mm socket, <=12.8mm outside diameter, reaches external hex",
+          "intent": "3mm hex key reaches blind head socket",
           "max_overlap_mm3": 1e-05,
           "min_overlap_mm3": null,
           "min_gap_mm": null,
@@ -2595,9 +2596,9 @@
         "blocked_mm3": 17.56837595553093
       }
     ],
-    "hardware": "printed-coarse",
+    "hardware": "printed-cone",
     "nominal_detent_radial_travel_mm": 0.35,
-    "pivot_head_recess_mm": 0.29999999999999716,
+    "pivot_head_recess_mm": 0.0,
     "maximum_control_projection_mm": 10.399999999999999,
     "guide_track_width_mm": 0.0,
     "tube_loading_offset_y_mm": 0.0,

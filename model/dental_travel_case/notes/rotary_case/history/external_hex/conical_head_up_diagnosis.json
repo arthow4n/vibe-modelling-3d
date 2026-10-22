@@ -1,0 +1,4 @@
+{
+  "observation": "Automatic support probe locates interface at print Z6.0..6.2 under the shoulder step at Z6.4; selected primary supports-off job completed but cannot justify head-up no-support advice.",
+  "decision": "Return to broad head-down bed contact and retain successful thread orientation; close drive socket with sloped hexagonal roof."
+}

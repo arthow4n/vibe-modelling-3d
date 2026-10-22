@@ -1,17 +1,17 @@
 """Full-size PLA rotary case, revised from the physically accepted quick trial."""
 from dataclasses import replace
 import cadquery as cq
-from rotary_refinement_design import D,build,configuration
+from rotary_refinement_design import D,build
 
 CURRENT=replace(D,guide_clearance=.2,keeper_radius=12.8,keeper_form='wide',keeper_span=34.)
 
 
 def case():
-    return build('wheel',dimensions=CURRENT,fastener='printed-coarse')
+    return build('wheel',dimensions=CURRENT,fastener='printed-cone')
 
 
 def shell_layout(p):
-    """Three parts at shell settings; unchanged solid fasteners print separately."""
+    """Three parts at shell settings; matching solid screw print separately."""
     d=p['dimensions'];a=cq.Assembly(name='full_rotary_travel_case_print')
     a.add(p['body'],name='body')
     a.add(p['cap'].rotate((0,0,0),(1,0,0),180).translate((100,0,d.length)),name='cap')

@@ -1,0 +1,161 @@
+{
+  "source_sha256": {
+    "rotary_conical_print_checks.py": "4a10f601c54a0c0224b7b5437f2782533ef1bc3b9d57bb44e622bd6682714f64",
+    "rotary_conical_design.py": "fc038d6064570388ebbc59a8479fd7cb1aec3663a220c3292e62ae41ab2e82ea",
+    "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373"
+  },
+  "exported_thread_missing_core_mm3": 0.0,
+  "old_hollow_negative_control_missing_mm3": 28.274333882308134,
+  "solid_core_sections": [
+    {
+      "z_mm": 4.6,
+      "coverage": {
+        "filled_width_mm": 4.399999999999977,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            132.8,
+            137.2
+          ]
+        ]
+      }
+    },
+    {
+      "z_mm": 5.0,
+      "coverage": {
+        "filled_width_mm": 4.399999999999977,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            132.8,
+            137.2
+          ]
+        ]
+      }
+    },
+    {
+      "z_mm": 6.0,
+      "coverage": {
+        "filled_width_mm": 4.399999999999977,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            132.8,
+            137.2
+          ]
+        ]
+      }
+    },
+    {
+      "z_mm": 8.0,
+      "coverage": {
+        "filled_width_mm": 4.399999999999977,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            132.8,
+            137.2
+          ]
+        ]
+      }
+    },
+    {
+      "z_mm": 10.8,
+      "coverage": {
+        "filled_width_mm": 4.399999999999977,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            132.8,
+            137.2
+          ]
+        ]
+      }
+    }
+  ],
+  "uncovered_width_limit_mm": 0.1,
+  "wheel_inner_perimeter_progression": [
+    {
+      "z_mm": 0.2,
+      "median_radius_mm": 6.492658642651711,
+      "median_width_mm": 0.5
+    },
+    {
+      "z_mm": 0.4,
+      "median_radius_mm": 6.101029626218848,
+      "median_width_mm": 0.42,
+      "overlap_with_previous_ring_mm": 0.06837098356713689
+    },
+    {
+      "z_mm": 0.6,
+      "median_radius_mm": 5.899001324376723,
+      "median_width_mm": 0.42,
+      "overlap_with_previous_ring_mm": 0.21797169815787504
+    },
+    {
+      "z_mm": 0.8,
+      "median_radius_mm": 5.701538673901995,
+      "median_width_mm": 0.42,
+      "overlap_with_previous_ring_mm": 0.22253734952527188
+    },
+    {
+      "z_mm": 1.0,
+      "median_radius_mm": 5.50088790549286,
+      "median_width_mm": 0.42,
+      "overlap_with_previous_ring_mm": 0.219349231590865
+    },
+    {
+      "z_mm": 1.2,
+      "median_radius_mm": 5.301070162762975,
+      "median_width_mm": 0.42,
+      "overlap_with_previous_ring_mm": 0.22018225727011492
+    },
+    {
+      "z_mm": 1.4,
+      "median_radius_mm": 5.101855142407372,
+      "median_width_mm": 0.42,
+      "overlap_with_previous_ring_mm": 0.22078497964439686
+    },
+    {
+      "z_mm": 1.6,
+      "median_radius_mm": 4.900984620461486,
+      "median_width_mm": 0.42,
+      "overlap_with_previous_ring_mm": 0.21912947805411426
+    },
+    {
+      "z_mm": 1.8,
+      "median_radius_mm": 4.702384554670096,
+      "median_width_mm": 0.42,
+      "overlap_with_previous_ring_mm": 0.22139993420860998
+    },
+    {
+      "z_mm": 2.0,
+      "median_radius_mm": 4.503658290767652,
+      "median_width_mm": 0.42,
+      "overlap_with_previous_ring_mm": 0.22127373609755635
+    },
+    {
+      "z_mm": 2.2,
+      "median_radius_mm": 4.4040958493151585,
+      "median_width_mm": 0.42,
+      "overlap_with_previous_ring_mm": 0.32043755854750616
+    },
+    {
+      "z_mm": 2.4,
+      "median_radius_mm": 4.404054580722576,
+      "median_width_mm": 0.42,
+      "overlap_with_previous_ring_mm": 0.41995873140741763
+    }
+  ],
+  "scope": "Targeted exported screw thread core and 100% sliced fill; actual wheel inner perimeter replaces the former abrupt recess roof. Path widths are approximations, not calibrated polymer or print finish.",
+  "slice_inputs": {
+    "wheel": "0a7f178995aaf22cdf8ee95f43d3dff49642ab0f40d58ba123623353d052f229",
+    "screw": "7bf4ce277ef8b7af295324edcdac3c9d7c58e4ca87dd435ed5327a61e3cff059",
+    "full": "199150c2e0821119fdf327bdd940730f9660429e34b601f40a06276d2f8ff94c"
+  }
+}

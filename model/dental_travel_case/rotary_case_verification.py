@@ -21,6 +21,10 @@ def cad():
     assert f['guide_clearance_per_side_mm']==.2 and f['keeper_span_mm']==34.
     assert abs(f['keeper_radial_gap_mm']-.5)<1e-6
     assert len(f['locked_witnesses'])==21 and len(f['turn'])==19
+    c=json.loads((ROOT/'notes/rotary_case/conical_cad.json').read_text())
+    require_sources(c['source_sha256'])
+    assert c['solid_core']['missing_mm3']<1e-5 and c['thread_difference_mm3']<1e-5
+    assert c['flush_face']['missing_mm3']<1e-5 and c['socket_across_flats_mm']==3.2
 
 
 def publication():
@@ -32,6 +36,12 @@ def publication():
     assert e['slice']['ok'] and e['slice']['input_sha256']==r['slice_input_sha256']
     s=json.loads((ROOT/'notes/rotary_case/support_review.json').read_text())
     assert s['all_support_outside_storage'] and s['reviewed_roles']==['Support','Support interface']
+    for name in ('wheel_review.json','screw_review.json','fasteners_review.json'):
+        t=json.loads((ROOT/'notes/rotary_case'/name).read_text())
+        assert t['ok'] and t['slice']['ok'] and t['slice']['support_probe']['ok']
+        assert not t['slice']['support_probe']['generated']
+    screw=json.loads((ROOT/'notes/rotary_case/screw_review.json').read_text())
+    assert screw['slice']['effective_settings']['sparse_infill_density']=='100%'
 
 
 def make_plan(variant,baseline):
@@ -53,16 +63,19 @@ def make_plan(variant,baseline):
              U('rotary.printed','Use printable custom screw and nut with solid male thread core',SOURCE),
              U('rotary.index','Require resistance before rotary disengagement',SOURCE),
              U('rotary.storage','Keep hardware from snagging contents or protruding beyond the control face',SOURCE))
+    head_source=S(RECORD+'#conical-wheel-and-screw-revision',
+        'User reports face-down wheel overhang prints poorly and requests an easier-to-print matched conical screw/wheel with hex-key access and a smooth gap-free exterior')
+    intent+=(U('rotary.printability','Improve face-down wheel printability with a matched flush conical hex-key screw head',head_source),)
     scope=dict(design=variant,material='PLA intended; actual full case unprinted',
-               geometry='75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap',
+               geometry='75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap; conical wheel + flush hex-key head',
                sample_basis='user accepted complete PLA quick trial; exact artifact and settings unknown')
     qs=[Q('full-use',r.id,'Full printed case satisfies this intent in actual travel use','physical') for r in intent]
     targets=tuple((rid,'geometry') for rid in ('brush.fit','paste.fit','closure.secure',
         'closure.end-retention','closure.short-overlap','form.cap-comfort','form.smooth-exterior',
-        'rotary.fit','rotary.index','rotary.storage'))
+        'rotary.fit','rotary.index','rotary.storage','rotary.printability','rotary.printed'))
     qs.extend(Q(q,r,'Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim','CAD') for r,q in targets)
-    pub=(('print.material','publication'),('rotary.printed','publication'))
-    qs.extend(Q(q,r,'Guarded matching exports and reviewed diagnostic slice; unchanged solid fastener pair retained','slicer') for r,q in pub)
+    pub=(('print.material','publication'),('rotary.printed','publication'),('rotary.printability','publication'))
+    qs.extend(Q(q,r,'Guarded matching exports and reviewed diagnostic slices; standalone conical wheel and solid screw generate no automatic supports','slicer') for r,q in pub)
     qs.append(Q('accepted-trial','test.fit','User reports complete PLA trial operates and stays together, with slight looseness','physical'))
     qs.append(Q('impact','closure.side-hit','Knocks and bumps inside a travel bag do not release the full printed case','physical'))
     qs.append(Q('force','research.force','Actual release effort and retention force quantified for this rotary case','physical'))
@@ -73,4 +86,4 @@ def make_plan(variant,baseline):
              'Complete PLA quick trial works and stays together; slight looseness. This is sample evidence, not a full-case force/impact qualification.',
              RECORD+'#user-feedback-and-authorized-adoption',scope),),
         directives=(Directive('rotary.adopt','Proceed with the revised full box for printing',SOURCE),),
-        decisions=(DesignDecision('rotary.clearances','Tighten guide .30 to .20 mm per side and keeper radial gap .80 to .50; preserve successful thread and spring',RECORD),))
+        decisions=(DesignDecision('rotary.clearances','Tighten guide .30 to .20 mm per side and keeper radial gap .80 to .50; preserve successful thread and spring; match a 45-degree wheel recess to a flush conical blind-hex head',RECORD),))

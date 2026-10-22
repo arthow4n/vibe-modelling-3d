@@ -102,17 +102,25 @@ def check_size(dimensions,*,contents,fastener):
             rows.append(clear(brush,p[name],'Individual 30mm brush envelope'))
     for angle in (-15.,105.):
         assert p['body'].intersect(rotor_pose(p,angle)).val().Volume()>.01
-    # Socket envelope with an explicit known-size limit, not a hand model.
-    socket=(cq.Workplane('XZ',origin=(0,-d.wheel_front-20,d.pivot)).circle(6.4)
-            .polygon(6,8.3/(3**.5/2)).extrude(-(20+d.wheel_front-d.axle_under-.1)))
-    for name in ('body','cap','rotor','pivot_axle'):
-        rows.append(clear(socket,p[name],'8mm socket, <=12.8mm outside diameter, reaches external hex'))
+    if fastener=='printed-cone':
+        # A real 3 mm hex key reaches the blind socket without an outside socket.
+        from rotary_conical_design import KEY_AF,SOCKET_DEPTH
+        socket=(cq.Workplane('XZ',origin=(0,-d.wheel_front-20,d.pivot))
+                .polygon(6,KEY_AF/(3**.5/2)).extrude(-(20+SOCKET_DEPTH-.1)))
+        for name in ('body','cap','rotor','pivot_axle'):
+            rows.append(clear(socket,p[name],'3mm hex key reaches blind head socket'))
+    else:
+        # Socket envelope with an explicit known-size limit, not a hand model.
+        socket=(cq.Workplane('XZ',origin=(0,-d.wheel_front-20,d.pivot)).circle(6.4)
+                .polygon(6,8.3/(3**.5/2)).extrude(-(20+d.wheel_front-d.axle_under-.1)))
+        for name in ('body','cap','rotor','pivot_axle'):
+            rows.append(clear(socket,p[name],'8mm socket, <=12.8mm outside diameter, reaches external hex'))
     out=dict(scope='Indexed rotary geometry; no physical thread/detent/strength qualification',
         checks=rows,protected_skins=skins,turn=turns,
         detent_before_release=barrier,detent_with_radial_play=play_barrier,locked_witnesses=witnesses,
         hardware=fastener,
         nominal_detent_radial_travel_mm=d.detent_radial_travel,
-        pivot_head_recess_mm=d.wheel_front-d.axle_front,
+        pivot_head_recess_mm=0. if fastener=='printed-cone' else d.wheel_front-d.axle_front,
         maximum_control_projection_mm=d.wheel_front-d.depth/2,
         guide_track_width_mm=0.,tube_loading_offset_y_mm=0.,
         unknowns=['Printed thread fit','detent force/return/wear','keeper strength',

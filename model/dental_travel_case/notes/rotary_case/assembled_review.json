@@ -6,7 +6,7 @@
     {
       "view": "isometric",
       "ok": true,
-      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/rotary_case/rotary_travel_case_assembled_isometric.png",
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/conical/rotary_travel_case_assembled_isometric.png",
       "reused": false,
       "camera": {
         "from_direction": [
@@ -24,13 +24,13 @@
   ],
   "exports": [],
   "timings_seconds": {
-    "dependency_initialization": 0.0016674500075168908,
-    "build": 3.952551296009915,
-    "selection": 0.0011204840266145766,
-    "validation": 0.11220805000630207,
-    "render_isometric": 6.193101387005299,
-    "worker": 10.362111380993156,
-    "total": 11.409352470975136
+    "dependency_initialization": 0.0015020229911897331,
+    "build": 4.568498325010296,
+    "selection": 0.0010758840071503073,
+    "validation": 0.12146130501059815,
+    "render_isometric": 6.113140700996155,
+    "worker": 10.89829340900178,
+    "total": 11.898972204013262
   },
   "versions": {
     "python": "3.14.7",
@@ -41,7 +41,7 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "f7d237d8b285f4e6ca59b7706e357f384b6b37c4c361c0a331615df3436b7ffd",
-    "artifact_identity": "46d234e95178c87dfe179eadb156ff1a4ec28b9373809f07561499f1a24770a1"
+    "identity": "7fa207393c07882422954a4b298cf1720cde0798dc4bb24bb3097dc5bb74da7b",
+    "artifact_identity": "b3c683a9dfae0c60749ddc73187de4a95550a225a066a880fcb6d94bc690ce06"
   }
 }

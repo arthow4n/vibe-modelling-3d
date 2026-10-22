@@ -1,0 +1,34 @@
+{
+  "source_sha256": {
+    "rotary_case_design.py": "01db823930f9aa2a5a34c4efcbb8c6dfb4aac95bc28343faa48a5849458b36c5",
+    "rotary_case_checks.py": "9a42d2a236622c7e3a5998e05895a0098ca23656c95a9714fc64d1605c541fae",
+    "rotary_refinement_design.py": "573f94385d13cb017a05e615f5dff26c008ce9801cd10af9d50eff1b7e06865d",
+    "rotary_refinement_checks.py": "e9aaa658e62f35e734df68262df6489ecf182835fb67a2fda67aefa2c54f6747",
+    "rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
+    "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "rotary_travel_case.py": "9e8f14552c715d01246dfe4c220802dbc9c639fdc023971d04c48eaa04596081",
+    "rotary_travel_case_assembled.py": "49eaba0146fd7b7736a01f38a84ab66298d786d481fb86e09341c886b264dc3c",
+    "rotary_case_detail.py": "dba5a5eb34b690cb761c6079c163c5e4b0278ecdfdca20927b13bbbd8ea8559c",
+    "rotary_case_verification.py": "a79f24f60072bd3a83f463685f7be91f959123ac3d6564e9b57db524b1c5df20",
+    "verification.py": "326620ed95dedbb266bb97395ca27a464b6b8badc1451ee87e6b7c5c10321fd5",
+    "rotary_printed_fasteners.py": "64964518b78bc1f06e36c8573f6cc6f914d6369669baad7d81aca0cf0b43a2be"
+  },
+  "artifacts": {
+    "rotary_travel_case.step": "8ba46ae17124841369be42c5dc47337898149556d192e100d1914560e277db86",
+    "rotary_travel_case.stl": "021b406d7118f1ba863ab81bd6d201a18b80f370238ca551a0d58a3956472ee2",
+    "rotary_printed_fasteners.step": "6c052a6b3256bfd6036bccb94e768afa6c90efda281c9607156625787fdf172c",
+    "rotary_printed_fasteners.stl": "64fae43884ee299920c213b79b1a8bcd78668644b2a3a5ecaad149f189ef6089",
+    "notes/rotary_case/cad.json": "cd6c9116673f0be52381800cd8fe4c353d4b05201809fe5f4e7a69b1c5669316",
+    "notes/rotary_case/print_review.json": "6cb931a4afd0815cb3334b1b90e66e716bc747c39c143efa1069adfa88988529",
+    "notes/rotary_case/assembled_review.json": "819b9a97a3191bdce874a2a8bf494908ff4f8fd1ba4d37595b187ba7d4953f0f",
+    "notes/rotary_case/detail_review.json": "f38eef8d4022fc6abb6fce2b3148c22ea7f117d3c2ef82db6285a21de435bdcb",
+    "notes/rotary_case/support_review.json": "c12f5b6b65799b5515a05905c098647855a08c9a49391f6193a1ff38e763b750",
+    "notes/printed_fasteners/publication.json": "3e4935346cb121d316e5f74be8d7662ba6cca4b5dd94d9b0db3a892d36b48313",
+    "notes/printed_fasteners/core_paths.json": "4d4feb3693352bd9a101362271cd709b717d685b4955a2a2891e4b2735362c9b"
+  },
+  "native_input_identity": "ecec257dcd69edfbe54d569b9bf01bd6bc70928744732dc121a202127b25bac5",
+  "artifact_identity": "ccce77a5b762096d52f51f6b5facd5a2e0a16fb86b06e4d58c9c2d2add71129e",
+  "slice_input_sha256": "021b406d7118f1ba863ab81bd6d201a18b80f370238ca551a0d58a3956472ee2",
+  "association": "Current CAD report hashes match checked builders. Repository Python was unchanged during all final native publications. STEP/STL exported together from the selected three-part bottom/roof/outer-face-down print layout. Matching STL was accepted by Orca with supports inspected in both roles. Unchanged fastener constructor, entry, m1 dependency and paired exports exactly match their retained solid-core publication; changed case-wrapper hashes do not transfer historical case qualification. Current case checks include the same printed fasteners. The sample physical report is not a full-case qualification."
+}

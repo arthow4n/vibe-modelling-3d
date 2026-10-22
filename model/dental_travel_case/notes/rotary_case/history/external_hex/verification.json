@@ -1,0 +1,1030 @@
+{
+  "schema_version": 1,
+  "variant": "rotary-full-pla",
+  "selected_checks": null,
+  "available_variants": [
+    "measured-two-lane",
+    "rounded-c",
+    "plain-cylinder",
+    "slim-m1",
+    "slim-m2b",
+    "slim-m3",
+    "slim-m4",
+    "slim-m5",
+    "research-minimal-closures",
+    "research-short-closures",
+    "clamshell-c6",
+    "hinge-c7-mini",
+    "spine-c8-mini",
+    "slim-short-lap",
+    "slim-short-lap-three-line",
+    "grip-band-placement",
+    "slim-short-lap-three-line-grip",
+    "slim-short-lap-smooth-c",
+    "rotary-full-pla"
+  ],
+  "available_checks": [
+    "rotary.CAD",
+    "rotary.publication"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "rotary-full-pla",
+    "scope": {
+      "design": "rotary-full-pla",
+      "material": "PLA intended; actual full case unprinted",
+      "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap",
+      "sample_basis": "user accepted complete PLA quick trial; exact artifact and settings unknown"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "brush.fit",
+        "text": "Carry the measured electric toothbrush with its head attached",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured 250\u2013255 mm overall, nearly cylindrical 30 mm handle, 165 mm handle and 90 mm shoulder-to-tip"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "paste.fit",
+        "text": "Carry toothpaste on its own side with room for tube variation",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User measured a new tube about 160 x 55 x 40 mm with 30 mm cap and requested margins for other versions"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.material",
+        "text": "Use a compliant printed design without a separate TPU print",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#measured-items-and-user-intent",
+          "statement": "User requested compliance and preferably no separately printed TPU part"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "publication",
+            "criterion": "Guarded matching exports and reviewed diagnostic slice; unchanged solid fastener pair retained",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.publication"
+            ],
+            "evidence": [
+              "rotary.publication"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "test.fit",
+        "text": "Provide a small or simplified fit test that is easy and quick to print alongside the full model",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#first-print-and-test-procedure",
+          "statement": "User authorized both the small fit test and complete model in one phase"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "accepted-trial",
+            "criterion": "User reports complete PLA trial operates and stays together, with slight looseness",
+            "mode": "physical",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [],
+            "evidence": [
+              "rotary.accepted-trial"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.minimal",
+        "text": "Make M1 minimal in design and occupied size",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User rejected earlier bulky designs and requested the most slim minimal suggestions; then selected M1"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.secure",
+        "text": "Separate cap with no exterior hinge and a rounded joint that resists opening when struck in a backpack",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#user-instruction-and-architecture",
+          "statement": "User selected M1, accepted a separate cap, requested no exterior hinge, rounded overlap and resistance to popping open when hit in a backpack; authorized modelling"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "travel.protection",
+        "text": "Protect the attached toothbrush and full toothpaste tube from outside backpack contents and pressure",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/slim_exploration.md",
+          "statement": "User said floss can travel elsewhere and the case mainly protects toothpaste and toothbrush from contact and crashes"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "print.supportfree",
+        "text": "Make the selected architecture support-free",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/README.md#backpack-retention-and-cylinder-direction--2026-10-14",
+          "statement": "User asked for a support-free rounded R2/C combination"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.width-revision",
+        "text": "Reduce the previous M1 exterior width by 25 mm",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User printed the test, requested 25 mm less width using diagonal toothpaste placement, deeper/longer teeth and tight retention at both widthwise ends; inserts deferred"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [
+          "25 mm reduction from the previous 99.2 mm exterior width"
+        ],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.end-retention",
+        "text": "Retain the cap securely with the user-selected one-sided rotary lock",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_case.md#user-feedback-and-authorized-adoption",
+          "statement": "User reports complete PLA trial works and stays together; requests slightly tighter tolerance, full wheel-width cap holding ledge and adaptation to the full box; earlier authorizes one-sided rotary closure, printed custom fasteners, concealed hardware and release resistance"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.end-rounds",
+        "text": "Use substantially larger fillets at both top and bottom ends of the case",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/m1.md#printed-joint-feedback--2026-10-15",
+          "statement": "User additionally requests much larger fillets at both top and bottom ends of the case and asks that this be learned for future handled designs"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.samples",
+        "text": "Create corresponding test pieces for each explored closure, including the user idea",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_research.md",
+          "statement": "User requests autonomous space-first alternatives, their free-rim idea, visual explanations and corresponding test pieces; full models only as useful; no sub-agents unless explicitly requested"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.interior",
+        "text": "Maximize clear interior and explore flat internal walls with minimal retention features",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_research.md",
+          "statement": "User requests autonomous space-first alternatives, their free-rim idea, visual explanations and corresponding test pieces; full models only as useful; no sub-agents unless explicitly requested"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.force",
+        "text": "Investigate retention force and equivalent hanging weight before printing, using a reasonable simulation where possible",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_research.md",
+          "statement": "User asks how much force or weight each variant can hold when lifting the box by its cap, and requests recorded computational estimates where feasible"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "force",
+            "criterion": "Actual release effort and retention force quantified for this rotary case",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.short",
+        "text": "Provide substantially shorter, lower-material retention samples without scaling the full cross-section or catches",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_short.md",
+          "statement": "User requests much shorter overlap/base while preserving full XY shapes, a small separation grip gap, and later rechecking full-case overlap and recessed grips"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "research.grip",
+        "text": "Provide a small accessible separation gap, and record ergonomic gripping and shorter-overlap questions for later full-case adoption",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/closure_short.md",
+          "statement": "User requests much shorter overlap/base while preserving full XY shapes, a small separation grip gap, and later rechecking full-case overlap and recessed grips"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.short-overlap",
+        "text": "Find a reasonable shorter overlap range while retaining very good closure and sideways resistance",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/short_lap.md#authorized-direction--2026-10-19",
+          "statement": "User discards hinged box, reopens smaller-bite wall snaps, accepts potentially tolerable opening noise, and requests a grounded shorter overlap range with very good retention against sideways handling and an improved full model"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.side-hit",
+        "text": "The box stays closed when hit from the side",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/short_lap.md#sideways-hit-clarification--2026-10-20",
+          "statement": "User clarifies: hitting the box from sideways should not open the box, specifically knocks and bumps inside a travel bag; no numeric impact severity is specified"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "impact",
+            "criterion": "Knocks and bumps inside a travel bag do not release the full printed case",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [
+          "Knocks and bumps inside a travel bag"
+        ],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "closure.wall-comparison",
+        "text": "Preserve previous comparison files and provide a complete matching smooth C pair; allow modest size and wall increases",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/smooth_exterior.md#authorized-c-implementation",
+          "statement": "User selects C and authorizes remodelling using engineering judgment; small size increases and more than three extrusion lines are acceptable"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [
+          "More than three extrusion lines allowed where useful"
+        ],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.cap-comfort",
+        "text": "Provide rounded hand-friendly cap contacts and a full wheel-width holding ledge",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_case.md#user-feedback-and-authorized-adoption",
+          "statement": "User reports complete PLA trial works and stays together; requests slightly tighter tolerance, full wheel-width cap holding ledge and adaptation to the full box; earlier authorizes one-sided rotary closure, printed custom fasteners, concealed hardware and release resistance"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.grip-placement",
+        "text": "Provide useful exterior grips for separating cap/body while holding the case upright or diagonal",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/grip_human.md#user-direction",
+          "statement": "User selected shallow smooth full-wrap exploration, requested anatomical placement and recorded visualizations; opening upright/diagonal to keep toothbrush from falling"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "form.smooth-exterior",
+        "text": "Keep aligned smooth case sides and exposed seam grip with a compact local rotary closure",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_case.md#user-feedback-and-authorized-adoption",
+          "statement": "User reports complete PLA trial works and stays together; requests slightly tighter tolerance, full wheel-width cap holding ledge and adaptation to the full box; earlier authorizes one-sided rotary closure, printed custom fasteners, concealed hardware and release resistance"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "rotary.fit",
+        "text": "Make the successful PLA trial fit modestly tighter",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_case.md#user-feedback-and-authorized-adoption",
+          "statement": "User reports complete PLA trial works and stays together; requests slightly tighter tolerance, full wheel-width cap holding ledge and adaptation to the full box; earlier authorizes one-sided rotary closure, printed custom fasteners, concealed hardware and release resistance"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "rotary.printed",
+        "text": "Use printable custom screw and nut with solid male thread core",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_case.md#user-feedback-and-authorized-adoption",
+          "statement": "User reports complete PLA trial works and stays together; requests slightly tighter tolerance, full wheel-width cap holding ledge and adaptation to the full box; earlier authorizes one-sided rotary closure, printed custom fasteners, concealed hardware and release resistance"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "publication",
+            "criterion": "Guarded matching exports and reviewed diagnostic slice; unchanged solid fastener pair retained",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.publication"
+            ],
+            "evidence": [
+              "rotary.publication"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "rotary.index",
+        "text": "Require resistance before rotary disengagement",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_case.md#user-feedback-and-authorized-adoption",
+          "statement": "User reports complete PLA trial works and stays together; requests slightly tighter tolerance, full wheel-width cap holding ledge and adaptation to the full box; earlier authorizes one-sided rotary closure, printed custom fasteners, concealed hardware and release resistance"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "rotary.storage",
+        "text": "Keep hardware from snagging contents or protruding beyond the control face",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_case.md#user-feedback-and-authorized-adoption",
+          "statement": "User reports complete PLA trial works and stays together; requests slightly tighter tolerance, full wheel-width cap holding ledge and adaptation to the full box; earlier authorizes one-sided rotary closure, printed custom fasteners, concealed hardware and release resistance"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "rotary.accepted-trial",
+        "targets": [
+          [
+            "test.fit",
+            "accepted-trial"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Complete PLA quick trial works and stays together; slight looseness. This is sample evidence, not a full-case force/impact qualification.",
+        "reference": "notes/rotary_case.md#user-feedback-and-authorized-adoption",
+        "scope": {
+          "design": "rotary-full-pla",
+          "material": "PLA intended; actual full case unprinted",
+          "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap",
+          "sample_basis": "user accepted complete PLA quick trial; exact artifact and settings unknown"
+        }
+      },
+      {
+        "id": "rotary.CAD",
+        "targets": [
+          [
+            "brush.fit",
+            "geometry"
+          ],
+          [
+            "paste.fit",
+            "geometry"
+          ],
+          [
+            "closure.secure",
+            "geometry"
+          ],
+          [
+            "closure.end-retention",
+            "geometry"
+          ],
+          [
+            "closure.short-overlap",
+            "geometry"
+          ],
+          [
+            "form.cap-comfort",
+            "geometry"
+          ],
+          [
+            "form.smooth-exterior",
+            "geometry"
+          ],
+          [
+            "rotary.fit",
+            "geometry"
+          ],
+          [
+            "rotary.index",
+            "geometry"
+          ],
+          [
+            "rotary.storage",
+            "geometry"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/rotary_case/cad.json",
+        "scope": {
+          "design": "rotary-full-pla",
+          "material": "PLA intended; actual full case unprinted",
+          "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap",
+          "sample_basis": "user accepted complete PLA quick trial; exact artifact and settings unknown"
+        }
+      },
+      {
+        "id": "rotary.publication",
+        "targets": [
+          [
+            "print.material",
+            "publication"
+          ],
+          [
+            "rotary.printed",
+            "publication"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "notes/rotary_case/publication.json",
+        "scope": {
+          "design": "rotary-full-pla",
+          "material": "PLA intended; actual full case unprinted",
+          "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap",
+          "sample_basis": "user accepted complete PLA quick trial; exact artifact and settings unknown"
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "rotary.clearances",
+        "text": "Tighten guide .30 to .20 mm per side and keeper radial gap .80 to .50; preserve successful thread and spring",
+        "reference": "notes/rotary_case.md"
+      }
+    ],
+    "hypotheses": [],
+    "directives": [
+      {
+        "id": "rotary.adopt",
+        "text": "Proceed with the revised full box for printing",
+        "source": {
+          "reference": "notes/rotary_case.md#user-feedback-and-authorized-adoption",
+          "statement": "User reports complete PLA trial works and stays together; requests slightly tighter tolerance, full wheel-width cap holding ledge and adaptation to the full box; earlier authorizes one-sided rotary closure, printed custom fasteners, concealed hardware and release resistance"
+        }
+      }
+    ]
+  },
+  "help": null
+}

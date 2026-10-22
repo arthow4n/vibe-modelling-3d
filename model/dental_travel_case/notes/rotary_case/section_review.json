@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_conical_section.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/conical/rotary_conical_section_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014307659876067191,
+    "build": 5.030174384010024,
+    "selection": 0.0012055489933118224,
+    "validation": 0.05974168999819085,
+    "render_isometric": 0.7586079280008562,
+    "worker": 5.9483089610002935,
+    "total": 6.949198610003805
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "01ce64e7824d3db724c90ada0d204f356f2843b920eb9c919f12c4a922531fa0",
+    "artifact_identity": "45ca043ec75169266613367f30f0a5c4159196fb6a6b6542746e96a04202d8c6"
+  }
+}

@@ -1,34 +1,74 @@
 {
   "source_sha256": {
-    "rotary_case_design.py": "01db823930f9aa2a5a34c4efcbb8c6dfb4aac95bc28343faa48a5849458b36c5",
-    "rotary_case_checks.py": "9a42d2a236622c7e3a5998e05895a0098ca23656c95a9714fc64d1605c541fae",
-    "rotary_refinement_design.py": "573f94385d13cb017a05e615f5dff26c008ce9801cd10af9d50eff1b7e06865d",
-    "rotary_refinement_checks.py": "e9aaa658e62f35e734df68262df6489ecf182835fb67a2fda67aefa2c54f6747",
+    "rotary_case_design.py": "4a39a9ebc67d6a0f817df068027d494e401b1c4c2515805b152b25c57c9370f7",
+    "rotary_case_checks.py": "80fdc6e515816064d389b3364c551d86ee9f65557b09cde5400d73e349ac8f1b",
+    "rotary_refinement_design.py": "df2973359bc374cd2e5aa48c41eab4c56611e377a9ac26f8cbf4415e23b8a294",
+    "rotary_refinement_checks.py": "37125af889778c97e47d165847b60b1a648f833bd3c850e037b6244b0cd92a1f",
     "rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
     "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
     "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "rotary_conical_design.py": "fc038d6064570388ebbc59a8479fd7cb1aec3663a220c3292e62ae41ab2e82ea",
+    "rotary_conical_checks.py": "e0db72deaf7f89b4214ab7c5297f9da291a56835b89ab50e045f8d3af469bcb6",
     "rotary_travel_case.py": "9e8f14552c715d01246dfe4c220802dbc9c639fdc023971d04c48eaa04596081",
     "rotary_travel_case_assembled.py": "49eaba0146fd7b7736a01f38a84ab66298d786d481fb86e09341c886b264dc3c",
     "rotary_case_detail.py": "dba5a5eb34b690cb761c6079c163c5e4b0278ecdfdca20927b13bbbd8ea8559c",
-    "rotary_case_verification.py": "a79f24f60072bd3a83f463685f7be91f959123ac3d6564e9b57db524b1c5df20",
+    "rotary_conical_wheel.py": "cc35e57013aa58f72bbf64adafc0ced8f1a5373c3a7cbd2c7646283eac8dc7e1",
+    "rotary_conical_screw.py": "53784dd01383afc539acaab9b4a333c8ee3d09d3984119f352017e29d43e2dfc",
+    "rotary_conical_fasteners.py": "c52e490ab3b0a217e4d6761f57201616253158bea225e4d057b676036045c6fa",
+    "rotary_conical_section.py": "bc26ec1621dbfa63232bb7d1937d580ed9706a118f5b3839837efd4d8b5982ec",
+    "rotary_case_verification.py": "74d08795123d6e92790bcb118d7a068e950bd44ae28791749f78e20908a99ded",
     "verification.py": "326620ed95dedbb266bb97395ca27a464b6b8badc1451ee87e6b7c5c10321fd5",
-    "rotary_printed_fasteners.py": "64964518b78bc1f06e36c8573f6cc6f914d6369669baad7d81aca0cf0b43a2be"
+    "rotary_conical_print_checks.py": "4a10f601c54a0c0224b7b5437f2782533ef1bc3b9d57bb44e622bd6682714f64",
+    "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373"
   },
   "artifacts": {
-    "rotary_travel_case.step": "8ba46ae17124841369be42c5dc47337898149556d192e100d1914560e277db86",
-    "rotary_travel_case.stl": "021b406d7118f1ba863ab81bd6d201a18b80f370238ca551a0d58a3956472ee2",
-    "rotary_printed_fasteners.step": "6c052a6b3256bfd6036bccb94e768afa6c90efda281c9607156625787fdf172c",
-    "rotary_printed_fasteners.stl": "64fae43884ee299920c213b79b1a8bcd78668644b2a3a5ecaad149f189ef6089",
-    "notes/rotary_case/cad.json": "cd6c9116673f0be52381800cd8fe4c353d4b05201809fe5f4e7a69b1c5669316",
-    "notes/rotary_case/print_review.json": "6cb931a4afd0815cb3334b1b90e66e716bc747c39c143efa1069adfa88988529",
-    "notes/rotary_case/assembled_review.json": "819b9a97a3191bdce874a2a8bf494908ff4f8fd1ba4d37595b187ba7d4953f0f",
-    "notes/rotary_case/detail_review.json": "f38eef8d4022fc6abb6fce2b3148c22ea7f117d3c2ef82db6285a21de435bdcb",
-    "notes/rotary_case/support_review.json": "c12f5b6b65799b5515a05905c098647855a08c9a49391f6193a1ff38e763b750",
-    "notes/printed_fasteners/publication.json": "3e4935346cb121d316e5f74be8d7662ba6cca4b5dd94d9b0db3a892d36b48313",
-    "notes/printed_fasteners/core_paths.json": "4d4feb3693352bd9a101362271cd709b717d685b4955a2a2891e4b2735362c9b"
+    "rotary_travel_case.step": "5077b5eb15f0a1fd9601a49a6da0c994e176609dcc48408c71fd4b1967297c63",
+    "rotary_travel_case.stl": "199150c2e0821119fdf327bdd940730f9660429e34b601f40a06276d2f8ff94c",
+    "notes/rotary_case/print_review.json": "e05fb949fa3ec330e8224aa9429444d8775996df67ca843d9d61a634cfa79f23",
+    "rotary_conical_wheel.step": "5cf94fd1917d955dd8e9ef922affe55be1cb79e72ef73d8474e25b8a08b3b09a",
+    "rotary_conical_wheel.stl": "0a7f178995aaf22cdf8ee95f43d3dff49642ab0f40d58ba123623353d052f229",
+    "notes/rotary_case/wheel_review.json": "659daf32889ea679a07ec28eee9c2ebec32da2d3e9c4e86531cd44d7d91e9997",
+    "rotary_conical_screw.step": "a8b7592cf7b54bf4c2809374f2190cfb007b7bd43229b565e55c9812c795cb9e",
+    "rotary_conical_screw.stl": "7bf4ce277ef8b7af295324edcdac3c9d7c58e4ca87dd435ed5327a61e3cff059",
+    "notes/rotary_case/screw_review.json": "5fcdad737730dbd486c6b7ed71c3944a6f8d4132bd7b92fcb3dcd4f429bde656",
+    "rotary_conical_fasteners.step": "510a21b3614ad03fe2d0741a09137e74ac6bc380bcbcfae95afc1230289679c8",
+    "rotary_conical_fasteners.stl": "1b9e756073554e3f8fee5add01f05ee3555edaecaeff75b8cdfd5cfb7c3d398e",
+    "notes/rotary_case/fasteners_review.json": "5dd7606c42d37149e0c353abc01cb3b3ea9fe57f80143983a4c04359f33362f7",
+    "notes/rotary_case/cad.json": "d5665fc4fbe345806a763a9f9308d87ec9a7bf732ccb133cf798a1982ecb4fae",
+    "notes/rotary_case/conical_cad.json": "a21da90c4b6f4c523daeb3593a4c8b048c9e1c8b5a05f53cc4c5eab62f3effcb",
+    "notes/rotary_case/support_review.json": "25d571926d40d6d9a5d80d0c5c4063f0640720e5b694d5ce4a4ffbaf7d029b61",
+    "notes/rotary_case/conical_print_paths.json": "afb773057edd5ea4f1c7a0f3b53d73f72d1f4eb1c181af56c39f31a646ea4ede",
+    "notes/rotary_case/detail_review.json": "e5307e318bf9d81d12e0d781bb394296bacdff3de3d9123418cfc1d02625dac4",
+    "notes/rotary_case/assembled_review.json": "3e9fda3979f209708fc0ea0b61499bbe5af69056062c0db2dfc11eec04eed0f8",
+    "notes/rotary_case/section_review.json": "d68ebacb912c13dac1997227be50dce3fd063cc42aa73d28e4bc427f724f59bd",
+    "notes/rotary_case/profiles/wheel.json": "1a4301dd4a116f25de842f50e7955f2fab02aaa49c3ba8f843b05c74890caf01",
+    "notes/printed_fasteners/profiles/process.json": "094572d5a540096f50c7a3634b8f75454f04f7c952b8d388e31f781d480eb011",
+    "notes/rotary_refinement/profiles/process.json": "5ced22564c07759b610e99e5dba75ab1ac214ecfa2d87efd2a00d36b97912a56"
   },
-  "native_input_identity": "ecec257dcd69edfbe54d569b9bf01bd6bc70928744732dc121a202127b25bac5",
-  "artifact_identity": "ccce77a5b762096d52f51f6b5facd5a2e0a16fb86b06e4d58c9c2d2add71129e",
-  "slice_input_sha256": "021b406d7118f1ba863ab81bd6d201a18b80f370238ca551a0d58a3956472ee2",
-  "association": "Current CAD report hashes match checked builders. Repository Python was unchanged during all final native publications. STEP/STL exported together from the selected three-part bottom/roof/outer-face-down print layout. Matching STL was accepted by Orca with supports inspected in both roles. Unchanged fastener constructor, entry, m1 dependency and paired exports exactly match their retained solid-core publication; changed case-wrapper hashes do not transfer historical case qualification. Current case checks include the same printed fasteners. The sample physical report is not a full-case qualification."
+  "native_input_identity": "7fa7df4a306ce1fb3aa34432b514930dfaeb192c9d179c0abdee82ad9bfcdb57",
+  "artifact_identity": "1df48b540bb9dfba8e3786ce8cdb27d131de1acb38e3565eebf62b3e2812a0fe",
+  "slice_input_sha256": "199150c2e0821119fdf327bdd940730f9660429e34b601f40a06276d2f8ff94c",
+  "publications": {
+    "rotary_travel_case": {
+      "native_input_identity": "7fa7df4a306ce1fb3aa34432b514930dfaeb192c9d179c0abdee82ad9bfcdb57",
+      "artifact_identity": "1df48b540bb9dfba8e3786ce8cdb27d131de1acb38e3565eebf62b3e2812a0fe",
+      "slice_input_sha256": "199150c2e0821119fdf327bdd940730f9660429e34b601f40a06276d2f8ff94c"
+    },
+    "rotary_conical_wheel": {
+      "native_input_identity": "6e6ef1e3c872e8601114a71e65b0ca814866432f48033d5ae2ecbb6891b6037e",
+      "artifact_identity": "4dd3209deeeb3167765e61d1c68cf125e48fcd55df4f79ca1f5648786b5ad540",
+      "slice_input_sha256": "0a7f178995aaf22cdf8ee95f43d3dff49642ab0f40d58ba123623353d052f229"
+    },
+    "rotary_conical_screw": {
+      "native_input_identity": "49f46ac76b8ab79a7d9d8cd84c913c9fd267b8fd44f83ae91c5539a23bb024e7",
+      "artifact_identity": "78572b92a56470d106c8324706b5aec9c04c26737f713de9982b7d1be11e26e7",
+      "slice_input_sha256": "7bf4ce277ef8b7af295324edcdac3c9d7c58e4ca87dd435ed5327a61e3cff059"
+    },
+    "rotary_conical_fasteners": {
+      "native_input_identity": "5101bcb6857433e181b2056cdd45e44259cf4acff20fb990593afce12429b800",
+      "artifact_identity": "65a4a9d2bf8919fde5758f245900ad266af3d54f3822c789bbb3e0fdda9ff012",
+      "slice_input_sha256": "1b9e756073554e3f8fee5add01f05ee3555edaecaeff75b8cdfd5cfb7c3d398e"
+    }
+  },
+  "association": "Final sources match current full-case and conical-interface checks. Repository Python stayed unchanged during each final native publication. Each paired STEP/STL uses its checked print placement. Standalone wheel, screw and screw/nut slices complete without notices or generated automatic supports; full layout has inspected accessible body/cap support only. Actual delivered screw STEP and sampled 100% fill preserve the solid threaded core. Body/cap/nut and wheel outside its central hub match the preceding release geometrically. Saved final inspection views show the same geometry before a docstring-only correction; final native exports rebuild the corrected source. The historical successful sample does not physically qualify the changed head or full case."
 }

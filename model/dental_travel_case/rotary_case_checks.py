@@ -9,7 +9,7 @@ from rotary_refinement_design import rotor_pose,seating_stops
 ROOT=Path(__file__).resolve().parent
 INPUTS=('rotary_case_design.py','rotary_case_checks.py','rotary_refinement_design.py',
         'rotary_refinement_checks.py','rotary_printed_fastener_design.py',
-        'rotary_r1_design.py','m1_design.py')
+        'rotary_r1_design.py','m1_design.py','rotary_conical_design.py')
 
 
 def hashes():
@@ -18,7 +18,7 @@ def hashes():
 
 def main():
     identity=hashes()
-    r=check_size(CURRENT,contents=True,fastener='printed-coarse')
+    r=check_size(CURRENT,contents=True,fastener='printed-cone')
     p=case();seats=[]
     for stop in seating_stops(CURRENT):
         stop=stop.mirror('XZ')

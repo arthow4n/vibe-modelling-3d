@@ -34,7 +34,7 @@
     "scope": {
       "design": "rotary-full-pla",
       "material": "PLA intended; actual full case unprinted",
-      "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap",
+      "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap; conical wheel + flush hex-key head",
       "sample_basis": "user accepted complete PLA quick trial; exact artifact and settings unknown"
     },
     "focused": false,
@@ -142,7 +142,7 @@
           },
           {
             "id": "publication",
-            "criterion": "Guarded matching exports and reviewed diagnostic slice; unchanged solid fastener pair retained",
+            "criterion": "Guarded matching exports and reviewed diagnostic slices; standalone conical wheel and solid screw generate no automatic supports",
             "mode": "slicer",
             "rationale": "",
             "status": "PASS",
@@ -812,8 +812,23 @@
             "out_of_scope": []
           },
           {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          },
+          {
             "id": "publication",
-            "criterion": "Guarded matching exports and reviewed diagnostic slice; unchanged solid fastener pair retained",
+            "criterion": "Guarded matching exports and reviewed diagnostic slices; standalone conical wheel and solid screw generate no automatic supports",
             "mode": "slicer",
             "rationale": "",
             "status": "PASS",
@@ -909,6 +924,61 @@
         ],
         "acceptance_criteria": [],
         "coverage": "uncovered"
+      },
+      {
+        "id": "rotary.printability",
+        "text": "Improve face-down wheel printability with a matched flush conical hex-key screw head",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/rotary_case.md#conical-wheel-and-screw-revision",
+          "statement": "User reports face-down wheel overhang prints poorly and requests an easier-to-print matched conical screw/wheel with hex-key access and a smooth gap-free exterior"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "full-use",
+            "criterion": "Full printed case satisfies this intent in actual travel use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Sampled wheel turn/capture/withdrawal, detent barrier, guide play, seating and individual contents passage; no force or combined-packing claim",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.CAD"
+            ],
+            "evidence": [
+              "rotary.CAD"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "publication",
+            "criterion": "Guarded matching exports and reviewed diagnostic slices; standalone conical wheel and solid screw generate no automatic supports",
+            "mode": "slicer",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "rotary.publication"
+            ],
+            "evidence": [
+              "rotary.publication"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
       }
     ],
     "evidence": [
@@ -926,7 +996,7 @@
         "scope": {
           "design": "rotary-full-pla",
           "material": "PLA intended; actual full case unprinted",
-          "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap",
+          "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap; conical wheel + flush hex-key head",
           "sample_basis": "user accepted complete PLA quick trial; exact artifact and settings unknown"
         }
       },
@@ -972,6 +1042,14 @@
           [
             "rotary.storage",
             "geometry"
+          ],
+          [
+            "rotary.printability",
+            "geometry"
+          ],
+          [
+            "rotary.printed",
+            "geometry"
           ]
         ],
         "status": "PASS",
@@ -980,7 +1058,7 @@
         "scope": {
           "design": "rotary-full-pla",
           "material": "PLA intended; actual full case unprinted",
-          "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap",
+          "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap; conical wheel + flush hex-key head",
           "sample_basis": "user accepted complete PLA quick trial; exact artifact and settings unknown"
         }
       },
@@ -994,6 +1072,10 @@
           [
             "rotary.printed",
             "publication"
+          ],
+          [
+            "rotary.printability",
+            "publication"
           ]
         ],
         "status": "PASS",
@@ -1002,7 +1084,7 @@
         "scope": {
           "design": "rotary-full-pla",
           "material": "PLA intended; actual full case unprinted",
-          "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap",
+          "geometry": "75.8x52.8x264; guide .20 per side; keeper 34 wide / .50 radial gap; conical wheel + flush hex-key head",
           "sample_basis": "user accepted complete PLA quick trial; exact artifact and settings unknown"
         }
       }
@@ -1010,7 +1092,7 @@
     "decisions": [
       {
         "id": "rotary.clearances",
-        "text": "Tighten guide .30 to .20 mm per side and keeper radial gap .80 to .50; preserve successful thread and spring",
+        "text": "Tighten guide .30 to .20 mm per side and keeper radial gap .80 to .50; preserve successful thread and spring; match a 45-degree wheel recess to a flush conical blind-hex head",
         "reference": "notes/rotary_case.md"
       }
     ],

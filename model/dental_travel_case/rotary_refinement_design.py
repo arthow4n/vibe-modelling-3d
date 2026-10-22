@@ -94,7 +94,7 @@ def printed_axle():
 
 def build(variant,*,dimensions,fastener):
     if variant not in ('paddle','wheel'):raise ValueError('Unknown form: '+str(variant))
-    if fastener not in ('legacy-m6','printed-coarse'):raise ValueError('Unknown fastener: '+str(fastener))
+    if fastener not in ('legacy-m6','printed-coarse','printed-cone'):raise ValueError('Unknown fastener: '+str(fastener))
     if dimensions.keeper_form not in ('crown','wide'):raise ValueError('Unknown keeper form: '+dimensions.keeper_form)
     d=dimensions;z=d.pivot
     body=base.prism(d.width,d.depth,6.,0,d.seam).edges('<Z').fillet(3.)
@@ -155,7 +155,11 @@ def build(variant,*,dimensions,fastener):
     plate=plate.edges('|Y').fillet(.6).faces('>Y').edges().fillet(.5)
     nose=sector(d.nose_inner,d.nose_outer,-16.,16.,d.wheel_front,d.wheel_front-d.nose_back,z)
     rotor=plate.union(nose).cut(axial_cylinder(4.2,40,z,12.))
-    rotor=rotor.cut(axial_cylinder(6.6,40,z,5.9))
+    if fastener=='printed-cone':
+        from rotary_conical_design import wheel_recess
+        rotor=rotor.cut(wheel_recess(d))
+    else:
+        rotor=rotor.cut(axial_cylinder(6.6,40,z,5.9))
     rotor_rigid=rotor
     if variant=='wheel':
         # A curved in-plane spring, printed flat. End pockets unload it at
@@ -172,9 +176,14 @@ def build(variant,*,dimensions,fastener):
         rotor=rotor.cut(sector(5.9,8.1,-189.,-81.,d.wheel_back+1.,1.2,z)).clean()
         spring_region=sector(outer-.1,14.1,-208.,-35.,40.,12.,z)
         rotor_rigid=rotor.cut(spring_region).clean()
-    if fastener=='printed-coarse':
+    if fastener in ('printed-coarse','printed-cone'):
         from rotary_printed_fastener_design import printed_axle as coarse_axle,printed_nut
-        axle=coarse_axle();nut=printed_nut()
+        if fastener=='printed-cone':
+            from rotary_conical_design import printed_axle as cone_axle
+            axle=cone_axle()
+        else:
+            axle=coarse_axle()
+        nut=printed_nut()
         nut=nut.rotate((0,0,0),(1,0,0),90).translate((0,d.axle_front,z))
     else:
         axle=printed_axle()
@@ -204,7 +213,12 @@ def configuration(p,state):
             a.add(printed_axle().translate((75,80,0)),name='printed_axle')
         else:
             from rotary_printed_fastener_design import printed_axle as coarse_axle,printed_nut
-            a.add(coarse_axle().translate((75,80,0)),name='printed_axle')
+            if p['fastener']=='printed-cone':
+                from rotary_conical_design import printed_axle as cone_axle,screw_print_pose
+                axle=screw_print_pose(cone_axle())
+            else:
+                axle=coarse_axle()
+            a.add(axle.translate((75,80,0)),name='printed_axle')
             a.add(printed_nut().translate((95,80,-5.5)),name='printed_nut')
         return a
     lift=95. if state=='open' else 0.;angle=90. if state=='open' else 0.

@@ -218,7 +218,7 @@ Co-design a coarse screw and matching nut for FDM; verify core material after th
 
 **Evidence:** [Travel-case printed fastener correction](../../../../model/dental_travel_case/notes/rotary_refinement.md#the-old-thread-really-was-hollow): the user correctly identified a hollow thread in the model. The old intended root cylinder disappeared during the sweep union/trim, while validity, connectivity and slicing passed. A targeted axial material witness catches the old source and STEP as a negative control and passes on the new custom pair. Replacement threads use the larger book-plate success as a starting reference; the existing shell/wheel interface is retained.
 
-**Scope and limits:** The hole is a confirmed CAD defect, not an inferred material or infill failure. The exact kernel cause is unisolated. Coarse replacement fit, strength and durability remain unprinted; a solid core and 100% infill do not establish those physical properties. Do not require ISO compatibility solely because stock nuts exist.
+**Scope and limits:** The hole is a confirmed CAD defect, not an inferred material or infill failure. The exact kernel cause is unisolated. The coarse pair was subsequently included in a successful complete PLA rotary trial; strength and durability remain unmeasured. The later [conical-head revision](../../../../model/dental_travel_case/notes/rotary_case.md#conical-wheel-and-screw-revision) preserves that thread but remains physically untested. A solid core and 100% infill do not establish strength. Do not require ISO compatibility solely because stock nuts exist.
 
 ### Cropped connector samples versus complete entry
 
