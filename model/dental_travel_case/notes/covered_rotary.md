@@ -1,8 +1,8 @@
 # Wraparound scalloped facecap and keyed rotary wheel
 
-**Current model: a continuous wraparound cap hides the wheel's side gap while keeping the scalloped grip and positive drive keys.** Print the [body + lid STEP](../rotary_covered_case.step) / [STL](../rotary_covered_case.stl) and the [four-part control kit STEP](../rotary_covered_complete_mechanism.step) / [STL](../rotary_covered_complete_mechanism.stl) as two jobs with the settings below: six printed parts total, no metal hardware. The user has not printed this covered assembly; the earlier successful quick trial is separate history.
+**Historical covered control revision — do not repeat its cap/screw print.** The body and lid are printed, but the user reports matte-PLA cap/screw print trouble and STEP import warnings. The old cap reopens from STEP as an open shell; the old screw has mismatched tessellation boundaries. Use the [replacement cap + screw STEP](../rotary_matte_repair.step) / [STL](../rotary_matte_repair.stl), retaining the printed body/lid, keyed wheel and nut. [Current instructions and evidence](matte_rotary.md).
 
-[Body/lid Python](../rotary_covered_case.py) · [Complete control-kit Python](../rotary_covered_complete_mechanism.py). The assembled/detail/section files are inspection views. The three-part [upgrade STEP](../rotary_covered_mechanism.step) / [STL](../rotary_covered_mechanism.stl) / [Python](../rotary_covered_mechanism.py) remains an alternative when a matching body, lid and printed nut are already available.
+The dimensions, files and process below describe the previous covered revision, preserved for history. [Body/lid STEP](../rotary_covered_case.step) / [STL](../rotary_covered_case.stl) remain unchanged. The old complete/upgrade control kits are retained for identification, not repeat printing.
 
 ![Covered mechanism: matching scallops, smooth front and flush screw](../renders/assembled/covered/rotary_covered_detail_isometric.png)
 
@@ -51,7 +51,7 @@ The earlier complete PLA quick trial remains the functional baseline: it worked 
 
 ## Wraparound cover request
 
-The user found the flat facecap's exposed side gap visually unfinished and requested full coverage, while avoiding the internal spring. They subsequently clarified that none of this covered assembly has been printed and asked for the whole bundle to be updated together. The complete body/lid plus four-part controls is therefore the primary print recommendation. Only the facecap geometry changes from the prior keyed revision: wheel, screw, nut, body and lid remain compatible. The 1.8 mm outward profile offset is a deliberate small increase to wrap the rim around the existing wheel rather than alter the working spring.
+The user found the flat facecap's exposed side gap visually unfinished and requested full coverage, while avoiding the internal spring. They subsequently clarified that none of this covered assembly has been printed and asked for the whole bundle to be updated together. At that stage, the complete body/lid plus four-part controls was the primary print recommendation; the later matte-PLA report supersedes its cap/screw recommendation. Only the facecap geometry changes from the prior keyed revision: wheel, screw, nut, body and lid remain compatible. The 1.8 mm outward profile offset is a deliberate small increase to wrap the rim around the existing wheel rather than alter the working spring.
 
 ## Verification, limits and print status
 
@@ -64,8 +64,8 @@ The body's/lid's/nut's geometry is unchanged, and wheel material outside the hub
 | Item | Print status | Artifacts | Observation / remaining check |
 | --- | --- | --- | --- |
 | Earlier quick rotary trial | **Yes — successful complete PLA trial** | `rotary_quick_test.step` and earlier custom pair | Functional action works; slightly loose; later front-overhang finish complaint retained. Exact printed hash/settings unknown. |
-| Wraparound keyed control kit | **Unknown — first print prepared** | `rotary_covered_mechanism.py` / `.step` / `.stl` | Confirm easy key seating, limited backlash, free spring, driver durability and co-rotation. |
-| Complete covered full case | **Unknown** | `rotary_covered_case` plus `rotary_covered_complete_mechanism`, each `.py` / `.step` / `.stl` | Body/lid retain the 30 mm sleeve, 27 mm engagement, 3 mm reveal and 0.20 mm per-side guide. Loaded grip, bag bumps and wear remain untested. |
+| Wraparound keyed control kit | **Print trouble reported — cap/screw not accepted** | `rotary_covered_mechanism.py` / `.step` / `.stl` | Confirm easy key seating, limited backlash, free spring, driver durability and co-rotation. |
+| Complete covered full case | **Partial — body and lid printed; controls problematic** | `rotary_covered_case` plus `rotary_covered_complete_mechanism`, each `.py` / `.step` / `.stl` | Body/lid retain the 30 mm sleeve, 27 mm engagement, 3 mm reveal and 0.20 mm per-side guide. Loaded grip, bag bumps and wear remain untested. |
 | PETG physical trial | **No** | None reported | PLA remains the current development material. |
 
 ## Engineering notes and attribution

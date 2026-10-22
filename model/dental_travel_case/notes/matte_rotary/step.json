@@ -1,0 +1,56 @@
+{
+  "old": [
+    {
+      "type": "Solid",
+      "valid": true,
+      "solids": 1,
+      "triangles": 4724,
+      "non_two_incident_edges": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "type": "Shell",
+      "valid": true,
+      "solids": 0,
+      "triangles": 23598,
+      "non_two_incident_edges": 450,
+      "degenerate_triangles": 0
+    },
+    {
+      "type": "Solid",
+      "valid": true,
+      "solids": 1,
+      "triangles": 2498,
+      "non_two_incident_edges": 20,
+      "degenerate_triangles": 0
+    }
+  ],
+  "replacement": [
+    {
+      "type": "Solid",
+      "valid": true,
+      "solids": 1,
+      "triangles": 2294,
+      "non_two_incident_edges": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "type": "Solid",
+      "valid": true,
+      "solids": 1,
+      "triangles": 2232,
+      "non_two_incident_edges": 0,
+      "degenerate_triangles": 0
+    }
+  ],
+  "exported_core_missing_mm3": 0.0,
+  "weld_tolerance_mm": 1e-07,
+  "linear_deflection_mm": 0.003,
+  "angular_deflection_rad": 0.5,
+  "artifacts": {
+    "rotary_covered_mechanism.step": "0a87275ad7dfdd91c2c443195ec3dc9da5b5d5c0d4fad5e3d3a92423d6aa6b8c",
+    "rotary_matte_repair.step": "128b11c7a19afad9ac88e6006b1019a02fa3bf707258f79a483cf869faed6143",
+    "rotary_matte_repair.stl": "dd34120b8ddaac6b140cfacd20e3e1340c112590cad7a270e12f9a28ea2c30a8"
+  },
+  "limits": "CadQuery/OpenCascade STEP import and tessellation; exact Orca GUI warning not reproduced"
+}

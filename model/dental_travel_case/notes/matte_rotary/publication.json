@@ -1,0 +1,27 @@
+{
+  "source_sha256": {
+    "rotary_matte_design.py": "f8a26be13d868471fc72376c20bcea2b2e2ba21877797b308977bad4cec8fc28",
+    "rotary_matte_repair.py": "516b183da5be0920093a15ba61c8e7a803d5651ceef4c74978160e70649bc3b8",
+    "rotary_covered_design.py": "cdab7e2167853a518ca9bfa3da6adecf0ef6eabda9173eb460fb4a52ae56edf4",
+    "rotary_refinement_design.py": "aa905b165710b47d5437eeabf2b6a3c60630f4db42e34771f56f0e4be833ded5",
+    "rotary_case_design.py": "4a39a9ebc67d6a0f817df068027d494e401b1c4c2515805b152b25c57c9370f7",
+    "rotary_conical_design.py": "8dab2fd3f7356e54c346b703657467fb34773d2b6a16a1d9429cf7e67e93a652",
+    "rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
+    "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "rotary_matte_verification.py": "66b0fb3278c1d0348c28a442cc7e1366457af2b0c8f21b277d81fb0b9e8aaab2",
+    "rotary_matte_step_checks.py": "29d86854529b24dbea2cea4b639aec2c48a8fb46c7b9804e2684a6909cdf9128",
+    "rotary_matte_print_checks.py": "5d2f4fc68c430b1d7c5013ad922d0322e67f40eb6ce5954f7a1c553fe9424dba",
+    "verification.py": "e16701d5a5ed39b9626624b0411e8d0cd3f02cf320441bbcb883ce4659901004"
+  },
+  "artifacts": {
+    "rotary_matte_repair.step": "128b11c7a19afad9ac88e6006b1019a02fa3bf707258f79a483cf869faed6143",
+    "rotary_matte_repair.stl": "dd34120b8ddaac6b140cfacd20e3e1340c112590cad7a270e12f9a28ea2c30a8",
+    "notes/matte_rotary/native.json": "dda655c37fe4c9a5f78c25bbf292852ba036651fce4114b40d7319dabcf4d538",
+    "notes/matte_rotary/step.json": "a75a35a40a79f43b5429ff28edb6f92eb2ef019b68fba25875ccae08437051f7",
+    "notes/matte_rotary/paths.json": "36f74e3b4d4585a14d0ad97a483e1e02035136667d0635a1d71b5cfae501eadb"
+  },
+  "native_input_identity": "0a8615d0bba79b0ae53a8b67b8adbeb1cc6e5d5511f76a9f43e243b6daab3561",
+  "slice_input_sha256": "dd34120b8ddaac6b140cfacd20e3e1340c112590cad7a270e12f9a28ea2c30a8",
+  "association": "Native builder receipt and paired artifact identity; repaired geometry unchanged by later check-only correction to the axial withdrawal witness"
+}

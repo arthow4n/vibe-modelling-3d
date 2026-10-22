@@ -220,6 +220,14 @@ Co-design a coarse screw and matching nut for FDM; verify core material after th
 
 **Scope and limits:** The hole is a confirmed CAD defect, not an inferred material or infill failure. The exact kernel cause is unisolated. The coarse pair was subsequently included in a successful complete PLA rotary trial; strength and durability remain unmeasured. The later [conical-head revision](../../../../model/dental_travel_case/notes/rotary_case.md#conical-wheel-and-screw-revision) preserves that thread but remains physically untested. A solid core and 100% infill do not establish strength. Do not require ISO compatibility solely because stock nuts exist.
 
+### STEP warnings despite a valid source solid
+
+A reported STEP import problem can justify inspecting the actual affected export, including components that failed to remain solids.
+
+**Evidence:** [Travel-case cap/screw repair](../../../../model/dental_travel_case/notes/matte_rotary.md#verification-and-remaining-limits): the old valid source cap reimported as an open shell, while the screw had mismatched tessellation boundaries. Enumerating only `Solids()` silently omitted the failed cap. Direct circular scallops and a non-tangent thread-tip cut yielded two solid STEP components with closed tessellation.
+
+**Scope and limits:** This is a targeted response to demonstrated export trouble, not a routine round-trip audit. Source validity, STL slice acceptance and a specific GUI STEP importer answer different questions. The exact GUI warning was not reproduced; matte-PLA bonding and physical fit remain untested.
+
 ### Cropped connector samples versus complete entry
 
 Check full assembly entry, not only cropped mating geometry.

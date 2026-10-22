@@ -4,21 +4,21 @@ A slim, two-piece travel box (`75.8 × 52.8 × 264 mm` closed shell), currently 
 
 ## At a Glance: What to Do Now
 
-- **Current action: print the complete wraparound-wheel set.** Use [body + lid STEP](rotary_covered_case.step) / [STL](rotary_covered_case.stl), plus [four-part controls STEP](rotary_covered_complete_mechanism.step) / [STL](rotary_covered_complete_mechanism.stl). Six printed parts, two jobs, no metal hardware. The scalloped cap now wraps around the wheel to hide its side gap; two keys join their rotation.
-- **Print setup:** PLA, 0.4 mm nozzle, 0.2 mm layers. Small control kit: **4 walls / 100% rectilinear / supports off**. Body/lid: 3 walls / 7% adaptive cubic / accessible exterior supports. Supplied smooth faces/screw head are down; facecap keys print upward. [Assembly, settings and evidence](notes/covered_rotary.md).
-- **Use matching parts:** the complete bundle includes the keyed wheel, wraparound facecap, matching longer screw and nut. The old shorter screw and exposed wheel are historical. Inspection poses and the obsolete hollow fine-thread axle are not printable upgrade files.
+- **Current action: replace only the wheel facecap and screw.** Print the [two-part repair STEP](rotary_matte_repair.step) / [STL](rotary_matte_repair.stl). Reuse the printed body/lid and existing keyed wheel/nut. The new cap has a thicker 2 mm face/rim; the solid coarse screw matches it.
+- **Print setup:** PLA, 0.4 mm nozzle, 0.2 mm layers, **4 walls / 100% rectilinear / supports off**. Supplied cap face and screw head face the bed. [Settings, installation and evidence](notes/matte_rotary.md).
+- **Do not repeat the old thin cap/screw:** the previous covered control kits have reported matte-PLA print trouble and demonstrated STEP defects. Keep the matching new cap and longer screw together. Old exposed/short screws and the hollow fine-thread axle are historical.
 
 ---
 
 ## Current rotary refinement
 
-The [covered rotary model](notes/covered_rotary.md) follows the user's corrected direction: facecap and wheel share the existing scalloped grip shape, with two keyed hub connections. The cap's 1.2 mm wall covers the wheel's whole 4.2 mm edge, hiding the side gap. Its scalloped outline is offset 1.8 mm outward (37.6 mm maximum span). Internal clearance remains 0.40 mm over the spring and 0.60 mm around the rim; a longer flush hex-drive screw retains the stack. The added outward projection is 1.6 mm. Body, lid, nut and spring/nose outside the hub are retained; the full box still has a 30 mm sleeve, 27 mm engagement and 3 mm seam reveal.
+The [repaired rotary controls](notes/matte_rotary.md) preserve the full wraparound scalloped cover and two keyed hub connections. Face and rim grow from 1.2 to 2 mm, maximum span from 37.6 to 39.2 mm, and outward projection from 1.6 to 2.4 mm. A matching flush conical-head screw keeps the existing solid 4.6 mm thread core and printed nut, with a gentler rising thread flank and simpler socket roof. Body, lid, wheel and nut remain unchanged; the box still has a 30 mm sleeve, 27 mm engagement and 3 mm seam reveal.
 
 Optional **L20 TPU liner for this rotary box:** [STEP](../dental_travel_case_liner/rotary_l20_liner.step) / [STL](../dental_travel_case_liner/rotary_l20_liner.stl). Two preformed cups; [print settings and first-fit limits](../dental_travel_case_liner/notes/rotary_l20.md). The rigid box geometry is unchanged.
 
-![Matching covered wheel and facecap](renders/assembled/covered/rotary_covered_detail_isometric.png)
+![Thicker cap and matching screw in print orientation](renders/print/matte/rotary_matte_repair_isometric.png)
 
-The new assembly is unprinted. Positive-drive, common-rotation, guide/lock and solid-thread CAD checks are separate from printed fit, effort, key strength and bag-impact performance. [Joint sections and detailed evidence](notes/covered_rotary.md#how-the-two-pieces-turn-together). The earlier [rounder-face proposals](notes/hidden_rotary.md) are historical; the matching scalloped cover is now modelled.
+The body and lid are printed; the old cap/screw have matte-PLA print trouble and STEP import warnings. The replacement pair passes affected CAD, actual STEP reimport/tessellation and diagnostic slicing checks, but has no physical print report yet. [Current limits and status](notes/matte_rotary.md#verification-and-remaining-limits). [Previous covered design and evidence](notes/covered_rotary.md) remain historical.
 
 <a id="how-the-current-design-works"></a>
 
@@ -122,7 +122,7 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | **Test pieces** | R1a Yes — fit nice; older indexed shells tight; complete quick trial Yes — works, slightly loose | `rotary_quick_test.step` / `.stl` and `rotary_printed_fasteners.step` / `.stl`; [current record](notes/quick_rotary.md) | Earlier PLA guide bound with wheel removed; overheating now suspected, unconfirmed. Quick trial and printed pair now reported working; full-size adoption with modest tighter fit/wider keeper authorized. Subsequently, wheel face-down overhang finish was rejected; the conical pair addresses it. Earlier: initial clip/socket worked (2026-10-14); M1 joint partly worked (2026-10-15); short wall snaps had high effort/noise and C8 hinge broke (2026-10-19). |
-| **Final printable object** | **Unknown — full rotary first print prepared** | `rotary_covered_case.step` plus `rotary_covered_complete_mechanism.step` | Covered keyed controls remain unprinted; confirm finish, tighter guide, loaded opening and bag-bump retention. M1 physically packed brush/paste diagonally but had weak retention. Old snap C and wrap-grip full cases remain unprinted. |
+| **Final printable object** | **Partial — body/lid printed; controls need repair** | `rotary_covered_case.step` plus new `rotary_matte_repair.step` / `.stl` | Replacement pair untested. The old wheel cap and screw have print-quality trouble in matte PLA and STEP import warnings. Retain the printed body/lid; confirm repaired controls, loaded opening and bag-bump retention. M1 physically packed brush/paste diagonally but had weak retention. Old snap C and wrap-grip full cases remain unprinted. |
 
 ### Verification & Scope Limits
 
