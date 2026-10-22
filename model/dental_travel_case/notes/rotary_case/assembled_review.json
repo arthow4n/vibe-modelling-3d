@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_travel_case_assembled.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/rotary_case/rotary_travel_case_assembled_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0016674500075168908,
+    "build": 3.952551296009915,
+    "selection": 0.0011204840266145766,
+    "validation": 0.11220805000630207,
+    "render_isometric": 6.193101387005299,
+    "worker": 10.362111380993156,
+    "total": 11.409352470975136
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "f7d237d8b285f4e6ca59b7706e357f384b6b37c4c361c0a331615df3436b7ffd",
+    "artifact_identity": "46d234e95178c87dfe179eadb156ff1a4ec28b9373809f07561499f1a24770a1"
+  }
+}

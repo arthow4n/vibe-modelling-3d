@@ -81,7 +81,8 @@ def check_size(dimensions,*,contents,fastener):
             assert v>1e-5,('Radial play bypasses detent',sx,sz,angle,v)
             play_barrier.append(dict(wheel_shift_xz_mm=[sx,sz],angle_deg=angle,blocked_mm3=v))
     witnesses=[]
-    for x,y in ((0,0),(.3,0),(-.3,0),(0,.3),(0,-.3),(.2,.2),(-.2,-.2)):
+    g=d.guide_clearance
+    for x,y in ((0,0),(g,0),(-g,0),(0,g),(0,-g),(g*2/3,g*2/3),(-g*2/3,-g*2/3)):
         rows.append(clear(p['body'],p['cap'].translate((x,y,0)),'Seated guide play'))
         for axial in (-.3,0,.2):
             v=p['cap'].translate((x,y,1.5)).intersect(p['rotor'].translate((0,axial,0))).val().Volume()

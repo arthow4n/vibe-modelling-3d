@@ -121,7 +121,11 @@ M1 compact full-text corner IDs and authorizes the full T08/T16 cup/pad pairs;
 The user reports that this printer is generally precise. Do not assume poor
 accuracy or use generous generic FDM clearances without an interface reason.
 Choose insertion allowance, seated play and retention separately; this report
-does not supply a universal measured tolerance. Apply the design skill's
+does not supply a universal measured tolerance. The successful PLA rotary-case
+trial was slightly loose at the corrected temperature; the user explicitly
+requests modestly smaller allowances for this precise printer. The bounded
+revision reduces only guide/keeper play, preserving the working printed thread
+and bearing ([owning feedback](../../../../model/dental_travel_case/notes/rotary_case.md#user-feedback-and-authorized-adoption)). Apply the design skill's
 [retention screen](design-decisions.md#actuation-effort-and-cheap-mechanics)
 before offering a friction-retained connection for printing.
 

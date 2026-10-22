@@ -1,10 +1,27 @@
 # Dental Travel Case
 
-A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exterior) designed to hold a `255 mm` electric toothbrush (up to `30 mm` handle diameter) and a `160 × 55 × 40 mm` toothpaste tube without internal clips or dividers.
+A slim, two-piece travel box (`75.8 × 52.8 × 264 mm` closed shell), currently developed in PLA, designed to hold a `255 mm` electric toothbrush (up to `30 mm` handle diameter) and a `160 × 55 × 40 mm` toothpaste tube without internal clips or dividers.
 
 ## At a Glance: What to Do Now
 
-- **Current action: print the shorter open-ended PLA trial in two jobs.** [Shells + spring wheel STEP](rotary_quick_test.step) / [STL](rotary_quick_test.stl), then the unchanged [solid custom screw/nut STEP](rotary_printed_fasteners.step) / [STL](rotary_printed_fasteners.stl). Five printed parts, no metal hardware. **50 mm closed**, large 50 × 30 mm end openings for grip, **rounded corner stops**, **original 0.30 mm guide clearance retained**. Only the body changed: [body-only STEP](rotary_quick_body.step) / [STL](rotary_quick_body.stl). The cap, wheel and printed pair can be reused. [Settings, assembly and limits](notes/quick_rotary.md). R1a fitted nicely; the user now suspects accidental closed-chamber heating affected the tight later PLA print. Cause unconfirmed. Full case and obsolete hollow M6 axle remain on hold.
+- **Current action: print the full rotary box in PLA.** [Body + cap + wheel STEP](rotary_travel_case.step) / [STL](rotary_travel_case.stl), [Python](rotary_travel_case.py). The complete quick trial works; this full version reduces guide clearance from **0.30 to 0.20 mm per side** and gives the cap a **34 mm wide rounded keeper** matching the wheel. Reuse the printed wheel and successful custom screw/nut if available; otherwise [fastener STEP](rotary_printed_fasteners.step) / [STL](rotary_printed_fasteners.stl). Full box is ready for its first print; PETG remains untested.
+- **Print setup:** PLA, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 7% adaptive cubic, removable exterior tree supports. Print the screw/nut separately at **4 walls / 100% rectilinear / supports off**. Supplied placement: body bottom down, cap roof down, wheel outer face down. [Complete instructions, packing basis and evidence](notes/rotary_case.md).
+- **Do not print:** the obsolete hollow fine-thread M6 axle or assembled/detail inspection poses. The older quick trial is the successful baseline; another sample is not required for this release.
+
+---
+
+## Current rotary refinement
+
+The successful [50 mm PLA quick trial](notes/quick_rotary.md) supports adoption of the rotary mechanism. The full box retains its **30 mm sleeve / 27 mm engagement**, **3 mm seam reveal**, four rounded capsule seating stops and continuous storage-facing walls. Only guide play and keeper play are reduced; the successful solid custom fasteners, shoulder bearing and indexed spring wheel stay unchanged. The full case has closed ends instead of the coupon's grip openings.
+
+![Full case keeper and wheel](renders/assembled/rotary_case/rotary_case_detail_isometric.png)
+
+The wider keeper gives a matching ledge above the wheel. Turn a quarter turn to OPEN before lifting the cap; the spring resists leaving LOCK independently of screw tightening. Full loaded handling, force, bag bumps and wear remain untested. [Current print/status record](notes/rotary_case.md).
+
+<a id="how-the-current-design-works"></a>
+
+## Previous prototypes and held files
+
 - **Previous B1 sample:** [STEP](slider_b_test.step) · [STL](slider_b_test.stl), retained for reference, not a current print recommendation. Print/use results were not reported; the bulky exterior is a product-design rejection. [Historical sample record](notes/slider_b.md).
 - **Printed trial:** [PLA C2 sample STEP](smooth_joint_test.step) · [STL](smooth_joint_test.stl), retained for identification, not a repeat-print recommendation. Its open ends limit transfer to the full case; the user suspects PETG would also be too tight, but PETG has not been tested.
 - **Existing CAD: Smooth C seam-grip case — full box unprinted; design on hold after sample rejection.** The selected C direction is implemented: straight, aligned sides, no wrap bands or local backing bumps, and a `3 mm` exposed overlap collar.
@@ -19,15 +36,10 @@ A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exter
   - **Use matching variants:** Smooth C adds a new internal cap stop and seam reveal. Use its matching pair; the older `2 mm` and three-line variants also have different mating offsets. The wrap-grip files are retained as a superseded comparison.
   - **Old coupled-contact branch remains closed:** The new C retention review uses fresh pull/compliance and side-bearing screens. Earlier incomplete side-knock solves remain `INCONCLUSIVE`; a static screen does not qualify actual bag impacts.
 
----
 
-## Current rotary refinement
+<a id="smooth-c-grip-and-closure"></a>
 
-The [current 50 mm open-ended trial](notes/quick_rotary.md) shortens the coupon sleeve to 18 mm, while preserving the spring wheel, latch and coarse printed fasteners. Its four seating stops now have rounded capsule footprints and rounded tops; the same stop change is in the full model. The complete case retains its 30 mm sleeve. Guide cross-section and 0.30 mm clearance match R1a and the later sample; no loosening has been implemented. The reported PLA binding remains physical evidence, with an unintended closed chamber now identified by the user as a possible confound. The new trial's open ends and shorter guide change stiffness and tilt restraint.
-
-<a id="how-the-current-design-works"></a>
-
-## Smooth C: Grip and Closure
+## Historical Smooth C: Grip and Closure
 
 ![Closed smooth C case, historical CAD on hold](renders/assembled/smooth/short_lap_case_smooth_assembled_isometric.png)
 
@@ -84,8 +96,9 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Variant / Phase | Status | Printable STEP / STL | Notes |
 | --- | --- | --- | --- |
-| **50 mm open-ended trial** | **Current experimental files; print status unknown** | [STEP](rotary_quick_test.step) · [STL](rotary_quick_test.stl) | Body/cap/wheel only; add the solid printed pair below. [Instructions](notes/quick_rotary.md). |
-| **Coarse printed replacement pair** | **Independent thread trial; screw not printed** | [STEP](rotary_printed_fasteners.step) · [STL](rotary_printed_fasteners.stl) | Print solid in a separate job; fits both the new quick trial and older indexed sample. [Instructions](notes/quick_rotary.md). |
+| **Full rotary case** | **First full PLA print prepared; unprinted** | [STEP](rotary_travel_case.step) · [STL](rotary_travel_case.stl) | Tighter guide, full-width keeper; [instructions](notes/rotary_case.md). |
+| **50 mm open-ended trial** | **Printed in PLA; works, slightly loose** | [STEP](rotary_quick_test.step) · [STL](rotary_quick_test.stl) | Body/cap/wheel only; add the solid printed pair below. [Instructions](notes/quick_rotary.md). |
+| **Coarse printed replacement pair** | **Included in successful complete PLA trial** | [STEP](rotary_printed_fasteners.step) · [STL](rotary_printed_fasteners.stl) | Print solid in a separate job; fits both the new quick trial and older indexed sample. [Instructions](notes/quick_rotary.md). |
 | Indexed spring sample | PLA shells printed; guide sliding rejected; old screw superseded | [Original STEP](rotary_index_test.step) · [STL](rotary_index_test.stl) | Guide bound with wheel removed; accidental chamber heating now suspected by user. Fine M6 screw also has a confirmed hollow CAD core. Superseded by the shorter trial. |
 | **R1a swivel-tab trial** | **Printed; action works okay; exposed form rejected for final box** | [`rotary_r1_test.step`](rotary_r1_test.step) · [`.stl`](rotary_r1_test.stl) | Three printed parts + M3×12 + two M3 nuts; [instructions](notes/rotary_r1.md). |
 | **B1 sliding-yoke trial (On hold)** | **Bulk rejected; print status unknown** | [`slider_b_test.step`](slider_b_test.step) · [`.stl`](slider_b_test.stl) | Three separate parts; short manual lock/unlock trial. |
@@ -104,17 +117,19 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| **Test pieces** | R1a Yes — fit nice; older indexed shells tight; quick trial Unknown; replacement screw No | `rotary_quick_test.step` / `.stl` and `rotary_printed_fasteners.step` / `.stl`; [current record](notes/quick_rotary.md) | Earlier PLA guide bound with wheel removed; overheating now suspected, unconfirmed. New quick trial and printed-pair action await feedback. Earlier: initial clip/socket worked (2026-10-14); M1 joint partly worked (2026-10-15); short wall snaps had high effort/noise and C8 hinge broke (2026-10-19). |
-| **Final printable object** | **Unknown** (Smooth C has no reported print) | `short_lap_case_smooth.step` / `.stl` | Check seam grip, snap effort/return, stop seating, combined brush+paste packing, and bag-bump retention. `M1` full box was printed and usable (2026-10-15) with inadequate retention; wrap-grip pair remains unprinted. |
+| **Test pieces** | R1a Yes — fit nice; older indexed shells tight; complete quick trial Yes — works, slightly loose | `rotary_quick_test.step` / `.stl` and `rotary_printed_fasteners.step` / `.stl`; [current record](notes/quick_rotary.md) | Earlier PLA guide bound with wheel removed; overheating now suspected, unconfirmed. Quick trial and printed pair now reported working; full-size adoption with modest tighter fit/wider keeper authorized. Earlier: initial clip/socket worked (2026-10-14); M1 joint partly worked (2026-10-15); short wall snaps had high effort/noise and C8 hinge broke (2026-10-19). |
+| **Final printable object** | **Unknown — full rotary first print prepared** | `rotary_travel_case.step` / `.stl` | Confirm tighter guide, loaded opening and bag-bump retention. M1 physically packed brush/paste diagonally but had weak retention. Old snap C and wrap-grip full cases remain unprinted. |
 
 ### Verification & Scope Limits
+
+- **Current rotary:** Affected full-case motion, capture, seating and protected-wall CAD checks pass. OrcaSlicer 2.4.2 accepts the full layout with removable exterior supports and no notices. [Current evidence and print instructions](notes/rotary_case.md#verification-limits-and-print-status). The complete quick PLA assembly works; new full dimensions, release force, side impacts and wear remain untested.
 - **Smooth C CAD:** Valid geometry; 20 actual wall/outline sections and six strengthened-sleeve sections, internal hard-seat contact and overclosing obstruction, six independent-catch witnesses, 13 sampled opening poses and individual brush/tube passages pass ([CAD record](notes/smooth_case/cad.json)). OrcaSlicer 2.4.2 accepts the matching layout with the stated profile, no notices and no generated support ([slice report](notes/smooth_case/print_review.json), [publication association](notes/smooth_case/publication.json)). The [verification report](notes/smooth_case/verification.json) keeps physical requirements UNKNOWN.
 - **Previous wrap-grip evidence (historical):** Valid CadQuery geometry, 66 section thickness checks, individual brush (`30 mm`) and tube (`55 × 40 mm`) passage gauges, and OrcaSlicer 2.4.2 smoke slices (`0` notices, no supports, verified 3-stroke wall toolpaths) pass for `slim-short-lap-three-line-grip` ([report](notes/grip_human/finished_verification.json)).
 - **Force & side evidence:** [Fresh pull model](notes/smooth_case/retention/final/pull.json) and [side-bearing comparison](notes/smooth_case/retention/final/side.json). Pull compliance is mesh-stable below 0.7% change. The X side point-value precision target remains INCONCLUSIVE; the stiffening decision is supported by consistently lower coarse/fine responses in both directions. Neither is printed-force or impact validation.
-- **Physical Unknowns:** Slicer STL checks do not test Orca's GUI STEP importer. Actual PETG snap force with the thicker end walls, layer-bond durability, stop behavior, simultaneous loaded packing of the real brush and tube, seam-grip traction, and resistance to knocks inside a packed travel bag remain physical checks (`UNKNOWN` / `INCONCLUSIVE`).
+- **Historical physical limits:** The snap-C numerical forces were never validated on a full printed PETG case. Historical joint/side screens do not qualify the rotary design; the current record owns its remaining physical checks.
 - **Reproduce verification CLI:**
   ```sh
-  ./execute.py --threads 1 model/dental_travel_case/verification.py --variant slim-short-lap-smooth-c
+  ./execute.py --threads 1 model/dental_travel_case/verification.py --variant rotary-full-pla
   ```
 
 ---

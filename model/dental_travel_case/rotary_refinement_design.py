@@ -32,6 +32,9 @@ class Dimensions:
     detent_radius: float=10.5
     detent_pin_radius: float=1.2
     detent_radial_travel: float=.35
+    guide_clearance: float=.3
+    keeper_form: str='crown'
+    keeper_span: float=34.
 
     @property
     def pivot(self):return self.seam-self.pivot_drop
@@ -92,6 +95,7 @@ def printed_axle():
 def build(variant,*,dimensions,fastener):
     if variant not in ('paddle','wheel'):raise ValueError('Unknown form: '+str(variant))
     if fastener not in ('legacy-m6','printed-coarse'):raise ValueError('Unknown fastener: '+str(fastener))
+    if dimensions.keeper_form not in ('crown','wide'):raise ValueError('Unknown keeper form: '+dimensions.keeper_form)
     d=dimensions;z=d.pivot
     body=base.prism(d.width,d.depth,6.,0,d.seam).edges('<Z').fillet(3.)
     body=body.union(base.prism(71.2,48.2,4.,d.seam-.5,d.lap+.5))
@@ -117,15 +121,28 @@ def build(variant,*,dimensions,fastener):
         body=body.union(corner);body_core=body_core.union(corner)
     body=body.clean();body_core=body_core.clean()
     cap=base.prism(d.width,d.depth,6.,d.rim,d.length-d.rim).edges('>Z').fillet(3.)
-    cap_void=base.prism(71.8,48.8,4.3,d.rim-1.,d.length-d.rim-1.)
+    cap_void=base.prism(71.2+2*d.guide_clearance,48.2+2*d.guide_clearance,
+                        4.+d.guide_clearance,d.rim-1.,d.length-d.rim-1.)
     cap=cap.cut(cap_void)
     # Integral outside keeper: accept accessible cap-exterior supports rather
     # than run stock screw tips/nuts into the passage or add another housing.
-    crown=axial_cylinder(d.keeper_radius,29.,z,3.4).intersect(
-        base.box(0,27.5,(d.rim+z+d.keeper_radius)/2,30,8,z+d.keeper_radius-d.rim))
-    crown=crown.faces('>Y').edges().fillet(.35)
-    left_root=base.box(-7.,27.2,(d.rim+z+14.)/2,3.,3.2,z+14.-d.rim)
-    cap=cap.union(crown).union(left_root).clean()
+    if d.keeper_form=='crown':
+        crown=axial_cylinder(d.keeper_radius,29.,z,3.4).intersect(
+            base.box(0,27.5,(d.rim+z+d.keeper_radius)/2,30,8,z+d.keeper_radius-d.rim))
+        crown=crown.faces('>Y').edges().fillet(.35)
+        left_root=base.box(-7.,27.2,(d.rim+z+14.)/2,3.,3.2,z+14.-d.rim)
+        cap=cap.union(crown).union(left_root).clean()
+    else:
+        # Full-width holding ledge. A front-open concentric relief preserves
+        # the nose's entire turn; the back of the ledge joins the cap wall.
+        crown=base.box(0,27.3,(d.rim+z+20.)/2,d.keeper_span,3.4,z+20.-d.rim)
+        crown=crown.edges('|Y').fillet(2.).faces('>Y').edges().fillet(.35)
+        gap=d.nose_inner-d.keeper_radius
+        channel=axial_cylinder(d.nose_outer+gap,31.,z,31.-(d.nose_back-.6)).cut(
+            axial_cylinder(d.keeper_radius,31.1,z,32.-(d.nose_back-.6)))
+        crown=crown.cut(channel)
+        if not crown.val().isValid():raise ValueError('Invalid full-width keeper')
+        cap=cap.union(crown).clean()
 
     plate=axial_cylinder(17.,d.wheel_front,z,d.wheel_front-d.wheel_back)
     if variant=='wheel':

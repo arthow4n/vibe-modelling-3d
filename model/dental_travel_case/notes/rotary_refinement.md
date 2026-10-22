@@ -1,8 +1,9 @@
 # Rotary closure with a solid custom printed screw and nut
 
-**Current print trial: [the 50 mm open-ended sample](quick_rotary.md)** — [shell/wheel STEP](../rotary_quick_test.step) / [STL](../rotary_quick_test.stl), plus the unchanged [solid custom screw/nut STEP](../rotary_printed_fasteners.step) / [STL](../rotary_printed_fasteners.stl). The user requests a shorter sample with large central end openings and preserving the original guide clearance. They now suspect the tight later PLA print was affected by an accidentally closed, overheated chamber; this cause is unconfirmed. Full-case printing remains on hold.
+**The complete quick PLA trial is now reported successful.** Its idea works and stays together, with slightly loose fit at the corrected temperature. The user authorizes modest tightening, a wheel-width cap keeper and full-size adoption. [Current full-box print files and instructions](rotary_case.md).
 
-This record preserves the mechanism, custom fastener and prior binding investigation. The current [sample instructions](quick_rotary.md) specify separate shell/wheel and solid-fastener settings.
+This record preserves the mechanism, hollow-thread correction and earlier binding investigation. Those observations preceded the successful [50 mm quick trial](quick_rotary.md). The suspected overheating cause remains unconfirmed; the revised full box has its own first-print status.
+
 
 ![Replacement screw and keyed printed nut](../renders/tests/printed_fasteners/rotary_printed_fasteners_isometric.png)
 
@@ -26,7 +27,7 @@ The old diagnostic process also used sparse infill through parts of the head and
 
 ## PLA guide-binding feedback — 2026-10-22
 
-The user has printed the previous indexed sample and finds its PLA body and cap very tight and hard to pull apart. They explicitly confirm the problem persists with the **wheel completely removed**. The replacement screw is not printed. They are exploring PLA first; PETG is untested and may be explored later. The user expects the approximately 30 mm overlap to guide the case adequately once it releases; that expectation is not a measured retention result. The model has **30 mm sleeve height (3 cm), with 27 mm actually engaged** because of the 3 mm seam reveal.
+The user has printed the previous indexed sample and finds its PLA body and cap very tight and hard to pull apart. They explicitly confirm the problem persists with the **wheel completely removed**. At that point the replacement screw had not been printed; the later complete quick trial is now reported successful. They are exploring PLA first; PETG is untested and may be explored later. The user expects the approximately 30 mm overlap to guide the case adequately once it releases; that expectation is not a measured retention result. The model has **30 mm sleeve height (3 cm), with 27 mm actually engaged** because of the 3 mm seam reveal.
 
 A targeted inspection of the actual delivered `rotary_index_test.step`, identified in [guide evidence](printed_fasteners/guide_review.json), finds **0.30 mm nominal clearance per side** at the four flats and a rounded-corner witness: sleeve outside 71.2 × 48.2 mm, cap inside 71.8 × 48.8 mm. Sampled straight withdrawal has no body/cap solid overlap. There are no shell snap teeth in this rotary sample. This establishes intended geometry only; it does not override the physical binding report or establish low sliding effort.
 
@@ -60,7 +61,7 @@ The compatible body/cap/wheel are those in [`rotary_index_test.step`](../rotary_
 | --- | --- | --- | --- |
 | R1a action sample | **Yes** | Unchanged `rotary_r1_test.step` / `.stl` | User reports “kind of works” / “okay” on 2026-10-22; quantitative effort, durability and bag security unknown. Exposed final appearance remains rejected. |
 | Indexed spring sample, old M6 fastener revision | **Partial — shells printed and tested; sliding fit rejected** | `rotary_index_test.step` / `.stl` at `d2e367c` | PLA body/cap very hard to separate with wheel removed. User later recalls unintended closed chamber and suspects overheating; unconfirmed. No successful complete closure result. Hollow old thread confirmed; actual screw breakage not reported. |
-| Coarse printed replacement pair | **No — screw not printed; nut unreported** | `rotary_printed_fasteners.py` / `.step` / `.stl` | Solid geometry/path checks pass; actual fit, strength and repeated use await printing. Does not remedy guide binding. |
+| Coarse printed replacement pair | **Yes — included in successful complete PLA quick trial** | `rotary_printed_fasteners.py` / `.step` / `.stl` | Assembly works; separate strength/torque/wear remain unmeasured. Reused unchanged for the full case. |
 | Full rotary case | **N/A — study only** | No new production print release | Full case on hold; retention force, far-edge peel and bag shaking unqualified. |
 
 ## History, references and attribution
