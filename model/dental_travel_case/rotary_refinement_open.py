@@ -1,0 +1,3 @@
+"""Rough open pose of covered wheel and separate cap keeper."""
+from rotary_refinement_design import build, configuration
+result=configuration(build('wheel'),'open')

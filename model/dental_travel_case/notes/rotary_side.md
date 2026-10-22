@@ -1,6 +1,6 @@
 # Compact one-side rotary locks
 
-Review the [three-option SVG](../renders/concepts/rotary_side_options.svg) ([PNG](../renders/concepts/rotary_side_options.png)), [swivel-tab section](../renders/concepts/rotary_side_tab.svg) and [quarter-turn cam explanation](../renders/concepts/rotary_side_cam.svg). **R1 has now been selected for a physical trial:** [R1a sample and instructions](rotary_r1.md), [STEP](../rotary_r1_test.step), [STL](../rotary_r1_test.stl). The proposal comparison below records the preceding SVG phase; R2/R3 remain unbuilt. The bulky B1 yoke and the too-tight C2 pull-apart snap are on hold.
+Review the [three-option SVG](../renders/concepts/rotary_side_options.svg) ([PNG](../renders/concepts/rotary_side_options.png)), [swivel-tab section](../renders/concepts/rotary_side_tab.svg) and [quarter-turn cam explanation](../renders/concepts/rotary_side_cam.svg). **R1 has now been selected for a physical trial:** [R1a sample and instructions](rotary_r1.md), [STEP](../rotary_r1_test.step), [STL](../rotary_r1_test.stl). The user now reports that sample printing and asks for a cleaner production-orientation design: [current refinement](rotary_refinement.md). The proposal comparison below records the preceding SVG phase; R2/R3 remain unbuilt. The bulky B1 yoke and the too-tight C2 pull-apart snap are on hold.
 
 ## What the user means and what changed
 

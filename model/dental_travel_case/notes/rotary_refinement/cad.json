@@ -1,0 +1,3404 @@
+{
+  "scope": "Rough R1 external screw-head keeper feasibility; no adopted case or physical qualification",
+  "source_sha256": {
+    "rotary_refinement_design.py": "9afbcf3bf143dd3eecaadc309e22552b41d951eae4e35913c0e8fe19dc4a19a9",
+    "rotary_refinement_checks.py": "cf0bdbc1721f3d405bf6a1ea161202341623882be65b451de4b979f648a08e17",
+    "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "rotary_refinement_wheel.py": "3f3d223ad559b536502873cc9681cd05aac4d5baf9a56d6d79c5d492b930b86c",
+    "rotary_refinement_paddle.py": "e3adad7b0b3cf9745f6ffa43d359c739eccae91124bd05b4e2abdcac3d55e71c",
+    "rotary_refinement_print_study.py": "30944d2ad7eb2aa475a41543de43830b13f8d190e9aa9a11d66bb84bfa46b3c0",
+    "rotary_refinement_open.py": "0ebd165727aea47b1243f264b106d9a9d9f4703520cc4ba5dac3cd753c3417b3"
+  },
+  "checks": [
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Seated shells remain distinct",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Nominal metal hardware fits its printed surroundings",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 0 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 0 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 0 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 0 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 5 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 5 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 5 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 5 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 10 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 10 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 10 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 10 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 15 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 15 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 15 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 15 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 20 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 20 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 20 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 20 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 25 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 25 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 25 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 25 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 30 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 30 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 30 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 30 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 35 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 35 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 35 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 35 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 40 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 40 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 40 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 40 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 45 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 45 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 45 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 45 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 50 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 50 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 50 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 50 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 55 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 55 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 55 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 55 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 60 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 60 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 60 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 60 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 65 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 65 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 65 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 65 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 70 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 70 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 70 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 70 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 75 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 75 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 75 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 75 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 80 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 80 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 80 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 80 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 85 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 85 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 85 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 85 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 90 deg versus body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 90 deg versus cap",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 90 deg versus keeper_screw",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Quarter turn 90 deg versus keeper_nut",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Guide-play pose including the opened sleeve track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Guide-play pose including the opened sleeve track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Guide-play pose including the opened sleeve track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Guide-play pose including the opened sleeve track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Guide-play pose including the opened sleeve track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Guide-play pose including the opened sleeve track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Guide-play pose including the opened sleeve track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears wheel",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears wheel",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears wheel",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears wheel",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears wheel",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears wheel",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears wheel",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears body",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Unlocked cap clears wheel",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Cap keeper hardware clears open-ended guide track",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Parked nose permits keeper withdrawal",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "55x40 tube straight loading passage at Y+1.7",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Individual 30mm brush envelope, not combined packing",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Individual 30mm brush envelope, not combined packing",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Individual 30mm brush envelope, not combined packing",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Individual 30mm brush envelope, not combined packing",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Individual 30mm brush envelope, not combined packing",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Individual 30mm brush envelope, not combined packing",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    },
+    {
+      "first": "first",
+      "second": "second",
+      "configuration": null,
+      "requirement": {
+        "intent": "Individual 30mm brush envelope, not combined packing",
+        "max_overlap_mm3": 1e-05,
+        "min_overlap_mm3": null,
+        "min_gap_mm": null,
+        "max_gap_mm": null
+      },
+      "calculation_completed": true,
+      "status": "passed",
+      "overlap_mm3": 0.0,
+      "gap_mm": null,
+      "closest_points_mm": null,
+      "error": null,
+      "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+    }
+  ],
+  "locked_witnesses": [
+    {
+      "shift_mm": [
+        0,
+        0
+      ],
+      "lift_mm": 1.5,
+      "blocked_mm3": 3.0955063106155944
+    },
+    {
+      "shift_mm": [
+        0.3,
+        0
+      ],
+      "lift_mm": 1.5,
+      "blocked_mm3": 3.1209697372195055
+    },
+    {
+      "shift_mm": [
+        -0.3,
+        0
+      ],
+      "lift_mm": 1.5,
+      "blocked_mm3": 3.120969737219495
+    },
+    {
+      "shift_mm": [
+        0,
+        0.3
+      ],
+      "lift_mm": 1.5,
+      "blocked_mm3": 2.51509887737517
+    },
+    {
+      "shift_mm": [
+        0,
+        -0.3
+      ],
+      "lift_mm": 1.5,
+      "blocked_mm3": 3.6759137438560185
+    },
+    {
+      "shift_mm": [
+        0.2,
+        0.2
+      ],
+      "lift_mm": 1.5,
+      "blocked_mm3": 2.718465277452638
+    },
+    {
+      "shift_mm": [
+        -0.2,
+        -0.2
+      ],
+      "lift_mm": 1.5,
+      "blocked_mm3": 3.495169642439107
+    }
+  ],
+  "travel_stops": [
+    {
+      "angle_deg": -15.0,
+      "blocked_mm3": 2.1138156298883213
+    },
+    {
+      "angle_deg": 105.0,
+      "blocked_mm3": 2.1138156298891446
+    }
+  ],
+  "nominal_keeper_head_diameter_mm": 5.5,
+  "nominal_keeper_head_height_mm": 2.0,
+  "nominal_nose_clearance_mm": 0.8,
+  "guide_track_width_mm": 10.4,
+  "tube_loading_offset_y_mm": 1.7,
+  "unknowns": [
+    "actual screw heads",
+    "printed fit",
+    "position detent",
+    "strength",
+    "far-edge peel",
+    "combined packing",
+    "handling",
+    "PLA/PETG behavior"
+  ]
+}

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="990" viewBox="0 0 1200 990">
+<rect width="1200" height="990" fill="#fafaf7"/>
+<style>text{font-family:sans-serif;fill:#243444}</style>
+<text x="25" y="38" font-size="25">A cleaner rotary closure — production orientation first</text>
+<text x="25" y="76" font-size="17">Front schematics at common scale. Same 75.8 × 52.8 × 264 mm shell; no wrap bands.</text>
+<text x="25" y="119" font-size="20">A · rounded exposed paddle</text>
+<rect x="143.15" y="294.0" width="113.69999999999999" height="261.0" rx="8" fill="#e0e7e5" stroke="#384e55" stroke-width="1.5"/>
+<rect x="143.15" y="159.0" width="113.69999999999999" height="130.5" rx="8" fill="#e0e7e5" stroke="#384e55" stroke-width="1.5"/>
+<circle cx="200" cy="282.375" r="4.125" fill="#bf8e46" stroke="#384e55" stroke-width="1.5"/>
+<rect x="193.25" y="272.25" width="13.5" height="31.5" rx="5" fill="#436c60" stroke="#384e55" stroke-width="1.5"/>
+<circle cx="200" cy="297.0" r="9.0" fill="#436c60" stroke="#384e55" stroke-width="1.5"/>
+<circle cx="200" cy="297.0" r="4.125" fill="#aab2b2" stroke="#384e55" stroke-width="1.5"/>
+<text x="25" y="603" font-size="17">Smallest visible control.</text>
+<text x="25" y="634" font-size="17">Screw-head keeper is exposed.</text>
+<text x="25" y="665" font-size="17">3 printed + 2 screws + 3 nuts.</text>
+<text x="25" y="696" font-size="17">No cover; less unified when open.</text>
+<text x="425" y="119" font-size="20">B · covered wheel — preferred</text>
+<rect x="543.15" y="294.0" width="113.69999999999999" height="261.0" rx="8" fill="#e0e7e5" stroke="#384e55" stroke-width="1.5"/>
+<rect x="543.15" y="159.0" width="113.69999999999999" height="130.5" rx="8" fill="#e0e7e5" stroke="#384e55" stroke-width="1.5"/>
+<path d="M576.006,304.030 L575.853,304.224 L575.756,304.462 L575.730,304.717 L575.774,304.960 L576.105,305.903 L576.471,306.831 L576.874,307.745 L577.313,308.642 L577.786,309.522 L578.294,310.382 L578.834,311.222 L579.407,312.040 L580.012,312.834 L580.647,313.605 L581.312,314.350 L582.006,315.068 L582.727,315.759 L583.475,316.421 L584.248,317.053 L585.046,317.655 L585.866,318.224 L586.708,318.762 L587.570,319.265 L588.451,319.735 L589.350,320.170 L590.266,320.569 L591.196,320.932 L592.140,321.258 L593.096,321.548 L594.063,321.799 L595.038,322.013 L596.021,322.188 L597.011,322.324 L598.005,322.422 L599.002,322.480 L600.000,322.500 L600.998,322.480 L601.995,322.422 L602.989,322.324 L603.979,322.188 L604.962,322.013 L605.937,321.799 L606.904,321.548 L607.860,321.258 L608.804,320.932 L609.734,320.569 L610.650,320.170 L611.549,319.735 L612.430,319.265 L613.292,318.762 L614.134,318.224 L614.954,317.655 L615.752,317.053 L616.525,316.421 L617.273,315.759 L617.994,315.068 L618.688,314.350 L619.353,313.605 L619.988,312.834 L620.593,312.040 L621.166,311.222 L621.706,310.382 L622.214,309.522 L622.687,308.642 L623.126,307.745 L623.529,306.831 L623.895,305.903 L624.226,304.960 L624.270,304.717 L624.244,304.462 L624.147,304.224 L623.994,304.030 L623.322,303.316 L622.725,302.537 L622.209,301.703 L621.780,300.821 L621.441,299.900 L621.197,298.950 L621.049,297.980 L621.000,297.000 L621.049,296.020 L621.197,295.050 L621.441,294.100 L621.780,293.179 L622.209,292.297 L622.725,291.463 L623.322,290.684 L623.994,289.970 L624.147,289.776 L624.244,289.538 L624.270,289.283 L624.226,289.040 L623.895,288.097 L623.529,287.169 L623.126,286.255 L622.687,285.358 L622.214,284.478 L621.706,283.618 L621.166,282.778 L620.593,281.960 L619.988,281.166 L619.353,280.395 L618.688,279.650 L617.994,278.932 L617.273,278.241 L616.525,277.579 L615.752,276.947 L614.954,276.345 L614.134,275.776 L613.292,275.238 L612.430,274.735 L611.549,274.265 L610.650,273.830 L609.734,273.431 L608.804,273.068 L607.860,272.742 L606.904,272.452 L605.937,272.201 L604.962,271.987 L603.979,271.812 L602.989,271.676 L601.995,271.578 L600.998,271.520 L600.000,271.500 L599.002,271.520 L598.005,271.578 L597.011,271.676 L596.021,271.812 L595.038,271.987 L594.063,272.201 L593.096,272.452 L592.140,272.742 L591.196,273.068 L590.266,273.431 L589.350,273.830 L588.451,274.265 L587.570,274.735 L586.708,275.238 L585.866,275.776 L585.046,276.345 L584.248,276.947 L583.475,277.579 L582.727,278.241 L582.006,278.932 L581.312,279.650 L580.647,280.395 L580.012,281.166 L579.407,281.960 L578.834,282.778 L578.294,283.618 L577.786,284.478 L577.313,285.358 L576.874,286.255 L576.471,287.169 L576.105,288.097 L575.774,289.040 L575.730,289.283 L575.756,289.538 L575.853,289.776 L576.006,289.970 L576.678,290.684 L577.275,291.463 L577.791,292.297 L578.220,293.179 L578.559,294.100 L578.803,295.050 L578.951,296.020 L579.000,297.000 L578.951,297.980 L578.803,298.950 L578.559,299.900 L578.220,300.821 L577.791,301.703 L577.275,302.537 L576.678,303.316 Z M604.500,297.000 L604.442,296.278 L604.268,295.575 L603.985,294.909 L603.597,294.297 L603.117,293.755 L602.556,293.297 L601.929,292.934 L601.252,292.678 L600.542,292.533 L599.819,292.504 L599.100,292.591 L598.404,292.792 L597.750,293.103 L597.154,293.514 L596.632,294.016 L596.197,294.595 L595.860,295.236 L595.631,295.923 L595.515,296.638 L595.515,297.362 L595.631,298.077 L595.860,298.764 L596.197,299.405 L596.632,299.984 L597.154,300.486 L597.750,300.897 L598.404,301.208 L599.100,301.409 L599.819,301.496 L600.542,301.467 L601.252,301.322 L601.929,301.066 L602.556,300.703 L603.117,300.245 L603.597,299.703 L603.985,299.091 L604.268,298.425 L604.442,297.722 Z" fill="#36545a" fill-rule="evenodd" fill-opacity="1.0" stroke="#36545a" stroke-width=".7"/>
+<circle cx="600" cy="297.0" r="4.125" fill="#aab2b2" stroke="#384e55" stroke-width="1.5"/>
+<text x="425" y="603" font-size="17">One Ø34 mm curved outline.</text>
+<text x="425" y="634" font-size="17">Nose / keeper hidden when closed.</text>
+<text x="425" y="665" font-size="17">3 printed + 2 screws + 3 nuts.</text>
+<text x="425" y="696" font-size="17">6.3 mm maximum nominal projection.</text>
+<text x="825" y="119" font-size="20">C · fixed outer housing</text>
+<rect x="943.15" y="294.0" width="113.69999999999999" height="261.0" rx="8" fill="#e0e7e5" stroke="#384e55" stroke-width="1.5"/>
+<rect x="943.15" y="159.0" width="113.69999999999999" height="130.5" rx="8" fill="#e0e7e5" stroke="#384e55" stroke-width="1.5"/>
+<rect x="968.5" y="262.5" width="63.0" height="64.5" rx="18" fill="#abbabc" stroke="#384e55" stroke-width="1.5"/>
+<circle cx="1000" cy="297.0" r="13.5" fill="#36545a" stroke="#384e55" stroke-width="1.5"/>
+<circle cx="1000" cy="297.0" r="4.125" fill="#aab2b2" stroke="#384e55" stroke-width="1.5"/>
+<text x="825" y="603" font-size="17">Hides the moving outline too.</text>
+<text x="825" y="634" font-size="17">At least 4 printed parts.</text>
+<text x="825" y="665" font-size="17">Cover mounting still unresolved.</text>
+<text x="825" y="696" font-size="17">Adds bulk for little extra benefit.</text>
+<text x="25" y="770" font-size="21">B changes the mechanism, rather than putting a large guard around the old window.</text>
+<text x="25" y="811" font-size="18">A stock M3 screw head is the cap keeper. The nose turns outside the shell; the cap needs no large cutout.</text>
+<text x="25" y="847" font-size="18">Body prints bottom-down. Cap prints closed-top-down. Wheel prints flat-face-down; hardware installs afterward.</text>
+<text x="25" y="883" font-size="17">Two broad perimeter scoops give turning purchase and a visible quarter-turn indication; feel is not yet tested.</text>
+<text x="25" y="927" font-size="17">Rough concepts only. B has CAD motion and manufacturing-study evidence; no new full-case print is recommended.</text>
+<text x="25" y="960" font-size="17">C is screened out for added envelope/assembly. Existing R1a print remains the action experiment.</text>
+</svg>

@@ -1,6 +1,8 @@
 # R1a swivel-tab test piece
 
-Print this short **R1 mechanism sample** to understand the motion and try its fit in PLA: [STEP](../rotary_r1_test.step) · [STL](../rotary_r1_test.stl) · [Python](../rotary_r1_test.py). It contains **three printed parts: body ring, cap ring and swivel tab**. Add **one M3×12 screw and two plain M3 nuts** from the recorded stock. The full travel case remains on hold.
+**Current status: the user reports the PLA test print is underway, not complete (2026-10-22).** Its exposed mechanism is rejected as a final visual direction; this is appearance feedback, not a reported functional failure. [Production-orientation and appearance exploration](rotary_refinement.md) develops alternatives while the sample prints.
+
+This short **R1 mechanism sample** was delivered to understand the motion and try its fit in PLA: [STEP](../rotary_r1_test.step) · [STL](../rotary_r1_test.stl) · [Python](../rotary_r1_test.py). It contains **three printed parts: body ring, cap ring and swivel tab**. Add **one M3×12 screw and two plain M3 nuts** from the recorded stock. The full travel case remains on hold.
 
 ![R1a assembled, tab upright in LOCK](../renders/tests/rotary_r1/rotary_r1_test_assembled_isometric.png)
 
@@ -49,7 +51,7 @@ An initial circular nut-access pocket attracted support under its ceiling. Actua
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| R1a sample | Unknown | `rotary_r1_test.py` / `.step` / `.stl` | PLA fit, easy rotation, visible capture, indexing, assembly and repeated use await feedback. |
+| R1a sample | Partial — print underway | `rotary_r1_test.py` / `.step` / `.stl` | User reports print underway; no completed assembly/use result. PLA fit, easy rotation, visible capture, indexing and repeated use await feedback. |
 | Full R1 case | N/A | None | Sample phase only; no production revision. |
 
 Primary language model: GPT-6 family; exact model identifier and reasoning effort not exposed. Harness: Codex coding-agent environment. Provider: OpenAI. Source, CAD checks and drawings are agent-authored. User supplied the concept choice and earlier C2 physical feedback; existing historical attribution is preserved.

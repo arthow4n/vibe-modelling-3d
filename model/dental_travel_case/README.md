@@ -2,11 +2,9 @@
 
 A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exterior) designed to hold a `255 mm` electric toothbrush (up to `30 mm` handle diameter) and a `160 × 55 × 40 mm` toothpaste tube without internal clips or dividers.
 
-![Closed smooth C case](renders/assembled/smooth/short_lap_case_smooth_assembled_isometric.png)
-
 ## At a Glance: What to Do Now
 
-- **Current action: print the R1a swivel-tab sample in PLA.** [STEP](rotary_r1_test.step) · [STL](rotary_r1_test.stl) · [assembly and trial instructions](notes/rotary_r1.md) · [operation SVG](renders/tests/rotary_r1/operation.svg). Three printed parts plus one M3×12 screw and two M3 nuts. Sideways = OPEN; upright = LOCK. CAD motion and selected-profile slice checks pass; physical fit/feel remain unknown. B1/C2 unchanged prints stay on hold.
+- **Current action: finish the R1a PLA action trial; review the cleaner production-orientation concepts.** [STEP](rotary_r1_test.step) · [STL](rotary_r1_test.stl) · [assembly and trial instructions](notes/rotary_r1.md) · [operation SVG](renders/tests/rotary_r1/operation.svg). Three printed parts plus one M3×12 screw and two M3 nuts. Sideways = OPEN; upright = LOCK. User reports the print underway, without a completed result. Its exposed form is not accepted for the final box. [Appearance comparison SVG](renders/concepts/rotary_refinement/comparison.svg) · [manufacturing sections](renders/concepts/rotary_refinement/manufacture.svg) · [rough CAD and evidence](notes/rotary_refinement.md). No new full-case print is recommended. B1/C2 unchanged prints stay on hold.
 - **Previous B1 sample:** [STEP](slider_b_test.step) · [STL](slider_b_test.stl), retained for reference, not a current print recommendation. Print/use results were not reported; the bulky exterior is a product-design rejection. [Historical sample record](notes/slider_b.md).
 - **Printed trial:** [PLA C2 sample STEP](smooth_joint_test.step) · [STL](smooth_joint_test.stl), retained for identification, not a repeat-print recommendation. Its open ends limit transfer to the full case; the user suspects PETG would also be too tight, but PETG has not been tested.
 - **Existing CAD: Smooth C seam-grip case — full box unprinted; design on hold after sample rejection.** The selected C direction is implemented: straight, aligned sides, no wrap bands or local backing bumps, and a `3 mm` exposed overlap collar.
@@ -23,9 +21,15 @@ A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exter
 
 ---
 
+## Current rotary refinement
+
+The preferred rough direction is a smooth wheel covering an external nose and a metal screw-head keeper, without the exposed cap window. The cap prints closed-top-down and the body bottom-down. [Comparison and actual sections](notes/rotary_refinement.md) explain the remaining local support, the sleeve track and unqualified indexing. R1a remains the action trial already printing.
+
 <a id="how-the-current-design-works"></a>
 
 ## Smooth C: Grip and Closure
+
+![Closed smooth C case, historical CAD on hold](renders/assembled/smooth/short_lap_case_smooth_assembled_isometric.png)
 
 The cap ends `3 mm` above the body shoulder, exposing the continuous inner sleeve. Rounded opposing rim edges provide a place to grip without separate bands. Inside the cap, a tapered seat contacts the sleeve tip and prevents overclosing; the catch pockets remain at their original height. The cap covers `27 mm` of the unchanged `30 mm` sleeve.
 
@@ -80,7 +84,7 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Variant / Phase | Status | Printable STEP / STL | Notes |
 | --- | --- | --- | --- |
-| **R1a swivel-tab trial** | **Current PLA sample; print status unknown** | [`rotary_r1_test.step`](rotary_r1_test.step) · [`.stl`](rotary_r1_test.stl) | Three printed parts + M3×12 + two M3 nuts; [instructions](notes/rotary_r1.md). |
+| **R1a swivel-tab trial** | **PLA print underway; exposed form rejected for final box** | [`rotary_r1_test.step`](rotary_r1_test.step) · [`.stl`](rotary_r1_test.stl) | Three printed parts + M3×12 + two M3 nuts; [instructions](notes/rotary_r1.md). |
 | **B1 sliding-yoke trial (On hold)** | **Bulk rejected; print status unknown** | [`slider_b_test.step`](slider_b_test.step) · [`.stl`](slider_b_test.stl) | Three separate parts; short manual lock/unlock trial. |
 | **Short PLA C2 joint trial** | **Printed in PLA; rejected for effort** | [`smooth_joint_test.step`](smooth_joint_test.step) · [`.stl`](smooth_joint_test.stl) | Open-ring 46/37 mm pair; local fit/action trial, not full-case force validation. |
 | **Smooth C seam-grip case (On hold)** | **Full box unprinted; sample rejected** | [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`.stl`](short_lap_case_smooth.stl) | Smooth sides, `3 mm` collar, internal stop; matching pair. |
@@ -97,7 +101,7 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| **Test pieces** | R1a Unknown; historical partial | Current `rotary_r1_test.step` / `.stl`; [sample record](notes/rotary_r1.md) | R1a fit/action await feedback. Earlier: initial handle clip/socket worked (2026-10-14); `M1` joint coupon partly worked (2026-10-15); two short wall-snap coupons had high effort/noise (2026-10-19); `C8` shortened hinge loop broke on first push (2026-10-19). |
+| **Test pieces** | R1a Partial — underway; historical partial | Current `rotary_r1_test.step` / `.stl`; [sample record](notes/rotary_r1.md) | R1a fit/action await feedback. Earlier: initial handle clip/socket worked (2026-10-14); `M1` joint coupon partly worked (2026-10-15); two short wall-snap coupons had high effort/noise (2026-10-19); `C8` shortened hinge loop broke on first push (2026-10-19). |
 | **Final printable object** | **Unknown** (Smooth C has no reported print) | `short_lap_case_smooth.step` / `.stl` | Check seam grip, snap effort/return, stop seating, combined brush+paste packing, and bag-bump retention. `M1` full box was printed and usable (2026-10-15) with inadequate retention; wrap-grip pair remains unprinted. |
 
 ### Verification & Scope Limits
@@ -117,6 +121,7 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 All historical phases, negative results, and solver investigations are preserved in [`notes/`](notes/README.md):
 
 1. **Current Short-Lap Architecture and Exterior Exploration**
+   - [`notes/rotary_refinement.md`](notes/rotary_refinement.md) — cleaner wheel/paddle/housing comparison, end-down shell manufacturing and targeted rough CAD.
    - [`notes/rotary_r1.md`](notes/rotary_r1.md) — current R1a swivel-tab sample, print files, hardware, operation and scoped evidence.
    - [`notes/smooth_exterior.md`](notes/smooth_exterior.md) — C selection and implementation, earlier SVG proposals, continuous cap exterior, exposed seam grip and internal stop.
    - [`notes/grip_human.md`](notes/grip_human.md) — Wraparound grip band placement (`+55 / -30 mm`), upright opening walkthrough, finished 3-line CAD sections, and retirement of the over-constrained MyoSim 4-finger search ([`notes/grip_human/native_search.md`](notes/grip_human/native_search.md)).

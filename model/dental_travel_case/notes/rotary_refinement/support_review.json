@@ -1,0 +1,21 @@
+{
+  "scope": "Actual automatic-support paths for the rough full-shell manufacturing study",
+  "slice_input_sha256": "67311661f1b798accb1be63883ff33e7522f38d897f64463ba9d7aea9dc7277a",
+  "support_gcode_sha256": "bbb08d20cc72b9f938355f2d9b7ea7f1f40d45db5bba1c342054a5094f08d886",
+  "role_counts": {
+    "Support": 511,
+    "Support interface": 123
+  },
+  "z_range_mm": [
+    0.2,
+    1.8
+  ],
+  "xy_location_mm": [
+    132.455,
+    137.545,
+    178.804,
+    183.895
+  ],
+  "interpretation": "All support paths lie at the wheel centre under the recessed screw-head seat. The only interface is at Z1.6-1.8 beneath its Z2.0 counterbore roof. No cap, sleeve, shell-end or keeper support paths.",
+  "decision": "Keep an accessible small support under the counterbore in this study, rather than add a separate face cover or a proud fastener. Removal is through the outside 6mm opening; easy removal and bearing-face finish are physical unknowns, not qualified by this path location."
+}
