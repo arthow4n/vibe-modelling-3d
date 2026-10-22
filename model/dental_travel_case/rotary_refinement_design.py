@@ -1,4 +1,4 @@
-"""Rough stock-material rotary closure with a blind nut and printed shoulder axle.
+"""Indexed rotary closure with protected hardware and explicit fastener selection.
 
 Storage-facing walls remain continuous. A separate spring detent resists opening;
 the axle seats on a shoulder, so tightening it does not set rotor friction.
@@ -44,10 +44,10 @@ SAMPLE=replace(D,seam=24.,length=70.)
 
 
 def printed_axle():
-    """Print external 8mm hex head down, M6x1 thread up; fit needs a real stock nut.
+    """Historical defective M6 axle: hollow thread, retained as a negative control.
 
-    Metal-nut ISO profile is approximated, with a deliberate 0.10mm radial
-    reduction of the major diameter. No calibrated thread-fit claim is made.
+    Do not print. The active replacement is rotary_printed_fastener_design.
+    Preserved geometry identifies the user-reported defect and ongoing sample.
     """
     d=D;head=d.axle_front-d.axle_under;shoulder=d.axle_under-d.pod_face
     start=head+shoulder;end=d.axle_front-d.axle_tip
@@ -68,8 +68,9 @@ def printed_axle():
     return head_part.union(journal).union(thread).clean()
 
 
-def build(variant,*,dimensions):
+def build(variant,*,dimensions,fastener):
     if variant not in ('paddle','wheel'):raise ValueError('Unknown form: '+str(variant))
+    if fastener not in ('legacy-m6','printed-coarse'):raise ValueError('Unknown fastener: '+str(fastener))
     d=dimensions;z=d.pivot
     body=base.prism(d.width,d.depth,6.,0,d.seam).edges('<Z').fillet(3.)
     body=body.union(base.prism(71.2,48.2,4.,d.seam-.5,d.lap+.5))
@@ -138,14 +139,20 @@ def build(variant,*,dimensions):
         rotor=rotor.cut(sector(5.9,8.1,-189.,-81.,d.wheel_back+1.,1.2,z)).clean()
         spring_region=sector(outer-.1,14.1,-208.,-35.,40.,12.,z)
         rotor_rigid=rotor.cut(spring_region).clean()
-    axle=printed_axle().rotate((0,0,0),(1,0,0),90).translate((0,d.axle_front,z))
-    # Max stock M6 nut envelope; internal threads omitted, fit remains physical.
-    nut=(cq.Workplane('XZ',origin=(0,31.,z)).polygon(6,10/cos(radians(30))).extrude(5.2)
-         .cut(axial_cylinder(3.1,31.1,z,5.4))).rotate((0,0,z),(0,1,z),30.)
+    if fastener=='printed-coarse':
+        from rotary_printed_fastener_design import printed_axle as coarse_axle,printed_nut
+        axle=coarse_axle();nut=printed_nut()
+        nut=nut.rotate((0,0,0),(1,0,0),90).translate((0,d.axle_front,z))
+    else:
+        axle=printed_axle()
+        # Historical stock nut display envelope, not a threaded mating model.
+        nut=(cq.Workplane('XZ',origin=(0,31.,z)).polygon(6,10/cos(radians(30))).extrude(5.2)
+             .cut(axial_cylinder(3.1,31.1,z,5.4))).rotate((0,0,z),(0,1,z),30.)
+    axle=axle.rotate((0,0,0),(1,0,0),90).translate((0,d.axle_front,z))
     parts=dict(body=body,body_core=body_core,cap=cap,rotor=rotor.clean(),
         rotor_rigid=rotor_rigid,nose=nose,detent_pin=detent_pin,pivot_axle=axle,pivot_nut=nut,
         body_void=cavity,cap_void=cap_void,stop_pin=stop_pin)
-    return dict(dimensions=d,variant=variant,**{n:p.mirror('XZ') for n,p in parts.items()})
+    return dict(dimensions=d,variant=variant,fastener=fastener,**{n:p.mirror('XZ') for n,p in parts.items()})
 
 
 def rotor_pose(p,angle,*,rigid=False):
@@ -160,7 +167,12 @@ def configuration(p,state):
         a.add(p['body'],name='body')
         a.add(p['cap'].rotate((0,0,0),(1,0,0),180).translate((100,0,d.length)),name='cap')
         a.add(p['rotor'].rotate((0,0,0),(1,0,0),90).translate((50,80+d.pivot,d.wheel_front)),name='rotor')
-        a.add(printed_axle().translate((75,80,0)),name='printed_axle')
+        if p['fastener']=='legacy-m6':
+            a.add(printed_axle().translate((75,80,0)),name='printed_axle')
+        else:
+            from rotary_printed_fastener_design import printed_axle as coarse_axle,printed_nut
+            a.add(coarse_axle().translate((75,80,0)),name='printed_axle')
+            a.add(printed_nut().translate((95,80,-5.5)),name='printed_nut')
         return a
     lift=95. if state=='open' else 0.;angle=90. if state=='open' else 0.
     for name,color in (('body',(.35,.55,.65)),('cap',(.73,.79,.8)),('rotor',(.24,.36,.4))):
@@ -168,5 +180,5 @@ def configuration(p,state):
         if name=='cap':part=part.translate((0,0,lift))
         a.add(part,name=name,color=cq.Color(*color))
     a.add(p['pivot_axle'],name='printed_axle',color=cq.Color(.24,.36,.4))
-    a.add(p['pivot_nut'],name='stock_M6_nut',color=cq.Color(.65,.65,.65))
+    a.add(p['pivot_nut'],name=p['fastener']+'_nut',color=cq.Color(.65,.65,.65))
     return a

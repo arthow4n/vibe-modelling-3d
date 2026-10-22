@@ -4,7 +4,7 @@ A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exter
 
 ## At a Glance: What to Do Now
 
-- **Current action: finish the R1a print already underway; the stock-only indexed revision is a separate trial.** Start that revision with the [printed axle STEP](rotary_refinement_axle.step) / [STL](rotary_refinement_axle.stl) and one stock M6 nut. A matching [70 mm sample STEP](rotary_index_test.step) / [STL](rotary_index_test.stl) tests the new detent. [Assembly, print settings and limits](notes/rotary_refinement.md) · [protected hardware sections](renders/concepts/rotary_refinement/packaging.svg) · [detent SVG](renders/concepts/rotary_refinement/detent.svg). Four printed parts + one stock M6 nut; no purchased screws. The full case remains on hold. R1a is still an [unchanged action trial](notes/rotary_r1.md), with no completed use result.
+- **Current action: print the [custom screw + nut STEP](rotary_printed_fasteners.step) / [STL](rotary_printed_fasteners.stl) only.** Keep the body, cap and spring wheel already printing; their geometry is unchanged. PLA, 0.4 mm nozzle, 0.2 mm layers, four walls, **100% infill**, supports off for the replacement pair. [Assembly and evidence](notes/rotary_refinement.md). The old M6 screw is hollow in its CAD thread and must not be repeated. **R1a is printed and reported to work okay**; final exposed appearance remains rejected. Full case stays on hold.
 - **Previous B1 sample:** [STEP](slider_b_test.step) · [STL](slider_b_test.stl), retained for reference, not a current print recommendation. Print/use results were not reported; the bulky exterior is a product-design rejection. [Historical sample record](notes/slider_b.md).
 - **Printed trial:** [PLA C2 sample STEP](smooth_joint_test.step) · [STL](smooth_joint_test.stl), retained for identification, not a repeat-print recommendation. Its open ends limit transfer to the full case; the user suspects PETG would also be too tight, but PETG has not been tested.
 - **Existing CAD: Smooth C seam-grip case — full box unprinted; design on hold after sample rejection.** The selected C direction is implemented: straight, aligned sides, no wrap bands or local backing bumps, and a `3 mm` exposed overlap collar.
@@ -23,7 +23,7 @@ A slim, two-piece PETG travel box (`75.8 × 52.8 × 264 mm` current closed exter
 
 ## Current rotary refinement
 
-The current rough wheel has a recessed printed shoulder axle, one stock M6 nut in a blind external pocket, and a printed cap keeper. Storage walls and the full guide remain continuous. A curved spring detent resists turning before release. [Current sections and evidence](notes/rotary_refinement.md) also show the larger 10.4 mm projection and accessible support requirements. Thread fit and opening effort remain physical trial questions.
+The current wheel uses a **coarse custom printed screw and keyed printed nut**, replacing the old hollow fine M6 screw. Both fit the indexed sample already printing. The shoulder, recessed head, protected storage walls, cap keeper and spring detent remain unchanged. [Sections, solid-core checks and assembly](notes/rotary_refinement.md). Actual new thread fit and effort remain untested; local projection remains 10.4 mm.
 
 <a id="how-the-current-design-works"></a>
 
@@ -84,8 +84,9 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Variant / Phase | Status | Printable STEP / STL | Notes |
 | --- | --- | --- | --- |
-| **Indexed stock-only trial** | **Current experimental files; print status unknown** | [Axle STEP](rotary_refinement_axle.step) · [STL](rotary_refinement_axle.stl) · [Sample STEP](rotary_index_test.step) · [STL](rotary_index_test.stl) | Four printed parts + one stock M6 nut; supports on. [Instructions](notes/rotary_refinement.md). |
-| **R1a swivel-tab trial** | **PLA print underway; exposed form rejected for final box** | [`rotary_r1_test.step`](rotary_r1_test.step) · [`.stl`](rotary_r1_test.stl) | Three printed parts + M3×12 + two M3 nuts; [instructions](notes/rotary_r1.md). |
+| **Coarse printed replacement pair** | **Current experimental files; print status unknown** | [STEP](rotary_printed_fasteners.step) · [STL](rotary_printed_fasteners.stl) | Print solid. Keep indexed body/cap/wheel; replace both old screw and metal nut. [Instructions](notes/rotary_refinement.md). |
+| Indexed spring sample | Printing; old screw superseded | [Original STEP](rotary_index_test.step) · [STL](rotary_index_test.stl) | Keep body/cap/wheel only. Fine M6 screw has a confirmed hollow CAD core. |
+| **R1a swivel-tab trial** | **Printed; action works okay; exposed form rejected for final box** | [`rotary_r1_test.step`](rotary_r1_test.step) · [`.stl`](rotary_r1_test.stl) | Three printed parts + M3×12 + two M3 nuts; [instructions](notes/rotary_r1.md). |
 | **B1 sliding-yoke trial (On hold)** | **Bulk rejected; print status unknown** | [`slider_b_test.step`](slider_b_test.step) · [`.stl`](slider_b_test.stl) | Three separate parts; short manual lock/unlock trial. |
 | **Short PLA C2 joint trial** | **Printed in PLA; rejected for effort** | [`smooth_joint_test.step`](smooth_joint_test.step) · [`.stl`](smooth_joint_test.stl) | Open-ring 46/37 mm pair; local fit/action trial, not full-case force validation. |
 | **Smooth C seam-grip case (On hold)** | **Full box unprinted; sample rejected** | [`short_lap_case_smooth.step`](short_lap_case_smooth.step) · [`.stl`](short_lap_case_smooth.stl) | Smooth sides, `3 mm` collar, internal stop; matching pair. |
@@ -102,7 +103,7 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| **Test pieces** | Indexed trial Unknown; R1a Partial — underway | Current `rotary_index_test.step` / `.stl`, `rotary_refinement_axle.step` / `.stl`; [sample record](notes/rotary_refinement.md) | Indexed thread/detent trial and R1a action feedback pending. Earlier: initial handle clip/socket worked (2026-10-14); `M1` joint coupon partly worked (2026-10-15); two short wall-snap coupons had high effort/noise (2026-10-19); `C8` shortened hinge loop broke on first push (2026-10-19). |
+| **Test pieces** | R1a Yes — works okay; indexed sample Partial — printing; replacement pair Unknown | `rotary_printed_fasteners.step` / `.stl`; [current record](notes/rotary_refinement.md) | New pair fit/effort unknown; old hollow M6 axle superseded. Earlier: initial clip/socket worked (2026-10-14); M1 joint partly worked (2026-10-15); short wall snaps had high effort/noise and C8 hinge broke (2026-10-19). |
 | **Final printable object** | **Unknown** (Smooth C has no reported print) | `short_lap_case_smooth.step` / `.stl` | Check seam grip, snap effort/return, stop seating, combined brush+paste packing, and bag-bump retention. `M1` full box was printed and usable (2026-10-15) with inadequate retention; wrap-grip pair remains unprinted. |
 
 ### Verification & Scope Limits
@@ -122,8 +123,8 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 All historical phases, negative results, and solver investigations are preserved in [`notes/`](notes/README.md):
 
 1. **Current Short-Lap Architecture and Exterior Exploration**
-   - [`notes/rotary_refinement.md`](notes/rotary_refinement.md) — cleaner wheel/paddle/housing comparison, end-down shell manufacturing and targeted rough CAD.
-   - [`notes/rotary_r1.md`](notes/rotary_r1.md) — current R1a swivel-tab sample, print files, hardware, operation and scoped evidence.
+   - [`notes/rotary_refinement.md`](notes/rotary_refinement.md) — current compatible coarse printed replacement pair, hollow-core diagnosis, assembly and digital evidence.
+   - [`notes/rotary_r1.md`](notes/rotary_r1.md) — printed R1a action sample, qualitative success, hardware, operation and scoped evidence.
    - [`notes/smooth_exterior.md`](notes/smooth_exterior.md) — C selection and implementation, earlier SVG proposals, continuous cap exterior, exposed seam grip and internal stop.
    - [`notes/grip_human.md`](notes/grip_human.md) — Wraparound grip band placement (`+55 / -30 mm`), upright opening walkthrough, finished 3-line CAD sections, and retirement of the over-constrained MyoSim 4-finger search ([`notes/grip_human/native_search.md`](notes/grip_human/native_search.md)).
    - [`notes/wall_comparison.md`](notes/wall_comparison.md) — `2 mm` (5-stroke) vs. `1.2 mm` (3-stroke) wall comparison, local snap-backing pads, finger-slot edge rounding, and `A`/`B`/`C` & `B1`–`B4` grip concept SVGs.

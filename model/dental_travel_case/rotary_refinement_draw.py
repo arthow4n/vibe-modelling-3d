@@ -88,7 +88,7 @@ def manufacture(p):
 
 
 def main():
-    OUT.mkdir(parents=True,exist_ok=True);p=build('wheel',dimensions=D)
+    OUT.mkdir(parents=True,exist_ok=True);p=build('wheel',dimensions=D,fastener='legacy-m6')
     packaging(p);detent(p);manufacture(p)
     print(OUT)
 

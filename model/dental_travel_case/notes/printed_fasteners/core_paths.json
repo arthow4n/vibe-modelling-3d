@@ -1,0 +1,136 @@
+{
+  "scope": "Selected-profile local core paths; not deposited density or strength",
+  "comparison": [
+    {
+      "label": "Old hollow axle",
+      "input_stl_sha256": "359bf5caa2978e8ac9f440b569e6f2c74c0336ba0135376c2fe4e11819062b13",
+      "gcode_sha256": "804f594285c95a7f33d0717ba716cd39c50ee397aaef28ac6f21dc4cd945656c",
+      "centre_xy_mm": [
+        135.0,
+        135.0
+      ],
+      "samples": [
+        {
+          "z_mm": 1.2,
+          "centre_span_mm": 1.6,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.6000000000000227,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          },
+          "roles": {
+            "Inner wall": 12,
+            "Outer wall": 12,
+            "Sparse infill": 9
+          }
+        },
+        {
+          "z_mm": 2.8,
+          "centre_span_mm": 1.6,
+          "coverage": {
+            "filled_width_mm": 0.07500000000001705,
+            "uncovered_width_mm": 1.5250000000000057,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                135.725,
+                135.8
+              ]
+            ]
+          },
+          "roles": {
+            "Inner wall": 112,
+            "Outer wall": 57,
+            "Sparse infill": 20
+          }
+        },
+        {
+          "z_mm": 6.0,
+          "centre_span_mm": 1.6,
+          "coverage": {
+            "filled_width_mm": 0,
+            "uncovered_width_mm": 1.6000000000000227,
+            "internal_gap_mm": 0,
+            "intervals_mm": []
+          },
+          "roles": {
+            "Outer wall": 32,
+            "Overhang wall": 10
+          }
+        }
+      ]
+    },
+    {
+      "label": "Coarse replacement",
+      "input_stl_sha256": "64fae43884ee299920c213b79b1a8bcd78668644b2a3a5ecaad149f189ef6089",
+      "gcode_sha256": "022c22369256eb36b9af38271d738069bfec7e49f528af1d73475c224632f233",
+      "centre_xy_mm": [
+        123.7895,
+        134.999
+      ],
+      "samples": [
+        {
+          "z_mm": 1.2,
+          "centre_span_mm": 1.6,
+          "coverage": {
+            "filled_width_mm": 1.6000000000000227,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                134.19899999999998,
+                135.799
+              ]
+            ]
+          },
+          "roles": {
+            "Inner wall": 18,
+            "Outer wall": 12,
+            "Internal solid infill": 28
+          }
+        },
+        {
+          "z_mm": 2.8,
+          "centre_span_mm": 1.6,
+          "coverage": {
+            "filled_width_mm": 1.6000000000000227,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                134.19899999999998,
+                135.799
+              ]
+            ]
+          },
+          "roles": {
+            "Inner wall": 171,
+            "Outer wall": 57,
+            "Internal solid infill": 29
+          }
+        },
+        {
+          "z_mm": 6.0,
+          "centre_span_mm": 1.6,
+          "coverage": {
+            "filled_width_mm": 1.6000000000000227,
+            "uncovered_width_mm": 0,
+            "internal_gap_mm": 0,
+            "intervals_mm": [
+              [
+                134.19899999999998,
+                135.799
+              ]
+            ]
+          },
+          "roles": {
+            "Inner wall": 100,
+            "Outer wall": 42,
+            "Internal solid infill": 27
+          }
+        }
+      ]
+    }
+  ]
+}

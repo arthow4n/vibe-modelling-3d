@@ -212,6 +212,14 @@ Preserve successful thread fit while reviewing screw-drive orientation and chang
 
 **Scope and limits:** The print report does not establish load capacity or long-term creep. Recalculate the load path when loads, geometry or supports differ; review the drive socket orientation and thread interface where changed.
 
+### Solid printed fastener cores versus valid hollow threads
+
+Co-design a coarse screw and matching nut for FDM; verify core material after the complete sweep/boolean construction, separately from solid-infill paths.
+
+**Evidence:** [Travel-case printed fastener correction](../../../../model/dental_travel_case/notes/rotary_refinement.md#the-old-thread-really-was-hollow): the user correctly identified a hollow thread in the model. The old intended root cylinder disappeared during the sweep union/trim, while validity, connectivity and slicing passed. A targeted axial material witness catches the old source and STEP as a negative control and passes on the new custom pair. Replacement threads use the larger book-plate success as a starting reference; the existing shell/wheel interface is retained.
+
+**Scope and limits:** The hole is a confirmed CAD defect, not an inferred material or infill failure. The exact kernel cause is unisolated. Coarse replacement fit, strength and durability remain unprinted; a solid core and 100% infill do not establish those physical properties. Do not require ISO compatibility solely because stock nuts exist.
+
 ### Cropped connector samples versus complete entry
 
 Check full assembly entry, not only cropped mating geometry.

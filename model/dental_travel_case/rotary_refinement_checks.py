@@ -31,8 +31,8 @@ def material(part,witness,intent):
     return dict(intent=intent,missing_mm3=missing)
 
 
-def check_size(dimensions,*,contents):
-    p=build('wheel',dimensions=dimensions);d=p['dimensions'];rows=[]
+def check_size(dimensions,*,contents,fastener):
+    p=build('wheel',dimensions=dimensions,fastener=fastener);d=p['dimensions'];rows=[]
     for name in ('body','cap','rotor','pivot_axle'):assert len(p[name].val().Solids())==1,name
     rows.append(clear(p['body'],p['cap'],'Seated shells remain distinct'))
     assert p['body'].val().distance(p['cap'].val())<1e-6
@@ -106,23 +106,23 @@ def check_size(dimensions,*,contents):
             .polygon(6,8.3/(3**.5/2)).extrude(-(20+d.wheel_front-d.axle_under-.1)))
     for name in ('body','cap','rotor','pivot_axle'):
         rows.append(clear(socket,p[name],'8mm socket, <=12.8mm outside diameter, reaches external hex'))
-    out=dict(scope='Stock-only mixed printed/metal rough closure; no physical thread/detent/strength qualification',
+    out=dict(scope='Indexed rotary geometry; no physical thread/detent/strength qualification',
         checks=rows,protected_skins=skins,turn=turns,
         detent_before_release=barrier,detent_with_radial_play=play_barrier,locked_witnesses=witnesses,
-        hardware='One stock M6 nut; printed M6x1 shoulder axle; no keeper screw or jam nuts',
+        hardware=fastener,
         nominal_detent_radial_travel_mm=d.detent_radial_travel,
         pivot_head_recess_mm=d.wheel_front-d.axle_front,
         maximum_control_projection_mm=d.wheel_front-d.depth/2,
         guide_track_width_mm=0.,tube_loading_offset_y_mm=0.,
-        unknowns=['M6 printed thread fit','detent force/return/wear','keeper strength',
+        unknowns=['Printed thread fit','detent force/return/wear','keeper strength',
                   'far-edge peel','bag shake','combined packing','actual socket outside diameter'])
     return out
 
 
 def main():
     identity=hashes()
-    full=check_size(D,contents=True)
-    sample=check_size(SAMPLE,contents=False)
+    full=check_size(D,contents=True,fastener='legacy-m6')
+    sample=check_size(SAMPLE,contents=False,fastener='legacy-m6')
     assert hashes()==identity
     out=dict(source_sha256=identity,full=full,sample=sample)
     path=ROOT/'notes/rotary_refinement/cad.json';path.write_text(json.dumps(out,indent=2)+'\n')

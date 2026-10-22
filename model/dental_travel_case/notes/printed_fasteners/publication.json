@@ -1,0 +1,26 @@
+{
+  "scope": "Two compatible experimental printed replacement fasteners; existing indexed sample shells and wheel retained",
+  "source_sha256": {
+    "rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
+    "rotary_printed_fasteners.py": "64964518b78bc1f06e36c8573f6cc6f914d6369669baad7d81aca0cf0b43a2be",
+    "rotary_printed_fastener_checks.py": "751150fd832cd7d45fd7073029073d7c90d51b3471bc15cc5e3270302ee69263",
+    "rotary_refinement_design.py": "af0e880708aa5d3b81726031b3090f0caeec4a6fed240bda2d5a3195a41ab0d6",
+    "rotary_refinement_checks.py": "0b320885bc861c3b586b00efd7af03e4d91231181b3a12a6b2a9f66c3a572eba",
+    "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5"
+  },
+  "drawing_source_sha256": "81d517c21695abc390e324ca0034a12cef01092967c0af4812cf979d4092a605",
+  "artifacts": {
+    "rotary_printed_fasteners.step": "6c052a6b3256bfd6036bccb94e768afa6c90efda281c9607156625787fdf172c",
+    "rotary_printed_fasteners.stl": "64fae43884ee299920c213b79b1a8bcd78668644b2a3a5ecaad149f189ef6089",
+    "notes/printed_fasteners/cad.json": "777fb1fe8d424bd7f3f22fe40d25aacf288a6ff3dced8d6f3bf4369fc39691e9",
+    "notes/printed_fasteners/print_review.json": "7a316d942de2cf973e2c2ffdea428c1380cc09a9fea531aa77b46bae3c32c7bb",
+    "notes/printed_fasteners/core_paths.json": "4d4feb3693352bd9a101362271cd709b717d685b4955a2a2891e4b2735362c9b",
+    "notes/printed_fasteners/profiles/process.json": "094572d5a540096f50c7a3634b8f75454f04f7c952b8d388e31f781d480eb011"
+  },
+  "native_input_identity": "ce8f1c8088f8f80774cb9ff00e5fb758b75cf8a54d646e10cb7ebc8cf9b9e596",
+  "artifact_identity": "7547725eb0d9b2f522ab462f15d7cef16cc9571adaff9fa935c6e8ab8991a77f",
+  "slice_input_sha256": "64fae43884ee299920c213b79b1a8bcd78668644b2a3a5ecaad149f189ef6089",
+  "historical_negative_control_step_sha256": "f72dae2107da7878c4c716c1770ee7341681f222472e5e40df21cb4bb403b45c",
+  "association": "Final core/compatibility checks match current builders. Repository Python stayed unchanged during the final native publication and final checks. Native evaluation rebuilt and validated the current geometry, reusing identical paired exports and view by artifact identity; slice completed with the declared solid process. Actual exported STEP core checks cover the reported missing-thread-centre failure. Existing indexed sample exports are preserved at d2e367c; this phase delivers only their replacement fastener pair."
+}
