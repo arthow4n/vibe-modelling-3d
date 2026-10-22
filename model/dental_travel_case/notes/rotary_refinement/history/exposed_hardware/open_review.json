@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_refinement_open.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/concepts/rotary_refinement/rotary_refinement_open_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.001382290996843949,
+    "build": 1.7236544829938794,
+    "selection": 0.0009327110019512475,
+    "validation": 0.07344300700060558,
+    "render_isometric": 0.6417381630017189,
+    "worker": 2.51437156299653,
+    "total": 4.648649020004086
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "609963af70207c30304764e35d523d7bd6dd4b30e4f42449c8f80108ceeef935",
+    "artifact_identity": "72820ece303fb292a49c62fec8902e11358faa4f324056d8f54e0a6e4bd1c5bc"
+  }
+}

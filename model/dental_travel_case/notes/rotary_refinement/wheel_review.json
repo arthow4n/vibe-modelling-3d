@@ -42,14 +42,14 @@
   ],
   "exports": [],
   "timings_seconds": {
-    "dependency_initialization": 0.001453294011298567,
-    "build": 1.7223350029962603,
-    "selection": 0.0008505069999955595,
-    "validation": 0.06862172899127472,
-    "render_isometric": 0.6477415740082506,
-    "render_front": 0.8008588189986767,
-    "worker": 3.3184767729981104,
-    "total": 5.335382660996402
+    "dependency_initialization": 0.0014003950054757297,
+    "build": 4.983605225002975,
+    "selection": 0.0009486950002610683,
+    "validation": 0.09278135398926679,
+    "render_isometric": 6.199583063993487,
+    "render_front": 1.0057242200127803,
+    "worker": 12.3683975229942,
+    "total": 15.795917091003503
   },
   "versions": {
     "python": "3.14.7",
@@ -60,7 +60,7 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "a95b7d9fc966b7bed29d34740fc0a87daddede31eb471d9ee3cabdbb45a79b17",
-    "artifact_identity": "270f8ad47b1981596026275da722a10eb975321a2aae41cb085a2369ae7f08a4"
+    "identity": "d8a5216099b1d8df7394b2ef4494886685a3691b9e655b3d7e135f191c307f89",
+    "artifact_identity": "9096d2c5c60b2539e915620427d6c689dc33536fff0f66063e9adfbfe75f653b"
   }
 }

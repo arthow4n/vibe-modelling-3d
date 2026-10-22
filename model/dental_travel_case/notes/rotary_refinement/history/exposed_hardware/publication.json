@@ -1,0 +1,23 @@
+{
+  "scope": "Rough full-shell manufacturing study; not a production print release",
+  "source_sha256": {
+    "rotary_refinement_design.py": "9afbcf3bf143dd3eecaadc309e22552b41d951eae4e35913c0e8fe19dc4a19a9",
+    "rotary_refinement_checks.py": "cf0bdbc1721f3d405bf6a1ea161202341623882be65b451de4b979f648a08e17",
+    "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
+    "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "rotary_refinement_wheel.py": "3f3d223ad559b536502873cc9681cd05aac4d5baf9a56d6d79c5d492b930b86c",
+    "rotary_refinement_paddle.py": "e3adad7b0b3cf9745f6ffa43d359c739eccae91124bd05b4e2abdcac3d55e71c",
+    "rotary_refinement_print_study.py": "30944d2ad7eb2aa475a41543de43830b13f8d190e9aa9a11d66bb84bfa46b3c0",
+    "rotary_refinement_open.py": "0ebd165727aea47b1243f264b106d9a9d9f4703520cc4ba5dac3cd753c3417b3"
+  },
+  "drawing_source_sha256": "c26d4179c8bfc5a40ddf430f443667bda1c4e497363f0db680e7bfbfdb3efa98",
+  "artifacts": {
+    "rotary_refinement_print_study.step": "801cd2805374f6d366f54b8d8fb27762460195a96531b9aa8996d55dca2dd507",
+    "rotary_refinement_print_study.stl": "67311661f1b798accb1be63883ff33e7522f38d897f64463ba9d7aea9dc7277a",
+    "notes/rotary_refinement/cad.json": "fed1e245aebec49f103bc8e26646861b04e17b7c0b576853c7c76dfae7c2dbfd",
+    "notes/rotary_refinement/manufacture_review.json": "98d6cc57f2680bd9df77272ddee8915488435bb2ec341a1b986ae4b031c48870",
+    "notes/rotary_refinement/support_review.json": "230e1258145c8cd20351c97427a1560dd237c9c734ec2868b56f67ea93f35eee"
+  },
+  "native_input_identity": "b315c1ba3491e96498b5514eed425f305b013fd9b94c83819ad679e583ebef6f",
+  "association": "CAD source hashes still match the geometry checks. Repository Python was frozen during native export/slice publication. Only the explanatory drawing source changed afterward; it does not change the CAD builders. Delivered STL matches the selected-profile slice input."
+}

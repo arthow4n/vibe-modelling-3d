@@ -35,16 +35,16 @@
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.0013413439883152023,
-    "build": 1.5356861619948177,
-    "selection": 0.0013511010038200766,
-    "validation": 0.05596734199207276,
-    "export_step": 0.18687494299956597,
-    "export_stl": 0.22839383500104304,
-    "render_isometric": 0.4957734369963873,
-    "worker": 2.596852067988948,
-    "total": 35.68198549498629,
-    "slice": 31.6309901039931
+    "dependency_initialization": 0.0016866749938344583,
+    "build": 5.118715484000859,
+    "selection": 0.0010816260037245229,
+    "validation": 0.08588127899565734,
+    "export_step": 0.15391147900663782,
+    "export_stl": 0.868571131999488,
+    "render_isometric": 5.981823416004772,
+    "worker": 12.302676285995403,
+    "total": 44.76580027100863,
+    "slice": 29.59930561701185
   },
   "versions": {
     "python": "3.14.7",
@@ -55,15 +55,15 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "b315c1ba3491e96498b5514eed425f305b013fd9b94c83819ad679e583ebef6f",
-    "artifact_identity": "c261570c250df632605db42a44297e72db85ba0a5df9777210e1eeb7bd12e05a"
+    "identity": "3261bb2c4547e2a63fb5b24c6c7bde98c101acf9f3d8eb76f556d033544b7019",
+    "artifact_identity": "9afbd026e2087879a13de9607743ff84f8f94315a3971ac12f185b4ca608021a"
   },
   "slice": {
     "ok": true,
     "model": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_refinement_print_study.stl",
     "profiles": {
       "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
-      "process": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/notes/short_lap/profiles/process.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/notes/rotary_refinement/profiles/process.json",
       "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
     },
     "slicer_version": "2.4.2",
@@ -105,7 +105,7 @@
       "hot_plate_temp_initial_layer": [
         "80"
       ],
-      "print_settings_id": "Dental short lap 0.20mm PETG 3 walls 7% adaptive cubic",
+      "print_settings_id": "Rotary indexed trial 0.20mm 3 walls 7% with accessible supports",
       "layer_height": "0.2",
       "wall_loops": "3",
       "line_width": "0.42",
@@ -115,7 +115,7 @@
       "brim_type": "auto_brim",
       "brim_width": "5",
       "brim_object_gap": "0.1",
-      "enable_support": "0",
+      "enable_support": "1",
       "support_type": "tree(auto)",
       "support_threshold_angle": "30",
       "bridge_no_support": "0",
@@ -149,9 +149,9 @@
     "log_notices": [],
     "review_required": true,
     "reused": false,
-    "identity": "6322cfde7095dfd4699fc12565a6c220120261617f7d960627e6eff9f9ddb675",
-    "input_sha256": "67311661f1b798accb1be63883ff33e7522f38d897f64463ba9d7aea9dc7277a",
-    "kept_run_directory": "/home/hevar/orca-slicer-review-cja02f5v",
+    "identity": "134c5e4270d4590b56bff12312c628bd46aa7f7f11b823f136d1a423cb6dcb5e",
+    "input_sha256": "29eb47c84ed8957b4529baf74b955ba837ea3ea2ba59c0d5c81017666f1c6c69",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-wbofcw6f",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",

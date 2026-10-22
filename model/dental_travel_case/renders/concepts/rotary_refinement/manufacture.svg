@@ -1,26 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="890" viewBox="0 0 1200 890">
-<rect width="1200" height="890" fill="#fafaf7"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="870" viewBox="0 0 1200 870">
+<rect width="1200" height="870" fill="#fafaf7"/>
 <style>text{font-family:sans-serif;fill:#243444}</style>
-<text x="25" y="38" font-size="25">B · the actual closed-end-down print arrangement</text>
-<text x="25" y="77" font-size="17">Actual CAD sections, no metal hardware. These are diagnostic manufacturing studies, not released print files.</text>
-<path d="M289.200,672.500 L289.200,245.000 L282.300,245.000 L282.300,170.000 L276.300,170.000 L276.300,245.000 L283.200,260.000 L283.200,675.000 L136.800,675.000 L136.800,260.000 L131.400,260.000 L131.400,254.500 L123.900,254.500 L123.900,267.250 L130.800,273.000 L130.800,672.500 L130.843,673.235 L130.973,673.963 L131.188,674.677 L131.485,675.370 L131.863,676.035 L132.317,676.667 L132.843,677.258 L133.436,677.803 L134.090,678.298 L134.800,678.736 L135.557,679.114 L136.356,679.429 L137.187,679.677 L138.044,679.856 L138.918,679.964 L139.800,680.000 L280.200,680.000 L281.082,679.964 L281.956,679.856 L282.813,679.677 L283.644,679.429 L284.443,679.114 L285.200,678.736 L285.910,678.298 L286.564,677.803 L287.157,677.258 L287.683,676.667 L288.137,676.035 L288.515,675.370 L288.812,674.677 L289.027,673.963 L289.157,673.235 Z" fill="#357b9b" fill-rule="evenodd" fill-opacity="1.0" stroke="#357b9b" stroke-width=".7"/>
-<path d="M545.800,462.500 L545.800,672.500 L545.843,673.235 L545.973,673.963 L546.188,674.677 L546.485,675.370 L546.863,676.035 L547.317,676.667 L547.843,677.258 L548.436,677.803 L549.090,678.298 L549.800,678.736 L550.557,679.114 L551.356,679.429 L552.187,679.677 L553.044,679.856 L553.918,679.964 L554.800,680.000 L695.200,680.000 L696.082,679.964 L696.956,679.856 L697.813,679.677 L698.644,679.429 L699.443,679.114 L700.200,678.736 L700.910,678.298 L701.564,677.803 L702.157,677.258 L702.683,676.667 L703.137,676.035 L703.515,675.370 L703.812,674.677 L704.027,673.963 L704.157,673.235 L704.200,672.500 L704.200,478.875 L698.200,478.875 L698.200,675.000 L551.800,675.000 L551.800,462.500 Z M704.200,462.500 L698.200,462.500 L698.200,469.875 L704.200,469.875 Z" fill="#c4d0d1" fill-rule="evenodd" fill-opacity="1.0" stroke="#c4d0d1" stroke-width=".7"/>
-<path d="M90 684 H330 M505 684 H745" stroke="#333" stroke-width="4"/>
-<text x="90" y="123" font-size="21">Body · bottom on bed</text>
-<text x="90" y="724" font-size="17">204 mm high · floor is present</text>
-<text x="505" y="424" font-size="21">Cap · closed top on bed</text>
-<text x="505" y="724" font-size="17">87 mm high · roof is present</text>
-<text x="790" y="180" font-size="20">Wheel · outer flat face on bed</text>
-<path d="M1167.000,421.000 L1167.000,365.200 L1166.673,365.200 L1166.347,365.200 L1165.694,365.200 L1164.388,365.200 L1161.775,365.200 L1156.550,365.200 L1146.100,365.200 L1125.200,365.200 L1083.400,365.200 L1083.400,385.000 L1052.600,385.000 L1052.600,365.200 L999.800,365.200 L999.800,394.000 L1013.000,394.000 L1013.000,430.000 L1161.500,430.000 L1163.605,429.315 L1165.389,427.364 L1166.581,424.444 Z M960.200,394.000 L960.200,365.200 L833.700,365.200 L833.700,329.200 L807.300,329.200 L807.300,365.200 L793.000,365.200 L793.000,421.000 L793.419,424.444 L794.611,427.364 L796.395,429.315 L798.500,430.000 L947.000,430.000 L947.000,394.000 Z" fill="#436c60" fill-rule="evenodd" fill-opacity="1.0" stroke="#436c60" stroke-width=".7"/>
-<rect x="956" y="398" width="48" height="31" fill="#d6ad63" fill-opacity=".7"/>
-<path d="M795 434 H1180" stroke="#333" stroke-width="4"/>
-<text x="790" y="478" font-size="17">5.6 mm total build height</text>
-<text x="790" y="509" font-size="17">Nose grows from the face plate.</text>
-<text x="790" y="540" font-size="17">Counterbore and rear stop slot</text>
-<text x="790" y="569" font-size="17">are reviewed in the actual slice.</text>
-<text x="790" y="612" font-size="15">Amber: support location, schematic.</text>
-<text x="790" y="640" font-size="15">Accessible via outside screw recess.</text>
-<text x="25" y="795" font-size="18">Keeper screw installs after printing. Removing the plastic keeper eliminates its orientation-dependent island.</text>
-<text x="25" y="838" font-size="17">Both shells retain 3 mm end rounds, 2 mm floor/roof, 30 mm sleeve, and a 3 mm reveal on corner seats.</text>
-<text x="25" y="875" font-size="17">No detent or strength qualification is implied. Final profile-specific support outcome is recorded in the notes.</text>
+<text x="25" y="38" font-size="25">Stock-only manufacture · closed-end-down shells and flat-printed moving parts</text>
+<text x="25" y="77" font-size="17">Actual sections. The full layout has four printed parts; the stock nut is installed afterward.</text>
+<path d="M284.200,643.100 L284.200,249.800 L277.300,249.800 L277.300,180.800 L271.300,180.800 L271.300,249.800 L278.200,263.600 L278.200,645.400 L131.800,645.400 L131.800,263.600 L138.700,249.800 L138.700,180.800 L132.700,180.800 L132.700,249.800 L131.800,249.800 L131.800,244.050 L128.200,244.050 L128.200,271.650 L111.400,271.650 L111.400,265.210 L108.100,265.210 L108.100,283.380 L125.800,296.950 L125.800,643.100 L125.843,643.776 L125.973,644.446 L126.188,645.103 L126.485,645.741 L126.863,646.353 L127.317,646.933 L127.843,647.477 L128.436,647.979 L129.090,648.434 L129.800,648.837 L130.557,649.185 L131.356,649.475 L132.187,649.703 L133.044,649.867 L133.918,649.967 L134.800,650.000 L275.200,650.000 L276.082,649.967 L276.956,649.867 L277.813,649.703 L278.644,649.475 L279.443,649.185 L280.200,648.837 L280.910,648.434 L281.564,647.979 L282.157,647.477 L282.683,646.933 L283.137,646.353 L283.515,645.741 L283.812,645.103 L284.027,644.446 L284.157,643.776 Z M111.400,244.050 L108.100,244.050 L108.100,250.490 L111.400,250.490 Z" fill="#357b9b" fill-rule="evenodd" fill-opacity="1.0" stroke="#357b9b" stroke-width=".7"/>
+<path d="M530.800,449.900 L530.800,643.100 L530.843,643.776 L530.973,644.446 L531.188,645.103 L531.485,645.741 L531.863,646.353 L532.317,646.933 L532.843,647.477 L533.436,647.979 L534.090,648.434 L534.800,648.837 L535.557,649.185 L536.356,649.475 L537.187,649.703 L538.044,649.867 L538.918,649.967 L539.800,650.000 L680.200,650.000 L681.082,649.967 L681.956,649.867 L682.813,649.703 L683.644,649.475 L684.443,649.185 L685.200,648.837 L685.910,648.434 L686.564,647.979 L687.157,647.477 L687.683,646.933 L688.137,646.353 L688.515,645.741 L688.812,645.103 L689.027,644.446 L689.157,643.776 L689.200,643.100 L689.200,463.700 L695.950,463.700 L696.352,463.639 L696.692,463.464 L696.920,463.203 L697.000,462.895 L697.000,450.705 L696.920,450.397 L696.692,450.136 L696.352,449.961 L695.950,449.900 L683.200,449.900 L683.200,645.400 L536.800,645.400 L536.800,449.900 Z" fill="#c4d0d1" fill-rule="evenodd" fill-opacity="1.0" stroke="#c4d0d1" stroke-width=".7"/>
+<path d="M80 654 H335 M490 654 H755" stroke="#333" stroke-width="4"/>
+<text x="80" y="133" font-size="20">Body · bottom down</text>
+<text x="80" y="697" font-size="17">204 mm full / 54 mm sample</text>
+<text x="490" y="400" font-size="20">Cap · closed top down</text>
+<text x="490" y="697" font-size="17">87 mm full / 43 mm sample</text>
+<text x="800" y="155" font-size="20">Wheel · outer face on bed</text>
+<path d="M1150.000,409.000 L1150.000,364.600 L1133.000,364.600 L1133.000,415.000 L1145.000,415.000 L1146.913,414.543 L1148.536,413.243 L1149.619,411.296 Z M1120.000,415.000 L1120.000,364.600 L1101.000,364.600 L1101.000,415.000 Z M1069.000,415.000 L1069.000,364.600 L1061.000,364.600 L1061.000,376.600 L1039.000,376.600 L1039.000,364.600 L1022.000,364.600 L1022.000,382.600 L1046.000,382.600 L1046.000,415.000 Z M938.000,382.600 L938.000,364.600 L937.645,364.600 L937.289,364.600 L936.578,364.600 L935.156,364.600 L932.312,364.600 L926.625,364.600 L915.250,364.600 L892.500,364.600 L847.000,364.600 L847.000,297.400 L823.000,297.400 L823.000,364.600 L810.000,364.600 L810.000,409.000 L810.381,411.296 L811.464,413.243 L813.087,414.543 L815.000,415.000 L914.000,415.000 L914.000,382.600 Z" fill="#436c60" fill-rule="evenodd" fill-opacity="1.0" stroke="#436c60" stroke-width=".7"/>
+<path d="M790 419 H1170" stroke="#333" stroke-width="4"/>
+<text x="800" y="470" font-size="17">Axle · hex head on bed, thread up.</text>
+<text x="800" y="502" font-size="17">No socket roof faces the bed.</text>
+<text x="800" y="534" font-size="17">Prints with the same PLA as the shell.</text>
+<text x="800" y="566" font-size="17">Only one stock M6 nut is needed.</text>
+<text x="800" y="598" font-size="17">Cap keeper support is outside;</text>
+<text x="800" y="630" font-size="17">no support is trapped in storage.</text>
+<text x="25" y="765" font-size="18">The final profile-specific support locations and removal limits are recorded in the notes.</text>
+<text x="25" y="810" font-size="17">The sample tests actual thread fit, detent return and effort; it does not qualify the complete travel box.</text>
+<text x="25" y="851" font-size="17">Use the current sample / axle files, not older full-study artifacts or the R1a sample to qualify this new detent.</text>
 </svg>

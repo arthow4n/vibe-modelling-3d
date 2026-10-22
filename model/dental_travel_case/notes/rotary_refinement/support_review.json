@@ -1,21 +1,83 @@
 {
-  "scope": "Actual automatic-support paths for the rough full-shell manufacturing study",
-  "slice_input_sha256": "67311661f1b798accb1be63883ff33e7522f38d897f64463ba9d7aea9dc7277a",
-  "support_gcode_sha256": "bbb08d20cc72b9f938355f2d9b7ea7f1f40d45db5bba1c342054a5094f08d886",
-  "role_counts": {
-    "Support": 511,
-    "Support interface": 123
+  "axle": {
+    "slice_input_sha256": "359bf5caa2978e8ac9f440b569e6f2c74c0336ba0135376c2fe4e11819062b13",
+    "gcode_sha256": "804f594285c95a7f33d0717ba716cd39c50ee397aaef28ac6f21dc4cd945656c",
+    "roles": {
+      "Support": 8603,
+      "Support interface": 94
+    },
+    "interfaces": {
+      "axle outside shoulder/initial thread": {
+        "interface_z_mm": [
+          2.8,
+          5.0
+        ],
+        "segments": 94
+      }
+    }
   },
-  "z_range_mm": [
-    0.2,
-    1.8
-  ],
-  "xy_location_mm": [
-    132.455,
-    137.545,
-    178.804,
-    183.895
-  ],
-  "interpretation": "All support paths lie at the wheel centre under the recessed screw-head seat. The only interface is at Z1.6-1.8 beneath its Z2.0 counterbore roof. No cap, sleeve, shell-end or keeper support paths.",
-  "decision": "Keep an accessible small support under the counterbore in this study, rather than add a separate face cover or a proud fastener. Removal is through the outside 6mm opening; easy removal and bearing-face finish are physical unknowns, not qualified by this path location."
+  "sample": {
+    "slice_input_sha256": "efb07960df339b1ce6b261b6f09bb5f82b54bd27f6e7518a160eb12b1ded7ec5",
+    "gcode_sha256": "8637d0de28415aa55a7552d8c971e664b00430804674840fed25836f0b6598a5",
+    "roles": {
+      "Support": 29749,
+      "Support interface": 742
+    },
+    "interfaces": {
+      "wheel exterior head recess": {
+        "interface_z_mm": [
+          2.2,
+          2.6
+        ],
+        "segments": 397
+      },
+      "axle outside shoulder/initial thread": {
+        "interface_z_mm": [
+          2.6,
+          5.0
+        ],
+        "segments": 129
+      },
+      "cap exterior keeper": {
+        "interface_z_mm": [
+          35.0,
+          37.0
+        ],
+        "segments": 216
+      }
+    }
+  },
+  "manufacture": {
+    "slice_input_sha256": "29eb47c84ed8957b4529baf74b955ba837ea3ea2ba59c0d5c81017666f1c6c69",
+    "gcode_sha256": "0f2be515576b595b2322a3cafdb6ca9e315d47ab4819bc0d30658d128e3ef1fe",
+    "roles": {
+      "Support": 143387,
+      "Support interface": 719
+    },
+    "interfaces": {
+      "wheel exterior head recess": {
+        "interface_z_mm": [
+          2.0,
+          2.4
+        ],
+        "segments": 387
+      },
+      "axle outside shoulder/initial thread": {
+        "interface_z_mm": [
+          2.8,
+          5.0
+        ],
+        "segments": 115
+      },
+      "cap exterior keeper": {
+        "interface_z_mm": [
+          79.0,
+          81.0
+        ],
+        "segments": 217
+      }
+    }
+  },
+  "scope": "Actual support-path inspection under the supplied support-enabled diagnostic process. Regions identified against the declared CAD layout and Orca centring. Not a G-code footprint audit.",
+  "review": "Wheel recess is open from its outside face; axle support is exposed around the shoulder/first thread region; cap keeper supports are outside the cap. No interface is trapped in storage or the blind nut pocket. Removal finish, thread fit and damage remain physical unknowns."
 }

@@ -1,23 +1,51 @@
 {
-  "scope": "Rough full-shell manufacturing study; not a production print release",
+  "scope": "Experimental axle and short indexed sample; full shell remains a diagnostic study",
   "source_sha256": {
-    "rotary_refinement_design.py": "9afbcf3bf143dd3eecaadc309e22552b41d951eae4e35913c0e8fe19dc4a19a9",
-    "rotary_refinement_checks.py": "cf0bdbc1721f3d405bf6a1ea161202341623882be65b451de4b979f648a08e17",
+    "rotary_refinement_design.py": "eaa279a1a9bc2bdcb6ef48f8c62b3366e63c878527d7df6776b11e10c9ffb08a",
+    "rotary_refinement_checks.py": "f2030090a84008f4217d973e2f6fada6a065afaec7487e823829a19da3b962c1",
+    "rotary_refinement_axle.py": "0fa487f63594c4cf4ea8d85de1d0838358ae81ec0b60124269071c2266e502f8",
+    "rotary_index_test.py": "7e439bc219a57d3794af386c2ffa6efb48ad0588becea0aac6f8b13d03dece51",
     "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
     "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
-    "rotary_refinement_wheel.py": "3f3d223ad559b536502873cc9681cd05aac4d5baf9a56d6d79c5d492b930b86c",
-    "rotary_refinement_paddle.py": "e3adad7b0b3cf9745f6ffa43d359c739eccae91124bd05b4e2abdcac3d55e71c",
-    "rotary_refinement_print_study.py": "30944d2ad7eb2aa475a41543de43830b13f8d190e9aa9a11d66bb84bfa46b3c0",
-    "rotary_refinement_open.py": "0ebd165727aea47b1243f264b106d9a9d9f4703520cc4ba5dac3cd753c3417b3"
+    "rotary_refinement_wheel.py": "d265cf703f0c4dceac84ea5593d2d4d8136e981138d3e5c1b22b3b3cc49b0aae",
+    "rotary_refinement_paddle.py": "e4646565b12f455e7cf84369c0bb8f321b9826ff59363ff44a5f8406a303c566",
+    "rotary_refinement_print_study.py": "c815ba4e16c5369be1e8f7304b3a17e2466b6973f4772bbdb1e6f1e13dd2b358",
+    "rotary_refinement_open.py": "83a025849b9ee5a616e120bbb8ad7fa1725621c82b4a6663dc3c0b6c5de2d7e5"
   },
-  "drawing_source_sha256": "c26d4179c8bfc5a40ddf430f443667bda1c4e497363f0db680e7bfbfdb3efa98",
+  "drawing_source_sha256": "ce123bcb5bdeaad32e3ff611c5bc901c80491955a46fb2c58cbdd6d2c037c728",
   "artifacts": {
-    "rotary_refinement_print_study.step": "801cd2805374f6d366f54b8d8fb27762460195a96531b9aa8996d55dca2dd507",
-    "rotary_refinement_print_study.stl": "67311661f1b798accb1be63883ff33e7522f38d897f64463ba9d7aea9dc7277a",
-    "notes/rotary_refinement/cad.json": "fed1e245aebec49f103bc8e26646861b04e17b7c0b576853c7c76dfae7c2dbfd",
-    "notes/rotary_refinement/manufacture_review.json": "98d6cc57f2680bd9df77272ddee8915488435bb2ec341a1b986ae4b031c48870",
-    "notes/rotary_refinement/support_review.json": "230e1258145c8cd20351c97427a1560dd237c9c734ec2868b56f67ea93f35eee"
+    "rotary_refinement_print_study.step": "4e5c86c5739c53ef73cae2c675373a4a80a12b96335c6f4c100a15926ef2ca34",
+    "rotary_refinement_print_study.stl": "29eb47c84ed8957b4529baf74b955ba837ea3ea2ba59c0d5c81017666f1c6c69",
+    "notes/rotary_refinement/manufacture_review.json": "dcd65086b8f615f65cc9ee016050e1490ee696b228e590d1d0e1d1743b031781",
+    "rotary_index_test.step": "7b3f983b3479d10e4a0c2bbb3ef9603471179b707d7896de1997f2ca4cc38bcf",
+    "rotary_index_test.stl": "efb07960df339b1ce6b261b6f09bb5f82b54bd27f6e7518a160eb12b1ded7ec5",
+    "notes/rotary_refinement/sample_review.json": "a6e44c22a69769717269cf845bf201c411aa654033702eef8dcc8cc5ecfe22c7",
+    "rotary_refinement_axle.step": "f72dae2107da7878c4c716c1770ee7341681f222472e5e40df21cb4bb403b45c",
+    "rotary_refinement_axle.stl": "359bf5caa2978e8ac9f440b569e6f2c74c0336ba0135376c2fe4e11819062b13",
+    "notes/rotary_refinement/axle_review.json": "1fa0cd8629255810e041002ba53d6e82bf00b0a079510925323be9631fede54f",
+    "notes/rotary_refinement/cad.json": "af4d18a997823a7b04df2d7c1066adfd19d041d28f9c6bc5b3e61d942c586f03",
+    "notes/rotary_refinement/support_review.json": "54591f6566216e94d69a49a4c539d014cc9b5acf2abd4edd82bb66f64e2a2e9a",
+    "notes/rotary_refinement/profiles/process.json": "5ced22564c07759b610e99e5dba75ab1ac214ecfa2d87efd2a00d36b97912a56"
   },
-  "native_input_identity": "b315c1ba3491e96498b5514eed425f305b013fd9b94c83819ad679e583ebef6f",
-  "association": "CAD source hashes still match the geometry checks. Repository Python was frozen during native export/slice publication. Only the explanatory drawing source changed afterward; it does not change the CAD builders. Delivered STL matches the selected-profile slice input."
+  "native_publications": {
+    "manufacture": {
+      "native_input_identity": "3261bb2c4547e2a63fb5b24c6c7bde98c101acf9f3d8eb76f556d033544b7019",
+      "slice_input_sha256": "29eb47c84ed8957b4529baf74b955ba837ea3ea2ba59c0d5c81017666f1c6c69",
+      "artifact_identity": "9afbd026e2087879a13de9607743ff84f8f94315a3971ac12f185b4ca608021a",
+      "geometry_reused": false
+    },
+    "sample": {
+      "native_input_identity": "3ae9f21628f019c549db7e3adfa4251a50531a3f4b3df289cd650fdb327edfd5",
+      "slice_input_sha256": "efb07960df339b1ce6b261b6f09bb5f82b54bd27f6e7518a160eb12b1ded7ec5",
+      "artifact_identity": "f505ace166cf39db9f9e4daf772542e606f70f1f65b96f206b364d0b773a9c2a",
+      "geometry_reused": false
+    },
+    "axle": {
+      "native_input_identity": "5ac17f5fe2dbbf3048a11c73703c70328d5301a09320e0c7e224c4af204f4b86",
+      "slice_input_sha256": "359bf5caa2978e8ac9f440b569e6f2c74c0336ba0135376c2fe4e11819062b13",
+      "artifact_identity": "555e65ebc5981cf829f98f3b00efee2d6c586d67cac0666603acd68e0600d19a",
+      "geometry_reused": false
+    }
+  },
+  "association": "Geometry builders remained unchanged during and after native export/slice publication. Check-only radial-play assertions were added afterward; final checks ran against the same builder. Delivered STLs match their respective selected-profile slice inputs. STEP and STL were exported together from each declared print-placement assembly."
 }
