@@ -92,6 +92,23 @@ def printed_axle():
     return head_part.union(journal).union(thread).clean()
 
 
+def wheel_plate(variant,*,dimensions,back,front):
+    """Shared scalloped blank: rotor and facecap use the same grip profile."""
+    if variant not in ('wheel','paddle'):raise ValueError(variant)
+    if front<=back:raise ValueError('Plate front must exceed back')
+    d=dimensions;z=d.pivot
+    plate=axial_cylinder(17.,front,z,front-back)
+    if variant=='wheel':
+        for x in (-20.5,20.5):
+            plate=plate.cut(cq.Workplane('XZ',origin=(x,front+1.,z)).circle(6.5).extrude(front-back+2.))
+    else:
+        hub=axial_cylinder(6.,front,z,front-back)
+        stem=base.box(0,(front+back)/2,z+7.5,9.,front-back,15.)
+        plate=plate.intersect(hub.union(stem))
+    plate=plate.edges('|Y').fillet(.6).faces('>Y').edges().fillet(.5)
+    return plate
+
+
 def build(variant,*,dimensions,fastener):
     if variant not in ('paddle','wheel'):raise ValueError('Unknown form: '+str(variant))
     if fastener not in ('legacy-m6','printed-coarse','printed-cone'):raise ValueError('Unknown fastener: '+str(fastener))
@@ -144,15 +161,7 @@ def build(variant,*,dimensions,fastener):
         if not crown.val().isValid():raise ValueError('Invalid full-width keeper')
         cap=cap.union(crown).clean()
 
-    plate=axial_cylinder(17.,d.wheel_front,z,d.wheel_front-d.wheel_back)
-    if variant=='wheel':
-        for x in (-20.5,20.5):
-            plate=plate.cut(cq.Workplane('XZ',origin=(x,40.,z)).circle(6.5).extrude(12.))
-    else:
-        hub=axial_cylinder(6.,d.wheel_front,z,d.wheel_front-d.wheel_back)
-        stem=base.box(0,(d.wheel_front+d.wheel_back)/2,z+7.5,9.,d.wheel_front-d.wheel_back,15.)
-        plate=plate.intersect(hub.union(stem))
-    plate=plate.edges('|Y').fillet(.6).faces('>Y').edges().fillet(.5)
+    plate=wheel_plate(variant,dimensions=d,back=d.wheel_back,front=d.wheel_front)
     nose=sector(d.nose_inner,d.nose_outer,-16.,16.,d.wheel_front,d.wheel_front-d.nose_back,z)
     rotor=plate.union(nose).cut(axial_cylinder(4.2,40,z,12.))
     if fastener=='printed-cone':

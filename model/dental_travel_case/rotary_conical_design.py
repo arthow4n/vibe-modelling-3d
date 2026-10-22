@@ -19,20 +19,26 @@ SOCKET_DEPTH=2.2
 SOCKET_ROOF=1.9
 
 
-def printed_axle():
-    """Blind drive ends before the thread; the complete thread core is solid."""
+def socket_axle(*,face_extension):
+    """Explicit face position; fixed seat and successful solid thread stay put."""
+    if face_extension<FACE_EXTENSION:raise ValueError(face_extension)
     old=old_axle()
     shaft=old.intersect(base.box(0,0,(HEAD_HEIGHT+TIP)/2,14,14,TIP-HEAD_HEIGHT))
-    head=(cq.Workplane('XY',origin=(0,0,-FACE_EXTENSION)).circle(HEAD_RADIUS)
+    head=(cq.Workplane('XY',origin=(0,0,-face_extension)).circle(HEAD_RADIUS)
           .workplane(offset=HEAD_DEPTH).circle(JOURNAL_RADIUS).loft(ruled=True))
-    neck=(cq.Workplane('XY',origin=(0,0,HEAD_DEPTH-FACE_EXTENSION-.05))
-          .circle(JOURNAL_RADIUS).extrude(HEAD_HEIGHT-HEAD_DEPTH+FACE_EXTENSION+.10))
-    socket=(cq.Workplane('XY',origin=(0,0,-FACE_EXTENSION-.01))
+    neck=(cq.Workplane('XY',origin=(0,0,HEAD_DEPTH-face_extension-.05))
+          .circle(JOURNAL_RADIUS).extrude(HEAD_HEIGHT-HEAD_DEPTH+face_extension+.10))
+    socket=(cq.Workplane('XY',origin=(0,0,-face_extension-.01))
             .polygon(6,SOCKET_AF/cos(radians(30))).extrude(SOCKET_DEPTH+.01))
-    roof=(cq.Workplane('XY',origin=(0,0,SOCKET_DEPTH-FACE_EXTENSION))
+    roof=(cq.Workplane('XY',origin=(0,0,SOCKET_DEPTH-face_extension))
           .polygon(6,SOCKET_AF/cos(radians(30)))
           .workplane(offset=SOCKET_ROOF).polygon(6,.04).loft(ruled=True))
     return shaft.union(neck).union(head).cut(socket.union(roof)).clean()
+
+
+def printed_axle():
+    """Original exposed-wheel conical head; blind drive, solid thread."""
+    return socket_axle(face_extension=FACE_EXTENSION)
 
 
 def wheel_recess(d):

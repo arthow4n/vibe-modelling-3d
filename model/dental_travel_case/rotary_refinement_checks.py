@@ -32,7 +32,12 @@ def material(part,witness,intent):
 
 
 def check_size(dimensions,*,contents,fastener):
-    p=build('wheel',dimensions=dimensions,fastener=fastener);d=p['dimensions'];rows=[]
+    return check_parts(build('wheel',dimensions=dimensions,fastener=fastener),contents=contents)
+
+
+def check_parts(p,*,contents):
+    d=p['dimensions'];fastener=p['fastener'];rows=[]
+    front=p['control_front'] if 'facecap' in p else d.wheel_front
     for name in ('body','cap','rotor','pivot_axle'):assert len(p[name].val().Solids())==1,name
     rows.append(clear(p['body'],p['cap'],'Seated shells remain distinct'))
     assert p['body'].val().distance(p['cap'].val())<1e-6
@@ -50,7 +55,7 @@ def check_size(dimensions,*,contents,fastener):
     cap_skin=base.box(0,-25.1,(d.rim+d.pivot+23.5)/2,18,1.4,d.pivot+23.5-d.rim)
     skins.append(material(p['cap'],cap_skin,'Original continuous cap inner wall remains intact'))
     # Head below the wheel face; only a smooth printed head is visible.
-    beyond=base.box(0,-d.wheel_front-10,d.pivot,30,20,30)
+    beyond=base.box(0,-front-10,d.pivot,30,20,30)
     rows.append(clear(p['pivot_axle'],beyond,'Printed head is recessed below wheel face'))
     # Body/rotor seat carries the tightened shoulder, not the moving wheel.
     assert p['pivot_axle'].val().distance(p['body'].val())<1e-6
@@ -105,7 +110,7 @@ def check_size(dimensions,*,contents,fastener):
     if fastener=='printed-cone':
         # A real 3 mm hex key reaches the blind socket without an outside socket.
         from rotary_conical_design import KEY_AF,SOCKET_DEPTH
-        socket=(cq.Workplane('XZ',origin=(0,-d.wheel_front-20,d.pivot))
+        socket=(cq.Workplane('XZ',origin=(0,-front-20,d.pivot))
                 .polygon(6,KEY_AF/(3**.5/2)).extrude(-(20+SOCKET_DEPTH-.1)))
         for name in ('body','cap','rotor','pivot_axle'):
             rows.append(clear(socket,p[name],'3mm hex key reaches blind head socket'))
@@ -121,7 +126,7 @@ def check_size(dimensions,*,contents,fastener):
         hardware=fastener,
         nominal_detent_radial_travel_mm=d.detent_radial_travel,
         pivot_head_recess_mm=0. if fastener=='printed-cone' else d.wheel_front-d.axle_front,
-        maximum_control_projection_mm=d.wheel_front-d.depth/2,
+        maximum_control_projection_mm=front-d.depth/2,
         guide_track_width_mm=0.,tube_loading_offset_y_mm=0.,
         unknowns=['Printed thread fit','detent force/return/wear','keeper strength',
                   'far-edge peel','bag shake','combined packing','actual socket outside diameter'])

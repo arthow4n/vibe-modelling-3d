@@ -4,22 +4,20 @@ A slim, two-piece travel box (`75.8 × 52.8 × 264 mm` closed shell), currently 
 
 ## At a Glance: What to Do Now
 
-- **Current action: replace the wheel and screw together.** The new [tapered wheel STEP](rotary_conical_wheel.step) / [STL](rotary_conical_wheel.stl) and [flush hex-key screw STEP](rotary_conical_screw.step) / [STL](rotary_conical_screw.stl) replace the troublesome face-down flat recess. Reuse your body, cap and printed nut. Both replacement parts slice without automatic supports; printed finish remains to be tested.
-- **Complete new box:** updated [body + cap + wheel STEP](rotary_travel_case.step) / [STL](rotary_travel_case.stl), [Python](rotary_travel_case.py), plus [matching screw + nut STEP](rotary_conical_fasteners.step) / [STL](rotary_conical_fasteners.stl). The 0.20 mm per-side guide fit, 34 mm keeper and rounded corner stops remain.
-- **Print setup:** PLA, 0.4 mm nozzle, 0.2 mm layers. Wheel: 3 walls / 7% adaptive cubic / supports off, outer face down. Screw/nut: **4 walls / 100% rectilinear / supports off**, screw head down. Full shells use accessible exterior supports at the bore and keeper. Tighten gently with a **3 mm hex key**. [Settings, assembly and evidence](notes/rotary_case.md).
-- **Do not mix:** the old external-hex screw and new wheel. The obsolete hollow fine-thread M6 axle and assembled/detail/section inspection poses are not current print files.
+- **Current action: print the matching covered control kit.** [Upgrade STEP](rotary_covered_mechanism.step) / [STL](rotary_covered_mechanism.stl) / [Python](rotary_covered_mechanism.py) contains the keyed wheel, same-shape scalloped facecap and longer screw. Reuse the existing body, lid and printed nut. Two positive keys make the cover and wheel turn together; the spring stays clear behind the smooth face.
+- **Complete new box:** [Body + lid STEP](rotary_covered_case.step) / [STL](rotary_covered_case.stl), plus [four-part control kit STEP](rotary_covered_complete_mechanism.step) / [STL](rotary_covered_complete_mechanism.stl). Six printed parts total; no metal hardware.
+- **Print setup:** PLA, 0.4 mm nozzle, 0.2 mm layers. Small control kit: **4 walls / 100% rectilinear / supports off**. Body/lid: 3 walls / 7% adaptive cubic / accessible exterior supports. Supplied smooth faces/screw head are down; facecap keys print upward. [Assembly, settings and evidence](notes/covered_rotary.md).
+- **Use matching parts:** replace wheel, facecap and screw together. The old shorter screw and exposed wheel are historical. Inspection poses and the obsolete hollow fine-thread axle are not printable upgrade files.
 
 ---
 
 ## Current rotary refinement
 
-The successful [50 mm PLA quick trial](notes/quick_rotary.md) supports adoption of the rotary mechanism. The full box retains its **30 mm sleeve / 27 mm engagement**, **3 mm seam reveal**, four rounded capsule seating stops and continuous storage-facing walls. Guide and keeper play remain modestly reduced. The thread, nut, fixed shoulder bearing, detent spring and wheel nose remain unchanged; the central recess and screw head now form a flush conical pair. The full case has closed ends instead of the coupon's grip openings.
+The [covered rotary model](notes/covered_rotary.md) follows the user's corrected direction: facecap and wheel share the existing scalloped grip shape, with two keyed hub connections. The cover's hub spacer leaves 0.40 mm over the spring; a longer flush hex-drive screw retains the stack. The added outward projection is 1.6 mm. Body, lid, nut and spring/nose outside the hub are retained; the full box still has a 30 mm sleeve, 27 mm engagement and 3 mm seam reveal.
 
-![Full case keeper and wheel](renders/assembled/conical/rotary_case_detail_isometric.png)
+![Matching covered wheel and facecap](renders/assembled/covered/rotary_covered_detail_isometric.png)
 
-The wider keeper gives a matching ledge above the wheel. Turn a quarter turn to OPEN before lifting the cap; the spring resists leaving LOCK independently of screw tightening. Full loaded handling, force, bag bumps and wear remain untested. [Current print/status record](notes/rotary_case.md).
-
-[Concealed-face concept comparison](notes/hidden_rotary.md): a moving facecap or a fixed shield could hide the spring and slots. These are rough proposals; the current print files still use the exposed wheel.
+The new assembly is unprinted. Positive-drive, common-rotation, guide/lock and solid-thread CAD checks are separate from printed fit, effort, key strength and bag-impact performance. [Joint sections and detailed evidence](notes/covered_rotary.md#how-the-two-pieces-turn-together). The earlier [rounder-face proposals](notes/hidden_rotary.md) are historical; the matching scalloped cover is now modelled.
 
 <a id="how-the-current-design-works"></a>
 
@@ -99,8 +97,9 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 | Variant / Phase | Status | Printable STEP / STL | Notes |
 | --- | --- | --- | --- |
-| **Conical wheel + screw** | **Replacement files; print status unknown** | [Wheel STEP](rotary_conical_wheel.step) · [screw STEP](rotary_conical_screw.step) | Matched 45° recess / flush hex-key head; body/cap/nut reusable. |
-| **Full rotary case** | **First full PLA print prepared; unprinted** | [STEP](rotary_travel_case.step) · [STL](rotary_travel_case.stl) | Tighter guide, full-width keeper; [instructions](notes/rotary_case.md). |
+| **Covered keyed control kit** | **Current printable upgrade; physical result unknown** | [STEP](rotary_covered_mechanism.step) · [STL](rotary_covered_mechanism.stl) | Same-shape facecap, keyed wheel and longer screw; [instructions](notes/covered_rotary.md). |
+| **Conical wheel + screw** | **Previous exposed-wheel files; print status unknown** | [Wheel STEP](rotary_conical_wheel.step) · [screw STEP](rotary_conical_screw.step) | Matched 45° recess / flush hex-key head; body/cap/nut reusable. |
+| **Previous exposed full rotary case** | **Superseded; unprinted** | [STEP](rotary_travel_case.step) · [STL](rotary_travel_case.stl) | Tighter guide, full-width keeper; [instructions](notes/rotary_case.md). |
 | **50 mm open-ended trial** | **Printed in PLA; works, slightly loose** | [STEP](rotary_quick_test.step) · [STL](rotary_quick_test.stl) | Historical accepted body/cap/wheel baseline; use the current conical pair for the printability revision. [Instructions](notes/quick_rotary.md). |
 | **Coarse printed replacement pair** | **Included in successful complete PLA trial** | [STEP](rotary_printed_fasteners.step) · [STL](rotary_printed_fasteners.stl) | Historical external-hex screw; reuse its nut with the new conical pair. Do not mix its screw with the new wheel. [Instructions](notes/quick_rotary.md). |
 | Indexed spring sample | PLA shells printed; guide sliding rejected; old screw superseded | [Original STEP](rotary_index_test.step) · [STL](rotary_index_test.stl) | Guide bound with wheel removed; accidental chamber heating now suspected by user. Fine M6 screw also has a confirmed hollow CAD core. Superseded by the shorter trial. |
@@ -122,18 +121,18 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | **Test pieces** | R1a Yes — fit nice; older indexed shells tight; complete quick trial Yes — works, slightly loose | `rotary_quick_test.step` / `.stl` and `rotary_printed_fasteners.step` / `.stl`; [current record](notes/quick_rotary.md) | Earlier PLA guide bound with wheel removed; overheating now suspected, unconfirmed. Quick trial and printed pair now reported working; full-size adoption with modest tighter fit/wider keeper authorized. Subsequently, wheel face-down overhang finish was rejected; the conical pair addresses it. Earlier: initial clip/socket worked (2026-10-14); M1 joint partly worked (2026-10-15); short wall snaps had high effort/noise and C8 hinge broke (2026-10-19). |
-| **Final printable object** | **Unknown — full rotary first print prepared** | `rotary_travel_case.step` / `.stl` | New matching conical wheel/screw remain unprinted; confirm finish, tighter guide, loaded opening and bag-bump retention. M1 physically packed brush/paste diagonally but had weak retention. Old snap C and wrap-grip full cases remain unprinted. |
+| **Final printable object** | **Unknown — full rotary first print prepared** | `rotary_covered_case.step` plus `rotary_covered_complete_mechanism.step` | Covered keyed controls remain unprinted; confirm finish, tighter guide, loaded opening and bag-bump retention. M1 physically packed brush/paste diagonally but had weak retention. Old snap C and wrap-grip full cases remain unprinted. |
 
 ### Verification & Scope Limits
 
-- **Current rotary:** Affected full-case motion, capture, seating and protected-wall CAD checks pass. OrcaSlicer 2.4.2 accepts the new standalone wheel/screw without automatic supports; full layout has exterior body/cap supports and no notices. [Current evidence and print instructions](notes/rotary_case.md#verification-limits-and-print-status). The complete quick PLA assembly works; new full dimensions, release force, side impacts and wear remain untested.
+- **Current covered rotary:** Matching grip profile, keyed co-rotation with play/negative control, full-case lock paths and solid thread pass CAD checks. The control kit uses four walls/100% infill; actual key paths and short pocket roofs are reviewed. The support probe flags a small plug in one key pocket; the selected control print keeps supports off. Body/lid supports remain exterior. [Current evidence and instructions](notes/covered_rotary.md#verification-limits-and-print-status). Physical fit, key torque capacity and bag bumps remain untested.
 - **Smooth C CAD:** Valid geometry; 20 actual wall/outline sections and six strengthened-sleeve sections, internal hard-seat contact and overclosing obstruction, six independent-catch witnesses, 13 sampled opening poses and individual brush/tube passages pass ([CAD record](notes/smooth_case/cad.json)). OrcaSlicer 2.4.2 accepts the matching layout with the stated profile, no notices and no generated support ([slice report](notes/smooth_case/print_review.json), [publication association](notes/smooth_case/publication.json)). The [verification report](notes/smooth_case/verification.json) keeps physical requirements UNKNOWN.
 - **Previous wrap-grip evidence (historical):** Valid CadQuery geometry, 66 section thickness checks, individual brush (`30 mm`) and tube (`55 × 40 mm`) passage gauges, and OrcaSlicer 2.4.2 smoke slices (`0` notices, no supports, verified 3-stroke wall toolpaths) pass for `slim-short-lap-three-line-grip` ([report](notes/grip_human/finished_verification.json)).
 - **Force & side evidence:** [Fresh pull model](notes/smooth_case/retention/final/pull.json) and [side-bearing comparison](notes/smooth_case/retention/final/side.json). Pull compliance is mesh-stable below 0.7% change. The X side point-value precision target remains INCONCLUSIVE; the stiffening decision is supported by consistently lower coarse/fine responses in both directions. Neither is printed-force or impact validation.
 - **Historical physical limits:** The snap-C numerical forces were never validated on a full printed PETG case. Historical joint/side screens do not qualify the rotary design; the current record owns its remaining physical checks.
 - **Reproduce verification CLI:**
   ```sh
-  ./execute.py --threads 1 model/dental_travel_case/verification.py --variant rotary-full-pla
+  ./execute.py --threads 1 model/dental_travel_case/verification.py --variant rotary-covered-pla
   ```
 
 ---

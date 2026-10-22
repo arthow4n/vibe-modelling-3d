@@ -1,6 +1,6 @@
 # Concealing the rotary mechanism
 
-**Rough proposals for discussion; no replacement CAD or print files adopted.** The user likes the wheel action but finds the spring/slots, especially the left side, too exposed. They suggest an external pad held by the screw as one possibility and ask whether the pivot can also taper to improve printing. The current [conical wheel/screw files](rotary_case.md) remain the existing printable design.
+**Historical rough proposals.** The user subsequently requires a facecap matching the existing scalloped wheel and explicitly authorizes modelling. The [matching keyed version](covered_rotary.md) is now the current model; the rounder silhouette below was not adopted. The user likes the wheel action but finds the spring/slots, especially the left side, too exposed. They suggest an external pad held by the screw as one possibility and ask whether the pivot can also taper to improve printing. At that proposal phase, the [exposed conical wheel/screw files](rotary_case.md) were the existing printable design.
 
 [Editable SVG comparison](../renders/concepts/hidden_rotary.svg) · [PNG preview](../renders/concepts/hidden_rotary.png).
 
@@ -30,6 +30,6 @@ Retain the matched tapered screw-head seat. Taper or chamfer exposed pivot trans
 
 The comparison uses the current 34 mm wheel diameter and 75.8 mm shell width for common-scale front context. Sections are schematic: colours identify parts made from the same possible PLA; white space is clearance. Named contacts and print placements are design proposals, not collision, force, comfort or slicer evidence. No new CAD, STEP/STL or slices were requested for this discussion. Current conical head/core/motion evidence remains scoped to the existing exposed wheel.
 
-The useful next choice is whether the whole front should turn (A, preferred) or only the exposed rim should turn (B). After selection, check the complete covered assembly, spring freedom, attachment, driver access and printing before recommending a replacement. Do not fill the slots or attach the cover to the flexible spring to achieve a locally smooth surface.
+The proposal-stage choice was whether the whole front should turn (A, preferred) or only the exposed rim should turn (B). The later instruction selects a matching-shape rotating cover. Before publishing that model, check the complete covered assembly, spring freedom, attachment, driver access and printing before recommending a replacement. Do not fill the slots or attach the cover to the flexible spring to achieve a locally smooth surface.
 
 Primary language model: GPT-6 family; exact model identifier/reasoning effort not exposed. Harness: Codex coding-agent environment. Provider: OpenAI. No subagents. User supplied the concealed-mechanism/pad and tapered-pivot ideas; comparison and preference are agent proposals. Existing print attribution is preserved in the current case record.

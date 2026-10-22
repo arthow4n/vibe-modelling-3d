@@ -1,6 +1,6 @@
 # Full rotary travel case
 
-**Ready to print: easier-printing tapered wheel and matching flush hex-key screw.** The previous wheel's face-down recess printed poorly; the new matched pair replaces its flat overhang with 45° tapers. Reuse the existing body, cap and printed nut. Closed shell remains **75.8 × 52.8 × 264 mm**, plus the local wheel projection.
+**Previous exposed-wheel revision; superseded by the [matching keyed facecap model](covered_rotary.md).** This record preserves its tapered wheel and matching flush hex-key screw. The previous wheel's face-down recess printed poorly; the new matched pair replaces its flat overhang with 45° tapers. Reuse the existing body, cap and printed nut. Closed shell remains **75.8 × 52.8 × 264 mm**, plus the local wheel projection.
 
 For an existing trial or box, print only the replacement [wheel STEP](../rotary_conical_wheel.step) / [STL](../rotary_conical_wheel.stl) / [Python](../rotary_conical_wheel.py) and [screw STEP](../rotary_conical_screw.step) / [STL](../rotary_conical_screw.stl) / [Python](../rotary_conical_screw.py). **Change wheel and screw together.** For a complete new box, use the updated [body + cap + wheel STEP](../rotary_travel_case.step) / [STL](../rotary_travel_case.stl), [Python](../rotary_travel_case.py), plus the [matching screw + unchanged nut STEP](../rotary_conical_fasteners.step) / [STL](../rotary_conical_fasteners.stl). Five printed parts, no metal hardware. Inspection files containing `_assembled`, `section` or `detail` are not print layouts.
 

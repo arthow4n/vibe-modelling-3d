@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_covered_detail.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/assembled/covered/rotary_covered_detail_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0014245710044633597,
+    "build": 6.815710771013983,
+    "selection": 0.0010559310030657798,
+    "validation": 0.09031571701052599,
+    "render_isometric": 6.8638929769804236,
+    "worker": 13.87631357999635,
+    "total": 26.547482250985922
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "cf4496868d5d480955f1ae8e01e9c60a02d470aa015ec19fd2feed9dcfd36455",
+    "artifact_identity": "9da79e345c43827d6bcfe7a32f769749e7668d3dd62bb627459fa08af94930ec"
+  }
+}

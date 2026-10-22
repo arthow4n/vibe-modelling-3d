@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+<defs>
+ <style>text{font-family:Arial,sans-serif;font-size:18px;fill:#23343f}.title{font-size:27px;font-weight:bold}.head{font-size:21px;font-weight:bold}.small{font-size:16px}.dim{stroke:#52707f;stroke-width:1.5;fill:none;marker-start:url(#a);marker-end:url(#a)}.leader{stroke:#52707f;stroke-width:1.5;fill:none}</style>
+ <marker id="a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M10 5 0 0 0 10Z" fill="#52707f"/></marker>
+</defs>
+<rect width="1200" height="650" fill="#fafbfc"/>
+<text x="25" y="39" class="title">Same scalloped grip · positive key drive · free spring</text>
+<text x="25" y="70" class="small">Dimensioned sections through the model; cropped at top/bottom. Axial direction runs from body at left to outside at right.</text>
+<rect x="20" y="90" width="555" height="485" rx="10" fill="white" stroke="#d4dfe4"/>
+<rect x="595" y="90" width="585" height="485" rx="10" fill="white" stroke="#d4dfe4"/>
+<text x="40" y="121" class="head">Through rigid hub key: X = +7.0 mm</text>
+<path d="M78 150H309V217.5H201.75V382.5H309V450H78Z" fill="#7a97a7" stroke="#344e5c" stroke-width="2"/>
+<path d="M309 150H397V450H309V377H215.5L210 371.5V228.5L215.5 223H309Z" fill="#bfddda" stroke="#344e5c" stroke-width="2"/>
+<path d="M331 155V210M331 390V445" stroke="#528984" stroke-dasharray="4 4"/>
+<text x="95" y="177" class="small">Wheel hub</text>
+<text x="418" y="242" class="small">Facecap,</text>
+<text x="418" y="264" class="small">spacer</text>
+<text x="418" y="286" class="small">and key:</text>
+<text x="418" y="308" class="small">one print</text>
+<path class="leader" d="M418 320 352 337"/>
+<path class="leader" d="M95 198H160L258 220"/>
+<text x="40" y="480" class="small">0.10 mm side clearance for assembly</text>
+<path class="dim" d="M210 504H309"/>
+<path class="leader" d="M210 452V514M309 452V514"/>
+<text x="170" y="534" class="small">1.8 mm engagement</text>
+<path class="leader" d="M76 548H140L205 348"/>
+<text x="40" y="564" class="small">0.15 mm clearance at pocket bottom</text>
+<text x="615" y="121" class="head">Through free spring: X = −12 mm</text>
+<rect x="660" y="260" width="231" height="100" fill="#bf8958" stroke="#754e2e" stroke-width="2"/>
+<rect x="913" y="220" width="66" height="180" fill="#bfddda" stroke="#344e5c" stroke-width="2"/>
+<text x="713" y="317">Spring section</text>
+<text x="1000" y="291" class="small">Facecap</text>
+<path class="leader" d="M997 298H981"/>
+<path class="dim" d="M891 433H913"/>
+<path class="leader" d="M891 362V443M913 402V443"/>
+<text x="735" y="467">0.40 mm free gap</text>
+<path class="dim" d="M775 195V237"/>
+<text x="675" y="172" class="small">Spring moves in the wheel plane</text>
+<text x="630" y="510" class="small">The spacer touches only the rigid hub.</text>
+<text x="630" y="536" class="small">The cover stays clear of the flexible spring.</text>
+<text x="25" y="605" class="small">CAD: keys block ±2° relative turn in 40 clearance/separation poses; removing keys removes that stop.</text>
+<text x="25" y="632" class="small">Colours identify regions of the same printable PLA. Positive engagement is checked; printed torque capacity and wear remain unmeasured.</text>
+</svg>
