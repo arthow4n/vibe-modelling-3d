@@ -1,6 +1,6 @@
 # R1a swivel-tab test piece
 
-**Current status: printed; the user reports that R1a “kind of works” and is “okay” (2026-10-22).** This is a positive qualitative action result, without measured effort, durability or bag retention. Its exposed mechanism remains rejected as the final visual direction. [Current refinement](rotary_refinement.md) preserves the rotary concept.
+**Current status: printed; the user reports that R1a “kind of works” and is “okay” (2026-10-22).** The user subsequently clarifies the R1a guide fit was nice. This is positive qualitative fit/action evidence, without measured effort, durability or bag retention. Its exposed mechanism remains rejected as the final visual direction. [Current refinement](rotary_refinement.md) preserves the rotary concept.
 
 This short **R1 mechanism sample** was delivered to understand the motion and try its fit in PLA: [STEP](../rotary_r1_test.step) · [STL](../rotary_r1_test.stl) · [Python](../rotary_r1_test.py). It contains **three printed parts: body ring, cap ring and swivel tab**. Add **one M3×12 screw and two plain M3 nuts** from the recorded stock. The full travel case remains on hold.
 
