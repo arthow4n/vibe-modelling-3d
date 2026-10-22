@@ -35,7 +35,7 @@
     "scope": {
       "design": "rotary-covered-pla",
       "material": "PLA intended; covered assembly unprinted",
-      "geometry": "75.8x52.8x264; matched scalloped facecap; two hub keys; 1.6mm extra projection",
+      "geometry": "75.8x52.8x264; wraparound scalloped facecap with 1.8mm parallel outline offset; two hub keys; 1.6mm extra projection",
       "thread": "Existing coarse printed thread and nut; longer shoulder/head position"
     },
     "focused": false,
@@ -63,7 +63,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -103,7 +103,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -233,7 +233,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -350,7 +350,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -540,7 +540,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -634,7 +634,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -699,7 +699,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -739,7 +739,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -779,7 +779,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -834,7 +834,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -874,7 +874,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -954,7 +954,7 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -994,7 +994,47 @@
           },
           {
             "id": "geometry",
-            "criterion": "Matching grip profile, positive key obstruction with play and key-removed negative control, free common rotation, storage protection and retained lock/withdrawal paths",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "covered.CAD"
+            ],
+            "evidence": [
+              "covered.CAD"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "rotary.wrap",
+        "text": "Cover the wheel edge and hide the facecap/wheel side gap while leaving the spring free",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/covered_rotary.md#wraparound-cover-request",
+          "statement": "User requires full side coverage to hide the gap between facecap and wheel, with internal spring clearance preserved"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "physical",
+            "criterion": "Covered printed case satisfies this intent in actual use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          },
+          {
+            "id": "geometry",
+            "criterion": "Parallel scalloped outline, continuous wraparound wall, translated spring clearance screens, positive key obstruction with play and key-removed negative control, free common rotation and retained lock/withdrawal paths",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -1022,6 +1062,10 @@
           ],
           [
             "rotary.keyed",
+            "geometry"
+          ],
+          [
+            "rotary.wrap",
             "geometry"
           ],
           [
@@ -1075,7 +1119,7 @@
         "scope": {
           "design": "rotary-covered-pla",
           "material": "PLA intended; covered assembly unprinted",
-          "geometry": "75.8x52.8x264; matched scalloped facecap; two hub keys; 1.6mm extra projection",
+          "geometry": "75.8x52.8x264; wraparound scalloped facecap with 1.8mm parallel outline offset; two hub keys; 1.6mm extra projection",
           "thread": "Existing coarse printed thread and nut; longer shoulder/head position"
         }
       },
@@ -1101,7 +1145,7 @@
         "scope": {
           "design": "rotary-covered-pla",
           "material": "PLA intended; covered assembly unprinted",
-          "geometry": "75.8x52.8x264; matched scalloped facecap; two hub keys; 1.6mm extra projection",
+          "geometry": "75.8x52.8x264; wraparound scalloped facecap with 1.8mm parallel outline offset; two hub keys; 1.6mm extra projection",
           "thread": "Existing coarse printed thread and nut; longer shoulder/head position"
         }
       }
@@ -1109,7 +1153,7 @@
     "decisions": [
       {
         "id": "covered.keys",
-        "text": "Two rectangular hub keys carry torque; annular spacer keeps facecap clear of spring; longer fixed shoulder screw retains both moving parts",
+        "text": "Two rectangular hub keys carry torque; annular spacer and rearward wraparound rim leave internal spring clearance; longer fixed shoulder screw retains both moving parts",
         "reference": "notes/covered_rotary.md"
       }
     ],

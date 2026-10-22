@@ -3,7 +3,8 @@ import hashlib,json
 from pathlib import Path
 import cadquery as cq
 import m1_design as base
-from rotary_covered_design import covered_case,face_pose,printed_axle,EXTENSION,KEY_ENGAGEMENT
+from rotary_covered_design import (covered_case,face_pose,printed_axle,EXTENSION,
+    KEY_ENGAGEMENT,grip_outline,SKIRT_OFFSET,SKIRT_CLEARANCE,FACE_THICKNESS)
 from rotary_case_design import case as exposed_case
 from rotary_refinement_design import rotor_pose,wheel_plate
 from rotary_refinement_checks import check_parts,clear,material
@@ -33,16 +34,31 @@ def main():
         a,b=p[name],baseline[name]
         v=a.cut(b).val().Volume()+b.cut(a).val().Volume();assert v<1e-5,(name,v)
         preserved.append(dict(part=name,symmetric_difference_mm3=v))
-    # Matching scalloped outline: compare actual blank cross-sections at full
-    # profile, away from face roundovers, in one canonical 0.04mm slice.
-    a=wheel_plate('wheel',dimensions=d,back=d.wheel_back,front=d.wheel_front)
-    b=wheel_plate('wheel',dimensions=d,back=d.wheel_front+.4,front=p['control_front'])
-    mid=(d.wheel_back+d.wheel_front)/2
-    amid=a.intersect(base.box(0,mid,d.pivot,50,.04,50))
-    bmid=(b.intersect(base.box(0,p['control_front']-.6,d.pivot,50,.04,50))
-          .translate((0,mid-(p['control_front']-.6),0)))
+    # The cup follows a parallel offset of the same scallops, rather than
+    # changing to a circular puck. Compare the delivered face's outer contour.
+    local=(p['facecap'].mirror('XZ').translate((0,-p['control_front'],-d.pivot))
+           .rotate((0,0,0),(1,0,0),-90))
+    slab=local.intersect(base.box(0,0,.6,50,50,.04))
+    wire=slab.faces('>Z').val().outerWire().translate((0,0,-.62))
+    amid=cq.Workplane('XY').add(wire).toPending().extrude(.04)
+    bmid=grip_outline(d,offset=SKIRT_OFFSET).extrude(.04)
     outline_delta=amid.cut(bmid).val().Volume()+bmid.cut(amid).val().Volume()
     assert outline_delta<1e-5,outline_delta
+    # A continuous wall covers the whole wheel edge, including the face gap.
+    # Explicit outward spring-envelope translations are clearance screens,
+    # not predictions of a deflected spring shape or its required force.
+    spring=p['rotor'].cut(p['rotor_rigid'])
+    spring_screens=[]
+    from math import sin,cos,radians
+    for angle in range(0,360,30):
+        shift=(.35*cos(radians(angle)),0,.35*sin(radians(angle)))
+        spring_screens.append(clear(p['facecap'],spring.translate(shift),
+                                    'Cover clears 0.35mm translated spring envelope'))
+    for height in (FACE_THICKNESS+.2,3.,p['control_front']-d.wheel_back-.3):
+        band=(grip_outline(d,offset=SKIRT_OFFSET-.25).extrude(.04)
+              .cut(grip_outline(d,offset=SKIRT_CLEARANCE+.25).extrude(.04))
+              .translate((0,0,height)))
+        material(local,band,'Continuous wraparound wall behind hidden face gap')
     # Only the hub changes. The flexible track and the locking nose stay exact.
     hub=cq.Workplane('XZ',origin=(0,-45,d.pivot)).circle(8.9).extrude(-20)
     for name in ('rotor','rotor_rigid'):
@@ -92,6 +108,8 @@ def main():
       unchanged_parts=preserved,solid_thread_core=filled,thread_difference_mm3=delta,
       extra_projection_mm=p['control_front']-d.wheel_front,axle_face_extension_mm=EXTENSION,
       nominal_key_engagement_mm=KEY_ENGAGEMENT,
+      wraparound=dict(radial_clearance_mm=SKIRT_CLEARANCE,outer_offset_mm=SKIRT_OFFSET,
+          axial_overlap_mm=d.wheel_front-d.wheel_back,spring_envelope_checks=spring_screens),
       limits='Rigid clearance and positive engagement, not measured backlash, printed torque capacity, force, comfort or durability')
     target=ROOT/'notes/covered_rotary/cad.json';target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(json.dumps(out,indent=2)+'\n')

@@ -163,6 +163,9 @@ completion is not justified or possible. No ordinary task requires an API audit.
 
 ## Delivery and provenance
 
+Deliver raw model files directly. Do not create or commit ZIP files or other
+archive bundles; link the individual printable files instead.
+
 For the phase's agreed printable objects (including samples), deliver at least
 `.py`, `.step` and matching `.stl`, unless explicitly requested otherwise. STEP is
 the primary print-ready interchange file. Export both from the same selected

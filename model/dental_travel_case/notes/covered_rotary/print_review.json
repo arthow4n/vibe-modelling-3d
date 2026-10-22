@@ -2,49 +2,29 @@
   "ok": true,
   "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_covered_case.py",
   "errors": [],
-  "views": [
-    {
-      "view": "isometric",
-      "ok": true,
-      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/print/covered/rotary_covered_case_isometric.png",
-      "reused": false,
-      "camera": {
-        "from_direction": [
-          1,
-          -1,
-          1
-        ],
-        "up_direction": [
-          0,
-          0,
-          1
-        ]
-      }
-    }
-  ],
+  "views": [],
   "exports": [
     {
       "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_covered_case.step",
       "ok": true,
-      "reused": false
+      "reused": true
     },
     {
       "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_covered_case.stl",
       "ok": true,
-      "reused": false
+      "reused": true
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.0014890269958414137,
-    "build": 6.798917442007223,
-    "selection": 0.0010036810126621276,
-    "validation": 0.056746804009890184,
-    "export_step": 0.09368116600671783,
-    "export_stl": 0.2295947440143209,
-    "render_isometric": 0.5715884629753418,
-    "worker": 7.831072975008283,
-    "total": 51.69381092500407,
-    "slice": 38.68727128399769
+    "dependency_initialization": 0.0015099039883352816,
+    "build": 11.268429096991895,
+    "selection": 0.0010255360102746636,
+    "validation": 0.059166191989788786,
+    "export_step": 0.005133697995916009,
+    "export_stl": 0.012897646985948086,
+    "worker": 11.429735418001655,
+    "total": 45.80815244500991,
+    "slice": 32.34905122901546
   },
   "versions": {
     "python": "3.14.7",
@@ -55,8 +35,8 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "0cabee772ad9070fbeb2ea87760eebc93428f2073a952cfc23e232d59d8074b4",
-    "artifact_identity": "8b6f19e6d0d465bee1af0de1867c985348040c171d93830d13e9c15dac6dd510"
+    "identity": "d901b6c4f0eef98974e379d26f376cf30b51e4cdda3d6e6c15ee0756f5fbc65b",
+    "artifact_identity": "055b2b9496a9f4fe162244ee13adbfccf4f0c727ea6bf981a7f659a35753fbad"
   },
   "slice": {
     "ok": true,
@@ -151,7 +131,7 @@
     "reused": false,
     "identity": "44d9c57e18d85db5fc4316c74c0b4bc8f5d9bf47b951653c443e7297e4ddd7a9",
     "input_sha256": "d839cf9a702e5c9fe330a40dae2302af22ff77570aaf59992c686451dea5a306",
-    "kept_run_directory": "/home/hevar/orca-slicer-review-8pew3e_3",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-i0yn72qg",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",

@@ -1,7 +1,7 @@
 {
   "source_sha256": {
-    "rotary_covered_design.py": "acdb1b8d5fae5f0304efaebbd707480128659108eb2ebea1b2da655eb28474d6",
-    "rotary_covered_checks.py": "15017eeab583d719b59a667ba6f240a04467a1f7ef3f63fa8e332e9b0e3972b1",
+    "rotary_covered_design.py": "cdab7e2167853a518ca9bfa3da6adecf0ef6eabda9173eb460fb4a52ae56edf4",
+    "rotary_covered_checks.py": "a1e029ece18b508dae6420aa933dde7b596d50b9cbf99996c485bedeb0580dde",
     "rotary_refinement_design.py": "aa905b165710b47d5437eeabf2b6a3c60630f4db42e34771f56f0e4be833ded5",
     "rotary_refinement_checks.py": "12e12dfc34026f96225ddf0d76680512274284ac5f5ebf20669d10bc797b93db",
     "rotary_conical_design.py": "8dab2fd3f7356e54c346b703657467fb34773d2b6a16a1d9429cf7e67e93a652",
@@ -4705,7 +4705,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 1.1947544944142532
+      "obstruction_mm3": 1.1947544944142527
     },
     {
       "axial_separation_mm": 0.0,
@@ -4714,7 +4714,7 @@
         0
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 1.308570951379921
+      "obstruction_mm3": 1.3085709513799246
     },
     {
       "axial_separation_mm": 0.0,
@@ -4723,7 +4723,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 1.3085709727406154
+      "obstruction_mm3": 1.3085709727406183
     },
     {
       "axial_separation_mm": 0.0,
@@ -4732,7 +4732,7 @@
         0
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 1.3085709513759762
+      "obstruction_mm3": 1.308570951375975
     },
     {
       "axial_separation_mm": 0.0,
@@ -4741,7 +4741,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 1.3085709727501396
+      "obstruction_mm3": 1.3085709727501422
     },
     {
       "axial_separation_mm": 0.0,
@@ -4759,7 +4759,7 @@
         0.1
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 1.2006125664452738
+      "obstruction_mm3": 1.2006125664452731
     },
     {
       "axial_separation_mm": 0.0,
@@ -4768,7 +4768,7 @@
         -0.1
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 1.2006125661708396
+      "obstruction_mm3": 1.20061256617084
     },
     {
       "axial_separation_mm": 0.0,
@@ -4777,7 +4777,7 @@
         -0.1
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 1.2006125664542806
+      "obstruction_mm3": 1.2006125664542808
     },
     {
       "axial_separation_mm": 0.3,
@@ -4786,7 +4786,7 @@
         0
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.9914187370420829
+      "obstruction_mm3": 0.9914187370420816
     },
     {
       "axial_separation_mm": 0.3,
@@ -4795,7 +4795,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 0.9914187310929753
+      "obstruction_mm3": 0.9914187310929764
     },
     {
       "axial_separation_mm": 0.3,
@@ -4804,7 +4804,7 @@
         0
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 1.0855032732297192
+      "obstruction_mm3": 1.0855032732297198
     },
     {
       "axial_separation_mm": 0.3,
@@ -4813,7 +4813,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 1.0855032944078145
+      "obstruction_mm3": 1.085503294407816
     },
     {
       "axial_separation_mm": 0.3,
@@ -4822,7 +4822,7 @@
         0
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 1.0855032732258743
+      "obstruction_mm3": 1.0855032732258754
     },
     {
       "axial_separation_mm": 0.3,
@@ -4831,7 +4831,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 1.0855032944163867
+      "obstruction_mm3": 1.0855032944163856
     },
     {
       "axial_separation_mm": 0.3,
@@ -4840,7 +4840,7 @@
         0.1
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.9970093833163337
+      "obstruction_mm3": 0.9970093833163352
     },
     {
       "axial_separation_mm": 0.3,
@@ -4849,7 +4849,7 @@
         0.1
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 0.9970093835933616
+      "obstruction_mm3": 0.9970093835933612
     },
     {
       "axial_separation_mm": 0.3,
@@ -4858,7 +4858,7 @@
         -0.1
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.9970093833196078
+      "obstruction_mm3": 0.9970093833196073
     },
     {
       "axial_separation_mm": 0.3,
@@ -4867,7 +4867,7 @@
         -0.1
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 0.9970093835963714
+      "obstruction_mm3": 0.9970093835963718
     },
     {
       "axial_separation_mm": 0.5,
@@ -4876,7 +4876,7 @@
         0
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.8558615616629676
+      "obstruction_mm3": 0.8558615616629681
     },
     {
       "axial_separation_mm": 0.5,
@@ -4885,7 +4885,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 0.8558615555346732
+      "obstruction_mm3": 0.8558615555346738
     },
     {
       "axial_separation_mm": 0.5,
@@ -4894,7 +4894,7 @@
         0
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.9367914877964661
+      "obstruction_mm3": 0.9367914877964674
     },
     {
       "axial_separation_mm": 0.5,
@@ -4903,7 +4903,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 0.9367915088526193
+      "obstruction_mm3": 0.9367915088526216
     },
     {
       "axial_separation_mm": 0.5,
@@ -4912,7 +4912,7 @@
         0
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.9367914877924084
+      "obstruction_mm3": 0.9367914877924101
     },
     {
       "axial_separation_mm": 0.5,
@@ -4921,7 +4921,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 0.9367915088619655
+      "obstruction_mm3": 0.9367915088619658
     },
     {
       "axial_separation_mm": 0.5,
@@ -4948,7 +4948,7 @@
         -0.1
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.8612739280887032
+      "obstruction_mm3": 0.861273928088703
     },
     {
       "axial_separation_mm": 0.5,
@@ -4966,7 +4966,7 @@
         0
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.7203043862921144
+      "obstruction_mm3": 0.7203043862921146
     },
     {
       "axial_separation_mm": 0.7,
@@ -4975,7 +4975,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 0.7203043800008057
+      "obstruction_mm3": 0.7203043800008058
     },
     {
       "axial_separation_mm": 0.7,
@@ -4984,7 +4984,7 @@
         0
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.7880797023621852
+      "obstruction_mm3": 0.7880797023621853
     },
     {
       "axial_separation_mm": 0.7,
@@ -4993,7 +4993,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 0.7880797232969768
+      "obstruction_mm3": 0.7880797232969782
     },
     {
       "axial_separation_mm": 0.7,
@@ -5002,7 +5002,7 @@
         0
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.7880797023585745
+      "obstruction_mm3": 0.7880797023585757
     },
     {
       "axial_separation_mm": 0.7,
@@ -5011,7 +5011,7 @@
         0
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 0.7880797233057595
+      "obstruction_mm3": 0.7880797233057587
     },
     {
       "axial_separation_mm": 0.7,
@@ -5020,7 +5020,7 @@
         0.1
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.7255384728503054
+      "obstruction_mm3": 0.7255384728503057
     },
     {
       "axial_separation_mm": 0.7,
@@ -5029,7 +5029,7 @@
         0.1
       ],
       "relative_angle_deg": 2.0,
-      "obstruction_mm3": 0.7255384731246439
+      "obstruction_mm3": 0.7255384731246444
     },
     {
       "axial_separation_mm": 0.7,
@@ -5038,7 +5038,7 @@
         -0.1
       ],
       "relative_angle_deg": -2.0,
-      "obstruction_mm3": 0.7255384728561497
+      "obstruction_mm3": 0.7255384728561494
     },
     {
       "axial_separation_mm": 0.7,
@@ -5113,5 +5113,240 @@
   "extra_projection_mm": 1.6000000000000014,
   "axle_face_extension_mm": 1.9000000000000001,
   "nominal_key_engagement_mm": 1.8,
+  "wraparound": {
+    "radial_clearance_mm": 0.6,
+    "outer_offset_mm": 1.7999999999999998,
+    "axial_overlap_mm": 4.199999999999996,
+    "spring_envelope_checks": [
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      },
+      {
+        "first": "first",
+        "second": "second",
+        "configuration": null,
+        "requirement": {
+          "intent": "Cover clears 0.35mm translated spring envelope",
+          "max_overlap_mm3": 1e-05,
+          "min_overlap_mm3": null,
+          "min_gap_mm": null,
+          "max_gap_mm": null
+        },
+        "calculation_completed": true,
+        "status": "passed",
+        "overlap_mm3": 0.0,
+        "gap_mm": null,
+        "closest_points_mm": null,
+        "error": null,
+        "limits": "Kernel measurements, not calibrated accuracy or physical validation. Distance is unsigned; zero can mean touching or overlap. Closest points are distance witnesses, not contact patches or penetration depths."
+      }
+    ]
+  },
   "limits": "Rigid clearance and positive engagement, not measured backlash, printed torque capacity, force, comfort or durability"
 }

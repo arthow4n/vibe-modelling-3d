@@ -4,7 +4,7 @@ from collections import defaultdict
 import hashlib,json
 import cadquery as cq
 from physical_analysis.manufacturing import orca_linear_paths,section_coverage
-from rotary_covered_design import screw_print_pose,KEY_X,KEY_WIDTH,KEY_HEIGHT
+from rotary_covered_design import screw_print_pose,KEY_X,KEY_WIDTH,KEY_HEIGHT,SKIRT_OFFSET
 
 ROOT=Path(__file__).resolve().parent
 
@@ -26,13 +26,13 @@ def main():
                 assert name in ('mechanism','complete'),name
                 # The probe forces supports even for short bridges. Its only
                 # plug must lie inside a 2.6x3mm key pocket, not over the spring.
-                yy=118. if name=='mechanism' else 108.25
+                yy=(118. if name=='mechanism' else 108.25)+SKIRT_OFFSET/2
                 support_paths=[q for q in orca_linear_paths(g.parent/'support_probe/plate_1.gcode')
                                if q[-1].startswith('Support')]
                 assert support_paths
                 for q in support_paths:
                     cx=(q[0]+q[2])/2
-                    key_x=min((112.5-KEY_X,112.5+KEY_X),key=lambda v:abs(v-cx))
+                    key_x=min((112.5-SKIRT_OFFSET/2-KEY_X,112.5-SKIRT_OFFSET/2+KEY_X),key=lambda v:abs(v-cx))
                     assert min(q[0],q[2])-q[5]/2>=key_x-(KEY_WIDTH+.2)/2-.01,q
                     assert max(q[0],q[2])+q[5]/2<=key_x+(KEY_WIDTH+.2)/2+.01,q
                     assert min(q[1],q[3])-q[5]/2>=yy-(KEY_HEIGHT+.2)/2-.01,q
@@ -56,17 +56,18 @@ def main():
         assert c['uncovered_width_mm']<.1,(z,c)
         core.append(dict(z_mm=z,coverage=c))
     keys=[]
-    # Native mechanism kit centers X0/45 to X112.5/157.5, Y118.
-    # Head-down screw at Y45 sets the source Y extent to -17..51.
-    for x in (157.5-KEY_X,157.5+KEY_X):
+    # The larger cover changes centering by half its 1.8mm radial growth.
+    cover_x=157.5-SKIRT_OFFSET/2;wheel_x=112.5-SKIRT_OFFSET/2
+    center_y=118.+SKIRT_OFFSET/2
+    for x in (cover_x-KEY_X,cover_x+KEY_X):
         for z in (2.,2.8,3.2):
-            c=section_coverage(paths['mechanism'],x_mm=x,z_mm=z,span_mm=(116.7,119.3))
+            c=section_coverage(paths['mechanism'],x_mm=x,z_mm=z,span_mm=(center_y-1.3,center_y+1.3))
             assert c['uncovered_width_mm']<.1,(x,z,c)
             keys.append(dict(x_mm=x,z_mm=z,coverage=c))
     # Both keys have small blind pockets: check their actual bridging roof.
     roofs=[]
-    for x in (112.5-KEY_X,112.5+KEY_X):
-        c=section_coverage(paths['mechanism'],x_mm=x,z_mm=2.2,span_mm=(116.6,119.4))
+    for x in (wheel_x-KEY_X,wheel_x+KEY_X):
+        c=section_coverage(paths['mechanism'],x_mm=x,z_mm=2.2,span_mm=(center_y-1.4,center_y+1.4))
         assert c['uncovered_width_mm']<.1,(x,c)
         roofs.append(dict(x_mm=x,z_mm=2.2,coverage=c))
     groups=defaultdict(list)

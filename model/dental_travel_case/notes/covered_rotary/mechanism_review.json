@@ -35,16 +35,16 @@
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.0015567319933325052,
-    "build": 8.332964236993575,
-    "selection": 0.0015355840150732547,
-    "validation": 0.08358983800280839,
-    "export_step": 0.13225411498569883,
-    "export_stl": 0.2988318449934013,
-    "render_isometric": 9.400161583005683,
-    "worker": 18.34113448500284,
-    "total": 21.572042379993945,
-    "slice": 6.018746482004644
+    "dependency_initialization": 0.0013895239972043782,
+    "build": 11.935468518000562,
+    "selection": 0.001043272000970319,
+    "validation": 0.16857518500182778,
+    "export_step": 0.3390951190085616,
+    "export_stl": 0.4849541709991172,
+    "render_isometric": 10.125622930005193,
+    "worker": 23.159789785015164,
+    "total": 34.564350405998994,
+    "slice": 21.189574269985314
   },
   "versions": {
     "python": "3.14.7",
@@ -55,8 +55,8 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "9652c5eca1d6d7805bfe11e1458eb90c510802028943a9a9e0b960f4dfd0284a",
-    "artifact_identity": "4476240bf764a8908267d77466341719930f7447d7b3d2e964eb4b0f20203caf"
+    "identity": "d487cbb03759aaa741e3fc822c087ffd8649f234d1973055e2bd94046e0899bc",
+    "artifact_identity": "6c68961acad05db14c28dfa1c849f0c4663587df5951169ba41cac5b9bab53b5"
   },
   "slice": {
     "ok": true,
@@ -148,9 +148,9 @@
     "log_notices": [],
     "review_required": true,
     "reused": false,
-    "identity": "ea3909262450c422429fdc44c28b449c189931bc517b42c2a4d924e121656f3c",
-    "input_sha256": "0644b42720927258b99f26ec2241e82354ae0722c42eef1cc19d117b91eb429e",
-    "kept_run_directory": "/home/hevar/orca-slicer-review-slxluvbk",
+    "identity": "bb9bf72faaa175b04652cdc9ec2d6953d034329f452cd1a72d676312abbf6867",
+    "input_sha256": "e524cea91b277ec5575ade0b2cf2b2d62f1d627a035d04531fe8f00fe915a131",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-fbfcm79k",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",

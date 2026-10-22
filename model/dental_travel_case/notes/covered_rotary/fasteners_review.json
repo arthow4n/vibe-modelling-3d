@@ -2,26 +2,7 @@
   "ok": true,
   "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_covered_fasteners.py",
   "errors": [],
-  "views": [
-    {
-      "view": "isometric",
-      "ok": true,
-      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/print/covered/rotary_covered_fasteners_isometric.png",
-      "reused": true,
-      "camera": {
-        "from_direction": [
-          1,
-          -1,
-          1
-        ],
-        "up_direction": [
-          0,
-          0,
-          1
-        ]
-      }
-    }
-  ],
+  "views": [],
   "exports": [
     {
       "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/rotary_covered_fasteners.step",
@@ -35,16 +16,15 @@
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.0015107830113265663,
-    "build": 2.382546633016318,
-    "selection": 0.001403144997311756,
-    "validation": 0.02832524001132697,
-    "export_step": 0.0027802640106528997,
-    "export_stl": 0.0030490640201605856,
-    "render_isometric": 0.00026510399766266346,
-    "worker": 2.50108617200749,
-    "total": 31.076045160007197,
-    "slice": 22.956293908006046
+    "dependency_initialization": 0.0018951919919345528,
+    "build": 2.3173541630094405,
+    "selection": 0.0012887799821328372,
+    "validation": 0.027397075988119468,
+    "export_step": 0.0057309500116389245,
+    "export_stl": 0.005341132986359298,
+    "worker": 2.446803891012678,
+    "total": 17.133529480022844,
+    "slice": 12.676515583996661
   },
   "versions": {
     "python": "3.14.7",
@@ -55,7 +35,7 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "4e83675339fb8313864182b625cc4e74da651fce3983ae0974e78d8ead7d04a8",
+    "identity": "5b44b49ffc79cf003c9a90805e8b7ae4031d1d71e5274e5af160d1961dad5333",
     "artifact_identity": "d9b4096d8a5e9efb585413de80148020152895868d359be1c8d2503016c159d2"
   },
   "slice": {
@@ -143,7 +123,7 @@
     "reused": false,
     "identity": "9907da9bcc8ff3aff1569fe9538922780be62061eea42fe30b3d5371b18f7a20",
     "input_sha256": "87aa8540655d4e3764d94931b0281de0a212a1b53e9a637e0c058ebafc6d2c4d",
-    "kept_run_directory": "/home/hevar/orca-slicer-review-1sopya62",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-i24q_ph2",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",

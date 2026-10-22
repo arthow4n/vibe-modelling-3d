@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="570" viewBox="0 0 1000 570">
+<rect width="1000" height="570" fill="#fff"/>
+<style>text{font-family:Arial,sans-serif;fill:#243443;font-size:18px}.title{font-size:26px;font-weight:bold}.small{font-size:16px}.dim{stroke:#526577;stroke-width:1.5;fill:none}.cover{fill:#e8b660;stroke:#654b20;stroke-width:2}.wheel{fill:#84b8d7;stroke:#294d65;stroke-width:2}</style>
+<text x="45" y="45" class="title">Wraparound scalloped cap — the side gap is hidden</text>
+<text x="45" y="78">Dimensioned local edge section; same material, different colours identify parts.</text>
+<!-- Axial coordinate Y increases rightward: 60 pixels/mm, Y32 at X70.
+     Radial coordinate R increases upward: R14 at Y420, 60 pixels/mm. -->
+<rect x="106" y="240" width="252" height="180" rx="12" class="wheel"/>
+<path d="M106 132 H454 V420 H382 V204 H106 Z" class="cover" stroke-linejoin="round"/>
+<text x="150" y="330">Existing wheel</text>
+<text x="140" y="164">Continuous outer rim</text>
+<path d="M106 110 V98 H358 V110" class="dim"/>
+<text x="155" y="95" class="small">4.2 mm overlap</text>
+<path d="M495 132 H510 V204 H495" class="dim"/>
+<text x="525" y="162">1.2 mm rim wall</text>
+<path d="M264 204 V240 M255 204 H273 M255 240 H273" class="dim"/>
+<path d="M275 222 H540" class="dim"/>
+<text x="550" y="228">0.6 mm internal edge clearance</text>
+<path d="M358 380 H382 M358 370 V390 M382 370 V390" class="dim"/>
+<path d="M382 380 H540" class="dim"/>
+<text x="550" y="374">0.4 mm internal face clearance</text>
+<text x="550" y="398" class="small">Spring remains free behind the face.</text>
+<path d="M454 295 H540" class="dim"/>
+<text x="550" y="288">Smooth front face</text>
+<text x="550" y="313" class="small">Existing flush screw and hub keys retained.</text>
+<text x="75" y="460" class="small">Toward box / open rear</text>
+<text x="375" y="460" class="small">Outward face</text>
+<text x="45" y="510">The rim follows the same scallops, offset outward 1.8 mm to fit around the wheel.</text>
+<text x="45" y="540">Print smooth face down: the rim and keys grow upward, with no new underside roof.</text>
+</svg>

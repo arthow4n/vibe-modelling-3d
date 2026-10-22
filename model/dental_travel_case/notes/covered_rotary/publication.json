@@ -1,7 +1,7 @@
 {
   "source_sha256": {
-    "rotary_covered_design.py": "acdb1b8d5fae5f0304efaebbd707480128659108eb2ebea1b2da655eb28474d6",
-    "rotary_covered_checks.py": "15017eeab583d719b59a667ba6f240a04467a1f7ef3f63fa8e332e9b0e3972b1",
+    "rotary_covered_design.py": "cdab7e2167853a518ca9bfa3da6adecf0ef6eabda9173eb460fb4a52ae56edf4",
+    "rotary_covered_checks.py": "a1e029ece18b508dae6420aa933dde7b596d50b9cbf99996c485bedeb0580dde",
     "rotary_refinement_design.py": "aa905b165710b47d5437eeabf2b6a3c60630f4db42e34771f56f0e4be833ded5",
     "rotary_refinement_checks.py": "12e12dfc34026f96225ddf0d76680512274284ac5f5ebf20669d10bc797b93db",
     "rotary_conical_design.py": "8dab2fd3f7356e54c346b703657467fb34773d2b6a16a1d9429cf7e67e93a652",
@@ -9,74 +9,76 @@
     "rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
     "rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9",
     "m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
-    "rotary_covered_print_checks.py": "ddfb7336882b99b7b12aa9e3d10ab05615bb5c10fb9b36ca204d63002a414cec",
+    "rotary_covered_print_checks.py": "95e5c3a710d47061dbd8f2a23d433f6cc32b4d478cad8147b1f51d75713472b5",
     "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373",
     "rotary_covered_case.py": "c9ab74d4dbc7867731c95255a293aa3795c898dc33d67e3864c4e9e903a2838c",
     "rotary_covered_mechanism.py": "0dd7c0a5aaa87217e15b36ae0982022ad156c63c0f5105e5d384121d41128c72",
     "rotary_covered_complete_mechanism.py": "a79eb6866bd076202bf4cb12c9d320f3c6aafbe18b46a20dd83307036b5fb277",
     "rotary_covered_screw.py": "6c7020772ce26be505b5dbbce8a27a6c47eaceb6392f16d3ed77b90225bc6688",
     "rotary_covered_fasteners.py": "00875643e03a2465b611b4b0f8bd673cf64842638ff84bf859f3aeb13b05f0a4",
-    "rotary_covered_verification.py": "400aff3dc39507432fe3b1eba4b47b3a62d502624bf6d3a02cac53566683027a",
+    "rotary_covered_verification.py": "176f5d14a2ebf85b59fd0d3a268a6f353b13029c828ab2b7aac37b1f71e54535",
     "verification.py": "7e42f33f356d8b639f7d72f3f63ecc6af8c410ad82b3bc0d3d81ab6bd3dc4192",
     "rotary_covered_assembled.py": "3cdbd5f97caaebf9086bb740c1fd81f937c0fef4e93a0774442b65dcf318d0df",
     "rotary_covered_detail.py": "4ef297704c85c605c2afb7803c3ab2d6f33cd67ea50fe2451587d153b42a733f",
     "rotary_covered_section.py": "42e57290f44205545d12c5bf88af81d998873d289c151bb7fd91075ffd18393c"
   },
   "artifacts": {
-    "rotary_covered_case.step": "e43c4b34451d5173daafd6a096ea932a0f84f364d6be674124d94f78c8a7dc31",
+    "rotary_covered_case.step": "d603833a68115954192847cf24c07c0a920a5ef164e15182d40accc02c0f05c0",
     "rotary_covered_case.stl": "d839cf9a702e5c9fe330a40dae2302af22ff77570aaf59992c686451dea5a306",
-    "notes/covered_rotary/print_review.json": "eff90e21f48784b744d495e96219685076f70cc65357777f41a21565ae805c29",
-    "rotary_covered_mechanism.step": "4f26f999574b9ddb153e4987e2ce8784f3c7dcf38bdbddef3fa2843a9811b8e4",
-    "rotary_covered_mechanism.stl": "0644b42720927258b99f26ec2241e82354ae0722c42eef1cc19d117b91eb429e",
-    "notes/covered_rotary/mechanism_review.json": "3c396594da1b1cd076eec3f50183247f901cd79e951d123f8969459ecab28cf9",
-    "rotary_covered_complete_mechanism.step": "c951a8d6d8dfa0a5481e1d8243339ce039989dc3f7ca69c6fc7627741f7bfad4",
-    "rotary_covered_complete_mechanism.stl": "1124b09b714d7c4ed831018d2170750ad8fd7e9586069517655777f7e5e37745",
-    "notes/covered_rotary/complete_mechanism_review.json": "c066a1c8d9bdcae81df95399f87c5cba08153c15c5589c1abc3bae96249b46a2",
+    "notes/covered_rotary/print_review.json": "785c4dc941f06cc3003fa152b32649d31639b2084e025121c77f3ad7293b2225",
+    "rotary_covered_mechanism.step": "0a87275ad7dfdd91c2c443195ec3dc9da5b5d5c0d4fad5e3d3a92423d6aa6b8c",
+    "rotary_covered_mechanism.stl": "e524cea91b277ec5575ade0b2cf2b2d62f1d627a035d04531fe8f00fe915a131",
+    "notes/covered_rotary/mechanism_review.json": "3157776a102811e0d7f6c2829126acd20a03cbb5542dcc566b009a57f418c531",
+    "rotary_covered_complete_mechanism.step": "cf32365dbf2dcfb69d29475560c8466b16bb293db44e5947179171d9d1a206d9",
+    "rotary_covered_complete_mechanism.stl": "c1137d4c90900dece7ef85531c3dde3c12c857b55a5f08ae2ebfa7d452ce5052",
+    "notes/covered_rotary/complete_mechanism_review.json": "8b43b5f8af0162efd81c7233474a67107b5d4904d85c95948adbd6720b32bd18",
     "rotary_covered_screw.step": "6f3e4e069f29dc36b41457d06790af58a73f0f8b419b7fa6fab4f0a2ae3c3223",
     "rotary_covered_screw.stl": "7d7e1a1090fe4f79cdca7f28e526350273ac2f3280f133dfcc29add6fb90d0c2",
-    "notes/covered_rotary/screw_review.json": "06c4b1196fbfe6f6f4ca1e34d4b0ae0a0bf826ab9f9920dfe9c7a1316014fb8c",
+    "notes/covered_rotary/screw_review.json": "0b34bcbffe695b4862590f575842e571dbb500d2fe525895d2878f7e2a148df7",
     "rotary_covered_fasteners.step": "23f0145deadcc898152e0c1717c4df0d80c91c11bcc86c51cf1938d30a6aff39",
     "rotary_covered_fasteners.stl": "87aa8540655d4e3764d94931b0281de0a212a1b53e9a637e0c058ebafc6d2c4d",
-    "notes/covered_rotary/fasteners_review.json": "5cf55e9ee145769a597a9dbc9eb8d57fa408cd5b9c6492ec41dc5ac20e83fd00",
-    "notes/covered_rotary/cad.json": "c08aa5f891c11e05a43c44def298b03b2e29787dc1313f7f93f5e31462b66798",
-    "notes/covered_rotary/print_paths.json": "b349405b4180dab9e0612640c0152cfe178cee432f2f0a70bf67cd529bb105d7",
-    "notes/covered_rotary/assembled_review.json": "c6edaa3f19e8fcf57f8d518eb5e36df985d11d86ba1cd9162ff249e970921b97",
-    "notes/covered_rotary/detail_review.json": "c2d386f9cef36cb2287a27c66320fb350f64435d3e698cfd05708f15a35ece3e",
-    "notes/covered_rotary/section_review.json": "6b505aab5a33c7fe60c8e34404bff45e84a78be995996d6aa3da33660d986752",
+    "notes/covered_rotary/fasteners_review.json": "34d2f920b6376415811990a6a442156c489e55bbd51fdb3c918fdea1c21b22b8",
+    "notes/covered_rotary/cad.json": "d8bebeb7c9bcc1651665ae2efede425d5595fa8419a796bb9d339f51ae3ff84e",
+    "notes/covered_rotary/print_paths.json": "9182e7a3e6b56583abeecf7f49ac8b27293fc2d121f527b7a72347796322f0d0",
+    "notes/covered_rotary/assembled_review.json": "4719a83eff08fe44b2662a466c88e1f2587f41555a9d9c9c75169258c0e2b83c",
+    "notes/covered_rotary/detail_review.json": "0cc1dea5f1fe73421e63df5b7411fd3570d2851f4d867215fefbf9b8a1ce3b76",
+    "notes/covered_rotary/section_review.json": "82dfa6b116a5184ea0882e46e1ca2ace1d66faf9d6db118d67d68f21f9dd13e6",
     "notes/printed_fasteners/profiles/process.json": "094572d5a540096f50c7a3634b8f75454f04f7c952b8d388e31f781d480eb011",
-    "notes/rotary_refinement/profiles/process.json": "5ced22564c07759b610e99e5dba75ab1ac214ecfa2d87efd2a00d36b97912a56"
+    "notes/rotary_refinement/profiles/process.json": "5ced22564c07759b610e99e5dba75ab1ac214ecfa2d87efd2a00d36b97912a56",
+    "renders/assembled/covered/wraparound_section.svg": "67da7a2fc7f4f191b38d18fc87abcfbabf5c389e6ba2d69a4812a2d26070f040",
+    "renders/assembled/covered/wraparound_section.png": "60a0d38c983ba541e4c120d1c4b3d36404d054edf5355c6773631acb8d778fa2"
   },
   "publications": {
     "rotary_covered_case": {
       "report": "notes/covered_rotary/print_review.json",
-      "native_input_identity": "0cabee772ad9070fbeb2ea87760eebc93428f2073a952cfc23e232d59d8074b4",
-      "artifact_identity": "8b6f19e6d0d465bee1af0de1867c985348040c171d93830d13e9c15dac6dd510",
+      "native_input_identity": "d901b6c4f0eef98974e379d26f376cf30b51e4cdda3d6e6c15ee0756f5fbc65b",
+      "artifact_identity": "055b2b9496a9f4fe162244ee13adbfccf4f0c727ea6bf981a7f659a35753fbad",
       "slice_input_sha256": "d839cf9a702e5c9fe330a40dae2302af22ff77570aaf59992c686451dea5a306"
     },
     "rotary_covered_mechanism": {
       "report": "notes/covered_rotary/mechanism_review.json",
-      "native_input_identity": "9652c5eca1d6d7805bfe11e1458eb90c510802028943a9a9e0b960f4dfd0284a",
-      "artifact_identity": "4476240bf764a8908267d77466341719930f7447d7b3d2e964eb4b0f20203caf",
-      "slice_input_sha256": "0644b42720927258b99f26ec2241e82354ae0722c42eef1cc19d117b91eb429e"
+      "native_input_identity": "d487cbb03759aaa741e3fc822c087ffd8649f234d1973055e2bd94046e0899bc",
+      "artifact_identity": "6c68961acad05db14c28dfa1c849f0c4663587df5951169ba41cac5b9bab53b5",
+      "slice_input_sha256": "e524cea91b277ec5575ade0b2cf2b2d62f1d627a035d04531fe8f00fe915a131"
     },
     "rotary_covered_complete_mechanism": {
       "report": "notes/covered_rotary/complete_mechanism_review.json",
-      "native_input_identity": "a6f79e0ee11cae850f8b77cf3c01578846174334bc5716255c6cda946b89a854",
-      "artifact_identity": "b06d5fd050a83ba59bd342d025d2a37149c6b7141e1d3f9191d7165a9c78a739",
-      "slice_input_sha256": "1124b09b714d7c4ed831018d2170750ad8fd7e9586069517655777f7e5e37745"
+      "native_input_identity": "68c3cf8036e440ab2bb80cce33d2dcf53f4051bc93e07a8ccba16d581826b206",
+      "artifact_identity": "cd2c0322afa88d6a04ff21df921b40531029951170ace72a669d8d3cec17a9fa",
+      "slice_input_sha256": "c1137d4c90900dece7ef85531c3dde3c12c857b55a5f08ae2ebfa7d452ce5052"
     },
     "rotary_covered_screw": {
       "report": "notes/covered_rotary/screw_review.json",
-      "native_input_identity": "8be67867caaf8601397ff1b84a402c4c4cc9043f0c00becb60fb7b4fe2add206",
+      "native_input_identity": "01f84125392a8be1fefc08a04b2a6561a9d46941593d4021da50a626539d28e8",
       "artifact_identity": "2d15dc5a954101caed9bbb64050ab931674d98a24aeca8b82c69f4d7b908cb4a",
       "slice_input_sha256": "7d7e1a1090fe4f79cdca7f28e526350273ac2f3280f133dfcc29add6fb90d0c2"
     },
     "rotary_covered_fasteners": {
       "report": "notes/covered_rotary/fasteners_review.json",
-      "native_input_identity": "4e83675339fb8313864182b625cc4e74da651fce3983ae0974e78d8ead7d04a8",
+      "native_input_identity": "5b44b49ffc79cf003c9a90805e8b7ae4031d1d71e5274e5af160d1961dad5333",
       "artifact_identity": "d9b4096d8a5e9efb585413de80148020152895868d359be1c8d2503016c159d2",
       "slice_input_sha256": "87aa8540655d4e3764d94931b0281de0a212a1b53e9a637e0c058ebafc6d2c4d"
     }
   },
-  "association": "Final source hashes match current matching-profile/key engagement, full-case paths, solid-thread and local sliced-key/core/roof checks. Repository Python stayed unchanged during each final native publication. STEP/STL pairs share selected geometry and placement; each delivered STL matches its native slice. Physical printed trial success remains scoped to the earlier exposed mechanism. Current covered body/cap/nut match baseline CAD, and spring/nose material outside the hub remains unchanged. Primary control jobs have supports off, four walls and 100% infill; the forced probe plug in one short key-pocket roof is explicitly reviewed, rather than interpreted as a blanket support-free result. Native covered views were reviewed; final changes after those geometric views were print-layout choices only."
+  "association": "Final wraparound cap sources match CAD and local print-path receipts. Python remained frozen during all final native publications. Paired STEP/STL geometry and placement are native exports; every delivered STL matches its reviewed slice. Only the facecap geometry changes from the prior keyed revision: the wheel, body, lid, screw and nut remain compatible. The user has not printed this covered assembly; earlier successful quick-trial observations retain their separate scope. Four-wall 100%-infill controls keep supports off; the forced tiny key-pocket support plug is reviewed as a short bridge. Full-case removable supports stay outside storage. Wraparound views and the annotated local section were inspected. Physical force, fit and wear remain unknown."
 }

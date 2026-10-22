@@ -1,4 +1,4 @@
-"""Scalloped facecap positively keyed to the rigid wheel hub, clear of spring."""
+"""Wraparound scalloped facecap keyed to the rigid hub, clear of the spring."""
 from dataclasses import replace
 import cadquery as cq
 import m1_design as base
@@ -15,6 +15,9 @@ KEY_HEIGHT=2.8
 KEY_ENGAGEMENT=1.8
 KEY_CLEARANCE=.1
 KEY_BOTTOM_CLEARANCE=.15
+SKIRT_CLEARANCE=.6
+SKIRT_WALL=1.2
+SKIRT_OFFSET=SKIRT_CLEARANCE+SKIRT_WALL
 OFFSET=GAP+FACE_THICKNESS
 EXTENSION=FACE_EXTENSION+OFFSET
 
@@ -33,6 +36,27 @@ def screw_print_pose(part):
     return part.translate((0,0,EXTENSION))
 
 
+def grip_outline(d,*,offset):
+    """Parallel offset of the actual scalloped rotor perimeter in local XY."""
+    mid=(d.wheel_back+d.wheel_front)/2
+    blank=wheel_plate('wheel',dimensions=d,back=d.wheel_back,front=d.wheel_front)
+    slab=blank.intersect(base.box(0,mid,d.pivot,50,.04,50))
+    wire=slab.faces('>Y').val().outerWire()
+    wire=wire.translate((0,-mid-.02,-d.pivot)).rotate((0,0,0),(1,0,0),90)
+    return cq.Workplane('XY').add(wire).toPending().offset2D(offset)
+
+
+def wraparound_cover(d,*,front):
+    """Face-down printable cup; rear overlap hides the internal spring gap."""
+    depth=front-d.wheel_back
+    cup=grip_outline(d,offset=SKIRT_OFFSET).extrude(depth)
+    cavity=(grip_outline(d,offset=SKIRT_CLEARANCE).extrude(depth)
+            .translate((0,0,FACE_THICKNESS)))
+    cup=cup.cut(cavity).faces('<Z').edges().fillet(.5)
+    cup=cup.faces('>Z').edges().fillet(.2)
+    return cup.rotate((0,0,0),(1,0,0),90).translate((0,front,d.pivot))
+
+
 def covered_case():
     p=exposed_case();d=p['dimensions'];back=d.wheel_front+GAP;front=back+FACE_THICKNESS
     # Restore a straight through-bore in the hidden rotor: its old head recess
@@ -43,7 +67,7 @@ def covered_case():
          cq.Vector(0,d.wheel_front,d.pivot),cq.Vector(0,-1,0))).mirror('XZ')
     for name in ('rotor','rotor_rigid'):
         p[name]=p[name].union(fill).cut(bore).cut(lead).clean()
-    cover=wheel_plate('wheel',dimensions=d,back=back,front=front)
+    cover=wraparound_cover(d,front=front)
     cover=cover.cut(wheel_recess(replace(d,wheel_front=front)))
     ring=axial_cylinder(8.6,back,d.pivot,GAP).cut(axial_cylinder(6.4,back+.01,d.pivot,GAP+.02))
     shell=cover.union(ring).clean()

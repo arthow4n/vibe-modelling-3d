@@ -1,7 +1,7 @@
 {
   "source_sha256": {
-    "rotary_covered_print_checks.py": "ddfb7336882b99b7b12aa9e3d10ab05615bb5c10fb9b36ca204d63002a414cec",
-    "rotary_covered_design.py": "acdb1b8d5fae5f0304efaebbd707480128659108eb2ebea1b2da655eb28474d6",
+    "rotary_covered_print_checks.py": "95e5c3a710d47061dbd8f2a23d433f6cc32b4d478cad8147b1f51d75713472b5",
+    "rotary_covered_design.py": "cdab7e2167853a518ca9bfa3da6adecf0ef6eabda9173eb460fb4a52ae56edf4",
     "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373"
   },
   "exported_thread_missing_mm3": 0.0,
@@ -80,7 +80,7 @@
   ],
   "key_sections": [
     {
-      "x_mm": 150.5,
+      "x_mm": 149.6,
       "z_mm": 2.0,
       "coverage": {
         "filled_width_mm": 2.5999999999999943,
@@ -88,14 +88,14 @@
         "internal_gap_mm": 0,
         "intervals_mm": [
           [
-            116.7,
-            119.3
+            117.60000000000001,
+            120.2
           ]
         ]
       }
     },
     {
-      "x_mm": 150.5,
+      "x_mm": 149.6,
       "z_mm": 2.8,
       "coverage": {
         "filled_width_mm": 2.5999999999999943,
@@ -103,14 +103,14 @@
         "internal_gap_mm": 0,
         "intervals_mm": [
           [
-            116.7,
-            119.3
+            117.60000000000001,
+            120.2
           ]
         ]
       }
     },
     {
-      "x_mm": 150.5,
+      "x_mm": 149.6,
       "z_mm": 3.2,
       "coverage": {
         "filled_width_mm": 2.5999999999999943,
@@ -118,14 +118,14 @@
         "internal_gap_mm": 0,
         "intervals_mm": [
           [
-            116.7,
-            119.3
+            117.60000000000001,
+            120.2
           ]
         ]
       }
     },
     {
-      "x_mm": 164.5,
+      "x_mm": 163.6,
       "z_mm": 2.0,
       "coverage": {
         "filled_width_mm": 2.5999999999999943,
@@ -133,14 +133,14 @@
         "internal_gap_mm": 0,
         "intervals_mm": [
           [
-            116.7,
-            119.3
+            117.60000000000001,
+            120.2
           ]
         ]
       }
     },
     {
-      "x_mm": 164.5,
+      "x_mm": 163.6,
       "z_mm": 2.8,
       "coverage": {
         "filled_width_mm": 2.5999999999999943,
@@ -148,14 +148,14 @@
         "internal_gap_mm": 0,
         "intervals_mm": [
           [
-            116.7,
-            119.3
+            117.60000000000001,
+            120.2
           ]
         ]
       }
     },
     {
-      "x_mm": 164.5,
+      "x_mm": 163.6,
       "z_mm": 3.2,
       "coverage": {
         "filled_width_mm": 2.5999999999999943,
@@ -163,8 +163,8 @@
         "internal_gap_mm": 0,
         "intervals_mm": [
           [
-            116.7,
-            119.3
+            117.60000000000001,
+            120.2
           ]
         ]
       }
@@ -172,7 +172,7 @@
   ],
   "pocket_roof_sections": [
     {
-      "x_mm": 105.5,
+      "x_mm": 104.6,
       "z_mm": 2.2,
       "coverage": {
         "filled_width_mm": 2.8000000000000114,
@@ -180,14 +180,14 @@
         "internal_gap_mm": 0,
         "intervals_mm": [
           [
-            116.6,
-            119.4
+            117.5,
+            120.30000000000001
           ]
         ]
       }
     },
     {
-      "x_mm": 119.5,
+      "x_mm": 118.6,
       "z_mm": 2.2,
       "coverage": {
         "filled_width_mm": 2.8000000000000114,
@@ -195,8 +195,8 @@
         "internal_gap_mm": 0,
         "intervals_mm": [
           [
-            116.6,
-            119.4
+            117.5,
+            120.30000000000001
           ]
         ]
       }
@@ -241,14 +241,14 @@
   },
   "control_probe_reviews": {
     "mechanism": {
-      "segments": 261,
+      "segments": 265,
       "roles": [
         "Support"
       ],
       "decision": "Primary supports remain off. Tiny 2.6x3mm blind-pocket roof is a short doubly anchored bridge; support plug is confined to that pocket. Roof finish remains a physical check."
     },
     "complete": {
-      "segments": 261,
+      "segments": 264,
       "roles": [
         "Support"
       ],
@@ -264,15 +264,15 @@
     }
   },
   "gcode_sha256": {
-    "mechanism": "c28df9f37c8e0350958e9f2bc8c3b697b93ff528f5fb4f6d1137d3f95159ea09",
-    "complete": "773e05a271743895c86590b21600ca05f268e2d49cb383e0b82b7b233e6d172c",
-    "screw": "592e73c51652f3fff72c4959ac5be6a56a98a46b02dd107e4b613fb2fef0b024",
-    "full": "8a548dc17b288043d5c0f1f5c2c3baa1440feda53ea6cac63da191bda205afec",
-    "fasteners": "30f4a0253d432bc92586d03b8c3e7dabbe5acc074510057b0e32f6f064d3499a"
+    "mechanism": "a0dd3d448cd261c21d79ebb5d82ce2f74e600db8d8e4ce749f0a7395b23c41b9",
+    "complete": "82d06d87e5cc83cd20b62a2b73f5706bd07886852812703b9c202f86a8630c49",
+    "screw": "efd448b22a7232b9767df3a75d0c80064f30b9d1257b02a80ccebb7251d6ba2a",
+    "full": "580a2730c55e3c1d73dbd34393fac49515f03054cf474c61b67862f2bd6b78f5",
+    "fasteners": "721885b13c4eb9dca3dd8e646567b67560d548301bd95844aecb7066546cf2d7"
   },
   "slice_inputs": {
-    "mechanism": "0644b42720927258b99f26ec2241e82354ae0722c42eef1cc19d117b91eb429e",
-    "complete": "1124b09b714d7c4ed831018d2170750ad8fd7e9586069517655777f7e5e37745",
+    "mechanism": "e524cea91b277ec5575ade0b2cf2b2d62f1d627a035d04531fe8f00fe915a131",
+    "complete": "c1137d4c90900dece7ef85531c3dde3c12c857b55a5f08ae2ebfa7d452ce5052",
     "screw": "7d7e1a1090fe4f79cdca7f28e526350273ac2f3280f133dfcc29add6fb90d0c2",
     "full": "d839cf9a702e5c9fe330a40dae2302af22ff77570aaf59992c686451dea5a306",
     "fasteners": "87aa8540655d4e3764d94931b0281de0a212a1b53e9a637e0c058ebafc6d2c4d"
