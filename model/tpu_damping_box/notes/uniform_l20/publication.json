@@ -6,7 +6,7 @@
     "uniform_l20_checks.py": "cb935a811686232bb027b23ec3de71698f3f8833983351f959d8400b8d174e9a",
     "uniform_l20_print_checks.py": "eac99aec2c3e4ab1ff1197f926766dc544882cff780578e7c6933d5135a18461",
     "uniform_l20_verification.py": "15fa58762bb0cb31fbf2fc16a523b177fcd189692473b35b26788f1cc774064c",
-    "verification.py": "96638de91dbe2db71f3c0acdb8fb51fbb4000354c09e8f3184399bf6e28dbed5",
+    "verification.py": "edc95c0ea3ba82f61868b99b3c1a7a783bcfcc8540e88fb2f6f88110a189408f",
     "thin_gap_design.py": "7013bc517e873899609832429f76fcd2da80e718275ae20b275be76f3da290d8",
     "t_skin_design.py": "c02f331546c119f62ca47906495f7f95266f2f41ae670f93cf1651c5198c3092",
     "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503"
@@ -25,5 +25,5 @@
   "native_artifact_identity": "ba4d3567aaa847708f327148bb75532f937db2b0eed1b5beaa5c1864f86c54fe",
   "slice_input_sha256": "2b17589542cc3768ffe7a2e5f165b2e16536a7539fa944bf7183513ecc8ed5d8",
   "slice_identity": "e96935593f195f999b44e5c2c97e12e016b8df986b737ca0918e82e1d08df8ca",
-  "association": "Both raw exports from the same selected native print assembly and placement. Repository Python frozen during publication. Matching STL accepted under shared TPU profiles; actual skin/core paths reviewed. Old floor approval not inherited; new printed function remains unknown. After publication, only pad seating-contact witnesses were added to the geometry check; the unchanged builder now also proves contact with both cup seat and rigid lid, with downward overtravel obstruction. Native paired geometry and placement are unchanged."
+  "association": "Both raw exports from the same selected native print assembly and placement. Repository Python frozen during publication. Matching STL accepted under shared TPU profiles; actual skin/core paths reviewed. Old floor approval not inherited; new printed function remains unknown. After publication, only pad seating-contact witnesses were added to the geometry check; the unchanged builder now also proves contact with both cup seat and rigid lid, with downward overtravel obstruction. Native paired geometry and placement are unchanged. Reviewed gap-comparison extension: verification.py adds explicit G08/G16 routes only. The selected uniform-L20 source, profile, exports and printed scope are unchanged."
 }

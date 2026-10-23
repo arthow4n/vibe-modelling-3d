@@ -53,3 +53,5 @@ The bed-facing skins have four ordinary layers; the 0.4 mm void has two layer he
 The failure came from independently retaining a legacy horizontal recipe. Current dimension aliases and the shared floor-core builder are consumed by both the experiment and dental application. Future L20 adaptations must import the standard rather than copy historical floor constants. Old T08/L18/L20 sources are historical comparisons, not a current template. Another profile needs an explicit user decision, not a silent orientation-specific substitution.
 
 Primary language model: GPT-6 family; exact identifier and reasoning effort not exposed. Harness: Codex shared-workspace coding agent. Provider: OpenAI. No subagents. User selected orientation consistency and supplied the physical print reports. Geometry retains the repository license; derived profile JSON retains AGPL-3.0 attribution.
+
+The later [G08/G16 gap comparison](gap_comparison.md) explores 0.8 and 1.6 mm cores only in the test fixture. It is an explicitly requested experiment, not a change to this selected standard or its dental application.

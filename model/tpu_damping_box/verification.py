@@ -213,6 +213,9 @@ def closed_plan(variant):
 
 
 def make_plan(variant):
+    if variant in ('G08','G16'):
+        from gap_comparison_verification import make_plan as gap_plan
+        return gap_plan(variant,REQUIREMENTS)
     if variant=='uniform-l20':
         from uniform_l20_verification import make_plan as uniform_plan
         return uniform_plan(variant,REQUIREMENTS)
@@ -259,4 +262,4 @@ def make_plan(variant):
 
 
 if __name__=='__main__':
-    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10','S16','S12','F0','F1','F2','F3','F4','F5','F6','F7','A16','A20','B08','B16','C12','C16','T08','T16','L20','L18','uniform-l20')))
+    raise SystemExit(cli(make_plan,('A','B','C','D','E','F','G','H','I','I30','I22','I10','S16','S12','F0','F1','F2','F3','F4','F5','F6','F7','A16','A20','B08','B16','C12','C16','T08','T16','L20','L18','uniform-l20','G08','G16')))

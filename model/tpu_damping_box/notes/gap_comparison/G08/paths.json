@@ -1,0 +1,426 @@
+{
+  "source_sha256": {
+    "gap_comparison_design.py": "1e2dedc760d2cbc15d003cad432970305688e76936b6db958eb50118bded1ad0",
+    "gap_comparison_print_checks.py": "d01b2f31ff01b64858552c872270f29ee1caec6480ae981b1a5c239094c944f2",
+    "l20_standard.py": "0e8e67fb3613d6826387caed0e1c87fa0f0a96d3ed7089d7313f377295772750",
+    "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373"
+  },
+  "sections": [
+    {
+      "part": "cup",
+      "kind": "skin",
+      "z_mm": 0.2,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cup",
+      "kind": "skin",
+      "z_mm": 0.4,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cup",
+      "kind": "skin",
+      "z_mm": 0.6,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cup",
+      "kind": "skin",
+      "z_mm": 0.8,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cup",
+      "kind": "skin",
+      "z_mm": 1.8,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cup",
+      "kind": "skin",
+      "z_mm": 2.0,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cup",
+      "kind": "skin",
+      "z_mm": 2.2,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cup",
+      "kind": "skin",
+      "z_mm": 2.4,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cup",
+      "kind": "air",
+      "z_mm": 1.0,
+      "coverage": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.7999999999999972,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "part": "cup",
+      "kind": "air",
+      "z_mm": 1.6,
+      "coverage": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.7999999999999972,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "part": "pad",
+      "kind": "skin",
+      "z_mm": 0.2,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "pad",
+      "kind": "skin",
+      "z_mm": 0.4,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "pad",
+      "kind": "skin",
+      "z_mm": 0.6,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "pad",
+      "kind": "skin",
+      "z_mm": 0.8,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "pad",
+      "kind": "skin",
+      "z_mm": 1.8,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "pad",
+      "kind": "skin",
+      "z_mm": 2.0,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "pad",
+      "kind": "skin",
+      "z_mm": 2.2,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "pad",
+      "kind": "skin",
+      "z_mm": 2.4,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            60.7,
+            61.5
+          ]
+        ]
+      }
+    },
+    {
+      "part": "pad",
+      "kind": "air",
+      "z_mm": 1.0,
+      "coverage": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.7999999999999972,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "part": "pad",
+      "kind": "air",
+      "z_mm": 1.6,
+      "coverage": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.7999999999999972,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "part": "wall",
+      "kind": "skin",
+      "z_mm": 13.8,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            43.0,
+            43.8
+          ]
+        ]
+      }
+    },
+    {
+      "part": "wall",
+      "kind": "skin",
+      "z_mm": 13.8,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            44.6,
+            45.4
+          ]
+        ]
+      }
+    },
+    {
+      "part": "wall",
+      "kind": "air",
+      "z_mm": 13.8,
+      "coverage": {
+        "filled_width_mm": 7.105427357601002e-15,
+        "uncovered_width_mm": 0.7999999999999972,
+        "internal_gap_mm": 0.7999999999999972,
+        "intervals_mm": [
+          [
+            43.8,
+            43.800000000000004
+          ],
+          [
+            44.6,
+            44.6
+          ]
+        ]
+      }
+    },
+    {
+      "part": "wall",
+      "kind": "skin",
+      "z_mm": 13.8,
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            76.2,
+            77.0
+          ]
+        ]
+      }
+    },
+    {
+      "part": "wall",
+      "kind": "skin",
+      "z_mm": 13.8,
+      "coverage": {
+        "filled_width_mm": 0.799999999999983,
+        "uncovered_width_mm": 2.842170943040401e-14,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            74.60000000000001,
+            75.39999999999999
+          ]
+        ]
+      }
+    },
+    {
+      "part": "wall",
+      "kind": "air",
+      "z_mm": 13.8,
+      "coverage": {
+        "filled_width_mm": 0.0,
+        "uncovered_width_mm": 0.7999999999999972,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            76.2,
+            76.2
+          ]
+        ]
+      }
+    }
+  ],
+  "variant": "G08",
+  "profile_mm": [
+    0.8,
+    0.8,
+    0.8
+  ],
+  "support_segments": 687,
+  "support_z_mm": [
+    1.4,
+    1.4
+  ],
+  "support_review": "Any proposed supports confined to enclosed floor cores; primary supports off. Roof stays a physical bridge trial.",
+  "review_complete": true,
+  "gcode_sha256": "354d04b832d113cdd55deb1fac4bd7da12c651a225776cc00e1973f98b3cb01b",
+  "input_sha256": "dd5660a34f4caabb53a2243e0b6b7ad58834126fbe57c06c872a58d880e5f452",
+  "limits": "Selected-profile path presence/open core, not measured sag, bond quality, damping or stiffness"
+}

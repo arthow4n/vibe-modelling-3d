@@ -97,8 +97,8 @@ Slim two-piece rotary-lock box (`75.8 × 52.8 × 264 mm`) for a toothbrush and t
 
 #### TPU damping box & wall-support research — [`model/tpu_damping_box/`](model/tpu_damping_box/README.md)
 30–34 mm TPU 95A test coupons used to qualify impact damping, tall-wall support durability, and surface finish before full liner prints.
-- **Action / Print:** New [uniform L20 cup + matching lid pad STEP](model/tpu_damping_box/uniform_l20.step) / [STL](model/tpu_damping_box/uniform_l20.stl). All active walls/floor/pad use **0.8 / 0.4 air / 0.8 mm**, importing one shared standard. Reuse rigid enclosure. [Setup and evidence](model/tpu_damping_box/notes/l20_standard.md).
-- **Test pieces:** Earlier L20/L18/T08 wall/damping preference retained; fragile floors prompted the uniform revision, **no new print report yet**. Old thin-floor kits/pads, T16, A16/A20, solid controls and torn I10 are not current print recommendations.
+- **Action / Print:** New larger-gap tests: [G08 STEP](model/tpu_damping_box/gap_G08.step) / [STL](model/tpu_damping_box/gap_G08.stl), [G16 STEP](model/tpu_damping_box/gap_G16.step) / [STL](model/tpu_damping_box/gap_G16.stl). Each contains a cup + matching pad, fixed 0.8 mm skins with 0.8 / 1.6 mm air consistently across walls/floor/pad. Reuse rigid enclosure. [Setup and comparison](model/tpu_damping_box/notes/gap_comparison.md).
+- **Test pieces:** G08/G16 physical result unknown. Uniform L20 remains the 0.4 mm baseline; dental liner unchanged. Earlier L20/L18/T08 walls/damping preferred but old floors fragile. Old thin-floor kits and rejected firm/solid variants remain historical.
 - **Final object:** N/A — research samples feeding the sunglasses and dental liners.
 - **Provenance:** [Record](model/tpu_damping_box/README.md#attribution) · **Agent effort:** N/A — no performance study requested
 

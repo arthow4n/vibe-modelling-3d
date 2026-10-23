@@ -1,0 +1,28 @@
+{
+  "source_sha256": {
+    "gap_comparison_design.py": "1e2dedc760d2cbc15d003cad432970305688e76936b6db958eb50118bded1ad0",
+    "gap_comparison_checks.py": "90d7e799c0e5ca50755ff9119c4496d85dee3890bd20be7b058468a07068bf81",
+    "gap_comparison_print_checks.py": "d01b2f31ff01b64858552c872270f29ee1caec6480ae981b1a5c239094c944f2",
+    "gap_comparison_verification.py": "b3efdfab6200f5061a6b3ae7188e98fa7ac362ad93eaf2d56303d0dd0d174f8a",
+    "verification.py": "edc95c0ea3ba82f61868b99b3c1a7a783bcfcc8540e88fb2f6f88110a189408f",
+    "gap_G16.py": "066cf73b13b3f043c488d47d39368cc92ce6bd95d8c042a8ef47b2f5d896f33f",
+    "l20_standard.py": "0e8e67fb3613d6826387caed0e1c87fa0f0a96d3ed7089d7313f377295772750",
+    "t_skin_design.py": "c02f331546c119f62ca47906495f7f95266f2f41ae670f93cf1651c5198c3092",
+    "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+    "checks.py": "62bf2edb0c657753baa7a9247c0fb34e1a7324568974db70d2f88ed18169f5b5"
+  },
+  "artifacts": {
+    "gap_G16.step": "68cd1d2499592340e0d5c3b74046316eecb0f39116b889b83d316a601559b8ca",
+    "gap_G16.stl": "a9ddebf3fa9984a20d3ae6e7f77dbcf6bff409d373d91bcd52fa636713e0ab80",
+    "profiles/l20-uniform-process.json": "2c8eaecee01e7d1be51b3ec7955fd3682512af2599f06d6bd8467dc24d47a877",
+    "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+    "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd",
+    "notes/gap_comparison/G16/cad.json": "bca5a5522ede2a4621e118cd377d252e4fe2bf1e0395e75e913babe9329e0b16",
+    "notes/gap_comparison/G16/paths.json": "870a419a7786db8659a2b68ca45f0d16177fe1ea7060de2b8cfa80715afa1dfd",
+    "notes/gap_comparison/G16/native.json": "7ef605053bdcc80a3292043c61ec8406ff4f25fa2940820a0b40ca52fbae0f7d"
+  },
+  "native_input_identity": "f27499a52d75429f04b018caf8a6eb3f88019a08c7a9b4b86048463443732f23",
+  "native_artifact_identity": "0f7a20c051c140988c4a7492f536e0a4b59db99a567836436f372743e58ba302",
+  "slice_input_sha256": "a9ddebf3fa9984a20d3ae6e7f77dbcf6bff409d373d91bcd52fa636713e0ab80",
+  "association": "Paired native exports share selected geometry/placement; repository Python frozen during publication. Sliced STL identity matches. Support-off primary completed; actual skin/core paths and enclosed forced-probe supports reviewed separately. Post-publication check-only support-location refinement does not change printable geometry."
+}

@@ -1,0 +1,328 @@
+{
+  "source_sha256": {
+    "gap_comparison_design.py": "1e2dedc760d2cbc15d003cad432970305688e76936b6db958eb50118bded1ad0",
+    "gap_comparison_checks.py": "90d7e799c0e5ca50755ff9119c4496d85dee3890bd20be7b058468a07068bf81",
+    "gap_G08.py": "f3f28269d696375f3e6acf1d9bb645ee5e5fe329a0908677bbf77195c11406a7",
+    "gap_G16.py": "066cf73b13b3f043c488d47d39368cc92ce6bd95d8c042a8ef47b2f5d896f33f",
+    "l20_standard.py": "0e8e67fb3613d6826387caed0e1c87fa0f0a96d3ed7089d7313f377295772750",
+    "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503",
+    "t_skin_design.py": "c02f331546c119f62ca47906495f7f95266f2f41ae670f93cf1651c5198c3092"
+  },
+  "variant": "G16",
+  "skin_mm": 0.8,
+  "gap_mm": 1.6,
+  "total_mm": 3.2,
+  "clear_cube_mm": 27.6,
+  "probes": [
+    {
+      "label": "floor",
+      "point_mm": [
+        1.1,
+        1.1,
+        0.2
+      ],
+      "material": true
+    },
+    {
+      "label": "floor",
+      "point_mm": [
+        1.1,
+        1.1,
+        0.6
+      ],
+      "material": true
+    },
+    {
+      "label": "floor",
+      "point_mm": [
+        1.1,
+        1.1,
+        1.6
+      ],
+      "material": false
+    },
+    {
+      "label": "floor",
+      "point_mm": [
+        1.1,
+        1.1,
+        2.6000000000000005
+      ],
+      "material": true
+    },
+    {
+      "label": "floor",
+      "point_mm": [
+        1.1,
+        1.1,
+        3.0
+      ],
+      "material": true
+    },
+    {
+      "label": "floor post",
+      "point_mm": [
+        -6.6,
+        -6.6,
+        0.9
+      ],
+      "material": true
+    },
+    {
+      "label": "floor post",
+      "point_mm": [
+        -6.6,
+        -6.6,
+        2.3000000000000003
+      ],
+      "material": true
+    },
+    {
+      "label": "pad",
+      "point_mm": [
+        1.1,
+        1.1,
+        0.2
+      ],
+      "material": true
+    },
+    {
+      "label": "pad",
+      "point_mm": [
+        1.1,
+        1.1,
+        0.6
+      ],
+      "material": true
+    },
+    {
+      "label": "pad",
+      "point_mm": [
+        1.1,
+        1.1,
+        1.6
+      ],
+      "material": false
+    },
+    {
+      "label": "pad",
+      "point_mm": [
+        1.1,
+        1.1,
+        2.6000000000000005
+      ],
+      "material": true
+    },
+    {
+      "label": "pad",
+      "point_mm": [
+        1.1,
+        1.1,
+        3.0
+      ],
+      "material": true
+    },
+    {
+      "label": "pad post",
+      "point_mm": [
+        -6.6,
+        -6.6,
+        0.9
+      ],
+      "material": true
+    },
+    {
+      "label": "pad post",
+      "point_mm": [
+        -6.6,
+        -6.6,
+        2.3000000000000003
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        -16.8,
+        -4.4,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        -16.4,
+        -4.4,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        -15.4,
+        -4.4,
+        13.400000000000002
+      ],
+      "material": false
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        -14.399999999999999,
+        -4.4,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        -14.0,
+        -4.4,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        4.3999999999999995,
+        -16.8,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        4.3999999999999995,
+        -16.4,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        4.3999999999999995,
+        -15.4,
+        13.400000000000002
+      ],
+      "material": false
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        4.3999999999999995,
+        -14.399999999999999,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        4.3999999999999995,
+        -14.0,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        16.8,
+        4.399999999999999,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        16.4,
+        4.399999999999999,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        15.4,
+        4.399999999999999,
+        13.400000000000002
+      ],
+      "material": false
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        14.399999999999999,
+        4.399999999999999,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        14.0,
+        4.399999999999999,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        -4.399999999999998,
+        16.8,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        -4.399999999999998,
+        16.4,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        -4.399999999999998,
+        15.4,
+        13.400000000000002
+      ],
+      "material": false
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        -4.399999999999998,
+        14.399999999999999,
+        13.400000000000002
+      ],
+      "material": true
+    },
+    {
+      "label": "wall",
+      "point_mm": [
+        -4.399999999999998,
+        14.0,
+        13.400000000000002
+      ],
+      "material": true
+    }
+  ],
+  "pad_seat_gap_mm": 0.0,
+  "pad_lid_gap_mm": 0.0,
+  "pad_stop_obstruction_mm3": 26.224000000000366,
+  "limits": "Rigid section/fit only; cavity size changes with gap. No measured damping, stiffness, sag or durability."
+}

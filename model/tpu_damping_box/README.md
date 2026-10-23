@@ -8,6 +8,7 @@ A small `38.4 × 38.4 × 42.4 mm` rigid test enclosure (two M3 screws/nuts + a l
 
 | Workstream | Status | What to Do / Printable Files |
 | --- | --- | --- |
+| **0. Current gap experiment** | **G08 / G16 prepared; physical result unknown** | Print [G08 STEP](gap_G08.step) / [STL](gap_G08.stl) and [G16 STEP](gap_G16.step) / [STL](gap_G16.stl), each with a matching pad. Fixed 0.8 mm skins; uniform **0.8 or 1.6 mm air** in all faces. Reuse the rigid box. [Setup, comparison and evidence](notes/gap_comparison.md). |
 | **1. Current uniform L20 standard** | **Revised pair; physical print unknown** | Print [cup + matching lid pad STEP](uniform_l20.step) / [STL](uniform_l20.stl). All active walls, floor and pad are **0.8 / 0.4 air / 0.8 mm**. Reuse the rigid enclosure; replace both soft parts. [Shared standard, setup and evidence](notes/l20_standard.md). |
 | **2. Earlier L20 / L18 / T08 comparison** | **Historical wall/damping preference; floor fragile** | Earlier printed variants remain for history. Their thinner floor recipe is superseded, so do not use their files or older pad as the revised standard. [Physical comparison and floor clarification](notes/thin_gap/README.md). |
 | **3. Optional Flat Surface Coupons (`F0`–`F7`)** | **Optional / Deferred (`Unknown`)** | Eight `30 × 30 mm` flat bottom-plate coupons ([`surface_samples.step`](surface_samples.step) / [`.stl`](surface_samples.stl)) testing whether thicker skins or denser ribs reduce `50%`-ironing waviness ([setup below](#surface-finish-coupons--2026-10-17)). |
