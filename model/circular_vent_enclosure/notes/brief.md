@@ -63,3 +63,15 @@ These authorize the material/mount revision. The selected 1.4 mm curved sidewall
 and chosen fasteners are engineering decisions, not user-supplied dimensions or
 validated fit/holding-force requirements. Preserve the initial approximate wall
 and front preferences above as historical user guidance; the front remains 2.4 mm.
+
+## Fastener access revision
+
+The user rejects the V2 screw/nut directions as awkward for driver access and
+requests a model fix with clearer, assessable fastener placement. The intended
+sequence is to screw the hood and clamp together while off the valve, then tighten
+the rim clamp from an accessible side. Nut loading must also be easier.
+The user explicitly agrees to keep the existing stiffening ribs.
+
+Reversing the M4 drive side, moving M3 heads to the open rear, providing captive
+side-loading hood nuts and illustrated tool paths are engineering implementations
+of that direction. Metal head sizes and physical tightening/creep remain untested.

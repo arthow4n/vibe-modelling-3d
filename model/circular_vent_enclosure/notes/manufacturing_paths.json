@@ -1,5 +1,5 @@
 {
-  "variant": "v2-clamp",
+  "variant": "v3-access",
   "sections": [
     {
       "z_mm": 16.0,
@@ -10,29 +10,29 @@
       "distinct_crossings": 3,
       "crossings": [
         [
-          240.30141,
+          240.30999,
           0.42,
           "Outer wall"
         ],
         [
-          241.278,
+          241.2873,
           0.42,
           "Outer wall"
         ],
         [
-          240.7894,
-          0.629934,
+          240.79894,
+          0.630077,
           "Gap infill"
         ]
       ],
       "coverage": {
-        "filled_width_mm": 1.3880047759298009,
-        "uncovered_width_mm": 0.011995224070204813,
+        "filled_width_mm": 1.3973045059524907,
+        "uncovered_width_mm": 0.0026954940475150124,
         "internal_gap_mm": 0,
         "intervals_mm": [
           [
             240.1,
-            241.4880047759298
+            241.49730450595248
           ]
         ]
       }
@@ -40,45 +40,45 @@
     {
       "z_mm": 42.0,
       "span_mm": [
-        232.20830240031037,
-        233.96153846153845
+        229.6587484786757,
+        231.3181818181818
       ],
       "distinct_crossings": 5,
       "crossings": [
         [
-          232.88101,
+          230.31387,
           0.45,
           "Inner wall"
         ],
         [
-          233.42388,
+          230.77337,
           0.45,
           "Inner wall"
         ],
         [
-          232.48902,
+          229.92182,
           0.42,
           "Outer wall"
         ],
         [
-          233.81647,
+          231.1657,
           0.42,
           "Outer wall"
         ],
         [
-          233.15112,
-          0.183459,
+          230.5427,
+          0.0956608,
           "Gap infill"
         ]
       ],
       "coverage": {
-        "filled_width_mm": 1.682528076805113,
-        "uncovered_width_mm": 0.07070798442296677,
+        "filled_width_mm": 1.6063642549447081,
+        "uncovered_width_mm": 0.05306908456140036,
         "internal_gap_mm": 0,
         "intervals_mm": [
           [
-            232.27901038473334,
-            233.96153846153845
+            229.7118175632371,
+            231.3181818181818
           ]
         ]
       }
@@ -86,41 +86,46 @@
   ],
   "supports": {
     "hood": {
-      "input_sha256": "80bca2106579755a8e31c4d6f3838da6cf1a7ecf67f484e04150a80b35b0a7c6",
-      "gcode_sha256": "f422156436916deab9aafe730cdce9f14e7803fe9a5ef9aa08317ab804a341fc",
-      "supports_in_primary": true,
-      "support_z_min_mm": 0.2,
-      "support_z_max_mm": 65.0,
-      "support_segments": 62152,
-      "support_roles": [
-        "Support",
-        "Support interface"
-      ]
+      "input_sha256": "d6652af75f47374c7028a3e209f19ff054253c2e24069f6bdbcb81b4cfa54b26",
+      "gcode_sha256": "b08c96a7131fd1d3e0a7dd62be9df2a04254e47f24b5374fd8e5f952bdef5e92",
+      "supports_in_primary": false,
+      "support_enabled_in_primary": false,
+      "support_z_min_mm": null,
+      "support_z_max_mm": null,
+      "support_segments": 0,
+      "support_roles": [],
+      "diagnostic_support_z_max_mm": 65.0,
+      "displayed_layer_mm": 65.2,
+      "displayed_bridge_roles": []
     },
     "clamp": {
-      "input_sha256": "231d0aa4309f7324bd7edd9e9354291e976581add2401c5822589fa7f405b6af",
-      "gcode_sha256": "1504eef43e2aaa196e7792ab9fde1d70af1b97aa8160405d10b8568b770c9822",
+      "input_sha256": "bb80c2b8044ef3c92144bbcf75ce63219efc95e5400f68b79c3f1af5984fdbd3",
+      "gcode_sha256": "a04031d92697b4d3d652f975df6a76199aec40cfc42d5ed7ebdb9383b2ca99c0",
       "supports_in_primary": true,
+      "support_enabled_in_primary": true,
       "support_z_min_mm": 0.2,
-      "support_z_max_mm": 5.0,
-      "support_segments": 8843,
+      "support_z_max_mm": 0.6,
+      "support_segments": 146,
       "support_roles": [
         "Support",
         "Support interface"
-      ]
+      ],
+      "diagnostic_support_z_max_mm": 0.6,
+      "displayed_layer_mm": 0.6,
+      "displayed_bridge_roles": []
     }
   },
   "primary_filament_estimates_g": {
-    "hood": 175.4,
-    "clamp": 33.18
+    "hood": 170.08,
+    "clamp": 32.9
   },
-  "combined_primary_filament_g": 208.58,
-  "reduction_vs_v1_slice_percent": 5.568634552698293,
+  "combined_primary_filament_g": 202.98000000000002,
+  "reduction_vs_v1_slice_percent": 8.103947844983693,
   "source_sha256": {
-    "circular_vent_enclosure.py": "d8580a54721734586aca56e3d8af7c5c8765c612c3bcb926dc7b09769a5630fa",
-    "mounting_clamp.py": "bc9455a193f117d43fda3bf30b9f59fe25679893af7316cdb46335ac52cfe131",
-    "vent_parameters.py": "b0c5d8988391cd9462950ca07de2d6569c90ad464e08b4d1100c758481e823fc",
-    "inspect_paths.py": "db78b4311ed5e3567f215108076e1536d6cc2337996b5f9160a8384ee8557ea5"
+    "circular_vent_enclosure.py": "60648fb4f1e939b695d936bb0324f4b585f583af4b12639b0ae49a05c13916c2",
+    "mounting_clamp.py": "6dab94992bd5c3cbbaee32b7624a93190f8aa447c029075c739c5edfcc7ec307",
+    "vent_parameters.py": "33226783cf38884ec9a26fd63a6c50b69c1b6f5586c44cbd0415952a3c156465",
+    "inspect_paths.py": "2377d0ac87b80478a8b44efa7b6320c5bb1c6c8b37ef40c16651af62473da116"
   },
   "scope": "Selected-profile local path coverage and accessible support locations only. Not deposited dimensions, print strength, sag or successful physical support removal."
 }

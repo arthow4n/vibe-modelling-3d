@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/fastener_layout.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/renders/assembled/fastener_layout_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013990440056659281,
+    "build": 18.625841626009787,
+    "selection": 0.0010158950026379898,
+    "validation": 0.5075136770028621,
+    "render_isometric": 5.233817882995936,
+    "worker": 24.596865305007668,
+    "total": 28.42765045100532
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "6f0496f466889c7e9a626f0ba73afa13cde4742fedbb1ded401eb28f7b2e358b",
+    "artifact_identity": "0915009f01a0c167d951bbf7d7b95c791639500bee35f5bdda9d3393fa6c577a"
+  }
+}

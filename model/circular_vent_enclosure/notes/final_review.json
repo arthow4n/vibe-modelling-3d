@@ -16,15 +16,15 @@
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.0018173650023527443,
-    "build": 21.026977069006534,
-    "selection": 0.0009352169872727245,
-    "validation": 0.2908752049988834,
-    "export_step": 0.015477416003705002,
-    "export_stl": 0.10500788698846009,
-    "worker": 21.65915969699563,
-    "total": 42.41485251300037,
-    "slice": 18.169920503001777
+    "dependency_initialization": 0.0013863610074622557,
+    "build": 15.867982564988779,
+    "selection": 0.000851423988933675,
+    "validation": 0.28389423500630073,
+    "export_step": 0.015235657992889173,
+    "export_stl": 0.11485506998724304,
+    "worker": 16.49510633900354,
+    "total": 48.15909359000216,
+    "slice": 28.920627018000232
   },
   "versions": {
     "python": "3.14.7",
@@ -35,15 +35,15 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "511fd661eff49ddbb88de85d5cd14047b73720fee45310dcb628825fa30239d3",
-    "artifact_identity": "1af87df3d6cc287ab64fbdda642e0c66ef795899a2b6e89491e0dfb234004a4e"
+    "identity": "350c3285b39c8e47b9ba1db3594065d135c2ecffc470028f9c063cc316a101e3",
+    "artifact_identity": "e531907c9565249b66ffb84b88ddb096cdb9a6d135c26c510af2f07ca6e605a7"
   },
   "slice": {
     "ok": true,
     "model": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/circular_vent_enclosure.stl",
     "profiles": {
       "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
-      "process": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/profiles/petg_supported_mount.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/profiles/petg_hood_nut_bridges.json",
       "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
     },
     "slicer_version": "2.4.2",
@@ -85,7 +85,7 @@
       "hot_plate_temp_initial_layer": [
         "80"
       ],
-      "print_settings_id": "Vent V2 PETG solid front with local tree supports",
+      "print_settings_id": "Vent V3 hood, clear captive nuts, short roof bridges",
       "layer_height": "0.2",
       "wall_loops": "2",
       "line_width": "0.42",
@@ -95,10 +95,10 @@
       "brim_type": "auto_brim",
       "brim_width": "5",
       "brim_object_gap": "0.1",
-      "enable_support": "1",
+      "enable_support": "0",
       "support_type": "tree(auto)",
       "support_threshold_angle": "30",
-      "bridge_no_support": "0",
+      "bridge_no_support": "1",
       "max_bridge_length": "10",
       "filament_flow_ratio": [
         "0.95"
@@ -129,9 +129,9 @@
     "log_notices": [],
     "review_required": true,
     "reused": false,
-    "identity": "ccc4c7ae2a911b4934549c76b7c78b8aab74a880a027d4c173b32cc7e308c9ab",
-    "input_sha256": "80bca2106579755a8e31c4d6f3838da6cf1a7ecf67f484e04150a80b35b0a7c6",
-    "kept_run_directory": "/home/hevar/orca-slicer-review-vus6soo5",
+    "identity": "744d60d500828b93eb59216fa4e05a9a3bf595098b67c63b3cbcf27d306b381f",
+    "input_sha256": "d6652af75f47374c7028a3e209f19ff054253c2e24069f6bdbcb81b4cfa54b26",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-19oqi03w",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",

@@ -51,26 +51,38 @@ def build_clamp(p, diameter):
             (reach,reach*math.tan(beta))]).close().extrude(p.hood_standoff+1))
     band=band.union(flange)
     half_gap = (r+t/2)*math.sin(beta)
-    ear_x = r+7
+    ear_x = r+p.clamp_bolt_offset
     for sign in (-1,1):
-        ear = (cq.Workplane('XY', origin=(r+5.5, sign*(half_gap+p.clamp_ear_wall/2),0))
-               .box(12,p.clamp_ear_wall,h,centered=(True,True,False))
+        ear = (cq.Workplane('XY', origin=(r+8.75, sign*(half_gap+p.clamp_ear_wall/2),0))
+               .box(18.5,p.clamp_ear_wall,h,centered=(True,True,False))
                .edges('|Z').fillet(0.8).edges('>Z').fillet(0.6))
         band = band.union(ear)
+    # Supported head-seat extension lets the stock 25 mm screw clear the nearby
+    # mounting brace even at the smallest grip setting.
+    outside=half_gap+p.clamp_ear_wall
+    yz=[(outside,3.5),(outside+p.clamp_head_standoff,3.5),
+        (outside+p.clamp_head_standoff,15),(outside,15+p.clamp_head_standoff)]
+    boss=(cq.Workplane('YZ',origin=(ear_x-4.5,0,0)).polyline(yz).close().extrude(9))
+    band=band.union(boss)
     # Horizontal M4 clearance with a pointed roof instead of a circular ceiling.
     hole_r = p.clamp_bolt_hole/2
     axis = cq.Workplane('XZ').center(ear_x,8).circle(hole_r).extrude(30,both=True)
     roof = (cq.Workplane('XZ').polyline([(ear_x-hole_r,8),
         (ear_x+hole_r,8),(ear_x,8-hole_r*math.sqrt(2))]).close().extrude(30,both=True))
     band = band.cut(axis.union(roof))
-    # M4 hex nut, partially recessed from the positive-Y ear's outside face.
+    # M4 nut on the negative-Y side; screw head/driver approach from +Y.
     # Raised pointed roof preserves antirotation flats and prints progressively.
     f=7.4; rr=f/math.sqrt(3)
     nut_points=[(x,-z) for x,z in [(-f/2,-rr/2),(0,-rr),(f/2,-rr/2),(f/2,rr/2),
                 (0,rr/2+f/2),(-f/2,rr/2)]]
     nut = (cq.Workplane('XZ').polyline([(ear_x+x,8+z) for x,z in nut_points])
            .close().extrude(2.1).translate((0,half_gap+p.clamp_ear_wall+0.1,0)))
+    nut=nut.mirror('XZ')
     band = band.cut(nut)
+    # Room-facing loading slot: drop nut into the saddle before assembly.
+    feed=(cq.Workplane('XY',origin=(ear_x,-half_gap-p.clamp_ear_wall+0.3,8))
+          .box(f,3.4,p.hood_standoff-8+1,centered=(True,True,False)))
+    band=band.cut(feed)
     # Three open-backed nut channels with broad axial bearing roofs.
     for angle in p.mount_angles:
         px, py = bolt_position(p,angle,diameter)
@@ -91,11 +103,10 @@ def build_clamp(p, diameter):
         hole=(cq.Workplane('XY',origin=(px,-py,bottom-1)).circle(p.mount_hole/2)
               .extrude(p.mount_tab_thickness+2))
         band=band.cut(hole)
-        # Nut goes in radially from outside. 2.4 mm of roof carries the screw load.
-        channel=(cq.Workplane('XY',origin=(radius+1.5,0,bottom-0.1))
-                 .box(11,5.8,2.7,centered=(True,True,False))
-                 .rotate((0,0,0),(0,0,1),-math.degrees(theta)))
-        band=band.cut(channel)
+        # Socket-cap head on the open wall side. Straight rear bench access.
+        counterbore=(cq.Workplane('XY',origin=(px,-py,-1)).circle(3.2)
+                     .extrude(bottom+1))
+        band=band.cut(counterbore)
     return band
 
 

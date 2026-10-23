@@ -1,11 +1,13 @@
 {
   "schema_version": 1,
-  "variant": "v2-clamp",
+  "variant": "v3-access",
   "selected_checks": null,
   "available_variants": [
-    "v2-clamp"
+    "v3-access"
   ],
   "available_checks": [
+    "nut-loading",
+    "ribs",
     "clamp-path",
     "tools",
     "material",
@@ -16,9 +18,9 @@
   "exit_reason": "unresolved_evidence",
   "error": null,
   "report": {
-    "variant": "v2-clamp",
+    "variant": "v3-access",
     "scope": {
-      "variant": "v2-clamp",
+      "variant": "v3-access",
       "interface": "split-ring-geometric129-132mm-unmeasured-rim",
       "emission-band": "user-approximate-wall20-35mm"
     },
@@ -121,7 +123,7 @@
         "questions": [
           {
             "id": "tools",
-            "criterion": "2.5 mm ball-end Allen approach through windows clears the hood at geometric fit extremes.",
+            "criterion": "Straight rear M3 bench approach and clear-side installed M4 L-key approach clear the assembly.",
             "mode": "CAD",
             "rationale": "",
             "status": "PASS",
@@ -333,9 +335,127 @@
         ],
         "acceptance_criteria": [],
         "coverage": "uncovered"
+      },
+      {
+        "id": "vent.access",
+        "text": "Make nut loading and driver approaches usable; assemble hood and clamp on the bench before tightening the installed rim clamp.",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/brief.md#fastener-access-revision",
+          "statement": "Reverse the problematic head/nut directions and fix screwdriver and nut installation access for bench-first assembly."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "drivers",
+            "criterion": "Straight rear M3 bench access and installed clear-side M4 approach clear the complete assembly.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "tools"
+            ],
+            "evidence": [
+              "tools"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "nuts",
+            "criterion": "M3 nuts enter side channels; M4 nut enters its room-facing loading slot.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "nut-loading"
+            ],
+            "evidence": [
+              "nut-loading"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "sequence",
+            "criterion": "Bench-first assembly and final installed clamping work physically with usable tightening effort and no rattle.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "vent.ribs",
+        "text": "Keep the existing front stiffening ribs.",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/brief.md#fastener-access-revision",
+          "statement": "Otherwise, I agree with you we keep the stiffening ribs."
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "retained",
+            "criterion": "The eight existing 2 \u00d7 3 mm front ribs retain actual material witnesses.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "ribs"
+            ],
+            "evidence": [
+              "ribs"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
       }
     ],
     "evidence": [
+      {
+        "id": "nut-loading",
+        "targets": [
+          [
+            "vent.access",
+            "nuts"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py; hardware.py",
+        "scope": {
+          "variant": "v3-access",
+          "interface": "split-ring-geometric129-132mm-unmeasured-rim",
+          "emission-band": "user-approximate-wall20-35mm"
+        }
+      },
+      {
+        "id": "ribs",
+        "targets": [
+          [
+            "vent.ribs",
+            "retained"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py",
+        "scope": {
+          "variant": "v3-access",
+          "interface": "split-ring-geometric129-132mm-unmeasured-rim",
+          "emission-band": "user-approximate-wall20-35mm"
+        }
+      },
       {
         "id": "clamp-path",
         "targets": [
@@ -348,7 +468,7 @@
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "checks.py; mounting_clamp.py",
         "scope": {
-          "variant": "v2-clamp",
+          "variant": "v3-access",
           "interface": "split-ring-geometric129-132mm-unmeasured-rim",
           "emission-band": "user-approximate-wall20-35mm"
         }
@@ -359,13 +479,17 @@
           [
             "vent.mount",
             "tools"
+          ],
+          [
+            "vent.access",
+            "drivers"
           ]
         ],
         "status": "PASS",
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "checks.py",
         "scope": {
-          "variant": "v2-clamp",
+          "variant": "v3-access",
           "interface": "split-ring-geometric129-132mm-unmeasured-rim",
           "emission-band": "user-approximate-wall20-35mm"
         }
@@ -382,7 +506,7 @@
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "checks.py",
         "scope": {
-          "variant": "v2-clamp",
+          "variant": "v3-access",
           "interface": "split-ring-geometric129-132mm-unmeasured-rim",
           "emission-band": "user-approximate-wall20-35mm"
         }
@@ -403,7 +527,7 @@
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "checks.py; README.md",
         "scope": {
-          "variant": "v2-clamp",
+          "variant": "v3-access",
           "interface": "split-ring-geometric129-132mm-unmeasured-rim",
           "emission-band": "user-approximate-wall20-35mm"
         }
@@ -420,7 +544,7 @@
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "checks.py",
         "scope": {
-          "variant": "v2-clamp",
+          "variant": "v3-access",
           "interface": "split-ring-geometric129-132mm-unmeasured-rim",
           "emission-band": "user-approximate-wall20-35mm"
         }
@@ -437,7 +561,7 @@
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "checks.py",
         "scope": {
-          "variant": "v2-clamp",
+          "variant": "v3-access",
           "interface": "split-ring-geometric129-132mm-unmeasured-rim",
           "emission-band": "user-approximate-wall20-35mm"
         }
@@ -445,8 +569,8 @@
     ],
     "decisions": [
       {
-        "id": "vent.v2-architecture",
-        "text": "Two printed pieces: 1.4 mm hood shell with unchanged solid 2.4 mm shield and ribs, plus 16.7 mm split rim clamp with rear flange; M4 clamp screw and three M3 hood screws. Fit/force remain physical.",
+        "id": "vent.v3-architecture",
+        "text": "Two printed pieces: 1.4 mm hood shell with unchanged solid 2.4 mm shield and ribs, plus 16.7 mm split rim clamp with rear flange; M4 head on the clear +Y side; M3 heads on the open rear with sliding captive nuts in the hood. Bench-first fit and torque remain physical.",
         "reference": "README.md"
       }
     ],

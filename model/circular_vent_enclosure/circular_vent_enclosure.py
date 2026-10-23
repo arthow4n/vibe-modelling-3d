@@ -1,4 +1,4 @@
-"""V2 vent hood; separate adjustable stationary-rim clamp. Millimetres; bed/front at Z=0; rear at Z=print_depth; wall at Z=depth.
+"""V3 vent hood; separate adjustable stationary-rim clamp. Millimetres; bed/front at Z=0; rear at Z=print_depth; wall at Z=depth.
 
 Nominal mounting dimensions are placeholders, not a measured valve interface.
 Importing this file constructs no CAD and writes nothing.
@@ -76,7 +76,7 @@ def build(p: Parameters):
     # Three supported screw lands; their undersides grow inward below 45 degrees.
     pad_top = p.print_depth
     pad_bottom = pad_top-p.mount_pad_thickness
-    base_z = 50.0
+    base_z = p.outlet_bottom+p.outlet_height+0.5
     outer_base = p.radius-p.slope*(base_z-p.taper_start)
     inner_base = p.inner_radius(base_z)-0.15
     assert (inner_base-p.mount_pad_inner)/(pad_bottom-base_z) <= 1
@@ -94,24 +94,28 @@ def build(p: Parameters):
         end = bolt_position(p, angle, p.clamp_max_diameter)
         dx,dy = end[0]-start[0],end[1]-start[1]
         length = math.hypot(dx,dy)+p.mount_slot_width
-        cutter = (cq.Workplane('XY', origin=((start[0]+end[0])/2,(start[1]+end[1])/2,pad_bottom-1))
+        through_start=p.depth-(p.hood_standoff-p.mount_tab_thickness+p.mount_screw_length+1)
+        cutter = (cq.Workplane('XY', origin=((start[0]+end[0])/2,(start[1]+end[1])/2,through_start))
                   .slot2D(length,p.mount_slot_width,math.degrees(math.atan2(dy,dx)))
-                  .extrude(p.mount_pad_thickness+2))
+                  .extrude(p.print_depth-through_start+1))
         hood = hood.cut(cutter)
-        # Keep the screw head and angled driver clear of the supported underside.
-        # Side webs retain the supported load path into the main shell.
-        recess = (cq.Workplane('XY',origin=((start[0]+end[0])/2,(start[1]+end[1])/2,base_z-1))
-                  .slot2D(math.hypot(dx,dy)+6.4,6.4,math.degrees(math.atan2(dy,dx)))
-                  .extrude(pad_bottom-base_z+1))
-        hood = hood.cut(recess)
-        for diameter in (p.clamp_min_diameter,p.valve_diameter,p.clamp_max_diameter):
-            x,y=bolt_position(p,angle,diameter)
-            radial=cq.Vector(x,y,0).normalized()
-            direction=cq.Vector(radial.x*math.sin(math.radians(25)),
-                radial.y*math.sin(math.radians(25)),-math.cos(math.radians(25)))
-            # Short relief stops inside the chamber, before the outlet wall.
-            approach=cq.Solid.makeCylinder(1.8,45,cq.Vector(x,y,pad_bottom-1.8),direction)
-            hood=hood.cut(approach)
+        # Side-loaded sliding M3 nut: free insertion travel, antirotation flats,
+        # a room-side retaining lip, and a full wall-side bearing land.
+        travel=math.hypot(dx,dy)
+        ux,uy=dx/travel,dy/travel
+        vx,vy=-uy,ux
+        cx,cy=(start[0]+end[0])/2,(start[1]+end[1])/2
+        half=p.mount_nut_flats/2
+        rad=p.mount_nut_flats/math.sqrt(3)
+        left=travel/2+20  # entry runs into the open chamber, not a blind cavity
+        right=travel/2
+        profile=[(-left-rad,0),(-left-rad/2,-half),
+                 (right+rad/2,-half),(right+rad,0),
+                 (right+rad/2,half),(-left-rad/2,half)]
+        points=[(cx+x*ux+y*vx,cy+x*uy+y*vy) for x,y in profile]
+        pocket=(cq.Workplane('XY',origin=(0,0,pad_bottom+p.mount_nut_lip))
+                .polyline(points).close().extrude(p.mount_nut_height))
+        hood=hood.cut(pocket)
     return hood
 
 

@@ -15,24 +15,32 @@ def inspect():
         assert receipt['slice']['ok']
         raw=Path(receipt['slice']['kept_run_directory'])
         primary_support=str(receipt['slice']['effective_settings']['enable_support'])=='1'
-        path=raw/'plate_1.gcode' if primary_support else raw/'support_probe/plate_1.gcode'
+        path=raw/'plate_1.gcode'
         paths[part]=list(orca_linear_paths(path))
         support=[v for v in paths[part] if v[-1].startswith('Support')]
-        top=max(v[4] for v in support) if support else min({v[4] for v in paths[part]},key=lambda z:abs(z-(p.hood_standoff-8)))
+        target=p.print_depth-p.mount_bearing+0.1 if part=='hood' else p.mount_tab_thickness
+        top=max(v[4] for v in support) if support else min({v[4] for v in paths[part]},key=lambda z:abs(z-target))
         at_top=[v for v in paths[part] if abs(v[4]-top)<1e-6]
+        label='support top' if support else 'fastener bearing layer (no supports)'
         lines=['<svg xmlns="http://www.w3.org/2000/svg" width="810" height="850" viewBox="0 0 270 283">',
                '<rect width="270" height="283" fill="white"/>',
-               f'<text x="5" y="8" font-family="sans-serif" font-size="4">{part}: actual Orca paths at support top Z{top:.2f} mm</text>',
-               '<text x="5" y="14" font-family="sans-serif" font-size="3.5">Blue: part; orange: support. Line width is slicer metadata.</text>']
+               f'<text x="5" y="8" font-family="sans-serif" font-size="4">{part}: actual Orca paths at {label} Z{top:.2f} mm</text>',
+               '<text x="5" y="14" font-family="sans-serif" font-size="3.5">Blue: part; orange: support; purple: bridge. Width is slicer metadata.</text>']
         for x,y,nx,ny,z,width,role in at_top:
             if role.startswith('Brim'): continue
-            color='#e58e2c' if role.startswith('Support') else '#376d9f'
+            color='#e58e2c' if role.startswith('Support') else '#9c4db0' if 'bridge' in role.lower() else '#376d9f'
             lines.append(f'<path d="M{x:.4f} {283-y:.4f}L{nx:.4f} {283-ny:.4f}" fill="none" stroke="{color}" stroke-width="{width:.4f}" stroke-linecap="round"/>')
         lines.append('</svg>');(visuals/(part+'_support_paths.svg')).write_text('\n'.join(lines))
+        probe_path=raw/'support_probe/plate_1.gcode'
+        diagnostic=[]
+        if probe_path.exists():
+            diagnostic=[v for v in orca_linear_paths(probe_path) if v[-1].startswith('Support')]
         findings[part]=dict(input_sha256=receipt['slice']['input_sha256'],gcode_sha256=digest(path),
-            supports_in_primary=primary_support,support_z_min_mm=min((v[4] for v in support),default=None),
+            supports_in_primary=primary_support and bool(support),support_enabled_in_primary=primary_support,support_z_min_mm=min((v[4] for v in support),default=None),
             support_z_max_mm=top if support else None,support_segments=len(support),
-            support_roles=sorted({v[-1] for v in support}))
+            support_roles=sorted({v[-1] for v in support}),
+            diagnostic_support_z_max_mm=max((v[4] for v in diagnostic),default=None),
+            displayed_layer_mm=top,displayed_bridge_roles=sorted({v[-1] for v in at_top if 'bridge' in v[-1].lower()}))
         reports[part]=receipt
     sections=[]
     for z in (16.,42.):
@@ -57,7 +65,7 @@ def inspect():
         for line in g.open():
             if line.startswith('; filament used [g] ='):
                 masses[part]=float(line.split('=')[1])
-    return dict(variant='v2-clamp',sections=sections,supports=findings,
+    return dict(variant='v3-access',sections=sections,supports=findings,
         primary_filament_estimates_g=masses,combined_primary_filament_g=sum(masses.values()),
         reduction_vs_v1_slice_percent=100*(1-sum(masses.values())/220.88),
         source_sha256={name:digest(ROOT/name) for name in ('circular_vent_enclosure.py','mounting_clamp.py','vent_parameters.py','inspect_paths.py')},

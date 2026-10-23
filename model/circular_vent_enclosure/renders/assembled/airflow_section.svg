@@ -2,11 +2,11 @@
 <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#087f8c" stroke-width="1.5"/></marker></defs>
 <rect width="960" height="520" fill="white"/>
 <g font-family="sans-serif" fill="#263442">
-<text x="34" y="35" font-size="23" font-weight="bold">V2 vent hood · installed section</text>
+<text x="34" y="35" font-size="23" font-weight="bold">V3 vent hood · installed section</text>
 <text x="34" y="59" font-size="14">Schematic: section between fastener tabs; thin orange flange closes rear. Windows and screws lie out of this plane.</text>
 <path d="M65 90H895" stroke="#9099a1" stroke-width="4"/>
 <text x="70" y="82" font-size="14">Mounting surface</text>
-<path d="M234 142.5V151.5L160.5 249V345H799.5V249L726 151.5V142.5H720V153L794.7 250V337.8H165.3V250L240 153V142.5Z" fill="#427cb6" stroke="#234d7d"/>
+<path d="M234 142.5V151.5L160.5 267V345H799.5V267L726 151.5V142.5H720V153L795.3 268V337.8H164.7V268L240 153V142.5Z" fill="#427cb6" stroke="#234d7d"/>
 <rect x="169" y="328.8" width="275" height="9" rx="2" fill="#427cb6"/>
 <rect x="516" y="328.8" width="275" height="9" rx="2" fill="#427cb6"/>
 <path d="M285 90V150M675 90V150" stroke="#7c858d" stroke-width="7"/>

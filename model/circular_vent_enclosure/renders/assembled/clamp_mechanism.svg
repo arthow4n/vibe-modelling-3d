@@ -1,45 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="590" viewBox="0 0 1000 590">
-<defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#087f8c" stroke-width="1.5"/></marker></defs>
-<rect width="1000" height="590" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="650" viewBox="0 0 1060 650">
+<defs><clipPath id="plan"><rect width="560" height="400"/></clipPath><marker id="green" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#07816f" stroke-width="1.5"/></marker><marker id="red" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#bc4949" stroke-width="1.5"/></marker></defs>
+<rect width="1060" height="650" fill="white"/>
 <g font-family="sans-serif" fill="#263442">
-<text x="28" y="34" font-size="23" font-weight="bold">Long-contact flanged split clamp · V2</text>
-<text x="28" y="58" font-size="14">Orange: PETG clamp · Blue: PETG hood · Grey: existing rim · Dark: steel screws / nuts</text>
-<text x="40" y="98" font-size="18" font-weight="bold">Plan — hood removed</text>
-<circle cx="240" cy="275" r="140" fill="#f1f3f4" stroke="#8a9299" stroke-width="3"/>
-<path d="M399 258 A160 160 0 1 0 399 292" fill="none" stroke="#f5c48e" stroke-width="36"/>
-<path d="M388 258 A149 149 0 1 0 388 292" fill="none" stroke="#dc8c37" stroke-width="11"/>
-<path d="M375 249H415V263H384M375 301H415V287H384" fill="#dc8c37" stroke="#a75e17" stroke-width="2"/>
-<path d="M404 244V306" stroke="#263442" stroke-width="5"/>
-<rect x="396" y="240" width="16" height="9" fill="#263442"/>
-<path d="M396 305H412V315H396Z" fill="#263442"/>
-<path d="M419 253L419 267M419 297L419 283" stroke="#087f8c" stroke-width="3" marker-end="url(#a)"/>
-<text x="62" y="266" font-size="15">Stationary rim</text>
-<text x="62" y="289" font-size="14">nominal Ø130 mm</text>
-<text x="323" y="350" font-size="14">M4 screw draws the ears together</text>
-<text x="323" y="372" font-size="14">Slit ring bends around the rim</text>
-<path d="M372 332L402 317" fill="none" stroke="#263442"/>
-<text x="52" y="477" font-size="14">0.8 mm split flange overlaps the rear hood mouth</text>
-<text x="52" y="501" font-size="15">Geometric fit range: approximately Ø129–132 mm</text>
-<text x="52" y="525" font-size="14">Actual grip, tightening effort and creep need a fit test.</text>
-<text x="545" y="98" font-size="18" font-weight="bold">Section — one hood attachment</text>
-<path d="M540 156H950" stroke="#8a9299" stroke-width="4"/>
-<text x="547" y="143" font-size="14">Mounting surface</text>
-<rect x="668" y="156" width="14" height="140" fill="#8a9299"/>
-<rect x="650" y="156" width="18" height="112" fill="#dc8c37"/>
-<path d="M650 156L614 156L550 244V278H622L668 268V156Z" fill="#dc8c37" stroke="#a75e17" stroke-width="1"/>
-<path d="M540 278H625L615 306H540Z" fill="#427cb6" stroke="#234d7d"/>
-<path d="M580 244V315" stroke="#263442" stroke-width="5"/>
-<rect x="569" y="306" width="22" height="13" fill="#263442"/>
-<path d="M569 247L575 239H585L591 247L585 255H575Z" fill="#263442"/>
-<path d="M682 401H896" stroke="#8a9299" stroke-width="7"/>
-<text x="734" y="423" font-size="14">Existing disc at 35 mm</text>
-<path d="M705 156V268M700 156H710M700 268H710" stroke="#263442" fill="none"/>
-<text x="719" y="217" font-size="15">16.7 mm contact span</text>
-<path d="M705 296V401M700 296H710M700 401H710" stroke="#263442" fill="none"/>
-<text x="719" y="344" font-size="15">15 mm open band stays clear</text>
-<text x="719" y="368" font-size="13">Rim ends at 20 mm</text>
-<text x="541" y="451" font-size="14">Three M3 screws seat the hood on the ring tabs.</text>
-<text x="541" y="474" font-size="14">Undo those screws for cleaning; leave the clamp set.</text>
-<text x="28" y="542" font-size="14">Schematic: not to scale. Steel screw supplies preload; broad PETG band supplies compliant contact.</text>
-<text x="28" y="565" font-size="14">No holding-force rating is implied. Only a stationary, sufficiently strong rim may be gripped.</text>
+<text x="28" y="34" font-size="23" font-weight="bold">V3 · screw heads, captured nuts and tool directions</text>
+<text x="28" y="59" font-size="14">Orange: PETG clamp · Blue: PETG hood · Dark grey: steel screws / nuts · Green: usable tool approach</text>
+<text x="28" y="94" font-size="18" font-weight="bold">M4 clamp screw — installed, plan at Z8 mm</text>
+<circle clip-path="url(#plan)" cx="225" cy="275" r="170" fill="none" stroke="#427cb6" stroke-width="1.5" stroke-dasharray="7 5"/>
+<circle cx="225" cy="275" r="104" fill="#edf0f2" stroke="#8a9299" stroke-width="2"/>
+<path d="M332.6 265.5A108 108 0 1 0 332.6 284.5" fill="none" stroke="#df903e" stroke-width="5"/>
+<rect x="330" y="259.3" width="29.6" height="6.4" rx="1" fill="#df903e"/>
+<rect x="330" y="284.3" width="29.6" height="6.4" rx="1" fill="#df903e"/>
+<path d="M349.8 256.1V296.1" stroke="#303a43" stroke-width="4"/>
+<rect x="342.6" y="256.1" width="14.4" height="3.2" fill="#df903e"/><rect x="344.2" y="249.7" width="11.2" height="6.4" fill="#303a43"/>
+<rect x="344.2" y="287.5" width="11.2" height="5.1" fill="#303a43"/>
+<path d="M331 309L349 315L358 334L341 339Z" fill="#df903e" stroke="#a56421"/>
+<path d="M349.8 153V244" stroke="#07816f" stroke-width="4" marker-end="url(#green)"/>
+<text x="365" y="163" font-size="14" fill="#07816f">HEAD / clear +Y side</text>
+<text x="365" y="184" font-size="13">3 mm L-key, long leg ≥75 mm</text>
+<text x="365" y="204" font-size="13">Turn at the outside of the hood</text>
+<path d="M342 390V302" stroke="#bc4949" stroke-width="3" stroke-dasharray="5 4" marker-end="url(#red)"/>
+<path d="M332 318L352 338M352 318L332 338" stroke="#bc4949" stroke-width="3"/>
+<text x="358" y="359" font-size="13" fill="#bc4949">Old drive side hit this brace</text>
+<text x="140" y="268" font-size="15">Existing rim</text>
+<text x="141" y="290" font-size="13">nominal Ø130</text>
+<text x="26" y="419" font-size="14">M4 nut is on −Y; load it through the room-facing feed slot.</text>
+<text x="26" y="443" font-size="13">Dashed blue is the projected hood outline, above this tool plane.</text>
+<text x="26" y="464" font-size="13">The shaft runs below the skirt; the L-key elbow stays outside it.</text>
+<text x="570" y="94" font-size="18" font-weight="bold">M3 hood joints — assemble off the valve</text>
+<text x="661" y="125" font-size="14">OPEN REAR / wall side</text>
+<path d="M740 142V205" stroke="#07816f" stroke-width="4" marker-end="url(#green)"/>
+<text x="789" y="163" font-size="14" fill="#07816f">Straight 2.5 mm hex driver</text>
+
+<path d="M680 180H820V280H680Z" fill="#df903e" stroke="#a56421"/>
+<rect x="714.4" y="179" width="51.2" height="61" fill="white"/>
+<rect x="726.4" y="240" width="27.2" height="40" fill="white"/>
+<rect x="680" y="280" width="140" height="46.4" fill="#427cb6" stroke="#234d7d"/>
+<rect x="724.8" y="280" width="30.4" height="46.4" fill="white"/>
+<rect x="716.8" y="299.2" width="46.4" height="24" fill="white"/>
+<rect x="728" y="239" width="24" height="97" fill="#303a43"/>
+<rect x="718" y="216" width="44" height="24" rx="2" fill="#303a43"/>
+<rect x="730" y="215" width="20" height="12" fill="white"/>
+<path d="M718 302L724 299.2H756L762 302V315.5L756 318.4H724L718 315.5Z" fill="#59636b"/>
+<rect x="728" y="299.2" width="24" height="19.2" fill="#303a43"/>
+<text x="841" y="231" font-size="14">M3 × 12 screw HEAD</text>
+<path d="M833 226H767" stroke="#263442"/>
+<text x="841" y="272" font-size="14">Clamp tab</text>
+<text x="841" y="297" font-size="14">Hood bearing land</text>
+<text x="841" y="320" font-size="14">Captured M3 NUT</text>
+<path d="M832 315H768" stroke="#263442"/>
+<text x="669" y="363" font-size="14">ROOM side / solid shield farther below</text>
+<path d="M597 309H705" stroke="#07816f" stroke-width="3" marker-end="url(#green)"/>
+<text x="570" y="394" font-size="14">Side-load nuts before joining the parts.</text>
+<text x="570" y="417" font-size="13">Small retaining lips hold them while screws are started.</text>
+<text x="570" y="441" font-size="13">Section is schematic; nut entries lie along their CAD channels.</text>
+<text x="28" y="510" font-size="17" font-weight="bold">Installation sequence</text>
+<text x="28" y="540" font-size="15">1. Load nuts on the bench.  2. Join hood + clamp with rear M3 screws.  3. Fit unit; tighten M4 from +Y.</text>
+<text x="28" y="570" font-size="14">Cleaning: loosen M4, remove the complete unit, then undo the rear M3 screws on the bench.</text>
+<text x="28" y="606" font-size="13">Schematic and nominal hardware envelopes. Actual grip, tightening effort, print fit and creep behaviour remain physical tests.</text>
+<text x="28" y="629" font-size="13">Print STEP/STL files contain only PETG parts. Hardware is shown only in the inspection views.</text>
 </g></svg>

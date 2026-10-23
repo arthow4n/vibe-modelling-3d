@@ -1,4 +1,4 @@
-"""V2 nominal geometry, adjustable clamp/assembly path, tools and weight screens."""
+"""V3 nominal geometry, adjustable clamp/assembly path, tools and weight screens."""
 import json
 import math
 from functools import cache
@@ -9,6 +9,7 @@ from vent_parameters import Parameters
 from circular_vent_enclosure import window_profile
 from mounting_clamp import gap_angle, bolt_position, neutral_offset
 from assembly import configuration, components
+from hardware import hardware,nut
 
 
 @cache
@@ -29,7 +30,7 @@ def envelope():
 
 def nominal_fit():
     p,hood,clamp=candidate()
-    pose=configuration(p,p.clamp_free_diameter,0)
+    pose=configuration(p,p.clamp_free_diameter,0,include_hardware=False)
     whole=cq.Compound.makeCompound([pose.shape('hood'),pose.shape('clamp')])
     valve=cq.Workplane('XY').circle(p.valve_diameter/2).extrude(p.valve_projection).val()
     assert whole.intersect(valve).Volume() < 0.01, 'Nominal valve interferes with printable assembly'
@@ -67,8 +68,8 @@ def flow_measurements():
         table.append(dict(wall_height_mm=wall_height,core_radius_mm=round(radius,3),
             radial_clearance_mm=round(radius-p.valve_diameter/2,3),
             annular_area_cm2=round(math.pi*(radius**2-(p.valve_diameter/2)**2)/100,3)))
-    # The entire forward chamber widens from the disc plane, then closes at the
-    # floor blend (whose radius remains larger). Mounting lands start behind it.
+    # Supported lands and taper widen forward from the disc; their tips end
+    # before the windows, whose projected area is unchanged.
     disc_radius=core_radius(hood,p,p.depth-p.valve_projection)
     band_area=math.pi*(disc_radius**2-(p.valve_diameter/2)**2)
     front_gap=p.depth-p.valve_projection-p.front-p.rib_height
@@ -106,7 +107,7 @@ def mounting_measurements():
     p,hood,_=candidate()
     results=[]
     for diameter in (129,129.5,130,130.5,131,131.5,132):
-        pose=configuration(p,diameter,0)
+        pose=configuration(p,diameter,0,include_hardware=False)
         answer=pose.check('hood','clamp',PairRequirement('Seated hood clears clamp; planar seats may touch',max_overlap_mm3=0.01))
         answer.require_passed()
         assert diameter/2+p.rear_flange_width >= p.bore+1, 'Rear flange no longer overlaps hood mouth'
@@ -121,7 +122,7 @@ def mounting_measurements():
         results.append(dict(diameter_mm=diameter,split_gap_mm=round((diameter+p.clamp_wall)*math.sin(gap_angle(p,diameter)/2),3),
             bolt_shaft_overlaps_mm3=bolts))
     for withdrawal in (1,8,20):
-        configuration(p,130,withdrawal).check('hood','clamp',PairRequirement(
+        configuration(p,130,withdrawal,include_hardware=False).check('hood','clamp',PairRequirement(
             'Axial removal after undoing three hood screws',max_overlap_mm3=0.01)).require_passed()
     # Screw-driven overclosure represents a positive preload source; force and
     # friction are deliberately unspecified. It is not simulated contact pressure.
@@ -129,11 +130,11 @@ def mounting_measurements():
     assert preload['preload_present'] and preload['retention_screen_passes'] is None
     # A head stays wider than the slot; nut-roof and pad thickness carry the load.
     assert p.mount_slot_width < 5.5 and p.mount_pad_thickness >= 2.4
-    assert p.mount_tab_thickness-2.6 >= 2.4-1e-8
+    assert p.mount_bearing >= 2.4 and p.mount_nut_lip >= 0.4
     return dict(geometric_poses=results,preload_screen=preload,
-        mount_land_nominal_net_area_mm2=p.mount_pad_thickness*(p.mount_pad_width-p.mount_slot_width),
-        nut_roof_nominal_net_area_mm2=(p.mount_tab_thickness-2.6)*(12-5.8),
-        nut_roof_nominal_stress_at_5N_per_screw_MPa=5/((p.mount_tab_thickness-2.6)*(12-5.8)),
+        mount_land_nominal_net_area_mm2=p.mount_bearing*(p.mount_pad_width-p.mount_slot_width),
+        nut_roof_nominal_net_area_mm2=p.mount_bearing*(p.mount_pad_width-p.mount_nut_flats),
+        nut_roof_nominal_stress_at_5N_per_screw_MPa=5/(p.mount_bearing*(p.mount_pad_width-p.mount_nut_flats)),
         approximate_ring_extreme_fibre_strain=(p.rear_flange_width-neutral_offset(p))*abs(1/(129/2+neutral_offset(p))-1/(132/2+neutral_offset(p))),
         scope='Constant-neutral-arc pose hypothesis for slot sizing only; real ring deformation, torque and retention remain physical.')
 
@@ -144,18 +145,70 @@ def mounting():
 
 def tool_access():
     p,hood,_=candidate()
-    # Standard 2.5 mm ball-end Allen key, <=25 degree approach. 3 mm shaft
-    # envelope; start at cap-screw socket, then move outward through a window.
+    valve=cq.Workplane('XY').circle(p.valve_diameter/2).extrude(p.valve_projection).val()
+    air=(cq.Workplane('XY',origin=(0,0,p.stationary_rim_height)).circle(p.valve_diameter/2+p.disc_clearance)
+         .circle(p.valve_diameter/2).extrude(p.valve_projection-p.stationary_rim_height).val())
     for diameter in (129,130,132):
+        pose=configuration(p,diameter,0,include_hardware=False)
+        whole=cq.Compound.makeCompound([pose.shape('hood'),pose.shape('clamp')])
+        # Bench-only M3 operation. Straight driver approaches from the open rear;
+        # no wall or original valve is present in this assembly state.
         for angle in p.mount_angles:
             x,y=bolt_position(p,angle,diameter)
-            radial=cq.Vector(x,y,0).normalized()
-            start=cq.Vector(x,y,p.print_depth-p.mount_pad_thickness-1.8)
-            direction=cq.Vector(radial.x*math.sin(math.radians(25)),radial.y*math.sin(math.radians(25)),-math.cos(math.radians(25)))
-            shaft=cq.Solid.makeCylinder(1.5,80,start,direction)
-            assert hood.intersect(shaft).Volume() < 0.01, 'Ball-end Allen approach hits hood'
+            shaft=cq.Solid.makeCylinder(1.5,60,cq.Vector(x,-y,p.hood_standoff-p.mount_tab_thickness-1.5),cq.Vector(0,0,-1))
+            assert whole.intersect(shaft).Volume()<0.01, 'Rear M3 driver obstructed'
+        half=(diameter/2+p.clamp_wall/2)*math.sin(gap_angle(p,diameter)/2)
+        head_y=half+p.clamp_ear_wall+p.clamp_head_standoff
+        x=diameter/2+p.clamp_bolt_offset
+        start=cq.Vector(x,head_y+2,8)
+        shaft=cq.Solid.makeCylinder(1.85,75,start,cq.Vector(0,1,0))
+        assert whole.intersect(shaft).Volume()<0.01, 'Installed M4 driver obstructed on +Y side'
+        elbow=start+cq.Vector(0,75,0)
+        for angle in (0,30,60,90):
+            direction=cq.Vector(math.sin(math.radians(angle)),0,math.cos(math.radians(angle)))
+            handle=cq.Solid.makeCylinder(1.85,25,elbow,direction)
+            assert whole.intersect(handle).Volume()<0.01, 'M4 L-key turning arc obstructed'
+        assert elbow.z-1.85>0, 'Tool reaches into mounting surface'
+        # Hardware envelopes must clear the printable seats and all forbidden air.
+        for name,shape in hardware(p,diameter).items():
+            assert whole.intersect(shape).Volume()<0.02, f'Hardware does not seat: {name}'
+            assert air.intersect(shape).Volume()<0.01, f'Hardware obstructs air keepout: {name}'
+            assert valve.intersect(shape).Volume()<0.01, f'Hardware touches valve envelope: {name}'
+
+
+def nut_access():
+    p,hood,_=candidate()
+    clamp=components(p,p.clamp_free_diameter)[1].val()
+    # M3 enters from the chamber side and slides to the free-ring bolt position.
+    for angle in p.mount_angles:
+        start=bolt_position(p,angle,p.clamp_min_diameter)
+        end=bolt_position(p,angle,p.clamp_max_diameter)
+        dx,dy=end[0]-start[0],end[1]-start[1]
+        length=math.hypot(dx,dy);ux,uy=dx/length,dy/length
+        theta=math.degrees(math.atan2(dy,dx))
+        z=p.print_depth-p.mount_pad_thickness+p.mount_nut_lip+0.1
+        sample=nut(5.5,2.4,3.4).rotate((0,0,0),(0,0,1),theta)
+        for travel in (-20,-12,-6,-2,0,length):
+            moved=sample.translate((start[0]+travel*ux,start[1]+travel*uy,z))
+            assert hood.intersect(moved).Volume()<0.01,'M3 nut loading path obstructed'
+    half=(p.clamp_free_diameter/2+p.clamp_wall/2)*math.sin(gap_angle(p,p.clamp_free_diameter)/2)
+    outside=half+p.clamp_ear_wall
+    sample=nut(7,3.2,4.4).rotate((0,0,0),(0,0,1),90).rotate((0,0,0),(1,0,0),90)
+    for height in (35,25,18,14,11,9,8):
+        moved=sample.translate((p.clamp_free_diameter/2+p.clamp_bolt_offset,-outside+2,height))
+        assert clamp.intersect(moved).Volume()<0.01,'M4 room-facing nut feed obstructed'
+
+
+def ribs():
+    p,hood,_=candidate()
+    assert (p.rib_count,p.rib_width,p.rib_height)==(8,2,3), 'Keep the accepted stiffening ribs'
+    for i in range(p.rib_count):
+        angle=math.radians(i*360/p.rib_count)
+        witness=(cq.Workplane('XY',origin=(50*math.cos(angle),50*math.sin(angle),p.front+1))
+                 .circle(0.5).extrude(1).val())
+        assert witness.cut(hood).Volume()<0.01,'Missing front stiffening rib'
 
 
 if __name__ == '__main__':
-    envelope(); nominal_fit(); flow(); material(); mounting(); tool_access()
+    envelope(); nominal_fit(); flow(); material(); mounting(); tool_access(); nut_access(); ribs()
     print(json.dumps(dict(flow=flow_measurements(),mount=mounting_measurements()),indent=2))

@@ -1,4 +1,4 @@
-"""Shared V2 dimensions, mm. Wall Z=0; room is positive installed Z."""
+"""Shared V3 dimensions, mm. Wall Z=0; room is positive installed Z."""
 from dataclasses import dataclass
 import math
 
@@ -16,7 +16,7 @@ class Parameters:
     valve_projection: float = 35.0
     stationary_rim_height: float = 20.0  # user approximate axial height; diameter unmeasured
     disc_clearance: float = 12.0  # required radial clearance at face plane
-    taper_start: float = 32.0
+    taper_start: float = 26.0
     transition_radius: float = 4.0
     outlet_count: int = 8
     outlet_width: float = 46.0  # tangential projected width
@@ -49,10 +49,17 @@ class Parameters:
     mount_pad_inner: float = 77.1
     mount_pad_outer: float = 87.0
     mount_pad_width: float = 18.0
-    mount_pad_thickness: float = 2.4
+    mount_pad_thickness: float = 5.8
     mount_tab_thickness: float = 5.0
+    mount_nut_flats: float = 5.8
+    mount_nut_height: float = 3.0
+    mount_nut_lip: float = 0.4
+    mount_bearing: float = 2.4
+    mount_screw_length: float = 12.0
     mount_hole: float = 3.4
     mount_slot_width: float = 3.8
+    clamp_head_standoff: float = 2.0  # keeps 25 mm screw tail clear at small grips
+    clamp_bolt_offset: float = 12.0  # radial offset beyond free/posed grip bore
     clamp_bolt_hole: float = 5.0  # clearance for split-ear rotation, not printer error
 
     @property
@@ -91,7 +98,7 @@ class Parameters:
             - self.shell * math.sqrt(1 + self.slope**2)))
 
     def validate(self):
-        if not (0 < self.clamp_min_diameter <= self.clamp_max_diameter <= self.clamp_free_diameter):
+        if not (0 < self.clamp_min_diameter < self.clamp_max_diameter <= self.clamp_free_diameter):
             raise ValueError('Invalid declared clamp diameter range')
         if not self.clamp_contact_height < self.hood_standoff < self.stationary_rim_height:
             raise ValueError('Mounting tabs must remain behind the original open band')
@@ -99,6 +106,8 @@ class Parameters:
             raise ValueError('Mounting pads intrude into the air keepout or miss bolt centres')
         if abs(self.clamp_contact_height+self.rear_flange_thickness-self.hood_standoff)>1e-6:
             raise ValueError('Rear flange must end at the hood seating plane')
+        if abs(self.mount_pad_thickness-self.mount_nut_lip-self.mount_nut_height-self.mount_bearing)>1e-6:
+            raise ValueError('Hood pad must include nut lip, nut space and bearing land')
         if self.outlet_shape not in ('pointed-arch', 'teardrop'):
             raise ValueError('outlet_shape must be pointed-arch or teardrop')
         if type(self.outlet_count) is not int or not 6 <= self.outlet_count <= 8:

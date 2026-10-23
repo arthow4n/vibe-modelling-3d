@@ -134,12 +134,12 @@ Standalone mechanical study comparing an upright catch (`A`) vs. a flat lower-tr
 
 ### 3. Unprinted Prototypes & Calibration Objects
 
-#### Circular vent enclosure V2 — [`model/circular_vent_enclosure/`](model/circular_vent_enclosure/README.md)
-PETG shield/diffuser, Ø213 × 85 mm, with an adjustable long-contact rim clamp; about 209 g PETG including supports, 5.6% less than V1.
-- **Action / Print:** Print both [hood STEP](model/circular_vent_enclosure/circular_vent_enclosure.step) ([STL](model/circular_vent_enclosure/circular_vent_enclosure.stl)) and [clamp STEP](model/circular_vent_enclosure/mounting_clamp.step) ([STL](model/circular_vent_enclosure/mounting_clamp.stl)); small removable supports and four metal screws/nuts required. Old V1 collar is superseded.
-- **Status:** Nominal Ø129–132 mm adjustment and 16.7 mm contact band; physical fit, retention, airflow and noise remain unverified.
+#### Circular vent enclosure V3 — [`model/circular_vent_enclosure/`](model/circular_vent_enclosure/README.md)
+PETG shield/diffuser, Ø213 × 85 mm, with bench-accessible rear M3 heads, captive hood nuts and a clear-side M4 clamp driver; about 203 g PETG in the selected slices.
+- **Action / Print:** Print both [hood STEP](model/circular_vent_enclosure/circular_vent_enclosure.step) ([STL](model/circular_vent_enclosure/circular_vent_enclosure.stl)) and [clamp STEP](model/circular_vent_enclosure/mounting_clamp.step) ([STL](model/circular_vent_enclosure/mounting_clamp.stl)); use the separate hood/clamp processes and updated M3 × 12 hardware list. V2 fastener access is superseded.
+- **Status:** Driver/nut paths and full hardware seating checked; eight stiffening ribs retained. Physical print, bench-first tightening, retention, airflow and sound remain unverified.
 - **Test pieces:** N/A. **Final objects:** Unknown — no physical print report.
-- **Provenance:** [Record](model/circular_vent_enclosure/README.md#parameters-and-engineering-record).
+- **Provenance:** [Record and illustrated installation](model/circular_vent_enclosure/README.md#screw-heads-nuts-and-assembly-order).
 
 #### Physical-analysis phone stand (V3) — [`model/analysis_phone_stand/`](model/analysis_phone_stand/README.md)
 Compact `105 × 140 mm` fully printed pedestal phone stand with a concealed three-angle (`45°`/`60°`/`75°`) spring-latch lock.

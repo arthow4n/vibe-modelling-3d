@@ -265,3 +265,70 @@ blank line at EOF from `vent_parameters.py` after CAD publication. Its parsed AS
 is identical; exported geometry and the selected slice remain unchanged.
 Published parameter SHA256 `26381d0a526fb059345d1b8c12b4e4d93c1b743f51e80f190dae0f8d1f0bc6ac` → formatted `b0c5d8988391cd9462950ca07de2d6569c90ad464e08b4d1100c758481e823fc`. The final path report
 records the formatted source; this is no new physical qualification.
+
+
+## V3 — bench-first assembly and installed clamp access
+
+The user rejected V2's fastener access arrangement and specified joining hood and
+clamp on the bench before fitting the unit, then tightening the rim clamp from
+the accessible side. This is product feedback on the CAD, not a reported print.
+The user explicitly accepted retaining the stiffening ribs; all eight 2 × 3 mm
+ribs now have protected requirement coverage and actual material witnesses.
+
+M3 heads move to rear-facing clamp counterbores, with straight bench driver
+access. M3 nuts move into elongated, chamber-loaded captive hood channels with
+0.4 mm retaining lips, 3.0 mm cavity height and 2.4 mm bearing lands. The specified
+screw changes from M3 × 10 to M3 × 12. The thicker lands require the shell taper
+to start at print Z26 rather than Z32 so their supporting growth remains within
+45°. The front, shell thickness, window geometry and overall envelope remain.
+
+The M4 nut moves to −Y and the head/driver to +Y, away from the mounting brace.
+A room-facing feed passes through the flange into the nut saddle. Nominal actual
+nut shapes were sampled along both M3 slide paths and the M4 loading path. A
+straight 3 mm diameter envelope checks each rear M3 driver; a 3.7 mm diameter,
+75 mm long M4 shaft and 25 mm L-key handle check installed approach and sampled
+0–90° turning positions. These are geometric tool envelopes, not human dexterity
+or torque evidence.
+
+Full nominal screws and nuts exposed defects that shaft-axis-only checks missed:
+the M3 tips initially entered 0.2 mm of hood material, so the through slots now
+cover the complete stock screw length plus clearance. The M4 × 25 tail initially
+hit a brace at the small grip diameter. Moving the axis from R+7 to R+12 reduced
+but did not eliminate the interference; a supported 2 mm head-seat extension
+cleared the complete tail. Ears widen to retain material around the outward nut.
+The nut feed also needed the full protruding nut depth through the flange, not
+only the recessed portion. Final nominal hardware clears PETG, valve and the
+continuous air keepout at Ø129, 130 and 132 mm.
+
+Both native paired STEP/STL publications and selected OrcaSlicer 2.4.2 slices
+completed. The initial automatic hood supports occupied the captive nut channels;
+that attempt is retained under history/v3_auto_support_*. The selected hood
+process disables supports, leaving the short nut-roof spans/ledges clear. Actual
+primary paths at Z65.2 show the local roof paths and no supports; the slicer does
+not label them Bridge. The forced diagnostic still proposes supports to Z65.
+Actual PETG sag and nut fit remain UNKNOWN; the 3.0 mm cavity accommodates nominal
+2.4 mm nuts but is not a calibrated printed tolerance. The clamp retains only
+small exterior supports at print Z0.2–0.6. Both actual path SVGs were reviewed.
+
+Selected estimates: hood 170.08 g / 4 h 3 min 54 s; clamp 32.90 g / 59 min 41 s;
+combined 202.98 g plus unweighed steel. Solid-CAD PETG screen is 216.93 g at
+1.27 g/cm³. The nominal exits remain 94.6 cm²; the disc-plane core is 113.66 cm²
+and the front-turn section 182.15 cm². The wall20 annulus remains 54.02 cm² and
+is a distributed inlet region, not a downstream whole-flow throat. No pressure
+or acoustic result follows from these geometric figures. Selected primary wall
+paths leave 0.0027 mm and 0.0531 mm uncovered at the retained local sections.
+
+Eight declared product checks PASS; physical fit, grip, use sequence, retention,
+creep and acoustic/airflow obligations remain UNKNOWN. In particular, constant-
+neutral-arc diameter poses are slot-sizing evidence, not proof that the ring
+contracts freely after the M3 joints are snug. Joint friction, preload and actual
+nonuniform deformation need the bench-first physical trial. No holding-force or
+installation-torque rating is claimed. The nominal gravity moment is 0.127 N·m.
+
+Labelled direction diagrams, nominal-hardware assembled/exploded scenes and an
+actual M3 joint half-section make the head/nut placement reviewable. Hardware is
+inspection-only and excluded from both printable pairs. Historical V2 reports
+are preserved under notes/history/v2_*. Existing CAD/execution/slicer readers
+were adequate; no shared API change is warranted for this revision. The key
+lesson is to check complete stock hardware, nut loading and the actual assembly
+state, rather than interpreting an unobstructed hole as usable tool access.

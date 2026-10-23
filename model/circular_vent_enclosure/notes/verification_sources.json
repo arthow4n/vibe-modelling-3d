@@ -1,5 +1,5 @@
 {
-  "scope": "V1 intent retained unchanged; two added requirements quote the authorized material/clamp follow-ups. No physical evidence association.",
+  "scope": "Earlier user intent retained unchanged; V3 adds the user-requested fastener access/bench-first sequence and explicit retention of the existing ribs.",
   "user_requirements": [
     {
       "id": "vent.envelope",
@@ -75,6 +75,24 @@
       "source": {
         "reference": "notes/brief.md#follow-up-directions",
         "statement": "Btw I think you need a bit more contact area with the rim to ensure the mounting is stable, consider also making the mechanism a bit clamping so it's both compliant and clamping so I can mount easily without worrying about slightly wrong measuring"
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "vent.access",
+      "text": "Make nut loading and driver approaches usable; assemble hood and clamp on the bench before tightening the installed rim clamp.",
+      "source": {
+        "reference": "notes/brief.md#fastener-access-revision",
+        "statement": "Reverse the problematic head/nut directions and fix screwdriver and nut installation access for bench-first assembly."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "vent.ribs",
+      "text": "Keep the existing front stiffening ribs.",
+      "source": {
+        "reference": "notes/brief.md#fastener-access-revision",
+        "statement": "Otherwise, I agree with you we keep the stiffening ribs."
       },
       "acceptance_criteria": []
     }

@@ -2,29 +2,68 @@
   "ok": true,
   "file_path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/mounting_clamp.py",
   "errors": [],
-  "views": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/renders/print/mounting_clamp_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "bottom",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/renders/print/mounting_clamp_bottom.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          0,
+          0,
+          -1
+        ],
+        "up_direction": [
+          0,
+          1,
+          0
+        ]
+      }
+    }
+  ],
   "exports": [
     {
       "path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/mounting_clamp.step",
       "ok": true,
-      "reused": true
+      "reused": false
     },
     {
       "path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/mounting_clamp.stl",
       "ok": true,
-      "reused": true
+      "reused": false
     }
   ],
   "timings_seconds": {
-    "dependency_initialization": 0.001773484007571824,
-    "build": 1.5394880350067979,
-    "selection": 0.0009820050036069006,
-    "validation": 0.08477198700711597,
-    "export_step": 0.004420448996825144,
-    "export_stl": 0.0037432029930641875,
-    "worker": 1.7252922750049038,
-    "total": 9.517323015999864,
-    "slice": 5.303561121996609
+    "dependency_initialization": 0.0014140359999146312,
+    "build": 1.5688149869965855,
+    "selection": 0.0010774580005090684,
+    "validation": 0.0798184690065682,
+    "export_step": 0.14245090499753132,
+    "export_stl": 0.16395687698968686,
+    "render_isometric": 0.5485760000010487,
+    "render_bottom": 0.5103790440043667,
+    "worker": 3.104994267996517,
+    "total": 14.434479350005859,
+    "slice": 9.870213033005712
   },
   "versions": {
     "python": "3.14.7",
@@ -35,8 +74,8 @@
   },
   "reuse": {
     "geometry": false,
-    "identity": "08c3490f5bfa2c5665dba254bfbeb340a8f5ed8d6a8398754e18f4cb4d17367c",
-    "artifact_identity": "8f57f4f6aff3bb42be8408d20d48e65bf563e2499bced232fbac99bb0c6ed996"
+    "identity": "9c788d0521f4765048d8b73693e7509daa06de229286e5dab2081c45a25c67c4",
+    "artifact_identity": "1860a48dc2386ac0a9ddef80143d41b1f91a76d3c8337366b40ce46121a53d43"
   },
   "slice": {
     "ok": true,
@@ -85,7 +124,7 @@
       "hot_plate_temp_initial_layer": [
         "80"
       ],
-      "print_settings_id": "Vent V2 PETG solid front with local tree supports",
+      "print_settings_id": "Vent V3 PETG bench assembly, short bridges",
       "layer_height": "0.2",
       "wall_loops": "2",
       "line_width": "0.42",
@@ -98,7 +137,7 @@
       "enable_support": "1",
       "support_type": "tree(auto)",
       "support_threshold_angle": "30",
-      "bridge_no_support": "0",
+      "bridge_no_support": "1",
       "max_bridge_length": "10",
       "filament_flow_ratio": [
         "0.95"
@@ -129,9 +168,9 @@
     "log_notices": [],
     "review_required": true,
     "reused": false,
-    "identity": "2d5f2b1fcbca067b0148e6d4ebfabd65511c58ade80a2db8585e614203341481",
-    "input_sha256": "231d0aa4309f7324bd7edd9e9354291e976581add2401c5822589fa7f405b6af",
-    "kept_run_directory": "/home/hevar/orca-slicer-review-fznkvmgk",
+    "identity": "132ff38753c614c2532ed0eced7cdd9ecdc2826e0cca46bb7406ed0444a3741b",
+    "input_sha256": "bb80c2b8044ef3c92144bbcf75ce63219efc95e5400f68b79c3f1af5984fdbd3",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-ku8tsja3",
     "setup_selection": {
       "profiles": "supplied",
       "placement": "default_center",
