@@ -78,6 +78,13 @@ print assumptions, the failed old floor and current application. The older
 The revised floor is selected, not physically qualified; other named historical
 profiles retain their evidence and must not silently become the current L20 template.
 
+**Larger-gap comparison:** after printing G08 (0.8 mm air) and G16 (1.6 mm
+air), the user feels G16 gives a perceptible, modest damping benefit while
+G08's difference is less meaningful. They still choose **updated L20 for most
+uses and the dental liner**, recognizing application-dependent damping needs.
+Do not replace this selected baseline merely because a larger gap feels better
+in one experiment. [Physical report and scope](../../../../model/tpu_damping_box/notes/gap_comparison.md#physical-comparison-and-application-selection).
+
 **Upcoming TPU damping iterations, 2026-10-19:** explicitly check upright wall
 integrity in addition to dimensions. Aim for geometry/process configurations
 that do not require Arachne; allow a thicker sandwich rather than preserving

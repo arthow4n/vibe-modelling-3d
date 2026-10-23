@@ -97,15 +97,15 @@ Slim two-piece rotary-lock box (`75.8 × 52.8 × 264 mm`) for a toothbrush and t
 
 #### TPU damping box & wall-support research — [`model/tpu_damping_box/`](model/tpu_damping_box/README.md)
 30–34 mm TPU 95A test coupons used to qualify impact damping, tall-wall support durability, and surface finish before full liner prints.
-- **Action / Print:** New larger-gap tests: [G08 STEP](model/tpu_damping_box/gap_G08.step) / [STL](model/tpu_damping_box/gap_G08.stl), [G16 STEP](model/tpu_damping_box/gap_G16.step) / [STL](model/tpu_damping_box/gap_G16.stl). Each contains a cup + matching pad, fixed 0.8 mm skins with 0.8 / 1.6 mm air consistently across walls/floor/pad. Reuse rigid enclosure. [Setup and comparison](model/tpu_damping_box/notes/gap_comparison.md).
-- **Test pieces:** G08/G16 physical result unknown. Uniform L20 remains the 0.4 mm baseline; dental liner unchanged. Earlier L20/L18/T08 walls/damping preferred but old floors fragile. Old thin-floor kits and rejected firm/solid variants remain historical.
+- **Action / Print:** Gap comparison complete. User retains **updated L20, 0.8 / 0.4 air / 0.8 mm**, for most uses: [cup + pad STEP](model/tpu_damping_box/uniform_l20.step) / [STL](model/tpu_damping_box/uniform_l20.stl). [Standard and setup](model/tpu_damping_box/notes/l20_standard.md).
+- **Test pieces:** **G08 and G16 printed and compared**. G16 gives a perceptible, modest damping benefit over L20; G08's difference is less meaningful. Application-dependent preference; no measured attenuation or new floor-finish claim. [Physical results](model/tpu_damping_box/notes/gap_comparison.md#physical-comparison-and-application-selection).
 - **Final object:** N/A — research samples feeding the sunglasses and dental liners.
 - **Provenance:** [Record](model/tpu_damping_box/README.md#attribution) · **Agent effort:** N/A — no performance study requested
 
 #### Dental box L20 TPU liner — [`model/dental_travel_case_liner/`](model/dental_travel_case_liner/README.md)
 Two preformed L20 TPU 95A cups for the latest rotary dental travel box.
 - **Action / Print:** Revised [uniform two-cup STEP](model/dental_travel_case_liner/rotary_l20_uniform_liner.step) / [STL](model/dental_travel_case_liner/rotary_l20_uniform_liner.stl). **Same 0.8/0.4/0.8 in walls and floors as the experiment**. TPU 0.4/0.2 mm, Classic, two walls, four top/bottom layers, solid material fill, supports off. [Setup and fit limits](model/dental_travel_case_liner/notes/uniform_l20.md).
-- **Test pieces:** Earlier L20 walls/damping preferred; floor fragile. New uniform standard selected; physical improvement untested.
+- **Test pieces:** After printing G08/G16, user selects **updated L20** as sufficient for the dental application. Existing dental exports already use that recipe; full-size fit/quietness and revised floor finish remain untested.
 - **Final object:** Uniform L20 liner **Unknown — revised pair prepared**; 255.4 mm nominal inside length. Prior dental print **Partial — canceled for floor defects**; old M1 S16 damaged/rejected. Keep the printed rigid case.
 - **Provenance:** [Current record](model/dental_travel_case_liner/notes/uniform_l20.md#engineering-notes-and-attribution) · [Historical attribution](model/dental_travel_case_liner/README.md#attribution) · **Agent effort:** N/A — no performance study requested
 

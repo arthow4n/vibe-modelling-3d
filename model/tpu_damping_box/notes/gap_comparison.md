@@ -1,6 +1,8 @@
 # G08 and G16: larger-air-gap cup comparison
 
-Print the two experimental models below. Each contains **one cup and its matching lid pad**, backing down, for the existing rigid test enclosure. Keep both skins at **0.8 mm**. The selected air gap is used consistently in the walls, floor and pad. **The dental liner and selected 0.4 mm L20 standard remain unchanged.**
+**Comparison printed and reported:** G16 gives a meaningful, modest damping improvement over L20; G08's difference feels less meaningful. The user still considers **updated L20 sufficient for most uses** and selects it for the dental liner. Damping preference depends on the application. No repeat comparison print is requested.
+
+The files below remain available for identification or applications needing a larger gap. Each contains one cup and its matching lid pad. The selected gap is consistent through walls, floor and pad; skins remain 0.8 mm. The [updated L20 dental liner](../../dental_travel_case_liner/notes/uniform_l20.md) remains the selected application.
 
 | Model / engraved ID | Skin / air / skin | Total panel thickness | Closed clear chamber | Print files |
 | --- | --- | --- | --- | --- |
@@ -16,6 +18,12 @@ Both cups keep the **34 × 34 × 34 mm exterior**, existing insertion fit and 32
 ## User direction
 
 The user requests larger-gap variants **only for the TPU experiment cup**, explicitly keeping the dental liner as it is. They initially consider 0.8/1.2 mm, then choose **0.8 and 1.6 mm**, skipping 1.2 mm, to explore whether the gap makes a perceptible physical difference. This is an explicit experimental exception to the selected L20 gap, not a replacement standard. The prior requirement for consistent wall/floor construction is retained within each model.
+
+## Physical comparison and application selection
+
+The user reports printing **both G08 and G16**. G16 feels meaningfully different from L20 and slightly better in real damping. G08's difference feels less meaningful. Despite noticing G16's benefit, the user judges L20 sufficient for the majority of use cases, emphasizes that damping depends on the application, and requests the dental liner use **updated L20**, explicitly excluding the old thin-floor version with visible surface defects.
+
+This is subjective physical comparison, not a measured attenuation or universal ranking. Exact printed hashes/revisions, spool and slicer settings, matching-pad use and the baseline L20 print identity are unreported. No new floor-finish, internal-gap or durability conclusion is inferred. The dental sources and paired exports already implement the updated 0.8/0.4/0.8 section, so application selection needs no geometry change. [Current dental print files and limits](../../dental_travel_case_liner/notes/uniform_l20.md).
 
 ## What stays constant and what necessarily changes
 
@@ -45,13 +53,13 @@ Actual material/air witnesses cover four walls, floor, pad and posts. Rigid inse
 
 | Item | Print status | Artifact / remaining observation |
 | --- | --- | --- |
-| G08 cup + pad | **Unknown — no print report** | `gap_G08.py` / `.step` / `.stl`; floor finish, tie integrity, fit and feel |
-| G16 cup + pad | **Unknown — no print report** | `gap_G16.py` / `.step` / `.stl`; floor finish, tie integrity, fit and feel |
-| Uniform L20 baseline | **Unknown — no new print report** | Existing files and selected standard unchanged |
-| Dental liner | **Unchanged** | This task adds no dental sources, exports, profile changes or print claims |
+| G08 cup; matching-pad use unreported | **Yes — printed and compared** | `gap_G08.py` / `.step` / `.stl`; less meaningful damping difference from L20. Exact printed hash/settings unknown. |
+| G16 cup; matching-pad use unreported | **Yes — printed and compared** | `gap_G16.py` / `.step` / `.stl`; perceptible, modest damping benefit over L20. Application-dependent. |
+| L20 baseline reference | **User judges sufficient for most uses** | Updated L20 selected going forward; exact baseline print identity and revised floor finish unconfirmed. |
+| Updated L20 dental liner | **Selected — application print unknown** | Existing uniform 0.8/0.4/0.8 sources/exports already implement the requested recipe. |
 
 ## Engineering notes and attribution
 
-These are exploratory variants, not adoption of a larger standard gap. Common skin/tie constants and the supplied profiles stay unchanged; variant selection is explicit and unknown IDs fail. The baseline publication association has a reviewed router-only hash refresh after adding G08/G16 CLI choices; its geometry, profile and exports are unchanged. No solver or additional material purchase is needed to explore the user's question. Both modes are exposed through the shared product-verification CLI, keeping subjective comparison physical and unknown until reported.
+These are exploratory variants, not adoption of a larger standard gap. Common skin/tie constants and the supplied profiles stay unchanged; variant selection is explicit and unknown IDs fail. The baseline publication association has a reviewed router-only hash refresh after adding G08/G16 CLI choices; its geometry, profile and exports are unchanged. No solver or additional material purchase is needed to explore the user's question. Both modes are exposed through the shared product-verification CLI, keeping the digital receipts separate from the later subjective physical comparison above.
 
 Primary language model: GPT-6 family; exact identifier and reasoning effort not exposed. Harness: Codex shared-workspace coding agent, OpenAI. No subagents. User selects the 0.8/1.6 mm experiment and explicitly excludes dental changes. Prior source and profile attribution remains intact.

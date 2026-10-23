@@ -6,10 +6,10 @@ Two preformed **L20 TPU 95A cups** for the latest [wraparound-wheel rotary box](
 
 ## Current uniform L20 print
 
-- **Print:** [Revised two-cup STEP](rotary_l20_uniform_liner.step) · [STL](rotary_l20_uniform_liner.stl) · [Python](rotary_l20_uniform_liner.py). The body and lid liner are both included, closed ends down. Keep the existing rigid box and working controls.
+- **Selected after the G08/G16 comparison:** [Updated L20 two-cup STEP](rotary_l20_uniform_liner.step) · [STL](rotary_l20_uniform_liner.stl) · [Python](rotary_l20_uniform_liner.py). The body and lid liner are both included, closed ends down. Keep the existing rigid box and working controls.
 - **One section everywhere:** **0.8 mm skin / 0.4 mm air / 0.8 mm skin = 2.0 mm**, in walls and both floors. Both this liner and the experiment import the same [standard source](../tpu_damping_box/l20_standard.py).
 - **Setup:** TPU 95A, 0.4 mm nozzle / 0.2 mm layers, Classic, thin-wall detection off, two walls, 100% rectilinear fill, **four top and bottom layers**, supports off, 9 mm³/s. Use the shared [uniform process](../tpu_damping_box/profiles/l20-uniform-process.json). Ironing remains 50% / 30 mm/s / 0.15 mm. [Printing and installation](notes/uniform_l20.md).
-- **Status:** Revised pair digitally checked; **no physical print report yet**. The old print was canceled for broken/cracking interior floor while early walls looked okay. Do not repeat the old `rotary_l20_liner` or rejected M1 S16 files as the corrected standard.
+- **Status:** User selects updated L20 as sufficient for this application despite G16's modest damping benefit. Revised pair digitally checked; **no physical print report yet**. The old print was canceled for broken/cracking interior floor while early walls looked okay. Do not repeat the old `rotary_l20_liner` or rejected M1 S16 files as the corrected standard.
 
 ![Current two-cup liner](renders/uniform_l20/rotary_l20_uniform_liner_isometric.png)
 

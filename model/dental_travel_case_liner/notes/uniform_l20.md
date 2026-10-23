@@ -1,12 +1,14 @@
 # Uniform L20 liner for the printed rotary dental box
 
-Print the revised two-cup [STEP](../rotary_l20_uniform_liner.step) / [STL](../rotary_l20_uniform_liner.stl) / [Python](../rotary_l20_uniform_liner.py). **Both walls and floors now use 0.8 / 0.4 air / 0.8 mm, totaling 2 mm.** Keep the printed hard box, wheel, cap and screw. The new liner has no physical print report yet; the earlier floor-defect print was canceled.
+Print the revised two-cup [STEP](../rotary_l20_uniform_liner.step) / [STL](../rotary_l20_uniform_liner.stl) / [Python](../rotary_l20_uniform_liner.py). **Both walls and floors now use 0.8 / 0.4 air / 0.8 mm, totaling 2 mm.** Keep the printed hard box, wheel, cap and screw. The user reselects this updated L20 recipe after printing G08/G16: G16 has a modest perceptible damping benefit, but L20 is sufficient for most uses. This full-size application still has no physical print report; the earlier thin-floor print was canceled.
 
 Use the same [L20 standard and process as the experiment](../../tpu_damping_box/notes/l20_standard.md). The long body cup and short lid cup are the complete liner: no new inserts, adhesive or fasteners. Keep both closed ends down and openings up, at supplied centres (60,60) and (142,60).
 
 ![Uniform panel section shared with the experiment](../../tpu_damping_box/renders/print/uniform_l20/profile.png)
 
 ## User direction
+
+After printing the G08 and G16 experimental cups, the user reports G16 meaningfully but only slightly better than L20 in damping, with G08 less meaningfully different. They explicitly select **updated L20** for the dental liner, not the older thin-floor recipe with visible defects. The authoritative dental source already imports SKIN=0.8, CORE=0.4 and TOTAL=2.0 from the shared standard, aliases both floor skins/core to those same values, and the matched native exports retain that construction. No model/export alteration or repeat slice is needed for this selection. [Recorded comparison](../../tpu_damping_box/notes/gap_comparison.md#physical-comparison-and-application-selection).
 
 The user requires the same sandwich in walls and bottoms in both the TPU experiment and dental liner, and requires updating the reusable standard so future models cannot inherit the old inconsistency. This replaces the earlier 0.4/0.8/0.4 floors; their poor interior surface is recorded in the [prior application report](rotary_l20.md) and [floor explanation](floor_surface_review.md). Early wall regions looked okay, but a canceled print did not qualify completed tall walls or insertion.
 

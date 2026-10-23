@@ -1,6 +1,6 @@
 # Current L20 standard: one section in every orientation
 
-**Use 0.8 mm skin / 0.4 mm air / 0.8 mm skin, totaling 2.0 mm**, in all active flat walls, floors and lid pads. The selected standard now has one [shared implementation](../l20_standard.py); there is no separate thinner floor recipe. This corrects a design inconsistency. Improved physical floor quality remains to be tested.
+**Use 0.8 mm skin / 0.4 mm air / 0.8 mm skin, totaling 2.0 mm**, in all active flat walls, floors and lid pads. The selected standard now has one [shared implementation](../l20_standard.py); there is no separate thinner floor recipe. This corrects a design inconsistency. After comparing G08 and G16, the user retains updated L20 for ordinary use and the dental application: G16 feels somewhat better at damping, while G08 gives less meaningful difference. Revised floor finish is not established by that damping report.
 
 Print the revised [experiment cup + matching lid pad STEP](../uniform_l20.step) / [STL](../uniform_l20.stl) / [Python](../uniform_l20.py). Reuse the existing rigid test enclosure and its hardware. Print **both** soft parts: an older T08/L20 pad retains the superseded floor construction. The matching [dental liner](../../dental_travel_case_liner/notes/uniform_l20.md) uses the same source dimensions and enclosed-floor builder.
 
@@ -36,7 +36,7 @@ At horizontal floors, backing paths occur at Z 0.2/0.4/0.6/0.8 mm, posts at 1.0/
 
 ## Verification, limits and print status
 
-Both current native layouts are valid, export paired STEP/STL successfully, and complete OrcaSlicer 2.4.2 slicing with the supplied TPU profile, no notices and **no automatic-support generation**. Actual local paths retain four-layer floor skins and the 0.4 mm core. This is digital evidence; the revised floor has no physical print report.
+Both current native layouts are valid, export paired STEP/STL successfully, and complete OrcaSlicer 2.4.2 slicing with the supplied TPU profile, no notices and **no automatic-support generation**. Actual local paths retain four-layer floor skins and the 0.4 mm core. This is digital evidence; the later subjective gap comparison does not establish revised floor finish or long-term integrity.
 
 [CAD witnesses and fixture paths](uniform_l20/cad.json) inspect actual material/air in all four walls, floor and pad, confirm the 30 mm clear chamber and existing shell insertion/closure, pad contact with its cup seat and rigid lid, downward seating-stop obstruction, and include an old-floor negative control: at a point between posts, Z 0.6 mm is air in the old floor but backing material in the new one. [Native export/slice](uniform_l20/native.json), [local floor/wall paths](uniform_l20/paths.json), [publication association](uniform_l20/publication.json) and [product verification](uniform_l20/verification.json) identify the current files and selected setup. Historical geometry and native receipts are retained; their print approval is not transferred to the new floor.
 
@@ -45,7 +45,7 @@ The bed-facing skins have four ordinary layers; the 0.4 mm void has two layer he
 | Item | Print status | Artifacts / remaining observation |
 | --- | --- | --- |
 | Earlier L20/T08 experiments | **Yes — walls/damping preferred; floor fragile** | Historical `thin_gap_L20` / `t_skin_T08_m1`; do not repeat as the corrected standard |
-| Uniform L20 experiment pair | **Unknown — no print report** | `uniform_l20.py` / `.step` / `.stl`; inspect roof continuity, skin integrity, pad seating and damping |
+| Updated L20 experiment pair | **Selected for most uses; exact baseline print identity unknown** | `uniform_l20.py` / `.step` / `.stl`; user judges L20 adequate after G08/G16 comparison. No new roof-finish, pad-use or durability report. |
 | Final application | **N/A in this experiment object** | Revised dental application has its own record and print status |
 
 ## Engineering ownership and attribution
@@ -54,4 +54,4 @@ The failure came from independently retaining a legacy horizontal recipe. Curren
 
 Primary language model: GPT-6 family; exact identifier and reasoning effort not exposed. Harness: Codex shared-workspace coding agent. Provider: OpenAI. No subagents. User selected orientation consistency and supplied the physical print reports. Geometry retains the repository license; derived profile JSON retains AGPL-3.0 attribution.
 
-The later [G08/G16 gap comparison](gap_comparison.md) explores 0.8 and 1.6 mm cores only in the test fixture. It is an explicitly requested experiment, not a change to this selected standard or its dental application.
+The later [G08/G16 gap comparison](gap_comparison.md) explores 0.8 and 1.6 mm cores only in the test fixture. The user has now printed both and reports G16 slightly better at damping, with a less meaningful G08 difference; L20 remains sufficient for most uses and is explicitly selected for the dental application. [Full physical comparison](gap_comparison.md#physical-comparison-and-application-selection).
