@@ -506,4 +506,9 @@ def _intent(request):
         'nonlinear', 'max_increment', 'parts', 'constraints', 'loads', 'contacts', 'observations')}))
     for constraint in answer['constraints']:
         constraint.setdefault('progress', None)  # legacy proportional ramp
+    for part in answer['parts']:
+        # Before curvature controls were exposed, omission meant no refinement.
+        # Preserve those identities while comparing every explicitly set value.
+        part.setdefault('mesh_min_size_mm', None)
+        part.setdefault('mesh_curvature_points', None)
     return answer

@@ -82,6 +82,15 @@ using an author's hardcoded home directory. Retain nuanced Markdown observations
 and historical numerical records; changed interfaces do not authorize rewriting
 them into current success.
 
+When adding optional fields to identity-bound requests, normalize historical
+omission to the precisely equivalent unset value at the comparison boundary.
+Keep explicit values in the identity and test legacy reuse plus rejection of
+changed settings. Optional curvature controls once broke retained question
+evidence because old parts omitted the two fields that new requests wrote as
+`None`; compatibility belongs in canonicalization, without rewriting archives
+or ignoring the new settings. The [retained-evidence contract](../../../physical_analysis/README.md#standard-question-studies-and-retained-evidence)
+owns that normalization. Required physical inputs must still be present.
+
 ## Implement and qualify
 
 Trace affected callers and update them together. When removing a consequential

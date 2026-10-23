@@ -296,6 +296,7 @@ def test_stale_geometry_motion_material_settings_and_archive_are_rejected(tmp_pa
     for changed in [replace(q,part=q.part.translate((0,0,.1))),
                     replace(q,material=replace(q.material,youngs_modulus_MPa=800)),
                     replace(q,max_increment=.0125),replace(q,penalty_N_mm3=12000),
+                    replace(q,mesh_min_size_mm=.2,mesh_curvature_points=12),
                     replace(q,mating_parts=(replace(q.mating_parts[0],motion=Motion((-7,0,0))),))]:
         with pytest.raises(ValueError,match='intent or numerical settings'):
             changed.read_evidence(archive)
@@ -304,6 +305,21 @@ def test_stale_geometry_motion_material_settings_and_archive_are_rejected(tmp_pa
     (tmp_path/'tampered/case.json').write_text('{}')
     with pytest.raises(ValueError,match='identity'):
         q.read_evidence(tmp_path/'tampered')
+
+
+def test_legacy_unset_mesh_controls_normalize_without_discarding_values():
+    from copy import deepcopy
+    from physical_analysis.questions import _intent
+    saved = json.loads((ROUNDED/'evidence/calculix/cycle_base/case.json').read_text())
+    original = deepcopy(saved)
+    explicit_unset = deepcopy(saved)
+    for part in explicit_unset['parts']:
+        part.update(mesh_min_size_mm=None, mesh_curvature_points=None)
+    assert _intent(saved) == _intent(explicit_unset)
+    assert saved == original  # Reading history must not rewrite it.
+    refined = deepcopy(explicit_unset)
+    refined['parts'][0].update(mesh_min_size_mm=.2, mesh_curvature_points=12)
+    assert _intent(saved) != _intent(refined)
 
 
 def test_manufacturing_reviews_actual_paths_without_material_inference(tmp_path):
@@ -337,9 +353,13 @@ def test_study_plan_is_opt_in_bounded_and_keeps_one_factor_changes():
         QuestionStudy(q,'Contact check',('max_displacement_mm',),contact_levels=1, relative_tolerance=.05).plan()
 
 
-def test_small_metric_change_crossing_provisional_limit_does_not_stop_as_stable(tmp_path,monkeypatch):
+@pytest.mark.parametrize('other_screen_fails', [False, True])
+def test_small_metric_change_crossing_provisional_limit_does_not_stop_as_stable(tmp_path,monkeypatch,other_screen_fails):
     from physical_analysis import AnalysisResult
     q = beam_question()
+    if other_screen_fails:
+        # Both aggregate answers remain FAIL, but the strain decision changes.
+        q.acceptance = {'peak_motion_force_N.drive': .2}
     def recorded_response(question,directory,**kwargs):
         strain = .00999 if question.mesh_size_mm == 2 else .01001
         r = AnalysisResult(question.name,'completed',completed=True,

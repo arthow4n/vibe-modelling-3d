@@ -7,6 +7,10 @@ from .case import positive
 from execution.telemetry import operation
 
 
+def _finite_scalar(value):
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+
+
 def compare_results(coarse, refined, *, metrics, relative_tolerance):
     """Compare explicitly chosen metric paths; convergence is not physical validation.
 
@@ -21,7 +25,7 @@ def compare_results(coarse, refined, *, metrics, relative_tolerance):
         a,b=coarse.metrics,refined.metrics
         for key in path.split('.'):
             a,b=a[key],b[key]
-        if not isinstance(a,(int,float)) or not isinstance(b,(int,float)) or not math.isfinite(a+b):
+        if not _finite_scalar(a) or not _finite_scalar(b):
             raise ValueError(f'{path} is not a finite scalar metric')
         change=abs(a-b)/max(abs(b),1e-12)
         answer[path]=dict(coarse=a,refined=b,relative_change=change,
@@ -53,8 +57,13 @@ class QuestionStudy:
         if not self.decision or not self.metrics:
             raise ValueError('Provide the decision and metrics that could change it')
         positive(self.relative_tolerance, 'Comparison tolerance')
+        positive(self.mesh_factor, 'Mesh factor')
+        positive(self.contact_factor, 'Contact factor')
         if not 0 < self.mesh_factor < 1 or self.contact_factor <= 1:
             raise ValueError('Refinement must reduce mesh size and increase contact penalty')
+        unknown = self.absolute_tolerances.keys() - set(self.metrics)
+        if unknown:
+            raise ValueError(f'Absolute tolerances name unselected metrics: {sorted(unknown)}')
         for value in self.absolute_tolerances.values():
             positive(value, 'Absolute metric tolerance')
         controls = [('increment_sensitivity', self.motion_levels, 'max_increment', .5),
@@ -82,6 +91,10 @@ class QuestionStudy:
         from .questions import _metric
         plan = self.plan()
         evidence = evidence or {}
+        labels = {'baseline'} | {label for entries in plan.values() for label, _ in entries}
+        unknown = evidence.keys() - labels
+        if unknown:
+            raise ValueError(f'Unknown study evidence labels: {sorted(unknown)}; choose from {sorted(labels)}')
         if directory is not None and (Path(directory)/'study_result.json').exists():
             raise FileExistsError('Choose a new study record; existing study evidence is not overwritten')
         def obtain(label, question):
@@ -94,13 +107,18 @@ class QuestionStudy:
         summary = dict(decision=self.decision, relative_tolerance=self.relative_tolerance,
             absolute_tolerances=dict(self.absolute_tolerances),
             comparisons={}, comparison_limits={}, acceptance_changed={}, runs={
-            'baseline':self._run_record(baseline,self.question)}, stopping_reason={})
+            'baseline':self._run_record(baseline,self.question)}, stopping_reason={}, unavailable_metrics={})
         confidence = baseline.metrics['question']['numerical_confidence']
-        if not baseline.metrics['question']['numerical_evidence_adequate']:
+        missing = [metric for metric in self.metrics if not _finite_scalar(_metric(baseline.metrics, metric))]
+        if missing:
+            summary['unavailable_metrics']['baseline'] = missing
+        if not baseline.metrics['question']['numerical_evidence_adequate'] or missing:
             for axis, entries in plan.items():
                 if entries:
                     confidence[axis] = 'unresolved'
-            summary['stopping_reason']['baseline'] = 'Baseline quality rejected; no refinements launched'
+            summary['stopping_reason']['baseline'] = ('Baseline quality rejected; no refinements launched'
+                if not baseline.metrics['question']['numerical_evidence_adequate'] else
+                'Baseline decision metric unavailable; no refinements launched')
         else:
             for axis, entries in plan.items():
                 previous = baseline
@@ -114,8 +132,7 @@ class QuestionStudy:
                     changes = {}
                     for metric in self.metrics:
                         a, b = _metric(previous.metrics, metric), _metric(refined.metrics, metric)
-                        valid = (isinstance(a, (int, float)) and isinstance(b, (int, float))
-                                 and math.isfinite(a) and math.isfinite(b))
+                        valid = _finite_scalar(a) and _finite_scalar(b)
                         relative = abs(a-b)/max(abs(b), 1e-12) if valid else None
                         passes = valid and (relative <= self.relative_tolerance or
                             abs(a-b) <= self.absolute_tolerances.get(metric, 0))
@@ -123,6 +140,8 @@ class QuestionStudy:
                                                passes=passes if valid else None)
                     summary['comparisons'][label] = changes
                     if any(v['passes'] is None for v in changes.values()):
+                        summary['unavailable_metrics'][label] = [metric for metric, values in changes.items()
+                                                                if values['passes'] is None]
                         confidence[axis] = 'unresolved'
                         summary['stopping_reason'][axis] = 'Decision metric unavailable'
                         break
@@ -133,7 +152,11 @@ class QuestionStudy:
                         summary['comparison_limits'][label] = 'Backend/tool identity changed; descriptive comparison only'
                         previous = refined
                         continue
-                    acceptance_changed = previous.metrics['question']['design_screen_passes'] != refined.metrics['question']['design_screen_passes']
+                    # An existing failed screen must not mask another limit crossing.
+                    acceptance_changed = any(previous.metrics['question'].get(key) !=
+                        refined.metrics['question'].get(key) for key in (
+                            'design_screen_passes', 'strain_screen_passes', 'acceptance',
+                            'mating_part_strain_screens'))
                     summary['acceptance_changed'][label] = acceptance_changed
                     confidence[axis] = 'stable' if all(v['passes'] for v in changes.values()) and not acceptance_changed else 'unstable'
                     if confidence[axis] == 'stable':

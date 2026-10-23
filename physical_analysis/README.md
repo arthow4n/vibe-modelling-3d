@@ -260,12 +260,26 @@ erasing independently established passage or changing native completion/status.
 Failed refinements and missing quantities remain unresolved. Force precision
 and provisional strain acceptance are separate; convergence does not calibrate
 material properties. Crossing a supplied acceptance limit prevents a stable
-classification even if the relative change is small. Backend/tool identity
+classification even if the relative change is small or another failed criterion
+keeps the overall answer at FAIL. Individual main/mating-part strain screens and
+explicit acceptance screens enter this comparison. Backend/tool identity
 changes make a comparison descriptive; later matching levels can still establish
 their own comparison. The caller chooses tolerances against the stated action.
 
+Before refinement, every selected baseline metric must be a finite number;
+missing paths, booleans and nonnumeric values leave the requested sensitivities
+unresolved without launching further solves. The study records their paths in
+`unavailable_metrics`. A missing refined quantity likewise stops that axis before
+its next level. Native completion and baseline quality remain separately visible.
+This avoids spending another solve on a comparison the baseline cannot support.
+Absolute tolerance keys must name selected metrics, and refinement factors must
+be finite; configuration errors fail before obtaining any runs.
+
 Pass `evidence={'baseline': existing_run, 'increment_sensitivity_1': refined_run,
 ...}` to reuse checked runs; a missing entry requires a new output directory.
+Unknown evidence labels, including labels for unrequested levels, fail before
+any evidence reads or solves. Later levels remain optional when an earlier
+comparison already settles the axis; their evidence is not read speculatively.
 `question.read_evidence(path)` compares current geometry hashes, material,
 supports, selections, motion, contacts, observations and numerical settings to
 the saved case, and checks case/input hashes against result provenance. Changing
@@ -273,6 +287,9 @@ intent fails explicitly. Case names and timeouts are not physical inputs.
 Historical backend versions/implementation identities are preserved and exposed;
 interpreting historical evidence does not qualify today's backend. No saved solve
 is rerun merely to add interpretation. Native result status is never promoted.
+Legacy cases that omit optional curvature controls compare as unset (`None`),
+matching their original meshing behavior. Explicit refinement values still enter
+the identity; archives and their hashes are not rewritten for compatibility.
 
 The [swatch-box K consumer](../model/filament_swatch_box_study/analyze_cap_k.py)
 uses this route for its saved 0.8/0.65 mm meshes:
@@ -297,7 +314,10 @@ The [local rounded-contact fixture](experiments/ipc/fixtures/rounded_snap/README
 [phone stand](../model/analysis_phone_stand/analyze.py) and
 [book plate](../model/book_reading_plate/analyze.py) exercise evidence binding,
 positive/negative answers and native cross-checks in
-`uv run --locked pytest -q tests/test_engineering_questions.py`.
+`uv run --locked pytest -q tests/test_engineering_questions.py tests/test_question_studies.py`.
+The separate study tests use synthetic responses to check early stopping,
+configuration rejection and retained-result reporting without native solves;
+they qualify orchestration rather than mechanical behavior.
 The fixture is synthetic numerical geometry derived from a physically rejected
 storage product, not a product precedent. Local CalculiX passage/return is retained;
 force remains increment-sensitive. The book's plain-back calculation agrees with
