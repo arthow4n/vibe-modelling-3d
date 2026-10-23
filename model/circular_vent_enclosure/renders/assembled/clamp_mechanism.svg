@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="590" viewBox="0 0 1000 590">
+<defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#087f8c" stroke-width="1.5"/></marker></defs>
+<rect width="1000" height="590" fill="white"/>
+<g font-family="sans-serif" fill="#263442">
+<text x="28" y="34" font-size="23" font-weight="bold">Long-contact flanged split clamp · V2</text>
+<text x="28" y="58" font-size="14">Orange: PETG clamp · Blue: PETG hood · Grey: existing rim · Dark: steel screws / nuts</text>
+<text x="40" y="98" font-size="18" font-weight="bold">Plan — hood removed</text>
+<circle cx="240" cy="275" r="140" fill="#f1f3f4" stroke="#8a9299" stroke-width="3"/>
+<path d="M399 258 A160 160 0 1 0 399 292" fill="none" stroke="#f5c48e" stroke-width="36"/>
+<path d="M388 258 A149 149 0 1 0 388 292" fill="none" stroke="#dc8c37" stroke-width="11"/>
+<path d="M375 249H415V263H384M375 301H415V287H384" fill="#dc8c37" stroke="#a75e17" stroke-width="2"/>
+<path d="M404 244V306" stroke="#263442" stroke-width="5"/>
+<rect x="396" y="240" width="16" height="9" fill="#263442"/>
+<path d="M396 305H412V315H396Z" fill="#263442"/>
+<path d="M419 253L419 267M419 297L419 283" stroke="#087f8c" stroke-width="3" marker-end="url(#a)"/>
+<text x="62" y="266" font-size="15">Stationary rim</text>
+<text x="62" y="289" font-size="14">nominal Ø130 mm</text>
+<text x="323" y="350" font-size="14">M4 screw draws the ears together</text>
+<text x="323" y="372" font-size="14">Slit ring bends around the rim</text>
+<path d="M372 332L402 317" fill="none" stroke="#263442"/>
+<text x="52" y="477" font-size="14">0.8 mm split flange overlaps the rear hood mouth</text>
+<text x="52" y="501" font-size="15">Geometric fit range: approximately Ø129–132 mm</text>
+<text x="52" y="525" font-size="14">Actual grip, tightening effort and creep need a fit test.</text>
+<text x="545" y="98" font-size="18" font-weight="bold">Section — one hood attachment</text>
+<path d="M540 156H950" stroke="#8a9299" stroke-width="4"/>
+<text x="547" y="143" font-size="14">Mounting surface</text>
+<rect x="668" y="156" width="14" height="140" fill="#8a9299"/>
+<rect x="650" y="156" width="18" height="112" fill="#dc8c37"/>
+<path d="M650 156L614 156L550 244V278H622L668 268V156Z" fill="#dc8c37" stroke="#a75e17" stroke-width="1"/>
+<path d="M540 278H625L615 306H540Z" fill="#427cb6" stroke="#234d7d"/>
+<path d="M580 244V315" stroke="#263442" stroke-width="5"/>
+<rect x="569" y="306" width="22" height="13" fill="#263442"/>
+<path d="M569 247L575 239H585L591 247L585 255H575Z" fill="#263442"/>
+<path d="M682 401H896" stroke="#8a9299" stroke-width="7"/>
+<text x="734" y="423" font-size="14">Existing disc at 35 mm</text>
+<path d="M705 156V268M700 156H710M700 268H710" stroke="#263442" fill="none"/>
+<text x="719" y="217" font-size="15">16.7 mm contact span</text>
+<path d="M705 296V401M700 296H710M700 401H710" stroke="#263442" fill="none"/>
+<text x="719" y="344" font-size="15">15 mm open band stays clear</text>
+<text x="719" y="368" font-size="13">Rim ends at 20 mm</text>
+<text x="541" y="451" font-size="14">Three M3 screws seat the hood on the ring tabs.</text>
+<text x="541" y="474" font-size="14">Undo those screws for cleaning; leave the clamp set.</text>
+<text x="28" y="542" font-size="14">Schematic: not to scale. Steel screw supplies preload; broad PETG band supplies compliant contact.</text>
+<text x="28" y="565" font-size="14">No holding-force rating is implied. Only a stationary, sufficiently strong rim may be gripped.</text>
+</g></svg>

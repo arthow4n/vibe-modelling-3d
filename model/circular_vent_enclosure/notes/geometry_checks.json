@@ -1,0 +1,122 @@
+{
+  "flow": {
+    "nominal_outlet_projected_cm2": 94.6,
+    "downstream_disc_plane_min_area_cm2": 127.58,
+    "front_clearance_over_ribs_mm": 44.6,
+    "conservative_front_turn_area_cm2": 182.15,
+    "added_full_flow_sections_min_cm2": 94.6,
+    "rear_annular_sections": [
+      {
+        "wall_height_mm": 20,
+        "core_radius_mm": 77.192,
+        "radial_clearance_mm": 12.192,
+        "annular_area_cm2": 54.464
+      },
+      {
+        "wall_height_mm": 25,
+        "core_radius_mm": 83.639,
+        "radial_clearance_mm": 18.639,
+        "annular_area_cm2": 87.038
+      },
+      {
+        "wall_height_mm": 30,
+        "core_radius_mm": 87.408,
+        "radial_clearance_mm": 22.408,
+        "annular_area_cm2": 107.292
+      },
+      {
+        "wall_height_mm": 35,
+        "core_radius_mm": 91.028,
+        "radial_clearance_mm": 26.028,
+        "annular_area_cm2": 127.58
+      }
+    ],
+    "hood_solid_petg_mass_g": 182.96,
+    "clamp_solid_petg_mass_g": 33.41,
+    "combined_solid_petg_mass_g": 216.37,
+    "reduction_vs_v1_percent": 7.24,
+    "wall_horizontal_axis_gravity_moment_Nm": 0.127,
+    "taper_radial_step_per_0_2_layer_mm": 0.151,
+    "scope": "Nominal \u00d8130 valve; user approximate rim20 + gap15. CAD sections and assumed 1.27 g/cm\u00b3 solid PETG mass, not hydraulic, strength or acoustic qualification."
+  },
+  "mount": {
+    "geometric_poses": [
+      {
+        "diameter_mm": 129,
+        "split_gap_mm": 2.507,
+        "bolt_shaft_overlaps_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "diameter_mm": 129.5,
+        "split_gap_mm": 4.028,
+        "bolt_shaft_overlaps_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "diameter_mm": 130,
+        "split_gap_mm": 5.548,
+        "bolt_shaft_overlaps_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "diameter_mm": 130.5,
+        "split_gap_mm": 7.068,
+        "bolt_shaft_overlaps_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "diameter_mm": 131,
+        "split_gap_mm": 8.587,
+        "bolt_shaft_overlaps_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "diameter_mm": 131.5,
+        "split_gap_mm": 10.106,
+        "bolt_shaft_overlaps_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "diameter_mm": 132,
+        "split_gap_mm": 11.624,
+        "bolt_shaft_overlaps_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "preload_screen": {
+      "preload_present": true,
+      "spring_travel_mm": 0.1,
+      "normal_force_N": null,
+      "friction_retention_N": null,
+      "retention_screen_passes": null,
+      "assumptions": "Equal linear elastic contacts; no other retaining force or external normal load. Friction is an assumed Coulomb capacity along a sliding contact, not a full insertion/release force, creep, wear or printed validation."
+    },
+    "mount_land_nominal_net_area_mm2": 34.08,
+    "nut_roof_nominal_net_area_mm2": 14.879999999999999,
+    "nut_roof_nominal_stress_at_5N_per_screw_MPa": 0.3360215053763441,
+    "approximate_ring_extreme_fibre_strain": 0.0044319015478579225,
+    "scope": "Constant-neutral-arc pose hypothesis for slot sizing only; real ring deformation, torque and retention remain physical."
+  }
+}

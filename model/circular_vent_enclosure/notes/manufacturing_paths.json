@@ -1,0 +1,126 @@
+{
+  "variant": "v2-clamp",
+  "sections": [
+    {
+      "z_mm": 16.0,
+      "span_mm": [
+        240.1,
+        241.5
+      ],
+      "distinct_crossings": 3,
+      "crossings": [
+        [
+          240.30141,
+          0.42,
+          "Outer wall"
+        ],
+        [
+          241.278,
+          0.42,
+          "Outer wall"
+        ],
+        [
+          240.7894,
+          0.629934,
+          "Gap infill"
+        ]
+      ],
+      "coverage": {
+        "filled_width_mm": 1.3880047759298009,
+        "uncovered_width_mm": 0.011995224070204813,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            240.1,
+            241.4880047759298
+          ]
+        ]
+      }
+    },
+    {
+      "z_mm": 42.0,
+      "span_mm": [
+        232.20830240031037,
+        233.96153846153845
+      ],
+      "distinct_crossings": 5,
+      "crossings": [
+        [
+          232.88101,
+          0.45,
+          "Inner wall"
+        ],
+        [
+          233.42388,
+          0.45,
+          "Inner wall"
+        ],
+        [
+          232.48902,
+          0.42,
+          "Outer wall"
+        ],
+        [
+          233.81647,
+          0.42,
+          "Outer wall"
+        ],
+        [
+          233.15112,
+          0.183459,
+          "Gap infill"
+        ]
+      ],
+      "coverage": {
+        "filled_width_mm": 1.682528076805113,
+        "uncovered_width_mm": 0.07070798442296677,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            232.27901038473334,
+            233.96153846153845
+          ]
+        ]
+      }
+    }
+  ],
+  "supports": {
+    "hood": {
+      "input_sha256": "80bca2106579755a8e31c4d6f3838da6cf1a7ecf67f484e04150a80b35b0a7c6",
+      "gcode_sha256": "f422156436916deab9aafe730cdce9f14e7803fe9a5ef9aa08317ab804a341fc",
+      "supports_in_primary": true,
+      "support_z_min_mm": 0.2,
+      "support_z_max_mm": 65.0,
+      "support_segments": 62152,
+      "support_roles": [
+        "Support",
+        "Support interface"
+      ]
+    },
+    "clamp": {
+      "input_sha256": "231d0aa4309f7324bd7edd9e9354291e976581add2401c5822589fa7f405b6af",
+      "gcode_sha256": "1504eef43e2aaa196e7792ab9fde1d70af1b97aa8160405d10b8568b770c9822",
+      "supports_in_primary": true,
+      "support_z_min_mm": 0.2,
+      "support_z_max_mm": 5.0,
+      "support_segments": 8843,
+      "support_roles": [
+        "Support",
+        "Support interface"
+      ]
+    }
+  },
+  "primary_filament_estimates_g": {
+    "hood": 175.4,
+    "clamp": 33.18
+  },
+  "combined_primary_filament_g": 208.58,
+  "reduction_vs_v1_slice_percent": 5.568634552698293,
+  "source_sha256": {
+    "circular_vent_enclosure.py": "d8580a54721734586aca56e3d8af7c5c8765c612c3bcb926dc7b09769a5630fa",
+    "mounting_clamp.py": "bc9455a193f117d43fda3bf30b9f59fe25679893af7316cdb46335ac52cfe131",
+    "vent_parameters.py": "b0c5d8988391cd9462950ca07de2d6569c90ad464e08b4d1100c758481e823fc",
+    "inspect_paths.py": "db78b4311ed5e3567f215108076e1536d6cc2337996b5f9160a8384ee8557ea5"
+  },
+  "scope": "Selected-profile local path coverage and accessible support locations only. Not deposited dimensions, print strength, sag or successful physical support removal."
+}

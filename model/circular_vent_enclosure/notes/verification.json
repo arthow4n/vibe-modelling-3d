@@ -1,11 +1,14 @@
 {
   "schema_version": 1,
-  "variant": "v1",
+  "variant": "v2-clamp",
   "selected_checks": null,
   "available_variants": [
-    "v1"
+    "v2-clamp"
   ],
   "available_checks": [
+    "clamp-path",
+    "tools",
+    "material",
     "envelope",
     "shield-clearance",
     "conditional-flow"
@@ -13,10 +16,10 @@
   "exit_reason": "unresolved_evidence",
   "error": null,
   "report": {
-    "variant": "v1",
+    "variant": "v2-clamp",
     "scope": {
-      "variant": "v1",
-      "interface": "nominal-unmeasured-130mm",
+      "variant": "v2-clamp",
+      "interface": "split-ring-geometric129-132mm-unmeasured-rim",
       "emission-band": "user-approximate-wall20-35mm"
     },
     "focused": false,
@@ -116,6 +119,21 @@
         },
         "non_applicable": null,
         "questions": [
+          {
+            "id": "tools",
+            "criterion": "2.5 mm ball-end Allen approach through windows clears the hood at geometric fit extremes.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "tools"
+            ],
+            "evidence": [
+              "tools"
+            ],
+            "out_of_scope": []
+          },
           {
             "id": "retention",
             "criterion": "Measured stationary-rim fit, retention, attachment capacity and adjustment remain acceptable.",
@@ -235,9 +253,140 @@
         ],
         "acceptance_criteria": [],
         "coverage": "uncovered"
+      },
+      {
+        "id": "vent.material",
+        "text": "Further reduce material while preserving diffuser/shield functionality.",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/brief.md#follow-up-directions",
+          "statement": "Do you think it's possible to further reduce the material usage while keeping the functionality? If possible go do it"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "saving",
+            "criterion": "Combined hood and clamp CAD material falls below V1, retaining front thickness, ribs, outlet area and air keepout.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "material"
+            ],
+            "evidence": [
+              "material"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "saving-use",
+            "criterion": "Physical operation confirms material reduction preserves stiffness, airflow and quietness.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "vent.clamp",
+        "text": "Increase stationary-rim contact and provide compliant adjustable clamping tolerant of modest measurement error.",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/brief.md#follow-up-directions",
+          "statement": "Btw I think you need a bit more contact area with the rim to ensure the mounting is stable, consider also making the mechanism a bit clamping so it's both compliant and clamping so I can mount easily without worrying about slightly wrong measuring"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "clamp-geometry",
+            "criterion": "16 mm band and adjustable screw-driven closure; geometric 129\u2013132 mm poses, slot alignment and removal path remain clear.",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "clamp-path"
+            ],
+            "evidence": [
+              "clamp-path"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "clamp-use",
+            "criterion": "Physical fit, clamping effort, retention and long-term creep on the actual fixed rim are acceptable.",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
       }
     ],
     "evidence": [
+      {
+        "id": "clamp-path",
+        "targets": [
+          [
+            "vent.clamp",
+            "clamp-geometry"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py; mounting_clamp.py",
+        "scope": {
+          "variant": "v2-clamp",
+          "interface": "split-ring-geometric129-132mm-unmeasured-rim",
+          "emission-band": "user-approximate-wall20-35mm"
+        }
+      },
+      {
+        "id": "tools",
+        "targets": [
+          [
+            "vent.mount",
+            "tools"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py",
+        "scope": {
+          "variant": "v2-clamp",
+          "interface": "split-ring-geometric129-132mm-unmeasured-rim",
+          "emission-band": "user-approximate-wall20-35mm"
+        }
+      },
+      {
+        "id": "material",
+        "targets": [
+          [
+            "vent.material",
+            "saving"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "checks.py",
+        "scope": {
+          "variant": "v2-clamp",
+          "interface": "split-ring-geometric129-132mm-unmeasured-rim",
+          "emission-band": "user-approximate-wall20-35mm"
+        }
+      },
       {
         "id": "envelope",
         "targets": [
@@ -254,8 +403,8 @@
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "checks.py; README.md",
         "scope": {
-          "variant": "v1",
-          "interface": "nominal-unmeasured-130mm",
+          "variant": "v2-clamp",
+          "interface": "split-ring-geometric129-132mm-unmeasured-rim",
           "emission-band": "user-approximate-wall20-35mm"
         }
       },
@@ -271,8 +420,8 @@
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "checks.py",
         "scope": {
-          "variant": "v1",
-          "interface": "nominal-unmeasured-130mm",
+          "variant": "v2-clamp",
+          "interface": "split-ring-geometric129-132mm-unmeasured-rim",
           "emission-band": "user-approximate-wall20-35mm"
         }
       },
@@ -288,16 +437,16 @@
         "summary": "Existing assertion group passed; see linked criteria/limits",
         "reference": "checks.py",
         "scope": {
-          "variant": "v1",
-          "interface": "nominal-unmeasured-130mm",
+          "variant": "v2-clamp",
+          "interface": "split-ring-geometric129-132mm-unmeasured-rim",
           "emission-band": "user-approximate-wall20-35mm"
         }
       }
     ],
     "decisions": [
       {
-        "id": "vent.v1-architecture",
-        "text": "One-piece hood with a continuous tapered rear, provisional slip collar and shallow front ribs; no qualified friction retention.",
+        "id": "vent.v2-architecture",
+        "text": "Two printed pieces: 1.4 mm hood shell with unchanged solid 2.4 mm shield and ribs, plus 16.7 mm split rim clamp with rear flange; M4 clamp screw and three M3 hood screws. Fit/force remain physical.",
         "reference": "README.md"
       }
     ],

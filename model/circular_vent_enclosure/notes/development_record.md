@@ -1,4 +1,7 @@
-# V1 development record
+# Vent enclosure development record
+
+The original sections below describe historical V1 at `19ca15f`. The V2 revision
+is recorded at the end; the object README owns current print instructions.
 
 The [object README](../README.md) owns current print/use instructions and readiness.
 This record retains the decisions and discarded local geometry, not extra print variants.
@@ -121,3 +124,144 @@ before optimizing plastic, and compare mass on an equivalent geometric/process
 basis. A smaller rounded window tip and steeper roof removed a concrete support
 signal while preserving outlet area. Existing tools and guidance covered this
 work; no shared API change or general manufacturing rule is justified by V1.
+
+## V2 — lighter hood and long-contact adjustable clamp
+
+The follow-up authorizes further material reduction while preserving functionality.
+The user also asks for more rim contact and compliant clamping to tolerate modest
+measurement error. These two requests remain active together. No physical print
+report or new rim-diameter/profile/strength measurement was supplied.
+
+### Architecture and material decision
+
+Simply extending the old narrow collar from 6 to approximately 16 mm would push
+its contraction into the 20–35 mm emission band. A separate ring lets the hood
+have a broad Ø160 mm rear mouth at wall height 17.5 mm while gripping the rim over
+16.7 mm. One M4 × 25 screw and nut close the slit. Three M3 × 10 socket-cap screws
+and captive M3 nuts seat the hood on supported lands. This adds occasional screw
+removal for cleaning, but avoids a force-sensitive printed latch and preserves
+the clamp adjustment when removing the hood. Standard 3 mm and 2.5 mm ball-end
+Allen tools are specified; stock fastener lengths are available, head type is not
+confirmed. No printable tool is provided.
+
+The front remains 2.4 mm solid with eight 2 × 3 mm ribs. The curved body is shorter
+and thinned to 1.4 mm; the mouth and clamp band remain 2 mm. This is a deliberate
+revision of the initial approximate 2 mm shell preference under the new material
+request, not a rewritten user thickness criterion. Critical path coverage is
+inspected on actual Orca layers rather than inferred from wall settings alone.
+The delivered total solid-CAD estimate is 216.37 g versus 233.27 g for V1 (7.24%
+less under the same assumed 1.27 g/cm³ density). Final print comparisons use both
+parts and all selected support material; steel hardware is separate.
+
+An intermediate unflanged ring left a large annular shortcut around the broad
+hood mouth. It was rejected on whole-object airflow grounds despite clear valve
+fit and bolt paths. The final 0.8 mm split flange fills that rear annulus, with
+positive radial overlap at every declared diameter. A continuous rear annular
+witness checks that only a small residual opening remains, mainly the intentional
+clamp slit. A large opening after deleting the flange fails that check. This is
+not an airtightness claim. The contact band plus flange end behind the open
+20–35 mm band. The flange is printed against the bed; the grip band and supported
+tab braces grow upward. It is also part of the ring's compliance/load path, not
+just a cosmetic cover.
+
+### Contacts, attachment and release
+
+The stationary rim contacts the clamp's cylindrical inner band. Turning the M4
+screw draws the ears together and contracts the slit, supplying a designed normal
+load source. The split permits compliance; the broad contact distributes load
+along the fixed rim. The ring is not supposed to grip the adjustable disc. The
+0.5 mm insertion bevel is on the rim-entry edge, and M4 clearance is intentionally
+5 mm to accommodate ear rotation, not presumed printer inaccuracy.
+
+The hood lands seat against the ring tabs/flange, and the M3 screws provide axial
+preload. Their heads are wider than the slots. Nut channels prevent rotation and
+retain the nuts once screws engage. Slot clearance accommodates expected tab
+movement; screw tightening removes play. To clean or inspect, remove those three
+screws and lift the hood axially; undo the M4 screw only to remove the clamp.
+There is no cantilevered snap tongue, unsupported latch start or speculative
+friction-only loose fit.
+
+The provisional Ø129–132 range is a geometric engineering choice. A preserved
+neutral-arc, constant-curvature pose hypothesis includes the band and thin flange
+cross-section in its neutral-radius estimate. It is used to size bolt slots,
+not predict real deformation or contact pressure. Tab roots, local ears,
+ovality, printing and friction can alter real motion; adjustment/retention remain
+physical questions. Seven geometric diameters cover the declared range, while
+screw preload can close a little beyond first contact before the slit bottoms.
+A positive 0.1 mm normal-interference command is used only to identify a preload
+source with the shared friction screen; missing stiffness and friction leave its
+holding-force result unknown. No torque target or retention rating is invented.
+
+### Fit, airflow and mechanics screens
+
+Actual assembled CAD clears the nominal Ø130 × 35 envelope and a continuous
+12 mm radial band over wall heights 20–35 mm. The front footprint remains solid.
+The projected outlets remain 94.60 cm², front turn area 182.15 cm² and front rib
+clearance 44.6 mm. The downstream circular-core section is 127.58 cm², still above
+the exit area. Inlet-band sections near fastener lands are conservative inscribed
+circles, not full-flow throats; inflow joins along the band. No hydraulic or
+acoustic prediction is inferred.
+
+Native CadQuery assemblies through `assembly_geometry.Configuration` share the
+installed hood/clamp relationship. Checks cover seated forbidden overlap at all
+seven diameters, actual bolt-shaft/slot clearance, and axial withdrawal after
+removing screws. Rear flange overlap is retained at the diameter extremes. The
+nominal thin-flange ring strain estimate is a uniform-curvature sensitivity only;
+local peak strain and creep are not established.
+
+The solid-CAD wall-axis gravity moment is approximately 0.127 N·m. Five newtons
+is a provisional low-load screen (roughly 0.5 kgf, above the roughly 2 N assembled
+weight), not a user handling specification. The nominal nut-roof net section is
+14.88 mm², giving about 0.34 MPa if one roof alone carries 5 N. This is a demand
+estimate, not a calibrated PETG allowable or load rating. The underlying fixture's
+strength is unknown. Ceiling installation instead puts weight into withdrawal.
+
+### Tool and printability corrections
+
+Early support webs obstructed the M3 heads and driver. A recessed head seat and
+short driver reliefs now preserve side webs while admitting the standard 2.5 mm
+ball-end key's 25° approach. The full 3 mm shaft envelope is checked through the
+windows at Ø129, 130 and 132, rather than assuming a visible head can be reached.
+The window bottoms move forward to print Z4 mm; their height/area and roof slope
+remain unchanged, and they remain forward of the disc plane. The relief cuts stop
+inside the chamber. Whole-object print/fit checks are repeated after those edits.
+
+A combined corner fillet on all pad transitions failed; treatment is restricted
+to the broad pad seating perimeter. The clamp's insertion bevel is constructed
+as a conical bore cut, avoiding a failed global chamfer over rounded slit ends.
+These are local topology corrections, not shared tool changes.
+
+V2 accepts a few grams of accessible support under recessed screw seats and any
+nut-channel roof where the selected Orca process proposes it. It is not described
+as support-free. The large rear mouth gives access before assembly; nut channels
+open radially. Actual path views and support heights are retained with the final
+manufacturing inspection. Physical support removal and PETG finish remain open.
+
+### Handoff reflection
+
+Retain the solid acoustic-facing panel first when trimming plastic. Greater rim
+contact cannot be obtained by extending a narrow printing collar into the air
+opening. The later rear-flange correction also shows why clear fit and successful
+local fastener checks cannot substitute for the complete flow path. Both failures
+are now guarded locally. Existing geometry, execution, slicing and manufacturing
+readers were adequate; no shared API or universal printable-wall rule is warranted.
+
+Final selected slices estimate **175.40 g hood + 33.18 g clamp = 208.58 g PETG**,
+including the chosen supports, versus V1's 220.88 g: **5.57% further reduction**.
+Estimated times are 4 h 21 min and 1 h 02 min on separate plates. The hardware's
+unweighed steel mass is additional. Source/parameter review also rejects clocking
+that would join a mounting land across the clamp split, preserves wrapped angles,
+and requires the flange end to match the seating plane. These guards leave the
+selected geometry unchanged; its paired native publication was re-associated
+before the final path report. Selected-profile wall sections retain three paths
+at Z16 and five at Z42, with under 0.08 mm uncovered in the local width-based
+coverage approximation. Support tops are Z65 in the hood screw recesses and Z5
+in the flange-first clamp nut channels; the saved actual path views were visually
+reviewed. Both are accessible before assembly. Fit, grip, surface release and
+operating airflow/noise are the next physical evidence, not further CAD ratings.
+
+Source association review: the staged whitespace check removed only an extra
+blank line at EOF from `vent_parameters.py` after CAD publication. Its parsed AST
+is identical; exported geometry and the selected slice remain unchanged.
+Published parameter SHA256 `26381d0a526fb059345d1b8c12b4e4d93c1b743f51e80f190dae0f8d1f0bc6ac` → formatted `b0c5d8988391cd9462950ca07de2d6569c90ad464e08b4d1100c758481e823fc`. The final path report
+records the formatted source; this is no new physical qualification.

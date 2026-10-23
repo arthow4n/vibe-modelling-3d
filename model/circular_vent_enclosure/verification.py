@@ -1,4 +1,4 @@
-"""Explicit V1 intent coverage; unresolved physical obligations stay visible."""
+"""Explicit V2 intent coverage; unresolved physical obligations stay visible."""
 from pathlib import Path
 from product_verification import (UserRequirement, UserSource, Question, Plan,
     DesignDecision, assertion_check, cli, protect_recorded_intent)
@@ -21,11 +21,24 @@ REQUIREMENTS = tuple(UserRequirement(id, text, UserSource('notes/brief.md', sour
     ('vent.use', 'Reduce perceived noise while retaining useful airflow, cleanability and stable quiet structure.',
      'No guaranteed silencing; no assumption of broadband volume attenuation; avoid whistles, rattles, debris traps and a flexible vibrating front.', ()),
 ))
+REQUIREMENTS += (
+    UserRequirement('vent.material', 'Further reduce material while preserving diffuser/shield functionality.',
+        UserSource('notes/brief.md#follow-up-directions',
+            "Do you think it's possible to further reduce the material usage while keeping the functionality? If possible go do it")),
+    UserRequirement('vent.clamp', 'Increase stationary-rim contact and provide compliant adjustable clamping tolerant of modest measurement error.',
+        UserSource('notes/brief.md#follow-up-directions',
+            "Btw I think you need a bit more contact area with the rim to ensure the mounting is stable, consider also making the mechanism a bit clamping so it's both compliant and clamping so I can mount easily without worrying about slightly wrong measuring")),
+)
 QUESTIONS = (
     Question('nominal', 'vent.envelope', 'Declared dimensions remain within requested limits.', 'CAD'),
     Question('mass', 'vent.envelope', 'Physical mass and existing attachment capacity are acceptable.', 'physical'),
     Question('conditional-path', 'vent.flow', 'For an approximate 20–35 mm emission band, nominal CAD clears valve and 12 mm annular band; projected exits and added full-flow section screen ≥80 cm².', 'CAD'),
     Question('actual-opening', 'vent.flow', 'Measured valve opening is unobstructed and installed flow remains acceptable.', 'physical'),
+    Question('clamp-geometry', 'vent.clamp', '16 mm band and adjustable screw-driven closure; geometric 129–132 mm poses, slot alignment and removal path remain clear.', 'CAD'),
+    Question('clamp-use', 'vent.clamp', 'Physical fit, clamping effort, retention and long-term creep on the actual fixed rim are acceptable.', 'physical'),
+    Question('saving', 'vent.material', 'Combined hood and clamp CAD material falls below V1, retaining front thickness, ribs, outlet area and air keepout.', 'CAD'),
+    Question('saving-use', 'vent.material', 'Physical operation confirms material reduction preserves stiffness, airflow and quietness.', 'physical'),
+    Question('tools', 'vent.mount', '2.5 mm ball-end Allen approach through windows clears the hood at geometric fit extremes.', 'CAD'),
     Question('retention', 'vent.mount', 'Measured stationary-rim fit, retention, attachment capacity and adjustment remain acceptable.', 'physical'),
     Question('geometry', 'vent.shield', 'Forward disc footprint has a solid shield; eight rounded peripheral windows, no internal baffle.', 'CAD'),
     Question('construction', 'vent.print', 'Nominal thicknesses and manufacturing geometry follow recorded FDM plan.', 'CAD'),
@@ -36,12 +49,18 @@ QUESTIONS = (
 
 
 def make_plan(variant):
-    if variant != 'v1':
+    if variant != 'v2-clamp':
         raise ValueError(f'Unknown variant: {variant}')
     protect_recorded_intent(ROOT, REQUIREMENTS)
     import checks
-    scope = {'variant': variant, 'interface': 'nominal-unmeasured-130mm', 'emission-band': 'user-approximate-wall20-35mm'}
+    scope = {'variant': variant, 'interface': 'split-ring-geometric129-132mm-unmeasured-rim', 'emission-band': 'user-approximate-wall20-35mm'}
     checks_declared = (
+        assertion_check('clamp-path', (('vent.clamp','clamp-geometry'),),
+                        checks.mounting, 'checks.py; mounting_clamp.py', scope),
+        assertion_check('tools', (('vent.mount','tools'),),
+                        checks.tool_access, 'checks.py', scope),
+        assertion_check('material', (('vent.material','saving'),),
+                        checks.material, 'checks.py', scope),
         assertion_check('envelope', (('vent.envelope', 'nominal'), ('vent.print', 'construction')),
                         checks.envelope, 'checks.py; README.md', scope),
         assertion_check('shield-clearance', (('vent.shield', 'geometry'),),
@@ -50,10 +69,10 @@ def make_plan(variant):
                         lambda: (checks.nominal_fit(), checks.flow()), 'checks.py', scope),
     )
     return Plan(variant, REQUIREMENTS, scope, checks_declared, questions=QUESTIONS,
-        decisions=(DesignDecision('vent.v1-architecture',
-            'One-piece hood with a continuous tapered rear, provisional slip collar and shallow front ribs; no qualified friction retention.',
+        decisions=(DesignDecision('vent.v2-architecture',
+            'Two printed pieces: 1.4 mm hood shell with unchanged solid 2.4 mm shield and ribs, plus 16.7 mm split rim clamp with rear flange; M4 clamp screw and three M3 hood screws. Fit/force remain physical.',
             'README.md'),))
 
 
 if __name__ == '__main__':
-    raise SystemExit(cli(make_plan, ('v1',)))
+    raise SystemExit(cli(make_plan, ('v2-clamp',)))

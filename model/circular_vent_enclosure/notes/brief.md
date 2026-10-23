@@ -47,3 +47,19 @@ Additional user direction in this conversation: **“I don't know if you can min
 the material usage somehow while keeping the functionality but try think about it”**.
 The selected thinner shell/front and extended ribs implement this direction; the
 comparison and remaining stiffness uncertainty are recorded in the object README.
+
+## Follow-up directions
+
+User: “Do you think it's possible to further reduce the material usage while
+keeping the functionality? If possible go do it”.
+
+User: “Btw I think you need a bit more contact area with the rim to ensure the
+mounting is stable, consider also making the mechanism a bit clamping so it's
+both compliant and clamping so I can mount easily without worrying about slightly
+wrong measuring”.
+
+These authorize the material/mount revision. The selected 1.4 mm curved sidewall,
+16.7 mm contact span, 129–132 mm geometric adjustment range, two-piece arrangement
+and chosen fasteners are engineering decisions, not user-supplied dimensions or
+validated fit/holding-force requirements. Preserve the initial approximate wall
+and front preferences above as historical user guidance; the front remains 2.4 mm.

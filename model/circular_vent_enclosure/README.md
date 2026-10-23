@@ -1,163 +1,186 @@
-# Circular vent enclosure — V1
+# Circular vent enclosure — V2 adjustable clamp
 
 ## At a glance
 
-A one-piece PETG hood with a solid room-facing shield and eight broad side outlets,
-for a nominal Ø130 mm inlet valve projecting 35 mm. **V1 is modelled and smoke-sliced
-without generated supports; its mounting fit and noise/airflow performance remain
-unverified. Measure the stationary rim before printing for installation.**
+A PETG front shield and diffuser with a separate **screw-tightened, compliant rim
+clamp**. Its 16.7 mm contact band replaces V1's short, loose collar. The approximate
+geometric fit range is **Ø129–132 mm**; actual grip and noise/airflow performance
+still need a physical trial on the stationary rim.
 
-- Current prototype: [STEP](circular_vent_enclosure.step), [matching STL](circular_vent_enclosure.stl), [parametric Python](circular_vent_enclosure.py).
-- **213 mm diameter × 85 mm projection**, 2.0 mm shell and 2.4 mm front. About
-  **221 g** in the supplied slice; approximately **11% less geometric material**
-  than the initial thicker design. No earlier variants are recommended or exported.
-- Collar: provisional **130.8 mm bore**, 6 mm engagement. This is a clearance fit,
-  **not a qualified friction grip**. It must attach to the stationary rim, never the disc.
+**Print both parts on separate plates:**
 
-| Print setup | V1 |
+| Part | Printable files | Material estimate |
+| --- | --- | --- |
+| Hood | [STEP](circular_vent_enclosure.step) · [STL](circular_vent_enclosure.stl) · [Python](circular_vent_enclosure.py) | 175.40 g |
+| Adjustable rim clamp | [STEP](mounting_clamp.step) · [STL](mounting_clamp.stl) · [Python](mounting_clamp.py) | 33.18 g |
+
+Combined: **208.58 g PETG including the selected supports**, **5.6% less than
+V1's 220.88 g slice**, plus four steel screws and four nuts. The assembled envelope
+remains **Ø213 × 85 mm**. The solid 2.4 mm front and eight reinforcing ribs remain.
+V1 at commit `19ca15f` is historical; its unqualified friction collar is superseded.
+The hood alone is not a mounting system.
+
+| Print setup | Current V2 |
 | --- | --- |
 | Material / nozzle / layers | PETG / 0.4 mm / 0.20 mm |
-| Orientation | Solid front flat on bed; collar upward; supplied files already placed |
-| Walls / sparse infill | 2 walls / 7% adaptive cubic |
-| Top / bottom layers | **6 / 6** so the 2.4 mm front is solid |
-| Supports | Off; final automatic-support probe generated none |
-| Process | [Solid-front Orca process](profiles/petg_solid_front.json), Qidi Q2C 0.4 mm printer and Generic PETG references |
-| Slice estimate | 220.88 g, 5 h 4 min; estimates for the selected settings |
+| Hood orientation | Solid front against bed; rear opening upward; supplied placement |
+| Clamp orientation | Wide rear flange against bed; band upward; supplied placement |
+| Walls / infill | 2 walls / 7% adaptive cubic |
+| Solid layers | 6 top / 6 bottom; front remains solid |
+| Process | [Supported mount process](profiles/petg_supported_mount.json), Qidi Q2C 0.4 mm / Generic PETG references |
+| Supports | Small automatic tree supports; remove before fitting; see inspection below |
+| Time estimate | About 4 h 21 min hood + 1 h 02 min clamp, on separate plates |
 
-![V1 in print orientation, viewed through the rear collar](renders/print/circular_vent_enclosure_isometric.png)
+![Hood in print orientation](renders/print/circular_vent_enclosure_isometric.png)
+![Flanged clamp in print orientation](renders/print/mounting_clamp_isometric.png)
 
-## Air path and fit
+## What changed
 
-Your approximate interface layout is a 20 mm stationary rim followed by a 15 mm
-open region to the disc, at 35 mm from the wall. The collar occupies only the
-first 6 mm. The rear taper expands around the open region; the chamber remains
-clear of a nominal Ø130 mm valve envelope. The front shield is 50 mm beyond the
-disc face, with **44.6 mm clearance above the shallow internal ribs**.
+The wider hood mouth now sits on a separate clamp. This allows a long grip behind
+the original air gap without forcing a narrow, hard-to-print taper around that
+gap. A thin split rear flange overlaps the hood opening, closing the large
+annular rear escape path. Three supported screw lands connect the parts.
 
-![Installed section and intended airflow](renders/assembled/airflow_section.svg)
+Material comes out of the **shorter curved side shell, now 1.4 mm thick**. The
+front shield remains 2.4 mm solid, its eight 2 × 3 mm ribs remain, and the hood mouth
+and clamp band remain 2 mm thick. This revisits the initial approximate 2 mm shell
+preference in response to the further material-reduction request. Thin-wall path
+coverage is checked in the actual selected slice; strength, vibration and quietness
+still need a print/use trial.
 
-The eight pointed-arch windows have a nominal 46 mm tangential width and 43 mm
-height, with 56.3° roofs, rounded corners and softened lips. Their aggregate
-**94.6 cm² projected area** is a geometric figure. They open between approximately
-35 and 78 mm from the wall, sending air around the shield toward the sides.
-There is no internal baffle, lining or tuned acoustic cavity.
+The clamp's slit lets it bend around a slightly different rim diameter; the M4
+screw supplies clamping preload. Its **16.7 mm nominal band length** is about
+2.8 times V1's 6 mm engagement. That is an increase in available contact span,
+not a measured pressure distribution or holding force. The 0.5 mm entry bevel
+helps the ring go over the rim. The slit remains open through the intended range.
 
-| Position from wall | Minimum nominal radial clearance outside Ø130 mm | Local annular section |
+![Clamp action and attachment section](renders/assembled/clamp_mechanism.svg)
+
+## Hardware and installation
+
+| Hardware | Quantity | Purpose |
 | --- | --- | --- |
-| 20 mm: rear of open band | 13.0 mm | 58.3 cm² |
-| 25 mm | 17.8 mm | 82.4 cm² |
-| 30 mm | 22.5 mm | 107.9 cm² |
-| 35 mm: disc plane | 27.3 mm | 134.9 cm² |
+| M4 × 25 mm socket-head screw + M4 nut | 1 each | Close the split ring |
+| M3 × 10 mm socket-head screws + M3 nuts | 3 each | Secure hood to clamp tabs |
 
-The narrow 0.4 mm radial insertion clearance in the collar sits behind the open
-band. It is **not an intended air passage**. The 58.3 cm² section at the rear of
-the emission band is a local clearance: inflow joins along the band, rather than
-all passing through that section. The nominal cylindrical opening around a
-130 mm disc across a 15 mm band is approximately 61.3 cm²; actual effective area
-is unknown. Forward of the disc, the checked annular section is at least 134.9 cm²,
-the conservative front-turn section is 182.2 cm² and the projected exits are
-94.6 cm². The smallest of those checked added full-flow sections is therefore
-94.6 cm². These checks screen geometric bottlenecks; they do not calculate pressure
-loss, discharge coefficients or a complete minimum hydraulic area in the 3D turn.
+The lengths match the recorded stock assortment; **head type must match** the
+modelled socket-cap clearance. Use a 3 mm Allen key for M4 and a **2.5 mm ball-end
+Allen key rated for a 25° approach** for M3. The latter reaches the screw heads
+through the outlet windows. Other head/tool styles need a clearance review.
 
-## Material, stiffness and mounting
+1. Remove brims and supports and clean the nut channels, screw seats and slit. Put the M4
+   nut into its partially recessed trap and the three M3 nuts into the open radial
+   channels. Start the M4 screw loosely.
+2. With the hood separate, slide the clamp over a **stationary** rim. Use the full
+   straight band where possible, keeping all hardware behind the annular opening.
+   Its available contact height must suit the actual rim profile.
+3. Tighten the M4 screw gently until the ring grips without rocking. The ring can
+   flex; no calibrated tightening torque or safe rim-compression load is known.
+   Support it by hand for the first fit and check the original valve attachment.
+4. Place the hood on the clamp's flange/tabs. The three slots accommodate the
+   predicted tab movement across the diameter range. Start all three M3 screws
+   through the windows, then snug them evenly. Screw preload seats the parts and
+   removes play; the slots are not intended to be a loose sliding joint.
+5. Check the disc and its whole annular air gap remain clear, the hood stays put
+   under gentle handling, and neither the hood nor the valve attachment rocks.
+   Recheck after initial use for settling or creep.
 
-Reducing the original 2.2 mm shell / 2.8 mm front to **2.0 / 2.4 mm** brings the
-solid-CAD PETG estimate from 262.2 g to **233.3 g**, an 11% reduction. The slicer
-estimate is lower because of path planning and infill. Eight rounded 2 mm wide ×
-3 mm high radial ribs now reach the floor-to-shell blend to support the thinner
-front. Keeping the face solid avoids depending on sparse infill for panel stiffness.
-Panel deflection, resonance and rattle still require an operating trial.
+For cleaning or valve adjustment, undo the three M3 screws and remove the hood;
+leave the rim clamp adjusted. To remove everything, loosen the M4 screw. No
+fastener touches the disc or drills the valve. A rim outside the provisional
+range, an unsuitable profile or a weak attachment needs a revised mount.
 
-The solid-CAD estimate implies approximately 2.3 N weight, and approximately
-**0.14 N·m gravitational moment** for a wall-mounted horizontal valve axis. A
-ceiling installation instead loads retention directly in withdrawal. No holding
-force is credited to the loose collar and no capacity is known for the valve's
-existing attachment. Do not leave the hood installed until secure retention and
-the original attachment have been checked.
+## Airflow and shielding
 
-Measure the stationary rim's outer diameter at several angles, usable straight
-length, taper/lips, and accessibility behind the disc. Verify that the complete
-130.8 mm bore can pass over the real disc and adjustment hardware. Then set the
-collar dimensions for that rim. Thin compliant contact strips are an option after
-measurement, but their compression, friction and retention are unqualified.
-If the real stationary interface cannot support a secure removable grip, it needs
-a measured separate mounting-ring design; the nominal collar is not evidence
-that such a grip exists.
+The user-supplied layout is approximately 20 mm of stationary rim plus a 15 mm gap
+to the disc, whose face is 35 mm from the wall. The mounting flange/tabs end at
+17.5 mm, behind that open band. CAD clears a continuous **12 mm radial keepout**
+around the nominal Ø130 mm valve across the entire 20–35 mm band.
 
-For initial fitting, support the hood by hand, slide it over the valve and verify
-that its collar touches only the fixed rim and leaves the whole open band clear.
-Remove the hood to adjust the valve, inspect or clean it; preserve the valve's
-original setting. The broad windows and rear opening allow rinsing and inspection;
-small floor-to-wall blends avoid deep internal grooves. Check drainage and drying
-in the actual wall/ceiling orientation before continued use.
+![Installed section](renders/assembled/airflow_section.svg)
 
-## Parameters and changes
+The eight broad, rounded pointed-arch windows retain **94.6 cm² nominal projected
+outlet area**. Their 56.3° roofs close progressively. The complete front remains a
+solid forward shield; there is no additional baffle or lining. Disc-to-rib front
+clearance remains **44.6 mm**. The rear flange overlaps the hood mouth even at the
+small end of the fit range; its intentional clamp slit is a small rear opening,
+not an airtight seal.
 
-Edit the `Parameters` dataclass in [the source](circular_vent_enclosure.py).
-Separate controls cover OD/depth, shell/front thickness, mounting diameter,
-diametral allowance and engagement, valve projection/rim height, minimum disc
-clearance, taper start/blend radius, window count/width/height/phase/roof slope,
-pointed-arch or teardrop shape, lip/corner radii, and optional front ribs.
-The shell is normal-offset through its taper; its thickness is not just a radial
-subtraction on the sloping region.
+The checked downstream disc-plane circular-core area is 127.6 cm², the
+conservative front-turn area is 182.2 cm² and the projected exits are 94.6 cm².
+The minimum of those checked added full-flow sections remains 94.6 cm². Local
+clearance around the band is at least 12 mm; flow is distributed along the band,
+so a local rear annular section is not necessarily a full-flow throat.
+These are geometry screens, not effective hydraulic areas, pressure-loss estimates
+or a guarantee of negligible airflow loss. Compare actual airflow and noise at
+matched valve settings and ventilation conditions before accepting performance.
 
-`rib_count=0` disables ribs. Rib endpoints follow the shell diameter through
-`rib_wall_inset`. Window count is restricted to 6–8; changing count or shape also
-requires reviewing outlet area, roof geometry, retained posts and nearby obstacles.
-Rotate `outlet_phase` to relocate the uniformly spaced windows. Six-window and
-teardrop alternatives were construction-checked only, and are not qualified print
-variants. Invalid configurations raise errors rather than silently selecting a
-fallback. Rebuild, recheck and reslice after changing geometry.
+## Verification, supports and limitations
 
-## Verification, limits and print status
+Both parts have valid CAD and matching, identically placed STEP/STL exports.
+Targeted checks cover the valve/air-band keepout, solid front, rear flange coverage,
+hood/clamp interference and bolt-slot alignment over seven diameter poses from
+129 to 132 mm, axial hood removal, and driver clearance at the fit extremes.
+The constant-curvature ring poses size the slots; they do not simulate the real
+nonuniform deformation or prove grip on an oval/tapered rim.
 
-The delivered CAD is valid. Targeted checks clear the nominal valve envelope and
-a 12 mm radial air band over wall heights 20–35 mm, verify shield material across
-the disc footprint, and measure the flow sections above. Whole-object fit still
-depends on the real rim, disc and adjustment travel.
+The selected OrcaSlicer 2.4.2 slices use the supplied complete profile triplet,
+centered placement and the orientations above. The Q2C accepts each plate. Effective
+settings are 0.2 mm layers, 2 walls, 7% adaptive cubic, 6 top/bottom layers, and
+small automatic tree supports. Temperatures are 245°C first layer / 250°C thereafter,
+80°C bed; check them against the actual spool. Slice estimates are not weighed
+parts. The STL smoke slice does not verify Orca's separate GUI STEP importer.
 
-The final FDM review uses the full front as stable bed contact. The 213 mm footprint
-fits the Q2C; Orca accepted its selected placement. Thin shell regions are supported
-by continuous posts and rear collar. The taper moves inward about 0.191 mm per
-0.2 mm layer, and the window roofs close progressively rather than with a broad
-horizontal bridge. The smaller rounded tips eliminated the earlier support signal.
-No loose internal part, suspended rib start or trapped support is designed in.
-PETG sag, bed adhesion, layer bonding and mounting endurance remain physical checks.
+The support signal is reviewed rather than called support-free. Hood supports
+sit under its three recessed screw seats and are reached through the large rear
+opening before assembly. The clamp's nut channels open radially; any local support
+can be picked out before installing nuts. Inspect these seats and channels after
+removal. Actual PETG release, sag, adhesion and surface quality remain untested.
+The [actual path inspection](notes/manufacturing_paths.json) checks at least three
+extrusion paths and section coverage in the thinner hood wall; support locations
+are shown in [hood](renders/print/hood_support_paths.svg) and
+[clamp](renders/print/clamp_support_paths.svg) path views.
 
-OrcaSlicer **2.4.2**, centered placement, supplied complete profile triplet: Qidi Q2C
-0.4 mm / Generic PETG / the local solid-front process. Effective settings include
-0.2 mm layers, 2 walls, 7% adaptive cubic, six top/bottom layers, supports off,
-250°C subsequent nozzle temperature, 245°C initial and 80°C bed. Check temperatures
-against the actual spool. The final slice completed with no collected notices;
-the automatic-support probe completed and generated none. This checks the STL;
-Orca's separate GUI STEP importer was not tested.
+The combined solid-CAD estimate is 216.37 g at an assumed 1.27 g/cm³, versus
+233.27 g for V1. Steel hardware is additional and was not weighed. The nominal
+wall-axis gravity moment is 0.127 N·m. A positive screw preload source exists,
+but friction, contact pressure, attachment strength, withdrawal resistance, handling
+loads, PETG creep and panel resonance are unqualified. There is no holding-force
+rating or guaranteed noise reduction. Remove the hood if it loosens, rattles,
+whistles, traps moisture or causes unacceptable ventilation loss.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A | None | No separate coupon designed |
-| Final printable object(s) | Unknown | `circular_vent_enclosure.step`, `.stl` | Rim fit, secure retention, attachment loading, PETG print quality, airflow, noise, vibration and cleaning |
+| Test piece(s) | N/A | None | No separate sample designed |
+| Final printable object(s) | Unknown | `circular_vent_enclosure.step/.stl`, `mounting_clamp.step/.stl` | Print/support release, fit, grip, stability, creep, airflow, sound and cleaning |
 
-Before accepting performance, compare bare valve and fitted hood at the same valve
-setting and ventilation operating state. Record airflow or pressure with suitable
-instrumentation and matched-position noise observations/measurements. Reject a
-setup that loosens, obstructs adjustment, rattles, whistles, traps moisture or
-reduces ventilation unacceptably. No acoustic attenuation or negligible airflow
-loss is claimed.
+<a id="engineering-record-and-attribution"></a>
 
-## Engineering record and attribution
+## Parameters and engineering record
 
-[User brief and rim clarification](notes/brief.md) ·
-[Development decisions](notes/development_record.md) ·
-[Native CAD/slice receipt](notes/final_review.json) ·
-[Flow/weight screen](notes/flow_screen.json) ·
-[Requirement coverage](notes/verification.json).
+Edit [vent_parameters.py](vent_parameters.py) for hood, clamp and fastening controls.
+Mount diameter/clearance on the hood describe its rear mouth; the **separate
+`clamp_free_diameter`, fit-range, band height, slit and wall fields** control the
+rim grip. Window/rib/shape controls remain parametric. Geometry and fit settings
+are coupled; recheck and reslice a changed configuration rather than assuming the
+current evidence transfers to every parameter value. The model rejects mounting
+lands within 15° of the clamp split and disconnected flange/seat heights. Rotate
+the assembled enclosure on the rim to clock the outlets during fitting.
 
-Rebuild with `./evaluate_model.py model/circular_vent_enclosure/circular_vent_enclosure.py`.
-Run declared product checks with
-`./execute.py model/circular_vent_enclosure/verification.py --variant v1`.
-The report preserves UNKNOWN physical obligations alongside passing nominal CAD
-checks; shell validity or slice acceptance does not promote them.
+[Installed CAD view](renders/assembled/assembly_isometric.png) ·
+[Brief and follow-up directions](notes/brief.md) ·
+[Development history and reasoning](notes/development_record.md) ·
+[Geometry/weight/clamp checks](notes/geometry_checks.json) ·
+[Requirement coverage](notes/verification.json) ·
+[Hood receipt](notes/final_review.json) · [Clamp receipt](notes/clamp_review.json).
+The earlier support-free process is historical V1 guidance; use the supported
+mount process linked above for this revision.
 
-Primary model: **GPT-6.1 Sol, Medium reasoning**, explicitly attributed by the user.
-Harness: Codex shared-workspace coding agent; provider: OpenAI. No subagents.
+Run `./execute.py model/circular_vent_enclosure/verification.py --variant v2-clamp`
+for the declared checks. Physical obligations remain UNKNOWN alongside nominal CAD
+passes. Both printable sources use the repository evaluator; `assembly.py` is an
+inspection-only assembled pose.
+
+Primary model: **GPT-6.1 Sol, Medium reasoning**, user-attributed. Harness: Codex
+shared-workspace coding agent; provider: OpenAI. No subagents. Historical V1
+attribution is retained in its development record and Git history.

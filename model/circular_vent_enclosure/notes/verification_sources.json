@@ -1,5 +1,5 @@
 {
-  "scope": "Initial user-intent audit baseline from notes/brief.md. No physical evidence or printed source association exists.",
+  "scope": "V1 intent retained unchanged; two added requirements quote the authorized material/clamp follow-ups. No physical evidence association.",
   "user_requirements": [
     {
       "id": "vent.envelope",
@@ -57,6 +57,24 @@
       "source": {
         "reference": "notes/brief.md",
         "statement": "No guaranteed silencing; no assumption of broadband volume attenuation; avoid whistles, rattles, debris traps and a flexible vibrating front."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "vent.material",
+      "text": "Further reduce material while preserving diffuser/shield functionality.",
+      "source": {
+        "reference": "notes/brief.md#follow-up-directions",
+        "statement": "Do you think it's possible to further reduce the material usage while keeping the functionality? If possible go do it"
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "vent.clamp",
+      "text": "Increase stationary-rim contact and provide compliant adjustable clamping tolerant of modest measurement error.",
+      "source": {
+        "reference": "notes/brief.md#follow-up-directions",
+        "statement": "Btw I think you need a bit more contact area with the rim to ensure the mounting is stable, consider also making the mechanism a bit clamping so it's both compliant and clamping so I can mount easily without worrying about slightly wrong measuring"
       },
       "acceptance_criteria": []
     }
