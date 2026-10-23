@@ -22,7 +22,7 @@ def main(argv=None):
     p.add_argument('--strategy',choices=['isolated','preinitialized'],default='isolated')
     p.add_argument('--preload',choices=['scientific','cad'],default='scientific')
     p.add_argument('--timeout',type=positive)
-    p.add_argument('--threads',default='50%',help='Integer or percent of shared CPU capacity; default 50%')
+    p.add_argument('--threads',default='50%',help='Integer or percent of shared CPU capacity; default 50%%')
     p.add_argument('--profile',choices=['cpu','allocations'])
     p.add_argument('--isolated',action='store_true',help='Bypass coordinator using the same traced lifecycle')
     p.add_argument('script')
