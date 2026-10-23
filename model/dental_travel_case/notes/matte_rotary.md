@@ -1,6 +1,6 @@
 # Two-part repair for the printed rotary box
 
-Print the replacement **wheel facecap and matching screw together**: [STEP](../rotary_matte_repair.step) · [STL](../rotary_matte_repair.stl) · [Python](../rotary_matte_repair.py). Keep the already printed body and lid, existing keyed wheel and printed nut. No metal hardware or shell reprint is needed. The replacement pair is not physically tested yet.
+Print the replacement **wheel facecap and matching screw together**: [STEP](../rotary_matte_repair.step) · [STL](../rotary_matte_repair.stl) · [Python](../rotary_matte_repair.py). Keep the already printed body and lid, existing keyed wheel and printed nut. No metal hardware or shell reprint is needed. The user now reports the printed case, replacement cap and matching screw all work well.
 
 ![Replacement cap and screw, print orientation](../renders/print/matte/rotary_matte_repair_isometric.png)
 
@@ -26,6 +26,8 @@ This is a modest section increase, not a claim that matte PLA has been calibrate
 
 ## User feedback
 
+On 2026-10-23 the user reports the case, new wheel cap and matching screw are printed and everything works well. This supersedes the replacement pair's untested status. Exact print material/profile, loaded contents and long-term testing are unspecified.
+
 The user reports that the body/lid are printed, but the wheel cap's thin walls are difficult to print in matte PLA and the screw is also troublesome. The import warning was specifically **STEP import**; the exact warning text and printed file hashes/settings are unknown. The user authorized small exterior changes and a wheel change if necessary, while prioritizing compatibility with the printed shells. No wheel or nut change was needed.
 
 The earlier complete PLA quick rotary trial worked, with slight looseness at correct temperature. That trial qualifies its tested mechanism, not this new facecap/screw or matte-PLA strength. PETG has not been physically tried. No cause is inferred for the reported layer separation.
@@ -36,15 +38,15 @@ The earlier complete PLA quick rotary trial worked, with slight looseness at cor
 
 [STEP diagnostic](matte_rotary/step.json) checks the actual exported parts because of the reported warning. The old covered export reopens with the facecap as an open shell rather than a solid, and its screw has mismatched triangle boundaries. The repaired STEP reopens as two valid solids with closed tessellation at the evaluator's 0.003 mm / 0.5 rad settings. Every root component is inspected; enumerating only solids would silently skip the failed old cap. This reproduces concrete export defects, **not the exact Orca GUI warning**. A separate material witness checks that the actual exported screw's thread core is filled.
 
-[Native export/slice receipt](matte_rotary/native.json), [publication association](matte_rotary/publication.json), [local deposition checks](matte_rotary/paths.json) and [product verification](matte_rotary/verification.json) identify the delivered pair and evidence. The smoke slice uses OrcaSlicer 2.4.2, Q2C 0.4 mm, 0.2 mm, four walls and solid rectilinear fill with **diagnostic PETG filament**, because the user's matte-PLA profile is unavailable. The primary slice completes without notices, and the forced automatic-support probe generates no supports. Sixteen local sections have less than 0.1 mm uncovered width across the sampled key, face, rim and screw-core regions. Its temperatures are not a PLA recommendation. Actual matte-PLA bonding, first-layer finish, thread fit, handling, bag impacts, operating torque and durability remain unqualified.
+[Native export/slice receipt](matte_rotary/native.json), [publication association](matte_rotary/publication.json), [local deposition checks](matte_rotary/paths.json) and [product verification](matte_rotary/verification.json) identify the delivered pair and evidence. The smoke slice uses OrcaSlicer 2.4.2, Q2C 0.4 mm, 0.2 mm, four walls and solid rectilinear fill with **diagnostic PETG filament**, because the user's matte-PLA profile is unavailable. The primary slice completes without notices, and the forced automatic-support probe generates no supports. Sixteen local sections have less than 0.1 mm uncovered width across the sampled key, face, rim and screw-core regions. Its temperatures are not a PLA recommendation. The user now reports successful printing and operation of the replacement pair and case. Exact material/settings and artifact hashes for that successful print are unconfirmed; quantified operating torque, bag impacts and durability remain unqualified.
 
 The 2 mm face prints as ten nominal layers and the rim rises vertically from a broad bed face. Screw head and journal grow inward/upward; the revised thread's rising flank is nominally 45°. The only small closing roof is inside the driver socket. This reduces delicate sections and nominal overhang severity while preserving the existing assembly.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test pieces | **Yes — earlier quick PLA trial** | `rotary_quick_test.step` and earlier custom fasteners | Mechanism worked; slight looseness; exact settings/hash unknown. No new coupon needed. |
-| Existing full box | **Partial — body/lid printed** | `rotary_covered_case.step` / `.stl` | Reuse these shells; old matte-PLA cap/screw print trouble reported. Full assembled use unaccepted. |
-| Replacement final controls | **Unknown — no print report** | `rotary_matte_repair.py` / `.step` / `.stl` | Confirm clean walls, easy thread engagement, key seating, free rotation, deliberate indexing and loaded closure. |
+| Existing full box | **Yes — case works with repaired controls** | `rotary_covered_case.step` / `.stl` | Reuse these shells; old matte-PLA cap/screw print trouble reported. Case now reported working with repaired controls. |
+| Replacement final controls | **Yes — printed and works well, 2026-10-23** | `rotary_matte_repair.py` / `.step` / `.stl` | User reports case, new cap and screw all work well; no measured force or long-term wear result. |
 | PETG physical trial | **No** | None reported | Development remains focused on PLA. |
 
 ## Engineering notes and attribution

@@ -2,11 +2,13 @@
 
 Two preformed **L20 TPU 95A cups** for the latest [wraparound-wheel rotary box](../dental_travel_case/README.md). The long cup lines the body and sleeve; the short cup lines the lid above the sleeve.
 
-## What to print now
+<a id="what-to-print-now"></a>
 
-- **Current first-print files:** [STEP](rotary_l20_liner.step) · [matching STL](rotary_l20_liner.stl) · [Python](rotary_l20_liner.py). Both cups are on one plate, closed ends down and openings up. Two printed cups total.
+## Current action: floor review before another full print
+
+- **Existing files, hold repeat printing:** [STEP](rotary_l20_liner.step) · [matching STL](rotary_l20_liner.stl) · [Python](rotary_l20_liner.py). Both cups are on one plate, closed ends down and openings up. Two printed cups total.
 - **Settings:** TPU 95A, **0.4 mm nozzle / 0.2 mm layers**, Classic walls, thin-wall detection off, **2 walls / 100% rectilinear fill / supports off**, **9 mm³/s** maximum volumetric flow. The [process preset](profiles/rotary-l20-process.json) uses **50% top-surface ironing**, drawing on the earlier accepted floor coupon. [Filament preset](../tpu_damping_box/profiles/tpu95a.json).
-- **Status:** New full-size L20 cups are **unprinted**. Small L20 cups were accepted for damping and finish; tall-wall printing, installation and combined brush/paste fit still need this first trial. [Design, installation and current evidence](notes/rotary_l20.md).
+- **Status:** Full-size L20 printing was **canceled after the early layers**: printed wall regions look okay, but the contents-facing floor has broken/cracking surface regions. Earlier small-cup damping preference remains; floor robustness is unresolved across the experiment and application. See the [floor explanation and proposals](notes/floor_surface_review.md). [Design, installation and current evidence](notes/rotary_l20.md).
 - **Do not reprint the old M1 S16 liner** (`dental_travel_case_liner.step` / `.stl`): it was damaged during printing and insertion and belongs to a different box.
 
 ![L20 cups for the rotary box](renders/rotary_l20/rotary_l20_liner_isometric.png)
@@ -27,8 +29,8 @@ The narrowest lined passage is **62.6 × 39.6 mm**, opening to **67.2 × 44.2 mm
 
 | Item | Status | Evidence / next observation |
 | --- | --- | --- |
-| L20 small damping cups | **Yes — preferred baseline** | [User print comparison](../tpu_damping_box/notes/thin_gap/README.md#physical-feedback--2026-10-21): damping like L18/T08, preferred thickness/finish. |
-| Rotary L20 full liner | **Unknown — first full print prepared** | [Raw STEP](rotary_l20_liner.step) / [STL](rotary_l20_liner.stl); inspect skins, insert gently, check lid seating and actual contents together. |
+| L20 small damping cups | **Yes — walls/damping preferred; floor unresolved** | [User print comparison](../tpu_damping_box/notes/thin_gap/README.md#physical-feedback--2026-10-21): damping like L18/T08, preferred thickness/finish. |
+| Rotary L20 full liner | **Partial — canceled for interior-floor defects** | [Raw STEP](rotary_l20_liner.step) / [STL](rotary_l20_liner.stl); early wall regions look okay; floor surface breaks/cracks. Do not repeat the full print unchanged. Tall-wall completion and installation remain untested. |
 | Old M1 S16 full liner | **Printed — damaged / rejected** | Both skins broke locally and damage increased during insertion. Historical record below. |
 
 [Current CAD/slice records and limits](notes/rotary_l20.md#verification-and-limits). The old S16 observations remain historical evidence, not acceptance of these new taller cups.

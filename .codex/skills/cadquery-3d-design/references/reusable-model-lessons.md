@@ -106,6 +106,8 @@ Inspect actual bridge direction across the intended supports.
 
 **Scope and limits:** Sliced paths with the documented Q2C/TPU profiles and unrotated layout; printed sag and channel integrity remain unknown; subsequent subjective quietness is recorded separately. Short CAD spans alone do not establish that automatic bridge direction uses them.
 
+**Later physical limit:** [L20 floor clarification](../../../../model/dental_travel_case_liner/notes/floor_surface_review.md) reports broken/cracking interior-floor surface during a canceled dental print, despite okay early wall regions and retained small-cup damping preference. L20 doubled the older wall skins to 0.8 mm but retained a 0.4 mm, two-layer interior floor over discrete posts. A 3.6 mm inter-post gap along a row is not a maximum bridge span for tracks missing the rows. Stopped layer and actual ironing are unknown; roof thickness/support and finishing remain separate hypotheses, not a diagnosed cause.
+
 ### Soft-on-soft contact versus quiet sliding; connected geometry versus continuous coverage
 
 Evaluate sliding sound separately from impact cushioning; the swatch direction remains discontinued.

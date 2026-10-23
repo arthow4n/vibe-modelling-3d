@@ -1,6 +1,10 @@
 # Thinner T08 follow-up: L20 and L18
 
-**L20 is now the preferred baseline**, following the user's print comparison of both thinner variants against approved T08. L18 is also accepted. The user explicitly clarified that the printed variants are **L20/L18** after initially saying T20/T18. T08 remains an approved control; T16 remains rejected as too firm and somewhat noisier.
+**L20 remains preferred for walls and damping; interior-floor robustness is unresolved**, following the user's print comparison of both thinner variants against approved T08. L18 is also accepted. The user explicitly clarified that the printed variants are **L20/L18** after initially saying T20/T18. T08 remains an approved control; T16 remains rejected as too firm and somewhat noisier.
+
+## Floor clarification — 2026-10-23
+
+The user canceled a full dental L20 liner print after the early layers: wall regions look okay, but the contents-facing floor surface shows breaks/cracking and is difficult to print cleanly. They clarify this is not worse than the earlier approved experiments: their interior floors feel similarly fragile. Preserve the wall/damping preference; withdraw any implication that the floor was robustly resolved. This is one dental application print plus a user comparison with earlier experiments, not a new print of every experimental variant. [Current section explanation and SVG proposals](../../../dental_travel_case_liner/notes/floor_surface_review.md). Models and print profiles remain unchanged.
 
 ## Physical feedback — 2026-10-21
 
@@ -123,7 +127,7 @@ The cup-only layout has its own [native receipt](cups_final.json),
 [gap/tie/label/support review](cups_paths.json) and [G-code](cups_paths.gcode.gz).
 It reuses the same cup builders; only the second cup's placement differs from
 its standalone paired layout. Both full-pair geometry/publication check groups
-pass; the later physical report accepts damping and finish, while printed gap separation remains unknown.
+pass; the earlier physical report accepted damping and relative finish; the 2026-10-23 clarification leaves interior-floor robustness unresolved, while printed gap separation remains unknown.
 
 Reproduce each native review with the selected named source and the complete
 profile triplet above, using `--slice --slice-placement preserve --slice-keep-run`
@@ -140,7 +144,7 @@ the G-code archives remain inspectable after raw cleanup.
 | --- | --- | --- | --- |
 | T08 M1 control | Yes — approved control | Existing pair retained unchanged | Exact settings, durability and application transfer remain unqualified. |
 | T16 M1 | Yes — rejected | Historical pair retained | Too firm/noisier; do not recommend as the improved baseline. |
-| L20 liner (matching pad print unknown) | Yes — preferred, 2026-10-21 | `thin_gap_L20.py` / `.step` / `.stl`; cup also in `thin_gap_cups.step` | Damping like T08/L18, print quality almost like T08, slightly fewer bottom defects with ironing on; thinner than T08. Gap separation and durability unmeasured. |
+| L20 liner (matching pad print unknown) | Yes — walls/damping preferred; floor limited by 2026-10-23 clarification | `thin_gap_L20.py` / `.step` / `.stl`; cup also in `thin_gap_cups.step` | Damping like T08/L18, print quality almost like T08, slightly fewer bottom defects with ironing on; thinner than T08. Gap separation and durability unmeasured. |
 | L18 liner (matching pad print unknown) | Yes — accepted, 2026-10-21 | `thin_gap_L18.py` / `.step` / `.stl`; cup also in `thin_gap_cups.step` | Damping similarly good; L20 preferred for print quality. Gap separation and durability unmeasured. |
 | Application liner | N/A | None new | No dental/sunglasses adaptation is delivered or qualified. |
 

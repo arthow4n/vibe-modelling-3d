@@ -1,8 +1,10 @@
 # L20 liner for the current rotary dental box
 
-Print the two TPU cups from [STEP](../rotary_l20_liner.step), [STL](../rotary_l20_liner.stl) or [Python](../rotary_l20_liner.py). This version belongs to the latest 75.8 × 52.8 × 264 mm [rotary case](../../dental_travel_case/notes/covered_rotary.md), whose hard parts are unchanged. The old M1 S16 liner is retained only as rejected history.
+Hold repeat printing while the interior floor is reviewed. Existing two TPU cups: [STEP](../rotary_l20_liner.step), [STL](../rotary_l20_liner.stl) or [Python](../rotary_l20_liner.py). This version belongs to the latest 75.8 × 52.8 × 264 mm [rotary case](../../dental_travel_case/notes/covered_rotary.md), whose hard parts are unchanged. The old M1 S16 liner is retained only as rejected history.
 
 ## User direction
+
+**Physical report, 2026-10-23:** the user canceled the liner after early layers because the contents-facing floor surface shows broken/cracking regions. The printed wall regions look okay; complete tall-wall stability and installation are not established by this partial print. The floor issue feels as bad as earlier approved experiments, not uniquely worse in L20. [Section explanation and SVG proposals](floor_surface_review.md). Exact stopped layer, profile/ironing execution and printed hashes are unknown.
 
 The user asks for a recap before modelling, confirms **L20** as the intended standard, then explicitly authorizes a new liner for the latest rotary box being prepared for printing. L20 replaces the earlier M1/S16 profile and target for this new variant. Historical M1 requirements and evidence remain available under `slim-m1-s16`; current work uses `rotary-l20`.
 
@@ -51,13 +53,13 @@ Top-surface ironing is enabled at **50% flow, 30 mm/s and 0.15 mm spacing**, usi
 
 The final local path review covers **10,224 full-skin sections**, **10,224 exposed-face sections**, **4,820 core sections** and **36 tie sections**, plus floor skins, posts and voids. The sampled between-tie core retains **0.4 mm** width in the slicer's width-envelope model. The forced support probe has 2,737 interface segments, all at or below 1.2 mm inside the floor-core height; the primary slice keeps supports off. Native publication and useful views are retained separately from these local path judgments.
 
-The print review uses the supplied TPU setup, not the PETG fallback. Actual Classic paths are reviewed through upright layers, both skins and open cores, with sampled tie/post and floor-skin sections. The automatic-support signal is reviewed separately; an enclosed short floor roof is kept unsupported in the primary print, following the accepted small L20 construction. Slicer acceptance does not establish printed air-gap separation, tall-wall stability, insertion effort, subjective noise, adhesion or long-term wear. No new force, fatigue or acoustic rating is claimed.
+The current physical floor rejection supersedes any inference of a robust floor from these digital checks. The print review uses the supplied TPU setup, not the PETG fallback. Actual Classic paths are reviewed through upright layers, both skins and open cores, with sampled tie/post and floor-skin sections. The automatic-support signal is reviewed separately; an enclosed short floor roof is kept unsupported in the primary print, following the accepted small L20 construction. Slicer acceptance does not establish printed air-gap separation, tall-wall stability, insertion effort, subjective noise, adhesion or long-term wear. No new force, fatigue or acoustic rating is claimed.
 
 | Category | Print status | Artifact / observation |
 | --- | --- | --- |
-| Small L20 reference | Yes — accepted / preferred | [Recorded user comparison](../../tpu_damping_box/notes/thin_gap/README.md#physical-feedback--2026-10-21). |
+| Small L20 reference | Yes — walls/damping preferred; floor unresolved | [Recorded user comparison](../../tpu_damping_box/notes/thin_gap/README.md#physical-feedback--2026-10-21). |
 | Separate application test pieces | N/A | Full-size pair is the authorized first application trial. |
-| Rotary L20 final liner | Unknown — unprinted | `rotary_l20_liner.py`, `.step`, `.stl`; check intact walls, gentle installation, seating and combined packing. |
+| Rotary L20 final liner | Partial — print canceled for floor defects | `rotary_l20_liner.py`, `.step`, `.stl`; check intact walls, gentle installation, seating and combined packing. |
 | Earlier M1 S16 liner | Printed — damaged | Original files and [physical history](../README.md#wall-print-feedback--2026-10-19) remain; do not reprint as this rotary version. |
 
 ## Engineering notes and attribution
