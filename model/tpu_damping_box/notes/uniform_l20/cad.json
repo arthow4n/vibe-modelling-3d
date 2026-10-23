@@ -1,0 +1,313 @@
+{
+  "source_sha256": {
+    "l20_standard.py": "0e8e67fb3613d6826387caed0e1c87fa0f0a96d3ed7089d7313f377295772750",
+    "uniform_l20_design.py": "fec11ca5c63df3e52529a97e4e0ff433a37692a341ef4ce44ec357ce037ecccf",
+    "uniform_l20_checks.py": "cb935a811686232bb027b23ec3de71698f3f8833983351f959d8400b8d174e9a",
+    "uniform_l20.py": "564e98a8381e661592d070a494be7809c39fedb6920017d7334cef3dd8310dc2",
+    "thin_gap_design.py": "7013bc517e873899609832429f76fcd2da80e718275ae20b275be76f3da290d8",
+    "t_skin_design.py": "c02f331546c119f62ca47906495f7f95266f2f41ae670f93cf1651c5198c3092",
+    "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503"
+  },
+  "profile_mm": [
+    0.8,
+    0.4,
+    0.8
+  ],
+  "total_mm": 2.0,
+  "probes": [
+    {
+      "label": "cup floor",
+      "point_mm": [
+        -4.4,
+        -4.4,
+        0.2
+      ],
+      "material": true
+    },
+    {
+      "label": "cup floor",
+      "point_mm": [
+        -4.4,
+        -4.4,
+        0.6
+      ],
+      "material": true
+    },
+    {
+      "label": "cup floor",
+      "point_mm": [
+        -4.4,
+        -4.4,
+        1.0
+      ],
+      "material": false
+    },
+    {
+      "label": "cup floor",
+      "point_mm": [
+        -4.4,
+        -4.4,
+        1.4
+      ],
+      "material": true
+    },
+    {
+      "label": "cup floor",
+      "point_mm": [
+        -4.4,
+        -4.4,
+        1.8
+      ],
+      "material": true
+    },
+    {
+      "label": "cup floor post",
+      "point_mm": [
+        -6.6000000000000005,
+        -6.6000000000000005,
+        1.0
+      ],
+      "material": true
+    },
+    {
+      "label": "lid pad",
+      "point_mm": [
+        -4.4,
+        -4.4,
+        0.2
+      ],
+      "material": true
+    },
+    {
+      "label": "lid pad",
+      "point_mm": [
+        -4.4,
+        -4.4,
+        0.6
+      ],
+      "material": true
+    },
+    {
+      "label": "lid pad",
+      "point_mm": [
+        -4.4,
+        -4.4,
+        1.0
+      ],
+      "material": false
+    },
+    {
+      "label": "lid pad",
+      "point_mm": [
+        -4.4,
+        -4.4,
+        1.4
+      ],
+      "material": true
+    },
+    {
+      "label": "lid pad",
+      "point_mm": [
+        -4.4,
+        -4.4,
+        1.8
+      ],
+      "material": true
+    },
+    {
+      "label": "lid pad post",
+      "point_mm": [
+        -6.6000000000000005,
+        -6.6000000000000005,
+        1.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        -16.8,
+        -4.4,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        -16.4,
+        -4.4,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        -16.0,
+        -4.4,
+        15.0
+      ],
+      "material": false
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        -15.6,
+        -4.4,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        -15.2,
+        -4.4,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        4.3999999999999995,
+        -16.8,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        4.3999999999999995,
+        -16.4,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        4.3999999999999995,
+        -16.0,
+        15.0
+      ],
+      "material": false
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        4.3999999999999995,
+        -15.6,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        4.3999999999999995,
+        -15.2,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        16.8,
+        4.399999999999999,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        16.4,
+        4.399999999999999,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        16.0,
+        4.399999999999999,
+        15.0
+      ],
+      "material": false
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        15.6,
+        4.399999999999999,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        15.2,
+        4.399999999999999,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        -4.399999999999998,
+        16.8,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        -4.399999999999998,
+        16.4,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        -4.399999999999998,
+        16.0,
+        15.0
+      ],
+      "material": false
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        -4.399999999999998,
+        15.6,
+        15.0
+      ],
+      "material": true
+    },
+    {
+      "label": "upright wall",
+      "point_mm": [
+        -4.399999999999998,
+        15.2,
+        15.0
+      ],
+      "material": true
+    }
+  ],
+  "pad_seat_gap_mm": 0.0,
+  "pad_lid_gap_mm": 0.0,
+  "pad_seat_downward_obstruction_mm3": 12.399999999999537,
+  "old_floor_negative_control": "Old floor is air at z0.6; new floor contains backing material",
+  "fixture": "Original body/lid, no pad preload; same 30x30x30 clear chamber",
+  "limits": "Rigid geometry only; printed damping, bridging, fit and durability unqualified"
+}

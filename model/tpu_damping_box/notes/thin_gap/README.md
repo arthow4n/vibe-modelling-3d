@@ -1,5 +1,7 @@
 # Thinner T08 follow-up: L20 and L18
 
+The [current uniform L20 standard](../l20_standard.md) supersedes these thin-floor files. This record preserves the earlier experiment and its physical feedback; current walls/floor/pad all use 0.8/0.4/0.8.
+
 **L20 remains preferred for walls and damping; interior-floor robustness is unresolved**, following the user's print comparison of both thinner variants against approved T08. L18 is also accepted. The user explicitly clarified that the printed variants are **L20/L18** after initially saying T20/T18. T08 remains an approved control; T16 remains rejected as too firm and somewhat noisier.
 
 ## Floor clarification — 2026-10-23

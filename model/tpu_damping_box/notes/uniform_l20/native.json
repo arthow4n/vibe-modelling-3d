@@ -1,0 +1,153 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/uniform_l20.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/renders/print/uniform_l20/uniform_l20_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/uniform_l20.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/uniform_l20.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013987900001666276,
+    "build": 5.065403669999796,
+    "selection": 0.001035325998600456,
+    "validation": 0.8630094279997138,
+    "export_step": 0.8010972679985571,
+    "export_stl": 0.2015428630002134,
+    "render_isometric": 0.5510598159999063,
+    "worker": 7.613147095999011,
+    "total": 16.57627425099963,
+    "slice": 7.168261730999802
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "ba9be424721853b475bcdd46d236a1eebbe056554558f835742df757add0142b",
+    "artifact_identity": "ba4d3567aaa847708f327148bb75532f937db2b0eed1b5beaa5c1864f86c54fe"
+  },
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/uniform_l20.stl",
+    "profiles": {
+      "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/profiles/l20-uniform-process.json",
+      "filament": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu95a.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "preserve",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "TPU"
+      ],
+      "filament_settings_id": [
+        "Diagnostic Generic TPU 95A Q2C 0.4 - damping study"
+      ],
+      "nozzle_temperature": [
+        "230"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "230"
+      ],
+      "hot_plate_temp": [
+        "35"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "35"
+      ],
+      "print_settings_id": "Uniform L20 0.8-0.4-0.8 Classic TPU 0.20",
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "no_brim",
+      "brim_width": "0",
+      "brim_object_gap": "0.1",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "1"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "100%",
+      "sparse_infill_pattern": "rectilinear"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": false,
+      "supported_plates": [],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": false,
+    "reused": false,
+    "identity": "e96935593f195f999b44e5c2c97e12e016b8df986b737ca0918e82e1d08df8ca",
+    "input_sha256": "2b17589542cc3768ffe7a2e5f165b2e16536a7539fa944bf7183513ecc8ed5d8",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-yv1m2dsg",
+    "setup_selection": {
+      "profiles": "supplied",
+      "placement": "explicit",
+      "scope": "Selected-profile slice acceptance only; production setup agreement and physical print behavior are not established"
+    }
+  }
+}

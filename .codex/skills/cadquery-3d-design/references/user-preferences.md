@@ -65,6 +65,19 @@ liner follow-up.** The user allows slicer changes to explore thinner closed-skin
 variants. I22's near-joining lines remain an unresolved observation, not a
 calibrated minimum gap or proof of a specific process cause.
 
+**Uniform L20 standard, 2026-10-23:** the user explicitly requires the same
+sandwich in upright walls, horizontal floors and lid pads: **0.8 mm skin /
+0.4 mm air / 0.8 mm skin**, 2.0 mm total. Import the
+[shared L20 source](../../../../model/tpu_damping_box/l20_standard.py) for current
+L20 adaptations; do not independently copy a historical horizontal recipe.
+Solid corner/perimeter lands and installation transitions bound the active
+panels; they are not alternative thinner working skins. The
+[owning standard](../../../../model/tpu_damping_box/notes/l20_standard.md) records
+print assumptions, the failed old floor and current application. The older
+0.4/0.8/0.4 floor is superseded even where earlier damping was accepted.
+The revised floor is selected, not physically qualified; other named historical
+profiles retain their evidence and must not silently become the current L20 template.
+
 **Upcoming TPU damping iterations, 2026-10-19:** explicitly check upright wall
 integrity in addition to dimensions. Aim for geometry/process configurations
 that do not require Arachne; allow a thicker sandwich rather than preserving

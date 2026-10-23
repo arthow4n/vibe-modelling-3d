@@ -1,0 +1,356 @@
+{
+  "source_sha256": {
+    "rotary_l20_uniform_design.py": "494ec1d7b0c2317874d265f2c2365de4877f0b11e1e658f39b06f34657f8ed7f",
+    "rotary_l20_uniform_print_checks.py": "39f1f9ec5a6d638211f18011e559cc242ef09f706e5c1f1316485bbc7f7ca394",
+    "../tpu_damping_box/l20_standard.py": "0e8e67fb3613d6826387caed0e1c87fa0f0a96d3ed7089d7313f377295772750",
+    "../../physical_analysis/manufacturing.py": "05d268101f2c49a52f386cabe456845af251f8499defaf61c27f0a74abc97373"
+  },
+  "effective_settings": {
+    "wall_generator": "classic",
+    "detect_thin_wall": "0",
+    "layer_height": "0.2",
+    "initial_layer_print_height": "0.2",
+    "top_shell_layers": "4",
+    "bottom_shell_layers": "4",
+    "wall_loops": "2",
+    "sparse_infill_density": "100%",
+    "enable_support": "0",
+    "ironing_type": "top",
+    "ironing_flow": "50%",
+    "ironing_speed": "30",
+    "ironing_spacing": "0.15",
+    "filament_max_volumetric_speed": [
+      "9"
+    ]
+  },
+  "slice_input_sha256": "e61c7a5f597efb2ca1e4c69f0f873e30d33fae02f29bab65a5dad793615821e1",
+  "gcode_sha256": "cb36c3b4fa4d70f6d3093806a86e17c98347851bc69464662c3765f6ee2df585",
+  "wall_skin_sections": 10192,
+  "exposed_surface_sections": 10192,
+  "wall_core_sections": 4804,
+  "tie_sections": 36,
+  "minimum_core_clear_width_mm": 0.39999999999997726,
+  "maximum_skin_uncovered_width_mm": 0.007496474500058525,
+  "skin_uncovered_limit_mm": 0.06,
+  "exposed_face_band_mm": 0.3,
+  "exposed_face_uncovered_limit_mm": 0.015,
+  "core_clear_width_limit_mm": 0.35,
+  "floor_sections": [
+    {
+      "part": "body",
+      "z_mm": 0.2,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.6999999999999957,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            50.85,
+            51.55
+          ]
+        ]
+      }
+    },
+    {
+      "part": "body",
+      "z_mm": 0.4,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.6999999999999957,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            50.85,
+            51.55
+          ]
+        ]
+      }
+    },
+    {
+      "part": "body",
+      "z_mm": 0.6,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.6999999999999957,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            50.85,
+            51.55
+          ]
+        ]
+      }
+    },
+    {
+      "part": "body",
+      "z_mm": 0.8,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.6999999999999957,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            50.85,
+            51.55
+          ]
+        ]
+      }
+    },
+    {
+      "part": "body",
+      "z_mm": 1.4,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.6999999999999957,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            50.85,
+            51.55
+          ]
+        ]
+      }
+    },
+    {
+      "part": "body",
+      "z_mm": 1.6,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.6999999999999957,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            50.85,
+            51.55
+          ]
+        ]
+      }
+    },
+    {
+      "part": "body",
+      "z_mm": 1.8,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.6999999999999957,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            50.85,
+            51.55
+          ]
+        ]
+      }
+    },
+    {
+      "part": "body",
+      "z_mm": 2.0,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.6999999999999957,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            50.85,
+            51.55
+          ]
+        ]
+      }
+    },
+    {
+      "part": "body",
+      "z_mm": 1.0,
+      "kind": "floor air",
+      "coverage": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.6999999999999957,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "part": "body",
+      "z_mm": 1.0,
+      "kind": "floor post",
+      "coverage": {
+        "filled_width_mm": 0.7999999999999972,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            48.6,
+            49.4
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "z_mm": 0.2,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.7000000000000028,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            48.65,
+            49.35
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "z_mm": 0.4,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.7000000000000028,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            48.65,
+            49.35
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "z_mm": 0.6,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.7000000000000028,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            48.65,
+            49.35
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "z_mm": 0.8,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.7000000000000028,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            48.65,
+            49.35
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "z_mm": 1.4,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.7000000000000028,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            48.65,
+            49.35
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "z_mm": 1.6,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.7000000000000028,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            48.65,
+            49.35
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "z_mm": 1.8,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.7000000000000028,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            48.65,
+            49.35
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "z_mm": 2.0,
+      "kind": "floor skin",
+      "coverage": {
+        "filled_width_mm": 0.7000000000000028,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            48.65,
+            49.35
+          ]
+        ]
+      }
+    },
+    {
+      "part": "cap",
+      "z_mm": 1.0,
+      "kind": "floor air",
+      "coverage": {
+        "filled_width_mm": 0,
+        "uncovered_width_mm": 0.7000000000000028,
+        "internal_gap_mm": 0,
+        "intervals_mm": []
+      }
+    },
+    {
+      "part": "cap",
+      "z_mm": 1.0,
+      "kind": "floor post",
+      "coverage": {
+        "filled_width_mm": 0.8000000000000043,
+        "uncovered_width_mm": 0,
+        "internal_gap_mm": 0,
+        "intervals_mm": [
+          [
+            46.4,
+            47.2
+          ]
+        ]
+      }
+    }
+  ],
+  "tie_corner_review": "At body layer 9.4mm, a tie-column section has a 0.08056mm internal corner pocket between perimeter paths; the outside face stays covered. Full-skin sections use positions between ties, with separate face-continuity and tie/core sections. This is an internal toolpath corner pocket, not a missing skin or a measured strength qualification.",
+  "forced_support_segments": 0,
+  "forced_support_max_z_mm": null,
+  "support_decision": "Supports remain OFF. Forced-probe paths lie only in the enclosed 0.4mm floor air core. Its short roofs bridge between 0.8mm posts, in the revised uniform L20 construction; adding support would fill the damping void.",
+  "review_complete": true,
+  "limits": "Width-envelope sections through actual paths, not measured printed gap openness, bonding, tall-wall stability, quietness or insertion force."
+}

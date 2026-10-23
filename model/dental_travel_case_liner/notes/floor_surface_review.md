@@ -1,4 +1,6 @@
-# L20 interior floor: explanation and possible improvements
+# Historical floor review before the uniform L20 correction
+
+The [uniform L20 revision](uniform_l20.md) now implements identical 0.8/0.4/0.8 walls and floors. This record preserves the prior construction, observations and decision process.
 
 The user canceled the rotary dental liner print because its **contents-facing bottom surface showed broken/cracking regions**, while the wall regions printed so far looked okay. This is the same unresolved floor-quality problem seen in the previously approved small experiments; L20 is not reported to be worse. Keep its successful wall/damping direction, but do not treat the earlier approval as a robust-floor result. **Models, STEP/STL files and print profiles are unchanged.**
 

@@ -17,6 +17,8 @@ even solid paths leave anisotropy and bonding uncalibrated.
 
 For load-bearing printed screws, use the intended solid core and solid-print settings explicitly. After helical sweeps and boolean trimming, check an actual axial material witness through the finished root; shape validity or a cylinder in the source does not prove that core survived. Then inspect the relevant sliced core independently. The [travel-case hollow-thread correction](../../../../model/dental_travel_case/notes/rotary_refinement.md#the-old-thread-really-was-hollow) supplies the concrete negative control and limits.
 
+For current L20 liners, use the user-selected [uniform section and shared source](../../../../model/tpu_damping_box/notes/l20_standard.md) in walls, floors and lid pads. Review all orientation-specific panel recipes before transferring a standard; a successful wall upgrade must not silently retain thinner legacy floor skins.
+
 For thin sandwich liners, map air-core coverage through corners, pattern ends
 and floor/wall junctions before accepting straight-section witnesses as whole-liner
 coverage. The [sunglasses liner corner review](../../../../model/sunglasses_case_liner/README.md#corner-coverage-investigation--2026-10-16)

@@ -1,0 +1,33 @@
+{
+  "source_sha256": {
+    "rotary_l20_uniform_design.py": "494ec1d7b0c2317874d265f2c2365de4877f0b11e1e658f39b06f34657f8ed7f",
+    "rotary_l20_uniform_liner.py": "77ab393d1dca086bba65d858d1d12cc9e03b57f626e626c2a92b51dd91f1940e",
+    "rotary_l20_uniform_checks.py": "4b543ce2aa109970e769775728c468737c7635702f34d824e003f81e73bd1503",
+    "rotary_l20_uniform_print_checks.py": "39f1f9ec5a6d638211f18011e559cc242ef09f706e5c1f1316485bbc7f7ca394",
+    "rotary_l20_uniform_verification.py": "bdf584ecaf9cd01b8e10acee93ff5f2a9ce37dc4786afccee2194058e606c43a",
+    "verification.py": "ef9f038cb185ab8375c94b214e30a362119455b4114ac42414b86b61073ea0e6",
+    "../tpu_damping_box/l20_standard.py": "0e8e67fb3613d6826387caed0e1c87fa0f0a96d3ed7089d7313f377295772750",
+    "../dental_travel_case/rotary_case_design.py": "4a39a9ebc67d6a0f817df068027d494e401b1c4c2515805b152b25c57c9370f7",
+    "../dental_travel_case/rotary_covered_design.py": "cdab7e2167853a518ca9bfa3da6adecf0ef6eabda9173eb460fb4a52ae56edf4",
+    "../dental_travel_case/rotary_refinement_design.py": "aa905b165710b47d5437eeabf2b6a3c60630f4db42e34771f56f0e4be833ded5",
+    "../dental_travel_case/rotary_conical_design.py": "8dab2fd3f7356e54c346b703657467fb34773d2b6a16a1d9429cf7e67e93a652",
+    "../dental_travel_case/rotary_printed_fastener_design.py": "430577bf6755ee2ab6fbe32f1eeff92a6bc25433164acd0ff2df7c81221a82d8",
+    "../dental_travel_case/m1_design.py": "aa0098f781703c712ac61cc70ffc94cdfaf0f6deacd772b8e73c669df77dbfa5",
+    "../dental_travel_case/rotary_r1_design.py": "d7d7a8526140332d1714f7c512acf4a21680280609f579f8a5f94fa9e77ba5e9"
+  },
+  "artifacts": {
+    "rotary_l20_uniform_liner.step": "2fd0ee81dc866997aa25e0e4c4f3c411c486c3d1847215cff757d3ccc8820867",
+    "rotary_l20_uniform_liner.stl": "e61c7a5f597efb2ca1e4c69f0f873e30d33fae02f29bab65a5dad793615821e1",
+    "../tpu_damping_box/profiles/l20-uniform-process.json": "2c8eaecee01e7d1be51b3ec7955fd3682512af2599f06d6bd8467dc24d47a877",
+    "../tpu_damping_box/profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+    "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd",
+    "notes/uniform_l20/cad.json": "bfd39d7f9979ff55a93dd7e35009c90a2d22210bc6d327a7c817f19d70147df9",
+    "notes/uniform_l20/paths.json": "d7b12b3427f8ba963a189ecfd642743c44c6e5bd9947f872fdb53ca8993e7ffc",
+    "notes/uniform_l20/print_review.json": "030545cd39a88916eb69a58a9344852ae72fdb4b591b78f994ff6565e6e5c066"
+  },
+  "native_input_identity": "50cbf2f253b1a0b6a46709ab02e60701e2c12b87e876a2a1358277619aa6a2b9",
+  "native_artifact_identity": "6215efa3218f194aaf15fb0be8b4ceb34eb1cb5390534428dd647f9612b9d8f5",
+  "slice_input_sha256": "e61c7a5f597efb2ca1e4c69f0f873e30d33fae02f29bab65a5dad793615821e1",
+  "slice_identity": "0e76983f08b01987e57c95a893daec08d2d10c1419ba89c6dd0dfb173f7625e0",
+  "association": "Both raw exports from the same selected native print assembly and placement. Repository Python frozen during publication. Matching STL accepted under shared TPU profiles; actual skin/core paths reviewed. Old floor approval not inherited; new printed function remains unknown."
+}

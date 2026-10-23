@@ -14,7 +14,7 @@ A slim, two-piece travel box (`75.8 × 52.8 × 264 mm` closed shell), currently 
 
 The [repaired rotary controls](notes/matte_rotary.md) preserve the full wraparound scalloped cover and two keyed hub connections. Face and rim grow from 1.2 to 2 mm, maximum span from 37.6 to 39.2 mm, and outward projection from 1.6 to 2.4 mm. A matching flush conical-head screw keeps the existing solid 4.6 mm thread core and printed nut, with a gentler rising thread flank and simpler socket roof. Body, lid, wheel and nut remain unchanged; the box still has a 30 mm sleeve, 27 mm engagement and 3 mm seam reveal.
 
-Optional **L20 TPU liner for this rotary box:** [STEP](../dental_travel_case_liner/rotary_l20_liner.step) / [STL](../dental_travel_case_liner/rotary_l20_liner.stl). Two preformed cups; current print was canceled for interior-floor defects. [Floor SVG review](../dental_travel_case_liner/notes/floor_surface_review.md) before repeating; [print settings and first-fit limits](../dental_travel_case_liner/notes/rotary_l20.md). The rigid box geometry is unchanged.
+Optional **uniform L20 TPU liner for this rotary box:** [STEP](../dental_travel_case_liner/rotary_l20_uniform_liner.step) / [STL](../dental_travel_case_liner/rotary_l20_uniform_liner.stl). Revised floors and walls both use 0.8/0.4/0.8 mm; the previous floor-defect print is superseded. [Current setup and 255.4 mm inside-length limit](../dental_travel_case_liner/notes/uniform_l20.md). The rigid box is unchanged.
 
 ![Thicker cap and matching screw in print orientation](renders/print/matte/rotary_matte_repair_isometric.png)
 

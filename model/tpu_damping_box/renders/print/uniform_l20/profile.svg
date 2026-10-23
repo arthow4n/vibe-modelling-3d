@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650">
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#19354b} .title{font-size:27px;font-weight:bold} .body{font-size:20px}</style>
+<rect width="1100" height="650" fill="#f2f6f9"/><text x="35" y="49" class="title">Current L20: the SAME sandwich in every orientation</text>
+<text x="35" y="88" class="body">Experiment cup, matching lid pad, dental body floor and dental cap floor</text>
+<rect x="30" y="115" width="1040" height="450" rx="15" fill="white" stroke="#d3dfe7"/>
+<text x="65" y="159" class="title">Floor / lid-pad section</text>
+<text x="65" y="195" class="body">Contents-facing surface</text>
+<rect x="65" y="215" width="520" height="72" fill="#71aee1" stroke="#19354b"/>
+<rect x="65" y="287" width="520" height="36" fill="#f0f4f8" stroke="#19354b"/>
+<rect x="65" y="323" width="520" height="72" fill="#63b5ab" stroke="#19354b"/>
+<rect x="145" y="287" width="32" height="36" fill="#e8ad6f"/>
+<rect x="321" y="287" width="32" height="36" fill="#e8ad6f"/>
+<rect x="497" y="287" width="32" height="36" fill="#e8ad6f"/>
+<text x="75" y="261" class="body">0.8 mm interior skin — 4 layers</text>
+<text x="75" y="312" class="body">0.4 mm air</text>
+<text x="75" y="371" class="body">0.8 mm backing — 4 layers</text>
+<text x="65" y="432" class="body">Total: 2.0 mm. Posts: 0.8 × 0.8 mm; pitch 4.4 mm.</text>
+<text x="655" y="159" class="title">Wall section</text>
+<rect x="655" y="215" width="72" height="180" fill="#63b5ab" stroke="#19354b"/>
+<rect x="727" y="215" width="36" height="180" fill="#f0f4f8" stroke="#19354b"/>
+<rect x="763" y="215" width="72" height="180" fill="#71aee1" stroke="#19354b"/>
+<rect x="727" y="285" width="36" height="32" fill="#e8ad6f"/>
+<text x="859" y="258" class="body">0.8 / 0.4 / 0.8</text>
+<text x="859" y="294" class="body">= 2.0 mm</text>
+<text x="655" y="432" class="body">Same skins, same air-gap thickness.</text>
+<text x="65" y="482" class="body">Blue / green / orange are roles in the SAME TPU. Pale regions are empty air.</text>
+<text x="65" y="523" class="body">Solid perimeter lands, corners, rim closures and label seats bound the active panels.</text>
+<text x="35" y="603" class="body">Nominal geometry, not printed-gap or strength measurement. Both skins use 0.2 mm layers.</text>
+<text x="35" y="635" font-size="17">The prior 0.4 / 0.8 / 0.4 floor is superseded; improved printed finish still needs a physical trial.</text></svg>

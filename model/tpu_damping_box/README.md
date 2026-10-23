@@ -8,17 +8,21 @@ A small `38.4 × 38.4 × 42.4 mm` rigid test enclosure (two M3 screws/nuts + a l
 
 | Workstream | Status | What to Do / Printable Files |
 | --- | --- | --- |
-| **1. Preferred Baseline (`L20`)** | **Damping/walls preferred; floor cracking unresolved** | Floor review first ([SVG explanation and proposals](../dental_travel_case_liner/notes/floor_surface_review.md)). **`L20`** ([`thin_gap_L20.step`](thin_gap_L20.step) / [`.stl`](thin_gap_L20.stl)) is the user's preferred sweet spot: `2.0 mm` total wall, thinner than `T08` (`2.2 mm`), with similarly good damping and print quality almost equal to `T08`. The bottom surface showed slightly fewer defects despite ironing being on; the cause is unknown ([physical report](notes/thin_gap/README.md#physical-feedback--2026-10-21)). |
-| **2. Accepted Alternatives (`L18` & `T08 M1`)** | **Damping comparison accepted; floor limitation shared** | `L18` ( `1.8 mm` wall; [`STEP`](thin_gap_L18.step) / [STL](thin_gap_L18.stl)) also damps well. `T08 M1` ([STEP](t_skin_T08_m1.step) / [STL](t_skin_T08_m1.stl)) remains an approved comparison control. Damping feels roughly equal across all three; `L20` is preferred for the balance of thickness and print finish. No repeat comparison print is needed. |
+| **1. Current uniform L20 standard** | **Revised pair; physical print unknown** | Print [cup + matching lid pad STEP](uniform_l20.step) / [STL](uniform_l20.stl). All active walls, floor and pad are **0.8 / 0.4 air / 0.8 mm**. Reuse the rigid enclosure; replace both soft parts. [Shared standard, setup and evidence](notes/l20_standard.md). |
+| **2. Earlier L20 / L18 / T08 comparison** | **Historical wall/damping preference; floor fragile** | Earlier printed variants remain for history. Their thinner floor recipe is superseded, so do not use their files or older pad as the revised standard. [Physical comparison and floor clarification](notes/thin_gap/README.md). |
 | **3. Optional Flat Surface Coupons (`F0`–`F7`)** | **Optional / Deferred (`Unknown`)** | Eight `30 × 30 mm` flat bottom-plate coupons ([`surface_samples.step`](surface_samples.step) / [`.stl`](surface_samples.stl)) testing whether thicker skins or denser ribs reduce `50%`-ironing waviness ([setup below](#surface-finish-coupons--2026-10-17)). |
 | **4. Rejected / Superseded Variants** | **Do NOT Print** | • **`T16 M1`** (`3.8 mm` wall): Printed and **rejected** — too firm and somewhat noisier than `T08`.<br>• **R2 `A16` / `A20`** (square frames) & **Solid `C12` / `C16`**: Printed and **rejected** — insufficient damping.<br>• **R1 support pairs**: Rejected before printing (missing Classic walls).<br>• **`I10`** (`1.0 mm` open-backed): Printed and **rejected** (broken shell-side skin). |
+
+**Current print setup:** TPU 95A, 0.4 / 0.2 mm, Classic, two walls, 100% modeled-material fill, four top and bottom layers, supports off, 9 mm³/s. [Shared process](profiles/l20-uniform-process.json); [current geometry source](l20_standard.py). The new floor is selected, not physically qualified.
+
+![Uniform wall/floor standard](renders/print/uniform_l20/profile.png)
 
 > **Reuse your existing rigid test shell:** All `T08`, `L20`/`L18`, `B08`/`B16`, and `S16` liners fit the original `38.4 mm` rigid enclosure (`test_enclosure.step` / `.stl`). Do **not** reprint the rigid box.
 
 ---
 
 <a id="thinner-t08-follow-up"></a>
-## 1. Completed Thinner `T08` Comparison (`L20` & `L18`)
+## 1. Historical Thinner `T08` Comparison (`L20` & `L18`)
 
 Both thinner variants were printed and accepted for the earlier comparison. The 2026-10-23 clarification retains the wall/damping preference but identifies fragile/cracking interior floor surfaces as an unresolved problem shared with the dental liner; do not interpret the earlier approval as floor robustness. The user reports roughly equal damping for `L18`, `L20` and `T08`, and prefers **`L20`** for its thinner wall and print quality close to `T08`. The reported bottom surface has slightly fewer defects with ironing on; no cause is established. The user confirmed the variant names as `L18`/`L20` ([full feedback](notes/thin_gap/README.md#physical-feedback--2026-10-21)).
 

@@ -1,0 +1,29 @@
+{
+  "source_sha256": {
+    "l20_standard.py": "0e8e67fb3613d6826387caed0e1c87fa0f0a96d3ed7089d7313f377295772750",
+    "uniform_l20_design.py": "fec11ca5c63df3e52529a97e4e0ff433a37692a341ef4ce44ec357ce037ecccf",
+    "uniform_l20.py": "564e98a8381e661592d070a494be7809c39fedb6920017d7334cef3dd8310dc2",
+    "uniform_l20_checks.py": "cb935a811686232bb027b23ec3de71698f3f8833983351f959d8400b8d174e9a",
+    "uniform_l20_print_checks.py": "eac99aec2c3e4ab1ff1197f926766dc544882cff780578e7c6933d5135a18461",
+    "uniform_l20_verification.py": "15fa58762bb0cb31fbf2fc16a523b177fcd189692473b35b26788f1cc774064c",
+    "verification.py": "96638de91dbe2db71f3c0acdb8fb51fbb4000354c09e8f3184399bf6e28dbed5",
+    "thin_gap_design.py": "7013bc517e873899609832429f76fcd2da80e718275ae20b275be76f3da290d8",
+    "t_skin_design.py": "c02f331546c119f62ca47906495f7f95266f2f41ae670f93cf1651c5198c3092",
+    "design.py": "dcb22450e82cb9b4884849b89b34f6dbcac76cf0a474dd0a80f52ca684193503"
+  },
+  "artifacts": {
+    "uniform_l20.step": "d2d1fab5e20d7cf0073b1318ada155bc05758e6b16be1ff23700c281d7ac8088",
+    "uniform_l20.stl": "2b17589542cc3768ffe7a2e5f165b2e16536a7539fa944bf7183513ecc8ed5d8",
+    "profiles/l20-uniform-process.json": "2c8eaecee01e7d1be51b3ec7955fd3682512af2599f06d6bd8467dc24d47a877",
+    "profiles/tpu95a.json": "10e11b17e0f82efb42eef3cc6887c3a5e82b2e977f7faf72862f0c593e965ba1",
+    "../../.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json": "9c90ce4b621cbdea40fcc457361ecbab7734c6fbd2be56fdcb8e15a69a767cfd",
+    "notes/uniform_l20/cad.json": "fe4f5d2428be34c1a14adf56c07725cb6ae8ae05da8f469c25dd5ffc0990d6d0",
+    "notes/uniform_l20/paths.json": "7d214c5260bbfd2d7453c3d060696bbc7057fa0af089dfbe5480c86f55656c2f",
+    "notes/uniform_l20/native.json": "bdc66a2513baa14e8e6dc1eb06a8cc147c5e0fb2b7944152e3c0cfe99e7c2460"
+  },
+  "native_input_identity": "ba9be424721853b475bcdd46d236a1eebbe056554558f835742df757add0142b",
+  "native_artifact_identity": "ba4d3567aaa847708f327148bb75532f937db2b0eed1b5beaa5c1864f86c54fe",
+  "slice_input_sha256": "2b17589542cc3768ffe7a2e5f165b2e16536a7539fa944bf7183513ecc8ed5d8",
+  "slice_identity": "e96935593f195f999b44e5c2c97e12e016b8df986b737ca0918e82e1d08df8ca",
+  "association": "Both raw exports from the same selected native print assembly and placement. Repository Python frozen during publication. Matching STL accepted under shared TPU profiles; actual skin/core paths reviewed. Old floor approval not inherited; new printed function remains unknown. After publication, only pad seating-contact witnesses were added to the geometry check; the unchanged builder now also proves contact with both cup seat and rigid lid, with downward overtravel obstruction. Native paired geometry and placement are unchanged."
+}

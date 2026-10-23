@@ -1,4 +1,6 @@
-# L20 liner for the current rotary dental box
+# Historical dental L20 — superseded thin floors
+
+The [uniform L20 revision](uniform_l20.md) now implements identical 0.8/0.4/0.8 walls and floors. This record preserves the prior construction, observations and decision process.
 
 Hold repeat printing while the interior floor is reviewed. Existing two TPU cups: [STEP](../rotary_l20_liner.step), [STL](../rotary_l20_liner.stl) or [Python](../rotary_l20_liner.py). This version belongs to the latest 75.8 × 52.8 × 264 mm [rotary case](../../dental_travel_case/notes/covered_rotary.md), whose hard parts are unchanged. The old M1 S16 liner is retained only as rejected history.
 
@@ -69,3 +71,5 @@ The small accepted L20 cup's wall recipe is transferred deliberately; the old fa
 The current case uses legacy flat sibling imports. The liner temporarily adds that object's directory while importing/building, verifies the case module's owner, and restores the caller's import path. It does not export or modify the hard box. Product requirements for the old S16 variant are retained separately; the new user's target/profile selection has its own provenance.
 
 Primary language model: GPT-6 family; exact runtime model identifier and reasoning effort not exposed. Harness: Codex shared-workspace coding agent. Provider: OpenAI. No subagents. L20 physical preference and authorization are user supplied. Historical attribution remains with the original records. Geometry is MIT; the derived Orca profile retains [AGPL-3.0 attribution](../profiles/ATTRIBUTION.md).
+
+The historical publication association was reviewed after adding the new explicit verification route: only the router hash was refreshed. Old geometry, native receipts and physical scope are unchanged.

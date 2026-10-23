@@ -14,7 +14,7 @@
     "rotary_l20_liner.py": "6129f03c46aa4e28b498eb94d04a5759d2d046843482f90b1f70561ff90723d7",
     "rotary_l20_inspection.py": "7889ba40b92cc3070a7e4b621a99aa99b848989ec81393b9ecfa3a332b70c9ed",
     "rotary_l20_verification.py": "77c261d90b43835b8a1d1eb89b03493ec44fbc75e25b40f888a98c0ef635f218",
-    "verification.py": "d90f224866186f48f3a05ff19d80637138800288715c547555b724990b4c1f59"
+    "verification.py": "ef9f038cb185ab8375c94b214e30a362119455b4114ac42414b86b61073ea0e6"
   },
   "artifacts": {
     "rotary_l20_liner.step": "65570d98ad769a96ffe7645f628fe2d7472253c702554f34595bf7f667dcdb55",
@@ -37,5 +37,5 @@
   "native_artifact_identity": "da6d5cb9fd2d226fd783d591b78f7dcdf012c61f269aacf4de409491e9532eed",
   "slice_input_sha256": "3580e71edb8890ae3ed27b5e461bcb6646d91b46f5442557c7de003ba7698f1f",
   "slice_identity": "9110e61f8b3455929652c1cc739ee7d2681016dd9ffb35e89cc3dcaf7357bc7a",
-  "association": "Final cup geometry, dimensions, ties, floors and retention pads match the guarded CAD and actual-path records. Python stayed frozen during each native publication. The raw STEP/STL pair comes from the same two-cup print assembly at supplied placements; the delivered STL matches its completed TPU slice. After print export, only the separate inspection camera orientation and local path-review code changed; the printed geometry factory and print entry point stayed unchanged. Useful assembled/print views, annotated sections and actual-path detail were inspected. All four lid-pad contacts are intentional and limited to their 0.1mm bands. No success from the small L20 baseline or failed old M1/S16 liner is promoted to physical qualification of this tall application."
+  "association": "Final cup geometry, dimensions, ties, floors and retention pads match the guarded CAD and actual-path records. Python stayed frozen during each native publication. The raw STEP/STL pair comes from the same two-cup print assembly at supplied placements; the delivered STL matches its completed TPU slice. After print export, only the separate inspection camera orientation and local path-review code changed; the printed geometry factory and print entry point stayed unchanged. Useful assembled/print views, annotated sections and actual-path detail were inspected. All four lid-pad contacts are intentional and limited to their 0.1mm bands. No success from the small L20 baseline or failed old M1/S16 liner is promoted to physical qualification of this tall application. Reviewed 2026-10-23: verification.py adds only the explicit rotary-l20-uniform route/declared choice; the historical rotary-l20 builder, checks, exports and slice are unchanged. This router-only association update does not transfer physical acceptance to the new revision."
 }

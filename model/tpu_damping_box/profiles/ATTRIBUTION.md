@@ -96,3 +96,11 @@ P2/P3/P3IOI retain this same AGPL-3.0 source attribution. They derive from
 and the declared two/three wall-loop and Inner/Outer or Inner/Outer/Inner order
 choices differ. They are diagnostic study settings; no approved B profile is
 modified and no TPU recipe is calibrated.
+
+`l20-uniform-process.json` derives from the dental
+[`rotary-l20-process.json`](../../dental_travel_case_liner/profiles/rotary-l20-process.json),
+with its name changed and top/bottom shell layer counts increased from two to
+four to match the shared 0.8 mm skins at 0.2 mm layers. Classic, two walls,
+100% rectilinear fill, support-off and 50% / 30 mm/s / 0.15 mm ironing are
+retained. Both current L20 consumers use this one profile. It retains the
+AGPL-3.0 license and original Orca/Qidi provenance above.

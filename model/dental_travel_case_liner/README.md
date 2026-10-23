@@ -4,36 +4,35 @@ Two preformed **L20 TPU 95A cups** for the latest [wraparound-wheel rotary box](
 
 <a id="what-to-print-now"></a>
 
-## Current action: floor review before another full print
+## Current uniform L20 print
 
-- **Existing files, hold repeat printing:** [STEP](rotary_l20_liner.step) · [matching STL](rotary_l20_liner.stl) · [Python](rotary_l20_liner.py). Both cups are on one plate, closed ends down and openings up. Two printed cups total.
-- **Settings:** TPU 95A, **0.4 mm nozzle / 0.2 mm layers**, Classic walls, thin-wall detection off, **2 walls / 100% rectilinear fill / supports off**, **9 mm³/s** maximum volumetric flow. The [process preset](profiles/rotary-l20-process.json) uses **50% top-surface ironing**, drawing on the earlier accepted floor coupon. [Filament preset](../tpu_damping_box/profiles/tpu95a.json).
-- **Status:** Full-size L20 printing was **canceled after the early layers**: printed wall regions look okay, but the contents-facing floor has broken/cracking surface regions. Earlier small-cup damping preference remains; floor robustness is unresolved across the experiment and application. See the [floor explanation and proposals](notes/floor_surface_review.md). [Design, installation and current evidence](notes/rotary_l20.md).
-- **Do not reprint the old M1 S16 liner** (`dental_travel_case_liner.step` / `.stl`): it was damaged during printing and insertion and belongs to a different box.
+- **Print:** [Revised two-cup STEP](rotary_l20_uniform_liner.step) · [STL](rotary_l20_uniform_liner.stl) · [Python](rotary_l20_uniform_liner.py). The body and lid liner are both included, closed ends down. Keep the existing rigid box and working controls.
+- **One section everywhere:** **0.8 mm skin / 0.4 mm air / 0.8 mm skin = 2.0 mm**, in walls and both floors. Both this liner and the experiment import the same [standard source](../tpu_damping_box/l20_standard.py).
+- **Setup:** TPU 95A, 0.4 mm nozzle / 0.2 mm layers, Classic, thin-wall detection off, two walls, 100% rectilinear fill, **four top and bottom layers**, supports off, 9 mm³/s. Use the shared [uniform process](../tpu_damping_box/profiles/l20-uniform-process.json). Ironing remains 50% / 30 mm/s / 0.15 mm. [Printing and installation](notes/uniform_l20.md).
+- **Status:** Revised pair digitally checked; **no physical print report yet**. The old print was canceled for broken/cracking interior floor while early walls looked okay. Do not repeat the old `rotary_l20_liner` or rejected M1 S16 files as the corrected standard.
 
-![L20 cups for the rotary box](renders/rotary_l20/rotary_l20_liner_isometric.png)
+![Current two-cup liner](renders/uniform_l20/rotary_l20_uniform_liner_isometric.png)
 
-## How this version fits
+## Fit and current standard
 
-The walls retain **0.8 mm outer skin / 0.4 mm air gap / 0.8 mm inner skin**, with discrete **0.8 × 0.8 mm ties at 4.4 mm pitch**. Floors retain the **1.6 mm** post-supported sandwich. Corners and short shape transitions have solid backing, following the accepted L20 construction.
+The floors grow from 1.6 to 2.0 mm while upright panels keep the selected uniform section. Post/tie footprint remains 0.8 × 0.8 mm on 4.4 mm pitch. Corners, perimeter lands and short shape transitions are solid boundaries of the active sandwich.
 
-The body cup is **201.3 mm** tall; the lid cup **57.3 mm**. A **0.3 mm per-side installation allowance**, **0.3 mm at each closed end** and **0.8 mm between liner rims** keep the hard seating stops and rotary mechanism clear. Four shallow ramped TPU pads on the lid cup have **0.1 mm intended local interference** to help keep it seated, without tape. Their actual holding force is unmeasured. The leading body floor fits through the sleeve opening; the wider body walls still require a gentle pinch during installation. Do not force a reluctant cup.
+Cup heights stay 201.3 / 57.3 mm, with 0.3 mm installation allowance and 0.8 mm between rims. The lined body cavity is 67.2 × 44.2 mm and its narrow throat 62.6 × 39.6 mm. **Clear length is now 255.4 mm**: the 255 mm brush gauge clears nominally, leaving just 0.4 mm axial spare length. The rigid shell is unchanged. Wider lower walls still need gentle pinching through the sleeve mouth; four shallow ramped pads retain the lid cup. Actual installation and combined packing remain physical checks.
 
-The narrowest lined passage is **62.6 × 39.6 mm**, opening to **67.2 × 44.2 mm** in the main body. Clear length is **256.2 mm**. The 255 mm toothbrush has little spare length; a nominal 40 mm-thick toothpaste tube may need slight deformation through the mouth. Simultaneous packing remains a physical check.
+![Current shared wall/floor section](../tpu_damping_box/renders/print/uniform_l20/profile.png)
 
-![Installed outline and enlarged L20 wall section](renders/rotary_l20/liner_sections.png)
-
-[Editable section SVG](renders/rotary_l20/liner_sections.svg).
+[Standard and rationale](../tpu_damping_box/notes/l20_standard.md) · [Detailed application record](notes/uniform_l20.md) · [Earlier floor explanation and rejected alternatives](notes/floor_surface_review.md).
 
 ## Print status and evidence
 
 | Item | Status | Evidence / next observation |
 | --- | --- | --- |
-| L20 small damping cups | **Yes — walls/damping preferred; floor unresolved** | [User print comparison](../tpu_damping_box/notes/thin_gap/README.md#physical-feedback--2026-10-21): damping like L18/T08, preferred thickness/finish. |
-| Rotary L20 full liner | **Partial — canceled for interior-floor defects** | [Raw STEP](rotary_l20_liner.step) / [STL](rotary_l20_liner.stl); early wall regions look okay; floor surface breaks/cracks. Do not repeat the full print unchanged. Tall-wall completion and installation remain untested. |
-| Old M1 S16 full liner | **Printed — damaged / rejected** | Both skins broke locally and damage increased during insertion. Historical record below. |
+| Earlier small L20 | **Yes — walls/damping preferred; floor fragile** | Physical history remains scoped to the older construction |
+| Prior dental L20 | **Partial — canceled for interior-floor defects** | `rotary_l20_liner` retained unchanged for identification |
+| Uniform L20 dental liner | **Unknown — no print report** | Current `rotary_l20_uniform_liner` pair; inspect complete floors, tall walls, gentle insertion and contents fit |
+| Old M1 S16 | **Printed — damaged / rejected** | Historical record below; do not reprint |
 
-[Current CAD/slice records and limits](notes/rotary_l20.md#verification-and-limits). The old S16 observations remain historical evidence, not acceptance of these new taller cups.
+[Current CAD/slice evidence and limits](notes/uniform_l20.md#verification-limits-and-print-status). Historical receipts below do not establish physical acceptance of the revised floor.
 
 ## Historical M1 S16 liner — retained evidence
 

@@ -97,17 +97,17 @@ Slim two-piece rotary-lock box (`75.8 × 52.8 × 264 mm`) for a toothbrush and t
 
 #### TPU damping box & wall-support research — [`model/tpu_damping_box/`](model/tpu_damping_box/README.md)
 30–34 mm TPU 95A test coupons used to qualify impact damping, tall-wall support durability, and surface finish before full liner prints.
-- **Action / Print:** **Review interior floor before repeating L20**; walls/damping remain preferred — [STEP](model/tpu_damping_box/thin_gap_L20.step) / [STL](model/tpu_damping_box/thin_gap_L20.stl), `2.0 mm` wall versus T08's `2.2 mm`. L18, L20 and T08 all damp similarly well; L20 has print quality almost equal to T08 and slightly fewer bottom defects with ironing on (cause unknown). [Physical report](model/tpu_damping_box/notes/thin_gap/README.md#physical-feedback--2026-10-21).
-- **Test pieces:** Yes — L20, L18 and T08 previously approved for comparison; interior-floor cracking now unresolved; T08 remains a comparison control, B08/B16 and S16/S12 historical references. **Do not reprint** rejected T16 (too firm/noisy), A16/A20, solid C12/C16, R1 or torn I10. F0–F7 surface coupons have no print report (`Unknown`).
+- **Action / Print:** New [uniform L20 cup + matching lid pad STEP](model/tpu_damping_box/uniform_l20.step) / [STL](model/tpu_damping_box/uniform_l20.stl). All active walls/floor/pad use **0.8 / 0.4 air / 0.8 mm**, importing one shared standard. Reuse rigid enclosure. [Setup and evidence](model/tpu_damping_box/notes/l20_standard.md).
+- **Test pieces:** Earlier L20/L18/T08 wall/damping preference retained; fragile floors prompted the uniform revision, **no new print report yet**. Old thin-floor kits/pads, T16, A16/A20, solid controls and torn I10 are not current print recommendations.
 - **Final object:** N/A — research samples feeding the sunglasses and dental liners.
 - **Provenance:** [Record](model/tpu_damping_box/README.md#attribution) · **Agent effort:** N/A — no performance study requested
 
 #### Dental box L20 TPU liner — [`model/dental_travel_case_liner/`](model/dental_travel_case_liner/README.md)
 Two preformed L20 TPU 95A cups for the latest rotary dental travel box.
-- **Action / Print:** Hold the unchanged full print; review [floor SVG proposals](model/dental_travel_case_liner/notes/floor_surface_review.md). Existing [STEP](model/dental_travel_case_liner/rotary_l20_liner.step) / [STL](model/dental_travel_case_liner/rotary_l20_liner.stl), both cups on one plate. TPU, 0.4/0.2 mm, Classic, two walls, 100% modeled-material fill, supports off, 9 mm³/s. [Settings and installation](model/dental_travel_case_liner/notes/rotary_l20.md).
-- **Test pieces:** Small L20 cup **Yes — preferred for walls/damping; floor unresolved**. Current work is SVG explanation only; full-size transfer remains unqualified.
-- **Final object:** Rotary L20 liner **Partial — canceled after early layers for broken/cracking interior floor**; printed wall regions look okay. Tall walls, installation and packing remain untested. Old M1 S16 liner was damaged during printing and insertion; do not reprint it.
-- **Provenance:** [Current record](model/dental_travel_case_liner/notes/rotary_l20.md#engineering-notes-and-attribution) · [Historical attribution](model/dental_travel_case_liner/README.md#attribution) · **Agent effort:** N/A — no performance study requested
+- **Action / Print:** Revised [uniform two-cup STEP](model/dental_travel_case_liner/rotary_l20_uniform_liner.step) / [STL](model/dental_travel_case_liner/rotary_l20_uniform_liner.stl). **Same 0.8/0.4/0.8 in walls and floors as the experiment**. TPU 0.4/0.2 mm, Classic, two walls, four top/bottom layers, solid material fill, supports off. [Setup and fit limits](model/dental_travel_case_liner/notes/uniform_l20.md).
+- **Test pieces:** Earlier L20 walls/damping preferred; floor fragile. New uniform standard selected; physical improvement untested.
+- **Final object:** Uniform L20 liner **Unknown — revised pair prepared**; 255.4 mm nominal inside length. Prior dental print **Partial — canceled for floor defects**; old M1 S16 damaged/rejected. Keep the printed rigid case.
+- **Provenance:** [Current record](model/dental_travel_case_liner/notes/uniform_l20.md#engineering-notes-and-attribution) · [Historical attribution](model/dental_travel_case_liner/README.md#attribution) · **Agent effort:** N/A — no performance study requested
 
 #### Postcard displays — [`model/postcard_display/`](model/postcard_display/README.md)
 Seven stand-alone A6 / `100 × 150 mm` postcard holders (`Original`, `Outline`, `Wave`, `Prism`, `Orbit`, `Bolt`, `Pebble`).
