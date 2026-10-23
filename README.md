@@ -134,6 +134,13 @@ Standalone mechanical study comparing an upright catch (`A`) vs. a flat lower-tr
 
 ### 3. Unprinted Prototypes & Calibration Objects
 
+#### Circular vent enclosure V1 — [`model/circular_vent_enclosure/`](model/circular_vent_enclosure/README.md)
+One-piece PETG diffuser/shield, Ø213 × 85 mm, eight broad side windows; about 221 g in the selected slice.
+- **Action / Print:** Measure the stationary rim before installation printing; [STEP](model/circular_vent_enclosure/circular_vent_enclosure.step) ([STL](model/circular_vent_enclosure/circular_vent_enclosure.stl)). Final slice completes with no generated supports.
+- **Status:** Mount fit/retention and airflow/noise remain unverified; nominal Ø130 mm clearance only. Material reduced about 11% on the solid-CAD comparison.
+- **Test pieces:** N/A. **Final object:** Unknown — no physical print report.
+- **Provenance:** [Record](model/circular_vent_enclosure/README.md#engineering-record-and-attribution).
+
 #### Physical-analysis phone stand (V3) — [`model/analysis_phone_stand/`](model/analysis_phone_stand/README.md)
 Compact `105 × 140 mm` fully printed pedestal phone stand with a concealed three-angle (`45°`/`60°`/`75°`) spring-latch lock.
 - **Action / Print:** Unprinted prototype — [`phone_stand_v3.step`](model/analysis_phone_stand/phone_stand_v3.step) ([`.stl`](model/analysis_phone_stand/phone_stand_v3.stl)) + optional TPU feet [`phone_stand_v3_feet.step`](model/analysis_phone_stand/phone_stand_v3_feet.step) ([`.stl`](model/analysis_phone_stand/phone_stand_v3_feet.stl)). Ignore rejected `V1`/`V2`.

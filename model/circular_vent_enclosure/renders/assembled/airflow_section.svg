@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#087f8c" stroke-width="1.5"/></marker></defs>
+<rect width="960" height="520" fill="#fff"/>
+<g font-family="sans-serif" fill="#263442">
+<text x="34" y="35" font-size="23" font-weight="bold">V1 vent hood · installed section</text>
+<text x="34" y="59" font-size="14">Schematic through structural posts; windows sit between posts. Rounded blends simplified.</text>
+<path d="M65 90H895" stroke="#9099a1" stroke-width="4"/>
+<text x="70" y="82" font-size="14">Mounting surface</text>
+<!-- Hood shell, front shield, and shallow ribs: all one PETG part. -->
+<path d="M277.8 90V108L160.5 231V345H799.5V231L682.2 108V90H676.2V108L793.5 233.4V337.8H166.5V233.4L283.8 108V90Z" fill="#427cb6" stroke="#234d7d" stroke-width="1"/>
+<rect x="169" y="328.8" width="275" height="9" rx="2" fill="#427cb6"/>
+<rect x="516" y="328.8" width="275" height="9" rx="2" fill="#427cb6"/>
+<!-- Valve is a reference, not part of the print. -->
+<path d="M285 90V150M675 90V150" stroke="#7c858d" stroke-width="7"/>
+<path d="M285 195H675" stroke="#7c858d" stroke-width="7"/>
+<path d="M480 150V195" stroke="#a0a6ac" stroke-width="2" stroke-dasharray="4 4"/>
+<text x="358" y="125" font-size="15">Existing stationary rim</text>
+<text x="370" y="180" font-size="15">Existing disc face</text>
+<text x="704" y="129" font-size="13">20 mm rim</text>
+<text x="704" y="169" font-size="13">15 mm open band</text>
+<path d="M699 92V148M694 92H704M694 148H704M699 153V192M694 153H704M694 192H704" fill="none" stroke="#7c858d"/>
+<!-- Air turns toward the room-side peripheral windows; arrows cross out-of-section windows. -->
+<path d="M280 170Q241 180 224 222Q212 263 134 275" fill="none" stroke="#087f8c" stroke-width="5" marker-end="url(#arrow)"/>
+<path d="M680 170Q719 180 736 222Q748 263 826 275" fill="none" stroke="#087f8c" stroke-width="5" marker-end="url(#arrow)"/>
+<text x="49" y="312" font-size="14">Peripheral outlets</text>
+<text x="49" y="331" font-size="12">between the posts</text>
+<text x="361" y="267" font-size="17">Open chamber · no extra baffle</text>
+<text x="365" y="302" font-size="14">44.6 mm disc-to-rib clearance</text>
+<path d="M160.5 369H799.5M160.5 362V376M799.5 362V376" stroke="#263442"/>
+<text x="407" y="392" font-size="16">213 mm outer diameter</text>
+<text x="328" y="418" font-size="16">Solid 2.4 mm front shield · toward room</text>
+<text x="35" y="458" font-size="14" fill="#427cb6">Blue: printed PETG hood and ribs</text>
+<text x="35" y="481" font-size="14" fill="#7c858d">Grey: existing valve / mounting surface</text>
+<text x="485" y="458" font-size="14" fill="#087f8c">Teal arrows: intended airflow direction</text>
+<text x="485" y="481" font-size="14">White: empty air space; total projection 85 mm</text>
+</g></svg>

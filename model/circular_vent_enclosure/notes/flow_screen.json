@@ -1,0 +1,62 @@
+{
+  "nominal_outlet_projected_cm2": 94.6,
+  "downstream_disc_plane_min_area_cm2": 134.865,
+  "front_clearance_over_ribs_mm": 44.6,
+  "conservative_front_turn_area_cm2": 182.15,
+  "added_full_flow_sections_min_cm2": 94.6,
+  "nominal_existing_cylindrical_gap_cm2": 61.261,
+  "rear_annular_sections": [
+    {
+      "wall_height_mm": 0.7,
+      "core_radius_mm": 65.4,
+      "radial_clearance_mm": 0.4,
+      "annular_area_cm2": 1.639
+    },
+    {
+      "wall_height_mm": 6,
+      "core_radius_mm": 65.481,
+      "radial_clearance_mm": 0.481,
+      "annular_area_cm2": 1.972
+    },
+    {
+      "wall_height_mm": 10,
+      "core_radius_mm": 68.451,
+      "radial_clearance_mm": 3.451,
+      "annular_area_cm2": 14.468
+    },
+    {
+      "wall_height_mm": 15,
+      "core_radius_mm": 73.219,
+      "radial_clearance_mm": 8.219,
+      "annular_area_cm2": 35.69
+    },
+    {
+      "wall_height_mm": 20,
+      "core_radius_mm": 77.988,
+      "radial_clearance_mm": 12.988,
+      "annular_area_cm2": 58.341
+    },
+    {
+      "wall_height_mm": 25,
+      "core_radius_mm": 82.756,
+      "radial_clearance_mm": 17.756,
+      "annular_area_cm2": 82.421
+    },
+    {
+      "wall_height_mm": 30,
+      "core_radius_mm": 87.524,
+      "radial_clearance_mm": 22.524,
+      "annular_area_cm2": 107.929
+    },
+    {
+      "wall_height_mm": 35,
+      "core_radius_mm": 92.292,
+      "radial_clearance_mm": 27.292,
+      "annular_area_cm2": 134.865
+    }
+  ],
+  "assumed_solid_petg_mass_g": 233.27,
+  "wall_horizontal_axis_gravity_moment_Nm": 0.1385,
+  "taper_radial_step_per_0_2_layer_mm": 0.191,
+  "scope": "Nominal 130 mm disc; user approximate rim20 + gap15 = projection35. Not hydraulic effective area or pressure/noise prediction. Symmetric post/window rays; downstream axial samples at 2 mm spacing."
+}

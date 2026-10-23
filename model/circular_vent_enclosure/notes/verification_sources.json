@@ -1,0 +1,64 @@
+{
+  "scope": "Initial user-intent audit baseline from notes/brief.md. No physical evidence or printed source association exists.",
+  "user_requirements": [
+    {
+      "id": "vent.envelope",
+      "text": "Compact lightweight circular enclosure within the specified envelope.",
+      "source": {
+        "reference": "notes/brief.md",
+        "statement": "Existing valve approximately 130 mm diameter and 35 mm projection; maximum OD approximately 230 mm; preferred 210\u2013215 mm OD and 80\u201390 mm projection."
+      },
+      "acceptance_criteria": [
+        "Maximum 50 mm extra radius; approximately 230 mm maximum OD.",
+        "Preferred OD 210\u2013215 mm; projection 80\u201390 mm."
+      ]
+    },
+    {
+      "id": "vent.flow",
+      "text": "Preserve the original annular air opening and avoid narrow added passages.",
+      "source": {
+        "reference": "notes/brief.md",
+        "statement": "Original valve and airflow gap must remain unobstructed; check the entire path, initially aim for 80\u2013100 cm\u00b2 outlets; effective valve area unknown."
+      },
+      "acceptance_criteria": [
+        "No obstruction of original valve or airflow gap."
+      ]
+    },
+    {
+      "id": "vent.mount",
+      "text": "Removable non-destructive attachment to a stationary rim, preserving valve adjustment.",
+      "source": {
+        "reference": "notes/brief.md",
+        "statement": "Never grip the disc; mounting surface and rim not measured; keep diameter, clearance and engagement parametric; do not overload attachment."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "vent.shield",
+      "text": "Solid front shield and broad rounded peripheral windows without an extra baffle.",
+      "source": {
+        "reference": "notes/brief.md",
+        "statement": "Shield direct forward radiation; 6\u20138 broad rounded windows; smooth internal transitions; no additional internal baffle in V1."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "vent.print",
+      "text": "PETG FDM manufacture, preferably one support-free part with front against the bed.",
+      "source": {
+        "reference": "notes/brief.md",
+        "statement": "Shell 2.0\u20132.4 mm, front 2.4\u20133.0 mm; avoid unsupported bridges and evaluate taper, window tops, weight and stiffness."
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "vent.use",
+      "text": "Reduce perceived noise while retaining useful airflow, cleanability and stable quiet structure.",
+      "source": {
+        "reference": "notes/brief.md",
+        "statement": "No guaranteed silencing; no assumption of broadband volume attenuation; avoid whistles, rattles, debris traps and a flexible vibrating front."
+      },
+      "acceptance_criteria": []
+    }
+  ]
+}
