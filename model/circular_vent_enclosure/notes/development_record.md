@@ -336,6 +336,10 @@ state, rather than interpreting an unobstructed hole as usable tool access.
 
 ## Print report and deferred design issues — 2026-10-24
 
+This initial report is superseded for readiness and continuation by the
+[final fit/sound trial](#fit-and-sound-trial--discontinued-2026-10-24); preserve the
+observations below as history, not authorized future work.
+
 The user reports the vent damping enclosure printed but **not yet functionally
 tested**. Handling/tightening observations below do not establish installed grip,
 airflow or acoustic performance. Associated with current V3 by context; exact
@@ -371,3 +375,48 @@ geometry, export, profile or mechanism changes or new experiments. Existing
 CAD/slicer checks remain scoped digital evidence: loading-path clearance did not
 establish that a feed was useful, and nominal overlap did not establish coverage
 under actual PETG flex.
+
+
+## Fit and sound trial — discontinued 2026-10-24
+
+**Final decision: discontinued; keep the model and its history.** The user has
+resolved the original problem by another means, whose details are outside this
+record. There is no remaining request for a vent-noise solution, replacement,
+redesign or further testing. Earlier deferred skirt, fastener and nut-feed issues
+remain historical lessons, not an active revision backlog.
+
+**Observed fit:** the enclosure did not cover the vent as intended. The user
+attributes this to their own incorrect supplied measurements, not a model-design
+fault. Corrected dimensions and the precise mismatch were not supplied. Keep
+this separate from the earlier skirt-coverage issue under clamp flex.
+
+**Observed sound:** after completely removing/unscrewing the clamp, the user
+pushed the hood toward the vent and perceived louder sound, rather than damping.
+They also describe the air as very strong. This trial was not a fully fitted,
+clamped installation; exact positioning, operating conditions and printed
+revision/hash remain unconfirmed. No sound level or airflow measurement was
+reported. Nevertheless, the user rejects this structure for the intended task.
+
+**Interpretation:** the user suspects the enclosure acts as a sound-producing
+chamber. Resonance, amplification mechanism and flow-induced noise were not
+isolated or measured. The user reports the relevant noise originated somewhere
+other than the vent outlet, so targeting the outlet with this enclosure was the
+wrong solution. Do not assign a more specific source or infer how it was solved.
+
+**Lessons and prevention:** establish the actual source and transmission path
+before choosing a noise-control structure at the apparent outlet. If the source
+or the intervention's benefit is uncertain, use the cheapest representative
+comparison that can reject the concept before investing in detailed clamps and
+fasteners. Added cavity volume, shielding, geometric outlet area and unobstructed
+CAD passages do not establish damping or even a beneficial change in sound.
+Verify consequential mating measurements early when an available mating item or
+simple fit check can resolve them; parametric geometry cannot validate the
+supplied dimensions. Here, fixing the fit alone would not answer the separately
+observed acoustic failure. These lessons are scoped to this adverse trial, not a
+claim that all vent enclosures amplify sound.
+
+The existing architecture gate already asks whether a mechanism solves the real
+problem, but lacked explicit noise-source/intervention guidance. That reference
+now routes this decision before detailed mounting work, and the reusable evidence
+index links this report. No geometry, exports, profiles or historical numerical
+receipts were altered, and no new experiments were run.

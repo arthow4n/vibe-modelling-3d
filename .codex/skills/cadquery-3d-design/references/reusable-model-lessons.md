@@ -248,6 +248,29 @@ Match projecting controls to operation frequency and physical access needs.
 
 ## Contents support, access and useful form
 
+### Vent enclosure worsened perceived noise
+
+Locate the noise source and test the intervention's practical effect before
+refining a shield's mounting hardware; see the [architecture guidance](design-decisions.md#product-architecture-gate).
+
+**Evidence:** The [vent fit/sound trial](../../../../model/circular_vent_enclosure/notes/development_record.md#fit-and-sound-trial--discontinued-2026-10-24)
+was subjectively louder even with the clamp removed and the hood pushed toward
+the vent. The user reports the relevant source was elsewhere. They separately
+attribute the fit mismatch to incorrect supplied measurements. The project is
+discontinued, its original problem resolved by other means; retain the files.
+
+**Related construction lessons:** The [initial print report](../../../../model/circular_vent_enclosure/notes/development_record.md#print-report-and-deferred-design-issues--2026-10-24)
+found skirt coverage lost under actual clamp flex and a fragile underside nut feed
+where direct nut placement was already available. Check coverage in the deformed
+use state; compare direct access before adding loading channels and thin remnants.
+Other fastening structures and movable-screw value were questioned, not proven
+useless. These observations do not reopen this discontinued model.
+
+**Scope and limits:** An adverse subjective trial, not measured attenuation,
+flow or diagnosed resonance. Exact position, operating conditions and printed
+revision are unknown. Do not generalize to every vent enclosure, blame the clamp
+for this sound result, or treat corrected fit as acoustic validation.
+
 ### Mechanism packaging versus desktop footprint
 
 Challenge mechanism packaging and show the occupied footprint before detailed stability work.

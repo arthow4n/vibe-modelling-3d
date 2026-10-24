@@ -134,13 +134,6 @@ Standalone mechanical study comparing an upright catch (`A`) vs. a flat lower-tr
 
 ### 3. Unprinted Prototypes & Calibration Objects
 
-#### Circular vent enclosure V3 — [`model/circular_vent_enclosure/`](model/circular_vent_enclosure/README.md)
-PETG shield/diffuser, Ø213 × 85 mm, with bench-accessible rear M3 heads, captive hood nuts and a clear-side M4 clamp driver; about 203 g PETG in the selected slices.
-- **Action / Print:** Existing print awaits testing; no redesign now. Current [hood STEP](model/circular_vent_enclosure/circular_vent_enclosure.step) ([STL](model/circular_vent_enclosure/circular_vent_enclosure.stl)) and [clamp STEP](model/circular_vent_enclosure/mounting_clamp.step) ([STL](model/circular_vent_enclosure/mounting_clamp.stl)); use the separate hood/clamp processes and updated M3 × 12 hardware list. V2 fastener access is superseded.
-- **Status:** Printed with issues (2026-10-24): skirt leaves a few-millimetre gap when tightened; underside clamp-nut feed reported unnecessary and poorly supported. Other fastening structures questioned; movable screw benefit uncertain. [Future revision notes](model/circular_vent_enclosure/notes/development_record.md#print-report-and-deferred-design-issues--2026-10-24).
-- **Test pieces:** N/A. **Final objects:** Yes — printed; functional grip, retention, airflow and sound tests pending. Exact printed revision/part coverage unconfirmed.
-- **Provenance:** [Record and illustrated installation](model/circular_vent_enclosure/README.md#screw-heads-nuts-and-assembly-order).
-
 #### Physical-analysis phone stand (V3) — [`model/analysis_phone_stand/`](model/analysis_phone_stand/README.md)
 Compact `105 × 140 mm` fully printed pedestal phone stand with a concealed three-angle (`45°`/`60°`/`75°`) spring-latch lock.
 - **Action / Print:** Unprinted prototype — [`phone_stand_v3.step`](model/analysis_phone_stand/phone_stand_v3.step) ([`.stl`](model/analysis_phone_stand/phone_stand_v3.stl)) + optional TPU feet [`phone_stand_v3_feet.step`](model/analysis_phone_stand/phone_stand_v3_feet.step) ([`.stl`](model/analysis_phone_stand/phone_stand_v3_feet.stl)). Ignore rejected `V1`/`V2`.
@@ -170,6 +163,15 @@ Open-lattice five-finger insert for airing and drying gloves.
 - **Provenance:** [Record](model/glove_drying_insert/README.md#attribution) · **Agent effort:** [Selected token/timing record](model/glove_drying_insert/notes/agent_effort.md)
 
 ---
+
+### 4. Discontinued Objects — History Only
+
+#### Circular vent enclosure V3 — [`model/circular_vent_enclosure/`](model/circular_vent_enclosure/README.md)
+PETG hood and adjustable clamp intended to reduce vent noise; retained as a failed physical prototype.
+- **Action / Print:** **Discontinued — do not print or revise for this task.** [Archived source and STEP/STL files](model/circular_vent_enclosure/README.md#at-a-glance) remain available for history.
+- **Status:** Fit mismatch attributed by the user to supplied measurements. Hood made sound louder even with clamp removed; user identified the relevant source elsewhere. Original problem resolved by other means; no replacement requested. [Final report and lessons](model/circular_vent_enclosure/notes/development_record.md#fit-and-sound-trial--discontinued-2026-10-24).
+- **Test pieces:** N/A. **Final objects:** Yes — printed, tried and rejected for the intended damping task.
+- **Provenance:** [Record and attribution](model/circular_vent_enclosure/README.md#engineering-record-and-attribution) · **Agent effort:** N/A — no performance study requested.
 
 ### How to interpret the records
 

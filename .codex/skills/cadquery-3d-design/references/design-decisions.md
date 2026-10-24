@@ -216,6 +216,17 @@ mechanism can still make a poor product. Prefer an ordinary arrangement that wor
 when added mechanics provide no compelling benefit. Having `SnapFitQuestion`,
 FEA, IPC or other tools available is never a reason to invent a mechanism.
 
+For noise-control products, establish the suspected source and transmission path
+before choosing where to add a shield or enclosure. An apparent outlet need not
+be the source. When benefit is uncertain, choose the cheapest representative
+comparison that could reject the concept before detailed mounting hardware;
+geometry, cavity volume and open flow area alone do not establish damping.
+Record louder/quieter observations separately from unconfirmed chamber,
+resonance or flow explanations. The [discontinued vent enclosure](../../../../model/circular_vent_enclosure/notes/development_record.md#fit-and-sound-trial--discontinued-2026-10-24)
+was louder in a clamp-free approach trial and targeted the wrong location. Do not
+refine fit or fastening as a substitute for resolving that product-level failure,
+or resume a closed task whose original problem is already resolved.
+
 For desktop supports, include the occupied width/depth and front/rear projections
 in the whole-product comparison, at a stated scale relative to the supported item.
 Identify space consumed by adjustment or release hardware separately from space

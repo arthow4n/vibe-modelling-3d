@@ -2,17 +2,22 @@
 
 ## At a glance
 
-The hood and adjustable clamp now **assemble together on the bench**, with the
-three M3 screw heads on the open rear side. The installed M4 clamp screw faces
-the clear side of the mounting braces. The **eight stiffening ribs are retained**.
-V3 replaces the rejected V2 access layout. **Printed with issues; functional
-testing pending** (2026-10-24). Tightening exposes a few-millimetre gap beyond the
-skirt; the underside clamp-nut feed is reported unnecessary and poorly supported
-in print. [Full report and deferred revision considerations](notes/development_record.md#print-report-and-deferred-design-issues--2026-10-24).
+A PETG hood and adjustable rim clamp intended to reduce perceived vent noise.
+**Discontinued after physical trial (2026-10-24). Do not print or continue this
+noise-damping design.** The user reports it made the sound louder even with the
+clamp removed. They identified the relevant noise source elsewhere, and the
+original problem is now resolved by another means; no replacement is requested.
 
-Keep the existing print for testing; the user requests recording only, with no
-redesign now. Current files and reference setup follow. If reprinting, note the
-unresolved issues above. The two PETG parts use separate plates:
+The attempted fit also failed to cover the vent as intended. The user attributes
+that mismatch to their supplied measurements, separately from the acoustic
+failure. A chamber effect is their hypothesis, not a measured diagnosis.
+[Final physical report and lessons](notes/development_record.md#fit-and-sound-trial--discontinued-2026-10-24).
+
+Source, exports, illustrations and earlier print issues are retained for history.
+The V3 assembly, print settings and test instructions below describe the retired
+design, **not recommended next work**. Earlier skirt/nut-feed issues remain in
+[the initial print report](notes/development_record.md#print-report-and-deferred-design-issues--2026-10-24);
+they are no longer a planned revision backlog.
 
 | Part | Printable files | Selected slice estimate |
 | --- | --- | --- |
@@ -75,8 +80,9 @@ V2's M3 × 10 mm recommendation is superseded.
 
 For cleaning or valve adjustment, loosen M4 and remove the complete unit first.
 Undo the three M3 screws on the bench if the hood needs separating. No screw
-contacts the disc or drills the valve. The rim profile, strength and actual
-clamping behaviour still need a first physical fit trial.
+contacts the disc or drills the valve. The later fit attempt failed because of
+incorrect supplied measurements; installed clamping strength remains unqualified,
+with no further trial planned.
 
 ## Print setup
 
@@ -121,7 +127,8 @@ nominal overlap does not establish coverage under actual flex.
 
 These are geometric screens, not hydraulic effective areas or pressure/noise
 predictions. No additional acoustic baffle, foam or tuned cavity is introduced.
-Matched-condition physical airflow and noise testing remains necessary.
+The subsequent physical trial was subjectively louder. No measured airflow or
+matched-condition acoustic result was obtained; further testing is not planned.
 
 ## Verification, limits and print status
 
@@ -149,25 +156,27 @@ The nominal wall-axis gravity moment is about 0.127 N·m; steel hardware is addi
 The diameter poses use the retained constant-neutral-arc envelope assumption.
 They do not model joint friction, nonuniform ring deformation or preload after
 bench tightening. First-fit clamping effort with the M3 joints seated, attachment
-strength, retention, creep, panel vibration and noise remain unqualified. Hardware
+strength, retention, creep and panel vibration remain unqualified. The subjective
+noise result is adverse; its physical mechanism is unconfirmed. Hardware
 views use nominal smooth shafts/bores and omit threads. There is no holding-force
 rating or guaranteed silencing result.
 
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | N/A | None | No separate sample designed |
-| Final printable object(s) | Yes — issues reported; function untested | `circular_vent_enclosure.step/.stl`, `mounting_clamp.step/.stl` (current references; exact printed revision/part coverage unconfirmed) | Skirt gap under tightening; underside nut-feed print defect. Grip, retention, creep, airflow, sound and cleaning pending |
+| Final printable object(s) | Yes — tried; rejected and discontinued | `circular_vent_enclosure.step/.stl`, `mounting_clamp.step/.stl` (current references; exact printed revision/part coverage unconfirmed) | Fit mismatch attributed to supplied measurements; louder with clamp removed. Earlier skirt gap and nut-feed print defect retained. No further work planned |
 
 <a id="engineering-record-and-attribution"></a>
 <a id="parameters-and-engineering-record"></a>
 
 ## Parameters and engineering record
 
-Edit [vent_parameters.py](vent_parameters.py) for the dimensions. Mount diameter on
-the hood describes its Ø160 mm rear mouth; separate clamp-free/range/contact fields
+Historical dimensions are in [vent_parameters.py](vent_parameters.py). Mount
+diameter on the hood describes its Ø160 mm rear mouth; separate clamp-free/range/contact fields
 control the stationary-rim grip. Captive nut height/lip/bearing, M3 length and M4
 head-seat offset are explicit. Geometry/fit settings are coupled; changes need
-rechecking and reslicing. The current user direction protects retention of the ribs.
+rechecking and reslicing. The earlier direction protected retention of the ribs;
+the whole project is now closed.
 
 [Brief and fastener direction request](notes/brief.md) ·
 [Development record and historical V1/V2 evidence](notes/development_record.md) ·
@@ -177,9 +186,10 @@ rechecking and reslicing. The current user direction protects retention of the r
 [Hood receipt](notes/final_review.json) · [Clamp receipt](notes/clamp_review.json).
 
 Run `./execute.py model/circular_vent_enclosure/verification.py --variant v3-access`
-for the declared checks. Physical obligations remain UNKNOWN alongside nominal CAD
-passes. `assembly.py`, `fastener_layout.py` and `joint_section.py` are inspection-only
-scenes with hardware; they are not printable deliverables.
+for the declared checks. Historical receipts leave physical obligations UNKNOWN
+alongside nominal CAD passes; they predate the adverse sound trial and do not represent current product
+acceptance. The final physical report above governs the discontinued status.
+`assembly.py`, `fastener_layout.py` and `joint_section.py` are inspection-only scenes with hardware; they are not printable deliverables.
 
 Primary model: **GPT-6.1 Sol, Medium reasoning**, user-attributed. Harness: Codex
 shared-workspace coding agent; provider: OpenAI. No subagents. Earlier attribution
