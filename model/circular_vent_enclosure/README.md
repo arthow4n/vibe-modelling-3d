@@ -5,10 +5,14 @@
 The hood and adjustable clamp now **assemble together on the bench**, with the
 three M3 screw heads on the open rear side. The installed M4 clamp screw faces
 the clear side of the mounting braces. The **eight stiffening ribs are retained**.
-V3 replaces the rejected V2 access layout; physical fit, grip and sound performance
-remain untested.
+V3 replaces the rejected V2 access layout. **Printed with issues; functional
+testing pending** (2026-10-24). Tightening exposes a few-millimetre gap beyond the
+skirt; the underside clamp-nut feed is reported unnecessary and poorly supported
+in print. [Full report and deferred revision considerations](notes/development_record.md#print-report-and-deferred-design-issues--2026-10-24).
 
-Print both PETG parts on separate plates:
+Keep the existing print for testing; the user requests recording only, with no
+redesign now. Current files and reference setup follow. If reprinting, note the
+unresolved issues above. The two PETG parts use separate plates:
 
 | Part | Printable files | Selected slice estimate |
 | --- | --- | --- |
@@ -110,8 +114,10 @@ The windows retain **94.6 cm² nominal projected area** and 56.3° pointed roofs
 The side taper starts earlier to support the deeper captive-nut lands. The checked
 downstream disc-plane circular core is **113.7 cm²**, above the exit area; the
 conservative front-turn section is 182.2 cm². The minimum of these checked added
-full-flow sections remains 94.6 cm². A thin rear flange still overlaps the hood
-mouth, leaving only small intentional slit/fastener openings behind it.
+full-flow sections remains 94.6 cm². The nominal undeformed rear flange overlaps
+the hood mouth. The user now reports a few-millimetre gap uncovered by the skirt
+when the mount is fully tightened;
+nominal overlap does not establish coverage under actual flex.
 
 These are geometric screens, not hydraulic effective areas or pressure/noise
 predictions. No additional acoustic baffle, foam or tuned cavity is introduced.
@@ -150,7 +156,7 @@ rating or guaranteed silencing result.
 | Item | Print status | Artifact(s) | User result or remaining physical checks |
 | --- | --- | --- | --- |
 | Test piece(s) | N/A | None | No separate sample designed |
-| Final printable object(s) | Unknown | `circular_vent_enclosure.step/.stl`, `mounting_clamp.step/.stl` | Print/nut fit, bench-first assembly, grip, retention, creep, airflow, sound and cleaning |
+| Final printable object(s) | Yes — issues reported; function untested | `circular_vent_enclosure.step/.stl`, `mounting_clamp.step/.stl` (current references; exact printed revision/part coverage unconfirmed) | Skirt gap under tightening; underside nut-feed print defect. Grip, retention, creep, airflow, sound and cleaning pending |
 
 <a id="engineering-record-and-attribution"></a>
 <a id="parameters-and-engineering-record"></a>

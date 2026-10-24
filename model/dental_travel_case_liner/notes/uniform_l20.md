@@ -1,6 +1,6 @@
 # Uniform L20 liner for the printed rotary dental box
 
-Print the revised two-cup [STEP](../rotary_l20_uniform_liner.step) / [STL](../rotary_l20_uniform_liner.stl) / [Python](../rotary_l20_uniform_liner.py). **Both walls and floors now use 0.8 / 0.4 air / 0.8 mm, totaling 2 mm.** Keep the printed hard box, wheel, cap and screw. The user reselects this updated L20 recipe after printing G08/G16: G16 has a modest perceptible damping benefit, but L20 is sufficient for most uses. This full-size application still has no physical print report; the earlier thin-floor print was canceled.
+Print the revised two-cup [STEP](../rotary_l20_uniform_liner.step) / [STL](../rotary_l20_uniform_liner.stl) / [Python](../rotary_l20_uniform_liner.py). **Both walls and floors now use 0.8 / 0.4 air / 0.8 mm, totaling 2 mm.** Keep the printed hard box, wheel, cap and screw. The user reselects this updated L20 recipe after printing G08/G16: G16 has a modest perceptible damping benefit, but L20 is sufficient for most uses. The liner is now reported printed, usable and installed, with an uneven interior bottom; the earlier thin-floor print was canceled.
 
 Use the same [L20 standard and process as the experiment](../../tpu_damping_box/notes/l20_standard.md). The long body cup and short lid cup are the complete liner: no new inserts, adhesive or fasteners. Keep both closed ends down and openings up, at supplied centres (60,60) and (142,60).
 
@@ -36,17 +36,38 @@ The four-layer backing is bed-supported; the two-layer-high core remains empty b
 
 Inspect the floor after all ten nominal floor layers, and stop for torn skins rather than completing a defective tall print. Insert the narrow closed end first, gently pinch the broader walls through the mouth, and stop if it needs force. Seat the lid cup on its shallow pads. Confirm the empty box opens/closes freely, then check actual contents and quietness. Do not infer installation durability from early wall appearance.
 
+## Physical print report — 2026-10-24
+
+The user reports the dental liner is printed, works and does its job. Overall
+appearance, including the walls, looked fine. Pinching/compressing and pushing it
+into the existing original case was not easy, but doable; the result is usable.
+The bottom of the liner's interior remains a little uneven / messed up.
+
+**Ironing was off.** The user wonders whether that mattered; the cause and whether
+ironing would improve it are unknown. Do not conflate this finish issue with the
+earlier canceled print's cracking. No separate damping comparison or durability
+result was supplied.
+
+Associated with the current uniform L20 selection by context; exact printed
+revision/hash, individual cup coverage, material, printer, orientation and other
+actual slicer settings were not confirmed. The reference recipe is not evidence
+of the actual print settings.
+
+**Future consideration only:** retain the usable wall/installation baseline and
+revisit the interior-floor finish and ironing-off condition when next authorized
+to work on the liner. The user requests recording only, with no model changes now.
+
 ## Verification, limits and print status
 
-Both current native layouts are valid, export paired STEP/STL successfully, and complete OrcaSlicer 2.4.2 slicing with the supplied TPU profile, no notices and **no automatic-support generation**. Actual local paths retain four-layer floor skins and the 0.4 mm core. This is digital evidence; the revised floor has no physical print report.
+Both current native layouts are valid, export paired STEP/STL successfully, and complete OrcaSlicer 2.4.2 slicing with the supplied TPU profile, no notices and **no automatic-support generation**. Actual local paths retain four-layer floor skins and the 0.4 mm core. These receipts are digital evidence; the later physical report above establishes usability with a remaining interior-floor finish issue.
 
-[CAD report](uniform_l20/cad.json) retains shell/hardware clearance, cap-withdrawal, complete-floor entry and lid-pad contact checks. Actual material/air probes inspect the added backing/contact layers and the 0.4 mm floor core; separate individual contents gauges are checked. [Native export/slice](uniform_l20/print_review.json), [local skin/core/floor paths](uniform_l20/paths.json), [publication association](uniform_l20/publication.json) and [product verification](uniform_l20/verification.json) identify the delivered files and TPU setup. Physical gap openness, floor finish, long-wall survival, installation force, seating and quietness remain untested for this revision.
+[CAD report](uniform_l20/cad.json) retains shell/hardware clearance, cap-withdrawal, complete-floor entry and lid-pad contact checks. Actual material/air probes inspect the added backing/contact layers and the 0.4 mm floor core; separate individual contents gauges are checked. [Native export/slice](uniform_l20/print_review.json), [local skin/core/floor paths](uniform_l20/paths.json), [publication association](uniform_l20/publication.json) and [product verification](uniform_l20/verification.json) identify the delivered files and TPU setup. The user reports fine walls, doable insertion and overall usability with uneven floor finish. Physical gap openness, quantified installation force, combined contents packing, durability and separate acoustic performance remain unmeasured; exact printed revision is unconfirmed.
 
 | Item | Print status | Artifacts / user observation |
 | --- | --- | --- |
 | Prior small L20 experiment | **Yes — walls/damping preferred; floor fragile** | Historical recipe, not physical validation of this revised floor |
 | Prior dental L20 print | **Partial — canceled for broken/cracking interior floor** | `rotary_l20_liner` files retained for identification |
-| Uniform L20 dental liner | **Unknown — no print report** | `rotary_l20_uniform_liner.py` / `.step` / `.stl`; new two-cup application trial |
+| Uniform L20 dental liner | **Yes — usable; uneven interior bottom** | Current references: `rotary_l20_uniform_liner.py` / `.step` / `.stl`; exact printed revision/cup coverage unconfirmed. Walls fine; insertion difficult but doable; ironing off |
 | Printed rigid box and revised controls | **Yes — user reports everything works well** | Existing case and matte-repair cap/screw remain unchanged |
 
 ## Engineering notes and attribution

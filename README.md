@@ -105,8 +105,8 @@ Slim two-piece rotary-lock box (`75.8 × 52.8 × 264 mm`) for a toothbrush and t
 #### Dental box L20 TPU liner — [`model/dental_travel_case_liner/`](model/dental_travel_case_liner/README.md)
 Two preformed L20 TPU 95A cups for the latest rotary dental travel box.
 - **Action / Print:** Revised [uniform two-cup STEP](model/dental_travel_case_liner/rotary_l20_uniform_liner.step) / [STL](model/dental_travel_case_liner/rotary_l20_uniform_liner.stl). **Same 0.8/0.4/0.8 in walls and floors as the experiment**. TPU 0.4/0.2 mm, Classic, two walls, four top/bottom layers, solid material fill, supports off. [Setup and fit limits](model/dental_travel_case_liner/notes/uniform_l20.md).
-- **Test pieces:** After printing G08/G16, user selects **updated L20** as sufficient for the dental application. Existing dental exports already use that recipe; full-size fit/quietness and revised floor finish remain untested.
-- **Final object:** Uniform L20 liner **Unknown — revised pair prepared**; 255.4 mm nominal inside length. Prior dental print **Partial — canceled for floor defects**; old M1 S16 damaged/rejected. Keep the printed rigid case.
+- **Test pieces:** After printing G08/G16, user selects **updated L20** as sufficient for the dental application. Existing exports use that recipe; see the full liner result below.
+- **Final object:** Uniform L20 liner **Yes — usable** (2026-10-24): walls/overall appearance fine; insertion difficult but doable. Interior bottom uneven; ironing off, effect unknown. [Report](model/dental_travel_case_liner/notes/uniform_l20.md#physical-print-report--2026-10-24). Prior dental print **Partial — canceled for floor defects**; old M1 S16 damaged/rejected. Keep the printed rigid case.
 - **Provenance:** [Current record](model/dental_travel_case_liner/notes/uniform_l20.md#engineering-notes-and-attribution) · [Historical attribution](model/dental_travel_case_liner/README.md#attribution) · **Agent effort:** N/A — no performance study requested
 
 #### Postcard displays — [`model/postcard_display/`](model/postcard_display/README.md)
@@ -136,9 +136,9 @@ Standalone mechanical study comparing an upright catch (`A`) vs. a flat lower-tr
 
 #### Circular vent enclosure V3 — [`model/circular_vent_enclosure/`](model/circular_vent_enclosure/README.md)
 PETG shield/diffuser, Ø213 × 85 mm, with bench-accessible rear M3 heads, captive hood nuts and a clear-side M4 clamp driver; about 203 g PETG in the selected slices.
-- **Action / Print:** Print both [hood STEP](model/circular_vent_enclosure/circular_vent_enclosure.step) ([STL](model/circular_vent_enclosure/circular_vent_enclosure.stl)) and [clamp STEP](model/circular_vent_enclosure/mounting_clamp.step) ([STL](model/circular_vent_enclosure/mounting_clamp.stl)); use the separate hood/clamp processes and updated M3 × 12 hardware list. V2 fastener access is superseded.
-- **Status:** Driver/nut paths and full hardware seating checked; eight stiffening ribs retained. Physical print, bench-first tightening, retention, airflow and sound remain unverified.
-- **Test pieces:** N/A. **Final objects:** Unknown — no physical print report.
+- **Action / Print:** Existing print awaits testing; no redesign now. Current [hood STEP](model/circular_vent_enclosure/circular_vent_enclosure.step) ([STL](model/circular_vent_enclosure/circular_vent_enclosure.stl)) and [clamp STEP](model/circular_vent_enclosure/mounting_clamp.step) ([STL](model/circular_vent_enclosure/mounting_clamp.stl)); use the separate hood/clamp processes and updated M3 × 12 hardware list. V2 fastener access is superseded.
+- **Status:** Printed with issues (2026-10-24): skirt leaves a few-millimetre gap when tightened; underside clamp-nut feed reported unnecessary and poorly supported. Other fastening structures questioned; movable screw benefit uncertain. [Future revision notes](model/circular_vent_enclosure/notes/development_record.md#print-report-and-deferred-design-issues--2026-10-24).
+- **Test pieces:** N/A. **Final objects:** Yes — printed; functional grip, retention, airflow and sound tests pending. Exact printed revision/part coverage unconfirmed.
 - **Provenance:** [Record and illustrated installation](model/circular_vent_enclosure/README.md#screw-heads-nuts-and-assembly-order).
 
 #### Physical-analysis phone stand (V3) — [`model/analysis_phone_stand/`](model/analysis_phone_stand/README.md)

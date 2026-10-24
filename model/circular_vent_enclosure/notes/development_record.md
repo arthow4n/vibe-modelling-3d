@@ -332,3 +332,42 @@ are preserved under notes/history/v2_*. Existing CAD/execution/slicer readers
 were adequate; no shared API change is warranted for this revision. The key
 lesson is to check complete stock hardware, nut loading and the actual assembly
 state, rather than interpreting an unobstructed hole as usable tool access.
+
+
+## Print report and deferred design issues — 2026-10-24
+
+The user reports the vent damping enclosure printed but **not yet functionally
+tested**. Handling/tightening observations below do not establish installed grip,
+airflow or acoustic performance. Associated with current V3 by context; exact
+printed revision/hash, individual part coverage, printer, orientation and slicer
+settings are unknown. PETG is the material discussed for the mount's flexing.
+
+- **Possibly redundant fastening structures:** some structures seem to the user
+  to contribute little or nothing to fastening. Exact features were not named;
+  do not infer withdrawal of the earlier instruction to retain the eight front
+  ribs. In a future revision, reassess the implicated features' practical role
+  before retaining or simplifying them.
+- **More movable screw feature:** benefit is uncertain. The user initially
+  doubted its value, then allowed it might help and deferred judgment until use.
+  It is neither proven valuable nor definitively rejected.
+- **Skirt coverage under tightening:** the adjustable mount relies on PETG flex.
+  When tightened fully, the cover/skirt no longer covers the gap between the
+  mount and underlying part; the user estimates a few millimetres of uncovered
+  separation. No precise measurement was supplied. A future revision needs to
+  preserve coverage in the actual flexed/tightened state, beyond nominal flat
+  cover overlap.
+- **Underside adjustable-clamp nut feed:** the user reports an unnecessary
+  underside opening with only about one printed line supporting the local
+  feature, causing a print defect. The nut seat is already open, so the user
+  says the nut can be placed directly into it without a slide-in feed. This
+  concerns the adjustable mount nut (current reference: M4), not all captive nuts
+  or the hood's M3 channels. For a future revision, consider direct placement and
+  removing the feed/fragile remnant while preserving nut restraint and the
+  fastening load path. This is not a measured strength result.
+
+**User direction:** retain these issues for the next time the model is touched;
+**do not edit any model now**. This report authorizes documentation only, with no
+geometry, export, profile or mechanism changes or new experiments. Existing
+CAD/slicer checks remain scoped digital evidence: loading-path clearance did not
+establish that a feed was useful, and nominal overlap did not establish coverage
+under actual PETG flex.
