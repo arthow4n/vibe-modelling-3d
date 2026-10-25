@@ -244,3 +244,21 @@ The user's explicit profile preference is recorded with its cord-specific scope
 in the design preferences. A concise reusable CAD lesson now covers complete
 functional-material witnesses after periodic unions. Neither is a universal
 TPU tolerance or boolean algorithm recommendation.
+
+## R7 physical rejection and return to the octagon
+
+User reports R7's digital form looked okay but the actual print had many defects.
+They discontinue the circular-winding idea and explicitly return to working
+"Octo 1", the accepted R5 sample. Record R7 Yes / printed but rejected; do not
+repeat it. No specific defect type, print settings, spool, causal diagnosis,
+force or durability measurement was supplied. Preserve the digital evidence
+within its original scope and the full historical instructions in
+[R7 rejected record](r7_rejected.md).
+
+The new request is to recess/soften visible edges, especially exterior ones,
+while retaining R5's octagonal printing architecture. R8 starts from unchanged
+R5 geometry and applies small exterior convex blends. Its nominal 25.2 mm length,
+five circuits, 3.2 mm section, 1.2 mm spacing and integrated end loops are retained.
+The ~70 mm version remains deferred. Radius, selection rules, alternatives and
+final print review are owned by [R8 decisions](r8_decisions.md). This is not a
+retry of the failed circular direction or a stronger-return claim.

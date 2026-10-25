@@ -234,12 +234,13 @@ role, deliberate contact/preload and measured feedback to choose allowances.
 The printed [H sample failure](../../../../model/filament_swatch_box_study/README.md#physical-history-and-print-status)
 was a loose, unpreloaded connection, not an established printer defect.
 
-**Telephone-cord profile clarification:** for the circular TPU coil experiment,
-"flat" means continuous inner, outer and end-facing lands in the swept cord
-section, with rounded section corners if useful. It does not mean shaving isolated
-bed-contact patches off round swept cord. The circular winding and the swept
-section are separate form choices. This is scoped to this cord experiment, not
-a general ban on clipped feet. [R6 rejection and corrected R7](../../../../model/tpu_coil_cord/notes/r7_decisions.md).
+**Telephone-cord direction after printing R7:** return to the working R5 octagon
+and soften/recess its visible exterior edges while retaining the faceted printing
+architecture. The user reports many defects on printed R7 and discontinues the
+circular-winding direction; the cause and exact settings are unknown. Earlier
+flat-section clarification still distinguishes a swept flat-sided profile from
+isolated shaved patches, but it does not authorize another circular retry.
+[Current R8 decisions and physical feedback](../../../../model/tpu_coil_cord/notes/r8_decisions.md).
 
 ## Protection and mechanism visibility
 

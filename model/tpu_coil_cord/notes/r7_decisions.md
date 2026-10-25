@@ -1,5 +1,9 @@
 # R7: flat-sided swept section on a circular winding
 
+**Later physical feedback: R7 printed with many defects and rejected.** The
+user discontinues this circular direction and returns to working R5; see
+[R8 decisions](r8_decisions.md). Below is the retained historical R7 record.
+
 ## Corrected intent and rejection
 
 The user explicitly rejects R6 before printing. They do not want round cord
@@ -130,4 +134,4 @@ loops. These are CAD and interpretation lessons, not physical TPU calibration.
 The existing evaluator, native inspection and local G-code reader suffice. The
 new path-plot helper stays with this object's reader; no generic execution or
 verification framework was added. R6 stays rejected and R5 stays an accepted
-printed control. R7 has no physical print report yet.
+printed control. At that original handoff, R7 had no physical print report; the later rejection is recorded above.

@@ -93,10 +93,10 @@ Three rigid PLA/PETG connector directions with independently opening ends: screw
 - **Test pieces / Final object:** N/A / N/A — visual studies only; fit, retention and strength unqualified.
 - **Provenance:** [Attribution](model/double_ended_connector/README.md#attribution)
 
-#### TPU coil cord — [R7 circular winding / flat-sided cord](model/tpu_coil_cord/README.md)
-25.2 mm circular TPU coil swept from a rounded-square section with continuous flat inner, outer and end-facing lands; 1.2 mm nominal turn gaps.
-- **Action / Print:** [R7 STEP](model/tpu_coil_cord/coil_r7_flat_section.step) ([STL](model/tpu_coil_cord/coil_r7_flat_section.stl)); horizontal as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid material, supports/brim off. Natural first-layer contact and curved-roof quality are experimental. R5 remains the accepted printed control. **Do not print R6**: visually rejected shaved round-section design.
-- **Test pieces:** R1 Yes — earlier control. R2 Yes — form rejected. R3 Partial / failed — fusion/lifting. R4 Yes — still sticking. R5 Yes — printed and okay. R6 No — rejected before print. R7 Unknown — CAD/reference slice reviewed; physical print pending.
+#### TPU coil cord — [R8 softer octagonal sample](model/tpu_coil_cord/README.md)
+25.2 mm version of working R5 with 0.5 mm convex exterior blends, retained inner facets and 1.2 mm nominal turn gaps.
+- **Action / Print:** [R8 STEP](model/tpu_coil_cord/coil_r8_soft_octagon.step) ([STL](model/tpu_coil_cord/coil_r8_soft_octagon.stl)); horizontal/flat-down as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid fill, supports/brim off. R5 remains the accepted printed control. **Do not repeat R7:** printed with many defects; circular direction discontinued. R6 was visually rejected before print.
+- **Test pieces:** R1 Yes — earlier control. R2 Yes — form rejected. R3 Partial / failed — fusion/lifting. R4 Yes — still sticking. R5 Yes — reconfirmed working. R6 No — rejected before print. R7 Yes — printed/rejected. R8 Unknown — exterior smoothing experiment awaiting physical feedback.
 - **Final object:** N/A — short sample only; 70 mm version remains deferred.
 - **Provenance:** [Attribution](model/tpu_coil_cord/README.md#attribution-and-reproduction)
 

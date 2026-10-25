@@ -1,0 +1,334 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r8_soft_octagon.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r8_soft_octagon_isometric.png",
+      "reused": true,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "right",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r8_soft_octagon_right.png",
+      "reused": true,
+      "camera": {
+        "from_direction": [
+          1,
+          0,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r8_soft_octagon.step",
+      "ok": true,
+      "reused": true
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r8_soft_octagon.stl",
+      "ok": true,
+      "reused": true
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.002316601006896235,
+    "build": 46.85363113200583,
+    "selection": 0.00126349700440187,
+    "validation": 0.3382987360091647,
+    "export_step": 0.013252260992885567,
+    "export_stl": 0.005460004002088681,
+    "render_isometric": 0.0003684370021801442,
+    "render_right": 0.0002139290008926764,
+    "inspections": 52.040278524000314,
+    "worker": 99.46657415300433,
+    "total": 99.68282449399703,
+    "slice": 5.14728550799191
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "e9ac6a759afc8508ec986f4fd934d3d8c57113be542953810479174d4deaf6fa",
+    "artifact_identity": "84af0e3d0e7d62023cb161dc05fefce22c115c2ef01aba84c6e615128bbaaead"
+  },
+  "available_inspections": [
+    "outer-corner"
+  ],
+  "inspections": [
+    {
+      "name": "outer-corner",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r8_soft_octagon_inspections/outer-corner.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r8_soft_octagon_inspections/outer-corner.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": {
+              "minimum": [
+                1.1,
+                1.6994949366116654,
+                12.8
+              ],
+              "maximum": [
+                2.1,
+                4.0994949366116655,
+                15.2
+              ],
+              "component": null
+            },
+            "margin_mm": 0.15
+          },
+          "section": {
+            "origin": [
+              1.6,
+              0.0,
+              0.0
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mode": "planar",
+            "keep": "negative"
+          },
+          "components": [],
+          "colors": [
+            [
+              "R5",
+              "#a7adb5"
+            ],
+            [
+              "R8",
+              "#16768e"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "label",
+              "point": [
+                1.6,
+                2.8994949366116654,
+                14.0
+              ],
+              "text": "Original corner",
+              "offset_px": [
+                30,
+                -65
+              ],
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Gray: original R5; teal: R8, with the ridge recessed by a tangent round.",
+        "title": "R8 exterior corner relief",
+        "question_ids": [],
+        "configuration": {
+          "name": "inspection",
+          "kind": "operating",
+          "parameters": {}
+        },
+        "subject_sha256": {
+          "R5": "2dffdfde7fc79ee1d87092000e0784fbe06b3c8c1ca415b0233e37d038e55286",
+          "R8": "1bcad3632eafaa9865ab9b002218baa52f9635bfcc904024d0f7f39dc52a7653"
+        },
+        "component_locations": {
+          "R5": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "R8": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 800,
+        "height": 600,
+        "projected_frame_mm": [
+          1.5494949366116655,
+          12.65,
+          4.249494936611666,
+          15.35
+        ],
+        "pixels_per_mm": 178.88888888888894,
+        "translation_px": [
+          -118.68742754942036,
+          2814.9444444444453
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "label",
+            "point": [
+              399.9999999999999,
+              310.5
+            ],
+            "text": "Original corner"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    }
+  ],
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r8_soft_octagon.stl",
+    "profiles": {
+      "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/profiles/r2-horizontal-process.json",
+      "filament": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu95a.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "center",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "TPU"
+      ],
+      "filament_settings_id": [
+        "Diagnostic Generic TPU 95A Q2C 0.4 - damping study"
+      ],
+      "nozzle_temperature": [
+        "230"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "230"
+      ],
+      "hot_plate_temp": [
+        "35"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "35"
+      ],
+      "print_settings_id": "TPU horizontal coil R2 solid 0.20 trial",
+      "layer_height": "0.2",
+      "wall_loops": "3",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "no_brim",
+      "brim_width": "0",
+      "brim_object_gap": "0.1",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "1"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "100%",
+      "sparse_infill_pattern": "rectilinear"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": true,
+      "supported_plates": [
+        {
+          "plate": 1,
+          "roles": [
+            "Support",
+            "Support interface"
+          ]
+        }
+      ],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": true,
+    "reused": false,
+    "identity": "11c9b9db553bc36d65f65a4cc36598dcadff772166a344541991537c6bdc072a",
+    "input_sha256": "b7697ea7c35a65844c3aa27c516e60e6ad9a8c511657aad86a19a92a559f4caf",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-muutzt0q",
+    "setup_selection": {
+      "profiles": "supplied",
+      "placement": "explicit",
+      "scope": "Selected-profile slice acceptance only; production setup agreement and physical print behavior are not established"
+    }
+  }
+}
