@@ -173,3 +173,22 @@ the supports-off reference slice completed; the automatic probe still proposes
 roof supports, so bridge quality and clean separation require printing. There
 is no R5 print report. No long R5 geometry/export is supplied; the 70 mm user
 intent remains explicitly deferred.
+
+
+## R5 physical acceptance and connector exploration handoff
+
+User reports having printed R5 and says it is okay. Record the sample as Yes /
+accepted as okay, preserving this subjective scope. No specific force, extension,
+adhesion, recovery, wear, exact settings or printed hash was provided. The new
+message refers to the earlier cord as PETG, whereas the design and earlier
+instructions called for TPU; actual material for the accepted print is not
+independently confirmed. Do not use this report as printed-material calibration.
+
+The user defers further cord modelling, including the approximately 70 mm version.
+A separate two-ended connector is now requested at SVG concept stage, linking
+the printed terminal loop to an existing key ring or similar loop. It should
+open without spinning an attached ring/cord, be stable closed on both ends and
+work as a rigid PLA/PETG mechanism without springs or elasticity/friction-fit
+retention. Fully printed is preferred; existing hardware is allowed if needed.
+The user delegates generic reasonable sizing rather than measuring a key ring.
+Connector proposals are owned separately in `model/double_ended_connector/`.

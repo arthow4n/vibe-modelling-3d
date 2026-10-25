@@ -1,15 +1,18 @@
 # TPU coil cord — R5 short octagonal print sample
 
-**Next trial: R5**, a **25.2 mm-long** sample with matching octagonal inner and
+**R5 printed and accepted as okay by the user. Further cord development is deferred.**
+
+The accepted **25.2 mm-long** sample has matching octagonal inner and
 outer outlines, a faceted cord section and **1.2 mm nominal turn gaps**. This
 replaces R4's outer-only flats and 0.4 mm spacing, which still printed stuck
-together. The user says the underlying idea can work; clean printing remains
-unqualified.
+together. The latest report is that R5 is okay. It supplies a useful printed baseline;
+no measured force, durability or maximum-extension result was supplied.
 
 Print [R5 STEP](coil_r5_octagonal.step) or [STL](coil_r5_octagonal.stl), flat-down
 as supplied. [Python source](coil_r5_octagonal.py) owns the geometry. This phase
 contains **one short sample**. The approximately 70 mm version remains a future
-target and is explicitly deferred until the short geometry prints cleanly.
+target; the user explicitly defers returning to the cord while exploring a
+separate connector.
 Do not repeat R3 or R4 unchanged for this test.
 
 | Item | R5 trial |
@@ -89,8 +92,8 @@ STEP-import qualification.
 | R2 sample | Yes | `coil_r2_horizontal.step`, `coil_r2_horizontal.stl` | Thickness, projecting frames and house-shaped outline rejected |
 | R3 sample | Partial | `coil_r3_round.step`, `coil_r3_round.stl` | Canceled after turns merged and print lifted |
 | R4 sample | Yes | `coil_r4_four_flats.step`, `coil_r4_four_flats.stl` | User: idea can work, but turns still stick and inner/outer form and overhangs need revision; adhesion/recoil not explicitly reported |
-| R5 short sample | Unknown | `coil_r5_octagonal.step`, `coil_r5_octagonal.stl` | Separation, adhesion, bridge quality and feel need printing |
-| Final 70 mm object | N/A | None in this phase | Deferred until the short experiment works |
+| R5 short sample | Yes | `coil_r5_octagonal.step`, `coil_r5_octagonal.stl` | User reports printed R5 is okay. No detailed separation/adhesion, force, recovery or durability measurements provided. |
+| Final 70 mm object | N/A | None in this phase | Future work deferred by the user |
 
 [Current decisions and construction evidence](notes/r5_decisions.md) ·
 [Development record](notes/development_record.md) · historical
