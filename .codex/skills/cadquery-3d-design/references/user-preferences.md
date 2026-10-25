@@ -234,6 +234,13 @@ role, deliberate contact/preload and measured feedback to choose allowances.
 The printed [H sample failure](../../../../model/filament_swatch_box_study/README.md#physical-history-and-print-status)
 was a loose, unpreloaded connection, not an established printer defect.
 
+**Telephone-cord profile clarification:** for the circular TPU coil experiment,
+"flat" means continuous inner, outer and end-facing lands in the swept cord
+section, with rounded section corners if useful. It does not mean shaving isolated
+bed-contact patches off round swept cord. The circular winding and the swept
+section are separate form choices. This is scoped to this cord experiment, not
+a general ban on clipped feet. [R6 rejection and corrected R7](../../../../model/tpu_coil_cord/notes/r7_decisions.md).
+
 ## Protection and mechanism visibility
 
 For ordinary storage, the user's default is a fully covered cavity

@@ -1,4 +1,9 @@
-# R6 circular winding with opposed printing flats
+# R6 rejected: circular winding with shaved contact flats
+
+**Rejected by the user before printing. Do not print R6.** Its round swept cord
+plus isolated exterior trims misinterpreted the requested continuous flat-sided
+swept profile. CAD/slicer success below remains historical manufacturing evidence,
+not product acceptance. See [R7 decisions](r7_decisions.md) for the correction.
 
 ## Intent and retained baseline
 

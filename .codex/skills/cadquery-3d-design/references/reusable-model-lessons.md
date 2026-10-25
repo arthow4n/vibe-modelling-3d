@@ -222,6 +222,14 @@ Co-design a coarse screw and matching nut for FDM; verify core material after th
 
 **Scope and limits:** The hole is a confirmed CAD defect, not an inferred material or infill failure. The exact kernel cause is unisolated. The coarse pair was subsequently included in a successful complete PLA rotary trial; strength and durability remain unmeasured. The later [conical-head revision](../../../../model/dental_travel_case/notes/rotary_case.md#conical-wheel-and-screw-revision) preserves that thread but remains physically untested. A solid core and 100% infill do not establish strength. Do not require ISO compatibility solely because stock nuts exist.
 
+### Required material after periodic unions
+
+Check the complete functional feature after periodic-surface booleans, not only validity or one material anchor.
+
+**Evidence:** [R7 cord construction](../../../../model/tpu_coil_cord/notes/r7_decisions.md#construction-diagnosis-and-resolution) returned valid empty/incomplete unions. An overlap-supplement construction retained the middle winding but omitted much of the first terminal eye; the first-layer plot exposed it. The correction joins two matching halves and checks both terminal perimeters and flat-section material, as well as the winding.
+
+**Scope and limits:** CadQuery 2.8.0 native CAD evidence, not a print result. The needed witnesses follow the feature's function: a surviving point does not establish a closed attachment loop. The chosen half construction is local to this symmetric coil; it is not a universal boolean repair or a reason for routine bounds/volume/reimport audits.
+
 ### STEP warnings despite a valid source solid
 
 A reported STEP import problem can justify inspecting the actual affected export, including components that failed to remain solids.

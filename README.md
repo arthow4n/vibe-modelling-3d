@@ -93,10 +93,10 @@ Three rigid PLA/PETG connector directions with independently opening ends: screw
 - **Test pieces / Final object:** N/A / N/A — visual studies only; fit, retention and strength unqualified.
 - **Provenance:** [Attribution](model/double_ended_connector/README.md#attribution)
 
-#### TPU coil cord — [R6 circular short trial](model/tpu_coil_cord/README.md)
-25.2 mm round TPU coil with round cord, 1.2 mm nominal turn gaps and two shallow opposed contact flats; circular bore.
-- **Action / Print:** New [R6 STEP](model/tpu_coil_cord/coil_r6_round_flats.step) ([STL](model/tpu_coil_cord/coil_r6_round_flats.stl)); flat-down as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid material, supports/brim off. Curved-roof quality is experimental. R5 remains the accepted printed control.
-- **Test pieces:** R1 Yes — earlier control. R2 Yes — form rejected. R3 Partial / failed — fusion/lifting. R4 Yes — still sticking. R5 Yes — printed and okay. R6 Unknown — CAD/reference slice reviewed; adhesion, roofs and separation await printing.
+#### TPU coil cord — [R7 circular winding / flat-sided cord](model/tpu_coil_cord/README.md)
+25.2 mm circular TPU coil swept from a rounded-square section with continuous flat inner, outer and end-facing lands; 1.2 mm nominal turn gaps.
+- **Action / Print:** [R7 STEP](model/tpu_coil_cord/coil_r7_flat_section.step) ([STL](model/tpu_coil_cord/coil_r7_flat_section.stl)); horizontal as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid material, supports/brim off. Natural first-layer contact and curved-roof quality are experimental. R5 remains the accepted printed control. **Do not print R6**: visually rejected shaved round-section design.
+- **Test pieces:** R1 Yes — earlier control. R2 Yes — form rejected. R3 Partial / failed — fusion/lifting. R4 Yes — still sticking. R5 Yes — printed and okay. R6 No — rejected before print. R7 Unknown — CAD/reference slice reviewed; physical print pending.
 - **Final object:** N/A — short sample only; 70 mm version remains deferred.
 - **Provenance:** [Attribution](model/tpu_coil_cord/README.md#attribution-and-reproduction)
 

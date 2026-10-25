@@ -212,3 +212,35 @@ material/gap/bore witnesses and 101 bridge midpoints pass their scoped checks.
 No physical R6 result is inferred. Full reasoning, settings and experiment
 limits are in [R6 decisions](r6_decisions.md), with the preserved prior summary
 in [R5 baseline](r5_baseline.md).
+
+## R6 design rejection and R7 profile correction
+
+The user rejects R6 before printing: flat contact was intended to come from a
+flat-sided swept section, continuously on the inner, outer and end-facing sides,
+rather than isolated shaving of round swept cord. Mark R6 No / rejected in this
+record and the root catalog; its native reports remain historical digital evidence,
+not a physical failure. The rejected instructions are preserved in
+[R6 historical record](r6_rejected.md), explicitly marked do not print.
+
+R7 uses a 3.2 × 3.2 mm rounded-square profile with R0.6 corners and 2 mm straight
+lands, on a true circular winding. Nominal diameter 15 mm, bore 8.6 mm, five
+circuits, 4.4 mm pitch, 1.2 mm nominal gaps and 25.2 mm length retain the short
+trial's scale. No clipping is used to flatten the exterior. The actual local
+section is inspected separately from the complete circular end view. Horizontal
+first-layer sections and paths replace R6's inappropriate shaved planar-area
+criterion. The printing setup remains solid TPU / 0.4 mm / 0.2 mm, supports and
+brim off; actual adhesion and round roof printing remain physical experiments.
+
+Direct periodic-surface unions repeatedly returned incomplete geometry despite
+validity. An overlap-supplement attempt preserved middle material but left much
+of the first eye absent; a suspicious half-foot in the actual first-layer plot
+triggered full terminal checks. It was corrected before handoff by retaining the
+complete right half and joining its 180-degree-rotated copy on the axial midpoint.
+The source now guards complete terminal perimeters, and local review checks the
+flat-sided material around both eyes as well as the winding. Detailed diagnosis
+and final evidence belong to [R7 decisions](r7_decisions.md).
+
+The user's explicit profile preference is recorded with its cord-specific scope
+in the design preferences. A concise reusable CAD lesson now covers complete
+functional-material witnesses after periodic unions. Neither is a universal
+TPU tolerance or boolean algorithm recommendation.
