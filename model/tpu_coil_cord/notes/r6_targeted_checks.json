@@ -1,0 +1,362 @@
+{
+  "scope": "Local CAD/contact and selected-profile path evidence, not physical print qualification.",
+  "material_gap_bore_witnesses": [
+    {
+      "turn": 1,
+      "degrees": 0,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 30,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 60,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 120,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 150,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 180,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 210,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 240,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 300,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 330,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 0,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 30,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 60,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 120,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 150,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 180,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 210,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 240,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 300,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 330,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 0,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 30,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 60,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 120,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 150,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 180,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 210,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 240,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 300,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 330,
+      "material": true,
+      "gap_clear": true,
+      "bore_clear": true
+    }
+  ],
+  "contact_samples": [
+    {
+      "turn": 1,
+      "area_mm2": 10.010161760529403,
+      "trial_screen_mm2": 5.0
+    },
+    {
+      "turn": 2,
+      "area_mm2": 10.01016176031254,
+      "trial_screen_mm2": 5.0
+    },
+    {
+      "turn": 3,
+      "area_mm2": 10.01016176009555,
+      "trial_screen_mm2": 5.0
+    },
+    {
+      "turn": 4,
+      "area_mm2": 10.010161759880305,
+      "trial_screen_mm2": 5.0
+    }
+  ],
+  "total_planar_bed_contact_mm2": 60.767166046184684,
+  "native_local_turn_gap_mm": 1.19163213734906,
+  "geometric_gap_screen_mm": 1.0,
+  "terminal_bores_open": true,
+  "source_sha256": "a66ec282a7345d8fd362b657233612ae966caf14fd61018d1bd2210d81328df3",
+  "gcode_sha256": {
+    "primary": "82cdabbb8797c8c08c45e9b34ca7fad304edc6ad83a8a1df7054066be8bfb2d5",
+    "probe": "51a8846c1495e6e125069fa5fdfa2fd40ba1355e94c8ac11f7033f4d3f062dfb"
+  },
+  "primary_bridge_layers_mm": [
+    11.8,
+    12.0
+  ],
+  "bridge_midpoint_check": {
+    "checked": 101,
+    "outside": [],
+    "tolerance_mm": 0.005,
+    "scope": "Midpoint only at layer mid-height; not a bead-width or full deposition audit."
+  },
+  "support_layers_mm": [
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1.0,
+    1.2,
+    1.4,
+    1.6,
+    1.8,
+    2.0,
+    2.2,
+    2.4,
+    2.6,
+    2.8,
+    3.0,
+    3.2,
+    3.4,
+    3.6,
+    3.8,
+    4.0,
+    4.2,
+    4.4,
+    4.6,
+    4.8,
+    5.0,
+    5.2,
+    5.4,
+    5.6,
+    5.8,
+    6.0,
+    6.2,
+    6.4,
+    6.6,
+    6.8,
+    7.0,
+    7.2,
+    7.4,
+    7.6,
+    7.8,
+    8.0,
+    8.2,
+    8.4,
+    8.6,
+    8.8,
+    9.0,
+    9.2,
+    9.4,
+    9.6,
+    9.8,
+    10.0,
+    10.2,
+    10.4,
+    10.6,
+    10.8,
+    11.0,
+    11.2,
+    11.4,
+    11.6,
+    11.8,
+    12.0,
+    12.2
+  ],
+  "selected_roof_layer_mm": 11.8
+}

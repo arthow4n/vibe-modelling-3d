@@ -93,11 +93,11 @@ Three rigid PLA/PETG connector directions with independently opening ends: screw
 - **Test pieces / Final object:** N/A / N/A — visual studies only; fit, retention and strength unqualified.
 - **Provenance:** [Attribution](model/double_ended_connector/README.md#attribution)
 
-#### TPU coil cord — [R5 short octagonal trial](model/tpu_coil_cord/README.md)
-25.2 mm horizontal sample with matching octagonal inner/outer walls, faceted cord and 1.2 mm nominal turn gaps.
-- **Action / Print:** Accepted short printed baseline: [R5 STEP](model/tpu_coil_cord/coil_r5_octagonal.step) ([STL](model/tpu_coil_cord/coil_r5_octagonal.stl)); flat-down as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid material. Further cord work, including the 70 mm version, is deferred by the user.
-- **Test pieces:** R1 Yes — earlier control. R2 Yes — thickness/shape rejected. R3 Partial / failed — fusion/lifting. R4 Yes — still sticking; form/overhang revision needed. R5 Yes — user reports it is okay; no measured force/durability result.
-- **Final object:** N/A — short accepted sample only; further development deferred.
+#### TPU coil cord — [R6 circular short trial](model/tpu_coil_cord/README.md)
+25.2 mm round TPU coil with round cord, 1.2 mm nominal turn gaps and two shallow opposed contact flats; circular bore.
+- **Action / Print:** New [R6 STEP](model/tpu_coil_cord/coil_r6_round_flats.step) ([STL](model/tpu_coil_cord/coil_r6_round_flats.stl)); flat-down as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid material, supports/brim off. Curved-roof quality is experimental. R5 remains the accepted printed control.
+- **Test pieces:** R1 Yes — earlier control. R2 Yes — form rejected. R3 Partial / failed — fusion/lifting. R4 Yes — still sticking. R5 Yes — printed and okay. R6 Unknown — CAD/reference slice reviewed; adhesion, roofs and separation await printing.
+- **Final object:** N/A — short sample only; 70 mm version remains deferred.
 - **Provenance:** [Attribution](model/tpu_coil_cord/README.md#attribution-and-reproduction)
 
 #### Dental travel case — [`model/dental_travel_case/`](model/dental_travel_case/README.md)

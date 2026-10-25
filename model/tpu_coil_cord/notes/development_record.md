@@ -192,3 +192,23 @@ work as a rigid PLA/PETG mechanism without springs or elasticity/friction-fit
 retention. Fully printed is preferred; existing hardware is allowed if needed.
 The user delegates generic reasonable sizing rather than measuring a key ring.
 Connector proposals are owned separately in `model/double_ended_connector/`.
+
+## R6 return to circular geometry with flat contact
+
+The user reopens cord work and requests a circular alternative to R5's octagon,
+retaining flat printing contact to test whether edges can be eliminated. One
+25.2 mm short TPU sample is delivered, with five circular winding circuits,
+3.2 mm round cord, 1.2 mm nominal gaps, a 15 mm round envelope and two opposing
+0.5 mm exterior trims. Bore diameter is nominally 8.6 mm, print height 14 mm.
+Terminal loops remain closed and integrated in the winding envelope. The two
+flat boundaries are intentional; other transverse faces are round. R5 remains
+accepted and unchanged; the ~70 mm version remains deferred.
+
+Valid CAD and matching STEP/STL exports passed the existing selected-profile
+Orca slice, with supports off and no filtered notices. The automatic probe
+still flags curved-roof support; actual paths and model views were opened.
+Local contact is 10.01 mm² per sampled middle foot, local gap 1.192 mm; 36
+material/gap/bore witnesses and 101 bridge midpoints pass their scoped checks.
+No physical R6 result is inferred. Full reasoning, settings and experiment
+limits are in [R6 decisions](r6_decisions.md), with the preserved prior summary
+in [R5 baseline](r5_baseline.md).
