@@ -59,3 +59,26 @@ Overhang wall but no Bridge role. All 18 paired material/clearance witnesses
 passed. An initial parser guard rejected G91 commands in the printer's startup
 purge routine; the diagnostic now begins at the first layer marker, after the
 startup returns to G90/M83. The generated result is from that corrected reader.
+
+
+## First physical feedback and next iteration
+
+User report (2026-10-25): the first sample was printed and works reasonably well.
+Freeing the turns leaves rough/unclean surfaces; recoil is less bouncy/strong than
+wanted. The user used an effectively unlimited wall count, producing practically
+solid material. Other actual settings, exact hash, force, extension, dwell and
+permanent set are unknown. The first design is accepted as an understandable
+experiment, not rejected wholesale. Preserve its source, exports and original
+slice evidence as the printed control. The next task is stronger pullback and
+cleaner turn separation; horizontal printing is a proposed route, with autonomous
+exploration/selection explicitly authorized. Retain a compact real 3D spring and
+both end attachment loops; no flat zigzag substitute.
+
+
+The second phase selected a horizontal rounded-house winding with thicker
+5.2 mm cord, four turns, 0.8 mm nominal sideways gaps and outboard end frames
+joined through rounded foot tabs. The [R2 decision record](r2_decisions.md)
+contains the concept comparison, research, abandoned spline/union attempts,
+final native/path evidence and physical comparison instructions. The
+[historical R1 record](r1_baseline.md) preserves its original engineering detail;
+R1 source and exports remain unchanged. No physical R2 result is inferred.

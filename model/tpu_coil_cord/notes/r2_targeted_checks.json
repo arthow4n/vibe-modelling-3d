@@ -1,0 +1,223 @@
+{
+  "scope": "Targeted actual CAD clearance and selected-profile path evidence; physical release, surface finish and recoil remain unmeasured.",
+  "section_screen": {
+    "scope": "Ideal straight, untrimmed sections under homogeneous isotropic elasticity; not full-coil force or recovery.",
+    "r1_hex_area_mm2": 8.32,
+    "r1_hex_polar_moment_mm4": 11.234133333333336,
+    "r2_circle_area_mm2": 21.237166338267002,
+    "r2_circle_torsion_constant_mm4": 71.78162222334248,
+    "area_ratio": 2.5525440310417067,
+    "circle_J_to_hex_polar_upper_bound_ratio": 6.389600345080095,
+    "note": "Hexagonal Saint-Venant torsion constant is no greater than its polar area moment. Foot flattening, bending, thick curved-rod effects, eye/tab restraint and TPU hysteresis are excluded; no spring-force multiplier is established."
+  },
+  "witnesses": [
+    {
+      "turn": 1,
+      "fraction": 0.05,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 1,
+      "fraction": 0.15,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 1,
+      "fraction": 0.25,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 1,
+      "fraction": 0.35,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 1,
+      "fraction": 0.45,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 1,
+      "fraction": 0.55,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 1,
+      "fraction": 0.65,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 1,
+      "fraction": 0.75,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 1,
+      "fraction": 0.85,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 1,
+      "fraction": 0.95,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 2,
+      "fraction": 0.05,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 2,
+      "fraction": 0.15,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 2,
+      "fraction": 0.25,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 2,
+      "fraction": 0.35,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 2,
+      "fraction": 0.45,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 2,
+      "fraction": 0.55,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 2,
+      "fraction": 0.65,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 2,
+      "fraction": 0.75,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 2,
+      "fraction": 0.85,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    },
+    {
+      "turn": 2,
+      "fraction": 0.95,
+      "material": true,
+      "gap_clear": true,
+      "gap_near_sides_clear": true
+    }
+  ],
+  "local_native_gaps": [
+    {
+      "fraction": 0.1,
+      "gap_mm": 0.7441780883810138,
+      "minimum_trial_gap_mm": 0.6
+    },
+    {
+      "fraction": 0.32,
+      "gap_mm": 0.7441780883810156,
+      "minimum_trial_gap_mm": 0.6
+    },
+    {
+      "fraction": 0.58,
+      "gap_mm": 0.743837035052932,
+      "minimum_trial_gap_mm": 0.6
+    }
+  ],
+  "extrusion_roles": {
+    "primary": [
+      "Bottom surface",
+      "Bridge",
+      "Gap infill",
+      "Inner wall",
+      "Internal solid infill",
+      "Outer wall",
+      "Overhang wall",
+      "Top surface"
+    ],
+    "probe": [
+      "Bottom surface",
+      "Bridge",
+      "Gap infill",
+      "Inner wall",
+      "Internal solid infill",
+      "Outer wall",
+      "Overhang wall",
+      "Support",
+      "Top surface"
+    ]
+  },
+  "gcode_sha256": {
+    "primary": "19449c81a5cdca55cce2783f0f7a18f3822bcb6d41b0c7ac14f1eab074a057d5",
+    "probe": "07a19b41659f5ba17e05d2a08805d46769dea19b2bdfa055a2c67322097a5a15"
+  },
+  "support": {
+    "segment_count": 1992,
+    "layers_mm": [
+      0.2,
+      0.4,
+      0.6
+    ],
+    "x_range_mm": [
+      123.923,
+      147.373
+    ],
+    "y_range_mm": [
+      124.455,
+      145.448
+    ]
+  },
+  "primary_bridges": {
+    "segment_count": 38,
+    "layers_mm": [
+      12.4
+    ],
+    "longest_deposition_segment_mm": 4.059039911111998,
+    "note": "Segment length includes anchored deposition; not an unsupported-span measurement."
+  }
+}

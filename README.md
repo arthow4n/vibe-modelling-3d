@@ -87,6 +87,13 @@ Modular 5-card display bases and 15-card compact archival box sharing a clear PE
 
 ### 2. Active Prototypes, Print Trials & Partial Results
 
+#### TPU coil cord — [horizontal R2 print trial](model/tpu_coil_cord/README.md)
+TPU 3D spring experiment: R1 printed and works reasonably well, with rough turn separation and weak recoil. R2 uses thicker cord, four turns and horizontal gaps.
+- **Action / Print:** Next trial: [R2 STEP](model/tpu_coil_cord/coil_r2_horizontal.step) ([STL](model/tpu_coil_cord/coil_r2_horizontal.stl)); horizontal as supplied, 0.4 mm nozzle, 0.2 mm layers, solid material, supports off. Keep the printed R1 as control.
+- **Test pieces:** Yes — R1 printed practically solid with high wall count. R2 Unknown — CAD/slice checked; cleaner release and stronger pullback await printing.
+- **Final object:** N/A — samples only.
+- **Provenance:** [Attribution](model/tpu_coil_cord/README.md#attribution-and-reproduction)
+
 #### Dental travel case — [`model/dental_travel_case/`](model/dental_travel_case/README.md)
 Slim two-piece rotary-lock box (`75.8 × 52.8 × 264 mm`) for a toothbrush and toothpaste, currently developed in PLA.
 - **Action / Print:** Working [replacement cap + screw STEP](model/dental_travel_case/rotary_matte_repair.step) / [STL](model/dental_travel_case/rotary_matte_repair.stl). Retain printed body/lid and existing wheel/nut. Thicker 2 mm face/rim, solid coarse screw, same scalloped grip. PLA 0.4/0.2 mm, four walls, solid fill, supports off. [Settings and assembly](model/dental_travel_case/notes/matte_rotary.md).
@@ -133,13 +140,6 @@ Standalone mechanical study comparing an upright catch (`A`) vs. a flat lower-tr
 ---
 
 ### 3. Unprinted Prototypes & Calibration Objects
-
-#### TPU coil cord — [first print experiment](model/tpu_coil_cord/README.md)
-Compact upright 3D telephone-cord helix, 20 mm outside diameter, with closed hook rings at both ends.
-- **Action / Print:** One TPU 95A trial: [STEP](model/tpu_coil_cord/tpu_coil_cord.step) ([STL](model/tpu_coil_cord/tpu_coil_cord.stl)); 0.4 mm nozzle, 0.2 mm layers, solid fill, supports off.
-- **Test pieces:** Unknown — CAD and TPU smoke slice pass; turn separation and strong recoil await a physical print.
-- **Final object:** N/A — first sample only; thickness comparison deferred.
-- **Provenance:** [Attribution](model/tpu_coil_cord/README.md#attribution-and-reproduction)
 
 #### Physical-analysis phone stand (V3) — [`model/analysis_phone_stand/`](model/analysis_phone_stand/README.md)
 Compact `105 × 140 mm` fully printed pedestal phone stand with a concealed three-angle (`45°`/`60°`/`75°`) spring-latch lock.
