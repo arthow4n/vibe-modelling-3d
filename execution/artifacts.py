@@ -10,6 +10,20 @@ from .telemetry import data_root
 from .identity import fingerprint, digest, ROOT
 
 
+def validate_output_paths(outputs, inputs):
+    """Managed publication must not replace a declared input or write inside one.
+
+    Resolve symlinked parents as well as exact paths. Directory dependencies are
+    entire input trees, so writing a new artifact there also changes the inputs.
+    """
+    protected = tuple(Path(p).resolve() for p in inputs)
+    for output in outputs:
+        target = Path(output).resolve()
+        for source in protected:
+            if target == source or source.is_dir() and target.is_relative_to(source):
+                raise ValueError(f'Managed output would overwrite declared input: {target} (input {source})')
+
+
 @contextmanager
 def destinations(paths, cancelled=lambda:False, deadline=None):
     locks=[]

@@ -67,7 +67,7 @@ class CADPool:
 def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
     """Stage outputs, check final source identity, then publish with exclusive ownership."""
     import copy
-    from .artifacts import destinations
+    from .artifacts import destinations, validate_output_paths
     from .identity import cad_identity
     from .telemetry import child_environment
     managed=request['cad']
@@ -153,6 +153,7 @@ def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
             with destinations([*output_paths, *remap.values()], cancelled, deadline):
                 if cancelled():
                     raise InterruptedError('CAD request cancelled waiting for publication')
+                validate_output_paths(remap.values(), [request['source'], *request['dependencies']])
                 if cad_identity(request['source'],request['dependencies'],request['environment'])!=request['identity']:
                     raise RuntimeError('CAD inputs changed during execution; managed artifacts were not published')
                 for item in [*report.get('exports',[]),*report.get('views',[])]:

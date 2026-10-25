@@ -55,9 +55,20 @@ def motion_inspection(configuration, moving, obstacle, requirement, *, samples,
     assembly = configuration.assembly()
     node = assembly.objects[assembly.name+'/'+moving] if assembly.name+'/'+moving in assembly.objects else assembly.objects[moving]
     parent_world = configuration.location(moving)*node.loc.inverse
-    node.loc = parent_world.inverse*delta*parent_world*node.loc
+    original_location = node.loc
+    node.loc = parent_world.inverse*delta*parent_world*original_location
+    # sample_motion moves this node's geometry, not a whole subtree. Compensate
+    # its immediate children so every other component keeps its checked pose.
+    compensation = node.loc.inverse*original_location
+    for child in node.children:
+        child.loc = compensation*child.loc
+    # A solved snapshot has authoritative positions, but its copied constraints
+    # describe the source pose. Prescribed motion does not re-solve/enforce them.
+    # Clear declarations only on the display copy before adopting explicit poses.
+    for _, member in assembly.traverse():
+        member.constraints = []
     pose = Configuration.explicit(assembly, name=f'{configuration.name}:{parameter}={answer.samples[index]}',
-                                  kind='intermediate', parameters={parameter: answer.samples[index]})
+                                  kind='intermediate', parameters={**configuration.parameters, parameter: answer.samples[index]})
     pair = answer.results[index]
     annotations = list(view.annotations)
     if pair.closest_points_mm is not None:

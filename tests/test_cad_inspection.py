@@ -255,6 +255,67 @@ def test_component_anchor_and_frame_follow_selected_motion_pose():
         prepare(Inspection(cfg,bad,'missing anchor'))
 
 
+def test_motion_inspection_replays_solved_snapshot_without_mutating_constraints():
+    from assembly_geometry import solve, constrain
+    shape=cq.Workplane().box(2,2,2)
+    assembly=(cq.Assembly(name='fixture').add(shape,name='fixed')
+              .add(shape,name='moving',loc=cq.Location((6,1,0))))
+    assembly.constrain('fixed','Fixed')
+    constrain(assembly,'fixed@faces@>Z','Point',second='moving@faces@<Z')
+    assembly.constrain('moving','FixedRotation',(0,0,0))
+    cfg=solve(assembly,name='solved',position_tolerance_mm=1e-6,
+              rotation_tolerance_deg=1e-4,parameters={'size_mm':2}).require_configuration()
+    checked=motion_inspection(cfg,'moving','fixed',PairRequirement('clearance',min_gap_mm=.5),
+        samples=(1,3),transform=lambda t:cq.Location((0,0,t)),parameter='lift',units='mm',
+        select=3,view=View(Camera.named('front')),purpose='Inspect prescribed lift')
+    pose=checked.inspection.subject
+    assert checked.answer.status=='passed'
+    assert pose.shape('moving').Center().z==pytest.approx(5,abs=1e-6)
+    assert pose.shape('fixed').Center().z==pytest.approx(0,abs=1e-6)
+    assert pose.parameters=={'size_mm':2,'lift':3}
+    assert pose.resolution is None  # no new solve/constraint satisfaction claim
+    assert all(not node.constraints for _,node in pose.assembly().traverse())
+    assert len(cfg.assembly().constraints)==3 and cfg.resolution is not None
+    assert cfg.shape('moving').Center().z==pytest.approx(2,abs=1e-6)
+
+
+@pytest.mark.parametrize('moving', ['root','root_parent/moving'])
+def test_motion_of_geometric_parent_preserves_all_other_world_poses(moving):
+    shape=cq.Workplane().box(2,2,2)
+    parent=cq.Assembly(shape,name='moving').add(shape,name='fixed_child',loc=cq.Location((10,0,0)))
+    if moving=='root':
+        assembly=cq.Assembly(shape,name='root').add(shape,name='fixed_child',loc=cq.Location((10,0,0)))
+        obstacle='fixed_child'
+    else:
+        assembly=(cq.Assembly(name='root',loc=cq.Location((20,5,0),(0,0,30)))
+                  .add(cq.Assembly(name='root_parent').add(parent,loc=cq.Location((3,0,0)))))
+        obstacle='root_parent/moving/fixed_child'
+    cfg=Configuration.explicit(assembly,name='initial')
+    original={name:cfg.location(name).toTuple() for name in cfg.names}
+    delta=cq.Location((5,0,0),(0,0,15))
+    checked=motion_inspection(cfg,moving,obstacle,PairRequirement('gap',min_gap_mm=0),
+        samples=(0,1),transform=lambda t:cq.Location() if t==0 else delta,
+        parameter='step',units='index',select=1,view=View(Camera.named('top')),purpose='Inspect')
+    pose=checked.inspection.subject
+    for name in cfg.names:
+        expected=cfg.shape(name).moved(delta) if name==moving else cfg.shape(name)
+        actual=pose.shape(name)
+        # At 45 degrees, distinct corners have nominally equal X. Roundoff in
+        # equivalent rigid-transform products can reverse lexicographic order;
+        # compare the complete unordered point sets with one-to-one matching.
+        import math
+        remaining=[v.toTuple() for v in expected.Vertices()]
+        assert len(actual.Vertices())==len(remaining)
+        for vertex in actual.Vertices():
+            point=vertex.toTuple()
+            nearest=min(range(len(remaining)),key=lambda i:math.dist(point,remaining[i]))
+            assert point==pytest.approx(remaining.pop(nearest),abs=1e-8,rel=0)
+        assert not remaining
+    displayed=pose.check(moving,obstacle,PairRequirement('gap',min_gap_mm=0))
+    assert displayed.gap_mm==pytest.approx(checked.answer.results[1].gap_mm)
+    assert {name:cfg.location(name).toTuple() for name in cfg.names}==original
+
+
 def call(source,*args):
     return subprocess.run([sys.executable,str(ROOT/'evaluate_model.py'),str(source),*args],
                           text=True,capture_output=True)
@@ -349,3 +410,44 @@ def test_agent_tool_call_bookkeeping_does_not_invalidate_geometry_identity(tmp_p
     source=tmp_path/'fixture.py';source.write_text('result = None\n')
     assert cad_identity(source,environment=a)==cad_identity(source,environment=b)
     assert environment_identity(a)!=environment_identity(dict(b,MODEL_INPUT='changed'))
+
+
+@pytest.mark.parametrize('kind', ['inspection','sheet','legacy','export','report'])
+def test_managed_outputs_cannot_overwrite_view_spec_inputs(tmp_path,kind):
+    source=tmp_path/'fixture.py'
+    source.write_text('import cadquery as cq\nresult=cq.Workplane().box(4,4,4)\n')
+    output=tmp_path/'renders/scratch'
+    spec={'detail':{'purpose':'Inspect fixture','view':{'camera':'front'}}}
+    options=[]
+    if kind=='inspection':
+        path=output/'fixture_inspections/detail.svg'; options=['--inspect','detail','--export']
+    elif kind=='sheet':
+        path=output/'fixture_inspections/sheet.png'
+        spec['other']={'purpose':'Other view','view':{'camera':'top'}}
+        options=['--inspect','all','--export']
+    elif kind=='legacy':
+        path=output/'fixture_front.png';options=['--views','front']
+    elif kind=='export':
+        path=tmp_path/'fixture.step';options=['--export']
+    else:
+        path=tmp_path/'report.json';options=['--report',str(path)]
+    path.parent.mkdir(parents=True,exist_ok=True)
+    original=json.dumps(spec).encode();path.write_bytes(original)
+    run=call(source,'--view-spec',str(path),*options,'--isolated')
+    assert run.returncode!=0 and path.read_bytes()==original
+    assert 'input' in run.stdout+run.stderr
+    assert not (tmp_path/'fixture.stl').exists()
+
+
+def test_dynamic_outputs_cannot_replace_declared_directory_inputs(tmp_path):
+    source=tmp_path/'fixture.py'
+    source.write_text('''import cadquery as cq
+from cad_inspection import Camera,View,Inspection
+result=cq.Workplane().box(4,4,4)
+inspections={'detail':lambda:Inspection(result,View(Camera.named('front')),'Inspect')}
+''')
+    protected=tmp_path/'protected';protected.mkdir()
+    marker=protected/'input.txt';marker.write_text('retained input')
+    run=call(source,'--inspect','all','--output-dir',str(protected),'--dependency',str(protected),'--isolated')
+    assert run.returncode==1 and 'overwrite declared input' in run.stdout
+    assert list(protected.iterdir())==[marker] and marker.read_text()=='retained input'

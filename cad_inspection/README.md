@@ -150,6 +150,10 @@ the latter raises if all pass. It replays the exact recorded native pose without
 calling the transform callback again, preserving hierarchy/root transforms and
 other components. `.answer` is the native `MotionResult`; `.selected_sample`
 identifies the illustration. Sampled success never means continuous clearance.
+Only the selected node's geometry moves, including when that node has children;
+descendants keep their checked world poses. Solved snapshots are accepted, but
+the display copy discards source constraint declarations rather than re-solving
+them. Source constraints/resolution and descriptive parameters remain preserved.
 
 Both adapters calculate on complete geometry **before** display sections.
 They do not attach arbitrary old results to new geometry. A shared object factory
@@ -182,6 +186,9 @@ Publication from the same source/inspection directory is serialized. A changed
 input during evaluation prevents publication. SVG metadata/JSON retain resolved
 settings and geometry hashes. `render()` returns `(SVG bytes, settings)` and
 `sheet()` composes SVGs in memory; neither writes files or runs checks.
+Managed outputs, including dynamic inspection names and reports, cannot replace
+the source or a declared input, or write into a declared input directory. The
+publication boundary checks the complete output set before publishing any file.
 
 [Tests](../tests/test_cad_inspection.py) cover independent known sections/volumes,
 camera raster orientation, off-center framing, shared-scene occlusion, hierarchical
@@ -190,9 +197,13 @@ behavior. Real object recipes exercise installed hardware, layered liners and
 small catch details without revising printable geometry. Historical drawings
 remain preserved.
 
-Qualified on Python 3.14.7 / CadQuery 2.8.0: **314 tests passed**, covering the
+Qualified on Python 3.14.7 / CadQuery 2.8.0: **323 tests passed**, covering the
 inspection/evaluator boundary, assembly geometry, execution/telemetry and product
 verification. All three object sheets were generated and visually inspected.
+Regressions cover solved-snapshot replay, geometry-bearing root/nested parents
+with fixed descendants, and input collisions across inspection, sheet, legacy
+view, export and report publication. An independent blind review identified the
+two replay defects; fix verification found no further actionable issues.
 After correcting the volatile `CODEX_TOOL_CALL_ID` identity input, a separate
 coding-agent tool call reused the vent's geometry, all three lazy recipes and all
 three images. Ordinary model environment changes still invalidate identity.
@@ -207,6 +218,9 @@ The C2/liner sheets remain applicable across the bookkeeping-only environment
 identity correction: their builders, recipes, rendering implementation and tool
 versions did not change. Delivered SVG metadata was checked against each native
 receipt. This does not refresh any product's physical or manufacturing evidence.
+The replay/publication fixes also leave these static example renderings unchanged.
 
-Attribution: GPT-6-based Codex (exact variant/reasoning effort not exposed),
-OpenAI, shared-workspace Codex agent; no subagents.
+Initial implementation attribution: GPT-6-based Codex (exact variant/reasoning
+effort not exposed), OpenAI, shared-workspace Codex agent; no subagents.
+Follow-up fixes include an independent fresh-context Codex code review; its exact
+model variant/reasoning effort is not exposed.

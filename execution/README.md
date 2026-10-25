@@ -112,6 +112,9 @@ settings and image reuse are reported with SVG/PNG files and multi-view sheets.
 These use existing admission, caching and staged source-guarded publication;
 destination ownership covers the source's inspection directory. Display operations
 do not alter print exports.
+Managed export/view/report paths must be disjoint from the source and declared
+file/directory inputs, including view-spec files. Dynamic inspection paths are
+checked together before publication; a collision preserves all input files.
 
 Slice profile overrides must supply printer, process and filament together.
 With none supplied, the JSON `slice.setup_selection` labels the reference profiles

@@ -81,6 +81,9 @@ from supplied source context or an explicit argument; do not guess another check
 using an author's hardcoded home directory. Retain nuanced Markdown observations
 and historical numerical records; changed interfaces do not authorize rewriting
 them into current success.
+Validate managed outputs against source and declared file/directory inputs before
+publication, including dynamically discovered image names and report paths; a
+successful computation must not overwrite the input that identified it.
 
 Reusable visual recipes use [cad_inspection](../../../cad_inspection/README.md)
 and the evaluator's managed boundary. Keep anchors/criteria object-owned, names
@@ -89,6 +92,10 @@ rather than duplicating transforms or labeling new geometry with old results.
 Display cuts never feed engineering assertions. Camera, frame, section, component
 selection, annotations and diagnostics affect image identity; add no separate
 cache or implied product PASS from image generation.
+For checked-pose replay, preserve every unselected component's world placement,
+including descendants of a moving geometry-bearing node. Adopt prescribed display
+poses separately from the source's solved constraint declarations; do not imply
+that replay re-solved or still satisfies those constraints.
 
 When adding optional fields to identity-bound requests, normalize historical
 omission to the precisely equivalent unset value at the comparison boundary.

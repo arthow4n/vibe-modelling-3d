@@ -605,10 +605,12 @@ def emit_report(report, args):
     """Retain native evidence and optionally shorten console output, without rerunning stages."""
     if args.report:
         try:
-            from execution.artifacts import destinations
+            from execution.artifacts import destinations, validate_output_paths
             from execution.identity import cad_identity, digest
             with destinations([args.report]):
                 publication=getattr(args,'_publication',None)
+                if publication:
+                    validate_output_paths([args.report], [publication[0], *publication[1]])
                 if publication and cad_identity(*publication[:2],environment=publication[2])!=publication[3]:
                     raise RuntimeError('CAD inputs changed before report publication; previous report preserved')
                 existing=getattr(args,'slice_existing',None)
@@ -626,7 +628,7 @@ def emit_report(report, args):
                         temporary.replace(args.report)
                     finally:
                         temporary.unlink(missing_ok=True)
-        except (OSError,RuntimeError) as exc:
+        except (OSError,RuntimeError,ValueError) as exc:
             report["ok"] = False
             report.setdefault("errors", []).append({"stage": "report", "message": str(exc)})
     output = report
@@ -810,6 +812,13 @@ def main(argv=None):
     destinations = {output_dir / f"{source.stem}_{view}.png" for view in views}
     if source in destinations or paths & destinations:
         parser.error("Source, view and export paths must be distinct")
+    from execution.artifacts import validate_output_paths
+    try:
+        validate_output_paths([*destinations, *(item['path'] for item in exports),
+                               *([args.report] if args.report else [])],
+                              [source, *args.dependency])
+    except ValueError as exc:
+        parser.error(str(exc))
     request = {"file_path": str(source), "views": views, "output_dir": str(output_dir),
                "width": args.width, "height": args.height,
                "show_hidden": args.show_hidden, "exports": exports,"fresh":args.fresh}
