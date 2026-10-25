@@ -185,6 +185,7 @@ This repository is a locked `uv` Python project ([`pyproject.toml`](pyproject.to
 - **CAD build, views & exports:** `./evaluate_model.py model/<object>/<object>.py --export` (add `--slice` for a reference OrcaSlicer STL smoke check; see [CAD operation details](execution/README.md#cad-evaluation-and-exports) and [execution contracts](execution/README.md)).
 - **Physical analysis (Gmsh / CalculiX):** [physical_analysis/README.md](physical_analysis/README.md) for deflection, flexure force, and contact studies.
 - **Assembly geometry:** [assembly_geometry/README.md](assembly_geometry/README.md) for named multi-part placement, clearance, and rigid-path checks.
+- **Reusable inspection views:** [cad_inspection/README.md](cad_inspection/README.md) for named cameras, close-ups, sections and annotations composed with assembly/check results through the evaluator.
 - **Product verification:** [product_verification/README.md](product_verification/README.md) links user intent, variant checks, and scoped physical evidence via `model/<object>/verification.py`.
 - **Articulated human interaction:** [.codex/skills/articulated-human-interaction/SKILL.md](.codex/skills/articulated-human-interaction/SKILL.md) for MuJoCo/SciPy kinematic reach and collision screening.
 - **Optional latency telemetry:** [performance/WORKFLOW.md](performance/WORKFLOW.md#optional-machine-setup-and-future-clones) documents optional local Codex telemetry setup.

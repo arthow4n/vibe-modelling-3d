@@ -102,6 +102,17 @@ internal questions. Remove disposable scratch output before staging. Reuse saved
 images instead of rebuilding just to open them. A saved path is not visual evidence:
 inspect a successful image when a visual question requires it.
 
+For arbitrary cameras, close-ups, sections and annotated repeated views, use
+[CAD inspections](../cad_inspection/README.md). Object-owned `inspections` maps
+names to lazy factories. `--list-inspections` lists names without calling them;
+`--inspect NAME` repeats or accepts `all`. `--view-spec FILE.json` adds quick
+recipes against `result` (select with `--inspect`). Native assembly names remain
+available before compound selection. Independent inspection statuses, resolved
+settings and image reuse are reported with SVG/PNG files and multi-view sheets.
+These use existing admission, caching and staged source-guarded publication;
+destination ownership covers the source's inspection directory. Display operations
+do not alter print exports.
+
 Slice profile overrides must supply printer, process and filament together.
 With none supplied, the JSON `slice.setup_selection` labels the reference profiles
 as diagnostic and identifies the default centering policy. Neither establishes
@@ -334,6 +345,10 @@ All repository Python sources (excluding virtual environments/generated caches),
 worker implementation and process environment are content-identified. Unknown
 inputs require fresh execution. Validation results carry their originating identity;
 reused stages are explicitly marked, never represented as fresh computation.
+Lifecycle/trace bookkeeping is excluded from model-input identity, including
+`CODEX_TOOL_CALL_ID`, which changes between coding-agent tool calls. Ordinary
+model environment inputs remain identified; do not use bookkeeping IDs as
+deterministic geometry inputs.
 Managed outputs are staged, identity-checked and atomically published with destination
 ownership. Model-written side effects are outside that transaction.
 

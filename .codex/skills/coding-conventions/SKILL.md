@@ -82,6 +82,14 @@ using an author's hardcoded home directory. Retain nuanced Markdown observations
 and historical numerical records; changed interfaces do not authorize rewriting
 them into current success.
 
+Reusable visual recipes use [cad_inspection](../../../cad_inspection/README.md)
+and the evaluator's managed boundary. Keep anchors/criteria object-owned, names
+explicit and factories lazy. Share current configurations/native check answers
+rather than duplicating transforms or labeling new geometry with old results.
+Display cuts never feed engineering assertions. Camera, frame, section, component
+selection, annotations and diagnostics affect image identity; add no separate
+cache or implied product PASS from image generation.
+
 When adding optional fields to identity-bound requests, normalize historical
 omission to the precisely equivalent unset value at the comparison boundary.
 Keep explicit values in the identity and test legacy reuse plus rejection of

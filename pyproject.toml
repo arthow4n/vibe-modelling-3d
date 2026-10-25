@@ -27,7 +27,7 @@ requires = ["hatchling>=1.32,<2"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["physical_analysis", "execution", "assembly_geometry", "product_verification"]
+packages = ["physical_analysis", "execution", "assembly_geometry", "product_verification", "cad_inspection"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

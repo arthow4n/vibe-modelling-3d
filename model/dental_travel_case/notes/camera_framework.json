@@ -1,0 +1,482 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/inspections.py",
+  "errors": [],
+  "views": [],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013452410057652742,
+    "build": 1.0826359229977243,
+    "selection": 0.001287801998842042,
+    "validation": 0.0658395569989807,
+    "inspections": 1.327122036003857,
+    "worker": 2.552848286999506,
+    "total": 5.758604520997324
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "d6ec5382b88ef5c6624f0b5a00c126ee78edd48d1ebfd7661fb1b578f994ba47"
+  },
+  "available_inspections": [
+    "whole",
+    "seam",
+    "catch"
+  ],
+  "inspections": [
+    {
+      "name": "whole",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/framework/inspections_inspections/whole.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/framework/inspections_inspections/whole.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": null,
+            "margin_mm": 2
+          },
+          "section": {
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "mode": "planar",
+            "keep": "negative"
+          },
+          "components": [],
+          "colors": [
+            [
+              "body",
+              "#1769a6"
+            ],
+            [
+              "cap",
+              "#ce741c"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "highlight",
+              "region": {
+                "minimum": [
+                  32.6,
+                  -2.0,
+                  195.0
+                ],
+                "maximum": [
+                  41.6,
+                  2.0,
+                  209.0
+                ],
+                "component": null
+              },
+              "text": "Catch detail",
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Inspect actual C2 body/cap profiles. Grip, opening effort and retention still require physical testing.",
+        "title": "C2 closed case \u2014 whole",
+        "question_ids": [],
+        "configuration": {
+          "name": "retention-c2-closed",
+          "kind": "operating",
+          "parameters": {}
+        },
+        "subject_sha256": {
+          "body": "910119964baeeffcfaa12196eff6bbec344368013c369a125076f1e77b31f1e2",
+          "cap": "e08f17937dcd8c8f0b8b83bfe156b68e1e543e49060d56dabcf20230446e5a28"
+        },
+        "component_locations": {
+          "body": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "cap": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 1000,
+        "height": 750,
+        "projected_frame_mm": [
+          -39.9,
+          -2.0,
+          39.9,
+          266.0
+        ],
+        "pixels_per_mm": 2.361940298507463,
+        "translation_px": [
+          500.0,
+          697.2761194029852
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "highlight",
+            "rectangle": [
+              576.9992537313433,
+              203.6305970149254,
+              21.257462686567123,
+              33.06716417910451
+            ],
+            "text": "Catch detail"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    },
+    {
+      "name": "seam",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/framework/inspections_inspections/seam.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/framework/inspections_inspections/seam.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": {
+              "minimum": [
+                32.6,
+                -2.0,
+                169.0
+              ],
+              "maximum": [
+                41.6,
+                2.0,
+                183.0
+              ],
+              "component": null
+            },
+            "margin_mm": 1
+          },
+          "section": {
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "mode": "planar",
+            "keep": "negative"
+          },
+          "components": [],
+          "colors": [
+            [
+              "body",
+              "#1769a6"
+            ],
+            [
+              "cap",
+              "#ce741c"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "label",
+              "point": [
+                37.1,
+                0.0,
+                176.0
+              ],
+              "text": "Seam collar",
+              "offset_px": [
+                25,
+                -40
+              ],
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Inspect actual C2 body/cap profiles. Grip, opening effort and retention still require physical testing.",
+        "title": "C2 closed case \u2014 seam",
+        "question_ids": [],
+        "configuration": {
+          "name": "retention-c2-closed",
+          "kind": "operating",
+          "parameters": {}
+        },
+        "subject_sha256": {
+          "body": "910119964baeeffcfaa12196eff6bbec344368013c369a125076f1e77b31f1e2",
+          "cap": "e08f17937dcd8c8f0b8b83bfe156b68e1e543e49060d56dabcf20230446e5a28"
+        },
+        "component_locations": {
+          "body": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "cap": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 1000,
+        "height": 750,
+        "projected_frame_mm": [
+          31.6,
+          168.0,
+          42.6,
+          184.0
+        ],
+        "pixels_per_mm": 39.5625,
+        "translation_px": [
+          -967.76875,
+          7348.5
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "label",
+            "point": [
+              500.0,
+              385.5
+            ],
+            "text": "Seam collar"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    },
+    {
+      "name": "catch",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/framework/inspections_inspections/catch.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/framework/inspections_inspections/catch.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": {
+              "minimum": [
+                32.6,
+                -2.0,
+                195.0
+              ],
+              "maximum": [
+                41.6,
+                2.0,
+                209.0
+              ],
+              "component": null
+            },
+            "margin_mm": 1
+          },
+          "section": {
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "mode": "planar",
+            "keep": "negative"
+          },
+          "components": [],
+          "colors": [
+            [
+              "body",
+              "#1769a6"
+            ],
+            [
+              "cap",
+              "#ce741c"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "label",
+              "point": [
+                37.1,
+                0.0,
+                202.0
+              ],
+              "text": "Catch and sleeve",
+              "offset_px": [
+                25,
+                -40
+              ],
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Inspect actual C2 body/cap profiles. Grip, opening effort and retention still require physical testing.",
+        "title": "C2 closed case \u2014 catch",
+        "question_ids": [],
+        "configuration": {
+          "name": "retention-c2-closed",
+          "kind": "operating",
+          "parameters": {}
+        },
+        "subject_sha256": {
+          "body": "910119964baeeffcfaa12196eff6bbec344368013c369a125076f1e77b31f1e2",
+          "cap": "e08f17937dcd8c8f0b8b83bfe156b68e1e543e49060d56dabcf20230446e5a28"
+        },
+        "component_locations": {
+          "body": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "cap": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 1000,
+        "height": 750,
+        "projected_frame_mm": [
+          31.6,
+          194.0,
+          42.6,
+          210.0
+        ],
+        "pixels_per_mm": 39.5625,
+        "translation_px": [
+          -967.76875,
+          8377.125
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "label",
+            "point": [
+              500.0,
+              385.5
+            ],
+            "text": "Catch and sleeve"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    }
+  ],
+  "inspection_sheet": {
+    "ok": true,
+    "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/framework/inspections_inspections/sheet.png",
+    "svg_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/renders/framework/inspections_inspections/sheet.svg",
+    "names": [
+      "whole",
+      "seam",
+      "catch"
+    ]
+  }
+}

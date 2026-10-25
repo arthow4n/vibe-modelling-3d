@@ -218,8 +218,12 @@ item. No new historical product failure was found in the three qualified product
 
 The existing evaluator deliberately converts native assemblies to compound
 geometry for validation/render/export. Keep named snapshots in inspection scripts
-before that selection boundary. No evaluator representation change or alternate
-artifact pipeline is needed. Established print files are not re-exported/sliced
+before that selection boundary. [CAD inspections](../cad_inspection/README.md)
+consume the same snapshots for component selection, cameras, sections and
+annotations. Their pair/motion adapters check complete geometry and illustrate
+fresh native results; replay uses recorded poses. The evaluator retains native
+subjects alongside compound selection without another artifact pipeline.
+Established print files are not re-exported/sliced
 for this infrastructure task; explicit print snapshots compare against the
 original layouts, and regression tests fingerprint accepted export bytes.
 

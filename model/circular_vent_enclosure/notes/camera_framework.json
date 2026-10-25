@@ -1,0 +1,771 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/inspections.py",
+  "errors": [],
+  "views": [],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.00140237899904605,
+    "build": 20.378976070001954,
+    "selection": 0.0015354040006059222,
+    "validation": 0.43636200499895494,
+    "inspections": 18.93488940500538,
+    "worker": 39.82381633100158,
+    "total": 42.47710201299924
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "893176a85670c73aa483cfe87372d1d11ca741cb758736adb16573656a86e4e4"
+  },
+  "available_inspections": [
+    "overview",
+    "joint-cutaway",
+    "joint-section"
+  ],
+  "inspections": [
+    {
+      "name": "overview",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/renders/framework/inspections_inspections/overview.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/renders/framework/inspections_inspections/overview.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              1.0,
+              -1.0,
+              0.8
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": null,
+            "margin_mm": 2
+          },
+          "section": null,
+          "components": [],
+          "colors": [],
+          "annotations": [],
+          "show_hidden": false
+        },
+        "purpose": "Locate mounting joints in the complete installed assembly; hardware is reference geometry.",
+        "title": "Installed vent",
+        "question_ids": [],
+        "configuration": {
+          "name": "diameter-132.0-withdrawal-0",
+          "kind": "operating",
+          "parameters": {
+            "diameter_mm": 132.0,
+            "withdrawal_mm": 0
+          }
+        },
+        "subject_sha256": {
+          "hood": "93152b08a9c13b5373f9db35978b352b84340e83cbfae2fef0bc8815b6d3f49b",
+          "clamp": "7243bd037f12eebd583e42316d0cb4df7b84a094bd29a4a9cba059365609579c",
+          "M3_head_1": "c9b32c55cb105115cad12415efa25a13788de108af40b039c7f7eaea1ffcad52",
+          "M3_nut_1": "104543d49321bd20d1e4975fdee17ab33819b306e87bb76d38e6cecb8be1403d",
+          "M3_head_2": "d5265758dfdba60ffa94e59905ecc814b31ef154af11d89de02663564c15334c",
+          "M3_nut_2": "4b2e53a2b12d2d5aa78745da7a263e2e0fc69d0992e565451c1ce06f25fc4bac",
+          "M3_head_3": "5e0412775196e1557bf8cba6e9f183b8bb75aea3052c8d12dad6a77e6f29cc9d",
+          "M3_nut_3": "7aa3ac504d9b7592451e32195d3ac1f11258c8f0351f2d1968a2efa6ee751189",
+          "M4_head": "86f455d70e48b32b45e46eb2e98084c146af7b7c96f3b022d15b7e5082238788",
+          "M4_nut": "7ebc454016b16f84255ce0ffea558258ad59428242fecae7259f952d34d86013"
+        },
+        "component_locations": {
+          "hood": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "clamp": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_head_1": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_nut_1": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_head_2": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_nut_2": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_head_3": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_nut_3": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M4_head": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M4_nut": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 1000,
+        "height": 750,
+        "projected_frame_mm": [
+          -108.50000010000001,
+          -37.12068978585324,
+          108.5000001,
+          127.6944705509757
+        ],
+        "pixels_per_mm": 3.7435876574645883,
+        "translation_px": [
+          500.0,
+          547.035443881108
+        ],
+        "annotation_pixels": [],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    },
+    {
+      "name": "joint-cutaway",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/renders/framework/inspections_inspections/joint-cutaway.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/renders/framework/inspections_inspections/joint-cutaway.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              0.70604126874404,
+              0.7899403311835054,
+              0.3
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": {
+              "minimum": [
+                58.258121665925515,
+                -48.880041453937366,
+                3.5
+              ],
+              "maximum": [
+                93.25812166592551,
+                -13.880041453937363,
+                31.5
+              ],
+              "component": "M3_head_1"
+            },
+            "margin_mm": 2
+          },
+          "section": {
+            "origin": [
+              75.75812166592551,
+              -31.380041453937363,
+              17.5
+            ],
+            "normal": [
+              0.3826834323650898,
+              0.9238795325112867,
+              0.0
+            ],
+            "mode": "cutaway",
+            "keep": "negative"
+          },
+          "components": [
+            "hood",
+            "clamp",
+            "M3_head_1",
+            "M3_nut_1"
+          ],
+          "colors": [
+            [
+              "hood",
+              "#1769a6"
+            ],
+            [
+              "clamp",
+              "#ce741c"
+            ],
+            [
+              "M3_head_1",
+              "#555555"
+            ],
+            [
+              "M3_nut_1",
+              "#555555"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "label",
+              "point": {
+                "component": "M3_head_1",
+                "point": [
+                  75.75812166592551,
+                  -31.380041453937363,
+                  17.5
+                ]
+              },
+              "text": "M3 joint: nominal hardware",
+              "offset_px": [
+                -120,
+                -85
+              ],
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Inspect head, clamp, hood and nut in their installed positions. Smooth hardware envelopes omit threads.",
+        "title": "Vent mounting joint \u2014 cutaway",
+        "question_ids": [],
+        "configuration": {
+          "name": "diameter-132.0-withdrawal-0",
+          "kind": "operating",
+          "parameters": {
+            "diameter_mm": 132.0,
+            "withdrawal_mm": 0
+          }
+        },
+        "subject_sha256": {
+          "hood": "93152b08a9c13b5373f9db35978b352b84340e83cbfae2fef0bc8815b6d3f49b",
+          "clamp": "7243bd037f12eebd583e42316d0cb4df7b84a094bd29a4a9cba059365609579c",
+          "M3_head_1": "c9b32c55cb105115cad12415efa25a13788de108af40b039c7f7eaea1ffcad52",
+          "M3_nut_1": "104543d49321bd20d1e4975fdee17ab33819b306e87bb76d38e6cecb8be1403d"
+        },
+        "component_locations": {
+          "hood": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "clamp": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_head_1": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_nut_1": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_head_2": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_nut_2": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_head_3": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_nut_3": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M4_head": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M4_nut": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 1000,
+        "height": 750,
+        "projected_frame_mm": [
+          -104.10629306808826,
+          -12.744732419662133,
+          -50.68647737593862,
+          31.66028734841869
+        ],
+        "pixels_per_mm": 14.25514510084764,
+        "translation_px": [
+          1603.2967016209016,
+          520.3219900862392
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "label",
+            "point": [
+              500.0,
+              385.5
+            ],
+            "text": "M3 joint: nominal hardware"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    },
+    {
+      "name": "joint-section",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/renders/framework/inspections_inspections/joint-section.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/renders/framework/inspections_inspections/joint-section.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              0.3826834323650898,
+              0.9238795325112867,
+              0.0
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": {
+              "minimum": [
+                58.258121665925515,
+                -48.880041453937366,
+                3.5
+              ],
+              "maximum": [
+                93.25812166592551,
+                -13.880041453937363,
+                31.5
+              ],
+              "component": "M3_head_1"
+            },
+            "margin_mm": 2
+          },
+          "section": {
+            "origin": [
+              75.75812166592551,
+              -31.380041453937363,
+              17.5
+            ],
+            "normal": [
+              0.3826834323650898,
+              0.9238795325112867,
+              0.0
+            ],
+            "mode": "planar",
+            "keep": "negative"
+          },
+          "components": [
+            "hood",
+            "clamp",
+            "M3_head_1",
+            "M3_nut_1"
+          ],
+          "colors": [
+            [
+              "hood",
+              "#1769a6"
+            ],
+            [
+              "clamp",
+              "#ce741c"
+            ],
+            [
+              "M3_head_1",
+              "#555555"
+            ],
+            [
+              "M3_nut_1",
+              "#555555"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "label",
+              "point": {
+                "component": "M3_head_1",
+                "point": [
+                  75.75812166592551,
+                  -31.380041453937363,
+                  17.5
+                ]
+              },
+              "text": "M3 joint: nominal hardware",
+              "offset_px": [
+                -120,
+                -85
+              ],
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Inspect head, clamp, hood and nut in their installed positions. Smooth hardware envelopes omit threads.",
+        "title": "Vent mounting joint \u2014 planar",
+        "question_ids": [],
+        "configuration": {
+          "name": "diameter-132.0-withdrawal-0",
+          "kind": "operating",
+          "parameters": {
+            "diameter_mm": 132.0,
+            "withdrawal_mm": 0
+          }
+        },
+        "subject_sha256": {
+          "hood": "93152b08a9c13b5373f9db35978b352b84340e83cbfae2fef0bc8815b6d3f49b",
+          "clamp": "7243bd037f12eebd583e42316d0cb4df7b84a094bd29a4a9cba059365609579c",
+          "M3_head_1": "c9b32c55cb105115cad12415efa25a13788de108af40b039c7f7eaea1ffcad52",
+          "M3_nut_1": "104543d49321bd20d1e4975fdee17ab33819b306e87bb76d38e6cecb8be1403d"
+        },
+        "component_locations": {
+          "hood": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "clamp": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_head_1": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_nut_1": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_head_2": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_nut_2": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_head_3": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M3_nut_3": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M4_head": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "M4_nut": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 1000,
+        "height": 750,
+        "projected_frame_mm": [
+          -106.86485188533659,
+          1.5,
+          -57.13514811466341,
+          33.5
+        ],
+        "pixels_per_mm": 19.143488253823413,
+        "translation_px": [
+          2069.76603681352,
+          720.5110444419097
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "label",
+            "point": [
+              500.0,
+              385.49999999999994
+            ],
+            "text": "M3 joint: nominal hardware"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    }
+  ],
+  "inspection_sheet": {
+    "ok": true,
+    "path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/renders/framework/inspections_inspections/sheet.png",
+    "svg_path": "/home/hevar/git/vibe-modelling-3d/model/circular_vent_enclosure/renders/framework/inspections_inspections/sheet.svg",
+    "names": [
+      "overview",
+      "joint-cutaway",
+      "joint-section"
+    ]
+  }
+}

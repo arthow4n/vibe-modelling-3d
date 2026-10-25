@@ -73,10 +73,16 @@ def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
     managed=request['cad']
     output_paths=[item['path'] for item in managed['exports']]
     output_paths += [str(Path(managed['output_dir'])/f"{Path(request['source']).stem}_{view}.png") for view in managed['views']]
-    if request.get('reuse'):output_paths.append(str(data_root()/'geometry-ownership'/request['identity']))
+    inspection_folder = Path(managed['output_dir'])/(Path(request['source']).stem+'_inspections')
+    if managed.get('inspect') or managed.get('inspection_specs'):
+        # Names are discovered inside trusted model execution. Own this source's
+        # inspection directory through the same destination-lock mechanism.
+        output_paths.append(str(inspection_folder))
+    geometry_ownership = ([str(data_root()/'geometry-ownership'/request['identity'])]
+                          if request.get('reuse') else [])
     started=time.monotonic()
     staging=ROOT/'.execution';staging.mkdir(exist_ok=True)
-    with destinations(output_paths,cancelled,deadline),tempfile.TemporaryDirectory(prefix='engineering-cad-',dir=staging) as directory:
+    with destinations(geometry_ownership,cancelled,deadline),tempfile.TemporaryDirectory(prefix='engineering-cad-',dir=staging) as directory:
         original=copy.deepcopy(request);request=copy.deepcopy(request)
         request['environment']=child_environment(request['environment'])
         request['environment']['ENGINEERING_LEASE_THREADS']=str(request['threads'])
@@ -128,14 +134,40 @@ def run_cad(request,pool,cancelled,deadline,isolated=False,progress=None):
                     except psutil.Error:pass
                 resources=dict(peak_worker_rss_bytes=peak)
             if cancelled():raise InterruptedError('CAD request cancelled before publication')
-            if cad_identity(request['source'],request['dependencies'],request['environment'])!=request['identity']:
-                raise RuntimeError('CAD inputs changed during execution; managed artifacts were not published')
-            for item in [*report.get('exports',[]),*report.get('views',[])]:
+            inspection_outputs = [*report.get('inspections', [])]
+            if report.get('inspection_sheet'):
+                inspection_outputs.append(report['inspection_sheet'])
+            staged_folder = Path(directory)/(Path(request['source']).stem+'_inspections')
+            for item in inspection_outputs:
                 if item.get('ok'):
-                    staged=Path(item['path']);target=Path(remap[str(staged)]);target.parent.mkdir(parents=True,exist_ok=True)
-                    # Cross-device atomic publication uses the established writer.
-                    from evaluate_model import atomic_bytes
-                    atomic_bytes(target,staged.read_bytes());item['path']=str(target)
+                    for field in ('path', 'svg_path'):
+                        staged = Path(item[field])
+                        if staged.parent != staged_folder or staged.suffix not in ('.png', '.svg'):
+                            raise RuntimeError('Invalid managed inspection output path')
+                        remap[str(staged)] = str(inspection_folder/staged.name)
+            # Dynamic recipe names become known after execution. Acquire ALL
+            # actual publication destinations together, in canonical order,
+            # including ordinary outputs that might share these filenames.
+            # Staging needs no output ownership; geometry reuse remains owned
+            # throughout. Avoid late-lock cycles with other exports/views.
+            with destinations([*output_paths, *remap.values()], cancelled, deadline):
+                if cancelled():
+                    raise InterruptedError('CAD request cancelled waiting for publication')
+                if cad_identity(request['source'],request['dependencies'],request['environment'])!=request['identity']:
+                    raise RuntimeError('CAD inputs changed during execution; managed artifacts were not published')
+                for item in [*report.get('exports',[]),*report.get('views',[])]:
+                    if item.get('ok'):
+                        staged=Path(item['path']);target=Path(remap[str(staged)]);target.parent.mkdir(parents=True,exist_ok=True)
+                        from evaluate_model import atomic_bytes
+                        atomic_bytes(target,staged.read_bytes());item['path']=str(target)
+                for item in inspection_outputs:
+                    if not item.get('ok'):
+                        continue
+                    for field in ('path', 'svg_path'):
+                        staged=Path(item[field]); target=Path(remap[str(staged)])
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        from evaluate_model import atomic_bytes
+                        atomic_bytes(target, staged.read_bytes()); item[field]=str(target)
             if persistent and report.get('ok'):
                 pool.put(key,process,connection,jobs+1);connection=None
             from .telemetry import artifact_reuse_summary

@@ -91,6 +91,14 @@ On 2026-10-16, the user requested a sound-damping liner for the printed `M1` sli
 | **Final printable object** | **Printed — Rejected / Damaged** (2026-10-19 & 2026-10-20) | `dental_travel_case_liner.step` / `.stl` | Both inner and outer wall skins locally broken as printed; broke further during insertion into the old `M1` box. Wall and installation integrity not accepted; awaiting R2 support coupon results. |
 
 ### Digital Verification, Full Agent Logs & Receipts
+
+[Reusable L20 inspection recipes](inspections.py) provide installed and rim-detail
+cutaways through the [shared camera framework](../../cad_inspection/README.md).
+They use the current uniform rotary-case liner, separate from the
+damaged historical M1 liner and its physical results.
+[Inspection sheet](renders/framework/inspections_inspections/sheet.png) ·
+[Resolved view receipt](notes/camera_framework.json).
+
 - **Full Historical Agent & Engineering Log:** [`notes/development_record.md`](notes/development_record.md) (preserves the complete verbatim phase-by-phase engineering and print-feedback record; write detailed future agent logs here).
 - **Automated Checks:** `./execute.py model/dental_travel_case_liner/verification.py --variant slim-m1-s16` checks CAD fit, catch clearance, continuous `S16` skins, and corner air cores ([`notes/verification.json`](notes/verification.json), [`notes/inspection.json`](notes/inspection.json)).
 - **Slicer & Path Receipts:** OrcaSlicer 2.4.2 smoke slice (`0.2 mm` layers, `0` notices, estimated `80.50 g` / `21 h 58 m` at the old `4 mm³/s` cap; [`notes/final_review.json`](notes/final_review.json)) and 56-region toolpath review (`≥ 0.577 mm` skin separation, `≥ 2` rib tracks; [`notes/path_review.json`](notes/path_review.json), [`renders/path_review.png`](renders/path_review.png)). Historical `0.1 mm` draft receipt before the guard-ramp fix is preserved in [`notes/initial_0p1_review.json`](notes/initial_0p1_review.json).

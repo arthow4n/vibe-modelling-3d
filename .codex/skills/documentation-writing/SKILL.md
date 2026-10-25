@@ -51,6 +51,9 @@ When explaining why the current design is the way it is:
 - **Lead with the practical consequence:** State the previous problem, what changed, why it was chosen, and what it means in practice.
 - **Pair numbers with everyday intuition:** When citing a consequential force, deflection, or dimension (e.g. a `12.6 N` side load or `0.6 mm` catch), pair it with a familiar physical interpretation (e.g. "about 1.3 kgf—roughly the weight of a full 1.25 L bottle pressing sideways on one catch") while keeping the limit clear (static push vs. drop impact).
 - **Use visuals at the decision point:** Link or embed annotated SVGs/renders where geometry, contact, or toolpaths are hard to picture in prose. Distinguish completed digital checks, physical print results, and unprinted proposals. Define every diagram colour as a physical part, material, or empty region, and state when role colours represent the same actual material. For nested/compliant structures, pair an assembly section with labelled before/load views showing what flexes into which space; do not rely on colour alone to convey the mechanism.
+  Reuse [named CAD inspections](../../../cad_inspection/README.md) for repeatable
+  actual-geometry sections/details and model-space labels; retain useful existing
+  explanatory drawings and distinguish display overlays from measured evidence.
 - **Use short tables for comparable options:** Use tables for comparing variants, dimensions, or print settings; use clear paragraphs and subheadings for explanations.
 
 ## Organize by reading depth (Where agent logs live)

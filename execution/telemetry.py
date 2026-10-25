@@ -36,7 +36,7 @@ def artifact_reuse_summary(report):
     geometry = report.get('reuse', {}).get('geometry')
     if isinstance(geometry, bool):
         summary['geometry'] = 'reused' if geometry else 'fresh'
-    for field in ('exports', 'views'):
+    for field in ('exports', 'views', 'inspections'):
         rows = [r for r in report.get(field, []) if isinstance(r, dict)
                 and r.get('ok') and isinstance(r.get('reused'), bool)]
         if rows:

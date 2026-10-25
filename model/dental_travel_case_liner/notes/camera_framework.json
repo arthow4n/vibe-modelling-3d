@@ -1,0 +1,370 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case_liner/inspections.py",
+  "errors": [],
+  "views": [],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0013460829941323027,
+    "build": 104.98043715899985,
+    "selection": 0.0011240789972362109,
+    "validation": 22.718795700995543,
+    "inspections": 108.01258845599659,
+    "worker": 235.78436076400249,
+    "total": 235.94997299100214
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "741946553fe630a5c6127fde833141a1da767ddcc34841028d90dd6de949f388"
+  },
+  "available_inspections": [
+    "installed",
+    "rim-detail"
+  ],
+  "inspections": [
+    {
+      "name": "installed",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case_liner/renders/framework/inspections_inspections/installed.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case_liner/renders/framework/inspections_inspections/installed.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              1.0,
+              1.0,
+              0.7
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": null,
+            "margin_mm": 2
+          },
+          "section": {
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "mode": "cutaway",
+            "keep": "negative"
+          },
+          "components": [],
+          "colors": [
+            [
+              "rigid_body",
+              "#555555"
+            ],
+            [
+              "rigid_cap",
+              "#555555"
+            ],
+            [
+              "liner_body",
+              "#1769a6"
+            ],
+            [
+              "liner_cap",
+              "#ce741c"
+            ]
+          ],
+          "annotations": [],
+          "show_hidden": false
+        },
+        "purpose": "Inspect installed rigid walls and TPU liners; the section is display-only and does not establish compressibility or fit.",
+        "title": "L20 liner \u2014 installed section",
+        "question_ids": [],
+        "configuration": {
+          "name": "installed-uniform-L20",
+          "kind": "operating",
+          "parameters": {}
+        },
+        "subject_sha256": {
+          "rigid_body": "ca3735158f0af65af64ce78018f1911f29774dca602b70d4cd810074c1d286a2",
+          "liner_body": "76dd5271f949d75e638c5cea7abd7fb44a9350592aedaae0622becdcff2ff561",
+          "rigid_cap": "44f499786f2080d55ead6488738f19385b461539df88a99d3ebbf56ca8324290",
+          "liner_cap": "7c9ae21fd3ad9b6f23152a0fa859cc0b4041aeb75885450f582949c9780d259a"
+        },
+        "component_locations": {
+          "rigid_body": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "liner_body": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "rigid_cap": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "liner_cap": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 1000,
+        "height": 750,
+        "projected_frame_mm": [
+          -44.98168475605643,
+          -13.107269320299437,
+          28.79934710697016,
+          256.6499475033271
+        ],
+        "pixels_per_mm": 2.3465544590559366,
+        "translation_px": [
+          518.986368284206,
+          671.2430787304042
+        ],
+        "annotation_pixels": [],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    },
+    {
+      "name": "rim-detail",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case_liner/renders/framework/inspections_inspections/rim-detail.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case_liner/renders/framework/inspections_inspections/rim-detail.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              1.0,
+              1.0,
+              0.7
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": {
+              "minimum": [
+                -42.5,
+                -27.5,
+                191.5
+              ],
+              "maximum": [
+                42.5,
+                27.5,
+                216.5
+              ],
+              "component": null
+            },
+            "margin_mm": 2
+          },
+          "section": {
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "mode": "cutaway",
+            "keep": "negative"
+          },
+          "components": [],
+          "colors": [
+            [
+              "rigid_body",
+              "#555555"
+            ],
+            [
+              "rigid_cap",
+              "#555555"
+            ],
+            [
+              "liner_body",
+              "#1769a6"
+            ],
+            [
+              "liner_cap",
+              "#ce741c"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "label",
+              "point": [
+                0.0,
+                0.0,
+                204.0
+              ],
+              "text": "Liner rim transition",
+              "offset_px": [
+                35,
+                -30
+              ],
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Inspect installed rigid walls and TPU liners; the section is display-only and does not establish compressibility or fit.",
+        "title": "L20 liner \u2014 rim detail",
+        "question_ids": [],
+        "configuration": {
+          "name": "installed-uniform-L20",
+          "kind": "operating",
+          "parameters": {}
+        },
+        "subject_sha256": {
+          "rigid_body": "ca3735158f0af65af64ce78018f1911f29774dca602b70d4cd810074c1d286a2",
+          "liner_body": "76dd5271f949d75e638c5cea7abd7fb44a9350592aedaae0622becdcff2ff561",
+          "rigid_cap": "44f499786f2080d55ead6488738f19385b461539df88a99d3ebbf56ca8324290",
+          "liner_cap": "7c9ae21fd3ad9b6f23152a0fa859cc0b4041aeb75885450f582949c9780d259a"
+        },
+        "component_locations": {
+          "rigid_body": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "liner_body": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "rigid_cap": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "liner_cap": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 1000,
+        "height": 750,
+        "projected_frame_mm": [
+          -51.49747468305833,
+          147.66897879270576,
+          51.49747468305833,
+          217.98936460504245
+        ],
+        "pixels_per_mm": 9.001657096837903,
+        "translation_px": [
+          500.0,
+          2031.2655109321656
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "label",
+            "point": [
+              500.0,
+              385.5
+            ],
+            "text": "Liner rim transition"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    }
+  ],
+  "inspection_sheet": {
+    "ok": true,
+    "path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case_liner/renders/framework/inspections_inspections/sheet.png",
+    "svg_path": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case_liner/renders/framework/inspections_inspections/sheet.svg",
+    "names": [
+      "installed",
+      "rim-detail"
+    ]
+  }
+}

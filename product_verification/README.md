@@ -177,6 +177,13 @@ Physical-question consumers should retain their existing `read_evidence()` /
 `QuestionStudy` identity/quality/acceptance contracts; solver completion is not a
 product or material PASS. No new physical-analysis API is introduced here.
 
+[CAD inspections](../cad_inspection/README.md#compose-with-engineering-evidence)
+can illustrate these assembly/pair/motion questions. Checked adapters return a
+native `.answer` accepted by `engineering_evidence()` and a separate display
+recipe; `Evidence.reference` can link an inspection image/receipt. View question
+IDs are descriptive links, never automatic coverage/PASS. Keep checking independent
+of rendering; sections apply only to display copies. CLI semantics are unchanged.
+
 ## Records and provenance
 
 - `UserRequirement`: user instruction or acceptance, with `UserSource(reference,

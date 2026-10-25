@@ -284,7 +284,10 @@ mating geometry cannot be named, resolve the architecture before simulating that
 function. Bounding-envelope fit or generic absence of collision is insufficient.
 
 For joints, catches and comparable mechanisms, provide a cross-section SVG that
-explains the engagement, guide, seat and intended release motion. Prefer sections
+explains the engagement, guide, seat and intended release motion. Use the
+[inspection framework](../../../../cad_inspection/README.md) for reusable actual-CAD
+sections, feature close-ups and current pair/motion diagnostics; preserve useful
+object-owned explanatory layouts. Prefer sections
 from the actual CAD once available; label different section planes, omitted parts
 and schematic force arrows. Show the mechanical consequence of a proposed change:
 overlay the motion at a common scale, relate movement to the actual capture/gap,

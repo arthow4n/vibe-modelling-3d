@@ -31,6 +31,7 @@ if __name__=='__main__':
 from execution.telemetry import operation, span, child_environment
 from execution.process import run as run_command
 
+# Kept lightweight until a CAD worker imports the rendering package.
 VIEWS = {
     "isometric": (1, -1, 1), "isometric_back": (-1, 1, 1),
     "front": (0, -1, 0), "back": (0, 1, 0),
@@ -124,15 +125,8 @@ def view_transform(view):
     screen axes implicitly. Project a render-only copy into an explicit frame
     and use getSVG's identity top projection instead of inheriting camera roll.
     """
-    import cadquery as cq
-    from OCP.gp import gp_Trsf
-    direction = cq.Vector(*VIEWS[view]).normalized()
-    right = cq.Vector(*view_up(view)).cross(direction).normalized()
-    up = direction.cross(right).normalized()
-    transform = gp_Trsf()
-    transform.SetValues(*[value for axis in (right, up, direction)
-                          for value in (*axis.toTuple(), 0)])
-    return cq.Matrix(transform)
+    from cad_inspection import Camera
+    return Camera.named(view).matrix()
 
 
 @operation("cad.render")
@@ -185,6 +179,8 @@ def evaluate_request(args, cache=None, progress=None):
             reused=cache is not None and cache.get("identity")==identity
             if reused:
                 shape=cache["shape"]
+                subject=cache['subject']
+                inspections=cache['inspections']
                 report["geometry"]=cache["geometry"].copy()
                 report["reuse"]={"geometry":True,"identity":identity,
                     "origin_build_seconds":cache["build_seconds"]}
@@ -195,7 +191,11 @@ def evaluate_request(args, cache=None, progress=None):
                 report["timings_seconds"]["build"] = time.monotonic() - before
                 before=time.monotonic()
                 with span("cad.selection"):
-                    shape = selected_shape(namespace.get("result") if namespace.get("result") is not None else outputs)
+                    subject = namespace.get("result") if namespace.get("result") is not None else outputs
+                    shape = selected_shape(subject)
+                    inspections = namespace.get('inspections')
+                    if not isinstance(subject, (cq.Shape, cq.Workplane, cq.Assembly)):
+                        subject = shape
                 report["timings_seconds"]["selection"]=time.monotonic()-before
                 before=time.monotonic()
                 report["geometry"] = geometry_data(shape)
@@ -203,7 +203,8 @@ def evaluate_request(args, cache=None, progress=None):
                 report["reuse"]={"geometry":False,"identity":identity}
                 if cache is not None and report["geometry"]["valid"]:
                     cache.clear()
-                    cache.update(identity=identity,shape=shape,geometry=report["geometry"].copy(),
+                    cache.update(identity=identity,shape=shape,subject=subject,inspections=inspections,
+                        inspection_results={},geometry=report["geometry"].copy(),
                         build_seconds=report["timings_seconds"]["build"])
             if not report["geometry"]["valid"]:
                 raise ValueError("Selected geometry is invalid; exports and views skipped")
@@ -247,7 +248,8 @@ def evaluate_request(args, cache=None, progress=None):
                 try:
                     before=time.monotonic()
                     key={"identity":artifact_identity,"view":view,"width":args["width"],"height":args["height"],
-                         "hidden":args["show_hidden"]}
+                         "hidden":args["show_hidden"],
+                         "camera_implementation":digest(REPO_ROOT/'cad_inspection/spec.py')}
                     data=artifacts.read(key) if not args.get('fresh') else None
                     reused_view=data is not None
                     if data is None:
@@ -261,6 +263,12 @@ def evaluate_request(args, cache=None, progress=None):
                 except Exception as exc:
                     report["views"].append({"view": view, "ok": False})
                     error("render", exc, view=view)
+            if args.get('inspect') or args.get('list_inspections') or args.get('inspection_specs'):
+                from cad_inspection.evaluation import evaluate as inspect_views
+                before = time.monotonic()
+                inspect_views(inspections, subject, args, report, artifacts,
+                              cache['inspection_results'] if cache is not None else {}, atomic_bytes, error)
+                report['timings_seconds']['inspections'] = time.monotonic()-before
         except Exception as exc:
             error("build", exc)
     os.chdir(previous_cwd);sys.path[:]=previous_path
@@ -625,7 +633,12 @@ def emit_report(report, args):
     if args.summary:
         output = {key: report[key] for key in
                   ("ok", "file_path", "geometry", "views", "exports", "errors",
+                   "inspections", "inspection_sheet", "available_inspections",
                    "timings_seconds", "versions", "diagnostics", "reuse") if key in report}
+        if 'inspections' in report:
+            output['inspections'] = [{key: row[key] for key in
+                ('name', 'ok', 'path', 'svg_path', 'reused', 'recipe_reused', 'evidence_reused', 'selected_sample') if key in row}
+                for row in report['inspections']]
         if "slice" in report:
             output["slice"] = {key: report["slice"][key] for key in
                                ("ok", "message", "review_required", "support_probe", "log_notices", "reused", "identity", "setup_selection")
@@ -655,6 +668,12 @@ def main(argv=None):
                         help="Rendered image height in pixels (1–4096)")
     parser.add_argument("--show-hidden", action="store_true",
                         help="Include hidden edges in rendered views")
+    parser.add_argument('--inspect', action='append', default=[], metavar='NAME',
+                        help='Run a named lazy inspection; repeat for several, or use all')
+    parser.add_argument('--list-inspections', action='store_true',
+                        help='List object inspection names without invoking their factories')
+    parser.add_argument('--view-spec', type=Path, action='append', default=[], metavar='JSON',
+                        help='Additional named inspection recipes on result geometry; see cad_inspection/README.md')
     parser.add_argument("--export", action="store_true",
                         help="Export matching STEP and STL beside the source, using its stem")
     parser.add_argument("--slice", action="store_true",
@@ -684,6 +703,33 @@ def main(argv=None):
     parser.add_argument("--summary", action="store_true",
                         help="With --report, print a compact stage summary instead of the complete report")
     args = parser.parse_args(argv)
+    if len(set(args.inspect)) != len(args.inspect) or ('all' in args.inspect and args.inspect != ['all']):
+        parser.error('--inspect requires distinct names, or all alone')
+    if args.list_inspections and args.inspect:
+        parser.error('--list-inspections cannot be combined with --inspect')
+    if (args.inspect or args.view_spec) and (args.width < 200 or args.height < 200):
+        parser.error('Inspection image dimensions must be at least 200 pixels')
+    inspection_specs = {}
+    inspection_spec_inputs = {}
+    for path in args.view_spec:
+        try:
+            import hashlib
+            contents = path.read_bytes()
+            specs = json.loads(contents)
+            if not isinstance(specs, dict) or not specs:
+                raise ValueError('Expected a nonempty name-to-recipe object')
+            for name, spec in specs.items():
+                if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]*', name) or name in ('sheet', 'all'):
+                    raise ValueError('Invalid or reserved inspection name')
+                if name in inspection_specs:
+                    raise ValueError(f'Duplicate inspection {name}')
+                if not isinstance(spec, dict) or set(spec)-{'purpose','title','view','question_ids'} or not spec.get('purpose') or 'view' not in spec:
+                    raise ValueError('Recipe requires purpose and view, with optional title/question_ids')
+                inspection_specs[name] = spec
+            args.dependency.append(path.resolve())
+            inspection_spec_inputs[path.resolve()] = hashlib.sha256(contents).hexdigest()
+        except (OSError, ValueError, TypeError) as exc:
+            parser.error(f'Invalid --view-spec: {exc}')
     profile_choices = (args.slice_printer, args.slice_process, args.slice_filament)
     if any(profile_choices) and not all(profile_choices):
         parser.error('Supply printer, process and filament profiles together; partial setups cannot inherit diagnostic settings')
@@ -696,7 +742,7 @@ def main(argv=None):
         args.report = args.report.resolve()
         if args.report.suffix.lower() != ".json":
             parser.error("--report must use a .json path")
-        protected = [args.file_path, args.slice_existing]
+        protected = [args.file_path, args.slice_existing, *args.view_spec]
         for key, default in DEFAULTS.items():
             value = getattr(args, f"slice_{key}") or default
             try:
@@ -708,6 +754,7 @@ def main(argv=None):
     if args.slice_existing and (args.file_path or args.slice or args.export):
         parser.error("--slice-existing takes an STL or 3MF instead of a CAD source or --slice/--export")
     if args.slice_existing and (args.views != "none"
+                                or args.inspect or args.list_inspections or args.view_spec
                                 or args.output_dir != "renders/scratch" or args.show_hidden
                                 or args.width != 800 or args.height != 600):
         parser.error("CAD view options cannot be used with --slice-existing")
@@ -766,12 +813,16 @@ def main(argv=None):
     request = {"file_path": str(source), "views": views, "output_dir": str(output_dir),
                "width": args.width, "height": args.height,
                "show_hidden": args.show_hidden, "exports": exports,"fresh":args.fresh}
+    request.update(inspect=args.inspect, list_inspections=args.list_inspections,
+                   inspection_specs=inspection_specs)
     from execution.identity import cad_identity, digest, runtime_identity
     from execution.cad import execute as execute_cad
     from execution.telemetry import child_environment, _active
     from execution.resources import thread_environment
     execution_environment=thread_environment(child_environment(),args.threads)
     identity=cad_identity(source,args.dependency,execution_environment)
+    if any(digest(path) != expected for path, expected in inspection_spec_inputs.items()):
+        parser.error('View spec changed while preparing the request; retry the current inputs')
     args._publication=(source,args.dependency,execution_environment,identity)
     request.update(identity=identity,run_id=_active.get(),runtime=runtime_identity())
     started = time.monotonic()

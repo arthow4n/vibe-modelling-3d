@@ -140,6 +140,13 @@ With a `0.4 mm` nozzle and 3 configured wall loops in OrcaSlicer, a `2 mm` wall 
 
 ## Navigation: Detailed Engineering Notes & History
 
+[Reusable historical C2 inspections](inspections.py) expose whole, seam and catch
+sections through the [shared camera framework](../../cad_inspection/README.md).
+They demonstrate repeatable views of the retained comparison geometry; they do
+not replace the current rotary design or its print status.
+[Inspection sheet](renders/framework/inspections_inspections/sheet.png) ·
+[Resolved view receipt](notes/camera_framework.json).
+
 All historical phases, negative results, and solver investigations are preserved in [`notes/`](notes/README.md):
 
 1. **Current Short-Lap Architecture and Exterior Exploration**

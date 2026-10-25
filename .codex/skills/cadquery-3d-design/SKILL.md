@@ -21,6 +21,17 @@ A visual review requirement does not imply a GUI requirement. Use a GUI only
 when the needed evidence cannot be obtained headlessly; do not open or manipulate
 the user's active desktop unless they explicitly request or authorize it.
 
+For hidden interfaces, local features or recurring visual questions, use
+[reusable CAD inspections](../../../cad_inspection/README.md): named lazy recipes,
+arbitrary upright cameras, framing, sections/cutaways and model-space annotations.
+Discover names with `--list-inspections`; run useful views with `--inspect`, then
+open successful images. Reuse the check's assembly configuration and derive anchors
+from current parameters. Pair/motion adapters illustrate native evidence without
+checking cutaway geometry. Prefer existing recipes or quick `--view-spec` over
+another cut/rotate/export script; keep repeated recipes and feature meaning with
+the object. Simple views need no assembly/verification ceremony. Rendering is
+not acceptance, and inspection references are never printable exports.
+
 ## Decide what to build next
 
 Establish the actual task, contents/held item, critical dimensions, normal

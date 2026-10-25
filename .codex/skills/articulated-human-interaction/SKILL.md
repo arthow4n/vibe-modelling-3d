@@ -70,6 +70,13 @@ CAD portions are conservatively boxed: holes/rounding are filled; this may rejec
 real free space. A single convex mesh hull can seal an opening. Include relevant
 setup obstacles and declare missing support hands/accessories.
 
+For repeatable CAD context and contact/approach close-ups, compose
+[CAD inspections](../../../cad_inspection/README.md) with the current product
+configuration. Reuse model-space labels/arrows and named cameras; keep anatomy
+conversion, metres-to-mm, transforms and proxy provenance object-owned. Label
+reference skin/collision proxies explicitly. Native simulator outline/field plots
+remain useful; this renderer supplies no anatomical or collision evidence.
+
 Target a **skin surface**, not just a nearby marker. The example uses the imported
 index ellipsoid's +local-Z pole and normal against the CAD rear button face;
 `IFtip_r` is retained as a descriptor, not presumed to be the contact skin. Allow

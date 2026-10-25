@@ -191,6 +191,13 @@ alongside nominal CAD passes; they predate the adverse sound trial and do not re
 acceptance. The final physical report above governs the discontinued status.
 `assembly.py`, `fastener_layout.py` and `joint_section.py` are inspection-only scenes with hardware; they are not printable deliverables.
 
+[Reusable inspection recipes](inspections.py) expose `overview`, `joint-cutaway`
+and `joint-section` through the [shared camera framework](../../cad_inspection/README.md).
+These illustrate retained geometry for tooling qualification; the vent project
+remains discontinued.
+[Inspection sheet](renders/framework/inspections_inspections/sheet.png) ·
+[Resolved view receipt](notes/camera_framework.json).
+
 Primary model: **GPT-6.1 Sol, Medium reasoning**, user-attributed. Harness: Codex
 shared-workspace coding agent; provider: OpenAI. No subagents. Earlier attribution
 and evidence remain in the development record and Git history.
