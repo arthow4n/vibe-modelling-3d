@@ -1,0 +1,61 @@
+# First compact coil experiment
+
+The user requests one short, real 3D helix in TPU, compressed directly after
+printing, with an eye at each end, finger-scale coil diameter and an emphasis on
+strong recoil and extension capacity. Hand separation is acceptable. A flat
+zigzag is explicitly rejected. A thickness comparison is a later phase.
+
+Selected geometry: 8 mm mean radius, 4 × 3.2 mm hexagonal section, 1.2 mm flat
+lands, 3.6 mm pitch and six turns; full revolved end rings share the profile.
+This avoids extra projecting eyes and keeps each attachment hole open. Ring-to-
+helix overlap intentionally consumes part of each terminal turn. No spacers,
+extra assembly or sacrificial tethers are included. There is no designed preload
+or initial tension: recoil comes from elastic deformation of the thick solid
+TPU section, and must be tested. Strong force is a user goal, not a measured
+property of this sample. Safe extension cannot be inferred from cord arc length.
+
+An initial top-ring union was invalid where a revolved periodic seam coincided
+with the helical endpoint. The coil, ring and bottom union were independently
+valid. Rotating only the circular upper ring's seam by 90 degrees made the final
+union valid without changing the intended ring geometry. This is local CAD
+construction evidence, not a new general design restriction.
+
+The final evaluator report owns source/export/slice identity and effective
+settings. Isometric and front images were opened: true helix, closed end rings,
+open bore, and compact proportions match the requested architecture. The final
+paired exports use the evaluator's absolute STL tessellation and identical
+upright placement. Orca 2.4.2 accepted the centered plate, gave no filtered
+notices, and generated no support in its automatic-support probe.
+
+The trial process derives from the existing solid TPU profile, with three walls
+and supports/brim/ironing explicitly off. TPU filament and Q2C printer profiles
+are shared existing sources; exact paths and effective settings are in the
+native report. No hardware, load, printed material modulus, strength, extension,
+release allowance or fatigue behavior is calibrated.
+
+Targeted CAD checks sample material at the helical centerline and empty gaps
+halfway between successive turns at six angles on each of three middle turns.
+Material controls ensure that an absent/misplaced coil cannot pass the void
+witnesses. Bore-center witnesses cover both eyes. These samples do not prove
+continuous printed clearance. Actual primary layers at Z0.2, Z5.4 and Z22.0 mm
+are plotted to inspect initial contact, a middle-turn underside and the upper
+ring approach. Blue means deposited TPU; orange would mean a Bridge-labelled
+path; whitespace is unfilled area. Toolpath roles and witnesses are retained
+in `targeted_checks.json`; source reproduction is `inspect_sample.py` with the
+native report's retained Orca run directory. This diagnostic deliberately
+rejects absolute-E or relative-XYZ commands after the first layer marker rather than silently misreading it.
+
+Finish line for this phase: one valid, exported, visually reviewed compact
+helix with both attachment eyes, a TPU smoke slice and clear physical-test
+instructions. Printability, hand release and recovery cannot be digitally
+proved here. The next decision depends on the physical trial, not additional
+simulation or speculative thickness variants. Review at handoff found no
+new transferable printed-material lesson or shared-tool change justified.
+
+The selected-layer image was opened after generation. It shows a closed annular
+first layer, a C-shaped helical section with several ordinary paths at Z5.4,
+and an annular upper-ring approach at Z22.0. Primary extrusion roles include
+Overhang wall but no Bridge role. All 18 paired material/clearance witnesses
+passed. An initial parser guard rejected G91 commands in the printer's startup
+purge routine; the diagnostic now begins at the first layer marker, after the
+startup returns to G90/M83. The generated result is from that corrected reader.

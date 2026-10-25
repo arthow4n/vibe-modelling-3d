@@ -1,0 +1,126 @@
+{
+  "scope": "Sampled CAD material/void witnesses and selected extrusion layers; not physical gap or strength qualification.",
+  "witnesses": [
+    {
+      "turn": 1,
+      "degrees": 30,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 150,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 210,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 1,
+      "degrees": 330,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 30,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 150,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 210,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 330,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 30,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 150,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 210,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 3,
+      "degrees": 330,
+      "material": true,
+      "gap_clear": true
+    }
+  ],
+  "extrusion_roles": {
+    "Outer wall": 16522,
+    "Gap infill": 6809,
+    "Inner wall": 25779,
+    "Internal solid infill": 11925,
+    "Top surface": 404,
+    "Overhang wall": 1177
+  },
+  "selected_layers_mm": [
+    0.2,
+    5.4,
+    22.0
+  ]
+}

@@ -134,6 +134,13 @@ Standalone mechanical study comparing an upright catch (`A`) vs. a flat lower-tr
 
 ### 3. Unprinted Prototypes & Calibration Objects
 
+#### TPU coil cord — [first print experiment](model/tpu_coil_cord/README.md)
+Compact upright 3D telephone-cord helix, 20 mm outside diameter, with closed hook rings at both ends.
+- **Action / Print:** One TPU 95A trial: [STEP](model/tpu_coil_cord/tpu_coil_cord.step) ([STL](model/tpu_coil_cord/tpu_coil_cord.stl)); 0.4 mm nozzle, 0.2 mm layers, solid fill, supports off.
+- **Test pieces:** Unknown — CAD and TPU smoke slice pass; turn separation and strong recoil await a physical print.
+- **Final object:** N/A — first sample only; thickness comparison deferred.
+- **Provenance:** [Attribution](model/tpu_coil_cord/README.md#attribution-and-reproduction)
+
 #### Physical-analysis phone stand (V3) — [`model/analysis_phone_stand/`](model/analysis_phone_stand/README.md)
 Compact `105 × 140 mm` fully printed pedestal phone stand with a concealed three-angle (`45°`/`60°`/`75°`) spring-latch lock.
 - **Action / Print:** Unprinted prototype — [`phone_stand_v3.step`](model/analysis_phone_stand/phone_stand_v3.step) ([`.stl`](model/analysis_phone_stand/phone_stand_v3.stl)) + optional TPU feet [`phone_stand_v3_feet.step`](model/analysis_phone_stand/phone_stand_v3_feet.step) ([`.stl`](model/analysis_phone_stand/phone_stand_v3_feet.stl)). Ignore rejected `V1`/`V2`.
