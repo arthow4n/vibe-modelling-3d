@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r4_four_flats.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r4_four_flats_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "right",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r4_four_flats_right.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          0,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.001939650988788344,
+    "build": 4.899855678988388,
+    "selection": 0.0008112850046018139,
+    "validation": 0.2846584360086126,
+    "render_isometric": 12.732078391010873,
+    "render_right": 277.55508881899004,
+    "worker": 295.6293145469972,
+    "total": 299.04576573001395
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "6d6b6cf71b434fc4f9d30f84d0635760dff36a292abfc3b9afd50123fbca84e8",
+    "artifact_identity": "4574d8f31c21bd80a67f3b386bf6347cb2b10cb21cbcada468b3ebe32dd1c050"
+  }
+}

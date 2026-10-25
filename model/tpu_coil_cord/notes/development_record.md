@@ -116,3 +116,30 @@ construction corrections, exact user criteria and final scoped evidence. CAD,
 paired exports and the supports-off slice completed; the support probe proposes
 support inside the round bore, so sag/release remain physical trial questions.
 R3 has no physical print report. R1 and R2 sources and exports remain unchanged.
+
+
+## R3 failed partial print and R4 authorization
+
+The user canceled R3 mid-print: adjacent spiral lines were merging and the print
+lifted from the bed. The user names Cura 3D and attributes insufficient adhesion
+to that setup, but actual temperatures, brim, bed surface, speed, exact printed
+hash and root cause are unknown. Record Partial / failed rather than complete
+print success; no recoil or maximum-extension result is available.
+
+R4 is authorized to increase the turn spacing a little and change the shape to
+provide more bed contact. Perfect circularity is explicitly relaxed. The user
+requires symmetry in at least two axes, preferably more. Interpret this as the
+outer transverse profile: four identical flats give two mirror axes plus four
+quarter-turn-equivalent resting sides. A chiral helix itself is not mirror
+symmetric. Retain about 7 cm length, about 15 mm size, thinner cord, horizontal
+placement and integral ends. Existing R3 geometry/evidence remain historical.
+
+
+R4 delivers nineteen turns with 0.40 mm axial spacing, 71.6 mm overall length,
+and four identical 0.5 mm outer trims. The 15 mm maximum envelope becomes 14 mm
+across flats. Native contact checks give about 10 mm² per sampled middle foot
+and 200.8 mm² total bed-plane contact; native gap is about 0.398 mm. The
+[R4 decisions](r4_decisions.md) retain exact evidence and print limitations.
+The supports-off reference slice completed, with bore supports still proposed
+by the automatic probe. There is no physical R4 result. R3 remains Partial /
+failed, with its original source, exports and reports preserved.

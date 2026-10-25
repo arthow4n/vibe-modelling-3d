@@ -1,0 +1,214 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r4_four_flats.py",
+  "errors": [],
+  "views": [],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0018255640025017783,
+    "build": 4.7074807720055105,
+    "selection": 0.0011989189952146262,
+    "validation": 0.27759283999330364,
+    "inspections": 4.127937671000836,
+    "worker": 9.24023707199376,
+    "total": 9.447772585001076
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "d6ec2529c9b6bd90cb5612d78a727a0cefad13ef695f8be675e860976b0876fb"
+  },
+  "available_inspections": [
+    "end-profile",
+    "terminal-turns"
+  ],
+  "inspections": [
+    {
+      "name": "end-profile",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/inspection/coil_r4_four_flats_inspections/end-profile.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/inspection/coil_r4_four_flats_inspections/end-profile.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": null,
+            "margin_mm": 2
+          },
+          "section": {
+            "origin": [
+              1.6,
+              0.0,
+              7.0
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mode": "planar",
+            "keep": "positive"
+          },
+          "components": [],
+          "colors": [],
+          "annotations": [],
+          "show_hidden": false
+        },
+        "purpose": "Inspect the four symmetric outer flats and the retained terminal-loop bore.",
+        "title": "R4 terminal cross-section: four identical flats",
+        "question_ids": [],
+        "configuration": null,
+        "subject_sha256": {
+          "subject": "593afbc8d9f06b928c7e21f896535b53bb02ee9168de220ba604a3d6fa256af9"
+        },
+        "component_locations": {
+          "subject": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 800,
+        "height": 600,
+        "projected_frame_mm": [
+          -9.0,
+          -2.0,
+          9.0,
+          16.0
+        ],
+        "pixels_per_mm": 26.833333333333332,
+        "translation_px": [
+          400.0,
+          498.3333333333333
+        ],
+        "annotation_pixels": [],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    },
+    {
+      "name": "terminal-turns",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/inspection/coil_r4_four_flats_inspections/terminal-turns.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/inspection/coil_r4_four_flats_inspections/terminal-turns.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              1.0,
+              -1.0,
+              1.0
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": null,
+            "margin_mm": 2
+          },
+          "section": {
+            "origin": [
+              12.4,
+              0.0,
+              7.0
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mode": "cutaway",
+            "keep": "negative"
+          },
+          "components": [],
+          "colors": [],
+          "annotations": [],
+          "show_hidden": false
+        },
+        "purpose": "Inspect the terminal loop, wider spacing and planar lower faces over several turns.",
+        "title": "R4 terminal and first turns; display section only",
+        "question_ids": [],
+        "configuration": null,
+        "subject_sha256": {
+          "subject": "593afbc8d9f06b928c7e21f896535b53bb02ee9168de220ba604a3d6fa256af9"
+        },
+        "component_locations": {
+          "subject": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 800,
+        "height": 600,
+        "projected_frame_mm": [
+          -6.639960551644015,
+          -8.173595191201684,
+          15.717871667394204,
+          14.048217383886037
+        ],
+        "pixels_per_mm": 21.73540067300713,
+        "translation_px": [
+          301.3439823126122,
+          374.34363358026707
+        ],
+        "annotation_pixels": [],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    }
+  ],
+  "inspection_sheet": {
+    "ok": true,
+    "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/inspection/coil_r4_four_flats_inspections/sheet.png",
+    "svg_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/inspection/coil_r4_four_flats_inspections/sheet.svg",
+    "names": [
+      "end-profile",
+      "terminal-turns"
+    ]
+  }
+}

@@ -1,103 +1,116 @@
-# TPU coil cord — round horizontal R3, about 7 cm
+# TPU coil cord — R4 with wider gaps and four flat sides
 
-**Next trial: R3** — a round, tightly packed 3D helix with closed terminal turns
-merged into the winding, printed horizontally. R1 felt better in use than R2;
-R2's thickness, outboard frames and house-shaped outline are superseded.
+**Next trial: R4.** This revision addresses R3's merging turns and mid-print
+lifting with more turn clearance and broad bed-contact faces. Four identical
+flats give the outer cross-section equal top, bottom, left and right sides.
+The terminal loops remain integrated into the winding.
 
-Print [R3 STEP](coil_r3_round.step) or [STL](coil_r3_round.stl), horizontal as
-supplied. [Python source](coil_r3_round.py) owns the geometry. Keep the existing
-R1 as a comparison; do not repeat R2 for this follow-up.
+Print [R4 STEP](coil_r4_four_flats.step) or [STL](coil_r4_four_flats.stl),
+horizontally as supplied. [Python source](coil_r4_four_flats.py) owns the geometry.
+**Do not repeat R3 unchanged:** its print was canceled after fusion and lifting.
+Keep R1 as the preferred earlier physical control; R2 is also superseded.
 
-| Item | R3 |
+| Item | R4 trial |
 | --- | --- |
-| Compressed overall length | 70.2 mm nominal |
-| Round coil outside / bore diameter | 15.0 / 8.6 mm nominal |
-| Cord / turns / axial gap | 3.2 mm round cord / 20 turns / 0.15 mm |
+| Compressed length | 71.6 mm nominal, approximately 7 cm |
+| Maximum envelope / across flats | 15 mm / 14 × 14 mm |
+| Cord / turns / axial gap | 3.2 mm before trimming / 19 turns / 0.40 mm |
+| Four flats | 0.5 mm trimmed equally from each outer side |
 | Material / nozzle / layers | Same TPU if available / 0.4 mm / 0.20 mm |
-| Walls / fill | Classic, solid: 3 walls + 100% fill, or the high-wall-count approach |
+| Walls / fill | Classic; solid material: 3 walls + 100% fill or the high-wall-count approach |
 | Supports / brim / ironing | Off / off / off for this trial |
 | Bridge direction | Automatic; [existing horizontal TPU profile](profiles/r2-horizontal-process.json) |
-| Orientation | Axis along X, round underside on bed; do not stand it upright |
+| Placement | Horizontal axis X, one broad flat facing the bed, as supplied |
 
-![R3 round horizontal coil](renders/print/coil_r3_round_isometric.png)
+![R4 complete spring with four flat sides](renders/print/coil_r4_four_flats_isometric.png)
 
-## Shape and test
+[End-profile and terminal detail](renders/inspection/coil_r4_four_flats_inspections/sheet.png)
 
-R3 restores the round winding and integral terminal loops preferred on R1.
-The same 15 mm circular envelope continues around the spring axis, including
-the terminal loops. There are no outboard eye frames, tabs or asymmetric feet.
-Hook through the closed terminal turns and keep their intentional joins intact.
+## What changed
 
-The 3.2 mm circular cord has 8.04 mm² nominal material area, close to R1's
-8.32 mm² faceted section and well below R2's 21.24 mm² round section. A round
-cord also avoids the narrow radial tip of R1's faceted section when laid on its
-side. Twenty turns provide the requested approximately 7 cm compressed sample;
-this longer winding is a different spring, so R1's feel or pull force does not
-transfer automatically.
+The gap grows from **0.15 mm to 0.40 mm**, a 0.25 mm increase, while nineteen
+turns keep the relaxed sample close to the requested 7 cm length. This is a new
+clearance experiment; R3's physical fusion overrides its earlier successful
+CAD gap and slice checks.
 
-The requested tight-gap experiment uses **0.15 mm**, versus R1's 0.4 mm and
-R2's 0.8 mm axial CAD gaps. That is deliberately aggressive, not a calibrated
-printed clearance. After cooling, check whether the middle turns are free or
-need light hand separation. If freeing them tears the cord, stop and report
-where. Do not separate the terminal-loop joins.
+Each turn and each terminal loop has four matching external flats. The rounded
+corners retain the 15 mm envelope; the flats are 14 mm apart. Every flat can
+serve as a resting side. These are part of the spring itself, without extra
+projecting feet or rings. The inner bore remains nominally 8.6 mm. The outer
+trim reduces local radial cord thickness to about 2.7 mm at the center of each
+flat, so feel and durability must be tested again.
 
-Pull gently through the terminal loops and note surface cleanup, preferred feel,
-recovery and permanent set. If comparing samples, use the same extra end-to-end
-extension and similar pull/release speed. No safe maximum extension or load has
-been established. The present goal is the requested form, preferred feel and compact spacing.
+The larger plane against the plate is the geometry change for adhesion. Actual
+adhesion also depends on the printing process; the user named Cura 3D for R3,
+but the precise settings, bed surface and root cause of lifting are unknown.
+The reference Orca check below is not a reconstruction of that Cura print.
+
+## Print and compare
+
+Keep the supplied flat-down placement and your appropriate TPU material settings.
+A brim is omitted to avoid joining separate turns at the bed. The spring still
+has curved inner roofs; the selected support-free trial needs a roof-quality
+check as well as an adhesion check.
+
+After cooling, inspect whether the turn gaps stayed open and whether the long
+print stayed attached. Free middle turns gently if needed; keep the intentional
+terminal-loop joins intact. If freeing tears the cord, stop and report where.
+Only then pull gently through the ends and compare feel/recovery with R1. No
+safe load, maximum extension or lifetime is qualified.
 
 ## Evidence and print status
 
-The [native CAD/export/slice report](notes/r3_cad_slice_review.json) records
-valid CadQuery 2.8.0 geometry, matched horizontal STEP/STL exports, and a
-completed OrcaSlicer 2.4.2 TPU slice with supports off and no reported notices.
-The selected Q2C setup uses 0.2 mm layers, three walls, solid rectilinear fill,
-230 °C nozzle and 35 °C bed reference temperatures. Those temperatures are not
-spool calibration. The planned 70.2 × 15 × 15 mm envelope fits its 270 × 270 ×
-256 mm build area; the slicer accepted the centered layout.
+The [native CAD/export/slice report](notes/r4_cad_slice_review.json) records
+valid CadQuery 2.8.0 geometry, paired STEP/STL in the same flat-down placement,
+and a completed OrcaSlicer 2.4.2 supports-off TPU slice with no reported notices.
+The centered layout fits the selected 270 × 270 × 256 mm Q2C profile. Effective
+settings include 0.2 mm layers, three walls and 100% rectilinear material fill;
+230 °C nozzle and 35 °C bed are reference values, not spool calibration.
 
-[Targeted CAD checks](notes/r3_targeted_checks.json) passed 24 material/gap
-witness pairs. Two local native surface measurements gave about **0.1494 mm**
-clearance, above the 0.10 mm geometric screen. A single connected native solid
-contains material in both terminal turns and the middle, and both end bores
-remain open. The [render](renders/print/coil_r3_round_isometric.png) and
-[actual path review](notes/r3_actual_paths.png) were opened and inspected.
-First-layer contacts are retained; bridge paths at Z12.2 mm close the end-loop
-roofs over existing side paths. The longest bridge-labelled deposition segment
-is 2.14 mm including anchors, not a measured unsupported span.
+[Targeted checks](notes/r4_targeted_checks.json) measured **200.8 mm² total native
+planar bed contact**, with approximately **10.0 mm² per sampled middle foot**,
+above the 5 mm² geometric trial screen. All four flat sides are present. A native
+adjacent-turn witness measured **0.3981 mm clearance**, above the 0.30 mm screen;
+24 material/gap pairs passed. Terminal bores are open and both end loops connect
+to the middle winding.
 
-**This remains a support-free print experiment.** The automatic probe proposes
-support and interface through the bore up to Z11.8 mm, rather than only at the
-feet. That review flag remains in the native report. Filling the long bore and
-tight turn gaps with TPU support would make removal difficult, so the selected
-trial keeps supports off and preserves the requested round geometry. Roof sag,
-bed adhesion and turn fusion remain real physical risks; neither slice completion
-nor the geometric gap check proves clean printing. Recoil, strength, fatigue
-and creep remain physical questions. An STL slice does not qualify GUI STEP
-import.
+The complete isometric view, end view and [focused section inspection](notes/r4_inspection_review.json)
+were opened and reviewed: four matching flats, an open bore and integral terminal
+joins are retained. The section preview is display-only; printable files contain
+the complete spring.
 
-| Item | Print status | Artifact(s) | Result or remaining physical checks |
+The [actual path comparison](notes/r4_actual_paths.png) shows R3 and R4 reference
+first layers, the R4 support probe and the end-roof bridge layer at Z11.8 mm.
+Blue is ordinary TPU extrusion, orange is bridge/probe support, and gray is the
+previous roof layer. These are reference Orca paths, not the user's Cura G-code.
+The automatic probe still proposes support/interface in the bore up to Z11.2 mm.
+That review flag is retained; the selected trial keeps supports off to avoid
+trapped TPU removal. Increased planar contact is a geometry result, not measured
+bed adhesion. TPU spread can still close gaps; roof sag, layer bonding, recovery,
+creep and fatigue require the actual print. A headless STL slice does not
+qualify GUI STEP import or the user's Cura configuration.
+
+| Item | Print status | Artifact(s) | User result or remaining checks |
 | --- | --- | --- | --- |
-| Test piece R1 | Yes | `tpu_coil_cord.step`, `.stl` | Works reasonably well; rough turn separation, weak recoil; practically solid via high wall count |
-| Test piece R2 | Yes | `coil_r2_horizontal.step`, `.stl` | User prefers R1; too thick in feel, extra end frames and non-round outline unwanted. Exact settings and comparative force/cleanup unknown |
-| Test piece R3 | Unknown | `coil_r3_round.step`, `.stl` | Tight-gap release, horizontal round-coil print quality and preferred feel await printing |
-| Final printable object(s) | N/A | None | Samples only |
+| Test piece R1 | Yes | `tpu_coil_cord.step`, `tpu_coil_cord.stl` | Works reasonably well; rough separation and weak recoil; practically solid via high wall count |
+| Test piece R2 | Yes | `coil_r2_horizontal.step`, `coil_r2_horizontal.stl` | R1 preferred; thickness, outboard frames and house-shaped outline rejected |
+| Test piece R3 | Partial | `coil_r3_round.step`, `coil_r3_round.stl` | Failed trial: user canceled after turns merged and the print lifted; precise settings and lift cause unknown |
+| Test piece R4 | Unknown | `coil_r4_four_flats.step`, `coil_r4_four_flats.stl` | Adhesion, separated turns, roof quality and feel need the next physical print |
+| Final printable object(s) | N/A | None | Experimental samples only |
 
-R2's user-reported print is not a quantified strength/recovery result. The
-[historical R1 record](notes/r1_baseline.md), [historical R2 record](notes/r2_baseline.md)
-and [development record](notes/development_record.md) preserve observations,
-original settings and engineering evidence. Prior sources and exports remain
-unchanged; they are historical controls, not the current next print.
+The [R4 decision record](notes/r4_decisions.md) holds engineering detail. Earlier
+[R1](notes/r1_baseline.md), [R2](notes/r2_baseline.md), [failed R3](notes/r3_baseline.md)
+and [development records](notes/development_record.md) preserve valid history.
+Their model sources, exports and native evidence remain unchanged.
 
 ## Attribution and reproduction
 
-Primary model: **GPT 6.1**, reasoning **F4 Medium**, explicitly supplied by the
-user; runtime identity/effort are not independently exposed. Codex CLI, OpenAI.
-Historical attribution is preserved. No other material contributors.
+Primary model: **GPT 6.1**, reasoning **F4 Medium**, as explicitly supplied by
+the user; runtime identity/effort are not independently exposed. Codex CLI,
+OpenAI. Historical attribution is preserved. No other material contributors.
 
-R3 reuses the existing Q2C printer, solid TPU automatic-bridge process and TPU
-95A reference filament profiles. These are not recovered physical-print settings.
-The native report owns their exact identities. [Profile attribution and AGPL-3.0
+R4 reuses the Q2C printer, solid TPU automatic-bridge process and TPU 95A
+reference filament profiles. These are not recovered physical-print settings.
+The native report owns exact identities. [Profile attribution and AGPL-3.0
 licensing](profiles/ATTRIBUTION.md) remain; CAD and notes use the repository's
-normal licence. The [R3 decision record](notes/r3_decisions.md) retains the
-construction history, user directives and scoped checks.
+normal licence.

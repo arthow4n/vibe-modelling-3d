@@ -87,10 +87,10 @@ Modular 5-card display bases and 15-card compact archival box sharing a clear PE
 
 ### 2. Active Prototypes, Print Trials & Partial Results
 
-#### TPU coil cord — [round horizontal R3 trial](model/tpu_coil_cord/README.md)
-Tight round 3D helix, 70.2 mm compressed length × 15 mm outside diameter, with integral terminal loops and 0.15 mm nominal turn gaps.
-- **Action / Print:** Next trial: [R3 STEP](model/tpu_coil_cord/coil_r3_round.step) ([STL](model/tpu_coil_cord/coil_r3_round.stl)); horizontal as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid material. Keep R1 as control; do not repeat superseded R2.
-- **Test pieces:** R1 Yes — works reasonably well. R2 Yes — user prefers R1; thickness, outboard frames and non-round outline rejected. R3 Unknown — print quality and release await physical testing.
+#### TPU coil cord — [R4 wider gaps and four flats](model/tpu_coil_cord/README.md)
+Horizontal 3D spring trial, 71.6 mm long, with 0.40 mm turn gaps and four symmetric outer flats for larger bed contact.
+- **Action / Print:** Next trial: [R4 STEP](model/tpu_coil_cord/coil_r4_four_flats.step) ([STL](model/tpu_coil_cord/coil_r4_four_flats.stl)); flat-down as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid material. Do not repeat failed R3 unchanged.
+- **Test pieces:** R1 Yes — preferred earlier control. R2 Yes — thickness/shape rejected. R3 Partial / failed — canceled after fusion and lifting. R4 Unknown — increased CAD contact and clearance checked; adhesion and separation await printing.
 - **Final object:** N/A — samples only.
 - **Provenance:** [Attribution](model/tpu_coil_cord/README.md#attribution-and-reproduction)
 

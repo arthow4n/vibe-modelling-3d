@@ -1,0 +1,44 @@
+{
+  "end-profile": {
+    "purpose": "Inspect the four symmetric outer flats and the retained terminal-loop bore.",
+    "view": {
+      "camera": "right",
+      "section": {
+        "origin": [
+          1.6,
+          0,
+          7
+        ],
+        "normal": [
+          1,
+          0,
+          0
+        ],
+        "mode": "planar",
+        "keep": "positive"
+      }
+    },
+    "title": "R4 terminal cross-section: four identical flats"
+  },
+  "terminal-turns": {
+    "purpose": "Inspect the terminal loop, wider spacing and planar lower faces over several turns.",
+    "view": {
+      "camera": "isometric",
+      "section": {
+        "origin": [
+          12.4,
+          0,
+          7
+        ],
+        "normal": [
+          1,
+          0,
+          0
+        ],
+        "mode": "cutaway",
+        "keep": "negative"
+      }
+    },
+    "title": "R4 terminal and first turns; display section only"
+  }
+}

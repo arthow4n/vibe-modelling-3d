@@ -115,6 +115,7 @@ input; the view uses the source's `result`, preserving native assembly names:
 {
   "detail": {
     "purpose": "Inspect the inside wall at the seam",
+    "title": "Catch section",
     "view": {
       "camera": {"direction": [1, -2, 0.5], "up": [0, 0, 1]},
       "frame": {"region": {"minimum": [20, -5, 30], "maximum": [35, 5, 45]}, "margin_mm": 2},
@@ -125,8 +126,9 @@ input; the view uses the source's `result`, preserving native assembly names:
 }
 ```
 
-`camera` may be a preset string; optional `components`, `colors` (JSON object),
-`show_hidden`, `title`, and `question_ids` follow the Python contract. Unknown
+`camera` may be a preset string. `components`, `colors` (JSON object), and
+`show_hidden` belong inside `view`. `title` and `question_ids` belong alongside
+`purpose` and `view` on the inspection entry; they are not `View` fields. Unknown
 fields and duplicate names are errors. Move repeated recipes into object Python
 so anchors follow parameter changes. `--show-hidden` controls legacy views;
 named recipes explicitly own `show_hidden`.

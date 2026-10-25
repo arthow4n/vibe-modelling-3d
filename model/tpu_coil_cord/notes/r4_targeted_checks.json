@@ -1,0 +1,251 @@
+{
+  "scope": "Native geometric contact/clearance and Orca reference paths; not Cura qualification or adhesion calibration.",
+  "witnesses": [
+    {
+      "turn": 2,
+      "degrees": 0,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 45,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 135,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 180,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 225,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 315,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 9,
+      "degrees": 0,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 9,
+      "degrees": 45,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 9,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 9,
+      "degrees": 135,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 9,
+      "degrees": 180,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 9,
+      "degrees": 225,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 9,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 9,
+      "degrees": 315,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 16,
+      "degrees": 0,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 16,
+      "degrees": 45,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 16,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 16,
+      "degrees": 135,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 16,
+      "degrees": 180,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 16,
+      "degrees": 225,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 16,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 16,
+      "degrees": 315,
+      "material": true,
+      "gap_clear": true
+    }
+  ],
+  "flat_faces_present": {
+    "bottom": true,
+    "top": true,
+    "left": true,
+    "right": true
+  },
+  "contact_samples": [
+    {
+      "turn": 3,
+      "planar_contact_area_mm2": 10.010166482452885,
+      "geometric_trial_minimum_mm2": 5.0
+    },
+    {
+      "turn": 9,
+      "planar_contact_area_mm2": 10.010166480778791,
+      "geometric_trial_minimum_mm2": 5.0
+    },
+    {
+      "turn": 15,
+      "planar_contact_area_mm2": 10.010166479105086,
+      "geometric_trial_minimum_mm2": 5.0
+    }
+  ],
+  "total_native_planar_bed_contact_mm2": 200.7818242052177,
+  "native_local_gap_mm": 0.39812695377748475,
+  "geometric_gap_minimum_mm": 0.3,
+  "terminal_bores_open": true,
+  "connected_terminal_and_middle_material": true,
+  "profile_symmetry": "Intersection of a centered circle with an equal-sided centered square: two perpendicular mirror axes, diagonal mirror axes, and 90-degree rotations of the nominal outer profile. Not a mirror symmetry claim for the chiral helix.",
+  "input_gcode_sha256": {
+    "primary": "dd9915884fd5d89b66186ebe184f1a1d360305e19e789ebf4a6c7adb4ef48ba4",
+    "probe": "30ae0a8373b98b2e88f5237859235b3c45d99216d8ec6c9e8b27bc175873935c"
+  },
+  "r3_reference_gcode_sha256": "43c8682b3930fb1737118db41ecf8bf410c24dacea59542e910f2a4a22474b47",
+  "support": {
+    "roles": [
+      "Support",
+      "Support interface"
+    ],
+    "layers_mm": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8,
+      2.0,
+      2.2,
+      2.4,
+      2.6,
+      2.8,
+      3.0,
+      3.2,
+      3.4,
+      3.6,
+      3.8,
+      4.0,
+      4.2,
+      4.4,
+      4.6,
+      4.8,
+      5.0,
+      5.2,
+      5.4,
+      5.6,
+      5.8,
+      6.0,
+      6.2,
+      6.4,
+      6.6,
+      6.8,
+      7.0,
+      7.2,
+      7.4,
+      7.6,
+      7.8,
+      8.0,
+      8.2,
+      8.4,
+      8.6,
+      8.8,
+      9.0,
+      9.2,
+      9.4,
+      9.6,
+      9.8,
+      10.0,
+      10.2,
+      10.4,
+      10.6,
+      10.8,
+      11.0,
+      11.2
+    ]
+  },
+  "primary_bridge_layers_mm": [
+    11.8
+  ],
+  "selected_roof_layer_mm": 11.8
+}
