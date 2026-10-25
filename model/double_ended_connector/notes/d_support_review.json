@@ -1,0 +1,15 @@
+{
+  "scope": "Visual support-location diagnostic only, not support necessity or contact/removal proof.",
+  "support_segments_by_role": {
+    "Support": 91682,
+    "Support interface": 1294
+  },
+  "support_z_range_mm": [
+    0.2,
+    16.6
+  ],
+  "gcode_sha256": {
+    "plate_1.gcode": "82a047cc3ca888e71d427452a57d48177c435c00265a433560e1f38ebef36358",
+    "support_probe/plate_1.gcode": "da126b010b536d581a6b6b6579a383a14ac48cb46482d073a7883e82b5dd1ccf"
+  }
+}

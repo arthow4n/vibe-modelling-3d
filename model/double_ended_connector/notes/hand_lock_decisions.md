@@ -104,3 +104,28 @@ skill already requires the whole operating sequence and assembly burden to be
 reviewed; another global process rule is unnecessary. The concrete change is
 all-printed captive hand controls instead of tools and parts removed on every
 opening. Remaining uncertainty belongs to the chosen design's physical trial.
+
+
+## Sequential CAD authorization and first increment
+
+The user now explicitly authorizes modelling D, E and F one after another, with
+assembled pictures as well as separated parts. They request incremental progress
+so quota interruption does not lose everything. D is the first saved increment;
+E then F remain authorized next work. No further concept-selection approval is
+needed merely to model those named mechanisms. Earlier SVG-only phase limits
+above describe the historical handoff, not the current authorization.
+
+The first D construction exposed two assembly mistakes before delivery: a sleeve
+cannot be forced onto an already captured integral stem; even a split integral
+stem crosses the closed annular sleeve wall on frame closure. Separate keyed
+stems fix this: thread on each barrel axially, then capture each stem/barrel unit
+between the two frame halves. Eight printed parts result. The frame must close
+with the barrels retracted, since closed barrels cup the fixed noses; a check
+requiring assembly with the barrels closed was corrected to match that explicit
+sequence. The native approach/motion checks pass for that prescribed path.
+
+The CAD model is larger than the schematic to accommodate real screw travel and
+keyed-root capture: approximately 62 mm long with 10.8 mm barrels. The two-mm
+pitch gives four turns over eight mm of travel, a six-mm nominal open mouth and
+two-mm closed nose overlap. These are design values, not physical measurements.
+The [D record](d_model.md) owns assembly instructions and current evidence.

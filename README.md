@@ -87,10 +87,10 @@ Modular 5-card display bases and 15-card compact archival box sharing a clear PE
 
 ### 2. Active Prototypes, Print Trials & Partial Results
 
-#### Two-ended cord / key-ring connector — [SVG concepts](model/double_ended_connector/README.md)
-Three all-printed PLA/PETG hand-lock concepts: threaded barrels, captive screw-driven bolts and rotary gates with index locks.
-- **Action / View:** [New SVG comparison](model/double_ended_connector/renders/hand_locks/hand_lock_options.svg); D is the simplest recommended starting point. No metal, spring gates, tools or loose operating parts proposed. Old A/B/C superseded. No printable files in this phase.
-- **Test pieces / Final object:** N/A / N/A — visual studies only; fit, retention and strength unqualified.
+#### Two-ended cord / key-ring connector — [D first CAD increment](model/double_ended_connector/README.md)
+All-printed PLA/PETG hand locks. D has assembled/open/assembly CAD views and an eight-part prototype; E then F remain next.
+- **Action / View:** [D assembled](model/double_ended_connector/renders/d/d_barrel_gate_inspections/closed.png), [assembly instructions](model/double_ended_connector/notes/d_model.md); [D STEP](model/double_ended_connector/d_barrel_gate.step) / [STL](model/double_ended_connector/d_barrel_gate.stl) are separated for printing. Old A/B/C superseded.
+- **Test pieces / Final object:** D Unknown / N/A — CAD prototype, physically untested. E/F remain SVG concepts; thread fit, hand use, shaking and strength unqualified.
 - **Provenance:** [Attribution](model/double_ended_connector/README.md#attribution)
 
 #### TPU coil cord — [R9 negative octagon-corner relief](model/tpu_coil_cord/README.md)

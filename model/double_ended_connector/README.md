@@ -1,20 +1,38 @@
 # Two-ended connector — all-printed hand locks
 
-Three revised **SVG concepts** connect the cord loop to an existing key ring.
-Every connector part is printed in PLA or PETG. Each end opens independently by
-hand, with no metal, bought springs, elastic snap gate or tools. Operating parts
-stay attached; neither loop needs to be twisted or wound onto a split ring.
+**First CAD increment: D, the threaded barrel connector.** It has a complete
+assembled model, an open pose, an assembly-order view and a print layout containing
+eight separated parts. Each end operates independently by hand. Every component
+is printed; the normal opening action removes no parts.
 
-**View the [new SVG comparison](renders/hand_locks/hand_lock_options.svg)**
-([PNG](renders/hand_locks/hand_lock_options.png)). **D, the threaded barrel, is the
-recommended simple starting point.** F is worth comparing if a separate
-unlock-then-turn sequence matters more than the extra parts.
-These are proposals for discussion, not printable files. The old A/B/C drawings
-are superseded; metal pins, tool operation and loose keepers miss the revised brief.
+[**D assembled**](renders/d/d_barrel_gate_inspections/closed.png) ·
+[**D one end open**](renders/d/d_barrel_gate_inspections/open.png) ·
+[**Assembly order**](renders/d/d_barrel_gate_inspections/assembly.png) ·
+[**Lock section**](renders/d/d_barrel_gate_inspections/section.png)
+
+**D trial files:** [STEP](d_barrel_gate.step) · [STL](d_barrel_gate.stl) ·
+[Python entry point](d_barrel_gate.py). Read the [assembly and print instructions](notes/d_model.md).
+The STEP/STL are the separated print layout; the pictures show the actual assembled
+geometry. Print as supplied in PLA or PETG, 0.4 mm nozzle, 0.2 mm layers, solid fill.
+Use the 5 mm brim for the small stems and screws; supports off for the first trial.
+D remains physically untested and has no load or shaking rating.
+
+**Sequence:** D is the first modelled increment. E, then F remain next; their
+[current SVG comparison](renders/hand_locks/hand_lock_options.svg) is retained
+for reference. The old A/B/C proposals are superseded. Do not print an assembled
+pose as a single fused part.
+
+## Concept comparison retained for E and F
+
+D's CAD differs from its sketch: separate keyed stems and a two-piece frame make
+its assembly route possible, giving eight parts rather than the proposed five.
+The dimensions are approximately 62 × 23 mm in plan, with 10.8 mm barrels. The
+comparison below preserves the schematic concept targets; these are not CAD
+measurements for E/F.
 
 ![Three all-printed hand locks](renders/hand_locks/hand_lock_options.png)
 
-| Detailed SVG | Approximate envelope | Daily operation | Proposed complete part count |
+| Retained concept SVG | Original sketch envelope | Daily operation | Original sketch part count |
 | --- | --- | --- | --- |
 | [D — threaded barrel gate](renders/hand_locks/d_barrel_gate.svg) | 44 × 22 × 10 mm | Turn the barrel down to expose a mouth; turn back until it cups the opposite horn. No hinge. | 5: body, two barrels, two printed stop tips |
 | [E — captive screw-driven bolt](renders/hand_locks/e_retracting_bolt.svg) | 48 × 24 × 11 mm | Turn a recessed thumbwheel; a guided bolt retracts into the central body. Reverse to seat it in the opposite horn. | 8: body, cover, two bolts, two lead screws, two printed cover screws |
@@ -56,20 +74,23 @@ PLA/PETG spring behavior. This is not yet a printability or strength result.
 
 ## Evidence and print status
 
-Four new SVGs were generated, XML-parsed, rendered to PNG and visually reviewed.
+The retained SVGs were generated, XML-parsed, rendered to PNG and visually reviewed.
 The comparison uses consistent object scale; lock sections are enlarged separately.
 Navy is body, teal gate, orange hand control or stop; all are the same printed
 material. Gray indicates existing attachments, not supplied parts.
 
 | Item | Print status | Artifact(s) | Remaining work |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A | SVG concepts only | Choose a direction before detailed CAD and a printable prototype. |
-| Final printable object(s) | N/A | None | Fit, motion, capture, shaking, wear and load qualification remain. |
+| D complete prototype | Unknown | `d_barrel_gate.step`, `d_barrel_gate.stl` | Thread fit, assembly by hand, opening effort, shaking, wear and pull remain physical tests. |
+| E / F | N/A | SVG concepts retained | Next sequential CAD increments, not printable yet. |
+| Final rated connector | N/A | None | Experimental mechanism comparison only. |
 
+[D geometry and assembly](notes/d_model.md) · [D native CAD/slice receipt](notes/d_cad_review.json) ·
+[D requirement checks](notes/d_verification.json) · [Development record](notes/development_record.md) ·
 [Current decisions and correction](notes/hand_lock_decisions.md) ·
 [Historical A/B/C rationale](notes/concept_decisions.md) ·
 [Historical A/B/C handoff](notes/r1_handoff.md).
-Regenerate only the new sheets with
+Regenerate only the retained concept sheets with
 `./execute.py model/double_ended_connector/draw_hand_locks.py`.
 The [generator](draw_hand_locks.py) is drawing source, not a CadQuery model.
 

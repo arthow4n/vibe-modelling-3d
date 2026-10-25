@@ -1,0 +1,33 @@
+{
+  "scope": "Initial recorded connector intent; no physical source association or print qualification.",
+  "source_sha256": {},
+  "user_requirements": [
+    {
+      "id": "connector.material",
+      "text": "Every supplied connector component is printed in PLA or PETG, without metal or a spring-dependent gate",
+      "source": {
+        "reference": "notes/hand_lock_decisions.md#user-correction-and-authorized-phase",
+        "statement": "Ditch all other materials; hand-openable connector, originally rigid PLA/PETG without spring/bending dependency"
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "connector.operation",
+      "text": "Either end opens by hand without winding or turning the attached loop",
+      "source": {
+        "reference": "notes/hand_lock_decisions.md#user-correction-and-authorized-phase",
+        "statement": "Connect cord and existing key ring; easy independent removal, now explicitly hand-operated"
+      },
+      "acceptance_criteria": []
+    },
+    {
+      "id": "connector.retention",
+      "text": "Both closed ends should resist shaking off in normal use",
+      "source": {
+        "reference": "notes/hand_lock_decisions.md#user-correction-and-authorized-phase",
+        "statement": "Smartly opened by hand but does not easily shake off"
+      },
+      "acceptance_criteria": []
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "variant": "D",
+  "selected_checks": null,
+  "available_variants": [
+    "D"
+  ],
+  "available_checks": [
+    "D.motion",
+    "D.assembly"
+  ],
+  "exit_reason": "unresolved_evidence",
+  "error": null,
+  "report": {
+    "variant": "D",
+    "scope": {
+      "variant": "D",
+      "phase": "unprinted mechanism prototype",
+      "material": "PLA-or-PETG-unqualified"
+    },
+    "focused": false,
+    "requirements": [
+      {
+        "id": "connector.material",
+        "text": "Every supplied connector component is printed in PLA or PETG, without metal or a spring-dependent gate",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/hand_lock_decisions.md#user-correction-and-authorized-phase",
+          "statement": "Ditch all other materials; hand-openable connector, originally rigid PLA/PETG without spring/bending dependency"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "rigid",
+            "criterion": "CAD uses discrete rigid moving parts and solid printed screw cores; material behavior is not assumed calibrated",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "D.assembly"
+            ],
+            "evidence": [
+              "D.assembly"
+            ],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "evidence"
+      },
+      {
+        "id": "connector.operation",
+        "text": "Either end opens by hand without winding or turning the attached loop",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/hand_lock_decisions.md#user-correction-and-authorized-phase",
+          "statement": "Connect cord and existing key ring; easy independent removal, now explicitly hand-operated"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "path",
+            "criterion": "Sampled intended gate motion clears the body; other end remains bridged and nominal loading mouth clears a cord-section witness",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "D.motion"
+            ],
+            "evidence": [
+              "D.motion"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "assembly",
+            "criterion": "Proposed frame approach is clear at sampled offsets and screws fit without forbidden overlap",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "D.assembly"
+            ],
+            "evidence": [
+              "D.assembly"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "hand",
+            "criterion": "Complete printed connector can actually be assembled and operated comfortably by hand",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      },
+      {
+        "id": "connector.retention",
+        "text": "Both closed ends should resist shaking off in normal use",
+        "kind": "user",
+        "provenance": {
+          "reference": "notes/hand_lock_decisions.md#user-correction-and-authorized-phase",
+          "statement": "Smartly opened by hand but does not easily shake off"
+        },
+        "non_applicable": null,
+        "questions": [
+          {
+            "id": "obstruction",
+            "criterion": "Closed geometry obstructs a direct non-operating pull",
+            "mode": "CAD",
+            "rationale": "",
+            "status": "PASS",
+            "coverage": "evidence",
+            "strategies": [
+              "D.motion"
+            ],
+            "evidence": [
+              "D.motion"
+            ],
+            "out_of_scope": []
+          },
+          {
+            "id": "shake",
+            "criterion": "Printed connector stays closed under unloaded shaking, key rubbing and normal use",
+            "mode": "physical",
+            "rationale": "",
+            "status": "UNKNOWN",
+            "coverage": "uncovered",
+            "strategies": [],
+            "evidence": [],
+            "out_of_scope": []
+          }
+        ],
+        "acceptance_criteria": [],
+        "coverage": "uncovered"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "D.motion",
+        "targets": [
+          [
+            "connector.operation",
+            "path"
+          ],
+          [
+            "connector.retention",
+            "obstruction"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "d_checks.py#check_motion",
+        "scope": {
+          "variant": "D",
+          "phase": "unprinted mechanism prototype",
+          "material": "PLA-or-PETG-unqualified"
+        }
+      },
+      {
+        "id": "D.assembly",
+        "targets": [
+          [
+            "connector.operation",
+            "assembly"
+          ],
+          [
+            "connector.material",
+            "rigid"
+          ]
+        ],
+        "status": "PASS",
+        "summary": "Existing assertion group passed; see linked criteria/limits",
+        "reference": "d_checks.py#check_assembly",
+        "scope": {
+          "variant": "D",
+          "phase": "unprinted mechanism prototype",
+          "material": "PLA-or-PETG-unqualified"
+        }
+      }
+    ],
+    "decisions": [],
+    "hypotheses": [],
+    "directives": []
+  },
+  "help": null
+}

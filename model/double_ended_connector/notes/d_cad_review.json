@@ -1,0 +1,1125 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/d_barrel_gate.py",
+  "errors": [],
+  "views": [],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/d_barrel_gate.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/d_barrel_gate.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.0015354790002675145,
+    "build": 5.705481890999636,
+    "selection": 0.0009349200004180602,
+    "validation": 0.18291196600011972,
+    "export_step": 0.3334779020001406,
+    "export_stl": 0.9350709349996578,
+    "inspections": 267.0300943289999,
+    "worker": 274.31150182600004,
+    "total": 287.7069392849994,
+    "slice": 13.209514665000825
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "1ca7c98581adc8ecd209231bba25fcc56d4c7c43cb046cfa18173e3654ef3f58",
+    "artifact_identity": "9018707f9e72fa5d65655d2576ce897b8f95462378e8b3fb941c743284eb9581"
+  },
+  "available_inspections": [
+    "closed",
+    "open",
+    "assembly",
+    "section"
+  ],
+  "inspections": [
+    {
+      "name": "closed",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/renders/d/d_barrel_gate_inspections/closed.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/renders/d/d_barrel_gate_inspections/closed.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              0.8,
+              -1.3,
+              2.2
+            ],
+            "up": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          "frame": {
+            "region": null,
+            "margin_mm": 4
+          },
+          "section": null,
+          "components": [],
+          "colors": [
+            [
+              "lower",
+              "#263d53"
+            ],
+            [
+              "upper",
+              "#526e88"
+            ],
+            [
+              "barrel_top",
+              "#138c83"
+            ],
+            [
+              "stem_top",
+              "#d29a47"
+            ],
+            [
+              "stem_bottom",
+              "#d29a47"
+            ],
+            [
+              "barrel_bottom",
+              "#138c83"
+            ],
+            [
+              "screw_top",
+              "#cb7629"
+            ],
+            [
+              "screw_bottom",
+              "#cb7629"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "label",
+              "point": [
+                6.0,
+                21.0,
+                0.0
+              ],
+              "text": "Captive threaded barrel",
+              "offset_px": [
+                35,
+                -20
+              ],
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Explain D assembled, open and assembly relationships.",
+        "title": "D \u2014 both ends assembled and closed",
+        "question_ids": [],
+        "configuration": {
+          "name": "operating",
+          "kind": "operating",
+          "parameters": {
+            "top_travel": 8.0,
+            "bottom_travel": 8.0
+          }
+        },
+        "subject_sha256": {
+          "lower": "5bc68bd2df4249078b6d59c227a14bd891767286e72874b41a694491a20d1834",
+          "upper": "64ed38ed94e7e0c3b42137838cd0e3186a421cd7d0dc13daa87d5ebb929f37fc",
+          "stem_top": "d53f20d3d2b57c40f6d9069df95b42659bf6f411a86d335ddf9041e1b7525545",
+          "stem_bottom": "9d7f887910bf526ae47c490582e97a7b41a42838d3148493dc422ddfb3cd3955",
+          "barrel_top": "fd6eeeb5c2c15eb1e144d95e7f955e5c66d80f321642e4b6d6ccb7444d2c87e7",
+          "barrel_bottom": "81aa26d218641d6738b962fa0407f2f67986187b322c4cbce64f46b98b9bc636",
+          "screw_bottom": "775c39fbdcf0ba5a76d5a381993f6d395878939cdb15e0d6a6e088de6e634cad",
+          "screw_top": "e2878233cf9d4e33df9297fe576fbc053d613c876e57f664ab6e78c582685006"
+        },
+        "component_locations": {
+          "lower": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "upper": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "stem_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "stem_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "barrel_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "barrel_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "screw_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "screw_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 800,
+        "height": 600,
+        "projected_frame_mm": [
+          -15.704699910719626,
+          -33.37191845816117,
+          15.038760540930623,
+          33.20600428685021
+        ],
+        "pixels_per_mm": 7.014337196859929,
+        "translation_px": [
+          402.3355616461822,
+          301.9181110283437
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "label",
+            "point": [
+              441.8877294526179,
+              166.15893787191013
+            ],
+            "text": "Captive threaded barrel"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    },
+    {
+      "name": "open",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/renders/d/d_barrel_gate_inspections/open.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/renders/d/d_barrel_gate_inspections/open.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              0.8,
+              -1.3,
+              2.2
+            ],
+            "up": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          "frame": {
+            "region": null,
+            "margin_mm": 4
+          },
+          "section": null,
+          "components": [],
+          "colors": [
+            [
+              "lower",
+              "#263d53"
+            ],
+            [
+              "upper",
+              "#526e88"
+            ],
+            [
+              "barrel_top",
+              "#138c83"
+            ],
+            [
+              "stem_top",
+              "#d29a47"
+            ],
+            [
+              "stem_bottom",
+              "#d29a47"
+            ],
+            [
+              "barrel_bottom",
+              "#138c83"
+            ],
+            [
+              "screw_top",
+              "#cb7629"
+            ],
+            [
+              "screw_bottom",
+              "#cb7629"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "label",
+              "point": [
+                6.0,
+                21.0,
+                0.0
+              ],
+              "text": "6 mm clear mouth",
+              "offset_px": [
+                35,
+                -20
+              ],
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Explain D assembled, open and assembly relationships.",
+        "title": "D \u2014 upper barrel retracted four turns",
+        "question_ids": [],
+        "configuration": {
+          "name": "operating",
+          "kind": "operating",
+          "parameters": {
+            "top_travel": 0,
+            "bottom_travel": 8.0
+          }
+        },
+        "subject_sha256": {
+          "lower": "5bc68bd2df4249078b6d59c227a14bd891767286e72874b41a694491a20d1834",
+          "upper": "64ed38ed94e7e0c3b42137838cd0e3186a421cd7d0dc13daa87d5ebb929f37fc",
+          "stem_top": "d53f20d3d2b57c40f6d9069df95b42659bf6f411a86d335ddf9041e1b7525545",
+          "stem_bottom": "9d7f887910bf526ae47c490582e97a7b41a42838d3148493dc422ddfb3cd3955",
+          "barrel_top": "4018aa7de3a57a08b100b24d956515705d6e40eec510791663265eb0eae0213e",
+          "barrel_bottom": "81aa26d218641d6738b962fa0407f2f67986187b322c4cbce64f46b98b9bc636",
+          "screw_bottom": "775c39fbdcf0ba5a76d5a381993f6d395878939cdb15e0d6a6e088de6e634cad",
+          "screw_top": "e2878233cf9d4e33df9297fe576fbc053d613c876e57f664ab6e78c582685006"
+        },
+        "component_locations": {
+          "lower": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "upper": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "stem_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "stem_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "barrel_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "barrel_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "screw_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "screw_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 800,
+        "height": 600,
+        "projected_frame_mm": [
+          -15.704699910719626,
+          -33.37191845816117,
+          15.038760540930623,
+          33.20600428685021
+        ],
+        "pixels_per_mm": 7.014337196859929,
+        "translation_px": [
+          402.3355616461822,
+          301.9181110283437
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "label",
+            "point": [
+              441.8877294526179,
+              166.15893787191013
+            ],
+            "text": "6 mm clear mouth"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    },
+    {
+      "name": "assembly",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/renders/d/d_barrel_gate_inspections/assembly.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/renders/d/d_barrel_gate_inspections/assembly.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              0.8,
+              -1.3,
+              2.2
+            ],
+            "up": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          "frame": {
+            "region": null,
+            "margin_mm": 4
+          },
+          "section": null,
+          "components": [],
+          "colors": [
+            [
+              "lower",
+              "#263d53"
+            ],
+            [
+              "upper",
+              "#526e88"
+            ],
+            [
+              "barrel_top",
+              "#138c83"
+            ],
+            [
+              "stem_top",
+              "#d29a47"
+            ],
+            [
+              "stem_bottom",
+              "#d29a47"
+            ],
+            [
+              "barrel_bottom",
+              "#138c83"
+            ],
+            [
+              "screw_top",
+              "#cb7629"
+            ],
+            [
+              "screw_bottom",
+              "#cb7629"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "label",
+              "point": [
+                6.0,
+                21.0,
+                0.0
+              ],
+              "text": "Captive threaded barrel",
+              "offset_px": [
+                35,
+                -20
+              ],
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Explain D assembled, open and assembly relationships.",
+        "title": "D \u2014 lay stem/barrel units into lower frame, close upper frame, fit two hand screws",
+        "question_ids": [],
+        "configuration": {
+          "name": "exploded",
+          "kind": "operating",
+          "parameters": {
+            "top_travel": 0,
+            "bottom_travel": 0
+          }
+        },
+        "subject_sha256": {
+          "lower": "afbae54b93f1e4362cbbc6c7221c6d361f0c97ba70490e210ed55ce0b6685331",
+          "upper": "8349c8b28ecbc73b45286201c0e95ccef3731cf61e540326b67350f0acf86f40",
+          "stem_top": "d53f20d3d2b57c40f6d9069df95b42659bf6f411a86d335ddf9041e1b7525545",
+          "stem_bottom": "9d7f887910bf526ae47c490582e97a7b41a42838d3148493dc422ddfb3cd3955",
+          "barrel_top": "4018aa7de3a57a08b100b24d956515705d6e40eec510791663265eb0eae0213e",
+          "barrel_bottom": "8aa618a941c1e5333ff90d3debbb95dfaf7b9e6d4157a72d9b126c4cb6027848",
+          "screw_bottom": "7ed52e13f5b16d806f066e1ff14719dc6eb266151d70015398f869c097bfe532",
+          "screw_top": "28ba582ede4a0b4eb6293448b0f2267fd5bd92e187eebce47a374b77a361aa4d"
+        },
+        "component_locations": {
+          "lower": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "upper": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "stem_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "stem_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "barrel_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "barrel_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "screw_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "screw_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 800,
+        "height": 600,
+        "projected_frame_mm": [
+          -18.780387478499964,
+          -37.47829419810741,
+          17.84059405501153,
+          37.312380026796454
+        ],
+        "pixels_per_mm": 6.2440939975441205,
+        "translation_px": [
+          402.9340792372678,
+          301.98200815940487
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "label",
+            "point": [
+              438.1430300844813,
+              181.13052719594023
+            ],
+            "text": "Captive threaded barrel"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    },
+    {
+      "name": "section",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/renders/d/d_barrel_gate_inspections/section.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/renders/d/d_barrel_gate_inspections/section.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "up": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          "frame": {
+            "region": null,
+            "margin_mm": 4
+          },
+          "section": {
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "mode": "planar",
+            "keep": "negative"
+          },
+          "components": [
+            "stem_top",
+            "barrel_top"
+          ],
+          "colors": [
+            [
+              "barrel_top",
+              "#138c83"
+            ],
+            [
+              "stem_top",
+              "#d29a47"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "label",
+              "point": [
+                6.0,
+                23.0,
+                0.0
+              ],
+              "text": "Wide nose cup",
+              "offset_px": [
+                50,
+                0
+              ],
+              "color": "#943b28"
+            },
+            {
+              "kind": "label",
+              "point": [
+                6.0,
+                15.0,
+                0.0
+              ],
+              "text": "Threaded skirt",
+              "offset_px": [
+                50,
+                20
+              ],
+              "color": "#943b28"
+            },
+            {
+              "kind": "label",
+              "point": [
+                6.0,
+                17.3,
+                0.0
+              ],
+              "text": "Keeper shoulder",
+              "offset_px": [
+                -160,
+                -10
+              ],
+              "color": "#943b28"
+            },
+            {
+              "kind": "label",
+              "point": [
+                6.0,
+                2.0,
+                0.0
+              ],
+              "text": "Keyed root",
+              "offset_px": [
+                50,
+                0
+              ],
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Explain D assembled, open and assembly relationships.",
+        "title": "D \u2014 actual planar section of one barrel and stem; frame omitted",
+        "question_ids": [],
+        "configuration": {
+          "name": "operating",
+          "kind": "operating",
+          "parameters": {
+            "top_travel": 8.0,
+            "bottom_travel": 8.0
+          }
+        },
+        "subject_sha256": {
+          "stem_top": "d53f20d3d2b57c40f6d9069df95b42659bf6f411a86d335ddf9041e1b7525545",
+          "barrel_top": "fd6eeeb5c2c15eb1e144d95e7f955e5c66d80f321642e4b6d6ccb7444d2c87e7"
+        },
+        "component_locations": {
+          "lower": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "upper": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "stem_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "stem_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "barrel_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "barrel_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "screw_bottom": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "screw_top": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 800,
+        "height": 600,
+        "projected_frame_mm": [
+          -3.400000100000002,
+          -3.8000001,
+          15.4000001,
+          31.0000001
+        ],
+        "pixels_per_mm": 13.879310265061436,
+        "translation_px": [
+          316.7241384096314,
+          499.25861960483553
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "label",
+            "point": [
+              400.0,
+              180.0344835084225
+            ],
+            "text": "Wide nose cup"
+          },
+          {
+            "kind": "label",
+            "point": [
+              400.0,
+              291.068965628914
+            ],
+            "text": "Threaded skirt"
+          },
+          {
+            "kind": "label",
+            "point": [
+              400.0,
+              259.1465520192727
+            ],
+            "text": "Keeper shoulder"
+          },
+          {
+            "kind": "label",
+            "point": [
+              400.0,
+              471.49999907471266
+            ],
+            "text": "Keyed root"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    }
+  ],
+  "inspection_sheet": {
+    "ok": true,
+    "path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/renders/d/d_barrel_gate_inspections/sheet.png",
+    "svg_path": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/renders/d/d_barrel_gate_inspections/sheet.svg",
+    "names": [
+      "closed",
+      "open",
+      "assembly",
+      "section"
+    ]
+  },
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/git/vibe-modelling-3d/model/double_ended_connector/d_barrel_gate.stl",
+    "profiles": {
+      "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/model/dental_travel_case/notes/printed_fasteners/profiles/process.json",
+      "filament": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/generic-petg-qidi-q2c-0.4.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "center",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "PETG"
+      ],
+      "filament_settings_id": [
+        "Generic PETG @Qidi Q2C 0.4 nozzle"
+      ],
+      "nozzle_temperature": [
+        "250"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "245"
+      ],
+      "hot_plate_temp": [
+        "80"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "80"
+      ],
+      "print_settings_id": "Printed coarse fasteners 0.20mm solid",
+      "layer_height": "0.2",
+      "wall_loops": "4",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "auto_brim",
+      "brim_width": "5",
+      "brim_object_gap": "0.1",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "0.95"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "100%",
+      "sparse_infill_pattern": "rectilinear"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": true,
+      "supported_plates": [
+        {
+          "plate": 1,
+          "roles": [
+            "Support",
+            "Support interface"
+          ]
+        }
+      ],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": true,
+    "reused": false,
+    "identity": "4ba51e355c0c71b3053a61be108c8a9f3a57115eb4a08851cbf05d678d30270e",
+    "input_sha256": "85c09acc6f2945d76bd2a5b4f1c0501c3961f04a1bb37726196ebb32af288b2e",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-8d72i1cw",
+    "setup_selection": {
+      "profiles": "supplied",
+      "placement": "default_center",
+      "scope": "Selected-profile slice acceptance only; production setup agreement and physical print behavior are not established"
+    }
+  }
+}
