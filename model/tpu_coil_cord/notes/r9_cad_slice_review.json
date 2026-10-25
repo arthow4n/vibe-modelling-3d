@@ -1,0 +1,356 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r9_corner_recess.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r9_corner_recess_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "right",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r9_corner_recess_right.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          0,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r9_corner_recess.step",
+      "ok": true,
+      "reused": false
+    },
+    {
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r9_corner_recess.stl",
+      "ok": true,
+      "reused": false
+    }
+  ],
+  "timings_seconds": {
+    "dependency_initialization": 0.0015972210094332695,
+    "build": 52.897986672993284,
+    "selection": 0.0013750369980698451,
+    "validation": 0.34214133299246896,
+    "export_step": 0.6121341500111157,
+    "export_stl": 0.2151356520043919,
+    "render_isometric": 1.566158269008156,
+    "render_right": 57.73345661399071,
+    "inspections": 59.06795269199938,
+    "worker": 172.62774508800067,
+    "total": 175.26451407300192,
+    "slice": 5.462710277992301
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "dc10a4d869dbebf6fa6a784be7ace5af02a8cb5190b47cbffa7b6a22bda978a1",
+    "artifact_identity": "c0824cdd89bf706fabc9361c72978d49e64fbaad3bec89b4fc54d0c10766b160"
+  },
+  "available_inspections": [
+    "negative-corner"
+  ],
+  "inspections": [
+    {
+      "name": "negative-corner",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r9_corner_recess_inspections/negative-corner.png",
+      "svg_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r9_corner_recess_inspections/negative-corner.svg",
+      "reused": false,
+      "recipe_reused": false,
+      "evidence_reused": null,
+      "settings": {
+        "view": {
+          "camera": {
+            "direction": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "up": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "frame": {
+            "region": {
+              "minimum": [
+                1.1,
+                1.139019048810866,
+                12.041866257118793
+              ],
+              "maximum": [
+                2.1,
+                4.239019048810866,
+                14.941866257118791
+              ],
+              "component": null
+            },
+            "margin_mm": 0.1
+          },
+          "section": {
+            "origin": [
+              1.6,
+              0.0,
+              0.0
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "mode": "planar",
+            "keep": "negative"
+          },
+          "components": [],
+          "colors": [
+            [
+              "R8",
+              "#a7adb5"
+            ],
+            [
+              "R9",
+              "#16768e"
+            ]
+          ],
+          "annotations": [
+            {
+              "kind": "label",
+              "point": [
+                1.6,
+                2.8994949366116654,
+                14.0
+              ],
+              "text": "Retained R8 tip",
+              "offset_px": [
+                20,
+                -60
+              ],
+              "color": "#943b28"
+            },
+            {
+              "kind": "label",
+              "point": [
+                1.6,
+                2.689019048810866,
+                13.491866257118792
+              ],
+              "text": "R9 negative corner recess",
+              "offset_px": [
+                -45,
+                80
+              ],
+              "color": "#943b28"
+            }
+          ],
+          "show_hidden": false
+        },
+        "purpose": "Gray: retained R8. Teal: R9. The eight corner bites join the broad facets tangentially.",
+        "title": "R9 recesses the octagon vertex",
+        "question_ids": [],
+        "configuration": {
+          "name": "inspection",
+          "kind": "operating",
+          "parameters": {}
+        },
+        "subject_sha256": {
+          "R8": "1bcad3632eafaa9865ab9b002218baa52f9635bfcc904024d0f7f39dc52a7653",
+          "R9": "d1f51add566b9090d4bb3935fdc41fb322e95c2a2db2b8a0bd98eae20671ce70"
+        },
+        "component_locations": {
+          "R8": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "R9": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          ]
+        },
+        "removed_by_section": [],
+        "width": 800,
+        "height": 600,
+        "projected_frame_mm": [
+          1.039019048810866,
+          11.941866257118793,
+          4.339019048810866,
+          15.04186625711879
+        ],
+        "pixels_per_mm": 155.80645161290334,
+        "translation_px": [
+          -18.966516314725595,
+          2412.6198071575423
+        ],
+        "annotation_pixels": [
+          {
+            "kind": "label",
+            "point": [
+              432.7935012283181,
+              231.32948457689554
+            ],
+            "text": "Retained R8 tip"
+          },
+          {
+            "kind": "label",
+            "point": [
+              400.0,
+              310.5
+            ],
+            "text": "R9 negative corner recess"
+          }
+        ],
+        "limits": "Orthographic line drawing; annotations are overlays, not visibility/contact proof. Rendering success is not engineering PASS."
+      },
+      "evidence": null,
+      "selected_sample": null
+    }
+  ],
+  "slice": {
+    "ok": true,
+    "model": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r9_corner_recess.stl",
+    "profiles": {
+      "printer": "/home/hevar/git/vibe-modelling-3d/.codex/skills/orca-slicer-printability/profiles/qidi-q2c-petg/qidi-q2c-0.4-nozzle.json",
+      "process": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/profiles/r2-horizontal-process.json",
+      "filament": "/home/hevar/git/vibe-modelling-3d/model/tpu_damping_box/profiles/tpu95a.json"
+    },
+    "slicer_version": "2.4.2",
+    "placement": "center",
+    "effective_settings": {
+      "printer_model": "Qidi Q2C",
+      "printer_variant": "0.4",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "printable_area": [
+        "0x0",
+        "270x0",
+        "270x270",
+        "0x270"
+      ],
+      "printable_height": "256",
+      "bed_exclude_area": [
+        "0x0",
+        "11x0",
+        "11x16",
+        "0x16"
+      ],
+      "filament_type": [
+        "TPU"
+      ],
+      "filament_settings_id": [
+        "Diagnostic Generic TPU 95A Q2C 0.4 - damping study"
+      ],
+      "nozzle_temperature": [
+        "230"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "230"
+      ],
+      "hot_plate_temp": [
+        "35"
+      ],
+      "hot_plate_temp_initial_layer": [
+        "35"
+      ],
+      "print_settings_id": "TPU horizontal coil R2 solid 0.20 trial",
+      "layer_height": "0.2",
+      "wall_loops": "3",
+      "line_width": "0.42",
+      "outer_wall_line_width": "0.42",
+      "inner_wall_line_width": "0.45",
+      "initial_layer_line_width": "0.5",
+      "brim_type": "no_brim",
+      "brim_width": "0",
+      "brim_object_gap": "0.1",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "support_threshold_angle": "30",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "filament_flow_ratio": [
+        "1"
+      ],
+      "enable_arc_fitting": "0",
+      "sparse_infill_density": "100%",
+      "sparse_infill_pattern": "rectilinear"
+    },
+    "sliced_plates": [
+      1
+    ],
+    "support_probe": {
+      "ok": true,
+      "generated": true,
+      "supported_plates": [
+        {
+          "plate": 1,
+          "roles": [
+            "Support",
+            "Support interface"
+          ]
+        }
+      ],
+      "effective_support_type": "tree(auto)",
+      "effective_support_threshold_angle": "30",
+      "effective_max_bridge_length_mm": "10"
+    },
+    "log_notices": [],
+    "review_required": true,
+    "reused": false,
+    "identity": "09595a92f97be65775579dac218841c3b51dd885531e868131305e62cab0abe7",
+    "input_sha256": "f23666db67ee6faa3275daa8bb7c17d56becf58dac13aa56aecefa9ff3f8014c",
+    "kept_run_directory": "/home/hevar/orca-slicer-review-o7e4x605",
+    "setup_selection": {
+      "profiles": "supplied",
+      "placement": "explicit",
+      "scope": "Selected-profile slice acceptance only; production setup agreement and physical print behavior are not established"
+    }
+  }
+}

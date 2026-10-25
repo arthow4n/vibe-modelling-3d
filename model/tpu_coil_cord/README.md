@@ -1,101 +1,106 @@
-# TPU coil cord — R8 softer octagonal sample
+# TPU coil cord — R9 recessed octagon corners
 
-**Next print experiment: R8.** The working R5 octagonal coil now has small
-rounded blends on its exterior ridges, so the corners are gently recessed and
-the transition between faces is less abrupt. The broad facets and inner
-printing geometry remain octagonal.
+**Next experiment: R9.** Eight shallow negative scallops bite into the winding's
+outward octagon vertices, targeting the protruding corner tips visible and felt
+after extension. The broad-face cord section and inner octagonal roof are retained.
+**R8 is kept as a separate control**, as requested.
 
-Print [R8 STEP](coil_r8_soft_octagon.step) or [STL](coil_r8_soft_octagon.stl),
-horizontal and flat-down as supplied. [Python source](coil_r8_soft_octagon.py)
-applies the edge treatment to the unchanged [R5 source](coil_r5_octagonal.py).
-[R5 STEP](coil_r5_octagonal.step) remains the accepted printed control.
-**Do not repeat R7:** it was printed with many defects and the user discontinues
-the circular direction. R6 was rejected before printing. The ~70 mm version
-remains deferred; this is another short sample.
+Print [R9 STEP](coil_r9_corner_recess.step) or [STL](coil_r9_corner_recess.stl),
+horizontal/flat-down as supplied. [Python source](coil_r9_corner_recess.py) owns
+the corner cuts, starting from unchanged R8 geometry.
+Retained controls: [R8 STEP](coil_r8_soft_octagon.step) / [STL](coil_r8_soft_octagon.stl),
+and the explicitly printed working [R5 STEP](coil_r5_octagonal.step).
+Do not repeat R7's defective circular print or R6's rejected form. This is one
+short sample; the ~70 mm version remains deferred.
 
-| Item | R8 trial |
+| Item | R9 trial |
 | --- | --- |
 | Relaxed length / circuits | 25.2 mm / five full winding circuits |
-| Octagonal envelope | 14 mm across flats, original corner envelope ~15.15 mm |
-| Bore | Original inner octagon, 7.6 mm across flats |
-| Cord / nominal turn gap / pitch | Original 3.2 × 3.2 mm faceted section / 1.2 mm / 4.4 mm |
-| New treatment | 0.5 mm radius on convex exterior ridges; original inner facets retained |
+| Broad exterior flats / bore | Original octagon, 14 mm / 7.6 mm across flats |
+| Cord away from corner cuts | Retained 3.2 × 3.2 mm faceted section |
+| Corner bite | 0.55 mm radial depth from original R5 tip; 1.0 mm tangent half-width |
+| Cut shoulders | Mirrored smooth curves, tangent to the adjacent flat faces |
+| Nominal turn gap / pitch | 1.2 mm / 4.4 mm |
 | Material / nozzle / layers | TPU / 0.4 mm / 0.20 mm |
 | Walls / fill | Classic; 3 walls + 100% fill, or the previous high-wall solid approach |
 | Supports / brim / ironing | Off / off / off |
-| Placement / bridge direction | Horizontal axis X, bottom facet on bed, as supplied / automatic |
+| Placement / bridge direction | Horizontal X axis, original flat facets on bed / automatic |
 
-![R8 short octagonal sample with softened exterior edges](renders/print/coil_r8_soft_octagon_isometric.png)
+![R9 octagonal cord with negative exterior corner relief](renders/print/coil_r9_corner_recess_isometric.png)
 
-[End view](renders/print/coil_r8_soft_octagon_right.png) ·
-[Corner comparison](renders/print/coil_r8_soft_octagon_inspections/outer-corner.png)
-(gray: original R5; teal: rounded R8).
+[End view: the eight corner bites](renders/print/coil_r9_corner_recess_right.png) ·
+[Actual corner comparison](renders/print/coil_r9_corner_recess_inspections/negative-corner.png)
+(gray: retained R8; teal: recessed R9).
 
-## What changed and what to test
+## What this changes
 
-Small tangent rounds replace the sharp exterior ridges, including where the
-cord's outside face meets its original chamfers. The inside half and faceted
-roof are retained. Integrated terminal loops keep the original form.
-This keeps the octagonal printing approach that the user reports works.
+R8's small edge rounds are retained on the starting geometry. R9 makes a much
+larger subtractive change at the eight winding vertices. The new recess depth
+is measured from the original sharp tip; R8's small blend removed only about
+0.04 mm there. This targets the octagon silhouette rather than making the cord's
+cross-section rounder.
 
-Extra straight bevels would add more visible facet boundaries. Much larger
-rounds would remove more of the flat printing lands and move toward the circular
-shape that printed poorly. R8 uses a modest edge treatment instead. Its printed
-appearance remains an experiment; CAD rounds cannot guarantee a smoother finish.
+The recesses have smooth shoulders instead of the sharp lips a simple circular
+gouge would leave. Broad octagonal faces remain between the cuts, and the original
+inner facets and integrated terminal loops stay in place. The corner-to-corner
+envelope becomes smaller deliberately.
 
-Use the same solid TPU setup as the working octagonal print where possible.
-After cooling, compare exterior appearance and feel with R5, then check the feet,
-roof and whether the middle turns separate without tearing. Leave the intentional
-terminal joins intact. This iteration changes edge appearance, not a measured
-return-force target.
+Print with the same solid TPU setup as the working octagonal control if possible.
+After cooling, check that the middle turns separate and that the feet and roof
+printed cleanly. Then extend gently and compare the exposed corner tips with R8:
+are the protrusions less noticeable, and do the cut regions remain intact?
+Keep the intentional terminal joins. Notch feel and durability remain physical
+questions; this sample does not have a load or extension rating.
 
 ## Evidence and print status
 
-The [native CAD/export/slice report](notes/r8_cad_slice_review.json) owns final
-geometry, matching horizontal STEP/STL, tool identities, placement and effective
-settings. CadQuery 2.8.0 reports valid geometry, and OrcaSlicer 2.4.2 completed
-the centered supports-off TPU slice with no reported notices. Reference
-temperatures are 230/35 °C; use spool-appropriate values.
-The [local comparison checks](notes/r8_targeted_checks.json) cover
-connected end loops, winding gaps, unchanged inner facets, exterior recession
-and remaining planar bed contact. Sampled middle feet retain **8.62 mm²** each
-(vs. R5’s 9.28 mm²); total planar contact is about **93% of R5**. The measured
-local turn gap is **1.190 mm**, and all eight original inner facet planes remain.
-The [actual path image](notes/r8_actual_paths.png)
-shows bed deposition, middle side walls, support-probe locations and roof paths.
-Blue is ordinary extrusion, orange is bridge/probe support, gray is prior-layer
-roof material.
+The [native CAD/export/slice report](notes/r9_cad_slice_review.json) records final
+geometry, paired horizontal STEP/STL, tool identities and the selected setup.
+CadQuery 2.8.0 reports valid geometry; OrcaSlicer 2.4.2 completed the centered
+solid-TPU slice with no reported notices. Reference temperatures are 230/35 °C;
+use spool-appropriate values.
+[Targeted comparison checks](notes/r9_targeted_checks.json) cover negative corner
+removal, material behind the recesses, actual radial ligaments, retained inner
+facets, flat contact, turn gaps and connected terminal loops. The
+[actual path image](notes/r9_actual_paths.png) shows bed paths, middle walls,
+automatic-probe supports and roof deposition. The measured recesses are **0.55 mm**
+deep, with **2.91 mm** radial material behind them at the sampled corner sections.
+Middle feet retain **5.81 mm²** planar contact each, above the retained 5 mm²
+trial screen; total planar contact is about **67% of R8**. Local turn clearance
+is **1.190 mm**, and all eight inner facet planes remain. These are geometry
+results, not strength or adhesion ratings. Blue is ordinary extrusion,
+orange bridge/probe support, gray the prior roof layer.
 
-The automatic-support probe still proposes roof support through Z11.2 mm, as
-on the R5 reference review. The selected short experiment keeps supports off;
-roof quality still needs printing. All 105 sampled bridge midpoints remain in
-current-layer CAD material, within that check’s limited scope.
+The automatic probe still proposes internal support through Z11.2 mm. The
+short test keeps supports off to avoid TPU cleanup in the bore and gaps; roof
+quality remains a print question. All 105 checked bridge midpoints lie in
+current-layer CAD material within that limited screen.
 
-These are digital checks. R8 has no physical result yet. R5's successful print
-does not automatically qualify changed corner transitions. Actual surface finish,
-adhesion, clean separation, roof quality, load capacity, extension and durability
-remain physical questions. The actual Cura/spool setup and the cause of R7's
-print defects are unknown. Reference Orca slicing does not qualify Cura or GUI
-STEP import. Detailed measurements and probe interpretation are in
-[R8 decisions](notes/r8_decisions.md).
+These are digital checks. R9 is an unprinted experiment. Corner relief reduces
+local material and flat-foot length; its print quality, tactile improvement,
+adhesion, recovery and fatigue behavior require the comparison print. Exact
+spool/Cura settings and the cause of R7 defects remain unknown. Reference Orca
+STL slicing does not qualify Cura behavior or GUI STEP import. Full criteria,
+measurements and support-probe interpretation are in [R9 decisions](notes/r9_decisions.md).
 
 | Item | Print status | Artifact(s) | Result or remaining checks |
 | --- | --- | --- | --- |
 | R1 sample | Yes | `tpu_coil_cord.step`, `tpu_coil_cord.stl` | Reasonable function; rough separation and weak recoil; preferred earlier control |
 | R2 sample | Yes | `coil_r2_horizontal.step`, `coil_r2_horizontal.stl` | Thickness, projecting frames and house-shaped outline rejected |
-| R3 sample | Partial | `coil_r3_round.step`, `coil_r3_round.stl` | Canceled after turns merged and print lifted |
+| R3 sample | Partial | `coil_r3_round.step`, `coil_r3_round.stl` | Canceled after fusion and lifting |
 | R4 sample | Yes | `coil_r4_four_flats.step`, `coil_r4_four_flats.stl` | Idea can work; sticking and form/overhang issues remained; adhesion/recoil not explicitly reported |
-| R5 short sample | Yes | `coil_r5_octagonal.step`, `coil_r5_octagonal.stl` | Printed and okay; user reconfirms this octagonal design works |
-| R6 short sample | No — rejected | `coil_r6_round_flats.step`, `coil_r6_round_flats.stl` | Visually rejected before print: isolated shaved patches misinterpreted the intended section |
-| R7 short sample | Yes — rejected | `coil_r7_flat_section.step`, `coil_r7_flat_section.stl` | Printed with many defects; circular direction discontinued. Specific defects/settings/cause unknown |
-| R8 short sample | Unknown | `coil_r8_soft_octagon.step`, `coil_r8_soft_octagon.stl` | Exterior smoothing trial; printed appearance and retention of R5's print quality await feedback |
+| R5 short sample | Yes | `coil_r5_octagonal.step`, `coil_r5_octagonal.stl` | Printed and okay; user reconfirms octagonal architecture works |
+| R6 short sample | No — rejected | `coil_r6_round_flats.step`, `coil_r6_round_flats.stl` | Visually rejected before print; isolated shaved patches misinterpreted the intended section |
+| R7 short sample | Yes — rejected | `coil_r7_flat_section.step`, `coil_r7_flat_section.stl` | Many print defects; circular direction discontinued; exact defects/settings/cause unknown |
+| R8 short sample | Unknown — retained | `coil_r8_soft_octagon.step`, `coil_r8_soft_octagon.stl` | User calls R8 okay/not bad and asks to keep it; remaining protruding vertices after extension motivate R9. Explicit R8 print confirmation absent |
+| R9 short sample | Unknown | `coil_r9_corner_recess.step`, `coil_r9_corner_recess.stl` | Negative corner relief trial; contact, roofs, notch feel and durability need physical comparison |
 | Final 70 mm object | N/A | None in this phase | Future work deferred |
 
-[Current R8 decisions](notes/r8_decisions.md) · [Development record](notes/development_record.md) ·
-historical [R1](notes/r1_baseline.md), [R2](notes/r2_baseline.md), [R3](notes/r3_baseline.md),
-[R4](notes/r4_baseline.md), [accepted R5](notes/r5_baseline.md),
-[rejected R6](notes/r6_rejected.md), [printed/rejected R7](notes/r7_rejected.md).
-Earlier source, exports and digital evidence remain preserved in their original scope.
+[Current R9 decisions](notes/r9_decisions.md) · [Development record](notes/development_record.md) ·
+[R8 retained control](notes/r8_retained.md) · historical [R1](notes/r1_baseline.md),
+[R2](notes/r2_baseline.md), [R3](notes/r3_baseline.md), [R4](notes/r4_baseline.md),
+[working R5](notes/r5_baseline.md), [rejected R6](notes/r6_rejected.md),
+[printed/rejected R7](notes/r7_rejected.md). Earlier model source and exports remain unchanged.
 
 ## Attribution and reproduction
 
@@ -103,8 +108,8 @@ Primary model: **GPT 6.1**, reasoning **F4 Medium**, explicitly supplied by the
 user; runtime identity/effort are not independently exposed. Codex CLI, OpenAI.
 Historical attribution is preserved. No other material contributors.
 
-R8 reuses the Q2C printer, solid TPU automatic-bridge process and TPU 95A
-reference filament profiles. Exact identities are in the native report.
+R9 reuses the Q2C printer, solid TPU automatic-bridge process and TPU 95A
+reference filament profiles. Their exact identities are in the native report.
 [Profile attribution and AGPL-3.0 licensing](profiles/ATTRIBUTION.md) remain;
 CAD and notes use the repository's normal licence. Evaluate from the repository
-root with `./evaluate_model.py model/tpu_coil_cord/coil_r8_soft_octagon.py`.
+root with `./evaluate_model.py model/tpu_coil_cord/coil_r9_corner_recess.py`.

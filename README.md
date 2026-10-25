@@ -93,10 +93,10 @@ Three rigid PLA/PETG connector directions with independently opening ends: screw
 - **Test pieces / Final object:** N/A / N/A — visual studies only; fit, retention and strength unqualified.
 - **Provenance:** [Attribution](model/double_ended_connector/README.md#attribution)
 
-#### TPU coil cord — [R8 softer octagonal sample](model/tpu_coil_cord/README.md)
-25.2 mm version of working R5 with 0.5 mm convex exterior blends, retained inner facets and 1.2 mm nominal turn gaps.
-- **Action / Print:** [R8 STEP](model/tpu_coil_cord/coil_r8_soft_octagon.step) ([STL](model/tpu_coil_cord/coil_r8_soft_octagon.stl)); horizontal/flat-down as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid fill, supports/brim off. R5 remains the accepted printed control. **Do not repeat R7:** printed with many defects; circular direction discontinued. R6 was visually rejected before print.
-- **Test pieces:** R1 Yes — earlier control. R2 Yes — form rejected. R3 Partial / failed — fusion/lifting. R4 Yes — still sticking. R5 Yes — reconfirmed working. R6 No — rejected before print. R7 Yes — printed/rejected. R8 Unknown — exterior smoothing experiment awaiting physical feedback.
+#### TPU coil cord — [R9 negative octagon-corner relief](model/tpu_coil_cord/README.md)
+25.2 mm octagonal TPU spring with eight shallow negative vertex scallops, preserving the broad-face cord section and inner roof.
+- **Action / Print:** [R9 STEP](model/tpu_coil_cord/coil_r9_corner_recess.step) ([STL](model/tpu_coil_cord/coil_r9_corner_recess.stl)); horizontal/flat-down as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid fill, supports/brim off. R8 remains a separate retained control, and R5 remains the explicitly printed working baseline. Do not repeat R7's defective circular print or R6's rejected form.
+- **Test pieces:** R1 Yes — earlier control. R2 Yes — rejected form. R3 Partial / failed — fusion/lifting. R4 Yes — sticking. R5 Yes — working. R6 No — visually rejected. R7 Yes — printed/rejected. R8 Unknown — retained as okay; explicit print confirmation absent. R9 Unknown — negative corner-relief experiment.
 - **Final object:** N/A — short sample only; 70 mm version remains deferred.
 - **Provenance:** [Attribution](model/tpu_coil_cord/README.md#attribution-and-reproduction)
 

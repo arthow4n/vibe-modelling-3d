@@ -262,3 +262,23 @@ five circuits, 3.2 mm section, 1.2 mm spacing and integrated end loops are retai
 The ~70 mm version remains deferred. Radius, selection rules, alternatives and
 final print review are owned by [R8 decisions](r8_decisions.md). This is not a
 retry of the failed circular direction or a stronger-return claim.
+
+## R8 retained; R9 targets negative octagon-vertex relief
+
+The user describes R8 as okay/not bad and an improvement, and explicitly asks to
+keep it. They clarify that the remaining sharp protrusions are the winding's
+octagonal vertices, most apparent in the end view and after extension, rather
+than a request to round the swept cord section. They request shallow negative
+bites into those exterior vertices while preserving printability. Explicit R8
+print confirmation/settings are not supplied; keep its print status Unknown
+while recording this acceptance and concern. R5 remains the explicitly printed
+working control. Preserve R8 source, STEP and STL unchanged.
+
+R9 is a separate short variant with eight matching 0.55 mm-deep vertex recesses
+and 1.0 mm tangent half-width. Mirrored cubic Bezier shoulders join adjacent
+facets tangentially, avoiding the sharp cut lips of an unblended circular gouge.
+It starts from retained R8, keeps the original inner octagon/roof and section
+on broad faces, and retains the 25.2 mm sample scale and integrated terminal loops.
+The ~70 mm version stays deferred. Geometry, checks and final print evidence
+belong to [R9 decisions](r9_decisions.md); the prior record is preserved as
+[R8 retained control](r8_retained.md).

@@ -1,5 +1,11 @@
 # R8: return to the working octagon with softer exterior edges
 
+**Retained by the user.** Latest feedback calls R8 okay/not bad and asks to keep
+it. The new request is a separate R9 with negative cuts into the outward octagon
+vertices, addressing protruding notches after extension rather than the cord
+section shape. An explicit R8 print confirmation was not supplied; do not infer
+a print from this acceptance. See [R9 decisions](r9_decisions.md).
+
 ## Physical feedback and scope
 
 The user printed R7. The model looked okay, but the print had many defects, so

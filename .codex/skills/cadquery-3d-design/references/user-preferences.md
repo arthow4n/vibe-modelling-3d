@@ -234,13 +234,14 @@ role, deliberate contact/preload and measured feedback to choose allowances.
 The printed [H sample failure](../../../../model/filament_swatch_box_study/README.md#physical-history-and-print-status)
 was a loose, unpreloaded connection, not an established printer defect.
 
-**Telephone-cord direction after printing R7:** return to the working R5 octagon
-and soften/recess its visible exterior edges while retaining the faceted printing
-architecture. The user reports many defects on printed R7 and discontinues the
-circular-winding direction; the cause and exact settings are unknown. Earlier
-flat-section clarification still distinguishes a swept flat-sided profile from
-isolated shaved patches, but it does not authorize another circular retry.
-[Current R8 decisions and physical feedback](../../../../model/tpu_coil_cord/notes/r8_decisions.md).
+**Telephone-cord direction after R8:** keep the working octagonal winding and
+retain R8 as an okay iteration. The latest requested change is a negative bite
+into each outward octagon vertex, targeting protruding notches after extension;
+it is distinct from making the swept cord section rounder or adding another
+small edge fillet. Preserve broad printing facets and the inside roof. Printed
+R7 had many defects and its circular-winding direction is discontinued; exact
+cause/settings remain unknown. R8 print confirmation is not explicit.
+[Current R9 intent and retained controls](../../../../model/tpu_coil_cord/notes/r9_decisions.md).
 
 ## Protection and mechanism visibility
 
