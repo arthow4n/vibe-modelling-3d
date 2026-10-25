@@ -1,4 +1,8 @@
-# Connector concept decisions
+# Connector concept decisions — historical A/B/C
+
+The latest user correction supersedes the earlier hardware allowance and the
+recommendation below. Every connector component must be printed; normal opening
+is by hand and should resist shaking off. See [current decisions](hand_lock_decisions.md).
 
 ## User intent and phase boundary
 

@@ -1,68 +1,82 @@
-# Two-ended cord / key-ring connector — SVG concepts
+# Two-ended connector — all-printed hand locks
 
-Start with the [three-option SVG comparison](renders/concepts/connector_options.svg)
-([PNG preview](renders/concepts/connector_options.png)). These are editable concept
-sketches for rigid PLA or PETG connectors. Each end opens independently without
-rotating the attached loop. No printable model is included in this phase.
+Three revised **SVG concepts** connect the cord loop to an existing key ring.
+Every connector part is printed in PLA or PETG. Each end opens independently by
+hand, with no metal, bought springs, elastic snap gate or tools. Operating parts
+stay attached; neither loop needs to be twisted or wound onto a split ring.
 
-**Recommended starting direction: B, sliding lift-out gates.** A rigid gate seats
-in an opposite horn pocket; a printed screw through a closed hole in its tail
-blocks removal. Retention does not depend on elastic bending or clamp pressure.
+**View the [new SVG comparison](renders/hand_locks/hand_lock_options.svg)**
+([PNG](renders/hand_locks/hand_lock_options.png)). **D, the threaded barrel, is the
+recommended simple starting point.** F is worth comparing if a separate
+unlock-then-turn sequence matters more than the extra parts.
+These are proposals for discussion, not printable files. The old A/B/C drawings
+are superseded; metal pins, tool operation and loose keepers miss the revised brief.
 
-| Option and detailed SVG | Proposed envelope | Parts and interaction |
-| --- | --- | --- |
-| [A — screw-pin shackles](renders/concepts/a_screw_pin.svg) | ~35 × 16 × 7 mm | One printed body, two stock M3×12 screws, two M3 nuts. Unscrew and withdraw one pin, pass the loop over the slim horn, replace pin. Tool needed; removed pin is loose. |
-| [B — sliding lift-out gates](renders/concepts/b_sliding_gates.svg) | ~42 × 20 × 9 mm | Five printed parts: body, two gates, two keeper screws. Remove keeper, retract gate ~2.2 mm to clear its socket, lift it out toward the viewer. Gate and keeper become loose. |
-| [C — hinged gates](renders/concepts/c_hinged_gates.svg) | ~44 × 20 × 10 mm | Seven printed parts: body, two gates, two hinge pins, two index screws. Remove one index screw and swing that gate outward. Gate remains attached; index screw is loose. |
+![Three all-printed hand locks](renders/hand_locks/hand_lock_options.png)
 
-Each detail sheet shows both ends closed, one end open, the locking principle,
-and proposed printing and assembly. Navy is the body, teal the gate, orange a
-fastener, gray the existing cord loop and key ring. Gray attachments and enlarged
-lock details are schematic. Dimensions are design targets, not manufacturing
-profiles; do not extrude these drawings directly as finished parts.
+| Detailed SVG | Approximate envelope | Daily operation | Proposed complete part count |
+| --- | --- | --- | --- |
+| [D — threaded barrel gate](renders/hand_locks/d_barrel_gate.svg) | 44 × 22 × 10 mm | Turn the barrel down to expose a mouth; turn back until it cups the opposite horn. No hinge. | 5: body, two barrels, two printed stop tips |
+| [E — captive screw-driven bolt](renders/hand_locks/e_retracting_bolt.svg) | 48 × 24 × 11 mm | Turn a recessed thumbwheel; a guided bolt retracts into the central body. Reverse to seat it in the opposite horn. | 8: body, cover, two bolts, two lead screws, two printed cover screws |
+| [F — rotary gate with index lock](renders/hand_locks/f_rotary_index.svg) | 46 × 24 × 11 mm | Back out a captive thumb lock, then rotate the gate clear. Close and advance the lock tip into its hole. | 8: body, cover, two rotors, two thumb locks, two printed cover screws |
 
-## Sizing, assembly and remaining questions
+All include both ends. Assembly screws and stop tips are printed too; they are
+not removed during normal opening. Two-hand operation is assumed. None self-closes.
 
-The user delegated generic sizing. Targets are a 3.2 mm cord section, key-ring
-wire up to 3 mm thick, and roughly 6 mm loading openings (5.5 mm in A). The
-accepted [R5 cord](../tpu_coil_cord/README.md) has a nominal 7.6 mm bore across
-flats. Its faceted 3.2 mm cord has greater diagonal width. Free horns must pass
-through that bore without requiring the cord to stretch. Maximum connector
-thickness belongs at the central fastener bosses, with slimmer free horns.
-Actual rings, local horn sections and complete entry paths still need CAD checks.
+## Holding and deliberate release
 
-Bodies and gates are intended to print separately, broad face down; printed
-fasteners head down with shaft upright. PLA or PETG with a 0.4 mm nozzle and
-0.2 mm layers is the process assumption. B/C use coarse custom threads rather
-than small printed M3 threads. C hinge pins install from the back and index
-screws from the front. A uses stock hardware already listed in repository
-preferences. No purchased springs, elastic gates or press-fit catches are proposed.
+D needs repeated rotation before the opening appears; its sleeve bridges the
+mouth while engaged. E converts repeated thumbwheel rotation into bolt travel;
+the bolt cannot retract directly without turning the lead screw. F uses a lock
+tip crossing a rotor hole to block gate rotation, rather than squeezing the rotor
+with friction. Withdrawing the tip alone leaves the gate covering the opening.
+Each detail sheet shows the two-ended object, one open end, an enlarged lock
+section, the release sequence and proposed assembly.
 
-All closures require deliberate screw engagement. No independent anti-back-out
-feature is claimed. Thread fit, loosening under shaking, socket fit, load
-capacity, wear and operation effort are unqualified. B is preferred for its
-simpler rigid gate and two-point support; C trades more parts and clearance for
-keeping the gate attached. A offers fewer printed interfaces with metal hardware.
+These are different ways to resist an accidental single pull or bump. **None has
+proved resistance to shaking.** Thread back-out, rubbing against other keys,
+wear and deliberate opening effort remain physical questions. No springless lock
+here is claimed to be automatically vibration-proof. D has the fewest parts;
+E conceals gate travel but needs more housing; F adds a distinct second motion.
+
+## Sizing and manufacture assumptions
+
+The user delegated generic sizing. Retain ~3.2 mm cord section, key-ring wire up
+to 3 mm, ~6 mm loading mouths and slim free horns targeting ~3.2 × 4 mm local
+sections. The cord's nominal bore is 7.6 mm across flats. Actual horn passage,
+attachment routing, gate travel and finger clearance must be checked in CAD if a
+concept proceeds; the enlarged lock sections are not dimensioned part drawings.
+
+Separate parts are intended to print without freeing a print-in-place joint.
+Body, covers and flat gates print broad face down; coarse screws upright and
+barrels upright with an open bore. Assume a 0.4 mm nozzle and 0.2 mm layers.
+Coarse thread lead, assembly retention, fit, clearances and load-bearing sections
+are still design work. The mechanisms require rigid relative motion, not useful
+PLA/PETG spring behavior. This is not yet a printability or strength result.
 
 ## Evidence and print status
 
-All four SVGs were generated successfully, parsed as XML, rendered with CairoSVG,
-and visually reviewed for legibility, part accounting and the opening sequence.
-This is visual concept evidence; no CAD, slice, physical fit or strength result.
+Four new SVGs were generated, XML-parsed, rendered to PNG and visually reviewed.
+The comparison uses consistent object scale; lock sections are enlarged separately.
+Navy is body, teal gate, orange hand control or stop; all are the same printed
+material. Gray indicates existing attachments, not supplied parts.
 
-| Item | Print status | Artifact(s) | User result or remaining physical checks |
+| Item | Print status | Artifact(s) | Remaining work |
 | --- | --- | --- | --- |
-| Test piece(s) | N/A | SVG proposals only | No printable sample designed in this phase. |
-| Final printable object(s) | N/A | None | Concept selection, detailed geometry and physical qualification remain. |
+| Test piece(s) | N/A | SVG concepts only | Choose a direction before detailed CAD and a printable prototype. |
+| Final printable object(s) | N/A | None | Fit, motion, capture, shaking, wear and load qualification remain. |
 
-[Design decisions and requirement context](notes/concept_decisions.md) preserve
-the reasoning. Regenerate the drawings from the repository root with
-`./execute.py model/double_ended_connector/draw_concepts.py`.
-The [generator](draw_concepts.py) owns the drawings; it is not a CadQuery model.
+[Current decisions and correction](notes/hand_lock_decisions.md) ·
+[Historical A/B/C rationale](notes/concept_decisions.md) ·
+[Historical A/B/C handoff](notes/r1_handoff.md).
+Regenerate only the new sheets with
+`./execute.py model/double_ended_connector/draw_hand_locks.py`.
+The [generator](draw_hand_locks.py) is drawing source, not a CadQuery model.
 
 ## Attribution
 
 Primary language model: GPT 6.1, reasoning F4 Medium, as explicitly supplied by
 the user; runtime identity and effort are not independently exposed. Harness:
 Codex CLI. Provider: OpenAI. No external artwork or third-party mechanism drawing
-was used. Material contributors: user requirements and R5 print feedback.
+was used. Material contributors: user requirements, clarification and cord print
+feedback. Historical A/B/C attribution remains in the linked handoff.

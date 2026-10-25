@@ -88,15 +88,15 @@ Modular 5-card display bases and 15-card compact archival box sharing a clear PE
 ### 2. Active Prototypes, Print Trials & Partial Results
 
 #### Two-ended cord / key-ring connector — [SVG concepts](model/double_ended_connector/README.md)
-Three rigid PLA/PETG connector directions with independently opening ends: screw pins, sliding lift-out gates and hinged gates.
-- **Action / View:** [SVG comparison](model/double_ended_connector/renders/concepts/connector_options.svg); detailed opening, lock and assembly sheets linked in the object record. B is the recommended all-printed starting direction. No printable files in this concept phase.
+Three all-printed PLA/PETG hand-lock concepts: threaded barrels, captive screw-driven bolts and rotary gates with index locks.
+- **Action / View:** [New SVG comparison](model/double_ended_connector/renders/hand_locks/hand_lock_options.svg); D is the simplest recommended starting point. No metal, spring gates, tools or loose operating parts proposed. Old A/B/C superseded. No printable files in this phase.
 - **Test pieces / Final object:** N/A / N/A — visual studies only; fit, retention and strength unqualified.
 - **Provenance:** [Attribution](model/double_ended_connector/README.md#attribution)
 
 #### TPU coil cord — [R9 negative octagon-corner relief](model/tpu_coil_cord/README.md)
 25.2 mm octagonal TPU spring with eight shallow negative vertex scallops, preserving the broad-face cord section and inner roof.
 - **Action / Print:** [R9 STEP](model/tpu_coil_cord/coil_r9_corner_recess.step) ([STL](model/tpu_coil_cord/coil_r9_corner_recess.stl)); horizontal/flat-down as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid fill, supports/brim off. R8 remains a separate retained control, and R5 remains the explicitly printed working baseline. Do not repeat R7's defective circular print or R6's rejected form.
-- **Test pieces:** R1 Yes — earlier control. R2 Yes — rejected form. R3 Partial / failed — fusion/lifting. R4 Yes — sticking. R5 Yes — working. R6 No — visually rejected. R7 Yes — printed/rejected. R8 Unknown — retained as okay; explicit print confirmation absent. R9 Unknown — negative corner-relief experiment.
+- **Test pieces:** R1 Yes — earlier control. R2 Yes — rejected form. R3 Partial / failed — fusion/lifting. R4 Yes — sticking. R5 Yes — working. R6 No — visually rejected. R7 Yes — printed/rejected. R8 Unknown — retained as okay; explicit print confirmation absent. R9 Yes — works okay; extended edges feel less obvious.
 - **Final object:** N/A — short sample only; 70 mm version remains deferred.
 - **Provenance:** [Attribution](model/tpu_coil_cord/README.md#attribution-and-reproduction)
 

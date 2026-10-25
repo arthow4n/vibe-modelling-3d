@@ -134,3 +134,13 @@ retained, and its parametric model plus printable files are unchanged. Record th
 user's acceptance without inventing an explicit print confirmation. The physical
 finish line is a comparison of extended notch feel, integrity and printing with
 R8; digital depth, contact and tangent evidence cannot settle that feel.
+
+
+## R9 physical feedback — 2026-10-25
+
+The user explicitly reports printing R9: it works okay, nothing particularly
+wrong, and feels improved because the edges are less obvious when extended.
+Record the short sample as printed and working with a tactile improvement.
+Exact spool/settings, measured recoil, strength and fatigue life remain unknown.
+Keep the delivered R9 geometry and its historical digital receipts unchanged.
+No further cord revision is requested; the ~70 mm version remains deferred.

@@ -1,6 +1,8 @@
 # TPU coil cord — R9 recessed octagon corners
 
-**Next experiment: R9.** Eight shallow negative scallops bite into the winding's
+**R9 printed successfully.** The user reports it works okay, with no particular
+problem, and that the edges feel less obvious when extended. Eight shallow
+negative scallops bite into the winding's
 outward octagon vertices, targeting the protruding corner tips visible and felt
 after extension. The broad-face cord section and inner octagonal roof are retained.
 **R8 is kept as a separate control**, as requested.
@@ -76,9 +78,10 @@ short test keeps supports off to avoid TPU cleanup in the bore and gaps; roof
 quality remains a print question. All 105 checked bridge midpoints lie in
 current-layer CAD material within that limited screen.
 
-These are digital checks. R9 is an unprinted experiment. Corner relief reduces
-local material and flat-foot length; its print quality, tactile improvement,
-adhesion, recovery and fatigue behavior require the comparison print. Exact
+The user has now printed R9 and reports it works okay, with less noticeable
+edges when extended: a physical improvement over the previous form. No specific
+problem was reported. Recovery force, fatigue life and load capacity were not
+measured; the report does not separately qualify every roof or foot. Exact
 spool/Cura settings and the cause of R7 defects remain unknown. Reference Orca
 STL slicing does not qualify Cura behavior or GUI STEP import. Full criteria,
 measurements and support-probe interpretation are in [R9 decisions](notes/r9_decisions.md).
@@ -93,7 +96,7 @@ measurements and support-probe interpretation are in [R9 decisions](notes/r9_dec
 | R6 short sample | No — rejected | `coil_r6_round_flats.step`, `coil_r6_round_flats.stl` | Visually rejected before print; isolated shaved patches misinterpreted the intended section |
 | R7 short sample | Yes — rejected | `coil_r7_flat_section.step`, `coil_r7_flat_section.stl` | Many print defects; circular direction discontinued; exact defects/settings/cause unknown |
 | R8 short sample | Unknown — retained | `coil_r8_soft_octagon.step`, `coil_r8_soft_octagon.stl` | User calls R8 okay/not bad and asks to keep it; remaining protruding vertices after extension motivate R9. Explicit R8 print confirmation absent |
-| R9 short sample | Unknown | `coil_r9_corner_recess.step`, `coil_r9_corner_recess.stl` | Negative corner relief trial; contact, roofs, notch feel and durability need physical comparison |
+| R9 short sample | Yes — works okay | `coil_r9_corner_recess.step`, `coil_r9_corner_recess.stl` | User reports no particular problem and less obvious edges when extended; an improvement. Durability and recovery force remain unmeasured |
 | Final 70 mm object | N/A | None in this phase | Future work deferred |
 
 [Current R9 decisions](notes/r9_decisions.md) · [Development record](notes/development_record.md) ·

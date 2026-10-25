@@ -282,3 +282,13 @@ on broad faces, and retains the 25.2 mm sample scale and integrated terminal loo
 The ~70 mm version stays deferred. Geometry, checks and final print evidence
 belong to [R9 decisions](r9_decisions.md); the prior record is preserved as
 [R8 retained control](r8_retained.md).
+
+
+## R9 physical feedback — 2026-10-25
+
+The user explicitly reports printing R9: it works okay, nothing particularly
+wrong, and feels improved because the edges are less obvious when extended.
+Record the short sample as printed and working with a tactile improvement.
+Exact spool/settings, measured recoil, strength and fatigue life remain unknown.
+Keep the delivered R9 geometry and its historical digital receipts unchanged.
+No further cord revision is requested; the ~70 mm version remains deferred.

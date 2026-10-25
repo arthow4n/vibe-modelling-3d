@@ -241,7 +241,16 @@ it is distinct from making the swept cord section rounder or adding another
 small edge fillet. Preserve broad printing facets and the inside roof. Printed
 R7 had many defects and its circular-winding direction is discontinued; exact
 cause/settings remain unknown. R8 print confirmation is not explicit.
-[Current R9 intent and retained controls](../../../../model/tpu_coil_cord/notes/r9_decisions.md).
+R9 has since been printed: user reports it works okay, with less obvious edges
+when extended. This qualifies that sample's tactile improvement, not fatigue or
+recoil force. [Current R9 intent and retained controls](../../../../model/tpu_coil_cord/notes/r9_decisions.md).
+
+**Cord/key-ring connector:** every connector component must be printed, with
+hand-operated opening and resistance to shaking off. Do not treat general stock
+hardware availability as permission to reintroduce metal into this object.
+The earlier hardware allowance and tool/loose-keeper proposals were explicitly
+corrected; this is a connector-specific requirement, not a repository-wide ban.
+[Correction and current concepts](../../../../model/double_ended_connector/notes/hand_lock_decisions.md).
 
 ## Protection and mechanism visibility
 
