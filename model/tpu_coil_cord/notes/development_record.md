@@ -143,3 +143,33 @@ and 200.8 mm² total bed-plane contact; native gap is about 0.398 mm. The
 The supports-off reference slice completed, with bore supports still proposed
 by the automatic probe. There is no physical R4 result. R3 remains Partial /
 failed, with its original source, exports and reports preserved.
+
+
+## R4 physical feedback and R5 short-sample authorization
+
+User printed R4 and says the idea can work, but turns still stick and cause print
+defects. They request substantially more spacing while retaining reasonable
+compression. They find the current outer-only clipped circular tube strange and
+want matching flat/faceted inner and outer outlines, with overhang-friendly
+geometry. An eight- or sixteen-sided outline and a faceted swept cord section
+are explicitly acceptable. No explicit R4 adhesion result, force/recovery data,
+actual settings, material batch or printed hash was supplied; do not infer them.
+
+The next authorized deliverable is one short approximately 20–30 mm sample to
+reduce print/revision effort. The approximately 70 mm version remains a future
+intent, explicitly deferred until the geometry/printing experiment works. Keep
+the existing symmetry, approximately 15 mm transverse size, horizontal printing,
+solid TPU and integral attachment ends. R4 is superseded; preserve its source,
+exports and native evidence as historical data, not successful separation proof.
+
+
+R5 delivers one 25.2 mm short sample: five octagonal winding circuits with
+1.2 mm nominal gaps, an eight-faced chamfered cord section and closed terminal
+turns within the same envelope. Both inner and outer walls have native flat
+facets in all eight directions. The [R5 decision record](r5_decisions.md) holds
+construction and manufacturing evidence. Local native gap is about 1.190 mm;
+sampled middle feet have about 9.28 mm² planar contact. CAD, paired exports and
+the supports-off reference slice completed; the automatic probe still proposes
+roof supports, so bridge quality and clean separation require printing. There
+is no R5 print report. No long R5 geometry/export is supplied; the 70 mm user
+intent remains explicitly deferred.

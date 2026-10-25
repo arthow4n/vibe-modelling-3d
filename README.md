@@ -87,11 +87,11 @@ Modular 5-card display bases and 15-card compact archival box sharing a clear PE
 
 ### 2. Active Prototypes, Print Trials & Partial Results
 
-#### TPU coil cord — [R4 wider gaps and four flats](model/tpu_coil_cord/README.md)
-Horizontal 3D spring trial, 71.6 mm long, with 0.40 mm turn gaps and four symmetric outer flats for larger bed contact.
-- **Action / Print:** Next trial: [R4 STEP](model/tpu_coil_cord/coil_r4_four_flats.step) ([STL](model/tpu_coil_cord/coil_r4_four_flats.stl)); flat-down as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid material. Do not repeat failed R3 unchanged.
-- **Test pieces:** R1 Yes — preferred earlier control. R2 Yes — thickness/shape rejected. R3 Partial / failed — canceled after fusion and lifting. R4 Unknown — increased CAD contact and clearance checked; adhesion and separation await printing.
-- **Final object:** N/A — samples only.
+#### TPU coil cord — [R5 short octagonal trial](model/tpu_coil_cord/README.md)
+25.2 mm horizontal sample with matching octagonal inner/outer walls, faceted cord and 1.2 mm nominal turn gaps.
+- **Action / Print:** Next trial: [R5 STEP](model/tpu_coil_cord/coil_r5_octagonal.step) ([STL](model/tpu_coil_cord/coil_r5_octagonal.stl)); flat-down as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid material. The 70 mm version is deferred until this short test prints cleanly.
+- **Test pieces:** R1 Yes — earlier control. R2 Yes — thickness/shape rejected. R3 Partial / failed — fusion/lifting. R4 Yes — still sticking; form/overhang revision needed. R5 Unknown — CAD/reference slice checked; physical separation and bridge quality await printing.
+- **Final object:** N/A — one short sample only; long version deferred.
 - **Provenance:** [Attribution](model/tpu_coil_cord/README.md#attribution-and-reproduction)
 
 #### Dental travel case — [`model/dental_travel_case/`](model/dental_travel_case/README.md)

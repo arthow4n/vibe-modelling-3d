@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r5_octagonal.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r5_octagonal_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "view": "right",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r5_octagonal_right.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          0,
+          0
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.002344790002098307,
+    "build": 9.864264852003544,
+    "selection": 0.0013702699943678454,
+    "validation": 0.14192651100165676,
+    "render_isometric": 1.0481696169881616,
+    "render_right": 0.5760786199971335,
+    "worker": 11.750892154988833,
+    "total": 12.002233640989289
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "0d09ee11e9a5c76d1d121dbc2a19040d23119a1f3c4f88c102d3dea83fca0eea",
+    "artifact_identity": "7ddeb24cc8010ad1b188a0cb1d75a6723026d2d4b6ca386bb1feb141c823c8a5"
+  }
+}
