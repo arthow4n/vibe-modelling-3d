@@ -1,0 +1,250 @@
+{
+  "scope": "Local native geometry and selected-profile path review; not printed release, roof quality or recoil qualification.",
+  "witnesses": [
+    {
+      "turn": 2,
+      "degrees": 0,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 45,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 135,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 180,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 225,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 2,
+      "degrees": 315,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 10,
+      "degrees": 0,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 10,
+      "degrees": 45,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 10,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 10,
+      "degrees": 135,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 10,
+      "degrees": 180,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 10,
+      "degrees": 225,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 10,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 10,
+      "degrees": 315,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 17,
+      "degrees": 0,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 17,
+      "degrees": 45,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 17,
+      "degrees": 90,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 17,
+      "degrees": 135,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 17,
+      "degrees": 180,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 17,
+      "degrees": 225,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 17,
+      "degrees": 270,
+      "material": true,
+      "gap_clear": true
+    },
+    {
+      "turn": 17,
+      "degrees": 315,
+      "material": true,
+      "gap_clear": true
+    }
+  ],
+  "native_local_gaps": [
+    {
+      "degrees": 90,
+      "shortest_gap_mm": 0.14939123176332775,
+      "geometric_minimum_mm": 0.1
+    },
+    {
+      "degrees": 180,
+      "shortest_gap_mm": 0.14939123330314105,
+      "geometric_minimum_mm": 0.1
+    }
+  ],
+  "connected_terminal_and_middle_material": true,
+  "terminal_bores_open": true,
+  "input_gcode_sha256": {
+    "primary": "43c8682b3930fb1737118db41ecf8bf410c24dacea59542e910f2a4a22474b47",
+    "probe": "c5d0905a55ee6043a7c2515f93f74b59aaaa163b1c72e74e3b5b52a20692ca6f"
+  },
+  "primary_roles": [
+    "Bridge",
+    "Gap infill",
+    "Inner wall",
+    "Internal solid infill",
+    "Outer wall",
+    "Overhang wall"
+  ],
+  "support": {
+    "roles": [
+      "Support",
+      "Support interface"
+    ],
+    "layers_mm": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8,
+      2.0,
+      2.2,
+      2.4,
+      2.6,
+      2.8,
+      3.0,
+      3.2,
+      3.4,
+      3.6,
+      3.8,
+      4.0,
+      4.2,
+      4.4,
+      4.6,
+      4.8,
+      5.0,
+      5.2,
+      5.4,
+      5.6,
+      5.8,
+      6.0,
+      6.2,
+      6.4,
+      6.6,
+      6.8,
+      7.0,
+      7.2,
+      7.4,
+      7.6,
+      7.8,
+      8.0,
+      8.2,
+      8.4,
+      8.6,
+      8.8,
+      9.0,
+      9.2,
+      9.4,
+      9.6,
+      9.8,
+      10.0,
+      10.2,
+      10.4,
+      10.6,
+      10.8,
+      11.0,
+      11.2,
+      11.4,
+      11.6,
+      11.8
+    ]
+  },
+  "primary_bridges": {
+    "layers_mm": [
+      12.2
+    ],
+    "longest_deposition_segment_mm": 2.1383292543479033,
+    "note": "Deposition length includes anchors, not an unsupported-span measurement."
+  },
+  "selected_roof_layer_mm": 12.2
+}

@@ -82,3 +82,37 @@ contains the concept comparison, research, abandoned spline/union attempts,
 final native/path evidence and physical comparison instructions. The
 [historical R1 record](r1_baseline.md) preserves its original engineering detail;
 R1 source and exports remain unchanged. No physical R2 result is inferred.
+
+
+## R2 physical feedback and R3 authorization
+
+User has printed R2. R1 felt practically better; R2 felt too thick. The user
+rejects the additional outboard end rings and the nonuniform house-shaped
+outline, preferring a round winding whose outline is consistent around its axis.
+No measured force/recovery, surface-cleanup comparison, actual R2 wall count or
+other print settings were supplied. Do not infer those results from the fact of
+printing. R2 is superseded as the next trial; preserve its geometry and evidence.
+
+R3 is explicitly authorized: horizontal printing, a round helix similar to R1,
+terminal loops naturally merged into the last turns rather than outboard rings,
+much tighter gaps than R2, and approximately 70 mm overall compressed length.
+The user believes the printer can handle substantially tighter gaps. This is a
+request to test them, not a calibrated printed minimum. Restore R1's section
+rather than increase stiffness again. No further thickness comparison or material
+change is needed for this phase.
+
+
+The user subsequently specifies approximately 15 mm outside diameter for R3,
+including the terminal loops. Set the shared cylindrical outside envelope to
+15.0 mm; the 3.2 mm cord leaves an 8.6 mm nominal bore. This latest instruction
+supersedes the earlier approximately 20 mm coil diameter. Length remains
+70.2 mm nominal and the gap remains 0.15 mm.
+
+
+R3 delivers a 70.2 mm-long horizontal round helix with 15 mm outside diameter,
+3.2 mm cord, twenty turns and 0.15 mm axial CAD gaps. Integral closed terminal
+turns remain within the same envelope. The [R3 decisions](r3_decisions.md) record
+construction corrections, exact user criteria and final scoped evidence. CAD,
+paired exports and the supports-off slice completed; the support probe proposes
+support inside the round bore, so sag/release remain physical trial questions.
+R3 has no physical print report. R1 and R2 sources and exports remain unchanged.

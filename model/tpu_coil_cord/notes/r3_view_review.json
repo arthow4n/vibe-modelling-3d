@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "file_path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/coil_r3_round.py",
+  "errors": [],
+  "views": [
+    {
+      "view": "isometric",
+      "ok": true,
+      "path": "/home/hevar/git/vibe-modelling-3d/model/tpu_coil_cord/renders/print/coil_r3_round_isometric.png",
+      "reused": false,
+      "camera": {
+        "from_direction": [
+          1,
+          -1,
+          1
+        ],
+        "up_direction": [
+          0,
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "exports": [],
+  "timings_seconds": {
+    "dependency_initialization": 0.0017111409979406744,
+    "build": 1.7292451570101548,
+    "selection": 0.0019244409922976047,
+    "validation": 0.028863624000223354,
+    "render_isometric": 5.165241976996185,
+    "worker": 7.017567054004758,
+    "total": 10.66270218200225
+  },
+  "versions": {
+    "python": "3.14.7",
+    "cadquery": "2.8.0"
+  },
+  "geometry": {
+    "valid": true
+  },
+  "reuse": {
+    "geometry": false,
+    "identity": "b596c33c37f5e098a4c3f2351ceafd76fbc2238765a14b16a5128bb489594e0d",
+    "artifact_identity": "4c0264b7c88dc12e1d88500549f27be465353dfe3eb63989ea62c6dedd7d06b3"
+  }
+}

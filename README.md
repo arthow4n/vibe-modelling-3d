@@ -87,10 +87,10 @@ Modular 5-card display bases and 15-card compact archival box sharing a clear PE
 
 ### 2. Active Prototypes, Print Trials & Partial Results
 
-#### TPU coil cord — [horizontal R2 print trial](model/tpu_coil_cord/README.md)
-TPU 3D spring experiment: R1 printed and works reasonably well, with rough turn separation and weak recoil. R2 uses thicker cord, four turns and horizontal gaps.
-- **Action / Print:** Next trial: [R2 STEP](model/tpu_coil_cord/coil_r2_horizontal.step) ([STL](model/tpu_coil_cord/coil_r2_horizontal.stl)); horizontal as supplied, 0.4 mm nozzle, 0.2 mm layers, solid material, supports off. Keep the printed R1 as control.
-- **Test pieces:** Yes — R1 printed practically solid with high wall count. R2 Unknown — CAD/slice checked; cleaner release and stronger pullback await printing.
+#### TPU coil cord — [round horizontal R3 trial](model/tpu_coil_cord/README.md)
+Tight round 3D helix, 70.2 mm compressed length × 15 mm outside diameter, with integral terminal loops and 0.15 mm nominal turn gaps.
+- **Action / Print:** Next trial: [R3 STEP](model/tpu_coil_cord/coil_r3_round.step) ([STL](model/tpu_coil_cord/coil_r3_round.stl)); horizontal as supplied, TPU, 0.4 mm nozzle, 0.2 mm layers, solid material. Keep R1 as control; do not repeat superseded R2.
+- **Test pieces:** R1 Yes — works reasonably well. R2 Yes — user prefers R1; thickness, outboard frames and non-round outline rejected. R3 Unknown — print quality and release await physical testing.
 - **Final object:** N/A — samples only.
 - **Provenance:** [Attribution](model/tpu_coil_cord/README.md#attribution-and-reproduction)
 
